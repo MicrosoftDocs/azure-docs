@@ -31,7 +31,7 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, vCore=1 LP (hyper-thread) |
-| vCores | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
+| vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memory | 7 GB per vCore | 5.1 GB per vCore |
 | Max In-Memory OLTP memory | 3 GB per vCore | 2.6 GB per vCore |
 | Max instance storage (General Purpose) |  8 TB | 8 TB |
@@ -43,9 +43,9 @@ Managed instance has two service tiers - General Purpose and Business Critical. 
 
 | **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |
-| Number of vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
+| Number of vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
 | Memory | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1GB/vCore) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1GB/vCore) |
-| Max instance storage size | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB for 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
+| Max instance storage size | - 2 TB for 4 vCores (Gen5 only)<br/>- 8 TB for other sizes | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB for 4, 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
 | Max storage per database | Determined by the max storage size per instance | Determined by the max storage size per instance |
 | Max number of databases per instance | 100 | 100 |
 | Max database files per instance | Up to 280 | 32,767 files per database |
@@ -74,6 +74,7 @@ Managed instance currently supports deployment only on the following types of su
 - [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Subscriptions with monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
 
 > [!NOTE]
 > This limitation is temporary. New subscription types will be enabled in the future.
@@ -90,39 +91,17 @@ Supported subscription types can contain a limited number of resources per regio
 
 The following table shows the default regional limits for supported subscriptions:
 
-|Subscription type| Max number of managed instance subnets | Max number of instances |Max number of GP managed instances*|Max number of BC managed instances*|
-| :---| :--- | :--- |:--- |:--- |
-|Pay-as-you-go|1*|4*|4*|1*|
-|CSP |1*|4*|4*|1*|
-|Pay-as-you-go Dev/Test|1*|4*|4*|1*|
-|Enterprise Dev/Test|1*|4*|4*|1*|
-|EA|3**|12**|12**|3**|
+|Subscription type| Max number of managed instance subnets | Max number of vCore units* |
+| :---| :--- | :--- |
+|Pay-as-you-go|3|320|
+|CSP |8 (15 in some regions**)|960 (1440 in some regions**)|
+|Pay-as-you-go Dev/Test|3|320|
+|Enterprise Dev/Test|3|320|
+|EA|8 (15 in some regions**)|960 (1440 in some regions**)|
 
-\* You can either deploy 1 BC or 4 GP instances in one subnet, so that total number of "instance units" in the subnet never exceeds 4.
+\* When planning your deployments, consider that a Business Critical (BC) vCore (due to added redundancy) generally consumes 4x more capacity than a General Purpose (GP) vCore. So, for your calculations, 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type.
 
-** Maximum number of instances in one service tier applies if there are no instances in another service tier. If you plan to mix GP and BC instances within the same subnet, use the following section as a reference for allowed combinations. As a simple rule, the total number of subnets cannot exceed 3, and the total number of instance units cannot exceed 12.
-
-
-> [!IMPORTANT]
-> When planning your deployments, consider that a Business Critical (BC) instance (due to added redundancy) generally consumes 4x more capacity than a General Purpose (GP) instance. So, for your calculations, 1 GP instance = 1 instance unit and 1 BC instance = 4 instance units. To simplify your consumption analysis against the default limits, summarize the instance units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type.
-
-## Strategies for deploying mixed General Purpose and Business Critical instances
-
-[Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) subscriptions can have combinations of GP and BC instances. However, there are some constraints regarding the placement of the instances in the subnets.
-
-> [!Note]
-> [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) and [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) subscription types can have either one Business Critical or up to 4 General Purpose instances.
-
-The following examples cover deployment cases with non-empty subnets and mixed GP and BC service tiers.
-
-|Number of subnets|Subnet 1|Subnet 2|Subnet 3|
-|:---|:---|:---|:---|
-|1|1 BC and up to 8 GP<br>2 BC and up to 4 GP|N/A| N/A|
-|2|0 BC, up to 4 GP|1 BC, up to 4 GP<br>2 BC, 0 GP|N/A|
-|2|1 BC, 0 GP|0 BC, up to 8 GP<br>1 BC, up to 4 GP|N/A|
-|2|2 BC, 0 GP|0 BC, up to 4 GP|N/A|
-|3|1 BC, 0 GP|1 BC, 0 GP|0 BC, up to 4 GP|
-|3|1 BC, 0 GP|0 BC, up to 4 GP|0 BC, up to 4 GP|
+** Larger quotas are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
 
 ## Obtaining a larger quota for SQL managed instance
 
