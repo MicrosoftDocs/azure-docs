@@ -1,7 +1,7 @@
 ---
 title: Validation policies for apps and add-ins submitted to AppSource (version 2.2)
 description: Criteria that are used to validate Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals for listing in the AppSource.
-ms.date: 05/06/2019
+ms.date: 06/06/2019
 localization_priority: Priority
 ---
 
@@ -232,7 +232,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.7|You must submit a Terms of Service link.|
 |14.8|For bots and compose extensions, you will need to ensure that you follow the privacy notice requirements as communicated in the [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
 |14.9|Your bot and compose extension must operate in accordance with the requirements set forth in the [Microsoft Bot Framework Online Services Agreement](https://www.botframework.com/Content/Microsoft-Bot-Framework-Preview-Online-Services-Agreement.htm) and [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
-|14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the latest manifest schema. This is currently manifest schema version 1.4.|
+|14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the latest manifest schema. This is currently manifest schema version 1.5.|
 |14.11|For bots, all manifest information must be consistent with your bot’s Bot Framework metadata: bot name, logo, privacy link, and terms of service link.|
 |14.12|Your Microsoft Teams app name may not include "app", "plug-in", or derivatives.|
 |14.13|The UI (buttons, links, text fields) of your Microsoft Teams app must be intuitive and obvious in their purpose. Users must not be required to read support content to perform basic operations.|
@@ -268,6 +268,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|June 6, 2019|Updated policy 14.10.|
 |2.2|May 6, 2019|Added section 15.|
 |2.2|April 19, 2019|Updated policy 14.10.|
 |2.2|April 04, 2019|Added policy 14.19.|
