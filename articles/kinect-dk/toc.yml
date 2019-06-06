@@ -67,6 +67,8 @@
      href: hardware-specification.md
    - name: Compare to Kinect for Windows
      href: windows-comparison.md
+   - name: Azure Kinect support
+     href: kinect-support.md
    - name: Azure Kinect troubleshooting
      href: troubleshooting.md
 - name: References
