@@ -145,7 +145,7 @@ The following table shows a configuration of VM types that customers also use to
 | M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
 
 
-M416xx_v2 VM types are not yet available.The disks recommended for the smaller VM types with 3 x P20 oversize the volumes regarding the space recommendations according to the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). However the choice as displayed in the table was made to provide sufficient disk throughput for SAP HANA. If you need changes to the **/hana/backup** volume, which was sized for keeping backups that represent twice the memory volume, feel free to adjust.   
+M416xx_v2 VM types are not yet available. The disks recommended for the smaller VM types with 3 x P20 oversize the volumes regarding the space recommendations according to the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). However the choice as displayed in the table was made to provide sufficient disk throughput for SAP HANA. If you need changes to the **/hana/backup** volume, which was sized for keeping backups that represent twice the memory volume, feel free to adjust.   
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type. 
 
 > [!NOTE]
@@ -165,7 +165,7 @@ Microsoft is in the process of introducing a new Azure storage type called [Azur
 
 For details look up the article [Announcing Ultra SSD – the next generation of Azure Disks technology (preview)](https://azure.microsoft.com/blog/announcing-ultra-ssd-the-next-generation-of-azure-disks-technology-preview/)
 
-UltraSSD gives you the possibility to define a single disk that fulfills your size, IOPS and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure Premium Storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between UltraSSD and Premium Storage. As a result you can restrict the usage of UltraSSD for the performance critical /hana/data and /hana/log volumes and cover the other volumes with Azure Premium Storage
+UltraSSD gives you the possibility to define a single disk that fulfills your size, IOPS, and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure Premium Storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between UltraSSD and Premium Storage. As a result, you can limit the usage of UltraSSD to the performance critical /hana/data and /hana/log volumes and cover the other volumes with Azure Premium Storage
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data volume | /hana/data I/O throughput | /hana/data IOPS | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
@@ -181,7 +181,7 @@ UltraSSD gives you the possibility to define a single disk that fulfills your si
 | M416s_v2 | 5700 GiB | 2,000 MB/s | 7200 GB | 1500M Bps | 9000 | 512 GB | 800 MBps  | 2000 | 
 | M416ms_v2 | 11400 GiB | 2,000 MB/s | 14400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 2000 |   
 
-M416xx_v2 VM types are not yet available. The values are just thought to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra SSD is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
+M416xx_v2 VM types are not yet available. The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra SSD is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
 > [!NOTE]
 > So far, storage snapshots with UltraSSD storage is not available. This blocks the usage of VM snapshots with Azure Backup Services
