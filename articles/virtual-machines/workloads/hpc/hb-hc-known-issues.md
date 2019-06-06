@@ -1,5 +1,5 @@
 ---
-title: Known issues for HB-series VM sizes - Azure Virtual Machines | Microsoft Docs
+title: Known issues with HB-series and HC-series VM sizes - Azure Virtual Machines | Microsoft Docs
 description: Learn about known issues with HB-series VM sizes in Azure. 
 services: virtual-machines
 documentationcenter: ''
@@ -15,17 +15,13 @@ ms.date: 05/07/2019
 ms.author: amverma
 ---
 
-# Known issues with HB and HC-series VM sizes
+# Known issues with HB-series and HC-series VM sizes
 
-<Intro>
-
-## Platform MPI
-
-Platform MPI may not automatically know which PKEY to use for InfiniBand. See Slide 8, Step 1 to discover the necessary PKEY.
+This article provides the most common issues and solutions when using HB-series and HC-series VMs.
 
 ## DRAM on HB-series
 
-HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM. An upcoming update will address this issue.
+HB-series VMs can only expos 228 GB of RAM to guest VMs at this time. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM.
 
 ## Accelerated Networking
 

@@ -1,4 +1,4 @@
-- name: High performance Computing
+- name: High Performance Computing Documentation
   items:
   - name: Overview
     href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
@@ -8,7 +8,7 @@
         href: configure.md
       - name: Enable Infiniband
         href: enable-infiniband.md  
-  - name: Setup MPI
+  - name: Set up MPI
     href: setup-mpi.md 
   - name: Scaling applications
     href: compiling-scaling-applications.md  
@@ -26,5 +26,5 @@
           href: hc-series-overview.md
         - name: Performance
           href: hc-series-performance.md   
-    - name: Known issues with HB and HC-series VMs
+    - name: Known issues with HB-series and HC-series VMs
       href: hb-hc-known-issues.md
