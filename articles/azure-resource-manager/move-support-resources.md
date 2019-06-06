@@ -843,7 +843,7 @@ To get the same data as a file of comma-separated values, download [move-support
 ## Microsoft.WindowsIoT
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| deviceservices | Yes | Yes |
+| deviceservices | No | No |
 
 ## Microsoft.WindowsVirtualDesktop
 | Resource type | Resource group | Subscription |
