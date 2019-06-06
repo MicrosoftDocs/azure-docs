@@ -45,6 +45,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Model class now properly importable from azureml.core (`from azureml.core import Model`).
   + In pipeline steps, `hash_path` parameter is now deprecated. New behavior is to hash complete source_directory, except files listed in .amlignore or .gitignore.
   + azureml.core.get_run no longer requires classes to be imported before returning the original run type.
+  + Fixed an issue where some calls to WebService Update did not trigger an update.
 
 
 ## 2019-05-28
