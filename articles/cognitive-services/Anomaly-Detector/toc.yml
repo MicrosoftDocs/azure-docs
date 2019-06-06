@@ -58,6 +58,8 @@
       href: https://aka.ms/adpricing
     - name: Regional availability 
       href: https://aka.ms/adregion
+    - name: Join Microsoft Teams group
+      href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture
       href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
 - name: Support
@@ -70,5 +72,3 @@
       href: https://aka.ms/admsdn
     - name: User voice
       href: https://aka.ms/aduservoice
-- name: Join Microsoft Teams channel
-  href: https://aka.ms/adadvisorsjoin
