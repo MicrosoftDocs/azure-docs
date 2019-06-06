@@ -716,7 +716,7 @@
       - name: Log data
         items:
         - name: Log data structure
-          href: log-query/portals.md
+          href: log-query/log-structure.md
         - name: Standard properties
           href: platform/log-standard-properties.md
       - name: Query language
