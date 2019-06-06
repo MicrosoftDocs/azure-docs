@@ -200,7 +200,7 @@ To install updates, schedule a deployment that follows your release schedule and
 
 Schedule a new Update Deployment for the VM by clicking **Schedule update deployment** at the top of the **Update management** screen. In the **New update deployment** screen, specify the following information:
 
-To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** page opens. Enter values for the properties described in the following table and then click **Create**:
+To create a new update deployment, select **Schedule update deployment**. The **New update deployment** page opens. Enter values for the properties described in the following table and then click **Create**:
 
 | Property | Description |
 | --- | --- |
