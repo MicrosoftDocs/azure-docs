@@ -63,7 +63,9 @@ Bundle versions increment as packages in the bundle change. Major version change
 
 The current set of extensions installed by the default bundle are enumerated in this [extensions.json file](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
 
-## <a name="local-csharp"></a>C\# class library with Visual Studio 2019
+<a name="local-csharp"></a>
+
+## C\# class library with Visual Studio 2019
 
 In **Visual Studio 2019**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
 
