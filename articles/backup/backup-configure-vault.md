@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/04/2019
 ms.author: raynew
 ---
 
@@ -66,7 +66,7 @@ If your machine has limited internet access, ensure that firewall settings on th
 
 A Recovery Services vault stores all the backups and recovery points you create over time, and contains the backup policy applied to backed up machines. Create a vault as follows:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
 2. In search, type **Recovery Services** and click **Recovery Services vaults**.
 
     ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png)
@@ -160,7 +160,7 @@ Download the MARS agent for installation on machines you want to back up.
     - Save the encryption passphrase in a secure location.
     - If you lose or forget the passphrase, Microsoft can't help recover the backup data. Save the file in a secure location. You need it to restore a backup.
 
-7. click **Finish**. The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
+7. Click **Finish**. The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
 ## Create a backup policy
 
@@ -249,6 +249,14 @@ Enable network throttling as follows:
 
 After the initial backup is completed, the **Job completed** status appears in the Backup console.
 
+## Ad hoc backup policy retention behavior
+
+| Backup Policy for Scheduled Backup | Ad hoc Backup Retention
+| -- | --
+| Daily | **Default Retention**: Equivalent to the “retention in days for daily backups.” <br/><br/> **Exception**: If a daily scheduled backup is set for long-term retentions (Weeks, Months, Years) fails, then an ad hoc backup triggered right after this failed scheduled backup is considered for long-term retention. Otherwise, the next successful scheduled backup is considered for long-term retention.<br/><br/> **Example**: If all the (Weekly/Monthly/Yearly) retention backups are in failed state and you triggers a ad hoc backup then it will follow the Yearly retention period.
+| Weekly | **Default Retention** :  1 day. <br/> Ad hoc Backups taken for a data source with weekly Backup policy are deleted the very next day, even if they are the most recent Backups for the data source. <br/><br/> **Exception**: If a weekly scheduled backup is set for long-term retentions (Weeks, Months, Years) fails, then an ad hoc backup triggered right after this failed scheduled backup will be considered for long-term retention. Otherwise, the next successful scheduled backup is considered for long-term retention. <br/><br/> **Example**: If both the (Weekly/Monthly) retention backups are in failed state and you triggers a ad hoc backup then it will follow the Monthly retention period.
+
+
 ## Next steps
 
-[Learn how to](backup-azure-restore-windows-server.md) restore files.
+[Learn how to restore files](backup-azure-restore-windows-server.md).

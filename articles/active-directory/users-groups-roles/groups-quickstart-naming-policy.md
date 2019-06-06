@@ -28,12 +28,12 @@ In this quickstart, you will set up naming policy in your Azure Active Directory
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Configure the group naming policy for a tenant using Azure portal (preview)
+## Configure the group naming policy for a tenant using Azure portal
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
-    ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy-preview.png)
+    ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy.png)
 
 ### View or edit the Prefix-suffix naming policy
 
@@ -46,7 +46,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 1. On the **Naming policy** page, select **Blocked words**.
 
-    ![edit and upload blocked words list for naming policy](./media/groups-naming-policy/blockedwords-preview.png)
+    ![edit and upload blocked words list for naming policy](./media/groups-naming-policy/blockedwords.png)
 
 1. View or edit the current list of custom blocked words by selecting **Download**.
 1. Upload the new list of custom blocked words by selecting the file icon.
@@ -56,7 +56,7 @@ That's it. You've set your naming policy and added your custom blocked words.
 
 ## Clean up resources
 
-### Remove the naming policy using Azure portal (preview)
+### Remove the naming policy using Azure portal
 
 1. On the **Naming policy** page, select **Delete policy**.
 1. After you confirm the deletion, the naming policy is removed, including all prefix-suffix naming policy and any custom blocked words.
