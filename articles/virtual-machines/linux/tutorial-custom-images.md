@@ -52,6 +52,9 @@ Deprovisioning generalizes the VM by removing machine-specific information. This
 
 To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
 
+> [!WARNING]
+> Deprovisioning and capturing a VM will leave the source VM unusable and cannot be started. In the process users are deleted and the VM gets locked. Make sure this is done on a VM that can be erased.
+
 Connect to your VM using SSH and run the command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted. Replace the example IP address with the public IP address of your VM.
 
 SSH to the VM.
