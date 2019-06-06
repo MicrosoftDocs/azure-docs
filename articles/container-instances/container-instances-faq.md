@@ -63,6 +63,10 @@ Make sure also to check the [resource availability](container-instances-region-a
 
 Azure Container Instances aims to be a serverless containers-on-demand service, so we want you to be focused on developing your containers, and not worry about the infrastructure! For those that are curious or wanting to do comparisons on performance, ACI runs on sets of Azure VMs of various SKUs, primarily from the F and the D series. We expect this to change in the future as we continue to develop and optimize the service. 
 
+### What happens if the underlying virtual machine hosting my container goes down?
+
+If the virtual machine running the container experiences an unexpected outage, the container will automatically be redeployed from your container registery to a new virtual machine.
+
 ### I want to deploy thousand of cores on ACI - can I get my quota increased?
  
 Yes (sometimes). See the [quotas and limits](container-instances-quotas.md) article for current quotas and which limits can be increased by request.
