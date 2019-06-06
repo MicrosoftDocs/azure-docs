@@ -40,11 +40,16 @@ To request access to a VM:
 1. Under Just in time VM access, select Configured.
 1. Under VMs, check the VMs that you want to enable just-in-time access for.
 1. Select Request access.
+
+    ![Virtual machines](./media/security-center-just-in-time-firewall/virtual-machines.png)
+
     * the icon in the ‘Connection Details’ column indicates whether JIT is enabled on the NSG or FW. If it’s enabled on both, only the Firewall icon appears.
     * The ‘Connection Details’ column provides the correct information required to connect the VM, as well as indicates the opened ports.
+
 1. Under Request access, for each VM, configure the ports that you want to open and the source IP addresses that the port is opened on and the time window for which the port will be open. It will only be possible to request access to the ports that are configured in the just-in-time policy. Each port has a maximum allowed time derived from the just-in-time policy.
+
+    ![Request access](./media/security-center-just-in-time-firewall/request-access.png)
+ 
 1. Select Open ports.
 
 When requested access is approved, Azure Security Center creates high priority rules in your Azure Firewall, allowing inbound traffic through the opened ports to the requested source IPs.
-
-
