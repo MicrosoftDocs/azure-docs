@@ -17,7 +17,7 @@ This article will walk you through various support options.
 
 There are multiple ways to get your questions answered through public forums:
 
-- [StackOverflow](http://stackoverflow.com/search?q=azurekinect&s=3b855ed0-8564-4961-856f-9614aeab4c0d&s=fd9ea920-622c-4d8e-b908-ec996e1f1403), where you can ask questions or search through existing libriary of questions.
+- [StackOverflow](http://stackoverflow.com/search?q=azurekinect&s=3b855ed0-8564-4961-856f-9614aeab4c0d&s=fd9ea920-622c-4d8e-b908-ec996e1f1403), where you can ask questions or search through existing library of questions.
 - [GitHub](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK), where you can ask questions, open new bugs or contribute to development of Azure Kinect sensor SDK.
 - [Provide feedback](https://feedback.azure.com/forums/920053-azure-kinect-dk), where you can share your ideas for the future of the product and vote for an existing idea.
 
@@ -39,7 +39,7 @@ For technical support using Sensor SDK and Body Tracking SDK on-premise, open a 
 
 ### Azure Kinect DK device
 
-Before contacting hardware support, please make sure that you have set up and updated Azure Kinect DK. To test if the device is working, use the [Azure Kinect viewer tool](azure-kinect-sensor-viewer.md). Find out more on our [Azure Kinect DK help](https://support.microsoft.com/hub/4489611) page.
+Before contacting hardware support, make sure that you have set up and updated Azure Kinect DK. To test if the device is working, use the [Azure Kinect viewer tool](azure-kinect-sensor-viewer.md). Find out more on our [Azure Kinect DK help](https://support.microsoft.com/hub/4489611) page.
 You may also want to check out our [known issues and troubleshooting](https://docs.microsoft.com/azurekinect/troubleshooting).
 
 [Get help](https://support.microsoft.com/supportforbusiness/productselection?sapId=f77b1b95-721e-43a0-2db8-b01e81a3f813) with a device or sensor functionality,  firmware updates, or purchasing options.
