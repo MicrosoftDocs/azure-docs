@@ -13,9 +13,9 @@ ms.custom: seodec18
 ---
 # Get started with Azure Machine Learning for Visual Studio Code
 
-In this article, you'll learn how to use the extension for Azure Machine Learning for Visual Studio Code to train and deploy machine learning and deep learning models by using the Azure Machine Learning service in Visual Studio Code.
+In this article, you'll learn how to use the extension for Azure Machine Learning for Visual Studio Code to train and deploy machine learning and deep learning models.
 
-The Azure Machine Learning service provides support for experiments that you run locally and on remote compute targets. For every experiment, you can keep track of multiple runs as often you need to iteratively try different techniques, hyperparameters, and more. You can use Azure Machine Learning to track custom metrics and experiment runs, enabling data science reproducibility and auditability.
+The [Azure Machine Learning service](overview-what-is-azure-ml.md) provides support for experiments that you run locally and on remote compute targets. For every experiment, you can keep track of multiple runs as often you need to iteratively try different techniques, hyperparameters, and more. You can use Azure Machine Learning to track custom metrics and experiment runs, enabling data science reproducibility and auditability.
 
 You can also deploy these models for your testing and production needs.
 
@@ -63,7 +63,7 @@ To install the Azure Machine Learning extension:
 
    ![Choose the interpreter](./media/vscode-tools-for-ai/python.png)
 
-1. In the lower-right corner of the window, a notification appears, indicating that the Azure Machine Learning SDK is being automatically installed. The newly created Python environment is local and private, and it has the Visual Studio Code prerequisites for working with the Azure Machine Learning service.
+1. In the lower-right corner of the window, a notification appears, indicating that the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) is being automatically installed. The newly created Python environment is local and private, and it has the Visual Studio Code prerequisites for working with the Azure Machine Learning service.
 
    ![Install the Azure Machine Learning SDK for Python](./media/vscode-tools-for-ai/runtimedependencies.png)
 

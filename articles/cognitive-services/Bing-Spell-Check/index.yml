@@ -93,8 +93,8 @@ sections:
     className: cardsD
     items:
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference">Bing Spell Check API v7 Reference</a></p>
-            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference">Bing Spell Check API v5 Reference</a> (old version)</p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference">Bing Spell Check API v7 Reference</a></p>
+            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference">Bing Spell Check API v5 Reference</a> (old version)</p>
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet">.NET</a></p>
             <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-spellcheck?view=azure-node-latest">Node.js</a></p>
