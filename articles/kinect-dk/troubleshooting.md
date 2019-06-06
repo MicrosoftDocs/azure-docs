@@ -127,4 +127,4 @@ right-click the device in Device Manager and click "Uninstall Device". Select th
 ## Next steps
 
 >[!div class="nextstepaction"]
->[More support information](https://support.microsoft.com/help/4494277/reset-azure-kinect-dk)
+>[More support information](kinect-support.md)
