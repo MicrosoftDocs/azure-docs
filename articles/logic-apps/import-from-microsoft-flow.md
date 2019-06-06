@@ -31,7 +31,7 @@ To extend and expand the capabilities for a flow that you created with [Microsof
 
 For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.com/blog/grow-up-to-logic-apps/).
 
-## Import through Azure portal
+## Import into Azure portal
 
 1. Sign in the [Azure portal](https://portal.azure.com) with your Azure account.
 
@@ -47,19 +47,29 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
    ![Choose "Load file"](./media/import-from-microsoft-flow/load-file.png)
 
-1. In the template editor, after your template's contents appear, choose **Save**.
+1. Edit the template so that you can deploy the flow as a logic app. In the template editor, after your template's contents appear, remove *only* the `template` attribute and enclosing curly braces and not the content within that attribute.
+
+   ![Edit template](./media/import-from-microsoft-flow/edit-template.png)
+
+1. After the template editor correctly shows the parameters and resources in your template, choose **Save**.
+  
+   ![Save template](./media/import-from-microsoft-flow/save-template.png)
+
+1. Now specify these input parameters for the template, review and agree to the Azure Marketplace Terms and Conditions for creating the necessary Azure resources and billing your Azure subscription accordingly, and choose **Purchase**.
 
 
 
-1. Now set up these input parameters for the template:
-
-   * Azure subscription
+   * Azure subscription to use for billing
    * Azure resource group
-   * Location for creating the logic app resource
+   * Location for the Azure resource group
    * Name for the logic app resource
-   * Each connection that the logic app requires
+   * Location for the logic app resource, if different from the Azure resource group
+   * The name for any previously created connections that the logic app can reuse
 
-     If you're creating your first logic app, all connections are created as new. Otherwise, you can reuse previously created connections across multiple logic apps by entering the names for those connections.
+     If you're creating your first logic app, all connections are created as new, so you can accept the default names. Otherwise, you can specify the names for previously created connections, which you can use across multiple logic apps.
+  
+   ![Specify input parameters for template](./media/import-from-microsoft-flow/template-input-parameters.png)
+
 
 
 
