@@ -41,7 +41,7 @@ You can select an LA workspace from another subscription as the target. *By sele
 
 ### Deploying solution to Log Analytics workspace
 
-Once the data is inside LA workspace, [deploy a github template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) onto LA to visualize the data. Make sure you give the same resource group, workspace name, and workspace location to properly identify the workspace and then install this template on it.
+Once the data is inside LA workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) onto LA to visualize the data. Make sure you give the same resource group, workspace name, and workspace location to properly identify the workspace and then install this template on it.
 
 ### View Azure Backup data using Log Analytics (LA)
 
