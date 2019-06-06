@@ -22,11 +22,13 @@ ms.custom: H1Hack27Feb2017
 
 # SAP HANA Azure virtual machine storage configurations
 
-Azure provides two types of storage that are suitable for Azure VMs that are running SAP HANA. To learn about these disk types, see the article [Select a disk type](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
+Azure provides different types of storage that are suitable for Azure VMs that are running SAP HANA. The Azure storage types that can be considered for SAP HANA deployments list like: 
 
 - Standard SSD disk drives (SSD)
 - Premium solid state drives (SSD)
-- Ultra SSD in public preview and not yet supported with SAP
+- Ultra SSD in public preview and not yet supported with production SAP applications
+
+To learn about these disk types, see the article [Select a disk type](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
 
 Azure offers two deployment methods for VHDs on Azure Standard and Premium Storage. If the overall scenario permits, take advantage of [Azure managed disk](https://azure.microsoft.com/services/managed-disks/) deployments. 
 
@@ -34,13 +36,13 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 **Recommendation: Use Azure Premium Storage in conjunction with Azure Write Accelerator and use Azure Managed Disks for deployment**
 
-In the on-premise world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements. And also understand the configuration requirements suggested in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
+In the on-premise world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of those requirements. Some of the minimum throughput characteristics that are asked are resulting in the need to:
 
-- Enable read/write volume on **/hana/log** of a 250 MB/sec at minimum with 1 MB I/O sizes
+- Enable read/write on **/hana/log** of a 250 MB/sec with 1 MB I/O sizes
 - Enable read activity of at least 400 MB/sec for **/hana/data** for 16 MB and 64 MB I/O sizes
 - Enable write activity of at least 250 MB/sec for **/hana/data** with 16 MB and 64 MB I/O sizes
 
-Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is mandatory to leverage Azure Premium Disks for **/hana/data** and **/hana/log** volumes. In order to achieve the minimum throughput of **/hana/log** and **/hana/data** as desired by SAP, you need to build a RAID 0 using MDADM or LVM over multiple Azure Premium Storage disks. And use the RAID volumes as **/hana/data** and **/hana/log** volumes. 
+Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is **mandatory** to leverage Azure Premium Disks for **/hana/data** and **/hana/log** volumes. In order to achieve the minimum throughput of **/hana/log** and **/hana/data** as desired by SAP, you need to build a RAID 0 using MDADM or LVM over multiple Azure Premium Storage disks. And use the RAID volumes as **/hana/data** and **/hana/log** volumes. 
 
 **Recommendation: As stripe sizes for the RAID 0 the recommendation is to use:**
 
@@ -70,11 +72,11 @@ The caching recommendations below are assuming the I/O characteristics for SAP H
 Also keep the overall VM I/O throughput in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 ## Linux I/O Scheduler mode
-Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to set the I/O scheduler mode for disk volumes away from the **cfq** mode to the **noop** mode. Details are referenced in [SAP Note #1984798](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **cfq** mode to the **noop** mode. Details are referenced in [SAP Note #1984798](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## Production storage solution with Azure Write Accelerator for Azure M-Series virtual machines
-Azure Write Accelerator is a functionality that is getting rolled out for Azure M-Series VMs exclusively. As the name states, the purpose of the functionality is to improve I/O latency of Writes against the Azure Premium Storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore the configurations shown so far need to be changed. The main change is the breakup between the **/hana/data** and **/hana/log** in order to use Azure Write Accelerator against the **/hana/log** volume only. 
+Azure Write Accelerator is a functionality that is getting rolled out for Azure M-Series VMs exclusively. As the name states, the purpose of the functionality is to improve I/O latency of Writes against the Azure Premium Storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
 
 > [!IMPORTANT]
 > SAP HANA certification for Azure M-Series virtual machines is exclusively with Azure Write Accelerator for the **/hana/log** volume. As a result, production scenario SAP HANA deployments on Azure M-Series virtual machines are expected to be configured with Azure Write Accelerator for the **/hana/log** volume.  
@@ -98,7 +100,7 @@ Azure Write Accelerator is a functionality that is getting rolled out for Azure 
 | M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
 | M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P50 |
 
-M416xx_v2 VM types are not yet available. Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type.
+M416xx_v2 VM types are not yet made available by Microsoft to the public. Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type.
 
 Azure Write Accelerator only works in conjunction with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). So at least the Azure Premium Storage disks forming the **/hana/log** volume need to be deployed as managed disks.
 
@@ -116,7 +118,7 @@ Details and restrictions for Azure Write Accelerator can be found in the same do
 
 
 ## Cost conscious Azure Storage configuration
-The following table shows a configuration of VM types that customers also use to host SAP HANA on Azure VMs. There might be some VM types that might not meet all minimum storage criteria for SAP HANA or are not officially supported with SAP HANA by SAP. But so far those VMs seemed to perform fine for non-production scenarios. 
+The following table shows a configuration of VM types that customers also use to host SAP HANA on Azure VMs. There might be some VM types that might not meet all minimum storage criteria for SAP HANA or are not officially supported with SAP HANA by SAP. But so far those VMs seemed to perform fine for non-production scenarios. The **/hana/data** and **/hana/log** are combined to one volume. As a result the usage of Azure Write Accelerator can become a limitation in terms of IOPS.
 
 > [!NOTE]
 > For SAP supported scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
@@ -145,7 +147,7 @@ The following table shows a configuration of VM types that customers also use to
 | M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
 
 
-M416xx_v2 VM types are not yet available. The disks recommended for the smaller VM types with 3 x P20 oversize the volumes regarding the space recommendations according to the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). However the choice as displayed in the table was made to provide sufficient disk throughput for SAP HANA. If you need changes to the **/hana/backup** volume, which was sized for keeping backups that represent twice the memory volume, feel free to adjust.   
+M416xx_v2 VM types are not yet made available by Microsoft to the public. The disks recommended for the smaller VM types with 3 x P20 oversize the volumes regarding the space recommendations according to the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). However the choice as displayed in the table was made to provide sufficient disk throughput for SAP HANA. If you need changes to the **/hana/backup** volume, which was sized for keeping backups that represent twice the memory volume, feel free to adjust.   
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type. 
 
 > [!NOTE]
@@ -181,7 +183,7 @@ UltraSSD gives you the possibility to define a single disk that fulfills your si
 | M416s_v2 | 5700 GiB | 2,000 MB/s | 7200 GB | 1500M Bps | 9000 | 512 GB | 800 MBps  | 2000 | 
 | M416ms_v2 | 11400 GiB | 2,000 MB/s | 14400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 2000 |   
 
-M416xx_v2 VM types are not yet available. The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra SSD is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
+M416xx_v2 VM types are not yet made available by Microsoft to the public. The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra SSD is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
 > [!NOTE]
 > So far, storage snapshots with UltraSSD storage is not available. This blocks the usage of VM snapshots with Azure Backup Services
