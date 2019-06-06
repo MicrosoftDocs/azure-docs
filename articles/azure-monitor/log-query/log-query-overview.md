@@ -20,7 +20,7 @@ For a tutorial on log queries, see [Get started with log queries in Azure Monito
 ## What is Log Analytics?
 Log Analytics is the primary tool that you'll use in the Azure portal for writing log queries and interactively analyzing their results. Even if a log query is used elsewhere in Azure Monitor, you'll typically write and test the query first using Log Analytics.
 
-You can start Log Analytics from several places in the Azure portal. The scope of the data available to Log Analytics is determined by how you start it. See [Query Scope](#query-scope) for more details.
+You can start Log Analytics from several places in the Azure portal. The scope of the data available to Log Analytics is determined by how you start it. See [Query Scope](scope.md) for more details.
 
 - Select **Logs** from the **Azure Monitor** menu.
 - Select **Logs** from the **Log Analytics workspaces** menu.

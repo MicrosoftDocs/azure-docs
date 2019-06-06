@@ -691,7 +691,7 @@
         href: insights/solution-targeting.md
   - name: Analyze data
     items:
-    - name: Metrics explorer
+    - name: Metrics
       items:
       - name: Getting started with Metrics Explorer
         href: platform/metrics-getting-started.md
@@ -701,7 +701,7 @@
         href: platform/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
-    - name: Log queries
+    - name: Logs
       items:
       - name: Overview
         href: log-query/log-query-overview.md
@@ -716,7 +716,7 @@
       - name: Log data
         items:
         - name: Log data structure
-          href: log-query/log-structure.md
+          href: log-query/logs-structure.md
         - name: Standard properties
           href: platform/log-standard-properties.md
       - name: Query language

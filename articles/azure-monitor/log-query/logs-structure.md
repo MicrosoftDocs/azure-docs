@@ -10,7 +10,7 @@ ms.author: bwren
 ---
 
 # Structure of Azure Monitor Logs
-When you write a [log query](log-auery-overview.md) in Azure Monitor, you need to understand where the data you want is located and at least a basic understanding of how that data is structured. Many queries will only require data from a single table, but others may use a variety of options to include data from multiple tables.
+When you write a [log query](log-query-overview.md) in Azure Monitor, you need to understand where the data you want is located and at least a basic understanding of how that data is structured. Many queries will only require data from a single table, but others may use a variety of options to include data from multiple tables.
 
 This article describes the structure of log data stored in Azure Monitor Logs for the purposes of writing log queries to retrieve and analyze data.
 
