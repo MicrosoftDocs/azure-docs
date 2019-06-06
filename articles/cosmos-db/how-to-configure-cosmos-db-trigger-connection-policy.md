@@ -42,8 +42,9 @@ If your Azure Functions project is working with Azure Functions V1 runtime, the 
 }
 ```
 
-## A note on Consumption Plan
+## Azure Function hosting plans
 
+> [!NOTE]
 > Consumption Plan instances have a limit in the amount of Socket Connections that they can maintain. When working with Direct / TCP mode, by design more connections are created and can hit the [Consumption Plan limit](../azure-functions/manage-connections.md#connection-limit), in which case you can either use Gateway mode or run your Azure Functions in [App Service Mode](../azure-functions/functions-scale.md#app-service-plan).
 
 ## Next steps
