@@ -70,6 +70,8 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: Small-size instances: <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 </a>
+    - html: Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Azure monthly credit for Visual Studio subscribers </a>
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configure time zone</a> during instance creation.
     - html: Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation of your choice</a>. 
     - html: Geo-restore functionality enables you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restore your database to another data center using PowerShell</a>.
