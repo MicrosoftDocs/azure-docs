@@ -1,5 +1,5 @@
 ---
-title: Known issues with HB-series and HC-series VM sizes - Azure Virtual Machines | Microsoft Docs
+title: Known issues with HB-series and HC-series VMs - Azure Virtual Machines | Microsoft Docs
 description: Learn about known issues with HB-series VM sizes in Azure. 
 services: virtual-machines
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 05/07/2019
 ms.author: amverma
 ---
 
-# Known issues with HB-series and HC-series VM sizes
+# Known issues with HB-series and HC-series VMs
 
 This article provides the most common issues and solutions when using HB-series and HC-series VMs.
 
