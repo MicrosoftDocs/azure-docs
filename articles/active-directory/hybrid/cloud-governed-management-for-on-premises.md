@@ -89,7 +89,7 @@ For an organization that already uses an on-premises identity provider, moving a
 
 ![Azure AD evolution](media/cloud-governed-management-for-on-premises/image5.png)
 
-To begin migrating federated applications to Azure AD as the identity provider, refer to,  that, includes links to:
+To begin migrating federated applications to Azure AD as the identity provider, refer to https://aka.ms/migrateapps that includes links to:
 
 * The white paper [Migrating Your Applications to Azure Active Directory](https://aka.ms/migrateapps/whitepaper), which presents the benefits of migration and describes how to plan for migration in four clearly-outlined phases: discovery, classification, migration, and ongoing management. You'll be guided through how to think about the process and break down your project into easy-to-consume pieces. Throughout the document are links to important resources that will help you along the way.
 
