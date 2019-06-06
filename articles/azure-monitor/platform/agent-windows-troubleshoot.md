@@ -72,7 +72,8 @@ There are several ways you can verify if the agent is successfully communicating
     |2138 |Health Service Modules |Proxy requires authentication |Configure the agent proxy settings and specify the username/password required to authenticate with the proxy server. |
     |2129 |Health Service Modules |Failed connection/Failed SSL negotiation |Check your network adapter TCP/IP settings and agent proxy settings.|
     |2127 |Health Service Modules |Failure sending data received error code |If it only happens periodically during the day, this could just be a random anomaly that can be ignored. Monitor to understand how often it happens. If it happens often throughout the day, first check your network configuration and proxy settings. If the description includes HTTP error code 404 and this is the first time that the agent tries to send data to the service, it will include a 500 error with an inner 404 error code. 404 means not found, which indicates that the storage area for the new workspace is still being provisioned. On next retry, data will successfully write to the workspace as expected. A HTTP error 403 might indicate a permission or credentials issue. There is more information included with the 403 error to help troubleshoot the issue.|
-    |2128 |Health Service Modules |DNS name resolution failed |The machine could not resolve the Internet address used when sending data to the service. This might be DNS resolver settings on your machine, incorrect proxy settings, or maybe a temporary DNS issue with your provider. If this happens periodically, it could be caused by a transient network-related issue.|
+    |4000 |Service Connector |DNS name resolution failed |The machine could not resolve the Internet address used when sending data to the service. This might be DNS resolver settings on your machine, incorrect proxy settings, or maybe a temporary DNS issue with your provider. If this happens periodically, it could be caused by a transient network-related issue.|
+    |4001 |Service Connector |Connection to the service failed. |This error can occur when the agent cannot communicate directly or through a firewall/proxy server to the Azure Monitor service. Verify agent proxy settings or that the network firewall/proxy allows TCP traffic from the computer to the service.|
     |4002 |Service Connector |The service returned HTTP status code 403 in response to a query. Please check with the service administrator for the health of the service. The query will be retried later. |This error is written during the agent’s initial registration phase and you’ll see a URL similar to the following: *https://<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*. An error code 403 means forbidden and can be caused by a mistyped Workspace ID or key, or the data and time is incorrect on the computer. If the time is +/- 15 minutes from current time, then onboarding fails. To correct this update the date and/or timezone of your Windows computer.|
 
 ## Data collection issues
@@ -97,8 +98,11 @@ Heartbeat
 If the query returns results, then you need to determine if a particular data type is not getting collected and forwarded to the service. This could be caused by the agent not receiving updated configuration from the service or some other symptom preventing the agent from operating normally. Perform the following steps to further troubleshoot.
 
 1. Open an elevated command prompt on the computer and restart the agent service by typing `net stop healthservice && net start healthservice`.
-1. In the *Operations Manager* event log, search for event ID 
+2. Open the *Operations Manager* event log and search for **event IDs** *7023, 7024, 7025, 7028* and *1210* from **Event source** *HealthService*.  These events indicate the agent is successfully receiving configuration from Azure Monitor and they are actively monitoring the computer. The event description for event ID 1210 will also specify on the last line all of the solutions and Insights that are included in the scope of monitoring on the agent.  
 
+    ![Event ID 1210 description](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
+
+3. In the *Operations Manager* event log, search for event ID *8000* from Event source *HealthService*.  This event will specify if a workflow related to  performance, event, or other data type collected is unable to forward to the service for ingestion to the workspace. 
 
  restart the HealthService to 
 
