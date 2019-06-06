@@ -109,7 +109,7 @@ The following features do not support autopausing.  That is, if any of the follo
 - Long-term backup retention (LTR).
 - The sync database used in SQL data sync.
 
-Autopausing is temporarily prevented during the deployment of some service updates which require the database be online to apply the update.  In such cases, autopausing becomes allowed again once the service update completes.
+Autopausing is temporarily prevented during the deployment of some service updates which require the database be online.  In such cases, autopausing becomes allowed again once the service update completes.
 
 ### Autoresume
 
@@ -130,7 +130,7 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Modifying certain database metadata|Adding new database tags.<br>Changing max vCores, min vCores, or autopause delay.|
 |SQL Server Management Studio (SSMS)|Using SSMS version 18 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 17.9.1 with IntelliSense turned-off.|
 
-Autoresuming is also triggered during the deployment of some service updates which require the database be online to apply the update.
+Autoresuming is also triggered during the deployment of some service updates which require the database be online.
 
 ### Connectivity
 
