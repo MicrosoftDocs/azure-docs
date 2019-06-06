@@ -80,7 +80,7 @@ After the agent is installed and reports to its configured workspace or workspac
 - Is the data type specified by a solution or specified as part of the workspace data collection configuration?
 - How many computers are affected? Is it a single or multiple computers reporting to the workspace?
 - Was this working and did it stop at a particular time of day, or has it never been collected? 
-- Is the query you are using to search syntactically correct? 
+- Is the log search query you are using syntactically correct? 
 - Has the agent ever received its configuration from Azure Monitor?
 
 The first step in troubleshooting is to determine if the computer is sending a heartbeat event.
