@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 05/30/2019
 ---
 
-| Compute target | Usage | [GPU](../articles/machine-learning/service/how-to-deploy-inferencing-gpus.md) Support | [FPGA](../articles/machine-learning/service/how-to-deploy-fpga-web-service.md) Support | Description |
+| Compute target | Usage | [GPU](../articles/machine-learning/service/how-to-deploy-inferencing-gpus.md) support | [FPGA](../articles/machine-learning/service/how-to-deploy-fpga-web-service.md) support | Description |
 | ----- | ----- | ----- | ----- | ----- |
 | [Local web service](../articles/machine-learning/service/how-to-deploy-and-where.md#local) | Testing/debug | maybe | &nbsp; | Good for limited testing and troubleshooting. Hardware acceleration depends on using libraries in the local system.
 | [Azure Kubernetes Service (AKS)](../articles/machine-learning/service/how-to-deploy-and-where.md#aks) | Real-time inference |  yes  | yes   |Good for high-scale production deployments. Provides autoscaling and fast response times.  This is the only option available for the visual interface. |

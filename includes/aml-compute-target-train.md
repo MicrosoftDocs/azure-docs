@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 05/30/2019
 ---
 
-|Training &nbsp;targets| GPU support |Automated ML | ML pipelines | Visual interface
+|Training &nbsp;targets| GPU support |[Automated ML](../articles/machine-learning/service/concept-automated-ml.md) | [ML pipelines](../articles/machine-learning/service/concept-ml-pipelines.md) | [Visual interface](../articles/machine-learning/service/ui-concept-visual-interface.md)
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](../articles/machine-learning/service/how-to-set-up-training-targets.md#local)| maybe | yes | &nbsp; | &nbsp; |
 |[Azure Machine Learning Compute](../articles/machine-learning/service/how-to-set-up-training-targets.md#amlcompute)| yes | yes & <br/>hyperparameter&nbsp;tuning | yes | yes |
