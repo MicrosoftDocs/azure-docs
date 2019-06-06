@@ -19,8 +19,8 @@ When used with a resource, the copy object has the following format:
 "copy": {
     "name": "<name-of-loop>",
     "count": <number-of-iterations>,
-    "mode": "<serial or parallel>",
-    "batchSize": <number-for-serial-batch>
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
 }
 ```
 
