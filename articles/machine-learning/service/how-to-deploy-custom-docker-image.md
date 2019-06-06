@@ -101,7 +101,7 @@ If you've already trained or deployed models using the Azure Machine Learning se
     /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ContainerRegistry/registries/<registry_name>
     ```
 
-    Save the `<registry_name>` value. It will be used in later steps.
+    The `<registry_name>` value is the name of the Azure Container Registry for your workspace.
 
 ### Build a custom image
 
@@ -190,7 +190,7 @@ Microsoft provides several docker images on a publicly accessible repository, wh
 > image_config.base_image = run.properties["AzureML.DerivedImageName"]
 > ```
 
-### From the Azure Machine Learning SDK
+### Use an image with the Azure Machine Learning SDK
 
 To use a custom image, set the `base_image` property of the [inference configuration object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) to the address of the image:
 
@@ -216,7 +216,7 @@ inference_config.base_image_registry.username = "username"
 inference_config.base_image_registry.password = "password"
 ```
 
-### From the Machine Learning CLI
+### Use an image with the Machine Learning CLI
 
 When deploying a model using the Machine Learning CLI, you provide an inference configuration file that references the custom image. The following JSON document demonstrates how to reference an image in a public container registry:
 
