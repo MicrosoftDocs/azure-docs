@@ -58,6 +58,8 @@
       href: https://aka.ms/adpricing
     - name: Regional availability 
       href: https://aka.ms/adregion
+    - name: User-generated content
+      href: user-generated-content.md
     - name: Reference solution architecture
       href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
 - name: Support
