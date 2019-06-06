@@ -1,6 +1,6 @@
 ---
-title: "Troubleshooting Execute SSIS Package Activity | Microsoft Docs"
-description: "This article provides the troubleshooting guidance for Execute SSIS Package Activity"
+title: "Troubleshooting Package Execution in SSIS Integration Runtime | Microsoft Docs"
+description: "This article provides the troubleshooting guidance for SSIS Package Execution in SSIS Integration Runtime"
 services: data-factory
 documentationcenter: ""
 ms.service: data-factory
@@ -15,16 +15,17 @@ ms.reviewer: sawinark
 manager: craigg
 ---
 
-# Troubleshooting Execute SSIS Package Activity
+# Troubleshooting Package Execution in SSIS Integration Runtime
 
-Execute SSIS Package Activity is the Activity customers can use to execute SSIS Package in SSIS Integration Runtime. This article includes the most common error messages that you might encounter when using the Execute SSIS Package Activity. It also provides a recommended action to fix the error, where applicable.
+This article includes the most common errors that you might encounter when executing SSIS packages in SSIS Integration Runtime and the potential causes and actions to solve the errors.
 
 ## Where can I find logs to troubleshoot my failed SSIS Package Execution
 
 * The ADF Portal can be used to check the output of the SSIS Package Execution Activity including the execution result, error messages and operation Id. Details can be found at [Monitor the pipeline](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline)
+
 * The SSIS Catalog (SSISDB) can be used to check the detail logs for the execution. Detail can be found at [Monitor Running Packages and Other Operations](https://docs.microsoft.com/en-us/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017)
 
-## Most common error messages and the recommended action
+## Common errors, causes and solution
 
 ### Error Message: `"Connection Timeout Expired."` or `"The service has encountered an error processing your request. Please try again."`
 
@@ -40,7 +41,7 @@ Execute SSIS Package Activity is the Activity customers can use to execute SSIS 
 
 * Potential cause & recommended action:
   * This issue usually means the Data Source/Destination is not accessible from SSIS Integration Runtime. This can be caused by different reasons:
-    * Please make sure your are passing the Data Source/Destination Name/IP correctly
+    * Please make sure you are passing the Data Source/Destination Name/IP correctly
     * Please make sure the firewall is set properly
     * Please make sure your vNet is configured properly if your Data Source/Destination are in on-premise.
       * You can verify whether the issue is from vNet configuration by provisioning an Azure VM in the same vNet and check whether the Data Source/Destination can be accessed from the Azure VM
@@ -54,17 +55,14 @@ Execute SSIS Package Activity is the Activity customers can use to execute SSIS 
 ### Error Message: "`The connection '...' is not found`"
 
 * Potential cause & recommended action:
-  * This error may be because a known issue in old version SSMS. If the package contains a non-builtin component (i.e. SSIS Azure Feature Pack or 3rd party) which is not installed on the machine where SSMS is used to do the deployment, the component will be removed by SSMS and cause the error. The issue has been fixed in the latest [SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
-
-### Error Message: "ADO NET Source has failed to acquire the connection '...' with the following error message: 'Could not create a managed connection manager.'"
-
-* Potential cause & recommended action:
-  * This error may be because the ADO.Net provider used in the Source is not available in SSIS Integration Runtime. You can install the provider by using [Customize setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
+  * This error may be because a known issue in old version SSMS. If the package contains a custom component (i.e. SSIS Azure Feature Pack or 3rd party components) which is not installed on the machine where SSMS is used to do the deployment, the component will be removed by SSMS and cause the error. Please upgrade [SSMS](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) to the latest version that has the issue fixed.
 
 ### Error Message: "There is not enough space on the disk"
 
 * Potential cause & recommended action:
-  * This error means the local disk is used up in SSIS Integration Runtime node. Please check whether your package or Custom Setup would consume a large number of disk space. If the disk is consumed by your package, it will be freed up after the package execution finishes. If the disk is consumed by your Custom Setup, you will need to stop SSIS Integration Runtime, modify your Script and start the SSIS Integration Runtime again.
+  * This error means the local disk is used up in SSIS Integration Runtime node. Please check whether your package or Custom Setup would consume many disk spaces.
+    * If the disk is consumed by your package, it will be freed up after the package execution finishes.
+    * If the disk is consumed by your Custom Setup, you will need to stop SSIS Integration Runtime, modify your Script and start the SSIS Integration Runtime again. The whole Azure Blob Container you specified for Custom Setup will be copied over to SSIS IR node, so please verify whether there is any unnecessary content under that container.
 
 ### Error Message: "Cannot open file '...'"
 
@@ -77,14 +75,14 @@ Execute SSIS Package Activity is the Activity customers can use to execute SSIS 
 ### Error Message: "The database 'SSISDB' has reached its size quota"
 
 * Potential cause & recommended action:
-  * The SSISDB created in the Azure SQL or Managed Instance when creating SSIS Integration Runtime has reached its quota. 
-    * Please consider to increase the DTU of your Database to resolve this issue. Details can be found at [https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits-logical-server](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits-logical-server)
-    * Please check whether your Package would generate a large amount of logs. If so, elastic job can be configured to clean up these logs. Please refer to [Clean up SSISDB logs with Azure Elastic Database Jobs](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md) for detail.
+  * The SSISDB created in the Azure SQL or Managed Instance when creating SSIS Integration Runtime has reached its quota.
+    * Please consider increasing the DTU of your Database to resolve this issue. Details can be found at [https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits-logical-server](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits-logical-server)
+    * Please check whether your Package would generate many logs. If so, elastic job can be configured to clean up these logs. Please refer to [Clean up SSISDB logs with Azure Elastic Database Jobs](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md) for detail.
 
 ### Error Message: "The request limit for the database is ... and has been reached."
 
 * Potential cause & recommended action:
-  * If many packages are executing in parallel in SSIS Integration Runtime, this error may occur because the request limitation of SSISDB is hit. Please consider to increase the DTC of your SSISDB to resolve this issue. Details can be found at [https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits-logical-server](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits-logical-server)
+  * If many packages are executing in parallel in SSIS Integration Runtime, this error may occur because the request limitation of SSISDB is hit. Please consider increasing the DTC of your SSISDB to resolve this issue. Details can be found at [https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits-logical-server](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits-logical-server)
 
 ### Error Message: "SSIS Operation failed with unexpected operation status: ..."
 
@@ -98,7 +96,7 @@ Execute SSIS Package Activity is the Activity customers can use to execute SSIS 
 ### Error Message: "There is no active worker."
 
 * Potential cause & recommended action:
-  * This usually means the SSIS Integration Runtime is in a unhealthy status. Please check Azure portal for the status and detail errors: [https://docs.microsoft.com/en-us/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime](https://docs.microsoft.com/en-us/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime)
+  * This usually means the SSIS Integration Runtime is in an unhealthy status. Please check Azure portal for the status and detail errors: [https://docs.microsoft.com/en-us/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime](https://docs.microsoft.com/en-us/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime)
 
 ### Error Message: "Your integration runtime cannot be upgraded and will eventually stop working, since we cannot access the Azure Blob container you provided for custom setup."
 
@@ -110,8 +108,8 @@ Execute SSIS Package Activity is the Activity customers can use to execute SSIS 
   * Too many package executions have been scheduled on the SSIS Integration Runtime. In this case, all these executions will be waiting in a queue for their turn to execute.
     * Max Parallel Execution Count per IR = Node Count * Max Parallel Execution per Node
     * Please refer to [Create Azure-SSIS Integration Runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md) for how to set the Node Count and Max Parallel Execution per Node.
-  * SSIS Integration Runtime is stopped or in a unhealthy status. Please check [Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime) for how to check the SSIS Integration Runtime status and errors.
-  * It's suggested to set the timeout if you are sure the package execution should be finished in a certian time:
+  * SSIS Integration Runtime is stopped or in an unhealthy status. Please check [Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime) for how to check the SSIS Integration Runtime status and errors.
+  * It's suggested to set the timeout if you are sure the package execution should be finished in a certain time:
  ![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
 ### Poor performance in package execution
