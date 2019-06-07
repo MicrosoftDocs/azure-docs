@@ -267,7 +267,7 @@ Name of the function.
 `invocation_id`  
 ID of the current function invocation.
 
-## Data caching
+## Global variables
 
 It is not gauranteed that the state of your app will be preserved for future executions. However, the Azure Functions runtime often reuses the same process for multiple executions of the same app. In order to cache the results of an expensive computation, declare it as a global variable. 
 
