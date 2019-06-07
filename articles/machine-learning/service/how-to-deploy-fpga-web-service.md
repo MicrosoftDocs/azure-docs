@@ -305,7 +305,7 @@ If you want to use TensorFlow Serving, you can [download a sample client](https:
 
 ```python
 # Using the grpc client in Azure ML Accelerated Models SDK package
-from azureml.accel.client import PredictionClient
+from azureml.accel import PredictionClient
 
 address = aks_service.scoring_uri
 ssl_enabled = address.startswith("https")
