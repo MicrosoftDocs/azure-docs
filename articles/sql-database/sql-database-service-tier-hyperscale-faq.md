@@ -88,7 +88,7 @@ SQL Database Hyperscale provides rapid scalability based on your workload demand
 
   With Hyperscale, you also get the ability to provision one or more additional compute nodes that you can use to serve your read requests. This means that you can use these additional compute nodes as read-only nodes to offload your read workload from the primary compute. In addition to read-only, these nodes also serve as hot-standby’s in the event of a fail over from the primary.
 
-  Provisioning of each of these additional compute nodes can be done in constant time and is an online operation. You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `read_only`. Any connections marked with `read-only` are automatically routed to one of the additional read-only compute nodes.
+  Provisioning of each of these additional compute nodes can be done in constant time and is an online operation. You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `readonly`. Any connections marked with `readonly` are automatically routed to one of the additional read-only compute nodes.
 
 ## Deep dive questions
 
@@ -355,7 +355,7 @@ We create 2 replicas for Hyperscale databases by default. If you want to adjust 
 
 ### How do I connect to these secondary compute nodes
 
-You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `read_only`. Any connections marked with `read-only` are automatically routed to one of the additional read-only compute nodes.  
+You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `readonly`. Any connections marked with `readonly` are automatically routed to one of the additional read-only compute nodes.  
 
 ### Can I create a dedicated endpoint for the read-scale replica
 
