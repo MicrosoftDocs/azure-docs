@@ -98,7 +98,7 @@ The health states defined for a VM are described in the following table:
 |-----|-------------|---------------|
 | |Healthy |The VM is within the defined health conditions. This state indicates there are no issues detected and the VM is functioning normally. With a parent rollup monitor, health rolls up and reflects the best-case or worst-case state of the child.|
 | |Critical |The state is not within the defined health condition, indicating that one or more critical issues were detected. These issues to be addressed in order to restore normal functionality. With a parent rollup monitor, the health state rolls up and reflects the best-case or worst-case state of the child.|
-| |Warning |The state is between two thresholds for the defined health condition, where one indicates a warning state and the other indicates a critical state (three health state thresholds can be configured), or when a non-critical issue is detected that can cause critical problems if it isn't resolved. With a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect a warning state. If there's a child in a critical state and another child in a warning state, the parent rollup will show the health state as critical.|
+| |Warning |The state is between two thresholds for the defined health condition, where one indicates a warning state and the other indicates a critical state (three health state thresholds can be configured), or when a non-critical issue is detected that can cause critical problems if it's not resolved. With a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect a warning state. If there's a child in a critical state and another child in a warning state, the parent rollup will show the health state as critical.|
 | |Unknown |The state can't be computed for several reasons. See the following section for additional details and possible solutions. |
 
 An Unknown health state can be caused by the following issues:
@@ -127,7 +127,7 @@ To view the health collection for all your VMs in a resource group, select **Azu
 
 ![VM Insights monitoring view from Azure Monitor](./media/vminsights-health/vminsights-aggregate-health.png)
 
-From the **Subscription** and **Resource Group** drop-down lists, select the appropriate resource group that includes the VMs related to the group, to view their reported health state. Your selection only applies to the health feature and does not carry over to Performance or Map.
+In the **Subscription** and **Resource Group** drop-down lists, select the appropriate resource group that includes the VMs related to the group, to view their reported health state. Your selection only applies to the health feature and does not carry over to Performance or Map.
 
 The **Health** tab provides the following information:
 
@@ -136,17 +136,17 @@ The **Health** tab provides the following information:
 * How many VMs are unhealthy because of an issue detected with a processor, disk, memory, or network adapter, categorized by health state.
 * How many VMs are unhealthy because of an issue detected with a core operating system service, categorized by health state.
 
-Here you can quickly identify the top critical issues detected by the health criteria proactively monitoring the VM, and review VM Health alert details and associated knowledge article intended to assist in the diagnosis and remediation of the issue. Select any of the severities to open the [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page filtered by that severity.
+In the Health tab, you can identify the critical issues detected by the health criteria monitoring the VM, and review alert details and associated knowledge articles. These articles can assist in the diagnosis and remediation of the issues. Select any of the severities to open the [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page filtered by that severity.
 
 The **VM distribution by operating system** list shows VMs listed by Windows edition or Linux distribution, along with their version. In each operating system category, the VMs are broken down further based on the health of the VM.
 
 ![VM Insights virtual machine distribution perspective](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
 
-Select **VM count**, **Critical**, **Warning**, **Healthy**, **Unknown**, and **Virtual Machines** page see a list of filtered results matching the column selected. For example, to review all VMs running **Red Hat Enterprise Linux release 7.5**, select the **VM count** value for that OS and it will list the VMs matching that filter and their current health state.
+Select any column including **VM count**, **Critical**, **Warning**, **Healthy**, and **Unknown** to see a list of filtered results in the Virtual Machines page that match the column selected. For example, to review all VMs running Red Hat Enterprise Linux release 7.5, select the **VM count** value for that OS, and it'll list the VMs matching that filter and their current health state.
 
 ![Example rollup of Red Hat Linux VMs](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
  
-On the **Virtual Machines** page, if you select the name of a VM under the column **VM Name**, you are directed to the VM instance page with more details of the alerts and health criteria issues identified that are affecting the selected VM. From here, you can filter the health state details by selecting **Health State** icon in the upper left-hand corner of the page to see which components are unhealthy or you can view VM Health alerts raised by an unhealthy component categorized by alert severity.
+In the **Virtual Machines** page, if you select the name of a VM under the column **VM Name**, you are directed to the VM instance page with more details of the alerts and health criteria issues identified that are affecting the selected VM. From here, you can filter the health state details by selecting **Health State** icon in the upper left-hand corner of the page to see which components are unhealthy or you can view VM Health alerts raised by an unhealthy component categorized by alert severity.
 
 From the VM list view, selecting the name of a VM opens the **Health** page for that selected VM, similarly as if you selected **Insights (preview)** from the VM directly.
 
