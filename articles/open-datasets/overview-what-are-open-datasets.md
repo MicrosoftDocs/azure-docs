@@ -19,7 +19,7 @@ Datasets include public-domain data for weather, census, holidays, public safety
 ## Curated, prepared datasets
 Curated open public datasets in Azure Open Datasets are optimized for consumption in machine learning workflows. 
 
-Data scientists often spend the majority of their time cleaning and preparing data for advanced analytics. Open Datasets are copied to the Azure cloud and preprocessed to save you time. At regular intervals data is pulled from the sources, such as by an FTP connection to the National Oceanic and Atmospheric Administration (NOAA), parsed into a structured format, and then enriched as appropriate with features such as ZIPCode or location of the nearest weather station.
+Data scientists often spend the majority of their time cleaning and preparing data for advanced analytics. Open Datasets are copied to the Azure cloud and preprocessed to save you time. At regular intervals data is pulled from the sources, such as by an FTP connection to the National Oceanic and Atmospheric Administration (NOAA), parsed into a structured format, and then enriched as appropriate with features such as ZIP Code or location of the nearest weather station.
 
 Datasets are cohosted with cloud compute in Azure making access and manipulation easier.  
 
