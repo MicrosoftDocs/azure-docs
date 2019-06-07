@@ -95,10 +95,12 @@ The following table shows the default regional limits for supported subscription
 |Pay-as-you-go Dev/Test|3|320|
 |Enterprise Dev/Test|3|320|
 |EA|8 (15 in some regions**)|960 (1440 in some regions**)|
+|Visual Studio Enterprise|2 |64|
+|Visual Studio Professional and MSDN Platforms|2|32|
 
-\* When planning your deployments, consider that a Business Critical (BC) vCore (due to added redundancy) generally consumes 4x more capacity than a General Purpose (GP) vCore. So, for your calculations, 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type.
+\* When planning your deployments, consider that a Business Critical (BC) vCore (due to added redundancy) consumes 4x more capacity than a General Purpose (GP) vCore. So, for your calculations, 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies one subscription in a region. There is no limit per individual subnets except that sum of all vCores deployed across multipe subnets must be lower or equal to **max number of vCore units**.
 
-** Larger quotas are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
+** Larger subnet and vCore limits are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
 
 ## Obtaining a larger quota for SQL managed instance
 
