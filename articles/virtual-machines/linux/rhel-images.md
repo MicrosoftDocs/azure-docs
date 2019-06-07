@@ -88,6 +88,10 @@ If you don't want to use an image that is connected to EUS by default, deploy us
 
 ##### RHEL images with EUS
 The following table will apply for RHEL images that contain a minor version in the SKU.
+
+>[!NOTE]
+> At the time of writing, only RHEL 7.4 and later minor versions have EUS support. EUS is no longer supported for RHEL <= 7.3.
+
 Minor version |EUS Image example              |EUS status                                                   |
 :-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | Images published April 2019 and later will be EUS by default|
