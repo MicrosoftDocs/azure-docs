@@ -14,7 +14,7 @@ ms.author: edjez
 
 # Reward scores indicate success of personalization
 
-The reward score indicates how well the personalization choice, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/rank#rankresponse), resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior.
+The reward score indicates how well the personalization choice, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response), resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior.
 
 Personalizer trains its machine learning models by evaluating the rewards. 
 

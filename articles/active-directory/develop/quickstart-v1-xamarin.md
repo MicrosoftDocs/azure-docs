@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
@@ -53,14 +53,14 @@ To enable the app to get tokens, you first need to register it in your Azure AD 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click your account. Then, under the **Directory** list, select the Active Directory tenant where you want to register the app.
 3. Click **All services** in the left pane, and then select **Azure Active Directory**.
-4. Click **App registrations**, and then select **Add**.
-5. To create a new **Native Client Application**, follow the prompts.
+4. Click **App registrations**, and then select **New registration**.
+5. To create a new client application, follow the prompts.
    * **Name** describes the app to users.
+   * Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
    * **Redirect URI** is a scheme and string combination that Azure AD uses to return token responses. Enter a value (for example, `http://DirectorySearcher`).
 6. After you’ve completed registration, Azure AD assigns the app a unique application ID. Copy the value from the **Application** tab, because you'll need it later.
-7. On the **Settings** page, select **Required Permissions**, and then select **Add**.
-8. Select **Microsoft Graph** as the API. Under **Delegated Permissions**, add the **Read Directory Data** permission. 
-   This action enables the app to query the Graph API for users.
+7. From the **API permissions** page, select **Add a permission**. Inside **Select an API** select ***Microsoft Graph***.
+8. Under **Delegated permissions**, select the permission **User.Read**, then hit **Add** to save. This permission sets up your application to query the Azure AD Graph API for users.
 
 ## Step 3: Install and configure ADAL
 

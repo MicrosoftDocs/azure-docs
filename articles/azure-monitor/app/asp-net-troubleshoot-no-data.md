@@ -22,6 +22,16 @@ ms.author: mbullwin
 * If you are consistently seeing the same fraction, it's probably due to adaptive [sampling](../../azure-monitor/app/sampling.md). To confirm this, open Search (from the overview blade) and look at an instance of a Request or other event. At the bottom of the properties section click "..." to get full property details. If Request Count > 1, then sampling is in operation.
 * Otherwise, it's possible that you're hitting a [data rate limit](../../azure-monitor/app/pricing.md#limits-summary) for your pricing plan. These limits are applied per minute.
 
+*I'm experiencing data loss randomly.*
+
+* Check if you are experiencing data loss at [Telemetry Channel](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+
+* Check for any known issues in Telemetry Channel [Github repo](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+
+*I'm experiencing data loss in Console App or on Web App when app is about to stop.*
+
+* SDK channel keeps telemetry in buffer, and sends them in batches. If the application is shutting down, you may need to explicitly call [Flush()](api-custom-events-metrics.md#flushing-data). Behavior of `Flush()` depends on the actual [channel](telemetry-channels.md#built-in-telemetrychannels) used.
+
 ## No data from my server
 *I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
 
@@ -54,7 +64,6 @@ Fix:
 * Check that you provided sign-in credentials for the right Azure account.
 * In your browser, check that you have access to the [Azure portal](https://portal.azure.com). Open Settings and see if there is any restriction.
 * [Add Application Insights to your existing project](../../azure-monitor/app/asp-net.md): In Solution Explorer, right click your project and choose "Add Application Insights."
-* If it still isn't working, follow the [manual procedure](../../azure-monitor/app/windows-services.md) to add a resource in the portal and then add the SDK to your project.
 
 ## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 Looks like something went wrong while you were installing Application Insights or maybe a logging adapter.

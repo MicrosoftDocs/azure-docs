@@ -21,7 +21,7 @@ The environment where you run the script must have the following things:
 
 - A Windows Virtual Desktop tenant and account or a service principal with permissions to query that tenant (such as RDS Contributor).
 - Session host pool VMs configured and registered with the Windows Virtual Desktop service.
-- An additional virtual machine that runs the scheduled task via Task Scheduler and has network access to session hosts. This will be reffered to later in the document as scaler VM.
+- An additional virtual machine that runs the scheduled task via Task Scheduler and has network access to session hosts. This will be referred to later in the document as scaler VM.
 - The [Microsoft Azure Resource Manager PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) installed on the VM running the scheduled task.
 - The [Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) installed on the VM running the scheduled task.
 

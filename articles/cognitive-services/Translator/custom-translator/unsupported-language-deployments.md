@@ -3,7 +3,7 @@ title: Unsupported language deployments - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: How to deploy unsupported language pairs in Custom Translator.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text

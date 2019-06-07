@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/22/2019
+ms.date: 05/23/2019
 ---
 # Resource limits for elastic pools using the vCore-based purchasing model limits
 
@@ -38,6 +38,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |H/W generation|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
 |Memory (GB)|7|14|21|28|35|42|
+|Max number DBs per pool|100|200|500|500|500|500|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|512|756|756|1536|1536|1536|
@@ -50,7 +51,6 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max concurrent workers per pool (requests) * |210|420|630|840|1050|1260|
 |Max concurrent logins per pool * |210|420|630|840|1050|1260|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
-|Max number DBs per pool|100|200|300|500|500|500|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Number of replicas|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -66,6 +66,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |H/W generation|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Memory (GB)|49|56|63|70|112|168|
+|Max number DBs per pool|500|500|500|500|500|500|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1536|2048|2048|2048|3584|4096|
@@ -78,7 +79,6 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max concurrent workers per pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max concurrent logins pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
-|Max number DBs per pool|200|500|500|500|500|500|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Number of replicas|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -94,6 +94,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
+|Max number DBs per pool|100|200|500|500|500|500|500|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|512|756|756|1536|1536|1536|
@@ -106,7 +107,6 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max concurrent logins per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
-|Max number DBs per pool|200|500|500|500|500|500|500|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Number of replicas|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -122,6 +122,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Max number DBs per pool|500|500|500|500|500|500|500|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|2048|2048|3072|3072|4096|4096|4096|
@@ -133,7 +134,6 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Log rate limits (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Max concurrent workers per pool (requests) *|1680|1890|2100|2520|33600|4200|8400|
 |Max concurrent logins per pool (requests) *|1680|1890|2100|2520|33600|4200|8400|
-|Max number DBs per pool|500|500|500|500|500|500|500|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Number of replicas|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -151,6 +151,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |H/W generation|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
 |Memory (GB)|7|14|21|28|35|42|
+|Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1|2|3|4|5|6|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
@@ -163,7 +164,6 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|
 |Max concurrent logins per pool (requests) *|210|420|630|840|1050|1260|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
-|Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|
 |Min/max elastic pool vCore choices per database|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Number of replicas|4|4|4|4|4|4|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
@@ -179,6 +179,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |H/W generation|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|
+|Max number DBs per pool|100|100|100|100|100|100|
 |Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|7|8|9.5|11|20|36|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
@@ -191,7 +192,6 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max concurrent workers per pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max concurrent logins per pool (requests) *|1470|1680|1890|2100|3360|5040|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
-|Max number DBs per pool|100|100|100|100|100|100|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Number of replicas|4|4|4|4|4|4|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
@@ -207,6 +207,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
+|Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|100|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |Max data size (GB)|1024|1024|1536|1536|1536|3072|3072|
@@ -219,7 +220,6 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max concurrent logins per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
-|Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|100|
 |Min/max elastic pool vCore choices per database|N/A|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Number of replicas|4|4|4|4|4|4|4|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
@@ -235,6 +235,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Max number DBs per pool|100|100|100|100|100|100|100|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|15.768|18.139|20.51|25.252|37.936|52.22|131.64|
 |Max data size (GB)|3072|3072|3072|4096|4096|4096|4096|
@@ -247,7 +248,6 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Max concurrent workers per pool (requests) *|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent logins per pool (requests) *|1680|1890|2100|2520|3360|4200|8400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
-|Max number DBs per pool|100|100|100|100|100|100|100|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Number of replicas|4|4|4|4|4|4|4|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
