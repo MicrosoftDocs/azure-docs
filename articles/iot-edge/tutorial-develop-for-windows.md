@@ -170,6 +170,7 @@ The IoT Edge runtime needs your registry credentials to pull your container imag
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
 4. Save the deployment.template.json file. 
 
