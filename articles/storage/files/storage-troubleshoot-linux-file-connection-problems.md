@@ -96,8 +96,7 @@ Reduce the number of concurrent open handles by closing some handles, and then r
 - If you know the final size of a file that you're extending by using writes, and your software doesn't experience compatibility problems when an unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
 - Use the right copy method:
     - Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
-    - Use [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) between file shares on an on-premises computer.
-    - Using cp with parallel could improve copy speed. For example: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - Using cp with parallel could improve copy speed, the number of threads depends on your use case and workload. This example uses six: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - Open source third party tools such as:
     - [GNU Parallel](http://www.gnu.org/software/parallel/).
     - [Fpart](https://github.com/martymac/fpart) - Sorts files and packs them into partitions.
@@ -144,11 +143,11 @@ Verify virtual network and firewall rules are configured properly on the storage
 
 ### Cause 1: Caching
 
-One possible cause of slow performance is disabled caching. Caching can be an overhead if it is not in use but, if you are using the cache, then it can be helpful. Be aware if you are using the cache before disabling it.
+One possible cause of slow performance is disabled caching. Caching can be useful if you are accessing a file repeatedly, otherwise, it can be an overhead. Check if you are using the cache before disabling it.
 
 ### Solution for cause 1
 
-To check whether caching is disabled, look for the **cache=** entry. 
+To check whether caching is disabled, look for the **cache=** entry.
 
 **Cache=none** indicates that caching is disabled. Remount the share by using the default mount command or by explicitly adding the **cache=strict** option to the mount command to ensure that default caching or "strict" caching mode is enabled.
 
@@ -166,7 +165,7 @@ If the **cache=strict** or **serverino** option is not present, unmount and moun
 
 ### Cause 2: Throttling
 
-It is possible you are experiencing throttling and your requests are being sent to a queue.
+It is possible you are experiencing throttling and your requests are being sent to a queue. You can verify this by leveraging [Azure Storage metrics in Azure Monitor](../common/storage-metrics-in-azure-monitor.md).
 
 ### Solution for cause 2
 
