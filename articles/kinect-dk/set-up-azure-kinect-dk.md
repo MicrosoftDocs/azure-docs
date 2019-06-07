@@ -1,14 +1,14 @@
 ---
 title: Quickstart- Set up Azure Kinect
 description: this quickstart provides Instructions how to set up Azure Kinect DK hardware
-author: joylital
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.topic: quickstart
 ms.date: 06/05/2019
 keywords: azure, kinect, dev kit, azure dk, set up, hardware, quick, usb, power, viewer, sensor, streaming, setup, SDK, firmware
 
-#Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect DK device.
+#Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect DK device before starting my development.
 
 ---
 
@@ -24,8 +24,11 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 
 ## Set up hardware
 
-1. Connect the power cable to your device and plug the power supply into a wall outlet or power strip.
-2. Connect the USB data cable into your device and PC.
+> [!NOTE]
+> Make sure to remove the camera protective film before using the device.
+
+1. Plug the power connector into the power jack on the back of your device. Connect the USB power adopter to the other end of the cable, and then plug it into a power outlet.
+2. Connect the USB data cable into your device, and then to your PC.
    >[!NOTE]
    >Use a direct cable from the PC to the back of the device, as this works better than connecting through adapters or extensions.
 
@@ -47,10 +50,11 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
     ![Azure Kinect Viewer](./media/quickstarts/viewer.png)
 
 3. Verify each sensor stream is visualized in the tool.
-    * Depth camera
-    * Color camera
-    * IMU
-    * Microphones
+    - Depth camera
+    - Color camera
+    - Infrared camera
+    - IMU
+    - Microphones
 
     ![Visualization Tool](./media/quickstarts/visualization-tool.png)
 

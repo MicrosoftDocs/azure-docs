@@ -1,8 +1,8 @@
 ---
 title: Azure Kinect DK recorder
 description: Azure Kinect recorder options and functionality
-author: xthexder
-ms.author: jawirth
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/04/2019
 ms.topic: article
