@@ -175,8 +175,6 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
 You're provided the report link that you can share with anyone for report access and a code snippet that you can use to integrate the report into your blog or website.
 
-![Publish a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-end.png)
-
 ![Publish a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-publish.png)
 
 Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
