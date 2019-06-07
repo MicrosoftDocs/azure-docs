@@ -5,7 +5,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 09/15/2018
+ms.date: 06/08/2019
 ms.author: tamram
 ms.custom: "include file"
 ---
@@ -28,25 +28,31 @@ In Visual Studio, create a new Windows console application. The following steps 
 
 All code examples in this tutorial can be added to the **Main()** method of your console application's **Program.cs** file.
 
-You can use the Azure Storage Client Libraries in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
+You can use the Azure Storage client libraries in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
 ### Use NuGet to install the required packages
 
-There are at least two packages you need to reference in your project to complete this tutorial:
+You need to reference the following two packages in your project to complete this tutorial:
 
 * [Microsoft Azure Storage Common Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): This package provides programmatic access to data resources in your storage account.
 * [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): This package provides a class for parsing a connection string in a configuration file, regardless of where your application is running.
 
-You can use NuGet to obtain both packages. Follow these steps:
+In addition to these packages, you will likely need other Azure Storage client packages. The following is a list of all the Azure Storage packages available on NuGet:
+
+* [Microsoft Azure Storage Blobs Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): This client library enables working with the Microsoft Azure Storage Blob service for storing binary and text data.
+* [Microsoft Azure Storage Files Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): This client library enables working with the Microsoft Azure Storage File service for storing binary and text data.
+* [Microsoft Azure Storage Queues Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): This client library enables working with the Microsoft Azure Storage Queue service for storing messages that may be accessed by a client.
+
+You can use NuGet to obtain these packages. Follow these steps:
 
 1. Right-click your project in **Solution Explorer**, and choose **Manage NuGet Packages**.
-2. Search online for "Microsoft.Azure.Storage", and select **Install** to install the Storage Client Library and its dependencies.
+2. Search online for "Microsoft.Azure.Storage", and select **Install** to install the Storage client libraries and their dependencies.
 3. Search online for "Microsoft.Azure.ConfigurationManager", and select **Install** to install the Azure Configuration Manager.
 
 > [!NOTE]
-> The Storage Client Library package is also included in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/). However, we recommend that you also install the Storage Client Library from NuGet to ensure that you always have the latest version of the client library.
+> The Storage client libraries packages are also included in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/). However, we recommend that you also install the Storage client libraries from NuGet to ensure that you always have the latest versions.
 >
-> The ODataLib dependencies in the Storage Client Library for .NET are resolved by the ODataLib packages available on NuGet, not from WCF Data Services. The ODataLib libraries can be downloaded directly, or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage Client Library are [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), and [Spatial](http://nuget.org/packages/System.Spatial/). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage Client Library.
+> The ODataLib dependencies in the Storage client libraries for .NET are resolved by the ODataLib packages available on NuGet, not from WCF Data Services. The ODataLib libraries can be downloaded directly, or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage client libraries are [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), and [Spatial](http://nuget.org/packages/System.Spatial/). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage client libraries.
 
 ### Determine your target environment
 
@@ -62,7 +68,7 @@ If you are targeting a storage account in the cloud, copy the primary access key
 
 ### Configure your storage connection string
 
-The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. The best way to maintain your storage connection string is in a configuration file.
+The Azure Storage client libraries for .NET support using a storage connection string to configure endpoints and credentials for accessing storage services. The best way to maintain your storage connection string is in a configuration file.
 
 For more information about connection strings, see [Configure a connection string to Azure Storage](../articles/storage/common/storage-configure-connection-string.md).
 
