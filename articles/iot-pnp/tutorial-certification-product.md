@@ -1,14 +1,13 @@
 ---
-title: Add your product information 
-description: This tutorial describes how to add your product information
-services: 
-ms.service: 
-ms.subservice: 
+title: Add your Azure IoT Plug and Play product information | Microsoft Docs
+description: This tutorial describes how to add your product information to the Azure Certified for IoT device catalog
+manager: philmea
+ms.service: iot-pnp
+services: iot-pnp
 ms.topic: tutorial
-ms.reviewer: 
 ms.author: koichih
 author: konichi3
-ms.date: 06/5/2019
+ms.date: 06/07/2019
 ---
 
 # Tutorial: Add your product information
