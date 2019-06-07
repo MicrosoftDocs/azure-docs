@@ -1,0 +1,26 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Data Share Documentation
+
+metadata:
+  title: Azure Data Share Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Learn how to use Azure Data Share with our quickstarts, tutorials, and samples.
+  
+  author: joannapea
+  
+  ms.service: data-share
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+  ms.author: joanpo
+abstract:
+  description: Learn how to use Azure Data Share with our quickstarts, tutorials, and samples.
+sections:
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use Azure Data Share to share data with your customers and partners. 
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="share-your-data">Start sharing your data with Azure Data Share</a>
+    - html: <a href="subscribe-to-data-share">Subscribe to an Azure Data Share</a>

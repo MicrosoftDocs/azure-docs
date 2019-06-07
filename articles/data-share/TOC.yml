@@ -1,5 +1,7 @@
 - name: Azure Data Share
+  href: index.yml
 - name: Overview
+
   items:
   - name: What is Azure Data Share?
     href: overview.md
