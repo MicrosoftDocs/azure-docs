@@ -269,6 +269,16 @@ CloudBlockBlob blob = new CloudBlockBlob(
                       storageCredentials);
 ```
 
+### Enable implicit grant flow
+
+To run the sample, you may need to configure the implicit grant flow for your app registration. Follow these steps:
+
+1. Navigate to your app registration in the Azure portal.
+1. In the Manage section, select the **Authentication** setting.
+1. Under **Advanced settings**, in the **Implicit grant** section, select the check boxes to enable access tokens and ID tokens, as shown in the following image:
+
+    ![Screenshot showing how to enable settings for implicit grant flow](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
+
 ### Update the port used by localhost
 
 When you run the sample, you may find that you need to update the redirect URI specified in your app registration to use the *localhost* port assigned at runtime. To update the redirect URI to use the assigned port, follow these steps:
