@@ -185,7 +185,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Save the file. Click *Debug* then *Restart Debugging* or in the *Debug toolbar*, click the *Restart Debugging* button.
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Open your service in a browser and notice your updated message is displayed.
 
