@@ -1,7 +1,7 @@
 ---
 title: Multi-turn conversations
 titleSuffix: Azure Cognitive Services
-description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is a back-and-forth conversation in which the previous question's context influences the next question and answer.
+description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back and forth conversation where the previous question's context influences the next question and answer.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -17,28 +17,27 @@ ms.author: diberry
 
 Use follow-up prompts and context to manage the multiple turns, known as _multi-turn_, for your bot from one question to another.
 
-To see how multi-turn works, view the following demonstration video:
+Watch the following demonstration video to see how it is done.
 
-[![Multi-turn conversation in QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
+[![](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample).
 
 ## What is a multi-turn conversation?
 
-Some questions can't be answered in a single turn. When you design your client application (chat bot) conversations, a user might ask a question that needs to be filtered or refined to determine the correct answer. You make this flow through the questions possible by presenting the user with *follow-up prompts*.
+Some questions can't be answered in a single turn. When you design your client application (chat bot) conversations, a user may ask a question that needs to be filtered or refined in order to determine the correct answer. This flow through the questions is possible by presenting the user with **follow-up prompts**.
 
-When users ask a question, QnA Maker returns the answer _and_ any follow-up prompts. This response allows you to present the follow-up questions as choices. 
+When the user asks the question, QnA Maker returns the answer _and_ any follow-up prompts. This allows you to present the follow-up questions as choices. 
 
 ## Example multi-turn conversation with chat bot
 
-With multi-turn, a chat bot manages a conversation with a user to determine the final answer, as shown in the following image:
+A chat bot manages the conversation with the user, question by question, to determine the final answer.
 
-![A multi-turn dialog with prompts to guide a user through a conversation](../media/conversational-context/conversation-in-bot.png)
+![Within the conversational flow, manage conversation state in a multi-turn dialog system by providing prompts within the answers presented as options to continue the conversation.](../media/conversational-context/conversation-in-bot.png)
 
-In the preceding image, a user entered **My account**. The knowledge base has three linked QnA pairs. The user needs to select one of the three choices to refine the answer. In the knowledge base, the question (#1), has three follow-up prompts, presented in the chat bot as three options (#2). 
+In the preceding image, the user entered `My account`. The knowledge base has 3 linked QnA pairs. The user needs to select from one of the three choices to refine the answer. In the knowledge base, the question (#1), has three follow-up prompts, presented in the chat bot as three choices (#2). 
 
-When the user selects an option (#3), the next list of refining options (#4) is presented. This sequence continues (#5) until the user determines the correct, final answer (#6).
+When the user selects a choice (#3), then the next list of refining choices (#4) is presented. This can continue (#5) until the correct and final answer (#6) is determined.
 
-> [!NOTE]
-> In the preceding image, the **Enable multi-turn** check box is selected so that the prompts are displayed. 
+The preceding image has **Enable multi-turn** selected in order to displayed prompts. 
 
 ### Using multi-turn in a bot
 
