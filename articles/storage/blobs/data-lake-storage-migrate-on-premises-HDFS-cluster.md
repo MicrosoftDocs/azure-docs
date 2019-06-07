@@ -17,11 +17,11 @@ You can migrate data from an on-premises HDFS store of your Hadoop cluster into 
 
 This article helps you complete these tasks:
 
-:heavy_check_mark: Copy your data to a Data Box or a Data Box Heavy device.
-
-:heavy_check_mark: Ship the device back to Microsoft.
-
-:heavy_check_mark: Move the data onto your Data Lake Storage Gen2 storage account.
+> [!div class="checklist"]
+> * Prepare to migrate your data.
+> * Copy your data to a Data Box or a Data Box Heavy device.
+> * Ship the device back to Microsoft.
+> * Move the data onto your Data Lake Storage Gen2 storage account.
 
 ## Prerequisites
 
@@ -29,17 +29,21 @@ You need these things to complete the migration.
 
 * An Azure Storage account that **doesn't** have hierarchical namespaces enabled on it.
 
-* If you want to use Azure Data Lake Storage Gen2 account (A storage account that **does** have hierarchical namespaces enabled on it), then you might want to create it at this point.
+* If you want to migrate your data to Azure Data Lake storage Gen2, then you'll need to create a storage account and enable the **hierarchical namespace** feature on that account.
 
 * An on-premises Hadoop cluster that contains your source data.
 
 * An [Azure Data Box device](https://azure.microsoft.com/services/storage/databox/).
 
     - [Order your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) or [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). While ordering your device, remember to choose a storage account that **doesn't** have hierarchical namespaces enabled on it. This is because Data Box devices do not yet support direct ingestion into Azure Data Lake Storage Gen2. You will need to copy into a storage account and then do a second copy into the ADLS Gen2 account. Instructions for this are given in the steps below.
+
     - Cable and connect your [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) or [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) to an on-premises network.
 
-
 If you are ready, let's start.
+
+## Prepare to migrate your data
+
+Before you move your data onto a Data Box device, you'll need to download some helper scripts, ensure that your data is organized to fit onto a Data Box device, and exclude any unnecessary files.
 
 ### Download helper scripts and set up your local computer to run them
 
@@ -68,14 +72,16 @@ If you are ready, let's start.
 
    ```bash
    chmod +x *.py *.sh
+
    ```
-## Ensure that your data is organized to fit onto a Data Box
+
+### Ensure that your data is organized to fit onto a Data Box
 
 If the size of your data exceeds the size of a single Data Box device, you can split files up into groups that you can store onto multiple Data Box devices.
 
 If your data doesn't exceed the size of a singe Data Box, you can proceed to the next section.
 
-1. From an elevated command prompt, run the `generate-file-list` script You obtained this script from the repository that you cloned in an earlier step.
+1. From an elevated command prompt, run the `generate-file-list` script that you downloaded by following the guidance in the previous section.
 
    Here's a description of the command parameters:
 
@@ -111,11 +117,9 @@ If your data doesn't exceed the size of a singe Data Box, you can proceed to the
    hadoop fs -copyFromLocal {filelist_pattern} /[hdfs directory]
    ```
 
-## Exclude unnecessary files
+### Exclude unnecessary files
 
-When you copy files from the on-premise Hadoop cluster to the Data Box by using DistCp, you'll need to exclude some directories. For example, exclude directories that contain state information that keep the cluster running.
-
-The DistCp tool lets you exclude files and directories by specifying a series of regular expressions that exclude matching paths.
+You'll need to exclude some directories from the DisCp job. For example, exclude directories that contain state information that keep the cluster running.
 
 On the on-premise Hadoop cluster where you plan to initiate the DistCp job, create a file that specifies the list of directories that you want to exclude.
 
@@ -223,9 +227,14 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
     - [Ship your Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
 3.	After Microsoft receives your device, it is connected to the datacenter network and the data is uploaded to the storage account you specified (with hierarchical namespaces disabled) when you placed the device order. Verify against the BOM files that all your data is uploaded to Azure. You can now move this data to a Data Lake Storage Gen2 storage account.
 
-## Move the data onto your Data Lake Storage Gen2 storage account
+## Move the data into Azure Data Lake Storage Gen2
 
-This step is needed if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you do not need to do this step.
+First, copy data into your storage account. Then, apply access permissions to files and directories.
+
+> [!NOTE]
+> This step is needed if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical > namespace as your data store, you can skip this section.
+
+### Copy data to the storage account
 
 You can do this in two ways.
 
@@ -242,8 +251,6 @@ This command copies both data and metadata from your storage account into your D
 ### Create a service principal for your Azure Data Lake Storage Gen2 account
 
 To create a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-  There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
   * When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
