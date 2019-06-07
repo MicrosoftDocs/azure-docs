@@ -275,51 +275,6 @@ Legacy Azurite v2 supports Azure Storage Blob, Queue and Table services. Azurite
 
 Azurite v3 supports features from Azure Storage API version 2018-03-28, and will maintain parity with the latest API versions, in a more frequent update frequency than legacy Azurite v2.
 
-## Support matrix
-
-3.0.0-preview release targets **2018-03-28** API version **blob** service.  
-Detailed support matrix:
-
-* Supported Vertical Features
-  * SharedKey Authentication
-  * Shared Access Signature Account Level
-  * Shared Access Signature Service Level (Not support response header override in service SAS)
-  * Container Public Access
-* Supported REST APIs
-  * List Containers
-  * Set Service Properties
-  * Get Service Properties
-  * Get Stats
-  * Get Account Information
-  * Create Container
-  * Get Container Properties
-  * Get Container Metadata
-  * Set Container Metadata
-  * Get Container ACL
-  * Set Container ACL
-  * Delete Container
-  * Lease Container (Access control based on lease is partial support)
-  * List Blobs
-  * Put Blob (Create append blob is not supported)
-  * Get Blob
-  * Get Blob Properties
-  * Set Blob Properties
-  * Get Blob Metadata
-  * Set Blob Metadata
-  * Lease Blob (access control based on lease is partial support)
-  * Snapshot Blob
-  * Copy Blob (Only supports copy within same account in Azurite)
-  * Abort Copy Blob (Only supports copy within same account in Azurite)
-* Following features or REST APIs are NOT supported or limited supported in this release (will support more features per customers feedback in future releases)
-  * OAuth authentication
-  * Access control based on conditional headers, container/blob lease (lease control is limited supported)
-  * CORS and Preflight
-  * Static Website
-  * Soft delete & Undelete Blob
-  * Put Block from URL
-  * Incremental Copy Blob
-  * Create Append Blob, Append Block
-
 ## License
 
 This project is licensed under MIT.
