@@ -11,20 +11,20 @@ ms.author: bwren
 ---
 
 # Log query scope and time range in Azure Monitor Log Analytics
-When you run a [query](log-query-overview.md) in [Log Analytics in the Azure portal](get-started-portal.md), the set of data evaluated by the query depends on the scope and the time range that you select. This article describes the scope and time range and how you can set each depending on your requirements.
+When you run a [log query](log-query-overview.md) in [Log Analytics in the Azure portal](get-started-portal.md), the set of data evaluated by the query depends on the scope and the time range that you select. This article describes the scope and time range and how you can set each depending on your requirements.
 
 
 ## Query scope
 The query scope defines the records that are evaluated by the query. This may include all records in a single Log Analytics workspace or Application Insights application, or it may include records created by particular Azure resources across multiple workspaces. The scope is always displayed at the top left of the Log Analytics window. An icon indicates whether the scope is a Log Analytics workspace or an Application Insights application. No icon indicates another Azure resource.
 
-![Scope](media/scope/scope-workspace.png) ![Scope](media/scope/scope-application.png)
+![Scope](media/scope/scope.png)
 
 
 The scope is defined by a single Azure resource and functions differently depending on the resource type. The scope is determined by the method you use to start Log Analytics, and in some cases you can change the scope by clicking on it.
 
 The following table lists the different resource types used for the query scope and different details for each.
 
-| Query scope resource | Records in scope | How to select | Changing Scope |
+| Query scope | Records in scope | How to select | Changing Scope |
 |:---|:---|:---|:---|
 | Log Analytics workspace | All records in the Log Analytics workspace. | Select **Logs** from the **Azure Monitor** menu or the **Log Analytics workspaces** menu.  | Can change scope to any other resource type. |
 | Application Insights application | All records in the Application Insights application. | Select **Analytics** from **Overview** page of Application Insights. | Can only change scope to another Application Insights application. |
@@ -76,7 +76,7 @@ If you set a filter in the query that uses the standard time property as shown i
 
 ![Filtered query](media/scope/query-filtered.png)
 
-If you use the [workspace](workspace-expression.md) or [app](app-expression.md) command to retrieve data from another workspace or application, the time picker may behave differently. If the scope is a Log Analytics workspace, and you use **app** or if the scope is an Application Insights application, and you use **workspace**, then Log Analytics may not understand that the property used in the filter should determine the time filter.
+If you use the [workspace](workspace-expression.md) or [app](app-expression.md) command to retrieve data from another workspace or application, the time picker may behave differently. If the scope is a Log Analytics workspace and you use **app**, or if the scope is an Application Insights application and you use **workspace**, then Log Analytics may not understand that the property used in the filter should determine the time filter.
 
 In the following example, the scope is set to a Log Analytics workspace.  The query uses **workspace** to retrieve data from another Log Analytics workspace. The time picker changes to **Set in query** because it sees a filter that uses the expected **TimeGenerated** property.
 

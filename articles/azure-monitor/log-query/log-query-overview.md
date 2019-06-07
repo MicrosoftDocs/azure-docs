@@ -10,11 +10,15 @@ ms.author: bwren
 ---
 
 # Overview of log queries in Azure Monitor
-A _log query_ in Azure Monitor is a read only request to retrieve and process data from [Azure Monitor Logs](../platform/data-platform-logs.md). Some features in Azure Monitor such as [insights](../insights/insights-overview.md) and [solutions](../insights/solutions-inventory.md) process log data without exposing you to the underlying queries. To fully leverage other features of Azure Monitor, you should understand how queries are constructed and how you can use them to interactively analyze data in Azure Monitor Logs. 
+Log queries help you to fully leverage the value of the the data collected in [Azure Monitor Logs](../platform/data-platform-logs.md). Some features in Azure Monitor such as [insights](../insights/insights-overview.md) and [solutions](../insights/solutions-inventory.md) process log data without exposing you to the underlying queries. To fully leverage other features of Azure Monitor, you should understand how queries are constructed and how you can use them to interactively analyze data in Azure Monitor Logs.
 
-This article includes a brief overview and answers to common questions about log queries in Azure Monitor. Links are provided to other documentation that provide further details and lessons for constructing log queries to meet different requirements.
+A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code. Virtually any question can be answered and analysis performed as long as the supporting data is collected, and you understand how to construct the right query.
 
-For a tutorial on log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).
+Use this article as a starting point to learning about log queries in Azure Monitor. It includes a brief overview and answers common questions. Links are provided to other documentation that provides further details and lessons.
+
+If you want to jump right into things, you can start with the following tutorials:
+- [Get started with Log Analytics in Azure Monitor](get-started-portal.md).
+- [Get started with log queries in Azure Monitor](get-started-queries.md).
 
 ## What language do log queries use?
 Azure Monitor Logs is based on [Azure Data Explorer](/azure/data-explorer), and log queries are written using the same Kusto query language (KQL). Refer to the [Azure Data Explorer KQL documentation](/azure/kusto/query) for reference on different functions available.
@@ -69,7 +73,7 @@ All data collected in Azure Monitor Logs is available to retrieve and analyze in
 See [Sources of Azure Monitor Logs](../platform/data-platform-logs.md#sources-of-azure-monitor-logs), for a list of different data sources that populate Azure Monitor Logs.
 
 ## How is data organized in Azure Monitor Logs?
-When you build a query, you start by determining which tables have the data that you're looking for, so you should have at least a basic understanding of how data in Azure Monitor Logs is structured.  See [Structure of Azure Monitor Logs](logs-structure) for a complete explanation.
+When you build a query, you start by determining which tables have the data that you're looking for, so you should have at least a basic understanding of how data in Azure Monitor Logs is structured.  See [Structure of Azure Monitor Logs](logs-structure.md) for a complete explanation.
 
 ## Where are log queries used?
 In addition to interactively working with log queries and their results in Log Analytics, areas in Azure Monitor where you will use queries include the following:

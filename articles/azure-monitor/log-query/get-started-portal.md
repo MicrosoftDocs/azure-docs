@@ -16,7 +16,7 @@ ms.author: bwren
 
 In this tutorial you will learn how to use Azure Monitor Log Analytics in the Azure portal to write Azure Monitor log queries. It will teach you how to:
 
-- Write simple queries
+- Use Log Analytics to write a simple query
 - Understand the schema of your data
 - Filter, sort, and group results
 - Apply a time range
@@ -25,7 +25,7 @@ In this tutorial you will learn how to use Azure Monitor Log Analytics in the Az
 - Export and share queries
 
 For a tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).<br>
-For more details on Log Analytics, see [Overview of Log Analytics in Azure Monitor](portals.md).
+For more details on log queries, see [Overview of log queries in Azure Monitor](log-query-overview.md).
 
 ## Meet Log Analytics
 Log Analytics is a web tool used to write and execute Azure Monitor log queries. Open it by selecting **Logs** in the Azure Monitor menu. It starts with a new blank query.

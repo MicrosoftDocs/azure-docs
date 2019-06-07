@@ -23,9 +23,9 @@ ms.author: bwren
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In this tutorial you will learn to write Azure Monitor log queries. It will teach you how to:
+In this tutorial you will learn to write log queries in Azure Monitor. It will teach you how to:
 
-- Understand queries' structure
+- Understand query structure
 - Sort query results
 - Filter query results
 - Specify a time range
@@ -33,7 +33,7 @@ In this tutorial you will learn to write Azure Monitor log queries. It will teac
 - Define and use custom fields
 - Aggregate and group results
 
-For a tutorial on Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](get-started-portal.md).<br>
+For a tutorial on using Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](get-started-portal.md).<br>
 For more details on log queries in Azure Monitor, see [Overview of log queries in Azure Monitor](log-query-overview.md).
 
 ## Writing a new query
