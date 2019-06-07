@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/06/2019
+ms.date: 06/07/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -27,7 +27,7 @@ Azure DevOps provides an integrated set of features that you can access through 
 This tutorial is designed for Azure Resource Manager template developers who are new Azure DevOps Services and Azure Pipelines. If you are already familiar with GitHub and DevOps, you can skip to ...
 
 > [!NOTE]
-> Pick a project name. When you go through the tutorial, replace any of the **AzureRMPipeline** with your project name.
+> Pick a project name. When you go through the tutorial, replace any of the **AzureRmPipeline** with your project name.
 
 This tutorial covers the following tasks:
 
@@ -48,14 +48,14 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * **A Github account**, where you use it to create a repository for your templates. If you don’t have one, you can [create one for free](https://github.com). For more information about using Github repositories, see [Build GitHub respositories](/azure/devops/pipelines/repos/github).
-* **Install Git**. This tutorial uses Git Bash or Git Shell to sync the content. For instructions, see [Install Git]( https://www.atlassian.com/git/tutorials/install-git).
+* **Install Git**. This tutorial instruction uses *Git Bash* or *Git Shell*. For instructions, see [Install Git]( https://www.atlassian.com/git/tutorials/install-git).
 * **An Azure DevOps organization**. If you don't have one, you can create one for free. See [Create an organization or project collection]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension. See [Install the extension
+* **[Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension**. See [Install the extension
 ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## Prepare a GitHub repository
 
-There are a number of [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types). GitHub is used in this tutorial to store your Resource Manager templates.
+GitHub is used in this tutorial to store your Resource Manager templates. For other supported repositories, see [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
 
 ### Create a GitHub repository
 
@@ -64,12 +64,14 @@ If you don’t have a GitHub account, see [Prerequisites](#prerequisites).
 1. Sign in to [GitHub](https://github.com).
 2. Select your account image on the upper right corner, and then select **Your repositories**.
 3. Select **New**.
-4. In **Repository name**, enter **AzureRMPipeline-repo**. Remember to replace any of **AzureRmPipeline** with your project name. You can select either **Public** or **private** for going through this tutorial. And then select **Create repository**.
+4. In **Repository name**, enter **AzureRmPipeline-repo**. Remember to replace any of **AzureRmPipeline** with your project name. You can select either **Public** or **private** for going through this tutorial. And then select **Create repository**.
 5. Write down the URL. The repository URL shall be:
 
     ```url
-    **https://github.com/[YourAccountName]/[YourRepositoryName]**
+    https://github.com/[YourAccountName]/[YourRepositoryName]
     ```
+
+This repository is usually referred to as a *remote repository*. Each of the developers of the same project can clone his/her own *local repository*, and merge the changes to the remote repository.
 
 ### Clone the repository
 
@@ -80,16 +82,16 @@ You need to clone a local repository so you can work on the files.
 1. Run the following command:
 
     ```bash
-    git clone https://github.com/[YourAccountName]/[YourRepositoryName]
-    cd [YourRepositoryName]
+    git clone https://github.com/[YourAccountName]/AzureRmPipeline-repo
+    cd AzureRmPipeline-repo
     mkdir CreateAzureStorage
     cd CreateAzureStorage
     pwd
     ```
 
-    Replace **[YourAccountName]** with your actually GitHub account name, and repace **[YourRepositoryName] with your actually repository name you created in the previous procedure.
+    Replace **[YourAccountName]** with your actually GitHub account name, and replace **AzureRmPipeline-repo** with your actually repository name you created in the previous procedure.
 
-The **CreateAzureStorage** folder is the folder where the template is storedThe **pwd** command shows the folder path. This is the path where you save the template to in the following procedure.
+The **CreateAzureStorage** folder is the folder where the template is stored. The **pwd** command shows the folder path. This is the path where you save the template to in the following procedure.
 
 ### Download a Quickstart template
 
@@ -108,7 +110,7 @@ Instead of creating a template, you can download a [Quickstart template]( https:
 
 The azuredeploy.json has been added to the local repository. Next, you upload the template to the remote repository.
 
-1. Open Git Shell or Git Bash, if it is not opened.
+1. Open *Git Shell* or *Git Bash*, if it is not opened.
 1. Change directory to your local repository.
 1. Run the following command:
 
@@ -118,21 +120,21 @@ The azuredeploy.json has been added to the local repository. Next, you upload th
     git push origin master
     ```
 
-    You might get a warning about LF. You can ignore the warning. **master** is the master branch.  You typically create a branch for each major update.  To simplify the tutorial, you use the master branch.
-1. Browse to your GitHub repository from a browser.  The URL is **https://github.com/[YourAccountName]/[YourRepositoryName]]**. You shall see the **CreateAzureStorage** folder and **Azuredeploy.json** inside the folder.
+    You might get a warning about LF. You can ignore the warning. **master** is the master branch.  You typically create a branch for each update. To simplify the tutorial, you use the master branch directly.
+1. Browse to your GitHub repository from a browser.  The URL is **https://github.com/[YourAccountName]/AzureRmPipeline-repo**. You shall see the **CreateAzureStorage** folder and **Azuredeploy.json** inside the folder.
 
 So far, you have created a GitHub repository, and uploaded a template to the repository.
 
 ## Create a DevOps project
 
-A DevOps organization is needed before you can proceed.  If you don’t have one, see [Prerequisties](#prerequisites).
+A DevOps organization is needed before you can proceed to the next procedure.  If you don’t have one, see [Prerequisties](#prerequisites).
 
 1. Sign in to [Azure DevOps](https://dev.azure.com).
 1. Select a DevOps organization from the left.
-1. Select **Create project**. If you don't have any project, the create project page is opened automatically.
+1. Select **Create project**. If you don't have any projects, the create project page is opened automatically.
 1. Enter the following values:
 
-    * **Project name**: enter a project name.
+    * **Project name**: enter a project name. You can use the project name you picked at the very beginning of the tutorial.
     * **Version control**: Select **Git**. You might need to expand **Advanced** to see **Version control**.
 
     Use the default value for the other properties.
@@ -145,7 +147,7 @@ Create a service connection that is used to deploy projects to Azure.
 1. Select **New Service connection**, and then select **AzureResourceManager**.
 1. Enter the following values:
 
-    * **Connection name**: enter a connection name.  You need this connection name when you develop your pipeline.
+    * **Connection name**: enter a connection name. For example, **AzureRmPipeline-conn**. Write down this name, you need the name when you create your pipeline.
     * **Scope level**: select **Subscription**.
     * **Subscription**: select your subscription.
     * **Resource Group**: Leave it blank.
@@ -156,22 +158,16 @@ Create a service connection that is used to deploy projects to Azure.
 
 1. Select **Pipelines** from the left menu.
 1. Select **New pipeline**.
-1. From the **Connect** tab, select **Github**
+1. From the **Connect** tab, select **Github**. If asked, enter your GitHub credentials, and then follow the instructions.
 1. From the **Select** tab, select your repository.  The default name is **[YourAccountName]/AzureRmPipeline-repo**.
+1. From the **Configure** tab, select **Starter pipeline**. It shows the **azure-pipelines.yml** pipeline file with two script steps.
+1. Replace the **steps** section with the following YAML:
 
-    The following steps might be optional:
-
-    1. Enter your GitHub credentials if asked.
-    1. From the **Azure Pipelines** page, very the GitHub repository is the only one in the **Only select repository** list, and then select **Approve and install**.
-    1. Enter your Azure credentials if asked.
-1. From the **Configure** tab, select **Starter pipeline**. It shows the **azure-pipelines.yml** pipeline file with two steps.
-1. Replace the **steps** section with the following yml:
-
-    ```yml
+    ```yaml
     steps:
     - task: AzureResourceGroupDeployment@2
       inputs:
-        azureSubscription: '[EnterYourServiceConnection]'
+        azureSubscription: 'AzureRmPipeline-conn'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '[EnterANewResourceGroupName]'
         location: 'Central US'
@@ -182,19 +178,55 @@ Create a service connection that is used to deploy projects to Azure.
 
     It shall look like:
 
-    ![Azure Resource Manager DevOps pipelines yml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-yml.png)
-    Update **azureSubscription** with the service connection created in the previous procedure, update **resourceGroupName**, and update the location.
+    ![Azure Resource Manager DevOps pipelines yaml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-yml.png)
 
-    **csmFile** is the path to the template file.
+    Make the following changes:
 
-1. From the **Review** tab, select **Save and run**, and then select **Save and run** again. It takes a few moments to build and run the pipeline.
+    * **azureSubscription**: update the value with the service connection created in the previous procedure.
+    * **action**: the **Create Or Update Resource Group** action does two actions - 1. create a resource group if a new resource group name is provided; 2. deploy the template specified.
+    * **resourceGroupName**: specify a new resource group name. For example, **AzureRmPipeline-rg**.
+    * **location**: specify the location for the resource group.
+    * **templateLocation**: when **Linked artifact" is specified, the task looks for the template file directly from the connected repository.
+    * **csmFile** is the path to the template file. You don't need to specify a template parameters file because all of the parameters defined in the template have default values.
+
+    For more information about the task, see [Azure Resource Group Deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+1. Select **Save and run**.
+1. Select **Save and run** again. A copy of the YAML file is saved into the connected repository. You can see the YAML file by browse to your repository.
 1. Verify that the pipeline is executed successfully.
 
-    ![Azure Resource Manager DevOps pipelines yml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-status.png)
+    ![Azure Resource Manager DevOps pipelines yaml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-status.png)
 
 ## Verify the deployment
 
-Sign into the [Azure portal](https://portal.azure.com), verify the resource group and the storage account is created successfully.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open the resource group. The name is what you specified in the pipeline YAML file.  You shall see one storage account created.  The storage account name starts with **store**.
+1. Select the storage account name to open it.
+1. Select **Properties**. Notice the **SKU** is **Standard_LRS**.
+
+## Update the template
+
+If you update the template, and push the changes to the remote repository.  The pipeline automatically updates the resources, the storage account in this case.
+
+1. Open **azuredeploy.json** from your local repository in Visual Studio Code.
+1. Update the **defaultValue** of **storageAccountType** to **Standard_GRS**. See the following screenshot:
+
+    ![Azure Resource Manager DevOps pipelines update yaml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-update-yml.png)
+
+1. Save the changes.
+1. Push the changes to the remote repository by running the following commands from Git Bash/Shell.
+
+    ```bash
+    git pull origin master
+    git add .
+    git commit -m “Add a new create storage account template.”
+    git push origin master
+    ```
+
+    The first command syncs the local repository with the remote repository. Remember the pipeline YAML file was added to the remote repository.
+
+    With the master branch of the remote repository updated, the pipeline is fired again.
+
+To verify the changes, you can check the SKU of the storage account.  See [Verify the deployment](#verify-the-deployment).
 
 ## Clean up resources
 
