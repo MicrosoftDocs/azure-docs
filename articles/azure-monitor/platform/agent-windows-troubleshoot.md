@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2019
+ms.date: 06/07/2019
 ms.author: magoedte
 ---
 
@@ -23,8 +23,6 @@ If none of these steps work for you, the following support channels are also ava
 
 * Customers with Premier support benefits can open a support request with [Premier](https://premier.microsoft.com/).
 * Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true).
-* Diagnose OMI Problems with the [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
-* File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
 * Visit the Log Analytics Feedback page to review submitted ideas and bugs [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one. 
 
 ## Important troubleshooting sources
