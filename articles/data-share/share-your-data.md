@@ -70,7 +70,7 @@ Create an Azure Data Share resource in an Azure resource group.
 1. Click **Continue**
 
 1. To add Datasets to your Data Share, click **Add Datasets**. 
-    ![EnableRefresh](./media/add_datasets.png "Add Datasets")
+    ![EnableRefresh](./media/add-datasets.png "Add Datasets")
 
 1. Select the Dataset Type that you would like to add. Navigate to the object you would like to share and click 'Add Datasets'. 
 
