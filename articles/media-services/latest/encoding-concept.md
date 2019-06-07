@@ -23,7 +23,7 @@ The term encoding in Media Services applies to the process of converting files c
 
 Videos are typically delivered to devices and applications by [progressive download](https://en.wikipedia.org/wiki/Progressive_download) or through [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
 
-* To deliver by progressive download, you can use Azure Media Services to convert a your digital media file (mezzanine) into an [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) file which contains video that has been encoded with the [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) codec, and audio that has been encoded with the [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. This MP4 file is written to an Asset in your storage account. You can use the Azure Storage APIs or SDKs  (for example, [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) to download the file directly. If you created the output Asset with a specific container name in storage, use that location. Otherwise, you can use Media Services to [list the asset container URLs](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* To deliver by progressive download, you can use Azure Media Services to convert a digital media file (mezzanine) into an [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) file, which contains video that has been encoded with the [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) codec, and audio that has been encoded with the [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. This MP4 file is written to an Asset in your storage account. You can use the Azure Storage APIs or SDKs  (for example, [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) to download the file directly. If you created the output Asset with a specific container name in storage, use that location. Otherwise, you can use Media Services to [list the asset container URLs](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
 * To prepare content for delivery by adaptive bitrate streaming, the mezzanine file needs to be encoded at multiple bitrates (high to low). To ensure graceful transition of quality, as the bitrate is lowered, so is the resolution of the video. This results in a so-called encoding ladder – a table of resolutions and bitrates (see [auto-generated adaptive bitrate ladder](autogen-bitrate-ladder.md)). You can use Media Services to encode your mezzanine files at multiple bitrates – in doing so, you will get a set of MP4 files, and associated streaming configuration files, written to an Asset in your storage account. You can then use the [Dynamic Packaging](dynamic-packaging-overview.md) capability in Media Services to deliver the video via streaming protocols like [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) and [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). This requires you to create a [Streaming Locator](streaming-locators-concept.md) and build streaming URLs corresponding to the supported protocols, which can then be handed off to devices/applications based on their capabilities.
 
 The following diagram shows the workflow for on-demand encoding with dynamic packaging.
@@ -95,6 +95,32 @@ In Media Services v3, presets are strongly typed entities in the API itself. You
 ## Scaling encoding in v3
 
 To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.md).
+
+## Subclipping a video while encoding
+
+When encoding a video, you can specify to also trim or clip the source file and produce an output that has only a desired portion of the input video. This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. 
+
+Example scenarios are:
+ 
+1. Given an input video that is known to be 30 seconds or longer, you can ask the service to produce a single video MP4 at standard definition resolution that represents the portion between 5 seconds and 30 seconds on the input timeline.
+
+    a. Create a Transform using the BuiltInStandardEncoderPreset preset "H264SingleBitrateSD"
+    b. During job submission, specify a JobInputClip that has start and end points in absolute timestamp format, 00:00:05.000 and 00:00:30.000
+2. Given an input video that is known to be 30 seconds or longer, and is at 1080p/FullHD resolution, you can ask the service to produce a multiple-bitrate output, that represents the first 30 seconds
+
+    a. Create a Transform using the BuiltInStandardEncoderPreset preset " H264MultipleBitrate1080p"
+    b. During job submission, specify a JobInputClip that has start and end points in relative timestamp format, 00:00:00.000 and 00:00:30.000
+3. Suppose you have finished streaming a live event at 1080p/FullHD, and have recorded that event into an Asset. This so-called live archive could contain video that starts at, say a timestamp of 01:30:04.020 and ends at 09:22:34.452. Let us suppose that the first 4 minutes and the last 3 minutes in this live archive asset contain ‘extra’ material, and you want to create a single video MP4 representation of the event (perhaps to upload to social media)
+
+    a. Create a Transform using the BuiltInStandardEncoderPreset preset "H264SingleBitrate1080p"
+    b. During job submission, specify a JobInputClip that has start and end points in absolute timestamp format, 01:34:04.020  and 09:19:34.452
+
+### Examples
+
+See examples:
+
+* [Subclip a video with .NET](subclip-video-dotnet-howto.md)
+* [Subclip a video with REST](subclip-video-rest-howto.md)
 
 ## Ask questions, give feedback, get updates
 
