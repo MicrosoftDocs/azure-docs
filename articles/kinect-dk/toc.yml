@@ -21,6 +21,10 @@
      href: azure-kinect-dk-depth-camera.md
    - name: Coordinate systems
      href: azure-kinect-dk-coordinate-systems.md
+   - name: Body tracking joints
+     href: body-joints.md
+   - name: Body tracking index map
+     href: body-index-map.md
 - name: How-to guides
   items: 
    - name: Use Sensor SDK
