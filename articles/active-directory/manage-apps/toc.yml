@@ -2,8 +2,10 @@
     href: index.yml
   - name: Overview
     items:
-    - name: About application management
+    - name: What is application management?
       href: what-is-application-management.md
+    - name: What is Application Proxy?
+      href: what-is-application-proxy.md
   - name: Quickstarts
     expanded: true
     items:
