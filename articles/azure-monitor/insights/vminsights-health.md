@@ -145,25 +145,29 @@ The **VM distribution by operating system** list shows VMs listed by Windows edi
 Select any column including **VM count**, **Critical**, **Warning**, **Healthy**, and **Unknown** to see a list of filtered results in the Virtual Machines page that match the column selected. For example, to review all VMs running Red Hat Enterprise Linux release 7.5, select the **VM count** value for that OS, and it'll list the VMs matching that filter and their current health state.
 
 ![Example rollup of Red Hat Linux VMs](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
- 
-In the **Virtual Machines** page, if you select the name of a VM under the column **VM Name**, you are directed to the VM instance page with more details of the alerts and health criteria issues identified that are affecting the selected VM. From here, you can filter the health state details by selecting **Health State** icon in the upper left-hand corner of the page to see which components are unhealthy or you can view VM Health alerts raised by an unhealthy component categorized by alert severity.
+
+In the **Virtual Machines** page, if you select the name of a VM under the column **VM Name**, you are directed to the VM instance page. This page provides more details of the alerts and health criteria issues identified that are affecting the selected VM. From here, you can filter the health state details by selecting **Health State** icon in the upper left-hand corner of the page to see which components are unhealthy, or you can view VM Health alerts raised by an unhealthy component categorized by alert severity.
 
 From the VM list view, selecting the name of a VM opens the **Health** page for that selected VM, similarly as if you selected **Insights (preview)** from the VM directly.
 
 ![VM insights of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-Here it shows a rollup **Health Status** for the VM and **Alerts**, categorized by severity, which represents VM Health alerts raised when the health state changes from health to unhealthy for a health criteria. Selecting **VMs in critical condition** will open a page with a list of one or more VMs that are in a critical health state. Selecting the health status for one of the VMs in the list will show the **Health Diagnostics** view of the VM. Here you can find out which health criteria is reflecting a health state issue. When the **Health Diagnostics** page opens, it shows all the components of the VM and their associated health criteria with current health state. For more information, see [Health Diagnostic](#health-diagnostics).
+The **Insights (preview)** page shows a rollup health status for the VM and alerts, categorized by severity, which represents VM Health alerts raised when the health state changes from healthy to unhealthy based on criteria. Selecting **VMs in critical condition** opens a page with a list of one or more VMs that are in a critical health state.
+
+Selecting the health status for one of the VMs in the list shows the **Health Diagnostics** view of the VM. In this view, you can find out which health criteria is reflecting a health state issue. When the **Health Diagnostics** page opens, it shows all the components of the VM and their associated health criteria with current health state.
+
+For more information, see [Health Diagnostics](#health-diagnostics).
 
 Selecting **View all health criteria** opens a page showing a list of all the health criteria available with this feature. The information can be further filtered based on the following options:
 
-* **Type**. There are three kinds of health criteria types to assess conditions and roll up overall health state of the monitored VM.
-    a. **Unit**. Measures some aspect of a VM. This health criteria type might be checking a performance counter to determine the performance of the component, running a script to perform a synthetic transaction, or watch for an event that indicates an error. The filter is set to unit by default.
-    b. **Dependency**. Provides health rollup between different entities. This health criteria allows the health of an entity to depend on the health of another kind of entity that it relies on for successful operation.
-    c. **Aggregate** Provides a combined health state of similar health criteria. Unit and dependency health criterion will typically be configured under an aggregate health criterion. In addition to providing better general organization of the many different health criteria targeted at an entity, aggregate health criterion provides a unique health state for distinct categories of the entities.
+* **Type**. There are three types of health criteria to assess conditions and roll up the overall health state of a monitored VM:
+    - **Unit**. Measures some aspect of a VM. This health criteria type might be checking a performance counter to determine the performance of the component, running a script to perform a synthetic transaction, or watching for an event that indicates an error. The filter is set to unit by default.
+    - **Dependency**. Provides a health rollup between different entities. This health criteria allows the health of an entity to depend on the health of another type of entity that it relies on for successful operation.
+    - **Aggregate** Provides a combined health state of similar health criteria. Unit and dependency health criterion are typically configured under an aggregate health criterion. In addition to providing better general organization of the many different health criteria targeted at an entity, aggregate health criterion provides a unique health state for distinct categories of the entities.
 
-* **Category** - Type of health criteria used to group criteria of similar type for reporting purposes. These criteria are either **Availability** or **Performance**.
+* **Category**. The type of health criteria used to group similar criteria for reporting purposes. These criteria are either **Availability** or **Performance**.
 
-You can see which instances are unhealthy by selecting on a value under the **Unhealthy Component** column. On this page, a table lists the components that are in a critical health state.
+To see which instances are unhealthy, by select a value under the **Unhealthy Component** column. In this page, a table lists the components that are in a critical health state.
 
 ## Health diagnostics
 
