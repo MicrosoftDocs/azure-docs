@@ -21,7 +21,7 @@ Azurite v3 implements a new architecture from previous versions. It leverages co
 
 ## Get Azurite version 3
 
-Azurite is available in a GitHub repository, which you can easily clone, build, and deploy on your local system. It also ships as a Visual Studio Code extension so you can launch directly from your development environment.
+Azurite is available in a GitHub repository, which you can easily clone, build, and deploy on your local system. It also ships as a Visual Studio Code extension so you can launch it directly from your development environment.
 
 ### Prerequisites
 
@@ -37,20 +37,19 @@ To get the Azurite emulator on your local system, clone the GitHub repository fo
 git clone https://github.com/Azure/Azurite.git
 ```
 
-After cloning source code, execute following commands to install and start Azurite v3.
+After cloning the source code, execute following commands from the local root directory of the cloned repo.
 
 ```console
 npm install
 npm run build
-npm install -g
-azurite
+npm install -g azurite
 ```
 
 ## Running Azurite
 
-In order to run Azurite v3 you need Node.js >= 8.0 installed on your system. Azurite works cross-platform on Windows, Linux, and MacOS.
+In order to run Azurite v3 you need Node.js version 8.0 or later installed on your system. Azurite runs on Windows, Linux, or MacOS.
 
-After installation you can install Azurite simply with **npm** which is the Node.js package management tool included with every Node.js installation.
+After installation you can run Azurite by using **npm**, which is the package management tool included with every Node.js installation.
 
 ```console
 npm install -g azurite
@@ -84,10 +83,11 @@ azurite [--blobHost <IP address>] [--blobPort <port address>] [-l | --location <
 
 ## Supported command line options
 
+This section details the command line switches available when launching Azurite v3.
+
 ### Listening host configuration
 
-**Optional** By default, Azurite v3 will listen to 127.0.0.1 as a local server.
-You can customize the listening address per your requirements.
+**Optional** By default, Azurite v3 will listen to 127.0.0.1 as a local server. You can customize the listening address per your requirements.
 
 Accept requests on the local machine only:
 
@@ -274,10 +274,6 @@ Azurite v3 was created using TypeScript. This facilitates broad collaboration, w
 Legacy Azurite v2 supports Azure Storage Blob, Queue and Table services. Azurite v3 currently supports the Azure Storage Blob Service, with Queue support scheduled to follow soon. Azure Table Service support is currently under discussion.
 
 Azurite v3 supports features from Azure Storage API version 2018-03-28, and will maintain parity with the latest API versions, in a more frequent update frequency than legacy Azurite v2.
-
-## License
-
-This project is licensed under MIT.
 
 ## We welcome contributions
 
