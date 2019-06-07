@@ -56,7 +56,7 @@ Next, grant your application permissions to call Azure Storage APIs. This step e
 
     ![Screenshot showing register app permissions](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
-## Create a secret
+## Create a client secret
 
 The application needs a client secret to prove its identity when requesting a token. To add the client secret, follow these steps:
 
@@ -68,7 +68,7 @@ The application needs a client secret to prove its identity when requesting a to
 
     ![Screenshot showing client secret](media/storage-auth-aad-app/client-secret.png)
 
-## Libraries for token acquisition
+## Client libraries for token acquisition
 
 Once you have registered your application and granted it permissions to access data in Azure Blob storage or Queue storage, you can add code to your application to authenticate a security principal and acquire an OAuth 2.0 token. To authenticate and acquire the token, you can use either one of the [Microsoft identity platform authentication libraries](../../active-directory/develop/reference-v2-libraries.md) or another open-source library that supports OpenID Connect 1.0. Your application can then use the access token to authorize a request against Azure Blob storage or Queue storage.
 
@@ -115,51 +115,9 @@ Next, explicitly assign the **Storage Blob Data Contributor** role to the user a
 
 ### Create a web application that authorizes access to Blob storage with Azure AD
 
-When your application accesses Azure Storage, it does so on the user's behalf, meaning that blob or queue resources are accessed using the permissions of the user who is logged in. To try this code example, you need a web application that prompts the user can sign in using an Azure AD identity. You can download this [code example](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) to test a basic web application that authenticates with your Azure AD account.
+When your application accesses Azure Storage, it does so on the user's behalf, meaning that blob or queue resources are accessed using the permissions of the user who is logged in. To try this code example, you need a web application that prompts the user to sign in using an Azure AD identity. You can create your own, or use the sample application provided by Microsoft.
 
-#### View and run the completed sample
-
-A complete working version of the sample code shown in this article can be downloaded from [GitHub](http://aka.ms/aadstorage). Reviewing and running the complete sample may be helpful for understanding the code examples.
-
-To run the completed sample, update the *appsettings.json* file with your own values, as follows:
-
-```json
-{
-  "AzureAd": {
-    "Instance": "https://login.microsoftonline.com/",
-    "Domain": "<azure-ad-domain-name>.onmicrosoft.com",
-    "TenantId": "<tenant-id>",
-    "ClientId": "<client-id>",
-    "CallbackPath": "/signin-oidc",
-    "SignedOutCallbackPath ": "/signout-callback-oidc",
-
-    // To call an API
-    "ClientSecret": "<client-secret>"
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Warning"
-    }
-  },
-  "AllowedHosts": "*"
-}
-```
-
-In the *HomeController.cs* file, update the URI that references the block blob to use the name of your storage account and container:
-
-```csharp
-CloudBlockBlob blob = new CloudBlockBlob(
-                      new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
-                      storageCredentials);
-```
-
-When you run the sample, you may need to update the redirect URI specified in your app registration to use the localhost port assigned at runtime. To update the redirect URI to use the assigned port, follow these steps:
-
-1. Navigate to your app registration in the Azure portal.
-1. In the Manage section, select the **Authentication** setting.
-1. Under **Redirect URIs**, edit the port to match that used by the sample application, as shown in the following image:
-
-    ![Screenshot showing redirect URIs for app registration](media/storage-auth-aad-app/redirect-uri.png)
+A completed sample web application that acquires a token and uses it to create a blob in Azure Storage is available on [GitHub](http://aka.ms/aadstorage). Reviewing and running the completed sample may be helpful for understanding the code examples. For instructions about how to run the completed sample, see the section titled [View and run the completed sample](#view-and-run-the-completed-sample).
 
 #### Add references and using statements  
 
@@ -173,7 +131,6 @@ Install-Package Microsoft.Azure.Storage.Common
 Next, add the following using statements to the HomeController.cs file:
 
 ```csharp
-using System;
 using Microsoft.Identity.Client; //MSAL library for getting the access token
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -271,6 +228,56 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
     return properties;
 }
 ```
+
+## View and run the completed sample
+
+To run the sample application, first clone or download it from [GitHub](http://aka.ms/aadstorage). Then update the application as described in the following sections.
+
+### Provide values in the settings file
+
+Next, update the *appsettings.json* file with your own values, as follows:
+
+```json
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "Domain": "<azure-ad-domain-name>.onmicrosoft.com",
+    "TenantId": "<tenant-id>",
+    "ClientId": "<client-id>",
+    "CallbackPath": "/signin-oidc",
+    "SignedOutCallbackPath ": "/signout-callback-oidc",
+
+    // To call an API
+    "ClientSecret": "<client-secret>"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+### Update the storage account and container name
+
+In the *HomeController.cs* file, update the URI that references the block blob to use the name of your storage account and container:
+
+```csharp
+CloudBlockBlob blob = new CloudBlockBlob(
+                      new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
+                      storageCredentials);
+```
+
+### Update the port used by localhost
+
+When you run the sample, you may find that you need to update the redirect URI specified in your app registration to use the *localhost* port assigned at runtime. To update the redirect URI to use the assigned port, follow these steps:
+
+1. Navigate to your app registration in the Azure portal.
+1. In the Manage section, select the **Authentication** setting.
+1. Under **Redirect URIs**, edit the port to match that used by the sample application, as shown in the following image:
+
+    ![Screenshot showing redirect URIs for app registration](media/storage-auth-aad-app/redirect-uri.png)
 
 ## Next steps
 
