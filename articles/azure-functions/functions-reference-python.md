@@ -226,7 +226,7 @@ Additional logging methods are available that let you write to the console at di
 
 ## Async
 
-It is recommended to implement your Azure Function as an asynchronous coroutine using the `async def` statement.
+We recommend that you write your Azure Function as an asynchronous coroutine using the `async def` statement.
 
 ```python
 # Will be run with asyncio directly
