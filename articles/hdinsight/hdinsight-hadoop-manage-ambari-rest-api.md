@@ -396,7 +396,6 @@ At this point, if you look at the Ambari web UI, the Spark service indicates tha
         -Method PUT `
         -Headers @{"X-Requested-By" = "ambari"} `
         -Body '{"RequestInfo": {"context": "turning on maintenance mode for SPARK2"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}'
-    $resp.Content
     ```
 
 2. Verify maintenance mode  
