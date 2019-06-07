@@ -178,10 +178,10 @@ To onboard a customer's subscription, use the appropriate Azure Resource Manager
 
 |**To onboard this ...**  |**Use this Azure Resource Manager template ...**  |**... and modify this parameter file** |
 |---------|---------|---------|
-|Subscription   |delegated-resource-management\delegatedResourceManagement.json  |delegated-resource-management\delegatedResourceManagement.parameters.json    |
-|Resource group   |rg-delegated-resource-management\rgDelegatedResourceManagement.json  |rg-delegated-resource-management\rgDelegatedResourceManagement.parameters.json    |
-|Multiple resource groups within a subscription   |rg-delegated-resource-management\multipleRgDelegatedResourceManagement.json  |rg-delegated-resource-management\multipleRgDelegatedResourceManagement.parameters.json    |
-|Subscription (when using an offer published to Azure Marketplace)   |marketplace-delegated-resource-management\marketplaceDelegatedResourceManagement.json  |marketplace-delegated-resource-management\marketplaceDelegatedResourceManagement.parameters.json    |
+|Subscription   |delegated-resource-management\ delegatedResourceManagement.json  |delegated-resource-management\ delegatedResourceManagement.parameters.json    |
+|Resource group   |rg-delegated-resource-management\ rgDelegatedResourceManagement.json  |rg-delegated-resource-management\ rgDelegatedResourceManagement.parameters.json    |
+|Multiple resource groups within a subscription   |rg-delegated-resource-management\ multipleRgDelegatedResourceManagement.json  |rg-delegated-resource-management\ multipleRgDelegatedResourceManagement.parameters.json    |
+|Subscription (when using an offer published to Azure Marketplace)   |marketplace-delegated-resource-management\ marketplaceDelegatedResourceManagement.json  |marketplace-delegated-resource-management\ marketplaceDelegatedResourceManagement.parameters.json    |
 
 > [!IMPORTANT]
 > The process described here requires a separate deployment for each subscription being onboarded (or for each subscription containing resource group(s) that are being onboarded).
