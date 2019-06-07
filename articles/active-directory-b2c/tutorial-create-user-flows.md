@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Create user flows in Azure Active Directory B2C
 
-In your applications, you may have [user flows](active-directory-b2c-reference-policies.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory (Azure AD) B2C tenant and use them in your applications as needed. User flows can be reused across applications.
+In your applications you may have [user flows](active-directory-b2c-reference-policies.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory (Azure AD) B2C tenant and use them in your applications as needed. User flows can be reused across applications.
 
 In this article, you learn how to:
 
@@ -24,7 +24,7 @@ In this article, you learn how to:
 > * Create a profile editing user flow
 > * Create a password reset user flow
 
-This tutorial shows you how to create some recommended user flows by using the Azure portal. If you are looking for information about how to set up a resource owner password credentials (ROPC) flow in your application, see [Configure the resource owner password credentials flow in Azure AD B2C](configure-ropc.md).
+This tutorial shows you how to create some recommended user flows by using the Azure portal. If you're looking for information about how to set up a resource owner password credentials (ROPC) flow in your application, see [Configure the resource owner password credentials flow in Azure AD B2C](configure-ropc.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
