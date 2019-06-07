@@ -41,7 +41,7 @@ Azure Disk Encryption requires Internet connectivity for access to Active Direct
 
 ### V2 ("single-pass encryption")
 
-Single-pass encryption does not reply on Azure Active Directory.
+Single-pass encryption does not rely on Azure Active Directory.
 
 ```json
 {
@@ -50,23 +50,23 @@ Single-pass encryption does not reply on Azure Active Directory.
   "apiVersion": "2015-06-15",
   "location": "[location]",
   "properties": {
-	"publisher": "Microsoft.Azure.Security",
-	"settings": {
-	  "EncryptionOperation": "[encryptionOperation]",
-	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-	  
-	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+        "publisher": "Microsoft.Azure.Security",
+        "settings": {
+          "EncryptionOperation": "[encryptionOperation]",
+          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+          
+          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
           "KekVaultResourceId": "[keyVaultResourceID]",
-	  
-	  "KeyVaultURL": "[keyVaultURL]",
+          
+          "KeyVaultURL": "[keyVaultURL]",
           "KeyVaultResourceId": "[keyVaultResourceID]",
 
-	  "EncryptionOperation": "[encryptionOperation]",
-	  "SequenceVersion": "sequenceVersion]",
-	  "VolumeType": "[volumeType]"
-	},
-	"type": "AzureDiskEncryption",
-	"typeHandlerVersion": "[extensionVersion]"
+          "EncryptionOperation": "[encryptionOperation]",
+          "SequenceVersion": "sequenceVersion]",
+          "VolumeType": "[volumeType]"
+        },
+        "type": "AzureDiskEncryption",
+        "typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
@@ -83,27 +83,27 @@ Dual-pass encryption uses Azure Active Directory for authentication.
   "apiVersion": "2015-06-15",
   "location": "[location]",
   "properties": {
-	"protectedSettings": {
-	  "AADClientSecret": "[aadClientSecret]",
-	},
-	"publisher": "Microsoft.Azure.Security",
-	"settings": {
-	  "AADClientID": "[aadClientID]",
-	  "EncryptionOperation": "[encryptionOperation]",
-	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-	  
-	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+        "protectedSettings": {
+          "AADClientSecret": "[aadClientSecret]",
+        },
+        "publisher": "Microsoft.Azure.Security",
+        "settings": {
+          "AADClientID": "[aadClientID]",
+          "EncryptionOperation": "[encryptionOperation]",
+          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+          
+          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
           "KekVaultResourceId": "[keyVaultResourceID]",
-	  
-	  "KeyVaultURL": "[keyVaultURL]",
+          
+          "KeyVaultURL": "[keyVaultURL]",
           "KeyVaultResourceId": "[keyVaultResourceID]",
 
-	  "EncryptionOperation": "[encryptionOperation]",
-	  "SequenceVersion": "sequenceVersion]",
-	  "VolumeType": "[volumeType]"
-	},
-	"type": "AzureDiskEncryption",
-	"typeHandlerVersion": "[extensionVersion]"
+          "EncryptionOperation": "[encryptionOperation]",
+          "SequenceVersion": "sequenceVersion]",
+          "VolumeType": "[volumeType]"
+        },
+        "type": "AzureDiskEncryption",
+        "typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
