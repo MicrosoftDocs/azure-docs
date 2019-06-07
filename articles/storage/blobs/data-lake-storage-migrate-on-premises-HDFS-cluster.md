@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 06/05/2019
+ms.date: 06/07/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
@@ -21,7 +21,7 @@ This article helps you complete these tasks:
 > * Prepare to migrate your data.
 > * Copy your data to a Data Box or a Data Box Heavy device.
 > * Ship the device back to Microsoft.
-> * Move the data onto your Data Lake Storage Gen2 storage account.
+> * Move the data onto Data Lake Storage Gen2.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ You need these things to complete the migration.
 
 * An Azure Storage account that **doesn't** have hierarchical namespaces enabled on it.
 
-* If you want to migrate your data to Azure Data Lake storage Gen2, then you'll need to create a storage account and enable the **hierarchical namespace** feature on that account.
+* If you want to migrate your data to Azure Data Lake storage Gen2, then you'll need to create a storage account, and then enable the **hierarchical namespace** feature on that account.
 
 * An on-premises Hadoop cluster that contains your source data.
 
