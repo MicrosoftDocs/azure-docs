@@ -175,22 +175,23 @@ The **Health Diagnostics** page allows you to visualize the Health Model of a VM
 
 ![Example of Health Diagnostics page for a VM](./media/vminsights-health/health-diagnostics-page-01.png)
 
-You can launch Health Diagnostics in the following ways.
+You can launch Health Diagnostics by using the following methods:
 
-* By rollup health state for all VMs from the aggregate VM perspective in Azure Monitor. On the **health** page, select the icon for **Critical**, **Warning**, **Healthy**, or **Unknown** health state under the section **Guest VM health**. Go to the page that lists all the VMs matching that filtered category. Select the value in the **Health State** column to open Health Diagnostics scoped to that particular VM.
+* By rollup health-state for all VMs from the aggregate VM perspective in Azure Monitor:
+
+    1. On the **health** page, select the icon for **Critical**, **Warning**, **Healthy**, or **Unknown** health state under the section **Guest VM health**. 
+    2. Go to the page that lists all the VMs matching that filtered category. 
+    3. Select the value in the **Health State** column to open health diagnostics scoped to that particular VM.
 
 * By operating system from the aggregate VM perspective in Azure Monitor. Under **VM distribution**, selecting any one of the column values will open the **Virtual Machines** page and return a list in the table matching the filtered category. Selecting the value under **Health State** column opens Health Diagnostics for the selected VM.
  
-* From the guest VM on the Azure Monitor for VMs **Health** tab, by selecting **View health diagnostics** 
+* From the guest VM in the Azure Monitor for VMs **Health** tab, by selecting **View health diagnostics**.
 
-Health Diagnostics organizes health information into the following categories: 
-
-* Availability
-* Performance
+Health Diagnostics organizes health information into two categories: **Availability** and **Performance**.
  
 All health criteria defined for a specific component such as logical disk, CPU, etc. can be viewed without filtering on the two categories (that is an all-up view of all criteria), or filter the results by either category when selecting **Availability** or **Performance** options on the page. Additionally, the category of the criteria can be seen next to it in the **Health Criteria** column. If the criteria doesn't match the selected category, it will show the message **No health criteria available for the selected category** in the **Health Criteria** column. 
 
-State of a health criteria is defined by one of the four states – *Critical*, *Warning*, *Healthy*, and *Unknown*. The first three are configurable, meaning you can modify the threshold values of the monitors directly from the Health Criteria configuration pane or by using the Azure Monitor REST API [update monitor operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Unknown* is not configurable and reserved for specific scenarios.
+State of a health criteria is defined by one of the four states: **Critical**, **Warning**, **Healthy**, and **Unknown**. The first three states are configurable, meaning you can modify the threshold values of the monitors directly from the Health Criteria configuration pane or by using the Azure Monitor REST API [update monitor operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). **Unknown** is not configurable and reserved for specific scenarios.
 
 Health diagnostics page has three main sections:
 
@@ -216,13 +217,15 @@ The center column in the Health Diagnostics page is the **Health Criteria** colu
 
 A health criterion measures the health of the monitored instance with some criteria, which could be a threshold value, state of an entity, etc. A health criterion has either two or three configurable health state thresholds as described earlier. At any given point, the health criterion can be in only one of its potential states.
 
-The overall health of a target is determined by the health of each of its health criteria defined in the health model. It is a combination of health criteria targeted directly at the target, health criteria targeted at components rolling up to the target through an aggregate health criterion. This hierarchy is illustrated in the **Health Criteria** section of the Health Diagnostics page. The health rollup policy is part of the configuration of the aggregate health criteria (default is set to *Worst-of*). You can find a list of default set of health criteria running as part of this feature under the section [Monitoring configuration details](#monitoring-configuration-details), and you can use the Azure Monitor REST API [monitor instances - list by resource operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) to get a list of all the health criteria and its detailed configuration running against the Azure VM resource.
+The overall health of a target is determined by the health of each of its health criteria defined in the health model. It is a combination of health criteria targeted directly at the target, health criteria targeted at components rolling up to the target through an aggregate health criterion. This hierarchy is illustrated in the **Health Criteria** section of the Health Diagnostics page.
 
-**Unit** Health criteria type can have their configuration modified by selecting on the ellipse link to the far right and selecting **Show Details** to open the configuration pane. 
+The health rollup policy is part of the configuration of the aggregate health criteria (default is set to **Worst-of**). You can find a list of default set of health criteria running as part of this feature under the section [Monitoring configuration details](#monitoring-configuration-details), and you can use the Azure Monitor REST API [monitor instances - list by resource operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) to get a list of all the health criteria and its detailed configuration running against the Azure VM resource.
+
+**Unit** health criteria type can have their configuration modified by selecting the ellipses link to the far right and then selecting **Show Details** to open the configuration pane.
 
 ![Configuring a health criteria example](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-In the configuration pane for the selected health criteria, by using the example **Average Disk Seconds Per Write**, its threshold can be configured with a different numeric value. It is a two-state monitor, meaning it only changes from healthy to warning. Other health criterion can be three states, where you can configure the value for the warning and critical health state threshold. You can also modify the threshold using the Azure Monitor REST API [update monitor operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
+In the configuration pane for the selected health criteria, by using the example **Average Disk Seconds Per Write**, the threshold can be configured with a different numeric value. It is a two-state monitor, meaning it only changes from healthy to warning. Other health criterion can be three states, where you can configure the value for the warning and critical health state threshold. You can also modify the threshold using the Azure Monitor REST API [update monitor operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
 
 >[!NOTE]
 >Applying health criteria configuration changes to one instance is applied to all monitored instances. For example, if you select **Disk -1 D:** and modify the **Average Disk Seconds Per Write** threshold, it doesn't apply to only that instance, but all other disk instances discovered and monitored on the VM.
