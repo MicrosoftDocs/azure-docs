@@ -2,7 +2,7 @@
 title: Network topologies for Azure SQL Database Managed Instance migrations using Azure Database Migration Service | Microsoft Docs
 description: Learn the source and target configurations for Azure Database Migration Service.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
@@ -14,9 +14,11 @@ ms.date: 06/07/2019
 ---
 
 # Network topologies for Azure SQL DB Managed Instance migrations using Azure Database Migration Service
+
 This article discusses various network topologies that Azure Database Migration Service can work with to provide a comprehensive migration experience from on-premises SQL Servers to Azure SQL Database Managed Instance.
 
 ## Azure SQL Database Managed Instance configured for Hybrid workloads 
+
 Use this topology if your Azure SQL Database Managed Instance is connected to your on-premises network. This approach provides the most simplified network routing and yields maximum data throughput during the migration.
 
 ![Network Topology for Hybrid Workloads](media/resource-network-topologies/hybrid-workloads.png)
@@ -27,7 +29,9 @@ Use this topology if your Azure SQL Database Managed Instance is connected to yo
 - The VNet used in this scenario is also connected to the on-premises network by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## Azure SQL Database Managed Instance isolated from the on-premises network
+
 Use this network topology if your environment requires one or more of the following scenarios:
+
 - The Azure SQL Database managed instance is isolated from on-premises connectivity, but your Azure Database Migration Service instance is connected to the on-premises network.
 - If Role Based Access Control (RBAC) policies are in place and you need to limit the users to accessing the same subscription that is hosting the Azure SQL Database managed instance.
 - The VNets used for the Azure SQL Database Managed Instance and Azure Database Migration Service are in different subscriptions.
@@ -61,7 +65,7 @@ Use this network topology if your environment requires one or more of the follow
 
 **Requirements**
 
-- Set up [VNet network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the VNET used for Azure SQL Database managed instance and Azure Database Migration Service.
+- Set up [VNet network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the VNet used for Azure SQL Database managed instance and Azure Database Migration Service.
 
 ## Inbound security rules
 
