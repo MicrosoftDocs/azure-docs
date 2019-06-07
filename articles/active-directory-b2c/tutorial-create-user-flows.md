@@ -46,7 +46,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
     ![Select new user flow](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-1. On the **Recommended** tab, select the **Sign-up and sign-in** user flow.
+1. On the **Recommended** tab, select the **Sign up and sign in** user flow.
 
     ![Select the sign-up and sign-in user flow](./media/tutorial-create-user-flows/signup-signin-type.png)
 
