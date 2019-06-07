@@ -45,7 +45,7 @@ America | Canada East, Canada Central, South Central US, West Central US, East U
 Europe | UK West, UK South, North Europe, West Europe, France Central, France South, South Africa West, South Africa North
 Asia | South India, Central India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South
 Australia	| Australia East, Australia Southeast, Australia Central, Australia Central 2
-Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
+Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central 
 Germany	| Germany Central, Germany Northeast
 China | China East, China North, China North2, China East2
 
