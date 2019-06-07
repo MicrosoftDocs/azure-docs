@@ -36,7 +36,7 @@ This quickstart requires the following setup:
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
-> To start your quickstart application, use either of the following options:
+> To start your quickstart application, use either of the following options.
 >
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
@@ -76,8 +76,7 @@ This quickstart requires the following setup:
 
 Select the option that's suitable to your development environment:
 
-* To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
-. To open the files, use an editor such as [Visual Studio Code](https://code.visualstudio.com/).
+* To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip). To open the files, use an editor such as [Visual Studio Code](https://code.visualstudio.com/).
 
 * (Optional) To run the project with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extract the zip file to a local folder (for example, *C:\Azure-Samples*).
 
@@ -109,9 +108,9 @@ var msalConfig = {
 > Where:
 > - *\<Enter_the_Application_Id_here>* is the **Application (client) ID** for the application you registered.
 > - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
->    - If your application supports *Accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
->    - If your application supports *Accounts in any organizational directory*, replace this value with **organizations**.
->    - If your application supports *Accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *Personal Microsoft accounts only*, replace this value with **consumers**.
+>    - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
+>    - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
+>    - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
 >
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
@@ -138,7 +137,7 @@ After the browser loads the application, select **Sign In**. The first time that
 
 ## More information
 
-### *msal.js*
+### msal.js
 
 The MSAL library signs in users and requests the tokens that are used to access an API that's protected by Microsoft identity platform. The quickstart *index.html* file contains a reference to the library:
 
@@ -176,7 +175,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
 > |Where  |  |
 > |---------|---------|
-> |`ClientId`     | The application ID of the application that's registered in the Azure portal|
+> |`ClientId`     | The application ID of the application that's registered in the Azure portal.|
 > |`authority`    | (Optional) The authority URL that supports account types, as described previously in the configuration section. The default authority is `https://login.microsoftonline.com/common`. |
 > |`cacheLocation`  | (Optional) Sets the browser storage for the auth state. The default is sessionStorage.   |
 > |`storeAuthStateInCookie`  | (Optional) The library that stores the authentication request state that's required for validation of the authentication flows in the browser cookies. This cookie is set for IE and Edge browsers to mitigate certain [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
@@ -201,14 +200,14 @@ myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | (Optional) Contains scopes that are being requested for user consent at sign-in time. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (that is, `api://<Application ID>/access_as_user` ). |
+> | `scopes`   | (Optional) Contains scopes that are being requested for user consent at sign-in time. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (that is, `api://<Application ID>/access_as_user`). |
 
 > [!TIP]
 > Alternatively, you might want to use the `loginRedirect` method to redirect the current page to the sign-in page instead of a popup window.
 
 ### Request tokens
 
-MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup` and `acquireTokenSilent`
+MSAL uses three methods to acquire tokens: `acquireTokenRedirect`, `acquireTokenPopup`, and `acquireTokenSilent`
 
 #### Get a user token silently
 
@@ -240,7 +239,7 @@ There are situations where you need to force users to interact with the Microsof
 
 The usual recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception, and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
 
-Calling the `acquireTokenPopup` results in a popup window for signing in (or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform endpoint), where users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
+Calling the `acquireTokenPopup` results in a popup window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform endpoint.) In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
 
 ```javascript
 var requestObj = {
