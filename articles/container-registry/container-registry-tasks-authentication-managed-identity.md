@@ -122,9 +122,9 @@ docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 
 ## Example: Task with a system-assigned identity
 
-This example shows you how to create a [multi-step task](container-registry-tasks-multi-step.md) with a system-assigned identity. The task builds an images and then uses the identity to authenticate with two target registries to push the image.
+This example shows you how to create a [multi-step task](container-registry-tasks-multi-step.md) with a system-assigned identity. The task builds an image, and then uses the identity to authenticate with two target registries to push the image.
 
-The following task is defined in the file `testtask.yaml` in the [acr-tasks](https://github.com/Azure-Samples/acr-tasks) samples repo.
+The task steps for this example are defined in the [YAML file](container-registry-tasks-reference-yaml.md) `testtask.yaml`. The file is located in the multipleRegistries directory of the [acr-tasks](https://github.com/Azure-Samples/acr-tasks) samples repo.
 
 ```yml
 version: v1.0.0
@@ -135,18 +135,39 @@ steps:
   - push: ["{{.Values.REGISTRY2}}/hello-world:{{.Run.ID}}"]
 ```
 
-## Create task with system-assigned identity
+### Create task with system-assigned identity
 
-Note no `[system]` at end of this command. We're getting the `testtask.yaml` from the multipleRegistries subdirectory:
+Create the task *multiple-reg* by executing the following [az acr task create][az-acr-task-create] command. The task context is the multipleRegistries folder of the samples repo, and task steps are defined in `testtask.yaml` there. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task. For example purposes, this task can only be triggered manually, but you could enable the task to run when commits are pushed to the registry or a base image is updated 
 
 ```azurecli
-az acr task create --name multiple-reg -registry myregistry --context https://github.com/Azure-Samples/acr-tasks.git#:multipleRegistries --file testtask.yaml --commit-trigger-enabled false --pull-request-trigger-enabled false --assign-identity
+az acr task create \
+  --registry myregistry \
+  --name multiple-reg \
+  --context https://github.com/Azure-Samples/acr-tasks.git#:multipleRegistries \
+  --file testtask.yaml \
+  --commit-trigger-enabled false \
+  --pull-request-trigger-enabled false \
+  --assign-identity
 ```
 
-Note principal ID of task in the return, or perhaps get it from:
+Notice that the `identity` section in the output shows the identity of type `SystemAssigned` is set in the task. The `principalID` is the service principal of the identity:
+
+```console
+[...]
+  "identity": {
+    "principalId": "xxxxxxxx-2703-42f9-97d0-xxxxxxxxxxxx",
+    "tenantId": "xxxxxxxx-86f1-41af-91ab-xxxxxxxxxxxx",
+    "type": "SystemAssigned",
+    "userAssignedIdentities": null
+  },
+  "location": "eastus",
+[...]
+``` 
+
+Use the [az acr task show][az-acr-task-show] command to store the `principalId` of the identity in a variable, to use in later commands: :
 
 ```azurecli
-principal_id=$(az acr task show --name multiple-reg --registry myregistrt --query identity.principalId --output tsv)
+principal_id=$(az acr task show --name multiple-reg --registry myregistry --query identity.principalId --output tsv)
 ```
 
 ### Give identity push permissions to two target container registries
@@ -293,10 +314,12 @@ In this article, you learned about using managed identities with Azure Container
 [az-login]: /cli/azure/reference-index#az-login
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-show]: /cli/azure/acr#az-acr-show
-[az-vm-create]: /cli/azure/vm#az-vm-create
-[az-vm-show]: /cli/azure/vm#az-vm-show
-[az-vm-identity-assign]: /cli/azure/vm/identity#az-vm-identity-assign
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-identity-show]: /cli/azure/identity#az-identity-show
 [azure-cli]: /cli/azure/install-azure-cli
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
+[az-acr-task-credential-add]: /cli/azure/acr/task/credential#az-acr-task-credential-add    
