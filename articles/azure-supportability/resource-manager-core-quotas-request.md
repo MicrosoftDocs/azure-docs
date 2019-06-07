@@ -122,13 +122,14 @@ Follow the instructions below to create a support request via Azure's 'Help + Su
    
 5. Select **Other Requests** in **quota type** dropdown.
 
-//TODO
+![QuotaType](./media/resource-manager-core-quotas-request/regional-quotatype.png)
 
-6. In Details pane, provide additional information as per the example below, to help process your request and continue with the case creation. 
-    1.	Deployment model – Specify ‘Resource Manager’
-    2.	Requested region – Specify your required region e.g. East US 2
-    3.	New limit Value – Specify new region limit. This should not exceed the sum of approved quota for individual SKU families for this        subscription
-//TODO
+6. In **Details** pane, provide additional information as per the example below, to help process your request and continue with the case creation. 
+    1.	**Deployment model** – Specify ‘Resource Manager’
+    2.	**Requested region** – Specify your required region e.g. East US 2
+    3.	**New limit Value** – Specify new region limit. This should not exceed the sum of approved quota for individual SKU families for          this subscription
+
+![QuotaDetails](./media/resource-manager-core-quotas-request/regional-details.png)
 
 ## Request Total Regional vCPUs quota increase at subscription level using the **Usages + Quota** blade
 
@@ -150,7 +151,16 @@ Follow the instructions below using to create a support request via Azure's 'Usa
 
 ![Request increase](./media/resource-manager-core-quotas-request/request-increase.png)
 
-//TODO
+5. Select **Other Requests** in **quota type** dropdown.
+
+![QuotaType](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+
+6. In **Details** pane, provide additional information as per the example below, to help process your request and continue with the case creation. 
+    1.	**Deployment model** – Specify ‘Resource Manager’
+    2.	**Requested region** – Specify your required region e.g. East US 2
+    3.	**New limit Value** – Specify new region limit. This should not exceed the sum of approved quota for individual SKU families for          this subscription
+
+![QuotaDetails](./media/resource-manager-core-quotas-request/regional-details.png)
     
 
 
