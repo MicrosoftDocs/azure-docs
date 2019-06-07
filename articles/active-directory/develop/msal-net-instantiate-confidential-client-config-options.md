@@ -4,7 +4,7 @@ description: Learn how to instantiate a confidential client application with con
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

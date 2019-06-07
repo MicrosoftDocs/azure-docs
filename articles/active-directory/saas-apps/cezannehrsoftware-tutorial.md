@@ -154,7 +154,7 @@ To configure Azure AD single sign-on with Cezanne HR Software, perform the follo
 
 	d. In the **Security Token Service Endpoint** textbox, paste the value of **Login URL** which you have copied from the Azure portal.
 
-	e. In the User ID Attribute Name textbox, enter `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	e. In the User ID Attribute Name textbox, enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
 	f. Click **Upload** icon to upload the downloaded certificate from Azure portal.
 

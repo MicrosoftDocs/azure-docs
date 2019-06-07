@@ -111,7 +111,7 @@ Deploy your Java app to Azure using the following command:
 mvn package azure-webapp:deploy
 ```
 
-Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net/helloworld`. 
+Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net`. 
 
 ![Sample app running in Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
 

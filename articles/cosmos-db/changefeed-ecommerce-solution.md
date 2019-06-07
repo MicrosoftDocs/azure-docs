@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/12/2018
+ms.date: 05/28/2019
 ms.author: sngun
 
 ---

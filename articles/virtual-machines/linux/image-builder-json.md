@@ -3,7 +3,7 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
@@ -26,7 +26,7 @@ This is the basic template format:
     "identity":{},			 
     "dependsOn": [], 
     "properties": { 
- 	    "<build timeout in minutes>": {}, 
+ 	    "buildTimeoutInMinutes": <minutes>, 
         "build": {}, 
         "customize": {}, 
         "distribute": {} 

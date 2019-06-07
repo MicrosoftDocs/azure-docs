@@ -3,8 +3,8 @@ title: How to configure a new multi-tenant application | Microsoft Docs
 description: How to configure single sign-on for a custom application you are developing and registering with Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 
 ms.collection: M365-identity-device-management
 ---

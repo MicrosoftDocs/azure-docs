@@ -277,7 +277,7 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 
 ### Execution
 1. Download the [azure-batch-samples][github_samples_zip] from GitHub.
-2. Open the MultiInstanceTasks **solution** in Visual Studio 2017. The `MultiInstanceTasks.sln` solution file is located in:
+2. Open the MultiInstanceTasks **solution** in Visual Studio 2019. The `MultiInstanceTasks.sln` solution file is located in:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Enter your Batch and Storage account credentials in `AccountSettings.settings` in the **Microsoft.Azure.Batch.Samples.Common** project.

@@ -31,7 +31,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     - [JSON in Java](https://mvnrepository.com/artifact/org.json/json) package
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) package
 
-- The example ink stroke data for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -129,7 +129,7 @@ static void recognizeInk(String requestData) {
 
 ## Run the application and view the response
 
-Run the application. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+Run the application. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## Next steps
 

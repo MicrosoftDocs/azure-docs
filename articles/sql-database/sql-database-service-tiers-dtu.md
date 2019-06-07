@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
+ms.date: 5/10/2019
 ---
 # Service tiers in the DTU-based purchase model
 

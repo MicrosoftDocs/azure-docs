@@ -200,7 +200,7 @@ There are many ways you can program the process:
 
 * User Azure Data Factory. See [Create on-demand Linux-based Apache Hadoop clusters in HDInsight using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) for creating on-demand HDInsight linked services.
 * Use Azure PowerShell.  See [Analyze flight delay data](hdinsight-analyze-flight-delay-data-linux.md).
-* Use Azure Classic CLI. See [Manage HDInsight clusters using Azure Classic CLI](hdinsight-administer-use-command-line.md).
+* Use Azure CLI. See [Manage Azure HDInsight clusters using Azure CLI](hdinsight-administer-use-command-line.md).
 * Use HDInsight .NET SDK. See [Submit Apache Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 For the pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the Portal, see [Delete clusters](#delete-clusters)
@@ -280,7 +280,7 @@ HDInsight clusters have the following HTTP web services (all of these services h
 * Oozie
 * Templeton
 
-By default, these services are granted for access. You can revoke/grant the access using [Azure Classic CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) and [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+By default, these services are granted for access. You can revoke/grant the access using [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## Find the subscription ID
 Each cluster is tied to an Azure subscription.  The Azure subscription ID is visible from the [cluster home page](#homePage).
@@ -312,7 +312,7 @@ The **Usage** section of the HDInsight cluster blade displays information about 
 In this article, you have learned some basic administrative functions. To learn more, see the following articles:
 
 * [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Administer HDInsight Using Azure Classic CLI](hdinsight-administer-use-command-line.md)
+* [Administer HDInsight Using Azure CLI](hdinsight-administer-use-command-line.md)
 * [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Read more about using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [Details on using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

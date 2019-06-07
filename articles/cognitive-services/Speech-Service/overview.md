@@ -37,7 +37,9 @@ These features make up the Azure Speech Services. Use the links in this table to
 Learn what's new with the Azure Speech Services.
 
 * May 2019 - Documentation is now available for [Conversation Transcription](conversation-transcription-service.md), [Call Center Transcription](call-center-transcription.md), and [Voice-first Virtual Assistants](voice-first-virtual-assistants.md).
-* May 2019 - Released Speech SDK 1.5.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
+* May 2019
+    * Released Speech SDK 1.5.1. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
+    * Released Speech SDK 1.5.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
 * April 2019 - Released Speech SDK 1.4.0 with support for text-to-speech (Beta) for C++, C#, and Java on Windows and Linux. Additionally, the SDK now supports MP3 and Opus/Ogg audio formats for C++ and C# on Linux. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
 * March 2019 - A new endpoint for text-to-speech (TTS) that returns a full list of voices available in a specific region is now available. Additionally, new regions are now supported for TTS. For more information, see [Text-to-speech API reference (REST)](rest-text-to-speech.md).
 
@@ -58,7 +60,7 @@ We offer quickstarts in most popular programming languages, each designed to hav
 After you've had a chance to use the Speech Services, try our tutorial that teaches you how to recognize intents from speech using the Speech SDK and LUIS.
 
 * [Tutorial: Recognize intents from speech with the Speech SDK and LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
-* [Tutorial: Build a Flask app to translate text, analyze sentiment, and synthesize translated text to speech, REST](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+* [Tutorial: Build a Flask app to translate text, analyze sentiment, and synthesize translated text to speech, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## Get sample code
 

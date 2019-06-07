@@ -33,11 +33,13 @@ Getting started with Personalizer involves the following steps:
 
 * You need a [Personalizer service](how-to-settings.md) to get your subscription key and endpoint service url. 
 * [Visual Studio 2015 or 2017](https://visualstudio.microsoft.com/downloads/).
-* The Microsoft.Azure.CognitiveServices.Personalizer SDK NuGet package. Installation instructions are provided below.
+* The [Microsoft.Azure.CognitiveServices.Personalizer](https://go.microsoft.com/fwlink/?linkid=2092272) SDK NuGet package. Installation instructions are provided below.
 
 ## Change the model update frequency
 
-In the Personalizer resource in the Azure portal, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration
+In the Personalizer resource in the Azure portal, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
+
+When a Personalizer Loop is first instantiated, there is no model since there has been no Reward API calls to train from. Rank calls will return equal probabilities for each item. Your application should still always rank content using the output of RewardActionId.
 
 ![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
 
