@@ -16,6 +16,6 @@ ms.author: mbaldwin
 
 This article documents the common security attributes built into Linux Virtual Machines.
 
-[!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security attributes header](../../../includes/security-attributes-header.md)]
 
-[!INCLUDE [Security attributes header](../../includes/vm-vmss-security-attributes.md)]
+[!INCLUDE [Security attributes header](../../../includes/vm-vmss-security-attributes.md)]
