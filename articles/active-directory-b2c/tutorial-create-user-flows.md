@@ -82,7 +82,7 @@ If you want to enable users to edit their profile in your application, you use a
 1. Select the **Profile editing** user flow on the Recommended tab.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
 1. For **Identity providers**, select **Local Account SignIn**.
-1. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose **Display 1ame** and **Job title**. Click **OK**.
+1. For **User attributes**, choose the attributes that you want the customer to be able to edit in their profile. For example, select **Show more**, and then choose both attributes and claims for **Display name** and **Job title**. Click **OK**.
 1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
 
 ### Test the user flow
