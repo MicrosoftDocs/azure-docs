@@ -1,6 +1,6 @@
 ---
-title: Sub-clip a video when encoding with Azure Media Services 
-description: This topic describes how to sub-clip a video when encoding with Azure Media Services, using .NET SDK
+title: Subclip a video when encoding with Azure Media Services 
+description: This topic describes how to subclip a video when encoding with Azure Media Services, using .NET SDK
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,9 +16,9 @@ ms.date: 06/07/2019
 ms.author: juliako
 
 ---
-# Sub-clip a video when encoding with Media Services
+# Subclip a video when encoding with Media Services
 
-You can now trim or sub-clip a video when encoding it using a [Job](https://docs.microsoft.com/rest/api/media/jobs). This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets.
+You can now trim or subclip a video when encoding it using a [Job](https://docs.microsoft.com/rest/api/media/jobs). This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets.
 
 The following C# example creates a job that trims a video as it submits an encoding job. You can see how to create a Transform and input and output Assets in this tutorial: [Stream videos](stream-files-tutorial-with-api.md) 
 

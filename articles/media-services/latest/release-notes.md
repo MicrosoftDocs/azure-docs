@@ -33,11 +33,11 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ## June 2019
 
-### Video sub-clipping
+### Video subclipping
 
-You can now trim or sub-clip a video when encoding it using a [Job](https://docs.microsoft.com/rest/api/media/jobs). 
+You can now trim or subclip a video when encoding it using a [Job](https://docs.microsoft.com/rest/api/media/jobs). 
 
-This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. See the [Sub-clip a video](subclip-video-dotnet-howto.md) example.
+This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. See the [Subclip a video](subclip-video-dotnet-howto.md) example.
 
 ## May 2019
 
