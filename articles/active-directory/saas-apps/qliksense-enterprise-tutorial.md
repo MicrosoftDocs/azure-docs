@@ -174,7 +174,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![QlikSense][qs13]
 
-    The Host white list identifies hostnames that are accepted when connecting to the Qlik Sense server.  **Enter the hostname users will specify when connecting to Qlik Sense server.** The hostname is the same value as the SAML host uri without the https://.
+    The Host allow list identifies hostnames that are accepted when connecting to the Qlik Sense server.  **Enter the hostname users will specify when connecting to Qlik Sense server.** The hostname is the same value as the SAML host uri without the https://.
 
 11. Click the **Apply** button.
 
