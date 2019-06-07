@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/07/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -75,28 +75,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** intiated mode perform the following steps:
+4. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button and perform the following step:
 
-	a. Click **Upload metadata file**.
+    a. Click **Set additional URLs**.
 
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
-
-	> [!Note]
-	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
-
-    d. Click **Set additional URLs**.
-
-    e. In the **Realy State** text box, type a value using the following pattern:`<SYSTEM VALUE>`
+    b. In the **Realy State** text box, type a value using the following pattern:`<SYSTEM VALUE>`
 
 5. If you wish to configure the application in **SP** initiated mode perform the following step:
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://costpointteea.deltek.com/cpweb/cploginform.htm`
-
-	> [!NOTE]
-    > The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Costpoint Client support team](mailto:BorisRusinovic@deltek.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your Notepad.
 
