@@ -38,7 +38,7 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 5. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
 6. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. For example, you could set it to listen locally at `https://localhost:44316`. If you don't yet know the port number, you can enter a placeholder value and change it later.
 
-    For testing purposes like this tutorial, you can set it to `https://jwt.ms` which displays the contents of a token for inspection. For this tutorial, set the **Reply URL** to `https://jwt.ms`.
+    For testing purposes like this tutorial you can set it to `https://jwt.ms` which displays the contents of a token for inspection. For this tutorial, set the **Reply URL** to `https://jwt.ms`.
 
     The reply URL must begin with the scheme `https`, and all reply URL values must share a single DNS domain. For example, if the application has a reply URL of `https://login.contoso.com`, you can add to it like this URL `https://login.contoso.com/new`. Or, you can refer to a DNS subdomain of `login.contoso.com`, such as `https://new.login.contoso.com`. If you want to have an application with `login-east.contoso.com` and `login-west.contoso.com` as reply URLs, you must add those reply URLs in this order: `https://contoso.com`, `https://login-east.contoso.com`, `https://login-west.contoso.com`. You can add the latter two because they're subdomains of the first reply URL, `contoso.com`.
 
