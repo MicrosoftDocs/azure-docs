@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -116,7 +116,7 @@ In the tutorial example, you add a CNAME record for the `www` subdomain (for exa
 
 #### Create the CNAME record
 
-Add a CNAME record to map a subdomain to the app's default hostname (`<app_name>.azurewebsites.net`, where `<app_name>` is the name of your app).
+Add a CNAME record to map a subdomain to the app's default domain name (`<app_name>.azurewebsites.net`, where `<app_name>` is the name of your app).
 
 For the `www.contoso.com` domain example, add a CNAME record that maps the name `www` to `<app_name>.azurewebsites.net`.
 
@@ -126,13 +126,13 @@ After you add the CNAME, the DNS records page looks like the following example:
 
 #### Enable the CNAME record mapping in Azure
 
-In the left navigation of the app page in the Azure portal, select **Custom domains**. 
+In the left navigation of the app page in the Azure portal, select **Custom domains**.
 
 ![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 In the **Custom domains** page of the app, add the fully qualified custom DNS name (`www.contoso.com`) to the list.
 
-Select the **+** icon next to **Add hostname**.
+Select the **+** icon next to **Add custom domain**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -140,15 +140,15 @@ Type the fully qualified domain name that you added a CNAME record for, such as 
 
 Select **Validate**.
 
-The **Add hostname** page is shown. 
+The **Add custom domain** page is shown.
 
 Make sure that **Hostname record type** is set to **CNAME (www\.example.com or any subdomain)**.
 
-Select **Add hostname**.
+Select **Add custom domain**.
 
 ![Add DNS name to the app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-It might take some time for the new hostname to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
+It might take some time for the new custom domain to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
 
 ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
@@ -188,7 +188,7 @@ In the **Custom domains** page, copy the app's IP address.
 To map an A record to an app, App Service requires **two** DNS records:
 
 - An **A** record to map to the app's IP address.
-- A **TXT** record to map to the app's default hostname `<app_name>.azurewebsites.net`. App Service uses this record only at configuration time, to verify that you own the custom domain. After your custom domain is validated and configured in App Service, you can delete this TXT record.
+- A **TXT** record to map to the app's default domain name `<app_name>.azurewebsites.net`. App Service uses this record only at configuration time, to verify that you own the custom domain. After your custom domain is validated and configured in App Service, you can delete this TXT record.
 
 For the `contoso.com` domain example, create the A and TXT records according to the following table (`@` typically represents the root domain).
 
@@ -216,23 +216,23 @@ When the records are added, the DNS records page looks like the following exampl
 
 Back in the app's **Custom domains** page in the Azure portal, add the fully qualified custom DNS name (for example, `contoso.com`) to the list.
 
-Select the **+** icon next to **Add hostname**.
+Select the **+** icon next to **Add custom domain**.
 
-![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Type the fully qualified domain name that you configured the A record for, such as `contoso.com`.
 
 Select **Validate**.
 
-The **Add hostname** page is shown. 
+The **Add custom domain** page is shown.
 
 Make sure that **Hostname record type** is set to **A record (example.com)**.
 
-Select **Add hostname**.
+Select **Add custom domain**.
 
 ![Add DNS name to the app](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-It might take some time for the new hostname to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
+It might take some time for the new custom domain to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
 
 ![A record added](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
@@ -255,7 +255,7 @@ In the tutorial example, you map a [wildcard DNS name](https://en.wikipedia.org/
 
 #### Create the CNAME record
 
-Add a CNAME record to map a wildcard name to the app's default hostname (`<app_name>.azurewebsites.net`).
+Add a CNAME record to map a wildcard name to the app's default domain name (`<app_name>.azurewebsites.net`).
 
 For the `*.contoso.com` domain example, the CNAME record will map the name `*` to `<app_name>.azurewebsites.net`.
 
@@ -271,23 +271,23 @@ In the left navigation of the app page in the Azure portal, select **Custom doma
 
 ![Custom domain menu](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Select the **+** icon next to **Add hostname**.
+Select the **+** icon next to **Add custom domain**.
 
 ![Add host name](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Type a fully qualified domain name that matches the wildcard domain (for example, `sub1.contoso.com`), and then select **Validate**.
 
-The **Add hostname** button is activated. 
+The **Add custom domain** button is activated.
 
 Make sure that **Hostname record type** is set to **CNAME record (www\.example.com or any subdomain)**.
 
-Select **Add hostname**.
+Select **Add custom domain**.
 
 ![Add DNS name to the app](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-It might take some time for the new hostname to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
+It might take some time for the new custom domain to be reflected in the app's **Custom domains** page. Try refreshing the browser to update the data.
 
-Select the **+** icon again to add another hostname that matches the wildcard domain. For example, add `sub2.contoso.com`.
+Select the **+** icon again to add another custom domain that matches the wildcard domain. For example, add `sub2.contoso.com`.
 
 ![CNAME record added](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
