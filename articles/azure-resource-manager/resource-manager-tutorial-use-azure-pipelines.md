@@ -129,95 +129,72 @@ A DevOps organization is needed before you can proceed.  If you don’t have one
 
 1. Sign in to [Azure DevOps](https://dev.azure.com).
 1. Select a DevOps organization from the left.
-1. Select **Create project**.
+1. Select **Create project**. If you don't have any project, the create project page is opened automatically.
 1. Enter the following values:
 
-    * **Project name**
-    * **Description**
-    * **Version control**: Select **Git**.
+    * **Project name**: enter a project name.
+    * **Version control**: Select **Git**. You might need to expand **Advanced** to see **Version control**.
 
     Use the default value for the other properties.
-1. Select **Create**.
+1. Select **Create project**.
 
-## Import the GitHub repository
+Create a service connection that is used to deploy projects to Azure.
 
-In this section, you connect the GitHub repository to this DevOp project.
+1. Select **Project settings** from the bottom of the left menu.
+1. Select **Service connections** under **Pipelines**.
+1. Select **New Service connection**, and then select **AzureResourceManager**.
+1. Enter the following values:
 
-1. Sign in to [Azure DevOps](https://dev.azure.com).
-1. Select the organization
-1. Select the newly created DevOps project.
-1. Select **Repos** from the left menu. If you don’t see the menu item, select **Project settings** from the left pane, and the turn on **Repos** under **Azure DevOps services**.
-1. Select **Import**.
-1. Enter the **Clone URL**.  See [Create a GitHub repository](#create-a-github-repository).
-1. Once imported, verify that you can see the **CreateAzureStorage** folder and the *azuredeploy.json* template file.
+    * **Connection name**: enter a connection name.  You need this connection name when you develop your pipeline.
+    * **Scope level**: select **Subscription**.
+    * **Subscription**: select your subscription.
+    * **Resource Group**: Leave it blank.
+    * **Allow all pipelines to use this connection**. (selected)
+1. Select **OK**.
 
 ## Create an Azure pipeline
 
-1. Sign in to [Azure DevOps](https://dev.azure.com).
-2. Select the organization
-3. Select the newly created DevOps project.
-4. Select **Pipelines** from the left menu.
-5. Select **New pipeline**.
-6. From the **Connect** tab, select **Github**
-7. From the **Select** tab, select your repository.  The default name is **[YourAccountName]/AzureRmPipeline-repo**.
-8. Enter your GitHub credentials.
-9. From the **Azure Pipelines** page, very the GitHub repository is the onlyone in the **Only select repository** list, and then select **Approve and install**.
-10. Enter your Azure credentials.
-11. From the **Configure** tag, select **Starter pipeline**.
-12. Select **Save and run**.
+1. Select **Pipelines** from the left menu.
+1. Select **New pipeline**.
+1. From the **Connect** tab, select **Github**
+1. From the **Select** tab, select your repository.  The default name is **[YourAccountName]/AzureRmPipeline-repo**.
 
-13. Select **Save and run**. It takes a few seconds to build and run the pipeline.
-14. Verify that the pipeline is executed successfully.
+    The following steps might be optional:
 
-## Edit the pipeline
-
-1. Sign in to [Azure DevOps](https://dev.azure.com).
-2. Select the organization
-3. Select the newly created DevOps project.
-4. Select **Pipelines** from the left menu. You shall see one pipeline that is already created.
-5. Select **Edit**. You shall see the content of azure-pipelines.yml.
-6. From the yml file, update the **vmImage** line with the following:
+    1. Enter your GitHub credentials if asked.
+    1. From the **Azure Pipelines** page, very the GitHub repository is the only one in the **Only select repository** list, and then select **Approve and install**.
+    1. Enter your Azure credentials if asked.
+1. From the **Configure** tab, select **Starter pipeline**. It shows the **azure-pipelines.yml** pipeline file with two steps.
+1. Replace the **steps** section with the following yml:
 
     ```yml
-    vmImage: vs2017-win2016
+    steps:
+    - task: AzureResourceGroupDeployment@2
+      inputs:
+        azureSubscription: '[EnterYourServiceConnection]'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: '[EnterANewResourceGroupName]'
+        location: 'Central US'
+        templateLocation: 'Linked artifact'
+        csmFile: 'CreateAzureStorage/azuredeploy.json'
+        deploymentMode: 'Incremental'
     ```
 
-    Using a Microsoft-hosted pool agent is necessary for the **Azure file copy ** task.
-7. From the yml file, deleted the lines after **Steps:**.
-8. Place the cursor after the line **Steps:**.
-9. From the **Tasks** pane on the right, select **Azure file copy**. You can use the search function to find the task.
-10. Enter the following values:
+    It shall look like:
 
-    * Source: enter **CreateAzureStorage**.  This is folder which contains the azuredeploy.json file.
-    * **Azure Subscription**: Select your Azure subscription, and the select **Authorize**.
-    * **Destination Type **: Select **Azure Blob**.
-    * **RM Storage Account**: select an existing Azure storage account**.
-    * **Container Name**: enter an existing or new storage account**.
-    * **Storage Container URI**: enter **artifactsLocation**.
-    * **Storage Container SAS Token** enter **artifactsLocationSasToken**.
-    * **SAS Token Expiration Period In Minutes**: ????
+    ![Azure Resource Manager DevOps pipelines yml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-yml.png)
+    Update **azureSubscription** with the service connection created in the previous procedure, update **resourceGroupName**, and update the location.
 
-11. Select **Add**. The yml files is updated with the new task.
-12. Move the cursor to the end of the yml file – where you want to add a new task.
-13. Follow the same procedure to add an **Azure Resource Group Deployment** task with the following configurations:
+    **csmFile** is the path to the template file.
 
+1. From the **Review** tab, select **Save and run**, and then select **Save and run** again. It takes a few moments to build and run the pipeline.
+1. Verify that the pipeline is executed successfully.
 
-Create/update the pipeline
-
-1. From the left pane, select **Pipelines**. You shall see only one pipeline there called “Set up CI with Azure Pipelines”.
-2. Select **Edit**.
-3. From the **Task** pane on the right, select **Azure Resource Group Deployment**.
-4. Configure the task:
-a. **Azure subscription**: select your subscription. Select **Authorize** and following the instructions.
-b. **Action**: select **Create or update resource group**.
-c. *Resource group**: select a resource group.
-d. **Location**: enter a location.
+    ![Azure Resource Manager DevOps pipelines yml](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-status.png)
 
 ## Verify the deployment
 
-In the portal, select the SQL database from the newly deployed resource group. Select **Query editor (preview)**, and then enter the administrator credentials. You shall see two tables imported into the database:
-
-![Azure Resource Manager deploy sql extensions BACPAC](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
+Sign into the [Azure portal](https://portal.azure.com), verify the resource group and the storage account is created successfully.
 
 ## Clean up resources
 
@@ -225,12 +202,12 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You shall see a total of six resources in the resource group.
+3. Select the resource group name.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps
 
-In this tutorial, you deployed a SQL Server, a SQL Database, and imported a BACPAC file using SAS token. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
+In this tutorial, you create an Azure DevOps pipeline to deploy an Azure Resource Manager template. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
 
 > [!div class="nextstepaction"]
 > [Use Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
