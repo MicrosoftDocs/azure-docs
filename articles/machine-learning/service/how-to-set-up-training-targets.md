@@ -25,24 +25,14 @@ In this article, you learn how to use various compute targets for model training
 
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.6.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.39.
 
 ## Compute targets for training
 
 Azure Machine Learning service has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-|Compute target for training| GPU acceleration | Automated<br/> hyperparameter tuning | Automated<br/> machine learning | Azure Machine Learning Pipelines |
-|----|:----:|:----:|:----:|:----:|
-|[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
-|[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[Remote VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-
-**All compute targets can be reused for multiple training jobs**. For example, once you attach a remote VM to your workspace, you can reuse it for multiple jobs.
 
 > [!NOTE]
 > Azure Machine Learning Compute can be created as a persistent resource or created dynamically when you request a run. Run-based creation removes the compute target after the training run is complete, so you cannot reuse compute targets created this way.

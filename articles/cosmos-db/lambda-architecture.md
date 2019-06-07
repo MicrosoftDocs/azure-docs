@@ -5,7 +5,7 @@ ms.service: cosmos-db
 author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 05/28/2019
 ---
 # Azure Cosmos DB: Implement a lambda architecture on the Azure platform 
 

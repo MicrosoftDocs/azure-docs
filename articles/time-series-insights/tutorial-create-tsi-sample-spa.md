@@ -123,7 +123,7 @@ Before you build the application, you must register it with Azure AD. Registrati
 
    1. Uncomment the three lines under the comment `"PROD RESOURCE LINKS"` to switch the dependencies from DEVELOPMENT to PRODUCTION. Comment out the three lines under the comment `"DEV RESOURCE LINKS"`.
 
-      [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
+      [!code-html[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
 
       Your dependencies should be commented like the following example:
 

@@ -77,7 +77,15 @@ We recommend you perform the below validation, before you start troubleshooting 
 If scheduled backups don't get triggered automatically, while manual backups work without issues, try the following actions:
 
 - Ensure Windows Server backup schedule does not conflict with Azure files and folders backup schedule.
-- Go to **Control Panel** > **Administrative Tools** > **Task Scheduler**. Expand **Microsoft**, and select **Online Backup**. Double-click **Microsoft-OnlineBackup**, and go to the **Triggers** tab. Ensure that the status is set to **Enabled**. If it isn't, select **Edit**, and select the **Enabled** check box and click **OK**. On the **General** tab, go to **Security options** and ensure that the user account selected for running the task is either **SYSTEM** or **Local Administrators' group** on the server.
+
+- Ensure the  Online Backup status is set to **Enable**. To verify the status perform the below:
+
+  - Go to **Control Panel** > **Administrative Tools** > **Task Scheduler**.
+	- Expand **Microsoft**, and select **Online Backup**.
+  - Double-click **Microsoft-OnlineBackup**, and go to the **Triggers** tab.
+  - Verify if the status is set to **Enabled**. If it isn't, select **Edit**, and select the **Enabled** check box and click **OK**.
+
+- Ensure the user account selected for running the task is either **SYSTEM** or **Local Administrators' group** on the server. To verify the user account, go to the **General** tab and check the **Security options**.
 
 - See if PowerShell 3.0 or later is installed on the server. To check the PowerShell version, run the following command and verify that the *Major* version number is equal to or greater than 3.
 
@@ -92,6 +100,15 @@ If scheduled backups don't get triggered automatically, while manual backups wor
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+
+- Ensure server was rebooted after the backup agent installation
+
+- Ensure there are no missing or corrupted **PowerShell** module **MSonlineBackup**. In case there are any missing or corrupt file, to resolve the issue perform the below:
+
+  - From another machine (Windows 2008 R2) having the MARS agent working properly, copy the MSOnlineBackup folder from *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* path.
+  - Paste this in problematic machine in the same path *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)*.
+  - If **MSOnlineBackup** folder is already exists in the machine, paste/replace the content files inside it.
+
 
 > [!TIP]
 > To ensure that changes are applied consistently, reboot the server after performing the steps above.

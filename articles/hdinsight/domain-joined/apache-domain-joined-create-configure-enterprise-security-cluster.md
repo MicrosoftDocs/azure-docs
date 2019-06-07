@@ -96,6 +96,22 @@ You have now created your Active Directory environment, along with two users and
 
 These users will be synchronized with Azure AD.
 
+### Create a new Azure Active Directory
+
+1. Sign in to the Azure portal.
+1. Click **Create a resource** and type **directory**. Select **Azure Active Directory** > **Create**.
+1. Enter **HDIFabrikam** under **Organization name**.
+1. Enter **HDIFabrikamoutlook** under **Initial domain name**.
+1. Click **Create**.
+1. On the left in the Azure portal, click **Azure Active Directory**.
+1. If necessary, click **Switch directory** to change to the new directory that you created **HDIFabrikamoutlook**.
+1. Under **Manage** click **Custom domain names** > **Add custom domain**.
+1. Enter **HDIFabrikam.com** under **Custom domain name** and click **Add domain**.
+
+![create a new azure active directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
+
+![create a new custom domain](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-custom-domain.png)
+
 ## Configure your Azure AD tenant
 
 Overview: Now you will configure your Azure AD tenant so that you can synchronize users and groups from on-premises AD to the cloud.
@@ -156,7 +172,7 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
 ### Create an user-assigned managed identity
 
-Create an user-assigned managed identity that will be used to configure Azure Azure Active Directory Domain Services (Azure AD-DS). For more information on creating a user-assigned managed identity, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+Create an user-assigned managed identity that will be used to configure Azure Active Directory Domain Services (Azure AD-DS). For more information on creating a user-assigned managed identity, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
 1. Sign in to the Azure portal.
 1. Click **Create a resource** and type **managed identity**. Select **User Assigned Managed Identity** > **Create**.
@@ -167,16 +183,6 @@ Create an user-assigned managed identity that will be used to configure Azure Az
 1. Click **Create**.
 
 ![create a new user-assigned managed identity](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image082.png)
-
-### Create a new Azure Active Directory
-
-1. Sign in to the Azure portal.
-1. Click **Create a resource** and type **directory**. Select **Azure Active Directory** > **Create**.
-1. Enter **HDIFabrikam** under **Organization name**.
-1. Enter **HDIFabrikamoutlook** under **Initial domain name**.
-1. Click **Create**.
-
-![create a new azure active directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
 
 ### Enable Azure Active Directory Domain Services
 

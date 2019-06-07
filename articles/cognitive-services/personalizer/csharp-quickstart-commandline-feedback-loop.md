@@ -37,7 +37,9 @@ Getting started with Personalizer involves the following steps:
 
 ## Change the model update frequency
 
-In the Personalizer resource in the Azure portal, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration
+In the Personalizer resource in the Azure portal, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
+
+When a Personalizer Loop is first instantiated, there is no model since there has been no Reward API calls to train from. Rank calls will return equal probabilities for each item. Your application should still always rank content using the output of RewardActionId.
 
 ![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
 
