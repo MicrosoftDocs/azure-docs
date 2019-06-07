@@ -62,7 +62,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### Current naming convention
 All currently published RHEL images use the Pay-As-You-Go model and are connected to [Red Hat Update Infrastructure (RHUI) in Azure](https://aka.ms/rhui-update). A new naming convention has been adopted for RHEL 7 family images in which the disk partitioning scheme (raw, LVM) is specified in the SKU instead of the version. The RHEL image version will contain either 7-RAW or 7-LVM. The RHEL 6 family naming hasn't been changed at this time.
 
-There will be 2 types of RHEL 7 image SKUs in this naming convention: SKUs that list the minor version, and SKUs that don't. If you want to use a 7-RAW or 7-LVM SKU, you can specify the RHEL minorversion you want to deploy in the version. If you choose the "latest" version, you will be provisioned the latest minor release of RHEL.
+There will be 2 types of RHEL 7 image SKUs in this naming convention: SKUs that list the minor version, and SKUs that don't. If you want to use a 7-RAW or 7-LVM SKU, you can specify the RHEL minor version you want to deploy in the version. If you choose the "latest" version, you will be provisioned the latest minor release of RHEL.
 
 >[!NOTE]
 > In the RHEL for SAP set of images, the RHEL version remains fixed. As such, their naming convention includes a particular version in the SKU.
@@ -89,7 +89,7 @@ If you don't want to use an image that is connected to EUS by default, deploy us
 ##### RHEL images with EUS
 The following table will apply for RHEL images that contain a minor version in the SKU.
 Minor version |EUS Image example              |EUS status                                                   |
-:-            |:-                             |:-                                                           |
+:-------------|:------------------------------|:------------------------------------------------------------|
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | Images published April 2019 and later will be EUS by default|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Images published June 2019 and later will be EUS by default |
 RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | Images published May 2019 and later will be EUS by default  |

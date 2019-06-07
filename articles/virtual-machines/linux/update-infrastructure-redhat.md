@@ -82,10 +82,12 @@ Run the following as root:
     ```bash
     rm /etc/yum/vars/releasever
      ```
+
 1. Disable EUS repos:
     ```bash
     yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
    ```
+
 1. Update your RHEL VM
     ```bash
     sudo yum update
@@ -140,9 +142,9 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
 1. Inspect the VM configuration for the Azure RHUI endpoint:
 
-    a. Check if the `/etc/yum.repos.d/rh-cloud.repo` file contains a reference to `rhui-[1-3].microsoft.com` in the `baseurl` of the `[rhui-microsoft-azure-rhel*]` section of the file. If it does, you're using the new Azure RHUI.
+    1. Check if the `/etc/yum.repos.d/rh-cloud.repo` file contains a reference to `rhui-[1-3].microsoft.com` in the `baseurl` of the `[rhui-microsoft-azure-rhel*]` section of the file. If it does, you're using the new Azure RHUI.
 
-    b. If it points to a location with the following pattern, `mirrorlist.*cds[1-4].cloudapp.net`, a configuration update is required. You're using the old VM snapshot, and you need to update it to point to the new Azure RHUI.
+    1. If it points to a location with the following pattern, `mirrorlist.*cds[1-4].cloudapp.net`, a configuration update is required. You're using the old VM snapshot, and you need to update it to point to the new Azure RHUI.
 
 1. Access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
