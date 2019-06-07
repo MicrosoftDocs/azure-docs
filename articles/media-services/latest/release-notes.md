@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/07/2019
 ms.author: juliako
 ---
 
@@ -30,6 +30,14 @@ To stay up-to-date with the most recent developments, this article provides you 
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
+
+## June 2019
+
+### Video sub-clipping
+
+You can now trim or sub-clip a video when encoding it using a [Job](https://docs.microsoft.com/rest/api/media/jobs). 
+
+This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. See the [Sub-clip a video](subclip-video-dotnet-howto.md) example.
 
 ## May 2019
 
