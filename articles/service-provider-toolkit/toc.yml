@@ -36,8 +36,10 @@
     href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
   - name: Azure SDK for .NET (NuGet)
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+  - name: Azure SDK for Python
+    href: https://docs.microsoft.com/python/api/azure-mgmt-managedservices
   - name: OpenAPI
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview
 - name: Resources
   items:
   - name: Azure roadmap

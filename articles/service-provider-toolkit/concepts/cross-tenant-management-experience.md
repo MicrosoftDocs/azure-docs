@@ -4,7 +4,7 @@ description: Azure Delegated Resource Management enables a cross-tenant manageme
 author: JnHs
 ms.service: service-provider-toolkit
 ms.author: jenhayes
-ms.date: 05/21/2019
+ms.date: 06/05/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -72,6 +72,10 @@ Currently, the cross-tenant management experience supports the following scenari
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/):
 
 - Ability to filter and see all info for delegated subscriptions
+- Configure security policies in Azure Policy and view them in Security Center
+- View and apply recommendations provided in Security Center
+- Monitor resource health and resource security hygiene
+- Configure alert notification settings and contact info
 
 [Azure Service Health](https://docs.microsoft.com/azure/service-health/):
 
@@ -98,10 +102,17 @@ With all scenarios, please be aware of the following current limitations:
 - While Azure Resource Manager operations are supported, Resource Provider operations (such as KeyVault secrets access, storage data access, VM login, etc.) can’t be performed using Azure Delegated Resource Management.
 - Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience.
 - Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) aren't supported.
-- You can’t onboard a subscription or resource group for Azure Delegated Resource Management if that scope has any resource locks. In particular, be aware that Azure managed applications and Azure Databricks automatically create resource locks. Use this query to check for resource locks on a subscription:  
+- You can’t onboard a subscription or resource group for Azure Delegated Resource Management if that scope has any resource locks. For example, Azure managed applications and Azure Databricks automatically create resource locks on resources in the solution. Use this query to check for resource locks on a subscription:  
   ```azurecli-interactive
   Get-AzResourceLock -Scope {subscriptionId}
   ```
+
+## Using APIs and management tools with the cross-tenant management experience
+
+For the supported services and scenarios listed above, you can perform management tasks either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources (for services that are supported).
+
+There are also APIs specific to performing Azure Delegated Resource Management tasks. For more info, see the **Reference** section.
+
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: As a service provider using Azure Delegated Resource Management, yo
 author: JnHs
 ms.author: jenhayes
 ms.service: service-provider-toolkit
-ms.date: 04/03/2019
+ms.date: 06/06/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -22,33 +22,33 @@ To access the **Service providers** page in the Azure portal, the customer can s
 
 ## View service provider details
 
-To view info about the service provider(s) that a customer is working with, they can select **Providers** on the left side of the **Service providers** page.
+To view info about the service provider(s) that a customer is working with, they can select **Provider offers** on the left side of the **Service providers** page.
 
-For each service provider, the customer will see the provider's name and the offer associated with it, along with the registration name that the customer entered during the onboarding process.
+For each service provider offer, the customer will see the service provider's name and the offer associated with it, along with the name that the customer entered during the onboarding process.
 
-In the **Managed** column, the customer sees how many subscriptions have been delegated to the provider.
+In the **Delegations** column, the customer sees how many subscriptions and/or resource groups have been delegated to the service provider for that offer. The service provider will be able to access and manage these subscriptions and/or resource groups according to the access levels specified in the offer.
 
 ## Delegate resources
 
-Before a service provider can access and manage a customer's resources, they must be delegated. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Providers** section indicating that they need to take action before the provider can access any of the customer's resources.
+Before a service provider can access and manage a customer's resources, they must be delegated. If a customer has accepted an offer but has not yet delegated any resources, they'll see a note at the top of the **Provider offers** section. This lets the customer know that they need to take action before the service provider can access any of the customer's resources.
 
 To delegate subscriptions or resource groups:
 
-1. Check the box for the row containing the provider, offer, and registration. Then select **Delegate resources** at the top of the screen.
+1. Check the box for the row containing the service provider, offer, and name. Then select **Delegate resources** at the top of the screen.
 1. In the **Offer details** section of the **Delegate resources** page, review the details about the service provider and offer. To review role assignments for the offer, select **Click here to see the details of the selected offer**.
 1. In the **Delegate** section, select **Delegate subscriptions** or **Delegate resource groups**.
 1. Choose the subscriptions and/or resource groups you'd like to delegate for this offer, then select **Add**.
-1. Select the checkbox at the bottom of the page to confirm that you want to grant this provider access to the resources that you've selected, then select **Delegate**.
+1. Select the checkbox at the bottom of the page to confirm that you want to grant this service provider access to the resources that you've selected, then select **Delegate**.
 
-## Add or remove service providers
+## Add or remove service provider offers
 
-A customer can add a new service provider from the **Providers** page by selecting **Add provider**. The service provider must have published an offer for this customer. The customer can then select that offer from the **Private offers** screen and then select **Create**.
+A customer can add a new service provider offer from the **Provider offers** page by selecting **Add offer**. The service provider must have published an offer for this customer. The customer can then select that offer from the **Private offers** screen and then select **Create**.
 
-If the customer wants to remove a provider, they can select the trash can icon in the row for that provider. After confirming that they want to delete the selected provider, that provider will no longer have access to the customer resources that were formerly delegated.
+If the customer wants to remove a service provider offer, they can select the trash can icon in the row for that offer. After confirming the deletion, that service provider will no longer have access to the customer resources that were formerly delegated for that offer.
 
-## View access assignments
+## View delegations
 
-Access assignments represent the permissions that the service provider has for the resources you've delegated. To view this info, select **Access assignments** on the left side of the **Service providers** page.
+Delegations represent the role assignments that grant permissions to the service provider for the resources you've delegated. To view this info, select **Delegations** on the left side of the **Service providers** page.
 
 Filters at the top of the page let you sort and group your access assignment info or filter by specific customers, offers, or keywords.
 

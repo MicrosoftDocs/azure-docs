@@ -4,7 +4,7 @@ description: As a service provider using Azure Delegated Resource Management, yo
 author: JnHs
 ms.author: jenhayes
 ms.service: service-provider-toolkit
-ms.date: 04/03/2019
+ms.date: 06/06/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -16,7 +16,9 @@ manager: carmonm
 
 In this article, you'll learn how, as a service provider using [Azure Delegated Resource Management](../concepts/azure-delegated-resource-management.md), you can view all of your delegated customer resources and subscriptions by going to **My customers** in the [Azure portal](https://portal.azure.com). While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 
-To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “Service providers” in the search box near the top of the Azure portal.
+To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “My customers” in the search box near the top of the Azure portal.
+
+Keep in mind that the **My customer** page only shows info about customers who have delegated subscriptions or resource groups. If you work with other customers (such as through the [Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-overview), you won’t see info about those customers here unless you onboard their resources for delegated resource management.
 
 > [!NOTE]
 > Your customers can view info about service providers by navigating to **Service providers** in the Azure portal. For more info, see [View and manage service providers](view-manage-service-providers.md).
@@ -25,30 +27,30 @@ To access the **My customers** page in the Azure portal, select **All services**
 
 To view customer details, select **Customers** on the left side of the **My customers** page.
 
-For each customer, you'll see the customer's name, tenant ID, and the name of the offer associated with the engagement. In the **Role assignments** column, you'll see the name of their delegated subscription (or the number of subscriptions that they've delegated) and/or the name of any delegated resource groups (or the number of delegated resource groups).
+For each customer, you'll see the customer's name, customer ID (tenant ID), and the offer associated with the engagement. In the **Delegations** column, you'll see the number of delegated subscriptions and/or the number of delegated resource groups.
 
 Filters at the top of the page let you sort and group your customer info or filter by specific customers, offers, or keywords.
 
 You can view the following info from this page:
 
-- To see all of the subscriptions, offers, and access assignments associated with a customer, select the customer's name.
-- To see more details about an offer and the access assignments that are associated with it, select the offer name.
-- To view more details about access assignments for delegated subscriptions or resource groups, select its name (or the count number, in the case of multiple delegated subscriptions and/or resource groups).
+- To see all of the subscriptions, offers, and delegations associated with a customer, select the customer's name.
+- To see more details about an offer and its delegations, select the offer name.
+- To view more details about acrolecess assignments for delegated subscriptions or resource groups, select the entry in the **Delegations** column.
 
-## View access assignments
+## View delegations
 
-Access assignments represent the users and permissions that have access to delegated subscriptions. To view this info, select **Access assignments** on the left side of the **My customers** page.
+Delegations show the subscription/resource group that has been delegated , along with the users and permissions that have access to it. To view this info, select **Delegations** on the left side of the **My customers** page.
 
 Filters at the top of the page let you sort and group your access assignment info or filter by specific customers, offers, or keywords.
 
-The access assignments associated with each delegated subscription appear in the **Role assignments** column. You can select each entry to view the full list of users, groups, and service principals that have been granted access to a subscription. From there, you can select a particular user, group, or service principal name to get more details.
+The users and permissions associated with each delegation appear in the **Role assignments** column. You can select each entry to view the full list of users, groups, and service principals that have been granted access to the subscription or resource group. From there, you can select a particular user, group, or service principal name to get more details.
 
 ## Work in the context of a delegated subscription
 
 You can work directly in the context of a delegated subscription within the Azure portal, without switching the directory you're working in. To do so:
 
 1. Select the **Directory + Subscription** icon near the top of the Azure portal.
-1. In the **Global subscription** filter, ensure that only the box for that delegated subscription is selected. (Do not change your working directory.)
+2. In the **Global subscription** filter, ensure that only the box for that delegated subscription is selected. You can use the **Current + delegated directories** drop-down box to show only subscriptions within a specific directory. (Do not use the **Switch directory** option, since that changes the directory to which you're signed in.)
 
 If you then access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you selected. You can change this by following the steps above and checking the **Select all** box (or choosing one or more subscriptions to work in instead).
 
