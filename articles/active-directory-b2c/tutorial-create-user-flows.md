@@ -72,13 +72,13 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 1. Enter a valid email address, click **Send verification code**, enter the verification code that you receive, then select **Verify code**.
 1. Enter a new password and confirm the password.
 1. Select your country and region, enter the name that you want displayed, enter a postal code, and then click **Create**. The token is returned to `https://jwt.ms` and should be displayed to you.
-1. You can now run the user flow again and you should be able to sign in with the account that you created. The returned token includes the claims that you selected of name, country/region, and postal code.
+1. You can now run the user flow again and you should be able to sign in with the account that you created. The returned token includes the claims that you selected of country/region, name, and postal code.
 
 ## Create a profile editing user flow
 
 If you want to enable users to edit their profile in your application, you use a profile editing user flow.
 
-1. In the left menu, select **User flows**, and then select **New user flow**.
+1. In the left menu of the Azure AD B2C tenant overview page, select **User flows (policies)**, and then select **New user flow**.
 1. Select the **Profile editing** user flow on the Recommended tab.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
 1. For **Identity providers**, select **Local Account SignIn**.
@@ -96,7 +96,7 @@ If you want to enable users to edit their profile in your application, you use a
 
 To enable users of your application to reset their password, you use a password reset user flow.
 
-1. In the left menu, select **User flows**, and then select **New user flow**.
+1. In the left menu, select **User flows (policies)**, and then select **New user flow**.
 1. Select the **Password reset** user flow on the Recommended tab.
 1. Enter a **Name** for the user flow. For example, *passwordreset1*.
 1. For **Identity providers**, enable **Reset password using email address**.
@@ -108,7 +108,7 @@ To enable users of your application to reset their password, you use a password 
 
 1. Select the user flow you created to open its overview page, then select **Run user flow**.
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**, verify the email address of account that you previously created, and select **Continue**.
+1. Click **Run user flow**, verify the email address of the account that you previously created, and select **Continue**.
 1. You now have the opportunity to change the password for the user. Change the password and select **Continue**. The token is returned to `https://jwt.ms` and should be displayed to you.
 
 ## Next steps
