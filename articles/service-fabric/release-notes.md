@@ -50,7 +50,7 @@ Here's what's new in Service Fabric 6.5:
 
 #### Linux
 
-- Visual Studio support for [publishing .NET Core apps to Linux-based clusters](service-fabric-how-to-publish-linux-app-vs).
+- Visual Studio support for [publishing .NET Core apps to Linux-based clusters](service-fabric-how-to-publish-linux-app-vs.md).
 
 - [Azure Service Fabric CLI (SFCTL)](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli) will be installed automatically for Service Fabric 6.5 (and later versions) when you upgrade or create new clusters.
 
