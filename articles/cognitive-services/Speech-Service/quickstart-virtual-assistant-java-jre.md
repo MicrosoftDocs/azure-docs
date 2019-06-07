@@ -25,7 +25,7 @@ This quickstart requires:
 * Operating System: Windows (64-bit), Ubuntu Linux 16.04/18.04 (64-bit), or macOS 10.13 or later
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* An Azure subscription key for the Speech Services in the **westus2** region. Create this subscription on the [Azure Portal](https://portal.azure.com).
+* An Azure subscription key for the Speech Services in the **westus2** region. Create this subscription on the [Azure portal](https://portal.azure.com).
 * A pre-configured bot created using Bot Framework version 4.2 or above. The bot would need to subscribe to the new "Direct Line Speech" channel to receive voice inputs.
 
     > [!NOTE]
