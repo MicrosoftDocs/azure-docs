@@ -70,7 +70,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 |---------|--------------|--------------|
 | Boot             | PCAT                      | UEFI                               |
 | Disk controllers | IDE                       | SCSI                               |
-| VM sizes         | Available on all VM sizes | Premium storage supported VMs only |
+| VM sizes         | All VM sizes | Only VMs that support premium storage |
 
 ### Generation 1 vs. generation 2 capabilities
 
