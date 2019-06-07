@@ -57,7 +57,7 @@ For more information on ARMClient command, refer this [document](https://github.
 
 ### Use Azure Resource Manager client to delete Recovery Services vault
 
-1. Run the following command using your subscription ID, resource group name, and vault name. W\hen you run the command it deletes the vault if you don’t have any dependencies.
+1. Run the following command using your subscription ID, resource group name, and vault name. When you run the command it deletes the vault if you don’t have any dependencies.
 
    ```
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15

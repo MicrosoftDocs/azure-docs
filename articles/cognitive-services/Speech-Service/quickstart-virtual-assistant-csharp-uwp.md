@@ -348,7 +348,6 @@ This quickstart will describe, step by step, how to make a simple client applica
     ![Screenshot of permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png "Start the app into debugging")
 
 1. Select **Talk to your bot**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Direct Line Speech channel and transcribed to text, which appears in the window.
-quickstart-cs-uwp-bot-successful-turn
 
     ![Screenshot of successful bot turn](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "A successful bot turn")
 

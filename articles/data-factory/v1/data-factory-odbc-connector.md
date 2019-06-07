@@ -69,8 +69,8 @@ The following table provides description for JSON elements specific to ODBC link
 | connectionString |The non-access credential portion of the connection string and an optional encrypted credential. See examples in the following sections. <br/><br/>You can specify the connection string with pattern like `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, or use the system DSN (Data Source Name) you set up on the gateway machine with `"DSN=<name of the DSN>;"` (you need still specify the credential portion in linked service accordingly). |Yes |
 | credential |The access credential portion of the connection string specified in driver-specific property-value format. Example: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |No |
 | authenticationType |Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. |Yes |
-| username |Specify user name if you are using Basic authentication. |No |
-| password |Specify password for the user account you specified for the username. |No |
+| userName |Specify the user name if you're using Basic authentication. |No |
+| password |Specify the password for the user account that you specified for the userName. |No |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the ODBC data store. |Yes |
 
 ### Using Basic authentication

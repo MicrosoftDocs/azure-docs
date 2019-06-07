@@ -6,7 +6,7 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/12/2019
+ms.date: 06/06/2019
 ms.author: jaredro
 ms.custom: seodec18
 
@@ -68,6 +68,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>
   **The following services are NOT supported**:
     * CDN
+    * Azure Front Door
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -80,6 +81,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>**The following services are NOT supported**:
     * CDN
+    * Azure Front Door
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -216,7 +218,7 @@ Yes. We accept up to 4000 route prefixes for private peering and 200 for Microso
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
-We do not accept private prefixes (RFC1918) for the Microsoft peering BGP session.
+We do not accept private prefixes (RFC1918) for the Microsoft peering BGP session. We accept any prefix size (up to /32) on both the Microsoft and the private peering.
 
 ### What happens if I exceed the BGP limits?
 
@@ -279,6 +281,26 @@ Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressro
 ### Do I pay for ExpressRoute premium in addition to standard ExpressRoute charges?
 
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
+
+## ExpressRoute Local
+### What is ExpressRoute Local?
+ExpressRoute Local is a SKU of ExpressRoute circuit available on [ExpressRoute Direct](expressroute-erdirect-about.md). A key feature of Local is that a Local circuit at an ExpressRoute peering location gives you access only to one or two Azure regions in or near the same metro. In contrast, a Standard circuit gives you access to all Azure regions in a geopolitical area and a Premium circuit to all Azure regions globally. 
+
+### What are the benefits of ExpressRoute Local?
+While you need to pay egress data transfer for your Standard or Premium ExpressRoute circuit, you don't pay egress data transfer separately for your ExpressRoute Local circuit. In other words, the price of ExpressRoute Local includes data transfer fees. ExpressRoute Local is a more economical solution if you have massive amount of data to transfer and you can bring your data over a private connection to an ExpressRoute peering location near your desired Azure regions. 
+
+### What features are available and what are not on ExpressRoute Local?
+Compared to a Standard ExpressRoute circuit, a Local circuit has the same set of features except:
+* Scope of access to Azure regions as described above
+* ExpressRoute Global Reach is not available on Local
+
+ExpressRoute Local also has the same limits on resources (e.g. the number of VNets per circuit) as Standard. 
+
+### How to configure ExpressRoute Local? 
+ExpressRoute Local is available on ExpressRoute Direct only. So first you'll need to configure your ExpressRoute Direct port. Once your Direct port is created you can create a Local circuit following the instructions [here](expressroute-howto-erdirect.md).
+
+### Where is ExpressRoute Local available and which Azure regions is each peering location mapped to?
+ExpressRoute Local is available at the peering locations where one or two Azure regions are close-by. It is not available at a peering location where there is no Azure region in that state or province or country. Please see the exact mappings on [the Locations page](expressroute-locations-providers.md).  
 
 ## ExpressRoute for Office 365
 

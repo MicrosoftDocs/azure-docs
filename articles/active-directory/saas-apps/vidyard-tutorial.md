@@ -179,7 +179,7 @@ To configure Azure AD single sign-on with Vidyard, perform the following steps:
 	![Vidyard Configuration](./media/vidyard-tutorial/configure6.png)
 
 	> [!NOTE]
-	> For more information, refer [this doc](https://knowledge.vidyard.com/saml-single-sign-on-authentication/saml-based-single-sign-on-sso-in-vidyard).
+	> For more information, refer to [this doc](https://knowledge.vidyard.com/hc/articles/360009990033-SAML-based-Single-Sign-On-SSO-in-Vidyard).
 
 ### Create an Azure AD test user 
 

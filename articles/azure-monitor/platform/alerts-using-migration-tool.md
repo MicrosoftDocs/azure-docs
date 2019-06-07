@@ -10,7 +10,10 @@ ms.subservice: alerts
 ---
 # Use the voluntary migration tool to migrate your classic alert rules
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in July 2019. A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves. This article explains how to use the migration tool to voluntarily migrate your classic alert rules before the automatic migration starts in July 2019.
+As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in September 2019 (was originally July 2019). A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves. This article explains how to use the migration tool to voluntarily migrate your classic alert rules before the automatic migration starts in September 2019.
+
+> [!NOTE]
+> Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been [extended to August 31st, 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) from the originally announced date of June 30th, 2019.
 
 ## Benefits of new alerts
 
@@ -72,7 +75,7 @@ To trigger the migration of your classic alert rules in the Azure portal, follow
 
 ### Why is my subscription listed as not ready for migration?
 
-The migration tool is rolling out to customers in phases. In the early phases, most or all of your subscriptions might be marked as **Not ready for migration**. By mid-April, however, all subscriptions should be ready to migrate.
+The migration tool is rolling out to customers in phases. In the early phases, most or all of your subscriptions might be marked as **Not ready for migration**. 
 
 When a subscription becomes ready for migration, the subscription owner will receive an email message stating that the tool is available. Keep an eye out for this message.
 
