@@ -105,6 +105,16 @@ The script contains two functions that load and run the model:
 
 * `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
+#### What is get_model_path?
+When you register a model, you provide a model name used for managing the model in the registry. You use this name in the get_model_path API which returns the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory which contains those files.
+
+When you register a model, you give it a name which corresponds to where the model is placed, either locally or during service deployment.
+
+The below example will return a path to a single file called 'sklearn_mnist_model.pkl' (which was registered with the name 'sklearn_mnist')
+```
+model_path = Model.get_model_path('sklearn_mnist')
+``` 
+
 #### (Optional) Automatic Swagger schema generation
 
 To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. Azure Machine Learning service then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
@@ -261,6 +271,17 @@ The following table provides an example of creating a deployment configuration f
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 The following sections demonstrate how to create the deployment configuration, and then use it to deploy the web service.
+
+### Optional: Profile your model
+Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements.
+You can do this via the SDK or CLI.
+
+For more information, you can check out our SDK documentation here: 
+https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+
+Model profiling results are emitted as a Run object.
+Specifics on the Model Profile schema can be found here:
+https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
 
 ## Deploy to target
 
