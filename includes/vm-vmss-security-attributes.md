@@ -4,7 +4,7 @@
 |---|---|--|
 | Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | See [How to encrypt a Linux virtual machine in Azure](/azure/virtual-machines/linux/encrypt-disks.md) and [Encrypt virtual disks on a Windows VM](/azure/virtual-machines/windows/encrypt-disks.md). |
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Azure Virtual Machines supports [ExpressRoute](/azure/expressroute) and VNET encryption. See [In-transit encryption in VMs](/azure/security/security-azure-encryption-overview.md#in-transit-encryption-in-vms). |
-| Encryption key handling (CMK, BYOK, etc.)| Yes | Customer-mamanged keys is a supporter Azure encryption scenation; see [Azure encryption overview](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms.md).|
+| Encryption key handling (CMK, BYOK, etc.)| Yes | Customer-managed keys is a supported Azure encryption scenario; see [Azure encryption overview](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms.md).|
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Via HTTPS and SSL. |
 
