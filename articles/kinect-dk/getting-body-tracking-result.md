@@ -1,7 +1,7 @@
 ---
 title: Azure Kinect getting body tracking result
 description: Getting body tracking result
-author: yijwan
+author: qm13
 ms.prod: kinect-dk
 ms.author: yijwan, quentinm
 ms.date: 03/05/2019
