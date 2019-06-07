@@ -66,32 +66,15 @@ vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0
 
 ocr_url = vision_base_url + "ocr"
 
-# to easily swith between two different options (local and cloud) we create this variable
-isLocal = True
+# Set image_url to the URL of an image that you want to analyze.
+image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
+    "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
 
-# set request parameters
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 params  = {'language': 'unk', 'detectOrientation': 'true'}
-# option to be defined by a developer
-if isLocal:
-  image_path = "<path-to-local-image-file>"
-  # Read the image into a byte array
-  image_data = open(image_path, "rb").read()
-  # Set Content-Type to octet-stream
-  headers = {'Ocp-Apim-Subscription-Key': subscription_key,
-           'Content-Type': 'application/octet-stream'}
-
-  response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
-else:
-  # Set image_url to the URL of an image that you want to analyze.
-  image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
-      "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
-
-  headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-  data    = {'url': image_url}
-  response = requests.post(ocr_url, headers=headers, params=params, json=data)
-
+data    = {'url': image_url}
+response = requests.post(ocr_url, headers=headers, params=params, json=data)
 response.raise_for_status()
-
 
 analysis = response.json()
 
@@ -116,6 +99,21 @@ for word in word_infos:
     ax.axes.add_patch(patch)
     plt.text(origin[0], origin[1], text, fontsize=20, weight="bold", va="top")
 plt.axis("off")
+```
+
+## Upload image from local storage
+
+In order to analyse a local image you need to set the Content-Type to octet-stream and instead of json put a byte array inside the post request.
+
+```python
+  image_path = "<path-to-local-image-file>"
+  # Read the image into a byte array
+  image_data = open(image_path, "rb").read()
+  # Set Content-Type to octet-stream
+  headers = {'Ocp-Apim-Subscription-Key': subscription_key,
+           'Content-Type': 'application/octet-stream'}
+
+  response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
 ```
 
 ## Examine the response
