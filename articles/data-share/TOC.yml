@@ -1,5 +1,4 @@
 - name: Azure Data Share
-  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Data Share?
@@ -8,29 +7,29 @@
   expanded: true
   items:
     - name: Share data with your Azure customers & partners
-      href: tutorial-shareyourdata.md
+      href: share-your-data.md
     - name: Subscribe to an Azure Data Share
-      href: tutorial-subscribetodatashare.md
+      href: subscribe-to-data-share.md
 - name: Concepts
   items:
   - name: Share Subscription
-    href: concept-sharesubscription.md
+    href: share-subscription.md
   - name: Snapshot
-    href: concept-snapshot.md
+    href: snapshot.md
   - name: Recipient 
-    href: concept-recipient.md
+    href: recipient.md
   - name: Data Share
-    href: concept-datashare.md
+    href: data-share.md
   - name: Synchronization
-    href: concept-synchronization.md
+    href: synchronization.md
 - name: Resources
   items:
   - name: Blog
-    href: https://azure.microsoft.com/blog/tag/azure-data-share
+    href: https://azure.microsoft.com/blog/tag/data-share
   - name: Forums
     items:
     - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-data-share
+      href: https://stackoverflow.com/questions/tagged/data-share
     - name: Microsoft Tech Community
       href: https://techcommunity.microsoft.com/
     - name: MSDN forum
