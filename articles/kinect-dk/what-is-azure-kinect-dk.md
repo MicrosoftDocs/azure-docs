@@ -46,7 +46,7 @@ The Sensor SDK has the following features that work once installed and run on th
 The following tools are available in the Sensor SDK:
 
 * A viewer tool to monitor device data streams and configure different modes.
-* A Sensor recording tool and playback reader API which uses the Matroska container format.
+* A Sensor recording tool and playback reader API that uses the Matroska container format.
 * An Azure Kinect DK firmware update tool.
 
 ## Azure Kinect body tracking SDK
@@ -95,7 +95,7 @@ Services evolve and improve constantly, so remember to check regularly for new o
 
 ## Azure Kinect hardware requirements
 
-The Azure Kinect DK integrates Microsoft's latest sensor technology into single USB connected accessory. See [Azure Kinect DK Hardware Specification](hardware-specification.md) for more details.
+The Azure Kinect DK integrates Microsoft's latest sensor technology into single USB connected accessory. For more information, see [Azure Kinect DK Hardware Specification](hardware-specification.md).
 
 ## Next steps
 
