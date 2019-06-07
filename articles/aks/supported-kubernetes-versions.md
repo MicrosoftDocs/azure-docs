@@ -75,7 +75,7 @@ And AKS releases 1.13.x, this means that the 1.9.x versions (all 1.9 versions) w
 > [!NOTE]
 > Please note, that if customers are running an unsupported Kubernetes version, they will be asked to upgrade when
 > requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the
-> [AKS support policies](https://docs.microsoft.com/en-us/azure/aks/support-policies).
+> [AKS support policies](https://docs.microsoft.com/azure/aks/support-policies).
 
 
 In addition to the above on minor versions, AKS supports the two latest *patch** releases of a given minor version. For
@@ -114,7 +114,7 @@ available in all regions.
 Notifications are sent via:
 
 * [AKS Release notes](https://aka.ms/aks/releasenotes)
-* Azure Portal Notifications
+* Azure portal Notifications
 * [Azure update channel][azure-update-channel]
 
 ### Policy Exceptions
@@ -165,7 +165,7 @@ If you are on the *n-4* version, you are outside of support and will be asked to
 n-4 to n-3 succeeds, you are now within our support policies. For example:
 
 - If the supported AKS versions are *1.13.x*, *1.12.a* + *1.12.b*, *1.11.c* + *1.11d*, and *1.10.e* + *1.10f* and you
-  are on *1.9.g* or *1.9.h*, you are oare outside of support.
+  are on *1.9.g* or *1.9.h*, you are outside of support.
 - If the upgrade from *1.9.g* or *1.9.h* to *1.10.e* or *1.10.f* succeeds, you are back in the within our support policies.
 
 Upgrades to versions older than *n-4* are not supported. In such cases, we recommend customers create new AKS clusters
