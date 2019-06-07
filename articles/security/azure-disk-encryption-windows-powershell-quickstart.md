@@ -1,5 +1,5 @@
 ---
-title: Create and encryption a Windows VM with Azure PowerShell
+title: Create and encrypt a Windows VM with Azure PowerShell
 description: In this quickstart, you learn how to use Azure PowerShell to create and encrypt a Windows virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
@@ -26,7 +26,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 ## Create a virtual machine
 
-Create an Azure virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm). You must supply creditials to the cmdlet. 
+Create an Azure virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm). You must supply credentials to the cmdlet. 
 
 ```azurepowershell-interactive
 $securePassword = ConvertTo-SecureString 'AZUREuserPA$$W0RD' -AsPlainText -Force
@@ -96,4 +96,4 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 In this quickstart, you created a virtual machine, created a Key Vault that was enable for encryption keys, and encrypted the VM.  Advance to the next article to learn more about Azure Disk Encryption prerequisites for IaaS VMs.
 
 > [!div class="nextstepaction"]
-> [Azure Disk Encryption Prerequisites](azure-security-disk-encryption-prerequisites.md)
+> [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md)

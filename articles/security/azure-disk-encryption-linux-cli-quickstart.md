@@ -1,5 +1,5 @@
 ---
-title: Create and encryption a Linux VM with Azure CLI
+title: Create and encrypt a Linux VM with Azure CLI
 description: In this quickstart, you learn how to use Azure CLI to create and encrypt a Linux virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
@@ -97,4 +97,4 @@ az group delete --name myResourceGroup
 In this quickstart, you created a virtual machine, created a Key Vault that was enable for encryption keys, and encrypted the VM.  Advance to the next article to learn more about Azure Disk Encryption prerequisites for IaaS VMs.
 
 > [!div class="nextstepaction"]
-> [Azure Disk Encryption Prerequisites](azure-security-disk-encryption-prerequisites.md)
+> [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md)

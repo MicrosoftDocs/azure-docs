@@ -60,7 +60,7 @@
           href: azure-disk-encryption-linux-powershell-quickstart.md
         - name: Encrypt a Windows VM with Azure CLI
           href: azure-disk-encryption-windows-cli-quickstart.md
-        - name: Encrypt a Linux VM with Azure PowerShell
+        - name: Encrypt a Windows VM with Azure PowerShell
           href: azure-disk-encryption-windows-powershell-quickstart.md
       - name: Azure Disk Encryption
         items:
