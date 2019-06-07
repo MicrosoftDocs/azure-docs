@@ -25,7 +25,7 @@ Personalization can return a rank very rapidly, with most of the call duration d
 Some applications require low latencies when returning a rank. This is necessary:
 
 * To keep the user from waiting a noticeable amount of time before displaying ranked content.
-* To keep a server from experiencing extreme traffic by _not_ tying up compute time and network connections.
+* To help a server that is experiencing extreme traffic avoid tying up scarce compute time and network connections.
 
 <!--
 
