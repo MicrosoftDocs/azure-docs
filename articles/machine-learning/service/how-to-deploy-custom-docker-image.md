@@ -20,8 +20,6 @@ When you deploy a trained model to a web service or IoT Edge device, a Docker im
 
 Azure Machine Learning service provides a default Docker image so you don't have to worry about creating one. You can also use a custom image that you create as a _base image_. A base image is used as the starting point when an image is created for a deployment. It provides the underlying operating system and components. The deployment process then adds additional components, such as your model, conda environment, and other assets, to the image before deploying it.
 
-Microsoft also provides several base images that use the ONNX Runtime. These images are useful when deploying ONNX models.
-
 Typically, you create a custom image when you want to control component versions or save time during deployment. For example, you might want to standardize on a specific version of Python, Conda, or other component. You might also want to install software required by your model, where the installation process takes a long time. Installing the software when creating the base image means that you don't have to install it for each deployment.
 
 > [!IMPORTANT]
@@ -56,7 +54,7 @@ The information in this section assumes that you are using an Azure Container Re
 
     For information on retrieving the name of the Azure Container Registry for your workspace, see the [Get container registry name](#getname) section of this article.
 
-    When using images stored in a __standalone container registry__, you will need to configure a service principal that has at least read access. You then provide the service principal name and password to anyone that uses images from the registry. The exception is if you make the container registry publicly accessible.
+    When using images stored in a __standalone container registry__, you will need to configure a service principal that has at least read access. You then provide the service principal ID (username) and password to anyone that uses images from the registry. The exception is if you make the container registry publicly accessible.
 
     For information on creating a private Azure Container Registry, see [Create a private container registry](/azure/container-registry/container-registery-get-started-azure-cli).
 
@@ -218,6 +216,9 @@ inference_config.base_image_registry.password = "password"
 
 ### Use an image with the Machine Learning CLI
 
+> [!IMPORTANT]
+> Currently the Machine Learning CLI can use images from the Azure Container Registry for your workspace or publicly accessible repositories. It cannot use images from standalone private registries.
+
 When deploying a model using the Machine Learning CLI, you provide an inference configuration file that references the custom image. The following JSON document demonstrates how to reference an image in a public container registry:
 
 ```json
@@ -228,7 +229,8 @@ When deploying a model using the Machine Learning CLI, you provide an inference 
    "extraDockerfileSteps": null,
    "sourceDirectory": null,
    "enableGpu": false,
-   "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+   "baseImage": "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda",
+   "baseImageRegistry": "mcr.microsoft.com"
 }
 ```
 
