@@ -73,46 +73,66 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
 1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
 
-   The connection string should be a URL similar to the following example:
-
-      ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
-      ```
+The connection string will have this format:
+`DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT-NAME>;AccountKey=<YOUR-STORAGE-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
 Keep the connection string handy. You will need it in a future step.
 
 There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials).
 
+## Create a Jupyter notebook
+
+>[!Note]
+>This article shows you how to build a data source, index, indexer and skillset using a series of Python scripts. To download the complete notebook example, go to the [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook).
+
+Use Anaconda Navigator to launch Jupyter Notebook and create a new Python 3 notebook. 
+
 ## Connect to Azure Search
 
-On Windows with Anaconda3, you can use Anaconda Navigator to launch a Jupyter notebook.
+In your notebook, run this script to load the libraries used for working with JSON and formulating HTTP requests.
 
-Create a new Python3 notebook, and then run this script to load the libraries used for working with JSON and formulating HTTP requests.
+```python
+import json
+import requests
+from pprint import pprint
+```
 
-   ```python
-   import json
-   import requests
-   from pprint import pprint
-   ```
+Next, define the names for the data source, index, indexer and skillset. Run this script to set up the names for this tutorial.
 
-Next, replace placeholders for your search service(YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY), and then run this script to set up the search service endpoint.
+```python
+#Define the names for the data source, skillset, index and indexer
+datasource_name="cogsrch-py-datasource"
+skillset_name="cogsrch-py-skillset"
+index_name="cogsrch-py-index"
+indexer_name="cogsrch-py-indexer"
+```
 
-   ```python
-   endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-   api_version = '?api-version=2019-05-06'
-   headers = {'Content-Type': 'application/json',
-           'api-key': '<YOUR-ADMIN-API-KEY>' }
-   ```
+> [!Tip]
+> On a free service, you are limited to three indexes, indexers, and data sources. This tutorial creates one of each. Make sure you have room to create new objects before going any further.
+
+In the following script, replace the placeholders for your search service (YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY), and then run it to set up the search service endpoint.
+
+```python
+#Setup the endpoint
+endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
+headers = {'Content-Type': 'application/json',
+        'api-key': '<YOUR-ADMIN-API-KEY>' }
+params = {
+    'api-version': '2019-05-06'
+}
+```
 
 ## Create a data source
 
-Now that your services and source files are prepared, start assembling the components of your indexing pipeline. Begin with a data source object that tells Azure Search how to retrieve external source data. Replace the placeholder YOUR-BLOB-CONNECTION-STRING with the connection string for the blob you created in the previous step. Then, run the script to create a data source named ```demodata```.
+Now that your services and source files are prepared, start assembling the components of your indexing pipeline. Begin with a data source object that tells Azure Search how to retrieve external source data. 
+
+In the following script,replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Then, run the script to create a data source named ```cogsrch-py-datasource```.
 
 ```python
-#Create data source
-datasourceConnectionString = <YOUR-BLOB-CONNECTION-STRING>
+#Create a data source
+datasourceConnectionString = "<YOUR-BLOB-RESOURCE-CONNECTION-STRING>"
 datasource_payload = {
-    "name": "demodata",
+    "name": datasource_name,
     "description": "Demo files to demonstrate cognitive search capabilities.",
     "type": "azureblob",
     "credentials": {
@@ -122,9 +142,10 @@ datasource_payload = {
      "name": "basic-demo-data-pr"
    }
 }
-r = requests.put( endpoint + "/datasources/" + "demodata", data=json.dumps(datasource_payload), headers=headers, params=params )
-print("status code = ",r.status_code)
+r = requests.put( endpoint + "/datasources/" + datasource_name, data=json.dumps(datasource_payload), headers=headers, params=params )
+print (r.status_code())
 ```
+
 The request should return a status code of 201 confirming success.
 
 In the Azure portal, on the search service dashboard page, verify that the demodata appears in the **Data sources** list. Click **Refresh** to update the page.
@@ -144,12 +165,12 @@ In this step, you define a set of enrichment steps that you want to apply to you
 + [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases. 
 
 ### Python script
-Run the following script to create a skillset called ```demoskillset```.
+Run the following script to create a skillset called ```cogsrch-py-skillset```.
 
 ```python
-#Create skillset
+#Create a skillset
 skillset_payload = {
-  "name": "demoskillset",
+  "name": skillset_name,
   "description":
   "Extract entities, detect language and extract key-phrases",
   "skills":
@@ -225,8 +246,8 @@ skillset_payload = {
   ]
 }
 
-r = requests.put(endpoint + "/skillsets/" + "demoskillset", data=json.dumps(skillset_payload), headers=headers, params=params)
-print("status code = ",r.status_code)
+r = requests.put(endpoint + "/skillsets/" + skillset_name, data=json.dumps(skillset_payload), headers=headers, params=params)
+print(r.status_code())
 ```
 The request should return a status code of 201 confirming success.
 
@@ -244,7 +265,7 @@ For more information about skillset fundamentals, see [How to define a skillset]
 
 ## Create an index
 
-In this section, you define the index schema by specifying which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using field naming conventions pertinent to your search application.
+In this section, you define the index schema by specifying the fields to include in the searchable index, and setting the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using field naming conventions pertinent to your search application.
 
 This exercise uses the following fields and field types:
 
@@ -252,12 +273,12 @@ This exercise uses the following fields and field types:
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
-Run this script to create the index named ```demoindex```.
+Run this script to create the index named ```cogsrch-py-index```.
 
 ```python
 #Create an index
 index_payload = {
-    "name": "demoindex",
+    "name": index_name,
     "fields": [
       {
         "name": "id",
@@ -301,8 +322,8 @@ index_payload = {
    ]
 }
 
-r = requests.put(endpoint + "/indexes/" + "demoindex", data=json.dumps(index_payload), headers=headers, params=params)
-print("status code = ",r.status_code)
+r = requests.put(endpoint + "/indexes/" + index_name, data=json.dumps(index_payload), headers=headers, params=params)
+print(r.status_code())
 ```
 
 The request should return a status code of 201 confirming success.
@@ -311,7 +332,7 @@ To learn more about defining an index, see [Create Index (Azure Search REST API)
 
 ## Create an indexer, map fields, and execute transformations
 
-So far you have created a data source, a skillset, and an index. These three components become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. To tie these together in an indexer, you must define field mappings. 
+So far you have created a data source, a skillset, and an index. These three components become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. To tie these together in an indexer, you must define field mappings.
 
 + The fieldMappings are processed before the skillset, mapping source fields from the data source to target fields in an index. If field names and types are the same at both ends, no mapping is required.
 
@@ -319,15 +340,15 @@ So far you have created a data source, a skillset, and an index. These three com
 
 Besides hooking up inputs to outputs, you can also use field mappings to flatten data structures. For more information, see [How to map enriched fields to a searchable index](cognitive-search-output-field-mapping.md).
 
-Run this script to create an indexer named ```demoindexer```.
+Run this script to create an indexer named ```cogsrch-py-indexer```.
 
 ```python
 # Create an indexer
 indexer_payload = {
-    "name": "demoindexer",
-    "dataSourceName": "demodata",
-    "targetIndexName": "demoindex",
-    "skillsetName": "demoskillset",
+    "name": indexer_name,
+    "dataSourceName": datasource_name,
+    "targetIndexName": index_name,
+    "skillsetName": skillset_name,
     "fieldMappings" : [
     {
       "sourceFieldName" : "metadata_storage_path",
@@ -367,13 +388,15 @@ indexer_payload = {
   }
 }
 
-r = requests.put(endpoint + "/indexers/" + "demoindexer", data=json.dumps(indexer_payload), headers=headers, params=params)
-print("status code =",r.status_code)
+r = requests.put(endpoint + "/indexers/" + indexer_name, data=json.dumps(indexer_payload), headers=headers, params=params)
+print(r.status_code())
 ```
 
 The request should return a status code of 201 confirming success.
 
 Expect this step to take several minutes to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
+
+To see if the indexer is still running, see the script in the next section.
 
 > [!TIP]
 > Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](#reset).
@@ -392,8 +415,8 @@ Once the indexer is defined, it runs automatically when you submit the request. 
 
 ```python
 #Determine if the indexer is still running
-r = requests.get(endpoint + "/indexers/" + "demoindexer" + "/status", headers=headers,params=params)
-print(json.dumps(r.json(), indent=1))
+r = requests.get(endpoint + "/indexers/" + indexer_name + "/status", headers=headers,params=params)
+pprint(json.dumps(r.json(), indent=1))
 ```
 
 The response tells you whether the indexer is running. After indexing is finished, use another HTTP GET to the STATUS endpoint (as above) to see reports of any errors and warnings that occurred during enrichment.  
@@ -408,8 +431,8 @@ As a verification step, query the index for all of the fields.
 
 ```python
 #Query the index for all fields
-r = requests.get(endpoint + "/indexes/" + "demoindex", headers=headers,params=params)
-print(json.dumps(r.json(), indent=1))
+r = requests.get(endpoint + "/indexes/" + index_name, headers=headers,params=params)
+pprint(json.dumps(r.json(), indent=1))
 ```
 
 The output is the index schema, with the name, type, and attributes of each field.
@@ -418,8 +441,8 @@ Submit a second query for `"*"` to return all contents of a single field, such a
 
 ```python
 #Query the index to return the contents of organizations
-r = requests.get(endpoint + "/indexes/" + "demoindex" + "/docs?&search=*&$select=organizations", headers=headers, params=params)
-print(json.dumps(r.json(), indent=1))
+r = requests.get(endpoint + "/indexes/" + index_name + "/docs?&search=*&$select=organizations", headers=headers, params=params)
+pprint(json.dumps(r.json(), indent=1))
 ```
 
 Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
@@ -440,10 +463,13 @@ The ```enriched``` field is intended for debugging purposes, only to help you un
 
 Repeat the previous exercise, and include the `enriched` field when you build the index. This will capture the contents of an enriched document.
 
+[!Tip]
+Before you repeat these steps, you must delete the data source, index, indexer and skillset that you just created. For more information, see [Reset and re-run](#reset).
+
 ```python
 # Create index with enriched field
 index_payload = {
-    "name": "demoindex",
+    "name": index_name,
     "fields": [
       {
         "name": "id",
@@ -487,8 +513,6 @@ index_payload = {
    ]
 }
 
-```
-<a name="reset"></a>
 
 ## Reset and rerun
 
@@ -506,8 +530,8 @@ You can also delete them using a script. The following script will delete the sk
 
 ```python
 #delete the skillset
-r = requests.delete(endpoint + "/skillsets/" + "demoskillset", headers=headers, params=params)
-print(json.dumps(r.json(), indent=1))
+r = requests.delete(endpoint + "/skillsets/" + skillset_name, headers=headers, params=params)
+pprint(json.dumps(r.json(), indent=1))
 ```
 
 As your code matures, you might want to refine a rebuild strategy. For more information, see [How to rebuild an index](search-howto-reindex.md).
