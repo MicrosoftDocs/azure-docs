@@ -171,7 +171,7 @@ After configuring the source of your code, search for Azure Functions build temp
 
 ![Azure Functions build templates](media/functions-how-to-azure-devops/build-templates.png)
 
-In some cases, the build artifacts have a specific folder structure, you may need to check the **Prepend root folder name to archive paths** option.
+In some cases, the build artifacts have a specific folder structure and you may need to check the **Prepend root folder name to archive paths** option.
 
 ![Prepend Root Folder](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
