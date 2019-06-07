@@ -47,7 +47,7 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/media/common/i_guidelines.svg
-      text: Set up Azure Kinect hardware
+      text: Set up Azure Kinect DK
       href: set-up-azure-kinect-dk.md
     - image: 
         src: https://docs.microsoft.com/media/common/i_tools.svg
@@ -57,6 +57,10 @@ sections:
         src: https://docs.microsoft.com/media/common/i_build.svg
       text: Build your first application
       href: setup.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_setup.svg
+      text: Set up Body Tracking SDK
+      href: body-sdk-setup.md
 - title: Introduction
   items:
   - type: paragraph

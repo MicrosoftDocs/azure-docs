@@ -1,17 +1,22 @@
 ---
-title: Set up Azure Kinect
-description: Instructions how to set up Azure Kinect DK hardware
+title: Quickstart- Set up Azure Kinect
+description: this quickstart provides Instructions how to set up Azure Kinect DK hardware
 author: joylital
 ms.author: joylital
 ms.prod: kinect-dk
 ms.topic: quickstart
 ms.date: 06/05/2019
 keywords: azure, kinect, dev kit, azure dk, set up, hardware, quick, usb, power, viewer, sensor, streaming, setup, SDK, firmware
+
+#Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect DK device.
+
 ---
 
 # Quickstart: Set up Azure Kinect DK
 
-This page provides guidance about how to set up your Azure Kinect hardware. We'll show you how to test sensor stream visualization and use the Azure Kinect Viewer.
+This quickstart provides guidance how to set up your Azure Kinect hardware. We'll show you how to test sensor stream visualization and use the Azure Kinect Viewer.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## System requirements
 
