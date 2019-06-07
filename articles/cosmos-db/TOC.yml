@@ -348,7 +348,7 @@
         - name: Distribute reads globally
           displayName: read preference
           href: mongodb-readpreference.md
-        - name: Partitioning your data
+        - name: Partition your data
           href: mongodb-partition.md
         - name: Time to live - MongoDB
           href: mongodb-time-to-live.md
