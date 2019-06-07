@@ -71,7 +71,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 1. Enter a valid email address, click **Send verification code**, enter the verification code that you receive, then select **Verify code**.
 1. Enter a new password and confirm the password.
-1. Select your country and region, enter the name that you want displayed, enter a postal code, and then click **Create**. The token is returned to `https://jwt.ms` and should 1e displayed to you.
+1. Select your country and region, enter the name that you want displayed, enter a postal code, and then click **Create**. The token is returned to `https://jwt.ms` and should be displayed to you.
 1. You can now run the user flow again and you should be able to sign in with the account that you created. The returned token includes the claims that you selected of name, country/region, and postal code.
 
 ## Create a profile editing user flow
