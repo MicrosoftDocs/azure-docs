@@ -53,7 +53,7 @@ The following are best practices for choosing a partition key:
 4. Choose a partition key that spreads the workload evenly across all partitions and evenly over time. Your choice of partition key should balance the need for efficient partition queries and transactions against the goal of distributing items across multiple partitions to achieve scalability. 
 5. Candidates for partition keys might include properties that appear frequently as a filter in your queries. Queries can be efficiently routed by including the partition key in the filter predicate. 
 
- 
+For more context on real-world examples pertaining to partitioning, please see [how to partition (and model) your data in Azure Cosmos DB.](how-to-model-partition-example.md)
 
 ## Next steps:
 - Learn about provisioned throughput in Azure Cosmos DB. 
