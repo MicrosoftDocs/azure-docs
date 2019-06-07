@@ -38,6 +38,11 @@ sections:
           image:
             src: ./media/index/kinect-viewer.svg
           title: Download Sensor SDK
+        - href: body-sdk-download.md
+          html: <p>Follow Instructions to download Azure Kinect Body Tracking SDK.</p>
+          image:
+            src: ./media/index/body-tracking.svg
+          title: Download Body Tracking SDK
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

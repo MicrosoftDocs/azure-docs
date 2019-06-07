@@ -1,8 +1,8 @@
 ---
 title: About Azure Kinect DK
 description: Azure Kinect development kit overview
-author: joylital
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.topic: overview 
 ms.date: 04/11/2019

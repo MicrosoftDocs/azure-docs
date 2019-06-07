@@ -1,8 +1,8 @@
 ---
 title: Quickstart- Record Azure Kinect sensor streams to a file
 description: Quickstart how to record data streams from the Sensor SDK to a file
-author: joylital
-ms.author: jawirth, joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/05/2019
 ms.topic: quickstart
@@ -22,17 +22,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This quickstart assumes:
 
-* You have the Azure Kinect DK connected to your host PC and powered properly.
-* You have finished [setting up](set-up-azure-kinect-dk.md) the hardware.
+- You have the Azure Kinect DK connected to your host PC and powered properly.
+- You have finished [setting up](set-up-azure-kinect-dk.md) the hardware.
 
 ## Create recording
 
-1. Open a command prompt, and navigate to the recorder location or path, such as `C:\Program Files\Azure Kinect SDK\tools\amd64\release\k4arecorder.exe`.
-2. Record 5 seconds using these default settings (*Depth NFOV unbinned and RGB 1080p at 30 fps with IMU*).
+1. Open a command prompt, and provide the path to the recorder.exe. For example: `C:\Program Files\Azure Kinect SDK\tools\k4arecorder.exe`.
+2. Record 5 seconds.
 
     `k4arecorder.exe -l 5 %TEMP%\output.mkv`
 
-3. For a complete overview of recording options and tips, refer to [Azure Kinect recorder](azure-kinect-dk-recorder.md).
+3. The recorder uses the following default settings *Depth NFOV unbinned and RGB 1080p at 30 fps with IMU*. For a complete overview of recording options and tips, refer to [Azure Kinect recorder](azure-kinect-dk-recorder.md).
 
 ## Play back recording
 
