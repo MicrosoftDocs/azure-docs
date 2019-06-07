@@ -25,7 +25,7 @@ The rest of this article answers common questions about log queries.  If you wan
 Once you have the basics down, walk through multiple lessons using either your own data or data from our demo environment starting with: 
 
 - [Work with strings in Azure Monitor log queries](string-operations.md)
-
+ 
 ## What language do log queries use?
 Azure Monitor Logs is based on [Azure Data Explorer](/azure/data-explorer), and log queries are written using the same Kusto query language (KQL). This is a rich language designed to be easy to read and author, and you should be able to start using it with minimal guidance.
 
