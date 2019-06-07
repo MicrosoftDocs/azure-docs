@@ -1,6 +1,6 @@
 ---
 title: How to view app dependencies with Azure Monitor for VMs (preview) | Microsoft Docs
-description: Map is a feature of Azure Monitor for VMs. It automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use the Map feature in a variety of scenarios.
+description: Map is a feature of Azure Monitor for VMs. It automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use the Map feature in various scenarios.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -38,7 +38,7 @@ When you select the VM, the **Properties** pane on the right shows the VM's prop
 
 ![The Properties pane](./media/vminsights-maps/properties-pane-01.png)
 
-On the right side of the pane, select **Log Events** to show a list of data that the VM has sent to Azure Monitor and that is available for querying.  Select any record type to open the **Logs** page. There you see the results for that record type. You also see a preconfigured query that's filtered against the VM.  
+On the right side of the pane, select **Log Events** to show a list of data that the VM has sent to Azure Monitor. This data is available for querying.  Select any record type to open the **Logs** page, where you see the results for that record type. You also see a preconfigured query that's filtered against the VM.  
 
 ![The Log Events pane](./media/vminsights-maps/properties-pane-logs-01.png)
 
@@ -61,11 +61,11 @@ The **Connections** pane displays standard metrics for the selected connection f
 ![Network connectivity charts on the Connections pane](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
 
 ### Failed connections
-The map shows failed connections for processes and computers. A dashed red line indicates that a client system is failing to reach a process or port. For systems that use the dependency agent, the agent reports on failed connection attempts. The Map feature measures this process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or an unavailable remote service.
+The map shows failed connections for processes and computers. A dashed red line indicates a client system is failing to reach a process or port. For systems that use the dependency agent, the agent reports on failed connection attempts. The Map feature measures this process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or an unavailable remote service.
 
 ![A failed connection on the map](./media/vminsights-maps/map-group-failed-connection-01.png)
 
-Understanding failed connections can help you troubleshoot, validate migration, analyze security, and understand the overall architecture of the service. Failed connections are sometimes harmless, but they often point to a problem. Connections can fail, for example, when a failover environment suddenly becomes unreachable or when two application tiers can't communicate with each other after a cloud migration.
+Understanding failed connections can help you troubleshoot, validate migration, analyze security, and understand the overall architecture of the service. Failed connections are sometimes harmless, but they often point to a problem. Connections might fail, for example, when a failover environment suddenly becomes unreachable or when two application tiers can't communicate with each other after a cloud migration.
 
 ### Client groups
 On the map, client groups represent client machines that connect to the mapped machine. A single client group represents the clients for an individual process or machine.
@@ -95,7 +95,7 @@ To access Azure Monitor for VMs directly from a VM:
 
 The map visualizes the VM's dependencies by discovering running process groups and processes that have active network connections over a specified time range.  
 
-By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour by using the **TimeRange** selector in the upper-left corner. You might run a query, for example, during an incident or to see the status before a change.  
+By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector in the upper-left corner. You might run a query, for example, during an incident or to see the status before a change.  
 
 ![Direct VM map overview](./media/vminsights-maps/map-direct-vm-01.png)
 
@@ -107,11 +107,11 @@ To access Azure Monitor for VMs directly from a virtual machine scale set:
 2. From the list, choose a VM. Then in the **Monitoring** section, choose **Insights (preview)**.  
 3. Select the **Map** tab.
 
-The map visualizes all instances in the scale set as a group node along with the group's dependencies. The expanded node lists the instances in the scale set. You can scroll through these instances ten at a time. 
+The map visualizes all instances in the scale set as a group node along with the group's dependencies. The expanded node lists the instances in the scale set. You can scroll through these instances 10 at a time. 
 
 To load a map for a specific instance, first select that instance on the map. Then select the **ellipsis** button (...) to the right and choose **Load Server Map**. In the map that appears, you see process groups and processes that have active network connections over a specified time range. 
 
-By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour by using the **TimeRange** selector. You might run a query, for example, during an incident or to see the status before a change.
+By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector. You might run a query, for example, during an incident or to see the status before a change.
 
 ![Direct VM map overview](./media/vminsights-maps/map-direct-vmss-01.png)
 
@@ -127,9 +127,11 @@ In Azure Monitor, the Map feature provides a global view of your VMs and their d
 
    ![Azure Monitor overview map of multiple VMs](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the workspace that's enabled with the solution and that has VMs reporting to it. The **Group** selector returns subscriptions, resource groups, [computer groups](../../azure-monitor/platform/computer-groups.md), and virtual machine scale sets of computers that are related to the selected workspace. Your selection applies only to the Map feature and does not carry over to Performance or Map.
+Choose a workspace by using the **Workspace** selector at the top of the page. If you have more than one Log Analytics workspace, choose the workspace that's enabled with the solution and that has VMs reporting to it. 
 
-By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour by using the **TimeRange** selector. You might run a query, for example, during an incident or to see the status before a change.  
+The **Group** selector returns subscriptions, resource groups, [computer groups](../../azure-monitor/platform/computer-groups.md), and virtual machine scale sets of computers that are related to the selected workspace. Your selection applies only to the Map feature and doesn't carry over to Performance or Map.
+
+By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector. You might run a query, for example, during an incident or to see the status before a change.  
 
 ## Next steps
 - To learn how to use the Health feature, see [View Azure VM health](vminsights-health.md). 
