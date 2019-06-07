@@ -148,8 +148,8 @@ The easiest way to test this scenario is to use the same machine that you used t
 
 1. Follow the instructions in the [Register X.509 CA certificates to your IoT hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps: 
 
-   * Upload a root CA certificate. If you're using the certificates that you created in the transparent gateway article, upload **\<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem** as the root certificate file. 
-   * Verify that you own that root CA certificate. You can verify possession with the cert tools in \<WRKDIR>. 
+   1. Upload a root CA certificate. If you're using the certificates that you created in the transparent gateway article, upload **\<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem** as the root certificate file. 
+   2. Verify that you own that root CA certificate. You can verify possession with the cert tools in \<WRKDIR>. 
 
       ```powershell
       New-CACertsVerificationCert "<verification code from Azure portal>"
@@ -161,8 +161,8 @@ The easiest way to test this scenario is to use the same machine that you used t
 
 2. Follow the instructions in the [Create an X.509 device for your IoT hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) section of *Set up X.509 security in your Azure IoT hub*. In that section, you perform the following steps: 
 
-   * Add a new device. Provide a lowercase name for **device ID**, and choose the authentication type **X.509 CA Signed**. 
-   * For downstream devices, you must **Set a parent device** and choose the IoT Edge gateway device that will provide the connection to IoT Hub. 
+   1. Add a new device. Provide a lowercase name for **device ID**, and choose the authentication type **X.509 CA Signed**. 
+   2. Set a parent device. For downstream devices, select **Set a parent device** and choose the IoT Edge gateway device that will provide the connection to IoT Hub. 
 
 3. Create a certificate chain for your downstream device. Use the same root CA certificate that you uploaded to IoT Hub to make this chain. Use the same lowercase device ID that you gave to your device identity in the portal.
 

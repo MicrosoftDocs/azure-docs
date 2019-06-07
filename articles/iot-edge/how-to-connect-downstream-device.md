@@ -35,11 +35,11 @@ A downstream device can be any application or platform that has an identity crea
 
 To connect a downstream device to an IoT Edge gateway, you need two things:
 
-1. A device or application that's configured with an IoT Hub device connection string appended with information to connect it to the gateway. 
+* A device or application that's configured with an IoT Hub device connection string appended with information to connect it to the gateway. 
 
     This step is explained in [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
-2. The device or application has to trust the gateway's **root CA** certificate to validate the TLS connections to the gateway device. 
+* The device or application has to trust the gateway's **root CA** certificate to validate the TLS connections to the gateway device. 
 
     This step is explained in detail in the rest of this article. This step can be performed one of two ways: by installing the CA certificate in the operating system's certificate store, or (for certain languages) by referencing the certificate within applications using the Azure IoT SDKs.
 
@@ -97,9 +97,9 @@ This section describes how the Azure IoT SDKs connect to an IoT Edge device usin
 
 Have two things ready before using the application-level samples:
 
-1. Your downstream device's IoT Hub connection string modified to point to the gateway device, and any certificates required to authenticate your downstream device to IoT Hub. For more information, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
+* Your downstream device's IoT Hub connection string modified to point to the gateway device, and any certificates required to authenticate your downstream device to IoT Hub. For more information, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
-2. The full path to the root CA certificate that you copied and saved somewhere on your downstream device.
+* The full path to the root CA certificate that you copied and saved somewhere on your downstream device.
 
     For example, `<path>/azure-iot-test-only.root.ca.cert.pem`. 
 
