@@ -8,53 +8,61 @@ ms.topic: tutorial
 ms.author: koichih
 author: konichi3
 ms.date: 06/07/2019
+# As a device builder, I want to certify my PnP device and add it to the Azure IoT device catalog so that customers can find it.
 ---
 
 # Tutorial: Add your product information
 
 In the how-to article, you learned about how to register your company to the portal, create Plug and Play models and implement your device code to be certified.
 
-This tutorial provides the steps to add your product name and information to be certified and added to the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat).
+This tutorial shows you how to add the product information that's shown in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) for your Plug and Play (PnP) device.
 
-In this tutorial, you use learn how to:
+In this tutorial, you learn how to:
 
- * Understand the certification requirements
- * Add your product name
- * Add your product information
+> [!div class="checklist"]
+> * Understand the certification requirements
+> * Add your product name
+> * Add your product information
 
 ## Prerequisites
 
 To complete this tutorial, you need:
 * A Microsoft Partner Center account
-* Log in to the portal using the Partner Center credential
-
 
 ## Certification requirements
 
-To certify your IoT Plug and Play device, your device need to comply following requirements:
+To certify your IoT Plug and Play device, your device must meet following requirements:
 
-1. Your device code that implements IoT Plug and Play needs to installed on your device
-2. Supports [Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/en-us/azure/iot-dps/about-iot-dps)
-3. Implements [Device Information Interface](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/src/provisioningscripts/samples/interfaces/DeviceInformation.interface.json)
+* Your IoT Plug and Play device code must be installed on your device.
+* Your device code must support the [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
+* Your device code must implement [Device Information Interface](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/src/provisioningscripts/samples/interfaces/DeviceInformation.interface.json)
 
-It is highly recommended to use the [IoT Plug and Play SDK](https://github.com/Azure/Azure-IoT-PnP-Preview) for writing your device code.
+Use the [IoT Plug and Play SDK](https://github.com/Azure/Azure-IoT-PnP-Preview) for writing your device code. The SDK makes it easy to add PnP support to your device
 
-## Add your product
- 
-Product is a friendly name for product model that a customer can purchase. Follow these steps to add a product:
+## Add product name
 
-1. Click the **+ Add your product**  button found on overview page of the portal.
-2. Enter your friendly product name and click the **Create** button. The name entered here is different from the name display in the device catalog.
+**Product** is a friendly name for a product model that a customer can purchase. To add a product:
 
-## Add your product information
-After you successfully created the product entity in the portal, your newly created product will be displayed in the overview page. Follow these steps to add the product information:
+1. Sign in to the portal.
+1. Go to the **Overview** page in the portal and select **+ Add your product**.
+1. Enter your friendly product name and select **Create**. The name entered here is different from the name displayed in the device catalog.
 
-1. Click the **Add information** link found on overview page of the portal. The link is located in the next action column.
-2. Enter information about your product in the product information page.
-3. Make sure to enter required fields that are red asterisk marked
-4. Click **Save** button once complete
-5. Review the content you just entered
+## Add product information
 
+After you've successfully created the product in the portal, the product is displayed in the **Overview** page. To add the product information:
 
-## Next Steps
-In the review page, click **Connect + test** link to start your certification tests.
+1. Select **Add information** link found on the **Overview** page in the portal. The link is in the **Next action** column.
+1. Enter information about your product in the product information page, making sure you complete all the required fields.
+1. Select **Save**.
+1. Review the content you entered.
+
+## Next steps
+
+In this tutorial, you learned how to:
+
+> [!div class="nextstepaction"]
+> * Understand the certification requirements
+> * Add your product name
+> * Add your product information
+
+Now that you know now to add your PnP device information to the portal, the suggested next step is to ...
