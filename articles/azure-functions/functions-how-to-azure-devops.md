@@ -171,6 +171,10 @@ After configuring the source of your code, search for Azure Functions build temp
 
 ![Azure Functions build templates](media/functions-how-to-azure-devops/build-templates.png)
 
+In some cases, the build artifacts has a specific folder structure, you may need to check or un-check the **Prepend root folder name to archive paths** option.
+
+![Prepend Root Folder](media/functions-how-to-azure-devops/prepend-root-folder.png)
+
 #### JavaScript apps
 
 If your JavaScript app have a dependency on Windows native modules, you will need to update:
@@ -178,10 +182,6 @@ If your JavaScript app have a dependency on Windows native modules, you will nee
 - The Agent Pool version to **Hosted VS2017**
 
   ![Change Build Agent OS](media/functions-how-to-azure-devops/change-agent.png)
-
-- The script in the **Build extensions** step in the template to `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
-
-  ![Change Script](media/functions-how-to-azure-devops/change-script.png)
 
 ### Deploy your app
 
