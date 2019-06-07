@@ -3,14 +3,14 @@ title: Traffic View in Azure Traffic Manager
 description: Introduction to Traffic Manager Traffic View
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: 
 ---
 
