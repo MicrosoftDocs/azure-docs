@@ -61,5 +61,7 @@ In this article, you learned how to:
 > * Create an Azure AD B2C tenant
 > * Link your tenant to your subscription
 
+Next, learn how to register a web application in your new tenant.
+
 > [!div class="nextstepaction"]
 > [Register your applications >](tutorial-register-applications.md)
