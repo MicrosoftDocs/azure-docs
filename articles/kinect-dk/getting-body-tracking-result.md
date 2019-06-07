@@ -1,0 +1,127 @@
+---
+title: Azure Kinect getting body tracking result
+description: Getting body tracking result
+author: yijwan
+ms.prod: kinect-dk
+ms.author: yijwan, quentinm
+ms.date: 03/05/2019
+ms.topic: conceptual
+keywords: kinect, azure, sensor, sdk, body, tracking, joint
+---
+
+# Getting body tracking result
+
+Body tracking processes an Azure Kinect DK capture to generate body tracking results. It also maintains global status of the tracker, processing queues and the output queue. There are three steps in using the body tracker:
+
+- Creating a tracker
+- Capturing depth and IR images using Azure Kinect DK
+- Enqueuing the capture and popping the result.
+
+## Creating a tracker
+
+
+The first step in using body tracking is to create a tracker and requires passing in the sensor calibration: [k4a_calibration_t](https://review.docs.microsoft.com/en-us/azurekinect/api/k4a-calibration-t?branch=master). The sensor calibration can be queried using the Azure Kinect Sensor SDK function: [k4a_device_get_calibration](https://review.docs.microsoft.com/en-us/azurekinect/api/k4a-device-get-calibration?branch=master).
+
+```C
+k4a_calibration_t sensor_calibration;
+if (K4A_RESULT_SUCCEEDED != k4a_device_get_calibration(device, device_config.depth_mode, K4A_COLOR_RESOLUTION_OFF, &sensor_calibration))
+{
+    printf("Get depth camera calibration failed!\n");
+    return 0;
+}
+
+k4abt_tracker_t tracker = NULL;
+if (K4A_RESULT_SUCCEEDED != k4abt_tracker_create(&sensor_calibration, &tracker), "Body tracker initialization failed!")
+{
+    printf("Body tracker initialization failed!\n");
+    return 0;
+}
+```
+
+## Capturing depth and IR images
+
+Image capture using Azure Kinect DK is covered in the section [Retrieve images](retrieve-images.md).
+
+>[!NOTE]
+> `K4A_DEPTH_MODE_NFOV_UNBINNED` or `K4A_DEPTH_MODE_WFOV_2X2BINNED` modes are recommended for best performance and accuracy. Do not use the `K4A_DEPTH_MODE_OFF` or `K4A_DEPTH_MODE_PASSIVE_IR` modes.
+
+The supported Azure Kinect DK modes are described [here](hardware-specification.md) and [k4a_depth_mode_t](https://review.docs.microsoft.com/en-us/azurekinect/api/k4a-depth-mode-t?branch=master)
+
+```C
+// Capture a depth frame
+switch (k4a_device_get_capture(device, &capture, TIMEOUT_IN_MS))
+{
+case K4A_WAIT_RESULT_SUCCEEDED:
+    break;
+case K4A_WAIT_RESULT_TIMEOUT:
+    printf("Timed out waiting for a capture\n");
+    continue;
+    break;
+case K4A_WAIT_RESULT_FAILED:
+    printf("Failed to read a capture\n");
+    goto Exit;
+}
+```
+
+## Enqueuing the capture and popping the result
+
+The tracker internally maintains an input queue and an output queue to asynchronously process the Azure Kinect DK captures more efficiently. '`k4abt_tracker_enqueue_capture` function is called to add a new capture to the input queue. `k4abt_tracker_pop_result` function is called to pop a result from the output queue. Use of the timeout value is dependent on the application and controls the queuing wait time.
+
+### Real-time processing
+Use this pattern for single-threaded applications that need real-time results and can accommodate dropped frames. The `simple_3d_viewer` sample located in `examples/src` is an example of real-time processing.
+
+```C
+k4a_wait_result_t queue_capture_result = k4abt_tracker_enqueue_capture(tracker, sensor_capture, 0);
+k4a_capture_release(sensor_capture); // Remember to release the sensor capture once you finish using it
+if (queue_capture_result == K4A_WAIT_RESULT_FAILED)
+{
+    printf("Error! Adding capture to tracker process queue failed!\n");
+    break;
+}
+
+k4abt_frame_t body_frame = NULL;
+k4a_wait_result_t pop_frame_result = k4abt_tracker_pop_result(tracker, &body_frame, 0);
+if (pop_frame_result == K4A_WAIT_RESULT_SUCCEEDED)
+{
+    // Successfully popped the body tracking result. Start your processing
+    ...
+
+    k4abt_frame_release(body_frame); // Remember to release the body frame once you finish using it
+}
+```
+
+### Synchronous processing
+Use this pattern for applications that do not need real-time results or cannot accommodate dropped frames.
+
+Processing throughput may be limited.
+
+The `simple_sample_.exe` sample located in `examples/src` is an example of synchronous processing.
+
+```C
+k4a_wait_result_t queue_capture_result = k4abt_tracker_queue_capture(tracker, sensor_capture, K4A_WAIT_INFINITE);
+k4a_capture_release(sensor_capture); // Remember to release the sensor capture once you finish using it
+if (queue_capture_result != K4A_WAIT_RESULT_SUCCEEDED)
+{
+    // It should never hit timeout or error when K4A_WAIT_INFINITE is set.
+    printf("Error! Adding capture to tracker process queue failed!\n");
+    break;
+}
+
+k4abt_frame_t body_frame = NULL;
+k4a_wait_result_t pop_frame_result = k4abt_tracker_pop_result(tracker, &body_frame, K4A_WAIT_INFINITE);
+if (pop_frame_result != K4A_WAIT_RESULT_SUCCEEDED)
+{
+    // It should never hit timeout or error when K4A_WAIT_INFINITE is set.
+    printf("Error! Popping body tracking result failed!\n");
+    break;
+}
+// Successfully popped the body tracking result. Start your processing
+...
+
+k4abt_frame_release(body_frame); // Remember to release the body frame once you finish using it
+```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+>[Retrieve images](retrieve-images.md)
