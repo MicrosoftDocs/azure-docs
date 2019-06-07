@@ -13,7 +13,13 @@ ms.author: helohr
 
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
-This article describes how to create a host pool within a Windows Virtual Desktop tenant by using a Microsoft Azure Marketplace offering. The tasks include creating a host pool in Windows Virtual Desktop, creating a resource group with VMs in an Azure subscription, joining those VMs to the Active Directory domain, and registering the VMs with Windows Virtual Desktop.
+This tutorial describes how to create a host pool within a Windows Virtual Desktop tenant by using a Microsoft Azure Marketplace offering. The tasks include:
+
+> [!div class="checklist"]
+> * Create a host pool in Windows Virtual Desktop.
+> * Create a resource group with VMs in an Azure subscription.
+> * Join the VMs to the Active Directory domain.
+> * Register the VMs with Windows Virtual Desktop.
 
 Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
 

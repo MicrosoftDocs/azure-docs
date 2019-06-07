@@ -68,7 +68,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 ## Next steps
 
-In this tutorial, you learned how to create a app group, populate it with RemoteApps, and assign users to the app group. To learn more about how to sign in to Windows Virtual Desktop, continue to these how-to articles:
+In this tutorial, you learned how to create an app group, populate it with RemoteApps, and assign users to the app group. To learn more about how to sign in to Windows Virtual Desktop, continue to these how-to articles:
 
 - [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
 - [Connect to the Windows Virtual Desktop Preview web client](connect-web.md)
