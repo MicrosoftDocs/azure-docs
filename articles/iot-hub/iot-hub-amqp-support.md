@@ -55,14 +55,14 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 ```
 
 ### Invoke cloud-to-device messages (service client)
-To learn about the cloud-to-device (C2D) message exchange between the service and the IoT hub and between the device and the IoT hub, see [Send cloud-to-device messages from your IoT hub](iot-hub-devguide-messages-c2d.md). The service client uses two links to send messages and receive feedback for previously sent messages from devices, as described in the following table:
+To learn about the cloud-to-device message exchange between the service and the IoT hub and between the device and the IoT hub, see [Send cloud-to-device messages from your IoT hub](iot-hub-devguide-messages-c2d.md). The service client uses two links to send messages and receive feedback for previously sent messages from devices, as described in the following table:
 
 | Created by | Link type | Link path | Description |
 |------------|-----------|-----------|-------------|
-| Service | Sender link | `/messages/devicebound` | C2D messages that are destined for devices are sent to this link by the service. Messages sent over this link have their `To` property set to the target device's receiver link path, `/devices/<deviceID>/messages/devicebound`. |
+| Service | Sender link | `/messages/devicebound` | Cloud-to-device messages that are destined for devices are sent to this link by the service. Messages sent over this link have their `To` property set to the target device's receiver link path, `/devices/<deviceID>/messages/devicebound`. |
 | Service | Receiver link | `/messages/serviceBound/feedback` | Completion, rejection, and abandonment feedback messages that come from devices received on this link by service. For more information about feedback messages, see [Send cloud-to-device messages from an IoT hub](./iot-hub-devguide-messages-c2d.md#message-feedback). |
 
-The following code snippet demonstrates how to create a C2D message and send it to a device by using the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python).
+The following code snippet demonstrates how to create a cloud-to-device message and send it to a device by using the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python).
 
 ```python
 import uuid
@@ -116,10 +116,10 @@ for msg in batch:
     print('unknown message:', msg.properties.content_type)
 ```
 
-As shown in the preceding code, a C2D feedback message has a content type of *application/vnd.microsoft.iothub.feedback.json*. You can use the properties in the message's JSON body to infer the delivery status of the original message:
+As shown in the preceding code, a cloud-to-device feedback message has a content type of *application/vnd.microsoft.iothub.feedback.json*. You can use the properties in the message's JSON body to infer the delivery status of the original message:
 * Key `statusCode` in the feedback body has one of the following values: *Success*, *Expired*, *DeliveryCountExceeded*, *Rejected*, or *Purged*.
 * Key `deviceId` in the feedback body has the ID of the target device.
-* Key `originalMessageId` in the feedback body has the ID of the original C2D message that was sent by the service. You can use this delivery status to correlate feedback to C2D messages.
+* Key `originalMessageId` in the feedback body has the ID of the original cloud-to-device message that was sent by the service. You can use this delivery status to correlate feedback to cloud-to-device messages.
 
 ### Receive telemetry messages (service client)
 
@@ -232,19 +232,19 @@ The following link paths are supported as device operations:
 
 | Created by | Link type | Link path | Description |
 |------------|-----------|-----------|-------------|
-| Devices | Receiver link | `/devices/<deviceID>/messages/devicebound` | C2D messages that are destined for devices are received on this link by each destination device. |
-| Devices | Sender link | `/devices/<deviceID>messages/events` | Device-to-cloud (D2C) messages that are sent from a device are sent over this link. |
-| Devices | Sender link | `/messages/serviceBound/feedback` | C2D message feedback sent to the service over this link by devices. |
+| Devices | Receiver link | `/devices/<deviceID>/messages/devicebound` | Cloud-to-device messages that are destined for devices are received on this link by each destination device. |
+| Devices | Sender link | `/devices/<deviceID>messages/events` | Device-to-cloud messages that are sent from a device are sent over this link. |
+| Devices | Sender link | `/messages/serviceBound/feedback` | Cloud-to-device message feedback sent to the service over this link by devices. |
 
 
-### Receive C2D commands (device client)
-C2D commands that are sent to devices arrive on a `/devices/<deviceID>/messages/devicebound` link. Devices can receive these messages in batches, and use the message data payload, message properties, annotations, or application properties in the message as needed.
+### Receive cloud-to-device commands (device client)
+Cloud-to-device commands that are sent to devices arrive on a `/devices/<deviceID>/messages/devicebound` link. Devices can receive these messages in batches, and use the message data payload, message properties, annotations, or application properties in the message as needed.
 
-The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python)) to receive C2D messages by a device.
+The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python)) to receive cloud-to-device messages by a device.
 
 ```python
 # ... 
-# Create a receive client for the C2D receive link on the device
+# Create a receive client for the cloud-to-device receive link on the device
 operation = '/devices/{device_id}/messages/devicebound'.format(device_id=device_id)
 uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
 
@@ -281,12 +281,12 @@ while True:
 ### Send telemetry messages (device client)
 You can also send telemetry messages from a device by using AMQP. The device can optionally provide a dictionary of application properties, or various message properties, such as message ID.
 
-The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to send D2C messages from a device.
+The following code snippet uses the [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to send device-to-cloud messages from a device.
 
 
 ```python
 # ... 
-# Create a send client for the D2C send link on the device
+# Create a send client for the device-to-cloud send link on the device
 operation = '/devices/{device_id}/messages/events'.format(device_id=device_id)
 uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
 
