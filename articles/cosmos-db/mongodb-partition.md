@@ -13,9 +13,8 @@ ms.author: roaror
 # Partitioning in Azure Cosmos DB’s API for MongoDB 
 
 The concept of partitioning in Cosmos DB’s API for MongoDB is analogous to sharding in MongoDB, but please keep in mind: 
-It is important to note that you must pick a partition key if you expect your data to grow more than 10GB. Unless you are sure that your data will never grow more than 10GB, you should always create a partitioned collection and pick a good partition key.  
-
-Please follow the best practices for choosing the partition key for your collection, which are discussed below in this article. 
+- It is important to note that you must pick a partition key if you expect your data to grow more than 10GB. Unless you are sure that your data will never grow more than 10GB, you should always create a partitioned collection and pick a good partition key.  
+- Please follow the best practices for choosing the partition key for your collection, which are discussed below in this article. 
 
 In this article, we cover: 
 
