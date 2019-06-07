@@ -102,6 +102,7 @@ The deployment manifest shares the credentials for your container registry with 
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
 4. Save the deployment.template.json file. 
 
