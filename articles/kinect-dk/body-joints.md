@@ -1,15 +1,15 @@
 ---
-title:  Body Tracking Joints
+title:  Azure Kienct body tracking joints
 description: Using body frame and joints
 author: qm13
 ms.author: cedmonds, abalan, quentinm
+ms.prod: kinect-dk
 ms.date: 06/06/2019
+ms.topic: conceptual
 keywords: kinect, porting, body, tracking, joint, hierarchy, bone, connection
 ---
 
 # Body tracking joints
-
-## Body frame
 
 Azure Kinect body tracking can track multiple human bodies at the same time. Each body includes an ID for temporal correlation between frames and the kinematic skeleton. The number of bodies detected in each frame can be acquired using `k4abt_frame_get_num_bodies()`.
 
@@ -31,7 +31,7 @@ A skeleton includes 24 joints with the joint hierarchy flowing from the center o
 
 The following table enumerates the standard joint connections.
 
-|Index |Joint Name     | Parent Joint   |
+|Index |Joint name     | Parent joint   |
 |------|---------------|----------------|
 | 0    |PELVIS         | -              |
 | 1    |SPINE_NAVAL    | PELVIS         |
