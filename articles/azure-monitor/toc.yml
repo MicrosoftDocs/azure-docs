@@ -781,8 +781,6 @@
           href: log-query/log-query-performance.md
         - name: Parse text data
           href: log-query/parse-text.md
-      - name: Take action from search results
-        href: log-query/take-action.md
       - name: Flow connector
         href: platform/flow-tutorial.md   
   - name: Visualize data
