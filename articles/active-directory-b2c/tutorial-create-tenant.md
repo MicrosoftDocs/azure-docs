@@ -42,7 +42,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     ![Create a tenant](./media/tutorial-create-tenant/create-tenant.PNG)
 
-6. On the **Create new B2C Tenant or Link to an exiting Tenant** page, choose **Link an existing Azure AD B2C Tenant to my Azure subscription**.
+6. On the **Create new B2C Tenant or Link to existing Tenant** page, choose **Link an existing Azure AD B2C Tenant to my Azure subscription**.
 
     Select the tenant that you created, and select your subscription.
 
