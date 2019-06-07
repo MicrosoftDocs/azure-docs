@@ -42,7 +42,7 @@ To enable sign-in for users from Azure AD, you need to register an application w
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your Azure AD tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations (Legacy)**.
 4. Select **New application registration**.
 5. Enter a name for your application. For example, `Azure AD B2C App`.
 6. For the **Application type**, select `Web app / API`.
