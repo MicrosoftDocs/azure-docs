@@ -156,7 +156,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
 ## Access to the cluster
-After having the firewall setup successfully, you can use the internal endpoint (https://<clustername>-int.azurehdinsight.net) to access the Ambari from within the VNET. To use the public endpoint (https://<clustername>.azurehdinsight.net) or ssh endpoint (<clustername>-ssh.azurehdinsight.net), make sure you have the right routes in the route table and NSG rules setup to avoid the asymetric routing issue explained [here](https://docs.microsoft.com/azure/firewall/integrate-lb).
+After having the firewall setup successfully, you can use the internal endpoint (`https://<clustername>-int.azurehdinsight.net`) to access the Ambari from within the VNET. To use the public endpoint (`https://<clustername>.azurehdinsight.net`) or ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules setup to avoid the asymetric routing issue explained [here](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## Configure another network virtual appliance
 
