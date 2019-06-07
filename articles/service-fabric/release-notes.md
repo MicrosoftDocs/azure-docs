@@ -44,7 +44,7 @@ Here's what's new in Service Fabric 6.5:
 
 - Added [replica lifecycle events](service-fabric-diagnostics-event-generation-operational.md#replica-events) for stateful services.
 
-- Better visibility of [seed node status](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), including cluster-level warnings if a seed node is unhealthy (*Down*, *Removed* or *Unknown*).
+- Better visibility of seed node status, including cluster-level warnings if a seed node is unhealthy (*Down*, *Removed* or *Unknown*).
 
 - [Service Fabric Application Disaster Recovery Tool](https://github.com/Microsoft/Service-Fabric-AppDRTool) allows users of Service Fabric stateful services to get back live soon in case the primary SF cluster encounters a disaster. The tool constantly synchronizes the data from the application running on the primary cluster on the standby application on secondary using periodic backup and restore.
 
@@ -60,7 +60,7 @@ Here's what's new in Service Fabric 6.5:
 
 - Added [replica lifecycle events](service-fabric-diagnostics-event-generation-operational.md#replica-events) for stateful services.
 
-- Better visibility of [seed node status](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), including cluster-level warnings if a seed node is unhealthy (*Down*, *Removed* or *Unknown*).
+- Better visibility of seed node status, including cluster-level warnings if a seed node is unhealthy (*Down*, *Removed* or *Unknown*).
 
 ## Previous versions
 
