@@ -36,4 +36,4 @@ The following table describes the types of storage accounts and their capabiliti
 
 <p id="zone-redundant-storage"><sup>4</sup>Zone-redundant storage (ZRS) is available only for standard general-purpose v2 storage accounts. For more information about ZRS, see <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs">Zone-redundant storage (ZRS): Highly available Azure Storage applications</a>. For more information about other replication options, see <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Azure Storage replication</a>.</p>
 
-<p id="premium-preformance"><sup>5</sup> Premium performance for general-purpose v2 and general-purpose v1 accounts is available for disk and page blob only.</p>
+<p id="premium-performance"><sup>5</sup>Premium performance for general-purpose v2 and general-purpose v1 accounts is available for disk and page blob only.</p>
