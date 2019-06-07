@@ -106,6 +106,8 @@ Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve f
 
 A [compute target](concept-compute-target.md) lets you to specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Compute targets make it easy to change your compute environment without changing your code. 
 
+Learn more about the [available compute targets for training and deployment](concept-compute-target.md). 
+
 ## Training script
 
 To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information that's gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script that's specified by the run configuration is started. A snapshot of the directory is also stored under the experiment in the workspace.
