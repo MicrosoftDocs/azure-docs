@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Register an application - Azure Active Directory B2C | Microsoft Docs
+title: Tutorial - Register an application - Azure Active Directory B2C
 description: Learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
 author: mmacy
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -46,8 +46,9 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 If your application exchanges a code for a token, you need to create an application secret.
 
-1. Select **Keys** and then click **Generate key**.
-2. Select **Save** to view the key. Make note of the **App key** value. You use the value as the application secret in your application's code.
+1. In the **Azure AD B2C - Applications** page, select the application you created, for example *webapp1*.
+2. Select **Keys** and then select **Generate key**.
+3. Select **Save** to view the key. Make note of the **App key** value. You use this value as the application secret in your application's code.
 
 ## Next steps
 
@@ -57,5 +58,7 @@ In this article, you learned how to:
 > * Register a web application
 > * Create a client secret
 
+Next, learn how to create user flows to enable your users to sign up, sign in, or manage their profiles.
+
 > [!div class="nextstepaction"]
-> [Create user flows in Azure Active Directory B2C](tutorial-create-user-flows.md)
+> [Create user flows in Azure Active Directory B2C >](tutorial-create-user-flows.md)
