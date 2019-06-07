@@ -11,7 +11,7 @@ ms.author: v-chjenk
 ---
 # Tutorial: Set up service alerts
 
-As with any other service on Azure, you can monitor Windows Virtual Desktop with Azure Service Health. You can set up Azure Service Health to send you notifications on service issues and you can access the notifications in the Azure portal where the service alerts are set up. Different types of alerts can be set up (for example, email or SMS) and you can set them up to notify you in a timely manner.  
+You can use Azure Service Health to monitor service issues and health advisories for Windows Virtual Desktop. You can configure Azure Service Health so that the service sends you notifications, which you can access on the Azure portal. You can also set up different types of alerts (for example, email or SMS) and schedule them to notify you in a timely manner.  
 
 ## Service alert recommendations
 
