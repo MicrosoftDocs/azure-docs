@@ -69,17 +69,21 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 3. In the **Inputs** pane, select **Add stream input**, then select **IoT Hub** from the drop-down list. On the new input pane, enter the following information:
 
-   **Input alias**: A unique alias for the input and then select **Provide IoT Hub settings manually** below.
+   **Input alias**: Enter a unique alias for the input.
 
-   **IoT Hub**: Enter the name of your IoT hub.
+   **Provide IoT Hub from your subscription**: Select this radio button.
+
+   **Subscription**: Select the Azure subscription you're using for this tutorial.
+
+   **IoT Hub**: Select the IoT Hub you're using for this tutorial.
 
    **Endpoint**: Select **Messaging**.
 
-   **Shared access policy name**: Enter the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this tutorial, you can enter `service`. The *service* policy is created by default on new IoT hubs and grants permission to send and receive on cloud-side endpoints exposed by the IoT hub. To learn more, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
+   **Shared access policy name**: Select the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this tutorial, you can select *service*. The *service* policy is created by default on new IoT hubs and grants permission to send and receive on cloud-side endpoints exposed by the IoT hub. To learn more, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
 
-   **Shared access policy key**: Enter the shared access policy key for the policy you specified for *Shared access policy name*. To get the key, navigate to your IoT hub in the Azure portal. Under **Properties** on the left pane, select **Shared access policies**. From the list of policies, select the policy you specified; for example, `service`. On the policy's properties page, copy the **Primary key**.
+   **Shared access policy key**: This field is auto-filled based on your selection for the shared access policy name.
 
-   **Consumer group**: Enter the consumer group you created previously.
+   **Consumer group**: Select the consumer group you created previously.
 
    Leave all other fields at their defaults.
 
