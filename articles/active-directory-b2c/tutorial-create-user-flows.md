@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[Register your applications](tutorial-register-applications.md) that are part of the user flows you want to create. 
+[Register your applications](tutorial-register-applications.md) that are part of the user flows you want to create.
 
 ## Create a sign-up and sign-in user flow
 
