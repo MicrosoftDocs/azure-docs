@@ -319,7 +319,7 @@ To build your dependencies and publish using a continuous delivery (CD) system, 
 
 ## Unit Testing
 
-Azure Functions written in Python can be tested like regular Python code using standard testing frameworks. For most bindings it is possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package.
+Functions written in Python can be tested like other Python code using standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package.
 
 For example, following is a mock test of an HTTP triggered function:
 
