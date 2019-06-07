@@ -56,7 +56,7 @@ The health statuses included are:
 * **Not found** - Either the workspace, the resource group, or subscription containing the workspace for this solution has been deleted.
 * **Unauthorized** - User doesn’t have required permissions to read the data in the workspace.
 * **Error** - Error occurred while attempting to read data from the workspace.
-* **Mis configured** - Azure Monitor for containers was not configured correctly in the specified workspace.
+* **Misconfigured** - Azure Monitor for containers was not configured correctly in the specified workspace.
 * **No data** - Data has not reported to the workspace in the last 30 minutes.
 
 Health state calculates overall cluster status as *worst of* the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
