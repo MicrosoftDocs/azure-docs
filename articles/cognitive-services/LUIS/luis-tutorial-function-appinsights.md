@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
 ---
 
 # Add LUIS results to Application Insights and Azure functions
 This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or Power BI to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
-The bot is built with the Bot Framework 3.x and the Azure Web app bot. A [Bot Framework 4.x with LUIS tutorial](luis-nodejs-tutorial-bf-v4.md) is also available.
+The bot is built with the Bot Framework 4.x and the Azure Web app bot. A [Bot Framework 4.x with LUIS tutorial](luis-nodejs-tutorial-bf-v4.md) is also available.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Your LUIS web app bot from the **[previous tutorial](luis-nodejs-tutorial-build-bot-framework-sample.md)** with Application Insights turned on. 
+* A LUIS web app bot from the **[tutorial](luis-nodejs-tutorial-bf-v4.md)** with Application Insights turned on. 
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 All of the code in this tutorial is available on the [Azure-Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) and each line associated with this tutorial is commented with `//APPINSIGHT:`. 
 
 ## Web app bot with LUIS
-This tutorial assumes you have code that looks like the following or that you have completed the [other tutorial](luis-nodejs-tutorial-build-bot-framework-sample.md): 
+This tutorial assumes you have code that looks like the following or that you have completed the [other tutorial](luis-nodejs-tutorial-bf-v4.md): 
 
    [!code-javascript[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/nodejs/app.js "Web app bot with LUIS")]
 
