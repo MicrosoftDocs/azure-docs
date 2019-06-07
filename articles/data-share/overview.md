@@ -45,5 +45,5 @@ Azure Data Share enables Data Consumers to:
 * Accept data shared with you into an Azure Blob Storage or Azure Data Lake Gen2 account; 
 
 All key capabilities listed above are supported through the Azure or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
-    ![Supported Scenarios](./media/supportedscenarios.png "Supported Scenarios")
+    ![Supported Scenarios](./media/supported-scenarios.png "Supported Scenarios")
 

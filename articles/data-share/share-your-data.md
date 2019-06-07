@@ -58,19 +58,19 @@ Create an Azure Data Share resource in an Azure resource group.
 ## Create a Data Share
 
 1. In your Data Share Account, select 'Start sharing your data'. 
-    ![StartSharing](./media/1startsharing.png "Start sharing your data")
+    ![StartSharing](./media/start-sharing.png "Start sharing your data")
 
 1. Select **Create**
    
 
 1. Fill out the details for your Data Share. Specify a name, description of share contents, and terms of use (if applicable). 
 
-    ![EnterShareDetails](./media/2entersharedetails.png "Enter Share details") 
+    ![EnterShareDetails](./media/enter-share-details.png "Enter Share details") 
 
 1. Click **Continue**
 
 1. To add Datasets to your Data Share, click **Add Datasets**. 
-    ![EnableRefresh](./media/4add_dataset.png "Add Datasets")
+    ![EnableRefresh](./media/add_datasets.png "Add Datasets")
 
 1. Select the Dataset Type that you would like to add. Navigate to the object you would like to share and click 'Add Datasets'. 
 
