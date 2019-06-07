@@ -74,7 +74,7 @@ For the **Windows Virtual Desktop tenant information** blade:
 
 1. For **Windows Virtual Desktop tenant group name**, enter the name for the tenant group that contains your tenant. Leave it as the default unless you were provided a specific tenant group name.
 2. For **Windows Virtual Desktop tenant name**, enter the name of the tenant where you'll be creating this host pool.
-3. Specify the type of credentials that you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. If you completed the [Create service principals and role assignments with PowerShell tutorial](./create-service-principal-role-powershell.md), select **Service principal**. For **Azure AD tenant ID**, you'll now need to enter the ID  the Azure Active Directory instance that contains the service principal.
+3. Specify the type of credentials that you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. If you completed the [Create service principals and role assignments with PowerShell tutorial](./create-service-principal-role-powershell.md), select **Service principal**. When **Azure AD tenant ID** appears, enter the ID for the Azure Active Directory instance that contains the service principal.
 4. Enter the credentials for the tenant admin account. Only service principals with a password credential are supported.
 5. Select **OK**.
 
@@ -120,7 +120,7 @@ Here are the current supported clients:
 
 ## Next steps
 
-Now that you've made a host pool and assigned users to access its desktop, you can populate your host pool with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see this tutorial:
+Now that you've made a host pool and assigned users to access its desktop, you can populate your host pool with RemoteApp programs. To learn more about how to manage apps in Windows Virtual Desktop, see this tutorial:
 
 > [!div class="nextstepaction"]
 > [Manage app groups tutorial](./manage-app-groups.md)

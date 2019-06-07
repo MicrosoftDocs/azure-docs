@@ -14,7 +14,7 @@ ms.author: helohr
 Service principals are identities that you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Windows Virtual Desktop Preview, you can create a service principal to:
 
 - Automate specific Windows Virtual Desktop management tasks.
-- Use as credentials in place of Azure Multi-Factor Authentication-required users when running any Azure Resource Manager template for Windows Virtual Desktop.
+- Use as credentials in place of MFA-required users when running any Azure Resource Manager template for Windows Virtual Desktop.
 
 In this tutorial, learn how to:
 
