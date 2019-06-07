@@ -13,9 +13,9 @@ Visual Studio provides the Azure Resource Group project for creating templates a
 
 There are two ways to deploy templates to Azure Pipelines:
 
-* [Add task that runs an Azure PowerShell script](#use-azure-powershell-task). The script copies artifacts and then deploys the template. This option has the advantage of providing consistency throughout the development life cycle because you use the same script that is included in the Visual Studio project (Deploy-AzureResourceGroup.ps1).
+* [Add task that runs an Azure PowerShell script](#use-azure-powershell-task). This option has the advantage of providing consistency throughout the development life cycle because you use the same script that is included in the Visual Studio project (Deploy-AzureResourceGroup.ps1). The script stages artifacts from your project, such as linked templates, scripts, and application binaries, to a storage account that Resource Manager can access. Then, the script deploys the template.
 
-* [Add copy and deploy tasks](#use-copy-and-deploy-tasks). This option offers a convenient alternative to the built-in script. You configure two tasks in the pipeline. One copies the artifacts and the other deploys the template.
+* [Add copy and deploy tasks](#use-copy-and-deploy-tasks). This option offers a convenient alternative to the project script. You configure two tasks in the pipeline. One stages the artifacts and the other deploys the template.
 
 ## Prepare your project
 
@@ -27,28 +27,9 @@ This article assumes your Visual Studio project and Azure DevOps organization ar
 
 * Your Visual Studio project is [shared to a DevOps project](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
 
-## Stage artifacts
-
-With both approaches, you need to give Azure Resource Manager access to artifacts for your project. This step is known as staging. The artifacts can include files such as:
-
-* Nested templates
-* Configuration scripts and DSC scripts
-* Application binaries
-
-The PowerShell script copies the artifacts to a secure container in Azure, creates a SaS token for that container, and passes that information on to the template deployment.
-
-The DevOps tasks includes a task for copying the artifacts. You pass parameter values from the staging step to the template deployment.
-
 ## Use Azure PowerShell task
 
-To call the PowerShell script in Azure Pipelines, you need to update your build pipeline. In brief, the steps are: 
-
-* Add the build pipeline.
-* Set up Azure authorization in Azure Pipelines.
-* Add an Azure PowerShell build step that references the PowerShell script in the Azure Resource Group deployment project.
-* Set the value of the *-ArtifactsStagingDirectory* parameter to work with a project built in Azure Pipelines.
-
-The following procedures walk you through the steps necessary to configure continuous deployment in Azure DevOps Services using a single task that runs the PowerShell script in your project.
+The following steps configure continuous deployment in Azure DevOps Services using a single task that runs the PowerShell script in your project.
 
 1. If you haven't added a pipeline previously, you need to create a new pipeline. From your DevOps organization, select **Pipelines** and **New pipeline**.
 
@@ -82,8 +63,28 @@ You've set up a build pipeline for your project. Now, you need to add a service 
 
 You are ready to add the task that runs your script.
 
-2. Add a new **Azure PowerShell** build step to the build pipeline and then choose the **Add build step…** button.
-   
+1. Open your pipeline, and replace the contents with:
+
+   ```yaml
+   pool:
+     name: Hosted Windows 2019 with VS2019
+     demands: azureps
+
+   steps:
+   - task: AzurePowerShell@3
+     inputs:
+       azureSubscription: 'demo-deploy-sp'
+       ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
+       ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' 
+       azurePowerShellVersion: LatestVersion
+   ```
+
+1. Select **Save**.   
+
+   ![Save pipeline](./media/vs-resource-groups-project-devops-pipelines/save-pipeline.png)
+
+1. Provide a message for the commit, and commit directly to **master**. When you select **Save** the build pipeline is automatically run.
+
 3. Choose the **Deploy task** category, select the **Azure PowerShell** task, and then choose its **Add** button.
 
 1. You have a default stage. Select **Save and run**. You will change this step later.
