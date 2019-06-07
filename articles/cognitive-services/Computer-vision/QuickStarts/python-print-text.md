@@ -106,14 +106,13 @@ plt.axis("off")
 In order to analyse a local image you need to set the Content-Type to octet-stream and instead of json put a byte array inside the post request.
 
 ```python
-  image_path = "<path-to-local-image-file>"
-  # Read the image into a byte array
-  image_data = open(image_path, "rb").read()
-  # Set Content-Type to octet-stream
-  headers = {'Ocp-Apim-Subscription-Key': subscription_key,
-           'Content-Type': 'application/octet-stream'}
-
-  response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
+image_path = "<path-to-local-image-file>"
+# Read the image into a byte array
+image_data = open(image_path, "rb").read()
+# Set Content-Type to octet-stream
+headers = {'Ocp-Apim-Subscription-Key': subscription_key, 'Content-Type': 'application/octet-stream'}
+# put the byte array into your post request
+response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
 ```
 
 ## Examine the response
