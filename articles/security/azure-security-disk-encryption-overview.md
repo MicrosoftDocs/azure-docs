@@ -27,55 +27,48 @@ Azure Disk Encryption enables you to satisfy the following business needs:
 * VMs are secured at rest by using industry-standard encryption technology to address organizational security and compliance requirements.
 * VMs boot under customer-controlled keys and policies. You can audit their usage in your key vault.
 
-The Disk Encryption solution supports the following customer scenarios:
+Azure Disk Encryption supports the following customer scenarios:
 
-* Enable encryption on new Windows VMs created from pre-encrypted VHD and encryption keys.
-* Enable encryption on new VMs created from the supported Azure Gallery images.
-* Enable encryption on existing VMs that run in Azure.
-* Enable encryption on Windows virtual machine scale sets.
-* Enable encryption on data drives for Linux virtual machine scale sets.
-* Disable encryption on Windows VMs.
-* Disable encryption on data drives for Linux VMs.
-* Disable encryption on Windows virtual machine scale sets.
-* Disable encryption on data drives for Linux virtual machine scale sets.
-* Enable encryption of managed disk VMs.
+* Enabling and disabling encryption on new VMs created from the supported Azure Gallery images.
+* Enabling and disabling encryption on existing VMs that run in Azure.
+* Enabling and disabling encryption on new Windows VMs created from pre-encrypted VHD and encryption keys.
+* Enabling and disabling encryption on Windows virtual machine scale sets.
+* Enabling and disabling encryption on data drives for Linux virtual machine scale sets.
+* Enabling and disabling encryption of managed disk VMs.
 * Update encryption settings of an existing encrypted Premium and non-Premium Storage VM.
-* Back up and restore of encrypted VMs.
+* Back up and restoration encrypted VMs.
+* Bring your own encryption (BYOE) and bring your own key (BYOK) scenarios, in which the customer use their own encryption keys and store them in an Azure key vault.
 
 The solution supports the following scenarios for VMs when they're enabled in Microsoft Azure:
 
 * Integration with Azure Key Vault.
 * Standard tier VMs: [A, D, DS, G, GS, F, and so on, series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/). [Linux VMs](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) within these tiers must meet the minimum memory requirement of 7 GB.
-* Enable encryption on Windows and Linux VMs, managed disk, and scale set VMs from the supported Azure Gallery images.
-* Disable encryption on OS and data drives for Windows VMs, scale set VMs, and managed disk VMs.
-* Disable encryption on data drives for Linux VMs, scale set VMs, and managed disk VMs.
-* Enable encryption on VMs that run the Windows Client OS.
-* Enable encryption on volumes with mount paths.
-* Enable encryption on Linux VMs that are configured with disk striping (RAID) by using mdadm.
-* Enable encryption on Linux VMs that use LVM for data disks.
-* Enable encryption on the Linux VM OS and data disks.
+* Enabling encryption on Windows and Linux VMs, managed disk, and scale set VMs from the supported Azure Gallery images.
+* Disabling encryption on OS and data drives for Windows VMs, scale set VMs, and managed disk VMs.
+* Disabling encryption on data drives for Linux VMs, scale set VMs, and managed disk VMs.
+* Enabling encryption on VMs that run the Windows Client OS.
+* Enabling encryption on volumes with mount paths.
+* Enabling encryption on Linux VMs that are configured with disk striping (RAID) by using mdadm.
+* Enabling encryption on Linux VMs that use LVM for data disks.
+* Enabling encryption on the Linux VM OS and data disks.
 
    > [!NOTE]
    > OS drive encryption for some Linux distributions isn't supported. For more information, see the [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article.
    
-* Enable encryption on VMs that are configured with Windows Storage Spaces beginning in Windows Server 2016.
-* Update encryption settings for an existing encrypted Premium and non-Premium Storage VM.
-* Back up and restore of encrypted VMs for both key encryption key (KEK) and non-KEK scenarios.
-* All Azure Public and Azure Government regions are supported.
+* Enabling encryption on VMs that are configured with Windows Storage Spaces beginning in Windows Server 2016.
+* Back up and restoration of encrypted VMs for both key encryption key (KEK) and non-KEK scenarios.
 
-The solution doesn't support the following scenarios, features, and technology:
+Azure Disk Encryption does not work for the following scenarios, features, and technology:
 
-* Basic tier VMs.
-* Disable encryption on an OS drive for Linux VMs.
-* Disable encryption on a data drive when the OS drive is encrypted for Linux VMs.
+* Encryption of basic tier VM or VMs created through the classic VM creation method.
+* Disabling encryption on an OS drive or data drive of a Linux VM when the OS drive is encrypted.
 * OS drive encryption for Linux virtual machine scale sets.
-* VMs that are created by using the classic VM creation method.
-* Enable encryption of customer custom images on Linux VMs.
-* Integration with your on-premises key management system.
+* Encryption of Windows VMs configured with software-based RAID systems.
+* Encryption of Customer custom images on Linux VMs.
+* Integration with an on-premises key management system.
 * Azure Files (shared file system).
 * Network File System (NFS).
 * Dynamic volumes.
-* Windows VMs that are configured with software-based RAID systems.
 
 ## Encryption features
 
@@ -83,8 +76,8 @@ When you enable and deploy Disk Encryption for Azure VMs, the following capabili
 
 * Encryption of the OS volume to protect the boot volume at rest in your storage.
 * Encryption of data volumes to protect the data volumes at rest in your storage.
-* Disable encryption on the OS and data drives for Windows VMs.
-* Disable encryption on the data drives for Linux VMs (only when the OS drive isn't encrypted).
+* Disabling encryption on the OS and data drives for Windows VMs.
+* Disabling encryption on the data drives for Linux VMs (only when the OS drive isn't encrypted).
 * Safeguard the encryption keys and secrets in your Azure Key Vault subscription.
 * Report the encryption status of the encrypted VM.
 * Remove the disk encryption configuration settings from the VM.
@@ -106,8 +99,6 @@ The Azure Disk Encryption solution is supported on VMs that run Windows or Linux
 ## Encryption workflow
 
 To enable disk encryption for Windows and Linux VMs, do the following steps:
-
-1. Choose an encryption scenario from the scenarios listed in the [Encryption scenarios](#encryption-scenarios) section.
 
 1. Opt in to enable disk encryption via the Azure Disk Encryption Resource Manager template, PowerShell cmdlets, or the Azure CLI, and specify the encryption configuration.
 
@@ -156,7 +147,7 @@ The new release of Azure Disk Encryption eliminates the requirement to provide a
 
 
 ## Terminology
-The following table defines some of the common terms that are used in this technology:
+The following table defines some of the common terms used in Azure disk encrption documentation:
 
 | Terminology | Definition |
 | --- | --- |
@@ -166,12 +157,12 @@ The following table defines some of the common terms that are used in this techn
 | BEK | BitLocker encryption keys (BEK) are used to encrypt the OS boot volume and data volumes. BEKs are safeguarded in a key vault as secrets. |
 | Azure CLI | [The Azure CLI](/cli/azure/install-azure-cli) is optimized for managing and administering Azure resources from the command line.|
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) is the Linux-based, transparent disk-encryption subsystem that's used to enable disk encryption on Linux VMs. |
-| KEK | Key encryption key (KEK) is the asymmetric key (RSA 2048) that you can use to protect or wrap the secret. You can provide a hardware security module (HSM)-protected key or software-protected key. For more information, see the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation. |
+| Key encryption key (KEK) | he asymmetric key (RSA 2048) that you can use to protect or wrap the secret. You can provide a hardware security module (HSM)-protected key or software-protected key. For more information, see the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation. |
 | PowerShell cmdlets | For more information, see [Azure PowerShell cmdlets](/powershell/azure/overview). |
 
 ## Next steps
 
-To get started, see the with [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md).
+To get started, see the [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md).
 
 > [!div class="nextstepaction"]
 > [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md)
