@@ -110,7 +110,7 @@ To configure the KCD, repeat the following steps for each connector machine:
 
 Now that you’ve configured KCD, you're ready to configure Azure AD Application Proxy.
 
-1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
    * **Internal URL**: SharePoint Internal URL that was chosen earlier, such as **<https://SharePoint/>**.
    * **Pre-authentication Method**: Azure Active Directory
    * **Translate URL in Headers**: NO

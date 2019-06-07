@@ -1,6 +1,6 @@
 ---
-title: What is device management in Azure Active Directory? | Microsoft Docs
-description: Learn how device management can help you to get control over the devices that are accessing resources in your environment.
+title: What is device identity in Azure Active Directory? | Microsoft Docs
+description: Learn how device identity management can help you to manage devices that are accessing resources in your environment.
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -14,31 +14,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 06/04/2019
 ms.author: joflore
-ms.reviewer: jairoc
-#Customer intent: As an IT admin, I want to learn how to bring the devices that are accessing my resources under control, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
+ms.reviewer: sandeo
+#Customer intent: As an IT admin, I want to learn how to bring and manage device identities in Azure AD, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
 
 ms.collection: M365-identity-device-management
 ---
-# What is device management in Azure Active Directory?
+# What is a device identity?
 
 In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices - including Bring Your Own Device (BYOD), IT professionals are faced with two opposing goals:
 
 - Empower the end users to be productive wherever and whenever
 - Protect the corporate assets at any time
 
-Through devices, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to have control over these devices. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance.
+Through devices in Azure AD, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to manage these devices identities. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance.
 
-Device management is also the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.
+Device identity management is also the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.
 
-This article explains how device management in Azure Active Directory works.
+## Getting devices in Azure AD
 
-> [!VIDEO https://www.youtube.com/embed/NeezfKhomQU]
-
-## Getting devices under the control of Azure AD
-
-To get a device under the control of Azure AD, you have two options:
+To get a device in Azure AD, you have two options:
 
 - Registering
 - Joining
@@ -63,7 +59,7 @@ Your organization’s users can add a work or school account to a personal devic
 - When accessing a work application for the first time
 - Manually via the **Settings** menu in the case of Windows 10
 
-You can configure Azure AD registered devices for Windows 10, iOS, Android and macOS.
+You can configure an Azure AD registered device state for **Windows 10 personal, iOS, Android and macOS** devices.
 
 ## Azure AD joined devices
 
@@ -90,7 +86,6 @@ Implementing Azure AD joined devices provides you with the following benefits:
 - **Access to Windows Store for Business** using an Azure AD account. Your users can choose from an inventory of applications pre-selected by the organization.
 - **Windows Hello** support for secure and convenient access to work resources.
 - **Restriction of access** to apps from only devices that meet compliance policy.
-
 - **Seamless access to on-premises resources** when the device has line of sight to the on-premises domain controller.
 
 While Azure AD join is primarily intended for organizations that do not have an on-premises Windows Server Active Directory infrastructure, you can certainly use it in scenarios where:
@@ -126,9 +121,9 @@ You can configure Hybrid Azure AD joined devices for Windows 10 and down-level d
 
 ## Summary
 
-With device management in Azure AD, you can:
+With device identity management in Azure AD, you can:
 
-- Simplify the process of bringing devices under the control of Azure AD
+- Simplify the process of bringing and managing devices in Azure AD
 - Provide your users with an easy to use access to your organization’s cloud-based resources
 
 As a rule of a thumb, you should use:
@@ -153,9 +148,9 @@ As a rule of a thumb, you should use:
 
 ## Next steps
 
-- To get an overview of how to manage device in the Azure portal, see [managing devices using the Azure portal](device-management-azure-portal.md)
-- To learn more about device-based conditional access, see [configure Azure Active Directory device-based conditional access policies](../conditional-access/require-managed-devices.md).
-- To setup:
-   - Azure Active Directory registered Windows 10 devices, see [how to configure Azure Active Directory registered Windows 10 devices](../user-help/device-management-azuread-registered-devices-windows10-setup.md)
-   - Azure Active Directory joined devices, see [how to configure Azure Active Directory joined devices](../user-help/device-management-azuread-joined-devices-setup.md)
+- To get an overview of how to manage device identities in the Azure portal, see [Managing device identities using the Azure portal](device-management-azure-portal.md).
+- To set up:
+   - Azure Active Directory registered Windows 10 devices, see [How to configure Azure Active Directory registered Windows 10 devices](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
+   - Azure Active Directory joined devices, see [How to plan your Azure Active Directory join implementation](azureadjoin-plan.md).
    - Hybrid Azure AD joined devices, see [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
+- To learn more about device-based conditional access, see [Configure Azure Active Directory device-based conditional access policies](../conditional-access/require-managed-devices.md).
