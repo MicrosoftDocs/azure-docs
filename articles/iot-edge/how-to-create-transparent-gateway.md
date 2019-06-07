@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/30/2019
+ms.date: 06/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -34,6 +34,9 @@ A downstream device can be any application or platform that has an identity crea
 You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), a series of certificates signed with this CA, and a CA for the IoT Edge device.
 
 ![Gateway certificate setup](./media/how-to-create-transparent-gateway/gateway-setup.png)
+
+>[!NOTE]
+>The term "root CA" used throughout this article refers to the topmost authority public certificate of the PKI certificate chain, and not necessarily the certificate root of a syndicated certificate authority. In many cases, it is actually an intermediate CA public certificate. 
 
 The gateway presents its IoT Edge device CA certificate to the downstream device during the initiation of the connection. The downstream device checks to make sure the IoT Edge device CA certificate is signed by the root CA certificate. This process allows the downstream device to confirm that the gateway comes from a trusted source.
 
@@ -213,7 +216,7 @@ Now that you've made a certificate chain, you need to install it on the IoT Edge
    * Device CA private key - `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
    * Root CA - `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-   You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protoco](https://www.ssh.com/ssh/scp/) to move the certificate files.  If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
+   You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.  If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
 
 2. Open the IoT Edge security daemon config file. 
 
