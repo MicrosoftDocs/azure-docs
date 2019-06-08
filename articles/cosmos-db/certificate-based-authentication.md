@@ -113,15 +113,23 @@ The above command results in the output similar to the screenshot below:
 
 ## Access the keys from PowerShell
 
-In this step, you will validate that you can sign into Azure portal by using the application’s credentials and access the Azure Cosmos DB keys:
+In this step, you will sign into Azure by using the application and the certificate you created and access your Azure Cosmos account's keys. 
 
-```powershell
-Login-AzAccount -ApplicationId <Your_Application_ID> -CertificateThumbprint $cert.Thumbprint -ServicePrincipal -Tenant <Tenant_ID_of_your_application>
+1. Initially clear the Azure account's credentials you have used to sign into your account. You can clear credentials by using the following command:
 
-Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <Resource_Group_Name_of_your_Azure_Cosmos_account> -ResourceName <Your_Azure_Cosmos_Account_Name> 
-```
+   ```powershell
+   Disconnect-AzAccount -Username <Your_Azure_account_email_id> 
+   ```
 
-The previous command will display the primary and secondary master keys of your Azure Cosmos account. You can view the Activity log of your Azure Cosmos account to validate that the get keys request succeeded and the event is initiated by the application. 
+1. Next validate that you can sign into Azure portal by using the application’s credentials and access the Azure Cosmos DB keys:
+
+   ```powershell
+   Login-AzAccount -ApplicationId <Your_Application_ID> -CertificateThumbprint $cert.Thumbprint -ServicePrincipal -Tenant <Tenant_ID_of_your_application>
+
+   Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <Resource_Group_Name_of_your_Azure_Cosmos_account> -ResourceName <Your_Azure_Cosmos_Account_Name> 
+   ```
+
+The previous command will display the primary and secondary master keys of your Azure Cosmos account. You can view the Activity log of your Azure Cosmos account to validate that the get keys request succeeded and the event is initiated by the "sampleApp" application. 
  
 ![Validate the get keys call in the Azure Active Directory](./media/certificate-based-authentication/activity-log-validate-results.png)
 
@@ -256,6 +264,12 @@ namespace TodoListDaemonWithCert
     }
 }
 ```
+
+This script outputs the primary and secondary master keys as shown in the following screenshot:
+
+![csharp application output](./media/certificate-based-authentication/csharp-application-output.png)
+
+Similar to the previous section, you can view the Activity log of your Azure Cosmos account to validate that the get keys request event is initiated by the "sampleApp" application. 
 
 
 ## Next steps
