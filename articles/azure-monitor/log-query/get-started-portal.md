@@ -32,7 +32,14 @@ Log Analytics is a web tool used to write and execute Azure Monitor log queries.
 
 ![Home page](media/get-started-portal/homepage.png)
 
+## Firewall requirements
+To use Log Analytics, your browser requires access to the following addresses. If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
 
+| Uri | IP | Ports |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamic | 80,443 |
+| api.loganalytics.io | Dynamic | 80,443 |
+| docs.loganalytics.io | Dynamic | 80,443 |
 
 ## Basic queries
 Queries can be used to search terms, identify trends, analyze patterns, and provide many other insights based on your data. Start with a basic query:

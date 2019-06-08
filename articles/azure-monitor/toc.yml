@@ -726,6 +726,8 @@
         - name: Language differences
           href: log-query/data-explorer-difference.md
         - name: Useful operators
+        - name: Functions
+          href: log-query/functions.md
           href: log-query/useful-operators.md
         - name: Transition from log search
           href: log-query/log-search-transition.md
@@ -755,12 +757,6 @@
             href: log-query/sql-cheatsheet.md
           - name: Splunk
             href: log-query/splunk-cheatsheet.md
-      - name: Query elements
-        items:
-        - name: Functions
-          href: log-query/functions.md
-        - name: Computer groups
-          href: platform/computer-groups.md
       - name: Cross resource
         items:
         - name: Cross-resource queries
@@ -781,6 +777,8 @@
           href: log-query/log-query-performance.md
         - name: Parse text data
           href: log-query/parse-text.md
+      - name: Computer groups
+        href: platform/computer-groups.md
       - name: Flow connector
         href: platform/flow-tutorial.md   
   - name: Visualize data
