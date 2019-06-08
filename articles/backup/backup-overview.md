@@ -26,7 +26,7 @@ Azure Backup delivers these key benefits:
     - If you perform an offline initial backup using the Azure Import/Export service to import large amounts of data, there is a cost associated with inbound data.  [Learn more](backup-azure-backup-import-export.md).
 - **Keep data secure**: Azure Backup provides solutions for securing data in transit and at rest.
 - **Get app-consistent backups**: An application-consistent backup means a recovery point has all required data to restore the backup copy. Azure Backup provides application-consistent backups, which ensure additional fixes are not required to restore the data. Restoring application-consistent data reduces the restoration time, allowing you to quickly return to a running state.
-- **Retain short and long-term data**: You can use Recovery Services vaults for short-term and long-term data retention. Azure doesn't limit the length of time data can remain in a Recovery Services vault. You can keep it for as long as you like. Azure Backup has a limit of 9999 recovery points per protected instance. [Learn more](backup-introduction-to-azure-backup.md#backup-and-retention)about how this limit impacts your backup needs.
+- **Retain short and long-term data**: You can use Recovery Services vaults for short-term and long-term data retention. Azure doesn't limit the length of time data can remain in a Recovery Services vault. You can keep it for as long as you like. Azure Backup has a limit of 9999 recovery points per protected instance. 
 - **Automatic storage management** - Hybrid environments often require heterogeneous storage - some on-premises and some in the cloud. With Azure Backup, there is no cost for using on-premises storage devices. Azure Backup automatically allocates and manages backup storage, and it uses a pay-as-you-use model, so that you only pay for the storage you consume. [Learn more](https://azure.microsoft.com/pricing/details/backup) about pricing.
 - **Multiple storage options** - Azure Backup offers two types of replication to keep your storage/data highly available.
     - [Locally redundant storage (LRS)](../storage/common/storage-redundancy-lrs.md) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.
@@ -103,6 +103,25 @@ Learn more about [how backup works](backup-architecture.md#architecture-back-up-
 **I want to back up apps running on on-premises** | For app-aware backups machines must be protected by DPM or MABS.
 **I want granular and flexible backup and recovery settings for Azure VMs** | Protect Azure VMs with MABS/DPM running in Azure for additional flexibility in backup scheduling, and full flexibility for protecting and restoring files, folder, volumes, apps, and system state.
 
+## Backup and retention
+
+Azure Backup has a limit of 9999 recovery points, also known as backup copies or snapshots, per *protected instance*.
+
+- A protected instance is a computer, server (physical or virtual), or workload configured to back up data to Azure. An instance is protected once a backup copy of data has been saved.
+- The backup copy of data is the protection. If the source data was lost or became corrupt, the backup copy could restore the source data.
+
+The following table shows the maximum backup frequency for each component.Your backup policy configuration determines how quickly you consume the recovery points. For example, if you create a recovery point each day, then you can retain recovery points for 27 years before you run out. If you take a monthly recovery point, you can retain recovery points for 833 years before you run out. The Backup service does not set an expiration time limit on a recovery point.
+
+|  | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
+| --- | --- | --- | --- | --- |
+| Backup frequency<br/> (to Recovery Services vault) |Three backups per day |Two backups per day |Two backups per day |One backup per day |
+| Backup frequency<br/> (to disk) |Not applicable |Every 15 minutes for SQL Server<br/><br/> Every hour for other workloads |Every 15 minutes for SQL Server<br/><br/> Every hour for other workloads |Not applicable |
+| Retention options |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |
+| Maximum recovery points per protected instance |9999|9999|9999|9999|
+| Maximum retention period |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |
+| Recovery points on local disk |Not applicable | 64 for File Servers<br/><br/> 448 for Application Servers | 64 for File Servers<br/><br/> 448 for Application Servers |Not applicable |
+| Recovery points on tape |Not applicable |Unlimited |Not applicable |Not applicable |
+
 ## How does Azure Backup work with encryption?
 
 **Encryption** | **Back up on-premises** | **Back up Azure VMs** | **Back up SQL on Azure VMs**
@@ -113,7 +132,7 @@ Encryption in transit<br/> (Encryption of data moving from one location to anoth
 ## Next steps
 
 - [Review](backup-architecture.md) the architecture and components for different backup scenarios.
-- [Verify](backup-support-matrix.md) supported features and settings for backup.
+- [Verify](backup-support-matrix.md) support requirements and limitations for backup, and for [Azure VM backup](backup-support-matrix-iaas.md).
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
