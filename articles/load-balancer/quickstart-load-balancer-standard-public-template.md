@@ -45,8 +45,8 @@ Write-Host "Press [ENTER] to continue."
 
 ```
 
->![NOTE]
->The resource group name is the project name with **rg** appended. You need the resource group name in the next section.  It takes a few minutes to create the resources.
+ > ![NOTE]
+ > The resource group name is the project name with **rg** appended. You need the resource group name in the next section.  It takes a few minutes to create the resources.
 
 ## Test the Load Balancer
 
