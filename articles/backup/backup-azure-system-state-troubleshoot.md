@@ -35,7 +35,6 @@ We recommend you perform the below validation, before you start troubleshooting 
 - [Consideration when Backup agent is running on an Azure virtual machine](https://aka.ms/AB-AA4dwtr)
 
 ### Limitation
-
 - Recovering to different hardware using System State recovery is not recommended by Microsoft
 - System State backup currently supports "on premise" Windows servers, this functionality is not available for Azure VMs.
 
