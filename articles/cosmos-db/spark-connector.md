@@ -34,7 +34,7 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 * You can now create new Notebooks, and import the Cosmos DB connector library. Jump to [Working with the Cosmos DB connector](#bk_working_with_connector) for details on how to set up your workspace.
 * The following section has snippets on how to read and write using the connector.
 
-### Reading from Cosmos DB
+### Batch reads from Cosmos DB
 
 The following snippet shows how to create a Spark DataFrame to read from Cosmos DB in PySpark.
 
@@ -61,7 +61,7 @@ import com.microsoft.azure.cosmosdb.spark.schema._
 import com.microsoft.azure.cosmosdb.spark._
 import com.microsoft.azure.cosmosdb.spark.config.Config
 
-// Configure connection to your collection
+// Read Configuration
 val readConfig = Config(Map(
   "Endpoint" -> "https://doctorwho.documents.azure.com:443/",
   "Masterkey" -> "YOUR-KEY-HERE",
@@ -75,7 +75,7 @@ val flights = spark.read.cosmosDB(readConfig)
 flights.count()
 ```
 
-### Writing to Cosmos DB
+### Batch writes to Cosmos DB
 
 The following snippet shows how to write a data frame to Cosmos DB in PySpark.
 
@@ -96,7 +96,8 @@ flights.write.format("com.microsoft.azure.cosmosdb.spark").options(**writeConfig
 And the same code snippet in Scala:
 
 ```scala
-// Configure connection to the sink collection
+// Write configuration
+
 val writeConfig = Config(Map(
   "Endpoint" -> "https://doctorwho.documents.azure.com:443/",
   "Masterkey" -> "YOUR-KEY-HERE",
@@ -105,11 +106,96 @@ val writeConfig = Config(Map(
   "Upsert" : "true"
 ))
 
-// Upsert the dataframe to Cosmos DB
+// Write to Cosmos DB from the flights DataFrame
 import org.apache.spark.sql.SaveMode
 flights.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
+### Streaming reads from Cosmos DB
+
+The following snippet shows how to connect to and read from Azure Cosmos DB Change Feed.
+
+```python
+# Read Configuration
+readConfig = {
+  "Endpoint" : "https://doctorwho.documents.azure.com:443/",
+  "Masterkey" : "YOUR-KEY-HERE",
+  "Database" : "DepartureDelays",
+  "Collection" : "flights_pcoll",
+  "ReadChangeFeed" : "true",
+  "ChangeFeedQueryName" : "Departure-Delays",
+  "changefeedstartfromthebeginning" : "false",
+  "ChangeFeedCheckpointLocation" : "dbfs:/Departure-Delays"
+}
+
+
+# Open a read stream to the Cosmos DB Change Feed via azure-cosmosdb-spark to create Spark DataFrame
+changes = (spark.readStream.format("com.microsoft.azure.cosmosdb.spark.streaming.CosmosDBSourceProvider").options(**readConfig).load())
+```
+And the same code snippet in Scala:
+
+```scala
+// Import Necessary Libraries
+import com.microsoft.azure.cosmosdb.spark.schema._
+import com.microsoft.azure.cosmosdb.spark._
+import com.microsoft.azure.cosmosdb.spark.config.Config
+
+// Read Configuration
+val readConfig = Config(Map(
+  "Endpoint" -> "https://doctorwho.documents.azure.com:443/",
+  "Masterkey" -> "YOUR-KEY-HERE",
+  "Database" -> "DepartureDelays",
+  "Collection" -> "flights_pcoll",
+  "ReadChangeFeed" -> "true",
+  "ChangeFeedQueryName" -> "Departure-Delays",
+  "changefeedstartfromthebeginning" -> "false",
+  "ChangeFeedCheckpointLocation" -> "dbfs:/Departure-Delays"
+))
+
+// Open a read stream to the Cosmos DB Change Feed via azure-cosmosdb-spark to create Spark DataFrame
+val df = spark.readStream.format(classOf[CosmosDBSourceProvider].getName).options(readConfig).load()
+```
+
+### Streaming writes to Cosmos DB
+
+The following snippet shows how to write a data frame to Cosmos DB in PySpark.
+
+```python
+# Write configuration
+writeConfig = {
+ "Endpoint" : "https://doctorwho.documents.azure.com:443/",
+ "Masterkey" : "YOUR-KEY-HERE",
+ "Database" : "DepartureDelays",
+ "Collection" : "flights_fromsea",
+ "checkpointLocation" : "/checkpointlocation_write1"
+}
+
+# Write to Cosmos DB from the flights DataFrame
+changeFeed = (changes
+ .writeStream
+ .format("com.microsoft.azure.cosmosdb.spark.streaming.CosmosDBSinkProvider")
+ .queryName("change-feed")
+ .outputMode("append")
+ .options(**writeconfig)
+ .start())
+```
+
+And the same code snippet in Scala:
+
+```scala
+// Write configuration
+
+val writeConfig = Config(Map(
+  "Endpoint" -> "https://doctorwho.documents.azure.com:443/",
+  "Masterkey" -> "YOUR-KEY-HERE",
+  "Database" -> "DepartureDelays",
+  "Collection" -> "flights_fromsea",
+  "checkpointLocation" -> "/checkpointlocation_write1"
+))
+
+// Write to Cosmos DB from the flights DataFrame
+df.writeStream.format(classOf[CosmosDBSinkProvider].getName).options(writeConfig).start()
+```
 More more snippets and end to end samples, see [Jupyter](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/notebooks).
 
 ## <a name="bk_working_with_connector"></a> Working with the connector
