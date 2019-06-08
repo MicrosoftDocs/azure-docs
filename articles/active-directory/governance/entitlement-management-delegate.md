@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/05/2019
+ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -29,7 +29,9 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the scenarios where access packages are required.  Typically it is users within departments who have identified the need for collaboration. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to perform their job and avoid creating conflicting or inappropriate access rights. This article describes the roles that you can assign to delegate various tasks in entitlement management.
+By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the scenarios where access packages are required. Typically it is users within departments who know who need to collaborate.
+
+Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to perform their job and avoid creating conflicting or inappropriate access rights. This article describes the roles that you can assign to delegate various tasks in entitlement management.
 
 ## Delegate example for departmental adoption
 
@@ -43,17 +45,17 @@ To understand how you might delegate tasks in entitlement management, it helps t
 | Dave | Marketing |  |
 | Elisa | Marketing | Elisa is also owner of a Marketing application |
 
-Both the Research and Marketing departments want to use entitlement management for their users. Alice is not yet ready for other departments to use entitlement management.
+Both the Research and Marketing departments want to use entitlement management for their users. Alice is not yet ready for other departments to use entitlement management. Here is one way that Alice could delegate tasks to the research and marketing departments.
 
 1. Alice creates a new Azure AD security group for catalog creators, and adds Bob, Carol, Dave, and Elisa as members of that group.
 
 1. Alice uses the entitlement management settings to add that group to the catalog creators role.
 
-1. Carol creates a catalog for **Research**, and adds Bob as a co-owner of that **Research** catalog. Bob adds the Research group he owns to the catalog as a resource, so that it can be used in an access package for research collaboration.
+1. Carol creates a **Research** catalog, and adds Bob as a co-owner of that catalog. Bob adds the research group he owns to the catalog as a resource, so that it can be used in an access package for research collaboration.
 
-1. Dave creates a catalog for **Marketing**, and adds Elisa as a co-owner of that **Marketing** catalog. Elisa adds the Marketing application she owns to the catalog as a resource, so that it can be used in an access package for marketing collaboration.
+1. Dave creates a **Marketing** catalog, and adds Elisa as a co-owner of that catalog. Elisa adds the marketing application she owns to the catalog as a resource, so that it can be used in an access package for marketing collaboration.
 
-Now the Research and Marketing departments can utilize entitlement management. Bob, Carol, Dave, and Elisa can create and manage access packages in their respective catalogs.
+Now the research and marketing departments can utilize entitlement management. Bob, Carol, Dave, and Elisa can create and manage access packages in their respective catalogs.
 
 ![Entitlement management delegate example](./media/entitlement-management-delegate/elm-delegate.png)
 
@@ -97,7 +99,7 @@ The following table lists the tasks that these roles can perform.
 
 A Global administrator can add or remove any group (cloud-created security groups or cloud-created Office 365 groups), application, or SharePoint Online site in a catalog. A User administrator can add or remove any group or application in a catalog.
 
-For a user who is not a Global administrator or a User administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* the required Azure AD directory role and an entitlement management role of catalog owner. The following table lists these role combinations that are allowed to add a resource. To remove resources from a catalog, you must have the same roles.
+For a user who is not a Global administrator or a User administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* the required Azure AD directory role and catalog owner entitlement management role. The following table lists the role combinations that are required to add resources to a catalog. To remove resources from a catalog, you must have the same roles.
 
 | Azure AD directory role | Entitlement management role | Can add security group | Can add Office 365 group | Can add app | Can add SharePoint Online site |
 | --- | :---: | :---: | :---: | :---: | :---: |
