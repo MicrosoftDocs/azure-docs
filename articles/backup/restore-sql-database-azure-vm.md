@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/22/2019
 ms.author: raynew
 
 
@@ -37,6 +37,7 @@ Before you restore a database, note the following:
     - Only the specified client name can open the connection.
 - For all system databases (model, master, msdb), stop the SQL Server Agent service before you trigger the restore.
 - Close any applications that might try to take a connection to any of these databases.
+- If you have multiple instances running on a server, all of the instances should be up and running otherwise the server would not appear in the list of destination servers for you to restore database to.
 
 ## Restore a database
 
@@ -148,6 +149,13 @@ If you've selected **Full & Differential** as the restore type, do the following
 1. Track the restore progress in the **Notifications** area, or track it by selecting **Restore jobs** on the database menu.
 
     ![Restore job progress](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### Restore databases with large number of files
+
+If the total string size of files in a database is greater than a [particular limit](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), Azure Backup stores the list of database files in a different pit component such that you will not be able to set the target restore path during the restore operation. The files will be restored to the SQL default path instead.
+
+  ![Restore Database with large file](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## Next steps
 

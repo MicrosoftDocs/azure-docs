@@ -43,7 +43,7 @@ In this case, start with the list of attributes in this topic and identify those
 | pwdLastSet |X |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 |samAccountName|X| |
 | sourceAnchor |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
-| usageLocation |X |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Exchange Online
@@ -163,7 +163,7 @@ In this case, start with the list of attributes in this topic and identify those
 | thumbnailphoto |X |X | | |
 | title |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 | userSMIMECertificates |X |X | | |
@@ -246,11 +246,12 @@ In this case, start with the list of attributes in this topic and identify those
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region
+. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 | wWWHomePage |X |X | | |
 
-## Lync Online (subsequently known as Skype for Business)
+## Teams and Skype for Business Online
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
@@ -294,7 +295,7 @@ In this case, start with the list of attributes in this topic and identify those
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 | wWWHomePage |X |X | | |
 
@@ -310,7 +311,7 @@ In this case, start with the list of attributes in this topic and identify those
 | proxyAddresses |X |X |X |mechanical property. Used by Azure AD. Contains all secondary email addresses for the user. |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |This UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Intune
@@ -328,7 +329,7 @@ In this case, start with the list of attributes in this topic and identify those
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Dynamics CRM
@@ -360,7 +361,7 @@ In this case, start with the list of attributes in this topic and identify those
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## 3rd party applications
@@ -376,6 +377,7 @@ This group is a set of attributes that can be used if the Azure AD directory is 
 | accountEnabled |X | | |Defines if an account is enabled. |
 | cn |X | |X | |
 | displayName |X |X |X | |
+| employeeID |X |  |  | |
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
@@ -386,7 +388,7 @@ This group is a set of attributes that can be used if the Azure AD directory is 
 | pwdLastSet |X | | |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
-| usageLocation |X | | |mechanical property. The user’s country. Used for license assignment. |
+| usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |
 
 ## Windows 10
@@ -415,7 +417,7 @@ These attributes for **user** are in addition to the other apps you have selecte
 ## Exchange hybrid writeback
 These attributes are written back from Azure AD to on-premises Active Directory when you select to enable **Exchange hybrid**. Depending on your Exchange version, fewer attributes might be synchronized.
 
-| Attribute Name (Connect UI) |Attribute Name (On-premises AD) | User | Contact | Group | Comment |
+| Attribute Name (On-premises AD) | Attribute Name (Connect UI) | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online Archive: Enables customers to archive mail. |

@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 05/23/2019
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -46,20 +46,20 @@ Here are the limits for a single logic app definition:
 
 Here are the limits for a single logic app run:
 
-| Name | Limit | Notes |
-|------|-------|-------|
-| Run duration | 90 days | To change this limit, see [change run duration](#change-duration). |
-| Minimum recurrence interval | 1 second | |
-| Maximum recurrence interval | 500 days | |
-| Storage retention | 90 days from the run's start time | To change this limit to a value between 7 days and 90 days, see [change storage retention](#change-retention). |
-||||
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Run duration | 90 days | 365 days | To change the default limit, see [change run duration](#change-duration). |
+| Storage retention | 90 days from the run's start time | 365 days | To change the default limit, see [change storage retention](#change-retention). |
+| Minimum recurrence interval | 1 second | 1 second ||
+| Maximum recurrence interval | 500 days | 500 days ||
+|||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
 ### Change run duration and storage retention
 
-To change the default limit to between 7 days and 90 days, 
+To change the default limit for run duration and storage retention, 
 follow these steps. If you need to go above the maximum limit, 
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
@@ -94,7 +94,7 @@ Here are the limits for a single logic app run:
 
 Here are the limits for a single logic app run:
 
-### Global Logic Apps service
+### Multi-tenant Logic Apps service
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
@@ -110,9 +110,9 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes |
 |------|-------|-------|
-| Base unit execution limit | 10,000 action executions per 5 minutes, <br>which is ~80 million action executions per month | |
-| Scale unit execution limit | 5,000 action executions per 5 minutes, <br>which is ~40 million action executions per month | |
-| Maximum scale units that you can add | 3 | |
+| Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
+| Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month | |
+| Maximum scale units that you can add | 10 | |
 ||||
 
 To go above these limits in normal processing, 
@@ -131,20 +131,20 @@ request or synchronous connector call:
 
 Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than these limits. For more information, see the technical details for the specific connector and also [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Name | Limit | Notes |
-| ---- | ----- | ----- |
-| Outgoing request | 120 seconds | For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Synchronous response | 120 seconds | For the original request to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
-|||| 
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Outgoing request | 120 seconds | 240 seconds | For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Synchronous response | 120 seconds | 240 seconds | For the original request to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
+|||||
 
 #### Message size
 
-| Name | Limit | Notes |
-| ---- | ----- | ----- |
-| Message size | 100 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. |
-| Message size with chunking | 1 GB | This limit applies to actions that natively support chunking or let you enable chunking in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
-| Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
-||||
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Message size | 100 MB | 200 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. |
+| Message size with chunking | 1 GB | 5 GB | This limit applies to actions that natively support chunking or let you enable chunking in their runtime configuration. <p>For the integration service environment, the Logic Apps engine supports this limit, but connectors have their own chunking limits up to the engine limit, for example, see [Azure Blob Storage connector](/connectors/azureblob/). For more information chunking, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
+| Expression evaluation limit | 131,072 characters | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
+|||||
 
 #### Retry policy
 
@@ -161,10 +161,10 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 Here are the limits for custom connectors that you can create from web APIs.
 
-| Name | Limit |
-| ---- | ----- |
-| Number of custom connectors | 1,000 per Azure subscription |
-| Number of requests per minute for each connection created by a custom connector | 500 requests per connection |
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Number of custom connectors | 1,000 per Azure subscription | 1,000 per Azure subscription ||
+| Number of requests per minute for a custom connector | 500 requests per minute per connection | 2,000 requests per minute per *custom connector* ||
 |||
 
 <a name="managed-identity"></a>
@@ -173,7 +173,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 | Name | Limit |
 | ---- | ----- |
-| Number of logic apps with system-assigned managed identities per Azure subscription | 10 |
+| Number of logic apps with system-assigned managed identities per Azure subscription | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -194,11 +194,11 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 
 | Artifact | Free | Basic | Standard |
 |----------|------|-------|----------|
-| EDI trading agreements | 10 | 1 | 500 |
-| EDI trading partners | 25 | 2 | 500 |
+| EDI trading agreements | 10 | 1 | 1,000 |
+| EDI trading partners | 25 | 2 | 1,000 |
 | Maps | 25 | 500 | 1,000 |
 | Schemas | 25 | 500 | 1,000 |
-| Assemblies | 10 | 25 | 50 |
+| Assemblies | 10 | 25 | 1,000 |
 | Certificates | 25 | 2 | 500 |
 | Batch configurations | 5 | 1 | 50 |
 ||||
@@ -226,13 +226,13 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 
 ### B2B protocol (AS2, X12, EDIFACT) message size
 
-Here are the limits that apply to B2B protocols:
+Here are the message size limits that apply to B2B protocols:
 
-| Name | Limit | Notes |
-| ---- | ----- | ----- |
-| AS2 | 50 MB | Applies to decode and encode |
-| X12 | 50 MB | Applies to decode and encode |
-| EDIFACT | 50 MB | Applies to decode and encode |
+| Name | Multi-tenant limit | Integration service environment limit | Notes |
+|------|--------------------|---------------------------------------|-------|
+| AS2 | v2 - 100 MB<br>v1 - 50 MB | v2 - 200 MB <br>v1 - 50 MB | Applies to decode and encode |
+| X12 | 50 MB | 50 MB | Applies to decode and encode |
+| EDIFACT | 50 MB | 50 MB | Applies to decode and encode |
 ||||
 
 <a name="disable-delete"></a>
@@ -269,7 +269,7 @@ These addresses appear under the **Outbound** heading in this section,
 and are sorted by region.
 
 For [Azure Government](../azure-government/documentation-government-overview.md) 
-and [Azure China 21Vianet](/azure/china/china-welcome), 
+and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), 
 reserved IP addresses for connectors aren't currently available.
 
 > [!IMPORTANT]

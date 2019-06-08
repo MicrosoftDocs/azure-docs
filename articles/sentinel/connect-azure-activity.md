@@ -4,7 +4,7 @@ description: Learn how to connect Azure Activity data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 8c25baa8-b93b-41da-9e6c-15bb7b5c5511

@@ -49,7 +49,7 @@ Here are some tips to help you define you vision:
 
 Here is an example vision statement for a Data Catalog adoption plan for the fictitious company called Adventure Works:
 
-**Azure Data Catalog** empowers the Adventure Works Finance team to collaborate on key data sources, so every team member can easily find and use the data they need and can share her knowledge with the team as a whole.
+**Azure Data Catalog** empowers the Adventure Works Finance team to collaborate on key data sources, so every team member can easily find and use the data they need and can share their knowledge with the team as a whole.
 
 Once you have a crisp vision statement, you should identify a suitable pilot project for Data Catalog. Generally, there are several scenarios for Data Catalog, so the next section provides some tips to identify relevant uses cases.
 

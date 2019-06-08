@@ -17,6 +17,9 @@ ms.author: shlo
 
 This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.
 
+> [!NOTE]
+> The prices used in these examples below are hypothetical and are not intended to imply actual pricing.
+
 ## Copy data from AWS S3 to Azure Blob storage hourly
 
 In this scenario, you want to copy data from AWS S3 to Azure Blob storage on an hourly schedule.
@@ -119,13 +122,13 @@ To accomplish the scenario, you need to create a pipeline with the following ite
   - Pipeline Activity = $0.00003 (Prorated for 1 minute of execution time. $0.002/hour on Azure Integration Runtime)
   - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
 
-## Using mapping data flow debug for a normal workday
+## Using mapping data flow debug for a normal workday (Preview Pricing)
 
 As a Data Engineer, you are responsible for designing, building, and testing Mapping Data Flows every day. You log into the ADF UI in the morning and enable the Debug mode for Data Flows. The default TTL for Debug sessions is 60 minutes. You work throughout the day for 10 hours, so your Debug session never expires. Therefore, your charge for the day will be:
 
 **10 (hours) x 8 (cores) x $0.112 = $8.96**
 
-## Transform data in blob store with mapping data flows
+## Transform data in blob store with mapping data flows (Preview Pricing)
 
 In this scenario, you want to transform data in Blob Store visually in ADF Mapping Data Flows on an hourly schedule.
 

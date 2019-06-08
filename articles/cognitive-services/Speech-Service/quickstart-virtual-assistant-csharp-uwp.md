@@ -15,6 +15,8 @@ ms.custom:
 
 # Quickstart: Create a voice-first virtual assistant with the Speech SDK, UWP
 
+Quickstarts are also available for [speech-to-text](quickstart-csharp-uwp.md) and [speech-translation](quickstart-translate-speech-uwp.md).
+
 In this article, you'll develop a C# Universal Windows Platform (UWP) application by using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice-first virtual assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
 
 > [!NOTE]
@@ -25,11 +27,11 @@ In this article, you'll develop a C# Universal Windows Platform (UWP) applicatio
 This quickstart requires:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
-* A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md)
+* An Azure subscription key for the Speech Services in the **westus2** region. Create this subscription on the [Azure portal](https://portal.azure.com).
+* A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
-    > In preview, the Direct Line Speech channel currently supports only the **westus2** region.
+    > Direct Line Speech (Preview) is currently only available in the **westus2** region.
 
     > [!NOTE]
     > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.
@@ -75,7 +77,7 @@ This quickstart will describe, step by step, how to make a simple client applica
             <MediaElement x:Name="mediaElement"/>
         </Grid>
     </Page>
-        ```
+    ```
 
 1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
 
@@ -234,7 +236,7 @@ This quickstart will describe, step by step, how to make a simple client applica
             }
         }
     }
-     ```
+    ```
 
 1. Next, you'll create the `SpeechBotConnector` with your subscription information. Add the following to the method body of `InitializeBotConnector`, replacing the strings `YourChannelSecret`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
 
@@ -242,14 +244,14 @@ This quickstart will describe, step by step, how to make a simple client applica
     > In preview, the Direct Line Speech channel currently supports only the **westus2** region.
 
     > [!NOTE]
-    > For information on configuring your bot and retrieving a channel secret, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+    > For information on configuring your bot and retrieving a channel secret, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
     ```csharp
     // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
-    const string channelSecret = "YourChannelSecret";
-    const string speechSubscriptionKey = "YourSpeechSubscriptionKey";
-    const string region = "YourServiceRegion"; // note: this is assumed as westus2 for preview
+    const string channelSecret = "YourChannelSecret"; // Your channel secret
+    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
+    const string region = "YourServiceRegion"; // Your subscription service region. Note: only 'westus2' is currently supported
 
     var botConnectorConfig = BotConnectorConfig.FromSecretKey(channelSecret, speechSubscriptionKey, region);
     botConnectorConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
@@ -346,7 +348,6 @@ This quickstart will describe, step by step, how to make a simple client applica
     ![Screenshot of permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png "Start the app into debugging")
 
 1. Select **Talk to your bot**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Direct Line Speech channel and transcribed to text, which appears in the window.
-quickstart-cs-uwp-bot-successful-turn
 
     ![Screenshot of successful bot turn](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "A successful bot turn")
 

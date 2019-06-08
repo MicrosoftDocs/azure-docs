@@ -66,10 +66,11 @@ A common way to take advantage of message expiration and avoid sending messages 
 
 ## Message feedback
 
-When you send a cloud-to-device message, the service can request the delivery of per-message feedback regarding the final state of that message.
+When you send a cloud-to-device message, the service can request the delivery of per-message feedback regarding the final state of that message. This is done by setting the `iothub-ack` application property in the C2D message being sent to either of the following values:
 
-| Ack property | Behavior |
+| Ack property value | Behavior |
 | ------------ | -------- |
+| **none**     | IoT Hub does not generate a feedback message (default behavior). |
 | **positive** | If the cloud-to-device message reaches the **Completed** state, IoT Hub generates a feedback message. |
 | **negative** | If the cloud-to-device message reaches the **Dead lettered** state, IoT Hub generates a feedback message. |
 | **full**     | IoT Hub generates a feedback message in either case. |

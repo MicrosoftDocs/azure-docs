@@ -54,8 +54,14 @@
         href: azure-security-disk-encryption-overview.md
       - name: Quickstarts
         items:
-        - name: Encrypt VM - Azure PowerShell
-          href: quick-encrypt-vm-powershell.md
+        - name: Encrypt a Linux VM with Azure CLI
+          href: azure-disk-encryption-linux-cli-quickstart.md
+        - name: Encrypt a Linux VM with Azure PowerShell
+          href: azure-disk-encryption-linux-powershell-quickstart.md
+        - name: Encrypt a Windows VM with Azure CLI
+          href: azure-disk-encryption-windows-cli-quickstart.md
+        - name: Encrypt a Windows VM with Azure PowerShell
+          href: azure-disk-encryption-windows-powershell-quickstart.md
       - name: Azure Disk Encryption
         items:
         - name: Disk encryption prerequisites
@@ -67,27 +73,29 @@
         - name: Disk encryption with VMSS extension sequencing
           href: azure-security-disk-encryption-extension-sequencing.md
         - name: Appendix for disk encryption
-        href: azure-security-disk-encryption-appendix.md
-      - name: Disk encryption FAQ
-        href: azure-security-disk-encryption-faq.md
-      - name: Troubleshooting
-        href: azure-security-disk-encryption-tsg.md
-      - name: Azure Disk Encryption with Azure AD app (previous release)
-        displayName: active directory
-        items:
-        - name: Disk encryption with Azure AD app prerequisites 
+          href: azure-security-disk-encryption-appendix.md
+        - name: Disk encryption FAQ
+          href: azure-security-disk-encryption-faq.md
+        - name: Troubleshooting
+          href: azure-security-disk-encryption-tsg.md
+        - name: Azure Disk Encryption with Azure AD app (previous release)
           displayName: active directory
-          href: azure-security-disk-encryption-prerequisites-aad.md
-        - name: Disk encryption with Azure AD app for Windows VMs 
-          displayName: active directory
-          href: azure-security-disk-encryption-windows-aad.md
-        - name: Disk encryption with Azure AD app for Linux VMs 
-          displayName: active directory
-          href: azure-security-disk-encryption-linux-aad.md
+          items:
+          - name: Disk encryption with Azure AD app prerequisites 
+            displayName: active directory
+            href: azure-security-disk-encryption-prerequisites-aad.md
+          - name: Disk encryption with Azure AD app for Windows VMs 
+            displayName: active directory
+            href: azure-security-disk-encryption-windows-aad.md
+          - name: Disk encryption with Azure AD app for Linux VMs 
+            displayName: active directory
+            href: azure-security-disk-encryption-linux-aad.md
   - name: Azure Storage security
     href: security-storage-overview.md
   - name: Storage security guide
     href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Customer Lockbox
+    href: azure-customer-lockbox-overview.md
 - name: Platform and infrastructure
   items:
   - name: Infrastructure security
@@ -224,6 +232,8 @@
   - name: FedRAMP
     displayName: blueprint, privacy, certifications
     items:
+    - name: Azure Services by Audit Scope
+      href: ./compliance/azure-services-in-fedramp-auditscope.md
     - name: Data analytics
       href: ./blueprints/fedramp-analytics-overview.md
     - name: Data warehouse

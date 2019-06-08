@@ -16,7 +16,7 @@ You can use [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomati
 
 ## Alert types
 
-You can use automation runbooks with four alert types:
+You can use automation runbooks with three alert types:
 
 * Common alerts
 * Activity log alerts
@@ -54,6 +54,14 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
 5. Copy the following PowerShell example into the **Edit** page.
 
     ```powershell-interactive
+    [OutputType("PSAzureOperationResponse")]
+    param
+    (
+        [Parameter (Mandatory=$false)]
+        [object] $WebhookData
+    )
+    $ErrorActionPreference = "stop"
+
     if ($WebhookData)
     {
         # Get the data object from WebhookData

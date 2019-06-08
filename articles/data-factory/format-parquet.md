@@ -43,7 +43,7 @@ Below is an example of Parquet dataset on Azure Blob Storage:
             "referenceName": "<Azure Blob Storage linked service name>",
             "type": "LinkedServiceReference"
         },
-        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "location": {
                 "type": "AzureBlobStorageLocation",

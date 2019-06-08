@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
 
 ---
@@ -20,6 +20,15 @@ ms.author: shvija
 
 ### What is an Event Hubs namespace?
 A namespace is a scoping container for Event Hub/Kafka Topics. It gives you a unique [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). A namespace serves as an application container that can house multiple Event Hub/Kafka Topics. 
+
+### When do I create a new namespace vs. use an existing namespace?
+Capacity allocations ([throughput units (TUs)](#throughput-units)) are billed at the namespace level. A namespace is also associated with a region.
+
+You may want to create a new namespace instead of using an existing one in one of the following scenarios: 
+
+- You need an Event Hub associated with a new region.
+- You need an Event Hub associated with a different subscription.
+- You need an Event Hub with a distinct capacity allocation (that is, the capacity need for the namespace with the added event hub would exceed the 40 TU threshold and you don't want to go for the dedicated cluster)  
 
 ### What is the difference between Event Hubs Basic and Standard tiers?
 
@@ -61,7 +70,7 @@ See the following table for the outbound ports you need to open to use these pro
 | -------- | ----- | ------- | 
 | AMQP | 5671 and 5672 | See [AMQP protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9092 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### What IP addresses do I need to whitelist?
 To find the right IP addresses to white list for your connections, follow these steps:

@@ -106,7 +106,7 @@ Your device must be registered to Azure AD before an application can be marked a
 For a list of supported policy protected client apps, see [app protection policy requirement](technical-reference.md#app-protection-policy-requirement).
 
 
-### Terms of Use
+### Terms of use
 
 You can require a user in your tenant to consent to the terms of use before being granted access to a resource. As an administrator, you can configure and customize terms of use by uploading a PDF document. If a user falls in scope of this control access to an application is only granted if the terms of use have been agreed.
 

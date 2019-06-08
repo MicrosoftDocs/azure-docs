@@ -2,13 +2,16 @@
 title: Migrating VMs to Azure Premium Storage | Microsoft Docs
 description: Migrate your existing VMs to Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 services: storage
-author: yuemlu
+author: roygara
+
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
 ---
+
 # Migrating to Azure Premium Storage (Unmanaged Disks)
 
 > [!NOTE]

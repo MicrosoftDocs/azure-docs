@@ -1,5 +1,5 @@
 ---
-title:  Encryption-at-rest using customer-managed keys in Azure Key Vault - Azure Search 
+title:  Encryption-at-rest using customer-managed keys in Azure Key Vault (preview) - Azure Search 
 description: Supplement server-side encryption over indexes and synonym maps in Azure Search through keys that you create and manage in Azure Key Vault.
 author: NatiNimni
 manager: jlembicz
@@ -12,6 +12,11 @@ ms.custom:
 ---
 # Azure Search encryption using customer-managed keys in Azure Key Vault
 
+> [!Note]
+> Encryption with customer-managed keys is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. You can also use the .NET SDK version 8.0-preview.
+>
+> This feature is not available for free services. You must use a billable search service created on or after 2019-01-01. There is no portal support at this time.
+
 By default, Azure Search encrypts user content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). 
 You can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps.
 
@@ -21,20 +26,17 @@ Encryption with customer-managed keys is configured at the index or synonym map 
 
 You can use different keys from different Key vaults. This means a single search service can host multiple encrypted indexes\synonym maps, each encrypted potentially using a different customer-managed key, alongside indexes\synonym maps that are not encrypted using customer-managed keys. 
 
->[!Note]
-> **Feature availability**: Encryption with customer-managed keys is a preview feature that is not available for free services. For paid services, it is only available for search services created on or after 2019-01-01, using the latest preview api-version (api-version=2019-05-06-Preview). Currently there is no portal support for this feature.
-
 ## Prerequisites
 
 The following services are used in this example. 
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
++ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
-[Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault under your subscription.
++ [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault under your subscription.
 
-[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 
-[Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Search SDK](https://aka.ms/search-sdk-preview) can be used to call the preview REST API. There is no portal or .NET SDK support for customer-managed encryption at this time.
++ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Search SDK](https://aka.ms/search-sdk-preview) can be used to call the preview REST API. There is no portal or .NET SDK support for customer-managed encryption at this time.
 
 ## 1 - Enable key recovery
 
@@ -223,7 +225,7 @@ To create an AAD application in the portal:
 
 1. [Create an Azure Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [Get the application ID and authentication key](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) as those will be required for creating an encrypted index. Values you will need to provide include **application ID** and **authentication key**.
+1. [Get the application ID and authentication key](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) as those will be required for creating an encrypted index. Values you will need to provide include **application ID** and **authentication key**.
 
 >[!Important]
 > When deciding to use an AAD application of authentication instead of a managed identity, consider the fact that Azure Search is not authorized to manage your AAD application on your behalf, and it is up to you to manage your AAD application, such as periodic rotation of the application authentication key.

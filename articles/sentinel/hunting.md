@@ -4,7 +4,7 @@ description: This article describes how to use the Azure Sentinel hunting capabi
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 6aa9dd27-6506-49c5-8e97-cc1aebecee87

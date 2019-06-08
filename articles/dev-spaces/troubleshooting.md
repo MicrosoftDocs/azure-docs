@@ -30,24 +30,26 @@ Currently, Azure Dev Spaces works best when debugging a single instance, or pod.
 
 ## Error 'Failed to create Azure Dev Spaces controller'
 
+### Reason
 You might see this error when something goes wrong with the creation of the controller. If it's a transient error, delete and recreate the controller to fix it.
 
-### Try:
+### Try
 
-To delete the controller, use the Azure Dev Spaces CLI. It’s not possible to do it in Visual Studio or Cloud Shell. To install the AZDS CLI, first install the Azure CLI, and then run this command:
+Delete the controller:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+You must use the the Azure Dev Spaces CLI to delete a controller. It’s not possible to delete a controller from Visual Studio. You also cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell so you cannot delete a controller from the Azure Cloud Shell.
+
+If you do not have the Azure Dev Spaces CLI installed, you can first install it using the following command then delete your controller:
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-And then run this command to delete the controller:
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-Recreating the controller can be done from the CLI or Visual Studio. Follow the instructions in the tutorials as if starting for the first time.
-
+Recreating the controller can be done from the CLI or Visual Studio. See the [Team development](quickstart-team-development.md) or [Develop with .NET Core](quickstart-netcore-visualstudio.md) quickstarts for examples.
 
 ## Error 'Service cannot be started.'
 
@@ -368,7 +370,7 @@ After your controller is reinstalled, redeploy your pods.
 The user accessing the Azure Dev Spaces controller must have access to read the admin *kubeconfig* on the AKS cluster. For example, this permission is available in the [built-in Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). The user accessing the Azure Dev Spaces controller must also have the *Contributor* or *Owner* RBAC role for the controller.
 
 ### Try
-More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
 To update the user's RBAC role for the controller:
 
@@ -383,3 +385,23 @@ To update the user's RBAC role for the controller:
     * For *Assign access to* select *Azure AD user, group, or service principal*.
     * For *Select* search for the user you want to give permissions.
 1. Click *Save*.
+
+## Controller create failing due to controller name length
+
+### Reason
+An Azure Dev Spaces controller's name cannot be longer than 31 characters. If your controller's name exceeds 31 characters when you enable Dev Spaces on an AKS cluster or create a controller, you will receive an error like:
+
+*Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
+
+### Try
+
+Create a controller with an alternate name:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```
+
+## Enabling Dev Spaces failing when Windows node pools are added to an AKS cluster
+
+### Reason
+Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only. At this time, you cannot enable Azure Dev Spaces on an AKS cluster with a Windows node pool.

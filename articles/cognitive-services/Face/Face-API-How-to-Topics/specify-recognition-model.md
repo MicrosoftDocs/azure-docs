@@ -48,7 +48,7 @@ If you are using the client library, you can assign the value for `recognitionMo
 If you leave it unassigned, the default model version (_recognition_01_) will be used. See the following code example for the .NET client library.
 
 ```csharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 

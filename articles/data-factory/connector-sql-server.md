@@ -141,7 +141,7 @@ The following properties are supported for SQL Server linked service:
 
 For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by SQL Server dataset.
 
-To copy data from/to SQL Server database, set the type property of the dataset to **SqlServerTable**. The following properties are supported:
+To copy data from/to SQL Server database, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -160,6 +160,7 @@ To copy data from/to SQL Server database, set the type property of the dataset t
             "referenceName": "<SQL Server linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -281,7 +282,7 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to: **SqlSink** | Yes |
-| writeBatchSize |Number of rows to inserts into the SQL table **per batch**.<br/>Allowed values are: integer (number of rows). |No (default: 10000) |
+| writeBatchSize |Number of rows to inserts into the SQL table **per batch**.<br/>Allowed values are: integer (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. |No |
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
 | preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into SQL Server. It will only be invoked once per copy run. You can use this property to clean up the pre-loaded data. |No |
 | sqlWriterStoredProcedureName |Name of the stored procedure that defines how to apply source data into target table, e.g. to do upserts or transform using your own business logic. <br/><br/>Note this stored procedure will be **invoked per batch**. If you want to do operation that only runs once and has nothing to do with source data e.g. delete/truncate, use `preCopyScript` property. |No |

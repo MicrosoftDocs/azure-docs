@@ -40,6 +40,13 @@ Advisor will also notify you of reserved instances that you have that will expir
 
 Advisor identifies public IP addresses that are not currently associated to Azure resources such as Load Balancers or VMs. These public IP addresses come with a nominal charge. If you do not plan to use them, deleting them can result in cost savings.
 
+## Delete Azure Data Factory pipelines that are failing
+
+Azure Advisor will detect Azure Data Factory pipelines that repeatedly fail and recommend that you resolve the issues or delete the failing pipelines if they are no longer needed. You will be billed for these pipelines even if though they are not serving you while they are failing. 
+
+## Use Standard Snapshots for Managed Disks
+To save 60% of cost, we recommend storing your snapshots in Standard Storage, regardless of the storage type of the parent disk. This is the default option for Managed Disks snapshots. Azure Advisor will identify snapshots that are stored Premium Storage and recommend migrating your snapshot from Premium to Standard Storage. [Learn more about Managed Disk pricing](https://aka.ms/aa_manageddisksnapshot_learnmore)
+
 ## How to access Cost recommendations in Azure Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
