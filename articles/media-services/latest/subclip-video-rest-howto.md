@@ -20,7 +20,28 @@ ms.author: juliako
 
 You can trim or subclip a video when encoding it using a [Job](https://docs.microsoft.com/rest/api/media/jobs). This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. Also, see [Subclipping scenarios](encoding-concept.md#subclipping-a-video-while-encoding).
 
-The following REST example creates a job that trims a video as it submits an encoding job. 
+The REST example in this article creates a job that trims a video as it submits an encoding job. 
+
+## Prerequisites
+
+To complete the steps described in this topic, you have to:
+
+[Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).
+    
+Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
+
+## Create Transform
+
+
+```rest
+```
+
+## Create an input Asset
+
+```rest
+```
+
+## Create an output Asset
 
 ```rest
 ```
