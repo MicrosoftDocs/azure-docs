@@ -75,11 +75,11 @@ To migrate SSIS projects/packages to Azure SQL Database server, perform the foll
 8. Select **Next**.
 9. On the **Select Destination** page, specify the destination for your project.
 
-       a. In the Server name text box, enter the fully qualified Azure SQL Database server name (<server_name>.database.windows.net).
+    a. In the Server name text box, enter the fully qualified Azure SQL Database server name (<server_name>.database.windows.net).
 
-       b. Provide the authentication information, and then select **Connect**.
- 
-       ![Deployment Wizard Select Destination page](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-destination-page.png)
+    b. Provide the authentication information, and then select **Connect**.
+
+    ![Deployment Wizard Select Destination page](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-destination-page.png)
 
     c. Select **Browse** to specify the destination folder in SSISDB, and then select **Next**.
 

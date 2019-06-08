@@ -49,7 +49,7 @@
   - name: Migrate SSIS packages to Azure SQL Database
     href: how-to-migrate-ssis-packages.md
   - name: Migrate SSIS packages to an Azure SQL Database managed instance
-    href: how-to-migrate-ssis-packages-mi.md
+    href: how-to-migrate-ssis-packages-managed-instance.md
 
 - name: Resources
   items:
