@@ -23,8 +23,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - Windows 10 PC
   - Core i5 or better
 - NVIDIA GPU
-  - GEFORCE GTX 1070 or better
-  - GEFORCE RTX 2070 or better
+  - GeForce GTX 1070 or better
+  - GeForce RTX 2070 or better
 
 ## Install software
 
