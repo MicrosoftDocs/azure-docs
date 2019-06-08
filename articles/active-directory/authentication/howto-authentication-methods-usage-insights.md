@@ -1,6 +1,6 @@
 ---
 title: Authentication methods usage & insights reporting (preview) - Azure Active Directory
-description: Reporting on Azure AD self-service password reset and Multi-Factor Authentication
+description: Reporting on Azure AD self-service password reset and Multi-Factor Authentication authentication method usage
 
 services: active-directory
 ms.service: active-directory
@@ -72,7 +72,7 @@ This report shows the following information for each user:
 - Capable status (All, Capable, Not capable)
 - Methods (App notification, App code, Phone call, SMS, Email, Security questions)
 
-Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown. 
+Using the controls at the top of the list, you can search for a user and filter the list of users based on the columns shown.
 
 Reset details
 
