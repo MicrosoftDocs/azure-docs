@@ -2,12 +2,12 @@
 title: Tutorial - Create an Azure Red Hat OpenShift cluster | Microsoft Docs
 description: Learn how to create a Microsoft Azure Red Hat OpenShift cluster using the Azure CLI
 services: container-service
-author: TylerMSFT
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/13/2019
+ms.date: 05/14/2019
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -29,7 +29,9 @@ In this tutorial series you learn how to:
 ## Prerequisites
 
 > [!IMPORTANT]
-> This tutorial requires version 2.0.65 of the Azure CLI
+> This tutorial requires version 2.0.65 of the Azure CLI.
+>    
+> Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes as described in [Set up your Azure Red Hat OpenShift development environment](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances).
 
 Before you begin this tutorial:
 

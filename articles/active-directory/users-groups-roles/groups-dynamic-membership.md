@@ -350,7 +350,6 @@ The following device attributes can be used.
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
- domainName | any string value | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple Device Enrollment Profile or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
@@ -369,4 +368,4 @@ These articles provide additional information on groups in Azure Active Director
 * [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](groups-dynamic-membership.md)
+* [Manage dynamic rules for users in a group](groups-create-rule.md)

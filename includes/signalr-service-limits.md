@@ -22,7 +22,7 @@ ms.author: zhshang
 | Azure SignalR Service units per instance for Free tier |1 |1 |
 | Azure SignalR Service units per instance for Standard tier |100 |100 |
 | Azure SignalR Service units per subscription per region for Free tier|5 |5 |
-| Total Azure SignalR Service unit counts per subscription per region |50 |Unlimited |
+| Total Azure SignalR Service unit counts per subscription per region |150 |Unlimited |
 | Connections per unit per day for Free tier |20 |20 |
 | Connections per unit per day for Standard tier |1,000 |1,000|
 | Included messages per unit per day for Free tier|20,000 |20,000 |
