@@ -37,6 +37,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + [Contrib features below]
     + Integration with [MLflow](https://mlflow.org) 1.0.0 tracking through azureml-mlflow package ([example notebooks](https://aka.ms/azureml-mlflow-examples)).
     + Submit Jupyter notebook as a run. [API Reference Documentation](https://docs.microsoft.com/en-us/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
+    + Public Preview of [Data Drift Detector](https://docs.microsoft.com/en-us/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) through azureml-contrib-datadrift package ([example notebooks](https://aka.ms/azureml-datadrift-example)). Data Drift is one of the top reasons where model accuracy degrades over time. It happens when data served to model in production is different from the data that the model was trained on. AML Data Drift detector helps customer to monitor data drift and sends alert whenever drift is detected. 
 
 + **Breaking changes**
   + [Reference upcoming breaking changes and old API support drop date]
