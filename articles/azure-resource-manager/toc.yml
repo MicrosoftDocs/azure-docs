@@ -123,10 +123,8 @@
       href: resource-manager-cross-resource-group-deployment.md
   - name: CI/CD
     items:
-    - name: PowerShell task
-      href: vs-resource-groups-project-pipelines-powershell.md
-    - name: Copy and deploy tasks
-      href: vs-resource-groups-project-pipelines-copy-deploy.md
+    - name: VS project with pipelines
+      href: vs-resource-groups-project-devops-pipelines.md
   - name: Export template
     href: export-template-portal.md
   - name: Manage
