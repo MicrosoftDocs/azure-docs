@@ -63,23 +63,39 @@ ProvisioningState  : Succeeded
 StorageProfile     : {ImageReference, OsDisk, DataDisks}
 ```
 
-Get details about the virtual machine's disks. This information will be used later when you start replication of the VM.
-
-```azurepowershell
-$OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
-$DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
-```
-
 ## Replicate an Azure virtual machine
 
 For the following example, we assume that you already have a cache storage account, replication policy, and mappings. If you don't have these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md).
 
-Replicate an Azure virtual machine with *managed disks*.
+### Replicate an Azure virtual machine with *managed disks*.
 
 ```azurepowershell
+#Log in to your Azure subscription
+Connect-AzAccount
+
+#Get Recovery services vault details (recovery region)
+$rsvault = Get-AzRecoveryServicesVault -Name "a2aDemoRecoveryVault"
+
+#Set the vault context for use in the PowerShell session. 
+#Once set, subsequent Azure Site Recovery operations in the PowerShell session are performed in the context of the selected vault.
+Set-AzRecoveryServicesAsrVaultContext -vault $rsvault
+
+#Get details of the virtual machine
+$VM = Get-AzVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 
 #Get the resource group that the virtual machine must be created in when failed over.
 $RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
+
+# Get Cache storage account details for replication logs in the primary region
+$CacheStorageAccount = Get-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" 
+
+#The protection container is a container used to group replicated items within a fabric.
+#Get the Protection container details. It's located in primary Azure region (within the Primary fabric)
+$PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $($(Get-AsrFabric)[0])
+
+#A protection container mapping maps the primary protection container with a recovery protection container and a replication policy. There is one mapping for each replication policy that you'll use to replicate virtual machines between a protection container pair.
+# Get Protection container mapping details:
+$EusToWusPCMapping = $($(Get-ASRProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer)[0])
 
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration).
 
@@ -96,8 +112,8 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
 
 # Data disk 2
 $datadiskId2  = $vm.StorageProfile.DataDisks[1].ManagedDisk.id
-$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[1]. StorageAccountType
-$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[1]. StorageAccountType
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[1].StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[1].StorageAccountType
 
 $DataDisk2ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
          -DiskId $datadiskId2 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
@@ -106,8 +122,8 @@ $DataDisk2ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicat
 # Data Disk 3
 
 $datadiskId3  = $vm.StorageProfile.DataDisks[2].ManagedDisk.id
-$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[2]. StorageAccountType
-$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[2]. StorageAccountType
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[2].StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[2].StorageAccountType
 
 $DataDisk3ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
          -DiskId $datadiskId3 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
@@ -120,7 +136,18 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk2ReplicationConfig, $DataDisk
 
 #Start replication by creating a replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
 $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
+
+# Track Job status to check for completion. Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded".
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 60;
+        $TempASRJob = Get-ASRJob -Job $TempASRJob
+        Write-Output $TempASRJob.State
+}
+
+# Monitor the replication state and replication health for the virtual machine by getting details of the replication protected item corresponding to it.
+Get-ASRReplicationProtectedItem -ProtectionContainer $PrimaryProtContainer | Select FriendlyName, ProtectionState, ReplicationHealth
 ```
+### Replicate an Azure virtual machine with [unmanaged disks](azure-to-azure-powershell.md#replicate-azure-virtual-machine).
 
 When the start-replication operation succeeds, the VM data is replicated to the recovery region.
 
