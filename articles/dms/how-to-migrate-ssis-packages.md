@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 06/08/2019
 ---
 
 # Redeploy SQL Server Integration Services packages to Azure SQL Database
