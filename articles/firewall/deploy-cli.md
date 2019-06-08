@@ -4,7 +4,7 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 5/9/2019
+ms.date: 6/8/2019
 ms.author: victorh
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
@@ -20,7 +20,7 @@ One way you can control outbound network access from an Azure subnet is with Azu
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this article, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
+For this article, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended. The firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
@@ -108,7 +108,21 @@ az vm create \
 az vm open-port --port 3389 --resource-group Test-FW-RG --name Srv-Jump
 ```
 
-Create a workload virtual machine with no public IP address.
+
+
+Create a NIC for Srv-Work with specific DNS server IP addresses and no public IP address to test with.
+
+```azurecli-interactive
+az network nic create \
+    -g Test-FW-RG \
+    -n Srv-Work-NIC \
+   --vnet-name Test-FW-VN \
+   --subnet Workload-SN \
+   --public-ip-address "" \
+   --dns-servers 209.244.0.3 209.244.0.4
+```
+
+Now create the workload virtual machine.
 When prompted, type a password for the virtual machine.
 
 ```azurecli-interactive
@@ -117,9 +131,7 @@ az vm create \
     --name Srv-Work \
     --location eastus \
     --image win2016datacenter \
-    --vnet-name Test-FW-VN \
-    --subnet Workload-SN \
-    --public-ip-address "" \
+    --nics Srv-Work-NIC \
     --admin-username azureadmin
 ```
 
@@ -146,11 +158,11 @@ az network firewall ip-config create \
     --vnet-name Test-FW-VN
 az network firewall update \
     --name Test-FW01 \
-    --resource-group Test-FW-RG \
+    --resource-group Test-FW-RG 
 az network public-ip show \
     --name fw-pip \
     --resource-group Test-FW-RG
-fwpipaddr="$(az network public-ip list -g Test-FW-RG --query "[?name=='fw-pip'].ipAddress" --output tsv)"
+fwprivaddr="$(az network firewall ip-config list -g Test-FW-RG -f Test-FW01 --query "[?name=='FW-config'].privateIpAddress" --output tsv)"
 ```
 
 Note the private IP address. You'll use it later when you create the default route.
@@ -176,7 +188,7 @@ az network route-table route create \
   --route-table-name Firewall-rt-table \
   --address-prefix 0.0.0.0/0 \
   --next-hop-type VirtualAppliance \
-  --next-hop-ip-address $fwpipaddr
+  --next-hop-ip-address $fwprivaddr
 ```
 
 Associate the route table to the subnet
@@ -215,37 +227,16 @@ The network rule allows outbound access to two IP addresses at port 53 (DNS).
 
 ```azurecli-interactive
 az network firewall network-rule create \
-   --collection-name RCNet01 \
+   --collection-name Net-Coll01 \
    --destination-addresses 209.244.0.3 209.244.0.4 \
    --destination-ports 53 \
    --firewall-name Test-FW01 \
    --name Allow-DNS \
    --protocols UDP \
    --resource-group Test-FW-RG \
+   --priority 200 \
    --source-addresses 10.0.2.0/24 \
    --action Allow
-```
-
-```azurepowershell
-$NetRule1 = New-AzFirewallNetworkRule -Name "Allow-DNS" -Protocol UDP -SourceAddress 10.0.2.0/24 `
-   -DestinationAddress 209.244.0.3,209.244.0.4 -DestinationPort 53
-
-$NetRuleCollection = New-AzFirewallNetworkRuleCollection -Name RCNet01 -Priority 200 `
-   -Rule $NetRule1 -ActionType "Allow"
-
-$Azfw.NetworkRuleCollections = $NetRuleCollection
-
-Set-AzFirewall -AzureFirewall $Azfw
-```
-
-### Change the primary and secondary DNS address for the **Srv-Work** network interface
-
-For testing purposes in this procedure, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
-
-```azurepowershell
-$NIC.DnsSettings.DnsServers.Add("209.244.0.3")
-$NIC.DnsSettings.DnsServers.Add("209.244.0.4")
-$NIC | Set-AzNetworkInterface
 ```
 
 ## Test the firewall
@@ -254,9 +245,11 @@ Now, test the firewall to confirm that it works as expected.
 
 1. Note the private IP address for the **Srv-Work** virtual machine:
 
-   ```
-   $NIC.IpConfigurations.PrivateIpAddress
-   ```
+```azureclii-interactive
+az vm list-ip-addresses \
+   -g Test-FW-RG \
+   -n Srv-Work
+```
 
 1. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address and sign in.
 
@@ -290,8 +283,9 @@ So now you've verified that the firewall rules are working:
 
 You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources:
 
-```azurepowershell
-Remove-AzResourceGroup -Name Test-FW-RG
+```azurecli-interactive
+az group delete \
+  -n Test-FW-RG
 ```
 
 ## Next steps
