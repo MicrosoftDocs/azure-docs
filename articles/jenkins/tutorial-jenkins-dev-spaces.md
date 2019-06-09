@@ -12,11 +12,11 @@ ms.date: 04/26/19
 
 # Tutorial: Using the Azure Dev Spaces Plugin for Jenkins with Azure Kubenetes Service 
 
-Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. With the Azure Dev Spaces plugin for Jenkins, you can use dev spaces in your continuous integration and delivery (CI/CD) pipeline. That means you can check your code into a dev branch and deploy the update to a child dev space in AKS to run end to end integration test against your codes before merging into the main branch.
+Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. With the Azure Dev Spaces plugin for Jenkins, you can use dev spaces in your continuous integration and delivery (CI/CD) pipeline. That means you can check your code into a dev branch and deploy the update to a child dev space in AKS. Then you can run end to end integration tests against your code before merging into the main branch.
 
-The Azure Dev Spaces plugin helps to create a dev space in AKS <!--and returns the environment variable azdsprefix so that you can append the prefix to your test end point.--> You can then leverage your integration test scripts to run end to end continuous integration against what you have just updated before merging codes to the main branch.
+The Azure Dev Spaces plugin helps to create a dev space in AKS, and then returns the environment variable `azdsprefix` so that you can append the prefix to your test end point. You can then use your integration test scripts to run end to end continuous integration on the proposed changes before merging code to the main branch.
 
-This tutorial also leverages Azure Container Registry (ACR) . <!--todo stores images, acrquicktasks builds docker and helm artifacts--> That way, you do not need to install Docker daemon and software needed for build in your server. <!-- todo edit -->
+This tutorial also uses Azure Container Registry (ACR). ACR stores images, and an ACR Task builds docker and helm artifacts. That way, you do not need to install Docker daemon and software needed for build in your server.
 
 In this tutorial, you learn how to:
 
@@ -42,9 +42,9 @@ In this tutorial, you learn how to:
 
 * The Jenkins server must have both Helm and kubectl installed and available to the Jenkins account, as explained later in this tutorial.
 
-* This tutorial assumes you are using VS Code, and the VS Code Terminal or WSL, and Bash. Other combinations will also work provided that all the prerequisites are in place. **Note:** Azure Cloud Shell does not currently support the Azure Dev Spaces extension (azds).
+* This tutorial assumes you are using VS Code, the VS Code Terminal or WSL, and Bash. Other combinations will also work if all of the prerequisites are in place. **Note:** Azure Cloud Shell doesn't currently support the Azure Dev Spaces extension (azds).
 
-* This is an intermediate to advanced tutorial. It requires at least intermediate knowledge of core Azure services, AKS, ACR, Azure Dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) and plugins, and GitHub. At least basic familiarity with supporting tools such as kubectl and Helm is helpful.
+* This is an intermediate to advanced tutorial. It requires at least intermediate knowledge of core Azure services, AKS, ACR, Azure Dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) and plugins, and GitHub. Basic familiarity with supporting tools such as kubectl and Helm is helpful.
 
 ## Create Azure resources
 
@@ -273,11 +273,13 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 
 2. Log into Jenkins. From the menu on the left, select **Add Item**.
 
-3. Select **Pipeline**, and then enter a name in the **Enter an item name** box.
+3. Select **Pipeline**, and then enter a name in the **Enter an item name** box. Select **OK**, and then the pipeline configuration screen will automatically open.
 
-4. Enable **Prepare an environment for the run**, and then check the **Keep Jenkins Environment Variables** and **Keep Jenkins Build Variables** boxes.
+4. On the **General** tab, check **Prepare an environment for the run**. 
 
-5. , In the **Properties Content** box, enter the following environment variables:
+5. Check **Keep Jenkins Environment Variables** and **Keep Jenkins Build Variables**.
+
+6. In the **Properties Content** box, enter the following environment variables:
 
     ```
     AZURE_CRED_ID=[your credential ID of service principal]
@@ -294,16 +296,15 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
     TEST_ENDPOINT=[your web frontend end point for testing. Should be webfrontend.XXXXXXXXXXXXXXXXXXX.xxxxxx.aksapp.io]
     ```
 
-    Using the sample values given in the preceding sections, the list of environment variables should look something like this, with substitutions for the actual values:
+    Using the sample values given in the preceding sections, the list of environment variables should look something like this:
 
     ![Jenkins pipeline environment variables](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-environment.png)
-    
 
-6. Choose **Pipeline script from SCM** in **Pipeline > Definition**.
-7. In **SCM**, choose **Git** and then enter your repo URL.
-8. In **Branch Specifier**, enter `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`.
-9. Fill in the SCM repo url and script path "Jenkinsfile". (Script [Example](/JenkinsFile))
-10. **Lightweight checkout** should be checked.
+7. Choose **Pipeline script from SCM** in **Pipeline > Definition**.
+8. In **SCM**, choose **Git** and then enter your repo URL.
+9. In **Branch Specifier**, enter `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`.
+10. Fill in the SCM repo url and script path "Jenkinsfile". (Script [Example](/JenkinsFile))
+11. **Lightweight checkout** should be checked.
 
 ## Create a pull request to trigger the pipeline
 
@@ -315,9 +316,14 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
     }
     ```
 
-2. If you have a webhook set up, a job will be triggered automatically. Otherwise, you can run the job manually.  For more information about setting up a webhook, see [Connect Jenkins to GitHub](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service.md#connect-jenkins-to-github).
+2. If you have a webhook set up, the pipeline will be triggered automatically. Otherwise, you can run the job manually. 
+
+    For more information about setting up a webhook, see [Connect Jenkins to GitHub](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service.md#connect-jenkins-to-github).
 
 3. Open your favorite browser and input `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`
+
+    > [!NOTE]
+    > insert note about commenting out the dev space cleanup so that you can stop the merge, but still see the changes. ref email from PC on this. TODO 
 
     Open another tab and input the PR dev space URL. Should be 
     `https://<yourdevspace>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. You will find the link in the console output of the Jenkins job you just triggered.
