@@ -25,12 +25,17 @@ hideEdit: true
 
 The latest Service Fabric release includes supportability, reliability, performance improvements, new features, bug fixes and enhancements to ease cluster and application life cycle management.
 
-> [!IMPORTANT]
-> Service Fabric 6.5 is the final release with Service Fabric tools support in Visual Studio 2015. Customers are advised to move to [Visual Studio 2019](https://visualstudio.microsoft.com/vs/compare/) going forward.
+#### Breaking changes
+
+- Service Fabric 6.5 is the final release with Service Fabric tools support in Visual Studio 2015. Customers are advised to move to [Visual Studio 2019](https://visualstudio.microsoft.com/vs/compare/) going forward.
+
+- TraceViewer, the tool for parsing Service Fabric trace logs has been updated to be CSV compliant for the Service Fabric 6.5 release. This breaking change could impact you in 2 ways:  
+    1. Any custom tools that depend on TraceViewer will require updates for the new logging format.
+    2. If you use TraceViewer, you'll need to upgrade it to the newer version shipped with Service Fabric 6.5.
 
 Here's what's new in Service Fabric 6.5:
 
-#### Windows
+#### New features for Windows
 
 - Patch Orchestration Application (POA) version 1.4.0 includes numerous self-diagnostic improvements. Customers of POA are recommended to move to this version.
 
@@ -48,7 +53,7 @@ Here's what's new in Service Fabric 6.5:
 
 - [Service Fabric Application Disaster Recovery Tool](https://github.com/Microsoft/Service-Fabric-AppDRTool) allows users of Service Fabric stateful services to get back live soon in case the primary SF cluster encounters a disaster. The tool constantly synchronizes the data from the application running on the primary cluster on the standby application on secondary using periodic backup and restore.
 
-#### Linux
+#### New features for Linux
 
 - Visual Studio support for [publishing .NET Core apps to Linux-based clusters](service-fabric-how-to-publish-linux-app-vs.md).
 
