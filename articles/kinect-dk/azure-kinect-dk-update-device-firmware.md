@@ -1,8 +1,8 @@
 ---
 title: Update Azure Kinect firmware
 description: Instructions for updating Azure Kinect DK device firmware
-author: joylital
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/28/2019
 ms.topic: conceptual

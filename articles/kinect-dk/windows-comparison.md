@@ -1,8 +1,8 @@
 ---
 title: Azure Kinect DK Windows comparison
 description: Hardware and software differences between Azure Kinect DK and Kinect for Windows v2
-author: joylital
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/17/2019
 ms.topic: article

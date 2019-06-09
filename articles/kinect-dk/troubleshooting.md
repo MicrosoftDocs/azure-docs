@@ -1,11 +1,11 @@
 ---
 title: Azure Kinect known issues and troubleshooting
 description: Known issues and troubleshooting Azure Kinect device
-author: joylital
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/13/2019
-ms.topic: overview
+ms.topic: article
 keywords: troubleshooting, update, bug, kinect, feedback, recovery, logging, tips
 ---
 # Known Issues and Troubleshooting

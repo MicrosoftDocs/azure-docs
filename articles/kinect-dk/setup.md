@@ -5,7 +5,7 @@ author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/10/2019
-ms.topic: conceptual 
+ms.topic: quickstart 
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 
 #Customer intent: As an Azure Kinect DK developer, I want to create a new Azure Kinect DK application.

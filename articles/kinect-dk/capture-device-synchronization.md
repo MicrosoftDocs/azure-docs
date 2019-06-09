@@ -2,7 +2,7 @@
 title: Capture Azure Kinect device synchronization 
 description: Device synchronization
 author: xthexder
-ms.author: jawirth, joylital
+ms.author: jawirth
 ms.prod: kinect-dk
 ms.date: 6/22/2019
 ms.topic: overview

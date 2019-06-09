@@ -1,8 +1,8 @@
 ---
 title: Azure Kinect firmware tool
 description:  Azure Kinect Firmware Tool usage
-author: joylital
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/06/2019
 ms.topic: conceptual
