@@ -50,7 +50,9 @@
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
     - name: VNet
-      href: concepts-data-access-security-vnet.md 
+      href: concepts-data-access-security-vnet.md
+    - name: Connectivity architecture
+      href: concepts-connectivity-architecture.md
   - name: Business continuity
     items:
     - name: Overview

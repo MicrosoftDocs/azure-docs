@@ -49,6 +49,8 @@ Backups per day (via DPM/MABS) | Two scheduled backups per day.
 Monthly/yearly backup	| Not supported when backing up with Azure VM extension. Only daily and weekly is supported.<br/><br/> You can set up the policy to retain daily/weekly backups for monthly/yearly retention period.
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |	Disabling security features isn't supported.
+Backup the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM; However even if the time change is reverted, successful backup is not guaranteed.  
+
 
 ## Operating system support (Windows)
 
