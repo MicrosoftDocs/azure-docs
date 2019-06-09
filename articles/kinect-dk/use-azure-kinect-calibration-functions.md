@@ -31,7 +31,7 @@ Remark on lens distortion: 2D coordinates always refer to the distorted image in
 
 ### Convert between 3D coordinate systems
 
-The function [k4a_calibration_3d_to_3d()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaacd1eab997ef964b5e436afa5295726e.html#gaacd1eab997ef964b5e436afa5295726e) converts a 3D point of the source coordinate system to a 3D point of the target coordinate system using the camera's extrinsic calibration. Source and target can be set to any of the four 3D coordinate systems, i.e., color camera, depth camera, gyroscope or accelerometer. If source and target are identical, the unmodified input 3D point is returned as output.
+The function [k4a_calibration_3d_to_3d()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaacd1eab997ef964b5e436afa5295726e.html#gaacd1eab997ef964b5e436afa5295726e) converts a 3D point of the source coordinate system to a 3D point of the target coordinate system using the camera's extrinsic calibration. Source and target can be set to any of the four 3D coordinate systems, that is, color camera, depth camera, gyroscope, or accelerometer. If source and target are identical, the unmodified input 3D point is returned as output.
 
 ### Convert between 2D and 3D coordinate systems
 
