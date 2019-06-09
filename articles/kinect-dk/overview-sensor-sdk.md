@@ -1,8 +1,8 @@
 ---
 title: Azure Kinect Sensor SDK
 description: Azure Kinect Sensor SDK
-author: joylital
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/10/2019
 ms.topic: overview 

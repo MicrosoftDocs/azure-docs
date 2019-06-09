@@ -60,12 +60,18 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 
 4. You're done with your Kinect setup.  Now you can start developing your application or integrating services.
 
-If you have any issues, check [Troubleshooting](https://aka.ms/AzureKinectAPIDocs/troubleshooting.md).
+If you have any issues, check [Troubleshooting](troubleshooting.md).
 
-## Next steps
+## See also
 
 [Azure Kinect DK hardware information](hardware-specification.md)
 
 [Update device firmware](azure-kinect-dk-update-device-firmware.md)
 
 Learn more about [Kinect for Azure viewer](azure-kinect-sensor-viewer.md)
+
+## Next steps
+
+After the Azure Kinect device is ready and working, you can also learn how to
+> [!div class="nextstepaction"]
+>[Record sensor stream to a file](record-sensor-streams-file.md)

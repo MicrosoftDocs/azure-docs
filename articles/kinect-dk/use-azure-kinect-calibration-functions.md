@@ -5,7 +5,7 @@ author: cdedmonds
 ms.author: cdedmonds
 ms.prod: kinect-dk
 ms.date: 06/13/2019
-ms.topic: overview
+ms.topic: article
 keywords: kinect, azure, sensor, sdk, coordinate system, calibration, functions, camera, intrinsic, extrinsic, project, unproject, transformation, rgb-d, point cloud
 ---
 

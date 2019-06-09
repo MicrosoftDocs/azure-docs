@@ -5,7 +5,7 @@ author: xthexder
 ms.author: jawirth
 ms.prod: kinect-depth_track_enabled
 ms.date: 06/27/2019
-ms.topic: overview
+ms.topic: article
 keywords: kinect, azure, sensor, sdk, depth, rgb, record, playback, matroska, mkv
 ---
 # Record and playback API
