@@ -8,7 +8,7 @@ tags: complex data types; compound data types; aggregate data types
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/13/2019
 ms.custom: seodec2018
 ---
 # How to model complex data types in Azure Search

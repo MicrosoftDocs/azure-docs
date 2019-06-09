@@ -1,7 +1,7 @@
 ---
 title: OData geo-spatial function reference - Azure Search
 description: OData geo-spatial functions, geo.distance and geo.intersects, in Azure Search queries.
-ms.date: 05/30/2019
+ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual

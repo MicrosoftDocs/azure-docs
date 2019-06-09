@@ -1,7 +1,7 @@
 ---
 title: OData language overview - Azure Search
 description: OData language overview for filters, select, and order-by for Azure Search queries.
-ms.date: 05/30/2019
+ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual

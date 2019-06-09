@@ -1,7 +1,7 @@
 ---
 title: OData comparison operator reference - Azure Search
 description: OData comparison operators, eq, ne, gt, lt, ge, and le, in Azure Search queries.
-ms.date: 05/30/2019
+ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual

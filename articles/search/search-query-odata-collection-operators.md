@@ -1,7 +1,7 @@
 ---
 title: OData collection operator reference - Azure Search
 description: OData collection operators, any and all, and lambda expressions in Azure Search queries.
-ms.date: 05/30/2019
+ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
