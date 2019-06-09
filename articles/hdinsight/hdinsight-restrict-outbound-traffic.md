@@ -56,7 +56,7 @@ On the **Add application rule collection** screen, complete the following steps:
 
 | **Name** | **Source Address** | **Protocol:Port** | **Target FQDNS** | **Notes** |
 | --- | --- | --- | --- | --- |
-| Rule_2 | * | https:443 | login.windows.net | Allows Windows login activirty |
+| Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
 | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | If your cluster is backed by WASB, then add a rule for WASB. To use ONLY https connections make sure ["secure transfer required"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) is enabled on the storage account. |
 
 1. Click **Add**.
@@ -145,7 +145,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
 ## Access to the cluster
-After having the firewall setup successfully, you can use the internal endpoint (`https://<clustername>-int.azurehdinsight.net`) to access the Ambari from within the VNET. To use the public endpoint (`https://<clustername>.azurehdinsight.net`) or ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules setup to avoid the asymetric routing issue explained [here](https://docs.microsoft.com/azure/firewall/integrate-lb).
+After having the firewall setup successfully, you can use the internal endpoint (`https://<clustername>-int.azurehdinsight.net`) to access the Ambari from within the VNET. To use the public endpoint (`https://<clustername>.azurehdinsight.net`) or ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules setup to avoid the assymetric routing issue explained [here](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## Configure another network virtual appliance
 
