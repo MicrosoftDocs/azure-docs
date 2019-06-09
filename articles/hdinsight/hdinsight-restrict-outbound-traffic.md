@@ -48,20 +48,20 @@ On the **Add application rule collection** screen, complete the following steps:
 
 1. Enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu, and enter the following rules in the **FQDN Tags Section** :
 
-| **Name** | **Source Address** | **FQDN Tag** | **Notes** |
-| --- | --- | --- | --- |
-| Rule_1 | * | HDInsight and WindowsUpdate | Required for HDI services |
+   | **Name** | **Source Address** | **FQDN Tag** | **Notes** |
+   | --- | --- | --- | --- |
+   | Rule_1 | * | HDInsight and WindowsUpdate | Required for HDI services |
 
 1. Add the following rules to the **Target FQDNs Section** :
 
-| **Name** | **Source Address** | **Protocol:Port** | **Target FQDNS** | **Notes** |
-| --- | --- | --- | --- | --- |
-| Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
-| Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | If your cluster is backed by WASB, then add a rule for WASB. To use ONLY https connections make sure ["secure transfer required"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) is enabled on the storage account. |
+   | **Name** | **Source Address** | **Protocol:Port** | **Target FQDNS** | **Notes** |
+   | --- | --- | --- | --- | --- |
+   | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
+   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | If your cluster is backed by WASB, then add a rule for WASB. To use ONLY https connections make sure ["secure transfer required"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) is enabled on the storage account. |
 
 1. Click **Add**.
 
-![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 ### Configure the firewall with network rules
 
@@ -72,22 +72,22 @@ Create the network rules to correctly configure your HDInsight cluster.
 1. On the **Add network rule collection** screen, enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu.
 1. Create the following rules in the **IP Addresses** section:
 
-| **Name** | **Protocol** | **Source Address** | **Destination Address** | **Destination Port** | **Notes** |
-| --- | --- | --- | --- | --- | --- |
-| Rule_1 | UDP | * | * | `123` | Time service |
-| Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | If you are using Enterprise Security Package (ESP), then add a network rule in the IP Addresses section that allows communication with AAD-DS for ESP clusters. You can find the IP addresses of the domain controllers on the AAD-DS section in the portal | 
-| Rule_3 | TCP | * | IP Address of your Data Lake Storage account | `*` | If you are using Azure Data Lake Storage, then you can add a network rule in the IP Addresses section to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable in firewall logs. Determine the IP address for your Data Lake Storage account. You can use a powershell command such as `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` to resolve the FQDN to an IP address.|
-| Rule_4 | TCP | * | * | `12000` | (Optional) If you are using Log Analytics, then create a network rule in the IP Addresses section to enable communication with your Log Analytics workspace. |
+   | **Name** | **Protocol** | **Source Address** | **Destination Address** | **Destination Port** | **Notes** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_1 | UDP | * | * | `123` | Time service |
+   | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | If you are using Enterprise Security Package (ESP), then add a network rule in the IP Addresses section that allows communication with AAD-DS for ESP clusters. You can find the IP addresses of the domain controllers on the AAD-DS section in the portal | 
+   | Rule_3 | TCP | * | IP Address of your Data Lake Storage account | `*` | If you are using Azure Data Lake Storage, then you can add a network rule in the IP Addresses section to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable in firewall logs. Determine the IP address for your Data Lake Storage account. You can use a powershell command such as `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` to resolve the FQDN to an IP address.|
+   | Rule_4 | TCP | * | * | `12000` | (Optional) If you are using Log Analytics, then create a network rule in the IP Addresses section to enable communication with your Log Analytics workspace. |
 
 1. Create the following rules in the **Service Tags** section:
 
-| **Name** | **Protocol** | **Source Address** | **Service Tags** | **Destination Port** | **Notes** |
-| --- | --- | --- | --- | --- | --- |
-| Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet which will bypass the firewall. |
+   | **Name** | **Protocol** | **Source Address** | **Service Tags** | **Destination Port** | **Notes** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet which will bypass the firewall. |
 
 1. Click **Add** to complete creation of your network rule collection.
 
-![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### Create and configure a route table
 
