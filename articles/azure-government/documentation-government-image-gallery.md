@@ -18,7 +18,7 @@ ms.author: gsacavdm
 
 ---
 # Azure Government Marketplace images
-The Azure Government Marketplace provides a similar experience as the public Azure portal. You can choose to deploy prebuilt images from Microsoft and our partners, or upload your own VHDs. This gives you the flexibility to deploy your own standardized images if needed.
+The Azure Government Marketplace provides a similar experience as the global Azure portal. You can choose to deploy prebuilt images from Microsoft and our partners, or upload your own VHDs. This gives you the flexibility to deploy your own standardized images if needed.
 
 The following table shows a list of available images within the Azure Government Marketplace. If you'd like to see other images in Azure Government, please request them via the [Azure Government Feedback Forum](https://feedback.azure.com/forums/558487-azure-government).
 
