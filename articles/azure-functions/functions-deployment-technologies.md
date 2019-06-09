@@ -21,7 +21,7 @@ There are a few different technologies capable of deploying to Azure Functions. 
 ## Deployment Technology Availability for Azure Functions
 
 > [!IMPORTANT]
-> Azure Functions supports cross platform local development, and hosting on two operating systems: Windows and Linux. There are three hosting plans currently available, each with different behaviors - [Consumption](functions-scale.md#consumption-plan),  [Premium](functions-scale.md#premium-plan-public-preview), and [dedicated (App Service)](functions-scale.md#app-service-plan). Not all deployment technologies are available for each flavor of Azure Functions.
+> Azure Functions supports cross platform local development, and hosting on two operating systems: Windows and Linux. There are three hosting plans currently available, each with different behaviors - [Consumption](functions-scale.md#consumption-plan),  [Premium](functions-scale.md#premium-plan), and [dedicated (App Service)](functions-scale.md#app-service-plan). Not all deployment technologies are available for each flavor of Azure Functions.
 
 | Deployment technology | Windows consumption | Windows premium (preview) | Windows dedicated  | Linux consumption (preview) | Linux dedicated |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
@@ -65,7 +65,7 @@ __When to use it:__ This is the only deployment method supported for Azure Funct
 
 __What it does:__ Lets you to push a zip file containing your function app to Azure. Optionally, you can also specify to have your app start in [Run-From-Package](run-functions-from-deployment-package.md) mode.
 
-__How to use it:__ Deploy using your favorite client tool - [VS Code](functions-create-first-function-vs-code#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). To manually deploy a zip file to your function app, follow the instructions found at [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+__How to use it:__ Deploy using your favorite client tool - [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). To manually deploy a zip file to your function app, follow the instructions found at [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 Additionally, when deploying through zip deploy, users can specify to run their app from in [Run-From-Package](run-functions-from-deployment-package.md) mode by setting the `WEBSITE_RUN_FROM_PACKAGE` application setting value as `1`. This option is suggested and yields faster loading times for your applications. This is done by default for the above client tools.
 
@@ -130,7 +130,7 @@ __When to use it:__ In general, other deployment methods are recommended. When p
 
 __What it does:__ Using the portal based editor allows you to directly edit files on your function app (essentially deploying anytime you click **Save**).
 
-__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](functions-create-first-azure-function). Using any other deployment method makes your function read only and prevents continued portal editing, to preserve a single source of truth. To return to a state in which you can edit your files using the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment related Application Settings (like `WEBSITE_RUN_FROM_PACKAGE`).
+__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](functions-create-first-azure-function.md). Using any other deployment method makes your function read only and prevents continued portal editing, to preserve a single source of truth. To return to a state in which you can edit your files using the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment related Application Settings (like `WEBSITE_RUN_FROM_PACKAGE`).
 
 #### Portal Editing Availability
 
