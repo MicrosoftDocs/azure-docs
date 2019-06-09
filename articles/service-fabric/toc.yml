@@ -845,8 +845,8 @@
     href: https://azure.microsoft.com/pricing/details/service-fabric/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Troubleshooting guides
-    href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
+  - name: Release notes
+    href: release-notes.md
   - name: Sample code
     href: https://aka.ms/servicefabricsamples
   - name: Support options
@@ -855,5 +855,7 @@
     href: service-fabric-versions.md
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=service-fabric
+  - name: Troubleshooting guides
+    href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
