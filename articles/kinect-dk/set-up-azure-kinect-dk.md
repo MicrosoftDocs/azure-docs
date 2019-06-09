@@ -64,12 +64,6 @@ If you have any issues, check [Troubleshooting](https://aka.ms/AzureKinectAPIDoc
 
 ## Next steps
 
-After the Azure Kinect device is ready and working, you can also learn how to
-> [!div class="nextstepaction"]
->[Record sensor stream to a file](record-sensor-streams-file.md)
-
-### See also
-
 [Azure Kinect DK hardware information](hardware-specification.md)
 
 [Update device firmware](azure-kinect-dk-update-device-firmware.md)
