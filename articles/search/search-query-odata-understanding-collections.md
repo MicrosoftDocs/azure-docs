@@ -217,7 +217,7 @@ There are three underlying reasons why not all filter features are supported for
 
 The first reason is just a consequence of how the OData language and EDM type system are defined. The last two require further explanation.
 
-### Correlated search
+### Correlated versus uncorrelated search
 
 When applying multiple filter criteria over a collection of complex objects, the criteria are **correlated** since they apply to *each object in the collection*. For example, the following filter will return hotels that have at least one deluxe room with a rate less than 100:
 
@@ -229,7 +229,48 @@ However, for full-text search, there's no way to refer to a specific range varia
 
     Rooms/Type:deluxe AND Rooms/Description:"city view"
 
-you may get hotels back where one room is deluxe, and a different room mentions "city view" in the description. The reason is that `Rooms/Type` refers to all the analyzed terms of the `Rooms/Type` field across all documents, and similarly for `Rooms/Description`. So unlike the filter above, which basically says "match documents where a room has `Type` equal to 'Deluxe Room' and **that same room** has `BaseRate` less than 100", the search query says "match documents where `Rooms/Type` has the term "deluxe" and `Rooms/Description` has the phrase "city view". There's no concept of individual rooms whose fields can be correlated in the latter case.
+you may get hotels back where one room is deluxe, and a different room mentions "city view" in the description. For example, the document with `Id` of `1` would match the query:
+
+```json
+{
+  "value": [
+    {
+      "Id": "1",
+      "Rooms": [
+        { "Type": "deluxe", "Description": "Large garden view suite" },
+        { "Type": "standard", "Description": "Standard city view room" }
+      ]
+    },
+    {
+      "Id": "2",
+      "Rooms": [
+        { "Type": "deluxe", "Description": "Courtyard motel room" }
+      ]
+    }
+  ]
+}
+```
+
+The reason is that `Rooms/Type` refers to all the analyzed terms of the `Rooms/Type` field in the document, and similarly for `Rooms/Description`, as shown in these tables:
+
+| Term in `Rooms/Type` | Document IDs |
+| --- | --- |
+| deluxe | 1, 2 |
+| standard | 1 |
+
+| Term in `Rooms/Description` | Document IDs |
+| --- | --- |
+| courtyard | 2 |
+| city | 1 |
+| garden | 1 |
+| large | 1 |
+| motel | 2 |
+| room | 1, 2 |
+| standard | 1 |
+| suite | 1 |
+| view | 1 |
+
+So unlike the filter above, which basically says "match documents where a room has `Type` equal to 'Deluxe Room' and **that same room** has `BaseRate` less than 100", the search query says "match documents where `Rooms/Type` has the term "deluxe" and `Rooms/Description` has the phrase "city view". There's no concept of individual rooms whose fields can be correlated in the latter case.
 
 > [!NOTE]
 > If you would like to see support for correlated search added to Azure Search, please vote for [this User Voice item](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).

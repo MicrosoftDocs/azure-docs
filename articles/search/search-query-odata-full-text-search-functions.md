@@ -24,6 +24,9 @@ translation.priority.mt:
 
 Azure Search supports full-text search in the context of [OData filter expressions](query-odata-filter-orderby-syntax.md) via the `search.ismatch` and `search.ismatchscoring` functions. These functions allow you to combine full-text search with strict Boolean filtering in ways that are not possible just by using the top-level `search` parameter of the [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
+> [!NOTE]
+> The `search.ismatch` and `search.ismatchscoring` functions are only supported in filters in the [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents). They are not supported in the [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) or [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) APIs.
+
 ## Syntax
 
 The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar of the `search.ismatch` and `search.ismatchscoring` functions:

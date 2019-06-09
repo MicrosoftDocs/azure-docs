@@ -28,6 +28,7 @@ This article provides an overview of the OData expression language used in filte
 
 - [Filter syntax](#filter-syntax)
 - [Order-by syntax](#order-by-syntax)
+- [Select syntax](#select-syntax)
 
 ## Syntax overview and common elements
 
@@ -61,6 +62,8 @@ An interactive syntax diagram is also available:
 
 A field path is composed of one or more **identifiers** separated by slashes. Each identifier is a sequence of characters that must start with an ASCII letter or underscore, and contain only ASCII letters, digits, or underscores. The letters can be upper- or lower-case.
 
+An identifier can refer either to the name of a field, or to a **range variable** in the context of a [collection expression](search-query-odata-collection-operators.md) (`any` or `all`) in a filter. A range variable is like a loop variable that represents the current element of the collection. For complex collections, that variable represents an object, which is why you can use field paths to refer to sub-fields of the variable. This is analogous to dot notation in many programming languages.
+
 Examples of field paths are shown in the following table:
 
 | Field path | Description |
@@ -69,21 +72,16 @@ Examples of field paths are shown in the following table:
 | `Address/City` | Refers to the `City` sub-field of a complex field in the index; `Address` is of type `Edm.ComplexType` in this example |
 | `Rooms/Type` | Refers to the `Type` sub-field of a complex collection field in the index; `Rooms` is of type `Collection(Edm.ComplexType)` in this example |
 | `Stores/Address/Country` | Refers to the `Country` sub-field of the `Address` sub-field of a complex collection field in the index; `Stores` is of type `Collection(Edm.ComplexType)` and `Address` is of type `Edm.ComplexType` in this example |
+| `room/Type` | Refers to the `Type` sub-field of the `room` range variable, for example in the filter expression `Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Refers to the `Country` sub-field of the `Address` sub-field of the `store` range variable, for example in the filter expression `Stores/any(store: store/Address/Country eq 'Canada')` |
 
-Notice how for sub-fields, there's no way to tell from the field path whether an ancestor field is a complex collection or just a single complex object. For example, the paths `Address/City` and `Rooms/Type` have the same structure, even though `Rooms` refers to a collection but `Address` doesn't.
+The meaning of a field path differs depending on the context. In filters, a field path refers to the value of a *single instance* of a field in the current document. In other contexts, such as **$orderby**, **$select**, or in [fielded search in the full Lucene syntax](query-lucene-syntax.md#bkmk_fields), a field path refers to the field itself. This difference has some consequences for how you use field paths in filters.
 
-In many contexts, this difference doesn't matter, but in filters it does. In filters, `Address/City` is allowed but `Rooms/Type` isn't because a field path in a filter refers to a value in the current document. A field path in other contexts, such as **$orderby**, **$select**, or in [fielded search in a full Lucene query](query-lucene-syntax.md#bkmk_fields), refers to the field itself. Since `Rooms` is a collection of objects, `Rooms/Type` can't refer to a single value because there's no indication what the "current" object of the collection is.
+Consider the field path `Address/City`. In a filter, this refers to a single city for the current document, like "San Francisco". In contrast, `Rooms/Type` refers to the `Type` sub-field for many rooms (like "standard" for the first room, "deluxe" for the second room, and so on). Since `Rooms/Type` doesn't refer to a *single instance* of the sub-field `Type`, it can't be used directly in a filter. Instead, to filter on room type, you would use a [lambda expression](search-query-odata-collection-operators.md) with a range variable, like this:
 
-We get around this in filters using [the collection expressions `any` and `all`](search-query-odata-collection-operators.md), which are like loops that iterate over the collection. Collection expressions have a loop variable called the **range variable** that takes the current element of the collection, plus a loop body called the **lambda expression** that refers to the range variable.
+    Rooms/any(room: room/Type eq 'deluxe')
 
-The following table shows examples of field paths in a lambda expression of a filter:
-
-| Field path | Description |
-| --- | --- |
-| `room/Type` | Refers to the `Type` sub-field of the `room` range variable |
-| `store/Address/Country` | Refers to the `Country` sub-field of the `Address` sub-field of the `store` range variable |
-
-For examples of full lambda expressions, see [OData collection operators in Azure Search](search-query-odata-collection-operators.md).
+In this example, the range variable `room` appears in the `room/Type` field path. That way, `room/Type` refers to the type of the current room in the current document. This is a single instance of the `Type` sub-field, so it can be used directly in the filter.
 
 ### Using field paths
 
@@ -216,7 +214,7 @@ An interactive syntax diagram is also available:
 > [!NOTE]
 > See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
-As the grammar above shows, the syntax of the **$select** parameter is simple, but there's more going on with the **$filter** and **$orderby** parameters. The syntax for the latter two is explored in more detail in the rest of this article.
+The **$filter**, **$orderby**, and **$select** parameters are explored in more detail in the rest of this article.
 
 ## Filter syntax
 
@@ -303,87 +301,87 @@ There are limits to the size and complexity of filter expressions that you can s
 
 Find all hotels with at least one room with a base rate less than $200 that are rated at or above 4:
 
-    Rooms/any(room: room/BaseRate lt 200.0) and Rating ge 4
+    $filter=Rooms/any(room: room/BaseRate lt 200.0) and Rating ge 4
 
 Find all hotels other than "Sea View Motel" that have been renovated since 2010:
 
-    HotelName ne 'Sea View Motel' and LastRenovationDate ge 2010-01-01T00:00:00Z
+    $filter=HotelName ne 'Sea View Motel' and LastRenovationDate ge 2010-01-01T00:00:00Z
 
 Find all hotels that were renovated in 2010 or later. The datetime literal includes time zone information for Pacific Standard Time:  
 
-    LastRenovationDate ge 2010-01-01T00:00:00-08:00
+    $filter=LastRenovationDate ge 2010-01-01T00:00:00-08:00
 
 Find all hotels that have parking included and where all rooms are non-smoking:
 
-    ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
+    $filter=ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
 
  \- OR -  
 
-    ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
+    $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
 
 Find all hotels that are Luxury or include parking and have a rating of 5:  
 
-    (Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
+    $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
 
 Find all hotels with the tag "wifi" in at least one room (where each room has tags stored in a `Collection(Edm.String)` field):  
 
-    Rooms/any(room: room/Tags/any(tag: tag eq 'wifi'))
+    $filter=Rooms/any(room: room/Tags/any(tag: tag eq 'wifi'))
 
 Find all hotels with any rooms:  
 
-    Rooms/any()
+    $filter=Rooms/any()
 
 Find all hotels that don't have rooms:
 
-    not Rooms/any()
+    $filter=not Rooms/any()
 
 Find all hotels within 10 kilometers of a given reference point (where `Location` is a field of type `Edm.GeographyPoint`):
 
-    geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
+    $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 
 Find all hotels within a given viewport described as a polygon (where `Location` is a field of type Edm.GeographyPoint). The polygon must be closed, meaning the first and last point sets must be the same. Also, [the points must be listed in counterclockwise order](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-    geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+    $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
 
 Find all hotels where the "Description" field is null. The field will be null if it was never set, or if it was explicitly set to null:  
 
-    Description eq null
+    $filter=Description eq null
 
 Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel'). These phrases contain spaces, and space is a default delimiter. You can specify an alternative delimiter in single quotes as the third string parameter:  
 
-    search.in(HotelName, 'Sea View motel,Budget hotel', ',')
+    $filter=search.in(HotelName, 'Sea View motel,Budget hotel', ',')
 
 Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel' separated by '|'):  
 
-    search.in(HotelName, 'Sea View motel|Budget hotel', '|')
+    $filter=search.in(HotelName, 'Sea View motel|Budget hotel', '|')
 
 Find all hotels where all rooms have the tag 'wifi' or 'tub':
 
-    Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub'))
+    $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub'))
 
 Find a match on phrases within a collection, such as 'heated towel racks' or 'hairdryer included' in tags.
 
-    Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
+    $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 
 Find documents with the word "waterfront". This filter query is identical to a [search request](https://docs.microsoft.com/rest/api/searchservice/search-documents) with `search=waterfront`.
 
-    search.ismatchscoring('waterfront')
+    $filter=search.ismatchscoring('waterfront')
 
 Find documents with the word "hostel" and rating greater or equal to 4, or documents with the word "motel" and rating equal to 5. This request couldn't be expressed without the `search.ismatchscoring` function since it combines full-text search with filter operations using `or`.
 
-    search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
+    $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
 
 Find documents without the word "luxury".
 
-    not search.ismatch('luxury')
+    $filter=not search.ismatch('luxury')
 
 Find documents with the phrase "ocean view" or rating equal to 5. The `search.ismatchscoring` query will be executed only against fields `HotelName` and `Description`. Documents that matched only the second clause of the disjunction will be returned too -- hotels with `Rating` equal to 5. Those documents will be returned with score equal to zero to make it clear that they didn't match any of the scored parts of the expression.
 
-    search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
+    $filter=search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
 
 Find hotels where the terms "hotel" and "airport" are no more than five words apart in the description, and where all rooms are non-smoking. This query uses the [full Lucene query language](query-lucene-syntax.md).
 
-    search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
+    $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
 
 ## Order-by syntax
 
@@ -419,19 +417,97 @@ The syntax for `search.score` in **$orderby** is `search.score()`. The function 
 
 Sort hotels ascending by base rate:
 
-    BaseRate asc
+    $orderby=BaseRate asc
 
 Sort hotels descending by rating, then ascending by base rate (remember that ascending is the default):
 
-    Rating desc,BaseRate
+    $orderby=Rating desc,BaseRate
 
 Sort hotels descending by rating, then ascending by distance from the given coordinates:
 
-    Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+    $orderby=Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
 
 Sort hotels in descending order by search.score and rating, and then in ascending order by distance from the given coordinates. Between two hotels with identical relevance scores and ratings, the closest one is listed first:
 
-    search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+    $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+
+## Select syntax
+
+The **$select** parameter determines which fields for each document are returned in the query result set. The following EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) defines the grammar for the **$select** parameter:
+
+<!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
+
+```
+select_expression ::= '*' | field_path(',' field_path)*
+
+field_path ::= identifier('/'identifier)*
+```
+
+An interactive syntax diagram is also available:
+
+> [!div class="nextstepaction"]
+> [OData syntax diagram for Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+
+> [!NOTE]
+> See [OData expression syntax reference for Azure Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+
+The **$select** parameter comes in two forms:
+
+1. A single star (`*`), indicating that all retrievable fields should be returned, or
+1. A comma-separated list of field paths, identifying which fields should be returned.
+
+When using the second form, you may only specify retrievable fields in the list.
+
+If you list a complex field without specifying its sub-fields explicitly, all retrievable sub-fields will be included in the query result set. For example, assume your index has an `Address` field with `Street`, `City`, and `Country` sub-fields that are all retrievable. If you specify `Address` in **$select**, the query results will include all three sub-fields.
+
+## Select examples
+
+Include the `HotelId`, `HotelName`, and `Rating` top-level fields in the results, as well as the `City` sub-field of `Address`:
+
+    $select=HotelId, HotelName, Rating, Address/City
+
+An example result might look like this:
+
+```json
+{
+  "HotelId": "1",
+  "HotelName": "Secret Point Motel",
+  "Rating": 4,
+  "Address": {
+    "City": "New York"
+  }
+}
+```
+
+Include the `HotelName` top-level field in the results, as well as all sub-fields of `Address`, and the `Type` and `BaseRate` sub-fields of each object in the `Rooms` collection:
+
+    $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
+
+An example result might look like this:
+
+```json
+{
+  "HotelName": "Secret Point Motel",
+  "Rating": 4,
+  "Address": {
+    "StreetAddress": "677 5th Ave",
+    "City": "New York",
+    "StateProvince": "NY",
+    "Country": "USA",
+    "PostalCode": "10022"
+  },
+  "Rooms": [
+    {
+      "Type": "Budget Room",
+      "BaseRate": 9.69
+    },
+    {
+      "Type": "Budget Room",
+      "BaseRate": 8.09
+    }
+  ]
+}
+```
 
 ## See also  
 

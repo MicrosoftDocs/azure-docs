@@ -229,7 +229,7 @@
       href: search-query-lucene-examples.md
     - name: moreLikeThis (preview)
       href: search-more-like-this.md
-  - name: Using filters
+  - name: Use filters
     items:
     - name: Filter overview
       href: search-filters.md
@@ -278,8 +278,9 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.search/searchservices
   - name: OData language reference
-    href: query-odata-filter-orderby-syntax.md
     items:
+    - name: Overview
+      href: query-odata-filter-orderby-syntax.md
     - name: Collections - any, all
       href: search-query-odata-collection-operators.md
     - name: Comparisons - eq, ne, gt, lt, ge, le
