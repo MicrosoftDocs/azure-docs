@@ -153,7 +153,7 @@ Use custom validation dataset if random split is not acceptable, usually time se
 
 Next determine where the model will be trained. An automated machine learning training experiment can run on the following compute options:
 *	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
-*	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
+*	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
 
 See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for example notebooks with local and remote compute targets.
 

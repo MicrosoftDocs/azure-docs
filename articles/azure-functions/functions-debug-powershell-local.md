@@ -91,15 +91,28 @@ With `Wait-Debugger` in place, you can now debug the functions using either Visu
 
 ## Debug in Visual Studio Code
 
-To debug your PowerShell functions in Visual Studio Code, you must have the following extensions for Visual Studio Code:
+To debug your PowerShell functions in Visual Studio Code, you must have the following installed:
 
-* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
-* [Azure Functions](functions-create-first-function-vs-code.md)
+* [PowerShell extension for Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
+* [Azure Functions extension for Visual Studio Code](functions-create-first-function-vs-code.md)
+* [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell#powershell-core)
 
-After installing the PowerShell and Azure Functions extensions, load an existing function app project. You can also [create a Functions project](functions-create-first-function-vs-code.md).
+After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](functions-create-first-function-powershell.md).
 
 >[!NOTE]
 > Should your project not have the needed configuration files, you are prompted to add them.
+
+### Set the PowerShell version
+
+PowerShell Core installs side by side with Windows PowerShell. Set PowerShell Core as the PowerShell version to use with the PowerShell extension for Visual Studio Code.
+
+1. Press F1 to display the command pallet, then search for `Session`.
+
+1. Choose **PowerShell: Show Session Menu**.
+
+1. If your **Current session** isn't **PowerShell Core 6**, choose **Switch to: PowerShell Core 6**.
+
+When you have a PowerShell file open, you see the version displayed in green at the bottom right of the window. Selecting this text also displays the session menu. To learn more, see the [Choosing a version of PowerShell to use with the extension](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
 ### Start the function app
 
@@ -136,7 +149,7 @@ After you continue and fully invoke your script, you'll notice that:
 * The PowerShell console that did the `Invoke-RestMethod` has returned a result
 * The PowerShell Integrated Console in Visual Studio Code is waiting for a script to be executed
 
-Subsequent times when you invoke the same function, the debugger in PowerShell extension breaks right after the `Wait-Debugger`.
+Later when you invoke the same function, the debugger in PowerShell extension breaks right after the `Wait-Debugger`.
 
 ## Debugging in a PowerShell Console
 
