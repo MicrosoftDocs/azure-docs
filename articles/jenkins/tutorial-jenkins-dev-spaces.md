@@ -25,17 +25,6 @@ In this tutorial, you learn how to:
 > * Manage Azure Dev Spaces in a Jenkins pipeline
 > * Deploy from a dev space to AKS
 
-The scenario selected for the example pipeline is based on a real-world pattern: A pull request triggers a CI pipeline that builds and then deploys the proposed changes to an Azure dev space for testing and review. Depending on the outcome of the review, the changes are either merged or discarded, and then the dev space is removed. This tutorial shows how use Azure Dev Spaces and ACR Tasks (in conjunction with other plugins) to build a functional CI pipeline with a relatively small amount of code.
-
-The following flowchart shows the stages in the Jenkinsfile:
-
-![Jenkins pipeline flow](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
-
-The focus is on the following points:
-
-* Using the Azure Dev Spaces plugin to create and remove dev spaces
-<!--todo-->
-
 ## Prerequisites
 
 * An Azure account. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -176,7 +165,7 @@ This procedure is condensed from two tutorials, [Get started on Azure Dev Spaces
 
 ## Prepare Jenkins server
 
-In this section you prepare the Jenkins server to run the pipeline.
+In this section you prepare the Jenkins server to run the sample CI pipeline.
 
 * Install plugins
 * Install Helm and Kubernetes CLI
@@ -190,7 +179,7 @@ In this section you prepare the Jenkins server to run the pipeline.
     * EnvInject Plugin
     * GitHub Integration Plugin
 
-    If these plug-ins don't appear, check the **Installed** tab to see if they are already installed.
+    If these plugins don't appear in the list, check the **Installed** tab to see if they are already installed.
 
 3. To install the plugins, choose **Download now and install after restart**.
 
@@ -228,9 +217,15 @@ The sample pipeline requires Helm and kubectl to deploy from the dev space to AK
     }
     ```
 
-2. Add a "Microsoft Azure Service Principal" credential type in Jenkins, using the service principal information from the previous step. Refer to the [Add service principal to Jenkins](https://docs.microsoft.com/en-us/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) section in the Deploy to Azure App Service tutorial. The credential name (*yourAzureServicePrincipalName* in the following screen clip) is the value of the AZURE_CRED_ID in the next section.
+2. Add a "Microsoft Azure Service Principal" credential type in Jenkins, using the service principal information from the previous step. The names in the Jenkins Add Credentials screenshot are keyed to the output from `create-for-rbac`.
+
+    The **ID** field is the Jenkins credential name for your service principal. The example uses the value of `displayName` (in this instance, `xxxxxxxjenkinssp`), but you can use any text you want. This credential name is the value for the AZURE_CRED_ID environment variable in the next section.
 
     ![Add service principal credentials to Jenkins](media/tutorial-jenkins-dev-spaces/add-service-principal-credentials.png)
+
+    The **Description** is optional. For more detailed instructions, see [Add service principal to Jenkins](https://docs.microsoft.com/en-us/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) section in the Deploy to Azure App Service tutorial. 
+
+
 
 3. To show your ACR credentials, run this command:
 
@@ -268,17 +263,21 @@ The sample pipeline requires Helm and kubectl to deploy from the dev space to AK
 
 ## Create a pipeline
 
-1. Download or clone this [repo](https://github.com/gavinfish/mywebapi). This is a modification of the *mywebapi* installed above, and it contains the Jenkinsfile (`Jekinsfile-helm-cli`) for the pipeline.
+The scenario selected for the example pipeline is based on a real-world pattern: A pull request triggers a CI pipeline that builds and then deploys the proposed changes to an Azure dev space for testing and review. Depending on the outcome of the review, the changes are either merged and deployed to AKS or discarded. Finally, the dev space is removed.
 
->TODO -- this repo needs to be cleaned up. It has several jenkinsfiles, plus artifacts from azds prep. The only part that is really necessary is the jenkinsfile-helm-cli. Can we move the key parts to the main dev-spaces repo?
+The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI pipeline. This flowchart shows the pipeline stages and decision points defined by the Jenkinsfile:
 
-1. Log into Jenkins. From the menu on the left, select **Add Item**.
+![Jenkins pipeline flow](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-2. Select **Pipeline**, and then enter a name in the **Enter an item name** box.
+1. Download this [repo](https://github.com/gavinfish/mywebapi) to get the sample files needed for the pipeline. This project is a modification of the *mywebapi* project used for the Azure Dev Spaces tutorials. It contains the Jenkinsfile (`Jekinsfile-helm-cli`) for the pipeline, along with Docker files needed during the build stage.
 
-3. Enable **Prepare an environment for the run**, and then check the **Keep Jenkins Environment Variables** and **Keep Jenkins Build Variables** boxes.
+2. Log into Jenkins. From the menu on the left, select **Add Item**.
 
-4. , In the **Properties Content** box, enter the following environment variables:
+3. Select **Pipeline**, and then enter a name in the **Enter an item name** box.
+
+4. Enable **Prepare an environment for the run**, and then check the **Keep Jenkins Environment Variables** and **Keep Jenkins Build Variables** boxes.
+
+5. , In the **Properties Content** box, enter the following environment variables:
 
     ```
     AZURE_CRED_ID=[your credential ID of service principal]
@@ -298,12 +297,13 @@ The sample pipeline requires Helm and kubectl to deploy from the dev space to AK
     Using the sample values given in the preceding sections, the list of environment variables should look something like this, with substitutions for the actual values:
 
     ![Jenkins pipeline environment variables](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-environment.png)
+    
 
-4. Choose **Pipeline script from SCM** in **Pipeline > Definition**.
-5. In **SCM**, choose **Git** and then enter your repo URL.
-6. In **Branch Specifier**, enter `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`.
-7. Fill in the SCM repo url and script path "Jenkinsfile". (Script [Example](/JenkinsFile))
-8. **Lightweight checkout** should be checked.
+6. Choose **Pipeline script from SCM** in **Pipeline > Definition**.
+7. In **SCM**, choose **Git** and then enter your repo URL.
+8. In **Branch Specifier**, enter `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`.
+9. Fill in the SCM repo url and script path "Jenkinsfile". (Script [Example](/JenkinsFile))
+10. **Lightweight checkout** should be checked.
 
 ## Create a pull request to trigger the pipeline
 
@@ -333,9 +333,8 @@ az group delete -y --no-wait -n MyResourceGroup
 ```
 
 ## Next steps
->**TODO:** add a list of next steps
 
-Advance to the next article to learn how to create...
+
 > [!div class="nextstepaction"]
 > [Next steps button](contribute-get-started-mvc.md)
 
