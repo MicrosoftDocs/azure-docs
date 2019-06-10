@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 04/2/2019
+ms.date: 06/10/2019
 ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk
@@ -23,7 +23,7 @@ This article includes the following sections:
 
 ## Download diagnostic logs
 
-If there are any errors during the data copy process, then the portal displays a path to the folder where the diagnostics logs are located. 
+If there are any errors during the data copy process, then the portal displays a path to the folder where the diagnostics logs are located.
 
 The diagnostics logs can be:
 - Error logs
@@ -34,7 +34,7 @@ To navigate to the path for copy log, go to the storage account associated with 
 1.	Go to **General > Order details** and make a note of the storage account associated with your order.
  
 
-2.	Go to **All resources** and search for the storage account identified in the previous step. Select and click the storage account.
+2.	Go to **All resources** and search for the storage account identified in the previous step. Select the storage account.
 
     ![Copy logs 1](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs1.png)
 
@@ -42,7 +42,7 @@ To navigate to the path for copy log, go to the storage account associated with 
 
     ![Copy logs 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
 
-    You should see both the error logs and the verbose logs for data copy. Select and click each file and then download a local copy.
+    You should see both the error logs and the verbose logs for data copy. Select each file and then download a local copy.
 
 ## Query Activity logs
 
@@ -54,14 +54,73 @@ Use the activity logs to find an error when troubleshooting or to monitor how a 
 - The status of the operation.
 - The values of other properties that might help you research the operation.
 
-The activity log contains all write operations (such as PUT, POST, DELETE) performed on your resources but not the read operations (such as GET).
+The activity log contains all the write operations (such as PUT, POST, DELETE) performed on your resources but not the read operations (such as GET).
 
-Activity logs are retained for 90 days. You can query for any range of dates, as long as the starting date is not more than 90 days in the past. You can also filter by one of the built-in queries in Insights. For instance, click error and then select and click specific failures to understand the root cause.
+Activity logs are retained for 90 days. You can query for any range of dates, as long as the starting date is not more than 90 days in the past. You can also filter by one of the built-in queries in Insights. For instance, select error and then select and click specific failures to understand the root cause.
+
+## Interpret log files
+
+There are two log files - *error.xml* and *copylog.xml* that you can use to troubleshoot errors.
+
+1. *Error.xml* - These logs are generated when you validate the data on the disks using the [validation tool](data-box-disk-deploy-copy-data.md#validate-data). A sample of the error log is shown below. The errors contained in the error log are summarized in [Data Box Disk Validation tool errors](#data-box-disk-validation-tool-errors).
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    	<ErrorLog Version="2018-10-01">
+    	  <SessionId>session#1</SessionId>
+    	  <ItemType>PageBlob</ItemType>
+    	  <SourceDirectory>D:\Dataset\TestDirectory</SourceDirectory>
+    	  <Errors>
+    	    <Error Code="Not512Aligned">
+    	      <Description>The file is not 512 bytes aligned.</Description>
+    	      <List>
+    	        <File Path="\Practice\myScript.ps1" />
+    	      </List>
+    	      <Count>1</Count>
+    	    </Error>
+    	  </Errors>
+    	  <Warnings />
+    	</ErrorLog>
+    ```
+
+2. *Copylog.xml* - These logs are generated and uploaded after the completion of data upload to Azure. A sample of the *copylog* is shown below. The errors contained in the copylog are summarized in [Data Box Disk copy errors](#data-box-disk-copy-errors).
+	
+	```xml
+    <?xml version="1.0" encoding="utf-8"?>
+	<DriveLog Version="2018-10-01">
+	  <DriveId>18041C582D7E</DriveId>
+	  <Summary>
+	    <ValidationErrors>
+	      <None Count="8" />
+	    </ValidationErrors>
+	    <CopyErrors>
+	      <Completed Count="5" Description="No errors encountered" />
+	      <ContainerRenamed Count="3" Description="Renamed the container as the original container name does not follow Azure conventions." />
+	    </CopyErrors>
+	  </Summary>
+	  <Blob Status="ContainerRenamed">
+	    <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/private.vhd</BlobPath>
+	    <OriginalFilePath>\PageBlob\pageblob invalid\private.vhd</OriginalFilePath>
+	    <SizeInBytes>10490880</SizeInBytes>
+	  </Blob>
+	  <Blob Status="ContainerRenamed">
+	    <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/resource.vhd</BlobPath>
+	    <OriginalFilePath>\PageBlob\pageblob invalid\resource.vhd</OriginalFilePath>
+	    <SizeInBytes>71528448</SizeInBytes>
+	  </Blob>
+	  <Blob Status="ContainerRenamed">
+	    <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/role.vhd</BlobPath>
+	    <OriginalFilePath>\PageBlob\pageblob invalid\role.vhd</OriginalFilePath>
+	    <SizeInBytes>10490880</SizeInBytes>
+	  </Blob>
+	  <Status>CompletedWithErrors</Status>
+	</DriveLog>
+    ```
 
 ## Data Box Disk Unlock tool errors
 
 
-| Error message/Tool behavior      | Recommendations                                                                                               |
+| Error message/Tool behavior      | Recommendations                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | None<br><br>Data Box Disk unlock tool crashes.                                                                            | BitLocker not installed. Ensure that the host computer that is running the Data Box Disk unlock tool has BitLocker installed.                                                                            |
 | The current .NET Framework is not supported. The supported versions are 4.5 and later.<br><br>Tool exits with a message.  | .NET 4.5 is not installed. Install .NET 4.5 or later on the host computer that runs the Data Box Disk unlock tool.                                                                            |
@@ -70,13 +129,59 @@ Activity logs are retained for 90 days. You can query for any range of dates, as
 | Could not find locked volumes. Verify disk received from Microsoft is connected properly and is in locked state.          | The tool fails to find any locked drives. Either the drives are already unlocked or not detected. Ensure that the drives are connected and are locked.                                                           |
 | Fatal error: Invalid parameter<br>Parameter name: invalid_arg<br>USAGE:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Example: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Example: DataBoxDiskUnlock /SystemCheck<br>Example: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.<br>/Help:           This option provides help on cmdlet usage and examples.<br>/SystemCheck:    This option checks if your system meets the requirements to run the tool.<br><br>Press any key to exit. | Invalid parameter entered. The only allowed parameters are /SystemCheck, /PassKey, and /Help.                                                                            |
 
+## Data Box Disk Validation tool errors
+
+| Error message                        | Description                                                                                                |
+|--------------------------------------|------------------------------------------------------------------------------------------------------------|
+| None                                 | Successfully validated the data.                                                                           |
+| InvalidXmlCharsInPath                | Could not create the path as the file path has characters that are not valid.                            |
+| OpenFileForReadFailed                | Could not open the file.                                                                                   |
+| Generic                              |                                                                                                            |
+| Not512Aligned                        | Could not upload the data as it is not 512 bytes aligned.                                                  |
+| InvalidBlobPath                      | Could not upload the data as the upload path is not valid.                                                 |
+| EnumerationError                     | Could not enumerate the files.                                                                             |
+| ShareSizeExceeded                    | Could not upload the file as it exceeds the available space in the share.                                  |
+| AzureFileSizeExceeded                | Could not upload the file as it exceeds the maximum size allowed for Azure Files.                          |
+| BlockBlobSizeExceeded                | Could not upload the data as it exceeds the maximum size allowed for a block blob.                         |
+| ManagedDiskSizeExceeded              | Could not upload the data as it exceeds the maximum size allowed for a managed   disk.                     |
+| PageBlobSizeExceeded                 | Could not upload the data as it exceeds the maximum size allowed for a page blob.                          |
+| InvalidShareContainerFormat          |                                                                                                            |
+| InvalidBlobNameFormat                | Could not upload the data as it does not follow the Azure naming conventions.                              |
+| InvalidFileNameFormat                | Could not upload the data as it does not follow the Azure naming conventions.                              |
+| InvalidDiskNameFormat                | Could not upload the data as it does not follow the Azure naming conventions.                              |
+| NotPartOfFileShare                   | Could not upload the files as the upload path is not valid. Upload the files to a folder in Azure Files.   |
+| NotFixedVhd                          | Could not upload as managed disks. The differencing VHDs are not supported.                                |
+| NonVhdFileNotSupportedForManagedDisk | Could not upload as managed disks. The non-VHD files are not supported.                                    |
+| VhdAsBlockBlob                       | Could not upload as managed disk. The VHD file is not valid.                                               |
+
+## Data Box Disk upload errors
+
+| Error/Description                         |Recommended actions                                     |
+|-------------------------------------------|--------------------------------------------------------|
+|None <br>  Completed successfully.             | No errors encountered. No action is required.      |
+|Completed <br> Completed successfully.         |  No errors encountered. No action is required. |
+|Created <br> Successfully uploaded the blob.   | For import disposition, means the blob was created as new. |
+|Renamed <br> Successfully renamed the blob.    |                                                             |
+|CompletedWithErrors <br> Upload completed with errors.| There were some errors during upload. The errors are written to *copylog* file in the storage account where the data was uploaded.  |
+|Corrupted  |                      |
+|StorageRequestFailed <br> Azure storage request failed.   |     |
+|LeasePresent <br> Lease is already present on the item. |      |
+|StorageRequestForbidden <br> |        |
+|Canceled <br> {0} was canceled.   | For the blob status in user logs; never used in recovery logs.                                                                                                                                                  |
+|ManagedDiskCreationTerminalFailure <br> Could not convert to managed disks. The data was uploaded as page blobs. | Managed disk creation failed. This is a terminal failure.   |
+|DiskConversionNotStartedTierInfoMissing <br> Could not convert to managed disk as the data was uploaded outside of the precreated folders on the Data Box Disk.    | Since the VHD file was put outside of the precreated tier folders, a managed disk wasn't created. The file is uploaded as page blob to the staging storage account as specified during order creation. You can convert it manually to a managed disk.|
+|InvalidWorkitem <br> Could not upload the data as it does not conform to Azure naming and limits conventions.   |Files that failed azure convention validation and also could not be uploaded as block blob. They are marked as invalid workitem.   |
+|InvalidPageBlobUploadAsBlockBlob <br> The invalid page blobs are uploaded as block blobs  in a container with prefix `databoxdisk-invalid-pb-'.                   | Invalid page blobs are uploaded to the Block Blob container starting with 'databoxdisk-invalid-pb-'.                                                                                                          |
+|InvalidAzureFileUploadAsBlockBlob <br>  The invalid Azure Files are uploaded as block blobs in a  container with prefix `databoxdisk-invalid-af-'.      |Azure files uploaded to the Block Blob container starting with 'databoxdisk-invalid-af-' are not valid. Remove these files and rerun the validation tool to resolve this error.                                                                                                         |
+|InvalidManagedDiskUploadAsBlockBlob <br> The invalid managed disk files are uploaded as block blobs in a container with prefix `databoxdisk-invalid-md-'.    |Managed disk files uploaded to the Block Blob container starting with 'databoxdisk-invalid-md-' are not valid.                                                                                                           |
+
 ## Data Box Disk Split Copy tool errors
 
 |Error message/Warnings  |Recommendations |
 |---------|---------|
 |[Info] Retrieving BitLocker password for volume: m <br>[Error] Exception caught while retrieving BitLocker key for volume m:<br> Sequence contains no elements.|This error is thrown if the destination Data Box Disk are offline. <br> Use `diskmgmt.msc` tool to online disks.|
 |[Error] Exception thrown: WMI operation failed:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=The format of the recovery password provided is invalid. <br>BitLocker recovery passwords are 48 digits. <br>Verify that the recovery password is in the correct format and then try again.|Use Data Box Disk Unlock tool to first unlock the disks and retry the command. For more information, go to <li> [Unlock Data Box Disk for Windows clients](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Unlock Data Box Disk for Linux clients.](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client) </li>|
-|[Error] Exception thrown: A DriveManifest.xml file exists on the target drive. <br> This indicates the target drive may have been prepared with a different journal file. <br>To add more data to the same drive, use the previous journal file. To delete existing data and reuse target drive for a new import job, delete the DriveManifest.xml on the drive. Rerun this command with a new journal file.| This error is received when you attempt to use the same set of drives for multiple import session. <br> Use one set of drives only for one split and copy session only.|
+|[Error] Exception thrown: A DriveManifest.xml file exists on the target drive. <br> This indicates the target drive may have been prepared with a different journal file. <br>To add more data to the same drive, use the previous journal file. To delete existing data and reuse target drive for a new import job, delete the *DriveManifest.xml* on the drive. Rerun this command with a new journal file.| This error is received when you attempt to use the same set of drives for multiple import session. <br> Use one set of drives only for one split and copy session only.|
 |[Error] Exception thrown: CopySessionId importdata-sept-test-1 refers to a previous copy session and cannot be reused for a new copy session.|This error is reported when trying to use the same job name for a new job as a previous successfully completed job.<br> Assign a unique name for your new job.|
 |[Info] Destination file or directory name exceeds the NTFS length limit. |This message is reported when the destination file was renamed because of long file path.<br> Modify the disposition option in `config.json` file to control this behavior.|
 |[Error] Exception thrown: Bad JSON escape sequence. |This message is reported when the config.json has format that is not valid. <br> Validate your `config.json` using [JSONlint](https://jsonlint.com/) before you save the file.|
