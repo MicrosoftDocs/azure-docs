@@ -43,6 +43,13 @@ If there are some reported blocking issues that are not removed with the managed
 - If absolutely need to stay at a specific version of SQL Server (2012, for instance).
 - If your compute requirements are much lower that managed instance offers (one vCore, for instance) and database consolidation is not acceptable option.
 
+If you have resolved all identified migration blockers and continuing the migration to Managed Instance, note that some of the changes might affect performance of your workload:
+- Mandatory full recovery model and regular automated backup schedule might impact performance of your workload or maintenance/ETL actions if you have periodically used simple/bulk-logged model or stopped backups on demand.
+- Different server or database level configurations such as trace flags or compatibility levels
+- New features that you are using such as Transparent Database Encryption (TDE) or auto-failover groups might impact CPU and IO usage.
+
+Managed Instance guarantee 99.99% availability even in the critical scenarios, so overhead caused by these features cannot be disabled. For more information, see [the root causes that might cause different performance on SQL Server and Managed Instance](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
+
 ## Deploy to an optimally-sized managed instance
 
 Managed instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [new purchasing model](sql-database-service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores, memory and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This new model enables you to right-size your destination environment in the cloud. Some general guidelines that might help you to choose the right service tier and characteristics are described here:
