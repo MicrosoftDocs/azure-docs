@@ -417,7 +417,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 The Azure Functions Core Tools supports two types of deployment: deploying function project files directly to your function app via [Zip Deploy](functions-deployment-technologies.md#zip-deploy) and [deploying a custom Docker container](functions-deployment-technologies.md#docker-container). You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create), to which you'll deploy your code. Projects that require compilation should be built so that the binaries can be deployed.
 
-### Deployment (files)
+### <a name="project-file-deployment"></a>Deployment (project files)
 
 To publish your local code to a function app in Azure, use the `publish` command:
 

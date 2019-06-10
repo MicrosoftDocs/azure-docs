@@ -33,7 +33,7 @@ For continuous deployment to succeed, your directory structure must be compatibl
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-## Set up continuous deployment
+## <a name="credentials"></a>Set up continuous deployment
 
 Use this procedure to configure continuous deployment for an existing function app. These steps demonstrate integration with a GitHub repository, but similar steps apply for Azure Repos or other source code repositories.
 
@@ -41,27 +41,30 @@ Use this procedure to configure continuous deployment for an existing function a
 
     ![Opening the deployment center](./media/functions-continuous-deployment/platform-features.png)
 
-2. On the *Deployment Center*, select **GitHub** for *Source Control*, and click **Authorize**.
+2. On the **Deployment Center**, select **GitHub** for **Source Control** > **Authorize**.
 
     ![Deployment center](./media/functions-continuous-deployment/github.png)
 
-3. Click **Authorize AzureAppService** and click **Continue**.
+3. Select **Authorize AzureAppService** > **Continue**.
 
     ![Authorizing](./media/functions-continuous-deployment/authorize.png)
 
-4. Select **App Service build service** or **Azure Pipelines (Preview)** as your build provider. Select **App Service build service** if you don't need a build or if you need a generic build, select **Azure Pipelines (Preview)** for more control.
+4. Select one of the following build providers:
+
+    * **App Service build service** - best when you don't need a build or if you need a generic build.
+    * **Azure Pipelines (Preview)** - best when you need more control over the build. This provider is currently in preview.
 
     ![Selecting a build provider](./media/functions-continuous-deployment/build.png)
 
-5. Configure information specific to the source control option you specified. For GitHub, you must provide the **Organization**, **Repository**, and **Branch** where your code lives. Then, click **Continue**.
+5. Configure information specific to the source control option you specified. For GitHub, you must provide the **Organization**, **Repository**, and **Branch** where your code lives. Then, select **Continue**.
 
     ![Configuring GitHub](./media/functions-continuous-deployment/github-specifics.png)
 
-6. Finally, review all details and click **Finish** to finalize your continuous deployment.
+6. Finally, review all details and select **Finish** to complete your deployment configuration.
 
     ![Summary](./media/functions-continuous-deployment/summary.png)
 
-When this is complete, all code from the specified source is deployed to your app. Any subsequent changes in the deployment source will trigger a deployment of those changes to Azure as well.
+When the process completes, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
 
 ## Deployment scenarios
 
