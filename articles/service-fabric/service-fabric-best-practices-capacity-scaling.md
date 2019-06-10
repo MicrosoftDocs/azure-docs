@@ -25,7 +25,7 @@ In addition to considering node type and cluster characteristics, you should exp
 ## Autoscaling
 You should perform scaling operations via Azure Resource Manager templates, because it's the best practice to treat [resource configurations as code]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
 
-Using automatic scaling through virtual machine scale sets will make your versioned Resource Manager template inaccurately define your instance counts for virtual machine scale sets. Inaccurate definition increases the risk that future deployments will cause unintended scaling operations. In general, you should use auto scaling if:
+Using automatic scaling through virtual machine scale sets will make your versioned Resource Manager template inaccurately define your instance counts for virtual machine scale sets. Inaccurate definition increases the risk that future deployments will cause unintended scaling operations. In general, you should use autoscaling if:
 
 * Deploying your Resource Manager templates with appropriate capacity declared doesn’t support your use case.
      
