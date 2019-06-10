@@ -240,6 +240,18 @@ By default, Windows Defender antivirus is installed on Windows Server 2016. For 
 > Refer to your Antimalware documentation for configuration rules if you are not using Windows Defender. 
 > Windows Defender isn't supported on Linux.
 
+## Platform Isolation
+By default, Service Fabric applications are granted access to the Service Fabric runtime itself, which manifests itself in different forms: [environment variables](service-fabric-environment-variables-reference.md) pointing to file paths on the host corresponding to application and Fabric files, an inter-process communication endpoint which accepts application-specific requests, and the client certificate which Fabric expects the application to use to authenticate itself. In the eventuality that the service hosts itself untrusted code, it is advisable to disable this access to the SF runtime - unless explicitly needed. Access to the runtime is removed using the following declaration in the Policies section of the application manifest: 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
+
 ## Next steps
 
 * Create a cluster on VMs, or computers, running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md).
