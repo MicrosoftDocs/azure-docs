@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: rosh
 ---
 # Find similar images from previous searches using ImageInsightsToken
@@ -20,7 +20,7 @@ The full source code for this tutorial can be found with additional error handli
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Any edition of [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * If you are using Linux/MacOS, you can run this application using [Mono](https://www.mono-project.com/).
 * The NuGet Visual Search and Image Search packages.
     - From the Solution Explorer in Visual Studio, right-click on your project and select **Manage NuGet Packages** from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package, and the `Microsoft.Azure.CognitiveServices.Search.ImageSearch` package. Installing the NuGet packages also installs the following:

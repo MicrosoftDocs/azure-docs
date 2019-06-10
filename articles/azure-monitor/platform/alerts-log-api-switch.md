@@ -1,11 +1,11 @@
 ---
 title: Switch from legacy Log Analytics alerts API into new Azure Alerts API
-description: Overview of retirement of legacy savedSearch based Log Analytics Alert API and process to switch alert rules to new ScheduledQueryRules API, with details addressing common customer concerns.
+description: Overview of legacy savedSearch based Log Analytics Alert API and process to switch alert rules to new ScheduledQueryRules API, with details addressing common customer concerns.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
 ---
@@ -16,7 +16,7 @@ ms.subservice: alerts
 
 Until recently, you managed alert rules in the Microsoft Operations Management Suite portal. The new alerts experience was integrated with various services in Microsoft Azure including Log Analytics and we asked to [extend your alert rules from OMS portal to Azure](alerts-extend.md). But to ensure minimal disruption for customers, the process did not alter the programmatic interface for its consumption - [Log Analytics Alert API](api-alerts.md) based on SavedSearch.
 
-But now you announce for Log Analytics alerting users a true Azure programmatic alternative, [Azure Monitor - ScheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), which is also reflective in your [Azure billing - for log alerts](alerts-unified-log.md#pricing-and-billing-of-log-alerts). To learn more on how to manage your log alerts using the API, see [Managing log alerts using Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) and [Managing log alerts using PowerShell, CLI, or API](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api).
+But now you announce for Log Analytics alerting users a true Azure programmatic alternative, [Azure Monitor - ScheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), which is also reflective in your [Azure billing - for log alerts](alerts-unified-log.md#pricing-and-billing-of-log-alerts). To learn more on how to manage your log alerts using the API, see [Managing log alerts using Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) and [Managing log alerts using PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
 
 ## Benefits of switching to new Azure API
 
@@ -27,22 +27,23 @@ There are several advantages of creating and managing alerts using [scheduledQue
 - Log alerts created using [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) can have period defined up to 48 hours and fetch data for longer period than before
 - Create alert rules in one shot as a single resource without the need to create three levels of resources as with [legacy Log Analytics Alert API](api-alerts.md)
 - Single programmatic interface for all variants of query-based log alerts in Azure -  new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) can be used to manage rules for Log Analytics as well as Application Insights
+- Manage your log alerts using [Powershell cmdlets](alerts-log.md#managing-log-alerts-using-powershell)
 - All new log alert functionality and future development will be available only via the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
 ## Process of switching from legacy Log Alerts API
 
-The process of moving alert rules from [legacy Log Analytics Alert API](api-alerts.md) does not involve changing your alert definition, query, or configuration in any way. Your alert rules and monitoring are unaffected and the alerts will not stop or be stalled, during or after the switch.
-
-Users are free to use either [legacy Log Analytics Alert API](api-alerts.md) or the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Alert rules created by either API, will *be manageable by the same API only* - as well as from Azure portal. By default, Azure Monitor will continue to use [legacy Log Analytics Alert API](api-alerts.md) for creating any new alert rule from Azure portal.
+Users are free to use either [legacy Log Analytics Alert API](api-alerts.md) or the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Alert rules created by either API, will *be manageable by the same API only* - as well as from Azure portal. By default, Azure Monitor will continue to use [legacy Log Analytics Alert API](api-alerts.md) for creating any new alert rule from Azure portal for existing workspaces of Log Analytics. As [announced new Log workspace created on or after June 1, 2019](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/) - will automatically use new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) by default including in Azure portal.
 
 The impacts of the switch of preference to scheduledQueryRules API are compiled below:
 
-- All interactions done for managing log alerts via programmatic interfaces must now be done using [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) instead. For more information, see, [sample use via Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) and [sample use via Azure CLI and PowerShell](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
+- All interactions done for managing log alerts via programmatic interfaces must now be done using [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) instead. For more information, see, [sample use via Azure Resource Template](alerts-log.md#managing-log-alerts-using-azure-resource-template) and [sample use via PowerShell](alerts-log.md#managing-log-alerts-using-powershell)
 - Any new log alert rule created in Azure portal, will be created using [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) only and allow users to use the [additional functionality of new API](#benefits-of-switching-to-new-azure-api) via Azure portal as well
 - Severity for log alert rules will shift from: *Critical, Warning & Informational*, to *Severity values of 0, 1 & 2*. Along with the option to create/update alert rules with severity 4 as well.
 
-> [!CAUTION]
-> Once a user opts to switch preference to the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), the rules cannot opt back or revert to usage of the older [legacy Log Analytics Alert API](api-alerts.md).
+The process of moving alert rules from [legacy Log Analytics Alert API](api-alerts.md) does not involve changing your alert definition, query, or configuration in any way. Your alert rules and monitoring are unaffected and the alerts will not stop or be stalled, during or after the switch. The only change is a change in API preference and access to your rules via a new API.
+
+> [!NOTE]
+> Once a user opts to switch preference to the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), the you cannot opt back or revert to using of the older [legacy Log Analytics Alert API](api-alerts.md).
 
 Any customer who wishes to switch voluntarily to the new [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) and block usage from the [legacy Log Analytics Alert API](api-alerts.md); can do so by performing a PUT call on the below API to switch all alert rules associated with the specific Log Analytics workspace.
 

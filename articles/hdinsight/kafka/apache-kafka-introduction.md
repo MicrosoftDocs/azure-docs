@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 04/11/2018
+ms.date: 05/16/2019
 # As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
 ---
 

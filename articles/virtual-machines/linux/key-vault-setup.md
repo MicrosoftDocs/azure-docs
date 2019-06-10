@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/24/2017
-ms.author: singhkay
+ms.author: kasing
 
 ---
 # How to set up Key Vault for virtual machines with the Azure CLI

@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/10/2019
 ms.author: jingwang
 
 ---
@@ -105,7 +105,7 @@ To use service principal authentication, follow these steps:
     - **As sink**, in Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->To list folders starting from the account level or to test connection, you need to set the permission of the service principal being granted to **storage account with "Execute" permission in IAM**. This is true when you use the:
+>To list folders starting from the account level or to test connection, you need to set the permission of the service principal being granted to **storage account with "Storage Blob Data Reader" permission in IAM**. This is true when you use the:
 >- **Copy Data Tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring. 
 >If you have concern on granting permission at account level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the service principal is granted with proper permission at the files to be copied.
@@ -159,10 +159,13 @@ To use managed identities for Azure resources authentication, follow these steps
     - **As sink**, in Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->To list folders starting from the account level or to test connection, you need to set the permission of the managed identity being granted to **storage account with "Execute" permission in IAM**. This is true when you use the:
+>To list folders starting from the account level or to test connection, you need to set the permission of the managed identity being granted to **storage account with "Storage Blob Data Reader" permission in IAM**. This is true when you use the:
 >- **Copy Data Tool** to author copy pipeline.
 >- **Data Factory UI** to test connection and navigating folders during authoring. 
 >If you have concern on granting permission at account level, you can skip test connection and input path manually during authoring. Copy activity will still work as long as the managed identity is granted with proper permission at the files to be copied.
+
+>[!IMPORTANT]
+>If you use PolyBase to load data from ADLS Gen2 into SQL DW, when using ADLS Gen2 managed identity authentication, make sure you also follow the steps #1 and #2 in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to register your SQL Database server with Azure Active Directory (AAD) and assign Storage Blob Data Contributor RBAC role to your SQL Database server; the rest will be handled by ADF. If your ADLS Gen2 is configured with VNet service endpoint, to use PolyBase to load data from it, you must use managed identity authentication.
 
 These properties are supported in linked service:
 
