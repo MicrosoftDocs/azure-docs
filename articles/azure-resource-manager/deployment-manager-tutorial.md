@@ -41,7 +41,11 @@ This tutorial covers the following tasks:
 > * Deploy the newer version
 > * Clean up resources
 
-The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Additional resources:
+
+- The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+- [A Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
