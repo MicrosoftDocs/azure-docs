@@ -83,7 +83,10 @@ Additionally, you can watch the logs file at the bottom of the Azure Functions w
 2019-05-29T19:45:26.200 [Information] Adding OCR task <taskID> for <fileName> <size of fileName>...
 ```
 
-You can download the output files from Storage Explorer to your local machine by first selecting the ones you want and then clicking the "Download" button on the top ribbon. Open them in your favorite PDF reader. They're now searchable.
+To download the output files from Storage Explorer to your local machine, first select the files you want and then select the **Download** on the top ribbon. 
+
+> [!TIP]
+> The downloaded files are searchable if opened in a PDF reader.
 
 ## Next Steps
 
