@@ -246,7 +246,7 @@ Now, test the firewall to confirm that it works as expected.
 
 1. Note the private IP address for the **Srv-Work** virtual machine:
 
-   ```azureclii-interactive
+   ```azurecli-interactive
    az vm list-ip-addresses \
    -g Test-FW-RG \
    -n Srv-Work
