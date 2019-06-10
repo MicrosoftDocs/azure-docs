@@ -176,7 +176,7 @@ Azure Machine Learning can create two types of images:
 
 The Azure Machine Learning service provides a base image, which is used by default. You can also provide your own custom images.
 
-Images are catalogued in the **image registry** in your workspace. You can provide additional metadata tags when you create the image so you can query them to find your image later.
+Images are cataloged in the **image registry** in your workspace. You can provide additional metadata tags when you create the image, so that you can query them to find your image later.
 
 For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
