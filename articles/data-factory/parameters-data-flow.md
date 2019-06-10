@@ -1,18 +1,18 @@
 ---
-title: Azure Data Factory Mapping Data Flow Optimize Tab
-description: Optimize Azure Data Factory Mapping Data Flows using the Optimize Tab with Partition Settings
+title: Azure Data Factory Mapping Data Flow Parameters
+description: Learn how to parameterize a mapping data flow from data factory pipelines
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 06/10/2019
 ---
 
-# Mapping data flow transformation optimize tab
+# Mapping data flow activity parameters
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Each Data Flow transformation has an "Optimize" tab. The optimize tab contains optional settings to configure partitioning schemes for data flows.
+Mapping data flows in data factory support the use of parameters. You can define parameters inside of your data flow definition, which you can then use throughout your expressions. The parameters can then be set by the calling pipeline via the Execute Data Flow activity.
 
 <img src="media/data-flow/opt001.png" width="800">
 
@@ -48,5 +48,5 @@ If you have a good understanding of the cardinality of your data, key partitioni
 
 ## Next steps
 
-[Mapping data flow performance guide](concepts-data-flow-performance.md)
-[Data flow monitoring](concepts-data-flow-monitoring.md)
+[Execute data flow activity](control-flow-execute-data-flow-activity.md)
+[Control flow expressions](control-flow-expression-language-functions.md)
