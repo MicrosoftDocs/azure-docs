@@ -23,8 +23,6 @@ ms.reviewer: bagovind
 > [!NOTE]
 > You can't directly create your own deny assignments. For information about how deny assignments are created, see [Deny assignments](deny-assignments.md).
 
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 To get information about a deny assignment, you must have:
