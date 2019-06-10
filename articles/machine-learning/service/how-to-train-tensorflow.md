@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
-ms.date: 05/28/2019
+ms.date: 06/10/2019
 ms.custom: seodec18
 ---
 
@@ -16,17 +16,18 @@ ms.custom: seodec18
 
 This article shows you how to train and register a TensorFlow model using Azure Machine Learning service. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network built using the [TensorFlow Python library](https://www.tensorflow.org/overview).
 
-With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
+TensorFlow is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
 
 ## Prerequisites
 
 - An Azure subscription. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
+- [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
 - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` and `utils.py`
 
-You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning and model deployment.
+You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
 
@@ -53,15 +54,10 @@ from azureml.core.compute_target import ComputeTargetException
 
 The [Azure Machine Learning service workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
 
-Create a workspace by finding a value for the <azure-subscription-id> parameter in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor. For more information on roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md) article
+Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
 ```Python
-ws = Workspace.create(name='myworkspace',
-                      subscription_id='<azure-subscription-id>',
-                      resource_group='myresourcegroup',
-                      create_resource_group=True,
-                      location='<select-location>' # For example: 'eastus2'
-                      )
+ws = Workspace.from_config()
 ```
 
 ### Create an experiment
