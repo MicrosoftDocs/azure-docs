@@ -135,63 +135,10 @@ See also [Pause/shut down clusters](#pauseshut-down-clusters).
 You can add additional Azure Storage accounts and Azure Data Lake Storage accounts after a cluster is created. For more information, see [Add additional storage accounts to HDInsight](./hdinsight-hadoop-add-storage.md).
 
 ## Scale clusters
+
 The cluster scaling feature allows you to change the number of worker nodes used by an Azure HDInsight cluster, without having to re-create the cluster.
 
-> [!NOTE]  
-> Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.
-
-From the [cluster home page](#homePage):
-
-1. Under **Settings**, select **Cluster size**.
-2. Enter **Number of Worker nodes** in the numeric text box. The limit on the number of cluster nodes varies between Azure subscriptions. You can contact billing support to increase the limit.  The cost information reflects the changes you have made to the number of nodes.
-3. Select **Save**.
-
-    ![HDInsight hadoop HBase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster2.png)
-
-The impact of changing the number of data nodes varies for each type of cluster supported by HDInsight:
-
-* Apache Hadoop
-
-    You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
-
-    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. This behavior causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
-
-* Apache HBase
-
-    You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster and running the following commands from a command prompt window:
-
-    ```bash
-    pushd %HBASE_HOME%\bin
-    hbase shell
-    balancer
-    ```
-
-    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
-
-* Apache Storm
-
-    You can seamlessly add or remove data nodes to your Storm cluster while it is running. However, after a successful completion of the scaling operation, you will need to rebalance the topology.
-
-    Rebalancing can be accomplished in two ways:
-
-  * Storm web UI
-  * Command-line interface (CLI) tool
-
-    Refer to the [Apache Storm documentation](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
-
-    The Storm web UI is available on the HDInsight cluster:
-
-    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster-storm-rebalance.png)
-
-    Here is an example CLI command to rebalance the Storm topology:
-
-    ```cli
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
-    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
-    ```
-
+See [Scale HDInsight clusters](./hdinsight-scaling-best-practices) for complete information.
 
 ## Pause/shut down clusters
 
