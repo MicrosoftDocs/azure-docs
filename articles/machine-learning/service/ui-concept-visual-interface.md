@@ -23,7 +23,7 @@ The visual interface uses your Azure Machine Learning service [workspace](concep
 + Write artifacts of [experiment](#experiment) runs into the workspace.
 + Access [datasets](#dataset).
 + Use the [compute resources](#compute) in the workspace to run the experiment. 
-+ Register [models](concept-azure-machine-learning-architecture.md#model).
++ Register [models](concept-azure-machine-learning-architecture.md#models).
 + [Deploy](#deployment) models as web services on compute resources in the workspace.
 
 ![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
