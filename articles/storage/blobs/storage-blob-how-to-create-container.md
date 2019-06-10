@@ -117,4 +117,4 @@ code
 ## See also
 
 - [Create Container operation](/rest/api/storageservices/create-container)
-- [Delete Container operation](rest/api/storageservices/delete-container)
+- [Delete Container operation](/rest/api/storageservices/delete-container)
