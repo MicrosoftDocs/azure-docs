@@ -33,7 +33,7 @@ You can have a common source of custom images that are deployed to labs on a nig
 ### Formulas
 [Formulas](devtest-lab-manage-formulas.md) are lab-specific and don't have a distribution mechanism. The lab members do all the development of formulas. 
 
-### Code repository-based
+## Code repository-based resources
 There are two different features that are based on code repositories, artifacts and environments. This article goes over the features and how to most effectively set up repositories and workflow to allow the ability to customize the available artifacts and environments at the organization level or team level.  This workflow is based on standard [source code control branching strategy](/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
 
 ### Key concepts
