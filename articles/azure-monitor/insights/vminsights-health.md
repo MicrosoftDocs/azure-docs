@@ -219,7 +219,7 @@ A health criterion measures the health of a monitored instance, which could be a
 
 The health model defines criteria that determine the health of the overall target and components of the target. The hierarchy of criteria is illustrated in the **Health Criteria** section of the Health Diagnostics page.
 
-The health rollup policy is part of the configuration of the aggregate health criteria (default is set to **Worst-of**). You can find a list of default set of health criteria running as part of this feature under the section [Monitoring configuration details](#monitoring-configuration-details), and you can use the Azure Monitor REST API [monitor instances - list by resource operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) to get a list of all the health criteria and its detailed configuration running against the Azure VM resource.
+The health rollup policy is part of the configuration of the aggregate health criteria (default is set to **Worst-of**). You can find a list of default set of health criteria running as part of this feature under the section [Monitoring configuration details](#monitoring-configuration-details). You can also use the Azure Monitor REST API [monitor instances - list by resource operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) for a list of all the health criteria and configuration details running against the Azure VM resource.
 
 **Unit** health criteria type can have their configuration modified by selecting the ellipses link to the rightmost and then selecting **Show Details** to open the configuration pane.
 
@@ -233,7 +233,7 @@ In the configuration pane for the selected health criteria, by using the example
 
 ![Configuring a health criteria of a unit monitor example](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
 
-To learn more about the health indicator, knowledge articles are included to help you identify problems, causes, and resolutions. select **View information** on the page to open a new tab showing the specific knowledge article.
+To learn more about the health indicator, knowledge articles are included to help you identify problems, causes, and resolutions, select **View information** on the page to open a new tab showing the specific knowledge article.
 
 To review all of the health criterion knowledge articles included with Azure Monitor for VMs Health feature, see [Azure Monitor health knowledge documentation](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
 
