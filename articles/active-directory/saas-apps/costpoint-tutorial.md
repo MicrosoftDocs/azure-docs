@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2019
+ms.date: 06/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -81,9 +81,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Realy State** text box, type a value using the following pattern:`<SYSTEM VALUE>`
 
+	> [!NOTE]
+	> The Realy State value is not real. Update this value with the actual Realy State. Contact [Costpoint Client support team](mailto:BorisRusinovic@deltek.com) to get this value.
+
 5. If you wish to configure the application in **SP** initiated mode perform the following step:
 
-	In the **Sign-on URL** text box, type a URL using the following pattern:
+	In the **Sign-on URL** text box, type a URL:
     `https://costpointteea.deltek.com/cpweb/cploginform.htm`
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your Notepad.
