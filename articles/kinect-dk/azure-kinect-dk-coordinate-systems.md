@@ -1,8 +1,8 @@
 ---
 title: Azure Kinect coordinate systems
 description: Coordinate systems description associated with Azure DK sensors
-author: joylital
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/10/2019
 ms.topic: conceptual
