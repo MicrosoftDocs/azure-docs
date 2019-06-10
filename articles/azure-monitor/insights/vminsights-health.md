@@ -19,11 +19,11 @@ ms.author: magoedte
 
 Azure includes individual services for specific roles or tasks in the monitoring space. However, it doesn't provide in-depth health perspectives of operating systems hosted on Azure virtual machines (VMs). Although you can use Azure Monitor for different conditions, it's not designed to model and represent the health of core components, or the overall health of VMs.
 
-The Azure Monitor for VM's health feature proactively monitors the availability and performance of the Windows or Linux guest OS. It uses a model that represents key components and their relationships, provides criteria that specifies how to measure component health, and alerts you when it detects an unhealthy condition.
+The health feature of Azure Monitor for VMs proactively monitors the availability and performance of a Windows or Linux guest OS. It uses a model that represents key components and their relationships, provides criteria that specifies how to measure component health, and alerts you when it detects an unhealthy condition.
 
-The health of an Azure VM and the underlying operating system can be observed from two perspectives by using the Azure Monitor for VM's health feature. These perspectives are directly from a VM, or across all VMs in a resource group from Azure Monitor.
+The health of an Azure VM and the underlying operating system can be observed from two perspectives, by using the Azure Monitor for VM's health feature. These perspectives are directly from a VM or across all VMs in a resource group from Azure Monitor.
 
-This article will help you understand how to quickly assess, investigate, and resolve health issues when they are detected by the Azure Monitor for VM's health feature.
+This article shows how to quickly assess, investigate, and resolve health issues when they are detected by the Azure Monitor for VM's health feature.
 
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
 
@@ -221,7 +221,7 @@ The health model defines criteria that determine the health of the overall targe
 
 The health rollup policy is part of the configuration of the aggregate health criteria (default is set to **Worst-of**). You can find a list of default set of health criteria running as part of this feature under the section [Monitoring configuration details](#monitoring-configuration-details). You can also use the Azure Monitor REST API [monitor instances - list by resource operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) for a list of all the health criteria and configuration details running against the Azure VM resource.
 
-**Unit** health criteria type can have their configuration modified by selecting the ellipses link to the rightmost and then selecting **Show Details** to open the configuration pane.
+The **Unit** health criteria type can have their configuration modified by selecting the ellipses link to the rightmost and then selecting **Show Details** to open the configuration pane.
 
 ![Configuring a health criteria example](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
@@ -311,7 +311,7 @@ To enable or disable an alert for a specific health criteria, the health criteri
 
 1. In a terminal window, type **armclient.exe login**. Doing so prompts you to sign in to Azure.
 
-2. Type the following command to retrieve all the health criterion active on a specific VM and identify the value for *monitorId* property.
+2. Enter the following command to retrieve all the health criterion active on a specific VM and identify the value for *monitorId* property.
 
     ```
     armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
@@ -364,19 +364,19 @@ To enable or disable an alert for a specific health criteria, the health criteri
 
 4. Enter the GET command used in step 2 to verify that the property value is set to **Disabled**.
 
-#### Associate Action group with health criteria
+#### Associate an action group with health criteria
 
-Azure Monitor for VMs Health supports SMS and email notifications when alerts are generated from unhealthy health criteria. To configure notifications, note the name of the configured Action group to send SMS or email notifications.
+Azure Monitor for VMs Health supports SMS and email notifications when alerts are generated from unhealthy health criteria. To configure notifications, note the name of the configured action group to send SMS or email notifications.
 
 >[!NOTE]
->This action needs to be performed against each VM monitored that you want to receive a notification for, it doesn't apply to all VMs in the resource group.
+>This action must be performed against each monitored VM that you want to receive a notification for. It doesn't apply to all VMs in a resource group.
 
 1. In a terminal window, enter *armclient.exe login*. Doing so prompts you to sign in to Azure.
 
-2. Type the following command to associate an Action group with alert rules:
+2. Enter the following command to associate an action group with alert rules:
  
     ```
-    $payload = "{'properties':{'ActionGroupResourceIds':['/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/microsoft.insights/actionGroups/actiongroupName']}}" 
+    $payload = "{'properties':{'ActionGroupResourceIds':['/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/microsoft.insights/actionGroups/actiongroupName']}}"
     armclient PUT https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings/default?api-version=2018-08-31-preview $payload
     ```
 
@@ -409,4 +409,5 @@ Azure Monitor for VMs Health supports SMS and email notifications when alerts ar
 
 ## Next steps
 
-To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md). To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+- To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md). 
+- To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
