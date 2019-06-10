@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/10/2019
 ms.custom: seodec18
 ---
 
