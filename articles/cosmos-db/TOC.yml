@@ -539,8 +539,6 @@
         href: how-to-configure-cosmos-db-trigger-connection-policy.md
       - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmos-db-triggers.md
-      - name: Troubleshoot Azure Cosmos DB Triggers
-        href: troubleshoot-changefeed-functions.md
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, & UDFs
@@ -676,6 +674,8 @@
         href: troubleshoot-java-async-sdk.md
       - name: Troubleshoot .NET SDK
         href: troubleshoot-dot-net-sdk.md
+      - name: Troubleshoot Azure Cosmos DB Triggers
+        href: troubleshoot-changefeed-functions.md
   - name: Reference
     items:
     - name: .NET
