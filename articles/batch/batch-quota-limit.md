@@ -43,7 +43,7 @@ If you created a Batch account with pool allocation mode set to **user subscript
 
 ## Pool size limits
 
-Pool size limits are set by the Batch service. Unlike [resource quotas](#resource-quotas), these values cannot be changed.
+Pool size limits are set by the Batch service. Unlike [resource quotas](#resource-quotas), these values cannot be changed. Only pools with inter-node communication and custom images have restrictions different from the standard quota.
 
 | **Resource** | **Maximum Limit** |
 | --- | --- |
