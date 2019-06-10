@@ -25,43 +25,35 @@ Enable and configure audit logging.
 1. Select your Azure Database for MySQL server.
 
 1. Under the **Settings** section in the sidebar, select **Server parameters**.
-   ![Select Server logs, Click to configure](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+    ![Server parameters](./media/howto-configure-audit-logs-portal/server-parameters.png)
 
-1. Update the **audit_log_enabled** parameter to ON. 
+1. Update the **audit_log_enabled** parameter to ON.
+    ![Enable audit logs](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
 1. Select the events to be logged by updating the **audit_log_events** parameter.
+    ![Audit log events](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. Add any MySQL users to be excluded from logging by updating the **audit_log_exclude_users** parameter. Specify users by providing their MySQL user name.
+    ![Audit log exclude users](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
 
 1. Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes.
-
-   ![Click save or discard](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+    ![Save](./media/howto-configure-audit-logs-portal/save-parameters.png)
 
 ## Set up diagnostic logs
 
+1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings**.
 
+1. Click on "+ Add diagnostic setting"
+![Add diagnostic setting](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
-## View list and download logs
-Once logging begins, you can view a list of available slow query logs and download individual log files on the Server Logs pane.
+1. Provide a diagnostic setting name, specify which data sinks to send the audit logs (storage account, event hub, and/or Log Analytics workspace), and select "MySqlAuditLogs".
+![Configure diagnostic setting](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
 
-1. Open the Azure portal.
+1. Once you have configured the data sinks to pipe the audit logs to, you can click **Save**.
+![Save diagnostic setting](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
 
-2. Select your Azure Database for MySQL server.
-
-3. Under the **Monitoring** section in the sidebar, select **Server Logs**. The page shows a list of your log files, as shown:
-
-   ![List of Logs](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
-
-   > [!TIP]
-   > The naming convention of the log is **mysql-slow-< your server name>-yyyymmddhh.log**. The date and time used in the file name is the time is when the log was issued. Logs files are rotated every 24 hours or 7.5 GB, whichever comes first.
-
-4. If needed, use the **search box** to quickly narrow down to a specific log based on date/time. The search is on the name of the log.
-
-5. Download individual log files using the **download** button (down arrow icon) next to each log file in the table row as shown:
-
-   ![Click download icon](./media/howto-configure-server-logs-in-portal/5-download.png)
+1. Access the audit logs by exploring them in the data sinks you configured. Note that it may take up to 10 minutes for the logs to appear.
 
 ## Next steps
-- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically.
-- Learn more about [slow query logs](concepts-server-logs.md) in Azure Database for MySQL. 
-- For more information about the parameter definitions and MySQL logging, see the MySQL documentation on [Logs](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+
+- Learn more about [audit logs](concepts-audit-logs.md) in Azure Database for MySQL.
