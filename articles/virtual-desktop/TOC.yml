@@ -16,6 +16,8 @@
     href: manage-app-groups.md
   - name: 5. Create a host pool to validate service updates
     href: create-validation-host-pool.md
+  - name: 6. Deploy a management tool
+    href: manage-resources-using-ui.md
 - name: How-to
   items:
   - name: Connect to Windows Virtual Desktop resources

@@ -1,0 +1,48 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Machine Learning
+    tocHref: /azure/open-datasets/
+    topicHref: /azure/machine-learning/index
+    items:
+    - name: Service
+      tocHref: /azure/open-datasets/
+      topicHref: /azure/machine-learning/service/index
+      items: 
+      - name: Open Datasets
+        tocHref: /azure/open-datasets/
+        topicHref: /azure/open-datasets/index
+  
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Machine Learning
+    tocHref: /azure/iot-edge/
+    topicHref: /azure/machine-learning/index
+    items:
+    - name: Service
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/machine-learning/service/index
+      items:
+      - name: IoT Edge
+        tocHref: /azure/iot-edge/
+        topicHref: /azure/iot-edge/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Machine Learning
+    tocHref: /azure/architecture/
+    topicHref: /azure/machine-learning/index
+    items:
+    - name: Service
+      tocHref: /azure/architecture/data-guide/technology-choices/
+      topicHref: /azure/machine-learning/service/index
+      items:
+      - name: ML Products
+        tocHref: /azure/architecture/data-guide/technology-choices/
+        topicHref: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+

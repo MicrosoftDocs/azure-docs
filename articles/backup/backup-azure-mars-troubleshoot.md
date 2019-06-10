@@ -80,34 +80,31 @@ If scheduled backups don't get triggered automatically, while manual backups wor
 
 - Ensure the  Online Backup status is set to **Enable**. To verify the status perform the below:
 
-  - Go to **Control Panel** > **Administrative Tools** > **Task Scheduler**.
-	- Expand **Microsoft**, and select **Online Backup**.
+  - Open **Task Scheduler** and expand **Microsoft**, and select **Online Backup**.
   - Double-click **Microsoft-OnlineBackup**, and go to the **Triggers** tab.
-  - Verify if the status is set to **Enabled**. If it isn't, select **Edit**, and select the **Enabled** check box and click **OK**.
+  - Verify if the status is set to **Enabled**. If it isn't, then select **Edit** > **Enabled** check box and click **OK**.
 
-- Ensure the user account selected for running the task is either **SYSTEM** or **Local Administrators' group** on the server. To verify the user account, go to the **General** tab and check the **Security options**.
+- Ensure the user account selected for running the task is either **SYSTEM** or **Local Administrators' group** on the server. To verify the user account, go to the **General** tab and check the **Security** options.
 
-- See if PowerShell 3.0 or later is installed on the server. To check the PowerShell version, run the following command and verify that the *Major* version number is equal to or greater than 3.
+- Ensure PowerShell 3.0 or later is installed on the server. To check the PowerShell version, run the following command and verify that the *Major* version number is equal to or greater than 3.
 
   `$PSVersionTable.PSVersion`
 
-- See if the following path is part of the *PSMODULEPATH* environment variable.
+- Ensure the following path is part of the *PSMODULEPATH* environment variable
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- If the PowerShell execution policy for *LocalMachine* is set to restricted, the PowerShell cmdlet that triggers the backup task might fail. Run the following commands in elevated mode, to check and set the execution policy to either *Unrestricted* or *RemoteSigned*.
+- If the PowerShell execution policy for *LocalMachine* is set to restricted, the PowerShell cmdlet that triggers the backup task might fail. Run the following commands in elevated mode, to check and set the execution policy to either *Unrestricted* or *RemoteSigned*
 
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
-- Ensure server was rebooted after the backup agent installation
+- Ensure there are no missing or corrupted **PowerShell** module **MSonlineBackup**. In case there are any missing or corrupt file, to resolve this issue perform the below:
 
-- Ensure there are no missing or corrupted **PowerShell** module **MSonlineBackup**. In case there are any missing or corrupt file, to resolve the issue perform the below:
-
-  - From another machine (Windows 2008 R2) having the MARS agent working properly, copy the MSOnlineBackup folder from *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* path.
+  - From any machine having MARS agent that is working properly, copy the MSOnlineBackup folder from *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* path.
   - Paste this in problematic machine in the same path *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)*.
-  - If **MSOnlineBackup** folder is already exists in the machine, paste/replace the content files inside it.
+  - If **MSOnlineBackup** folder is already exists in the machine, paste or replace the content files inside it.
 
 
 > [!TIP]
