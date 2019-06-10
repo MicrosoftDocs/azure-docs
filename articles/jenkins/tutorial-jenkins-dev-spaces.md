@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/26/19
 ---
-<!-- GMinchAQ, 06/05/10 -->
+<!-- GMinchAQ, 06/11/19 -->
 
 # Tutorial: Using the Azure Dev Spaces Plugin for Jenkins with Azure Kubenetes Service 
 
 Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. With the Azure Dev Spaces plugin for Jenkins, you can use dev spaces in your continuous integration and delivery (CI/CD) pipeline. That means you can check your code into a dev branch and deploy the update to a child dev space in AKS. Then you can run end to end integration tests against your code before merging into the main branch.
 
-The Azure Dev Spaces plugin helps to create a dev space in AKS, and then returns the environment variable `azdsprefix`. You can then use your integration test scripts to run end to end continuous integration on the proposed changes before merging code to the main branch.
+The Azure Dev Spaces plugin helps to create a dev space in AKS. You can then use your integration test scripts to run end to end continuous integration on the proposed changes before merging code to the main branch.
 
 This tutorial also uses Azure Container Registry (ACR). ACR stores images, and an ACR Task builds docker and helm artifacts. That way, you do not need to install Docker daemon and software needed for build in your server.
 
@@ -43,7 +43,7 @@ In this tutorial, you'll complete these tasks:
 
 * The Jenkins server must have both Helm and kubectl installed and available to the Jenkins account, as explained later in this tutorial.
 
-* VS Code, the VS Code Terminal or WSL, and Bash. Other combinations will also work if all of the prerequisites are in place. **Note:** Azure Cloud Shell doesn't currently support the Azure Dev Spaces extension (`azds`).
+* VS Code, the VS Code Terminal or WSL, and Bash. Other combinations will also work if all of the prerequisites are in place. Azure Cloud Shell doesn't currently support the Azure Dev Spaces extension (`azds`).
 
 * Intermediate knowledge of core Azure services, AKS, ACR, Azure Dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) and plugins, and GitHub. Basic familiarity with supporting tools such as kubectl and Helm is helpful.
 
