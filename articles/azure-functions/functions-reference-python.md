@@ -102,7 +102,7 @@ Shared code should be kept in a separate folder. To reference modules in the Sha
 from __app__.SharedCode import myFirstHelperFunction
 ```
 
-When deploying a Function project to your function app in Azure, the entire content of the FunctionApp folder should be included in the package, but not the folder itself.
+When deploying a Function project to your function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself.
 
 ## Triggers and Inputs
 
