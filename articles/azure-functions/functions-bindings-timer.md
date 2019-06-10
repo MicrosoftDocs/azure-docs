@@ -170,11 +170,11 @@ Here's the binding data in the *function.json* file:
 
 ```json
 {
-      "name": "mytimer",
-      "type": "timerTrigger",
-      "direction": "in",
-      "schedule": "0 */5 * * * *"
-    }
+    "name": "mytimer",
+    "type": "timerTrigger",
+    "direction": "in",
+    "schedule": "0 */5 * * * *"
+}
 ```
 
 Here's the Python code:
