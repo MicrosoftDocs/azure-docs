@@ -14,13 +14,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 06/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
 ---
 
 # One Click SSO feature for Azure AD Gallery Applications
+
+ In this tutorial, you learn how to perform One Click SSO for all the SAML applications that provide UI for SSO configuration.
 
 ## Introduction to One Click SSO
 
