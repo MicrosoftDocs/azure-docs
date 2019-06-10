@@ -36,7 +36,7 @@ This tutorial covers the following tasks:
 > * Create a DevOps project
 > * Create a pipeline
 > * Verify the deployment
-> * Update and reploy
+> * Update and redeploy
 > * Clean up resources
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -162,6 +162,13 @@ Create a service connection that is used to deploy projects to Azure.
 1. Select **OK**.
 
 ## Create a pipeline
+
+Until now, you have completed the following tasks.  If you skip the previous sections because you are famliar with GitHub and DevOps, you must complete the tasks before you continue.
+
+- Create a GitHub repository, and save [this template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) to the **CreateAzureStorage** folder in the repository.
+- Create a DevOps project, and create an Azure Resource Manager service connection.
+
+To create a pipline with a step to deploy a template:
 
 1. Select **Pipelines** from the left menu.
 1. Select **New pipeline**.
