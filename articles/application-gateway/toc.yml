@@ -210,7 +210,7 @@
       - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
       - name: Web Application Firewall (WAF)
-        href: web-application-firewall-troubleshooting.md
+        href: web-application-firewall-troubleshoot.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
 - name: Reference
