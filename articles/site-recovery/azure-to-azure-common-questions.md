@@ -138,7 +138,7 @@ Yes. If you increase the retention period from 24 hours to 72 hours, Site Recove
 It means making sure that the recovery point is consistent across all the replicated virtual machines.
 Site Recovery provides an option of "Multi-VM consistency," which, when you select it, creates a replication group to replicate all the machines together that are part of the group.
 All the virtual machines will have shared crash-consistent and app-consistent recovery points when they're failed over.
-Go through the tutorial to [enable Multi-VM consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+Go through the tutorial to [enable Multi-VM consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
 
 ### Can I failover single virtual machine within a Multi-VM consistency replication group?
 By selecting the "Multi-VM consistency" option, you are stating that the application has a dependency on all the virtual machines within a group. Hence, single virtual machine failover is not allowed.

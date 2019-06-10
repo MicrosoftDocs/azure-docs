@@ -13,7 +13,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 04/22/2019
 ---
-# Azure SQL Database vCore-based purchasing model limits for a single database
+# Resource limits for single databases using the vCore-based purchasing model
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the vCore-based purchasing model.
 

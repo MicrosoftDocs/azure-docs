@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.devlang: na
@@ -13,7 +12,8 @@ ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: include file 
 ---
 

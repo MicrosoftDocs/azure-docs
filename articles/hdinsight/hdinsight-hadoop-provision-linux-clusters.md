@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 05/28/2019
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -17,7 +17,7 @@ ms.date: 01/28/2019
 
 Learn how to set up and configure clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, ML Services, or Apache Storm. Also, learn how to customize clusters and add security by joining them to a domain.
 
-A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information. 
+A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 
 > [!IMPORTANT]  
 > HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](hdinsight-delete-cluster.md)
@@ -47,11 +47,7 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 * Cluster login and SSH username
 * [Location](#location)
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
-
-## Resource group name 
+## Resource group name
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all the resources for your application in a single coordinated operation.
 
@@ -155,10 +151,10 @@ Each cluster type has its own number of nodes, terminology for nodes, and defaul
 
 | Type | Nodes | Diagram |
 | --- | --- | --- |
-| Hadoop |Head node (2), data node (1+) |![HDInsight Hadoop cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |Head node (2), Worker node (1+) |![HDInsight Hadoop cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight Storm cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Spark |Head node (2), Worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight Spark cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
 For more information, see [Default node configuration and virtual machine sizes for clusters](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) in "What are the Hadoop components and versions in HDInsight?"
 
@@ -167,17 +163,16 @@ The cost of HDInsight clusters is determined by the number of nodes and the virt
 Different cluster types have different node types, numbers of nodes, and node sizes:
 * Hadoop cluster type default: 
     * Two *head nodes*  
-    * Four *data nodes*
+    * Four *Worker nodes*
 * Storm cluster type default: 
     * Two *Nimbus nodes*
     * Three *ZooKeeper nodes*
     * Four *supervisor nodes* 
 
-If you are just trying out HDInsight, we recommend you use one data node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+If you are just trying out HDInsight, we recommend you use one Worker node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
 > The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to increase the limit.
->
 
 When you use the Azure portal to configure the cluster, the node size is available through the **Node Pricing Tiers** blade. In the portal, you can also see the cost associated with the different node sizes. 
 
@@ -191,9 +186,7 @@ When you deploy clusters, choose compute resources based on the solution you pla
 To find out what value you should use to specify a VM size while creating a cluster using the different SDKs or while using Azure PowerShell, see [VM sizes to use for HDInsight clusters](../cloud-services/cloud-services-sizes-specs.md#size-tables). From this linked article, use the value in the **Size** column of the tables.
 
 > [!IMPORTANT]  
-> If you need more than 32 worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
->
->
+> If you need more than 32 Worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
 
 For more information, see [Sizes for virtual machines](../virtual-machines/windows/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).   
 
@@ -207,8 +200,6 @@ Some native Java components, like Apache Mahout and Cascading, can be run on the
 > If you have issues deploying JAR files to HDInsight clusters, or calling JAR files on HDInsight clusters, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 >
 > Cascading is not supported by HDInsight and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight](hdinsight-component-versioning.md).
->
->
 
 Sometimes, you want to configure the following configuration files during the creation process:
 

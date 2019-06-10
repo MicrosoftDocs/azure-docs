@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: sample
-ms.date: 03/16/2019
+ms.date: 05/15/2019
 ms.author: aahi
 ---
 

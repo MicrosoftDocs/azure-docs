@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Azure Security Center frequently asked questions (FAQ)

@@ -67,7 +67,7 @@ All policies are enforced in two phases:
 
     ![Order](./media/best-practices/06.png)
     
-    External MFA providers and Terms of Use come next.
+    External MFA providers and terms of use come next.
 
 
 
@@ -105,7 +105,7 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 
 ### Does conditional access work with Exchange ActiveSync?
 
-Yes, you can use Exchange ActiveSync in a conditional access policy with some [limitations](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
+Yes, you can use Exchange ActiveSync in a conditional access policy with some [limitations](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo). 
 
 ### How should you configure conditional access with Office 365 apps?
 
