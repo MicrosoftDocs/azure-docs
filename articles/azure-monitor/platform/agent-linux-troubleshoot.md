@@ -184,13 +184,9 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 This is a known issue that occurs on first upload of Linux data into a Log Analytics workspace. This does not affect data being sent or service experience.
 
 
-
-
-
-
 ## Issue: You see omiagent using 100% CPU
 
-### Probable Causes
+### Probable causes
 A regression in nss-pem package [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) caused a severe performance issue, that we've been seeing come up a lot in Redhat/Centos 7.x distributions. To learn more about this issue, check the following documentation: Bug [1667121 Performance regression in libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
 
 Performance related bugs don't happen all the time, and they are very difficult to reproduce. If you experience such issue with omiagent you should use the script omiHighCPUDiagnostics.sh which will collect the stack trace of the omiagent when exceeding a certain threshold.
