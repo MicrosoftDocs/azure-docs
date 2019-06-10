@@ -41,7 +41,7 @@ Delete the controller:
 azds remove -g <resource group name> -n <cluster name>
 ```
 
-You must use the the Azure Dev Spaces CLI to delete a controller. It’s not possible to delete a controller from Visual Studio. You also cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell so you cannot delete a controller from the Azure Cloud Shell.
+You must use the Azure Dev Spaces CLI to delete a controller. It’s not possible to delete a controller from Visual Studio. You also cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell so you cannot delete a controller from the Azure Cloud Shell.
 
 If you do not have the Azure Dev Spaces CLI installed, you can first install it using the following command then delete your controller:
 

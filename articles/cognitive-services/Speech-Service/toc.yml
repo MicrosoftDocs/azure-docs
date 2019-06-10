@@ -97,6 +97,9 @@
       - name: 'Java (Windows, macOS, Linux)'
         href: quickstart-virtual-assistant-java-jre.md
         displayName: virtual assistant, speech-enabled bot, conversational agent
+      - name: 'Java (Android)'
+        href: quickstart-virtual-assistant-java-android.md
+        displayName: virtual assistant, speech-enabled bot, conversational agent
   - name: REST APIs
     items:
     - name: List supported voices by region
