@@ -12,7 +12,7 @@ ms.date: 06/07/2019
 ms.custom: seodec18
 ---
 
-# Train and register TensorFlow models at scale with Azure Machine Learning service
+# Train and register Keras models at scale with Azure Machine Learning service
 
 This article shows you how to train and register a Keras model built on TensorFlow using Azure Machine Learning service. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network (DNN) built using the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview).
 
