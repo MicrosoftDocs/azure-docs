@@ -45,7 +45,7 @@ To push notifications to an iOS app, register your application with Apple and al
 
    * **Name**: Type a descriptive name for your app in the **Name** box in the **App ID Description** section.
 
-   * **Bundle Identifier**: In the **Explicit App ID** section, enter a **Bundle Identifier** of the form `<Organization Identifier>.<Product Name>` as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). The *Organization Identifier* and *Product Name* values must match the organization identifier and product name you use when you create your Xcode project. In the following screenshot, *NotificationHubs* is used as an organization identifier and *GetStarted* is used as the product name. Making sure the **Bundle Identifier** value matches the value you use in your Xcode project allows you to use the correct publishing profile with Xcode.
+   * **Bundle Identifier**: In the **Explicit App ID** section, enter a **Bundle Identifier** of the form `<Organization Identifier>.<Product Name>` as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). The *Organization Identifier* and *Product Name* values must match the organization identifier and product name you use when you create your Xcode project. In the following screenshot, the *NotificationHubs* value is used as an organization identifier and the *GetStarted* value is used as the product name. Make sure the **Bundle Identifier** value matches the value in your Xcode project, so that Xcode will use the correct publishing profile.
 
    * **Push Notifications**: Check the **Push Notifications** option in the **App Services** section.
 
@@ -53,11 +53,11 @@ To push notifications to an iOS app, register your application with Apple and al
 
      This action generates your App ID and requests that you confirm the information. Select **Register** to confirm the new App ID.
 
-     Once you select **Register**, you see the **Registration complete** screen, as shown in the following image. Select **Done**.
+     Once you select **Register**, you see the **Registration complete** screen as shown in the following image. Select **Done**.
 
      ![App ID registration complete showing entitlements](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
-1. In the Developer Center, under **App IDs**, locate the app ID that you created, and then select its row.
+1. In the Developer Center, under **App IDs**, locate the app ID that you created and select its row.
 
     ![App ID list](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
 
@@ -65,7 +65,7 @@ To push notifications to an iOS app, register your application with Apple and al
 
     ![Edit App ID page](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
 
-1. Scroll to the bottom of the screen, and then select the **Create Certificate** button under the section **Development Push SSL Certificate**.
+1. Scroll to the bottom of the screen and select the **Create Certificate** button under the **Development Push SSL Certificate** section.
 
     ![Create certificate for App ID button](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
@@ -78,7 +78,7 @@ To push notifications to an iOS app, register your application with Apple and al
 
     ![Generated certificate CSR upload page](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-cert-choose-csr.png)
 
-1. After the portal creates to certificate, select the **Download** button, and then select **Done**.
+1. After the portal creates the certificate, select the **Download** button and select **Done**.
 
     ![Generated certificate download page](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
 
@@ -109,29 +109,29 @@ To push notifications to an iOS app, register your application with Apple and al
 
 ## Create a provisioning profile for the app
 
-1. In the [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456), select **Provisioning Profiles**, select **All**, and then select **+** to create a new profile. You will then see the **Add iOS Provisioning Profile** wizard:
+1. In the [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456), select **Provisioning Profiles**, select **All**, and then select **+** to create a new profile. You see the **Add iOS Provisioning Profile** wizard:
 
     ![Provisioning profile list](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
-1. Select **iOS App Development** under **Development** as the provisioning profile type, and then select **Continue**.
+1. Select **iOS App Development** under **Development** as the provisioning profile type, and select **Continue**.
 
-1. Next, select the app ID you created from the **App ID** drop-down list, and then select **Continue**.
+1. Next, select the app ID you created from the **App ID** drop-down list, and select **Continue**.
 
     ![Select the App ID](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 
-1. In the **Select certificates** window, select your usual development certificate used for code signing, and then select **Continue**. This certificate isn't the push certificate you created.
+1. In the **Select certificates** window, select your usual development certificate used for code signing, and select **Continue**. This certificate isn't the push certificate you created.
 
     ![Select the certificate](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 
-1. Next, select the devices to use for testing, and then select **Continue**.
+1. Next, select the devices to use for testing, and select **Continue**.
 
     ![Select the devices](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
-1. Pick a name for the profile in **Profile Name**, and then select **Generate**.
+1. Finally, pick a name for the profile in **Profile Name**, and select **Generate**.
 
     ![Choose a provisioning profile name](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-1. When the new provisioning profile is created, choose to download and install it on your Xcode development machine, and then select **Done**.
+1. When the new provisioning profile is created, choose to download and install it on your Xcode development machine. Then select **Done**.
 
     ![Download the provisioning profile](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
@@ -139,7 +139,7 @@ To push notifications to an iOS app, register your application with Apple and al
 
 In this section, you create a notification hub and configure authentication with APNS using the .p12 push certificate that you previously created. If you want to use a notification hub that you have already created, you can skip to step 5.
 
-[???!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
+[!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
 
 ## Configure your notification hub with APNS information
 
@@ -147,14 +147,14 @@ In this section, you create a notification hub and configure authentication with
 
 1. Select **Certificate**.
 
-1. Select the **file icon**.
+1. Select the file icon.
 
 1. Select the .p12 file that you exported earlier.
 
-1. Specify the correct **password**.
+1. Specify the correct password.
 
 1. Select **Sandbox** mode. Use the **Production** mode only if you want to send push notifications to users who purchased your app from the store.
 
-    ???![Configure APNS certification in Azure portal][7]
+    ![Configure APNS certification in Azure portal][7]
 
 You have now configured your notification hub with APNS. You also have the connection strings to register your app and send push notifications.

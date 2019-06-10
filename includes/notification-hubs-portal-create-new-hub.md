@@ -12,15 +12,15 @@
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **All services** on the left menu, and then select **Notification Hubs** in the **Mobile** section. Select **\*** next to the service name to add it to the **FAVORITES** section on the left menu. After **Notification Hubs** is added to **FAVORITES**, select it on the left menu. 
+1. Select **All services** on the left menu, and select **Notification Hubs** in the **Mobile** section. Select the star icon next to the service name in order to add the service to the **FAVORITES** section on the left menu. After you add **Notification Hubs** to **FAVORITES**, select it on the left menu.
 
       ![Azure portal - select Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
 
-1. On the **Notification Hubs** window, select **Add** on the toolbar.
+1. On the **Notification Hubs** page, select **Add** on the toolbar.
 
       ![Notification Hubs - Add toolbar button](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
 
-1. On the **Notification Hub** window, do the following steps:
+1. On the **Notification Hub** page, do the following steps:
 
     1. Enter a name in **Notification Hub**.  
 
@@ -34,7 +34,7 @@
 
         ![Azure portal - set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-1. Select **Notifications** (the bell-shaped icon), and then select **Go to resource**. You can also refresh the list in the **Notification Hubs** page, and then select your notification hub.
+1. Select **Notifications** (the bell icon), and select **Go to resource**. You can also refresh the list in the **Notification Hubs** page, and select your notification hub.
 
       ![Azure portal - notifications -> Go to resource](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 
