@@ -14,9 +14,9 @@ ms.custom: seodec18
 
 # Train and register TensorFlow models at scale with Azure Machine Learning service
 
-This article shows you how to train and register a Keras model built on TensorFlow using Azure Machine Learning service. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network built using the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview).
+This article shows you how to train and register a Keras model built on TensorFlow using Azure Machine Learning service. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network (DNN) built using the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview).
 
-Keras is a high-level neural network API capable of running top of other frameworks. Keras is used to simplify the process of building neural networks. With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
+Keras is a high-level neural network API capable of running top of other popular DNN frameworks to simplify development. With Azure Machine Learning service, you can rapidly scale out training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
 Whether you're developing a Keras model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
 
@@ -24,9 +24,10 @@ Whether you're developing a Keras model from the ground-up or you're bringing an
 
 - An Azure subscription. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
+- [Create a workspace configuration file](setup-create-workspace#write-a-configuration-file)
 - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` and `utils.py`
 
-You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning and model deployment.
+You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
 
@@ -53,15 +54,10 @@ from azureml.core.compute_target import ComputeTargetException
 
 The [Azure Machine Learning service workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
 
-Create a workspace by finding a value for the <azure-subscription-id> parameter in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor. For more information on roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md) article
+Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
 ```Python
-ws = Workspace.create(name='myworkspace',
-                      subscription_id='<azure-subscription-id>',
-                      resource_group='myresourcegroup',
-                      create_resource_group=True,
-                      location='<select-location>' # For example: 'eastus2'
-                      )
+ws = Workspace.from_config()
 ```
 
 ### Create an experiment
@@ -164,7 +160,7 @@ Once you've trained the model, you can register it to your workspace. Model regi
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')
 ```
 
-You can also download a local copy of the model by using the Run object. In the training script `mnist-keras.py`, a TensorFlow saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
+You can also download a local copy of the model. This can be useful for doing additional model validation work locally. In the training script, `mnist-keras.py`, a TensorFlow saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy from datastore.
 
 ```Python
 # Create a model folder in the current directory
@@ -179,7 +175,7 @@ for f in run.get_file_names():
 
 ## Next steps
 
-In this article, you trained and registered a TensorFlow model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a Keras model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
 
 > [!div class="nextstepaction"]
 > [How and where to deploy models](how-to-deploy-and-where.md)
