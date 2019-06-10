@@ -239,11 +239,11 @@ To review all of the health criterion knowledge articles included with Azure Mon
 
 ### State changes
 
-The rightmost column in the Health Diagnostics page is **State Changes**. It lists all the state changes associated with the health criteria that is selected in the **Health Criteria** section or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table.
+The rightmost column in the Health Diagnostics page is **State Changes**. This column lists all the state changes associated with the health criteria selected in the **Health Criteria** section, or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table.
 
 ![Example state changes presented in Health diagnostics](./media/vminsights-health/health-diagnostics-page-statechanges.png)
 
-This section consists of the health criteria state and the associated time sorted by the latest state on top.
+The following section shows the health-criteria state and the associated time. This information is sorted with the latest state at the top of the column.
 
 ### Association of Component Model, Health Criteria, and State change columns
 
