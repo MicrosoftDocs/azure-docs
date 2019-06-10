@@ -141,7 +141,7 @@ You author two linked services in this section:
    
    b. For **Type**, confirm that **On-demand HDInsight** is selected.
    
-   c. For **Azure Storage Linked Service**, select **AzureStorage1**. You created this linked service earlier. If you used a different name, specify the right name here. 
+   c. For **Azure Storage Linked Service**, select **AzureBlobStorage1**. You created this linked service earlier. If you used a different name, specify the right name here. 
    
    d. For **Cluster type**, select **spark**.
    
@@ -183,7 +183,7 @@ You author two linked services in this section:
    ![Specifying the HDInsight linked service](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Switch to the **Script/Jar** tab, and complete the following steps: 
 
-   a. For **Job Linked Service**, select **AzureStorage1**.
+   a. For **Job Linked Service**, select **AzureBlobStorage1**.
    
    b. Select **Browse Storage**.
 
