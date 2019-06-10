@@ -56,9 +56,9 @@ On Ubuntu Cloud Images, you must use cloud-init to configure the swap partition.
 
 For images without cloud-init support, VM images deployed from the Azure Marketplace have a VM Linux Agent integrated with the OS. This agent allows the VM to interact with various Azure services. Assuming you have deployed a standard image from the Azure Marketplace, you would need to do the following to correctly configure your Linux swap file settings:
 
-Locate and modify two entries in the **/etc/waagent.conf** file. They control the existence of a dedicated swap file and size of the swap file. The parameters you are looking to modify are `ResourceDisk.EnableSwap=N` and `ResourceDisk.SwapSizeMB=0` 
+Locate and modify two entries in the **/etc/waagent.conf** file. They control the existence of a dedicated swap file and size of the swap file. The parameters you need to verify are are `ResourceDisk.EnableSwap` and `ResourceDisk.SwapSizeMB` 
 
-Change the parameters to the following settings:
+To enable a properly enabled disk and mounted swap file, ensure the parameters have the following settings:
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={size in MB to meet your needs} 
