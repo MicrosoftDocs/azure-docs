@@ -134,7 +134,7 @@ No.
 
 ### How many read-scale replicas are supported
 
-The Hyperscale databases are created with one read-scale replica (two replicas in total) by default. You can scale the number of read-only replicas between 0 and 4 using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)..
+The Hyperscale databases are created with one read-scale replica (two replicas in total) by default. You can scale the number of read-only replicas between 0 and 4 using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### For high availability, do I need to provision additional compute nodes
 
