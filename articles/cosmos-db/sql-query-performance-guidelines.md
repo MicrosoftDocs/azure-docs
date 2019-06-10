@@ -52,6 +52,4 @@ ms.author: tisande
   
 ## Next steps  
 
-- [SQL syntax and SQL query for Cosmos DB](how-to-sql-query.md)
-
 - [Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)  

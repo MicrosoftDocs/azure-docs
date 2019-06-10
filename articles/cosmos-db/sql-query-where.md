@@ -28,7 +28,7 @@ WHERE <filter_condition>
   
 - `<scalar_expression>`  
   
-   Expression representing the value to be computed. See the [Scalar expressions](#bk_scalar_expressions) section for details.  
+   Expression representing the value to be computed. See [Scalar expressions](sql-query-scalar-expressions.md) for details.  
   
 
 ##  <a name="bk_remarks"></a> Remarks
@@ -58,7 +58,7 @@ The results are:
 
 ### Scalar expressions in the WHERE clause
 
-The previous example showed a simple equality query. The SQL API also supports various [scalar expressions](#scalar-expressions). The most commonly used are binary and unary expressions. Property references from the source JSON object are also valid expressions.
+The previous example showed a simple equality query. The SQL API also supports various [scalar expressions](sql-query-scalar-expressions.md). The most commonly used are binary and unary expressions. Property references from the source JSON object are also valid expressions.
 
 You can use the following supported binary operators:  
 

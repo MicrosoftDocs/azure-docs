@@ -60,7 +60,7 @@ Logical operators operate on Boolean values. The following tables show the logic
 
 ## * operator
 
-The special operator * projects the entire item as is. When used, it must be the only projected field. A query like `SELECT * FROM Families f` is valid, but `SELECT VALUE * FROM Families f` and  `SELECT *, f.id FROM Families f` are not valid. The [first query in this article](#query-the-json-items) used the * operator. 
+The special operator * projects the entire item as is. When used, it must be the only projected field. A query like `SELECT * FROM Families f` is valid, but `SELECT VALUE * FROM Families f` and  `SELECT *, f.id FROM Families f` are not valid.
 
 ##  <a name="bk_-and--operators"></a> ? and ?? operators
 

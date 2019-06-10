@@ -27,6 +27,5 @@ Unlike JavaScript, the SQL API doesn't perform implicit conversions. For instanc
 
 ## Next steps
 
-- [SQL query examples](how-to-sql-query.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Model document data](modeling-data.md)

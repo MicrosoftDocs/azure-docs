@@ -37,7 +37,7 @@ ORDER BY <sort_specification>
   
 - `<scalar_expression>`  
   
-   See the [Scalar expressions](#bk_scalar_expressions) section for details.  
+   See the [Scalar expressions](sql-query-scalar-expressions.md) section for details.  
   
 - `ASC | DESC`  
   

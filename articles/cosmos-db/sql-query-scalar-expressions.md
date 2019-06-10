@@ -44,7 +44,7 @@ The SELECT clause supports scalar expressions. A scalar expression is a combinat
   
 - `<constant>`  
   
-   Represents a constant value. See [Constants](#bk_constants) section for details.  
+   Represents a constant value. See [Constants](sql-query-constants) section for details.  
   
 - `input_alias`  
   
@@ -61,11 +61,11 @@ The SELECT clause supports scalar expressions. A scalar expression is a combinat
   
 - `unary_operator <scalar_expression>`  
   
-   Represents an operator that is applied to a single value. See [Operators](#bk_operators) section for details.  
+   Represents an operator that is applied to a single value. See [Operators](sql-query-operators.md) section for details.  
   
 - `<scalar_expression> binary_operator <scalar_expression>`  
   
-   Represents an operator that is applied to two values. See [Operators](#bk_operators) section for details.  
+   Represents an operator that is applied to two values. See [Operators](sql-query-operators) section for details.  
   
 - `<scalar_function_expression>`  
   

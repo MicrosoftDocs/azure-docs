@@ -83,7 +83,7 @@ The second item uses `givenName` and `familyName` instead of `firstName` and `la
 
 Try a few queries against the JSON data to understand some of the key aspects of Azure Cosmos DB's SQL query language.
 
-The following query returns the items where the `id` field matches `AndersenFamily`. Since it's a `SELECT *` query, the output of the query is the complete JSON item. For more information about SELECT syntax, see [SELECT statement](sql-api-query-reference.md#select-query). 
+The following query returns the items where the `id` field matches `AndersenFamily`. Since it's a `SELECT *` query, the output of the query is the complete JSON item. For more information about SELECT syntax, see [SELECT statement](sql-query-select.md). 
 
 ```sql
     SELECT *

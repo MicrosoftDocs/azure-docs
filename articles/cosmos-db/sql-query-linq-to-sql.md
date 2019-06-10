@@ -319,6 +319,5 @@ A nested query applies the inner query to each element of the outer container. O
 
 ## Next steps
 
-- [SQL query examples](how-to-sql-query.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Model document data](modeling-data.md)
