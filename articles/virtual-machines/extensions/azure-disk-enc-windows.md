@@ -37,11 +37,7 @@ For a list of currently Windows versions, see [Azure Disk Encryption Prerequisit
 Azure Disk Encryption requires Internet connectivity for access to Active Directory, Key Vault, Storage, and package management endpoints.  For more on network security settings, see [Azure Disk Encryption Prerequisites](
 ../../security/azure-security-disk-encryption-prerequisites.md).
 
-## Extension schemas
-
-### V2 ("single-pass encryption")
-
-Single-pass encryption does not rely on Azure Active Directory.
+## Extension schema
 
 ```json
 {
@@ -50,60 +46,27 @@ Single-pass encryption does not rely on Azure Active Directory.
   "apiVersion": "2015-06-15",
   "location": "[location]",
   "properties": {
-        "publisher": "Microsoft.Azure.Security",
-        "settings": {
-          "EncryptionOperation": "[encryptionOperation]",
-          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-          
-          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+	"protectedSettings": {
+	  "AADClientSecret": "[aadClientSecret]",
+	},
+	"publisher": "Microsoft.Azure.Security",
+	"settings": {
+	  "AADClientID": "[aadClientID]",
+	  "EncryptionOperation": "[encryptionOperation]",
+	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+	  
+	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
           "KekVaultResourceId": "[keyVaultResourceID]",
-          
-          "KeyVaultURL": "[keyVaultURL]",
+	  
+	  "KeyVaultURL": "[keyVaultURL]",
           "KeyVaultResourceId": "[keyVaultResourceID]",
 
-          "EncryptionOperation": "[encryptionOperation]",
-          "SequenceVersion": "sequenceVersion]",
-          "VolumeType": "[volumeType]"
-        },
-        "type": "AzureDiskEncryption",
-        "typeHandlerVersion": "[extensionVersion]"
-  }
-}
-```
-
-
-### V1 ("dual-pass encryption")
-
-Dual-pass encryption uses Azure Active Directory for authentication.
-
-```json
-{
-  "type": "extensions",
-  "name": "[name]",
-  "apiVersion": "2015-06-15",
-  "location": "[location]",
-  "properties": {
-        "protectedSettings": {
-          "AADClientSecret": "[aadClientSecret]",
-        },
-        "publisher": "Microsoft.Azure.Security",
-        "settings": {
-          "AADClientID": "[aadClientID]",
-          "EncryptionOperation": "[encryptionOperation]",
-          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-          
-          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-          "KekVaultResourceId": "[keyVaultResourceID]",
-          
-          "KeyVaultURL": "[keyVaultURL]",
-          "KeyVaultResourceId": "[keyVaultResourceID]",
-
-          "EncryptionOperation": "[encryptionOperation]",
-          "SequenceVersion": "sequenceVersion]",
-          "VolumeType": "[volumeType]"
-        },
-        "type": "AzureDiskEncryption",
-        "typeHandlerVersion": "[extensionVersion]"
+	  "EncryptionOperation": "[encryptionOperation]",
+	  "SequenceVersion": "sequenceVersion]",
+	  "VolumeType": "[volumeType]"
+	},
+	"type": "AzureDiskEncryption",
+	"typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
@@ -116,9 +79,9 @@ Dual-pass encryption uses Azure Active Directory for authentication.
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForWindows| string |
 | typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
-| (V1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (V1) AADClientSecret | password | string |
-| (V1) AADClientCertificate | thumbprint | string |
+| (optional) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (optional) AADClientSecret | password | string |
+| (optional) AADClientCertificate | thumbprint | string |
 | EncryptionOperation | EnableEncryption | string | 
 | KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
 | KeyEncryptionKeyURL | url | string |

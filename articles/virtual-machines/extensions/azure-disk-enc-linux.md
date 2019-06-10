@@ -36,11 +36,7 @@ Azure Disk Encryption is currently supported on select distributions and version
 
 Azure Disk Encryption for Linux requires Internet connectivity for access to Active Directory, Key Vault, Storage, and package management endpoints.  For more information, see [Azure Disk Encryption Prerequisites](../../security/azure-security-disk-encryption-prerequisites.md).
 
-## Extension schemas
-
-### V2 ("single-pass encryption")
-
-Single-pass encryption does not rely on Azure Active Directory.
+## Extension schema
 
 ```json
 {
@@ -49,58 +45,26 @@ Single-pass encryption does not rely on Azure Active Directory.
   "apiVersion": "2015-06-15",
   "location": "[location]",
   "properties": {
-        "publisher": "Microsoft.Azure.Security",
-        "settings": {
-          "DiskFormatQuery": "[diskFormatQuery]",
-          "EncryptionOperation": "[encryptionOperation]",
-          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-          "KeyVaultURL": "[keyVaultURL]",
-          "SequenceVersion": "sequenceVersion]",
-          "VolumeType": "[volumeType]"
-        },
-        "type": "AzureDiskEncryptionForLinux",
-        "typeHandlerVersion": "[extensionVersion]"
+	"protectedSettings": {
+	  "AADClientSecret": "[aadClientSecret]",
+	  "Passphrase": "[passphrase]"
+	},
+	"publisher": "Microsoft.Azure.Security",
+	"settings": {
+	  "AADClientID": "[aadClientID]",
+	  "DiskFormatQuery": "[diskFormatQuery]",
+	  "EncryptionOperation": "[encryptionOperation]",
+	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+	  "KeyVaultURL": "[keyVaultURL]",
+	  "SequenceVersion": "sequenceVersion]",
+	  "VolumeType": "[volumeType]"
+	},
+	"type": "AzureDiskEncryptionForLinux",
+	"typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
-
-
-### V1 ("dual-pass encryption")
-
-Dual-pass encryption uses Azure Active Directory for authentication.
-
-```json
-{
-{
-  "type": "extensions",
-  "name": "[name]",
-  "apiVersion": "2015-06-15",
-  "location": "[location]",
-  "properties": {
-        "protectedSettings": {
-          "AADClientSecret": "[aadClientSecret]",
-          "Passphrase": "[passphrase]"
-        },
-        "publisher": "Microsoft.Azure.Security",
-        "settings": {
-          "AADClientID": "[aadClientID]",
-          "DiskFormatQuery": "[diskFormatQuery]",
-          "EncryptionOperation": "[encryptionOperation]",
-          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-          "KeyVaultURL": "[keyVaultURL]",
-          "SequenceVersion": "sequenceVersion]",
-          "VolumeType": "[volumeType]"
-        },
-        "type": "AzureDiskEncryptionForLinux",
-        "typeHandlerVersion": "[extensionVersion]"
-  }
-}
-  }
-}
-```
-
 
 ### Property values
 
@@ -110,9 +74,9 @@ Dual-pass encryption uses Azure Active Directory for authentication.
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
-| (V1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (V1) AADClientSecret | password | string |
-| (V1) AADClientCertificate | thumbprint | string |
+| AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| AADClientSecret | password | string |
+| AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON dictionary |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
