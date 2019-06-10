@@ -150,6 +150,8 @@
     items:
     - name: Configure a transparent gateway
       href: how-to-create-transparent-gateway.md
+    - name: Authenticate a downstream device
+      href: how-to-authenticate-downstream-device.md
     - name: Connect a downstream device
       href: how-to-connect-downstream-device.md
     - name: Modbus protocol gateway

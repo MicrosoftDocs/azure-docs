@@ -40,12 +40,33 @@ If there are some reported blocking issues that are not removed with the managed
 
 - If you require direct access to the operating system or file system, for instance to install third party or custom agents on the same virtual machine with SQL Server.
 - If you have strict dependency on features that are still not supported, such as FileStream / FileTable, PolyBase, and cross-instance transactions.
-- If absolutely you need to stay at a specific version of SQL Server (2012, for instance).
+- If absolutely need to stay at a specific version of SQL Server (2012, for instance).
 - If your compute requirements are much lower that managed instance offers (one vCore, for instance) and database consolidation is not acceptable option.
+
+If you have resolved all identified migration blockers and continuing the migration to Managed Instance, note that some of the changes might affect performance of your workload:
+- Mandatory full recovery model and regular automated backup schedule might impact performance of your workload or maintenance/ETL actions if you have periodically used simple/bulk-logged model or stopped backups on demand.
+- Different server or database level configurations such as trace flags or compatibility levels
+- New features that you are using such as Transparent Database Encryption (TDE) or auto-failover groups might impact CPU and IO usage.
+
+Managed Instance guarantee 99.99% availability even in the critical scenarios, so overhead caused by these features cannot be disabled. For more information, see [the root causes that might cause different performance on SQL Server and Managed Instance](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
+
+### Create performance baseline
+
+If you need to compare the performance of your workload on Managed Instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison. Some of the parameters that you would need to measure on your SQL Server instance are: 
+- Monitor CPU usage on your SQL Server instance and record the average and peak CPU usage.
+- Monitor memory usage on your SQL Server instance and determine the amount of memory used by different components such as buffer pool, plan cache, column-store pool, etc. In addition, you should find average and peak values of Page Life Expectancy memory performance counter.
+- Monitor IO usage on the source SQL Server instance using [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) view.
+- Monitor workload and query performance or your SQL Server instance by examining Dynamic Management Views or Query Store if you are migrating from SQL Server 2016+ version. Identify average duration and CPU usage of the most important queries in your workload to compare them with the queries that are running on the Managed Instance.
+
+> [!Note]
+> If you notice any issue with your workload on SQL Server such as high CPU usage, constant memory pressure, tempdb or parametrization issues, you should try to resolve them on your source SQL Server instance before taking the baseline and migration. Migrating know issues to any new system migh cause unexpected results and invalidate any performance comparison.
 
 ## Deploy to an optimally-sized managed instance
 
-Managed instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [new purchasing model](sql-database-service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This new model enables you to right-size your destination environment in the cloud.
+Managed instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [new purchasing model](sql-database-service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This new model enables you to right-size your destination environment in the cloud. Some general guidelines that might help you to choose the right service tier and characteristics are described here:
+- Monitor CPU usage on your SQL Server instance and check how much compute power you currently use (using Dynamic Management Views, SQL Server Management Studio, or other monitoring tools). You can provision a Managed Instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where Managed Instance is installed](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
+- Check the amount of available memory on your SQL Server instance, and choose [the service tier that has matching memory](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). It would be useful to measure page-life expectancy on your SQL Server instance to determine [do you need additional memory](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Measure IO latency of the file sub-system to determine do you need General Purpose or Business Critical instance.
 
 You can select compute and storage resources at deployment time and then change it afterwards without introducing downtime for your application using the [Azure portal](sql-database-scale-resources.md):
 
