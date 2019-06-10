@@ -63,6 +63,21 @@ sections:
           image:
             src: media/index/cassandra-api.png
           title: Cassandra API
+        - href: /azure/cosmos-db/spark-api-introduction/
+          html: <p>Use the built-in support for Apache Spark in Azure Cosmos DB to run analytics on the data stored in an Azure Cosmos account. </p>
+          image:
+            src: media/index/spark-logo.png
+          title: Operational analytics with spark
+        - href: /azure/cosmos-db/change-feed/
+          html: <p>Perform real-time analytics with change feed by reading the sorted list of documents within an Azure Cosmos DB container in the order in which they were modified. </p>
+          image:
+            src: media/index/change-feed-logo.png
+          title: Change feed
+        - href: /azure/cosmos-db/change-feed/
+          html: <p>Sample text. </p>
+          image:
+            src: media/index/change-feed-logo.png
+          title: Change feed
 
   - title: 5-Minute Quickstarts
     items:
