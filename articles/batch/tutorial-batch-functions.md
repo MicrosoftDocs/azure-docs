@@ -70,7 +70,6 @@ In this section you'll create the Azure Function that triggers the OCR Batch job
 	* `function.proj` lists the external libraries in your Function code, like the Batch .NET SDK.
 3.  Change the values of the variables in the `Run()` function of the `run.csx` file to reflect your Batch and storage credentials. 
 	* Retrieve your Batch and storage account credentials in the Azure portal in the **Keys** section of your Batch account. 
-	* Retrieve your storage account key in the Azure portal under the "Access keys" blade of your storage account.
 
 ## Trigger the function and retrieve results
 
