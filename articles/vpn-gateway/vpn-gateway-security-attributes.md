@@ -26,7 +26,7 @@ This article documents the common security attributes built into Azure VPN Gatew
 | Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | VPN gateway encrypt customer packets between Azure VPN gateways and customer on-premises VPN devices (S2S) or VPN clients (P2S). VPN gateways also support VNet-to-VNet encryption. |
 | Encryption key handling (CMK, BYOK, etc.)| No | Customer-specified pre-shared keys are encrypted at rest; but not integrated with CMK yet. |
 | Column level encryption (Azure Data Services)| N/A | |
-| API calls encrypted| Yes | Through [Azure Resource Manager](./azure-resource-manager/index.yml) and HTTPS  |
+| API calls encrypted| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS  |
 
 ## Network segmentation
 
