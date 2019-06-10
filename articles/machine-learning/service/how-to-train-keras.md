@@ -24,7 +24,7 @@ Whether you're developing a Keras model from the ground-up or you're bringing an
 
 - An Azure subscription. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
-- [Create a workspace configuration file](setup-create-workspace#write-a-configuration-file)
+- [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
 - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` and `utils.py`
 
 You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
