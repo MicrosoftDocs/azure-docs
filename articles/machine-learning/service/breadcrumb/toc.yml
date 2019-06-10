@@ -46,3 +46,18 @@
         tocHref: /azure/architecture/data-guide/technology-choices/
         topicHref: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
 
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Machine Learning
+    tocHref: /azure/devops/
+    topicHref: /azure/machine-learning/index
+    items:
+    - name: Service
+      tocHref: /azure/devops/pipelines/
+      topicHref: /azure/machine-learning/service/index
+      items:
+      - name: CI/CD
+        tocHref: /azure/devops/pipelines/languages/
+        topicHref: /azure/devops/pipelines/languages/acr-template
