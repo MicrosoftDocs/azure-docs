@@ -31,7 +31,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Automated machine learning new features:
     + STL featurizer for forecasting
     + KMeans clustering is enabled for feature sweeping
-    + AmlCompute Quota approvals just became faster! We have now automated the process to approve your quota requests within a threshold. For more information on how quotas work, learn [how to manage quotas](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+  + AmlCompute Quota approvals just became faster! We have now automated the process to approve your quota requests within a threshold. For more information on how quotas work, learn [how to manage quotas](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
  
 
   + **Preview features**
