@@ -61,14 +61,13 @@ While model building is automated, you can also [learn how important or relevant
 
 ## Time-Series Forecasting
 Building forecasts is an integral part of any business, whether it’s revenue, inventory, sales, or customer demand. 
-
-Automated ML using a number of combined techniques and approaches to recommend a high quality model. Time-series experiments in Automated ml are treated as a multivariate regression problem. Past time series values are “pivoted” to become additional dimensions for the regressor together with other predictors. 
+Automated ML uses a number of combined techniques and approaches to recommend a high quality time-series forecast. Time-series experiments in Automated ml are treated as a multivariate regression problem. Past time series values are “pivoted” to become additional dimensions for the regressor together with other predictors. 
 
 This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. In real-world forecasting applications, multiple factors can influence a forecast. For example, when forecasting sales, interactions of historical trends, exchange rate and price all jointly drive the sales outcome. A further benefit is that all recent innovations in regression models apply immediately to forecasting.
 
-How far into the future the forecast should extend (the forecast horizon) is part of the basic forecast specification. Setting the required parameter of max_horizon in the experiment defines how many unit periods (based on the time interval of your training data, e.g. monthly, weekly) the forecaster should predict out. 
+How far into the future the forecast should extend (the forecast horizon) is part of the basic forecast specification. Setting the required parameter of `max_horizon` in the experiment defines how many unit periods (based on the time interval of your training data, e.g. monthly, weekly the forecaster should predict out. 
 
-Automated ML learns a single (but often internally branched) model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible. 
+Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible. 
 
 Features extracted from the training data play a critical role. Automated ML performs standard pre-processing steps and generates additional time-series features (e.g. year, month, day of week etc.) to capture seasonal effects and maximize predictive accuracy. 
 
