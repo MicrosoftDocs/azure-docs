@@ -277,11 +277,11 @@ Prior to deploying your model as a service, you may want to profile it to determ
 You can do this via the SDK or CLI.
 
 For more information, you can check out our SDK documentation here: 
-https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
 Model profiling results are emitted as a Run object.
 Specifics on the Model Profile schema can be found here:
-https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
 
 ## Deploy to target
 
