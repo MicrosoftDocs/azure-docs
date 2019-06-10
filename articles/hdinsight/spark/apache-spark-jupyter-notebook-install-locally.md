@@ -170,26 +170,8 @@ There can be a number of reasons why you might want to install Jupyter on your c
 > [!WARNING]  
 > With Jupyter installed on your local computer, multiple users can run the same notebook on the same Spark cluster at the same time. In such a situation, multiple Livy sessions are created. If you run into an issue and want to debug that, it will be a complex task to track which Livy session belongs to which user.  
 
-## See also
-* [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
+## Next steps
 
-### Scenarios
+* [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 * [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
-
-### Create and run applications
-* [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
-
-### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
-
-### Manage resources
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
