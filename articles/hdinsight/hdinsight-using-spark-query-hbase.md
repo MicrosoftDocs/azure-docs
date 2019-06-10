@@ -37,25 +37,25 @@ The high-level process for enabling your Spark cluster to query your HDInsight c
 
 In this step, you create and populate a table in Apache HBase that you can then query using Spark.
 
-1. Use `ssh` command to connect to your HBase cluster. Edit the command below by replacing `HBASECLUSTER` with the name of your HBase cluster, and then enter the command:
+1. Use the `ssh` command to connect to your HBase cluster. Edit the command below by replacing `HBASECLUSTER` with the name of your HBase cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@HBASECLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Use `hbase shell` command to start the HBase interactive shell. Enter the following command in your SSH connection:
+2. Use the `hbase shell` command to start the HBase interactive shell. Enter the following command in your SSH connection:
 
     ```bash
     hbase shell
     ```
 
-3. Use `create` command to create an HBase table with two-column families. Enter the following command:
+3. Use the `create` command to create an HBase table with two-column families. Enter the following command:
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. Use `put` command to insert values at a specified column in a specified row in a particular table. Enter the following command:
+4. Use the `put` command to insert values at a specified column in a specified row in a particular table. Enter the following command:
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -68,7 +68,7 @@ In this step, you create and populate a table in Apache HBase that you can then 
     put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
     ```
 
-5. Use `exit` command to stop the HBase interactive shell. Enter the following command:
+5. Use the `exit` command to stop the HBase interactive shell. Enter the following command:
 
     ```hbase
     exit
