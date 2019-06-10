@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: multiple
  ms.topic: include
- ms.date: 11/14/2018
+ ms.date: 05/14/2019
  ms.author: cynthn;azcspmt;jonbeck
  ms.custom: include file
 ---
@@ -53,12 +53,12 @@ NCv2-series VMs are powered by [NVIDIA Tesla P100](https://www.nvidia.com/en-us/
 > For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
-| --- | --- | --- | --- | --- | --- | ---  | --- |
-| Standard_NC6s_v2 |6 |112 | 736 | 1 | 16 | 12 | 4 |
-| Standard_NC12s_v2 |12 |224 | 1474 | 2 | 32 | 24 | 8 |
-| Standard_NC24s_v2 |24 |448 | 2948 | 4 | 64 | 32 | 8 |
-| Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 64 | 32 | 8 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
+| --- | --- | --- | --- | --- | --- | ---  | ---| --- |
+| Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 | 20000/ 200 | 4 |
+| Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
+| Standard_NC24s_v2 | 24 |448 | 2948 | 4 | 64 | 32 | 80000 / 800 | 8 |
+| Standard_NC24rs_v2* | 24 |448 | 2948 | 4 | 64 | 32 | 80000 / 800 | 8 |
 
 1 GPU = one P100 card.
 
@@ -76,12 +76,12 @@ NCv3-series VMs are powered by [NVIDIA Tesla V100](https://www.nvidia.com/en-us/
 > For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v3 |6 |112 | 736 | 1 | 16 | 12 | 4 |
-| Standard_NC12s_v3 |12 |224 | 1474 | 2 | 32 | 24 | 8 |
-| Standard_NC24s_v3 |24 |448 | 2948 | 4 | 64 | 32 | 8 | 
-| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 64 | 32 | 8 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NC6s_v3 | 6 |112 | 736 | 1 | 16 | 12 | 20000 / 200 | 4 |
+| Standard_NC12s_v3 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
+| Standard_NC24s_v3 | 24 |448 | 2948 | 4 | 64 | 32 | 80000 / 800 | 8 | 
+| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 64 | 32 | 80000 / 800 | 8 |
 
 1 GPU = one V100 card.
 
@@ -102,10 +102,9 @@ NDv2-series virtual machine is a new addition to the GPU family designed for the
 [Sign-up and get access to these machines during preview](https://aka.ms/ndv2signup).
 <br>
 
-
-| Size              | vCPU | GPU              | Memory  | NICs (Max) | Max. disk size           | Max. data disks (1023 GB each) | Max network bandwidth | 
-|-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
-| Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 GiB | 8          | Temporary 1344 / 2948XIO | 32                             | 24000 Mbps           |
+| Size | vCPU | GPU | Memory | NICs (Max) | Max. disk size | Max. data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | Temporary 1344 / 2948XIO | 32 | 80000 / 800 | 24000 Mbps |
 
 ## ND-series
 
@@ -119,12 +118,12 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 > For this size family, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
 >
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND6s |6 |112 | 736 | 1 | 24 | 12 | 4 |
-| Standard_ND12s |12 |224 | 1474 | 2 | 48 | 24 | 8 | 
-| Standard_ND24s |24 |448 | 2948 | 4 | 96 | 32 | 8 |
-| Standard_ND24rs* |24 |448 | 2948 | 4 | 96 | 32 | 8 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_ND6s | 6 |112 | 736 | 1 | 24 | 12 | 20000 / 200 | 4 |
+| Standard_ND12s | 12 |224 | 1474 | 2 | 48 | 24 | 40000 / 400 | 8 | 
+| Standard_ND24s | 24 |448 | 2948 | 4 | 96 | 32 | 80000 / 800 | 8 |
+| Standard_ND24rs* | 24 |448 | 2948 | 4 | 96 | 32 | 80000 / 800 | 8 |
 
 1 GPU = one P40 card.
 
@@ -158,11 +157,11 @@ The NVv3-series virtual machines are powered by [NVIDIA Tesla M60](http://images
 
 Each GPU in NVv3 instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV12s_v3 | 12 | 112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
-| Standard_NV24s_v3 | 24 | 224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
-| Standard_NV48s_v3 | 48 | 448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs | Virtual Workstations | Virtual Applications | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6s_v2 |6 |112 |320 | 1 | 8 | 12 | 20000 / 200 | 4 | 1 | 25 |
+| Standard_NV12s_v2 |12 |224 |640 | 2 | 16 | 24 | 40000 / 400 | 8 | 2 | 50 |
+| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 32 | 80000 / 800 | 8 | 4 | 100 |
 
 1 GPU = one-half M60 card.
 
