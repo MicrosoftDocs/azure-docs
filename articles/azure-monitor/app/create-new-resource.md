@@ -28,7 +28,7 @@ You also need a subscription to [Microsoft Azure](https://azure.com). If your te
 When you've got access to a subscription, sign in to Application Insights at [https://portal.azure.com](https://portal.azure.com), and use your Live ID to sign in.
 
 ## Create an Application Insights resource
-In the [portal.azure.com](https://portal.azure.com), create an Application Insights resource:
+In [portal.azure.com](https://portal.azure.com), create an Application Insights resource:
 
 ![Click the `+` sign in the upper left corner. Select Developer Tools followed by Application Insights](./media/create-new-resource/new-app-insights.png)
 
