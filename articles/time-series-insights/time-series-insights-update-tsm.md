@@ -116,11 +116,6 @@ The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/sampl
 
 [![Time Series Model types](media/v2-update-tsm/types.png)](media/v2-update-tsm/types.png#lightbox)
 
-API support for Time Series Model types is described below.
-
-> [!IMPORTANT]
-> To access the Azure Time Series Insights REST APIs, you must [obtain a valid OAuth 2.0 token](time-series-insights-authentication-and-authorization.md#common-headers-and-parameters)
-
 ### Variables
 
 Time Series Insights types have variables, which are named calculations over values from the events. Time Series Insights variable definitions contain formula and computation rules. Variable definitions include *kind*, *value*, *filter*, *reduction*, and *boundaries*. Variables are stored in the type definition in Time Series Model and can be provided inline via Query APIs to override the stored definition.
