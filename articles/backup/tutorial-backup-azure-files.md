@@ -20,7 +20,7 @@ In this guide, you learn how to:
 
 
 ## Prerequisites
-Before you can back up an Azure file share, ensure that it's present in one of the [supported Storage Account types](tutorial-backup-azure-files#limitations-for-azure-file-share-backup-during-preview). Once you have verified this, you can protect your file shares.
+Before you can back up an Azure file share, ensure that it's present in one of the [supported Storage Account types](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Once you have verified this, you can protect your file shares.
 
 ## Limitations for Azure file share backup during Preview
 Backup for Azure file shares is in Preview. Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. The following backup scenarios aren't supported for Azure file shares:
