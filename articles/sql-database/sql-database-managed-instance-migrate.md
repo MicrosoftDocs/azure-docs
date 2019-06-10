@@ -40,7 +40,7 @@ If there are some reported blocking issues that are not removed with the managed
 
 - If you require direct access to the operating system or file system, for instance to install third party or custom agents on the same virtual machine with SQL Server.
 - If you have strict dependency on features that are still not supported, such as FileStream / FileTable, PolyBase, and cross-instance transactions.
-- If absolutely you need to stay at a specific version of SQL Server (2012, for instance).
+- If absolutely need to stay at a specific version of SQL Server (2012, for instance).
 - If your compute requirements are much lower that managed instance offers (one vCore, for instance) and database consolidation is not acceptable option.
 
 If you have resolved all identified migration blockers and continuing the migration to Managed Instance, note that some of the changes might affect performance of your workload:
