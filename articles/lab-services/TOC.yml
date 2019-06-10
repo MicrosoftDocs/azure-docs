@@ -108,6 +108,8 @@
       href: personal-data-delete-export.md
     - name: Import virtual machines from another lab
       href: import-virtual-machines-from-another-lab.md
+    - name: Configure a lab to use a remote desktop gateway
+      href: configure-lab-remote-desktop-gateway.md
     - name: Create an image factory
       href: image-factory-create.md
       items:
