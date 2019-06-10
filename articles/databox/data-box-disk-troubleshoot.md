@@ -137,26 +137,26 @@ There are two log files - *error.xml* and *copylog.xml* that you can use to trou
 | InvalidXmlCharsInPath <br> Could not create the path as the file path has characters that are not valid.| Having characters that are not valid in the file path will result in the failure of manifest file creation. Remove these characters to proceed.  |
 | OpenFileForReadFailed <br> Could not open the file.|File read failed due to an error. Details for the error should be in the exception. |
 | Generic                              |  |
-| Not512Aligned <br> Could not upload the data as it is not 512 bytes aligned.| |
+| Not512Aligned <br> Could not upload the data as it is not 512 bytes aligned.| Remove the file and retry the validation. Only upload data that is 512 bytes aligned to this folder.  |
 | InvalidBlobPath <br> Could not upload the data as the upload path is not valid.| |
 | EnumerationError <br> Could not enumerate the files. | |
-| ShareSizeExceeded <br> Could not upload the file as it exceeds the available space in the share.| |
-| AzureFileSizeExceeded <br> Could not upload the file as it exceeds the maximum size allowed for Azure Files.| |
-| BlockBlobSizeExceeded <br> Could not upload the data as it exceeds the maximum size allowed for a block blob. | |
-| ManagedDiskSizeExceeded <br> Could not upload the data as it exceeds the maximum size allowed for a managed disk. | |
-| PageBlobSizeExceeded <br> Could not upload the data as it exceeds the maximum size allowed for a page blob. | |
-| InvalidShareContainerFormat          |  |
-| InvalidBlobNameFormat <br> Could not upload the data as it does not follow the Azure naming conventions.| |
-| InvalidFileNameFormat <br> Could not upload the data as it does not follow the Azure naming conventions. | |
-| InvalidDiskNameFormat <br> Could not upload the data as it does not follow the Azure naming conventions. |       |
-| NotPartOfFileShare <br> Could not upload the files as the upload path is not valid. Upload the files to a folder in Azure Files.   | |
-| NotFixedVhd <br> Could not upload as managed disks. The differencing VHDs are not supported.| |
-| NonVhdFileNotSupportedForManagedDisk <br> Could not upload as managed disks. The non-VHD files are not supported. | |
-| VhdAsBlockBlob <br> Could not upload as managed disk. The VHD file is not valid.| |
+| ShareSizeExceeded <br> Could not upload the file as it exceeds the available space in the share.|Reduce the size of the data in the share so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
+| AzureFileSizeExceeded <br> Could not upload the file as it exceeds the maximum size allowed for Azure Files.| Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation.|
+| BlockBlobSizeExceeded <br> Could not upload the data as it exceeds the maximum size allowed for a block blob. | Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
+| ManagedDiskSizeExceeded <br> Could not upload the data as it exceeds the maximum size allowed for a managed disk. | Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
+| PageBlobSizeExceeded <br> Could not upload the data as it exceeds the maximum size allowed for a page blob. | Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
+| InvalidShareContainerFormat          |The first folder created under the pre-existing folders on the disk becomes a container in your storage account. This share or container name does not conform to the Azure naming conventions. Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation.   |
+| InvalidBlobNameFormat <br> Could not upload the data as it does not follow the Azure naming conventions.|Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation. |
+| InvalidFileNameFormat <br> Could not upload the data as it does not follow the Azure naming conventions. |Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation. |
+| InvalidDiskNameFormat <br> Could not upload the data as it does not follow the Azure naming conventions. |Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation.       |
+| NotPartOfFileShare <br> Could not upload the files as the upload path is not valid. Upload the files to a folder in Azure Files.   | Remove the files in error and upload those files to a precreated folder. Retry the validation. |
+| NotFixedVhd <br> Could not upload as managed disks. The differencing VHDs are not supported.|Remove the differencing VHDs as these are not supported. Retry the validation. |
+| NonVhdFileNotSupportedForManagedDisk <br> Could not upload as managed disks. The non-VHD files are not supported. |Remove the non-VHD files as these are not supported. Retry the validation. |
+| VhdAsBlockBlob <br> Could not upload as managed disk. The VHD file is not valid.|Remove the VHDs that are not valid. Retry the validation. |
 
 ## Data Box Disk upload errors
 
-| Error/Description                         |Recommended actions                                     |
+| Error                         |Description                                     |
 |-------------------------------------------|--------------------------------------------------------|
 |None <br>  Completed successfully.           | No errors encountered. No action is required.      |
 |Completed <br> Completed successfully.       | No errors encountered. No action is required. |
@@ -167,13 +167,13 @@ There are two log files - *error.xml* and *copylog.xml* that you can use to trou
 |StorageRequestFailed <br> Azure storage request failed.   |     |
 |LeasePresent <br> Lease is already present on the item. |      |
 |StorageRequestForbidden <br> |        |
-|Canceled <br> {0} was canceled.   | For the blob status in user logs; never used in recovery logs.                                                                                                                                                  |
+|Canceled <br> {0} was canceled.   | For the blob status in user logs; never used in recovery logs. |
 |ManagedDiskCreationTerminalFailure <br> Could not convert to managed disks. The data was uploaded as page blobs. | Managed disk creation failed. This is a terminal failure. You can manually convert the data in the page blobs in the staging account to managed disks.  |
 |DiskConversionNotStartedTierInfoMissing <br> Could not convert to managed disk as the data was uploaded outside of the precreated folders on the Data Box Disk.    | Since the VHD file was copied outside of the precreated tier folders, a managed disk wasn't created. The file is uploaded as page blob to the staging storage account as specified during order creation. You can convert it manually to a managed disk.|
-|InvalidWorkitem <br> Could not upload the data as it does not conform to Azure naming and limits conventions.   |These are files that didn't conform to Azure naming conventions and also could not be uploaded as block blob. They are marked as invalid workitem.   |
-|InvalidPageBlobUploadAsBlockBlob <br> The invalid page blobs are uploaded as block blobs  in a container with prefix `databoxdisk-invalid-pb-'.  | Invalid page blobs are uploaded to the Block Blob container starting with 'databoxdisk-invalid-pb-'.                                                                                                          |
-|InvalidAzureFileUploadAsBlockBlob <br>  The invalid Azure Files are uploaded as block blobs in a  container with prefix `databoxdisk-invalid-af-'.      |Azure files uploaded to the Block Blob container starting with 'databoxdisk-invalid-af-' are not valid. Remove these files and rerun the validation tool to resolve this error.                                                                                                         |
-|InvalidManagedDiskUploadAsBlockBlob <br> The invalid managed disk files are uploaded as block blobs in a container with prefix `databoxdisk-invalid-md-'.    |Managed disk files uploaded to the Block Blob container starting with 'databoxdisk-invalid-md-' are not valid.                                                                                                           |
+|InvalidWorkitem <br> Could not upload the data as it does not conform to Azure naming and limits conventions.   |These are files that didn't conform to Azure naming conventions and could not be uploaded as block blob. They are marked as invalid work item.   |
+|InvalidPageBlobUploadAsBlockBlob <br> The invalid page blobs are uploaded as block blobs  in a container with prefix `databoxdisk-invalid-pb-'.  | Invalid page blobs are uploaded to the Block Blob container starting with 'databoxdisk-invalid-pb-'.|
+|InvalidAzureFileUploadAsBlockBlob <br>  The invalid Azure Files are uploaded as block blobs in a  container with prefix `databoxdisk-invalid-af-'.      |Azure files uploaded to the Block Blob container starting with 'databoxdisk-invalid-af-' are not valid. Remove these files and rerun the validation tool to resolve this error. |
+|InvalidManagedDiskUploadAsBlockBlob <br> The invalid managed disk files are uploaded as block blobs in a container with prefix `databoxdisk-invalid-md-'.    |Managed disk files uploaded to the Block Blob container starting with 'databoxdisk-invalid-md-' are not valid.  |
 
 ## Data Box Disk Split Copy tool errors
 
