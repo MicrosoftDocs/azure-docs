@@ -21,13 +21,25 @@ ms.custom:
 
 Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific Azure resource actions even if a role assignment grants them access.
 
-In some ways, deny assignments are different than role assignments. Deny assignments can exclude principals and prevent inheritance to child scopes. Deny assignments also apply to [classic subscription administrator](rbac-and-directory-admin-roles.md) assignments.
-
 This article describes how deny assignments are defined.
 
 ## How deny assignments are created
 
 Deny assignments are created and managed by Azure to protect resources. You can't directly create your own deny assignments. However, Azure Blueprints and Azure managed applications do utilize deny assignments to protect resources. For more information, see [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## Compare role assignments and deny assignments
+
+Deny assignments follow a similar pattern as deny assignments, but also have some differences.
+
+| Capability | Role assignment | Deny assignment |
+| --- | --- | --- |
+| Grant access | :heavy_check_mark: |  |
+| Deny access |  | :heavy_check_mark: |
+| Can be directly created | :heavy_check_mark: |  |
+| Apply at a scope | :heavy_check_mark: | :heavy_check_mark: |
+| Exclude principals |  | :heavy_check_mark: |
+| Prevent inheritance to child scopes |  | :heavy_check_mark: |
+| Apply to [classic subscription administrator](rbac-and-directory-admin-roles.md) assignments |  | :heavy_check_mark: |
 
 ## Deny assignment properties
 
