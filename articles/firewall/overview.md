@@ -12,7 +12,7 @@ Customer intent: As an administrator, I want to evaluate Azure Firewall so I can
 ---
 # What is Azure Firewall?
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. 
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
 
 ![Firewall overview](media/overview/firewall-threat.png)
 
@@ -26,13 +26,13 @@ Azure Firewall offers the following features:
 
 High availability is built in, so no additional load balancers are required and there's nothing you need to configure.
 
-### Availability Zones
+### Availability Zones (public preview)
 
-Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. With Availability Zones, your availability increases to 99.99% uptime. For more information, see the Azure Firewall [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/).
+Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. With Availability Zones, your availability increases to 99.99% uptime. For more information, see the Azure Firewall [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). The 99.99% uptime SLA is offered when two or more Availability Zones are selected.
 
-There's no additional cost for Azure Firewall deployed in an Availability Zone. The 99.99% uptime SLA is offered when two or more Availability Zones are selected.
+You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
 
-You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA. In this case, there will be additional inbound/outbound data transfer charges associated with Availability Zones. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+There's no additional cost for a firewall deployed in an Availability Zone. However, there are additional costs for inbound and outbound data transfers associated with Availability Zones. For more information see, [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 For more information about Availability Zones, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md)
 
@@ -68,7 +68,7 @@ All outbound virtual network traffic IP addresses are translated to the Azure Fi
 
 Inbound network traffic to your firewall public IP address is translated (Destination Network Address Translation) and filtered to the private IP addresses on your virtual networks.
 
-### Multiple public IPs
+### Multiple public IPs (public preview)
 
 You can associate multiple public IP addresses (up to 600) with your firewall.
 
@@ -76,6 +76,9 @@ This enables the following scenarios:
 
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
 - **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
+
+> [!NOTE]
+> During the public preview, if you add or remove a public IP address to a running firewall, there is a 40 - 120 second delay before your inbound NAT rules are functional again.
 
 ### Azure Monitor logging
 
@@ -95,6 +98,7 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Port range in network and application rules|Ports are limited to 64,000 as high ports are reserved for management and health probes. |We're working to relax this limitation.|
 |Threat intelligence alerts may get masked|Network rules with destination 80/443 for outbound filtering masks threat intelligence alerts when configured to alert only mode.|Create outbound filtering for 80/443 using application rules. Or, change the threat intelligence mode to **Alert and Deny**.|
 |Azure Firewall uses Azure DNS only for name resolution|Azure Firewall resolves FQDNs using Azure DNS only. A custom DNS server isn't supported. There's no impact on DNS resolution on other subnets.|We're working to relax this limitation.
+
 ## Next steps
 
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
