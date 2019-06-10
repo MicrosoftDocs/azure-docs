@@ -156,8 +156,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Connector Limitations
 
- * Zoom does not support provisioning for groups.
-
+* Zoom does not support provisioning for groups.
 
 ## Additional resources
 
@@ -167,4 +166,3 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Next steps
 
 * [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
-
