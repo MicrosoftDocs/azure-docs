@@ -62,7 +62,7 @@ Parameter | Description
 
 The constructor has another parameter called `pip_packages` that you use for any pip packages needed
 
-Now that you've created your `Estimator` object, submit the training job to be run on the remote compute with a call to the `submit` function on your [Experiment](concept-azure-machine-learning-architecture.md#experiment) object `experiment`. 
+Now that you've created your `Estimator` object, submit the training job to be run on the remote compute with a call to the `submit` function on your [Experiment](concept-azure-machine-learning-architecture.md#experiments) object `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
