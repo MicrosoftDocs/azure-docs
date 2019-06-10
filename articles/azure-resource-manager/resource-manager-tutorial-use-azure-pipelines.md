@@ -213,7 +213,7 @@ Create a service connection that is used to deploy projects to Azure.
 1. Select the storage account name to open it.
 1. Select **Properties**. Notice the **SKU** is **Standard_LRS**.
 
-    ![Azure Resource Manager DevOps Pipelines portal verification](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verfication.png)
+    ![Azure Resource Manager DevOps Pipelines portal verification](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 
 ## Update and redeploy
 
