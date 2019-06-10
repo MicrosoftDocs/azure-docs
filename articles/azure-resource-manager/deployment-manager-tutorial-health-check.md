@@ -38,7 +38,10 @@ This tutorial covers the following tasks:
 > * Verify the rollout deployment
 > * Clean up resources
 
-The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Additional resources:
+
+- The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [A Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
