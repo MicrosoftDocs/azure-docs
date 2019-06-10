@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 06/10/2019
 ms.author: jingwang
 
 ---
@@ -105,10 +105,10 @@ To use service principal authentication, follow these steps.
     - **As sink**: In Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->To list folders starting from the account level or to test the connection, you must set the permission of the service principal being granted to a **storage account with "Execute" permission in IAM**. This is true when you use the:
+>To list folders starting from the account level or to test connection, you need to set the permission of the service principal being granted to **storage account with "Storage Blob Data Reader" permission in IAM**. This is true when you use the:
 >- **Copy data tool** to author copy pipeline.
->- **Data Factory UI** to test the connection and navigate folders during authoring. 
->If you have concerns about granting permission at the account level, you can skip the connection test and input the path manually during authoring. The copy activity works as long as the service principal is granted the proper permission at the files to be copied.
+>- **Data Factory UI** to test connection and navigating folders during authoring. 
+>If you have concerns about granting permission at the account level, you can skip test connection and input path manually during authoring. Copy activity still works as long as the service principal is granted with proper permission at the files to be copied.
 
 These properties are supported for the linked service:
 
@@ -159,10 +159,10 @@ To use managed identities for Azure resource authentication, follow these steps.
     - **As sink**: In Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->To list folders starting from the account level or to test the connection, set the permission of the managed identity being granted to **storage account with "Execute" permission in IAM**. This is true when you use the:
+>To list folders starting from the account level or to test connection, you need to set the permission of the managed identity being granted to **storage account with "Storage Blob Data Reader" permission in IAM**. This is true when you use the:
 >- **Copy data tool** to author copy pipeline.
->- **Data Factory UI** to test the connection and navigate folders during authoring. 
->If you have concerns about granting permission at the account level, skip the connection test and input the path manually during authoring. The copy activity works as long as the managed identity is granted with the proper permission at the files to be copied.
+>- **Data Factory UI** to test connection and navigating folders during authoring. 
+>If you have concerns about granting permission at the account level, you can skip test connection and input path manually during authoring. Copy activity still works as long as the managed identity is granted with proper permission at the files to be copied.
 
 >[!IMPORTANT]
 >If you use PolyBase to load data from Data Lake Storage Gen2 into SQL Data Warehouse, when you use Data Lake Storage Gen2 managed identity authentication, make sure you also follow steps 1 and 2 in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Follow the instructions to register your SQL Database server with Azure Active Directory (Azure AD). You also assign the Storage Blob Data Contributor role with role-based access control to your SQL Database server. The rest is handled by Data Factory. If your Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint to use PolyBase to load data from it, you must use managed identity authentication.
