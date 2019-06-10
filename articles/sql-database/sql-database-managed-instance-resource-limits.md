@@ -31,9 +31,9 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, vCore=1 LP (hyper-thread) |
-| vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| Memory | 7 GB per vCore | 5.1 GB per vCore |
-| Max In-Memory OLTP memory | 3 GB per vCore | 2.6 GB per vCore |
+| vCores | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
+| Memory (memory/core ratio) | 7 GB per vCore | 5.1 GB per vCore |
+| Max In-Memory OLTP memory | Instance limit: 3 GB per vCore<br/>Database limits:<br/> - 8-core: 8GB per database<br/> - 16-core: 20GB per database<br/> - 24-core: 36GB per database | Instance limit: 2.5 GB per vCore<br/>Database limits:<br/> - 8-core: 13GB per database<br/> - 16-core: 32GB per database |
 | Max instance storage (General Purpose) |  8 TB | 8 TB |
 | Max instance storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
@@ -51,7 +51,7 @@ Managed instance has two service tiers - General Purpose and Business Critical. 
 | Max database files per instance | Up to 280 | 32,767 files per database |
 | Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
 | Log throughput | 3 MB/s per vCore<br/>Max 22 MB/s per instance | 4 MB/s per vCore<br/>Max 48 MB/s per instance|
-| Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
+| Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192 - 1,920 GB (24 GB per vCore) | No constraints - limited by the max instance storage size |
 | Max sessions | 30000 | 30000 |

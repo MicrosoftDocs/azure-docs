@@ -32,8 +32,8 @@ A database in the serverless compute tier is parameterized by the compute range 
 
 - The total bill for a serverless database is the summation of the compute bill and storage bill.
 Billing for compute is based on the amount of vCores used and memory used per second.
-- The minimum compute billed is based on min vCores and min memory.
-- While the database is paused, only storage is billed.
+- The minimum amount of compute billed is based on min vCores and min memory.
+- Only storage is billed while the database is paused.
 
 ## Scenarios
 
@@ -67,7 +67,7 @@ The following table summarizes distinctions between the serverless compute tier 
 
 SQL Database serverless is currently only supported in the General Purpose tier on Generation 5 hardware in the vCore purchasing model.
 
-## Autoscale
+## Autoscaling
 
 ### Scaling responsiveness
 
@@ -92,9 +92,9 @@ In both serverless and provisioned compute databases, cache entries may be evict
 
 The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. When the database is busy, the cache is allowed to grow unconstrained up to the max memory limit.
 
-## Autopause and autoresume
+## Autopausing and autoresuming
 
-### Autopause
+### Autopausing
 
 Autopausing is triggered if all of the following conditions are true for the duration of the autopause delay:
 
@@ -111,7 +111,7 @@ The following features do not support autopausing.  That is, if any of the follo
 
 Autopausing is temporarily prevented during the deployment of some service updates which require the database be online.  In such cases, autopausing becomes allowed again once the service update completes.
 
-### Autoresume
+### Autoresuming
 
 Autoresuming is triggered if any of the following conditions are true at any time:
 
@@ -142,7 +142,7 @@ The latency to autoresume and autopause a serverless database is generally order
 
 ## Onboarding into serverless compute tier
 
-Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps:
+Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps.
 
 1. Specify the service objective name. The service objective prescribes the service tier, hardware generation, and max vCores. The following table shows the service objective options:
 
@@ -157,18 +157,18 @@ Creating a new database or moving an existing database into a serverless compute
    |Parameter|Value choices|Default value|
    |---|---|---|---|
    |Min vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
-   |Autopause delay|Min: 360 minutes (6 hours)<br>Max: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|360 minutes|
+   |Autopause delay|Minimum: 360 minutes (6 hours)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|360 minutes|
 
 > [!NOTE]
 > Using T-SQL to move an existing database into serverless or change its compute size is not currently supported but can be done via the Azure portal or PowerShell.
 
-### Create new serverless database using Azure portal
+### Create new database in serverless compute tier using Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
 
-### Create new serverless database using PowerShell
+### Create new database in serverless compute tier using PowerShell
 
-The following example creates a new database in the serverless compute tier defined by service objective named GP_S_Gen5_4 with default values for the min vCores and autopause delay.
+The following example creates a new database in the serverless compute tier.  This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
 ```powershell
 New-AzSqlDatabase `
@@ -183,9 +183,9 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
-### Move provisioned compute database into serverless compute tier
+### Move database from provisioned compute tier into serverless compute tier
 
-The following example moves an existing single database from the provisioned compute tier into the serverless compute tier. This example explicitly specifies the min vCores, max vCores, and autopause delay.
+The following example moves a database from the provisioned compute tier into the serverless compute tier. This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
 ```powershell
 Set-AzSqlDatabase
@@ -200,7 +200,7 @@ Set-AzSqlDatabase
   -AutoPauseDelayInMinutes 1440
 ```
 
-### Move serverless database into provisioned compute tier
+### Move database from serverless compute tier into provisioned compute tier
 
 A serverless database can be moved into a provisioned compute tier in the same way as moving a provisioned compute database into a serverless compute tier.
 
@@ -222,7 +222,7 @@ Modifying the autopause delay is performed by using the [Set-AzSqlDatabase](http
 
 ### Resources used and billed
 
-The resources of a serverless database are encapsulated by the following entities:
+The resources of a serverless database are encapsulated by app package, SQL instance, and user resource pool entities.
 
 #### App package
 

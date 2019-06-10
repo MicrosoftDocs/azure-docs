@@ -30,24 +30,26 @@ Currently, Azure Dev Spaces works best when debugging a single instance, or pod.
 
 ## Error 'Failed to create Azure Dev Spaces controller'
 
+### Reason
 You might see this error when something goes wrong with the creation of the controller. If it's a transient error, delete and recreate the controller to fix it.
 
-### Try:
+### Try
 
-To delete the controller, use the Azure Dev Spaces CLI. It’s not possible to do it in Visual Studio or Cloud Shell. To install the AZDS CLI, first install the Azure CLI, and then run this command:
+Delete the controller:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+You must use the the Azure Dev Spaces CLI to delete a controller. It’s not possible to delete a controller from Visual Studio. You also cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell so you cannot delete a controller from the Azure Cloud Shell.
+
+If you do not have the Azure Dev Spaces CLI installed, you can first install it using the following command then delete your controller:
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-And then run this command to delete the controller:
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-Recreating the controller can be done from the CLI or Visual Studio. Follow the instructions in the tutorials as if starting for the first time.
-
+Recreating the controller can be done from the CLI or Visual Studio. See the [Team development](quickstart-team-development.md) or [Develop with .NET Core](quickstart-netcore-visualstudio.md) quickstarts for examples.
 
 ## Error 'Service cannot be started.'
 
