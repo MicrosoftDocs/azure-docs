@@ -66,6 +66,7 @@ The images for this project are included. They are referenced in the **LoadImage
 This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```csharp
+var iteration = trainingApi.TrainProject(project.Id);
 // The returned iteration will be in progress, and can be queried periodically to see when it has completed
 while (iteration.Status == "Training")
 {
