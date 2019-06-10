@@ -1,11 +1,12 @@
 ---
-title: 'Deploy and configure Azure Firewall using Azure CLI'
+title: Deploy and configure Azure Firewall using Azure CLI
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure CLI. 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 6/8/2019
+ms.date: 06/11/2019
 ms.author: victorh
+ms.topic: article
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
@@ -245,11 +246,11 @@ Now, test the firewall to confirm that it works as expected.
 
 1. Note the private IP address for the **Srv-Work** virtual machine:
 
-```azureclii-interactive
-az vm list-ip-addresses \
+   ```azureclii-interactive
+   az vm list-ip-addresses \
    -g Test-FW-RG \
    -n Srv-Work
-```
+   ```
 
 1. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address and sign in.
 
