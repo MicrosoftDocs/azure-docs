@@ -88,7 +88,7 @@ To view the health of an Azure VM, select **Insights (preview)** from the left p
 
 ![Azure Monitor for VM's health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-In the **Health** tab under **Guest VM health**, the table shows the health state of your VM and the total number of VM health alerts raised by an unhealthy component.
+Under **Guest VM health** in the **Health** tab, the table shows the health state of your VM and the total number of VM health alerts raised by an unhealthy component.
 
 For more information, see [Alerts](#alerts).
 
@@ -97,9 +97,9 @@ The health states defined for a VM are described in the following table:
 |Icon |Health state |Meaning |
 |-----|-------------|---------------|
 | |Healthy |The VM is within the defined health conditions. This state indicates there are no issues detected and the VM is functioning normally. With a parent rollup monitor, health rolls up and reflects the best-case or worst-case state of the child.|
-| |Critical |The state is not within the defined health condition, indicating that one or more critical issues were detected. These issues to be addressed in order to restore normal functionality. With a parent rollup monitor, the health state rolls up and reflects the best-case or worst-case state of the child.|
-| |Warning |The state is between two thresholds for the defined health condition, where one indicates a warning state and the other indicates a critical state (three health state thresholds can be configured), or when a non-critical issue is detected that can cause critical problems if it's not resolved. With a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect a warning state. If there's a child in a critical state and another child in a warning state, the parent rollup will show the health state as critical.|
-| |Unknown |The state can't be computed for several reasons. See the following section for additional details and possible solutions. |
+| |Critical |The state isn't within the defined health condition, indicating that one or more critical issues were detected. These issues must be addressed to restore normal functionality. With a parent rollup monitor, the health state rolls up and reflects the best-case or worst-case state of the child.|
+| |Warning |The state is between two thresholds for the defined health condition, where one indicates a warning state and the other indicates a critical state (three health state thresholds can be configured), or when a non-critical issue can cause critical problems if unresolved. With a parent rollup monitor, if one or more children is in a warning state, the parent will reflect a warning state. If one child is in a critical state and another child in a warning state, the parent rollup will show the health state as critical.|
+| |Unknown |The state can't be computed for several reasons. The following section provides additional details and possible solutions. |
 
 An Unknown health state can be caused by the following issues:
 
@@ -117,7 +117,9 @@ For more information, see [Health diagnostics](#health-diagnostics).
 
 In the **Component health** section, the table shows a health rollup status of the primary performance categories monitored by health criteria for those areas, specifically **CPU**, **Memory**, **Disk**, and **Network**. Selecting any one of the components opens a page that lists all of the health criterion monitoring and the respective health state of that component.
 
-When accessing Health from an Azure VM running the Windows operating system, the health state of the top five core Windows services is shown under **Core services health**. Selecting any one of the services opens a page listing the health criteria monitoring that component and its health state. Selecting the name of the health criteria opens the property pane. In this pane, you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert.
+When you access health from an Azure VM running Windows, the health state of the top five core Windows services is shown under **Core services health**. Selecting any one of the services opens a page that lists the health criteria monitoring that component, and its health state.
+
+Selecting the name of the health criteria opens the property pane. In this pane, you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert.
 
 For more information, see [Health Diagnostics and working with health criteria](#health-diagnostics).
 
@@ -127,7 +129,7 @@ To view the health collection for all your VMs in a resource group, select **Azu
 
 ![VM Insights monitoring view from Azure Monitor](./media/vminsights-health/vminsights-aggregate-health.png)
 
-In the **Subscription** and **Resource Group** drop-down lists, select the appropriate resource group that includes the VMs related to the group, to view their reported health state. Your selection only applies to the health feature and does not carry over to Performance or Map.
+In the **Subscription** and **Resource Group** dropdown lists, select the appropriate resource group that includes the VMs related to the group, to view their reported health state. Your selection only applies to the health feature and does not carry over to Performance or Map.
 
 The **Health** tab provides the following information:
 
