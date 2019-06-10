@@ -7,9 +7,9 @@
 - name: Quota increase requests
   href: resource-manager-core-quotas-request.md
   items: 
-  - name: VM vCPU quota increase
+  - name: VM Series vCPU limit increase
     href: per-vm-quota-requests.md
-  - name: Total regional vCPU quota increase
+  - name: Total regional vCPU limit increase
     href: regional-quota-requests.md
 - name: Troubleshooting region or SKU subscription issues
   href: sku-series-unavailable.md
