@@ -23,10 +23,6 @@ Just-in-time  (JIT) virtual machine (VM) access can be used to lock down inbound
 
 > [!NOTE]
 > The just-in-time feature is available on the Standard tier of Security Center.  See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
->
->
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Attack scenario
 
@@ -70,11 +66,9 @@ The **Just-in-time VM access** window opens.
 - **No recommendation** - Reasons that can cause a VM not to be recommended are:
   - Missing NSG - The just-in-time solution requires an NSG to be in place.
   - Classic VM - Security Center just-in-time VM access currently supports only VMs deployed through Azure Resource Manager. A classic deployment is not supported by the just-in-time solution.
-  - Other - A VM is in this category if the just-in-time solution is turned off in the security policy of the subscription or the resource group, or that the VM is missing a public IP and doesn't have an NSG in place.
+  - Other - A VM is in this category if the just-in-time solution is turned off in the security policy of the subscription or the resource group, or if the VM is missing a public IP and doesn't have an NSG in place.
 
-### Configuring a JIT access policy<a name="jit-config"></a>
-
-To select the VMs that you want to enable:
+### Configure JIT access policies<a name="jit-config"></a>
 
 1. Under **Just-in-time VM access**, select the **Recommended** tab.
 
@@ -200,7 +194,37 @@ Assign these *actions* to the user:
 - On the scope of a Subscription or Resource Group or VM:
   - Microsoft.Compute/virtualMachines/read
 
+## Just-In-Time (JIT) access for Azure Firewall
+Just like JIT on Network Security Groups (NSG), when using Just-In-Time on an Azure Firewall, Security Center allows inbound traffic to your Azure VMs only per confirmed request, by creating an Azure Firewall rule (if needed – in addition to NSG rules).
 
+When a user requests access to a VM, Security Center checks that the user has Role-Based Access Control (RBAC) permissions that permit them to successfully request access to a VM. If the request is approved, Security Center automatically configures the Azure Firewall (and NSGs) to allow inbound traffic to the selected ports and requested source IP addresses or ranges, for the amount of time that was specified. After the time has expired, Security Center restores the firewalls and NSGs to their previous states.
+<!--This needs to be explained-->
+Those connections that are already established are not being interrupted, however. In addition, when requesting access, Azure Security Center provides you with the right connection details to your machine.
+
+## Use Just-In-Time (JIT) access with Azure Firewall
+
+### Configure JIT policy on an Azure firewall
+
+Follow Azure Security Center’s Just-in-time access documentation. When configuring JIT Policy, Azure Security Center won’t change your firewall rules.
+
+### Request JIT Access to a VM using an Azure Firewall
+
+1. Under Just in time VM access, select Configured.
+1. Under VMs, check the VMs that you want to enable just-in-time access for.
+1. Select Request access.
+
+    ![Virtual machines](./media/security-center-just-in-time-firewall/virtual-machines.png)
+
+    * the icon in the ‘Connection Details’ column indicates whether JIT is enabled on the NSG or FW. If it’s enabled on both, only the Firewall icon appears.
+    * The ‘Connection Details’ column provides the correct information required to connect the VM, as well as indicates the opened ports.
+
+1. Under Request access, for each VM, configure the ports that you want to open and the source IP addresses that the port is opened on and the time window for which the port will be open. It will only be possible to request access to the ports that are configured in the just-in-time policy. Each port has a maximum allowed time derived from the just-in-time policy.
+
+    ![Request access](./media/security-center-just-in-time-firewall/request-access.png)
+ 
+1. Select Open ports.
+
+When requested access is approved, Azure Security Center creates high priority rules in your Azure Firewall, allowing inbound traffic through the opened ports to the requested source IPs.
 
 ## Use JIT programmatically
 You can set up and use just-in-time via REST APIs and via PowerShell.
@@ -209,7 +233,7 @@ You can set up and use just-in-time via REST APIs and via PowerShell.
 
 The just-in-time VM access feature can be used via the Azure Security Center API. You can get information about configured VMs, add new ones, request access to a VM, and more, via this API. See [Jit Network Access Policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies), to learn more about the just-in-time REST API.
 
-### Using JIT VM access via PowerShell 
+### Use JIT VM access via PowerShell 
 
 To use the just-in-time VM access solution via PowerShell, use the official Azure Security Center PowerShell cmdlets, and specifically `Set-AzJitNetworkAccessPolicy`.
 
@@ -243,7 +267,7 @@ Run the following in PowerShell to accomplish this:
 	
         Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
-#### Requesting access to a VM
+#### Requesting access to a VM via PowerShell
 
 In the following example, you can see a just-in-time VM access request to a specific VM in which port 22 is requested to be opened for a specific IP address and for a specific amount of time:
 
