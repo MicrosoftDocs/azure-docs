@@ -55,7 +55,7 @@ The **application API in Microsoft Graph** is currently in preview. Use this API
 
 ### MSAL libraries
 
-You can use the MSAL library to build applications that authenticate all Microsoft identities. The MSAL libraries in .NET are generally available. MSAL libraries for JavaScript, iOS, and Android are in preview and suitable for use in a production environment. We provide the same production level support for MSAL libraries in preview as we do for versions of MSAL and ADAL that are generally available.
+You can use the MSAL library to build applications that authenticate all Microsoft identities. The MSAL libraries in .NET and JavaScript are generally available. MSAL libraries for iOS and Android are in preview and suitable for use in a production environment. We provide the same production level support for MSAL libraries in preview as we do for versions of MSAL and ADAL that are generally available.
 
 You can also use the MSAL libraries to integrate your application with Azure AD B2C.
 

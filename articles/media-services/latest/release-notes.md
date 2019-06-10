@@ -42,11 +42,9 @@ You can now use Azure Monitor to view telemetry data emmited by Media Services.
 
 For details, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
-### HLS v4 and above support in Dynamic packaging 
+### Multi audio tracks support in Dynamic Packaging 
 
-Added HLS (version 4 or above) support in Dynamic Packaging for Assets that have multiple audio tracks with multiple codecs and languages.
-
-For more information, see [Dynamic Packaging](dynamic-packaging-overview.md).
+When streaming Assets that have multiple audio tracks with multiple codecs and languages, [Dynamic Packaging](dynamic-packaging-overview.md) now supports multi audio tracks for the HLS output (version 4 or above).
 
 ### Korea regional pair is open for Media Services 
 
