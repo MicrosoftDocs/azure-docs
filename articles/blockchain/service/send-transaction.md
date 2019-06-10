@@ -1,182 +1,52 @@
 ---
 title: Send transactions using Azure Blockchain Service
-description: Tutorial on how to use Azure Blockchain Service to deploy a smart contract and send a private transaction.
+description: Tutorial on how to use Azure Blockchain Service to deploy a smart contract and send a transaction.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 06/07/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: jackyhsu
+ms.reviewer: chrisseg
 manager: femila
-#Customer intent: As a developer, I want to use Azure Blockchain Service so that I can send a private blockchain transaction to a consortium member.
+#Customer intent: As a developer, I want to use Azure Blockchain Service so that I can send a blockchain transaction to a consortium member.
 ---
 
-# Tutorial: Send transactions using Azure Blockchain Service
+# Tutorial: Send a transaction to Azure Blockchain Service
 
-In this tutorial, you'll to create transaction nodes to test contract and transaction privacy.  You'll use Truffle to create a local development environment and deploy a smart contract and send a private transaction.
+In this tutorial, you'll use the Azure Blockchain Development Kit for Ethereum to create and deploy a smart contract then send a transaction to a consortium member blockchain in Azure Blockchain Service.
 
-You'll learn how to:
+You use Azure Blockchain Development Kit to:
 
 > [!div class="checklist"]
-> * Add transaction nodes
-> * Use Truffle to deploy a smart contract
+> * Connect to Azure Blockchain Service consortium member
+> * Create a smart contract
+> * Deploy a smart contract
 > * Send a transaction
-> * Validate transaction privacy
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* Complete [Create a blockchain member using the Azure portal](create-member.md)
-* Complete [Quickstart: Use Truffle to connect to a consortium network](connect-truffle.md)
-* Install [Truffle](https://github.com/trufflesuite/truffle). Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-* Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Web3.
-* Install [Visual Studio Code](https://code.visualstudio.com/Download)
-* Install [Visual Studio Code Solidity extension](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
+* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [Azure Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node.js (10.15.0)](https://nodejs.org)
+* [Git (2.10.0)](https://git-scm.com)
+* [Python (2.7.15)](https://www.python.org/downloads/release/python-2715/). Add python.exe to your path.
+* [Truffle (5.0.0)](https://github.com/trufflesuite/truffle)
+* [Ganache CLI (6.0.0)](https://github.com/trufflesuite/ganache-cli)
 
-## Create transaction nodes
+## Connect to consortium member
 
-By default, you have one transaction node. We're going to add two more. One of the nodes participates in the private transaction. The other is not included in the private transaction.
+You can connect to consortium members using the Azure Blockchain Development Kit for Ethereum extension.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your Azure Blockchain member and select **Transaction nodes > Add**.
-1. Complete the settings for a new transaction node named `alpha`.
-
-    ![Create transaction node](./media/send-transaction/create-node.png)
-
-    | Setting | Value | Description |
-    |---------|-------|-------------|
-    | Name | `alpha` | Transaction node name. The name is used to create the DNS address for the transaction node endpoint. For example, `alpha-mymanagedledger.blockchain.azure.com`. |
-    | Password | Strong password | The password is used to access the transaction node endpoint with basic authentication.
-
-1. Select **Create**.
-
-    Provisioning a new transaction node takes about 10 minutes.
-
-1. Repeat steps 2 through 4 to add a transaction node named `beta`.
-
-You can continue with the tutorial while the nodes are being provisioned. When provisioning is finished, you'll have three transaction nodes.
-
-## Open Truffle console
-
-1. Open a Node.js command prompt or shell.
-1. Change your path to the Truffle project directory from the prerequisite [Quickstart: Use Truffle to connect to a consortium network](connect-truffle.md). For example,
-
-    ```bash
-    cd truffledemo
-    ```
-
-1. Launch Truffle's interactive development console.
-
-    ``` bash
-    truffle develop
-    ```
-
-    Truffle creates a local development blockchain and provides an interactive console.
-
-## Create Ethereum account
-
-Use Web3 to connect to the default transaction node and create an Ethereum account. You can get the Web3 connection string from the Azure portal.
-
-1. In the Azure portal, navigate to the default transaction node and select **Transaction nodes > Sample code > Web3**.
-1. Copy the JavaScript from **HTTPS (Access key 1)**
-    ![Web3 sample code](./media/send-transaction/web3-code.png)
-
-1. Paste the Web3 JavaScript code for the default transaction node into the Truffle interactive development console. The code creates a Web3 object that is connected to your Azure Blockchain Service transaction node.
-
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
-    ```
-
-    You can call methods on the Web3 object to interact with your transaction node.
-
-1. Create a new account on the default transaction node. Replace the password parameter with your own strong password.
-
-    ```bash
-    web3.eth.personal.newAccount("1@myStrongPassword");
-    ```
-
-    Make note of the account address returned and password. You need the Ethereum account address and password in the next section.
-
-1. Exit the Truffle development environment.
-
-    ```bash
-    .exit
-    ```
-
-## Configure Truffle project
-
-To configure the Truffle project, you need some transaction node information from the Azure portal.
-
-### Transaction node public key
-
-Each transaction node has a public key. The public key enables you to send a private transaction to the node. In order to send a transaction from the default transaction node to the *alpha* transaction node, you need the *alpha* transaction node's public key.
-
-You can get the public key from the transaction node list. Copy the public key for the alpha node and save the value for later in the tutorial.
-
-![Transaction node list](./media/send-transaction/node-list.png)
-
-### Transaction node endpoint addresses
-
-1. In the Azure portal, navigate to each transaction node and select **Transaction nodes > Connection strings**.
-1. Copy and save the endpoint URL from **HTTPS (Access key 1)** for each transaction node. You need the endpoint addresses for the smart contract configuration file later in the tutorial.
-
-    ![Transaction endpoint address](./media/send-transaction/endpoint.png)
-
-### Edit configuration file
-
-1. Launch Visual Studio Code and open the Truffle project directory folder using the **File > Open Folder** menu.
-1. Open the Truffle configuration file `truffle-config.js`.
-1. Replace the contents of the file with the following configuration information. Add variables containing the endpoints addresses and account information. Replace the angle bracket sections with values you collected from previous sections.
-
-    ``` javascript
-    var defaultnode = "<default transaction node connection string>";
-    var alpha = "<alpha transaction node connection string>";
-    var beta = "<beta transaction node connection string>";
-    
-    var myAccount = "<Ethereum account address>";
-    var myPassword = "<Ethereum account password>";
-    
-    var Web3 = require("web3");
-    
-    module.exports = {
-      networks: {
-        defaultnode: {
-          provider:(() =>  {
-          const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
-    
-          const web3 = new Web3(AzureBlockchainProvider);
-          web3.eth.personal.unlockAccount(myAccount, myPassword);
-    
-          return AzureBlockchainProvider;
-          })(),
-    
-          network_id: "*",
-          gas: 0,
-          gasPrice: 0,
-          from: myAccount
-        },
-        alpha: {
-          provider: new Web3.providers.HttpProvider(alpha),
-          network_id: "*",
-          gas: 0,
-          gasPrice: 0
-        },
-        beta: {
-          provider: new Web3.providers.HttpProvider(beta),
-          network_id: "*",
-          gas: 0,
-          gasPrice: 0
-        }
-      }
-    }
-    ```
-
-1. Save the changes to `truffle-config.js`.
+1. Complete the prerequisite [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md).
+1. Choose **Azure Blockchain: Connect to Consortium** from the Visual Studio Code (VS Code) command palette.
+1. Choose **Connect to Azure Blockchain Service consortium**. If prompted for Azure authentication, follow the prompts to authenticate using a browser. Select the subscription and resource group associated with your Azure Blockchain Service consortium member.
+1. Choose the consortium member from the list.
+1. 
 
 ## Create smart contract
 
