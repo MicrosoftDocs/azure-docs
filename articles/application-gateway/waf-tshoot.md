@@ -1,17 +1,17 @@
 ---
-title: Troubleshoot the web application firewall for Azure Application Gateway
-description: This article provides troubleshooting information for web application firewall (WAF) for Application Gateway
+title: Troubleshoot the Web Application Firewall for Azure Application Gateway
+description: This article provides troubleshooting information for Web Application Firewall (WAF) for Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/4/2019
+ms.date: 6/11/2019
 ms.author: ant
 ms.topic: conceptual
 ---
 
-# Troubleshoot web application firewall for Azure Application Gateway
+# Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway
 
-There are a few things you can do if requests that should pass through your web application firewall (WAF) are blocked.
+There are a few things you can do if requests that should pass through your Web Application Firewall (WAF) are blocked.
 
 First, ensure you’ve read the [WAF overview](waf-overview.md) and the [WAF configuration](application-gateway-waf-configuration.md) documents. Also, make sure you’ve enabled [WAF monitoring](application-gateway-diagnostics.md) These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
 
@@ -282,7 +282,7 @@ In this example, you can see that you have four rules with the same TransactionI
 -	}
 ```
 
-With your knowledge of how the CRS rule sets work, and that the CRS ruleset 3.0 works with an anomaly scoring system (see more here https://docs.microsoft.com/en-us/azure/application-gateway/waf-overview) you know that the bottom two rules with the **action: Blocked** property are blocking based on the total anomaly score. The rules to focus on are the top two.
+With your knowledge of how the CRS rule sets work, and that the CRS ruleset 3.0 works with an anomaly scoring system (see [Web application firewall for Azure Application Gateway](waf-overview.md)) you know that the bottom two rules with the **action: Blocked** property are blocking based on the total anomaly score. The rules to focus on are the top two.
 
 The first entry is logged because the user used a numeric IP address to navigate to the Application Gateway, which can be ignored in this case.
 
