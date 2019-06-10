@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
+ms.custom: fasttrack-edit
 
 ---
 # App Service networking features
@@ -108,7 +109,7 @@ Service endpoints allows you to lock down **inbound** access to your app such th
 ![service endpoints](media/networking-features/service-endpoints.png)
 
 * Setting up an Application Gateway with your app to lock down inbound traffic to your app
-* Testricting access to your app to resources in your VNet. This can include VMs, ASEs, or even other apps that use VNet Integration 
+* Restricting access to your app for resources in your VNet. This can include VMs, ASEs, or even other apps that use VNet Integration 
 
 ![service endpoints with application gateway](media/networking-features/service-endpoints-appgw.png)
 
