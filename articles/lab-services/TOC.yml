@@ -49,7 +49,9 @@
   - name: DevTest Labs
     items: 
     - name: DevTest Labs concepts
-      href: devtest-lab-concepts.md    
+      href: devtest-lab-concepts.md
+    - name: Best practices for distributed and collaborative development
+      href: best-practices-distributive-collaborative-development-environment.md    
     - name: Scenarios
       items:
       - name: Popular scenarios for using DevTest Labs
