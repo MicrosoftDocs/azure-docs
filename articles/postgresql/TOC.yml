@@ -89,7 +89,9 @@
       - name: Advanced Threat Protection
         href: concepts-data-access-and-security-threat-protection.md
       - name: Virtual network
-        href: concepts-data-access-and-security-vnet.md 
+        href: concepts-data-access-and-security-vnet.md
+      - name: Connectivity architecture
+        href: concepts-connectivity-architecture.md      
     - name: Business continuity
       items:
       - name: Overview

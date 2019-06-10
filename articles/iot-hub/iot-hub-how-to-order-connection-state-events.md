@@ -267,7 +267,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 6. For **Endpoint Details**, select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
-   ![Select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![Select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. The form should now look similar to the following example:
 
