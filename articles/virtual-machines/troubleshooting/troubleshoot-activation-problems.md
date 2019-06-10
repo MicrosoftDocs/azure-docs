@@ -46,11 +46,9 @@ Generally, Azure VM activation issues occur if the Windows VM is not configured 
 >
 >If you are using ExpressRoute and you have a default route published, see [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
 
-### Step 1 Configure the appropriate KMS client setup key (for Windows Server 2016 and Windows Server 2012 R2)
+### Step 1 Configure the appropriate KMS client setup key
 
-For the VM that is created from a custom image of Windows Server 2016 or Windows Server 2012 R2, you must configure the appropriate KMS client setup key for the VM.
-
-This step does not apply to Windows 2012 or Windows 2008 R2. It uses the Automation Virtual Machine Activation (AVMA) feature, which is supported only by Windows Server 2016 and Windows Server 2012 R2.
+For the VM that is created from a custom image, you must configure the appropriate KMS client setup key for the VM.
 
 1. Run **slmgr.vbs /dlv** at an elevated command prompt. Check the Description value in the output, and then determine whether it was created from retail (RETAIL channel) or volume (VOLUME_KMSCLIENT) license media:
   
