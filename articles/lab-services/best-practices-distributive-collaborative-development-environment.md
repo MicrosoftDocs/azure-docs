@@ -1,5 +1,5 @@
 ---
-title: Distributed collaborative development of DevTest Labs resources | Microsoft Docs
+title: Distributed collaborative development of Azure DevTest Labs resources | Microsoft Docs
 description: Provides best practices for setting up a distributed and collaborative development environment to develop DevTest Labs resources. 
 services: devtest-lab,lab-services
 documentationcenter: na
