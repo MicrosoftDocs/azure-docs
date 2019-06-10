@@ -50,6 +50,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Fixed an issue where some calls to WebService Update did not trigger an update.
   + Scoring timeout on AKS webservices should be between 5ms and 300000ms. Max allowed scoring_timeout_ms for scoring requests has been bumped from 1 min to 5 min.
   + LocalWebservice objects now have `scoring_uri` and `swagger_uri` properties.
+  + Moved outputs directory creation and outputs directory upload out of the user process. Enabled run history SDK to run in every user process. This should resolve some synchronization issues experienced by distributed training runs.
+  + The name of the azureml log written from the user process name will now include process name (for distributed training only) and PID.
 
 
 ## 2019-05-28
