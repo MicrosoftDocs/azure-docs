@@ -200,7 +200,7 @@ You author two linked services in this section:
 
 
 ## Trigger a pipeline run
-Select **Trigger** on the toolbar, and then select **Trigger Now**. 
+Select **Add Trigger** on the toolbar, and then select **Trigger Now**. 
 
 !["Trigger" and "Trigger Now" buttons](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
