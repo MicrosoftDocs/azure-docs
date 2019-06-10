@@ -1,5 +1,5 @@
 ---
-title: Distributed collaborative development of DevTest Labs resources. | Microsoft Docs
+title: Distributed collaborative development of DevTest Labs resources | Microsoft Docs
 description: Provides best practices for setting up a distributed and collaborative development environment to develop DevTest Labs resources. 
 services: devtest-lab,lab-services
 documentationcenter: na
@@ -60,5 +60,3 @@ See the following articles:
 - Add a repository to a lab using either the [Azure portal](devtest-lab-add-artifact-repo.md) or via [Azure Resource Management template](add-artifact-repository.md)
 - [DevTest Labs artifacts](devtest-lab-artifact-author.md)
 - [DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
- 
-
