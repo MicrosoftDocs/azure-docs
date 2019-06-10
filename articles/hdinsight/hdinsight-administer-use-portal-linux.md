@@ -138,7 +138,7 @@ You can add additional Azure Storage accounts and Azure Data Lake Storage accoun
 
 The cluster scaling feature allows you to change the number of worker nodes used by an Azure HDInsight cluster, without having to re-create the cluster.
 
-See [Scale HDInsight clusters](./hdinsight-scaling-best-practices) for complete information.
+See [Scale HDInsight clusters](./hdinsight-scaling-best-practices.md) for complete information.
 
 ## Pause/shut down clusters
 
