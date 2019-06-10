@@ -44,11 +44,44 @@ You can connect to consortium members using the Azure Blockchain Development Kit
 
 1. Complete the prerequisite [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md).
 1. Choose **Azure Blockchain: Connect to Consortium** from the Visual Studio Code (VS Code) command palette.
-1. Choose **Connect to Azure Blockchain Service consortium**. If prompted for Azure authentication, follow the prompts to authenticate using a browser. Select the subscription and resource group associated with your Azure Blockchain Service consortium member.
+1. Choose **Connect to Azure Blockchain Service consortium**. If prompted for Azure authentication, follow the prompts to authenticate using a browser. 
+1. Select the subscription and resource group associated with your Azure Blockchain Service consortium member.
 1. Choose the consortium member from the list.
-1. 
 
 ## Create smart contract
+
+The Azure Blockchain Development Kit for Ethereum uses the Truffle Suite of tools to help scaffold, build, and deploy contracts.
+
+1. Choose **Azure Blockchain: new Solidity Project** from the VS Code command palette.
+1. Choose **Create basic project**.
+1. Create a new folder named `newcontract` and **Select new project path**. The Azure Blockchain Development Kit uses Truffle to create and initialize the Solidity project. The project structure looks like the following:
+
+    [screenshot]
+
+Your Solidity project includes a simple contract and all the necessary files to build and deploy a simple, working, contract to the Azure Blockchain Service.
+
+## Build smart contract
+
+Explain build.
+
+1. Open the contract folder.
+1. Choose **Azure Blockchain: Build Contracts** from the VS Code command palette.
+
+Once compiled, you have your contract, contract metadata (e.g., contract ABI, bytecode) available in the ./build directory.
+
+Once you deployment/creation of the Azure Blockchain Service is complete you will also see that consortium in your VS Code Blockchain tab. 
+
+## Deploy smart contract
+
+Explain deploy.
+
+1. To deploy your contract, choose **Azure Blockchain: Deploy Contracts** from the VS Code command palette.
+1. Options for test, local, and consortium. Choose consortium network. 
+1. Generate mnemonic. Save it.
+
+the deployment process gives users the option to deploy a contract to a local Ethereum emulation environment, an Azure Blockchain Service, or various public Ethereum endpoints such as a testnet, or mainnet. 
+
+
 
 1. In the **contracts** folder, create a new file named `SimpleStorage.sol`. Add the following code.
 
