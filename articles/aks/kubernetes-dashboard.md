@@ -2,12 +2,12 @@
 title: Manage an Azure Kubernetes Service cluster with the web dashboard
 description: Learn how to use the built-in Kubernetes web UI dashboard to manage an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: iainfoulds
+author: tylermsft
 
 ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: iainfou
+ms.author: twhitney
 ---
 
 # Access the Kubernetes web dashboard in Azure Kubernetes Service (AKS)

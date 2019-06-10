@@ -43,15 +43,9 @@ Learn more about how billing works for [triggers](#triggers) and [actions](#acti
 
 ## Fixed pricing model
 
-An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
-provides a private, isolated, and dedicated way for you to create and 
-run logic apps that can access resources in an Azure virtual network. 
-For new logic apps that run inside an ISE, you pay a fixed monthly price 
-for built-in actions and triggers and also for Standard connectors.
+An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides a private, isolated, and dedicated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for built-in actions and triggers and also for Standard connectors.
 
-Your ISE also includes one free Enterprise connector, which includes 
-as many connections as you want. Usage for additional Enterprise 
-connectors is charged based on the Enterprise consumption price.
+Your ISE also includes one free Enterprise connector, which includes as many *connections* as you want. Usage for additional Enterprise connectors is charged based on the [Enterprise consumption price](https://azure.microsoft.com/pricing/details/logic-apps). Only generally available Enterprise connectors are charged at the Enterprise consumption price. Public preview Enterprise connectors are charged at the [Standard connector rate](https://azure.microsoft.com/pricing/details/logic-apps).
 
 > [!NOTE]
 > Within an ISE, built-in triggers and actions display the 
@@ -62,7 +56,8 @@ connectors is charged based on the Enterprise consumption price.
 
 Your ISE base unit has fixed capacity, so if you need more throughput, 
 you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 
-either during creation or afterwards. 
+either during creation or afterwards. Logic apps that run in an ISE 
+don't incur data retention costs.
 
 For specific pricing information, see 
 [Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
@@ -168,11 +163,7 @@ For specific pricing information, see
 
 ## Data retention
 
-All inputs and outputs that are stored in your logic 
-app's run history get billed based on a logic app's 
-[run retention period](logic-apps-limits-and-config.md#run-duration-retention-limits). 
-For specific pricing information, see 
-[Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+Except for logic apps that run in an integration service environment (ISE), all inputs and outputs that are stored in your logic app's run history get billed based on a logic app's [run retention period](logic-apps-limits-and-config.md#run-duration-retention-limits). Logic apps that run in an ISE don't incur data retention costs. For specific pricing information, see [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 To help you monitor your logic app's storage consumption, you can:
 

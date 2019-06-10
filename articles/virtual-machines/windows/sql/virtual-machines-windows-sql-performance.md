@@ -49,7 +49,7 @@ For performance sensitive applications, it’s recommended that you use the foll
 * **SQL Server Enterprise Edition**: DS3_v2 or higher
 * **SQL Server Standard and Web Editions**: DS2_v2 or higher
 
-[DSv2-series](../sizes-general.md#dsv2-series) VMs support premium storage, which is recommended for the best performance. The sizes recommended here are baselines, but the actual machine size you select depends on your workload demands. DSv2-series VMs are general-purpose VMs that are good for a variety of workloads, whereas other machines sizes are optimized for specific workload types. For example, the [M-series](../sizes-memory.md#m-series) offers the highest vCPU count and memory for the largest SQL Server workloads. The [GS-series](../sizes-memory.md#gs-series) and [DSv2-series 11-15](../sizes-memory.md#dsv2-series-11-15) are optimized for large memory requirements. Both of those series are also available in [constrained core sizes](../../windows/constrained-vcpu.md), which saves money for workloads with lower compute demands. The [Ls-series](../sizes-storage.md) machines are optimized for high disk throughput and IO. It is important to consider your specific SQL Server workload and apply this to your selection of a VM series and size.
+[DSv2-series](../sizes-general.md#dsv2-series) VMs support premium storage, which is recommended for the best performance. The sizes recommended here are baselines, but the actual machine size you select depends on your workload demands. DSv2-series VMs are general-purpose VMs that are good for a variety of workloads, whereas other machines sizes are optimized for specific workload types. For example, the [M-series](../sizes-memory.md#m-series) offers the highest vCPU count and memory for the largest SQL Server workloads. The [GS-series](../sizes-previous-gen.md#gs-series) and [DSv2-series 11-15](../sizes-memory.md#dsv2-series-11-15) are optimized for large memory requirements. Both of those series are also available in [constrained core sizes](../../windows/constrained-vcpu.md), which saves money for workloads with lower compute demands. The [Ls-series](../sizes-storage.md) machines are optimized for high disk throughput and IO. It is important to consider your specific SQL Server workload and apply this to your selection of a VM series and size.
 
 ## Storage guidance
 
@@ -173,13 +173,24 @@ There is one exception to this recommendation: _if your TempDB usage is write-in
 
 Some deployments may achieve additional performance benefits using more advanced configuration techniques. The following list highlights some SQL Server features that can help you to achieve better performance:
 
-* **Backup to Azure storage**: When performing backups for SQL Server running in Azure virtual machines, you can use [SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx). This feature is available starting with SQL Server 2012 SP1 CU2 and recommended for backing up to the attached data disks. When you backup/restore to/from Azure storage, follow the recommendations provided at [SQL Server Backup to URL Best Practices and Troubleshooting and Restoring from Backups Stored in Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). You can also automate these backups using [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+### Backup to Azure Storage
+When performing backups for SQL Server running in Azure virtual machines, you can use [SQL Server Backup to URL](https://msdn.microsoft.com/library/dn435916.aspx). This feature is available starting with SQL Server 2012 SP1 CU2 and recommended for backing up to the attached data disks. When you backup/restore to/from Azure storage, follow the recommendations provided at [SQL Server Backup to URL Best Practices and Troubleshooting and Restoring from Backups Stored in Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). You can also automate these backups using [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
-    Prior to SQL Server 2012, you can use [SQL Server Backup to Azure Tool](https://www.microsoft.com/download/details.aspx?id=40740). This tool can help to increase backup throughput using multiple backup stripe targets.
+Prior to SQL Server 2012, you can use [SQL Server Backup to Azure Tool](https://www.microsoft.com/download/details.aspx?id=40740). This tool can help to increase backup throughput using multiple backup stripe targets.
 
-* **SQL Server Data Files in Azure**: This new feature, [SQL Server Data Files in Azure](https://msdn.microsoft.com/library/dn385720.aspx), is available starting with SQL Server 2014. Running SQL Server with data files in Azure demonstrates comparable performance characteristics as using Azure data disks.
+### SQL Server Data files in Azure
 
-## Next Steps
+This new feature, [SQL Server Data Files in Azure](https://msdn.microsoft.com/library/dn385720.aspx), is available starting with SQL Server 2014. Running SQL Server with data files in Azure demonstrates comparable performance characteristics as using Azure data disks.
+
+### Failover cluster instance and Storage Spaces
+
+If you are using Storage Spaces, when adding nodes to the cluster on the **Confirmation** page, clear the checkbox labeled **Add all eligible storage to the cluster**. 
+
+![Uncheck eligible storage](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+
+If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they do not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](/windows-server/storage/storage-spaces/overview).
+
+## Next steps
 
 For more information about storage and performance, see [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
 
