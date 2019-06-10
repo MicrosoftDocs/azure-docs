@@ -79,8 +79,7 @@
       displayName: Basic Sample, training, classification, sample 5
       href:  ui-sample-classification-predict-churn.md
   - name: Azure Open Datasets
-    href: https://docs.microsoft.com/azure/open-datasets/samples
-    maintainContext: true
+    href: /azure/open-datasets/samples?context=/azure/machine-learning/service/context/ml-context
 - name: Concepts
   items:
   - name: Workspace
@@ -177,10 +176,12 @@
       href: how-to-set-up-training-targets.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
-    - name: Use PyTorch
-      href: how-to-train-pytorch.md
     - name: Use TensorFlow
       href: how-to-train-tensorflow.md
+    - name: Use Keras
+      href: how-to-train-keras.md
+    - name: Use PyTorch
+      href: how-to-train-pytorch.md
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
@@ -218,8 +219,7 @@
     - name: FPGAs
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
-      href: ../../iot-edge/tutorial-deploy-machine-learning.md
-      maintainContext: true
+      href: /azure/iot-edge/tutorial-deploy-machine-learning?context=/azure/machine-learning/service/context/ml-context
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
@@ -244,8 +244,7 @@
       href: how-to-create-your-first-pipeline.md  
     - name: 'CI/CD of ML workflows with Azure Pipelines'
       displayName: continuous, integration, delivery
-      href: /azure/devops/pipelines/targets/azure-machine-learning
-      mainContext: true
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=/azure/machine-learning/service/context/ml-context
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -369,8 +368,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Compare our ML products
-    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-    maintainContext: true
+    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=/azure/machine-learning/service/context/ml-context
   - name: What happened to Workbench
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
