@@ -80,7 +80,7 @@ Once you are approved to pay by invoice, you can switch your Azure subscription 
 
     ![Screenshot that shows pay by invoice button](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
-## Need help? Contact us.
+## Need help? Contact us
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
