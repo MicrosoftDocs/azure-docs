@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform code samples | Microsoft Docs
-description: Provides an index of available Microsoft identity platform (V2 endpoint) code samples, organized by scenario.
+description: Provides an index of available Microsoft identity platform (v2.0 endpoint) code samples, organized by scenario.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -39,7 +39,7 @@ To understand the basic scenario for each sample type, see [App types for the Mi
 
 You can also contribute to the samples on GitHub. To learn how, see [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 
-## Single-page applications (SPA)
+## Single-page applications
 
 These samples show how to write a single-page application secured with Microsoft identity platform. These samples use one of the flavors of MSAL.js.
 
@@ -64,9 +64,9 @@ The following samples illustrate web applications that sign in users. Some sampl
 
 ## Desktop and mobile public client apps
 
-The following samples show public client applications (desktop or mobile applications) that access the Microsoft Graph API, or your own Web API in the name of a user. All these client applications use Microsoft Authentication Libraries (MSAL).
+The following samples show public client applications (desktop or mobile applications) that access the Microsoft Graph API, or your own web API in the name of a user. All these client applications use Microsoft Authentication Library (MSAL).
 
-| Client application | Platform | Flow/Grant | Calls Microsoft Graph | Calls an ASP.NET Core 2.0 Web API |
+| Client application | Platform | Flow/Grant | Calls Microsoft Graph | Calls an ASP.NET Core 2.0 web API |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [interactive](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Desktop (Console)   | ![.NET/C# (Desktop)](media/sample-v2-code/logo_NET.png) | [Integrated Windows Authentication](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
@@ -86,7 +86,7 @@ The following samples show an application that accesses the Microsoft Graph API 
 
 ## Headless applications
 
-The following sample shows a public client application running on a device without a web browser. The app can be a command-line tool, an app running on Linux or Mac, or an IoT application. The sample features an app accessing the Microsoft Graph API, in the name of a user who signs-in interactively on another device (such as a mobile phone). This client application uses Microsoft Authentication Libraries (MSAL).
+The following sample shows a public client application running on a device without a web browser. The app can be a command-line tool, an app running on Linux or Mac, or an IoT application. The sample features an app accessing the Microsoft Graph API, in the name of a user who signs-in interactively on another device (such as a mobile phone). This client application uses Microsoft Authentication Library (MSAL).
 
 | Client application | Platform | Flow/Grant | Calls Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
@@ -94,11 +94,11 @@ The following sample shows a public client application running on a device witho
 
 ## Web APIs
 
-The following samples show how to protect a web API with the Microsoft identity platform endpoint, and how to call a downstream API from the Web API.
+The following samples show how to protect a web API with the Microsoft identity platform endpoint, and how to call a downstream API from the web API.
 
 | Platform | Sample |
 | -------- | ------------------- |
-| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core Web API (service) of [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (service) of [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (service) of [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
 ## Other Microsoft Graph samples

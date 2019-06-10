@@ -61,7 +61,7 @@ This authentication flow doesn't include application scenarios that use cross-pl
 ## Authorization code
 MSAL supports the [OAuth 2 authorization code grant](v2-oauth2-auth-code-flow.md). This grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign-in and API access to your mobile and desktop apps. 
 
-When users sign in to web applications (web sites), the web application receives an authorization code.  The authorization code is redeemed to acquire a token to call web APIs. In ASP.NET and ASP.NET core web apps, the only goal of `AcquireTokenByAuthorizationCode` is to add a token to the token cache. The token can then be used by the application (usually in the controllers, which just get a token for an API by using `AcquireTokenSilent`).
+When users sign in to web applications (websites), the web application receives an authorization code.  The authorization code is redeemed to acquire a token to call web APIs. In ASP.NET and ASP.NET core web apps, the only goal of `AcquireTokenByAuthorizationCode` is to add a token to the token cache. The token can then be used by the application (usually in the controllers, which just get a token for an API by using `AcquireTokenSilent`).
 
 ![Diagram of authorization code flow](media/msal-authentication-flows/authorization-code.png)
 
@@ -85,10 +85,10 @@ MSAL supports the [OAuth 2 on-behalf-of authentication flow](v2-oauth2-on-behalf
 
 In the preceding diagram:
 
-1. Acquires an access token for the Web API.
-2. A client (web, desktop, mobile, or single-page application) calls a protected Web API, adding the access token as a bearer token in the authentication header of the HTTP request. The Web API authenticates the user.
-3. When the client calls the Web API, the Web API requests another token on-behalf-of the user.  
-4. The protected Web API uses this token to call a downstream Web API on-behalf-of the user.  The Web API can also later request tokens for other downstream APIs (but still on behalf of the same user).
+1. Acquires an access token for the web API.
+2. A client (web, desktop, mobile, or single-page application) calls a protected web API, adding the access token as a bearer token in the authentication header of the HTTP request. The web API authenticates the user.
+3. When the client calls the web API, the web API requests another token on-behalf-of the user.  
+4. The protected web API uses this token to call a downstream web API on-behalf-of the user.  The web API can also later request tokens for other downstream APIs (but still on behalf of the same user).
 
 ## Client credentials
 
@@ -133,7 +133,7 @@ By using the device code flow, the application obtains tokens through a two-step
 
 In the preceding diagram:
 
-1. Whenever user authentication is required, the app provides a code, and asks the user to use another device (such as an internet-connected smartphone) to navigate to a URL (for example, https://microsoft.com/devicelogin). The user is then prompted to enter the code, and proceeds through a normal authentication experience, including consent prompts and multi-factor authentication if necessary.
+1. Whenever user authentication is required, the app provides a code, and asks the user to use another device (such as an internet-connected smartphone) to go to a URL (for example, https://microsoft.com/devicelogin). The user is then prompted to enter the code, and proceeds through a normal authentication experience, including consent prompts and multi-factor authentication if necessary.
 
 2. Upon successful authentication, the command-line app receives the required tokens through a back channel, and uses them to perform the web API calls it needs.
 
