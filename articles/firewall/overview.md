@@ -80,7 +80,6 @@ This enables the following scenarios:
 
 > [!NOTE]
 > During the public preview, if you add or remove a public IP address to a running firewall, there is a 40 - 120 second delay before your inbound NAT rules are functional again.
-=======
 
 ### Azure Monitor logging
 
