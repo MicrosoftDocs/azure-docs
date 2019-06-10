@@ -13,7 +13,7 @@ ms.author: marsma
 ms.subservice: B2C
 
 ---
-# Request an access token in Azure Active Directory B2C
+# Request an access token in Azure Active Directory B2C test
 
 An *access token* contains claims that you can use in Azure Active Directory (Azure AD) B2C to identify the granted permissions to your APIs. When calling a resource server, an access token must be present in the HTTP request. An access token is denoted as **access_token** in the responses from Azure AD B2C. 
 
