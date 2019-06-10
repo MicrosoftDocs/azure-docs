@@ -20,7 +20,7 @@ The management tool provides a user interface (UI) for managing Microsoft Virtua
 
 Since consent is required for the app to interact with Windows Virtual Desktop, this tool does not support Business-to-Business (B2B) scenarios. Each Azure Active Directory (AAD) tenant requires a separate deployment of this UI in their subscription.
 
-This management tool is a sample. Microsoft will provide important security and quality updates. The source code is available in GitHub. Customers and partners are encouraged to customize the tool to fit their business needs.
+This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Customers and partners are encouraged to customize the tool to fit their business needs.
 
 ## What you need to run the Azure Resource Manager template
 
