@@ -246,7 +246,7 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
 // Get the message from the queue and update the message contents.
 CloudQueueMessage message = queue.GetMessage();
-message.SetMessageContent("Updated contents.");
+message.SetMessageContent2("Updated contents.", false);
 queue.UpdateMessage(message,
     TimeSpan.FromSeconds(60.0),  // Make it invisible for another 60 seconds.
     MessageUpdateFields.Content | MessageUpdateFields.Visibility);
