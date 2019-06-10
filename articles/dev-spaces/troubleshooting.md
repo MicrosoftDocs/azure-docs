@@ -41,7 +41,7 @@ Delete the controller:
 azds remove -g <resource group name> -n <cluster name>
 ```
 
-You must use the the Azure Dev Spaces CLI to delete a controller. It’s not possible to delete a controller from Visual Studio. You also cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell so you cannot delete a controller from the Azure Cloud Shell.
+You must use the Azure Dev Spaces CLI to delete a controller. It’s not possible to delete a controller from Visual Studio. You also cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell so you cannot delete a controller from the Azure Cloud Shell.
 
 If you do not have the Azure Dev Spaces CLI installed, you can first install it using the following command then delete your controller:
 
@@ -404,4 +404,7 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 ## Enabling Dev Spaces failing when Windows node pools are added to an AKS cluster
 
 ### Reason
-Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only. At this time, you cannot enable Azure Dev Spaces on an AKS cluster with a Windows node pool.
+Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only. When you have an AKS cluster with a Windows node pool, you must ensure that Azure Dev Spaces pods are only scheduled on Linux nodes. If an Azure Dev Spaces pod is scheduled to run on a Windows node, that pod will not start and enabling Dev Spaces will fail.
+
+### Try
+[Add a taint](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to your AKS cluster to ensure Linux pods are not scheduled to run on a Windows node.
