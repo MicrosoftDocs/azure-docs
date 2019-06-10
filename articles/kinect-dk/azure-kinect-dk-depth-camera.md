@@ -1,8 +1,8 @@
 ---
 title: Azure Kinect depth camera
 description: Azure Kinect Depth camera concepts
-author: joylital 
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/05/2019
 ms.topic: conceptual 
