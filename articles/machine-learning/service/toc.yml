@@ -177,10 +177,12 @@
       href: how-to-set-up-training-targets.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
-    - name: Use PyTorch
-      href: how-to-train-pytorch.md
     - name: Use TensorFlow
       href: how-to-train-tensorflow.md
+    - name: Use Keras
+      href: how-to-train-keras.md
+    - name: Use PyTorch
+      href: how-to-train-pytorch.md
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
