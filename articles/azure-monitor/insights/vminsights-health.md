@@ -283,20 +283,22 @@ You can filter this view by selecting values in the dropdown menus at the top of
 |Monitor Condition |Select a monitor condition to filter alerts if they have been fired or resolved by the system if the condition is no longer active. Or, select **All** to include alerts of all conditions. |
 |Alert state |Select an alert state, **New**, **Acknowledge**, **Closed**, or **All** to include alerts of all states. |
 |Monitor service |Select a service, or select **All** to include all services. Only alerts from VM Insights are supported for this feature.|
-|Time range| Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. | 
+|Time range| Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. |
 
-The **Alert detail** page is displayed when you select an alert, providing details of the alert and allowing you to change its state. To learn more about managing alerts, see [Create, view, and manage alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+When you select an alert, the **Alert detail** page is displayed. This page provides details of the alert and allows you to change its state.
+
+To learn more about managing alerts, see [Create, view, and manage alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
 >[!NOTE]
 >Creating new alerts based on health criteria or modify existing health alert rules in Azure Monitor from the portal is not currently supported.
->
+
 
 ![Alert details pane for a selected alert](./media/vminsights-health/alert-details-pane-01.png)
 
-Alert state can also be changed for one or multiple alerts by selecting them and then selecting **Change state** from the **All Alerts** page, on the upper left-hand corner. On the **Change alert state** pane you select one of the states, add a description of the change in the **Comment** field, and then click **Ok** to commit your changes. When the information is verified and the changes are applied, you can track its progress under **Notifications** from the menu.
+An alert state can also be changed for one or multiple alerts by selecting them and then selecting **Change state** from the **All Alerts** page on the upper leftmost corner. Select one of the states on the **Change alert state** pane, add a description of the change in the **Comment** field, and then select **Ok** to commit your changes. When the information is verified and the changes are applied, track the progress under **Notifications** in the menu.
 
 ### Configure alerts
-Certain alert management tasks cannot be managed from the Azure portal and have to be performed by using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Specifically:
+Certain alert management tasks can't be managed from the Azure portal and have to be performed by using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Specifically:
 
 - Enabling or disabling an alert for health criteria 
 - Set up notifications for health criteria alerts 
