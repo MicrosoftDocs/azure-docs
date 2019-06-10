@@ -22,15 +22,14 @@ This article requires an existing AKS cluster running in your Azure account. If 
 
 To help collect and review data from multiple sources, Azure Monitor logs provides a query language and analytics engine that provides insights to your environment. A workspace is used to collate and analyze the data, and can integrate with other Azure services such as Application Insights and Security Center. To use a different platform to analyze the logs, you can instead choose to send diagnostic logs to an Azure storage account or event hub. For more information, see [What is Azure Monitor logs?][log-analytics-overview].
 
-Azure Monitor logs is enabled and managed in the Azure portal. To enable log collection for the Kubernetes master components in your AKS cluster, open the Azure portal in a web browser and complete the following steps:
+Azure Monitor logs are enabled and managed in the Azure portal. To enable log collection for the Kubernetes master components in your AKS cluster, open the Azure portal in a web browser and complete the following steps:
 
 1. Select the resource group for your AKS cluster, such as *myResourceGroup*. Don't select the resource group that contains your individual AKS cluster resources, such as *MC_myResourceGroup_myAKSCluster_eastus*.
 1. On the left-hand side, choose **Diagnostic settings**.
-1. Select your AKS cluster, such as *myAKSCluster*, then choose to **Turn on diagnostics**.
-1. Enter a name, such as *myAKSClusterLogs*, then select the option to **Send to Log Analytics workspace**.
-    * Choose to *Configure* Log Analytics workspace, then select an existing workspace or **Create New Workspace**.
-    * If you need to create a workspace, provide a name, a resource group, and a location.
-1. In the list of available logs, select the logs you wish to enable. By default, the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler* logs are enabled. You can enable additional logs, such as *kube-audit* and *cluster-autoscaler*. You can return and change the collected logs once Log Analytics workspaces are enabled.
+1. Select your AKS cluster, such as *myAKSCluster*, then choose to **Add diagnostic setting**.
+1. Enter a name, such as *myAKSClusterLogs*, then select the option to **Send to Log Analytics**.
+1. Select an existing workspace or create a new one. If you create a workspace, provide a workspace name, a resource group, and a location.
+1. In the list of available logs, select the logs you wish to enable. Common logs include the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can enable additional logs, such as *kube-audit* and *cluster-autoscaler*. You can return and change the collected logs once Log Analytics workspaces are enabled.
 1. When ready, select **Save** to enable collection of the selected logs.
 
 > [!NOTE]
@@ -46,7 +45,7 @@ Azure Monitor logs is enabled and managed in the Azure portal. To enable log col
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
-The following example portal screenshot shows the *Diagnostics settings* window and then option to create an Log Analytics workspace:
+The following example portal screenshot shows the *Diagnostics settings* window:
 
 ![Enable Log Analytics workspace for Azure Monitor logs of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
 
@@ -126,7 +125,7 @@ To help analyze the log data, the following table details the schema used for ea
 | *properties.log*         | Full text of the log from the component |
 | *properties.stream*      | *stderr* or *stdout* |
 | *properties.pod*         | Pod name that the log came from |
-| *properties.containerID* | Id of the docker container this log came from |
+| *properties.containerID* | ID of the docker container this log came from |
 
 ## Next steps
 
