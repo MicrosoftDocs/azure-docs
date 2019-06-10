@@ -34,6 +34,8 @@ There are a few exceptions and limitations to choosing a VM size:
 
 Batch pools in the Virtual Machine configuration support almost all VM sizes ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). See the following table to learn more about supported sizes and restrictions.
 
+Any promotional or preview VM sizes not listed aren't guaranteed for support. 
+
 | VM series  | Supported sizes | Allocation mode |
 |------------|---------|-----------------|
 | Basic A-series | All sizes *except* Basic_A0 (A0) | Any |
