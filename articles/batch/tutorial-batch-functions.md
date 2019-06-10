@@ -22,7 +22,7 @@ In this tutorial, you'll learn how to trigger a Batch job using Azure Functions.
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * An Azure Batch account and a linked Azure Storage account. See [Create a Batch account](quick-create-portal.md#create-a-batch-account) for more information on how to create and link accounts.
-* Batch Explorer, which you can download and install [here](https://azure.github.io/BatchExplorer/).
+* [Batch Explorer](https://azure.github.io/BatchExplorer/)
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 
 ## Sign in to Azure
