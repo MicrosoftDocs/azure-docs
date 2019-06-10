@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Tutorial: Trigger a Batch job using Azure Functions
 
-In this tutorial, you'll learn how to trigger a Batch job using Azure Functions. We'll walk through an example in which documents added to an Azure Storage blob container have OCR applied to them via Azure Batch.
+In this tutorial, you'll learn how to trigger a Batch job using Azure Functions. We'll walk through an example in which documents added to an Azure Storage blob container have optical character recognition (OCR) applied to them via Azure Batch.
 
 ## Prerequisites
 
