@@ -33,7 +33,7 @@ For continuous deployment to succeed, your directory structure must be compatibl
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-## Set up continuous deployment
+## <a name="credentials"></a>Set up continuous deployment
 
 Use this procedure to configure continuous deployment for an existing function app. These steps demonstrate integration with a GitHub repository, but similar steps apply for Azure Repos or other source code repositories.
 
