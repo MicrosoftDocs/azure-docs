@@ -36,7 +36,7 @@ The diagram shows the following components of a workspace:
     + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Azure portal.
     + The [visual interface (preview)](ui-concept-visual-interface.md).
 + [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
-+ [Datasets](concept-azure-machine-learning-architecture.md#dataset-and-datastores) aid in management of the data you use for model training and pipeline creation.
++ [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
 + Use the registered model and a scoring script to create a [deployment](concept-azure-machine-learning-architecture.md#deployment).
 
