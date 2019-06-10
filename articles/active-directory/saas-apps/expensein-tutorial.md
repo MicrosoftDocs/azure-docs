@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -99,25 +99,35 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure ExpenseIn
 
-1. In a different web browser window, sign in to ExpenseIn as an Administrator.
+1. To automate the configuration within ExpenseIn, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Click on **Admin** on the top of the page then navigate to **Single Sign-On** and click **Add provider**.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup ExpenseIn** will direct you to the ExpenseIn application. From there, provide the admin credentials to sign into ExpenseIn. The browser extension will automatically configure the application for you and automate steps 3-5.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup ExpenseIn manually, open a new web browser window and sign into your ExpenseIn company site as an administrator and perform the following steps:
+
+4. Click on **Admin** on the top of the page then navigate to **Single Sign-On** and click **Add provider**.
 
 	 ![ExpenseIn configuration](./media/expenseIn-tutorial/config01.png)
 
-3. On the **New Identity Provider** pop-up, Perform the following steps:
+5. On the **New Identity Provider** pop-up, Perform the following steps:
 
     ![ExpenseIn configuration](./media/expenseIn-tutorial/config02.png)
 
 	a. In the **Provider Name** text box, type the name like ex:Azure.
 
-	b. In the **Target Url** text box, paste the value of **Login URL**, which you have copied from Azure portal.
+	b. Select **Yes** as **Allow Provider Intitated Sign-On**.
 
-    c. In the **Issuer** text box, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+	c. In the **Target Url** text box, paste the value of **Login URL**, which you have copied from Azure portal.
 
-    d. Open the Certificate (Base64) in Notepad, copy its content and paste it in the **Certificate** text box.
+    d. In the **Issuer** text box, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
-	e. Click **Create**.
+    e. Open the Certificate (Base64) in Notepad, copy its content and paste it in the **Certificate** text box.
+
+	f. Click **Create**.
 
 ### Create an Azure AD test user
 
