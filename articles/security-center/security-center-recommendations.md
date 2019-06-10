@@ -70,7 +70,6 @@ See [classic and Resource Manager deployment models](../azure-classic-rm.md) for
 1. From the list, click on the recommendation.
 1. Follow the instructions in the *Remediation steps* section.
 
-
 ## Next steps
 In this document, you were introduced to security recommendations in Security Center. To learn more about Security Center, see the following topics:
 
