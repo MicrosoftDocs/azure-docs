@@ -83,7 +83,7 @@ There are two log files - *error.xml* and *copylog.xml* that you can use to trou
     	</ErrorLog>
     ```
 
-2. *Copylog.xml* - These logs are generated and uploaded after the completion of data upload to Azure. A sample of the *copylog* is shown below. The errors contained in the copylog are summarized in [Data Box Disk copy errors](#data-box-disk-copy-errors).
+2. *Copylog.xml* - These logs are generated and uploaded after the completion of data upload to Azure. A sample of the *copylog* is shown below. The errors contained in the copylog are summarized in [Data Box Disk copy errors](#data-box-disk-upload-errors).
 	
 	```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -127,51 +127,51 @@ There are two log files - *error.xml* and *copylog.xml* that you can use to trou
 | Could not unlock or verify any volumes. Contact Microsoft Support.  <br><br>The tool fails to unlock or verify any locked drive. | The tool could not unlock any of the locked drives with the supplied passkey. Contact Microsoft Support for next steps.                                                |
 | Following volumes are unlocked and verified. <br>Volume drive letters: E:<br>Could not unlock any volumes with the following passkeys: werwerqomnf, qwerwerqwdfda <br><br>The tool unlocks some drives and lists the successful and failed drive letters.| Partially succeeded. Could not unlock some of the drives with the supplied passkey. Contact Microsoft Support for next steps. |
 | Could not find locked volumes. Verify disk received from Microsoft is connected properly and is in locked state.          | The tool fails to find any locked drives. Either the drives are already unlocked or not detected. Ensure that the drives are connected and are locked.                                                           |
-| Fatal error: Invalid parameter<br>Parameter name: invalid_arg<br>USAGE:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Example: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Example: DataBoxDiskUnlock /SystemCheck<br>Example: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.<br>/Help:           This option provides help on cmdlet usage and examples.<br>/SystemCheck:    This option checks if your system meets the requirements to run the tool.<br><br>Press any key to exit. | Invalid parameter entered. The only allowed parameters are /SystemCheck, /PassKey, and /Help.                                                                            |
+| Fatal error: Invalid parameter<br>Parameter name: invalid_arg<br>USAGE:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Example: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Example: DataBoxDiskUnlock /SystemCheck<br>Example: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.<br>/Help:           This option provides help on cmdlet usage and examples.<br>/SystemCheck:    This option checks if your system meets the requirements to run the tool.<br><br>Press any key to exit. | Invalid parameter entered. The only allowed parameters are /SystemCheck, /PassKey, and /Help.|
 
 ## Data Box Disk Validation tool errors
 
-| Error message                        | Description                                                                                                |
-|--------------------------------------|------------------------------------------------------------------------------------------------------------|
-| None                                 | Successfully validated the data.                                                                           |
-| InvalidXmlCharsInPath                | Could not create the path as the file path has characters that are not valid.                            |
-| OpenFileForReadFailed                | Could not open the file.                                                                                   |
-| Generic                              |                                                                                                            |
-| Not512Aligned                        | Could not upload the data as it is not 512 bytes aligned.                                                  |
-| InvalidBlobPath                      | Could not upload the data as the upload path is not valid.                                                 |
-| EnumerationError                     | Could not enumerate the files.                                                                             |
-| ShareSizeExceeded                    | Could not upload the file as it exceeds the available space in the share.                                  |
-| AzureFileSizeExceeded                | Could not upload the file as it exceeds the maximum size allowed for Azure Files.                          |
-| BlockBlobSizeExceeded                | Could not upload the data as it exceeds the maximum size allowed for a block blob.                         |
-| ManagedDiskSizeExceeded              | Could not upload the data as it exceeds the maximum size allowed for a managed   disk.                     |
-| PageBlobSizeExceeded                 | Could not upload the data as it exceeds the maximum size allowed for a page blob.                          |
-| InvalidShareContainerFormat          |                                                                                                            |
-| InvalidBlobNameFormat                | Could not upload the data as it does not follow the Azure naming conventions.                              |
-| InvalidFileNameFormat                | Could not upload the data as it does not follow the Azure naming conventions.                              |
-| InvalidDiskNameFormat                | Could not upload the data as it does not follow the Azure naming conventions.                              |
-| NotPartOfFileShare                   | Could not upload the files as the upload path is not valid. Upload the files to a folder in Azure Files.   |
-| NotFixedVhd                          | Could not upload as managed disks. The differencing VHDs are not supported.                                |
-| NonVhdFileNotSupportedForManagedDisk | Could not upload as managed disks. The non-VHD files are not supported.                                    |
-| VhdAsBlockBlob                       | Could not upload as managed disk. The VHD file is not valid.                                               |
+| Error message                        | Recommended actions               |
+|--------------------------------------|-----------------------------------|
+| None <br> Successfully validated the data. | No action is required. |
+| InvalidXmlCharsInPath <br> Could not create the path as the file path has characters that are not valid.| Having characters that are not valid in the file path will result in the failure of manifest file creation. Remove these characters to proceed.  |
+| OpenFileForReadFailed <br> Could not open the file.|File read failed due to an error. Details for the error should be in the exception. |
+| Generic                              |  |
+| Not512Aligned <br> Could not upload the data as it is not 512 bytes aligned.| |
+| InvalidBlobPath <br> Could not upload the data as the upload path is not valid.| |
+| EnumerationError <br> Could not enumerate the files. | |
+| ShareSizeExceeded <br> Could not upload the file as it exceeds the available space in the share.| |
+| AzureFileSizeExceeded <br> Could not upload the file as it exceeds the maximum size allowed for Azure Files.| |
+| BlockBlobSizeExceeded <br> Could not upload the data as it exceeds the maximum size allowed for a block blob. | |
+| ManagedDiskSizeExceeded <br> Could not upload the data as it exceeds the maximum size allowed for a managed disk. | |
+| PageBlobSizeExceeded <br> Could not upload the data as it exceeds the maximum size allowed for a page blob. | |
+| InvalidShareContainerFormat          |  |
+| InvalidBlobNameFormat <br> Could not upload the data as it does not follow the Azure naming conventions.| |
+| InvalidFileNameFormat <br> Could not upload the data as it does not follow the Azure naming conventions. | |
+| InvalidDiskNameFormat <br> Could not upload the data as it does not follow the Azure naming conventions. |       |
+| NotPartOfFileShare <br> Could not upload the files as the upload path is not valid. Upload the files to a folder in Azure Files.   | |
+| NotFixedVhd <br> Could not upload as managed disks. The differencing VHDs are not supported.| |
+| NonVhdFileNotSupportedForManagedDisk <br> Could not upload as managed disks. The non-VHD files are not supported. | |
+| VhdAsBlockBlob <br> Could not upload as managed disk. The VHD file is not valid.| |
 
 ## Data Box Disk upload errors
 
 | Error/Description                         |Recommended actions                                     |
 |-------------------------------------------|--------------------------------------------------------|
-|None <br>  Completed successfully.             | No errors encountered. No action is required.      |
-|Completed <br> Completed successfully.         |  No errors encountered. No action is required. |
-|Created <br> Successfully uploaded the blob.   | For import disposition, means the blob was created as new. |
-|Renamed <br> Successfully renamed the blob.    |                                                             |
+|None <br>  Completed successfully.           | No errors encountered. No action is required.      |
+|Completed <br> Completed successfully.       | No errors encountered. No action is required. |
+|Created <br> Successfully uploaded the blob. | For import disposition, means the blob was created as new. |
+|Renamed <br> Successfully renamed the blob.  |                                                            |
 |CompletedWithErrors <br> Upload completed with errors.| There were some errors during upload. The errors are written to *copylog* file in the storage account where the data was uploaded.  |
 |Corrupted  |                      |
 |StorageRequestFailed <br> Azure storage request failed.   |     |
 |LeasePresent <br> Lease is already present on the item. |      |
 |StorageRequestForbidden <br> |        |
 |Canceled <br> {0} was canceled.   | For the blob status in user logs; never used in recovery logs.                                                                                                                                                  |
-|ManagedDiskCreationTerminalFailure <br> Could not convert to managed disks. The data was uploaded as page blobs. | Managed disk creation failed. This is a terminal failure.   |
-|DiskConversionNotStartedTierInfoMissing <br> Could not convert to managed disk as the data was uploaded outside of the precreated folders on the Data Box Disk.    | Since the VHD file was put outside of the precreated tier folders, a managed disk wasn't created. The file is uploaded as page blob to the staging storage account as specified during order creation. You can convert it manually to a managed disk.|
-|InvalidWorkitem <br> Could not upload the data as it does not conform to Azure naming and limits conventions.   |Files that failed azure convention validation and also could not be uploaded as block blob. They are marked as invalid workitem.   |
-|InvalidPageBlobUploadAsBlockBlob <br> The invalid page blobs are uploaded as block blobs  in a container with prefix `databoxdisk-invalid-pb-'.                   | Invalid page blobs are uploaded to the Block Blob container starting with 'databoxdisk-invalid-pb-'.                                                                                                          |
+|ManagedDiskCreationTerminalFailure <br> Could not convert to managed disks. The data was uploaded as page blobs. | Managed disk creation failed. This is a terminal failure. You can manually convert the data in the page blobs in the staging account to managed disks.  |
+|DiskConversionNotStartedTierInfoMissing <br> Could not convert to managed disk as the data was uploaded outside of the precreated folders on the Data Box Disk.    | Since the VHD file was copied outside of the precreated tier folders, a managed disk wasn't created. The file is uploaded as page blob to the staging storage account as specified during order creation. You can convert it manually to a managed disk.|
+|InvalidWorkitem <br> Could not upload the data as it does not conform to Azure naming and limits conventions.   |These are files that didn't conform to Azure naming conventions and also could not be uploaded as block blob. They are marked as invalid workitem.   |
+|InvalidPageBlobUploadAsBlockBlob <br> The invalid page blobs are uploaded as block blobs  in a container with prefix `databoxdisk-invalid-pb-'.  | Invalid page blobs are uploaded to the Block Blob container starting with 'databoxdisk-invalid-pb-'.                                                                                                          |
 |InvalidAzureFileUploadAsBlockBlob <br>  The invalid Azure Files are uploaded as block blobs in a  container with prefix `databoxdisk-invalid-af-'.      |Azure files uploaded to the Block Blob container starting with 'databoxdisk-invalid-af-' are not valid. Remove these files and rerun the validation tool to resolve this error.                                                                                                         |
 |InvalidManagedDiskUploadAsBlockBlob <br> The invalid managed disk files are uploaded as block blobs in a container with prefix `databoxdisk-invalid-md-'.    |Managed disk files uploaded to the Block Blob container starting with 'databoxdisk-invalid-md-' are not valid.                                                                                                           |
 
