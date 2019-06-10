@@ -42,7 +42,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-If you intend to use interactive authentication, as seen above, you want to use the `.WithRedirectUri` modifier:
+If you intend to use interactive authentication or Device Code Flow, as seen above, you want to use the `.WithRedirectUri` modifier:
 
 ```CSharp
 IPublicClientApplication app;

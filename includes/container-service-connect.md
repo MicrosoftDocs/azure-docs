@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 06/05/2019
 ms.author: danlep
 ---
 # Make a remote connection to a Kubernetes, DC/OS, or Docker Swarm cluster
@@ -33,7 +33,7 @@ Follow these steps to install and configure `kubectl` on your computer.
 
 ### Install kubectl
 One way to install this
-tool is to use the `az acs kubernetes install-cli` Azure CLI command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest version of the Azure CLI and are signed in to an Azure account (`az login`).
+tool is to use the `az acs kubernetes install-cli` Azure CLI command. To run this command, [install the Azure CLI](/cli/azure/install-azure-cli) and sign in to an Azure account with `az login`.
 
 ```azurecli
 # Linux or macOS
@@ -80,7 +80,7 @@ kubectl proxy
 
 The Kubernetes UI is now available at: `http://localhost:8001/ui`.
 
-For more information, see the [Kubernetes quick start](http://kubernetes.io/docs/user-guide/quick-start/).
+For more information, see the [Kubernetes quickstart](http://kubernetes.io/docs/user-guide/quick-start/).
 
 ## Connect to a DC/OS or Swarm cluster
 
