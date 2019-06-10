@@ -1,6 +1,6 @@
 ---
-title: Create a container in Azure Storage in .NET
-description: Learn how to create a container in Azure Storage in .NET.
+title: Create or delete a blob container in Azure Storage with .NET
+description: Learn how to create or delete a container in Azure Storage with .NET.
 services: storage
 author: tamram
 
@@ -11,11 +11,9 @@ ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Create a container in Azure Storage in .NET
+# Create or delete a container in Azure Storage with .NET
 
-All blobs in Azure Storage are organized into containers. The container forms part of the unique name  
-
-
+Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This how-to article shows how to create and delete containers with the Azure Storage client library for .NET.
 
 ## Name a container
 
@@ -33,21 +31,24 @@ The URI for a container is in this format:
 
 To create a container in .NET, use one of the following methods:
 
-- [Create](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
-- [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
-- [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
-- [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
+> [!div class="checklist"]
+> * [Create](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
+> * [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
+> * [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
+> * [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
 
 The **Create** and **CreateAsync** methods throw an exception if a container with the same name already exists. 
 
 The **CreateIfNotExists** and **CreateIfNotExistsAsync** methods return a Boolean value indicating whether the container was created. If a container with the same name already exists, then these methods return **False** to indicate that a new container was not created.
 
-The following example creates a container:
+Containers are created immediately beneath the storage account. It's not possible to nest one container beneath another.
+
+The following example takes a **CloudBlobClient** object and creates a container asynchronously:
 
 ```csharp
 private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBlobClient blobClient)
 {
-    // Name the sample container based on a new GUID value, to ensure uniqueness.
+    // Name the sample container based on new GUID, to ensure uniqueness.
     // The container name must be lowercase.
     string containerName = "container-" + Guid.NewGuid();
 
@@ -57,11 +58,14 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
     try
     {
         // Create the container if it does not already exist.
-        await container.CreateIfNotExistsAsync();
+        bool result = await container.CreateIfNotExistsAsync();
+        if (result == true)
+        {
+            Console.WriteLine("Created container {0}", container.Name);
+        }
     }
     catch (StorageException e)
     {
-        // Ensure that the storage emulator is running if using emulator connection string.
         Console.WriteLine(e.Message);
         Console.ReadLine();
     }
@@ -72,15 +76,45 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
 
 ## Create the root container
 
-A root container serves as a default container for your storage account. Each storage account may have one root container, which must be named *$root.*. You must explicitly create the root container.
+A root container serves as a default container for your storage account. Each storage account may have one root container, which must be named *$root.*. You must explicitly create or delete the root container.
 
 You can reference a blob stored in the root container without including the root container name. The root container enables you to reference a blob at the top level of the storage account hierarchy. For example, you can reference a blob that resides in the root container in the following manner:
 
 `https://myaccount.blob.core.windows.net/default.html`
 
-The following example creates the root container:
+The following example creates the root container synchronously:
 
 ```csharp
+private static void CreateRootContainer(CloudBlobClient blobClient)
+{
+    try
+    {
+        // Create the container if it does not already exist.
+        CloudBlobContainer container = blobClient.GetContainerReference("$root");
+        if (container.CreateIfNotExists())
+        {
+            Console.WriteLine("Created root container.");
+        }
+        else
+        {
+            Console.WriteLine("Root container already exists.");
+        }
+    }
+    catch (StorageException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+    }
+}
+```
 
+## Delete a container
 
 ```
+code
+```
+
+## See also
+
+- [Create Container operation](/rest/api/storageservices/create-container)
+- [Delete Container operation](rest/api/storageservices/delete-container)
