@@ -59,11 +59,11 @@ Configure and test Azure AD SSO with Oracle Cloud Infrastructure Console using a
 To configure and test Azure AD SSO with Oracle Cloud Infrastructure Console, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure Oracle Cloud Infrastructure Console](#configure-oracle-cloud-infrastructure-console)** to configure the SSO settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
-5. **[Create Oracle Cloud Infrastructure Console test user](#create-oracle-cloud-infrastructure-console-test-user)** to have a counterpart of B. Simon in Oracle Cloud Infrastructure Console that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-sso)** to verify whether the configuration works.
+1. **[Configure Oracle Cloud Infrastructure Console](#configure-oracle-cloud-infrastructure-console)** to configure the SSO settings on application side.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
+1. **[Create Oracle Cloud Infrastructure Console test user](#create-oracle-cloud-infrastructure-console-test-user)** to have a counterpart of B. Simon in Oracle Cloud Infrastructure Console that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
@@ -77,23 +77,23 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** page, enter the values for the following fields:
 
-   	>[!NOTE]
-	>You will get the Service Provider metadata file from the **Configure Oracle Cloud Infrastructure Console Single Sign-On** section of the tutorial.
+   > [!NOTE]
+   > You will get the Service Provider metadata file from the **Configure Oracle Cloud Infrastructure Console Single Sign-On** section of the tutorial.
 	
-	a. Click **Upload metadata file**.
+   1. Click **Upload metadata file**.
 
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
+   1. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section textbox.
+   1. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section textbox.
 	
-	> [!NOTE]
-	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
+      > [!NOTE]
+      > If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
 
-	 In the **Sign-on URL** text box, type a URL using the following pattern:
-    ` https://console.<REGIONNAME>.oraclecloud.com/`
+      In the **Sign-on URL** text box, type a URL using the following pattern:
+      ` https://console.<REGIONNAME>.oraclecloud.com/`
 
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Oracle Cloud Infrastructure Console Client support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+      > [!NOTE]
+      > The value is not real. Update the value with the actual Sign-On URL. Contact [Oracle Cloud Infrastructure Console Client support team](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -101,35 +101,35 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Oracle Cloud Infrastructure Console application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![image](common/edit-attribute.png)
+   ![image](common/edit-attribute.png)
 
 1. In addition to above, Oracle Cloud Infrastructure Console application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
-	1. Click the **pen** next to **Name identifier value**.
+   1. Click the **pen** next to **Name identifier value**.
 
-	1. 	Select **Persistent** as **Choose name identifier format**.
+   1. Select **Persistent** as **Choose name identifier format**.
  
-	1. 	Click **Save**.
+   1. Click **Save**.
 
-	![image](./media/oracle-cloud-tutorial/config07.png)
+      ![image](./media/oracle-cloud-tutorial/config07.png)
 	
-	![image](./media/oracle-cloud-tutorial/config11.png)
+      ![image](./media/oracle-cloud-tutorial/config11.png)
 
-	1. Click the **pen** next to **Groups returned in claim**.
+   1. Click the **pen** next to **Groups returned in claim**.
 
-	1. Select **Security groups** from the radio list.
+   1. Select **Security groups** from the radio list.
 
-	1. Select **Source Attribute** of **Group ID**.
+   1. Select **Source Attribute** of **Group ID**.
 
-	1. Check **Customize the name of the group claim**.
+   1. Check **Customize the name of the group claim**.
 
-	1. In the **Name** text box, type **groupName**.
+   1. In the **Name** text box, type **groupName**.
 
-	1. In the **Namespace (optional)** text box, type `https://auth.oraclecloud.com/saml/claims`.
+   1. In the **Namespace (optional)** text box, type `https://auth.oraclecloud.com/saml/claims`.
 
-	1. Click **Save**.
+   1. Click **Save**.
 
-	![image](./media/oracle-cloud-tutorial/config08.png)
+      ![image](./media/oracle-cloud-tutorial/config08.png)
 
 1. On the **Set up Oracle Cloud Infrastructure Console** section, copy the appropriate URL(s) based on your requirement.
 
@@ -139,35 +139,35 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In a different web browser window, sign in to Oracle Cloud Infrastructure Console as an Administrator.
 
-2. Click on the left side of the menu and click on **Identity** then navigate to **Federation**.
+1. Click on the left side of the menu and click on **Identity** then navigate to **Federation**.
 
-	![Configuration](./media/oracle-cloud-tutorial/config01.png)
+   ![Configuration](./media/oracle-cloud-tutorial/config01.png)
 
-3. Save the **Service Provider metadata file** by clicking the **Download this document** link and upload it into the **Basic SAML Configuration** section of Azure portal and then click on **Add Identity Provider**.
+1. Save the **Service Provider metadata file** by clicking the **Download this document** link and upload it into the **Basic SAML Configuration** section of Azure portal and then click on **Add Identity Provider**.
 
-	![Configuration](./media/oracle-cloud-tutorial/config02.png)
+   ![Configuration](./media/oracle-cloud-tutorial/config02.png)
 
-4. On the **Add Identity Provider** pop-up, perform the following steps:
+1. On the **Add Identity Provider** pop-up, perform the following steps:
 
-	![Configuration](./media/oracle-cloud-tutorial/config03.png)
+   ![Configuration](./media/oracle-cloud-tutorial/config03.png)
 
-	a. In the **NAME** text box, enter your name.
+   1. In the **NAME** text box, enter your name.
 
-	b. In the **DESCRIPTION** text box, enter your description.
+   1. In the **DESCRIPTION** text box, enter your description.
 
-	c. Select **MICROSOFT ACTIVE DIRECTORY FEDERATION SERVICE (ADFS) OR SAML 2.0 COMPLIANT IDENTITY PROVIDER** as **TYPE**.
+   1. Select **MICROSOFT ACTIVE DIRECTORY FEDERATION SERVICE (ADFS) OR SAML 2.0 COMPLIANT IDENTITY PROVIDER** as **TYPE**.
 
-	d. Click **Browse** to upload the Federation Metadata XML, which you have downloaded from Azure portal.
+   1. Click **Browse** to upload the Federation Metadata XML, which you have downloaded from Azure portal.
 
-	e. Click **Continue** and on the **Edit Identity Provider** section perform the following steps:
+   1. Click **Continue** and on the **Edit Identity Provider** section perform the following steps:
 
-	![Configuration](./media/oracle-cloud-tutorial/config09.png)
+      ![Configuration](./media/oracle-cloud-tutorial/config09.png)
 
-	f. For **IDENTITY PROVIDER GROUP** fields, enter the group name and group id that are set up in Azure portal. The group needs to be mapped with corresponding group in **OCI GROUP** field.
+   1. For **IDENTITY PROVIDER GROUP** fields, enter the group name and group ID that are set up in Azure portal. The group needs to be mapped with corresponding group in **OCI GROUP** field.
 
-	g. You can map multiple groups as per your setup in Azure portal and your organization need. Click on **+ Add mapping** to add as many groups as you need.
+   1. You can map multiple groups as per your setup in Azure portal and your organization need. Click on **+ Add mapping** to add as many groups as you need.
 
-	h. Click **Submit**.
+   1. Click **Submit**.
 
 ### Create an Azure AD test user
 
@@ -193,7 +193,7 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+   ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B. Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -209,7 +209,7 @@ When you select the Oracle Cloud Infrastructure Console tile in the Access Panel
 
 ![Configuration](./media/oracle-cloud-tutorial/config10.png)
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
