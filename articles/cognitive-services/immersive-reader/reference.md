@@ -85,7 +85,7 @@ Contains information about the error.
 }
 ```
 
-#### Error Codes
+#### Error codes
 
 | Code | Description |
 | ---- | ----------- |
@@ -100,7 +100,7 @@ The SDK provides default styling for the button for launching the Immersive Read
 <div class='immersive-reader-button'></div>
 ```
 
-### Optional Attributes
+### Optional attributes
 
 Use the following attributes to configure the look and feel of the button.
 
@@ -110,7 +110,7 @@ Use the following attributes to configure the look and feel of the button.
 | `data-locale` | Sets the locale, e.g. `en-US`, `fr-FR`. Defaults to English. |
 | `data-icon-px-size` | Sets the size of the icon in pixels. Defaults to 20px. |
 
-## Browser Support
+## Browser support
 
 Use the most recent versions of the following browsers for the best experience with the Immersive Reader.
 
