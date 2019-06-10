@@ -2,7 +2,7 @@
 title: 'Quickstart: PowerShell and REST APIs - Azure Search'
 description: Create, load, and query an index using PowerShell's Invoke-RestMethod and the Azure Search REST API.
 
-ms.date: 05/16/2019
+ms.date: 06/10/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -29,9 +29,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following services and tools are used in this quickstart. 
 
-+ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
-
 + [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell), using [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
+
++ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Get a key and URL
 
@@ -85,36 +85,40 @@ Unless you are using the portal, an index must exist on the service before you c
 
 Required elements of an index include a name and a fields collection. The fields collection defines the structure of a *document*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
-This index is named "hotels-powershell" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
+This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
 
 1. Paste this example into PowerShell to create a **$body** object containing the index schema.
 
     ```powershell
     $body = @"
     {
-        "name": "hotels-powershell",  
+        "name": "hotels-quickstart",  
         "fields": [
-            {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-            {"name": "baseRate", "type": "Edm.Double"},
-            {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-            {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-            {"name": "hotelName", "type": "Edm.String", "facetable": false},
-            {"name": "category", "type": "Edm.String"},
-            {"name": "tags", "type": "Collection(Edm.String)"},
-            {"name": "parkingIncluded", "type": "Edm.Boolean", "sortable": false},
-            {"name": "smokingAllowed", "type": "Edm.Boolean", "sortable": false},
-            {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-            {"name": "rating", "type": "Edm.Int32"},
-            {"name": "location", "type": "Edm.GeographyPoint"}
+            {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
+            {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
+            {"name": "Description", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "false", "facetable": "false", "analyzer": "en.lucene"},
+            {"name": "Description_fr", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "false", "facetable": "false", "analyzer": "fr.lucene"},
+            {"name": "Category", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
+            {"name": "Tags", "type": "Collection(Edm.String)", "searchable": "true", "filterable": "true", "sortable": "false", "facetable": "true"},
+            {"name": "ParkingIncluded", "type": "Edm.Boolean", "filterable": "true", "sortable": "true", "facetable": "true"},
+            {"name": "LastRenovationDate", "type": "Edm.DateTimeOffset", "filterable": "true", "sortable": "true", "facetable": "true"},
+            {"name": "Rating", "type": "Edm.Double", "filterable": "true", "sortable": "true", "facetable": "true"},
+            {"name": "Address", "type": "Edm.ComplexType", 
+            "fields": [
+            {"name": "StreetAddress", "type": "Edm.String", "filterable": "false", "sortable": "false", "facetable": "false", "searchable": "true"},
+            {"name": "City", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
+            {"name": "StateProvince", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
+            {"name": "PostalCode", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
+            {"name": "Country", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"}
         ]
     }
     "@
     ```
 
-2. Set the URI to the indexes collection on your service and the *hotels-powershell* index.
+2. Set the URI to the indexes collection on your service and the *hotels-quickstart* index.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06"
     ```
 
 3. Run the command with **$url**, **$headers**, and **$body** to create the index on the service. 
@@ -129,7 +133,7 @@ This index is named "hotels-powershell" and has the field definitions you see be
     {
         "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes/$entity",
         "@odata.etag":  "\"0x8D6A99E2DED96B0\"",
-        "name":  "hotels-powershell",
+        "name":  "hotels-quickstart",
         "defaultScoringProfile":  null,
         "fields":  [
                     {
@@ -164,7 +168,7 @@ This index is named "hotels-powershell" and has the field definitions you see be
     ```
 
 > [!Tip]
-> For verification, you could also check the Indexes list in the portal, or rerun the command used to verify service connection to see the *hotels-powershell* index listed in the Indexes collection.
+> For verification, you could also check the Indexes list in the portal.
 
 <a name="load-documents"></a>
 
@@ -178,63 +182,104 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
     ```powershell
     $body = @"
-    {
         "value": [
-            {
-                "@search.action": "upload",
-                "hotelId": "1",
-                "baseRate": 199.0,
-                "description": "Best hotel in town",
-                "hotelName": "Fancy Stay",
-                "category": "Luxury",
-                "tags": ["pool", "view", "wifi", "concierge"],
-                "parkingIncluded": false,
-                "smokingAllowed": false,
-                "lastRenovationDate": "2010-06-27T00:00:00Z",
-                "rating": 5,
-                "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
-            },
-            {
-                "@search.action": "upload",
-                "hotelId": "2",
-                "baseRate": 79.99,
-                "description": "Cheapest hotel in town",
-                "hotelName": "Roach Motel",
-                "category": "Budget",
-                "tags": ["motel", "budget"],
-                "parkingIncluded": true,
-                "smokingAllowed": true,
-                "lastRenovationDate": "1982-04-28T00:00:00Z",
-                "rating": 1,
-                "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
-            },
-            {
-                "@search.action": "mergeOrUpload",
-                "hotelId": "3",
-                "baseRate": 129.99,
-                "description": "Close to town hall and the river"
+        {
+        "@search.action": "upload",
+        "HotelId": "1",
+        "HotelName": "Secret Point Motel",
+        "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+        "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
+        "Category": "Boutique",
+        "Tags": [ "pool", "air conditioning", "concierge" ],
+        "ParkingIncluded": false,
+        "LastRenovationDate": "1970-01-18T00:00:00Z",
+        "Rating": 3.60,
+        "Address": {
+            "StreetAddress": "677 5th Ave",
+            "City": "New York",
+            "StateProvince": "NY",
+            "PostalCode": "10022",
+            "Country": "USA"
+            }
+        },
+        {
+        "@search.action": "upload",
+        "HotelId": "2",
+        "HotelName": "Twin Dome Motel",
+        "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+        "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+        "Category": "Boutique",
+        "Tags": [ "pool", "free wifi", "concierge" ],
+        "ParkingIncluded": false,
+        "LastRenovationDate": "1979-02-18T00:00:00Z",
+        "Rating": 3.60,
+        "Address": {
+            "StreetAddress": "140 University Town Center Dr",
+            "City": "Sarasota",
+            "StateProvince": "FL",
+            "PostalCode": "34243",
+            "Country": "USA"
+            }
+        },
+        {
+        "@search.action": "upload",
+        "HotelId": "3",
+        "HotelName": "Triple Landscape Hotel",
+        "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+        "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+        "Category": "Resort and Spa",
+        "Tags": [ "air conditioning", "bar", "continental breakfast" ],
+        "ParkingIncluded": true,
+        "LastRenovationDate": "2015-09-20T00:00:00Z",
+        "Rating": 4.80,
+        "Address": {
+            "StreetAddress": "3393 Peachtree Rd",
+            "City": "Atlanta",
+            "StateProvince": "GA",
+            "PostalCode": "30326",
+            "Country": "USA"
+            }
+        },
+        {
+        "@search.action": "upload",
+        "HotelId": "4",
+        "HotelName": "Sublime Cliff Hotel",
+        "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+        "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+        "Category": "Boutique",
+        "Tags": [ "concierge", "view", "24-hour front desk service" ],
+        "ParkingIncluded": true,
+        "LastRenovationDate": "1960-02-06T00:00:00Z",
+        "Rating": 4.60,
+        "Address": {
+            "StreetAddress": "7400 San Pedro Ave",
+            "City": "San Antonio",
+            "StateProvince": "TX",
+            "PostalCode": "78216",
+            "Country": "USA"
+                }
             }
         ]
     }
     "@
     ```
 
-1. Set the endpoint to the *hotels-powershell* docs collection and include the index operation (indexes/hotels-powershell/docs/index).
+1. Set the endpoint to the *hotels-quickstart* docs collection and include the index operation (indexes/hotels-quickstart/docs/index).
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell/docs/index?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06"
     ```
 
-1. Run the command with **$url**, **$headers**, and **$body** to load documents into the hotels-powershell index.
+1. Run the command with **$url**, **$headers**, and **$body** to load documents into the hotels-quickstart index.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    Results should look similar to the following example. You should see a status code of 201. For a description of all status codes, see [HTTP status codes (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+    Results should look similar to the following example. You should see a [status code of 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
     ```
     {
-        "@odata.context":  "https://mydemo.search.windows.net/indexes/hotels-powershell/$metadata#Collection(Microsoft.Azure.Search.V2017_11_11.IndexResult)",
+        "@odata.context":  "https://mydemo.search.windows.net/indexes/hotels-quickstart/$metadata#Collection(Microsoft.Azure.Search.V2017_11_11.IndexResult)",
         "value":  [
                     {
                         "key":  "1",
@@ -253,6 +298,12 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
                         "status":  true,
                         "errorMessage":  null,
                         "statusCode":  201
+                    },
+                    {
+                        "key":  "4",
+                        "status":  true,
+                        "errorMessage":  null,
+                        "statusCode":  201
                     }
                 ]
     }
@@ -262,10 +313,10 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
 This step shows you how to query an index using the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-1. Set the endpoint to the *hotels-powershell* docs collection and add a **search** parameter to include query strings. This string is an empty search and it returns an unranked list of all documents.
+1. Set the endpoint to the *hotels-quickstart* docs collection and add a **search** parameter to include query strings. This string is an empty search and it returns an unranked list of all documents.
 
     ```powershell
-    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell/docs?api-version=2019-05-06&search=*'
+    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*'
     ```
 
 1. Run the command to send the **$url** to the service.
@@ -278,7 +329,7 @@ This step shows you how to query an index using the [Search Documents API](https
 
     ```
     {
-        "@odata.context":  "https://mydemo.search.windows.net/indexes/hotels-powershell/$metadata#docs(*)",
+        "@odata.context":  "https://mydemo.search.windows.net/indexes/hotels-quickstart/$metadata#docs(*)",
         "value":  [
                     {
                         "@search.score":  1.0,
@@ -335,17 +386,17 @@ Try a few other query examples to get a feel for the syntax. You can do a string
 # Query example 1
 # Search the entire index for the term 'budget'
 # Return only the `hotelName` field, "Roach hotel"
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell/docs?api-version=2019-05-06&search=budget&$select=hotelName'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=budget&$select=hotelName'
 
 # Query example 2 
 # Apply a filter to the index to find hotels cheaper than $150 per night
 # Returns the `hotelId` and `description`. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell/docs?api-version=2019-05-06&search=*&$filter=baseRate lt 150&$select=hotelId,description'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=baseRate lt 150&$select=hotelId,description'
 
 # Query example 3
 # Search the entire index, order by a specific field (`lastRenovationDate`) in descending order
 # Take the top two results, and show only `hotelName` and `lastRenovationDate`
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-powershell/docs?api-version=2019-05-06&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
 ```
 ## Clean up 
 
@@ -353,7 +404,7 @@ You should delete the index if you no longer need it. A free service is limited 
 
 ```powershell
 # Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels-powershell?api-version=2019-05-06'
+$url = 'https://mydemo.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06'
 
 # Delete the index
 Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
