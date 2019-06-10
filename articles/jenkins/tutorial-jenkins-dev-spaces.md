@@ -26,7 +26,6 @@ In this tutorial, you'll complete these tasks:
 > * Prepare your Jenkins server
 > * Use the Azure Dev Spaces plugin in a Jenkins pipeline
 
-
 ## Prerequisites
 
 * An Azure account. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -44,7 +43,7 @@ In this tutorial, you'll complete these tasks:
 
 * The Jenkins server must have both Helm and kubectl installed and available to the Jenkins account, as explained later in this tutorial.
 
-* VS Code, the VS Code Terminal or WSL, and Bash. Other combinations will also work if all of the prerequisites are in place. **Note:** Azure Cloud Shell doesn't currently support the Azure Dev Spaces extension (azds).
+* VS Code, the VS Code Terminal or WSL, and Bash. Other combinations will also work if all of the prerequisites are in place. **Note:** Azure Cloud Shell doesn't currently support the Azure Dev Spaces extension (`azds`).
 
 * Intermediate knowledge of core Azure services, AKS, ACR, Azure Dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) and plugins, and GitHub. Basic familiarity with supporting tools such as kubectl and Helm is helpful.
 
@@ -186,7 +185,7 @@ In this section, you prepare the Jenkins server to run the sample CI pipeline.
 
 3. To install the plugins, choose **Download now and install after restart**.
 
-4. Azure Dev Spaces plugin is currently in preview, and it will not appear in the list of available plugins. Install it manually:
+4. Azure Dev Spaces plugin is currently in preview, and it won't appear in the list of available plugins until it is released. Download and install it manually:
     1. Download the latest version from https://aka.ms/azjenkinsazds.
     2. In Jenkins Plugin Manager, go to the **Advanced** tab.
     3. Use **Upload Plugin** to upload the .hpi file.
@@ -195,7 +194,7 @@ In this section, you prepare the Jenkins server to run the sample CI pipeline.
 
 ### Install Helm and kubectl
 
-The sample pipeline requires Helm and kubectl to deploy from the dev space to AKS. When Jenkins is installed, it creates an admin account named *jenkins*. Both Helm and kubectl need to be accessible to the jenkins user.
+The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenkins is installed, it creates an admin account named *jenkins*. Both Helm and kubectl need to be accessible to the jenkins user.
 
 1. Switch to the `jenkins` user:
     ```bash
@@ -220,7 +219,7 @@ The sample pipeline requires Helm and kubectl to deploy from the dev space to AK
     }
     ```
 
-2. Add a "Microsoft Azure Service Principal" credential type in Jenkins, using the service principal information from the previous step. The names in the Jenkins Add Credentials screenshot are keyed to the output from `create-for-rbac`.
+2. Add a "Microsoft Azure Service Principal" credential type in Jenkins, using the service principal information from the previous step. The names in the Jenkins Add Credentials screenshot correspond to the output from `create-for-rbac`.
 
     The **ID** field is the Jenkins credential name for your service principal. The example uses the value of `displayName` (in this instance, `xxxxxxxjenkinssp`), but you can use any text you want. This credential name is the value for the AZURE_CRED_ID environment variable in the next section.
 
@@ -268,7 +267,6 @@ The sample pipeline requires Helm and kubectl to deploy from the dev space to AK
 
 The scenario selected for the example pipeline is based on a real-world pattern: A pull request triggers a CI pipeline that builds and then deploys the proposed changes to an Azure dev space for testing and review. Depending on the outcome of the review, the changes are either merged and deployed to AKS or discarded. Finally, the dev space is removed.
 
-
 The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI pipeline. This flowchart shows the pipeline stages and decision points defined by the Jenkinsfile:
 
 ![Jenkins pipeline flow](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
@@ -312,6 +310,35 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 
 ## Create a pull request to trigger the pipeline
 
+To complete step 3 in this section, you will need to comment part of the Jenkinsfile, otherwise you will get a 404 error when you try to view the new and old versions side by side. By default, when you choose to merge the PR, the previous shared version of mywebapi will be removed and replaced by the new version. To prevent that from happening, make the following change to the Jenkinsfile:
+
+```Groovy
+    if (userInput == true) {
+        stage('deploy') {
+            // Apply the deployment to shared namespace in AKS using acsDeploy, Helm or kubectl   
+        }
+        
+        stage('Verify') {
+            // verify the staging environment is working properly
+        }
+        
+        /* Comment the cleanup stage to allow side by side comparison with the new child dev space
+
+        stage('cleanup') {
+            devSpacesCleanup aksName: env.AKS_NAME, 
+                azureCredentialsId: env.AZURE_CRED_ID, 
+                devSpaceName: devSpaceNamespace, 
+                kubeConfigId: env.KUBE_CONFIG_ID, 
+                resourceGroupName: env.AKS_RES_GROUP,
+                helmReleaseName: releaseName
+        }
+        */
+
+    } else {
+        // Send a notification
+    }
+```
+
 1. Create a pull request (PR) by editing `Application.java` in `mywebapi/src/main/java/com/ms/sample/mywebapi/`. Change the return string to something like this:
 
     ```java
@@ -329,7 +356,7 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
     1. , open your browser and navigate to the shared version `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`
 
     2. Open another tab and then enter the PR dev space URL. It will be similar to 
-    `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. You will find the link in **Build History** console output for the Jenkins job. Search the page for `aksapp`.
+    `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. You'll find the link in **Build History > <build#> > Console Output**  for the Jenkins job. Search the page for `aksapp`, or to see only the prefix, search for `azdsprefix`.
 
     Notice that with the dev space prefix, your call is routed to the updated mywebapi while `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io` is still pointing to the (team's) shared version.
 
@@ -340,50 +367,51 @@ http://$env.azdsprefix.<test_endpoint>`.
 
 **$env.azdsprefix** is set during pipeline execution by the Azure Dev Spaces plugin by **devSpacesCreate**:
 
-    ```Groovy
-    stage('create dev space') {
-        devSpacesCreate aksName: env.AKS_NAME, 
-            azureCredentialsId: env.AZURE_CRED_ID, 
-            kubeconfigId: env.KUBE_CONFIG_ID, 
-            resourceGroupName: env.AKS_RES_GROUP, 
-            sharedSpaceName: env.PARENT_DEV_SPACE, 
-            spaceName: devSpaceNamespace
-    }
-    ```
+```Groovy
+stage('create dev space') {
+    devSpacesCreate aksName: env.AKS_NAME,
+        azureCredentialsId: env.AZURE_CRED_ID,
+        kubeconfigId: env.KUBE_CONFIG_ID,
+        resourceGroupName: env.AKS_RES_GROUP,
+        sharedSpaceName: env.PARENT_DEV_SPACE,
+        spaceName: devSpaceNamespace
+}
+```
 
 The `test_endpoint` is the URL to the webfrontend app you previously deployed using `azds up` ([Deploy sample apps to the AKS cluster, Step 7](#test_endpoint)). In this example, `$env.TEST_ENDPOINT` is set in the pipeline configuration.
 
 The following code snippet shows how the child dev space URL is used in the `smoketest` stage:
 
-    ```Groovy
-    stage('smoketest') {
-        // CI testing against http://$env.azdsprefix.$env.TEST_ENDPOINT" 
-        SLEEP_TIME = 30
-        SITE_UP = false
-        for (int i = 0; i < 10; i++) {
-            sh "sleep ${SLEEP_TIME}"
-            code = "0"
-            try {
-                code = sh returnStdout: true, script: "curl -sL -w '%{http_code}' 'http://$env.azdsprefix.$env.TEST_ENDPOINT/greeting' -o /dev/null"
-            } catch (Exception e){
-                // ignore
-            }
-            if (code == "200") {
-                sh "curl http://$env.azdsprefix.$env.TEST_ENDPOINT/greeting"
-                SITE_UP = true
-                break
-            }
+```Groovy
+stage('smoketest') {
+    // CI testing against http://$env.azdsprefix.$env.TEST_ENDPOINT" 
+    SLEEP_TIME = 30
+    SITE_UP = false
+    for (int i = 0; i < 10; i++) {
+        sh "sleep ${SLEEP_TIME}"
+        code = "0"
+        try {
+            code = sh returnStdout: true, script: "curl -sL -w '%{http_code}' 'http://$env.azdsprefix.$env.TEST_ENDPOINT/greeting' -o /dev/null"
+        } catch (Exception e){
+            // ignore
         }
-        if(!SITE_UP) {
-            echo "The site has not been up after five minutes"
+        if (code == "200") {
+            sh "curl http://$env.azdsprefix.$env.TEST_ENDPOINT/greeting"
+            SITE_UP = true
+            break
         }
     }
-    ```
+    if(!SITE_UP) {
+        echo "The site has not been up after five minutes"
+    }
+}
+```
+
 The smoke test is intentionally superficial; it simply checks to see if the test endpoint is available.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the resource group you created for this tutorial with the following command:
+When you're done using the sample application, clean up Azure resources by deleting the resource group:
 
 ```bash
 az group delete -y --no-wait -n MyResourceGroup
@@ -391,7 +419,16 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## Next steps
 
+In this article, you learned how to use the Azure Dev Spaces plugin for Jenkins and the Azure Container Registry plugin to build code and deploy to a dev space.
 
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+The following list of resources provides more information on Azure Dev Spaces, ACR Tasks, and CI/CD with Jenkins.
 
+Azure Dev Spaces:
+* [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/en-us/azure/dev-spaces/how-dev-spaces-works)
+
+ACR Tasks:
+* [Automate OS and framework patching with ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview)
+* [Automatic build on code commit](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview)
+
+CI/CD with Jenkins on Azure:
+* [Jenkins continuous deployment](https://docs.microsoft.com/en-us/azure/aks/jenkins-continuous-deployment)
