@@ -35,7 +35,7 @@ You can change the default configuration by specifying the `scriptFile` and `ent
 }
 ```
 
-Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the `function.json` file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
+Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the *function.json* file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
 
 ```json
 {
