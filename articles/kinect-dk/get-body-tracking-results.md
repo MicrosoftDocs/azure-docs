@@ -1,6 +1,6 @@
 ---
-title: Azure Kinect getting body tracking result
-description: Getting body tracking result
+title: Azure Kinect get body tracking results
+description: Get body tracking results
 author: qm13
 ms.prod: kinect-dk
 ms.author: yijwan, quentinm
@@ -9,18 +9,18 @@ ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, body, tracking, joint
 ---
 
-# Getting body tracking result
+# Get body tracking results
 
 Body tracking processes an Azure Kinect DK capture to generate body tracking results. It also maintains global status of the tracker, processing queues and the output queue. There are three steps in using the body tracker:
 
-- Creating a tracker
-- Capturing depth and IR images using Azure Kinect DK
-- Enqueuing the capture and popping the result.
+- Create a tracker
+- Capture depth and IR images using Azure Kinect DK
+- Enqueue the capture and pop the results.
 
-## Creating a tracker
+## Create a tracker
 
 
-The first step in using body tracking is to create a tracker and requires passing in the sensor calibration: [k4a_calibration_t](https://review.docs.microsoft.com/en-us/azurekinect/api/k4a-calibration-t?branch=master). The sensor calibration can be queried using the Azure Kinect Sensor SDK function: [k4a_device_get_calibration](https://review.docs.microsoft.com/en-us/azurekinect/api/k4a-device-get-calibration?branch=master).
+The first step in using body tracking is to create a tracker and requires passing in the sensor calibration: [k4a_calibration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html). The sensor calibration can be queried using the Azure Kinect Sensor SDK function: [k4a_device_get_calibration](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html).
 
 ```C
 k4a_calibration_t sensor_calibration;
@@ -38,14 +38,14 @@ if (K4A_RESULT_SUCCEEDED != k4abt_tracker_create(&sensor_calibration, &tracker),
 }
 ```
 
-## Capturing depth and IR images
+## Capture depth and IR images
 
 Image capture using Azure Kinect DK is covered in the section [Retrieve images](retrieve-images.md).
 
 >[!NOTE]
 > `K4A_DEPTH_MODE_NFOV_UNBINNED` or `K4A_DEPTH_MODE_WFOV_2X2BINNED` modes are recommended for best performance and accuracy. Do not use the `K4A_DEPTH_MODE_OFF` or `K4A_DEPTH_MODE_PASSIVE_IR` modes.
 
-The supported Azure Kinect DK modes are described [here](hardware-specification.md) and [k4a_depth_mode_t](https://review.docs.microsoft.com/en-us/azurekinect/api/k4a-depth-mode-t?branch=master)
+The supported Azure Kinect DK modes are described [here](hardware-specification.md) and [k4a_depth_mode_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
 
 ```C
 // Capture a depth frame
@@ -63,7 +63,7 @@ case K4A_WAIT_RESULT_FAILED:
 }
 ```
 
-## Enqueuing the capture and popping the result
+## Enqueue the capture and pop the results
 
 The tracker internally maintains an input queue and an output queue to asynchronously process the Azure Kinect DK captures more efficiently. '`k4abt_tracker_enqueue_capture` function is called to add a new capture to the input queue. `k4abt_tracker_pop_result` function is called to pop a result from the output queue. Use of the timeout value is dependent on the application and controls the queuing wait time.
 
