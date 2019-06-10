@@ -18,7 +18,7 @@ This article shows you how to train and register a TensorFlow model using Azure 
 
 TensorFlow is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
 
 ## Prerequisites
 
