@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 06/08/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -49,7 +49,7 @@ Starting with January 2019, when encoding with Media Encoder Standard to produce
 
 Media Services currently supports the following built-in encoding presets:  
 
-### BuiltInStandardEncoderPreset preset
+### <a id="BuiltInStandardEncoderPreset-preset>BuiltInStandardEncoderPreset
 
 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) is used to set a built-in preset for encoding the input video with the Standard Encoder. 
 
@@ -69,7 +69,7 @@ To see the most up-to-date presets list, see [built-in presets to be used for en
 
 To see how the presets are used, check out [Uploading, encoding, and streaming files](stream-files-tutorial-with-api.md).
 
-### StandardEncoderPreset preset
+### <a id="StandardEncoderPreset-preset"/>StandardEncoderPreset
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) describes settings to be used when encoding the input video with the Standard Encoder. Use this preset when customizing Transform presets. 
 
@@ -80,40 +80,64 @@ When creating custom presets, the following considerations apply:
 - All values for height and width on AVC content must be a multiple of 4.
 - In Azure Media Services v3, all of the encoding bitrates are in bits per second. This is different from the presets with our v2 APIs, which used kilobits/second as the unit. For example, if the bitrate in v2 was specified as 128 (kilobits/second), in v3 it would be set to 128000 (bits/second).
 
-#### Examples
+## Preset schema
+
+In Media Services v3, presets are strongly typed entities in the API itself. You can find  the "schema" definition for these objects in [Open API Specification (or Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). You can also view the preset definitions (like **StandardEncoderPreset**) in the [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (or other Media Services v3 SDK reference documentation).
+
+## Creating job input from an HTTPS URL
+
+When you submit Jobs to process your videos, you have to tell Media Services where to find the input video. One of the options is to specify an HTTPS URL as a job input. Currently, Media Services v3 does not support chunked transfer encoding over HTTPS URLs. 
+
+### Examples
+
+* [Encode from an HTTPS URL with .NET](stream-files-dotnet-quickstart.md)
+* [Encode from an HTTPS URL with REST](stream-files-tutorial-with-rest.md)
+* [Encode from an HTTPS URL with CLI](stream-files-cli-quickstart.md)
+* [Encode from an HTTPS URL with Node.js](stream-files-nodejs-quickstart.md)
+
+## Creating job input from a local file
+
+The input video can be stored as a Media Service Asset, in which case you create an input asset based on a file (stored locally or in Azure Blob storage). 
+
+### Examples
+
+[Encode a local file using built-in presets](job-input-from-local-file-how-to.md)
+
+## Customizing presets
 
 Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. For examples that show how to customize encoder presets, see:
+
+### Examples
 
 - [Customize presets with .NET](customize-encoder-presets-how-to.md)
 - [Customize presets with CLI](custom-preset-cli-howto.md)
 - [Customize presets with REST](custom-preset-rest-howto.md)
 
-## Preset schema
-
-In Media Services v3, presets are strongly typed entities in the API itself. You can find  the "schema" definition for these objects in [Open API Specification (or Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). You can also view the preset definitions (like **StandardEncoderPreset**) in the [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (or other Media Services v3 SDK reference documentation).
-
-## Scaling encoding in v3
-
-To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.md).
-
-## Subclipping a video while encoding
+## Creating job input with subclipping
 
 When encoding a video, you can specify to also trim or clip the source file and produce an output that has only a desired portion of the input video. This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. 
+
+You can specify to create a job with a single clip of a video on-demand or live archive (a recorded event).
+
+> [!TIP]
+> If you want to stream a sublip of your video without reencoding the video, consider using [Pre-filtering manifests with Dynamic Packager](filters-dynamic-manifest-overview.md).
+
+### Subclipping scenarios
 
 Example scenarios are:
  
 1. Given an input video that is known to be 30 seconds or longer, you can ask the service to produce a single video MP4 at standard definition resolution that represents the portion between 5 seconds and 30 seconds on the input timeline.
 
-    a. Create a Transform using the BuiltInStandardEncoderPreset preset "H264SingleBitrateSD"
-    b. During job submission, specify a JobInputClip that has start and end points in absolute timestamp format, 00:00:05.000 and 00:00:30.000
-2. Given an input video that is known to be 30 seconds or longer, and is at 1080p/FullHD resolution, you can ask the service to produce a multiple-bitrate output, that represents the first 30 seconds
+    1. Create a Transform using the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) preset [H264SingleBitrateSD](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)
+    1. During job submission, specify a [JobInputClip](https://docs.microsoft.com/rest/api/media/jobs/create#jobinputclip) that has start and end points in absolute timestamp format, 00:00:05.000 and 00:00:30.000
+1. Given an input video that is known to be 30 seconds or longer, and is at 1080p/FullHD resolution, you can ask the service to produce a multiple-bitrate output, that represents the first 30 seconds
 
-    a. Create a Transform using the BuiltInStandardEncoderPreset preset " H264MultipleBitrate1080p"
-    b. During job submission, specify a JobInputClip that has start and end points in relative timestamp format, 00:00:00.000 and 00:00:30.000
-3. Suppose you have finished streaming a live event at 1080p/FullHD, and have recorded that event into an Asset. This so-called live archive could contain video that starts at, say a timestamp of 01:30:04.020 and ends at 09:22:34.452. Let us suppose that the first 4 minutes and the last 3 minutes in this live archive asset contain ‘extra’ material, and you want to create a single video MP4 representation of the event (perhaps to upload to social media)
+    1. Create a Transform using the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) preset [H264MultipleBitrate1080p](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)
+    1. During job submission, specify a [JobInputClip](https://docs.microsoft.com/rest/api/media/jobs/create#jobinputclip) that has start and end points in relative timestamp format, 00:00:00.000 and 00:00:30.000
+1. Suppose you have finished streaming a live event at 1080p/FullHD, and have recorded that event into an [Asset](https://docs.microsoft.com/rest/api/media/assets). This live archive could contain video that starts at, say a timestamp of 01:30:04.020 and ends at 09:22:34.452. Let us suppose that the first 4 minutes and the last 3 minutes in this live archive asset contain ‘extra’ material, and you want to create a single video MP4 representation of the event (perhaps to upload to social media)
 
-    a. Create a Transform using the BuiltInStandardEncoderPreset preset "H264SingleBitrate1080p"
-    b. During job submission, specify a JobInputClip that has start and end points in absolute timestamp format, 01:34:04.020  and 09:19:34.452
+    1. Create a Transform using the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) preset [H264SingleBitrate1080p](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)
+    1. During job submission, specify a [JobInputClip](https://docs.microsoft.com/rest/api/media/jobs/create#jobinputclip)  that has start and end points in absolute timestamp format, 01:34:04.020  and 09:19:34.452
 
 ### Examples
 
@@ -122,13 +146,18 @@ See examples:
 * [Subclip a video with .NET](subclip-video-dotnet-howto.md)
 * [Subclip a video with REST](subclip-video-rest-howto.md)
 
+## Scaling encoding in v3
+
+To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.md).
+
 ## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 
+* [Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md)
 * [Encode from an HTTPS URL using built-in presets](job-input-from-http-how-to.md)
 * [Encode a local file using built-in presets](job-input-from-local-file-how-to.md)
 * [Build a custom preset to target your specific scenario or device requirements](customize-encoder-presets-how-to.md)
-* [Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md)
+* [Subclip a video](subclip-video-dotnet-howto.md)
