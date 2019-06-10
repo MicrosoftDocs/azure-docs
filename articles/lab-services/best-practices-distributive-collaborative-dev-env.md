@@ -37,7 +37,7 @@ You can have a common source of custom images that are deployed to labs on a nig
 There are two different features that are based on code repositories, artifacts and environments. This article goes over the features and how to most effectively set up repositories and workflow to allow the ability to customize the available artifacts and environments at the organization level or team level.  This workflow is based on standard [source code control branching strategy](/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
 
 ### Key concepts
-For the artifacts, the source information includes metadata, scripts. For the environments, the metadata and the Resource Manager templates with any supporting files like PowerShell scripts, DSC scripts, Zip files, and so on.  
+The source information for artifacts includes metadata, scripts. The source information for environments includes metadata and Resource Manager templates with any supporting files like PowerShell scripts, DSC scripts, Zip files, and so on.  
 
 ### Repository structure  
 The most common configuration for source code control (SCC) is to set up a multi-tier structure for storing code files (Resource Manager templates, metadata, and scripts) that are used to in the labs. Specifically, create different repositories to store resources that are managed by the different levels of the business:   
@@ -46,7 +46,7 @@ The most common configuration for source code control (SCC) is to set up a multi
 - Business unit/Division-wide resources
 - Team-specific resources.
 
-Each of these levels link to a different  repository where the master branch is required to be of the production quality. The [branches]((/devops/repos/git/git-branching-guidance?view=azure-devops)) in each repository would be for development of those specific resources (artifacts or templates). This structure aligns well with DevTest Labs as you can easily connect multiple repositories and multiple branches at the same time to the organization’s labs. The repository name is included in the user interface (UI) to avoid confusion when there are identical names, description, and publisher.
+Each of these levels link to a different  repository where the master branch is required to be of the production quality. The [branches](/devops/repos/git/git-branching-guidance?view=azure-devops) in each repository would be for development of those specific resources (artifacts or templates). This structure aligns well with DevTest Labs as you can easily connect multiple repositories and multiple branches at the same time to the organization’s labs. The repository name is included in the user interface (UI) to avoid confusion when there are identical names, description, and publisher.
      
 The following diagram shows two repositories: a company repository that is maintained by the IT Division, and a division repository maintained by the R&D division.
 
