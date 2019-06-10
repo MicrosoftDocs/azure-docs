@@ -177,20 +177,16 @@ In this section, you prepare the Jenkins server to run the sample CI pipeline.
 
 1. Sign in to your Jenkins server. Choose **Manage Jenkins > Manage Plugins**.
 2. On the **Available** tab, select the following plugins:
-    * Azure Container Registry Tasks Plugin
-    * EnvInject Plugin
-    * GitHub Integration Plugin
+    * [Azure Dev Spaces](https://plugins.jenkins.io/azure-dev-spaces)
+    * [Azure Container Registry Tasks](https://plugins.jenkins.io/azure-container-registry-tasks)
+    * [Environment Injector](https://plugins.jenkins.io/envinject)
+    * [GitHub Integration](https://plugins.jenkins.io/github-pullrequest)
 
     If these plugins don't appear in the list, check the **Installed** tab to see if they are already installed.
 
 3. To install the plugins, choose **Download now and install after restart**.
 
-4. Azure Dev Spaces plugin is currently in preview, and it won't appear in the list of available plugins until it is released. Download and install it manually:
-    1. Download the latest version from https://aka.ms/azjenkinsazds.
-    2. In Jenkins Plugin Manager, go to the **Advanced** tab.
-    3. Use **Upload Plugin** to upload the .hpi file.
-
-5. Restart your Jenkins server to complete the installation.
+4. Restart your Jenkins server to complete the installation.
 
 ### Install Helm and kubectl
 
@@ -271,7 +267,7 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 
 ![Jenkins pipeline flow](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. Download this [repo](https://github.com/gavinfish/mywebapi) to get the sample files needed for the pipeline. This project is a modification of the *mywebapi* project used for the Azure Dev Spaces tutorials. It contains the Jenkinsfile (`Jekinsfile-helm-cli`) for the pipeline, along with Docker files needed during the build stage.
+1. Download this [repo](https://github.com/azure-devops/mywebapi) to get the sample files needed for the pipeline. This project is a modification of the *mywebapi* project used for the Azure Dev Spaces tutorials. It contains the Jenkinsfile for the pipeline, along with Docker files needed during the build stage. The Docker files and Helm charts were generated with `azds prep`.
 
 2. Log into Jenkins. From the menu on the left, select **Add Item**.
 
