@@ -106,7 +106,9 @@ When deploying a Function project to your function app in Azure, the entire cont
 
 ## Triggers and Inputs
 
-Inputs are divided into two categories in Azure Functions: trigger input and additional input. Although they are different in `function.json`, the usage is identical in Python code.  Connection strings or secrets for trigger and input sources should map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure. Let's take the following code snippet as an example:
+Inputs are divided into two categories in Azure Functions: trigger input and additional input. Although they are different in the `function.json` file, usage is identical in Python code.  Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure. 
+
+For example, the following code demonstrates the difference between the two:
 
 ```json
 // function.json
