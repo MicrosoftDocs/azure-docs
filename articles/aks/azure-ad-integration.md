@@ -239,7 +239,7 @@ kubectl apply -f rbac-aad-group.yaml
 
 For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization].
 
-## Access cluster with Azure AD
+## Access the cluster with Azure AD
 
 Pull the context for the non-admin user by using the [az aks get-credentials][az-aks-get-credentials] command.
 
