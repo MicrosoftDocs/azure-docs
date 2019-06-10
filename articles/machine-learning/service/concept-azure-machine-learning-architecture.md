@@ -40,24 +40,24 @@ You perform these steps with any of the following:
 
 ## Glossary of concepts
 
-+ <a href="#Workspace">Workspace</a>
-+ <a href="#Experiment">Experiments</a>
-+ <a href="#Model">Models</a>
-+ <a href="#Run-configuration">Run Configuration</a>
-+ <a href="#Dataset">Dataset</a>
-+ <a href="#Datastore">Datastore</a>
-+ <a href="#Compute-target">Compute targets</a>
-+ <a href="#Training-script">Training script</a>
-+ <a href="#Run">Run</a>
-+ <a href="#GitHub-tracking-and-integration">Git tracking</a>
-+ <a href="#Snapshot">Snapshot</a>
-+ <a href="#Activity">Activity</a>
-+ <a href="#Image">Image</a>
-+ <a href="#Deployment">Deployment</a>
-+ <a href="#Web-service">Web service</a>
-+ <a href="#IoT-module">IoT module</a>
-+ <a href="#Pipeline">ML pipelines</a>
-+ <a href="#Logging">Logging</a>
++ <a href="#workspace">Workspace</a>
++ <a href="#experiment">Experiments</a>
++ <a href="#model">Models</a>
++ <a href="#run-configuration">Run Configuration</a>
++ <a href="#dataset">Dataset</a>
++ <a href="#datastore">Datastore</a>
++ <a href="#compute-target">Compute targets</a>
++ <a href="#training-script">Training script</a>
++ <a href="#run">Run</a>
++ <a href="#gitHub-tracking-and-integration">Git tracking</a>
++ <a href="#snapshot">Snapshot</a>
++ <a href="#activity">Activity</a>
++ <a href="#image">Image</a>
++ <a href="#deployment">Deployment</a>
++ <a href="#web-service">Web service</a>
++ <a href="#ioT-module">IoT module</a>
++ <a href="#pipeline">ML pipelines</a>
++ <a href="#logging">Logging</a>
 
 > [!NOTE]
 > Although this article defines terms and concepts used by Azure Machine Learning service, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
