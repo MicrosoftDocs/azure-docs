@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/08/2019
 ms.author: jingwang
 
 ---
@@ -47,6 +47,9 @@ The following properties are supported for Azure File Storage linked service:
 >[!IMPORTANT]
 > - To copy data into Azure File Storage using Azure Integration Runtime, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with the location of your File Storage, and associate in the linked service as the following example.
 > - To copy data from/to Azure File Storage using Self-hosted Integration Runtime outside of Azure, remember to open outbound TCP port 445 in your local network.
+
+>[!TIP]
+>When using ADF UI for authoring, you can find the specific entry of "Azure File Storage" for linked service creation, which underneath generates type `FileServer` object.
 
 **Example:**
 

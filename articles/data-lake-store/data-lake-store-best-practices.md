@@ -4,7 +4,7 @@ description: Learn the best practices about data ingestion, date security, and p
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
-manager: jhubbard
+manager: mtillman
 
 ms.service: data-lake-store
 ms.devlang: na

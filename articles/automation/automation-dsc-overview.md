@@ -134,7 +134,7 @@ State Configuration was first announced.
 > Configuration has progressed a lot since this video was recorded. It is now generally available,
 > has a much more extensive UI in the Azure portal, and supports many additional capabilities.
 
-<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## Next steps
 

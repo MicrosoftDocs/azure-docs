@@ -4,7 +4,7 @@ description: Learn about visualizing and analyzing events using Azure Monitor lo
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

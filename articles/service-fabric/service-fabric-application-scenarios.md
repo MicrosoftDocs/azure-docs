@@ -3,8 +3,8 @@ title: Application scenarios and design | Microsoft Docs
 description: Overview of categories of cloud applications in Service Fabric. Discusses application design that uses stateful and stateless services.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/02/2017
-ms.author: mfussell
+ms.author: atsenthi
 
 ---
 # Service Fabric application scenarios

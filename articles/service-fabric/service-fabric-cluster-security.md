@@ -4,7 +4,7 @@ description: Learn about security scenarios for an Azure Service Fabric cluster,
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a

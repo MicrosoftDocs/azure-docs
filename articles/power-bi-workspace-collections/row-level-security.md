@@ -1,15 +1,15 @@
 ---
 title: Row level security with Power BI Workspace Collections
 description: Details about row-level security with Power BI Workspace Collections
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # Row level security with Power BI Workspace Collections
 
 Row level security (RLS) can be used to restrict user access to particular data within a report or dataset, allowing for multiple different users to use the same report while all seeing different data. Power BI Workspace Collections support datasets configured with RLS.

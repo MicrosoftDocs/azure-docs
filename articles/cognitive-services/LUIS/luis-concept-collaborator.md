@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 04/01/2019
 ms.author: diberry
 ---
 # Collaborating with other authors
 
-LUIS provides collaboration to allow a group of people to author an app.
+LUIS apps require a single owner and optional collaborators allowing multiple people to author a single app.
 
 ## LUIS account
 A LUIS account is associated with a single [Microsoft Live](https://login.live.com/) account. Each LUIS account is given a free [authoring key](luis-concept-keys.md#authoring-key) to use for authoring all the LUIS apps the account has access to. 
@@ -24,7 +24,8 @@ A LUIS account may have many LUIS apps.
 See [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
 
 ## LUIS app owner
-The account that creates an app is the owner. Each app has a single owner. The owner is listed on app **[Settings](luis-how-to-collaborate.md)**. This is the account that can delete the app. This is also the account that receives email when the endpoint quota reaches 75% of the monthly limit. 
+
+The account that creates an app is the owner and each app has a single owner. The owner is listed on the app **[Settings](luis-how-to-collaborate.md)** page. The owner can delete the app receive email when the endpoint quota reaches 75% of the monthly limit. 
 
 ## Authorization roles
 LUIS doesn't support different roles for owners and collaborators with one exception. The owner is the only account that can delete the app.
@@ -55,6 +56,10 @@ This method allows you to have one active version, one stage version, and one pu
 [Export](luis-how-to-manage-versions.md#export-version) the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
 
 Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
+
+## Collaborator roles vs entity roles
+
+[Entity roles](luis-concept-roles.md) apply to the data model of the LUIS app. Collaborator roles apply to levels of authoring access. 
 
 ## Next steps
 

@@ -46,7 +46,9 @@ END
 ;
 ```
 
-## Create TheCEO user in mySampleDataWarehouse
+## Create user
+
+[Create user](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "TheCEO", in mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
@@ -56,7 +58,9 @@ END
 ;
 ```
 
-## Create a workload classifier for TheCEO with high importance
+## Create a workload classifier
+
+Create a [workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) for "TheCEO" with high importance.
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];

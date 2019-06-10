@@ -1,8 +1,8 @@
 ---
 author: msmbaldwin
-ms.service: key-vault
+ms.service: storage
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
 ---
 
@@ -29,7 +29,7 @@ ms.author: mbaldwin
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights etc)| Yes | Azure Monitor Metrics available now, Logs starting preview |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Azure Monitor Metrics available now, Logs starting preview |
 
 ## IAM Support
 
@@ -50,4 +50,4 @@ ms.author: mbaldwin
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration etc)| Yes | Support Resource Provider versioning through Azure Resource Manager APIs |
+| Configuration management support (versioning of configuration, etc.)| Yes | Support Resource Provider versioning through Azure Resource Manager APIs |

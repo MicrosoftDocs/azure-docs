@@ -58,7 +58,7 @@ Run the *Get-AzureStackRootCert.ps1* script from the folder where you extracted 
 
 When you run the following PowerShell command, you'll have to provide the privileged endpoint and the credentials for the AzureStack\CloudAdmin.
 
-```PowerShell
+```powershell
     Get-AzureStackRootCert.ps1
 ```
 
@@ -111,9 +111,9 @@ The certificate must be in .pfx format and should be a three-subject wildcard ce
 
 | Format | Example |
 | --- | --- |
-| \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
-| \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
+| `*.appservice.<region>.<DomainName>.<extension>` | `*.appservice.redmond.azurestack.external` |
+| `*.scm.appservice.<region>.<DomainName>.<extension>` | `*.scm.appservice.redmond.azurestack.external` |
+| `*.sso.appservice.<region>.<DomainName>.<extension>` | `*.sso.appservice.redmond.azurestack.external` |
 
 #### API certificate
 
@@ -350,7 +350,7 @@ Follow these steps:
 13. Select **Settings**.
 14. Select **Required Permissions** > **Grant Permissions** > **Yes**.
 
-```PowerShell
+```powershell
     Create-AADIdentityApp.ps1
 ```
 
@@ -386,7 +386,7 @@ Follow these steps:
 5. In the **Credential** window, enter your AD FS cloud admin account and password. Select **OK**.
 6. Provide the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
 
-```PowerShell
+```powershell
     Create-ADFSIdentityApp.ps1
 ```
 

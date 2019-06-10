@@ -10,8 +10,8 @@ ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
 ---
-
 # Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
+
 ## Introduction
 This tutorial covers how to make use of client-side storage encryption with Azure Key Vault. It walks you through how to encrypt and decrypt a blob in a console application using these technologies.
 
@@ -22,6 +22,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](.
 For overview information about client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Prerequisites
+
 To complete this tutorial, you must have the following:
 
 * An Azure Storage account
@@ -29,6 +30,7 @@ To complete this tutorial, you must have the following:
 * Azure PowerShell
 
 ## Overview of client-side encryption
+
 For an overview of client-side encryption for Azure Storage, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 Here is a brief description of how client side encryption works:
@@ -39,6 +41,7 @@ Here is a brief description of how client side encryption works:
 4. The encrypted data is then uploaded to the Azure Storage service.
 
 ## Set up your Azure Key Vault
+
 In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [What is Azure Key Vault?](../../key-vault/key-vault-overview.md):
 
 * Create a key vault.
@@ -51,11 +54,12 @@ Make note of the ClientID and ClientSecret that were generated when registering 
 Create both keys in the key vault. We assume for the rest of the tutorial that you have used the following names: ContosoKeyVault and TestRSAKey1.
 
 ## Create a console application with packages and AppSettings
+
 In Visual Studio, create a new console application.
 
 Add necessary nuget packages in the Package Manager Console.
 
-```
+```powershell
 Install-Package WindowsAzure.Storage
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
@@ -89,6 +93,7 @@ using System.IO;
 ```
 
 ## Add a method to get a token to your console application
+
 The following method is used by Key Vault classes that need to authenticate for access to your key vault.
 
 ```csharp
@@ -108,6 +113,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 ```
 
 ## Access Storage and Key Vault in your program
+
 In the Main function, add the following code.
 
 ```csharp
@@ -137,6 +143,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 
 ## Encrypt blob and upload
+
 Add the following code to encrypt a blob and upload it to your Azure storage account. The **ResolveKeyAsync** method that is used returns an IKey.
 
 ```csharp
@@ -163,6 +170,7 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
 > 
 
 ## Decrypt blob and download
+
 Decryption is really when using the Resolver classes make sense. The ID of the key used for encryption is associated with the blob in its metadata, so there is no reason for you to retrieve the key and remember the association between key and blob. You just have to make sure that the key remains in Key Vault.   
 
 The private key of an RSA Key remains in Key Vault, so for decryption to occur, the Encrypted Key from the blob metadata that contains the CEK is sent to Key Vault for decryption.
@@ -185,6 +193,7 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 > 
 
 ## Use Key Vault secrets
+
 The way to use a secret with client-side encryption is via the SymmetricKey class because a secret is essentially a symmetric key. But, as noted above, a secret in Key Vault does not map exactly to a SymmetricKey. There are a few things to understand:
 
 * The key in a SymmetricKey has to be a fixed length: 128, 192, 256, 384, or 512 bits.
@@ -217,6 +226,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 That's it. Enjoy!
 
 ## Next steps
+
 For more information about using Microsoft Azure Storage with C#, see [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).

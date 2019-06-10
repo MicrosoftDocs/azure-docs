@@ -15,6 +15,8 @@ ms.author: anwestg
 ---
 # Install the Azure Functions Runtime preview 2
 
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
+
 If you would like to install the Azure Functions Runtime preview 2, follow these steps:
 
 1. Ensure your machine passes the minimum requirements.
@@ -98,36 +100,37 @@ To complete the Azure Functions Runtime installation, you must complete the conf
 
 To create your first function in Azure Functions Runtime preview
 
-1. Browse to the **Azure Functions Runtime Portal** as https://<machinename>.<domain> for example https://mycomputer.mydomain.com
+1. Browse to the **Azure Functions Runtime Portal** as `https://<machinename>.<domain>` for example `https://mycomputer.mydomain.com`.
+
 1. You are prompted to **Log in**, if deployed in a domain use your domain account username and password, otherwise use your local account username and password to log in to the portal.
 
-![Azure Functions Runtime preview portal login][14]
+    ![Azure Functions Runtime preview portal login][14]
 
-1. To create function apps, you must create a Subscription.  In the top left-hand corner of the portal, click the **+** option next to the subscriptions
+1. To create function apps, you must create a Subscription.  In the top left-hand corner of the portal, click the **+** option next to the subscriptions.
 
-![Azure Functions Runtime preview portal subscriptions][15]
+    ![Azure Functions Runtime preview portal subscriptions][15]
 
 1. Choose **DefaultPlan**, enter a name for your Subscription, and click **Create**.
 
-![Azure Functions Runtime preview portal subscription plan and name][16]
+    ![Azure Functions Runtime preview portal subscription plan and name][16]
 
 1. All of your function apps are listed in the left-hand pane of the portal.  To create a new Function App, select the heading **Function Apps** and click the **+** option.
 
 1. Enter a name for your function app, select the correct Subscription, choose which version of the Azure Functions runtime you wish to program against and click **Create**
 
-![Azure Functions Runtime preview portal new function app][17]
+    ![Azure Functions Runtime preview portal new function app][17]
 
 1. Your new function app is listed in the left-hand pane of the portal.  Select Functions and then click **New Function** at the top of the center pane in the portal.
 
-![Azure Functions Runtime preview templates][18]
+    ![Azure Functions Runtime preview templates][18]
 
 1. Select the Timer Trigger function, in the right-hand flyout name your function and change the Schedule to `*/5 * * * * *` (this cron expression causes your timer function to execute every five seconds), and click **Create**
 
-![Azure Functions Runtime preview new timer function configuration][19]
+    ![Azure Functions Runtime preview new timer function configuration][19]
 
 1. Your function has now been created.  You can view the execution log of your Function app by expanding the **log** pane at the bottom of the portal.
 
-![Azure Functions Runtime preview function executing][20]
+    ![Azure Functions Runtime preview function executing][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

@@ -29,7 +29,7 @@ In this quickstart, you'll learn how to implement sign-in with Microsoft using a
 At the end of this quickstart, your application will accept sign ins of work and school accounts from organizations that have integrated with Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> If you need to enable sign-ins for personal accounts in addition to work and school accounts, you can use the [v2.0 endpoint](azure-ad-endpoint-comparison.md). For more info, see [this ASP.NET tutorial for the v2.0 endpoint](tutorial-v2-asp-webapp.md) as well as [this article](active-directory-v2-limitations.md) explaining the current limitations of the v2.0 endpoint.
+> If you need to enable sign-ins for personal accounts in addition to work and school accounts, you can use the *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*. For more info, see [this ASP.NET tutorial](tutorial-v2-asp-webapp.md) as well as [this article](active-directory-v2-limitations.md) explaining  the *Microsoft identity platform endpoint*.
 
 ## Prerequisites
 

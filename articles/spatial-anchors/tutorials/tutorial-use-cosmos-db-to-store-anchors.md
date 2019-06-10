@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Sharing across sessions and devices with Azure Spatial Anchors and an Azure Cosmos DB back end | Microsoft Docs
+title: Tutorial - Share Azure Spatial Anchors across sessions and devices with an Azure Cosmos DB back end | Microsoft Docs
 description: In this tutorial, you learn how to share Azure Spatial Anchors identifiers across Android/iOS devices in Unity with a back-end service and Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
@@ -12,12 +12,9 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a mixed reality developer, I want to learn how to share Azure Spatial Anchors identifiers among devices in Unity with a back-end service and Azure Cosmos DB.
 ---
-# Tutorial: Sharing across sessions and devices with Azure Spatial Anchors and an Azure Cosmos DB back end
+# Tutorial: Share Azure Spatial Anchors across sessions and devices with an Azure Cosmos DB back end
 
-In this tutorial, you'll learn how to use [Azure Spatial Anchors](../overview.md) to:
-
-- Create anchors during one session and then locate them during another session, on the same device or on a different one. For example, the second session might be on a different day.
-- Create anchors that can be located by multiple devices in the same place and at the same time.
+In this tutorial, you'll learn how to use [Azure Spatial Anchors](../overview.md) to create anchors during one session and then locate them during another session, on the same device or on a different one. For example, the second session might be on a different day. These same anchors could also be located by multiple devices in the same place and at the same time.
 
 ![GIF illustrating object persistence](./media/persistence.gif)
 
@@ -70,7 +67,7 @@ Locate the `StorageConnectionString` property, and set the value to be the same 
 
 ## Next steps
 
-In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about the Azure Spatial Anchors library, continue to our guide on how to create and locate anchors.
+In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Create and locate anchors using Azure Spatial Anchors](../create-locate-anchors-overview.md)
+> [Starting a new Android app](./tutorial-new-android-app.md)

@@ -1,6 +1,6 @@
 ---
 title: Configure sign-in auto-acceleration for an application using a Home Realm Discovery policy | Microsoft Docs
-description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory.
+description: Learn how to configure Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
 documentationcenter: 
 author: CelesteDG
@@ -11,14 +11,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 04/08/2019
 ms.author: celested
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ---
 
 # Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy
 
-The following document provides an introduction to configuring Azure Active Directory authentication behavior for federated users.   It covers configuration of auto-acceleration and authentication restrictions for users in federated domains.
+This article provides an introduction to configuring Azure Active Directory authentication behavior for federated users. It covers configuration of auto-acceleration and authentication restrictions for users in federated domains.
 
 ## Home Realm Discovery
 Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine where a user needs to authenticate at sign-in time.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in. 

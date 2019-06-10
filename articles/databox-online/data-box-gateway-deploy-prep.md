@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 03/28/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure. 
 ---
@@ -98,6 +98,9 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).     |
 
 5. Enter or select the following **Instance details**.
+
+    |Setting  |Value  |
+    |---------|---------|
     |Name   | A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |   
     |Region     |For this release, East US, South East Asia, and West Europe are available to deploy your resource. For the Azure Government, all the government regions listed in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) are available. <br> Choose a location closest to the geographical region where you want to deploy your device.|
     

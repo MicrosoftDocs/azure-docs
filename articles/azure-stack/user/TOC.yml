@@ -59,8 +59,6 @@
       href: Azure-stack-create-service-principals.md
   - name: Use services
     items:
-    - name: Key considerations
-      href: azure-stack-considerations.md
     - name: Compute
       items:
       - name: Overview

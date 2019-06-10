@@ -4,7 +4,7 @@ description: Learn how Azure Service Fabric node types relate to virtual machine
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48

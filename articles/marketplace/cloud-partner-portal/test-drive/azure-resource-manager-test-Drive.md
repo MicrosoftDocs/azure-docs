@@ -51,7 +51,7 @@ Here is the process for building an Azure Resource Manager Test Drive:
 
 The most important part about building an Azure Resource Manager Test Drive is to define what scenario(s) you want your customers to experience. Are you a firewall product and you want to demo how well you handle script injection attacks? Are you a storage product and you want to demo how fast and easy your solution compresses files?
 
-Make surety spend a sufficient amount of time evaluating what are the best ways to show off your product. Specifically around all the required resources you would need, as it makes packaging the Resource Manager template sufficiently easier.
+Make sure to spend a sufficient amount of time evaluating what are the best ways to show off your product. Specifically around all the required resources you would need, as it makes packaging the Resource Manager template sufficiently easier.
 
 To continue with our firewall example, the architecture may be that you need a public IP URL for your service and another public IP URL for the website that your firewall is protecting. Each IP is deployed on a Virtual Machine and connected together with a network security group + network interface.
 

@@ -98,7 +98,7 @@ To create a new Activity Log Alert, you can either:
 * Follow [our guide on how to create an alert in the Azure portal](../../azure-monitor/platform/activity-log-alerts.md)
 * Learn how to [create an alert using a Resource Manager template](../../azure-monitor/platform/alerts-activity-log.md)
  
-Alerts on management events that you have previously created will not be automatically migrated to Activity Log Alerts. You need to use the preceding PowerShell script to list the alerts on management events that you currently have configured and manually recreate them as Activity Log Alerts. This must be done before October 1, after which alerts on management events will no longer be visible in your Azure subscription. Other types of Azure alerts, including Azure Monitor metric alerts, Application Insights alerts, and Log Analytics alerts are unaffected by this change. If you have any questions, post in the comments below.
+Alerts on management events that you have previously created will not be automatically migrated to Activity Log Alerts. You need to use the preceding PowerShell script to list the alerts on management events that you currently have configured and manually recreate them as Activity Log Alerts. This must be done before October 1, after which alerts on management events will no longer be visible in your Azure subscription. Other types of Azure alerts, including Azure Monitor metric alerts, Application Insights alerts, and Log Search alerts are unaffected by this change. If you have any questions, post in the comments below.
 
 
 ## Next steps

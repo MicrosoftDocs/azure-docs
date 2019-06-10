@@ -28,6 +28,9 @@
   - name: Create on-demand clusters
     href: ../hdinsight-hadoop-create-linux-clusters-adf.md
     maintainContext: true
+  - name: Monitor cluster availability with Ambari and Azure Monitor logs
+    href: ../hdinsight-cluster-availability.md
+    maintainContext: true
 - name: Concepts
   items:
   - name: Cluster capacity planning
@@ -190,9 +193,6 @@
     - name: Install and use Presto
       href: ../hdinsight-hadoop-install-presto.md
       maintainContext: true
-    - name: Install or update Mono
-      href: ../hdinsight-hadoop-install-mono.md
-      maintainContext: true
     - name: Add Apache Hive libraries
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
@@ -214,21 +214,6 @@
         href: https://msdn.microsoft.com/library/mt706515.aspx
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
-        maintainContext: true
-      - name: Install published app - Cask Data Application Platform (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: Install published app - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: Install published app - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: Install published app - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: Install published app - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
         maintainContext: true
   - name: Secure
     items:
@@ -350,9 +335,6 @@
     - name: Use Apache Oozie for workflows
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: Use time-based Apache Oozie coordinators
-      href: ../hdinsight-use-oozie-coordinator-time.md
-      maintainContext: true
     - name: Cluster and service ports and URIs
       href: ../hdinsight-hadoop-port-settings-for-services.md
       maintainContext: true
@@ -401,9 +383,6 @@
       - name: Apache Hive settings fix Out of Memory error
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Use Apache Ambari Views to debug Apache Tez Jobs
-        href: ../hdinsight-debug-ambari-tez-view.md
-        maintainContext: true
       - name: Optimize Apache Hive queries
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
@@ -434,6 +413,9 @@
     maintainContext: true
   - name: Network access
     items:
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+      maintainContext: true
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
       maintainContext: true
@@ -485,33 +467,6 @@
       maintainContext: true
     - name: Migrate .NET solutions to Linux clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-      maintainContext: true
-    - name: Run Apache Hadoop MapReduce samples
-      href: ../hdinsight-run-samples.md
-      maintainContext: true
-    - name: Use Apache Giraph to process large-scale graphs
-      href: ../hdinsight-hadoop-giraph-install.md
-      maintainContext: true
-    - name: Use Apache Oozie for workflows
-      href: ../hdinsight-use-oozie.md
-      maintainContext: true
-    - name: Deploy and manage Apache Storm topologies
-      href: ../storm/apache-storm-deploy-monitor-topology.md
-      maintainContext: true
-    - name: Use Apache Maven to build Java applications
-      href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: Access Apache Hadoop YARN application logs
-      href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: Generate movie recommendations using Apache Mahout
-      href: ../hdinsight-mahout.md
-      maintainContext: true
-    - name: Develop script actions
-      href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Monitor clusters using the Apache Ambari API
-      href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: Resources
   items:

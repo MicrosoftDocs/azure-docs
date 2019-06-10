@@ -63,7 +63,7 @@ az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 ## Billing
 
-You are charged  based on the number, type, and amount of time that MRUs are provisioned in your account. Charges apply whether or not you run any jobs. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
+You are charged based on number of minutes the Media Reserved Units are provisioned in your account. This occurs independent of whether there are any Jobs running in your account. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.   
 
 ## Next step
 

@@ -25,6 +25,7 @@
       href: apache-spark-load-data-run-query.md
     - name: Use VSCode to run Apache Spark queries
       href: ../hdinsight-for-vscode.md
+      maintainContext: true
     - name: Use IntelliJ to run Apache Spark queries
       href: apache-spark-intellij-tool-plugin.md
     - name: Analyze data using BI tools
@@ -35,6 +36,9 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: Create an Apache Spark app in IntelliJ
       href: apache-spark-create-standalone-application.md
+    - name: Monitor cluster availability with Ambari and Azure Monitor logs
+      href: ../hdinsight-cluster-availability.md
+      maintainContext: true
 - name: How to
   items:
     - name: Use cluster storage
@@ -102,6 +106,7 @@
           href: apache-spark-connect-to-sql-database.md
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
         - name: Run Azure ML workloads with AutoML
           href: apache-spark-run-machine-learning-automl.md
           maintainContext: true
@@ -157,9 +162,6 @@
       - name: Install and use Presto
         href: ../hdinsight-hadoop-install-presto.md
         maintainContext: true
-      - name: Install or update Mono
-        href: ../hdinsight-hadoop-install-mono.md
-        maintainContext: true
       - name: Add Apache Hive libraries
         href: ../hdinsight-hadoop-add-hive-libraries.md
         maintainContext: true
@@ -181,21 +183,6 @@
             href: https://msdn.microsoft.com/library/mt706515.aspx
           - name: Publish HDInsight apps to Azure Marketplace
             href: ../hdinsight-apps-publish-applications.md
-            maintainContext: true
-          - name: Install published app - Cask Data Application Platform (CDAP)
-            href: ../hdinsight-apps-install-cask.md
-            maintainContext: true
-          - name: Install published app - Dataiku
-            href: ../hdinsight-apps-install-dataiku.md
-            maintainContext: true
-          - name: Install published app - Datameer
-            href: ../hdinsight-apps-install-datameer.md
-            maintainContext: true
-          - name: Install published app - H2O
-            href: ../hdinsight-apps-install-h2o.md
-            maintainContext: true
-          - name: Install published app - Streamsets
-            href: ../hdinsight-apps-install-streamsets.md
             maintainContext: true
     - name: Secure
       items:
@@ -306,9 +293,6 @@
       - name: Use Apache Oozie for workflows
         href: ../hdinsight-use-oozie-linux-mac.md
         maintainContext: true
-      - name: Use time-based Apache Oozie coordinators
-        href: ../hdinsight-use-oozie-coordinator-time.md
-        maintainContext: true
       - name: Cluster and service ports and URIs
         href: ../hdinsight-hadoop-port-settings-for-services.md
         maintainContext: true
@@ -364,9 +348,6 @@
           maintainContext: true
         - name: Apache Hive settings fix Out of Memory error
           href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
-          maintainContext: true
-        - name: Use Apache Ambari Views to debug Apache Tez Jobs
-          href: ../hdinsight-debug-ambari-tez-view.md
           maintainContext: true
         - name: Optimize Apache Hive queries
           href: ../hdinsight-hadoop-optimize-hive-query.md

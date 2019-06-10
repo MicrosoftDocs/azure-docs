@@ -1,5 +1,5 @@
 ---
-title: Collect threat intelligence data in Azure Sentinel Preview| Microsoft Docs
+title: Connect threat intelligence data to Azure Sentinel Preview| Microsoft Docs
 description: Learn about how to connect threat intelligence data to Azure Sentinel.
 documentationcenter: na
 author: rkarlin
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from threat intelligence providers 
+# Connect data from threat intelligence providers 
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -41,7 +41,7 @@ You can stream logs from Threat intelligence providers into Azure Sentinel with 
 
 1. If you’re already using a threat intelligence provider, be sure to browse to your TIP application and grant permission to send indicators to Microsoft and specify the service as Azure Sentinel.  
 
-2. In Azure Sentinel, select **Data collection** and then click the **Threat Intelligence** tile.
+2. In Azure Sentinel, select **Data connectors** and then click the **Threat Intelligence** tile.
 
 3. Click **Connect**. 
 

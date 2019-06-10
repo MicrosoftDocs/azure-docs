@@ -1,6 +1,6 @@
 ---
 title: Send events using Python - Azure Event Hubs | Microsoft Docs
-description: This article provides a walkthrough for creating a Node.js application that sends events to Azure Event Hubs.
+description: This article provides a walkthrough for creating a Python application that sends events to Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila

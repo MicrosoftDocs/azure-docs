@@ -192,7 +192,7 @@ The VM takes a few minutes to create. After the VM is created, note the **public
 
 ## Test traffic filters
 
-Use the command that follows to create an SSH session with the *myVmMgmt* VM. Replace *<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
+Use the command that follows to create an SSH session with the *myVmMgmt* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

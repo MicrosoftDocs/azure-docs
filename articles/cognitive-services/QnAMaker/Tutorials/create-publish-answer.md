@@ -154,7 +154,7 @@ The _primary endpoint_ is passed as a header to authenticate the request to gene
 
 |Header name|Header value|
 |--|--|
-|Authorization|`Endpoint ` + **primary endpoint**<br>Example: `Endpoint xxxxxxx`<br>Notice the space between the text of `Endpoint` and the value the of primary endpoint. 
+|Authorization|`Endpoint` + **primary endpoint**<br>Example: `Endpoint xxxxxxx`<br>Notice the space between the text of `Endpoint` and the value the of primary endpoint. 
 
 The body of the request needs to pass the proper JSON:
 

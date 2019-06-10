@@ -5,7 +5,7 @@ metadata:
   title: Translator Text Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use Translator Text to translate text in multiple languages.
   services: cognitive-services
-  author: Jann-Skotdal
+  author: v-pawal
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
@@ -94,7 +94,7 @@ sections:
   - type: paragraph
     text: "Learn how to develop applications using the Translator Text API:"
   - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">Write a WPF application for Translator Text using C#</a>
+    text: <li><a href="tutorial-wpf-translation-csharp.md">Create a WPF app for Translator Text, C#</a></li><li><a href="tutorial-build-flask-app-translation-synthesis.md">Create a Flask translation app, Python</a></li>
 - title: Reference
   items:
   - type: paragraph

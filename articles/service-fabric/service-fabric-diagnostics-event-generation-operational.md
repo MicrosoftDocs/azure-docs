@@ -4,7 +4,7 @@ description: Comprehensive list of events provided by Azure Service Fabric to he
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

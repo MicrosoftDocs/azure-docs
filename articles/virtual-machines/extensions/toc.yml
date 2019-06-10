@@ -62,6 +62,12 @@
       href: oms-linux.md
     - name: Windows
       href: oms-windows.md
+  - name: Azure Monitor for VMs
+    items:
+    - name: Linux Dependency agent
+      href: agent-dependency-linux.md
+    - name: Windows Dependency agent
+      href: agent-dependency-windows.md
   - name: PowerShell DSC 
     href: dsc-overview.md
     items:

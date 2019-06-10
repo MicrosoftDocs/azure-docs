@@ -26,6 +26,9 @@ ms.author: jdial
 
 Security group view returns configured and effective network security rules that are applied to a virtual machine. This capability is useful to audit and diagnose Network Security Groups and rules that are configured on a VM to ensure traffic is being correctly allowed or denied. In this article, we show you how to retrieve the effective and applied security rules to a virtual machine using REST API
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Before you begin
 
 In this scenario, you call the Network Watcher Rest API to get the security group view for a virtual machine. ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
@@ -38,7 +41,7 @@ The scenario covered in this article retrieves the effective and applied securit
 
 ## Log in with ARMClient
 
-```PowerShell
+```powershell
 armclient login
 ```
 
@@ -46,7 +49,7 @@ armclient login
 
 Run the following script to return a virtual machineThe following code needs variables:
 
-- **subscriptionId** - The subscription id can also be retrieved with the **Get-AzureRMSubscription** cmdlet.
+- **subscriptionId** - The subscription id can also be retrieved with the **Get-AzSubscription** cmdlet.
 - **resourceGroupName** - The name of a resource group that contains virtual machines.
 
 ```powershell

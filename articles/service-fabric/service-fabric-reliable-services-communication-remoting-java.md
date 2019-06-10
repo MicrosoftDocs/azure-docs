@@ -4,7 +4,7 @@ description: Service Fabric remoting allows clients and services to communicate 
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
-manager: timlt
+manager: chackdan
 
 ms.assetid:
 ms.service: service-fabric

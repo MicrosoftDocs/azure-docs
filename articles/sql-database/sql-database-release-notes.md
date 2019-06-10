@@ -8,12 +8,37 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/10/2019
 ms.author: carlrab
 ---
 # SQL Database release notes
 
 This article lists the new features and improvements in the SQL Database service and in the SQL Database documentation. For SQL Database service improvements, see also [SQL Database service updates](https://azure.microsoft.com/updates/?product=sql-database). For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
+
+## Features in public preview
+
+| Feature | Details |
+| ---| --- |
+| Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md) |
+| Elastic transactions | [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md) |
+| Elastic queries | For information, see [Elastic query overview](sql-database-elastic-query-overview.md) |
+| Replication with managed instances |For information, see [Configure replication in an Azure SQL Database managed instance database](replication-with-sql-database-managed-instance.md)|
+| Instance collation with managed instances |For information, see [Use PowerShell with Azure Resource Manager template to create a managed instance in Azure SQL Database](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| R services / machine learning with single databases and elastic pools |For information, see [Machine Learning Services in Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)|
+| Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](sql-database-accelerated-database-recovery.md)|
+| Data discovery & classification  |For information, see [Azure SQL Database and SQL Data Warehouse data discovery & classification](sql-database-data-discovery-and-classification.md)|
+| Transparent data encryption (TDE) with Bring Your Own Key (BYOK) with managed instances |For information, see [Azure SQL Transparent Data Encryption with customer-managed keys in Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md)|
+| Recreate dropped databases with managed instances |For information, see [Re-create dropped databases in Azure SQL Managed Instance](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)|
+| Threat detection with managed instances |For information, see [Configure threat detection in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md)|
+| Hyperscale service tiers with single databases |For information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md)|
+| Query editor in the Azure portal |For information, see [Use the Azure portal's SQL query editor to connect and query data](sql-database-connect-query-portal.md)|
+|Approximate Count Distinct|For information, see [Approximate Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
+|Batch Mode on Rowstore (under compatibility level 150)|For information, see [Batch Mode on Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
+|Memory Grant Feedback (Row Mode) (under compatibility level 150)|For information, see [Memory Grant Feedback (Row Mode)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
+|Table Variable Deferred Compilation (under compatibility level 150)|For information, see [Table Variable Deferred Compilation](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|SQL Analytics|For information, see [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
+| Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
+|||
 
 ## March 2019
 
@@ -21,13 +46,14 @@ This article lists the new features and improvements in the SQL Database service
 
 | Service improvements | Details |
 | --- | --- |
-| Coming soon ||
+| General availability: Read scale-out support for Azure SQL Database | For more information, see [Read scale-out](sql-database-read-scale-out.md)|
 | &nbsp; |
 
 ### Documentation improvements
 
 | Documentation improvements | Details |
 | --- | --- |
+| Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 | Added log limits for single databases|For more information, see [Single database vCore resource limits](sql-database-vcore-resource-limits-single-databases.md).|
 | Added log limits for elastic pools and pooled databases|For more information, see [Elastic pools vCore resource limits](sql-database-vcore-resource-limits-elastic-pools.md).|
 | Added Transaction log rate governance| Added new content for [Transaction log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|

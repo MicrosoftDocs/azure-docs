@@ -209,10 +209,12 @@ The `ip-filter` policy filters (allows/denies) calls from specific IP addresses 
 
 ### Example
 
+In the following example, the policy only allows requests coming either from the single IP address or range of IP addresses specified
+
 ```xml
-<ip-filter action="allow | forbid">
-    <address>address</address>
-    <address-range from="address" to="address" />
+<ip-filter action="allow">
+    <address>13.66.201.169</address>
+    <address-range from="13.66.140.128" to="13.66.140.143" />
 </ip-filter>
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Perform a news search - Bing News Search SDK for C#"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to search for news using the Bing News Search SDK for Python, and process the response.
+description: Use this quickstart to search for news using the Bing News Search SDK for C#, and process the response.
 services: cognitive-services
 author: mikedodaro
 manager: nitinme

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/24/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -36,7 +36,7 @@ In this phase, a migration of SAP workload onto Azure public cloud is planned. T
 	2. Create and work through a Responsibility Assignment Matrix (RACI) which defines the responsibilities and assignments of the different parties involved. Start on the high level and work to more and more granular levels throughput the planning and first deployments
 	2. A high-level solution architecture
 	3. Decision on Azure regions to deploy into. For a list of Azure regions, check the [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). For services available in each of the Azure regions,  check the article [Products available per region](https://azure.microsoft.com/global-infrastructure/services/)
-	4. Networking architecture to connect from on-premise into Azure. Start to make yourself familiar with the [Virtual Datacenter blueprint for Azure](https://docs.microsoft.com/azure/architecture/vdc/)
+	4. Networking architecture to connect from on-premises into Azure. Start to make yourself familiar with the [Virtual Datacenter blueprint for Azure](https://docs.microsoft.com/azure/architecture/vdc/)
 	5. Security principles for running high business impact data in Azure. For reading material start with [Azure Security Documentation](https://docs.microsoft.com/azure/security/)
 2.	Technical Design Document – that contains:
 	1.	A solution block diagram 
@@ -74,7 +74,7 @@ In this phase, a migration of SAP workload onto Azure public cloud is planned. T
 5.	Microsoft Premier Support Contract – identify MS Technical Account Manager (TAM). For support requirements by SAP read SAP support note [#2015553](https://launchpad.support.sap.com/#/notes/2015553) 
 6.	Define number of Azure subscriptions and core quota for the different subscriptions. [Open support requests to increase quotas of Azure subscriptions](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) as necessary 
 7.	Data Reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to keep the volume of a large number of data limited. SAP published [this profound guide](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) about data management in SAP ERP systems. However, some content does apply to NetWeaver and S/4HANA systems in general.
-8.	Define and decide automated deployment approach. Goal of automation behind infrastructure deployments on Azure is to deploy in a deterministic manner and get deterministic results. Many customers use Power Shell or CLI based scripts. But there are various open source technologies that can be used to deploy Azure infrastructure for SAP and even install SAP software. Examples can be found in github:
+8.	Define and decide automated deployment approach. Goal of automation behind infrastructure deployments on Azure is to deploy in a deterministic manner and get deterministic results. Many customers use Power Shell or CLI based scripts. But there are various open source technologies that can be used to deploy Azure infrastructure for SAP and even install SAP software. Examples can be found in GitHub:
 	1.	[Automated SAP Deployments in Azure Cloud](https://github.com/Azure/sap-hana)
 	2.	[SAP HANA Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.	Define a regular design and deployment review cadence between you as customer, system integrator, Microsoft, and other involved parties
@@ -84,20 +84,22 @@ In this phase, a migration of SAP workload onto Azure public cloud is planned. T
  
 The pilot can run before or in parallel to project planning and preparation. The phase can also be used to test approaches and design made in the planning and preparation phase. The pilot phase can be stretched to a real proof of concepts. It is recommended to set up and validate a full HA/DR solution as well as security design during a pilot deployment. In some customer cases, scalability tests also can be conducted in this phase. Other customers use deployment of SAP sandbox systems as pilot phase. So we assume you identified a system that you want to migrate into Azure for the purpose of running a pilot.
 
-1. Optimize data transfer into Azure. Highly dependent on customer cases transfer through [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) from on-premise was fastest if the Express Circuit had enough bandwidth. With other customers, going through internet figured out to be faster
-2. In case of an SAP heterogeneous platform migration, that involves an export and import of the database data, test, and optimize export and import phases. For large migrations involving SQL Server as the destination platform, recommendations can be found [here](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). You can take the approach of Migration Monitor/SWPM in case you don't need a combined release upgrade or [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) process when you combine the migration with an SAP release upgrade and fulfill certain source and target DBMS platform combinations as documented, for example, in [Database Migration Option (DMO) of SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
+1. Optimize data transfer into Azure. Highly dependent on customer cases transfer through [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) from on-premises was fastest if the Express Circuit had enough bandwidth. With other customers, going through internet figured out to be faster
+2. In case of an SAP heterogeneous platform migration, that involves an export and import of the database data, test, and optimize export and import phases. For large migrations involving SQL Server as the destination platform, recommendations can be found [here](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070). You can take the approach of Migration Monitor/SWPM in case you don't need a combined release upgrade or [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) process when you combine the migration with an SAP release upgrade and fulfill certain source and target DBMS platform combinations as documented, for example, in [Database Migration Option (DMO) of SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
    1.  Export to source, Export file upload to Azure and Import performance.  Maximize overlap between export and import
    2.  Evaluate volume of database between target and destination platform in order to reflect in the infrastructure sizing    
    3.  Validate and optimize timing 
 3. Technical Validation 
    1. VM Types
       1.  Validate the resources on SAP support notes, SAP HANA hardware directory, and SAP PAM again to make sure that there were no changes in supported VMs for Azure, supported OS releases for those VM types and supported SAP and DBMS releases
-      2.  Validate again the sizing of your application and the infrastructure you deploy on Azure. In case of moving existing applications, you often can derive the necessary SAPS from the infrastructure you use and the [SAP benchmark webpage](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) and compare it to the SAPS numbers listed in SAP support note [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Also keep [this article](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/) in mind
+      2.  Validate again the sizing of your application and the infrastructure you deploy on Azure. In case of moving existing applications, you often can derive the necessary SAPS from the infrastructure you use and the [SAP benchmark webpage](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) and compare it to the SAPS numbers listed in SAP support note [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Also keep [this article](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAPS-ratings-on-Azure-VMs-8211-where-to-look-and-where-you-can/ba-p/368208) in mind
       3.  Evaluate and test the sizing of your Azure VMs regarding maximum storage throughput and network throughput of the different VM types you chose in the planning phase. The data can be found in:
           1.  [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). It is important to consider the **max uncached disk throughput** for sizing
           2.  [Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) It is important to consider the **max uncached disk throughput** for sizing
    2. Storage
-      1.  Use Azure Premium Storage for Database VMs
+      1.  Use [Azure Standard SSD storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) as minimum for VMs representing SAP application layers and for non-performance sensitive DBMS deployment
+      2.  We are recommending not to use [Azure Standard HDD disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd) in general
+      2.  Use [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) for any DBMS VMs that are remotely performance sensitive
       2.  Use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/)
       3.  Use Azure Write Accelerator for DBMS log drives with M-Series. Be aware of Write accelerator limits and usage as documented in [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
       4.  For the different DBMS types, check the [generic SAP related DBMS documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) and the DBMS specific documentations the generic document points you to
@@ -121,6 +123,7 @@ The pilot can run before or in parallel to project planning and preparation. The
               4.  Oracle Linux 7.5. Using the RHCKL kernel, the release needs to be 3.10.0-862.13.1.el7. Using the Oracle UEK kernel release 5 is required
           4.   Test and evaluate the network latency between SAP application layer VM and DBMS VM according to SAP support note [#500235](https://launchpad.support.sap.com/#/notes/500235) and SAP support note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Evaluate the results against network latency guidance of SAP support note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). The network latency should be in the moderate and good range. Exceptions apply to traffic between VMs and HANA Large Instance units as documented [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
           5.   Make sure that ILB deployments are set up to use Direct Server Return. This setting will reduce latency in cases where Azure ILBs are used for high availability configurations on the DBMS layer
+          6.   If you are using Azure Load Balancer in conjunction with Linux guest operating systems check that the Linux network parameter **net.ipv4.tcp_timestamps** is set to **0**. Against the recommendations in older versions of SAP note [#2382421](https://launchpad.support.sap.com/#/notes/2382421). The SAP note meanwhile is updated to reflect the fact that the parameter needs to be set to 0 to work in conjunction with Azure Load Balancers.
    4. High Availability and disaster recovery deployments. 
       1. If you deploy the SAP application layer without defining a specific Azure Availability Zone, make sure that all VMs running SAP dialog instance or middleware instances of a single SAP system are deployed in an [Availability Set](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
          1.   In case you don't require high availability for the SAP Central Services and DBMS, these VMs can be deployed into the same Availability Set as the SAP application layer
@@ -153,7 +156,7 @@ The pilot can run before or in parallel to project planning and preparation. The
 6. Performance Testing
    1.  In SAP based on SAP tracing and measurements, compare top 10 online reports to current implementation where applicable 
    2.  In SAP based on SAP tracing and measurements, compare top 10 batch jobs to current implementation where applicable 
-   3.  In SAP based on SAP tracing and measurements, compare data transfers through interfaces into the SAP system. Focus on interfaces where you know that the transfer is now going between different locations, like going from on-premise to Azure 
+   3.  In SAP based on SAP tracing and measurements, compare data transfers through interfaces into the SAP system. Focus on interfaces where you know that the transfer is now going between different locations, like going from on-premises to Azure 
 
 
 ## Non-Production Phase 

@@ -155,7 +155,7 @@
   - name: Azure CLI
     href: /cli/azure/network/watcher
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network/#network_watcher
+    href: /powershell/module/az.network/#network_watcher
   - name: Java
     href: /java/api/com.microsoft.azure.management.network
   - name: Ruby

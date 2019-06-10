@@ -1,6 +1,6 @@
 ---
-title: Manage user access with Azure AD Access Reviews| Microsoft Docs
-description: Learn how to manage users' access as membership of a group or assignment to an application with Azure Active Directory Access Reviews
+title: Manage user access with access reviews - Azure Active Directory | Microsoft Docs
+description: Learn how to manage users' access as membership of a group or assignment to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Manage user access with Azure AD Access Reviews
+# Manage user access with Azure AD access reviews
 
 With Azure Active Directory (Azure AD), you can easily ensure that users have appropriate access. You can ask the users themselves or a decision maker to participate in an access review and recertify (or attest) to users' access. The reviewers can give their input on each user's need for continued access based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access from users who no longer need it.
 

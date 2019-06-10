@@ -341,7 +341,10 @@ The device has trouble starting modules defined in the deployment. Only the edge
 By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
 
 ### Resolution
-Specify the DNS server for your environment in the container engine settings. Create a file named `daemon.json` specifying the DNS server to use. For example:
+
+**Option 1: Set DNS server in container engine settings**
+
+Specify the DNS server for your environment in the container engine settings which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
 
 ```
 {
@@ -366,6 +369,22 @@ If the location already contains `daemon.json` file, add the **dns** key to it a
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
+
+**Option 2: Set DNS server in IoT Edge deployment per module**
+
+You can set DNS server for each module's *createOptions* in the IoT Edge deployment. For example:
+
+```
+"createOptions": {
+  "HostConfig": {
+    "Dns": [
+      "x.x.x.x"
+    ]
+  }
+}
+```
+
+Be sure to set this for the *edgeAgent* and *edgeHub* modules as well. 
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 

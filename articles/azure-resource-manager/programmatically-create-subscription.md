@@ -2,9 +2,7 @@
 title: Programmatically create Azure Enterprise subscriptions| Microsoft Docs
 description: Learn how to create additional Azure Enterprise or Enterprise Dev/Test subscriptions programmatically.
 services: azure-resource-manager
-author: adpick
-manager: adpick
-editor: ''
+author: tfitzmac
 
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -12,8 +10,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
+ms.date: 04/05/2019
+ms.author: tomfitz
 ---
 
 # Programmatically create Azure Enterprise subscriptions (preview)
@@ -26,9 +24,9 @@ When you create an Azure subscription from this API, that subscription is govern
 
 ## Prerequisites
 
-You must have an Owner or Contributor role on the Enrollment Account you wish to create subscriptions under. There are two ways to get these roles:
+You must have an Owner role on the Enrollment Account you wish to create subscriptions under. There are two ways to get these roles:
 
-* Your Enrollment Administrator can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (log-in required) which makes you an Owner of the Enrollment Account. Follow the instructions in the invitation email you receive to manually create an initial subscription. Confirm account ownership and manually create an initial EA subscription before proceeding to the next step. Just adding the account to the enrollment isn't enough.
+* Your Enrollment Administrator can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (sign in required) which makes you an Owner of the Enrollment Account. Follow the instructions in the invitation email you receive to manually create an initial subscription. Confirm account ownership and manually create an initial EA subscription before proceeding to the next step. Just adding the account to the enrollment isn't enough.
 
 * An existing Owner of the Enrollment Account can [grant you access](grant-access-to-create-subscription.md). Similarly, if you want to use a service principal to create the EA subscription, you must [grant that service principal the ability to create subscriptions](grant-access-to-create-subscription.md).
 

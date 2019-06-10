@@ -6,20 +6,20 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/05/2019
 ms.author: sogup
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
 
 > [!NOTE]
-> Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
+> Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.<br/><br/> All the Azure backup users have now been upgraded to **Instant Restore**.
 
 The new model for Instant Restore provides the following feature enhancements:
 
 * Ability to use snapshots taken as part of a backup job that is available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
-* Reduces backup and restore times by retaining snapshots locally, for two days by default. This default vault is configurable to any value between 1 to 5 days.
-* Supports disk sizes up to 4 TB.
+* Reduces backup and restore times by retaining snapshots locally, for two days by default. This default snapshot retention value is configurable to any value between 1 to 5 days.
+* Supports disk sizes up to 4 TB. Azure Backup does not support striped disks. Resizing of disk is not recommended by Azure Backup.
 * Supports Standard SSD disks along with Standard HDD disks and Premium SSD disks.
 *	Ability to use an unmanaged VM's original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
 
@@ -55,13 +55,25 @@ The incremental snapshots are stored in VM’s storage account, which are used f
 >[!NOTE]
 > Snapshot retention is fixed to 5 days for weekly policies.
 
-## Configure snapshot retention using the Azure portal
+## Configure snapshot retention
 
-**All the Azure backup users have now been upgraded to Instant restore**.
+### Using Azure portal
 
 In the Azure portal, you can see a field added in the **VM Backup Policy** blade under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** blade for all the VMs associated with the specific backup policy.
 
 ![Instant Restore Capability](./media/backup-azure-vms/instant-restore-capability.png)
+
+### Using PowerShell
+
+>[!NOTE]
+> From Az PowerShell version 1.6.0 onwards, you can update the instant restore snapshot retention period in policy using PowerShell
+
+```powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=5
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
+The default snapshot retention for each policy is set to 2 days. User can change the value to a minimum of 1 and a maximum of 5 days. For weekly policies, the snapshot retention is fixed to 5 days.
 
 ## Frequently asked questions
 

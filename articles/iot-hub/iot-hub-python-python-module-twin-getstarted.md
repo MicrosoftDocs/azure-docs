@@ -2,7 +2,6 @@
 title: Get started with Azure IoT Hub module identity and module twin (Python) | Microsoft Docs
 description: Learn how to create module identity and update module twin using IoT SDKs for Python.
 author: chrissie926
-manager: 
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
@@ -20,23 +19,26 @@ ms.author: menchi
 At the end of this tutorial, you have two Python apps:
 
 * **CreateIdentities**, which creates a device identity, a module identity and associated security key to connect your device and module clients.
+
 * **UpdateModuleTwinReportedProperties**, which sends updated module twin reported properties to your IoT Hub.
 
 > [!NOTE]
-> For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs][lnk-hub-sdks].
+> For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 >
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+
 * An IoT Hub.
+
 * Install the latest [Python SDK](https://github.com/Azure/azure-iot-sdk-python).
 
 You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
 
 ## Create a device identity and a module identity in IoT Hub
 
-In this section, you create a Python app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
+In this section, you create a Python app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide](iot-hub-devguide-identity-registry.md). When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
 
 Add the following code to your Python file:
 
@@ -73,18 +75,18 @@ except KeyboardInterrupt:
 This app creates a device identity with ID **myFirstDevice** and a module identity with ID **myFirstModule** under device **myFirstDevice**. (If that module ID already exists in the identity registry, the code simply retrieves the existing module information.) The app then displays the primary key for that identity. You use this key in the simulated module app to connect to your IoT hub.
 
 > [!NOTE]
-> The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide][lnk-devguide-identity].
+> The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
 >
 
 ## Update the module twin using Python device SDK
 
 In this section, you create a Python app on your simulated device that updates the module twin reported properties.
 
-1. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
+1. **Get your module connection string** -- now if you login to [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
-   ![Azure portal module detail][15]
+   ![Azure portal module detail](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-1. **Create UpdateModuleTwinReportedProperties app**
+2. **Create UpdateModuleTwinReportedProperties app**
    Add the following `using` statements at the top of the **Program.cs** file:
 
     ```python
@@ -117,7 +119,7 @@ In this section, you create a Python app on your simulated device that updates t
         print ( "IoTHubRegistryManager sample stopped" )
     ```
 
-This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. 
+This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol.
 
 ## Get updates on the device side
 
@@ -155,23 +157,10 @@ except KeyboardInterrupt:
     print ( "module client sample stopped" )
 ```
 
-
 ## Next steps
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
-* [Getting started with device management][lnk-device-management]
-* [Getting started with IoT Edge][lnk-iot-edge]
+* [Getting started with device management](iot-hub-node-node-device-management-get-started.md)
 
-
-<!-- Images. -->
-[15]:./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-portal]: https://portal.azure.com/
-
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+* [Getting started with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

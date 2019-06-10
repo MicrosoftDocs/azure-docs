@@ -4,7 +4,7 @@ description: Learn now to setup gMSA for a container running in Azure Service Fa
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90

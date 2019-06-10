@@ -5,8 +5,8 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.author: mayg
+ms.date: 4/9/2019
+ms.author: ramamill
 ---
 
 # Scale for failback with additional process servers
@@ -46,7 +46,7 @@ The prerequisites for the additional process server are summarized in the follow
 
 Download the installation file for the process server as follows:
 
-1. Log on to the Azure portal, and browse to your Recovery Services Vault.
+1. Sign in to the Azure portal, and browse to your Recovery Services Vault.
 2. Open **Site Recovery Infrastructure** > **VMWare and Physical Machines** > **Configuration Servers** (under For VMware & Physical Machines).
 3. Select the configuration server to drill down into the server details. Then click **+ Process Server**.
 4. In **Add Process server** >  **Choose where you want to deploy your process server**, select **Deploy a Scale-out Process Server on-premises**.

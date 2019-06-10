@@ -188,7 +188,7 @@ Start-Service -Name HealthService
 
 You receive the following message when trying to add a Hybrid Runbook Worker using the `Add-HybridRunbookWorker` cmdlet.
 
-```
+```error
 Machine is already registered to a different account
 ```
 

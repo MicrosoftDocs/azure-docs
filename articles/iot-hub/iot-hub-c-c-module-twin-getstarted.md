@@ -173,7 +173,7 @@ In this section, you create a C app on your simulated device that updates the mo
 
 1. **Get your module connection string** -- now if you login to [Azure portal](https://portal.azure.com). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
-    ![Azure portal module detail](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
+    ![Azure portal module detail](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 
 2. **Create UpdateModuleTwinReportedProperties app**
 Add the following `using` statements at the top of the **Program.cs** file:

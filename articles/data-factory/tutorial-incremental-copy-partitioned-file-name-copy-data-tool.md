@@ -49,9 +49,10 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 ## Create a data factory
 
-1. On the left menu, select **+ New** > **Data + Analytics** > **Data Factory**: 
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![New data factory creation](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
       
     ![New data factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)

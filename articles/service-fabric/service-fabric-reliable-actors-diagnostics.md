@@ -4,7 +4,7 @@ description: This article describes the diagnostics and performance monitoring f
 services: service-fabric
 documentationcenter: .net
 author: abhishekram
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18

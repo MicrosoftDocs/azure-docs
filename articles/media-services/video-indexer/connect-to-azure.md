@@ -56,7 +56,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 
-2. Click on the **Connect to Azure** button:
+2. Click on the **Create new account** button:
 
     ![connect to Azure](./media/create-account/connect-to-azure.png)
 
@@ -86,9 +86,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 
     ![new account](./media/create-account/new-account.png)
 
-7. Browse to your new account:
-
-    ![Video Indexer account](./media/create-account/vi-account.png)
+7. Browse to your new account
 
 ## Connect to Azure manually (advanced option)
 

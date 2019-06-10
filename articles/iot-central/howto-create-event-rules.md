@@ -108,4 +108,5 @@ Now that you have learned how to create rules in your Azure IoT Central applicat
 
 - [Add Microsoft Flow action in rules](howto-add-microsoft-flow.md)
 - [Add Webhook action in rules](howto-create-webhooks.md)
+- [Group multiple actions to run from one or more rules](howto-use-action-groups.md)
 - [How to manage your devices](howto-manage-devices.md)

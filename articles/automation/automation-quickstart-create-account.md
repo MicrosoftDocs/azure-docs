@@ -4,7 +4,7 @@ description: Learn how to create an Azure Automation account and run a runbook
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 01/15/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
@@ -55,10 +55,6 @@ Run one of the tutorial runbooks.
     ![Runbook job page](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
 1. After the **Job status** becomes **Running**, click **Output** or **All Logs** to view the runbook job output. For this tutorial runbook, the output is a list of your Azure resources.
-
-## Clean up resources
-
-When no longer needed, delete the resource group, Automation account, and all related resources. To do so, select the resource group for the Automation account and click **Delete**.
 
 ## Next steps
 

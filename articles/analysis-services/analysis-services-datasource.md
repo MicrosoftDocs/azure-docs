@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/26/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -59,6 +59,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Analytics Platform System     |  
+|CSV file  |
 |Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel workbook     |  
 |Exchange<sup>[1](#tab1400b)</sup>     |  
@@ -77,6 +78,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
 |SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase Database     |  
+|TXT file  |
 |XML table<sup>[1](#tab1400b)</sup>    |  
 ||
  

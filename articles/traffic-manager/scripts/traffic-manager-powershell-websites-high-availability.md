@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell script sample - Route traffic for high availability of applications | Microsoft Docs
 description: Azure PowerShell script sample - Route traffic for high availability of applications
 services: traffic-manager
@@ -52,7 +52,7 @@ This script uses the following commands to create a resource group, web app, tra
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates an Azure web app within the App Service plan. |
 | [Set-AzResource](/powershell/module/az.resources/new-azresource) | Creates an Azure web app within the App Service plan. |
 | [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Creates an Azure Traffic Manager profile. |
-| [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Adds a endpoint to an Azure Traffic Manager Profile. |
+| [New-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Adds an endpoint to an Azure Traffic Manager Profile. |
 
 ## Next steps
 

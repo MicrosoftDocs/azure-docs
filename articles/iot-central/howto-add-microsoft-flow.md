@@ -1,20 +1,27 @@
 ---
 title: Build workflows with the Azure IoT Central connector in Microsoft Flow | Microsoft Docs
-description: Use the IoT Central connector in Microsoft Flow to trigger workflows and create, update, and delete devices in workflows.
+description: Use the IoT Central connector in Microsoft Flow to trigger workflows and create, get, update, delete devices and run commands in workflows.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
+manager: hegate
 ---
 
 # Build workflows with the IoT Central connector in Microsoft Flow
 
 *This topic applies to builders and administrators.*
 
-Use Microsoft Flow to automate workflows across the many applications and services that business users rely on. Using the IoT Central connector in Microsoft Flow, you can trigger workflows when a rule is triggered in IoT Central. In a workflow triggered by IoT Central or any other application, you can use the actions in the IoT Central connector to create a device, update a device's properties and settings, or delete a device. Check out [these Microsoft Flow templates](https://aka.ms/iotcentralflowtemplates) that connect IoT Central to other services such as mobile notifications and Microsoft Teams.
+Use Microsoft Flow to automate workflows across the many applications and services that business users rely on. Using the IoT Central connector in Microsoft Flow, you can trigger workflows when a rule is triggered in IoT Central. In a workflow triggered by IoT Central or any other application, you can use the actions in the IoT Central connector to:
+- Create a device
+- Get device information
+- Update a device's properties and settings
+- Run a command on a device
+- Delete a device
+
+Check out [these Microsoft Flow templates](https://aka.ms/iotcentralflowtemplates) that connect IoT Central to other services such as mobile notifications and Microsoft Teams.
 
 ## Prerequisites
 
@@ -23,19 +30,19 @@ Use Microsoft Flow to automate workflows across the many applications and servic
 
 ## Trigger a workflow
 
-This section shows you how to trigger a mobile notification in the Flow mobile app when a rule triggers in IoT Central.
+This section shows you how to trigger a mobile notification in the Flow mobile app when a rule triggers in IoT Central. You can build this entire workflow within your IoT Central app using the embedded Microsoft Flow designer.
 
-1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules.md). After you save the rule conditions, select the **Microsoft Flow action** as a new action. A new tab or window should open in your browser, taking you into Microsoft Flow.
+1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules.md). After you save the rule conditions, select the **Microsoft Flow action** as a new action. A dialog window will open for you to configure your workflow. The IoT Central user account you are signed into will be used to sign into Microsoft Flow.
 
     ![Create a new Microsoft Flow action](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Sign into Microsoft Flow. This doesn't need to be the same account as the one that you use in IoT Central. You'll land on an overview page showing an IoT Central connector connecting to a custom action.
+1. You will see a list of workflows tha you have access to and are attached to this IoT Central rule. Click **Explore templates** or **New > Create from template** and you can choose from any of the templates available. 
 
-1. Sign into the IoT Central connector and select **Continue**. You are taken to the Microsoft Flow designer to build your workflow. The workflow has an IoT Central trigger that has your Application and Rule already filled in.
+    ![Available Microsoft Flow templates](media/howto-add-microsoft-flow/flowtemplates.png)
 
-1. Choose **+ New Step** and **Add an action**. At this point you can add any action you want to your workflow. As an example, let's send a mobile notification. Search for **notification**, and choose **Notifications - Send me a mobile notification**.
+1. You will be prompted to sign into the connectors in the template you chose. Once the connectors are signed in, you will land in designer to build your workflow. The workflow has an IoT Central trigger that has your Application and Rule already filled in.
 
-1. In the action, fill in the Text field with what you want your notification to say. You can include *Dynamic content* from your IoT Central rule, passing along important information such as device name and timestamp to your notification.
+1. You can customize the workflow by customizing the information passed to the action and adding new actions. In this example, the action is **Notifications - Send me a mobile notification**. You can include *Dynamic content* from your IoT Central rule, passing along important information such as device name and timestamp to your notification.
 
     > [!NOTE]
     > Select the **See more** text in the Dynamic content window to get measurement and property values that triggered the rule.
@@ -47,9 +54,9 @@ This section shows you how to trigger a mobile notification in the Flow mobile a
     > [!NOTE]
     > If you want other users in your IoT Central app to edit this rule, you must share it with them in Microsoft Flow. Add their Microsoft Flow accounts as owners in your workflow.
 
-1. If you go back to your IoT Central app, you'll see this rule has a Microsoft Flow action under the Actions area.
+1. If you go back to your IoT Central app, you'll see this rule has a Microsoft Flow action in the Actions area.
 
-You can always start building a workflow using the IoT Central connector in Microsoft Flow. You can then choose which IoT Central app and which rule to connect to.
+You can also build workflows using the IoT Central connector directly from Microsoft Flow. You can then choose which IoT Central app to connect to.
 
 ## Create a device in a workflow
 
@@ -102,6 +109,18 @@ This section shows you how to update device settings and properties in IoT Centr
 1. Finally, save your workflow.
 
 1. Try your workflow in the Microsoft Flow mobile app. Go to the **Buttons** tab in the app. You should see your Button -> Update a device workflow. Enter the inputs, and see the device get updated in IoT Central!
+
+## Get device information in a workflow
+
+You can get device information by its device ID using the **Azure IoT Central - Get a device** action. You can get information such as device name, device template name, property values, and settings values to pass to later actions in your workflow. Here is an example workflow that passes along the Customer Name property value from a device to Microsoft Teams.
+
+   ![Flow get device workflow](./media/howto-add-microsoft-flow/flowgetdevice.png)
+
+
+## Run a command on a device in a workflow
+You can run a command on a device specified by its device ID using the **Azure IoT Central - Run a command** action. You can pick the command to run and pass in the parameters of the command through this action. Here is an example workflow that runs a device reboot command from a button in the Microsoft Flow mobile app.
+
+   ![Flow get device workflow](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## Delete a device in a workflow
 

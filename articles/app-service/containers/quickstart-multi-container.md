@@ -1,7 +1,7 @@
 ---
 title: Create multi-container app using Docker Compose - Azure App Service
 description: Deploy your first multi-container app in Azure Web App for Containers in minutes
-keywords: azure app service, web app, linux, docker, compose, multicontainer, multi-container, web app for containers, multiple containers, container, kubernetes, wordpress, azure db for mysql, production database with containers
+keywords: azure app service, web app, linux, docker, compose, multicontainer, multi-container, web app for containers, multiple containers, container, wordpress, azure db for mysql, production database with containers
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 ---
 # Create a multi-container (preview) app using a Docker Compose configuration
 
-[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app to Web App for Containers in the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) using a Docker Compose configuration. For Kubernetes and a full end-to-end solution using Azure DB for MySQL, follow the [multi-container tutorial](tutorial-multi-container-app.md).
+[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app to Web App for Containers in the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) using a Docker Compose configuration.
 
 You'll complete this quickstart in Cloud Shell, but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 or later). 
 
@@ -134,7 +134,10 @@ Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app m
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a multi-container WordPress app in Web App for Containers](tutorial-multi-container-app.md)
+> [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure a custom container](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

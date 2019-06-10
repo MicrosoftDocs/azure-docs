@@ -1,15 +1,15 @@
 ---
 title: Weather forecast using Azure Machine Learning with data from IoT Hub | Microsoft Docs
 description: Use Azure Machine Learning to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
-author: rangv
-manager: 
+author: robinsh
+manager: philmea
 keywords: weather forecast machine learning
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
+ms.author: robinsh
 ---
 
 # Weather forecast using the sensor data from your IoT hub in Azure Machine Learning

@@ -28,7 +28,7 @@ When you provision an Azure Time Series Insights Preview environment, you create
 Learn [how to plan your environment](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> If you're using a v2 account, do not enable cold/archival properties on the storage account that you'll be using.
+> For the Preview, make sure you're using an Azure Storage general-purpose v1 (GPv1) account.  Support for GPv2 and later will be added in the near future.  
 
 Optionally, you can associate each Azure Time Series Insights Preview environment with an event source. For more information, read [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md) and [Add an IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md). You provide a Timestamp ID property and a unique consumer group during this step. Doing so ensures that the environment has access to the appropriate events.
 

@@ -8,33 +8,29 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
 
 # Quickstart: Use the Azure CLI to create a Service Bus queue
-
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services, or processes from each other (applications do not need to be online at the same time), transferring state or data changes, and sending messages between the applications. 
-
-For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this case, the client app sends to and receives messages from a Service Bus queue:
-
-![queue](./media/service-bus-quickstart-cli/quick-start-queue.png)
-
 This quickstart describes how to send and receive messages with Service Bus by using the Azure CLI and the Service Bus Java library. Finally, if you're interested in more technical details, you can [read an explanation](#understand-the-sample-code) of the key elements of the sample code.
 
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+## Prerequisites
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Sign in to Azure
+If you use the **Try It** button to launch the Cloud Shell, sign in to Azure using your credentials. 
 
-Click the Cloud Shell button on the menu in the upper-right corner of the Azure portal, and from the **Select environment** dropdown, select **Bash**. 
+If you launched the Cloud Shell in your Web browser either directly or in the Azure portal, switch to **Bash** if you see **PowerShell** in the top-left corner of the Cloud Shell. 
 
 ## Use the Azure CLI to create resources
-
-In Cloud Shell, from the Bash prompt issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values: The Java sample program expects the queue name to be BasicQueue, so do not change it. 
+In Cloud Shell, from the Bash prompt issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values: The Java sample program expects the queue name to be BasicQueue, so do not change it. You may want to copy/paste commands one-by-one so that you can replace the values before you run them. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -371,10 +367,10 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## Next steps
 
-In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about writing code to send and receive messages, continue to the following tutorial for Service Bus:
+In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about writing code to send and receive messages, continue to the tutorials in the **Send and receive messages** section. 
 
 > [!div class="nextstepaction"]
-> [Update inventory by using the Azure CLI and Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Send and receive messages](service-bus-dotnet-get-started-with-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

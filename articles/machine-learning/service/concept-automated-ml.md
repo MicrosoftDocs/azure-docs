@@ -47,27 +47,14 @@ During training, the Azure Machine Learning service creates a number of pipeline
 
 You can inspect the logged run information, which contains metrics gathered during the run. The training run also produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
-## Model explainability
-
-A common pitfall of automated machine learning is an inability to see the end-to-end process. Azure Machine Learning allows you to view detailed information about the models to increase transparency into what's running on the back-end. Some models, like linear regression, are considered to be fairly straightforward and therefore easy to understand. But as we add more features and use more complicated machine learning models, understanding them gets more and more difficult. There are two key aspects to transparency in machine learning:
-
-1. Awareness of the machine learning pipeline and all the steps involved including data preprocessing/featurization, and hyperparameter values.
-1. Understanding the relationship between input variables (also known as “features”) and model output.  Knowing both the magnitude and direction of the impact of each feature on the predicted value helps better understand and explain the model. This is known as feature importance.
-
-You can enable global feature importance on-demand post training for the pipeline of your choice, or enable it for all pipelines as part of automated machine learning training. In heavily regulated industries like healthcare and banking, this is critical to comply with regulations and best practices.  Here are a few real-world scenarios to illustrate:
-
-1. A manufacturing company using machine learning to predict future instrument failure, so they can proactively perform maintenance activity. Once you know an instrument is about to fail, what’s the most likely cause going to be so preventive maintenance can be performed quickly?
-1. A financial institution using machine learning to process loan or credit card applications. How do you know if the model is doing the right thing, and if a customer asks for more details on why their application was rejected, how will you respond to them?
-1. An online retailer or an independent software provider using machine learning to predict customer churn. What are the key contributors to customer churn, and how can you prevent customers from churning?
-
-This is a preview feature and we will continue to invest in providing richer information to help you better understand your machine learning models. Follow this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) to experiment with model explanations in Azure Machine Learning.
 
 ## Next steps
 
 See examples and learn how to build models using Automated Machine Learning:
-+ [Samples: Use Jupyter notebooks to explore Azure Machine Learning service](samples-notebooks.md#automated-ml-setup)
 
 + [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
+
++ [Notebook Samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
 
 + [Use automatic training on a remote resource](how-to-auto-train-remote.md)
 

@@ -14,7 +14,6 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
 ---
-
 # Connect Operations Manager to Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -36,6 +35,7 @@ The following diagram shows the connection between the management servers and ag
 If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data depending on the solutions enabled. For more information and steps on how to configure your Operations Manager management group to communicate through a Log Analytics gateway to Azure Monitor, see [Connect computers to Azure Monitor using the Log Analytics gateway](../../azure-monitor/platform/gateway.md).  
 
 ## Prerequisites 
+
 Before starting, review the following requirements.
 
 * Azure Monitor only supports System Center Operations Manager 2016 or later, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
@@ -55,6 +55,7 @@ Before starting, review the following requirements.
 >This management pack update is not applicable to System Center Operations Manager 1807, which is an update release from version 1801 and not a full build of the product.   
 
 ### Network
+
 The information below list the proxy and firewall configuration information required for the Operations Manager agent, management servers, and Operations console to communicate with Azure Monitor. Traffic from each component is outbound from your network to Azure Monitor.   
 
 |Resource | Port number| Bypass HTTP Inspection|  
@@ -82,9 +83,11 @@ The information below list the proxy and firewall configuration information requ
 |docs.loganalytics.io| 80 and 443||  
 
 ### TLS 1.2 protocol
+
 To insure the security of data in transit to Azure Monitor, we strongly encourage you to configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## Connecting Operations Manager to Azure Monitor
+
 Perform the following series of steps to configure your Operations Manager management group to connect to one of your Log Analytics workspaces.
 
 During initial registration of your Operations Manager management group with a Log Analytics workspace, the option to specify the proxy configuration for the management group is not available in the Operations console.  The management group has to be successfully registered with the service before this option is available.  To work around this, you need to update the system proxy configuration using Netsh on the system your running the Operations console from to configure integration, and all management servers in the management group.  
@@ -116,6 +119,7 @@ After completing the following steps to integrate with Azure Monitor, you can re
 1. On the **Operations Management Suite Onboarding Wizard: Finish** page, click **Close**.
 
 ### Add agent-managed computers
+
 After configuring integration with your Log Analytics workspace, it only establishes a connection with the service, no data is collected from the agents reporting to your management group. This won’t happen until after you configure which specific agent-managed computers collect log data for Azure Monitor. You can either select the computer objects individually or you can select a group that contains Windows computer objects. You cannot select a group that  contains instances of another class, such as logical disks or SQL databases.
 
 1. Open the Operations Manager console and select the **Administration** workspace.
@@ -126,6 +130,7 @@ After configuring integration with your Log Analytics workspace, it only establi
 You can view computers and groups configured to collect data from the Managed Computers node under Operations Management Suite in the **Administration** workspace of the Operations console. From here, you can add or remove computers and groups as necessary.
 
 ### Configure proxy settings in the Operations console
+
 Perform the following steps if an internal proxy server is between the management group and Azure Monitor. These settings are centrally managed from the management group and distributed to agent-managed systems that are included in the scope to collect log data for Azure Monitor.  This is beneficial for when certain solutions bypass the management server and send data directly to the service.
 
 1. Open the Operations Manager console and select the **Administration** workspace.
@@ -151,6 +156,7 @@ After the connection is created and you configure which agents will collect and 
 * Agents and groups that you have selected to collect data in the management group is added to the **Microsoft System Center Advisor Monitoring Server Group**.
 
 ## Management pack updates
+
 After configuration is completed, the Operations Manager management group establishes a connection with Azure Monitor. The management server synchronizes with the web service and receive updated configuration information in the form of management packs for the solutions you have enabled that integrate with Operations Manager. Operations Manager checks for updates of these management packs and automatically download and imports them when they’re available. There are two rules in particular which control this behavior:
 
 * **Microsoft.SystemCenter.Advisor.MPUpdate** - Updates the base Azure Monitor management packs. Runs every 12 hours by default.
@@ -161,6 +167,7 @@ You can override these two rules to either prevent automatic download by disabli
 To continue following your existing change control process for controlling management pack releases in your production management group, you can disable the rules and enable them during specific times when updates are allowed. If you have a development or QA management group in your environment and it has connectivity to the Internet, you can configure that management group with a Log Analytics workspace to support this scenario. This allows you to review and evaluate the iterative releases of the Azure Monitor management packs before releasing them into your production management group.
 
 ## Switch an Operations Manager group to a new Log Analytics Workspace
+
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics** and then create a workspace.  
 1. Open the Operations Manager console with an account that is a member of the Operations Manager Administrators role and select the **Administration** workspace.
@@ -174,9 +181,11 @@ To continue following your existing change control process for controlling manag
    > 
 
 ## Validate Operations Manager Integration with Azure Monitor
+
 There are a few different ways you can verify that Azure Monitor to Operations Manager integration is successful.
 
 ### To confirm integration from the Azure portal
+
 1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input.
 1. In your list of Log Analytics workspaces, select the applicable workspace.  
 1. Select **Advanced settings**, select **Connected Sources**, and then select **System Center**. 
@@ -185,6 +194,7 @@ There are a few different ways you can verify that Azure Monitor to Operations M
    ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
 
 ### To confirm integration from the Operations console
+
 1. Open the Operations Manager console and select the **Administration** workspace.
 1. Select **Management Packs** and in the **Look for:** text box type **Advisor** or **Intelligence**.
 1. Depending on the solutions you have enabled, you see a corresponding management pack listed in the search results.  For example, if you have enabled the Alert Management solution, the management pack Microsoft System Center Advisor Alert Management is in the list.
@@ -193,6 +203,7 @@ There are a few different ways you can verify that Azure Monitor to Operations M
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## Remove Integration with Azure Monitor
+
 When you no longer require integration between your Operations Manager management group and the Log Analytics workspace, there are several steps required to properly remove the connection and configuration in the management group. The following procedure has you update your Log Analytics workspace by deleting the reference of your management group, delete the Azure Monitor connectors, and then delete management packs supporting integration with the service.  
 
 Management packs for the solutions you have enabled that integrate with Operations Manager and the management packs required to support integration with Azure Monitor cannot be easily deleted from the management group. This is because some of the Azure Monitor management packs have dependencies on other related management packs. To delete management packs having a dependency on other management packs, download the script [remove a management pack with dependencies](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) from TechNet Script Center.  
@@ -239,7 +250,7 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 > 
 > 
 
-```
+```powershell
     param(
     [String] $connectorName,
     [String] $msName="localhost"
@@ -328,9 +339,8 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 In the future if you plan on reconnecting your management group to a Log Analytics workspace, you need to re-import the `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` management pack file. Depending on the version of System Center Operations Manager deployed in your environment, you can find this file in the following location:
 
 * On the source media under the `\ManagementPacks` folder for System Center 2016 - Operations Manager and higher.
-* From the most recent update rollup applied to your management group. For Operations Manager 2012, the source folder is` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` and for 2012 R2, it is located in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* From the most recent update rollup applied to your management group. For Operations Manager 2012, the source folder is `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` and for 2012 R2, it is located in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## Next steps
+
 To add functionality and gather data, see [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
-
-

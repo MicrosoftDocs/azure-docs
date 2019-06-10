@@ -1,5 +1,5 @@
 ---
-title: "Troubleshooting log alerts in Azure Monitor"
+title: Troubleshooting log alerts in Azure Monitor | Microsoft Docs
 description: Common issues, errors and resolution for log alert rules in Azure.
 author: msvijayn
 services: azure-monitor
@@ -13,9 +13,9 @@ ms.subservice: alerts
 
 ## Overview
 
-This article shows you how to resolve common issues seen when setting up log alerts in Azure monitor. It also provides solutions to frequently asked questions regarding functionality or configuration of log alerts. 
+This article shows you how to resolve common issues seen when setting up log alerts in Azure Monitor. It also provides solutions to frequently asked questions regarding functionality or configuration of log alerts. 
 
-The term **Log Alerts** describes alerts that fire based on a custom query in [Log Analytics](../learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/analytics.md). Learn more about functionality, terminology, and types in [Log alerts - Overview](../platform/alerts-unified-log.md).
+The term **Log Alerts** describes alerts that fire based on a log query in a [Log Analytics workspace](../learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/analytics.md). Learn more about functionality, terminology, and types in [Log alerts - Overview](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases when the Azure portal shows and alert rule triggered and a notification performed by an associated Action Group(s). For such cases, please refer to details in the article on [Action Groups](../platform/action-groups.md).
@@ -27,7 +27,7 @@ Here are some common reasons why a configured [log alert rule in Azure Monitor](
 
 ### Data Ingestion time for Logs
 
-Log alert periodically runs your query based on [Log Analytics](../learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/analytics.md). Because Log Analytics processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to a varying time delay. For more information, see [Data ingestion time in Log Analytics](../platform/data-ingestion-time.md).
+Log alert periodically runs your query based on [Log Analytics](../learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/analytics.md). Because Azure Monitor processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to a varying time delay. For more information, see [Data ingestion time in Azure Monitor Logs](../platform/data-ingestion-time.md).
 
 To mitigate data ingestion delay, the system waits and retries the alert query multiple times if it finds the needed data is not yet ingested. The system has an exponentially increasing wait time set. The log alert only triggers after the data is available so they delay could be due to slow log data ingestion. 
 
@@ -78,7 +78,7 @@ Detailed next are some common reasons why a configured [log alert rule in Azure 
 
 ### Alert triggered by partial data
 
-Analytics powering Log Analytics and Application Insights are subject to ingestion delays and processing; due to which, at the time when provided log alert query is run - there may be a case of no data being available or only some data being available. For more information, see [Data ingestion time in Log Analytics](../platform/data-ingestion-time.md).
+Analytics powering Log Analytics and Application Insights are subject to ingestion delays and processing; due to which, at the time when provided log alert query is run - there may be a case of no data being available or only some data being available. For more information, see [Log data ingestion time in Azure Monitor](../platform/data-ingestion-time.md).
 
 Depending on how the alert rule is configured, there may be mis-firing if there is no or partial data in logs at the time of alert execution. In such cases, we advise you to change the alert query or config. 
 
@@ -95,4 +95,4 @@ What is shown in the **query to be executed** box is what the log alert service 
 
 - Learn about [Log Alerts in Azure Alerts](../platform/alerts-unified-log.md)
 - Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-- Learn more about [Log Analytics](../../log-analytics/log-analytics-overview.md)
+- Learn more about [log queries](../log-query/log-query-overview.md)

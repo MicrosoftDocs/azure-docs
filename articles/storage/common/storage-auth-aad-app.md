@@ -17,11 +17,11 @@ A key advantage of using Azure Active Directory (Azure AD) with Azure Storage is
 
 This article shows how to configure your application for authentication with Azure AD. The code example features .NET, but other languages use a similar approach.
 
-Before you can authenticate a security principal from your Azure Storage application, configure role-based access control (RBAC) settings for that security principal. Azure Storage defines RBAC roles that encompass permissions for containers and queues. When the RBAC role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md).
+Before you authenticate a security principal from your Azure Storage application, configure role-based access control (RBAC) settings for that security principal. Azure Storage defines RBAC roles that encompass permissions for containers and queues. When the RBAC role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md).
 
 For an overview of the OAuth 2.0 code grant flow, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v1-protocols-oauth-code.md).
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+To authorize blob and queue operations with an OAuth token, you must use HTTPS.
 
 ## Assign an RBAC role to an Azure AD security principal
 
@@ -153,7 +153,7 @@ static string GetUserOAuthToken()
 
 ### Create the block blob
 
-Finally, use the access token to create new storage credentials, and use those credentials to create the blob:
+Finally, use the access token to create new storage credentials, and use those credentials to create the blob. Keep in mind that to authorize blob and queue operations with an OAuth token, you must use HTTPS.:
 
 ```dotnet
 // Get the access token.

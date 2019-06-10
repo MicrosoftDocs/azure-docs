@@ -1,29 +1,29 @@
 ---
 title: Expire data in Azure Cosmos DB with Time to Live 
 description: With TTL, Microsoft Azure Cosmos DB provides the ability to have documents automatically purged from the system after a period of time.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
 
 ---
-# Time to live in Azure Cosmos DB 
+# Time to Live (TTL) in Azure Cosmos DB 
 
-With "Time to Live" or TTL, Azure Cosmos DB provides the ability to delete items automatically from a container after a certain time period. By default, you can set time to live at the container level and override the value on a per-item basis. After you set the TTL at a container or at an item level, Azure Cosmos DB will automatically remove these items after the time period, since the time they were last modified. Time to live value is configured in seconds. When you configure TTL, the system will automatically delete the expired items based on the TTL value, unlike a delete operation that is explicitly issued by the client application.
+With **Time to Live** or TTL, Azure Cosmos DB provides the ability to delete items automatically from a container after a certain time period. By default, you can set time to live at the container level and override the value on a per-item basis. After you set the TTL at a container or at an item level, Azure Cosmos DB will automatically remove these items after the time period, since the time they were last modified. Time to live value is configured in seconds. When you configure TTL, the system will automatically delete the expired items based on the TTL value, without needing a delete operation that is explicitly issued by the client application.
 
 ## Time to live for containers and items
 
-The time to live value is set in seconds and it is interpreted as a delta from the time that an item was last modified. You can set time to live on a container or an item within the container:
+The time to live value is set in seconds, and it is interpreted as a delta from the time that an item was last modified. You can set time to live on a container or an item within the container:
 
 1. **Time to Live on a container** (set using `DefaultTimeToLive`):
 
    - If missing (or set to null), items are not expired automatically.
 
-   - If present and the value is set to "-1", it is equal to infinite – items don’t expire by default.
+   - If present and the value is set to "-1", it is equal to infinity, and items don’t expire by default.
 
-   - If present and the value is set to some number ("n") – items expire "n" seconds after their last modified time.
+   - If present and the value is set to some number *"n"* – items will expire *"n"* seconds after their last modified time.
 
 2. **Time to Live on an item** (set using `ttl`):
 
@@ -33,7 +33,7 @@ The time to live value is set in seconds and it is interpreted as a delta from t
 
 ## Time to Live configurations
 
-* If TTL is set to 'n' on a container, then the items in that container will expire after n seconds.  If there are items in the same container that have their own time to live, set to -1 (indicating they do not expire) or if some items have overridden the time to live setting with a different number, these items expire based on the configured TTL value. 
+* If TTL is set to *"n"* on a container, then the items in that container will expire after *n* seconds.  If there are items in the same container that have their own time to live, set to -1 (indicating they do not expire) or if some items have overridden the time to live setting with a different number, these items expire based on their own configured TTL value. 
 
 * If TTL is not set on a container, then the time to live on an item in this container has no effect. 
 

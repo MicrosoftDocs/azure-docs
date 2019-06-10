@@ -18,7 +18,7 @@ ms.workload: na
 
 As a partner, you can track your impact across your customer engagements. You can link your partner ID to the accounts that are used to manage a customer's resources.
 
-This feature is available in a public preview.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Get access from your customer
 
@@ -52,12 +52,11 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 1. Install the [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell module.
 
-2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
  
    ```azurepowershell-interactive
-    C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
-
 
 3. Link to the new partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization.
 
@@ -148,9 +147,9 @@ You can find influenced revenue reporting at [My Insights dashboard](https://par
 
 You can't see the customer in the reports due to following reasons
 
-1. The linked user account doesn't have [Role Based Access ](https://docs.microsoft.com/azure/role-based-access-control/overview) on any customer Azure subscription or resource.
+1. The linked user account doesn't have [Role Based Access](https://docs.microsoft.com/azure/role-based-access-control/overview) on any customer Azure subscription or resource.
 
-2. The Azure subscription where the user has [Role Based Access ](https://docs.microsoft.com/azure/role-based-access-control/overview) access doesn't have any usage.
+2. The Azure subscription where the user has [Role Based Access](https://docs.microsoft.com/azure/role-based-access-control/overview) access doesn't have any usage.
 
 **Does link partner ID works with Azure Stack?**
 

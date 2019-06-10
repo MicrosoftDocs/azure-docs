@@ -1,7 +1,6 @@
 ---
-title: Create a policy assignment for non-compliant resources with a Resource Manager template
+title: Create a policy assignment with a Resource Manager template
 description: This article walks you through the steps to use a Resource Manager template to create a policy assignment to identify non-compliant resources.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
@@ -30,24 +29,24 @@ There are several methods for creating policy assignments. In this quickstart, y
 [quickstart template](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 Here is a copy of the template:
 
-[!code-json[policy-assingment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
+[!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
 > [!NOTE]
 > Azure Policy service is free.  For more information, see [Overview of Azure Policy](./overview.md).
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Deploy the Policy template to Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. Select or enter the following values:
 
    | Name | Value |
    |------|-------|
    | Subscription | Select your Azure subscription. |
-   | Resource group | Select **Create new**, specify a name, and then select **OK**. In the screenshot, the resource group name is *mypolicyquickstart<Date in MMDD>rg*. |
+   | Resource group | Select **Create new**, specify a name, and then select **OK**. In the screenshot, the resource group name is *mypolicyquickstart\<Date in MMDD>rg*. |
    | Location | Select a region. For example, **Central US**. |
    | Policy Assignment Name | Specify a policy assignment name. You can use the policy definition display if you want. For example, **Audit VMs that do not use managed disks**. |
-   | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](/azure/azure-resource-manager/resource-group-template-functions-resource#resourcegroup)** is a template function that retrieves the resource group. |
+   | Rg Name | Specify a resource group name where you want to assign the policy to. In this quickstart, use the default value **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** is a template function that retrieves the resource group. |
    | Policy Definition ID | Specify **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | I agree to the terms and conditions stated above | (Select) |
 
@@ -65,7 +64,7 @@ Some additional resources:
 Select **Compliance** in the left side of the page. Then locate the **Audit VMs that do not use
 managed disks** policy assignment you created.
 
-![Policy compliance](./media/assign-policy-template/policy-compliance.png)
+![Policy compliance overview page](./media/assign-policy-template/policy-compliance.png)
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
@@ -80,7 +79,7 @@ To remove the assignment created, follow these steps:
 
 1. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete assignment**.
 
-   ![Delete an assignment](./media/assign-policy-template/delete-assignment.png)
+   ![Delete an assignment from the compliance overview page](./media/assign-policy-template/delete-assignment.png)
 
 ## Next steps
 

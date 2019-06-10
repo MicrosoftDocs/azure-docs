@@ -22,9 +22,9 @@ You can get in-VM notification about upcoming maintenance by using the Scheduled
 
 For "how-to" information on managing planned maintenance, see "Handling planned maintenance notifications" for [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## Memory preserving maintenance
+## Maintenance not requiring a reboot
 
-The goal for most non-rebootful updates is less than 10 seconds pause for the VM. In certain cases memory preserving maintenance mechanisms are used, which pauses the VM for up to 30 seconds and preserves the memory in RAM. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized. Azure is increasingly using live migration technologies and improving memory preserving maintenance mechanism to reduce the pause duration.
+The goal for most maintenance that doesn't require a reboot is less than 10 seconds pause for the VM. In certain cases memory preserving maintenance mechanisms are used, which pauses the VM for up to 30 seconds and preserves the memory in RAM. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized. Azure is increasingly using live migration technologies and improving memory preserving maintenance mechanism to reduce the pause duration.
 
 These non-rebootful maintenance operations are applied fault domain by fault domain, and progress is stopped if any warning health signals are received. 
 

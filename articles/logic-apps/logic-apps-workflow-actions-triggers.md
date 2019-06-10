@@ -1116,8 +1116,10 @@ You can then use the action's output in other actions.
 
 *Example 1*
 
+<!-- markdownlint-disable MD038 -->
 This action definition merges `abcdefg ` 
 with a trailing space and the value `1234`:
+<!-- markdownlint-enable MD038 -->
 
 ```json
 "Compose": {

@@ -87,6 +87,8 @@
       href: batch-low-pri-vms.md
     - name: Checking for pool and node errors
       href: batch-pool-node-error-checking.md
+  - name: Create a CI/CD pipeline for Batch
+    href: batch-ci-cd.md
   - name: Manage jobs and tasks
     items:
     - name: Job preparation and completion tasks
@@ -99,6 +101,8 @@
       href: batch-user-accounts.md
     - name: Submit a large number of tasks
       href: large-number-tasks.md
+  - name: Create resource files
+    href: resource-files.md
   - name: Persist job and task output
     href: batch-task-output.md
     items:

@@ -1,15 +1,14 @@
 ---
-title: 'Quickstart: Visualize data using a SQL query in Power BI'
+title: 'Quickstart: Visualize data from Azure Data Explorer using a SQL query in Power BI'
 description: 'In this quickstart, you learn how to use one of the three options for visualizing data in Power BI: a SQL query against an Azure Data Explorer cluster.'
-services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
 
-#Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario.
+# Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario.
 ---
 
 # Quickstart: Visualize data using the Azure Data Explorer connector for Power BI

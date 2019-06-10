@@ -25,7 +25,7 @@ While this application is written in C#, the API is a RESTful Web service compat
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
     * To install the NuGet package in Visual studio:
-        1. Right click in the Solution Manager
+        1. Right click in the Solution Explorer
         2. Click **Manage NuGet Packages...**
         3. Search for **newtonsoft.json** and install the package
 

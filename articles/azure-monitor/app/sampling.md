@@ -145,7 +145,7 @@ Adaptive sampling is enabled by default for all ASP.NET Core applications. You c
 
 ### Turning off Adaptive Sampling
 
-The default sampling feature can be disabled while adding Application Insights service, in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions```:
+The default sampling feature can be disabled while adding Application Insights service, in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions``` within the `Startup.cs` file:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

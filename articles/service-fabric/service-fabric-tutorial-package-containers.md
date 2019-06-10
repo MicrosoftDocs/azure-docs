@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to generate an Azure Service Fabric
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, Microservices, Service Fabric, Azure

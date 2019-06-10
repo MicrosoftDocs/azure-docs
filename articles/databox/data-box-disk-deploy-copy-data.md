@@ -39,14 +39,15 @@ Review the following considerations before you copy the data to the disks:
 - While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md).
 - If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
 
-If you specified managed disks in the order, review the following additional considerations:
+   > [!IMPORTANT]
+   >  If you specified managed disks as one of the storage destinations during order creation, the following section is applicable.
 
 - You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group. If VHDs have same names, then only one VHD is converted to managed disk with that name. The other VHDs are uploaded as page blobs into the staging storage account.
 - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs are uploaded to Azure Storage account as page blobs and not managed disks.
 - Only the fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs or VHDX files are not supported.
 
 
-Perform the following steps to connect and copy data from your computer to the Data Box Disk.
+## Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
 1. View the contents of the unlocked drive. The list of the precreated folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order.
 
@@ -86,12 +87,12 @@ Perform the following steps to connect and copy data from your computer to the D
     |Destination       | Specifies the path to the destination directory.        |
     |/E                  | Copies subdirectories including empty directories. |
     |/MT[:N]             | Creates multi-threaded copies with N threads where N is an integer between 1 and 128. <br>The default value for N is 8.        |
-    |/R: <N>             | Specifies the number of retries on failed copies. The default value of N is 1,000,000 (one million retries).        |
-    |/W: <N>             | Specifies the wait time between retries, in seconds. The default value of N is 30 (wait time 30 seconds).        |
+    |/R: \<N>             | Specifies the number of retries on failed copies. The default value of N is 1,000,000 (one million retries).        |
+    |/W: \<N>             | Specifies the wait time between retries, in seconds. The default value of N is 30 (wait time 30 seconds).        |
     |/NFL                | Specifies that file names are not to be logged.        |
     |/NDL                | Specifies that directory names are not to be logged.        |
     |/FFT                | Assumes FAT file times (two-second precision).        |
-    |/Log:<Log File>     | Writes the status output to the log file (overwrites the existing log file).         |
+    |/Log:\<Log File>     | Writes the status output to the log file (overwrites the existing log file).         |
 
     Multiple disks can be used in parallel with multiple jobs running on each disk.
 

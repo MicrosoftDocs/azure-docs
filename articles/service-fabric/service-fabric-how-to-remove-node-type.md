@@ -21,20 +21,22 @@ ms.author: aljo
 # Remove a Service Fabric node type
 This article describes how to scale an Azure Service Fabric cluster by removing an existing node type from a cluster. A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. After creating a Service Fabric cluster, you can scale a cluster horizontally by removing a node type (virtual machine scale set) and all of it's nodes.  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
 
-Use [Remove-AzureRmServiceFabricNodeType](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) to remove a Service Fabric node type.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-The three operations that occur when Remove-AzureRmServiceFabricNodeType is called are:
+Use [Remove-AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype) to remove a Service Fabric node type.
+
+The three operations that occur when Remove-AzServiceFabricNodeType is called are:
 1.	The virtual machine scale set behind the node type is deleted.
 2.  The node type is removed from the cluster.
 3.	For each node within that node type, the entire state for that node is removed from the system. If there are services on that node, then the services are first moved out to another node. If the cluster manager cannot find a node for the replica/service, then the operation is delayed/blocked.
 
 > [!WARNING]
-> Using Remove-AzureRmServiceFabricNodeType to remove a node type from a production cluster is
+> Using Remove-AzServiceFabricNodeType to remove a node type from a production cluster is
 > not recommended to be used on a frequent basis. It is a dangerous command as it deletes the virtual machine scale set 
 > resource behind the node type. 
 
 ## Durability characteristics
-Safety is prioritized over speed when using Remove-AzureRmServiceFabricNodeType. The node type must be Silver or Gold [durability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster), because:
+Safety is prioritized over speed when using Remove-AzServiceFabricNodeType. The node type must be Silver or Gold [durability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster), because:
 - Bronze does not give you any guarantees about saving state information.
 - Silver and Gold durability trap any changes to the scale set.
 - Gold also gives you control over the Azure updates underneath scale set.
@@ -47,14 +49,14 @@ When removing a node type that is Bronze, all the nodes in the node type go down
 
 ## Recommended node type removal process
 
-To remove the node type, run the [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) cmdlet.  The cmdlet takes some time to complete.  Then run [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) on each of the nodes that you want removed.
+To remove the node type, run the [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  The cmdlet takes some time to complete.  Then run [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) on each of the nodes that you want removed.
 
 ```powershell
 $groupname = "mynodetype"
 $nodetype = "nt2vm"
 $clustername = "mytestcluster"
 
-Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
 
 Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `

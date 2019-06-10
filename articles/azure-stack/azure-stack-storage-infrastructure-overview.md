@@ -32,7 +32,7 @@ This article describes the health and operational status of Azure Stack storage 
 
 ### Drives
 
-Azure Stack powered by Windows Server software defined storage capabilities, with a combination of Storage Spaces Direct (S2D) and Windows Server Failover Clustering, to provide a performant, scalable and resilient storage service.
+Powered by Windows Server software, Azure Stack defines storage capabilities with a combination of Storage Spaces Direct (S2D) and Windows Server Failover Clustering to provide a performant, scalable, and resilient storage service.
 
 Azure Stack integrated system partners offer numerous solution variations, including a wide range of storage flexibility. You currently can select a combination of three drive types: NVMe (Non-Volatile Memory Express), SATA/SAS SSD (Solid-State Drive), HDD (Hard Disk Drive).
 
@@ -87,13 +87,15 @@ Mirroring provides fault tolerance by keeping multiple copies of all data. How t
 
 ## Volume states
 
-To find out what state volumess are in, use the following PowerShell commands:
+To find out what state volumes are in, use the following PowerShell commands:
 
-\$scaleunit\_name = (Get-AzsScaleUnit)\[0\].name
+```powershell
+$scaleunit_name = (Get-AzsScaleUnit)[0].name
 
-\$subsystem\_name = (Get-AzsStorageSubSystem -ScaleUnit \$scaleunit\_name)\[0\].name
+$subsystem_name = (Get-AzsStorageSubSystem -ScaleUnit $scaleunit_name)[0].name
 
-Get-AzsVolume -ScaleUnit \$scaleunit\_name -StorageSubSystem \$subsystem\_name | Select-Object VolumeLabel, HealthStatus, OperationalStatus, RepairStatus, Description, Action, TotalCapacityGB, RemainingCapacityGB
+Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Select-Object VolumeLabel, HealthStatus, OperationalStatus, RepairStatus, Description, Action, TotalCapacityGB, RemainingCapacityGB
+```
 
 Here's an example of output showing a detached volume and a degraded/incomplete volume:
 
@@ -145,17 +147,15 @@ The volume can also be in the Unknown health state if the virtual disk has becom
 
 Use the following PowerShell commands to monitor the state of drives:
 
- 
+```powershell
+$scaleunit_name = (Get-AzsScaleUnit)[0].name
 
-\$scaleunit\_name = (Get-AzsScaleUnit)\[0\].name
-
-\$subsystem\_name = (Get-AzsStorageSubSystem -ScaleUnit \$scaleunit\_name)\[0\].name
+$subsystem_name = (Get-AzsStorageSubSystem -ScaleUnit $scaleunit_name)[0].name
 
 , SerialNumber
 
- 
-
-Get-AzsDrive -ScaleUnit \$scaleunit\_name -StorageSubSystem \$subsystem\_name | Select-Object StorageNode, PhysicalLocation, HealthStatus, OperationalStatus, Description, Action, Usage, CanPool, CannotPoolReason, SerialNumber, Model, MediaType, CapacityGB
+Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Select-Object StorageNode, PhysicalLocation, HealthStatus, OperationalStatus, Description, Action, Usage, CanPool, CannotPoolReason, SerialNumber, Model, MediaType, CapacityGB
+```
 
 The following sections describe the health states a drive can be in.
 

@@ -283,12 +283,12 @@ You can disable/enable the auto-update feature by doing the following steps:
 2. Switch to the C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ folder.
 3. Run the following command to turn the auto-update feature OFF (disable).
 
-	```PowerShell
+	```powershell
 	.\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
 4. To turn it back on:
 
-	```PowerShell
+	```powershell
 	.\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
    [For multi-node highly available and scalable gateway](data-factory-data-management-gateway-high-availability-scalability.md)
@@ -297,12 +297,12 @@ You can disable/enable the auto-update feature by doing the following steps:
 3. Run the following command to turn the auto-update feature OFF (disable).
 
 	For gateway with high availability feature, an extra AuthKey param is required.
-	```PowerShell
+	```powershell
 	.\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
 4. To turn it back on:
 
-	```PowerShell
+	```powershell
 	.\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
@@ -485,12 +485,12 @@ This section describes how to create and register a gateway using Azure PowerShe
 1. Launch **Azure PowerShell** in administrator mode.
 2. Log in to your Azure account by running the following command and entering your Azure credentials.
 
-	```PowerShell
+	```powershell
     Connect-AzAccount
     ```
 3. Use the **New-AzDataFactoryGateway** cmdlet to create a logical gateway as follows:
 
-	```PowerShell
+	```powershell
 	$MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **Example command and output**:
@@ -513,7 +513,7 @@ This section describes how to create and register a gateway using Azure PowerShe
 
 1. In Azure PowerShell, switch to the folder: **C:\\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Run **RegisterGateway.ps1** associated with the local variable **$Key** as shown in the following command. This script registers the client agent installed on your machine with the logical gateway you create earlier.
 
-	```PowerShell
+	```powershell
 	PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
     ```
     ```
@@ -521,25 +521,25 @@ This section describes how to create and register a gateway using Azure PowerShe
     ```
     You can register the gateway on a remote machine by using the IsRegisterOnRemoteMachine parameter. Example:
 
-	```PowerShell
+	```powershell
 	.\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
 2. You can use the **Get-AzDataFactoryGateway** cmdlet to get the list of Gateways in your data factory. When the **Status** shows **online**, it means your gateway is ready to use.
 
-	```PowerShell        
+	```powershell        
 	Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
    You can remove a gateway using the **Remove-AzDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
 
 ### List gateways using PowerShell
 
-```PowerShell
+```powershell
 Get-AzDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### Remove gateway using PowerShell
 
-```PowerShell
+```powershell
 Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
 

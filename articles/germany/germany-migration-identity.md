@@ -15,9 +15,11 @@ ms.custom: bfmigrate
 
 This article has information that can help you migrate Azure identity resources from Azure Germany to global Azure.
 
+The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and O365 (or other Microsoft products), there are complexities in identity migration and you should first contact your Account Manager prior to using this migration guidance.
+
 ## Azure Active Directory
 
-Azure Active Directory (Azure AD) in Azure Germany is separate from Azure AD in global Azure. Currently, you can't move Azure AD users from Azure Germany to global Azure.
+Azure AD in Azure Germany is separate from Azure AD in global Azure. Currently, you can't move Azure AD users from Azure Germany to global Azure.
 
 Default tenant names in Azure Germany and global Azure are always different because Azure automatically appends a suffix based on the environment. For example, a user name for a member of the **contoso** tenant in global Azure is **user1\@contoso.microsoftazure.com**. In Azure Germany, it's **user1\@contoso.microsoftazure.de**.
 

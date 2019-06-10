@@ -23,7 +23,7 @@ This article details the steps required to create a virtual hard disk (VHD) for 
 [Linux on distributions endorsed by Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
-> It is strongly recommended that you follow the guidance in this topic to use Azure to create a VM containing an pre-configured, endorsed operating system.  If this is not compatible with your solution, then it is possible to create and configure an on-premise VM using an approved operating system.  You can then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> It is strongly recommended that you follow the guidance in this topic to use Azure to create a VM containing an pre-configured, endorsed operating system.  If this is not compatible with your solution, then it is possible to create and configure an on-premises VM using an approved operating system.  You can then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
 ## Select an approved base

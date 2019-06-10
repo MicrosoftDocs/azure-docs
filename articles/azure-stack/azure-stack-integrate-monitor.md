@@ -26,7 +26,7 @@ For external monitoring of the Azure Stack infrastructure, you need to monitor t
 - Physical computers can make health and alert information available via the baseboard management controllers (BMCs).
 - Physical network devices can make health and alert information available via the SNMP protocol.
 
-Each Azure Stack solution ships with a hardware lifecycle host. This host runs the Original Equipment Manufacturer (OEM) hardware vendor’s monitoring software for the physical servers and network devices. If desired, you can bypass these monitoring solutions and directly integrate with existing monitoring solutions in your datacenter.
+Each Azure Stack solution ships with a hardware lifecycle host. This host runs the Original Equipment Manufacturer (OEM) hardware vendor’s monitoring software for the physical servers and network devices. Please check with your OEM provider if their monitoring solutions can integrate with existing monitoring solutions in your datacenter.
 
 > [!IMPORTANT]
 > The external monitoring solution you use must be agentless. You can't install third-party agents inside Azure Stack components.
@@ -36,7 +36,7 @@ The following diagram shows traffic flow between an Azure Stack integrated syste
 ![Diagram showing traffic between Azure Stack, monitoring, and ticketing solution.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> External Monitoring Integration directly with physical servers and network devices is not allowed and actively blocked by Access Control Lists (ACLs). 
+> External Monitoring Integration directly with physical servers is not allowed and actively blocked by Access Control Lists (ACLs).  External Monitoring Integration directly with Physical network devices is supported, please check with your OEM provider on how to enable this feature.
 
 This article explains how to integrate Azure Stack with external monitoring solutions such as System Center Operations Manager and Nagios. It also includes how to work with alerts programmatically by using PowerShell or through REST API calls.
 
@@ -77,8 +77,8 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 | Parameter | Description | Example |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (administrator) endpoint |https:\//adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (administrator) endpoint  | https:\//adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Azure Resource Manager (administrator) endpoint | https://adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (administrator) endpoint  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | Admin subscription ID | Retrieve via the administrator portal or PowerShell |
 | *User_name* | Operator subscription username | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operator subscription password | mypassword |
@@ -92,35 +92,38 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 If you're not using Operations Manager, Nagios, or a Nagios-based solution, you can use PowerShell to enable a broad range of monitoring solutions to integrate with Azure Stack.
 
-1. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack operator environment. Install PowerShell on a local computer that can reach the Resource Manager (administrator) endpoint (https:\//adminmanagement.[region].[External_FQDN]).
+1. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack operator environment. Install PowerShell on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
 
 2. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
 
-   ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
+   ```powershell
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN] `
+      -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Use commands such as the following examples to work with alerts:
-   ```PowerShell
+   ```powershell
     #Retrieve all alerts
-    Get-AzsAlert
+    $Alerts = Get-AzsAlert
+    $Alerts
 
     #Filter for active alerts
-    $Active=Get-AzsAlert | Where {$_.State -eq "active"}
+    $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
     #Close alert
     Close-AzsAlert -AlertID "ID"
 
     #Retrieve resource provider health
-    Get-AzsRPHealth
+    $RPHealth = Get-AzsRPHealth
+    $RPHealth
 
     #Retrieve infrastructure role instance health
-    $FRPID=Get-AzsRPHealth|Where-Object {$_.DisplayName -eq "Capacity"}
+    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-
     ```
 
 ## Learn more

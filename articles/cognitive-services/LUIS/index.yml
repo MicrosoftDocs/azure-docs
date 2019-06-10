@@ -85,7 +85,7 @@ sections:
     - html: <a href="luis-tutorial-prebuilt-intents-entities">Add prebuilt intents and entities</a>
     - html: <a href="luis-quickstart-intents-regex-entity">Add regular expression entity</a>
     - html: <a href="luis-quickstart-intent-and-list-entity">Add list entity</a>
-    - html: <a href="luis-quickstart-intent-and-hier-entity">Add hierarchical entity</a>
+    - html: <a href="tutorial-entity-roles">Use entity roles</a>
     - html: <a href="luis-quickstart-primary-and-secondary-data">Add simple entity and phrase list</a>
     - html: <a href="luis-quickstart-intent-and-key-phrase">Add keyPhrase entity</a>
     - html: <a href="luis-quickstart-intent-and-sentiment-analysis">Add sentiment analysis</a>

@@ -30,7 +30,7 @@ You can build a flexible structure of management groups and subscriptions to org
 resources into a hierarchy for unified policy and access management. The following diagram shows an
 example of creating a hierarchy for governance using management groups.
 
-![tree](./media/tree.png)
+![Example of a management group hierarchy tree](./media/tree.png)
 
 Create a hierarchy so you can apply a policy, for example, limit VM locations
 to US West Region on the group "Production". This policy will inherit onto both EA subscriptions under that management

@@ -86,3 +86,7 @@ Cluster operations are limited when active upgrade operations are occurring or a
 
 * If cluster is actively upgrading, wait until the operation terminates. If it succeeded, try the previously failed operation again.
 * If cluster has failed upgrade, follow steps outlined above
+
+## Can I move my cluster to a different subscription or my subscription with my cluster to a new tenant?
+
+If you have moved your AKS cluster to a different subscription or the cluster owning subscription to a new tenant, the cluster will lose functionality due to losing role assignments and service principals rights. **AKS does not support moving clusters across subscriptions or tenants** due to the this constraint.

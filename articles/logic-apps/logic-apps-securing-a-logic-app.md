@@ -61,7 +61,7 @@ Here's more information about securing access with
 Shared Access Signature:
 
 * [Regenerate access keys](#access-keys)
-* [Create expiring callback URLs](#expiring-URLs)
+* [Create expiring callback URLs](#expiring-urls)
 * [Create URLs with primary or secondary key](#primary-secondary-key)
 
 <a name="access-keys"></a>
@@ -212,9 +212,9 @@ Logic Apps supports [Azure Role-Based Access Control (RBAC)](../role-based-acces
 which you can customize or assign built-in roles to members in 
 your subscription, for example:
 
-* **Logic App Contributor**: Users can view, edit, and update your logic app. 
-This role can't delete the logic app or run administrator operations.
-* **Logic App Operator**: Users can view your logic app and the run history, 
+* [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Users can view, edit, and update your logic app. 
+
+* [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Users can view your logic app and the run history, 
 and enable or disable your logic app. This role can't edit or update your logic app.
 
 To prevent others from changing or deleting your logic app, you can use 

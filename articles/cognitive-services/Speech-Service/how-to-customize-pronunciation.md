@@ -58,7 +58,7 @@ Custom pronunciation is currently supported for English (en-US) and German (de-d
 A display form can be only a custom word, an acronym, or compound words that combine existing words.
 
 >[!NOTE]
->We don't recommend using this feature to reformulate common words or to modify the spoken form. It is better to run the decoder to see whether some unusual words (such as abbreviations, technical words, or foreign words) are incorrectly decoded. If they are, add them to the custom pronunciation file. In the language model, you should always and only use the display form of a word.
+>We don't recommend using this feature to reformulate common words or to modify the spoken form. It is better check whether some unusual words (such as abbreviations, technical words, or foreign words) are incorrectly transribed before this feature is used. If they are, add them to the custom pronunciation file. In the language model, you should always and only use the display form of a word.
 
 ## Requirements for the file size
 The size of the .txt file that contains the pronunciation entries is limited to 1 megabyte (1KB for free tier keys). Usually, you don't need to upload large amounts of data through this file. Most custom pronunciation files are likely to be just a few kilobytes (KBs) in size. The encoding of the .txt file for all locales should be UTF-8 BOM. For the English locale, ANSI is also acceptable.

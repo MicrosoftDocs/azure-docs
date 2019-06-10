@@ -115,7 +115,7 @@ Once the gateway creation has completed, you can create a connection between you
 
 ## View the gateway public IP address
 
-If you know the name of the public IP address, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) to show the public IP address assigned to the gateway.
+If you know the name of the public IP address, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) to show the public IP address assigned to the gateway.
 
 If your session timed out, copy the common network parameters from the beginning of this tutorial into your new session and proceed, then proceed.
 

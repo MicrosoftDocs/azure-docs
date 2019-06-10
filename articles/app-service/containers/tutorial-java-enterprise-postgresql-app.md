@@ -16,9 +16,9 @@ ms.custom: seodec18
 
 # Tutorial: Build a Java EE and Postgres web app in Azure
 
-This tutorial will show you how to create a Java Enterprise Edition (EE) web app on Azure App Service and connect it to a Postgres database. When you are finished, you will have a [WildFly](https://www.wildfly.org/about/) application storing data in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) running on Azure [App Service on Linux](app-service-linux-intro.md).
+This tutorial shows you how to create a Java Enterprise Edition (EE) web app on Azure App Service and connect it to a Postgres database. When you are finished, you will have a [WildFly](https://www.wildfly.org/about/) application storing data in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) running on Azure [App Service on Linux](app-service-linux-intro.md).
 
-In this tutorial, you will learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Deploy a Java EE app to Azure using Maven
 > * Create a Postgres database in Azure
@@ -154,7 +154,9 @@ Next, we need to edit our Java Transaction API (JPA) configuration so that our J
 
 ## Configure the WildFly application server
 
-Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencies. To configure the server, we will need the four files in the  `wildfly_config/` directory:
+Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencies. More configuration information can be found at [Configure WildFly server](configure-language-java.md#configure-wildfly-server).
+
+To configure the server, we will need the four files in the  `wildfly_config/` directory:
 
 - **postgresql-42.2.5.jar**: This JAR file is the JDBC driver for Postgres. For more information,  see the [official website](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: This XML file declares a name for the Postgres module (org.postgres). It also specifies the resources and dependencies necessary for the module to be used.
@@ -168,7 +170,6 @@ We highly suggest reading the contents of these files, especially _jboss_cli_com
 We will need to FTP the contents of `wildfly_config/` to our App Service instance. To get your FTP credentials, click the **Get Publish Profile** button on the App Service blade in the Azure portal. Your FTP username and password will be in the downloaded XML document. For more information on the Publish Profile,  see [this document](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 Using an FTP tool of your choice, transfer the four files in `wildfly_config/` to `/home/site/deployments/tools/`. (Note that you should not transfer the directory, just the files themselves.)
-
 
 ### Finalize App Service
 
@@ -191,9 +192,26 @@ Congratulations! Your application is now using a Postgres database and any recor
 If you don't need these resources for another tutorial (see Next steps), you can delete them by running the following command:
 
 ```bash
-az group delete --name <your_resource_group> 
+az group delete --name <your-resource-group>
 ```
 
 ## Next steps
 
-Now that you have a Java EE application deployed to App Service, please see the [Java Enterprise developer guide](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java) for more information on setting up services, troubleshooting, and scaling your application.
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Deploy a Java EE app to Azure using Maven
+> * Create a Postgres database in Azure
+> * Configure the WildFly server to use Postgres
+> * Update and redeploy the app
+> * Run unit tests on WildFly
+
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Map custom DNS name to your app](../app-service-web-tutorial-custom-domain.md)
+
+Or, check out other resources:
+
+> [!div class="nextstepaction"]
+> [Configure Java app](configure-language-java.md)

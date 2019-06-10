@@ -4,7 +4,6 @@ title: Azure Management - Governance
 metadata:
   title: Azure Management - Governance
   description: Learn about the concepts and Azure services available for managing your environment with consistency, through explicit design and rules, and how to audit for compliance.
-  services: governance
   author: DCtheGeek
   manager: carmonm
   ms.service: governance

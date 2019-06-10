@@ -40,7 +40,7 @@ We are currently working on migrating existing blog posts (excluding outage upda
 We will be posting outage updates using our Twitter handle going forward. Follow us on Twitter to get latest updates on outages and known bugs.
 
 ### Twitter 
-Our Twitter handle: azlabservices
+Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
 
 ## What if my question isn't answered here?
 If your question is not listed here, let us know, and we can help you find an answer.
@@ -135,7 +135,9 @@ You have two options for simultaneously creating multiple VMs from the same temp
 ## How do I move my existing Azure VMs into my DevTest Labs lab?
 To copy your existing VMs to DevTest Labs:
 
-1. Copy the VHD file of your existing VM by using a [Windows PowerShell script](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1).
+1. Copy the VHD file of your existing VM by using a PowerShell script:
+   * Resource Manager: [CopyRmVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyRmVHDFromVMToLab.ps1)
+   * Classic: [CopyClassicVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyClassicVHDFromVMToLab.ps1)
 2. [Create the custom image](devtest-lab-create-template.md) inside your DevTest Labs lab.
 3. Create a VM in the lab from your custom image.
 

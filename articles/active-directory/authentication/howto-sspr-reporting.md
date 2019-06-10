@@ -115,7 +115,7 @@ The following list explains this activity in detail:
 The following list explains this activity in detail:
 
 * **Activity description**: Indicates that an administrator performed a password reset on behalf of a user from the Azure portal.
-* **Activity actor**: The administrator who performed the password reset on behalf of another end user or administrator. Must be either a global administrator, password administrator, user administrator, or helpdesk administrator.
+* **Activity actor**: The administrator who performed the password reset on behalf of another end user or administrator. Must be a password administrator, user administrator, or helpdesk administrator.
 * **Activity target**: The user whose password was reset. The user can be an end user or a different administrator.
 * **Activity statuses**:
   * _Success_: Indicates that an admin successfully reset a user's password.

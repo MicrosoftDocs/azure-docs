@@ -60,9 +60,6 @@
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions-linux.md
       maintainContext: true
-    - name: Install or update Mono
-      href: ../hdinsight-hadoop-install-mono.md
-      maintainContext: true
     - name: Build HDInsight applications
       items:
       - name: Install custom apps
@@ -72,21 +69,6 @@
         href: https://msdn.microsoft.com/library/mt706515.aspx
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
-        maintainContext: true
-      - name: Install published app - Cask Data Application Platform (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: Install published app - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: Install published app - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: Install published app - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: Install published app - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
         maintainContext: true
   - name: Secure
     items:
@@ -177,9 +159,6 @@
         maintainContext: true
     - name: Use Apache Oozie for workflows
       href: ../hdinsight-use-oozie-linux-mac.md
-      maintainContext: true
-    - name: Use time-based Apache Oozie coordinators
-      href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: Cluster and service ports and URIs
       href: ../hdinsight-hadoop-port-settings-for-services.md
@@ -281,20 +260,6 @@
       maintainContext: true
     - name: Migrate .NET solutions to Linux clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-      maintainContext: true
-    - name: Deploy and manage Apache Storm topologies
-      href: apache-storm-deploy-monitor-topology.md
-    - name: Use Apache Maven to build Java applications
-      href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: Access Apache Hadoop YARN application logs
-      href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: Develop script actions
-      href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Monitor clusters using the Apache Ambari API
-      href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: Resources
   items:

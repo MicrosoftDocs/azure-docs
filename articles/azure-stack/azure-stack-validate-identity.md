@@ -82,7 +82,7 @@ The following prerequisites are required:
 
 4. After the tool runs, review the output. Confirm the status is **OK** for installation requirements. A successful validation appears like the following image:
 
-   ```shell
+   ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
    Starting Azure Identity Validation
 
@@ -116,7 +116,7 @@ The following examples provide guidance on common validation failures.
 
 ### Expired or temporary password
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -142,9 +142,9 @@ Login-AzureRMAccount
 
 Alternatively, sign in to the [Azure portal](https://portal.azure.com) as the account owner, and the user will be forced to change the password.
 
-### Unknown user type
-
-```shell
+### Unknown user type 
+ 
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -170,7 +170,7 @@ Login-AzureRmAccount –EnvironmentName AzureChinaCloud
 
 ### Account is not an administrator
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 

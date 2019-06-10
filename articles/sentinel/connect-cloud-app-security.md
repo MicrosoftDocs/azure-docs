@@ -1,6 +1,6 @@
 ---
-title: Collect Cloud App Security data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Cloud App Security data in Azure Sentinel.
+title: Connect Cloud App Security data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Cloud App Security data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from Microsoft Cloud App Security 
+# Connect data from Microsoft Cloud App Security 
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -36,7 +36,7 @@ If you already have Cloud App Security, make sure it is [enabled on your network
 If Cloud App Security is deployed and ingesting your data, the alert data can easily be streamed into Azure Sentinel.
 
 
-1. In Azure Sentinel, select **Data collection** and then click the **Cloud App Security** tile.
+1. In Azure Sentinel, select **Data connectors** and then click the **Cloud App Security** tile.
 
 2. Click **Connect**.
 

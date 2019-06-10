@@ -144,7 +144,7 @@ No, but you can deploy other application gateways in the subnet.
 
 ### Are Network Security Groups supported on the application gateway subnet?
 
-See [Network Security Groups restrictions on the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) learn about the Network Security Groups supported on the application gateway subnet.
+See [Network Security Groups restrictions on the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet) learn about the Network Security Groups supported on the application gateway subnet.
 
 ### Are user-defined routes supported on the application gateway subnet?
 

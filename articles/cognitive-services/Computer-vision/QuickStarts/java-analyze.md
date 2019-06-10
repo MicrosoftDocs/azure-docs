@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -52,8 +52,6 @@ To create and run the sample, do the following steps:
    1. Replace the value of `subscriptionKey` with your subscription key.
    1. Replace the value of `uriBase` with the endpoint URL for the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method from the Azure region where you obtained your subscription keys, if necessary.
    1. Optionally, replace the value of `imageToAnalyze` with the URL of a different image that you want to analyze.
-1. Save, then build the Java project.
-1. If you're using an IDE, run `Main`. Otherwise, open a command prompt window and then use the `java` command to run the compiled class. For example, `java Main`.
 
 ```java
 public class Main {
@@ -120,6 +118,25 @@ public class Main {
     }
 }
 ```
+
+## Compile and run the program
+
+1. Save, then build the Java project.
+1. If you're using an IDE, run `Main`.
+
+Alternately, if you're running the program from a command line window, run the following commands. These commands presume your libraries are in a folder named `libs` that is in the same folder as `Main.java`; if not, you will need to replace `libs` with the path to your libraries.
+
+1. Compile the file `Main.java`.
+
+    ```bash
+    javac -cp ".;libs/*" Main.java
+    ```
+
+1. Run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the command line window.
+
+    ```bash
+    java -cp ".;libs/*" Main
+    ```
 
 ## Examine the response
 

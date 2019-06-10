@@ -8,7 +8,7 @@ ms.service: azure-stack
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: mabrigg
-ms.lastreviewed: 12/12/2018
+ms.lastreviewed: 3/20/2019
 
 ---
 
@@ -20,9 +20,18 @@ The following training and certification opportunities are available to help you
 
 ## Training
 
-- [Course 20537A: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537)
-- [edX: Azure Stack Online Training](https://aka.ms/AzureStackMOOC)
-- [Job roles and learning paths](https://azure.microsoft.com/training/learning-paths/)
+- Microsoft official courses on-demand
+   - [ODX20537: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack (180 Day)](https://www.microsoft.com/en-us/learning/course.aspx?cid=ODX20537)
+   - [OD20537: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack (90 Day)](https://www.microsoft.com/en-us/learning/course.aspx?cid=OD20537)
+
+- Microsoft IT training course
+   - [Course 20537A: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack](https://aka.ms/azsmoc)
+
+- Open edx
+   - [edX: Configuring and Operating Microsoft Azure Stack online course](https://aka.ms/AzureStackMOOC)
+   
+- Microsoft Learning Paths
+   - [Job roles and learning paths](https://azure.microsoft.com/training/learning-paths/)
 
 ## Certification
 

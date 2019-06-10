@@ -124,7 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     c. In the **Reply URL** textbox, type the URL:
     
-      EU Datacenter: ` https://adfs.skillport.eu/adfs/ls/`
+      EU Datacenter: `https://adfs.skillport.eu/adfs/ls/`
     
 	  US Datacenter: `https://sso.skillport.com/sp/ACS.saml2`
  

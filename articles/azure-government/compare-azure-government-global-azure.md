@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 12/05/2018
+ms.date: 4/1/2019
 ms.author: juliako
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
@@ -51,6 +51,7 @@ For the most current list of services, see the [Products available by region](ht
 * [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway)
 * [Application Gateway](documentation-government-networking.md#support-for-application-gateway)
 * [Network Watcher](documentation-government-networking.md#support-for-network-watcher)
+* [Azure Firewall](documentation-government-networking.md#support-for-azure-firewall)
 
 ## Storage
 

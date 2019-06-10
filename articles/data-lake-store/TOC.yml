@@ -155,7 +155,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=data-lake-store
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.datalakestore
+    href: /powershell/module/az.datalakestore
   - name: .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet
   - name: Java

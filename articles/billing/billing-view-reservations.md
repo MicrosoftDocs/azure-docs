@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 10/03/2018
 ms.author: banders
 ---
-# View reservations for Azure in the Azure portal
+# View Azure reservations in the Azure portal
 
-Depending on your subscription type and permissions, there are a couple of ways to view reservations for Azure resources.
+Depending on your subscription type and permissions, there are a couple of ways to view reservations for Azure.
 
 ## View reservations as Owner or Reader
 
@@ -57,15 +57,26 @@ To get the data by using an API, see [Get Reserved Instance transaction charges 
 
 To learn more about Azure reservations, see the following articles:
 
-- [What are Azure reservations?](billing-save-compute-costs-reservations.md)
+- [What are reservations for Azure?](billing-save-compute-costs-reservations.md)
+- [Manage reservations for Azure](billing-manage-reserved-vm-instance.md)
+
+Buy a service plan:
+
 - [Prepay for Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage Azure reservations](billing-manage-reserved-vm-instance.md)
+
+Buy a software plan:
+
+- [Prepay for Red Hat software plans from Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Prepay for SUSE software plans from Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Understand usage:
+
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## Need help? Contact us.
+## Need help? Contact us
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

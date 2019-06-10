@@ -37,9 +37,9 @@ For serial console documentation for Windows VMs, see [Virtual machine serial co
 
 - An account that uses a serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account:
 
-    - The VM in which you're accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section.
+- The VM in which you're accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section.
 
-    - For settings specific to Linux distributions, see [Serial console Linux distribution availability](#serial-console-linux-distribution-availability).
+- For settings specific to Linux distributions, see [Serial console Linux distribution availability](#serial-console-linux-distribution-availability).
 
 
 
@@ -81,12 +81,11 @@ Custom Linux images     | To enable the serial console for your custom Linux VM 
 
 Scenario          | Actions in the serial console
 :------------------|:-----------------------------------------
-Broken *FSTAB* file | Press the **Enter** key to continue and use a text editor to fix the *FSTAB* file. You might need to be in single user mode to do so. For more information, see [How to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
-Incorrect firewall rules | Access the serial console and fix iptables.
-Filesystem corruption/check | Access the serial console and recover the filesystem.
-SSH/RDP configuration issues | Access the serial console and change the settings.
-Network lock down system| Access the serial console from the Azure portal to manage the system.
-Interacting with bootloader | Restart your VM from within the serial console blade to access GRUB on your Linux VM. For more information, see [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
+Broken *FSTAB* file | Press the **Enter** key to continue and use a text editor to fix the *FSTAB* file. You might need to be in single user mode to do so. For more information, see the serial console section of [How to fix fstab issues](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) and [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
+Incorrect firewall rules |  If you have configured iptables to block SSH connectivity, you can use serial console to interact with your VM without needing SSH. More details can be found at the [iptables man page](https://linux.die.net/man/8/iptables). Similarly, if you firewalld is blocking SSH access, you can access the VM through serial console and reconfigure firewalld. More details can be found in the [firewalld documentation](https://firewalld.org/documentation/).
+Filesystem corruption/check | Please see the serial console section of [Azure Linux VM cannot start because of file system errors](https://support.microsoft.com/en-us/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) for more details on troubleshooting corrupted file systems using serial console.
+SSH configuration issues | Access the serial console and change the settings. Serial console can be used regardless of the SSH configuration of a VM as it does not require the VM to have network connectivity to work. A troubleshooting guide is available at [Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection). More details are available at [Detailed SSH troubleshooting steps for issues connecting to a Linux VM in Azure](./detailed-troubleshoot-ssh-connection.md)
+Interacting with bootloader | Restart your VM from within the serial console blade to access GRUB on your Linux VM. For more details and distro-specific information, see [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
 
 ## Disable the serial console
 By default, all subscriptions have serial console access enabled for all VMs. You can disable the serial console at either the subscription level or VM level.

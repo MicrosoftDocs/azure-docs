@@ -24,7 +24,7 @@ Configure the Striim VM with specified properties, noting down the Striim cluste
 
 ![Configure Striim][configure]
 
-Once deployed, click on <VM Name>-masternode in the Azure portal, click Connect, and copy the Login using VM local account 
+Once deployed, click on \<VM Name>-masternode in the Azure portal, click Connect, and copy the Login using VM local account 
 
 ![Connect Striim to SQL Data Warehouse][connect]
 
@@ -50,7 +50,7 @@ Execute the following commands to move the JDBC jar file into Striim’s lib dir
 
 ![Start the Striim cluster][start-striim]
 
-Now, open your favorite browser and navigate to <DNS Name>:9080
+Now, open your favorite browser and navigate to \<DNS Name>:9080
 
 ![Navigate to the login screen][navigate]
 

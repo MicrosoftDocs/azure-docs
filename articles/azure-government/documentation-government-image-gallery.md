@@ -24,15 +24,17 @@ The following table shows a list of available images within the Azure Government
 
 Some of the prebuilt images include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government-specific pricing. For more information, see [Virtual machine pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Images
 The list of virtual machine images available in Azure Government can be obtained by [connecting to Azure Government via PowerShell](documentation-government-get-started-connect-with-ps.md) and running the following commands:
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureUSGovernment
+Connect-AzAccount -Environment AzureUSGovernment
 
-Get-AzureRmVMImagePublisher -Location USGovVirginia | `
-Get-AzureRmVMImageOffer | `
-Get-AzureRmVMImageSku
+Get-AzVMImagePublisher -Location USGovVirginia | `
+Get-AzVMImageOffer | `
+Get-AzVMImageSku
 ```
 <!-- 
 Get-AzVMImagePublisher -Location USGovVirginia | `

@@ -145,7 +145,14 @@ After your container is created, you must create the `resolver` stored procedure
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
 
 ```python
-
+udp_collection = {
+  'id': self.udp_collection_name,
+  'conflictResolutionPolicy': {
+    'mode': 'Custom',
+    'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    }
+}
+udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
 ```
 
 After your container is created, you must create the `resolver` stored procedure.

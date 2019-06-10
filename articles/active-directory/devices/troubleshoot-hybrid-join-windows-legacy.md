@@ -3,7 +3,7 @@ title: Troubleshooting hybrid Azure Active Directory joined down-level devices |
 description: Troubleshooting hybrid Azure Active Directory joined down-level devices. 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: jairoc
 
 #Customer intent: As an IT admin, I want to fix issues with my hybrid Azure AD joined devices so that I can my users can use this feature.

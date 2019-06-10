@@ -40,9 +40,10 @@ sections:
       - 
         items: 
           - 
-            html: "<a href=\"service/quickstart-create-workspace-with-python\">Use Python to get started</a>"
+            html: "<a href=\"service/quickstart-run-cloud-notebook\">Run an experiment in the cloud</a> (no install required)"
           - 
-            html: "<a href=\"service/quickstart-get-started\">Use the Azure portal to get started</a>"
+            html: "<a href=\"service/quickstart-run-local-notebook\">Run an experiment using a local notebook server</a> (local SDK install)"
+
         style: unordered
         type: list
       - 

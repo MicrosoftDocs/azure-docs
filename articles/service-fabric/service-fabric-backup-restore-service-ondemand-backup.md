@@ -4,7 +4,7 @@ description: Use the backup and restore feature in Service Fabric to back up you
 services: service-fabric
 documentationcenter: .net
 author: aagup
-manager: timlt
+manager: chackdan
 editor: aagup
 
 ms.assetid: 02DA262A-EEF6-4F90-842E-FFC4A09003E5

@@ -24,7 +24,7 @@ We'd love your feedback on the documents. Take this short [survey](https://aka.m
 
 |Scenario |Description |
 |-|-|
-|[Multi-Factor Authentication](https://aka.ms/MFADPDownload)|Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure MFA helps safeguard your access to data and applications, while meeting the demand for a simple sign-in process.|
+|[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure MFA helps safeguard your access to data and applications, while meeting the demand for a simple sign-in process.|
 |Conditional access [downloadable plan](https://aka.ms/CADPDownload) or [online plan](https://aka.ms/deploymentplans/ca)|With conditional access, you can implement automated access control decisions for who can access your cloud apps, based on conditions.|
 |[Self-service password reset](https://aka.ms/SSPRDPDownload)|Self-service password reset helps your users reset their password, without administrator intervention, when and where they need to.|
 |[Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)|Azure AD Privileged Identity Management (PIM) helps you manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. PIM provides solutions like just-in-time access, request approval workflows, and fully integrated access reviews so you can identify, uncover, and prevent malicious activities of privileged roles in real time.|

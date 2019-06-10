@@ -2,7 +2,7 @@
 title: Frequently asked questions - Azure Dedicated HSM | Microsoft Docs
 description: Frequently asked questions covering different topics on Azure Dedicated HSM 
 services: dedicated-hsm
-author: johndaw
+author: johncdawson
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: "mvc, seodec18"
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 3/19/2019
+ms.date: 3/27/2019
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -55,9 +55,28 @@ At this time, Azure Dedicated HSM only provides HSMs with password-based authent
 
 Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any customer-provided devices.
 
-### Q: Does Azure Dedicated HSM support PIN/ETF features or meet PCI HSM v1 or v2 certification requirements?
+### Q: Does Azure Dedicated HSM support payment (PIN/ETF) features?
 
-The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or ETF) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please provide the feedback below.
+The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or ETF) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please pass on the feedback to your Microsoft Account Representative.
+
+### Q: Which Azure regions is Dedicated HSM available in?
+
+As of late March 2019, Dedicated HSM is available in the 14 regions listed below. Further regions are planned and can be discussed via your Microsoft Account Representative.
+
+* East US
+* East US 2
+* West US
+* South Central US
+* Southeast Asia
+* East Asia
+* North Europe
+* West Europe
+* UK South
+* UK West
+* Canada Central
+* Canada East
+* Australia East
+* Australia Southeast
 
 ## Interoperability
 

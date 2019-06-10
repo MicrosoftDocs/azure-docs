@@ -17,6 +17,7 @@ ms.date: 03/15/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ---
 
@@ -24,14 +25,15 @@ ms.collection: M365-identity-device-management
 
 Access tokens enable clients to securely call APIs protected by Azure. Azure Active Directory (Azure AD) access tokens are [JWTs](https://tools.ietf.org/html/rfc7519), Base64 encoded JSON objects signed by Azure. Clients should treat access tokens as opaque strings, as the contents of the token are intended for the resource only. For validation and debugging purposes, developers can decode JWTs using a site like [jwt.ms](https://jwt.ms). Your client can get an access token from either endpoint (v1.0 or v2.0) using a variety of protocols.
 
-When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it is valid. This data allows your app to perform intelligent caching of access tokens without having to parse the access token itself.
+When your client request an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it is valid. This data allows your app to perform intelligent caching of access tokens without having to parse the access token itself.
 
 If your application is a resource (web API) that clients can request access to, access tokens provide helpful information for use in authentication and authorization, such as the user, client, issuer, permissions, and more. 
 
 See the following sections to learn how a resource can validate and use the claims inside an access token.
 
-> [!NOTE]
-> While testing your client application with a personal account (such as hotmail.com or outlook.com), you may find that the access token received by your client is an opaque string. This is because the resource being accessed has requested legacy MSA (Microsoft account) tickets that are encrypted and cannot be understood by the client.
+> [!Important]
+> Access tokens are created based on the *audience* of the token, meaning the application that owns the scopes in the token.  This is how a resource setting `accessTokenAcceptedVersion` in the [app manifest](reference-app-manifest.md#manifest-reference) to `2` allows a client calling the v1.0 endpoint to receive a v2.0 access token.  Similarly, this is why changing the access token [optional claims](active-directory-optional-claims.md) for your client do not change the access token recieved when a token is requested for `user.read`, which is owned by the MS Graph resource.  
+> For the same reason, while testing your client application with a personal account (such as hotmail.com or outlook.com), you may find that the access token received by your client is an opaque string. This is because the resource being accessed has requested legacy MSA (Microsoft account) tickets that are encrypted and cannot be understood by the client.
 
 ## Sample tokens
 
@@ -103,7 +105,7 @@ Claims are present only if a value exists to fill it. Thus, your app should not 
 | `oid` | String, a GUID | The immutable identifier for an object in the Microsoft identity platform, in this case, a user account. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the `oid` claim. Thus, `oid` can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph will return this ID as the `id` property for a given user account. Because the `oid` allows multiple apps to correlate users, the `profile` scope is required in order to receive this claim. Note that if a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials. |
 | `rh` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources should not use this claim. |
 | `scp` | String, a space separated list of scopes | The set of scopes exposed by your application for which the client application has requested (and received) consent. Your app should verify that these scopes are valid ones exposed by your app, and make authorization decisions based on the value of these scopes. Only included for [user tokens](#user-and-application-tokens). |
-| `roles` | String, a space separated list of permissions | The set of permissions exposed by your application that the requesting application has been given permission to call. This is used during the [client-credentials](v1-oauth2-client-creds-grant-flow.md) flow in place of user scopes, and is only present in [application tokens](#user-and-application-tokens). |
+| `roles` | Array of strings, a list of permissions | The set of permissions exposed by your application that the requesting application has been given permission to call. For [application tokens](#user-and-application-tokens), this is used during the [client-credentials](v1-oauth2-client-creds-grant-flow.md) flow in place of user scopes.  For [user tokens](#user-and-application-tokens) this is populated with the roles the user was assigned to on the target application. |
 | `sub` | String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. The subject is, however, a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. |
 | `tid` | String, a GUID | Represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim. |
 | `unique_name` | String | Only present in v1.0 tokens. Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and should be used only for display purposes. |
@@ -144,7 +146,7 @@ Microsoft identities can authenticate in a variety of ways, which may be relevan
 
 ## Validating tokens
 
-To validate an id_token or an access_token, your app should validate both the token's signature and the claims. In order to validate access tokens, your app should also validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
+To validate an id_token or an access_token, your app should validate both the token's signature and the claims. In order to validate access tokens, your app should also validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant-independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
 
 The Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
 
@@ -169,14 +171,14 @@ The `alg` claim indicates the algorithm that was used to sign the token, while t
 
 At any given point in time, Azure AD may sign an id_token using any one of a certain set of public-private key pairs. Azure AD rotates the possible set of keys on a periodic basis, so your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.
 
-You can acquire the signing key data necessary to validate the signature by using the OpenID Connect metadata document located at:
+You can acquire the signing key data necessary to validate the signature by using the [OpenID Connect metadata document](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) located at:
 
 ```
-https://login.microsoftonline.com/common/.well-known/openid-configuration
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Try this [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) in a browser!
+> Try this [URL](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) in a browser!
 
 This metadata document:
 
@@ -186,7 +188,9 @@ This metadata document:
 > [!NOTE]
 > The v1.0 endpoint returns both the `x5t` and `kid` claims, while the v2.0 endpoint responds with only the `kid` claim. Going forward, we recommend using the `kid` claim to validate your token.
 
-Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
+Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.  However, the Microsoft Identity platform has one token signing extension to the standards - custom signing keys.  
+
+If your app has custom signing keys as a result of using the [claims-mapping](active-directory-claims-mapping.md) feature, you must append an `appid` query parameter containing the app ID in order to get a `jwks_uri` pointing to your app's signing key information, which should be used for validation. For example: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contains a `jwks_uri` of `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### Claims based authorization
 

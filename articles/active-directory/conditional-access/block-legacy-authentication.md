@@ -4,7 +4,7 @@ description: Learn how to improve your security posture by blocking legacy authe
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/25/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management

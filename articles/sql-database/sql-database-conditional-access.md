@@ -12,11 +12,11 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.custom: sql-data-warehouse
-ms.date: 09/24/2018
+ms.date: 03/29/2019
 ---
 # Conditional Access (MFA) with Azure SQL Database and Data Warehouse  
 
-Both Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Microsoft Conditional Access. 
+Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md), and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Microsoft Conditional Access. 
 
 > [!NOTE]
 > This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.

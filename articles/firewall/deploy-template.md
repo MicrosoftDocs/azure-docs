@@ -21,6 +21,9 @@ A user-defined route points network traffic from the *ServersSubnet* subnet thro
 
 For more information about Azure Firewall, see [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md).
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Use the template to deploy Azure Firewall
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -52,10 +55,10 @@ To learn about the JSON syntax and properties for a firewall in a template, see 
 
 ## Clean up resources
 
-When you no longer need them, you can remove the resource group, firewall, and all related resources by running the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) PowerShell command. To remove a resource group named *MyResourceGroup*, run: 
+When you no longer need them, you can remove the resource group, firewall, and all related resources by running the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell command. To remove a resource group named *MyResourceGroup*, run: 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 Don't remove the resource group and firewall yet, if you plan to continue on to the firewall monitoring tutorial. 
 

@@ -128,7 +128,7 @@ After you collect the memory dump file, follow these steps to rebuild the VM.
 
 **For non-managed disks**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
 Login-AzAccount
 
@@ -159,7 +159,7 @@ New-AzVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 
 **For managed disks**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
 Login-AzAccount
 

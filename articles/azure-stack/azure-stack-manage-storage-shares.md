@@ -1,6 +1,6 @@
 ---
 title: Manage storage capacity in Azure Stack | Microsoft Docs
-description: Monitor and manage available storage space for Azure Stack.
+description: Monitor and manage Azure Stack storage capacity and availability storage space for Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,10 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/29/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/14/2019
+ms.lastreviewed: 03/19/2019
+
+# Intent: As a cloud operator, I want to understand where to find information about operation status of storage resources and resolve issues in order to maintain continuity of service for my the users that I support.
+
+# Keywords: Azure Stack capacity infrastructure, troubleshoot storage for Azure Stack
 
 ---
 
@@ -50,7 +54,6 @@ Shares on volumes hold tenant data. Tenant data includes page blobs, block blobs
 
 When a share is low on free space and actions to [reclaim](#reclaim-capacity) space are not successful or available, the Azure Stack cloud operator can migrate the blob containers from one share to another.
 
-- For more information about containers and blobs, see [Blob storage](azure-stack-key-features.md#blob-storage) in Key features and concepts in Azure Stack.
 - For information about how tenant users work with blob storage in Azure Stack, see [Azure Stack Storage services](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
@@ -145,14 +148,14 @@ Migration consolidates all a containers blob on the new share.
 1. Confirm that you have [Azure PowerShell installed and configured](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). For more information, see [Using Azure PowerShell with Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Examine the container to understand what data is on the share that you plan to migrate. To identify the best candidate containers for migration in a volume, use the **Get-AzsStorageContainer** cmdlet:
 
-   ```PowerShell  
+   ```powershell  
    $farm_name = (Get-AzsStorageFarm)[0].name
    $shares = Get-AzsStorageShare -FarmName $farm_name
    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
    ```
    Then examine $containers:
 
-   ```PowerShell
+   ```powershell
    $containers
    ```
 
@@ -160,14 +163,14 @@ Migration consolidates all a containers blob on the new share.
 
 3. Identify the best destination shares to hold the container you migrate:
 
-   ```PowerShell
+   ```powershell
    $destinationshares = Get-AzsStorageShare -SourceShareName
    $shares[0].ShareName -Intent ContainerMigration
    ```
 
    Then examine $destinationshares:
 
-   ```PowerShell 
+   ```powershell 
    $destinationshares
    ```
 
@@ -175,20 +178,20 @@ Migration consolidates all a containers blob on the new share.
 
 4. Start migration for a container. Migration is asynchronous. If you start migration of additional containers before the first migration completes, use the job ID to track the status of each.
 
-   ```PowerShell
+   ```powershell
    $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
    ```
 
    Then examine $jobId. In the following example, replace *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* with the job ID you want to examine:
 
-   ```PowerShell
+   ```powershell
    $jobId
    d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
    ```
 
 5. Use the job ID to check on the status of the migration job. When the container migration is complete, **MigrationStatus** is set to **Complete**.
 
-   ```PowerShell 
+   ```powershell 
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
@@ -196,7 +199,7 @@ Migration consolidates all a containers blob on the new share.
 
 6. You can cancel an in-progress migration job. Canceled migration jobs are processed asynchronously. You can track cancellation by using $jobid:
 
-   ```PowerShell
+   ```powershell
    Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
    ```
 

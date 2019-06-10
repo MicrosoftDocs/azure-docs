@@ -21,7 +21,9 @@
       "version": 0
     }
   ],
-  "notification_subscribers": [],
+  "notification_subscribers": [
+    "azure-docs-publish@microsoft.com"
+  ],
   "sync_notification_subscribers": [
     "tysonn@microsoft.com"
   ],
@@ -74,11 +76,13 @@
       "path_to_root": "policy-templates",
       "url": "https://github.com/Azure/azure-policy",
       "branch": "master",
-      "branch_mapping": {
-        "release-build-mysql": "release-build",
-        "release-build-postgresql": "release-build",
-        "release-build-stellar": "release-build"
-      }
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "blueprints-templates",
+      "url": "https://github.com/Azure/azure-blueprints",
+      "branch": "master",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "azure-docs-json-samples",

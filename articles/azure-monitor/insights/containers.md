@@ -187,7 +187,7 @@ There are three ways to add the Log Analytics agent to Red Hat OpenShift to star
 
 * [Install the Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) directly on each OpenShift node  
 * [Enable Log Analytics VM Extension](../../azure-monitor/learn/quick-collect-azurevm.md) on each OpenShift node residing in Azure  
-* Install the Log Analytics agent as a OpenShift daemon-set  
+* Install the Log Analytics agent as an OpenShift daemon-set  
 
 In this section we cover the steps required to install the Log Analytics agent as an OpenShift daemon-set.  
 
@@ -231,7 +231,7 @@ In this section we cover the steps required to install the Log Analytics agent a
 If you want to use secrets to secure your Log Analytics Workspace ID and Primary Key when using the Log Analytics agent daemon-set yaml file, perform the following steps.
 
 1. Sign on to the OpenShift master node and copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for Log Analytics Workspace ID and Primary Key to secure your secrete information.  
-2. Run the following commands to create a project for Azure Monitor and set the user account. The secret generating script asks for your Log Analytics Workspace ID <WSID> and Primary Key <KEY> and upon completion, it creates the ocp-secret.yaml file.  
+2. Run the following commands to create a project for Azure Monitor and set the user account. The secret generating script asks for your Log Analytics Workspace ID `<WSID>` and Primary Key `<KEY>` and upon completion, it creates the ocp-secret.yaml file.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -360,7 +360,7 @@ You can choose to create omsagent DaemonSets with or without secrets.
         KEY:    88 bytes
         ```
 
-    5. Create your omsagent daemon-set by running ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
+    5. Create your omsagent daemon-set by running ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. Verify that the Log Analytics agent DaemonSet is running, similar to the following:
 
@@ -404,7 +404,7 @@ For Windows Kubernetes, you use a script to generate the secrets yaml file for y
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Create your omsagent daemon-set by running ``` kubectl create -f omsagentsecret.yaml ```
+    3. Create your omsagent daemon-set by running ```kubectl create -f omsagentsecret.yaml```
     4. To check, run the following:
 
         ```

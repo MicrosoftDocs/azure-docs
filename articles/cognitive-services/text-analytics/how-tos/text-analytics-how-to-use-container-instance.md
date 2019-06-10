@@ -201,7 +201,7 @@ The following steps are needed to get the required information to connect your c
 
     Save the full value for step 3 in this section. 
 
-1. To grant the correct access for the AKS cluster to use images stored in your container registry, create a role assignment. Replace <appId> and <acrId> with the values gathered in the previous two steps.
+1. To grant the correct access for the AKS cluster to use images stored in your container registry, create a role assignment. Replace `<appId>` and `<acrId>` with the values gathered in the previous two steps.
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader

@@ -218,7 +218,7 @@ The next step is to configure the failover cluster with S2D. In this step, you w
 
    To install the Failover Clustering feature with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
-   ```PowerShell
+   ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
@@ -249,7 +249,7 @@ The **Validate a Configuration Wizard** runs the validation tests.
 
 To validate the cluster with PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines.
 
-   ```PowerShell
+   ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
@@ -266,7 +266,7 @@ To create the failover cluster, you need:
 
 The following PowerShell creates a failover cluster. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure VNET:
 
-```PowerShell
+```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
@@ -290,7 +290,7 @@ The disks for S2D need to be empty and without partitions or other data. To clea
 
    The following PowerShell enables storage spaces direct.  
 
-   ```PowerShell
+   ```powershell
    Enable-ClusterS2D
    ```
 
@@ -300,7 +300,7 @@ The disks for S2D need to be empty and without partitions or other data. To clea
 
    One of the features of S2D is that it automatically creates a storage pool when you enable it. You are now ready to create a volume. The PowerShell commandlet `New-Volume` automates the volume creation process, including formatting, adding to the cluster, and creating a cluster shared volume (CSV). The following example creates an 800 gigabyte (GB) CSV.
 
-   ```PowerShell
+   ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
@@ -427,7 +427,7 @@ Set the cluster probe port parameter in PowerShell.
 
 To set the cluster probe port parameter, update variables in the following script with values from your environment. Remove the angle brackets `<>` from the script. 
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
    $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
    $ILBIP = "<n.n.n.n>" 
@@ -453,7 +453,7 @@ In the preceding script, set the values for your environment. The following list
 
 After you set the cluster probe you can see all of the cluster parameters in PowerShell. Run the following script:
 
-   ```PowerShell
+   ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 

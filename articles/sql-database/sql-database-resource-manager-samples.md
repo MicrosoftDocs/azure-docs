@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer:
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
 ---
@@ -48,4 +48,3 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [Network environment for Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | This deployment will create a configured Azure Virtual Network with two subnets - one that will be dedicated to your Managed Instances, and another one where you can place other resources (for example VMs, App Service environments, etc.). This template will create a properly configured networking environment where you can deploy Managed Instances. |
 | [Managed Instance with P2S connection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | This deployment will create an Azure Virtual Network with two subnets `ManagedInstance` and `GatewaySubnet`. Managed Instance will be deployed in ManagedInstance subnet. Virtual network gateway will be created in `GatewaySubnet` subnet and configured for Point-to-Site VPN connection. |
 | [Managed Instance with Virtual machine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | This deployment will create an Azure Virtual Network with two subnets `ManagedInstance` and `Management`. Managed Instance will be deployed in `ManagedInstance` subnet. Virtual machine with the latest version of SQL Server Management Studio (SSMS) will be deployed in `Management` subnet. |
-

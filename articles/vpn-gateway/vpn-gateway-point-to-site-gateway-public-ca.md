@@ -52,7 +52,7 @@ Only older gateways are affected by this change. If your gateway certificate nee
 
 ### Classic
 
-1. On a client computer, navigate to path %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. In the Gateway ID folder, you can view the certificate.
+1. On a client computer, navigate to path `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. In the Gateway ID folder, you can view the certificate.
 2. On the General tab for the certificate, verify that the issuing authority is "DigiCert Global Root CA". If you have anything other than this issuing authority, your gateway certificate is part of the update and will be transitioned.
 
 ## 2. Check certificate transition schedule

@@ -67,7 +67,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 
     ![grant permissions-portal](./media/sql-database-aad-authentication/grant-permissions.png)
 
-    ```PowerShell
+    ```powershell
     # Gives Azure Active Directory read permission to a Service Principal representing the Managed Instance.
     # Can be executed only by a "Company Administrator" or "Global Administrator" type of user.
 

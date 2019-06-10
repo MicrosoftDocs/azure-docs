@@ -16,9 +16,9 @@ ms.custom: seodec2018
 
 Indexers can run into a number of issues when indexing data into Azure Search. The main categories of failure include:
 
-* [Connecting to a data source](#Data-Source-Connection-Errors)
-* [Document processing](#Document-Processing-Errors)
-* [Document ingestion to an index](#Index-Errors)
+* [Connecting to a data source](#data-source-connection-errors)
+* [Document processing](#document-processing-errors)
+* [Document ingestion to an index](#index-errors)
 
 ## Data Source Connection Errors
 

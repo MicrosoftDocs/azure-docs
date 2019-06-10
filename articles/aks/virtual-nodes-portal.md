@@ -18,9 +18,9 @@ To quickly deploy workloads in an Azure Kubernetes Service (AKS) cluster, you ca
 >
 > If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
 
-## Preview limitations
+## Regional availability
 
-While this feature is in preview, the following regions are supported for deployments:
+The following regions are supported for virtual node deployments:
 
 * Australia East (australiaeast)
 * East US (eastus)
@@ -179,6 +179,8 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 
 - [Use the Kubernetes horizontal pod autoscaler][aks-hpa]
 - [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler]
+- [Check out the Autoscale sample for Virtual Nodes][virtual-node-autoscale]
+- [Read more about the Virtual Kubelet open source library][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -188,6 +190,8 @@ Virtual nodes are one component of a scaling solution in AKS. For more informati
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md

@@ -825,7 +825,7 @@ For more information about Trident, see the [Trident API Overview](https://storm
 
 You have learned how to create an Apache Storm topology by using Java. Now learn how to:
 
-* [Deploy and manage Apache Storm topologies on HDInsight](apache-storm-deploy-monitor-topology.md)
+* [Deploy and manage Apache Storm topologies on HDInsight](apache-storm-deploy-monitor-topology-linux.md)
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 

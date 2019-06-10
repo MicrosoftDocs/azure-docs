@@ -302,13 +302,13 @@ In this step, you create a pipeline with a stored procedure activity. The activi
 
 1. Run **Get-AzDataFactorySlice** to get details about all slices of the output dataset**, which is the output table of the pipeline.
 
-	```PowerShell
+	```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Notice that the StartDateTime you specify here is the same start time specified in the pipeline JSON. 
 1. Run **Get-AzDataFactoryRun** to get the details of activity runs for a specific slice.
 
-	```PowerShell
+	```powershell
 	Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 

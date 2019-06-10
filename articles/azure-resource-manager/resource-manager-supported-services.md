@@ -4,8 +4,6 @@ description: Describes the resource providers that support Resource Manager, the
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
 ms.service: azure-resource-manager
@@ -13,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
 ---
 
@@ -28,9 +26,9 @@ When deploying resources, you frequently need to retrieve information about the 
 * View valid locations for a resource type
 * View valid API versions for a resource type
 
-You can perform these steps through the Azure portal, Azure PowerShell, or Azure CLI.
+You can do these steps through the Azure portal, Azure PowerShell, or Azure CLI.
 
-## Azure Portal
+## Azure portal
 
 To see all resource providers, and the registration status for your subscription:
 
@@ -44,14 +42,14 @@ To see all resource providers, and the registration status for your subscription
 
     ![show resource providers](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**.
+6. Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to do the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**.
 
-    You cannot unregister a resource provider when you still have resource types from that resource provider in your subscription.
+    You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
 
 To see information for a particular resource provider:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All services**..
+2. Select **All services**.
 
     ![select All services](./media/resource-manager-supported-services/more-services.png)
 
@@ -94,7 +92,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles.
+Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to do the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -109,7 +107,7 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-You cannot unregister a resource provider when you still have resource types from that resource provider in your subscription.
+You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
 
 To see information for a particular resource provider, use:
 
@@ -199,7 +197,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles.
+Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to do the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -207,7 +205,7 @@ az provider register --namespace Microsoft.Batch
 
 Which returns a message that registration is on-going.
 
-You cannot unregister a resource provider when you still have resource types from that resource provider in your subscription.
+You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
 
 To see information for a particular resource provider, use:
 

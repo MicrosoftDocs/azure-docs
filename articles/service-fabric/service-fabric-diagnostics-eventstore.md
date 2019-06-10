@@ -4,7 +4,7 @@ description: Learn about Azure Service Fabric's EventStore
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

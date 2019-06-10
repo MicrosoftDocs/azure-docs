@@ -133,6 +133,14 @@
     href: /powershell/module/az.eventgrid
   - name: REST
     href: /rest/api/eventgrid
+  - name: .NET
+    href: /dotnet/api/overview/azure/eventgrid
+  - name: Java
+    href: /java/api/overview/azure/eventgrid
+  - name: Python
+    href: /python/api/overview/azure/event-grid
+  - name: Node.js
+    href: /javascript/api/overview/azure/eventgrid
   - name: Subscription schema
     href: subscription-creation-schema.md
   - name: Event schema

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/08/2019
 ms.author: jingwang
 
 ---
@@ -51,14 +51,15 @@ Copy Activity goes through the following stages to copy data from a source to a 
 
 You can use Copy Activity to **copy files as-is** between two file-based data stores, in which case the data is copied efficiently without any serialization/deserialization.
 
-Copy Activity also supports reading from and writing to files in specified formats: **Text, JSON, Avro, ORC, and Parquet**, and compression codec **GZip, Deflate, BZip2, and ZipDeflate** are supported. See [Supported file and compression formats](supported-file-formats-and-compression-codecs.md) with details.
+Copy Activity also supports reading from and writing to files in specified formats: **Text, JSON, Avro, ORC, and Parquet**, and compressing and decompresing files with the following codecs: **GZip, Deflate, BZip2, and ZipDeflate**. See [Supported file and compression formats](supported-file-formats-and-compression-codecs.md) with details.
 
 For example, you can do the following copy activities:
 
-* Copy data in on-premises SQL Server and write to Azure Data Lake Store in ORC format.
+* Copy data in on-premises SQL Server and write to Azure Data Lake Storage Gen2 in Parquet format.
 * Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
-* Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Store.
+* Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Storage Gen2.
 * Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.
+* And many more cases with serialization/deserialization or compression/decompression need.
 
 ## Supported regions
 

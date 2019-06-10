@@ -4,7 +4,7 @@ description: Learn how to create and deploy a Service Fabric application using C
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1

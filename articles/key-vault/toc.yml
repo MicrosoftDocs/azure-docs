@@ -74,9 +74,10 @@
     href: authentication-requests-and-responses.md
   - name: Common parameters and headers
     href: common-parameters-and-headers.md
-  - name: About keys, secrets and certificates
-    href: about-keys-secrets-and-certificates.md
+  - name: Certificates
     items:
+    - name: About keys, secrets and certificates
+      href: about-keys-secrets-and-certificates.md
     - name: Get started with certificates
       href: certificate-scenarios.md
     - name: Certificate creation methods

@@ -46,7 +46,7 @@ Here is the high-level structure for a workflow definition:
 | Element | Required | Description |
 |---------|----------|-------------|
 | definition | Yes | The starting element for your workflow definition |
-| $schema | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |
+| $schema | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | No | The version number for your workflow definition, which is "1.0.0.0" by default. To help identify and confirm the correct definition when deploying a workflow, specify a value to use. |
 | parameters | No | The definitions for one or more parameters that pass data into your workflow <p><p>Maximum parameters: 50 |
 | triggers | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. <p><p>Maximum triggers: 10 |
@@ -81,8 +81,8 @@ Here is the general structure for a parameter definition:
 
 | Element | Required | Type | Description |
 |---------|----------|------|-------------|
-| type | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` and `secureobject` types because the `GET` operation doesn't return these types. | The type for the parameter |
-| defaultValue | No | Same as `type` | The default parameter value when no value is specified when the workflow instantiates |
+| type | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` and `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | The type for the parameter |
+| defaultValue | Yes | Same as `type` | The default parameter value when no value is specified when the workflow instantiates |
 | allowedValues | No | Same as `type` | An array with values that the parameter can accept |
 | metadata | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app, or design-time data used by Visual Studio or other tools |
 ||||

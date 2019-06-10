@@ -30,9 +30,10 @@ For example, you can:
 To get started using the request and response actions in a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Use the HTTP Request trigger
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+A trigger is an event that can be used to start the workflow that is defined in a logic app. 
+[Learn more about triggers](../connectors/apis-list.md).
 
-Here’s an example sequence of how to set up an HTTP request in the Logic App Designer.
+Here's an example sequence of how to set up an HTTP request in the Logic App Designer.
 
 1. Add the trigger **Request - When an HTTP request is received** in your logic app. You can optionally provide a JSON schema (by using a tool like [JSONSchema.net](https://jsonschema.net)) for the request body. This allows the designer to generate tokens for properties in the HTTP request.
 2. Add another action so that you can save the logic app.

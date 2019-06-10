@@ -86,7 +86,7 @@ The templates in this section allow you to customize the content of the API page
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|apis|Collection of [API summary](api-management-template-data-model-reference.md#APISummary) entities.|The APIs visible to the current user.|  
+|`apis`|Collection of [API summary](api-management-template-data-model-reference.md#APISummary) entities.|The APIs visible to the current user.|  
   
 ### Sample template data  
   
@@ -341,15 +341,15 @@ The templates in this section allow you to customize the content of the API page
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|apiId|string|The id of the current API.|  
-|apiName|string|The name of the API.|  
-|apiDescription|string|A description of the API.|  
-|api|[API summary](api-management-template-data-model-reference.md#APISummary) entity.|The current API.|  
-|operation|[Operation](api-management-template-data-model-reference.md#Operation)|The currently displayed operation.|  
-|sampleUrl|string|The URL for the current operation.|  
-|operationMenu|[Operation menu](api-management-template-data-model-reference.md#Menu)|A menu of operations for this API.|  
-|consoleUrl|URI|The URI for the **Try it** button.|  
-|samples|Collection of [Code sample](api-management-template-data-model-reference.md#Sample) entities.|The code samples for the current operation..|  
+|`apiId`|string|The id of the current API.|  
+|`apiName`|string|The name of the API.|  
+|`apiDescription`|string|A description of the API.|  
+|`api`|[API summary](api-management-template-data-model-reference.md#APISummary) entity.|The current API.|  
+|`operation`|[Operation](api-management-template-data-model-reference.md#Operation)|The currently displayed operation.|  
+|`sampleUrl`|string|The URL for the current operation.|  
+|`operationMenu`|[Operation menu](api-management-template-data-model-reference.md#Menu)|A menu of operations for this API.|  
+|`consoleUrl`|URI|The URI for the **Try it** button.|  
+|`samples`|Collection of [Code sample](api-management-template-data-model-reference.md#Sample) entities.|The code samples for the current operation..|  
   
 ### Sample template data  
   

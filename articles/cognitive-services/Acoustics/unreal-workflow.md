@@ -58,11 +58,18 @@ Remember that the required actor-mixer setup interchanges the usual dry and wet 
 ![Screenshot of Wwise editor showing voice design guidelines for Project Acoustics](media/voice-design-guidelines.png)
  
 ### Set up distance attenuation curves
-Ensure any attenuation curve used by actor-mixers using Project Acoustics have user-defined aux send set to "output bus volume." Wwise does this by default for newly created attenuation curves. If you're migrating an existing project, check your curve settings. 
+Ensure any attenuation curve used by actor-mixers using Project Acoustics have user-defined aux send set to "output bus volume." Wwise does this by default for newly created attenuation curves. If you're migrating an existing project, check your curve settings.
 
 By default, the Project Acoustics simulation has a radius of 45 meters around the player location. We generally recommend setting your attenuation curve to -200 dB around that distance. This distance isn't a hard constraint. For some sounds like weapons you might want a larger radius. In such cases, the caveat is that only geometry within 45 m of the player location will participate. If the player is in a room and a sound source is outside the room and 100m away, it will be properly occluded. If the source is in a room and the player is outside and 100 m away, it won't be properly occluded.
 
 ![Screenshot of Wwise attenuation curves](media/atten-curve.png)
+
+### Post Mixer Equalization ###
+ One other thing you may want to do is add a post mixer equalizer. You can treat the Project Acoustics bus as a typical reverb bus (in default reverb mode) and put a filter on it to do equalization. You can see a sample of this in the Project Acoustics Wwise Sample Project.
+
+![Screenshot of Wwise post-mixer EQ](media/wwise-post-mixer-eq.png)
+
+For example, a high pass filter can help handle the bass from near-field recordings that yield boomy, unrealistic reverb. You can also achieve more post-bake control by adjusting the EQ through RTPCs, allowing you to alter the color of reverb at game-time.
 
 ## Set up scene-wide Project Acoustics properties
 
@@ -76,7 +83,7 @@ The Acoustics Space actor exposes many controls that modify the behavior of the 
 * **Cache Scale:** controls the size of the cache used for acoustic queries. A smaller cache uses less RAM, but may increase CPU usage for each query.
 * **Acoustics Enabled:** A debug control to enable quick A/B toggling of the Acoustics simulation. This control is ignored in shipping configurations. The control is useful for finding if a particular audio bug originates in the acoustics calculations or some other issue in the Wwise project.
 * **Update Distances:** Use this option if you'd like to use the pre-baked acoustics information for distance queries. These queries are similar to ray casts, but they have been pre-computed so take much less CPU. An example usage is for discrete reflections off the closest surface to the listener. To fully leverage this, you'll need to use code or Blueprints to query distances.
-* **Draw Stats:** While UE's `stat Acoustics` can provide you with CPU information, this status display will show the currently loaded map, RAM usage, and other status information in the top left of the screen.
+* **Draw Stats:** While UE's `stat Acoustics` can provide you with CPU information, this status display will show the currently loaded ACE file, RAM usage, and other status information in the top left of the screen.
 * **Draw Voxels:** Overlay voxels close to the listener showing the voxel grid used during runtime interpolation. If an emitter is inside a runtime voxel, it will fail acoustic queries.
 * **Draw Probes:** Show all the probes for this scene. They will be different colors depending on their load state.
 * **Draw Distances:** If Update Distances is enabled, this will show a box on the closest surface to the listener in quantized directions around the listener.
@@ -92,6 +99,7 @@ These design controls are scoped to an individual audio component in Unreal.
 * **Outdoorness Adjustment:** Controls how outdoors the reverberation is. Values closer to 0 are more indoors, closer to 1 are more outdoors. This adjustment is additive, so setting it to -1 will enforce indoors, setting it to +1 will enforce outdoors.
 * **Transmission Db:** Render an additional through-the-wall sound with this loudness combined with line-of-sight based distance attenuation.
 * **Wet Ratio Distance Warp:** Adjusts the reverberation characteristics on the source as if it were closer/further away, without affecting the direct path.
+* **Play on Start:** Toggle to specify whether the sound should automatically play on scene start. Enabled by default.
 * **Show Acoustic Parameters:** Display debug information directly on top of the component in-game. (only for non-shipping configurations)
 
 ## Blueprint functionality
