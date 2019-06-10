@@ -48,7 +48,7 @@ This scenario is similar to the previous one. Perhaps an application is moved, o
 
 ### Host load-balanced applications at the zone apex
 
-The DNS protocol prevents the assignment of CNAME records at the zone apex. For example if your domain is contoso.com; you can create CNAME records for somelable.contoso.com; but you can't create CNAME for contoso.com itself.
+The DNS protocol prevents the assignment of CNAME records at the zone apex. For example if your domain is contoso.com; you can create CNAME records for somelabel.contoso.com; but you can't create CNAME for contoso.com itself.
 This restriction presents a problem for application owners who have load-balanced applications behind [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Since using a Traffic Manager profile requires creation of a CNAME record, it isn't possible to point at the Traffic Manager profile from the zone apex.
 
 This problem is solved using alias records. Unlike CNAME records, alias records are created at the zone apex and application owners can use it to point their zone apex record to a Traffic Manager profile that has external endpoints. Application owners point to the same Traffic Manager profile that's used for any other domain within their DNS zone.

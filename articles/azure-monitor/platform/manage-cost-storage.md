@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: 
 ---
@@ -103,10 +103,12 @@ The following steps describe how to configure how long log data is kept by in yo
 
 ## Legacy pricing tiers
 
-Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to the legacy pricing tiers: Free, Standalone (Per GB) and Per Node (OMS).  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by Azure Security Center) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have access to data retention up to 2 years. 
+Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to the legacy pricing tiers: **Free**, **Standalone (Per GB)** and **Per Node (OMS)**.  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by Azure Security Center) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention of up to 2 years. 
 
 > [!NOTE]
 > To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
+
+The earliest adopters of Log Analytics also have access to the original pricing tiers **Standard** and **Premium**, which have fixed data retention of 30 and 365 days respectively. 
 
 ## Changing pricing tier
 
@@ -408,6 +410,11 @@ When creating the alert for the second query -- when it is predicted that there 
 Specify an existing or create a new [Action Group](action-groups.md) so that when the log alert matches criteria, you are notified.
 
 When you receive an alert, use the steps in the following section to troubleshoot why usage is higher than expected.
+
+## Limits summary
+
+There are some additional Log Analytics limits, some of which depend on the Log Analytics pricing tier. These are documented [here](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits).
+
 
 ## Next steps
 
