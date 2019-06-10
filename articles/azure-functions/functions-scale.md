@@ -31,7 +31,7 @@ Both Consumption and Premium plans automatically add compute power when your cod
 
 Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.
 
-App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales down to zero. (Requires that [Always on](#always-on) be enabled.)
+App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales down to zero. (Requires that [Always on](#always-on) is enabled.)
 
 > [!NOTE]
 > You can switch between Consumption and Premium plans by changing the plan property of the function app resource.
@@ -54,7 +54,7 @@ The following table indicates the current level of support for the three hosting
 
 When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This serverless plan scales automatically, and you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
 
-Billing is based on number of executions, execution time, and memory used. Billing is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page](https://azure.microsoft.com/en-us/pricing/details/functions/).
+Billing is based on number of executions, execution time, and memory used. Billing is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
 The Consumption plan is the default hosting plan and offers the following benefits:
 
@@ -173,7 +173,7 @@ There are many aspects of a function app that will impact how well it will scale
 
 ### Billing model
 
-Billing for the different plans is described in detail on the [Azure Functions pricing page](https://azure.microsoft.com/en-us/pricing/details/functions/). Usage is aggregated at the function app level and counts only the time that function code is executed. The following are units for billing:
+Billing for the different plans is described in detail on the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). Usage is aggregated at the function app level and counts only the time that function code is executed. The following are units for billing:
 
 * **Resource consumption in gigabyte-seconds (GB-s)**. Computed as a combination of memory size and execution time for all functions within a function app. 
 * **Executions**. Counted each time a function is executed in response to an event trigger.

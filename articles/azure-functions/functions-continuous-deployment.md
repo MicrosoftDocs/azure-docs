@@ -21,7 +21,7 @@ Azure Functions allows you to deploy your code continuously through [source cont
 
 Continuous deployment is a great option for projects where you're integrating multiple and frequent contributions. It also lets you maintain a single source of truth for your function code. You can configure continuous deployment in Azure Functions from the following source code locations:
 
-* [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/)
+* [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
 * [GitHub](https://github.com)
 * [Bitbucket](https://bitbucket.org/)
 
