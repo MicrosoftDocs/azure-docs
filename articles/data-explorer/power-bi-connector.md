@@ -6,9 +6,9 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/04/2019
 
-# Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario.
+# Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario. I want to visualize my data for additional insights
 ---
 
 # Visualize data using the Azure Data Explorer connector for Power BI
@@ -35,13 +35,11 @@ First, you connect to the Azure Data Explorer help cluster, then you bring in a 
 
     ![Get data](media/power-bi-connector/get-data-more.png)
 
-1. Search for *Azure Data Explorer*, select **Azure Data Explorer (Beta)** then **Connect**.
+1. Search for *Azure Data Explorer*, select **Azure Data Explorer** then **Connect**.
 
     ![Search and get data](media/power-bi-connector/search-get-data.png)
 
-1. On the **Preview connector** screen, select **Continue**.
-
-1. On the next screen, fill out the form with the following information.
+1. On the **Azure Data Explorer (Kusto)** screen, fill out the form with the following information.
 
     ![Cluster, database, table options](media/power-bi-connector/cluster-database-table.png)
 
