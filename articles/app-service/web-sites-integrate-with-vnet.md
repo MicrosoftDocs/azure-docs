@@ -28,8 +28,8 @@ This document goes through the two VNet Integration features, which is for use i
 
 There are two forms to the VNet Integration feature
 
-1. One version enables integration with VNets in the same region. This form of the feature requires a subnet in a VNet in the same region
-2. The other version enables integration with VNets in other regions or with Classic VNets. This version of the feature requires deployment of a Virtual Network Gateway into your VNet.
+1. One version enables integration with VNets in the same region. This form of the feature requires a subnet in a VNet in the same region. This feature is still in preview but is supported for Windows app production workloads with some caveats noted below.
+2. The other version enables integration with VNets in other regions or with Classic VNets. This version of the feature requires deployment of a Virtual Network Gateway into your VNet. This is the point-to-site VPN based feature.
 
 An app can only use one form of the VNet Integration feature at a time. The question then is which feature should you use. You can use either for many things. The clear differentiators though are:
 
@@ -67,7 +67,7 @@ When VNet Integration is used with VNets in the same region as your app, it requ
 * Access resources in the VNet you are connected to
 * Access resources across peered connections including ExpressRoute connections
 
-This feature is in preview but, it is supported for production workloads with the following limitations:
+This feature is in preview but, it is supported for Windows app production workloads with the following limitations:
 
 * You can only reach addresses that are in the RFC 1918 range. Those are addresses in the 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 address blocks.
 * You cannot reach resources across global peering connections
@@ -80,7 +80,7 @@ This feature is in preview but, it is supported for production workloads with th
 * You cannot delete a VNet with an integrated app. You must remove the integration first 
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet. 
 
-To use the VNet Integration feature with a Resource Manager VNet in the same region:
+The feature is in preview also for Linux. To use the VNet Integration feature with a Resource Manager VNet in the same region:
 
 1. Go to the Networking UI in the portal. If your app is able to use the new feature, then you will see an option to Add VNet (preview).  
 
@@ -119,6 +119,7 @@ The Gateway required VNet Integration feature:
 * Enables up to five VNets to be integrated with in an App Service Plan 
 * Allows the same VNet to be used by multiple apps in an App Service Plan without impacting the total number that can be used by an App Service plan.  If you have 6 apps using the same VNet in the same App Service plan, that counts as 1 VNet being used. 
 * Requires a Virtual Network Gateway that is configured with Point to Site VPN
+* Is not supported for use with Linux apps
 * Supports a 99.9% SLA due to the SLA on the gateway
 
 This feature does not support:
