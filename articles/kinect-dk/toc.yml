@@ -47,6 +47,10 @@
          href: capture-device-synchronization.md
        - name: Record and playback
          href: record-playback-api.md
+   - name: Use Body Tracking SDK
+     items:
+       - name: Get body tracking results
+         href: get-body-tracking-results.md
    - name: Add NuGet packet to VS project
      href: azure-kinect-dk-add-nuget-to-project.md
    - name: Update Azure Kinect firmware
