@@ -103,21 +103,11 @@ The input video can be stored as a Media Service Asset, in which case you create
 
 [Encode a local file using built-in presets](job-input-from-local-file-how-to.md)
 
-## Customizing presets
-
-Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. For examples that show how to customize encoder presets, see:
-
-### Examples
-
-- [Customize presets with .NET](customize-encoder-presets-how-to.md)
-- [Customize presets with CLI](custom-preset-cli-howto.md)
-- [Customize presets with REST](custom-preset-rest-howto.md)
-
 ## Creating job input with subclipping
 
 When encoding a video, you can specify to also trim or clip the source file and produce an output that has only a desired portion of the input video. This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. 
 
-You can specify to create a job with a single clip of a video on-demand or live archive (a recorded event).
+You can specify to create a [Job](https://docs.microsoft.com/rest/api/media/jobs/create) with a single clip of a video on-demand or live archive (a recorded event). The job input could be an Asset or an HTTPS URL.
 
 > [!TIP]
 > If you want to stream a sublip of your video without reencoding the video, consider using [Pre-filtering manifests with Dynamic Packager](filters-dynamic-manifest-overview.md).
@@ -145,6 +135,17 @@ See examples:
 
 * [Subclip a video with .NET](subclip-video-dotnet-howto.md)
 * [Subclip a video with REST](subclip-video-rest-howto.md)
+
+
+## Customizing presets
+
+Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. For examples that show how to customize encoder presets, see:
+
+### Examples
+
+- [Customize presets with .NET](customize-encoder-presets-how-to.md)
+- [Customize presets with CLI](custom-preset-cli-howto.md)
+- [Customize presets with REST](custom-preset-rest-howto.md)
 
 ## Scaling encoding in v3
 
