@@ -1,0 +1,76 @@
+---
+title: Security recommendations for Azure App Service
+description: Security recommendations for the Azure App Service. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your web app solutions. 
+services: app-service
+author: barclayn
+manager: barbkess
+
+ms.service: app-service
+ms.topic: conceptual
+ms.date: 06/10/2019
+ms.author: barclayn
+
+---
+<!-- We have simplified and limited the number of possible headers to:
+- General
+    - topics that don't fit into any other category but that are not coming up 
+- Identity and access management
+    - Authentication, authorization, MFA, RBAC, any other identity management topics
+- Data security
+    - data in transit, data at rest, TLS, HTTPS, any other topics that discuss protecting data from unauthorized access 
+- Networking
+    - 
+- Monitoring
+    - Auditing 
+    - Logging 
+    - Sentinel
+
+Security center 
+- business continuity 
+-->
+
+# Security recommendations for App Service
+
+This article contains security recommendations for Azure App Service. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your Web App solutions. For more information on what Microsoft does to fulfill service provider responsibilities, read [Azure infrastructure security](../security/azure-security-infrastructure.md).
+
+## General
+
+| Recommendation | Comments |
+|-|-|----|
+| Stay up-to-date | Use the latest versions of supported platforms, programming languages, protocols, and frameworks. |
+
+## Identity and access management
+
+| Recommendation | Comments |
+|-|----|
+| Disable anonymous access | Unless you need to support anonymous requests, disable anonymous access. For more information on Azure App Service authentication options, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)|
+| Require client certificate authentication | Client certificate authentication improves security by only allowing connections from clients that can authenticate using certificates that you provide. |
+| Require authentication | To authenticate incoming requests, you can either write your own code to deal with authentication and authorization, or use the Azure App Service authentication and authorization module. </br> </br>The Azure App Service authentication module: </br></br>- Authenticates users with the specified provider ([Azure Active Directory](configure-authentication-provider-aad.md) or social logins like [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md), and [Microsoft](configure-authentication-provider-microsoft.md)) </br> - Validates, stores, and refreshes tokens </br> - Manages the authenticated session </br>- Injects identity information into request headers |
+| Use managed identities | Azure App Service can use a managed identity. A [managed identity](overview-managed-identity.md) is managed by [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). The life cycle of this type of identity is tied to the life cycle of this resource. Use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) unless there is a reason not to do it. Using a managed identity makes it unnecessary to store authentication information for the application to authenticate when accessing other resources in Azure.|
+
+## Data security
+
+| Recommendation | Comments |
+|-|-|
+| Redirect HTTP to HTTPs | By default, clients can connect to web apps by using both HTTP or HTTPS. We recommend redirecting HTTP to HTTPs because HTTPS uses the SSL/TLS protocol to provide a secure connection, which is both encrypted and authenticated. |
+| Encrypt communication to Azure resources | When your app connects to Azure resources, such as [SQL Database](https://azure.microsoft.com/services/sql-database/) or [Azure Storage](/azure/storage/), the connection stays in Azure. Since the connection goes through the shared networking in Azure, you should always encrypt all communication. |
+| Require the latest TLS version possible | Since 2018 new Azure App Service apps use TLS 1.2. Newer versions of TLS include security improvements over older protocol versions. |
+| Use FTPS | App Service supports both FTP and FTPS for deploying your files. Use FTPS instead of FTP when possible. When one or both of these protocols are not in use, you should [disable them](deploy-ftp.md#enforce-ftps). |
+| Secure application data | Don't store application secrets, such as database credentials, API tokens, or private keys in your code or configuration files. The commonly accepted approach is to access them as [environment variables](https://wikipedia.org/wiki/Environment_variable) using the standard pattern in your language of choice. In Azure App Service, you can define environment variables through [app settings](web-sites-configure.md) and [connection strings](web-sites-configure.md).</br></br>App settings and connection strings are stored encrypted in Azure. The app settings are decrypted only before being injected into your app's process memory when the app starts. The encryption keys are rotated regularly. Alternatively, you can integrate your Azure App Service app with [Azure Key Vault](/azure/key-vault/) for advanced secrets management. By [accessing the Key Vault with a managed identity](../key-vault/tutorial-web-application-keyvault.md), your App Service app can securely access the secrets you need. |
+
+## Networking
+
+| Recommendation | Comments |
+|-|-|
+| Use static IP restrictions | By default, your Azure App Service app accepts requests from all IP addresses, but you can limit that access to a small group of IP addresses. Azure App Service on Windows lets you define a list of IP addresses that are allowed to access your app. The allowed list can include individual IP addresses or a range of IP addresses defined by a subnet mask. For more information, see [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md).  |
+| Use the isolated pricing tier | Except for the isolated pricing tier, all tiers run your apps on the shared network infrastructure in Azure App Service. The isolated tier gives you complete network isolation by running your apps inside a dedicated [App Service environment](environment/intro.md). An App Service environment runs in your own instance of [Azure Virtual Network](/azure/virtual-network/).|
+| Use secure connections when accessing on-premises resources | You can securely access on-premises resources in three ways: </br> - **[Hybrid connections](app-service-hybrid-connections.md)** establish a point-to-point connection to your remote resource through a TCP tunnel. The TCP tunnel is established using TLS 1.2 with shared access signature (SAS) keys.</br> - **[Virtual Network integration](web-sites-integrate-with-vnet.md)** with site-to-site VPN uses a virtual network to connect to your on-premises network through a [site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). In this network topology, your app can connect to on-premises resources in the same way as it connects to other resources in the virtual network. </br>- **[App Service environment's](environment/intro.md) virtual Network can be connected to your on-premises network through a [site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). In this network topology, your app can connect to on-premises resources in the same way it connects to any other resources in the App Service environment's virtual network. |
+| Use network security groups (NSGs) | You can use network security groups to restrict network access. |
+| Use dedicated public endpoints | Serve your apps through a dedicated public endpoint with dedicated front ends.  |
+| Serve internal applications using an internal load balancer (ILB) | The ILB allows access only from inside your Azure virtual network. The ILB has an IP address from your private subnet, which provides total isolation of your apps from the internet.  |
+
+## Monitoring
+
+| Recommendation | Comments |
+|-|-|
+|Use Azure Security Center standard tier | [Azure Security Center](../security-center/security-center-app-services.md) is natively integrated with Azure App Service. It can run assessments and provide security recommendations |
