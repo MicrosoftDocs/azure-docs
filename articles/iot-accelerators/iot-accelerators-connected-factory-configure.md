@@ -335,4 +335,4 @@ The **OpCode** in the configuration configures the computation logic to calculat
 
 ## Next steps
 
-A suggested next step is to learn how to [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md).
+A suggested next step is to learn how to [Customize the Connected Factory solution](iot-accelerators-connected-factory-customize.md).
