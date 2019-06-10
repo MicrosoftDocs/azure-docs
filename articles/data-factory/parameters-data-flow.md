@@ -12,9 +12,16 @@ ms.date: 06/10/2019
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Mapping data flows in data factory support the use of parameters. You can define parameters inside of your data flow definition, which you can then use throughout your expressions. The parameters can then be set by the calling pipeline via the Execute Data Flow activity.
+Mapping data flows in data factory support the use of parameters. You can define parameters inside of your data flow definition, which you can then use throughout your expressions. The parameters can then be set by the calling pipeline via the Execute Data Flow activity. You have three options to use to set the values in the data flow activity expressions:
 
-<img src="media/data-flow/opt001.png" width="800">
+** Use the pipeline control flow expression language to set a dynamic value
+** Use the data flow expression language to set a dynamic value
+** Use either expression language to set a static literal value
+
+> [!NOTE]
+> To use pipeline control flow expressions, your data flow parameter must be of type string
+
+![Pivot options](media/data-flow/params3.png "Data flow parameters")
 
 The default setting is "use current partitioning". Current Partitioning instructs Azure Data Factory to use the partitioning scheme native to Data Flows running on Spark in Azure Databricks. Generally, this is the recommended approach.
 
