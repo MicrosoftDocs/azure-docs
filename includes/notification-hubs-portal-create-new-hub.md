@@ -34,11 +34,11 @@
 
         ![Azure portal - set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-1. Select **Notifications** (the bell icon), and select **Go to resource**. You can also refresh the list in the **Notification Hubs** page, and select your notification hub.
+1. Select **Notifications** (the bell icon), and select **Go to resource**. You can also refresh the list on the **Notification Hubs** page and select your notification hub.
 
       ![Azure portal - notifications -> Go to resource](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 
-1. Select **Access Policies** from the list. Note the two connection strings that are available to you. You will later need them to handle push notifications.
+1. Select **Access Policies** from the list. Note the two connection strings that are available to you. You'll later need them to handle push notifications.
 
       >[!IMPORTANT]
       >Do *not* use the **DefaultFullSharedAccessSignature** policy in your application. This is meant to be used in your backend only.

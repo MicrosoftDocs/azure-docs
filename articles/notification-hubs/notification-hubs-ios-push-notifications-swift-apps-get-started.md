@@ -38,7 +38,7 @@ This tutorial takes you through the following steps:
 
 ## Prerequisites
 
-To follow along you need:
+To follow along, you need:
 
 - To go through [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md) if you aren't familiar with the service.
 - To learn about [registrations and installation](notification-hubs-push-notification-registration-management.md).
@@ -48,7 +48,7 @@ To follow along you need:
 - Your physical iPhone device registered in the [Apple Portal](https://developer.apple.com) and associated with your certificate.
 - An [Azure Subscription](https://portal.azure.com) where you can create and manage resources.
 
-Even if you have no prior experience, you should be able to follow along the steps for creating this first-principles example. However, you will benefit from familiarity with the following concepts:
+Even if you have no prior experience, you should be able to follow along the steps for creating this first-principles example. However, you'll benefit from familiarity with the following concepts:
 
 - Building iOS apps with Xcode and Swift.
 - Configuring an [Azure Notification Hub](notification-hubs-ios-apple-push-notification-apns-get-started.md) for iOS.
@@ -79,18 +79,18 @@ In this section, you'll build the iOS app that will connect to the notification 
 
 1. Create a new folder called SupportingFiles.
 
-1. Create a new p-list file called devsettings.plist in the SupportingFiles folder. Be sure to add this folder to your gitignore file so it isn't committed when working with a git repo. In a production app, you would likely be conditionally setting these secrets as part of an automated build process. However, such settings are not covered in this walkthrough.
+1. Create a new p-list file called devsettings.plist in the SupportingFiles folder. Be sure to add this folder to your gitignore file so it isn't committed when working with a git repo. In a production app, you would likely be conditionally setting these secrets as part of an automated build process. However, such settings aren't covered in this walkthrough.
 
 1. Update devsettings.plist to include the following configuration entries, using your own values from the notification hub that you provisioned:
 
-   | Key                            | Type                     | Value                     |               
+   | Key                            | Type                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | String                   | *hubKey*                |
-   | notificationHubKeyName         | String                   | *hubKeyName*            |
-   | notificationHubName            | String                   | *hubName*              |
-   | notificationHubNamespace       | String                   | *hubNamespace*          |
+   | notificationHubKey             | String                   | *hubKey*                  |
+   | notificationHubKeyName         | String                   | *hubKeyName*              |
+   | notificationHubName            | String                   | *hubName*                 |
+   | notificationHubNamespace       | String                   | *hubNamespace*            |
 
-   You can find the required values by navigating to the notification hub resource in the Azure portal. In particular, the **notificationHubName** and **notificationHubNamespace** values are in the top-right corner of the **Essentials** summary within the **Overview** page:
+   You can find the required values by navigating to the notification hub resource in the Azure portal. In particular, the **notificationHubName** and **notificationHubNamespace** values are in the top-right corner of the **Essentials** summary within the **Overview** page.
 
    ![Notification Hubs Essentials summary](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/hub-essentials.png)
 
@@ -184,9 +184,9 @@ In this section, you'll build the iOS app that will connect to the notification 
     }
     ```
 
-    The code uses the **installationId** and **pushChannel** values to register with the notification hub. In this case, you're using **UIDevice.current.identifierForVendor** both to provide a unique value to identify the device and also to format the **deviceToken** to provide the desired **pushChannel** value. The **showAlert** function exists simply to display some message text for demonstration purposes.
+    The code uses the **installationId** and **pushChannel** values to register with the notification hub. In this case, you're using **UIDevice.current.identifierForVendor** to provide a unique value to identify the device and then formatting the **deviceToken** to provide the desired **pushChannel** value. The **showAlert** function exists simply to display some message text for demonstration purposes.
 
-1. Still in the AppDelegate.swift file, add the **willPresent** and **didReceive** functions to **UNUserNotificationCenterDelegate**. These functions display an alert when they are notified that an app is running in the either the foreground or background respectively:
+1. Still in the AppDelegate.swift file, add the **willPresent** and **didReceive** functions to **UNUserNotificationCenterDelegate**. These functions display an alert when they're notified that an app is running in either the foreground or the background respectively.
 
     ```swift
     @available(iOS 10.0, *)
@@ -214,7 +214,7 @@ In this section, you'll build the iOS app that will connect to the notification 
 
 In this step, you'll create a set of models to represent the [Notification Hubs REST API](/rest/api/notificationhubs/) payloads and to store the required SAS token data.
 
-1. Add a new Swift file called PushTemplate.swift to the Models folder. This model provides a struct representing the **BODY** of an individual template as part of the **DeviceInstallation** payload:
+1. Add a new Swift file called PushTemplate.swift to the Models folder. This model provides a struct representing the **BODY** of an individual template as part of the **DeviceInstallation** payload.
 
     ```swift
     import Foundation
@@ -249,7 +249,7 @@ In this step, you'll create a set of models to represent the [Notification Hubs 
     }
     ```
 
-1. Add a new swift file called TokenData.swift to the Models folder. This model will be used to store a SAS token along with its expiration:
+1. Add a new swift file called TokenData.swift to the Models folder. This model will be used to store a SAS token along with its expiration.
 
     ```swift
     import Foundation
@@ -280,8 +280,8 @@ The process itself involves the same six key steps:
 
 1. Computing the expiry in [UNIX Epoch time](https://en.wikipedia.org/wiki/Unix_time) format, which means the number of seconds elapsed since 12:00:00 AM Coordinated Universal Time, January 1, 1970.
 1. Formatting the **ResourceUrl** that represents the resource you're trying to access so it's percent-encoded and lowercase. The **ResourceUrl** has the form `'https://<namespace>.servicebus.windows.net/<hubName>'`.
-1. Preparing the **StringToSign**, which is formated as `'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`.
-1. Computing and Base64-encoding the **Signature** by using the HMAC-SHA256 hash of the **StringToSign** value with the **Key** part of the **Connection String** for the respective **Authorization Rule**.
+1. Preparing the **StringToSign**, which is formatted as `'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`.
+1. Computing and Base64-encoding the **Signature** by using the HMAC-SHA256 hash of the **StringToSign** value. The hash value is used with the **Key** part of the **Connection String** for the respective **Authorization Rule**.
 1. Formatting the Base64 encoded **Signature** so it's percent encoded.
 1. Constructing the token in the expected format using the **UrlEncodedSignature**, **ExpiryEpoch**, **KeyName**, and **UrlEncodedResourceUrl** values.
 
@@ -315,7 +315,7 @@ To add and configure the bridging header:
 
    If you can't find these options, ensure that you have the **All** view selected rather than **Basic** or **Customized**.
 
-   There are many third-party open-source wrapper libraries available which might make using **CommonCrypto** a bit easier. However, discussion of such libraries is beyond the scope of this article.
+   There are many third-party open-source wrapper libraries available that might make using **CommonCrypto** a bit easier. However, discussion of such libraries is beyond the scope of this article.
 
 1. Add a new Swift file named TokenUtility.swift within the Utilities folder and add the following code:
 
@@ -390,7 +390,7 @@ To add and configure the bridging header:
 
 Before you implement the installation service in the client, check that our app is correctly generating the SAS token by using your HTTP utility of choice. For the purposes of this tutorial, our tool of choice will be **Postman**.
 
-Use an appropriately placed print statement or breakpoint in order to note the **installationId** and the **token** values being generated by the app.
+Use an appropriately placed print statement or breakpoint to note the **installationId** and the **token** values being generated by the app.
 
 Follow these steps to call the **installations** API:
 
@@ -424,7 +424,7 @@ Follow these steps to call the **installations** API:
 
 1. Select the **Send** button
 
-No registration exists for the specified **installationId** at this point. However, the verification should result in a "404 Not Found" response rather than a "401 Unauthorized" response. This result shoud confirm that the SAS token has been accepted.
+No registration exists for the specified **installationId** at this point. However, the verification should result in a "404 Not Found" response rather than a "401 Unauthorized" response. This result should confirm that the SAS token has been accepted.
 
 ### Implement the installation service class
 
@@ -536,15 +536,15 @@ The requisite details are provided as part of initialization. Tags and templates
 
 The **register** function calls the other private functions to prepare the request. Once a response is received, the completion is called and indicates whether the registration was successful.  
 
-The request endpoint is constructed by the **getBaseAddress** function using the notification hub parameters *namespace* and *name* provided during initialization.  
+The request endpoint is constructed by the **getBaseAddress** function. The construction uses the notification hub parameters *namespace* and *name* that were provided during initialization.  
 
-The **getSasToken** function checks whether the currently stored token is valid. If the token is not valid, the function calls **TokenUtility** to generate a new token and then stores it before returning a value.
+The **getSasToken** function checks whether the currently stored token is valid. If the token isn't valid, the function calls **TokenUtility** to generate a new token and then stores it before returning a value.
 
 Finally, **encodeToJson** converts the respective model objects into JSON for use as part of the request body.
 
 ### Invoke the Notification Hubs REST API
 
-The last step is to update **AppDelegate** to use the **NotificationRegistrationService** in order to register with our **NotificationHub**.
+The last step is updating **AppDelegate** to use the **NotificationRegistrationService** to register with our **NotificationHub**.
 
 1. Open AppDelegate.swift and add a class-level variable to store a reference to the **NoficiationRegistrationService**:
 
@@ -552,7 +552,7 @@ The last step is to update **AppDelegate** to use the **NotificationRegistration
     var registrationService : NotificationRegistrationService?
     ```
 
-1. In the same file, update the **didRegisterForRemoteNotificationsWithDeviceToken** function to initialize the **NotificationRegistrationService** with the requisite parameters, and then call the **register** function:
+1. In the same file, update the **didRegisterForRemoteNotificationsWithDeviceToken** function to initialize the **NotificationRegistrationService** with the requisite parameters, and then call the **register** function.
 
     ```swift
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -568,7 +568,7 @@ The last step is to update **AppDelegate** to use the **NotificationRegistration
             andKeyName: notificationHubKeyName!,
             andKey: notificationHubKey!)
 
-        // Call register passing in the tags and template parameters
+        // Call register, passing in the tags and template parameters
         self.registrationService!.register(withTags: tags, andTemplates: ["genericTemplate" : self.genericTemplate]) { (result) in
             if !result {
                 print("Registration issue")
@@ -585,11 +585,11 @@ The last step is to update **AppDelegate** to use the **NotificationRegistration
 
 ## Test the solution
 
-At this stage, our app is registered with **NotificationHub** and can receive push notifications. In Xcode, stop the debugger and close the app if it's currently running. Next, check that the **Device Installation** details are as expected and that our app can now indeed receive push notifications.  
+Our app at this stage is registered with **NotificationHub** and can receive push notifications. In Xcode, stop the debugger and close the app if it's currently running. Next, check that the **Device Installation** details are as expected and that our app can now indeed receive push notifications.  
 
 ### Verify the device installation
 
-You can now make the same request as you did previously using **Postman** for [verifying the SAS token](#verify-the-sas-token). Assuming that the SAS token hasn't expired, the response should now include the installation details you provided such as the templates and tags:
+You can now make the same request as you did previously using **Postman** for [verifying the SAS token](#verify-the-sas-token). Assuming that the SAS token hasn't expired, the response should now include the installation details you provided, such as the templates and tags.
 
 ```json
 {
@@ -634,11 +634,11 @@ The quickest way to test that you can now receive notifications is to navigate t
 
     ![Notification Hubs Test Send Results](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/hub-test-send-result.png)
 
-    Assuming that the app isn't running in the foreground, you should also see a notification in the **Notification Center** on your device. Tapping on the notification should open the app and show the alert:
+    Assuming that the app isn't running in the foreground, you should also see a notification in the **Notification Center** on your device. Tapping on the notification should open the app and show the alert.
 
     ![Notification Received Example](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/test-send-notification-received.png)
 
-### Send a test notification (Postman)
+### Send a test notification (Mail carrier)
 
 You can send notifications via the [REST API](/rest/api/notificationhubs/) by using **Postman**, which may be a more convenient way to test.
 
