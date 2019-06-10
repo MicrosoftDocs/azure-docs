@@ -9,7 +9,7 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/31/2019
+ms.date: 06/03/2019
 
 ---
 # Quickstart: Create an Azure Search index in C#
@@ -21,7 +21,7 @@ ms.date: 05/31/2019
 > * [Postman](search-fiddler.md)
 >*
 
-Create a C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [.NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you could run a completed application. To download a copy, go to [Azure-Search-dotnet-samples repo](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Create a C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [.NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you could run a completed application. To download a copy, go to [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository on GitHub.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -29,9 +29,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following services, tools, and data are used in this quickstart. 
 
-+ [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.\
++ [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-+ [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) provides the sample solution, a .NET Core console application written in C#, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute so that you can modify files. Data is included in the solution.
++ Sample documents that you'll index in this quickstart can be copied from 
 
 + [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
@@ -57,61 +57,314 @@ Begin by opening Visual Studio and creating a new Console App project that can r
 
 ### Install NuGet packages
 
-The [Azure Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries for creating and using objects, all without having to deal with the details of HTTP and JSON serialization. Client libraries are distributed as NuGet packages.
+The [Azure Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that are distributed as NuGet packages.
 
-For this project, you will need to install version 9 of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
+For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
-1. Install the `Microsoft.Azure.Search` NuGet package using the Package Manager console in Visual Studio. In **Tools** > **NuGet Package Manager**, select **Package Manager Console**. 
+1. Install `Microsoft.Azure.Search` using the Package Manager console in Visual Studio. In **Tools** > **NuGet Package Manager**, click **Package Manager Console**. 
 
-1. Navigate to the  [Microsoft.Azure.Search NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search), select version 9, and copy the Package Manager command. 
+1. Copy and run the following command: `Install-Package Microsoft.Azure.Search -Version 9.0.1`
 
-1. Run this command in the Package Manager console.
+   You can get command syntax for other installation methodologies on the [Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search) NuGet package page
 
-1. To install `Microsoft.Extensions.Configuration.Json`, select **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution...**. Select **Browse** and search for the `Microsoft.Extensions.Configuration.Json` NuGet package. 
+1. Install `Microsoft.Extensions.Configuration.Json`. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...**. 
 
-1. Once you've found it, select the package, select your project, confirm the version is the latest stable version, then select **Install**.
+1. Click **Browse** and then search for `Microsoft.Extensions.Configuration.Json`. 
+
+1. Once you've found it, select the package, select your project, confirm the version is the latest stable version, then click **Install**.
 
 ### Add Azure Search service information
 
-1. In Solution Explorer, right click on the project and select **Add** > **New Item...** . Name the file `appsettings.json` and select **Add**. 
+1. In Solution Explorer, right click on the project and select **Add** > **New Item...** . 
 
-2. Add the file to your output directory. Right click on `appsettings.json` and select **Properties**. Change the value of **Copy to Output Directory** to **Copy of newer**.
+1. In Add New Item, search for "JSON" to return a JSON-related list of item types.
 
-3. Copy the following JSON into your new JSON file. Replace the search service name (YOUR-SEARCH-SERVICE-NAME), query API key (YOUR-QUERY-API-KEY), and admin API key (YOUR-ADMIN-API-KEY) with valid values. 
+1. Choose **JSON File**, name the file "appsettings.json", and click **Add**. 
+
+1. Add the file to your output directory. Right-click appsettings.json and select **Properties**. In **Copy to Output Directory**, select **Copy if newer**.
+
+1. Copy the following JSON into your new JSON file. Replace the search service name (YOUR-SEARCH-SERVICE-NAME), query API key (YOUR-QUERY-API-KEY), and admin API key (YOUR-ADMIN-API-KEY) with valid values. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
 
 ```json
 {
   "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
   "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
   "SearchServiceQueryApiKey": "<YOUR-QUERY-API-KEY>",
+  "SearchIndexName": "hotels-csharp"
 }
 ```
 
-## 1 - Create an index
+## Add namespaces
 
-To start using the Azure Search .NET SDK, create an instance of the `SearchServiceClient` class. This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
+This tutorial uses types from various namespaces. Add the following namespaces to Program.cs and all other .cs files created for this project.
 
-In Program.cs file, add the following code. It creates a new `SearchServiceClient` using values from the application's config file (appsettings.json).
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Spatial;
+using Newtonsoft.Json;
+```
+
+
+## 1 - Create index
+
+The hotels index consists of simple and complex fields, where a simple field is "hotel_name" or "description", and complex fields are an address with subfields, or a collection of rooms. When an index includes compex types, isolate the complex field definitions in separate classes.
+
+1. Add three empty class definitions to your project: address.cs, room.cs, hotel.cs
+
+1. In address.cs, overwrite the default contents with the following code:
+
+    ```csharp
+    using System;
+    using Microsoft.Azure.Search;
+    using Microsoft.Azure.Search.Models;
+    using Newtonsoft.Json;
+
+    namespace AzureSearch.Hotels_CSharpApp
+    {
+        public partial class Address
+        {
+            [IsSearchable]
+            public string StreetAddress { get; set; }
+
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string City { get; set; }
+
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string StateProvince { get; set; }
+
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string PostalCode { get; set; }
+
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string Country { get; set; }
+        }
+    }
+    ```
+
+1. In room.cs, use the following code for the room class:
+
+    ```csharp
+    using System;
+    using Microsoft.Azure.Search;
+    using Microsoft.Azure.Search.Models;
+    using Newtonsoft.Json;
+
+    namespace AzureSearch.Hotels_CSharpApp
+    {
+        public partial class Room
+        {
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+            public string Description { get; set; }
+
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.FrMicrosoft)]
+            [JsonProperty("Description_fr")]
+            public string DescriptionFr { get; set; }
+
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string Type { get; set; }
+
+            [IsFilterable, IsFacetable]
+            public double? BaseRate { get; set; }
+
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string BedOptions { get; set; }
+
+            [IsFilterable, IsFacetable]
+            public int SleepsCount { get; set; }
+
+            [IsFilterable, IsFacetable]
+            public bool? SmokingAllowed { get; set; }
+
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string[] Tags { get; set; }
+        }
+    }
+    ```
+
+1. In hotel.cs, the class defines the overall structure of the index, including references to the address and rooms classes
+
+    ```csharp
+    namespace AzureSearch.Hotels_CSharpApp
+    {
+        using System;
+        using Microsoft.Azure.Search;
+        using Microsoft.Azure.Search.Models;
+        using Microsoft.Spatial;
+        using Newtonsoft.Json;
+
+        public partial class Hotel
+        {
+            [System.ComponentModel.DataAnnotations.Key]
+            [IsFilterable]
+            public string HotelId { get; set; }
+
+            [IsSearchable, IsSortable]
+            public string HotelName { get; set; }
+
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.EnLucene)]
+            public string Description { get; set; }
+
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.FrLucene)]
+            [JsonProperty("Description_fr")]
+            public string DescriptionFr { get; set; }
+
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string Category { get; set; }
+
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string[] Tags { get; set; }
+
+            [IsFilterable, IsSortable, IsFacetable]
+            public bool? ParkingIncluded { get; set; }
+
+            // SmokingAllowed reflects whether any room in the hotel allows smoking.
+            // The JsonIgnore attribute indicates that a field should not be created 
+            // in the index for this property and it will only be used by code in the client.
+            [JsonIgnore]
+            public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
+
+            [IsFilterable, IsSortable, IsFacetable]
+            public DateTimeOffset? LastRenovationDate { get; set; }
+
+            [IsFilterable, IsSortable, IsFacetable]
+            public double? Rating { get; set; }
+
+            public Address Address { get; set; }
+
+            [IsFilterable, IsSortable]
+            public GeographyPoint Location { get; set; }
+
+            public Room[] Rooms { get; set; }
+        }
+    }
+    ```
+
+1. In Program.cs, create an instance of the `SearchServiceClient` class. This class has an `Indexes` property, providing all the methods you need to create, list, update, or delete Azure Search indexes.
+
+```csharp
+namespace AzureSearch.Hotels_CSharpApp
+
+{
+    using System;
+    using System.Linq;
+    using System.Threading;
+    using Microsoft.Azure.Search;
+    using Microsoft.Azure.Search.Models;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Spatial;
+
+    class Program { 
+
+    // This sample shows how to delete, create, upload documents and query an index
+    static void Main(string[] args)
+    {
+        IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+        IConfigurationRoot configuration = builder.Build();
+
+        SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+
+        string indexName = configuration["SearchIndexName"];
+
+        Console.WriteLine("{0}", "Deleting index...\n");
+        DeleteIndexIfExists(indexName, serviceClient);
+
+        Console.WriteLine("{0}", "Creating index...\n");
+        CreateIndex(indexName, serviceClient);
+
+        ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
+
+            //Console.WriteLine("{0}", "Uploading documents...\n");
+            //UploadDocuments(indexClient);
+
+        ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(indexName, configuration);
+
+            //RunQueries(indexClientForQueries);
+
+         Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
+         Console.ReadKey();
+        }
+
+        private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+    {
+        string searchServiceName = configuration["SearchServiceName"];
+        string adminApiKey = configuration["SearchServiceAdminApiKey"];
+
+        SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+        return serviceClient;
+    }
+
+    private static SearchIndexClient CreateSearchIndexClient(string indexName, IConfigurationRoot configuration)
+    {
+        string searchServiceName = configuration["SearchServiceName"];
+        string queryApiKey = configuration["SearchServiceQueryApiKey"];
+
+        SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, indexName, new SearchCredentials(queryApiKey));
+        return indexClient;
+    }
+
+    private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
+    {
+        if (serviceClient.Indexes.Exists(indexName))
+        {
+            serviceClient.Indexes.Delete(indexName);
+        }
+    }
+
+    private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
+    {
+        var definition = new Index()
+        {
+            Name = indexName,
+            Fields = FieldBuilder.BuildForType<Hotel>()
+        };
+
+        serviceClient.Indexes.Create(definition);
+    }
+  }
+}    
+```
+
+
+## Create a client
+
+Create an instance of the `SearchServiceClient` class. This class has an `Indexes` property, providing all the methods you need to create, list, update, or delete Azure Search indexes.
+
+```csharp
+IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+IConfigurationRoot configuration = builder.Build();
+SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+```
+
+`CreateSearchServiceClient` creates a new `SearchServiceClient` using values that are stored in the application's config file (appsettings.json). This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
 {
-    string searchServiceName = configuration["SearchServiceName"];
-    string adminApiKey = configuration["SearchServiceAdminApiKey"];
+   string searchServiceName = configuration["SearchServiceName"];
+   string adminApiKey = configuration["SearchServiceAdminApiKey"];
 
-    SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
-    return serviceClient;
+   SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+   return serviceClient;
 }
 ```
 
-`SearchServiceClient` has an `Indexes` property. This property provides all the methods you need to create, list, update, or delete Azure Search indexes.
+The example code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. We recommend that you use the asynchronous methods in your own applications to keep them scalable and responsive. For example, in the examples above you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
 
 > [!NOTE]
-> The `SearchServiceClient` class manages connections to your search service. In order to avoid opening too many connections, try to share a single instance of `SearchServiceClient` in your application if possible. Its methods are thread-safe to enable such sharing.
+> The `SearchServiceClient` class manages connections to your search service. In order to avoid opening too many connections, you should try to share a single instance of `SearchServiceClient` in your application if possible. Its methods are thread-safe to enable such sharing.
 > 
 > 
 
-The example code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. We recommend that you use the asynchronous methods in your own applications to keep them scalable and responsive. For example, in the examples above you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
+## 1 - Create an index
 
 A single call to the `Indexes.Create` method creates an index. This method takes as a parameter an `Index` object that defines an Azure Search index. Create an `Index` object and initialize it as follows:
 
@@ -457,23 +710,24 @@ The sample code above uses the console to output search results. You will likewi
 
 ## Build the app
 
-Press F5 to build the solution and run the console app. 
+Press F5 to build the solution and run the console app. Output is report on the screen, starting with creating objects, and concluding with running serveral queries and showing the results.
 
-Alternatively, you can refer to [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md) for more detailed coverage of the SDK behaviors. 
 
 ## Clean up
 
-When you're done with an index and want to delete it, call the `Indexes.Delete` method on your `SearchServiceClient`. For example:
+When you're done with an index and want to delete it, call the `Indexes.Delete` method on your `SearchServiceClient`.
 
 ```csharp
 serviceClient.Indexes.Delete("hotels");
 ```
 
+If you are also finished with the search service, you can delete resources from Azure portal.
 
 ## Next steps
-In this quickstart, you created an empty Azure Search index based on a schema that defines field data types and behaviors. The index is a "bare bones" index consisting of a name and a collection of attributed fields. A more realistic index would include other elements, such as [scoring profiles](index-add-scoring-profiles.md), [suggesters](index-add-suggesters.md) for typeahead  support, [synonyms](search-synonyms.md), and possibly [custom analyzers](index-add-custom-analyzers.md). We recommend that you revisit these capabilities after you understand the basic workflow.
 
-The next quickstart in this series covers how to load the index with searchable content.
+In this C# quickstart, you worked through multiple tasks to create an index, load it with documents, and run queries.
+
+As a next step, take a closer look at the main tasks.
 
 > [!div class="nextstepaction"]
-> [Load data to an Azure Search index using C#](search-import-data-dotnet.md)
+> [Develop in .NET](search-howto-dotnet-sdk.md)
