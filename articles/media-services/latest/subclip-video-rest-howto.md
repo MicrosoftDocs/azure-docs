@@ -1,6 +1,6 @@
 ---
 title: Subclip a video when encoding with Azure Media Services REST API
-description: This topic describes how to subclip a video when encoding with Azure Media Services, using REST
+description: This topic describes how to subclip a video when encoding with Azure Media Services using REST
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 06/10/2019
 ms.author: juliako
 
 ---
@@ -20,61 +20,29 @@ ms.author: juliako
 
 You can trim or subclip a video when encoding it using a [Job](https://docs.microsoft.com/rest/api/media/jobs). This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. Also, see [Subclipping scenarios](encoding-concept.md#creating-job-input-with-subclipping).
 
-The following C# example creates a job that trims a video as it submits an encoding job. You can see how to create a Transform and input and output Assets in this tutorial: [Stream videos](stream-files-tutorial-with-api.md) 
+The REST example in this topic creates a job that trims a video as it submits an encoding job. You can see how to create a Transform and input and output Assets in the [Encode a remote file based on URL and stream the video](stream-files-tutorial-with-rest.md) tutorial. 
 
-```csharp
-/// <summary>
-/// Submits a request to Media Services to apply the specified Transform to a given input video.
-/// </summary>
-/// <param name="client">The Media Services client.</param>
-/// <param name="resourceGroupName">The name of the resource group within the Azure subscription.</param>
-/// <param name="accountName"> The Media Services account name.</param>
-/// <param name="transformName">The name of the transform.</param>
-/// <param name="jobName">The (unique) name of the job.</param>
-/// <param name="inputAssetName">The name of the input asset.</param>
-/// <param name="outputAssetName">The (unique) name of the  output asset that will store the result of the encoding job. </param>
-// <SubmitJob>
-private static async Task<Job> JobWithBuiltInStandardEncoderWithSingleClipAsync(
-    IAzureMediaServicesClient client,
-    string resourceGroupName,
-    string accountName,
-    string transformName,
-    string jobName,
-    string inputAssetName,
-    string outputAssetName)
-{
-    var jobOutputs = new List<JobOutputAsset>
-    {
-        new JobOutputAsset(state: JobState.Queued, progress: 0, assetName: outputAssetName)
-    };
+## Prerequisites
 
-    var clipStart = new AbsoluteClipTime()
-    {
-        Time = new TimeSpan(0, 0, 20)
-    };
+To complete the steps described in this topic, you have to:
 
-    var clipEnd = new AbsoluteClipTime()
-    {
-        Time = new TimeSpan(0, 0, 30)
-    };
+- [Create an Azure Media Services account](create-account-cli-how-to.md)
+- [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md)
+    
+    Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
+- Create a Transform and an output Assets. You can see how to create a Transform and an output Assets in the [Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) tutorial.
 
-    var jobInput = new JobInputAsset(assetName: inputAssetName, start: clipStart, end: clipEnd);
+## Create a subclipping job
 
-    Job job = await client.Jobs.CreateAsync(
-        resourceGroupName,
-        accountName,
-        transformName,
-        jobName,
-        new Job(input: jobInput, outputs: jobOutputs.ToArray(), name: jobName)
-        {
-            Description = $"A Job with transform {transformName} and single clip.",
-            Priority = Priority.Normal,
-        });
+1. In the Postman collection that you downloaded, select **Transforms and jobs** -> **Create Job with Sub Clipping**.
+1. Update the value of "transformName" environment variable. 
+1. Select the Body tab and update the "myOutputAsset" with your output Asset name.
+1. Press **Send**.
 
-    return job;
-}
-```
+    ![Subclip a video](./media/encoding/subclip-rest.png)
+
+You see the **Response** with the info about a job that was created and its status. 
 
 ## Next steps
 
-[How to encode with a custom transform](customize-encoder-presets-how-to.md) 
+[How to encode with a custom transform](custom-preset-rest-howto.md) 
