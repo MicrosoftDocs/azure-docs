@@ -17,7 +17,9 @@ ms.author: spelluru
 ---
 
 # Configure your lab in Azure DevTest Labs to use a remote desktop gateway
-In Azure DevTest Labs, you can configure a remote desktop gateway for your lab to ensure secure access to the lab virtual machines (VMs) without having to expose the RDP port. The lab provides a central place for your lab users to view and connect to all virtual machines they have access to. The **Connect** button on the **Virtual Machine** page creates a machine-specific RDP file that you can open to connect to the machine. You can further customize and secure the RDP connection by connecting your lab to a remote desktop gateway. This approach is more secure because the lab user authenticates directly to the gateway machine or can use company credentials on a domain-joined gateway machine to connect to their machines. The lab also supports using token authentication to the gateway machine that allows users to connect to their lab virtual machines without having the RDP port exposed to the internet. This article walks through an example on how to set up a lab that uses token authentication to connect to lab machines.
+In Azure DevTest Labs, you can configure a remote desktop gateway for your lab to ensure secure access to the lab virtual machines (VMs) without having to expose the RDP port. The lab provides a central place for your lab users to view and connect to all virtual machines they have access to. The **Connect** button on the **Virtual Machine** page creates a machine-specific RDP file that you can open to connect to the machine. You can further customize and secure the RDP connection by connecting your lab to a remote desktop gateway. 
+
+This approach is more secure because the lab user authenticates directly to the gateway machine or can use company credentials on a domain-joined gateway machine to connect to their machines. The lab also supports using token authentication to the gateway machine that allows users to connect to their lab virtual machines without having the RDP port exposed to the internet. This article walks through an example on how to set up a lab that uses token authentication to connect to lab machines.
 
 ## Architecture of the solution
 
@@ -162,6 +164,6 @@ Follow these steps to set up a sample solution for the remote desktop gateway fa
     Once both gateway and lab are configured, the connection file created when the lab user clicks on the **Connect** will automatically include information necessary to connect using token authentication.     
 
 ## Next steps
-See the following to learn more about Remote Desktop Services: [Remote Desktop Services documentation](/windows-server/remote/remote-desktop-services/Welcome-to-rds)
+See the following article to learn more about Remote Desktop Services: [Remote Desktop Services documentation](/windows-server/remote/remote-desktop-services/Welcome-to-rds)
 
 
