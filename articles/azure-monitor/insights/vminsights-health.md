@@ -257,9 +257,9 @@ To see an updated health state, you can refresh the Health Diagnostics page by s
 
 ## Alerts
 
-Azure Monitor for VMs Health feature integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state when the condition is detected. Alerts are categorized by severity, from Sev 0 through Sev 4, with Sev 0 representing the highest severity level.
+THe Azure Monitor for VMs Health feature integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state, when the condition is detected. Alerts are categorized by severity, from Sev 0 through Sev 4, with Sev 0 representing the highest level.
 
-Alerts are not associated with an action group to notify you when the alert has been triggered. The subscription owner needs to configure notifications following the steps in the [Configure alerts](#configure-alerts) section.
+Alerts aren't associated with an action group to notify you when the alert has been triggered. The subscription owner must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
 
 The total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the section **Alerts**. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.
 
@@ -267,9 +267,9 @@ For example, if you select the row corresponding to **Sev level 1**, you'll see 
 
 ![Example of all Severity Level 1 alerts](./media/vminsights-health/vminsights-sev1-alerts-01.png)
 
-On the **Alerts** page, it's not only scoped to show alerts matching your selection, but is also filtered by **Resource type** to only show health alerts raised by the VM resource. This is reflected in the list of alerts, under the column **Target Resource**, where it shows the Azure VM the alert was raised for when the particular health criteria's unhealthy condition was met.
+The **All Alerts** page is not only scoped to show alerts matching your selection, but is also filtered by **Resource type** to show only health alerts raised by a VM resource. This is reflected in the list of alerts, under the column **Target Resource**, where it shows the Azure VM the alert when a particular unhealthy condition was met.
 
-Alerts from other resource types or services are not intended to be included in this view, such as log alerts based on log queries or metric alerts that you would normally view from the default Azure Monitor [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page.
+Alerts from other resource types or services are not intended to be included in this view. These alerts include log alerts, which are based on log queries or metric alerts that you'd normally view from the default Azure Monitor [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page.
 
 You can filter this view by selecting values in the dropdown menus at the top of the page.
 
