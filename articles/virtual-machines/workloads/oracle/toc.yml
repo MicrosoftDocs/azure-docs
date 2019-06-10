@@ -10,8 +10,6 @@
   items:
   - name: Create an Oracle DB
     href: oracle-database-quick-create.md
-  - name: Interconnect Azure and OCI - Preview
-    href: configure-azure-oci-networking.md
 - name: Tutorials
   items:
   - name: Configure Oracle ASM
@@ -28,6 +26,10 @@
     href: oracle-backup-recovery.md
   - name: Oracle disaster recovery options
     href: oracle-disaster-recovery.md
+- name: How-to guides
+  items:
+  - name: Interconnect Azure and OCI - Preview
+    href: configure-azure-oci-networking.md
 - name: Resources
   items:
   - name: Azure Roadmap
