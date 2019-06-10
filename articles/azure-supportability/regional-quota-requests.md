@@ -9,7 +9,7 @@ ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 ---
-# Total regional quota increase requests
+# Total regional vCPU quota increase 
 
 You can now request an increase via **Help + Support** blade or the **Usages + Quota** blade in the portal. 
 
