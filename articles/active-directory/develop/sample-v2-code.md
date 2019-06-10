@@ -95,10 +95,11 @@ The following sample shows a public client application running on a device witho
 ## Web APIs
 
 The following samples shows how to protect a web API with the Microsoft identity platform endpoint, and how to call a downstream API from the Web API.
+
 | Platform | Sample |
 | -------- | ------------------- |
-| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png) </p> ASP.NET Core 2.2  | ASP.NET Core Web API (service) of [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph) |
-| ![ASP.NET](media/sample-v2-code/logo_NET.png) </p> ASP.NET MVC  | Web API (service) of [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
+| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core Web API (service) of [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (service) of [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
 ## Other Microsoft Graph samples
 
