@@ -84,7 +84,7 @@ See examples:
 
 Media Services currently supports the following built-in encoding presets:  
 
-### <a id="BuiltInStandardEncoderPreset-preset>BuiltInStandardEncoderPreset
+### BuiltInStandardEncoderPreset
 
 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) is used to set a built-in preset for encoding the input video with the Standard Encoder. 
 
@@ -104,7 +104,7 @@ To see the most up-to-date presets list, see [built-in presets to be used for en
 
 To see how the presets are used, check out [Uploading, encoding, and streaming files](stream-files-tutorial-with-api.md).
 
-### <a id="StandardEncoderPreset-preset"/>StandardEncoderPreset
+### StandardEncoderPreset
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) describes settings to be used when encoding the input video with the Standard Encoder. Use this preset when customizing Transform presets. 
 
