@@ -79,10 +79,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. Click **Set additional URLs**.
 
-    b. In the **Realy State** text box, type a value using the following pattern:`<SYSTEM VALUE>`
+    b. In the **Relay State** text box, type a value using the following pattern:`<SYSTEM VALUE>`
 
 	> [!NOTE]
-	> The Realy State value is not real. Update this value with the actual Realy State. Contact [Costpoint Client support team](mailto:BorisRusinovic@deltek.com) to get this value.
+	> The Relay State value is not real. Update this value with the actual Relay State. Contact [Costpoint Client support team](https://www.deltek.com/about/contact-us) to get this value.
 
 5. If you wish to configure the application in **SP** initiated mode perform the following step:
 
@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure Costpoint
 
-To configure single sign-on on **Costpoint** side, you need to send the **App Federation Metadata Url** to [Costpoint Client support team](mailto:BorisRusinovic@deltek.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Costpoint** side, you need to send the **App Federation Metadata Url** to [Costpoint Client support team](https://www.deltek.com/about/contact-us). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -133,7 +133,7 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 ### Create Costpoint test user
 
-In this section, you create a user called Britta Simon in Costpoint. Work with [Costpoint Client support team](mailto:BorisRusinovic@deltek.com) to add the users in the Costpoint platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in Costpoint. Work with [Costpoint Client support team](https://www.deltek.com/about/contact-us) to add the users in the Costpoint platform. Users must be created and activated before you use single sign-on. 
 
 ### Test SSO
 
