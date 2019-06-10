@@ -114,6 +114,5 @@ ms.author: tisande
 
 ## Next steps
 
-- [SQL query examples](how-to-sql-query.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Model document data](modeling-data.md)

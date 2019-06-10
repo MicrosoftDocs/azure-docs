@@ -4,15 +4,15 @@ description: Learn about SQL ORDER BY clause for Azure Cosmos DB. Use SQL as an 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/10/2019
 ms.author: mjbrown
 
 ---
-# <a id="OrderByClause"></a>ORDER BY clause
+# ORDER BY clause
 
- Specifies the sorting order for results returned by the query. 
+The optional ORDER BY clause specifies the sorting order for results returned by the query.
 
-##  <a name="bk_syntax"></a> Syntax
+## Syntax
   
 ```sql  
 ORDER BY <sort_specification>  
@@ -21,7 +21,7 @@ ORDER BY <sort_specification>
   
 ```  
 
-##  <a name="bk_arguments"></a> Arguments
+## Arguments
   
 - `<sort_specification>`  
   
@@ -43,11 +43,11 @@ ORDER BY <sort_specification>
   
    Specifies that the values in the specified column should be sorted in ascending or descending order. ASC sorts from the lowest value to highest value. DESC sorts from highest value to lowest value. ASC is the default sort order. Null values are treated as the lowest possible values.  
   
-##  <a name="bk_remarks"></a> Remarks  
+## Remarks  
   
    The ORDER BY clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple ORDER BY properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](index-policy.md#composite-indexes) on the fields being sorted.
 
-##  <a name="bk_examples"></a> Examples
+## Examples
 
 For example, here's a query that retrieves families in ascending order of the resident city's name:
 
@@ -105,24 +105,12 @@ Additionally, you can order by multiple properties. A query that orders by multi
 
 This query retrieves the family `id`  in ascending order of the city name. If multiple items have the same city name, the query will order by the `creationDate` in descending order.
 
-## <a id="References"></a>References
+## References
 
 - [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-- [JSON](https://json.org/)
-- [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
-- Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
-- Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
-- Lu, Ooi, Tan. "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
-- Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: A Not-So-Foreign Language for Data Processing." *SIGMOD* (2008).
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB][introduction]
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Azure Cosmos DB consistency levels][consistency-levels]
-
-[1]: ./media/how-to-sql-query/sql-query1.png
-[introduction]: introduction.md
-[consistency-levels]: consistency-levels.md
+- [Getting started][sql-query-getting-started.md]
+- [SELECT clause][sql-query-select.md]
+- [OFFSET LIMIT clause][sql-query-offset-limit.md]
