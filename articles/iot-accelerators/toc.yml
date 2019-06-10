@@ -163,7 +163,7 @@
       - name: Use the dashboard
         href: iot-accelerators-connected-factory-dashboard.md
       - name: Use the OPC publisher
-        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
+        href: overview-opc-publisher.md
       - name: Configure the solution accelerator
         href: iot-accelerators-connected-factory-configure.md
       - name: Customize the solution accelerator
