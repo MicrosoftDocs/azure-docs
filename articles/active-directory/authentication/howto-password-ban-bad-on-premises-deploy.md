@@ -33,6 +33,7 @@ After the feature has been running in audit mode for a reasonable period, you ca
 
 ## Deployment requirements
 
+* Azure Active Directory Premium P1 or P2 license. For more detailed information about Azure Active Directory licensing, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
 * All domain controllers that get the DC Agent service for Azure AD password protection installed must run Windows Server 2012 or later. This requirement does not imply that the Active Directory domain or forest must also be at Windows Server 2012 domain or forest functional level. As mentioned in [Design Principles](concept-password-ban-bad-on-premises.md#design-principles), there is no minimum DFL or FFL required for either the DC agent or proxy software to run.
 * All machines that get the DC agent service installed must have .NET 4.5 installed.
 * All machines that get the proxy service for Azure AD password protection installed must run Windows Server 2012 R2 or later.
