@@ -298,26 +298,26 @@ To learn more about managing alerts, see [Create, view, and manage alerts using 
 An alert state can also be changed for one or multiple alerts by selecting them and then selecting **Change state** from the **All Alerts** page on the upper leftmost corner. Select one of the states on the **Change alert state** pane, add a description of the change in the **Comment** field, and then select **Ok** to commit your changes. When the information is verified and the changes are applied, track the progress under **Notifications** in the menu.
 
 ### Configure alerts
-Certain alert management tasks can't be managed from the Azure portal and have to be performed by using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Specifically:
+Certain alert-management tasks can't be managed from the Azure portal, and must be performed by using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Specifically:
 
-- Enabling or disabling an alert for health criteria 
-- Set up notifications for health criteria alerts 
+- Enabling or disabling an alert for health criteria
+- Setting up notifications for health criteria alerts
 
-The approach used in each example is using [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. If you are not familiar with this method, see [Using ARMClient](../platform/rest-api-walkthrough.md#use-armclient).
+Each example uses [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. If you are not familiar with this method, see [Using ARMClient](../platform/rest-api-walkthrough.md#use-armclient).
 
 #### Enable or disable alert rule
 
-To enable or disable an alert for a specific health criteria, the health criteria property *alertGeneration* needs to be modified with a value of either **Disabled** or **Enabled**. To identify the *monitorId* of a particular health criteria, the following example will show how to query for that value for the criteria **LogicalDisk\Avg Disk Seconds Per Transfer**.
+To enable or disable an alert for a specific health criteria, the health criteria property *alertGeneration* needs to be modified with a value of either **Disabled** or **Enabled**. To identify the *monitorId* of a particular health criteria, the following example shows how to query for that value for the criteria **LogicalDisk\Avg Disk Seconds Per Transfer**.
 
 1. In a terminal window, type **armclient.exe login**. Doing so prompts you to sign in to Azure.
 
-2. Type the following command to retrieve all the health criterion active on a specific VM and identify the value for *monitorId* property. 
+2. Type the following command to retrieve all the health criterion active on a specific VM and identify the value for *monitorId* property.
 
     ```
     armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
     ```
 
-    The following example shows the output of that command. Take note of the value of *MonitorId*. This value is required for the next step where we need to specify the ID of the health criteria and modify its property to create an alert.
+    The following example shows the output of the *armclient GET* command. Take note of the value of *MonitorId*. This value is required for the next step where we must specify the ID of the health criteria and modify its property to create an alert.
 
     ```
     "id": "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourcegroups/Lab/providers/Microsoft.Compute/virtualMachines/SVR01/providers/Microsoft.WorkloadMonitor/monitors/ComponentTypeId='LogicalDisk',MonitorId='Microsoft_LogicalDisk_AvgDiskSecPerRead'",
@@ -356,31 +356,31 @@ To enable or disable an alert for a specific health criteria, the health criteri
       "etag": null,
     ```
 
-3. Type the following command to modify the *alertGeneration* property.
+3. Enter the following command to modify the *alertGeneration* property:
 
     ```
     armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview "{'properties':{'alertGeneration':'Disabled'}}"
     ```   
 
-4. Type the GET command used in step 2 to verify the value of the property is set to **Disabled**.
+4. Enter the GET command used in step 2 to verify that the property value is set to **Disabled**.
 
 #### Associate Action group with health criteria
 
-Azure Monitor for VMs Health supports SMS and email notifications when alerts are generated when health criteria becomes unhealthy. To configure notifications, you need to note the name of the Action group that is configured to send SMS or email notifications. 
+Azure Monitor for VMs Health supports SMS and email notifications when alerts are generated from unhealthy health criteria. To configure notifications, note the name of the configured Action group to send SMS or email notifications.
 
 >[!NOTE]
->This action needs to be performed against each VM monitored that you want to receive a notification for, it does not apply to all VMs in the resource group.
+>This action needs to be performed against each VM monitored that you want to receive a notification for, it doesn't apply to all VMs in the resource group.
 
-1. In a terminal window, type **armclient.exe login**. Doing so prompts you to sign in to Azure.
+1. In a terminal window, enter *armclient.exe login*. Doing so prompts you to sign in to Azure.
 
-2. Type the following command to associate an Action group with alert rules.
+2. Type the following command to associate an Action group with alert rules:
  
     ```
     $payload = "{'properties':{'ActionGroupResourceIds':['/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/microsoft.insights/actionGroups/actiongroupName']}}" 
     armclient PUT https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings/default?api-version=2018-08-31-preview $payload
     ```
 
-3. To verify the value of the property **actionGroupResourceIds** was successfully updated, type the following command.
+3. To verify the value of the property **actionGroupResourceIds** was successfully updated, type the following command:
 
     ```
     armclient GET "subscriptions/subscriptionName/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings?api-version=2018-08-31-preview"
