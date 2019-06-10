@@ -15,6 +15,8 @@ ms.subservice: blobs
 
 Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This how-to article shows how to create and delete containers with the Azure Storage client library for .NET.
 
+[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+
 ## Name a container
 
 A container name must be a valid DNS name, as it forms part of the unique URI used to address the container or its blobs. Follow these rules when naming a container:

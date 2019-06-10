@@ -292,6 +292,10 @@
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Create and manage containers
+      items:
+      - name: Create or delete a container
+        href: storage-blob-how-to-create-container.md
     - name: Secure blob data
       items:
       - name: Authorize access to blob data
