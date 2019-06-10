@@ -216,7 +216,7 @@ Select **Add Trigger** on the toolbar, and then select **Trigger Now**.
 
    ![Pipeline run status](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   You can switch back to the pipeline runs view by selecting the **Pipelines** link at the top.
+   You can switch back to the pipeline runs view by selecting the **All Pipeline Runs** link at the top.
 
    !["Activity Runs" view](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 
