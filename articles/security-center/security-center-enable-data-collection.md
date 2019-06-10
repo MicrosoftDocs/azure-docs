@@ -84,7 +84,7 @@ To select a workspace created by Security Center:
 
 > [!NOTE]
 > The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
-> Storing data in Log Analytics might incur additional charges for data storage. For more details, see the[pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+> Storing data in Log Analytics might incur additional charges for data storage. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 For more information about existing log analytics accounts, see [Existing log analytics customers](security-center-faq.md#existingloganalyticscust).
 
@@ -96,7 +96,7 @@ To use your existing Log Analytics workspace, you must have read and write permi
 
 > [!NOTE]
 > Solutions enabled on the existing workspace will be applied to Azure VMs that are connected to it. For paid solutions, this could result in additional charges. For data privacy considerations, make sure your selected workspace is in the right geographic region.
-> Storing data in log analytics might incur additional charges for data storage. For more details, [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+> Storing data in log analytics might incur additional charges for data storage. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 To select an existing Log Analytics workspace:
 
