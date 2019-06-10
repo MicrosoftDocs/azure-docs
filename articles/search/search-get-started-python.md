@@ -289,7 +289,7 @@ This step shows you how to query an index using the [Search Documents REST API](
 
 You should delete the index if you no longer need it. A free service is limited to three indexes. You should delete any indexes you are not actively using to make room for other tutorials.
 
-The easiest way to delete objects is through the portal, but since this is a Python quickstart, the following syntax yeilds the same result:
+The easiest way to delete objects is through the portal, but since this is a Python quickstart, the following syntax yields the same result:
 
    ```python
   url = endpoint + "indexes/hotels-quickstart" + api_version
