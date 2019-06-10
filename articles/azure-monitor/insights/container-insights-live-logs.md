@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
+ms.date: 06/10/2019
 ms.author: magoedte
 ---
 
@@ -64,13 +64,13 @@ If you have enabled Kubernetes RBAC authorization, you will need to apply cluste
 2. If you are configuring it for the first time, you create the cluster rule binding by running the following command: `kubectl create -f LogReaderRBAC.yaml`. If you previously enabled support for live logs preview before we introduced live event logs, to update your configuration, run the following command: `kubectl apply -f LogReaderRBAC.yml`. 
 
 ## Configure AKS with Azure Active Directory
-AKS can be configured to use Azure Active Directory (AD) for user authentication. If you are configuring it for the first time, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md). During the steps to create the [client application](../../aks/azure-ad-integration.md#create-client-application), you need to specify two **redirect URI** entries. The two URIs are:
+AKS can be configured to use Azure Active Directory (AD) for user authentication. If you are configuring it for the first time, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md). During the steps to create the [client application](../../aks/azure-ad-integration.md#create-client-application), specify the following:
 
-- https://ininprodeusuxbase.microsoft.com/*
-- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
+- **Redirect URI (optional)**: This is a **Web** application type and the base URL value should be `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
+- After registering the application, from the **Overview** page select **Authentication** from the left-hand pane. On the **Authentication** page, under **Advanced settings** implicitly grant **Access tokens** and **ID tokens** and then save your changes.        
 
 >[!NOTE]
->Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during intial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed. You must configure authentication from **App registration (legacy)** option in Azure AD in order to support the use of a wildcard in the URI, and while adding it to the list, register it as a **native** app.
+>Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during initial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed. 
 > 
 
 ## View live logs and events
