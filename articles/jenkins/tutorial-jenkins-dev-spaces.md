@@ -24,14 +24,14 @@ In this tutorial, you'll complete these tasks:
 > * Create an Azure Dev Spaces enabled AKS cluster
 > * Deploy a multi-service application to AKS
 > * Prepare your Jenkins server
-> * Use the Azure Dev Spaces plugin
+> * Use the Azure Dev Spaces plugin in a Jenkins pipeline
 
 
 ## Prerequisites
 
 * An Azure account. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* A Github account. If you don't have a GitHub account, create a [free account](https://github.com/) before you begin.
+* A GitHub account. If you don't have a GitHub account, create a [free account](https://github.com/) before you begin.
 
 * [Visual Studio Code](https://code.visualstudio.com/download) with the [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) extension installed.
 
@@ -68,11 +68,12 @@ In this section, you create Azure resources:
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2
     ```
 
-3. Configure AKS to use Dev Spaces. This will also install the `azds` CLI extension.
+3. Configure AKS to use Dev Spaces.
 
     ```bash
     az aks use-dev-spaces --resource-group MyResourceGroup --name MyAKS
     ```
+    This step installs the `azds` CLI extension.
 
 4. Create a container registry.
 
@@ -82,7 +83,7 @@ In this section, you create Azure resources:
 
 ## Deploy sample apps to the AKS cluster
 
-In this section you set up a dev space and deploy a sample application to the AKS cluster you created in the last section. The application consists of two parts, *webfrontend* and *mywebapi*. Both components are deployed in a dev space. Later in this tutorial, you submit a pull request against mywebapi to trigger the CI pipeline in Jenkins.
+In this section, you set up a dev space and deploy a sample application to the AKS cluster you created in the last section. The application consists of two parts, *webfrontend* and *mywebapi*. Both components are deployed in a dev space. Later in this tutorial, you'll submit a pull request against mywebapi to trigger the CI pipeline in Jenkins.
 
 This procedure is condensed from two tutorials, [Get started on Azure Dev Spaces with Java](https://docs.microsoft.com/en-us/azure/dev-spaces/get-started-java), and [Multi-service development with Azure Dev Spaces](https://docs.microsoft.com/en-us/azure/dev-spaces/multi-service-java). Those tutorials provide additional background information not included here.
 
@@ -130,7 +131,7 @@ This procedure is condensed from two tutorials, [Get started on Azure Dev Spaces
 
     The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with default settings. These files persist for the lifetime of the project, and they can be customized:
 
-    * `./Dockerfile` describes the app's container image, and how the source code is built and runs within the container.
+    * `./Dockerfile` and `./Dockerfile.develop` describe the app's container image, and how the source code is built and runs within the container.
     * A [Helm chart](https://helm.sh/docs/developing_charts/) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
     * `./azds.yaml` is the Azure Dev Spaces configuration file.
 
@@ -140,10 +141,10 @@ This procedure is condensed from two tutorials, [Get started on Azure Dev Spaces
     azds up
     ```
 
-7. Scan the console output for information about the public URL that was created by the `up` command. It will be in the form:
+7. <a name="test_endpoint"></a>Scan the console output for information about the public URL that was created by the `up` command. It will be in the form:
 
-    ```cmd
-    (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+    ```bash
+    (pending registration) Service 'webfrontend' port 'http' will be available at '<url>'
     Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
     ```
 
@@ -175,7 +176,7 @@ In this section, you prepare the Jenkins server to run the sample CI pipeline.
 
 ### Install plugins
 
-1. Log in to your Jenkins server. Choose **Manage Jenkins > Manage Plugins**.
+1. Sign in to your Jenkins server. Choose **Manage Jenkins > Manage Plugins**.
 2. On the **Available** tab, select the following plugins:
     * Azure Container Registry Tasks Plugin
     * EnvInject Plugin
@@ -267,6 +268,7 @@ The sample pipeline requires Helm and kubectl to deploy from the dev space to AK
 
 The scenario selected for the example pipeline is based on a real-world pattern: A pull request triggers a CI pipeline that builds and then deploys the proposed changes to an Azure dev space for testing and review. Depending on the outcome of the review, the changes are either merged and deployed to AKS or discarded. Finally, the dev space is removed.
 
+
 The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI pipeline. This flowchart shows the pipeline stages and decision points defined by the Jenkinsfile:
 
 ![Jenkins pipeline flow](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
@@ -318,19 +320,66 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
     }
     ```
 
-2. If you have a webhook set up, the pipeline will be triggered automatically. Otherwise, you can run the job manually. 
+2. If you have a webhook set up, the pipeline will be triggered automatically. Otherwise, you can run the job manually.
 
     For more information about setting up a webhook, see [Connect Jenkins to GitHub](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service.md#connect-jenkins-to-github).
 
-3. Open your favorite browser and input `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`
+3. Compare changes to the current shared version:
 
-    > [!NOTE]
-    > insert note about commenting out the dev space cleanup so that you can stop the merge, but still see the changes. ref email from PC on this. TODO 
+    1. , open your browser and navigate to the shared version `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`
 
-    Open another tab and input the PR dev space URL. It will be similar to 
-    `https://<yourdevspace>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. You will find the link in the console output of the Jenkins job you just triggered.
+    2. Open another tab and then enter the PR dev space URL. It will be similar to 
+    `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. You will find the link in **Build History** console output for the Jenkins job. Search the page for `aksapp`.
 
-    Notice how with the dev space prefix, your call is routed to the updated mywebapi while `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io` is still pointing to the (team's) shared version. The dev space prefix ($env.azdsprefix) is set by the Azure Dev Spaces plugin (in the 'create dev space' stage.)
+    Notice that with the dev space prefix, your call is routed to the updated mywebapi while `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io` is still pointing to the (team's) shared version.
+
+### Constructing the URL to the child dev space
+
+The child dev space (where you have deployed the changes) URL is of the form `
+http://$env.azdsprefix.<test_endpoint>`. 
+
+**$env.azdsprefix** is set during pipeline execution by the Azure Dev Spaces plugin by **devSpacesCreate**:
+
+    ```Groovy
+    stage('create dev space') {
+        devSpacesCreate aksName: env.AKS_NAME, 
+            azureCredentialsId: env.AZURE_CRED_ID, 
+            kubeconfigId: env.KUBE_CONFIG_ID, 
+            resourceGroupName: env.AKS_RES_GROUP, 
+            sharedSpaceName: env.PARENT_DEV_SPACE, 
+            spaceName: devSpaceNamespace
+    }
+    ```
+
+The `test_endpoint` is the URL to the webfrontend app you previously deployed using `azds up` ([Deploy sample apps to the AKS cluster, Step 7](#test_endpoint)). In this example, `$env.TEST_ENDPOINT` is set in the pipeline configuration.
+
+The following code snippet shows how the child dev space URL is used in the `smoketest` stage:
+
+    ```Groovy
+    stage('smoketest') {
+        // CI testing against http://$env.azdsprefix.$env.TEST_ENDPOINT" 
+        SLEEP_TIME = 30
+        SITE_UP = false
+        for (int i = 0; i < 10; i++) {
+            sh "sleep ${SLEEP_TIME}"
+            code = "0"
+            try {
+                code = sh returnStdout: true, script: "curl -sL -w '%{http_code}' 'http://$env.azdsprefix.$env.TEST_ENDPOINT/greeting' -o /dev/null"
+            } catch (Exception e){
+                // ignore
+            }
+            if (code == "200") {
+                sh "curl http://$env.azdsprefix.$env.TEST_ENDPOINT/greeting"
+                SITE_UP = true
+                break
+            }
+        }
+        if(!SITE_UP) {
+            echo "The site has not been up after five minutes"
+        }
+    }
+    ```
+The smoke test is intentionally superficial; it simply checks to see if the test endpoint is available.
 
 ## Clean up resources
 
