@@ -1,26 +1,29 @@
 ---
-title: Send device data - Machine Learning on Azure IoT Edge | Microsoft Docs 
-description: In this walk-through, we will once again use development machine as a simulated device, but instead of sending data directly to the IoT Hub the device will send data to the edge device configured as a transparent gateway.
+title: Send device data via transparent gateway - Machine Learning on Azure IoT Edge | Microsoft Docs 
+description: Use your development machine as a simulated IoT Edge device to send data to the IoT Hub the device by going through a device configured as a transparent gateway.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/20/2019
+ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ---
 
-# Tutorial: Machine Learning and IoT Edge – send device data
+# Tutorial: Send data via transparent gateway
 
-In this section, we will once again use the development machine as a simulated device, but instead of sending data directly to the IoT Hub the device will send data to the IoT Edge device configured as a transparent gateway.
+> [!NOTE]
+> This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
 
-We will monitor the operation of the IoT Edge device while the simulated device is sending data. Once the device is finished running, we will look at the data in our storage account to validate everything worked as expected.
+In this article, we once again use the development machine as a simulated device, but instead of sending data directly to the IoT Hub the device sends data to the IoT Edge device configured as a transparent gateway.
+
+We monitor the operation of the IoT Edge device while the simulated device is sending data. Once the device is finished running, we look at the data in our storage account to validate everything worked as expected.
 
 This step is typically performed by a cloud or device developer.
 
 ## Review device harness
 
-Reuse the DeviceHarness project to simulate the downstream (or leaf) device. Connecting to the transparent gateway requires two additional things:
+Reuse the [DeviceHarness project](tutorial-machine-learning-edge-03-generate-data.md) to simulate the downstream (or leaf) device. Connecting to the transparent gateway requires two additional things:
 
 * Register the certificate to make the downstream device (in this case our development machine) trust the certificate authority being used by the IoT Edge runtime.
 * Add the edge gateway fully qualified domain name (FQDN) to the device connection string.
@@ -29,7 +32,7 @@ Look at the code to see how these two items are implemented.
 
 1. On your development machine open Visual Studio Code.
 
-2. Use **File** > **Open Folder…** to open C:\\source\\IoTEdgeAndMlSample\\DeviceHarness.
+2. Use **File** > **Open Folder...** to open C:\\source\\IoTEdgeAndMlSample\\DeviceHarness.
 
 3. Look at the InstallCertificate() method in Program.cs.
 
@@ -45,7 +48,7 @@ Look at the code to see how these two items are implemented.
 
 ## Build and run leaf device
 
-1.  With the DeviceHarness project still open in Visual Studio Code, build the project (Ctrl+Shift+B or **Terminal** > **Run Build Task…**) and select **build** from the dialog.
+1. With the DeviceHarness project still open in Visual Studio Code, build the project (Ctrl + Shift + B or **Terminal** > **Run Build Task...**) and select **Build** from the dialog.
 
 2. Find the fully qualified domain name (FQDN) for your edge gateway by navigating to your IoT Edge device virtual machine in the portal and copying the value for **DNS name** from the overview.
 
@@ -57,7 +60,7 @@ Look at the code to see how these two items are implemented.
 
 4. The application attempts to install the certificate onto your development machine. When it does, accept the security warning.
 
-5. When prompted for the IoT Hub connection string click the ellipsis (**…**) on the Azure IoT Hub devices panel and select **Copy IoT Hub Connection String**. Paste the value into the terminal.
+5. When prompted for the IoT Hub connection string click the ellipsis (**...**) on the Azure IoT Hub devices panel and select **Copy IoT Hub Connection String**. Paste the value into the terminal.
 
 6. You will see output like:
 
@@ -97,7 +100,7 @@ The output from the avroFileWriter module can be readily observed by looking at 
 
 4. Pay attention to the time stamps. The avroFileWriter module uploads the files to the cloud once the last modification time is more than 10 minutes in the past (see MODIFIED\_FILE\_TIMEOUT in uploader.py in the avroFileWriter module).
 
-5.  Once the 10 minutes have elapsed, the module should upload the files. If the upload is successful, it deletes the files from disk.
+5. Once the 10 minutes have elapsed, the module should upload the files. If the upload is successful, it deletes the files from disk.
 
 ### Azure storage
 
@@ -109,13 +112,13 @@ We can observe the results of our leaf device sending data by looking at the sto
 
 3. Expand the **Blob Containers** node.
 
-4. From the work we did in the previous tutorial, we expect that the **ruldata** container should contain messages with RUL. Expand the **ruldata** node.
+4. From the work we did in the previous portion of the tutorial, we expect that the **ruldata** container should contain messages with RUL. Expand the **ruldata** node.
 
 5. You will see one or more blob files named like: `<IoT Hub Name>/<partition>/<year>/<month>/<day>/<hour>/<minute>`.
 
-6. Right click on one of the files and choose **Download Blob** to save the file to your development machine. 
+6. Right click on one of the files and choose **Download Blob** to save the file to your development machine.
 
-7. Next expand the **uploadturbofanfiles** node. In the previous tutorial, we set this location as the target for files uploaded by the avroFileWriter module.
+7. Next expand the **uploadturbofanfiles** node. In the previous article, we set this location as the target for files uploaded by the avroFileWriter module.
 
 8. Right click on the files and choose **Download Blob** to save it to your development machine.
 
@@ -213,20 +216,19 @@ We included a simple command-line utility for reading an Avro file and returning
 
 If you plan to explore the resources used by this end-to-end tutorial, wait until you are done to clean up the resources that you created. If you do not plan to continue, use the following steps to delete them:
 
-1.  Delete the resource group(s) created to hold the Dev VM, IoT Edge VM, IoT Hub, storage account, ML workspace service (and created resources: container registry, application insights, key vault, storage account).
+1. Delete the resource group(s) created to hold the Dev VM, IoT Edge VM, IoT Hub, storage account, machine learning workspace service (and created resources: container registry, application insights, key vault, storage account).
 
-2.  Delete the ML project in [Azure notebooks](https://notebooks.azure.com).
+2. Delete the machine learning project in [Azure notebooks](https://notebooks.azure.com).
 
-3.  If you cloned the repo locally, close any PowerShell or VS Code windows referring to the local repo, then delete the repo directory.
+3. If you cloned the repo locally, close any PowerShell or VS Code windows referring to the local repo, then delete the repo directory.
 
-4.  If you created certificates locally, delete the folder c:\\edgeCertificates.
+4. If you created certificates locally, delete the folder c:\\edgeCertificates.
 
 ## Next steps
 
-In this section, we used our development machine to simulate a leaf device sending sensor and operational data to our edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data first by examining the real-time operation of the edge device and then by looking at the files uploaded to the storage account.
+In this article, we used our development machine to simulate a leaf device sending sensor and operational data to our edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data first by examining the real-time operation of the edge device and then by looking at the files uploaded to the storage account.
 
 More information can be found at the following pages:
 
 * [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
 * [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)
-

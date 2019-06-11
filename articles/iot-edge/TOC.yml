@@ -51,7 +51,22 @@
       href: tutorial-deploy-custom-vision.md
     - name: Store data locally with SQL
       href: tutorial-store-data-sql-server.md
-
+  - name: 4. End-to-end example of machine learning at the edge
+    items:
+    - name: Introduction
+      href: tutorial-machine-learning-edge-01.md
+    - name: Set up your development machine and Azure services
+      href: tutorial-machine-learning-edge-02.md
+    - name: Generate the training data for the machine learning module
+      href: tutorial-machine-learning-edge-03.md
+    - name: Train and deploy an Azure Machine Learning model
+      href: tutorial-machine-learning-edge-04.md
+    - name: Configure an IoT Edge device to act as a transparent gateway
+      href: tutorial-machine-learning-edge-05.md
+    - name: Create and deploy IoT Edge modules
+      href: tutorial-machine-learning-edge-06.md
+    - name: Send data to IoT Hub via transparent gateway
+      href: tutorial-machine-learning-edge-07.md
 - name: Concepts
   items:
   - name: IoT Edge runtime
