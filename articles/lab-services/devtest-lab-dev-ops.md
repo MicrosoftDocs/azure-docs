@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs and DevOps | Microsoft Docs
+title: Integration of Azure DevTest Labs and DevOps | Microsoft Docs
 description: Learn how to use labs of Azure DevTest Labs within a continuous integration (CI)/ continuous delivery (CD) pipelines in an enterprise environment. 
 services: devtest-lab
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 
-# Azure DevOps and Azure DevTest Labs 
+# Integration of Azure DevTest Labs and Azure DevOps
 DevOps is a software development methodology that integrates software development (Dev) with operations (Ops) for a system that delivers new features, updates, and fixes in alignment with business goals. This methodology encompasses everything from designing new features based on goals, usage patterns, and customer feedback; to fixing, recovering and hardening the system when issues occur. An easily identified component of this methodology is the continuous integration (CI)/ continuous delivery (CD) pipeline. A CI/CD pipeline takes information, code, and resources from a commit through a series of steps that include building, testing, and deployment, to produce the system. This article focuses on different ways to effectively use labs within a pipeline in an enterprise environment. 
 
 ## Benefits of using labs in DevOps workflow 

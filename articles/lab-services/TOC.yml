@@ -52,7 +52,7 @@
       href: devtest-lab-concepts.md
     - name: Best practices for distributed and collaborative development
       href: best-practices-distributive-collaborative-development-environment.md    
-    - name: DevTest Labs and DevOps
+    - name: Integration with Azure DevOps
       href: devtest-lab-dev-ops.md
     - name: Scenarios
       items:
