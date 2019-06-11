@@ -21,19 +21,11 @@ Mapping data flows in data factory support the use of parameters. You can define
 > [!NOTE]
 > To use pipeline control flow expressions, your data flow parameter must be of type string
 
-![Pivot options](media/data-flow/params3.png "Data flow parameters")
+![Data flow parameters 1](media/data-flow/params3.png "Data flow parameters 1")
 
-The default setting is "use current partitioning". Current Partitioning instructs Azure Data Factory to use the partitioning scheme native to Data Flows running on Spark in Azure Databricks. Generally, this is the recommended approach.
+Add an Execute Data Flow activity to the pipeline canvas. If your data flow has parameters, you will see the list of available parameters in the Parameters tab. Click on the text box next to each parameter to enter your parameter value. You can choose to create your parameter expression via the pipeline control flow expression language or data flow expressions.
 
-However, there are instances where you may wish to adjust the partitioning. For instance, if you want to output your transformations to a single file in the lake, then chose "single partition" on the Optimize tab for partitioning in the Sink Transformation.
-
-Another case where you may wish to exercise control over the partitioning schemes being used for your data transformations is in terms of performance. Adjusting the partitioning of data provides a level of control over the distribution of your data across compute nodes and data locality optimizations that can have both positive as well as negative effects on your overall data flow performance.
-
-If you wish to change partitioning on any transformation, simply click the Optimize tab and select the "Set Partitioning" radio button. You will then be presented with a series of options for partitioning. The best method of partitioning to implement will differ based on your data volumes, candidate keys, null values and cardinality. Best practice is to start with default partitioning and then try the different partitioning options. You can test using the Debug run in Pipeline and then view the time spent in each transformation grouping as well as partition usage from the Monitoring view.
-
-<img src="media/data-flow/opt002.png" width="600">
-
-### Round Robin
+## Parameters in data flow
 
 Round Robin is simple partition that automatically distributes data equally across partitions. Use Round Robin when you do not have good key candidates to implement a solid, smart partitioning strategy. You can set the number of physical partitions.
 
