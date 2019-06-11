@@ -10,7 +10,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 06/03/2019
 ms.author: banders
 
 ---
@@ -24,6 +24,7 @@ Before you cancel your subscription:
 * Shut down your services. Go to the [resources page in the management portal](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), and **Stop** any running virtual machines, applications, or other services.
 * Consider migrating your data. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 * You must delete all resources and all resource groups. Deleting them is required before you can cancel a subscription. Each resource group must be deleted individually. During resource group deletion, you must confirm deletion by typing the resource group name.
+* If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. If you try to update a custom role after you cancel a subscription, you might get an error. For more information, see [Troubleshoot problems with custom roles](../role-based-access-control/troubleshooting.md#problems-with-custom-roles) and [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
 If you cancel a paid Azure Support plan, you are still billed for the rest of the subscription term. For more information, see [Azure support plans](https://azure.microsoft.com/support/plans/).
 
@@ -38,11 +39,9 @@ If you cancel a paid Azure Support plan, you are still billed for the rest of th
 
 ## What happens after I cancel my subscription?
 
-Once you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal.
+After you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal. If you cancel in the middle of a billing period, we send the final bill on your typical invoice date after the period ends.
 
-After that, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only.
-
-If you cancel in the middle of a billing period, we send the final bill on your typical invoice date after the period ends.
+After you cancel, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only.
 
 We wait 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 

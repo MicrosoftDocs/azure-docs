@@ -2,14 +2,13 @@
 title: Install and run container - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Form Recognizer container to parse form and table data.
-author: PatrickFarley
+author: IEvangelist
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/31/2019
-ms.author: pafarley
+ms.date: 06/10/2019
+ms.author: dapine
 ---
 # Install and run Form Recognizer containers
 Form Recognizer applies machine learning technology to identify and extract key-value pairs and tables from forms. It associates values and table entries to them and then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model using a simple REST API in order to reduce complexity and easily integrate it in your workflow automation process or other application. Only five documents (or an empty form) are needed, so you can get results quickly, accurately and tailored to your specific content, without heavy manual intervention or extensive data science expertise. It does not require data labeling or data annotation.

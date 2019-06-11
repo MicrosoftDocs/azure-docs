@@ -84,7 +84,7 @@ Use the `helm init` and `helm install` commands to set up and install the sample
 ```cmd
 cd charts/
 helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
+helm install -n bikesharing . --dep-up --namespace dev --atomic 
 ```
 > [!Note]
 > **If you are using an RBAC-enabled cluster**, be sure to configure [a service account for Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). Otherwise, `helm` commands will fail.
@@ -97,7 +97,7 @@ $ helm init --wait
 ...
 Happy Helming!
 
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
+$ helm install -n bikesharing . --dep-up --namespace dev --atomic
 
 Hang tight while we grab the latest from your chart repositories...
 ...
