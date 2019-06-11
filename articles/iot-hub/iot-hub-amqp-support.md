@@ -12,7 +12,7 @@ ms.author: rezas
 
 # Communicate with your IoT hub by using the AMQP Protocol
 
-IoT Hub supports [OASIS Advanced Message Queuing Protocol
+Azure IoT Hub supports [OASIS Advanced Message Queuing Protocol
 (AMQP) version 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf) to deliver a variety of functionalities through device-facing and service-facing endpoints. This document describes the use of AMQP clients to connect to an IoT hub to use IoT Hub functionality.
 
 ## Service client
