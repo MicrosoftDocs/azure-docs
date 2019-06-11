@@ -6,7 +6,7 @@ author: mhopkins-msft
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/12/2019
 ms.author: mhopkins
 ms.subservice: common
 ---
@@ -168,13 +168,13 @@ Azurite v3 provides support for a General Storage Account v2 and associated feat
 
 Typically, you can pass following connection strings to SDKs or tools (like Azure CLI2.0 or Storage Explorer). Using the blob service as an example, the full connection string is:
 
-```http
-DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
+```
+DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
 ```
 
 Or if the SDK or tools support following short connection string:
 
-```http
+```
 UseDevelopmentStorage=true;
 ```
 
