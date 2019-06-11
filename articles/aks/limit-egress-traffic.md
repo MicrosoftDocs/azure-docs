@@ -54,6 +54,10 @@ To increase the security of your AKS cluster, you may wish to restrict egress tr
 
 You can use [Azure Firewall][azure-firewall] or a 3rd-party firewall appliance to secure your egress traffic and define these required ports and addresses. AKS does not automatically create these rules for you. The following ports and addresses are for reference as you create the appropriate rules in your network firewall.
 
+> [!IMPORTANT]
+> When you use Azure Firewall to restrict egress traffic and create User defined route to force all egress traffic, make sure you create appropriate DNAT rule in firewall to allow Ingress traffic correctly since using Azure Firewall with UDR will break Ingress setup due to Asymmetric routing (This issue occurs since AKS subnet has a default route going to the firewall's private IP address and you're using a public load balancer (Ingress or Kubernetes Service of type: LoadBalancer). In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Since the firewall is stateful, it drops the returning packet because the firewall is not aware of such an established session.) Please Refer this link (https://docs.microsoft.com/en-us/azure/firewall/integrate-lb) for guidance on how to integrate the Firewall with your Ingress or Service Load Balancer.
+>
+
 In AKS, there are two sets of ports and addresses:
 
 * The [required ports and address for AKS clusters](#required-ports-and-addresses-for-aks-clusters) details the minimum requirements for authorized egress traffic.
