@@ -167,12 +167,25 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 
 10. <a name="gw"></a>Create an ExpressRoute gateway. For more information about the ExpressRoute gateway configuration, see [ExpressRoute gateway configuration](expressroute-howto-add-gateway-resource-manager.md). The GatewaySKU must be *Standard*, *HighPerformance*, or *UltraPerformance*.
 
+    If you are trying to add an ExpressRoute gateway to an existing virtual network that already has a VPN gateway, you should run these steps before running the next steps below as these PowerShell objects won't exist in your PowerShell context before :
+    
+    ```azurepowershell-interactive
+    $vnet_name = CoexVnet
+    $location = "Central US"
+    $resgrp = "ErVpnCoex"
+    $resgrp = Get-AzResourceGroup -Name $resgrp
+    $vnet = Get-AzVirtualNetwork -Name $vnet_name -ResourceGroupName $resgrp.ResourceGroupName
+    ```
+    
+Then you can run the following steps to create the ExpressRoute gateway and its dependencies.
+
     ```azurepowershell-interactive
     $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
     $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
     $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
     $gw = New-AzVirtualNetworkGateway -Name "ERGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
     ```
+
 11. Link the ExpressRoute gateway to the ExpressRoute circuit. After this step has been completed, the connection between your on-premises network and Azure, through ExpressRoute, is established. For more information about the link operation, see [Link VNets to ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
     ```azurepowershell-interactive
