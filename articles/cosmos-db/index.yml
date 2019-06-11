@@ -64,7 +64,7 @@ sections:
             src: media/index/table-api.svg
           title: Table API
         - href: /azure/cosmos-db/spark-api-introduction/
-          html: <p>Use the built-in support for Apache Spark in Azure Cosmos DB to run analytics on the data stored in an Azure Cosmos account. </p>
+          html: <p>Use the built-in support for Apache Spark to run analytics on the data stored in an Azure Cosmos account. </p>
           image:
             src: media/index/spark-logo.png
           title: Built-in analytics with Apache Spark
@@ -74,7 +74,7 @@ sections:
             src: media/index/change-feed-logo.png
           title: Change feed
         - href: /azure/cosmos-db/etcd-api-introduction/
-          html: <p> Use the Etcd API to use Azure Cosmos DB as the backend store for Azure Kubernetes.</p>
+          html: <p> The Etcd API allows you to use Azure Cosmos DB as the backend store for Azure Kubernetes.</p>
           image:
             src: media/index/etcd-logo.png
           title: Etcd API
