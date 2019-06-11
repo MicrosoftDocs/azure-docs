@@ -124,7 +124,7 @@ params = {
 
 ## Create a data source
 
-Now that your services and source files are prepared, start assembling the components of your indexing pipeline. Begin with a data source object that tells Azure Search how to retrieve external source data. 
+Now that your services and source files are prepared, start assembling the components of your indexing pipeline. Begin with a data source object that tells Azure Search how to retrieve external source data.
 
 In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Then, run the script to create a data source named ```cogsrch-py-datasource```.
 
@@ -254,7 +254,7 @@ The request should return a status code of 201 confirming success.
 
 The key phrase extraction skill is applied for each page. By setting the context to ```"document/pages/*"```, you run this enricher for each member of the document/pages array (for each page in the document).
 
-Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input as ```"/document/content"```.
+Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Text found in the source file is placed into a ```content``` field, one for each document. Therefore, set the input as ```"/document/content"```.
 
 A graphical representation of the skillset is shown below.
 
@@ -395,12 +395,12 @@ print(r.status_code)
 
 The request should return a status code of 201 confirming success.
 
-Expect this step to take several minutes to complete. Although the data set is small, some analytical skills, such as image analysis, are computation-intensive and take time to complete.
+Expect this step to take several minutes to complete. Although the data set is small, analytical skills, such as image analysis, are computationally intensive and take time to complete.
 
 To determine if the indexer is still running, see the script in the next section.
 
 > [!TIP]
-> Creating an indexer invokes the pipeline. If there is a problem accessing  the data, mapping inputs and outputs, or with the order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to delete objects first. For more information, see [Reset and re-run](#reset).
+> Creating an indexer invokes the pipeline. If there is a problem accessing the data, mapping inputs and outputs, or with the order of operations, it will appear at this stage. To re-run the pipeline with code or script changes, you may need to delete objects first. For more information, see [Reset and re-run](#reset).
 
 #### Explore the request body
 
@@ -436,7 +436,7 @@ r = requests.get(endpoint + "/indexes/" + index_name, headers=headers,params=par
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-The results should look similar to the following example.
+The results should look similar to the following example. The screenshot only shows a part of the response.
 
  ![Query index for all fields](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Query the index for all fields")
 
@@ -450,7 +450,7 @@ r = requests.get(endpoint + "/indexes/" + index_name + "/docs?&search=*&$select=
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-The results should look similar to the following example.
+The results should look similar to the following example. The screenshot only shows a part of the response.
 
  ![Query index for the contents of organizations](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Query the index to return the contents of organizations")
 
@@ -470,7 +470,7 @@ The ```enriched``` field will contain a string that is a logical representation 
 
 The ```enriched``` field is intended for debugging purposes, only to help you understand the logical shape of the content that expressions are being evaluated against. It can be a useful tool to understand and debug your skillset.
 
-To capture the contents of an enriched document, repeat the previous exercise, and include the `enriched` field when you build the index. 
+To capture the contents of an enriched document, repeat the previous exercise, and include the `enriched` field when you build the index.
 
 [!Tip]
 Before you repeat these steps, you must delete the data source, index, indexer, and skillset that you just created. For more information, see [Reset and re-run](#reset).
