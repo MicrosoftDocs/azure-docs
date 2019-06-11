@@ -33,13 +33,11 @@ Follow these steps to view the audit history for Azure AD roles.
 
 1. Click **Directory roles audit history**.
 
-    You can view the total activations, max activations per day, and average activations per day in a column chart. You can also filter the data by role if there is more than one role in the audit history.
+    Depending on your audit history, a column chart is displayed along with the total activations, max activations per day, and average activations per day.
 
     ![Directory roles audit history](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
-1. Click the **Time**, **Action**, and **Role** buttons to sort the history.
-
-    The columns at the bottom of the page have the following meanings:
+    At the bottom of the page, a table is displayed with information about each action in the available audit history. The columns have the following meanings:
 
     | Column | Description |
     | --- | --- |
@@ -48,8 +46,10 @@ Follow these steps to view the audit history for Azure AD roles.
     | Action | Actions taken by the requestor. Actions can include Assign, Unassign, Activate, Deactivate, or AddedOutsidePIM. |
     | Member | User who is activating or assigned to a role. |
     | Role | Role assigned or activated by the user. |
-    | Reasoning | Any text that was entered into the reason field during activation. |
-    | Expiration | Only relevant for activation of roles. |
+    | Reasoning | Text that was entered into the reason field during activation. |
+    | Expiration | When an activated role expires. Applies only to eligible role assignments. |
+
+1. To sort the audit history, click the **Time**, **Action**, and **Role** buttons.
 
 ## Filter audit history
 
@@ -57,7 +57,7 @@ Follow these steps to view the audit history for Azure AD roles.
 
     The **Update chart parameters** pane appears.
 
-1. In **Time range**, click a time range.
+1. In **Time range**, select a time range.
 
 1. In **Roles**, add checkmarks for the roles you want to view.
 
