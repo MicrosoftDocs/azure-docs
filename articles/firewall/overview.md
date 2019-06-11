@@ -10,6 +10,7 @@ ms.date: 6/16/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
+
 # What is Azure Firewall?
 
 Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.
@@ -79,7 +80,7 @@ This enables the following scenarios:
 - **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
 
 > [!NOTE]
-> During the public preview, if you add or remove a public IP address to a running firewall, there is a 40 - 120 second delay before your inbound NAT rules are functional again.
+> During the public preview, if you add or remove a public IP address to a running firewall, existing inbound connectivity using DNAT rules may not function for 40 - 120 seconds.
 
 ### Azure Monitor logging
 
@@ -99,7 +100,10 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Port range in network and application rules|Ports are limited to 64,000 as high ports are reserved for management and health probes. |We're working to relax this limitation.|
 |Threat intelligence alerts may get masked|Network rules with destination 80/443 for outbound filtering masks threat intelligence alerts when configured to alert only mode.|Create outbound filtering for 80/443 using application rules. Or, change the threat intelligence mode to **Alert and Deny**.|
 |Azure Firewall uses Azure DNS only for name resolution|Azure Firewall resolves FQDNs using Azure DNS only. A custom DNS server isn't supported. There's no impact on DNS resolution on other subnets.|We're working to relax this limitation.|
-|Azure Firewall SNAT/DNAT doesn't work for private IP destinations|Azure Firewall SNAT/DNAT support is limited to Internet egress/ingress. SNAT/DNAT doesn't currently work for private IP destinations. For example, spoke to spoke.|This is on the road map for a future update.
+|Azure Firewall SNAT/DNAT doesn't work for private IP destinations|Azure Firewall SNAT/DNAT support is limited to Internet egress/ingress. SNAT/DNAT doesn't currently work for private IP destinations. For example, spoke to spoke.|This is on the road map for a future update.|
+|Can't remove first public IP address|You can't remove the first public IP address assigned to the firewall unless the firewall is deallocated or deleted.|This is by design.|
+|If you remove a public IP address, the DNAT rules may not function temporarily.| If you add or remove a public IP address to a running firewall, existing inbound connectivity using DNAT rules may not function for 40 - 120 seconds.|This is a limitation of the public preview for this feature.|
+|Availability zones can only be configured during deployment.|Availability zones can only be configured during deployment. You can't configure Avalability Zones after a firewall has been deployed.|This is by design.|
 
 ## Next steps
 
