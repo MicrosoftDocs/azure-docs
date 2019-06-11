@@ -20,6 +20,17 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-06-10 
+
+### Azure Machine Learning Data Prep SDK v1.1.5
+
++ **Bug fixes and improvements**
+  + For interpreted datetime values that have a 2-digit year format, the range of valid years has been updated to match Windows May Release. The range has been changed from 1930-2029 to 1950-2049.
+  + When reading in a file and setting `handleQuotedLineBreaks=True`, `\r` will be treated as a new line.
+  + Fixed a bug that caused `read_pandas_dataframe` to fail in some cases.
+  + Improved performance of `get_profile`.
+  + Improved error messages.
+
 ## 2019-05-28
 
 ### Azure Machine Learning Data Prep SDK v1.1.4

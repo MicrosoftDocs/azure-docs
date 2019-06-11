@@ -19,7 +19,7 @@ We currently aren't taking support cases while Windows Virtual Desktop is in pre
 
 ## Escalation tracks
 
-Use the following table to identify and resolve issues you may encounter when setting up a tenant environment using Remote Desktop client.
+Use the following table to identify and resolve issues you may encounter when setting up a tenant environment using Remote Desktop client. Once your tenant's set up, you can use our new [Diagnostics service](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) to identify issues for common scenarios.
 
 >[!NOTE]
 >We currently aren't taking support cases while Windows Virtual Desktop is in preview. Whenever we refer to Windows Virtual Desktop support, go to our Tech Community forum for now. Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss issues with the product team and active community members. If you need to resolve a support issue, include the activity ID and approximate time frame for when the issue occurred.
