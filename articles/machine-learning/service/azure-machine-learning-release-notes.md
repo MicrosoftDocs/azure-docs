@@ -55,6 +55,16 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Moved outputs directory creation and outputs directory upload out of the user process. Enabled run history SDK to run in every user process. This should resolve some synchronization issues experienced by distributed training runs.
   + The name of the azureml log written from the user process name will now include process name (for distributed training only) and PID.
 
+## 2019-06-10 
+
+### Azure Machine Learning Data Prep SDK v1.1.5
+
++ **Bug fixes and improvements**
+  + For interpreted datetime values that have a 2-digit year format, the range of valid years has been updated to match Windows May Release. The range has been changed from 1930-2029 to 1950-2049.
+  + When reading in a file and setting `handleQuotedLineBreaks=True`, `\r` will be treated as a new line.
+  + Fixed a bug that caused `read_pandas_dataframe` to fail in some cases.
+  + Improved performance of `get_profile`.
+  + Improved error messages.
 
 ## 2019-05-28
 

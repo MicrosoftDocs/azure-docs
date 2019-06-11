@@ -113,6 +113,8 @@ When users reset their password from the login screen of a Windows 10 device, a 
 
 ## Limitations
 
+Account unlock, mobile app notification, and mobile app code are not supported by SSPR for Windows 10.
+
 When testing this functionality using Hyper-V, the "Reset password" link does not appear.
 
 * Go to the VM you are using to test click on **View** and then uncheck **Enhanced session**.
