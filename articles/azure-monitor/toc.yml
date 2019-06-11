@@ -998,6 +998,8 @@
       href: app/nuget.md 
     - name: Platform support
       href: app/platforms.md
+    - name: Endpoint overrides
+      href: app/custom-endpoints.md
   - name: Application Insights data model
     items:
     - name: Overview

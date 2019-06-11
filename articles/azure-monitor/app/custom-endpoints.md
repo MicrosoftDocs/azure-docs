@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor - Azure Application Insights override default SDK endpoints | Microsoft Docs
-description: Modify default Azure Application Insights SDK endpoints for regions like Azure Government and Azure China.
+description: Modify default Azure Application Insights SDK endpoints for regions like Azure Government.
 services: application-insights
 author: mrbullwinkle
 manager: carmonm
@@ -15,15 +15,11 @@ ms.author: mbullwin
 
  # Application Insights overriding default endpoints
 
-In order to send data from Application Insights to certain regions, you will need to override the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, all of which are described in this article. You will need to adjust the sample code and replace the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your desired region. The end of this article contains links to the endpoint addresses for regions where this is required.
+To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article. These changes require adjusting the sample code and replacing the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
 
 ## SDK code changes
 
 ### .NET with applicationinsights.config
-
-QuickPulse_Endpoint_Address
-TelemetryChannel_Endpoint_Address
-Profile_Query_Endpoint_address
 
 ```xml
 <ApplicationInsights>
@@ -149,4 +145,4 @@ Currently the only region that requires endpoint modifications is [Azure Governm
 
 ## Next step
 
-- To learn more about the custom modifications that are required to use Application Insights in Azure Government as well as the endpoint addresses consult the detailed guidance for [Azure monitoring and management](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+- To learn more about the custom modifications for Azure Government, consult the detailed guidance for [Azure monitoring and management](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
