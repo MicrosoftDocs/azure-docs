@@ -227,27 +227,27 @@ A health criterion measures the health of a monitored instance, which could be a
 
 The health model defines criteria that determine the health of the overall target and components of the target. The hierarchy of criteria is shown in the **Health Criteria** section of the **Health Diagnostics** page.
 
-The health-rollup policy is part of the configuration of aggregate health criteria (the default is set to **worst-of**). You can find a default set of health criteria running as part of this feature in the [Monitoring configuration details](#monitoring-configuration-details) section in this article.
+The health-rollup policy is part of the configuration of aggregate health criteria (the default is set to **worst-of**). You can find a default set of health criteria running as part of this feature in the [Monitoring configuration details](#monitoring-configuration-details) section of this article.
 
 You can also use the Azure Monitor REST API [monitor instances list by resource](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) for all health criteria and configuration details running against the Azure VM resource.
 
-The **Unit** health criteria type can have their configuration modified by selecting the ellipses link to the rightmost side, and then selecting **Show Details** to open the configuration pane.
+The **Unit** health criteria type can have its configuration modified by selecting the ellipses link to the rightmost side, and then by selecting **Show Details** to open the configuration pane.
 
 ![Configuring a health criteria example](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-In the configuration pane for the selected health criteria, by using the example **Average Disk Seconds Per Write**, the threshold can be configured with a different numeric value. It's a two-state monitor, meaning it only changes from **Healthy** to **Warning**.
+In the configuration pane for the selected health criteria, by using the example **Average Disk Seconds Per Write**, the threshold can be configured with a different numeric value. It's a two-state monitor, meaning it can only change from **Healthy** to **Warning**.
 
 Other health criterion can be three states, where you can configure the value for warning and critical health-state thresholds. You can also modify a threshold by using the Azure Monitor REST API [monitor configuration](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
 
 >[!NOTE]
->Applying health criteria configuration changes to one instance applies them to all monitored instances. For example, if you select **Disk -1 D:** and modify the **Average Disk Seconds Per Write** threshold, it doesn't apply only to that instance, but all other disk instances discovered and monitored on the VM.
+>Applying health criteria configuration changes to one instance applies them to all monitored instances. For example, if you select **Disk -1 D:** and then modify the **Average Disk Seconds Per Write** threshold, it doesn't apply only to that instance, but all other disk instances discovered and monitored on the VM.
 
 
 ![Configuring a health criteria of a unit monitor example](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
 
-To learn more about the health indicator, knowledge articles are included to help you identify problems, causes, and resolutions, select **View information** on the page to open a new tab showing the specific knowledge article.
+To learn more about health criteria, knowledge articles are included to help you identify problems, causes, and resolutions. Select **View information** on the page to see the related knowledge article.
 
-To review all of the health criterion knowledge articles included with Azure Monitor for VMs Health feature, see [Azure Monitor health knowledge documentation](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+To review all of the health criterion knowledge articles included with Azure Monitor for VMs health feature, see [Azure Monitor health knowledge documentation](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
 
 ### State changes
 
