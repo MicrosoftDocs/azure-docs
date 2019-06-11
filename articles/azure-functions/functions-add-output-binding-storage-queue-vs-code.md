@@ -65,15 +65,17 @@ In Functions, each type of binding requires a `direction`, `type`, and a unique 
 
 ### JavaScript
 
-Binding attributes are defined directly in the function.json file. Depending on the binding type, additional properties may be required. The [queue output configuration](functions-bindings-storage-queue.md#output---configuration) describes the fields required for an Azure Storage queue binding.
+Binding attributes are defined directly in the function.json file. Depending on the binding type, additional properties may be required. The [queue output configuration](functions-bindings-storage-queue.md#output---configuration) describes the fields required for an Azure Storage queue binding. The extension makes it easy to add bindings to the function.json file. 
 
-To create a binding, you add a binding configuration object to the `function.json` file. Edit the function.json file in your HttpTrigger folder to add an object to the `bindings` array that has the following properties:
+To create a binding, right-click (Ctrl+click on macOS) the `function.json` file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
 
-| Property | Value | Description |
+| Prompt | Value | Description |
 | -------- | ----- | ----------- |
-| **`name`** | `msg` | Name that identifies the binding parameter referenced in your code. |
-| **`type`** | `queue` | The binding is an Azure Storage queue binding. |
-| **`direction`** | `out` | The binding is an output binding. |
+| **Select binding direction** | `out` | The binding is an output binding. |
+| **Select binding with direction "out"** | `Azure Queue Storage` | The binding is an Azure Storage queue binding. |
+| **The name used to identify this binding in yoru code** | `msg` | Name that identifies the binding parameter referenced in your code. |
+
+
 | **`queueName`** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
 | **`connection`** | `AzureWebJobsStorage` | The name of an app setting that contains the connection string for the Storage account. The `AzureWebJobsStorage` setting contains the connection string for the Storage account you created with the function app. |
 

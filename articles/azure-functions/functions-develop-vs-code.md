@@ -291,6 +291,25 @@ To enable Application Insights for your function app:
 
 To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
+## Command palette reference
+
+The Azure Functions extension provides a very useful graphical interface in the Azure area for interacting with your function apps in Azure. The same functionality is also available as commands in the command palette (F1). The following Azure Functions-specific commands are available:
+
+
+|Azure Functions command  | Description  |
+|---------|---------|
+|**Add new settings**     |  Create a new application setting in Azure. To learn more, see [Publish function app settings](#publish-function-app-settings).       |
+| **Configure deployment source** | Connect your function app in Azure to a Git repository. To learn more, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). |
+| **Connect to GitHub repository** |         |
+|      |         |
+|Row5     |         |
+|Row6     |         |
+|Row7     |         |
+|Row8     |         |
+|Row9     |         |
+|Row10     |         |
+
+
 ## Next steps
 
 To learn more about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
