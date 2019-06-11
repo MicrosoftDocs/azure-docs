@@ -55,7 +55,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 At the prompt, enter the password for the user account.
 
 ## Monitor replication
-Azure Database for PostgreSQL provides two metrics for monitoring replication. The two metrics are **Max Lag Across Replicas** and **Replica Lag**. Learn how to view these metrics see in the **Monitor a replica** section of the [read replica how-to article](howto-read-replicas-portal.md).
+Azure Database for PostgreSQL provides two metrics for monitoring replication. The two metrics are **Max Lag Across Replicas** and **Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](howto-read-replicas-portal.md).
 
 The **Max Lag Across Replicas** metric shows the lag in bytes between the master and the most-lagging replica. This metric is available on the master server only.
 

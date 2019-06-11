@@ -169,7 +169,7 @@ For more information, see [Azure Functions triggers and bindings concepts](./fun
 
 ## Local settings file
 
-The file local.settings.json stores app settings, connection strings, and settings for Azure Functions Core Tools. Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure. Note that values in **ConnectionStrings** are never published. The file has the following structure:
+The file local.settings.json stores app settings, connection strings, and settings for Azure Functions Core Tools. Settings in the local.settings.json file are only used by Functions tools when running locally. By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure. Values in **ConnectionStrings** are never published. The file has the following structure:
 
 ```json
 {
@@ -415,43 +415,37 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publish to Azure
 
-Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x. You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create).
+The Azure Functions Core Tools supports two types of deployment: deploying function project files directly to your function app via [Zip Deploy](functions-deployment-technologies.md#zip-deploy) and [deploying a custom Docker container](functions-deployment-technologies.md#docker-container). You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create), to which you'll deploy your code. Projects that require compilation should be built so that the binaries can be deployed.
 
-In version 2.x, you must have [registered your extensions](#register-extensions) in your project before publishing. Projects that require compilation should be built so that the binaries can be deployed.
+### <a name="project-file-deployment"></a>Deployment (project files)
 
-### Project file deployment
-
-The most common deployment method involves using Core Tools to package your function app project, binaries, and dependencies and deploy the package to your function app. You can optionally [run your functions directly from the deployment package](run-functions-from-deployment-package.md).
-
-To publish a Functions project to a function app in Azure, use the `publish` command:
+To publish your local code to a function app in Azure, use the `publish` command:
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-This command publishes to an existing function app in Azure. An error occurs when the `<FunctionAppName>` doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md).
-
-The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].
+This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command will enable your app to run in [Run From Package](run-functions-from-deployment-package.md) mode.
 
 >[!IMPORTANT]
 > When you create a function app in the Azure portal, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).
 > You can't change the runtime version for a function app that has existing functions.
 
-The following project publish options apply for both versions, 1.x and 2.x:
+The following publish options apply for both versions, 1.x and 2.x:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the storage emulator, you change the app setting to an [actual storage connection](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
 
-The following project publish options are only supported in version 2.x:
+The following publish options are only supported in version 2.x:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Only publish settings and skip the content. Default is prompt. |
 |**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the .funcignore file. |
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the .funcignore file. |
-| **`--nozip`** | Turns the default `Run-From-Zip` mode off. |
+| **`--nozip`** | Turns the default `Run-From-Package` mode off. |
 | **`--build-native-deps`** | Skips generating .wheels folder when publishing python function apps. |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore pre-publishing verification in certain scenarios. |
@@ -459,9 +453,9 @@ The following project publish options are only supported in version 2.x:
 | **`--no-build`** | Skip building dotnet functions. |
 | **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls 'dotnet build --output bin/publish'. Any parameters passed to this will be appended to the command line. |
 
-### Custom container deployment
+### Deployment (custom container)
 
-Functions lets you deploy your function project in a custom Linux container. For more information, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). Version 2.x of Core Tools supports deploying a custom container. Custom containers must have a Dockerfile. Use the --dockerfile option on `func init`.
+Azure Functions lets you deploy your function project in a [custom Docker container](functions-deployment-technologies.md#docker-container). For more information, see [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md). Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the --dockerfile option on `func init`.
 
 ```bash
 func deploy
