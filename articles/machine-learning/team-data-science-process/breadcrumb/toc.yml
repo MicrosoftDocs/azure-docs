@@ -40,9 +40,9 @@
         tocHref: /azure/storage/blobs/
         topicHref: /azure/storage/index
         items:
-        - name: Python
+        - name: Blobs
           tocHref: /azure/storage/blobs/
-          topicHref: /azure/storage/blobs/storage-quickstart-blobs-python
+          topicHref: /azure/storage/blobs/storage-blobs-introduction
 
 - name: Azure
   tocHref: /azure/
