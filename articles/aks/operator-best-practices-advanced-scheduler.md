@@ -153,11 +153,11 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: hardware
-          operator: In
-          values: highmem
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values: highmem
 ```
 
 The *IgnoredDuringExecution* part of the setting indicates that if the node labels change, the pod shouldn't be evicted from the node. The Kubernetes scheduler only uses the updated node labels for new pods being scheduled, not pods already scheduled on the nodes.
