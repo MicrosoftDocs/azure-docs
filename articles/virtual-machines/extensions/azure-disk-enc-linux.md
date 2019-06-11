@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 06/10/2019
 ms.author: ejarvi
 
 ---
@@ -36,11 +36,13 @@ Azure Disk Encryption is currently supported on select distributions and version
 
 Azure Disk Encryption for Linux requires Internet connectivity for access to Active Directory, Key Vault, Storage, and package management endpoints.  For more information, see [Azure Disk Encryption Prerequisites](../../security/azure-security-disk-encryption-prerequisites.md).
 
-## Extension schemas
+## Extension schemata
 
-### V2 ("single-pass encryption")
+There are two schemata for Azure Disk Encryption: a newer, recommended schema that does not use Azure Active Directory (AAD) properties, and an older schema that requires AAD properties.
 
-Single-pass encryption does not rely on Azure Active Directory.
+### No AAD schema (recommended)
+
+This recommended schema does not require Azure Active Directory properties.
 
 ```json
 {
@@ -66,37 +68,66 @@ Single-pass encryption does not rely on Azure Active Directory.
 ```
 
 
-### V1 ("dual-pass encryption")
+### AAD schema 
 
-Dual-pass encryption uses Azure Active Directory for authentication.
+This older schema requires `aadClientID` and either `aadClientSecret` or `AADClientCertificate`.
+
+Using `aadClientSecret`:
 
 ```json
-{
 {
   "type": "extensions",
   "name": "[name]",
   "apiVersion": "2015-06-15",
   "location": "[location]",
   "properties": {
-        "protectedSettings": {
-          "AADClientSecret": "[aadClientSecret]",
-          "Passphrase": "[passphrase]"
-        },
-        "publisher": "Microsoft.Azure.Security",
-        "settings": {
-          "AADClientID": "[aadClientID]",
-          "DiskFormatQuery": "[diskFormatQuery]",
-          "EncryptionOperation": "[encryptionOperation]",
-          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-          "KeyVaultURL": "[keyVaultURL]",
-          "SequenceVersion": "sequenceVersion]",
-          "VolumeType": "[volumeType]"
-        },
-        "type": "AzureDiskEncryptionForLinux",
-        "typeHandlerVersion": "[extensionVersion]"
+	"protectedSettings": {
+	  "AADClientSecret": "[aadClientSecret]",
+	  "Passphrase": "[passphrase]"
+	},
+	"publisher": "Microsoft.Azure.Security",
+	"settings": {
+	  "AADClientID": "[aadClientID]",
+	  "DiskFormatQuery": "[diskFormatQuery]",
+	  "EncryptionOperation": "[encryptionOperation]",
+	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+	  "KeyVaultURL": "[keyVaultURL]",
+	  "SequenceVersion": "sequenceVersion]",
+	  "VolumeType": "[volumeType]"
+	},
+	"type": "AzureDiskEncryptionForLinux",
+	"typeHandlerVersion": "[extensionVersion]"
   }
 }
+```
+
+Using `AADClientCertificate`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+	"protectedSettings": {
+	  "AADClientCertificate": "[aadClientCertificate]",
+	  "Passphrase": "[passphrase]"
+	},
+	"publisher": "Microsoft.Azure.Security",
+	"settings": {
+	  "AADClientID": "[aadClientID]",
+	  "DiskFormatQuery": "[diskFormatQuery]",
+	  "EncryptionOperation": "[encryptionOperation]",
+	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+	  "KeyVaultURL": "[keyVaultURL]",
+	  "SequenceVersion": "sequenceVersion]",
+	  "VolumeType": "[volumeType]"
+	},
+	"type": "AzureDiskEncryptionForLinux",
+	"typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
@@ -110,9 +141,9 @@ Dual-pass encryption uses Azure Active Directory for authentication.
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
-| (V1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (V1) AADClientSecret | password | string |
-| (V1) AADClientCertificate | thumbprint | string |
+| (AAD schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (AAD schema) AADClientSecret | password | string |
+| (AAD schema) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON dictionary |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |

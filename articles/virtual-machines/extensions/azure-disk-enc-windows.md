@@ -37,44 +37,13 @@ For a list of currently Windows versions, see [Azure Disk Encryption Prerequisit
 Azure Disk Encryption requires Internet connectivity for access to Active Directory, Key Vault, Storage, and package management endpoints.  For more on network security settings, see [Azure Disk Encryption Prerequisites](
 ../../security/azure-security-disk-encryption-prerequisites.md).
 
-## Extension schemas
+## Extension schemata
 
-### V2 ("single-pass encryption")
+There are two schemata for Azure Disk Encryption: a newer, recommended schema that does not use Azure Active Directory (AAD) properties, and an older schema that requires AAD properties.
 
-Single-pass encryption does not rely on Azure Active Directory.
+### No AAD schema (recommended)
 
-```json
-{
-  "type": "extensions",
-  "name": "[name]",
-  "apiVersion": "2015-06-15",
-  "location": "[location]",
-  "properties": {
-        "publisher": "Microsoft.Azure.Security",
-        "settings": {
-          "EncryptionOperation": "[encryptionOperation]",
-          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-          
-          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-          "KekVaultResourceId": "[keyVaultResourceID]",
-          
-          "KeyVaultURL": "[keyVaultURL]",
-          "KeyVaultResourceId": "[keyVaultResourceID]",
-
-          "EncryptionOperation": "[encryptionOperation]",
-          "SequenceVersion": "sequenceVersion]",
-          "VolumeType": "[volumeType]"
-        },
-        "type": "AzureDiskEncryption",
-        "typeHandlerVersion": "[extensionVersion]"
-  }
-}
-```
-
-
-### V1 ("dual-pass encryption")
-
-Dual-pass encryption uses Azure Active Directory for authentication.
+This recommended schema does not require Azure Active Directory properties.
 
 ```json
 {
@@ -83,30 +52,88 @@ Dual-pass encryption uses Azure Active Directory for authentication.
   "apiVersion": "2015-06-15",
   "location": "[location]",
   "properties": {
-        "protectedSettings": {
-          "AADClientSecret": "[aadClientSecret]",
-        },
-        "publisher": "Microsoft.Azure.Security",
-        "settings": {
-          "AADClientID": "[aadClientID]",
-          "EncryptionOperation": "[encryptionOperation]",
-          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-          
-          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-          "KekVaultResourceId": "[keyVaultResourceID]",
-          
-          "KeyVaultURL": "[keyVaultURL]",
-          "KeyVaultResourceId": "[keyVaultResourceID]",
-
-          "EncryptionOperation": "[encryptionOperation]",
-          "SequenceVersion": "sequenceVersion]",
-          "VolumeType": "[volumeType]"
-        },
-        "type": "AzureDiskEncryption",
-        "typeHandlerVersion": "[extensionVersion]"
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
   }
 }
 ```
+
+
+### AAD schema 
+
+This older schema requires `aadClientID` and either `aadClientSecret` or `AADClientCertificate`.
+
+Using `aadClientSecret`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientSecret": "[aadClientSecret]"
+    },    
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+Using `AADClientCertificate`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientCertificate": "[aadClientCertificate]"
+    },    
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "KeyVaultResourceId": "[keyVaultResourceID]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+  "type": "AzureDiskEncryption",
+  "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
 
 ### Property values
 
@@ -114,17 +141,17 @@ Dual-pass encryption uses Azure Active Directory for authentication.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForWindows| string |
-| typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
-| (V1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (V1) AADClientSecret | password | string |
-| (V1) AADClientCertificate | thumbprint | string |
-| EncryptionOperation | EnableEncryption | string | 
-| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
+| type | AzureDiskEncryptionForLinux | string |
+| typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
+| (AAD schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (AAD schema) AADClientSecret | password | string |
+| (AAD schema) AADClientCertificate | thumbprint | string |
+| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON dictionary |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
-| KeyVaultResourceId | resource uri | string |
-| KekVaultResourceId | resource uri | string |
 | KeyVaultURL | url | string |
+| Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS, Data, All | string |
 
