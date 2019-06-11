@@ -120,7 +120,7 @@ Subnet | A subnet of the virtual network needs to be created for the VPN Gateway
 
 2. Add custom role to users who are allowed to create and manage VPN Gateways and connections to on-premises environments.
 
-### Create VPN Gateway <sup>[2]</sup>
+### Create VPN Gateway
 
 <sup>[2] - Assuming virtual network has previously been created</sup>
 
