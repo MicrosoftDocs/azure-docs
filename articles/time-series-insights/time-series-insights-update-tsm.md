@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 06/11/2019
 ms.custom: seodec18
 ---
 
@@ -54,8 +54,6 @@ These components are combined to specify a Time Series Model and to organize you
 
 Time Series Models can be created and managed through the [Time Series Insights Preview](time-series-insights-update-how-to-tsm.md) interface.
 
-Each Time Series Model component also has its own REST APIs. General information applicable to all component APIs is provided in the following section.
-
 ## Time Series Model instances
 
 Time Series Model *instances* are the time series themselves.
@@ -68,11 +66,51 @@ The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/sampl
 
 [![Time Series Model instances](media/v2-update-tsm/instance.png)](media/v2-update-tsm/instance.png#lightbox)
 
-Instances are defined by *typeId*, *timeSeriesId*, *name*, *description*, *hierarchyIds*, and *instanceFields*. Each instance maps to only one *type*, and one or more *hierarchies*. Instances inherit all properties from hierarchies, and additional *instanceFields* can be added for further instance property definition.
+### Instance properties
 
-*instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations.
+Instances are defined by **typeId**, **timeSeriesId**, **name**, **description**, **hierarchyIds**, and **instanceFields**. Each instance maps to only one *type*, and one or more *hierarchies*.
 
-The *name* property is optional and case-sensitive. If *name* is not available, it will default to the Time Series ID. If a *name* is provided, the Time Series ID will still be available in the Well (the grid below the charts in the explorer).
+| Property | Description |
+| --- | ---|
+| typeId | The UUID of the Time Series Model type the instance is associated with|
+| timeSeriesId | The UUID of the time series the instance is associated with |
+| name | The *name* property is optional and case-sensitive. If *name* is not available, it will default to the *timeSeriesId*. If a *name* is provided, the *timeSeriesId* will still be available in the [Well](time-series-insights-update-explorer.md#preview-well). |
+| description | A text description of the instance |
+| hierarchyIds | Defines which hierarchies the instance belongs to|
+| instanceFields | *instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations. |
+
+> [!NOTE]
+> Instances inherit all properties from hierarchies, and additional *instanceFields* can be added for further instance property definition.
+
+Instances have the following JSON representation:
+
+```json
+{
+  "instances": [
+        {
+            "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
+            "timeSeriesId": [
+                "Id1One",
+                "Id2One",
+                "Id3One"
+            ],
+            "name" : "timeSeries1",
+            "description": "floor 100",
+            "hierarchyIds": [
+                "1643004c-0a84-48a5-80e5-7688c5ae9295"
+            ],
+            "instanceFields": {
+                "state": "California",
+                "city": "Los Angeles"
+            }
+        }
+    ],
+    "continuationToken": "aXsic2tpcCI6MSwidGFrZSI6MX0="
+}
+```
+
+> [!TIP]
+> For Time Series Insights Instance API support, consult the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Instance API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## Time Series Model hierarchies
 
@@ -84,17 +122,72 @@ The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/sampl
 
 [![Time Series Model hierarchies](media/v2-update-tsm/hierarchy.png)](media/v2-update-tsm/hierarchy.png#lightbox)
 
-Hierarchies are defined by *Hierarchy ID*, *name*, and *source*. Hierarchies have a path, which is a top-down parent-child order of the hierarchy that users want to create. The parent-child properties map *instance fields*.
-
 ### Hierarchy definition
 
-Consider the following example where hierarchy H1 has *building*, *floor*, and *room* as part of its definition:
+Hierarchies are defined by *Hierarchy ID*, *name*, and *source*.
 
-```plaintext
- H1 = [“building”, “floor”, “room”]
+| Property | Description |
+| ---| ---|
+| id | The unique identifier for the hierarchy - used, for example, when defining an instance |
+| name | A string used to provide a name for the hierarchy |
+| source | Specifies the organizational hierarchy or path which is a top-down parent-child order of the hierarchy that users want to create. The parent-child properties map *instance fields*. |
+
+JSON response objects will conform to the following:
+
+```json
+{
+  "hierarchies": [
+    {
+      "id": "6e292e54-9a26-4be1-9034-607d71492707",
+      "name": "Location",
+      "source": {
+        "instanceFieldNames": [
+          "state",
+          "city"
+        ]
+      }
+    },
+    {
+      "id": "a28fd14c-6b98-4ab5-9301-3840f142d30e",
+      "name": "ManufactureDate",
+      "source": {
+        "instanceFieldNames": [
+          "year",
+          "month"
+        ]
+      }
+    }
+  ]
+}
 ```
 
-Depending on the *instance fields*, the hierarchy attributes and values appear as shown in the following table:
+Above:
+
+* `Location` defines a hierarchy with parent `states` and child `cities`. Each `location` can have multiple `states` which in turn can have multiple `cities`.
+* `ManufactureDate` defines a hierarchy with parent `year` and child `month`. Each `ManufactureDate` can have multiple `years` which in turn can have multiple `months`.
+
+> [!TIP]
+> For Time Series Insights Instance API support, consult the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Hierarchy API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+
+### Hierarchy example
+
+Consider an example where hierarchy **H1** has *building*, *floor*, and *room* as part of its **instanceFieldNames** definition:
+
+```json
+{
+  "id": "aaaaaa-bbbbb-ccccc-ddddd-111111",
+  "name": "H1",
+  "source": {
+    "instanceFieldNames": [
+      "building",
+      "floor",
+      "room"
+    ]
+  }
+}
+```
+
+Given the *instance fields* used in the above definition and several time series, the hierarchy attributes and values will appear as shown in the following table:
 
 | Time Series ID | Instance fields |
 | --- | --- |
@@ -104,7 +197,9 @@ Depending on the *instance fields*, the hierarchy attributes and values appear a
 | ID4 | “building” = “1000”, “floor” = “10”  |
 | ID5 | None of “building”, “floor” or “room” is set |
 
-In the preceding example, **ID1** and **ID4** show as part of hierarchy H1 in the Azure Time Series Insights explorer, and the rest are classified under *Unparented Instances* because they don't conform to the specified data hierarchy.
+Time Series **ID1** and **ID4** will be displayed as part of hierarchy **H1** in the [Azure Time Series Insights explorer](time-series-insights-update-explorer.md) since they have fully defined and correctly ordered *building*, *floor*, and *room* parameters.
+
+The others will be classified under *Unparented Instances* since they don't conform to the specified data hierarchy.
 
 ## Time Series Model types
 
@@ -116,14 +211,51 @@ The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/sampl
 
 [![Time Series Model types](media/v2-update-tsm/types.png)](media/v2-update-tsm/types.png#lightbox)
 
-API support for Time Series Model types is described below.
+> [!TIP]
+> For Time Series Insights Instance API support, consult the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Type API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
-> [!IMPORTANT]
-> To access the Azure Time Series Insights REST APIs, you must [obtain a valid OAuth 2.0 token](time-series-insights-authentication-and-authorization.md#common-headers-and-parameters)
+### Type properties
+
+Time Series Model types are defined by the an *id*, *name*, *description*, and *variables*.
+
+| Property | Description |
+| ---| ---|
+| id | The UUID for the type |
+| name | A string used to provide a name for the type |
+| description | A string description for the type |
+| variables | Specify variables associated with the type (see below for further information) |
+
+A JSON type response object will take the following form:
+
+```json
+{
+  "types": [
+    {
+      "id": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
+      "name": "DefaultType",
+      "description": "Default type",
+      "variables": {
+        "EventCount": {
+          "kind": "aggregate",
+          "value": null,
+          "filter": null,
+          "aggregation": {
+            "tsx": "count()"
+          }
+        }
+      }
+    }
+  ]
+}
+```
 
 ### Variables
 
-Time Series Insights types have variables, which are named calculations over values from the events. Time Series Insights variable definitions contain formula and computation rules. Variable definitions include *kind*, *value*, *filter*, *reduction*, and *boundaries*. Variables are stored in the type definition in Time Series Model and can be provided inline via Query APIs to override the stored definition.
+Time Series Insights types have variables, which are named calculations over values from the events.
+
+Time Series Insights variable definitions contain formula and computation rules. Variable definitions include *kind*, *value*, *filter*, *reduction*, and *boundaries*.
+
+Variables are stored in the type definition in Time Series Model and can be provided inline via [Query APIs](time-series-insights-update-tsq.md) to override the stored definition.
 
 | Definition | Description |
 | --- | ---|
