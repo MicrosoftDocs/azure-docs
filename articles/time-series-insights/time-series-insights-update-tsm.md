@@ -130,9 +130,9 @@ Hierarchies are defined by hierarchy **id**, **name**, and **source**.
 | ---| ---|
 | id | The unique identifier for the hierarchy - used, for example, when defining an instance |
 | name | A string used to provide a name for the hierarchy |
-| source | Specifies the organizational hierarchy or path which is a top-down parent-child order of the hierarchy that users want to create. The parent-child properties map *instance fields*. |
+| source | Specifies the organizational hierarchy or path, which is a top-down parent-child order of the hierarchy that users want to create. The parent-child properties map *instance fields*. |
 
-JSON response objects will conform to the following:
+JSON response objects will conform to the following example:
 
 ```json
 {
@@ -216,7 +216,7 @@ The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/sampl
 
 ### Type properties
 
-Time Series Model types are defined by the an **id**, **name**, **description**, and **variables**.
+Time Series Model types are defined by an **id**, **name**, **description**, and **variables**.
 
 | Property | Description |
 | ---| ---|
