@@ -61,7 +61,7 @@ While model building is automated, you can also [learn how important or relevant
 
 ## Time-Series Forecasting
 Building forecasts is an integral part of any business, whether it’s revenue, inventory, sales, or customer demand. 
-Automated ML uses a number of combined techniques and approaches to recommend a high quality time-series forecast. Time-series experiments in Automated ml are treated as a multivariate regression problem. Past time series values are “pivoted” to become additional dimensions for the regressor together with other predictors. 
+Automated ml uses a number of combined techniques and approaches to recommend a high quality time-series forecast. Time-series experiments in Automated ml are treated as a multivariate regression problem. Past time series values are “pivoted” to become additional dimensions for the regressor together with other predictors. 
 
 This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. In real-world forecasting applications, multiple factors can influence a forecast. For example, when forecasting sales, interactions of historical trends, exchange rate and price all jointly drive the sales outcome. A further benefit is that all recent innovations in regression models apply immediately to forecasting.
 
