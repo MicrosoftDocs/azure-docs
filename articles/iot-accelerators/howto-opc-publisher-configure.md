@@ -376,4 +376,4 @@ The syntax of the configuration file is as follows:
 
 ## Next steps
 
-Now you've learned how to configure OPC Publisher, the suggested next step is to learn how to [Run OPC publisher](howto-opc-publisher-run.md).
+Now you've learned how to configure OPC Publisher, the suggested next step is to learn how to [Run OPC Publisher](howto-opc-publisher-run.md).

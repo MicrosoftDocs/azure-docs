@@ -38,4 +38,4 @@ This application uses the OPC Foundation OPC UA reference stack as NuGet package
 
 ### Next steps
 
-Now you've learned what OPC Publisher is, the suggested next step is to learn how to [Configure OPC publisher](howto-opc-publisher-configure.md).
+Now you've learned what OPC Publisher is, the suggested next step is to learn how to [Configure OPC Publisher](howto-opc-publisher-configure.md).
