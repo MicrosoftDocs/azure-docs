@@ -1,8 +1,8 @@
 - name: Immersive Reader Documentation
-  href: Overview.md
+  href: index.yml
 - name: Overview
   items:
-  - name: About Immersive Reader
+  - name: What is Immersive Reader?
     href: Overview.md
 - name: Quickstarts
   expanded: true
