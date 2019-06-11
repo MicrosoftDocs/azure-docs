@@ -301,7 +301,7 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 7. Choose **Pipeline script from SCM** in **Pipeline > Definition**.
 8. In **SCM**, choose **Git** and then enter your repo URL.
 9. In **Branch Specifier**, enter `refs/remotes/origin/${GITHUB_PR_SOURCE_BRANCH}`.
-10. Fill in the SCM repo url and script path "Jenkinsfile". (Script [Example](/JenkinsFile))
+10. Fill in the SCM repo URL and script path "Jenkinsfile".
 11. **Lightweight checkout** should be checked.
 
 ## Create a pull request to trigger the pipeline
