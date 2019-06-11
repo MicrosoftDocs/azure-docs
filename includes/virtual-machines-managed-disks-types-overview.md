@@ -68,7 +68,7 @@ During preview, ultra SSD:
 - Are only supported on ES/DS v3 VMs
 - Are only available as data disks and only support 4k physical sector size  
 - Can only be created as empty disks  
-- Currently can only be deployed using Azure Resource Manager templates, CLI, PowerShell, and the python SDK.
+- Currently can only be deployed using Azure Resource Manager templates, CLI, PowerShell, and the Python SDK.
 - Cannot be deployed with the Azure portal (yet).
 - Does not yet support disk snapshots, VM images, availability sets, virtual machine scale sets, and Azure disk encryption.
 - Does not yet support integration with Azure Backup or Azure Site Recovery.
