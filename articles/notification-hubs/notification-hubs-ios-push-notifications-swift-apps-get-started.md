@@ -167,7 +167,7 @@ In this section, you'll build the iOS app that will connect to the notification 
 
     This code retrieves the setting values from devsettings.plist, sets the **AppDelegate** class as the **UNUserNotificationCenter** delegate, requests authorization for push notifications, and then calls **registerForRemoteNotifications**.
 
-    To keep it simple, the code supports *iOS 10 and above only*. You can add support for previous OS versions by conditionally using the respective APIs and approaches as you would normally do.
+    To keep it simple, the code supports *iOS 10 and later only*. You can add support for previous OS versions by conditionally using the respective APIs and approaches as you would normally do.
 
 1. In the same file, add the following functions:
 
@@ -212,7 +212,7 @@ In this section, you'll build the iOS app that will connect to the notification 
 
 ### Create models
 
-In this step, you'll create a set of models to represent the [Notification Hubs REST API](/rest/api/notificationhubs/) payloads and to store the required SAS token data.
+In this step, you'll create a set of models to represent the [Notification Hubs REST API](/rest/api/notificationhubs/) payloads and to store the required shared access signature (SAS) token data.
 
 1. Add a new Swift file called PushTemplate.swift to the Models folder. This model provides a struct representing the **BODY** of an individual template as part of the **DeviceInstallation** payload.
 
@@ -546,7 +546,7 @@ Finally, **encodeToJson** converts the respective model objects into JSON for us
 
 The last step is updating **AppDelegate** to use the **NotificationRegistrationService** to register with our **NotificationHub**.
 
-1. Open AppDelegate.swift and add a class-level variable to store a reference to the **NoficiationRegistrationService**:
+1. Open AppDelegate.swift and add a class-level variable to store a reference to the **NotificationRegistrationService**:
 
     ```swift
     var registrationService : NotificationRegistrationService?
@@ -689,7 +689,7 @@ You can send notifications via the [REST API](/rest/api/notificationhubs/) by us
 You should get a success status code and receive the notification on the client device.
 
 ## Next steps
-You now have a basic iOS Swift app connected to a notification hub via the [REST API](/rest/api/notificationhubs/) and can send and receive notifications. For more information, see the following articles: 
+You now have a basic iOS Swift app connected to a notification hub via the [REST API](/rest/api/notificationhubs/) and can send and receive notifications. For more information, see the following articles:
 
 - [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md)
 - [Notification Hubs REST APIs](/rest/api/notificationhubs/)
