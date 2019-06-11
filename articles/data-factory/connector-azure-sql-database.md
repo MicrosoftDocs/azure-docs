@@ -471,7 +471,7 @@ This is the default behavior of this Azure SQL DB sink connector, and ADF do **b
 
 As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity** on success. The former copies data from your source store into an Azure SQL Database temporary table, say "**##UpsertTempTable**" as table name in dataset, then the latter invokes a Stored Procedure to merge source data from the temp table into target table, and clean up temp table.
 
-![Upsert](media\connector-azure-sql-database\azure-sql-database-upsert.png)
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
 In your database, define a Stored Procedure with MERGE logic, like the following, which is pointed to from the above Stored Procedure activity. Assuming target **Marketing** table with three columns: **ProfileID**, **State**, and **Category**, and do the upsert based on the **ProfileID** column.
 
