@@ -105,3 +105,5 @@ During the preview, we will support the following host SKUs:
 |            |                  |                                                     | Standard_F32s_v2 | 2        |
 |            |                  |                                                     | Standard_F64s_v2 | 1        |
 |            |                  |                                                     | Standard_F72s_v2 | 1        |
+
+
