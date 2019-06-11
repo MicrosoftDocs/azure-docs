@@ -81,7 +81,7 @@ Managed instance currently supports deployment only on the following types of su
 Supported subscription types can contain a limited number of resources per region. Managed instance has two default limits per Azure region depending on a type of subscription type:
 
 - **Subnet limit**: The maximum number of subnets where managed instances are deployed in a single region.
-- **Instance number limit**: The maximum number of instances that can be deployed in a single region.
+- **vCore limit**: the maximum number of vCores that can be deployed across all instances in a single region.
 
 > [!Note]
 > These limits are default settings and not technical limitations. The limits can be increased on-demand by creating a special [support request in the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) if you need more managed instances in the current region. As an alternative, you can create new managed instances in another Azure region without sending support requests.
@@ -98,7 +98,7 @@ The following table shows the default regional limits for supported subscription
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional and MSDN Platforms|2|32|
 
-\* When planning your deployments, consider that a Business Critical (BC) vCore (due to added redundancy) consumes 4x more capacity than a General Purpose (GP) vCore. So, for your calculations, 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies one subscription in a region. There is no limit per individual subnets except that sum of all vCores deployed across multiple subnets must be lower or equal to **max number of vCore units**.
+\* When planning your deployments, consider that a Business Critical (BC) vCore (due to added redundancy) consumes 4x more capacity than a General Purpose (GP) vCore. So, for your calculations, 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies to each subscription in a region. There is no limit per individual subnets except that the sum of all vCores deployed across multiple subnets must be lower or equal to **max number of vCore units**.
 
 ** Larger subnet and vCore limits are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
 
@@ -129,8 +129,8 @@ To initiate the process of obtaining a larger quota:
      > [!IMPORTANT]
      > A valid request should include:
      > - Region in which subscription limit needs to be increased
-     > - Required number of instances, per service tier in existing subnets after the quota increase (if any of the existing subnets needs to be expanded
-     > - Required number of new subnets and total number of instances per service tier within the new subnets (if you need to deploy managed instances in new subnets).
+     > - Required number of vCores, per service tier in existing subnets after the quota increase (if any of the existing subnets needs to be expanded
+     > - Required number of new subnets and total number of vCores per service tier within the new subnets (if you need to deploy managed instances in new subnets).
 
 5. Click **Next**.
 6. On the Contact Information tab for the new support request, enter preferred contact method (email or phone) and the contact details.
