@@ -14,20 +14,26 @@ ms.date: 06/10/2019
 
 Mapping data flows in data factory support the use of parameters. You can define parameters inside of your data flow definition, which you can then use throughout your expressions. The parameters can then be set by the calling pipeline via the Execute Data Flow activity. You have three options to use to set the values in the data flow activity expressions:
 
-** Use the pipeline control flow expression language to set a dynamic value
-** Use the data flow expression language to set a dynamic value
-** Use either expression language to set a static literal value
+* Use the pipeline control flow expression language to set a dynamic value
+* Use the data flow expression language to set a dynamic value
+* Use either expression language to set a static literal value
+
+Use this capability to make your data flows general-purpose, flexible, and reusable.
 
 > [!NOTE]
 > To use pipeline control flow expressions, your data flow parameter must be of type string
 
 ![Data flow parameters 1](media/data-flow/params3.png "Data flow parameters 1")
 
-Add an Execute Data Flow activity to the pipeline canvas. If your data flow has parameters, you will see the list of available parameters in the Parameters tab. Click on the text box next to each parameter to enter your parameter value. You can choose to create your parameter expression via the pipeline control flow expression language or data flow expressions.
+* Add an Execute Data Flow activity to the pipeline canvas.
+* If your data flow has parameters, you will see the list of available parameters in the Parameters tab.** Click on the text box next to each parameter to enter your parameter value.
+* You can choose to create your parameter expression via the pipeline control flow expression language or data flow expressions.
 
 ## Parameters in data flow
 
-Round Robin is simple partition that automatically distributes data equally across partitions. Use Round Robin when you do not have good key candidates to implement a solid, smart partitioning strategy. You can set the number of physical partitions.
+To add parameters to your data flow, click on the blank portion of the data flow canvas to see the general properties. In the settings pane, you will see a tab called Parameters. Click the New button to generate new parameters which can be set from the pipeline, passing values into your data flow. Set the parameter name and data type for each parameter.
+
+![Data flow parameters 2](media/data-flow/params1.png "Data flow parameters 2")
 
 ### Hash
 
