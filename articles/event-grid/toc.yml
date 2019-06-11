@@ -166,6 +166,8 @@
       href: event-schema-service-bus.md
     - name: Azure Maps
       href: event-schema-azure-maps.md
+    - name: App Configuration
+      href: event-schema-app-configuration.md
   - name: Template resources
     items:
     - name: Event subscriptions
