@@ -564,17 +564,17 @@ By using the Machine Learning extension for Azure DevOps you can trigger a deplo
 
 Use __service Connections__ to set up a service principal connection to your Azure Machine Learning service workspace to access all your artifacts. Go to project settings, click on service connections, and select Azure Resource Manager. Define AzureMLWorkspace as the __scope level__ and fill in the subsequent parameters. 
 
-![view-service-connection](articles/machine-learning/service/media/how-to-deploy-and-where/view-service-connection.png) 
-![view-azure-resource-manager](articles/machine-learning/service/media/how-to-deploy-and-where/view-arm.png)
+![view-service-connection](/articles/machine-learning/service/media/how-to-deploy-and-where/view-service-connection.png) 
+![view-azure-resource-manager](/articles/machine-learning/service/media/how-to-deploy-and-where/view-arm.png)
 
 
 Next, to continuously deploy your machine learning model using the Azure DevOps pipelines, under pipelines select __release__. Add a new artifact, select AzureML Model artifact and the service connection that was created in the earlier step. Select the model and version to trigger a deployment. 
 
-![select-AzureMLmodel-artifact](articles/machine-learning/service/media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+![select-AzureMLmodel-artifact](/articles/machine-learning/service/media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
 
 Enable the model trigger on your model artifact. By turning on the trigger, everytime the specified version (i.e the newest version) of that model is register in your workspace, an Azure DevOps release pipeline is triggerd. 
 
-![enable-model-trigger](articles/machine-learning/service/media/how-to-deploy-and-where/set-modeltrigger.png)
+![enable-model-trigger](/articles/machine-learning/service/media/how-to-deploy-and-where/set-modeltrigger.png)
 
 
 For sample projects and examples check out [the MLOps repository](https://github.com/Microsoft/MLOps)
