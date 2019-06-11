@@ -231,7 +231,7 @@ Follow these instructions to capture troubleshooting logs for your framework.
 4. Revert these changes when you are finished.
 
 
-## PerfView
+## <a name="PerfView"></a> Collect logs with PerfView
 [PerfView](https://github.com/Microsoft/perfview) is a free diagnostics and performance-analysis tool that help isolate CPU, memory, and other issues by collecting and visualizing diagnostics information from many sources.
 
 The Application Insights SDK log EventSource self-troubleshooting logs that can be captured by PerfView.
