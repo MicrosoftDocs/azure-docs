@@ -98,7 +98,7 @@ You can apply Personalizer in situations where:
 * You have information about each action as a dictionary of at least 5 attributes or features that you think will help Personalizer make the right choice.
 * You can retain data for long enough to accumulate a history of at least 100,000 interactions.
 
-## Machine learning considerations for applying personalizer
+## Machine learning considerations for applying Personalizer
 
 Personalizer is based on reinforcement learning, an approach to machine learning that gets taught by feedback you give it. 
 
@@ -133,7 +133,7 @@ In this example, you will see how to use Personalization to make a default sugge
 
 ### Recommended bot patterns
 
-* Make personalizer Rank API calls every time a disambiguation is needed, as opposed to caching results for each user. The result of disambiguating intent may change over time for one person, and allowing the Rank API to explore variances will accelerate overall learning.
+* Make Personalizer Rank API calls every time a disambiguation is needed, as opposed to caching results for each user. The result of disambiguating intent may change over time for one person, and allowing the Rank API to explore variances will accelerate overall learning.
 * Choose an interaction that is common with many users so that you have enough data to personalize. For example, introductory questions may be better fits than smaller clarifications deep in the conversation graph that only a few users may get to.
 * Use Rank API calls to enable "first suggestion is right" conversations, where the user gets asked "Would you like X?" or "Did you mean X?" and the user can just confirm; as opposed to giving options to the user where they must choose from a menu. For example User:"I'd like to order a coffee" Bot:"Would you like a double espresso?". This way the reward signal is also strong as it pertains directly to the one suggestion.
 
