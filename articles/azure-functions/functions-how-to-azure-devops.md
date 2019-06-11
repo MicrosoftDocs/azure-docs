@@ -125,6 +125,27 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
+#### PowerShell
+
+You can use the following sample to create your YAML file to package your PowerShell app, PowerShell is only supported for Windows Azure Functions:
+
+```yaml
+jobs:
+  - job: Build
+    pool:
+      vmImage: 'VS2017-Win2016'
+steps:
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    name: 'drop'
+```
 
 ### Deploy your app
 
