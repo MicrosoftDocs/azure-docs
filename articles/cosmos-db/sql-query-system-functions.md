@@ -14,12 +14,12 @@ ms.author: mjbrown
   
 |Function|Description|  
 |--------------|-----------------|  
-|[Mathematical functions](#bk_mathematical_functions)|The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.|  
-|[Type checking functions](#bk_type_checking_functions)|The type checking functions allow you to check the type of an expression within SQL queries.|  
-|[String functions](#bk_string_functions)|The string functions perform an operation on a string input value and return a string, numeric or Boolean value.|  
-|[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|
-|[Date and Time functions](#bk_date_and_time_functions)|The date and time functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format.|
-|[Spatial functions](#bk_spatial_functions)|The spatial functions perform an operation on a spatial object input value and return a numeric or Boolean value.|  
+|[Mathematical functions](#mathematical-functions)|The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.|  
+|[Type checking functions](#type-checking-functions)|The type checking functions allow you to check the type of an expression within SQL queries.|  
+|[String functions](#string-functions)|The string functions perform an operation on a string input value and return a string, numeric or Boolean value.|  
+|[Array functions](#array-functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|
+|[Date and Time functions](#date-time-functions)|The date and time functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format.|
+|[Spatial functions](#spatial-functions)|The spatial functions perform an operation on a spatial object input value and return a numeric or Boolean value.|  
 
 Below are a list of functions within each category:
 
@@ -35,7 +35,7 @@ If you’re currently using a user-defined function (UDF) for which a built-in f
 
 The main difference between Cosmos DB functions and ANSI SQL functions is that Cosmos DB functions are designed to work well with schemaless and mixed-schema data. For example, if a property is missing or has a non-numeric value like `unknown`, the item is skipped instead of returning an error.
 
-##  <a name="bk_mathematical_functions"></a> Mathematical functions  
+##  <a name="mathematical-functions"></a> Mathematical functions  
 
 The mathematical functions each perform a calculation, based on input values that are provided as arguments, and return a numeric value.
 
@@ -890,9 +890,9 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
   
 ```  
 [{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
-```  
+```
 
-### Type checking functions
+## <a id="type-checking-functions"></a>Type checking functions
 
 The type-checking functions let you check the type of an expression within a SQL query. You can use type-checking functions to determine the types of properties within items on the fly, when they're variable or unknown. Here’s a table of supported built-in type-checking functions:
 
@@ -1217,7 +1217,7 @@ SELECT
 [{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
 ```  
 
-## String functions  
+## <a id="string-functions"></a>String functions
 
 The following scalar functions perform an operation on a string input value and return a string, numeric, or Boolean value:
   
@@ -2275,9 +2275,9 @@ SELECT UPPER("Abc") AS upper
   
 ```  
 [{"upper": "ABC"}]  
-```  
-  
-## Array functions  
+```
+
+## <a id="array-functions"></a>Array functions
 
 The following scalar functions perform an operation on an array input value and return numeric, Boolean or array value:
   
@@ -2470,8 +2470,7 @@ SELECT
            "s7": [] 
 }]  
 ```  
-
-## Date and Time function
+## <a id="date-time-function"></a>Date and Time Function
 
 The following scalar functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format. 
 
@@ -2563,9 +2562,9 @@ SELECT GetCurrentTimestamp() AS currentUtcTimestamp
 [{
   "currentUtcTimestamp": 1556916469065
 }]  
-```  
+```
 
-## Spatial functions  
+## <a id="spatial-functions"></a>Spatial functions
 
 Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
   

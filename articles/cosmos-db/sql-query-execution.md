@@ -15,7 +15,7 @@ Any language capable of making HTTP/HTTPS requests can call the Cosmos DB REST A
 
 The following examples show how to create a query and submit it against a Cosmos DB database account.
 
-## REST API
+## <a id="REST-API"></a>REST API
 
 Cosmos DB offers an open RESTful programming model over HTTP. The resource model consists of a set of resources under a database account, which an Azure subscription provisions. The database account consists of a set of *databases*, each of which can contain multiple *containers*, which in turn contain *items*, UDFs, and other resource types. Each Cosmos DB resource is addressable using a logical and stable URI. A set of resources is called a *feed*. 
 
@@ -237,13 +237,13 @@ The next example shows joins, expressed through LINQ `SelectMany`.
     }
 ```
 
-The .NET client automatically iterates through all the pages of query results in the `foreach` blocks, as shown in the preceding example. The query options introduced in the [REST API](#RestAPI) section are also available in the .NET SDK, using the `FeedOptions` and `FeedResponse` classes in the `CreateDocumentQuery` method. You can control the number of pages by using the `MaxItemCount` setting.
+The .NET client automatically iterates through all the pages of query results in the `foreach` blocks, as shown in the preceding example. The query options introduced in the [REST API](#Rest-API) section are also available in the .NET SDK, using the `FeedOptions` and `FeedResponse` classes in the `CreateDocumentQuery` method. You can control the number of pages by using the `MaxItemCount` setting.
 
 You can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the `ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. You can set `EnableScanInQuery` to enable scans when the query isn't supported by the configured indexing policy. For partitioned containers, you can use `PartitionKey` to run the query against a single partition, although Azure Cosmos DB can automatically extract this from the query text. You can use `EnableCrossPartitionQuery` to run queries against multiple partitions.
 
 For more .NET samples with queries, see the [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet) in GitHub.
 
-## JavaScript server-side API
+## <a id="JavaScript-server-side-API"></a>JavaScript server-side API
 
 Azure Cosmos DB provides a programming model for executing JavaScript based application logic directly on containers, using stored procedures and triggers. The JavaScript logic registered at the container level can then issue database operations on the items of the given container, wrapped in ambient ACID transactions.
 

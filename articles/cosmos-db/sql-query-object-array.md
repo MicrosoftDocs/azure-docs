@@ -45,7 +45,7 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
-## Iteration
+## <a id="Iteration"></a>Iteration
 
 The SQL API provides support for iterating over JSON arrays, with a new construct added via the [IN keyword](sql-query-keywords#IN) in the FROM source. In the following example:
 

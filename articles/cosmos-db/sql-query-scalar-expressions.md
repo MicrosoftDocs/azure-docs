@@ -45,7 +45,7 @@ The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar e
   
 - `<constant>`  
   
-   Represents a constant value. See [Constants](sql-query-constants) section for details.  
+   Represents a constant value. See [Constants](sql-query-constants.md) section for details.  
   
 - `input_alias`  
   
@@ -66,7 +66,7 @@ The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar e
   
 - `<scalar_expression> binary_operator <scalar_expression>`  
   
-   Represents an operator that is applied to two values. See [Operators](sql-query-operators) section for details.  
+   Represents an operator that is applied to two values. See [Operators](sql-query-operators.md) section for details.  
   
 - `<scalar_function_expression>`  
   

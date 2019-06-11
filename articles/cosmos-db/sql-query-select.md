@@ -10,7 +10,7 @@ ms.author: girobins
 
 # SELECT clause
 
-Every query consists of a SELECT clause and optional [FROM](sql-query-from) and [WHERE](sql-query-where) clauses, per ANSI SQL standards. Typically, the source in the FROM clause is enumerated, and the WHERE clause applies a filter on the source to retrieve a subset of JSON items. The SELECT clause then projects the requested JSON values in the select list.
+Every query consists of a SELECT clause and optional [FROM](sql-query-from.md) and [WHERE](sql-query-where.md) clauses, per ANSI SQL standards. Typically, the source in the FROM clause is enumerated, and the WHERE clause applies a filter on the source to retrieve a subset of JSON items. The SELECT clause then projects the requested JSON values in the select list.
 
 ## Syntax
 
