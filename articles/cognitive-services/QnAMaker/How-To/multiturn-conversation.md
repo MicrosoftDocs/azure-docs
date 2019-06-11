@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 06/11/2019
+ms.date: 05/20/2019
 ms.author: diberry
 #
 ---
@@ -379,7 +379,7 @@ In the initial question's response, any follow-up prompts and its associated `qn
 
 ## Displaying prompts and sending context in the client application 
 
-You have added prompts in your knowledge base and tested the flow in the test pane. Now you need to use these prompts in the client application. For [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet), the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA ID and the user query, and pass them in the [context object of the GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) for the next user query. 
+You have added prompts in your knowledge base and tested the flow in the test pane. Now you need to use these prompts in the client application. For Bot Framework, the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA ID and the user query, and pass them in the [context object of the GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) for the next user query. 
 
 ## Display order supported in API
 
