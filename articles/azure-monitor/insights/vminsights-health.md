@@ -19,17 +19,17 @@ ms.author: magoedte
 
 Azure includes services for specific roles or tasks in the monitoring space. However, it doesn't provide in-depth health perspectives of operating systems (OSs) hosted on Azure virtual machines (VMs). Although you can use Azure Monitor for different conditions, it's not designed to model and represent the health of core components, or the overall health of VMs.
 
-The health feature of Azure Monitor for VMs actively monitors the availability and performance of a Windows or Linux guest OS. It uses a model that represents key components and their relationships, provides criteria that specifies how to measure component health, and sends an alert when it detects an unhealthy condition.
+By using the Azure Monitor for VMs health feature, you can actively monitor the availability and performance of a Windows or Linux guest OS. The health feature uses a model that represents key components and their relationships, provides criteria that specifies how to measure component health, and sends an alert when it detects an unhealthy condition.
 
-The health of an Azure VM and the underlying operating system can be observed from two perspectives, by using the Azure Monitor for VM's health feature. These perspectives are directly from a VM or across all VMs in a resource group from Azure Monitor.
+Viewing the overall health state of an Azure VM and the underlying OS can be observed from two perspectives: directly from a VM, or across all VMs in a resource group from Azure Monitor.
 
-This article shows how to quickly assess, investigate, and resolve health issues when they are detected by the Azure Monitor for VM's health feature.
+This article shows how to quickly assess, investigate, and resolve health issues when they are detected by the Azure Monitor for VMs health feature.
 
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
 
 ## Monitoring configuration details
 
-This section outlines the default health criteria to monitor Azure Windows and Linux VMs. All health criteria are pre-configured to alert when an unhealthy condition is detected.
+This section outlines the default health criteria to monitor Azure Windows and Linux VMs. All health criteria are pre-configured to send an alert when they detect an unhealthy condition.
 
 ### Windows VMs
 
@@ -84,11 +84,11 @@ Before you use the health feature for a single VM or group of VMs, it's importan
 
 ### View health directly from a VM
 
-To view the health of an Azure VM, select **Insights (preview)** from the left pane of the VM. In the VM insights page, the **Health** tab is open by default and shows the health view of the VM.
+To view the health of an Azure VM, select **Insights (preview)** in the left pane of the VM. In the VM insights page, the **Health** tab is open by default and shows the health view of the VM.
 
 ![Azure Monitor for VM's health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-Under **Guest VM health** in the **Health** tab, the table shows the health state of your VM and the total number of VM health alerts raised by an unhealthy component.
+In the **Health** tab, under **Guest VM health**, the table shows the health state of the VM and the total number of VM health alerts raised by an unhealthy component.
 
 For more information, see [Alerts](#alerts).
 
@@ -103,10 +103,10 @@ The health states defined for a VM are described in the following table:
 
 An Unknown health state can be caused by the following issues:
 
-- The agent has been reconfigured and no longer reports to the workspace specified when Azure Monitor for VMs was enabled. To configure the agent to report to the workspace see, [adding or removing a workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).
-- The VM has been deleted.
+- The agent was reconfigured and no longer reports to the workspace specified when Azure Monitor for VMs was enabled. To configure the agent to report to the workspace see, [adding or removing a workspace](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- The VM was deleted.
 - The workspace associated with Azure Monitor for VMs was deleted. You can recover the workspace if you have Premier support benefits. Go to [Premier](https://premier.microsoft.com/) and open a support request.
-- The solution dependencies were deleted. To re-enable the ServiceMap and InfrastructureInsights in your Log Analytics workspace, reinstall these solutions by using the [Azure Resource Manager template](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). Or, use the Configure Workspace option found in the Get Started tab.
+- The solution dependencies were deleted. To re-enable the ServiceMap and InfrastructureInsights solutions in your Log Analytics workspace, reinstall these solutions by using the [Azure Resource Manager template](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). Or, use the Configure Workspace option found in the Get Started tab.
 - The VM was shut down.
 - The Azure VM service is unavailable, or maintenance is being performed.
 - The workspace [daily data or retention limit](../platform/manage-cost-storage.md) was met.
@@ -134,7 +134,7 @@ In the **Subscription** and **Resource Group** dropdown lists, select the approp
 The **Health** tab provides the following information:
 
 * How many VMs are in a critical or unhealthy state, versus how many are healthy or not submitting data (referred to as an unknown state).
-* Which and how many VMs by operating system (OS) are reporting an unhealthy state.
+* Which and how many VMs by OS are reporting an unhealthy state.
 * How many VMs are unhealthy because of an issue detected with a processor, disk, memory, or network adapter, categorized by health state.
 * How many VMs are unhealthy because of an issue detected with a core OS service, categorized by health state.
 
