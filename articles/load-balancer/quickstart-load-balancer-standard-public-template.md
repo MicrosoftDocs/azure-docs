@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 In this section, you create a Standard Load Balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, and you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. There are many methods that can be used to create a standard load balancer. In this quickstart, you use Azure PowerShell to deploy a [Resource Manager template](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager documentation](/azure/azure-resource-manager/). To find more Azure Load Balancer related template, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-To deploy the template, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
+To deploy the template, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**. For a list of regions that support availability zone for Azure virtual machines, see [here](../availability-zones/az-overview.md).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
@@ -40,9 +40,13 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
+
+Write-Host "Press [ENTER] to continue."
+
 ```
 
-Notice the resource group name is the project name with **rg** appended. You need the resource group name in the next section.  It takes a few minutes to create the resources.
+ >[!NOTE]
+ >The resource group name is the project name with **rg** appended. You need the resource group name in the next section.  It takes a few minutes to create the resources.
 
 ## Test the Load Balancer
 

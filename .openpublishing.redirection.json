@@ -37259,6 +37259,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/oms-portal-transition.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/oms-portal-faq.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/analysis-services/analysis-services-import-pbix.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
