@@ -24,18 +24,17 @@ This release corresponds to the software versions:
 - **Data Box Gateway 1905 (1.6.887.626)**
 - **Data Box Edge 1905 (1.6.887.626)**
 
+> [!NOTE]
+> Update 1905 can only be applied to the Data Box Edge devices that are running GA version of the software.
 
 ## What's new
 
-- **New virtual disk images** - New VHDX and VMDK are now available in the Azure portal. Download these images to provision, configure, and deploy new Data Box Gateway GA devices. The Data Box Gateway devices created in the earlier preview releases cannot be updated to this version. For more information, go to [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
-- **NFS support** - NFS support is currently in preview and available for v3.0 and v4.1 clients that access the Data Box Edge and Data Box Gateway devices.
-- **Storage resiliency** - Your Data Box Edge device can withstand the failure of one data disk with the Storage resiliency feature. This feature is currently in preview. You can enable storage resiliency by selecting the **Resilient** option in the **Storage settings** in the local web UI.
-
+- **Field Programmable Gate Array (FPGA) logging improvements** -  In this release, a lot of logging and alert enhancements related to FPGA are implemented. If using the Edge compute feature powered by FPGA on Data Box Edge, this is a **required update**.
+For more information, see how to [transform data with Edge compute on your Data Box Edge](data-box-edge-deploy-configure-compute-advanced).
 
 ## Known issues in GA release
 
 No new issues are release noted for this release. All the release noted issues have carried over from the previous releases. To see a list, go to [Known issues in the GA release](data-box-gateway-release-notes.md#known-issues-in-ga-release).
-
 
 
 ## Next steps
