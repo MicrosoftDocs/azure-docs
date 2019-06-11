@@ -4,7 +4,7 @@ description: Use the IoT Central connector in Azure Logic Apps to trigger workfl
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
