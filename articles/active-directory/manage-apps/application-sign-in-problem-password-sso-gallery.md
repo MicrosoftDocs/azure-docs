@@ -137,10 +137,7 @@ Follow these steps:
 
 9. Assign users to the app.
 
-10. You can also provide credentials for your users. (Otherwise, the users will be prompted to enter credentials at startup). To do this, follow these steps:
-    1. Select the rows of the users.
-    2. Select **Update Credentials**.
-    3. Enter the user names and passwords for the users.
+10. You can also provide credentials for users. (Otherwise, users will be prompted to enter credentials at app startup.) To do this, select the rows of the users. Then select **Update Credentials** and enter their user names and passwords.
 
 ### Assign users to the app
 
