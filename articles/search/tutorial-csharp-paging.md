@@ -22,11 +22,11 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) project up and running. This can either be your own version, or install it from TBD-First-app
+Have the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) project up and running. This project can either be your own version, or install it from TBD-First-app
 
 ## Extend your app with numbered paging
 
-Numbered paging is the paging system of choice of the main internet search engines and most other search websites. Numbered paging typically includes a "next" and "previous" option in addition to a range of actual page numbers. Also a "first page" and "last page" option might also be available. These options certainly give a user control over navigating through page based results.
+Numbered paging is the paging system of choice of the main internet search engines and most other search websites. Numbered paging typically includes a "next" and "previous" option in addition to a range of actual page numbers. Also a "first page" and "last page" option might also be available. These options certainly give a user control over navigating through page-based results.
 
 We will add a system that includes first, previous, next, and last options, along with page numbers that do not start from 1, but instead surround the current page the user is on (so, for example, if the user is looking at page 10, perhaps page numbers 8, 9, 10, 11, and 12 are displayed).
 
@@ -46,7 +46,7 @@ xxxx
 
 1. Open the SearchData.cs model file.
 
-2. First add some global variables (following **ResultsPerPage**). **MaxPageRange** determines the number of visible page numbers on the view. **PageRangeDelta** determines how many pages left or right the page range should be shifted when the left-most or right-most page number is selected. Typically this latter number might be around half of **MaxPageRange**.
+2. First add some global variables (following **ResultsPerPage**). **MaxPageRange** determines the number of visible page numbers on the view. **PageRangeDelta** determines how many pages left or right the page range should be shifted when the left-most or right-most page number is selected. Typically this latter number is around half of **MaxPageRange**.
 
 ```cs
         public static int MaxPageRange
@@ -166,7 +166,7 @@ Note the use of an HTML table to align things neatly. However all the action com
 
 The first and last page options do not send strings such as "first" and "last", but instead send the correct page numbers.
 
-2. Add the **pageSelected** class to the list of HTML styles (perhaps after **.pageButton**). This class is there to identify the page the user is currently viewing (by turning the number bold) in the list of page numbers.
+2. Add the **pageSelected** class to the list of HTML styles (perhaps after **pageButton**). This class is there to identify the page the user is currently viewing (by turning the number bold) in the list of page numbers.
 
 ```cs
     .pageSelected {
@@ -227,7 +227,7 @@ The first and last page options do not send strings such as "first" and "last", 
         }
 ```
 
-Note that the **RunQueryAsync** method shows a syntax error, because of the third parameter, which we will come to in a bit.
+The **RunQueryAsync** method will now show a syntax error, because of the third parameter, which we will come to in a bit.
 
 3. The **Index(model)** action needs updated to store the **leftMostPage** temporary variable, and to add the left-most page parameter to the **RunQueryAsync** call.
 
@@ -369,7 +369,7 @@ Now save off this project and let's try an alternative to this form of paging.
 
 ## Extend your app with infinite scrolling
 
-Infinite scrolling is triggered when a user scrolls a vertical scroll bar to the last of the results being displayed. In this event, a call to the server is made for the next page of results. If there are no more results, nothing is returned and the vertical scroll bar does not change. If there are more results, these are appended to the current page and the scroll bar changes to show that more results are available.
+Infinite scrolling is triggered when a user scrolls a vertical scroll bar to the last of the results being displayed. In this event, a call to the server is made for the next page of results. If there are no more results, nothing is returned and the vertical scroll bar does not change. If there are more results, they are appended to the current pag, and the scroll bar changes to show that more results are available.
 
 The important point here is that the page being displayed is not replaced, but appended to with the new results. A user can always scroll back up to the first results of the search.
 
@@ -413,7 +413,7 @@ This variable is a string, which holds "next" if the next page of results should
         </div>
 ```
 
-3. Directly underneath this, say after the &lt;/div&gt; tag, add the scroll function.
+3. Directly underneath the loop, after the &lt;/div&gt; tag, add the scroll function.
 
 ```cs
         <script>
@@ -580,7 +580,7 @@ Consider the following takeaways from this project:
 * Infinite scrolling is good when the order of results is particularly important. For example, if the results are ordered on the distance from the center of a destination city.
 * Numbered paging allows for some better navigation. For example, a user can remember that an interesting result was on page 6, whereas no such easy reference exists in infinite scrolling.
 * Infinite scrolling has an easy appeal, scrolling up and down with no fussy page numbers to click on.
-* A key feature of infinite scrolling is that you are appending to an existing page, not replacing that page. This keeps it efficient.
+* A key feature of infinite scrolling is that results are appended to an existing page, not replacing that page, which is efficient.
 
 
 ## Next steps
