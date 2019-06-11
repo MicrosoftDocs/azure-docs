@@ -25,8 +25,17 @@ The following Azure PowerShell examples show how you can add, remove, and config
 In this example, the public IP address *azFwPublicIp1* as attached to the firewall.
 
 ```azurepowershell
-$pip = New-AzPublicIpAddress -Name "azFwPublicIp1" -ResourceGroupName "rg" -Sku "Standard" -Location "centralus" -AllocationMethod Static
-$azFw = Get-AzFirewall -Name "AzureFirewall" -ResourceGroupName "rg"
+$pip = New-AzPublicIpAddress `
+  -Name "azFwPublicIp1" `
+  -ResourceGroupName "rg" `
+  -Sku "Standard" `
+  -Location "centralus" `
+  -AllocationMethod Static
+
+$azFw = Get-AzFirewall `
+  -Name "AzureFirewall" `
+  -ResourceGroupName "rg"
+
 $azFw.AddPublicIpAddress($pip)
 
 $azFw | Set-AzFirewall
@@ -37,8 +46,14 @@ $azFw | Set-AzFirewall
 In this example, the public IP address *azFwPublicIp1* as detached from the firewall.
 
 ```azurepowershell
-$pip = Get-AzPublicIpAddress -Name "azFwPublicIp1" -ResourceGroupName "rg"
-$azFw = Get-AzFirewall -Name "AzureFirewall" -ResourceGroupName "rg"
+$pip = Get-AzPublicIpAddress `
+  -Name "azFwPublicIp1" `
+  -ResourceGroupName "rg"
+
+$azFw = Get-AzFirewall `
+  -Name "AzureFirewall" `
+  -ResourceGroupName "rg"
+
 $azFw.RemovePublicIpAddress($pip)
 
 $azFw | Set-AzFirewall
@@ -50,10 +65,31 @@ This example creates a firewall attached to virtual network *vnet* with two publ
 
 ```azurepowershell
 $rgName = "resourceGroupName"
-$vnet = Get-AzVirtualNetwork -Name "vnet" -ResourceGroupName $rgName
-$pip1 = New-AzPublicIpAddress -Name "AzFwPublicIp1" -ResourceGroupName "rg" -Sku "Standard" -Location "centralus" -AllocationMethod Static
-$pip2 = New-AzPublicIpAddress -Name "AzFwPublicIp2" -ResourceGroupName "rg" -Sku "Standard" -Location "centralus" -AllocationMethod Static
-New-AzFirewall -Name "azFw" -ResourceGroupName $rgName -Location centralus -VirtualNetwork $vnet -PublicIpAddress @($pip1, $pip2)
+
+$vnet = Get-AzVirtualNetwork `
+  -Name "vnet" `
+  -ResourceGroupName $rgName
+
+$pip1 = New-AzPublicIpAddress `
+  -Name "AzFwPublicIp1" `
+  -ResourceGroupName "rg" `
+  -Sku "Standard" `
+  -Location "centralus" `
+  -AllocationMethod Static
+
+$pip2 = New-AzPublicIpAddress `
+  -Name "AzFwPublicIp2" `
+  -ResourceGroupName "rg" `
+  -Sku "Standard" `
+  -Location "centralus" `
+  -AllocationMethod Static
+
+New-AzFirewall `
+  -Name "azFw" `
+  -ResourceGroupName $rgName `
+  -Location centralus `
+  -VirtualNetwork $vnet `
+  -PublicIpAddress @($pip1, $pip2)
 ```
 
 ## Next steps
