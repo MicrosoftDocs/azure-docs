@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 06/07/2019
+ms.date: 06/11/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
@@ -41,96 +41,9 @@ You need these things to complete the migration.
 
 If you are ready, let's start.
 
-## Prepare to migrate your data
-
-Before you move your data onto a Data Box device, you'll need to download some helper scripts, ensure that your data is organized to fit onto a Data Box device, and exclude any unnecessary files.
-
-### Download helper scripts and set up your edge node to run them
-
-1. From your edge or head node of your on-premises Hadoop cluster, run this command:
-
-   ```bash
-   git clone https://github.com/jamesbak/databox-adls-loader.git
-   cd databox-adls-loader
-   ```
-
-   This command clones the Github repository that contains the helper scripts.
-
-2. Make sure that have the [jq](https://stedolan.github.io/jq/) package installed on your local computer.
-
-   ```bash
-   sudo apt-get install jq
-   ```
-
-3. Install the [Requests](http://docs.python-requests.org/en/master/) python package.
-
-   ```bash
-   pip install requests
-   ```
-
-4. Set execute permissions on the required scripts.
-
-   ```bash
-   chmod +x *.py *.sh
-
-   ```
-
-### Ensure that your data is organized to fit onto a Data Box device
-
-If the size of your data exceeds the size of a single Data Box device, you can split files up into groups that you can store onto multiple Data Box devices.
-
-If your data doesn't exceed the size of a singe Data Box device, you can proceed to the next section.
-
-1. With elevated permissions, run the `generate-file-list` script that you downloaded by following the guidance in the previous section.
-
-   Here's a description of the command parameters:
-
-   ```
-   sudo -u hdfs ./generate-file-list.py [-h] [-s DATABOX_SIZE] [-b FILELIST_BASENAME]
-                    [-f LOG_CONFIG] [-l LOG_FILE]
-                    [-v {DEBUG,INFO,WARNING,ERROR}]
-                    path
-
-   where:
-   positional arguments:
-   path                  The base HDFS path to process.
-
-   optional arguments:
-   -h, --help            show this help message and exit
-   -s DATABOX_SIZE, --databox-size DATABOX_SIZE
-                        The size of each Data Box in bytes.
-   -b FILELIST_BASENAME, --filelist-basename FILELIST_BASENAME
-                        The base name for the output filelists. Lists will be
-                        named basename1, basename2, ... .
-   -f LOG_CONFIG, --log-config LOG_CONFIG
-                        The name of a configuration file for logging.
-   -l LOG_FILE, --log-file LOG_FILE
-                        Name of file to have log output written to (default is
-                        stdout/stderr)
-   -v {DEBUG,INFO,WARNING,ERROR}, --log-level {DEBUG,INFO,WARNING,ERROR}
-                        Level of log information to output. Default is 'INFO'.
-   ```
-
-2. Copy the generated file lists to HDFS so that they are accessible to the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) job.
-
-   ```
-   hadoop fs -copyFromLocal {filelist_pattern} /[hdfs directory]
-   ```
-
-### Exclude unnecessary files
-
-You'll need to exclude some directories from the DisCp job. For example, exclude directories that contain state information that keep the cluster running.
-
-On the on-premise Hadoop cluster where you plan to initiate the DistCp job, create a file that specifies the list of directories that you want to exclude.
-
-Here's an example:
-
-```
-.*ranger/audit.*
-.*/hbase/data/WALs.*
-```
-
 ## Copy your data to a Data Box device
+
+If your data size exceeds the capacity of the Data Box device, then use the [optional procedure to split the data across multiple Data Box devices](#appendix-split-data-across-multiple-data-box-devices). 
 
 To copy the data from your on-premises HDFS store to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
 
@@ -328,6 +241,95 @@ Run this command to apply permissions to the data that you copied into the Data 
 * Replace the `<container-name>` placeholder with the name of your container.
 
 * Replace the `<application-id>` and `<client-secret>` placeholders with the application ID and client secret that you collected when you created the service principal.
+
+## Appendix: Split data across multiple Data Box devices
+
+Before you move your data onto a Data Box device, you'll need to download some helper scripts, ensure that your data is organized to fit onto a Data Box device, and exclude any unnecessary files.
+
+### Download helper scripts and set up your edge node to run them
+
+1. From your edge or head node of your on-premises Hadoop cluster, run this command:
+
+   ```bash
+   git clone https://github.com/jamesbak/databox-adls-loader.git
+   cd databox-adls-loader
+   ```
+
+   This command clones the Github repository that contains the helper scripts.
+
+2. Make sure that have the [jq](https://stedolan.github.io/jq/) package installed on your local computer.
+
+   ```bash
+   sudo apt-get install jq
+   ```
+
+3. Install the [Requests](http://docs.python-requests.org/en/master/) python package.
+
+   ```bash
+   pip install requests
+   ```
+
+4. Set execute permissions on the required scripts.
+
+   ```bash
+   chmod +x *.py *.sh
+
+   ```
+
+### Ensure that your data is organized to fit onto a Data Box device
+
+If the size of your data exceeds the size of a single Data Box device, you can split files up into groups that you can store onto multiple Data Box devices.
+
+If your data doesn't exceed the size of a singe Data Box device, you can proceed to the next section.
+
+1. With elevated permissions, run the `generate-file-list` script that you downloaded by following the guidance in the previous section.
+
+   Here's a description of the command parameters:
+
+   ```
+   sudo -u hdfs ./generate-file-list.py [-h] [-s DATABOX_SIZE] [-b FILELIST_BASENAME]
+                    [-f LOG_CONFIG] [-l LOG_FILE]
+                    [-v {DEBUG,INFO,WARNING,ERROR}]
+                    path
+
+   where:
+   positional arguments:
+   path                  The base HDFS path to process.
+
+   optional arguments:
+   -h, --help            show this help message and exit
+   -s DATABOX_SIZE, --databox-size DATABOX_SIZE
+                        The size of each Data Box in bytes.
+   -b FILELIST_BASENAME, --filelist-basename FILELIST_BASENAME
+                        The base name for the output filelists. Lists will be
+                        named basename1, basename2, ... .
+   -f LOG_CONFIG, --log-config LOG_CONFIG
+                        The name of a configuration file for logging.
+   -l LOG_FILE, --log-file LOG_FILE
+                        Name of file to have log output written to (default is
+                        stdout/stderr)
+   -v {DEBUG,INFO,WARNING,ERROR}, --log-level {DEBUG,INFO,WARNING,ERROR}
+                        Level of log information to output. Default is 'INFO'.
+   ```
+
+2. Copy the generated file lists to HDFS so that they are accessible to the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) job.
+
+   ```
+   hadoop fs -copyFromLocal {filelist_pattern} /[hdfs directory]
+   ```
+
+### Exclude unnecessary files
+
+You'll need to exclude some directories from the DisCp job. For example, exclude directories that contain state information that keep the cluster running.
+
+On the on-premise Hadoop cluster where you plan to initiate the DistCp job, create a file that specifies the list of directories that you want to exclude.
+
+Here's an example:
+
+```
+.*ranger/audit.*
+.*/hbase/data/WALs.*
+```
 
 ## Next steps
 
