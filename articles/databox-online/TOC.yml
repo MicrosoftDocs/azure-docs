@@ -49,8 +49,10 @@
       href: data-box-gateway-troubleshoot.md
   - name: Release notes
     items:
-    - name: General availability
-      href: data-box-gateway-release-notes.md
+      - name: 1905 - Current
+        href: data-box-gateway-1905-release-notes.md
+      - name: General availability
+        href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
   - name: Overview
