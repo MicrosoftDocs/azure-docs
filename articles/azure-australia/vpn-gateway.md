@@ -83,12 +83,12 @@ Azure VPN Gateways support a range of cryptographic algorithms from the IPsec an
 
 |Attribute | SHOULD | MUST|
 |--- | --- | ---|
-|saLifeTimeSeconds | <14400 secs | >300 secs (min)|
-|saDataSizeKilobytes | | >1024 Kbytes (min)|
-|ipsecEncryption | | AES256-GCMAES256|
-|ipsecIntegrity | | SHA256-GCMAES256|
+|saLifeTimeSeconds | <14400 secs | >300 secs|
+|saDataSizeKilobytes |  | >1024 KB|
+|ipsecEncryption |  | AES256-GCMAES256|
+|ipsecIntegrity |  | SHA256-GCMAES256|
 |ikeEncryption | | AES256-GCMAES256|
-|ikeIntegrity | | SHA256-GCMAES256|
+|ikeIntegrity |  | SHA256-GCMAES256|
 |dhGroup | DHGroup14, DHGroup24, **ECP256, ECP384**| DHGroup2|
 |pfsGroup | PFS2048, PFS24, **ECP256, ECP384**|
 |
