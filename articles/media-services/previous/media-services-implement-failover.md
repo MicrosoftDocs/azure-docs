@@ -417,15 +417,13 @@ In this section, you create the ability to handle redundancy.
 
         public static IAssetFile GetPrimaryFile(IAsset asset)
         {
-            var theManifest =
-                    from f in asset.AssetFiles
-                    where f.Name.EndsWith(".ism")
-                    select f;
-
             // Cast the reference to a true IAssetFile type. 
-            IAssetFile manifestFile = theManifest.First();
+            IAssetFile theManifest = asset.AssetFiles.ToList().
+                Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).
+                ToArray().
+                FirstOrDefault();
 
-            return manifestFile;
+            return theManifest;
         }
 
         public static IAsset RefreshAsset(CloudMediaContext context, IAsset asset)
