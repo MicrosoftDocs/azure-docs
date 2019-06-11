@@ -34,7 +34,7 @@ Create a VM with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image Canonical:UbuntuServer:16.04-LTS:latest
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
     --size Standard_D2S_V3 \
 ```
 
