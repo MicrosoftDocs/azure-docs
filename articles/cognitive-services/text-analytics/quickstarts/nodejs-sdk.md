@@ -62,7 +62,7 @@ let credentials = new CognitiveServicesCredentials(
 ```
 
 > [!Tip]
-> For secure deployment of secrets in production systems we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/quick-create-net)
+> For secure deployment of secrets in production systems we recommend using [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)
 >
 
 ## Create a Text Analytics client
