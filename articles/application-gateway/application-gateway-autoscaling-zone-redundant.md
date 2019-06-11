@@ -66,7 +66,7 @@ For more pricing information, see the [pricing page](https://azure.microsoft.com
 An Application Gateway Standard_v2 is provisioned without autoscaling in manual scaling mode with fixed capacity of five instances.
 
 Fixed price = 744(hours) * $0.20 = $148.8 <br>
-Capacity units = 744 (hours) 10 capacity unit per instance * five instances * $0.008 per capacity unit hour = $297.6
+Capacity units = 744 (hours) * 10 capacity unit per instance * 5 instances * $0.008 per capacity unit hour = $297.6
 
 Total price = $148.8 + $297.6 = $446.4
 
