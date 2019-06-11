@@ -115,9 +115,9 @@ Select **View health diagnostics** to open a page showing all the components of 
 
 For more information, see [Health diagnostics](#health-diagnostics).
 
-In the **Component health** section, the table shows a health-rollup status of the primary performance categories monitored by the health criteria for those areas, including **CPU**, **Memory**, **Disk**, and **Network**. Selecting any one of these components opens a page that lists all of the health criterion monitoring and the respective health state of that component.
+In the **Component health** section, a table shows the health rollup status of primary performance components monitored by health criteria, which include **CPU**, **Memory**, **Disk**, and **Network**. Selecting a component opens a page that lists all the monitoring criterion and the health state of that component.
 
-When you access health from an Azure VM that runs Windows, the health state of the top five core Windows services is shown under **Core services health**. Selecting any one of the services opens a page that lists the health criteria monitoring that component, and its health state.
+When you access health from an Azure VM that runs Windows, the health state of the top five core Windows services is shown under **Core services health**. Selecting any of the services opens a page that lists the health criteria monitoring for that component along with its health state.
 
 Selecting the name of the health criteria opens the property pane. In this pane, you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert.
 
@@ -133,7 +133,7 @@ In the **Subscription** and **Resource Group** dropdown lists, select the approp
 
 The **Health** tab provides the following information:
 
-* How many VMs are in a critical or unhealthy state, versus how many are healthy or not submitting data (referred to as an unknown state).
+* How many VMs are in a critical or unhealthy state, versus how many are healthy or not submitting data (referred to as an Unknown state).
 * Which and how many VMs by OS are reporting an unhealthy state.
 * How many VMs are unhealthy because of an issue detected with a processor, disk, memory, or network adapter, categorized by health state.
 * How many VMs are unhealthy because of an issue detected with a core OS service, categorized by health state.
