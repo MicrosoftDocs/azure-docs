@@ -14,11 +14,11 @@ ms.author: danlep
 
 Use a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to authenticate from ACR Tasks to an Azure container registry or other Azure resources, without needing to provide or manage credentials in code. For example ...
 
-For this article, you learn more about managed identities and how to:
+In this article, you learn more about managed identities and how to:
 
 > [!div class="checklist"]
 > * Enable a system-assigned identity on an ACR task
-> * Grant the identity access to two Azure container registries
+> * Grant the identity access to two target Azure container registries
 > * Use the managed identity to access the registries from a task and push a container image 
 
 To create the Azure resources, this article requires that you run the Azure CLI version 2.0.66 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
@@ -37,9 +37,14 @@ After you set up an Azure resource with a managed identity, give the identity th
 
 ## Create container registries
 
-For this tutorial you need three container registries. You use the first registry to create and execute an ACR task. The second and third registries are target registries where the task pushes an image it builds. If you don't already have the needed Azure container registries, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). You don't need to push images to the registry yet.
+For this tutorial you need three container registries:
 
-This article assumes that the registry where you run the task is called *myregistry*, and the task pushes images to *customregistry1* and *customregistry2*. Replace with your own registry names in later steps.
+* You use the first registry to create and execute an ACR task. 
+* The second and third registries are target registries where the sample task pushes an image it builds. 
+
+If you don't already have the needed Azure container registries, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). You don't need to push images to the registry yet.
+
+This article assumes that the registry where you run the task is called *myregistry*, and the task pushes images to target registries named *customregistry1* and *customregistry2*. Replace with your own registry names in later steps.
 
 <!-----
 
@@ -124,7 +129,7 @@ docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 
 This example shows you how to create a [multi-step task](container-registry-tasks-multi-step.md) with a system-assigned identity. The task builds an image, and then uses the identity to authenticate with two target registries to push the image.
 
-The task steps for this example are defined in the [YAML file](container-registry-tasks-reference-yaml.md) `testtask.yaml`. The file is located in the multipleRegistries directory of the [acr-tasks](https://github.com/Azure-Samples/acr-tasks) samples repo.
+The steps for this task example are defined in the [YAML file](container-registry-tasks-reference-yaml.md) `testtask.yaml`. The file is located in the multipleRegistries directory of the [acr-tasks](https://github.com/Azure-Samples/acr-tasks) samples repo.
 
 ```yml
 version: v1.0.0
@@ -137,7 +142,7 @@ steps:
 
 ### Create task with system-assigned identity
 
-Create the task *multiple-reg* by executing the following [az acr task create][az-acr-task-create] command. The task context is the multipleRegistries folder of the samples repo, and task steps are defined in `testtask.yaml` there. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task. For example purposes, this task can only be triggered manually, but you could enable the task to run when commits are pushed to the registry or a base image is updated 
+Create the task *multiple-reg* by executing the following [az acr task create][az-acr-task-create] command. The task context is the multipleRegistries folder of the samples repo, and task steps are defined in the file `testtask.yaml`. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task. For example purposes, this task can only be triggered manually, but you could trigger the task to run when commits are pushed to the repo or a pull request is made. 
 
 ```azurecli
 az acr task create \
@@ -150,7 +155,7 @@ az acr task create \
   --assign-identity
 ```
 
-Notice that the `identity` section in the output shows the identity of type `SystemAssigned` is set in the task. The `principalID` is the service principal of the identity:
+In the command output, the `identity` section shows an identity of type `SystemAssigned` is set in the task. The `principalID` is the service principal ID of the identity:
 
 ```console
 [...]
@@ -164,7 +169,7 @@ Notice that the `identity` section in the output shows the identity of type `Sys
 [...]
 ``` 
 
-Use the [az acr task show][az-acr-task-show] command to store the `principalId` of the identity in a variable, to use in later commands: :
+Use the [az acr task show][az-acr-task-show] command to store the `principalId` in a variable, to use in later commands:
 
 ```azurecli
 principal_id=$(az acr task show --name multiple-reg --registry myregistry --query identity.principalId --output tsv)
@@ -172,16 +177,16 @@ principal_id=$(az acr task show --name multiple-reg --registry myregistry --quer
 
 ### Give identity push permissions to two target container registries
 
-For test purposes, call customregistry1.azurecr.io and customregistry2.azurecr.io.
+In this section, give the system-assigned identity permissions to push to the two target registries, named *customregistry1* and *customregistry2*.
 
-Get resource Id of each registry. For example:
+First use the [az acr show][az-acr-show] command to get the resource ID of each registry, for use in later commands. For example:
 
 ```azurecli
 reg1_id=$(az acr show --name customregistry1 --query id --output tsv)
 reg2_id=$(az acr show --name customregistry2 --query id --output tsv)
 ```
 
-Assign `acrpush` role to each registry. For example:
+Use the [az role assignment create][az-role-assignment-create] command to assign the `acrpush` role to each registry. This role has permissions to pull and push images to the container registry. For example:
 
 ```azurecli
 az role assignment create --assignee $principal_id --scope $reg1_id --role acrpush
@@ -190,7 +195,7 @@ az role assignment create --assignee $principal_id --scope $reg2_id --role acrpu
 
 ### Add target registry credentials to task
 
-Add credentials to task to access target registry using system-assigned identity. Note the `[system]` seems required here. (Bug?)
+Now use the [az acr task credential add][az-acr-task-credential-add] command to add the identity's credentials to the task so that it can authenticate with both target registries.
 
 ```azurecli
 az acr task credential add --name multiple-reg --registry myregistry --login-server customregistry1.azurecr.io --use-identity [system]
@@ -200,10 +205,10 @@ az acr task credential add --name multiple-reg --registry myregistry --login-ser
 
 ### Manually run the task
 
-Passing in target registry names:
+Use the [az acr task run][az-acr-task-run] command to manually trigger the task. The `--set` parameter is used to pass in the login server names of the target registries as values for the task variables `REGISTRY1` and `REGISTRY2`.
 
 ```azurecli
-az acr task run --name multiple-reg --registry --set REGISTRY1=customregistry1.azurecr.io --set REGISTRY2=customregistry2.azurecr.io
+az acr task run --name multiple-reg --registry myregistry --set REGISTRY1=customregistry1.azurecr.io --set REGISTRY2=customregistry2.azurecr.io
 ```
 
 Output is similar to:
@@ -218,12 +223,12 @@ Waiting for an agent...
 2019/05/31 22:15:55 Successfully set up Docker network: acb_default_network
 2019/05/31 22:15:55 Setting up Docker configuration...
 2019/05/31 22:15:55 Successfully set up Docker configuration
-2019/05/31 22:15:55 Logging in to registry: danlep0531.azurecr.io
-2019/05/31 22:15:57 Successfully logged into danlep0531.azurecr.io
-2019/05/31 22:15:57 Logging in to registry: danlep0501.azurecr.io
-2019/05/31 22:15:58 Successfully logged into danlep0501.azurecr.io
-2019/05/31 22:15:58 Logging in to registry: danlep0531b.azurecr.io
-2019/05/31 22:16:00 Successfully logged into danlep0531b.azurecr.io
+2019/05/31 22:15:55 Logging in to registry: customregistry1.azurecr.io
+2019/05/31 22:15:57 Successfully logged into customregistry1.azurecr.io
+2019/05/31 22:15:57 Logging in to registry: myregistry.azurecr.io
+2019/05/31 22:15:58 Successfully logged into myregistry.azurecr.io
+2019/05/31 22:15:58 Logging in to registry: customregistry2.azurecr.io
+2019/05/31 22:16:00 Successfully logged into customregistry2.azurecr.io
 2019/05/31 22:16:00 Executing step ID: acb_step_0. Timeout(sec): 600, Working directory: 'multipleRegistries', Network: 'acb_default_network'
 2019/05/31 22:16:00 Scanning for dependencies...
 2019/05/31 22:16:01 Successfully scanned dependencies
@@ -232,15 +237,15 @@ Sending build context to Docker daemon  4.096kB
 Step 1/1 : FROM hello-world
  ---> fce289e99eb9
 Successfully built fce289e99eb9
-Successfully tagged danlep0531b.azurecr.io/hello-world:cf31
+Successfully tagged customregistry2.azurecr.io/hello-world:cf31
 2019/05/31 22:16:02 Successfully executed container: acb_step_0
 2019/05/31 22:16:02 Executing step ID: acb_step_1. Timeout(sec): 600, Working directory: 'multipleRegistries', Network: 'acb_default_network'
-2019/05/31 22:16:02 Pushing image: danlep0531b.azurecr.io/hello-world:cf31, attempt 1
-The push refers to repository [danlep0531b.azurecr.io/hello-world]
+2019/05/31 22:16:02 Pushing image: customregistry2.azurecr.io/hello-world:cf31, attempt 1
+The push refers to repository [customregistry2.azurecr.io/hello-world]
 af0b15c8625b: Preparing
 af0b15c8625b: Pushed
 cf31: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a size: 524
-2019/05/31 22:16:08 Successfully pushed image: danlep0531b.azurecr.io/hello-world:cf31
+2019/05/31 22:16:08 Successfully pushed image: customregistry2.azurecr.io/hello-world:cf31
 2019/05/31 22:16:08 Executing step ID: acb_step_2. Timeout(sec): 600, Working directory: 'multipleRegistries', Network: 'acb_default_network'
 2019/05/31 22:16:08 Scanning for dependencies...
 2019/05/31 22:16:08 Successfully scanned dependencies
@@ -249,15 +254,15 @@ Sending build context to Docker daemon  4.096kB
 Step 1/1 : FROM hello-world
  ---> fce289e99eb9
 Successfully built fce289e99eb9
-Successfully tagged danlep0531.azurecr.io/hello-world:cf31
+Successfully tagged customregistry1.azurecr.io/hello-world:cf31
 2019/05/31 22:16:09 Successfully executed container: acb_step_2
 2019/05/31 22:16:09 Executing step ID: acb_step_3. Timeout(sec): 600, Working directory: 'multipleRegistries', Network: 'acb_default_network'
-2019/05/31 22:16:09 Pushing image: danlep0531.azurecr.io/hello-world:cf31, attempt 1
-The push refers to repository [danlep0531.azurecr.io/hello-world]
+2019/05/31 22:16:09 Pushing image: customregistry1.azurecr.io/hello-world:cf31, attempt 1
+The push refers to repository [customregistry1.azurecr.io/hello-world]
 af0b15c8625b: Preparing
 af0b15c8625b: Pushed
 cf31: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a size: 524
-2019/05/31 22:16:21 Successfully pushed image: danlep0531.azurecr.io/hello-world:cf31
+2019/05/31 22:16:21 Successfully pushed image: customregistry1.azurecr.io/hello-world:cf31
 2019/05/31 22:16:21 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 1.985291)
 2019/05/31 22:16:21 Populating digests for step ID: acb_step_0...
 2019/05/31 22:16:22 Successfully populated digests for step ID: acb_step_0
@@ -269,7 +274,7 @@ cf31: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95
 2019/05/31 22:16:24 The following dependencies were found:
 2019/05/31 22:16:24
 - image:
-    registry: danlep0531b.azurecr.io
+    registry: customregistry2.azurecr.io
     repository: hello-world
     tag: cf31
     digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a
@@ -281,7 +286,7 @@ cf31: digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95
   git:
     git-head-revision: 05275dca2bc61f584085ca913c39d509236f576b
 - image:
-    registry: danlep0531.azurecr.io
+    registry: customregistry1.azurecr.io
     repository: hello-world
     tag: cf31
     digest: sha256:92c7f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e899a
