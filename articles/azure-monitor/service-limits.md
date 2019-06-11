@@ -16,4 +16,4 @@ ms.author: bwren
 
 # Azure Monitor service limits
 
-[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits.md)]
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits.md)]

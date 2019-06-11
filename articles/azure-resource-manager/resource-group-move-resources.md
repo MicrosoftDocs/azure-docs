@@ -85,7 +85,7 @@ The following list provides a general summary of Azure services that can be move
 * Managed Disks - Managed Disks in Availability Zones can't be moved to a different subscription
 * Managed Identity - user-assigned
 * Media Services
-* Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#monitor-limits)
+* Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits)
 * Notification Hubs
 * Operational Insights
 * Operations Management
