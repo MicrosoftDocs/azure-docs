@@ -144,7 +144,7 @@ To begin working with Azure Security Center as well as making full use of Azure 
 
 ## Next Steps
 
-This article explained how various built-in security capabilities within Azure assist you to maintain visibility and protection of your Azure environment. Now that you've been exposed at a high level, learn how to use each service in more detail:
+This article explained how various built-in security capabilities within Azure assist you to maintain visibility and protection of your Azure environment. Now that you've been exposed at a high-level, learn how to use each service in more detail:
 
 * [Azure Security Center Overview](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
 * [Azure Monitor Overview](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)

@@ -10,18 +10,20 @@
     items:
       - name: Securing your data in Azure
         href: securing-your-data.md
-      - name: Azure VPN Gateway
+      - name: Azure VPN Gateway configuration for Australian Government agencies
         href: vpn-gateway.md
-      - name: Azure Key Vault
+      - name: Azure Key Vault use by Australian Government agencies 
         href: azure-key-vault.md
       - name: Identity federation in Azure Australia
         href: identity-federation.md
       - name: Role Based Access Controls and Privileged Identity Management
         href: rbac-pim.md
-      - name: Implementing Site Recovery and Backup for Essential 8 compliance
-        href: implement-asr-backup.md
-      - name: Azure system monitoring
-        href: system-monitoring.md  
+      - name: Site Recovery and Backup for Essential 8 compliance
+        href: asr-backup.md
+      - name: Azure system monitoring to ensure security
+        href: system-monitoring.md
+      - name: Compliance and security with Azure Policy
+        href: azure-policy.md  
   - name: Build a Gateway in Azure Australia
     items:
       - name: Gateway logging, auditing and visibility
