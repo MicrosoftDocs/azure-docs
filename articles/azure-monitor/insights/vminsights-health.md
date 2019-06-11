@@ -17,9 +17,9 @@ ms.author: magoedte
 
 # Understand the health of your Azure virtual machines
 
-Azure includes individual services for specific roles or tasks in the monitoring space. However, it doesn't provide in-depth health perspectives of operating systems hosted on Azure virtual machines (VMs). Although you can use Azure Monitor for different conditions, it's not designed to model and represent the health of core components, or the overall health of VMs.
+Azure includes services for specific roles or tasks in the monitoring space. However, it doesn't provide in-depth health perspectives of operating systems (OSs) hosted on Azure virtual machines (VMs). Although you can use Azure Monitor for different conditions, it's not designed to model and represent the health of core components, or the overall health of VMs.
 
-The health feature of Azure Monitor for VMs proactively monitors the availability and performance of a Windows or Linux guest OS. It uses a model that represents key components and their relationships, provides criteria that specifies how to measure component health, and alerts you when it detects an unhealthy condition.
+The health feature of Azure Monitor for VMs actively monitors the availability and performance of a Windows or Linux guest OS. It uses a model that represents key components and their relationships, provides criteria that specifies how to measure component health, and sends an alert when it detects an unhealthy condition.
 
 The health of an Azure VM and the underlying operating system can be observed from two perspectives, by using the Azure Monitor for VM's health feature. These perspectives are directly from a VM or across all VMs in a resource group from Azure Monitor.
 
@@ -129,18 +129,18 @@ To view the health collection for all your VMs in a resource group, select **Azu
 
 ![VM Insights monitoring view from Azure Monitor](./media/vminsights-health/vminsights-aggregate-health.png)
 
-In the **Subscription** and **Resource Group** dropdown lists, select the appropriate resource group that includes the VMs related to the group, to view their reported health state. Your selection only applies to the health feature and does not carry over to Performance or Map.
+In the **Subscription** and **Resource Group** dropdown lists, select the appropriate resource group that includes the VMs related to the group, to view their reported health state. Your selection only applies to the health feature and doesn't carry over to Performance or Map tabs.
 
 The **Health** tab provides the following information:
 
 * How many VMs are in a critical or unhealthy state, versus how many are healthy or not submitting data (referred to as an unknown state).
 * Which and how many VMs by operating system (OS) are reporting an unhealthy state.
 * How many VMs are unhealthy because of an issue detected with a processor, disk, memory, or network adapter, categorized by health state.
-* How many VMs are unhealthy because of an issue detected with a core operating system service, categorized by health state.
+* How many VMs are unhealthy because of an issue detected with a core OS service, categorized by health state.
 
 In the Health tab, you can identify the critical issues detected by the health criteria monitoring the VM, and review alert details and associated knowledge articles. These articles can assist in the diagnosis and remediation of the issues. Select any of the severities to open the [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page filtered by that severity.
 
-The **VM distribution by operating system** list shows VMs listed by Windows edition or Linux distribution, along with their version. In each operating system category, the VMs are broken down further based on the health of the VM.
+The **VM distribution by operating system** list shows VMs listed by Windows edition or Linux distribution, along with their version. In each OS category, the VMs are broken down further based on the health of the VM.
 
 ![VM Insights virtual machine distribution perspective](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
 
@@ -185,7 +185,7 @@ You can start Health Diagnostics by using the following methods:
     2. Go to the page that lists all the VMs matching that filtered category. 
     3. Select the value in the **Health State** column to open health diagnostics scoped to that particular VM.
 
-* By operating system from the aggregate VM perspective in Azure Monitor. Under **VM distribution**, selecting any one of the column values will open the **Virtual Machines** page and return a list in the table matching the filtered category. Selecting the value under **Health State** column opens Health Diagnostics for the selected VM.
+* By OS from the aggregate VM perspective in Azure Monitor. Under **VM distribution**, selecting any one of the column values will open the **Virtual Machines** page and return a list in the table matching the filtered category. Selecting the value under **Health State** column opens Health Diagnostics for the selected VM.
  
 * From the guest VM in the Azure Monitor for VMs **Health** tab, by selecting **View health diagnostics**.
 
@@ -193,7 +193,7 @@ Health Diagnostics organizes health information into two categories: **Availabil
  
 All health criteria defined for a specific component such as logical disk, CPU, and so on, can be viewed without filtering on the two categories (in an all-up view of all criteria), or filter the results by either category when selecting **Availability** or **Performance**. Also, the category of the criteria can be seen next to it in the **Health Criteria** column. If the criteria doesn't match the selected category, it will show the message **No health criteria available for the selected category** in the **Health Criteria** column.
 
-State of a health criteria is defined by one of the four states: **Critical**, **Warning**, **Healthy**, and **Unknown**. The first three states are configurable, meaning you can modify the threshold values of the monitors directly from the Health Criteria configuration pane, or by using the Azure Monitor REST API [update monitor operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). **Unknown** is not configurable and reserved for specific scenarios.
+The state of a health criteria is defined by one of the four types: **Critical**, **Warning**, **Healthy**, and **Unknown**. The first three states are configurable, meaning that you can modify the threshold values of the monitors directly from the Health Criteria configuration pane, or by using the Azure Monitor REST API [update monitor operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). **Unknown** is not configurable and reserved for specific scenarios.
 
 The Health Diagnostics page has three main sections:
 
@@ -205,9 +205,9 @@ The Health Diagnostics page has three main sections:
 
 ### Component model
 
-The leftmost column in the Health Diagnostics page is the component model. All of the components, which are associated with the VM, are displayed in this column along with their current health state.
+The leftmost column in the Health Diagnostics page is the component model. All components, which are associated with the VM, are displayed in this column along with their current health state.
 
-In the following example, the discovered components are **Disk**, **Logical Disk**, **Processor**, **Memory**, and **Operating System**. Multiple instances of these components are discovered and displayed in this column. For example, the image below shows the VM has two instances of logical disks, **C:** and **D:**, which are in a healthy state.
+In the following example, the discovered components are **Disk**, **Logical Disk**, **Processor**, **Memory**, and **Operating System**. Multiple instances of these components are discovered and displayed in this column. For example, the following figure shows the VM has two instances of logical disks, **C:** and **D:**, which are in a healthy state.
 
 ![Example component model presented in Health diagnostics](./media/vminsights-health/health-diagnostics-page-component.png)
 
