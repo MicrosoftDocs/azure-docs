@@ -20,7 +20,7 @@ The following limits apply to each Log Analytics workspace in the current consum
 
 The following limits apply to each Log Analytics workspace with the most recent legacy pricing tiers:
 
-|  | Free | Standalone (Per GB) | Per Node (OMS) | Notes |
+|  | Free | Standalone (Per GB) | Per Node (OMS) | Comments |
 |:---|:---|:---|:---|:---|
 | Data volume collected per day |500 MB<sup>2</sup> |No limit |No limit | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). |
 | Data retention period |7 days | 30 to 730 days<sup>1</sup> | 30 to 730 days<sup>1</sup> | When your workspace reaches the 500-MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC. |

@@ -16,6 +16,8 @@ ms.author: bwren
 
 # Azure Monitor service limits
 
+This article lists limits in different areas of Azure Monitor.
+
 ## Alerts
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-alerts.md)]
