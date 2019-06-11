@@ -102,7 +102,7 @@ To push notifications to an iOS app, register your application with Apple and al
 
     ![Export certificate as p12 format](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
 
-    Make a note of the file name and location of the exported **.p12** certificate, which is used to enable authentication with APNS.
+    Make a note of the file name and location of the exported .p12 certificate, which is used to enable authentication with APNS.
 
     > [!NOTE]
     > This tutorial creates a file named QuickStart.p12. Your file name and location might be different.
