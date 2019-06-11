@@ -20,6 +20,32 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-06-10 
+
+### Azure Machine Learning Data Prep SDK v1.1.5
+
++ **Bug fixes and improvements**
+  + For interpreted datetime values that have a 2-digit year format, the range of valid years has been updated to match Windows May Release. The range has been changed from 1930-2029 to 1950-2049.
+  + When reading in a file and setting `handleQuotedLineBreaks=True`, `\r` will be treated as a new line.
+  + Fixed a bug that caused `read_pandas_dataframe` to fail in some cases.
+  + Improved performance of `get_profile`.
+  + Improved error messages.
+
+## 2019-05-28
+
+### Azure Machine Learning Data Prep SDK v1.1.4
+
++ **New features**
+  + You can now use the following expression language functions to extract and parse datetime values into new columns.
+    + `RegEx.extract_record()` extracts datetime elements into a new column.
+    + `create_datetime()` creates datetime objects from separate datetime elements.
+  + When calling `get_profile()`, you can now see that quantile columns are labeled as (est.) to clearly indicate that the values are approximations.
+  + You can now use ** globbing when reading from Azure Blob Storage.
+    + e.g. `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+
++ **Bug fixes**
+  + Fixed a bug related to reading a Parquet file from a remote source (Azure Blob).
+
 ## 2019-05-14
 
 ### Azure Machine Learning SDK for Python v1.0.39

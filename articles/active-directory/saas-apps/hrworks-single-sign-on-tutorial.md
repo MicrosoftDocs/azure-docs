@@ -127,7 +127,7 @@ To configure Azure AD single sign-on with HRworks Single Sign-On, perform the fo
 
 2. Click on **Administrator** > **Basics** > **Security** > **Single Sign-on** from the left side of menu bar and perform the following steps:
 
-	   ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
+    ![Configure single sign-on](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
 	a. Check the **Use Single Sign-on** box.
 

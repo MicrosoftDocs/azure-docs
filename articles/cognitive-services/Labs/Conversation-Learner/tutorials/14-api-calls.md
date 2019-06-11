@@ -3,13 +3,13 @@ title: How to use API calls with a Conversation Learner model - Microsoft Cognit
 titleSuffix: Azure
 description: Learn how to use API calls with a Conversation Learner model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
 
 # How to add API calls to a Conversation Learner model

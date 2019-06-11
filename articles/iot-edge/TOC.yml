@@ -43,7 +43,7 @@
     items: 
     - name: Filter data with Azure Functions
       href: tutorial-deploy-function.md
-    - name: Find averages with ASA
+    - name: Find averages with Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
     - name: Score data with Azure Machine Learning service
       href: tutorial-deploy-machine-learning.md
@@ -143,7 +143,7 @@
       href: how-to-auto-provision-simulated-device-windows.md
   - name: Develop and debug custom modules
     items:
-    - name: Visual Studio 2017
+    - name: Visual Studio 2019
       href: how-to-visual-studio-develop-module.md
     - name: Visual Studio Code
       href: how-to-vs-code-develop-module.md
@@ -165,6 +165,8 @@
     items:
     - name: Configure a transparent gateway
       href: how-to-create-transparent-gateway.md
+    - name: Authenticate a downstream device
+      href: how-to-authenticate-downstream-device.md
     - name: Connect a downstream device
       href: how-to-connect-downstream-device.md
     - name: Modbus protocol gateway

@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/22/2019
+ms.date: 6/1/2019
 ms.author: victorh
 ---
 
@@ -50,6 +50,8 @@ Compute unit guidance:
 > Each instance can currently support approximately 10 capacity units.
 > The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF incoming request size. We recommend you perform application tests to determine request rate per compute unit. Both capacity unit and compute unit will be made available as a metric before billing starts.
 
+The following table shows example prices and are for illustration purposes only.
+
 **Pricing in US East**:
 
 |              SKU Name                             | Fixed price ($/hr)  | Capacity Unit price ($/CU-hr)   |
@@ -64,7 +66,7 @@ For more pricing information, see the [pricing page](https://azure.microsoft.com
 An Application Gateway Standard_v2 is provisioned without autoscaling in manual scaling mode with fixed capacity of five instances.
 
 Fixed price = 744(hours) * $0.20 = $148.8 <br>
-Capacity units = 744 (hours) 10 capacity unit per instance * five instances * $0.008 per capacity unit hour = $297.6
+Capacity units = 744 (hours) * 10 capacity unit per instance * 5 instances * $0.008 per capacity unit hour = $297.6
 
 Total price = $148.8 + $297.6 = $446.4
 
@@ -137,6 +139,9 @@ The following table compares the features available with each SKU.
 |Netwatcher integration|Not supported.|
 |Azure Support Center integration|Not yet available.
 
+## Migrate from v1 to v2
+
+An Azure PowerShell script is available in the PowerShell gallery to help you migrate from your v1 Application Gateway/WAF to the v2 Autoscaling SKU. This script helps you copy the configuration from your v1 gateway. Traffic migration is still your responsibility. For more details, see [Migrate Azure Application Gateway from v1 to v2](migrate-v1-v2.md).
 ## Next steps
 
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
