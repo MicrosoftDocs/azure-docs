@@ -194,6 +194,28 @@ To sign in using an Azure AD shared secret credential:
 
 Once everything's set up correctly, no further code changes are necessary.  `AzureServiceTokenProvider` uses the environment variable and the certificate to authenticate to Azure AD. 
 
+### Running the application using custom services authentication
+
+Custom service authentication allows you to store a service principal's client certificate in Key Vault and use it for service principal authentication. 
+
+Either you or MSI must have the permissions necessary to retrieve the client certificate from the Key Vault. Tthe AppAuthentication library uses the retrieved certificate as the service principal.
+
+To use custom services authentication, provide the certificate's secret identifier in the connection string:
+
+```
+RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+```
+
+To find the `KeyVaultCertificateSecretIdentifier` value for your certificate in the portal, follow these steps.
+
+1. Click on the name of your Key Vault in the portal.
+
+1. In the left-hand sidebar, click on "Certificates".
+
+1. Click on the certificate you wish to use for custom services authentication and then, on the next page, click on the current version.
+
+1. Scroll to the bottom of the certificate page and note the "Secret Identifier" in the last field.
+
 ## Connection String Support
 
 By default, `AzureServiceTokenProvider` uses multiple methods to retrieve a token. 
