@@ -18,7 +18,7 @@ ms.author: masnider
 ---
 
 # Describe a Service Fabric cluster by using Cluster Resource Manager
-Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster:
+The Cluster Resource Manager feature of Azure Service Fabric provides several mechanisms for describing a cluster:
 
 * Fault domains
 * Upgrade domains
@@ -58,7 +58,7 @@ During runtime, Service Fabric Cluster Resource Manager considers the fault doma
 
 Cluster Resource Manager doesn’t care how many layers there are in the fault domain hierarchy. It tries to ensure that the loss of any one portion of the hierarchy doesn’t affect services running in it. 
 
-It's best if the same number of nodes is at each level of depth in the fault domain hierarchy. If the “tree” of fault domains is unbalanced in your cluster, it's harder for Cluster Resource Manager to figure out the best allocation of services. Imbalanced fault domain layouts mean that the loss of some domains affect the availability of services more than other domains. As a result, Cluster Resource Manager is torn between two goals: 
+It's best if the same number of nodes is at each level of depth in the fault domain hierarchy. If the “tree” of fault domains is unbalanced in your cluster, it's harder for Cluster Resource Manager to figure out the best allocation of services. Imbalanced fault domain layouts mean that the loss of some domains affects the availability of services more than other domains. As a result, Cluster Resource Manager is torn between two goals: 
 
 * It wants to use the machines in that “heavy” domain by placing services on them. 
 * It wants to place services in other domains so that the loss of a domain doesn’t cause problems. 
@@ -94,7 +94,7 @@ Consider if you had 10 upgrade domains instead. In that case, each upgrade domai
 
 The downside of having many upgrade domains is that upgrades tend to take longer. Service Fabric waits a short period after an upgrade domain is completed and performs checks before starting to upgrade the next one. These delays enable detecting issues introduced by the upgrade before the upgrade proceeds. The tradeoff is acceptable because it prevents bad changes from affecting too much of the service at a time.
 
-The presence of too few upgrade domains has many negative side effects. While each upgrade domain is down and being upgraded, a large portion of your overall capacity is unavailable. For example, if you have only three upgrade domains, you're taking down about 1/3 of your overall service or cluster capacity at a time. Having so much of your service down at once isn’t desirable because you need enough capacity in the rest of your cluster to handle the workload. Maintaining that buffer means that during normal operation, those nodes are less loaded than they would be otherwise. This increases the cost of running your service.
+The presence of too few upgrade domains has many negative side effects. While each upgrade domain is down and being upgraded, a large portion of your overall capacity is unavailable. For example, if you have only three upgrade domains, you're taking down about one-third of your overall service or cluster capacity at a time. Having so much of your service down at once isn’t desirable because you need enough capacity in the rest of your cluster to handle the workload. Maintaining that buffer means that during normal operation, those nodes are less loaded than they would be otherwise. This increases the cost of running your service.
 
 There’s no real limit to the total number of fault or upgrade domains in an environment, or constraints on how they overlap. But there are common patterns:
 
@@ -109,7 +109,7 @@ There’s no real limit to the total number of fault or upgrade domains in an en
 
 There’s no best answer for which layout to choose. Each has pros and cons. For example, the 1FD:1UD model is simple to set up. The model of one upgrade domain per node model is most like what people are used to. During upgrades, each node is updated independently. This is similar to how small sets of machines were upgraded manually in the past.
 
-The most common model is the FD/UD matrix, where the FDs and UDs form a table and nodes are placed starting along the diagonal. This is the model used by default in Service Fabric clusters in Azure. For clusters with many nodes, everything ends up looking like a dense matrix pattern.
+The most common model is the FD/UD matrix, where the fault domains and upgrade domains form a table and nodes are placed starting along the diagonal. This is the model used by default in Service Fabric clusters in Azure. For clusters with many nodes, everything ends up looking like a dense matrix pattern.
 
 > [!NOTE]
 > Service Fabric clusters hosted in Azure don't support changing the default strategy. Only standalone clusters offer that customization.
@@ -440,8 +440,6 @@ The following example shows node properties defined via ClusterConfig.json for s
 
 You can create service placement *constraints* for a service as follows:
 
-C#:
-
 ```csharp
 FabricClient fabricClient = new FabricClient();
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
@@ -451,9 +449,7 @@ serviceDescription.PlacementConstraints = "(HasSSD == true && SomeProperty >= 4)
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-PowerShell:
-
-```posh
+```PowerShell
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
@@ -461,17 +457,13 @@ If all nodes of NodeType01 are valid, you can also select that node type with th
 
 A service’s placement constraints can be updated dynamically during runtime. If you need to, you can move a service around in the cluster, add and remove requirements, and so on. Service Fabric ensures that the service stays up and available even when these types of changes are made.
 
-C#:
-
 ```csharp
 StatefulServiceUpdateDescription updateDescription = new StatefulServiceUpdateDescription();
 updateDescription.PlacementConstraints = "NodeType == NodeType01";
 await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/app/service"), updateDescription);
 ```
 
-PowerShell:
-
-```posh
+```PowerShell
 Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstraints "NodeType == NodeType01"
 ```
 
@@ -504,8 +496,6 @@ During runtime, Cluster Resource Manager tracks remaining capacity in the cluste
 ![Cluster nodes and capacity][Image7]
 </center>
 
-C#:
-
 ```csharp
 StatefulServiceDescription serviceDescription = new StatefulServiceDescription();
 ServiceLoadMetricDescription metric = new ServiceLoadMetricDescription();
@@ -517,9 +507,7 @@ serviceDescription.Metrics.Add(metric);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-PowerShell:
-
-```posh
+```PowerShell
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ClientConnections,High,1024,0)
 ```
 
@@ -607,7 +595,7 @@ Cluster Resource Manager exposes this load information. For each metric, this in
   
 The following code shows an example of that output:
 
-```posh
+```PowerShell
 PS C:\Users\user> Get-ServiceFabricClusterLoadInformation
 LastBalancingStartTimeUtc : 9/1/2016 12:54:59 AM
 LastBalancingEndTimeUtc   : 9/1/2016 12:54:59 AM
