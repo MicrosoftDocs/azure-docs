@@ -24,9 +24,7 @@ ms.collection: M365-identity-device-management
 # Reply URLs/redirect URls restrictions & limitations
 
 ## Maximum number of URIs
-A maximum of 256 redirect URIs can be added to an app registration if the same is configured to sign in Microsoft work or school accounts in any organization's Azure AD tenant (i.e. `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs* )
-
-A maximum of 100 redirect URIs can be added to an app registration if the same is configured to sign in users with personal Microsoft account, or a work or school account in any organization's Azure AD tenant (i.e. `signInAudience` field in the application manifest is set to either *AzureADandPersonalMicrosoftAccount*)
+A maximum of 256 redirect URIs can be added to an app registration if the app is configured to sign in Microsoft work or school accounts in any organization's Azure AD tenant (i.e. `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs*). However, if the app is configured to sign in both personal and work or school accounts (i.e. `signInAudience` field in the application manifest is set to either *AzureADandPersonalMicrosoftAccount*), a maximum of 100 redirect URIs are allowed.
 
 ## Maximum URI length
 A maximum of 256 characters are allowed for each redirect URI added to an app registration.
@@ -34,9 +32,10 @@ A maximum of 256 characters are allowed for each redirect URI added to an app re
 ## Restrictions using a wildcard in URIs
 While wildcard URIs (e.g. https://*.contoso.com) are convenient, they should be avoided. Using wildcards in the redirect URI has security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)) a redirection endpoint URI must be an absolute URI. 
 
-Azure AD application model does not support Wildcard URIs for apps that are configured to sign in personal Microsoft accounts, or work or school accounts. However, wildcard URIs are allowed for apps that are configured to sign in Microsoft work or school accounts in an organization's Azure AD tenant today. 
+Azure AD application model does not support Wildcard URIs for apps that are configured to sign in personal Microsoft accounts and work or school accounts. However, wildcard URIs are allowed for apps that are configured to sign in work or school accounts in an organization's Azure AD tenant today. 
  
-> Note: Azure AD application model will be tightened to not support wildcard URIs for apps that are configured to sign in Microsoft work or school accounts as well. As a first step, the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience does not allow developers to add wildcard URIs on the UI. 
+> Note: The new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience does not allow developers to add wildcard URIs on the UI. Adding wilcard URI for apps that sign in work or school accounts is supported only through the manifest editor today.
+> There is a plan to not support wildcard URIs for apps that sign in any account. For compatibility reasons wildcard URIs configured in existing apps will continue to work.
 
 If your scenario requires you to add redirect URIs more than the maximum limit supported by Azure AD, instead of looking to add a wildcard redirect URI, you can consider one of the following approaches:
 
