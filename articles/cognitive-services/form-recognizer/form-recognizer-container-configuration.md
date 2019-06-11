@@ -2,14 +2,13 @@
 title: Configure container - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to configure the Form Recognizer container to parse form and table data.
-author: PatrickFarley
+author: IEvangelist
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/15/2019
-ms.author: pafarley
+ms.date: 06/10/2019
+ms.author: dapine
 ---
 # Configure Form Recognizer containers
 
@@ -106,10 +105,10 @@ The following Docker examples are for the Form Recognizer container.
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
-Eula=accept \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
+Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
@@ -120,10 +119,10 @@ FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
-Eula=accept \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
+Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
