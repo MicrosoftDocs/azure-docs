@@ -1,6 +1,6 @@
 ---
 title: 'Python Tutorial: Call Cognitive Services in an indexing pipeline - Azure Search'
-description: Step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation over JSON blobs using Jupyter Python notebooks. 
+description: Step through an example of data extraction, natural language, and image AI processing in Azure Search using a Jupyter Python notebook. Extracted data is indexed and easily accessed by query.
 manager: cgronlun
 author: LisaLeib
 services: search
@@ -13,9 +13,9 @@ ms.author: v-lilei
 
 # Python Tutorial: Call Cognitive Services APIs in an Azure Search indexing pipeline
 
-In this tutorial, you learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Skills are backed by natural language processing (NLP) and image analysis capabilities in Cognitive Services. Through skillset composition and configuration, you can extract text and text representations of an image or scanned document file. You can also detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created with AI enrichments in an indexing pipeline. 
+In this tutorial, you learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Skills are backed by natural language processing (NLP) and image analysis capabilities in Cognitive Services. Through skillset composition and configuration, you can extract text and text representations of an image or scanned document file. You can also detect language, entities, key phrases, and more. The result is rich additional content in an Azure Search index, created with AI enrichments in an indexing pipeline.
 
-In this tutorial, you will use Python to perform following tasks:
+In this tutorial, you'll use Python to perform following tasks:
 
 > [!div class="checklist"]
 > * Create an indexing pipeline that enriches sample data in route to an index
@@ -49,7 +49,7 @@ The following services, tools, and data are used in this tutorial.
 
 ## Get a key and URL
 
-To interact with your Azure Search service you will need the service URL and an access key. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+To interact with your Azure Search service, you will need the service URL and an access key. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -57,7 +57,7 @@ To interact with your Azure Search service you will need the service URL and an 
 
 ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
-All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+All requests require an api-key on every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## Prepare sample data
 
@@ -71,7 +71,7 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
    ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
+1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal. Click **Access keys**, and then copy the **Connection String**  field.
 
 The connection string will have this format:
 `DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT-NAME>;AccountKey=<YOUR-STORAGE-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
@@ -85,7 +85,7 @@ There are other ways to specify the connection string, such as providing a share
 >[!Note]
 >This article shows you how to build a data source, index, indexer and skillset using a series of Python scripts. To download the complete notebook example, go to the [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook).
 
-Use Anaconda Navigator to launch Jupyter Notebook and create a new Python 3 notebook. 
+Use Anaconda Navigator to launch Jupyter Notebook and create a new Python 3 notebook.
 
 ## Connect to Azure Search
 
@@ -97,7 +97,7 @@ import requests
 from pprint import pprint
 ```
 
-Next, define the names for the data source, index, indexer and skillset. Run this script to set up the names for this tutorial.
+Next, define the names for the data source, index, indexer, and skillset. Run this script to set up the names for this tutorial.
 
 ```python
 #Define the names for the data source, skillset, index and indexer
@@ -126,7 +126,7 @@ params = {
 
 Now that your services and source files are prepared, start assembling the components of your indexing pipeline. Begin with a data source object that tells Azure Search how to retrieve external source data. 
 
-In the following script,replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Then, run the script to create a data source named ```cogsrch-py-datasource```.
+In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Then, run the script to create a data source named ```cogsrch-py-datasource```.
 
 ```python
 #Create a data source
@@ -143,18 +143,18 @@ datasource_payload = {
    }
 }
 r = requests.put( endpoint + "/datasources/" + datasource_name, data=json.dumps(datasource_payload), headers=headers, params=params )
-print (r.status_code())
+print (r.status_code)
 ```
 
 The request should return a status code of 201 confirming success.
 
-In the Azure portal, on the search service dashboard page, verify that the demodata appears in the **Data sources** list. Click **Refresh** to update the page.
+In the Azure portal, on the search service dashboard page, verify that the cogsrch-py-datasource appears in the **Data sources** list. Click **Refresh** to update the page.
 
-  ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Data sources tile in the portal")
+  ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Data sources tile in the portal")
 
 ## Create a skillset
 
-In this step, you define a set of enrichment steps that you want to apply to your data. You call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses [built-in cognitive skills](cognitive-search-predefined-skills.md) for the skillset:
+In this step, you will define a set of enrichment steps to apply to your data. You call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses [built-in cognitive skills](cognitive-search-predefined-skills.md) for the skillset:
 
 + [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
@@ -247,11 +247,12 @@ skillset_payload = {
 }
 
 r = requests.put(endpoint + "/skillsets/" + skillset_name, data=json.dumps(skillset_payload), headers=headers, params=params)
-print(r.status_code())
+print(r.status_code)
 ```
+
 The request should return a status code of 201 confirming success.
 
-The key phrase extraction skill is applied for each page. By setting the context to ```"document/pages/*"``` you run this enricher for each member of the document/pages array (for each page in the document).
+The key phrase extraction skill is applied for each page. By setting the context to ```"document/pages/*"```, you run this enricher for each member of the document/pages array (for each page in the document).
 
 Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input as ```"/document/content"```.
 
@@ -323,7 +324,7 @@ index_payload = {
 }
 
 r = requests.put(endpoint + "/indexes/" + index_name, data=json.dumps(index_payload), headers=headers, params=params)
-print(r.status_code())
+print(r.status_code)
 ```
 
 The request should return a status code of 201 confirming success.
@@ -332,7 +333,7 @@ To learn more about defining an index, see [Create Index (Azure Search REST API)
 
 ## Create an indexer, map fields, and execute transformations
 
-So far you have created a data source, a skillset, and an index. These three components become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. To tie these together in an indexer, you must define field mappings.
+So far, you have created a data source, a skillset, and an index. These three components become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. To tie these objects together in an indexer, you must define field mappings.
 
 + The fieldMappings are processed before the skillset, mapping source fields from the data source to target fields in an index. If field names and types are the same at both ends, no mapping is required.
 
@@ -389,23 +390,23 @@ indexer_payload = {
 }
 
 r = requests.put(endpoint + "/indexers/" + indexer_name, data=json.dumps(indexer_payload), headers=headers, params=params)
-print(r.status_code())
+print(r.status_code)
 ```
 
 The request should return a status code of 201 confirming success.
 
-Expect this step to take several minutes to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
+Expect this step to take several minutes to complete. Although the data set is small, some analytical skills, such as image analysis, are computation-intensive and take time to complete.
 
-To see if the indexer is still running, see the script in the next section.
+To determine if the indexer is still running, see the script in the next section.
 
 > [!TIP]
-> Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](#reset).
+> Creating an indexer invokes the pipeline. If there is a problem accessing  the data, mapping inputs and outputs, or with the order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to delete objects first. For more information, see [Reset and re-run](#reset).
 
 #### Explore the request body
 
 The script sets ```"maxFailedItems"```  to -1, which instructs the indexing engine to ignore errors during data import. This is useful because there are so few documents in the demo data source. For a larger data source, you would set the value to greater than 0.
 
-Also notice the ```"dataToExtract":"contentAndMetadata"``` statement in the configuration parameters. This statement tells the indexer to automatically extract the content from different file formats as well as metadata related to each file. 
+Also notice the ```"dataToExtract":"contentAndMetadata"``` statement in the configuration parameters. This statement tells the indexer to  extract the content from different file formats and the metadata related to each file.
 
 When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction":"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
 
@@ -435,6 +436,10 @@ r = requests.get(endpoint + "/indexes/" + index_name, headers=headers,params=par
 pprint(json.dumps(r.json(), indent=1))
 ```
 
+The results should look similar to the following example.
+
+ ![Query index for all fields](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Query the index for all fields")
+
 The output is the index schema, with the name, type, and attributes of each field.
 
 Submit a second query for `"*"` to return all contents of a single field, such as `organizations`.
@@ -444,6 +449,10 @@ Submit a second query for `"*"` to return all contents of a single field, such a
 r = requests.get(endpoint + "/indexes/" + index_name + "/docs?&search=*&$select=organizations", headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
+
+The results should look similar to the following example.
+
+ ![Query index for the contents of organizations](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Query the index to return the contents of organizations")
 
 Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
@@ -457,14 +466,14 @@ Cognitive search allows you to see the structure of the enriched document. Enric
 
 To capture a snapshot of the enriched document created during indexing, add a field called ```enriched``` to your index. The indexer automatically dumps into the field a string representation of all the enrichments for that document.
 
-The ```enriched``` field will contain a string that is a logical representation of the in-memory enriched document in JSON.  The field value is a valid JSON document, however. Quotes are escaped so you'll need to replace `\"` with `"` in order to view the document as formatted JSON.  
+The ```enriched``` field will contain a string that is a logical representation of the in-memory enriched document in JSON.  The field value is a valid JSON document, however. Quotes are escaped so you will need to replace `\"` with `"` in order to view the document as formatted JSON.  
 
 The ```enriched``` field is intended for debugging purposes, only to help you understand the logical shape of the content that expressions are being evaluated against. It can be a useful tool to understand and debug your skillset.
 
-Repeat the previous exercise, and include the `enriched` field when you build the index. This will capture the contents of an enriched document.
+To capture the contents of an enriched document, repeat the previous exercise, and include the `enriched` field when you build the index. 
 
 [!Tip]
-Before you repeat these steps, you must delete the data source, index, indexer and skillset that you just created. For more information, see [Reset and re-run](#reset).
+Before you repeat these steps, you must delete the data source, index, indexer, and skillset that you just created. For more information, see [Reset and re-run](#reset).
 
 ```python
 # Create index with enriched field
@@ -512,7 +521,8 @@ index_payload = {
       }
    ]
 }
-
+```
+<a name="reset"></a>
 
 ## Reset and rerun
 
@@ -524,9 +534,11 @@ To reindex your documents with the new definitions:
 2. Modify the skillset and index definitions.
 3. Recreate an index and indexer on the service to run the pipeline.
 
-You can use the portal to delete indexes, indexers, and skillsets.
+You can use the portal to delete indexes, indexers, and skillsets. When you delete the indexer, you can optionally, selectively delete the index, skillset and data source at the same time.
 
-You can also delete them using a script. The following script will delete the skillset we created. YOu can easily modify the request to delete the index, indexer and data source.
+ ![Delete search objects](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Delete search objects in the portal")
+
+You can also delete them using a script. The following script will delete the skillset we created. You can easily modify the request to delete the index, indexer and data source.
 
 ```python
 #delete the skillset
@@ -540,17 +552,17 @@ As your code matures, you might want to refine a rebuild strategy. For more info
 
 This tutorial demonstrates the basic steps for building an enriched indexing pipeline through the creation of component parts: a data source, skillset, index, and indexer.
 
-[Predefined skills](cognitive-search-predefined-skills.md) were introduced, along with skillset definition and the mechanics of chaining skills together through inputs and outputs. You also learned that `outputFieldMappings` in the indexer definition is required for routing enriched values from the pipeline into a searchable index on an Azure Search service.
+[Predefined skills](cognitive-search-predefined-skills.md) were introduced, along with skillset definitions and a way to chain skills together through inputs and outputs. You also learned that `outputFieldMappings` in the indexer definition is required for routing enriched values from the pipeline into a searchable index on an Azure Search service.
 
-Finally, you learned how to test results and reset the system for further iterations. You learned that issuing queries against the index returns the output created by the enriched indexing pipeline. In this release, there is a mechanism for viewing internal constructs (enriched documents created by the system). You also learned how to check indexer status, and which objects to delete before rerunning a pipeline.
+Finally, you learned how to test the results and reset the system for further iterations. You learned that issuing queries against the index returns the output created by the enriched indexing pipeline. In this release, there is a mechanism for viewing internal constructs (enriched documents created by the system). You also learned how to check the indexer status and what  objects must be deleted before rerunning a pipeline.
 
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service and Azure Blob service. Assuming you put both services in the same group, delete the resource group now to permanently delete everything in it, including the services and any stored content that you created for this tutorial. In the portal, the resource group name is on the Overview page of each service.
+The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service and Azure Blob service. Assuming you put both services in the same group, delete the resource group to permanently delete everything in it, including the services and any stored content that you created for this tutorial. In the portal, the resource group name is on the Overview page of each service.
 
 ## Next steps
 
-Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself. 
+Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself.
 
 > [!div class="nextstepaction"]
 > [Example: create a custom skill](cognitive-search-create-custom-skill-example.md)
