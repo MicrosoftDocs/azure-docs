@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/11/2019
 ---
 
 # Audit Logs in Azure Database for MySQL
@@ -19,7 +19,7 @@ By default the audit log is disabled. To enable it, set `audit_log_enabled` to O
 Other parameters you can adjust include:
 
 - **audit_log_events**: controls the events to be logged. See below table for specific audit events.
-- **audit_log_exclude_users**: include MySQL users to be excluded from logging.
+- **audit_log_exclude_users**: MySQL users to be excluded from logging.
 
 | **Event** | **Description** |
 |---|---|
