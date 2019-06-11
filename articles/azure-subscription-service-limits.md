@@ -279,19 +279,19 @@ To learn more about limits on a more granular level, such as document size, quer
 
 #### Alerts
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-alerts.md)]
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-alerts.md)]
 
 #### Action groups
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-action-groups.md)]
 
 #### Log Analytis workspaces
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-workspaces.md)]
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-workspaces.md)]
 
 #### Application Insights
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-app-insights.md)]
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-app-insights.md)]
 
 
 
