@@ -35,14 +35,14 @@ Before you start, make sure that you understand the information in the following
 Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
 
 - West Central US
-- West US 2*
+- West US 2<sup>1</sup>
 - East US
-- Canada Central*
-- UK South*
+- Canada Central<sup>1</sup>
+- UK South<sup>1</sup>
 - West Europe
-- Southeast Asia*
+- Southeast Asia<sup>1</sup>
 
-\* This region doesn't currently support the Health feature of Azure Monitor for VMs.
+<sup>1</sup> This region doesn't currently support the Health feature of Azure Monitor for VMs.
 
 >[!NOTE]
 >Azure VMs can be deployed from any region. These VMs aren't limited to the regions supported for the Log Analytics workspace.
@@ -82,9 +82,9 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 |Ubuntu 14.04, 16.04, 18.04 | X | X | X |
 |CentOS Linux 6, 7 | X | X | X |
 |SUSE Linux Enterprise Server (SLES) 11, 12 | X | X | X |
-|Debian 8, 9.4 | X* | | X |
+|Debian 8, 9.4 | X<sup>1</sup> | | X |
 
-\* The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available directly from the left pane of the Azure VM.
+<sup>1</sup> The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available directly from the left pane of the Azure VM.
 
 >[!NOTE]
 >In the Linux operating system:
@@ -136,23 +136,23 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 |12 SP2 | 4.4.* |
 |12 SP3 | 4.4.* |
 
-### The Microsoft Dependency agent
+### The Microsoft Dependency Agent
 
-The Map feature in Azure Monitor for VMs gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. So your system must have the Log Analytics agent installed and configured with the Dependency agent.
+The Map feature in Azure Monitor for VMs gets its data from the Microsoft Dependency Agent. The Dependency Agent relies on the Log Analytics agent for its connection to Log Analytics. So your system must have the Log Analytics agent installed and configured with the Dependency Agent.
 
-Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, use the Azure VM Dependency agent extension to install the agent as part of the experience.
+Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, use the Azure VM Dependency Agent extension to install the agent as part of the experience.
 
-In a hybrid environment, you can download and install the Dependency agent manually. If your VMs are hosted outside Azure, use an automated deployment method.
+In a hybrid environment, you can download and install the Dependency Agent manually. If your VMs are hosted outside Azure, use an automated deployment method.
 
 The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents need the Microsoft Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
-| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents need the Microsoft Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
+| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents need the Microsoft Dependency Agent. For more information, see [supported operating systems](#supported-operating-systems). |
+| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents need the Microsoft Dependency Agent. For more information, see [supported operating systems](#supported-operating-systems). |
 | System Center Operations Manager management group | No | |
 
-You can download the Dependency agent from these locations:
+You can download the Dependency Agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
@@ -167,16 +167,16 @@ For more information about how to control access to a Log Analytics workspace, s
 
 ## How to enable Azure Monitor for VMs (preview)
 
-You enable Azure Monitor for VMs by using one of the following methods described in the following table.
+Enable Azure Monitor for VMs by using one of the methods described in this table:
 
 | Deployment state | Method | Description |
 |------------------|--------|-------------|
-| Single Azure VM or virtual machine scale set | [Directly from the VM](vminsights-enable-single-vm.md) | You can enable a single Azure VM by selecting **Insights (preview)** directly from the VM or virtual machine scale set. |
-| Multiple Azure VMs or virtual machine scale sets | [Azure Policy](vminsights-enable-at-scale-policy.md) | You can enable multiple Azure VMs using Azure Policy and available policy definitions. |
-| Multiple Azure VMs or virtual machine scale sets | [Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md) | You can enable multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using Azure PowerShell or Azure Resource Manager templates. |
-| Hybrid cloud | [Enable for Hybrid environment](vminsights-enable-hybrid-cloud.md) | You can deploy to VMs or physical computers that are hosted in your datacenter or other cloud environments. |
+| Single Azure VM or virtual machine scale set | [Enable from the VM](vminsights-enable-single-vm.md) | You can enable a single Azure VM by selecting **Insights (preview)** directly from the VM or virtual machine scale set. |
+| Multiple Azure VMs or virtual machine scale sets | [Enable through Azure Policy](vminsights-enable-at-scale-policy.md) | You can enable multiple Azure VMs by using Azure Policy and available policy definitions. |
+| Multiple Azure VMs or virtual machine scale sets | [Enable through Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md) | You can enable multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group by using Azure PowerShell or Azure Resource Manager templates. |
+| Hybrid cloud | [Enable for the hybrid environment](vminsights-enable-hybrid-cloud.md) | You can deploy to VMs or physical computers that are hosted in your datacenter or other cloud environments. |
 
-## Performance counters enabled
+## Performance counters 
 
 Azure Monitor for VMs configures a Log Analytics workspace to collect the performance counters that it uses. The following table lists the objects and counters that are collected every 60 seconds.
 
@@ -219,12 +219,14 @@ Azure Monitor for VMs configures a Log Analytics workspace to collect the perfor
 
 ## Diagnostic and usage data
 
-Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, data from the Map feature includes information about the configuration of your software, such as the operating system and version, IP address, DNS name, and workstation name. Microsoft doesn't collect names, addresses, or other contact information.
+Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, the Map feature includes data about the configuration of your software. The data provides information such as the operating system and version, IP address, DNS name, and workstation name. Microsoft doesn't collect names, addresses, or other contact information.
 
 For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
+Now that you've enabled monitoring for your VM, monitoring information is available for analysis in Azure Monitor for VMs.
+
 ## Next steps
 
-Now that monitoring is enabled for your VM, this information is available for analysis with Azure Monitor for VMs. To learn how to use the Health feature, see [View Azure Monitor for VMs Health](vminsights-health.md). To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+To learn how to use the Health feature, see [View Azure Monitor for VMs Health](vminsights-health.md). To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
