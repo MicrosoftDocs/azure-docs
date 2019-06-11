@@ -170,10 +170,10 @@ There are two log files - *error.xml* and *copylog.xml* that you can use to trou
 |Canceled <br> {0} was canceled.   | For the blob status in user logs; never used in recovery logs. |
 |ManagedDiskCreationTerminalFailure <br> Could not convert to managed disks. The data was uploaded as page blobs. | Managed disk creation failed. This is a terminal failure. You can manually convert the data in the page blobs in the staging account to managed disks.  |
 |DiskConversionNotStartedTierInfoMissing <br> Could not convert to managed disk as the data was uploaded outside of the precreated folders on the Data Box Disk.    | Since the VHD file was copied outside of the precreated tier folders, a managed disk wasn't created. The file is uploaded as page blob to the staging storage account as specified during order creation. You can convert it manually to a managed disk.|
-|InvalidWorkitem <br> Could not upload the data as it does not conform to Azure naming and limits conventions.   These are files that didn't conform to Azure naming conventions and could not be uploaded as block blob. They are marked as invalid work item.|
+|InvalidWorkitem <br> Could not upload the data as it does not conform to Azure naming and limits conventions.   |These are files that didn't conform to Azure naming conventions and could not be uploaded as block blob. They are marked as invalid work item.|
 |InvalidPageBlobUploadAsBlockBlob <br> The invalid page blobs are uploaded as block blobs in a container with prefix `databoxdisk-invalid-pb-`. | |
-|InvalidAzureFileUploadAsBlockBlob <br> The invalid Azure Files are uploaded as block blobs in a  container with prefix `databoxdisk-invalid-af-`.  |Azure files uploaded to the Block Blob container starting with `databoxdisk-invalid-af-` are not valid. Remove these files and rerun the validation tool to resolve this error. |
-|InvalidManagedDiskUploadAsBlockBlob <br> The invalid managed disk files are uploaded as block blobs in a container with prefix `databoxdisk-invalid-md-`.| Managed disk files uploaded to the Block Blob container starting with `databoxdisk-invalid-md-` are not valid.  |
+|InvalidAzureFileUploadAsBlockBlob <br> The invalid Azure Files are uploaded as block blobs in a  container with prefix `databoxdisk-invalid-af-`.  |  |
+|InvalidManagedDiskUploadAsBlockBlob <br> The invalid managed disk files are uploaded as block blobs in a container with prefix `databoxdisk-invalid-md-`.|   |
 
 ## Data Box Disk Split Copy tool errors
 
