@@ -163,24 +163,24 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
     `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar`
     `azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
 
-5. Create the storage container that you want to use for data copy. You should also specify a destination folder as part of this command. This could be a dummy destination folder at this point.
+5. Create the storage container that you want to use for data copy. You should also specify a destination directory as part of this command. This could be a dummy destination directory at this point.
 
     ```
     hadoop fs -libjars $azjars \
     -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
     -D fs.azure.account.key.<blob_service_endpoint>=<account_key> \
-    -mkdir -p  wasb://<container_name>@<blob_service_endpoint>/<destination_folder>
+    -mkdir -p  wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-* Replace the `<blob_service_endpoint>` placeholder with the name of your blob service endpoint.
+    * Replace the `<blob_service_endpoint>` placeholder with the name of your blob service endpoint.
 
-* Replace the `<account_key>` placeholder with the access key of your account.
+    * Replace the `<account_key>` placeholder with the access key of your account.
 
-* Replace the `<container-name>` placeholder with the name of your container.
+    * Replace the `<container-name>` placeholder with the name of your container.
 
-* Replace the `<destination_folder>` placeholder with the name of the folder that you want to copy your data to.
+    * Replace the `<destination_directory>` placeholder with the name of the directory that you want to copy your data to.
 
-6. Run a list command to ensure that your container and folder were created.
+6. Run a list command to ensure that your container and directory were created.
 
     ```
     hadoop fs -libjars $azjars \
@@ -189,31 +189,41 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
     -ls -R  wasb://<container_name>@<blob_service_endpoint>/
     ```
 
-    Replace the placeholder values in this example.
+   * Replace the `<blob_service_endpoint>` placeholder with the name of your blob service endpoint.
 
-    |Placeholder | Replace with ..|
-    |--|--|
-    |`<blob_service_endpoint>`|The name of your blob service endpoint.|
-    |`<account_key>`|The access key of your account.|
-    |`<container-name>`|The name of your container.|
+   * Replace the `<account_key>` placeholder with the access key of your account.
 
-7. Copy data from the Hadoop HDFS to Data Box Blob storage, into the container that you created earlier. If the folder that you are copying into is not found, the command automatically creates it.
+   * Replace the `<container-name>` placeholder with the name of your container.
+
+7. Copy data from the Hadoop HDFS to Data Box Blob storage, into the container that you created earlier. If the directory that you are copying into is not found, the command automatically creates it.
 
     ```
     hadoop distcp \
     -libjars $azjars \
     -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
-    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
-    -filters {exclusion_filelist_file} \
-    [-f filelist_file | /[source_directory] \
-           wasb://[container_name]@[blob_service_endpoint]/[destination_folder]
+    -D fs.azure.account.key.<blob_service_endpoint<>=<account_key> \
+    -filters <exclusion_filelist_file> \
+    [-f filelist_file | /<source_directory> \
+           wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-   The `-libjars` option is used to make the `hadoop-azure*.jar` and the dependent `azure-storage*.jar` files available to `distcp`. This    may already occur for some clusters.
+    * Replace the `<blob_service_endpoint>` placeholder with the name of your blob service endpoint.
 
-   The following example shows how the `distcp` command is used to copy data.
+    * Replace the `<account_key>` placeholder with the access key of your account.
 
-   ```
+    * Replace the `<container-name>` placeholder with the name of your container.
+
+    * Replace the `<exlusion_filelist_file>` placeholder with the name of the file that contains your list of file exclusions.
+
+    * Replace the `<source_directory>` placeholder with the name of the directory that contains the data that you want to copy.
+
+    * Replace the `<destination_directory>` placeholder with the name of the directory that you want to copy your data to.
+
+    The `-libjars` option is used to make the `hadoop-azure*.jar` and the dependent `azure-storage*.jar` files available to `distcp`. This    may already occur for some clusters.
+
+    The following example shows how the `distcp` command is used to copy data.
+
+    ```
      hadoop distcp \
     -libjars $azjars \
     -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
@@ -221,15 +231,15 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
     -filter ./exclusions.lst -f /tmp/copylist1 -m 4 \
     /data/testfiles \
     wasb://hdfscontainer@mystorageaccount.blob.mydataboxno.microsoftdatabox.com/data
-   ```
+    ```
   
-   To improve the copy speed:
+    To improve the copy speed:
 
-   * Try changing the number of mappers. (The above example uses `m` = 4 mappers.)
+    * Try changing the number of mappers. (The above example uses `m` = 4 mappers.)
 
-   * Try running multiple `distcp` in parallel.
+    * Try running multiple `distcp` in parallel.
 
-   * Remember that large files perform better than small files.
+    * Remember that large files perform better than small files.
 
 ## Ship the Data Box to Microsoft
 
