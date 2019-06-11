@@ -81,18 +81,19 @@ Attribute settings required to comply with the ISM controls for Protected are:
 
 Azure VPN Gateways support a range of cryptographic algorithms from the IPsec and IKE protocol standards.  The default policy sets maximise interoperability with a wide range of third-party VPN devices.  As a result, it is possible that during the IKE handshake a non-compliant configuration is negotiated.  It is, therefore, highly recommended that [custom IPsec/IKE policy](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell) parameters are applied to vpnClientConfiguration in VPN Gateways to ensure the connections meet the ISM controls for on-premise environment connections to Azure.  The key attributes are:
 
-|Attribute | SHOULD | MUST|
-|--- | --- | ---|
-|saLifeTimeSeconds | <14400 secs | >300 secs|
-|saDataSizeKilobytes |  | >1024 KB|
-|ipsecEncryption |  | AES256-GCMAES256|
-|ipsecIntegrity |  | SHA256-GCMAES256|
-|ikeEncryption | | AES256-GCMAES256|
-|ikeIntegrity |  | SHA256-GCMAES256|
-|dhGroup | DHGroup14, DHGroup24, ECP256, ECP384| DHGroup2|
-|pfsGroup | PFS2048, PFS24, ECP256, ECP384|
+|Attribute|SHOULD|MUST|
+|---|---|---|
+|saLifeTimeSeconds|<14400 secs|>300 secs|
+|saDataSizeKilobytes| |>1024 KB|
+|ipsecEncryption| |AES256-GCMAES256|
+|ipsecIntegrity| |SHA256-GCMAES256|
+|ikeEncryption| |AES256-GCMAES256|
+|ikeIntegrity| |SHA256-GCMAES256|
+|dhGroup|DHGroup14, DHGroup24, ECP256, ECP384|DHGroup2|
+|pfsGroup|PFS2048, PFS24, ECP256, ECP384||
 |
-*For dhGroup and pfsGroup ECP256 and ECP384 are preferred even though other settings can be used*
+
+*For dhGroup and pfsGroup in the above table, ECP256 and ECP384 are preferred even though other settings can be used*
 
 ### Related services
 
