@@ -25,24 +25,24 @@ This article provides more information on the latest releases and updates to the
 
 ### Service Fabric 6.5
 
-The latest Service Fabric release includes supportability, reliability, performance improvements, new features, bug fixes, and enhancements to ease cluster and application lifecycle management.
+The latest Service Fabric release includes supportability, reliability, and performance improvements, new features, bug fixes, and enhancements to ease cluster and application lifecycle management.
 
 > [!IMPORTANT]
-> Service Fabric 6.5 is the final release with Service Fabric tools support in Visual Studio 2015. Customers are advised to move to [Visual Studio 2019](https://visualstudio.microsoft.com/vs/compare/) going forward.
+> Service Fabric 6.5 is the final release with Service Fabric tools support in Visual Studio 2015. Customers are advised to move to [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) going forward.
 
 Here's what's new in Service Fabric 6.5:
 
-- Patch Orchestration Application (POA) version 1.4.0 includes many self-diagnostic improvements. Customers of POA are recommended to move to this version.
+- Service Fabric Explorer includes an [Image Store Viewer](service-fabric-visualizing-your-cluster.md#image-store-viewer) for inspecting applications you've uploaded to image store.
 
-- Service Fabric Explorer now includes the applications that you have uploaded to image store.
+- [Patch Orchestration Application (POA)](service-fabric-patch-orchestration-application.md) version [1.4.0](https://github.com/microsoft/Service-Fabric-POA/releases/tag/v1.4.0) includes many self-diagnostic improvements. Customers of POA are recommended to move to this version.
 
 - [EventStore Service is enabled by default](service-fabric-visualizing-your-cluster.md#event-store) for Service Fabric 6.5 clusters unless you have opted out.
 
 - Added [replica lifecycle events](service-fabric-diagnostics-event-generation-operational.md#replica-events) for stateful services.
 
-- Better visibility of seed node status, including cluster-level warnings if a seed node is unhealthy (*Down*, *Removed* or *Unknown*).
+- [Better visibility of seed node status](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), including cluster-level warnings if a seed node is unhealthy (*Down*, *Removed* or *Unknown*).
 
-- [Service Fabric Application Disaster Recovery Tool](https://github.com/Microsoft/Service-Fabric-AppDRTool) allows users of Service Fabric stateful services to get back live soon in case the primary cluster encounters a disaster. The tool constantly synchronizes the data from the application running on the primary cluster on the standby application on secondary using periodic backup and restore.
+- [Service Fabric Application Disaster Recovery Tool](https://github.com/Microsoft/Service-Fabric-AppDRTool) allows Service Fabric stateful services to recover quickly when the  primary cluster encounters a disaster. Data from primary cluster is continuously synchronized on the secondary standby application using periodic backup and restore.
 
 - Visual Studio support for [publishing .NET Core apps to Linux-based clusters](service-fabric-how-to-publish-linux-app-vs.md).
 
@@ -50,7 +50,7 @@ Here's what's new in Service Fabric 6.5:
 
 - [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) is installed by default on MacOS/Linux OneBox clusters.
 
-- General machine bootstrap script is provided to set up prerequisites for Service Fabric Linux nodes for deployment & upgrade scenarios.
+For further details, see the [Service Fabric 6.5 Release Notes](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf).
 
 ## Previous versions
 
