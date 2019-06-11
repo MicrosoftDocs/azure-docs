@@ -172,7 +172,7 @@ Resource Manager provides the following functions for getting resource values:
 <a id="tolower" aria-hidden="true" />
 <a id="toupper" aria-hidden="true" />
 <a id="trim" aria-hidden="true" />
-<a id="uniquestring" />
+<a id="uniquestring" aria-hidden="true" />
 <a id="uri" aria-hidden="true" />
 <a id="uricomponent" aria-hidden="true" />
 <a id="uricomponenttostring" aria-hidden="true" />
