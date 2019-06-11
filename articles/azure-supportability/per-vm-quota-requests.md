@@ -1,6 +1,6 @@
 ---
-title: Azure Per VM vCPU quota increase requests | Microsoft Docs
-description: Per VM vCPU quota increase requests
+title: Azure per VM vCPU quota increase requests | Microsoft Docs
+description: per VM vCPU quota increase requests
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
