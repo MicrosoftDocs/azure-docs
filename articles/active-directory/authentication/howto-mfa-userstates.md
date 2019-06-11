@@ -122,7 +122,7 @@ Using PowerShell is a good option when you need to bulk enable users. As an exam
 To disable MFA, use this script:
 
    ```PowerShell
-   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationMethods @()
    ```
 
 which can also be shortened to:
