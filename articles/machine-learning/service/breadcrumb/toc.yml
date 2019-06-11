@@ -60,4 +60,4 @@
       items:
       - name: CI/CD
         tocHref: /azure/devops/pipelines/languages/
-        topicHref: /azure/devops/pipelines/languages/acr-template
+        topicHref: /azure/devops/pipelines/targets/azure-machine-learning
