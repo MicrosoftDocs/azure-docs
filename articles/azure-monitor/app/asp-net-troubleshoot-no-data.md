@@ -232,7 +232,7 @@ Follow these instructions to capture troubleshooting logs for your framework.
 
 
 ## PerfView
-[PerfView](https://github.com/Microsoft/perfview) is a free diagnotics and performance-analysis tool that help isolate CPU, memory and other issue by collecting and visualizing diangostics information from many sources.
+[PerfView](https://github.com/Microsoft/perfview) is a free diagnostics and performance-analysis tool that help isolate CPU, memory, and other issues by collecting and visualizing diagnostics information from many sources.
 
 The Application Insights SDK log EventSource self-troubleshooting logs that can be captured by PerfView.
 
@@ -243,8 +243,8 @@ PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollect
 
 You can modify these parameters as needed.
 
-- **MaxCollectSec**. Set this to prevent PerfView from running indefinitely and affecting the performance of your server.
-- **OnlyProviders**. Set this to restrict the logs collected to only those emitted from the SDK. You can customize this list based on your specific investigations. 
+- **MaxCollectSec**. Set this parameter to prevent PerfView from running indefinitely and affecting the performance of your server.
+- **OnlyProviders**. Set this paramater to only collect logs from the SDK. You can customize this list based on your specific investigations. 
 
    Our full list of providers is:
 
@@ -257,7 +257,7 @@ You can modify these parameters as needed.
    - Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel
 
 
-For more information about PerfView see [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)
+For more information, see [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)
 
 ## Still not working...
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
