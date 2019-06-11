@@ -726,8 +726,8 @@
         - name: Language differences
           href: log-query/data-explorer-difference.md
         - name: Useful operators
-        - name: Functions
           href: log-query/functions.md
+        - name: Functions
           href: log-query/useful-operators.md
         - name: Transition from log search
           href: log-query/log-search-transition.md
