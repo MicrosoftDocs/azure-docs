@@ -3,13 +3,13 @@ title: Install Speech containers
 titleSuffix: Azure Cognitive Services
 description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.  
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.author: diberry
+ms.date: 06/11/2019
+ms.author: dapine
 ---
 
 # Install and run Speech Service containers
@@ -255,7 +255,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ### Text-to-speech
 
-The container provides REST endpoint APIs which can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
+The container provides REST endpoint APIs which can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
