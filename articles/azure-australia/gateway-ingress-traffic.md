@@ -261,7 +261,7 @@ Azure VPN Gateway provides an ingress network point from an external network for
 |---|---|
 |VPN Gateway Overview | [https://docs.microsoft.com/en-au/azure/vpn-gateway/](https://docs.microsoft.com/en-au/azure/vpn-gateway/)|
 |Planning and design for VPN Gateway | [https://docs.microsoft.com/en-au/azure/vpn-gateway/vpn-gateway-plan-design](https://docs.microsoft.com/en-au/azure/vpn-gateway/vpn-gateway-plan-design)|
-|VPN Gateway quickstart guide|[VPN Gateway quickstart](configure-vpn-gateway.md)|
+|VPN Gateway configuration for Australian Government agencies|[IPSEC configuration required for Australian Government agencies](vpn-gateway.md)|
 |
 
 ### PaaS VNet Integration

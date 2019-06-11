@@ -1,5 +1,5 @@
 ---
-title: Implementing Logging, Auditing and Visibility in Azure Australia How-to Guide
+title: Implementing Logging, Auditing and Visibility in Azure Australia How-to article
 description: How to configure Logging, Auditing, and Visibility within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
@@ -14,7 +14,7 @@ ms.author: grgale
 
 Detecting and responding to cyber security threats relies on generating, collecting and analysing data related to the operation of a system.
 
-This guide assists you to implement tools in Azure for the logging, auditing and visibility required for Commonwealth entities to manage the security of their systems deployed in Azure, and includes a reference architecture that aligns with the ACSC Consumer Guidance and the intent of the ISM.
+This article assists you to implement tools in Azure for the logging, auditing and visibility required for Commonwealth entities to manage the security of their systems deployed in Azure, and includes a reference architecture that aligns with the ACSC Consumer Guidance and the intent of the ISM.
 
 ## Australian Cyber Security Centre (ACSC) Requirements
 
@@ -68,13 +68,13 @@ To respond to key events or incidents identified by analysis tools, alerts can b
 
 ## General Guidance
 
-When implementing the components listed in this guide, the following general guidance applies:
+When implementing the components listed in this article, the following general guidance applies:
 
 * Validate the region availability of services, ensuring that all data remains within authorised locations and deploy to AU Central or AU Central 2 as the first preference for PROTECTED workloads
 
 * Refer to the *Azure - ACSC Certification Report – Protected 2018* publication for the certification status of individual services and perform self-assessments on any relevant components not included in the report as per the *ACSC CONSUMER GUIDE – Microsoft Azure at PROTECTED*
 
-* For components not referenced in this guide, Commonwealth entities should follow the principles included regarding generating, capturing, analysing, and retaining logs
+* For components not referenced in this article, Commonwealth entities should follow the principles included regarding generating, capturing, analysing, and retaining logs
 
 * Identify and prioritise the logging, auditing, and visibility on high value systems as well as all network ingress and egress points to systems hosted in Azure
 
@@ -223,7 +223,6 @@ Azure Monitor diagnostic logs are logs emitted by an Azure service that provide 
 |---|---|
 |Azure Diagnostic Log Documentation|[https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |Support services for Diagnostic Logs|[https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema)|
-|Diagnostic Logs|[How to - Implementing logging, auditing, and visibility](implement-gateway-logging-auditing-visibility.md)|
 |
 
 ### Azure Policy
@@ -364,7 +363,7 @@ Generating the appropriate logs, collecting them into centralised repositories a
 
 ### Azure Alerts
 
-Azure Alerts can be used to notify support and security personnel in response to particular events. This allows a Commonwealth entity to proactively respond to the detection of relevant events raised by the analysis services listed in this guide.
+Azure Alerts can be used to notify support and security personnel in response to particular events. This allows a Commonwealth entity to proactively respond to the detection of relevant events raised by the analysis services listed in this article.
 
 |Resources|Link|
 |---|---|
