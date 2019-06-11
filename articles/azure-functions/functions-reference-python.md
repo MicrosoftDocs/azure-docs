@@ -271,7 +271,7 @@ ID of the current function invocation.
 
 ## Global variables
 
-It is not gauranteed that the state of your app will be preserved for future executions. However, the Azure Functions runtime often reuses the same process for multiple executions of the same app. In order to cache the results of an expensive computation, declare it as a global variable. 
+It is not guaranteed that the state of your app will be preserved for future executions. However, the Azure Functions runtime often reuses the same process for multiple executions of the same app. In order to cache the results of an expensive computation, declare it as a global variable. 
 
 ```python
 CACHED_DATA = None
@@ -317,7 +317,7 @@ func azure functionapp publish <app name> --build-native-deps
 
 Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it'll then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
 
-To build your dependencies and publish using a continuous delivery (CD) system, [use Azure DevOps Piplines](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops). 
+To build your dependencies and publish using a continuous delivery (CD) system, [use Azure DevOps Pipelines](https://docs.microsoft.com/azure/azure-functions/functions-how-to-azure-devops). 
 
 ## Unit Testing
 
