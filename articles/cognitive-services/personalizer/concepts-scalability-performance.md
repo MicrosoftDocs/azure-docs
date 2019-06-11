@@ -15,8 +15,8 @@ ms.author: edjez
 
 High-performance and high-traffic websites and applications have two main factors to consider with Personalizer for scalability and performance:
 
-1. Keeping low latency when making Rank API calls
-1. Making sure training throughput keeps up with event input
+* Keeping low latency when making Rank API calls
+* Making sure training throughput keeps up with event input
 
 Personalization can return a rank very rapidly, with most of the call duration dedicated to communication through the REST API. Azure will autoscale the ability to respond to requests rapidly.
 
