@@ -255,7 +255,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ### Text-to-speech
 
-The container provides REST endpoint APIs which can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
+The container provides REST endpoint APIs which can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
