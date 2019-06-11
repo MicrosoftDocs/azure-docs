@@ -99,44 +99,44 @@ This API endpoint should be secured behind some form of authentication (for exam
 
 1. Open _views\layout.pug_, and add the following code under the `head` tag, before the `body` tag. These `script` tags load the [Immersive Reader SDK](https://github.com/Microsoft/immersive-reader-sdk) and jQuery.
 
-```pug
-script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js')
-script(src='https://code.jquery.com/jquery-3.3.1.min.js')
-```
+    ```pug
+    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js')
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+    ```
 
 2. Open _views\index.pug_, and replace its content with the following code. This code populates the page with some sample content, and adds a button that launches the Immersive Reader.
 
-```pug
-extends layout
+    ```pug
+    extends layout
 
-block content
-  h2(id='title') Geography
-  p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
-  div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
-  script.
-    function launchImmersiveReader() {
-      // First, get a token using our /token endpoint
-      $.ajax('/token', { success: token => {
-        // Second, grab the content from the page
-        const content = {
-          title: document.getElementById('title').innerText,
-          chunks: [ {
-            content: document.getElementById('content').innerText + '\n\n',
-            lang: 'en'
-          } ]
-        };
+    block content
+      h2(id='title') Geography
+      p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
+      div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
+      script.
+        function launchImmersiveReader() {
+          // First, get a token using our /token endpoint
+          $.ajax('/token', { success: token => {
+            // Second, grab the content from the page
+            const content = {
+              title: document.getElementById('title').innerText,
+              chunks: [ {
+                content: document.getElementById('content').innerText + '\n\n',
+                lang: 'en'
+              } ]
+            };
 
-        // Third, launch the Immersive Reader
-        ImmersiveReader.launchAsync(token, content);
-      }});
-    }
-```
+            // Third, launch the Immersive Reader
+            ImmersiveReader.launchAsync(token, content);
+          }});
+        }
+    ```
 
 3. Our web app is now ready. Start the app by running:
 
-```bash
-npm start
-```
+    ```bash
+    npm start
+    ```
 
 4. Open your browser and navigate to _http://localhost:3000_. You should see the above content on the page. Click the **Immersive Reader** button to launch the Immersive Reader with your content.
 
@@ -146,18 +146,18 @@ The Immersive Reader has support for many different languages. You can specify t
 
 1. Open _views\index.pug_ and add the following code below the `p(id=content)` tag that you added in the previous step. This code adds some content Spanish content to your page.
 
-```pug
-p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.
-```
+    ```pug
+    p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.
+    ```
 
 2. In the JavaScript code, add the following above the call to `ImmersiveReader.launchAsync`. This code passes the Spanish content into the Immersive Reader.
 
-```pug
-content.chunks.push({
-  content: document.getElementById('content-spanish').innerText + '\n\n',
-  lang: 'es'
-});
-```
+    ```pug
+    content.chunks.push({
+      content: document.getElementById('content-spanish').innerText + '\n\n',
+      lang: 'es'
+    });
+    ```
 
 3. Navigate to _http://localhost:3000_ again. You should see the Spanish text on the page, and when you click on **Immersive Reader**, it will show up in the Immersive Reader as well.
 
@@ -167,12 +167,12 @@ By default, the language of the Immersive Reader interface matches the browser's
 
 1. In _views\index.pug_, replace the call to `ImmersiveReader.launchAsync(token, content)` with the code below.
 
-```javascript
-const options = {
-    uiLang: 'fr',
-}
-ImmersiveReader.launchAsync(token, content, options);
-```
+    ```javascript
+    const options = {
+        uiLang: 'fr',
+    }
+    ImmersiveReader.launchAsync(token, content, options);
+    ```
 
 2. Navigate to _http://localhost:3000_. When you launch the Immersive Reader, the interface will be shown in French.
 
@@ -182,28 +182,28 @@ You can include math content in the Immersive Reader by using [MathML](https://d
 
 1. Modify _views\index.pug_ to include the following code above the call to `ImmersiveReader.launchAsync`:
 
-```javascript
-const mathML = '<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"> \
-  <munderover> \
-    <mo>∫</mo> \
-    <mn>0</mn> \
-    <mn>1</mn> \
-  </munderover> \
-  <mrow> \
-    <msup> \
-      <mi>x</mi> \
-      <mn>2</mn> \
-    </msup> \
-    <mo>ⅆ</mo> \
-    <mi>x</mi> \
-  </mrow> \
-</math>';
+    ```javascript
+    const mathML = '<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"> \
+      <munderover> \
+        <mo>∫</mo> \
+        <mn>0</mn> \
+        <mn>1</mn> \
+      </munderover> \
+      <mrow> \
+        <msup> \
+          <mi>x</mi> \
+          <mn>2</mn> \
+        </msup> \
+        <mo>ⅆ</mo> \
+        <mi>x</mi> \
+      </mrow> \
+    </math>';
 
-content.chunks.push({
-  content: mathML,
-  mimeType: 'application/mathml+xml'
-});
-```
+    content.chunks.push({
+      content: mathML,
+      mimeType: 'application/mathml+xml'
+    });
+    ```
 
 2. Navigate to _http://localhost:3000_. When you launch the Immersive Reader and scroll to the bottom, you'll see the math formula.
 
