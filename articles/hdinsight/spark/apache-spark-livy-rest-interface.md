@@ -46,9 +46,11 @@ curl -k --user "<hdinsight user>:<user password>" -v -H "Content-Type: applicati
 
 ## Get information on Livy Spark batches running on the cluster
 
-    ```cmd
-    curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
-    ```
+Syntax:
+
+```cmd
+curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_cluster_name>.azurehdinsight.net/livy/batches"
+```
 
 ### Examples
 
@@ -175,7 +177,7 @@ Perform the following steps:
 
     You should see an output similar to the following snippet:
 
-    ```cmd
+    ```output
     < HTTP/1.1 200 OK
     < Content-Type: application/json; charset=UTF-8
     < Server: Microsoft-IIS/8.5
