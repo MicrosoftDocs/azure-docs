@@ -15,7 +15,7 @@ ms.author: mbullwin
 
  # Application Insights overriding default endpoints
 
-In order to send data from Application Insights to certain regions, you may need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, all of which are described in this article.
+In order to send data from Application Insights to certain regions, you will need to override the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, all of which are described in this article. You will need to adjust the sample code and replace the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your desired region. The end of this article contains links to the endpoint addresses for regions where this is required.
 
 ## SDK code changes
 
@@ -145,7 +145,7 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 
 ## Regions that require endpoint modification
 
-Currently the only region that requires endpoint modifications is Azure Government. 
+Currently the only region that requires endpoint modifications is [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
 
 ## Next step
 
