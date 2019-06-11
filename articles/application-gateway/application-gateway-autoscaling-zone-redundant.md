@@ -93,7 +93,8 @@ Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/s
 
 Total price = $267.84 + $85.71 = $353.55
 
-Note: The Max function returns the largest value in a pair of values.
+> [!NOTE]
+> The Max function returns the largest value in a pair of values.
 
 ## Scaling Application Gateway and WAF v2
 
