@@ -29,12 +29,11 @@ This release corresponds to the software versions:
 
 ## What's new
 
-- **Field Programmable Gate Array (FPGA) logging improvements** -  In this release, a lot of logging and alert enhancements related to FPGA are implemented. If using the Edge compute feature powered by FPGA on Data Box Edge, this is a **required update**.
-For more information, see how to [transform data with Edge compute on your Data Box Edge](data-box-edge-deploy-configure-compute-advanced).
+- **Field Programmable Gate Array (FPGA) logging improvements** -  In this release, we have made logging and alert enhancements related to FPGA. This is a required update for Data Box Edge if you are using the Edge compute feature with the FPGA. For more information, see how to [transform data with Edge compute on your Data Box Edge](data-box-edge-deploy-configure-compute-advanced).
 
 ## Known issues in GA release
 
-No new issues are release noted for this release. All the release noted issues have carried over from the previous releases. To see a list, go to [Known issues in the GA release](data-box-gateway-release-notes.md#known-issues-in-ga-release).
+No new issues are release noted for this release. All the release noted issues have carried over from the previous releases. To see a list of known issues, go to [Known issues in the GA release](data-box-gateway-release-notes.md#known-issues-in-ga-release).
 
 
 ## Next steps
