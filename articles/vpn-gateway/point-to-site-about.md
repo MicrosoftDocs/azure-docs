@@ -125,7 +125,9 @@ The zip file also provides the values of some of the important settings on the A
 
 ## <a name="TLS policies"></a>What TLS policies are configured on VPN gateways for P2S?
 **TLS**
- 
+
+|**Policies** |
+|---| 
 |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 |
 |TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 |
 |TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 |
