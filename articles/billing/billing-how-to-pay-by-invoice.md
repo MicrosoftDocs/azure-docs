@@ -1,19 +1,16 @@
 ---
 title: Pay for Azure subscriptions by invoice | Microsoft Docs
 description: Describes how to pay for Azure subscriptions by invoice
-services: ''
 documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 06/06/2019
 ms.author: banders
 
 ---
@@ -30,11 +27,11 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
 
 1. Sign into the [Azure portal](https://portal.azure.com/). Select **Help + support** > **New support request**.
 
-    ![help and support button](./media/billing-how-to-pay-by-invoice/help-and-support.png)
+    ![Help and support link](./media/billing-how-to-pay-by-invoice/help-and-support.png)
 
-2. Select **Billing** as the issue type, select the subscription for which you want to pay by invoice, select a support plan, and then select **Next**.
+2. Select **Billing** as the **Issue type**. The *issue type* is the support request category. Select the subscription for which you want to pay by invoice, select a support plan, and then select **Next**.
 
-3. Select **Pay by Invoice** in the **Problem Type** box.
+3. Select **Pay by Invoice** in the **Problem Type** box. The *problem type* is the support request subcategory.
 
 4. Enter the following information in the **Details** box, and then select **Next**.
 
@@ -61,8 +58,8 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
          (New quota) Requested cores:
          Specific region & series of Subscription:
 
-    - The **Company name** and **Company address** should match with the information that you provided for the Azure account.  To view or update the information, see [Change your Azure account profile information](billing-how-to-change-azure-account-profile.md).
-    - You must add your billing contact in Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department. To update the billing contact, go to [Azure Account Center](https://account.azure.com/Profile).
+    - The **Company name** and **Company address** should match the information that you provided for the Azure account. To view or update the information, see [Change your Azure account profile information](billing-how-to-change-azure-account-profile.md).
+    - You must add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department. To update the billing contact information, go to [Azure Account Center](https://account.azure.com/Profile).
 
 5. Verify your contact information and preferred contact method, and then click **Create**.
 
@@ -72,7 +69,7 @@ If we need to run a credit check because of the amount of credit that you need, 
 
 Once you are approved to pay by invoice, you can switch your Azure subscription to the invoice payment method in the [Azure portal](https://portal.azure.com).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Sign-in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search on **Cost Management + Billing**.
 
     ![Screenshot that shows search](./media/billing-how-to-pay-by-invoice/search.png)
@@ -83,6 +80,9 @@ Once you are approved to pay by invoice, you can switch your Azure subscription 
 
     ![Screenshot that shows pay by invoice button](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
-## Need help? Contact us.
+## Need help? Contact us
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## Next steps
+- If needed, update your billing contact information at the [Azure Account Center](https://account.azure.com/Profile).
