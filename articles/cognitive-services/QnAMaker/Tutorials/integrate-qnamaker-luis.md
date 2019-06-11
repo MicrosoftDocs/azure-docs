@@ -22,7 +22,7 @@ This article uses Bot Framework v3 SDK. Please see this [Bot Framework article](
 
 ## Architecture
 
-![QnA Maker luis architecture](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker with Language Understanding architecture](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 In the above scenario, QnA Maker first gets the intent of the incoming question from a LUIS model, and then use that to route it to the correct QnA Maker knowledge base.
 
