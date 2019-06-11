@@ -35,7 +35,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 Storage accounts can be used by the Azure Machine Learning service workspace (storing logs, models, snapshots, etc.) and as a datastore. The process to update the workspace is a single Azure CLI command, and can be ran after updating the storage key. The process of updating datastores is more involved, and requires discovering what datastores are currently using the storage account and then re-registering them.
 
 > [!IMPORTANT]
-> You should update the workspace using the Azure CLI, and the datastores using Python, at the same time. Updating only one or the other is not sufficient, and will lead to errors until both are updated.
+> Update the workspace using the Azure CLI, and the datastores using Python, at the same time. Updating only one or the other is not sufficient, and may cause errors until both are updated.
 
 To discover the storage accounts that are used by your datastores, use the following code:
 
@@ -67,7 +67,7 @@ If an entry exists for the storage account that you plan on regenerating access 
 To update Azure Machine Learning service to use the new key, use the following steps:
 
 > [!IMPORTANT]
-> You should perform all steps, updating both the workspace using the CLI, and datastores using Python. Updating only one or the other is not sufficient, and will lead to errors until both are updated.
+> Perform all steps, updating both the workspace using the CLI, and datastores using Python. Updating only one or the other may cause errors until both are updated.
 
 1. Regenerate the key. For information on regenerating an access key, see the [Manage a storage account](/azure/storage/common/storage-account-manage.md#access-keys) article. Save the new key.
 
