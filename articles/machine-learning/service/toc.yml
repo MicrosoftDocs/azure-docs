@@ -97,7 +97,7 @@
   - name: Model management (MLOps)
     displayName: deploy, deployment, mlops, operationalize, operationalization
     href: concept-model-management-and-deployment.md
-  - name: Reusable ML pipelines
+  - name: ML pipelines
     href: concept-ml-pipelines.md
   - name: Model interpretability
     displayName: explainability
