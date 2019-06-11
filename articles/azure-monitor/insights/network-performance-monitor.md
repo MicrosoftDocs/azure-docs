@@ -259,8 +259,8 @@ If you are an NPM user creating an alert via Azure portal:
 4. Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
 Each time you create an alert, NPM creates a query based log alert rule in Azure Monitor. 
-This query is triggered every 5 mins by default. Azure monitor does not charge for the first 250 log alert rules created, and any alert rules above the 250 log alert rules limit will be billed as per [Alerts pricing in Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-Notifications are charged separately as per [Notifications pricing in Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+This query is triggered every 5 mins by default. Azure monitor does not charge for the first 250 log alert rules created, and any alert rules above the 250 log alert rules limit will be billed as per [Alerts pricing in Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+Notifications are charged separately as per [Notifications pricing in Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## Pricing

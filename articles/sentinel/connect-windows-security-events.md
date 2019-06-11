@@ -4,7 +4,7 @@ description: Learn how to connect Windows security event data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a

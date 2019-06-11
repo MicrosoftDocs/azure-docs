@@ -180,7 +180,7 @@ az group delete --name amsResourceGroup
 > [!IMPORTANT]
 > Leaving the Live Event running incurs billing costs. Be aware, if the project/program crashes or is closed out for any reason, it could leave the Live Event running in a billing state.
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

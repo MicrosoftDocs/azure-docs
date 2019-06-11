@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 
@@ -17,6 +17,9 @@ ms.author: diberry
 keyPhrase extracts a variety of key phrases from an utterance. You do not need to add example utterances containing keyPhrase to the application. keyPhrase entity is supported in [many cultures](luis-language-support.md#languages-supported) as part of the [text analytics](../text-analytics/overview.md) features. 
 
 ## Resolution for prebuilt keyPhrase entity
+
+### API version 2.x
+
 The following example shows the resolution of the **builtin.keyPhrase** entity.
 
 ```json

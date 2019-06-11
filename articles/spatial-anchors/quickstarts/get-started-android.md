@@ -63,7 +63,7 @@ The next step is to configure the app to use your account identifier and account
 
 # [Java](#tab/openproject-java)
 
-Open `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsActivity.java`.
+Open `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
@@ -71,7 +71,7 @@ Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account
 
 # [NDK](#tab/openproject-ndk)
 
-Open `Android/NDK/app/src/main/cpp/spatial_services_application.cc`.
+Open `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 

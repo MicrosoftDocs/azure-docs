@@ -22,9 +22,27 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+## Prerequisites
+Before you deploy a dual stack application in Azure, you must configure your subscription only once for this preview feature using the following Azure PowerShell:
+
+Register as follows:
+```azurepowershell
+Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+```
+It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure PowerShell command:
+Check on the registration as follows:
+```azurepowershell
+Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+```
+After the registration is complete, run the following command:
+
+```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+```
+
 ## Sample script
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 
 ```azurepowershell
 # Dual-Stack VNET with 2 VMs.ps1
@@ -235,7 +253,6 @@ This script uses the following commands to create a resource group, virtual mach
 | [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)  | Creates an Azure load balancer. |
 | [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) | Creates a load balancer probe. A load balancer probe is used to monitor each VM in the load balancer set. If any VM becomes inaccessible, traffic is not routed to the VM. |
 | [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) | Creates a load balancer rule. In this sample, a rule is created for port 80. As HTTP traffic arrives at the load balancer, it is routed to port 80 one of the VMs in the load balancer set. |
-| [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) | Creates a load balancer Network Address Translation (NAT) rule.  NAT rules map a port of the load balancer to a port on a VM. In this sample, a NAT rule is created for SSH traffic to each VM in the load balancer set.  |
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | Creates a network security group (NSG), which is a security boundary between the internet and the virtual machine. |
 | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) | Creates an NSG rule to allow inbound traffic. In this sample, port 22 is opened for SSH traffic. |
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Creates a virtual network card and attaches it to the virtual network, subnet, and NSG. |

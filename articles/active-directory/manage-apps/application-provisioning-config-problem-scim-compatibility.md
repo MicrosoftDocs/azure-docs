@@ -3,8 +3,8 @@ title: Known issues and resolutions with SCIM 2.0 protocol compliance of the Azu
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 documentationcenter: ''
-author: asmalser
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: asmalser
+ms.author: mimart
+ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---

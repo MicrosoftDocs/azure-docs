@@ -166,7 +166,7 @@ VALUES (
 
 **Results**
 
-![Trained model with additional output](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![Trained model with additional output](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## Score new data using the trained model
 
@@ -234,7 +234,7 @@ Did you notice that the original training data stops at a speed of 25 miles per 
 
    **Results**
 
-   ![Result set for predicting stopping distance](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![Result set for predicting stopping distance](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > In this example script, the `str` function is added during the testing phase to check the schema of data being returned from R. You can remove the statement later.
@@ -243,10 +243,9 @@ Did you notice that the original training data stops at a speed of 25 miles per 
 
 ## Next steps
 
-For more information on Machine Learning Services, see the articles below. While some of these articles are for SQL Server, most of the information is also applicable to Machine Learning Services (with R) in Azure SQL Database.
+For more information on Azure SQL Database Machine Learning Services with R (preview), see the following articles.
 
-- [Azure SQL Database Machine Learning Services (with R)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutorial: Learn in-database analytics using R in SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [End-to-end data science walkthrough for R and SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Tutorial: Use RevoScaleR R functions with SQL Server data](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database Machine Learning Services with R (preview)](sql-database-machine-learning-services-overview.md)
+- [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-create-script.md)
+- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
+- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)

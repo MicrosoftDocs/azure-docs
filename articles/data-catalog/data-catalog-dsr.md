@@ -62,10 +62,8 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>
-        <font size="2">
       </td>
       <td>
-        <font size="2">
       </td>
     </tr>
     <tr>
@@ -227,6 +225,14 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>Excel</td>
       <td></td>
+    </tr>
+    <tr>
+      <td>SAP Business Warehouse</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td>Only works in English. Measures are unsupported.</td>
     </tr>
     <tr>
       <td>SAP HANA view</td>

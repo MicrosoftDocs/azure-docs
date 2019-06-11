@@ -3,8 +3,8 @@ title: Connect virtual networks with virtual network peering - tutorial - Azure 
 description: In this tutorial, you learn how to connect virtual networks with virtual network peering, using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/16/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: 
 ---
 

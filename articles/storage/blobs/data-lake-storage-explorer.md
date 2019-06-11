@@ -3,14 +3,14 @@ title: "Quickstart: Use Azure Storage Explorer to manage data in Azure Data Lake
 "
 description: In this quickstart, you learn how to use Azure Storage Explorer to create a file system in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. Next, you learn how to download the file to your local computer, and how to view all of the file in a directory.
 services: storage
-author: tamram
+author: normesta
 
 ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
-ms.author: tamram
+ms.author: normesta
 ---
 
 # Quickstart: Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account

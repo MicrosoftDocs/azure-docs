@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
@@ -84,7 +84,7 @@ A vital part of content management is to understand who is accessing which resou
 ## Define access control options
 By leveraging the authentication, authorization and access control capabilities available in Azure AD you can enable your company to use a central identity repository while allowing users and partners to use single sign-on (SSO) as shown in the following figure:
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![centralized management](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Centralized management and fully integration with other directories
 
@@ -110,7 +110,7 @@ Using the Azure AD support, mobile business applications can use the same easy M
 
 Once the user is authenticated using Azure AD, it is important to evaluate the level of access that the user has. The level of access that the user has over a resource can vary. While Azure AD can add an additional security layer by controlling access to some resources, keep in mind that the resource itself can also have its own access control list separately, such as the access control for files located in a File Server. The following figure summarizes the levels of access control that you can have in a hybrid scenario:
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![access control](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 Each interaction in the diagram showed in Figure X represents one access control scenario that can be covered by Azure AD. Below you have a description of each scenario:
 

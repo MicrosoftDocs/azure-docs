@@ -147,6 +147,12 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 > [!NOTE]
 > In both the options mobility service will not be uninstalled from the protected servers, you need to uninstall it manually. If you plan to protect the server again using the same Configuration server, you can skip uninstalling the mobility service.
 
+## Disable protection for a Azure VM (Azure to Azure)
+
+-  In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
+> [!NOTE]
+> mobility service will not be uninstalled from the protected servers, you need to uninstall it manually. If you plan to protect the server again, you can skip uninstalling the mobility service.
+
 ## Disable protection for a Hyper-V virtual machine (Hyper-V to Azure)
 
 > [!NOTE]

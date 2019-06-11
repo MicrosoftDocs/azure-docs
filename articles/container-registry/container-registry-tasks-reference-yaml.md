@@ -91,7 +91,7 @@ The secret object has the following properties.
 | Property | Type | Optional | Description | Default value |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | No | The identifier of the secret. | None |
-| `akv` | string | Yes | The Azure Key Vault (AKV) Secret URL. | None |
+| `keyvault` | string | Yes | The Azure Key Vault Secret URL. | None |
 | `clientID` | string | Yes | The client ID of the user-assigned managed identity for Azure resources. | None |
 
 ### network
@@ -448,8 +448,10 @@ ACR Tasks includes a default set of variables that are available to task steps w
 * `Run.ID`
 * `Run.Registry`
 * `Run.Date`
+* `Run.Commit`
+* `Run.Branch`
 
-### Run&#46;ID
+### Run.ID
 
 Each Run, through `az acr run`, or trigger based execution of tasks created through `az acr task create` have a unique ID. The ID represents the Run currently being executed.
 
@@ -474,6 +476,14 @@ steps:
 ### Run.Date
 
 The current UTC time the run began.
+
+### Run.Commit
+
+For a task triggered by a commit to a GitHub repository, the commit identifier.
+
+### Run.Branch
+
+For a task triggered by a commit to a GitHub repository, the branch name.
 
 ## Next steps
 

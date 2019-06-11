@@ -42,7 +42,9 @@
       href: render-coverage.md
     - name: Routing coverage
       href: routing-coverage.md
-  - name: Supported languages
+    - name: Mobility coverage
+      href: mobility-coverage.md
+  - name: Localization support
     href: supported-languages.md
   - name: Supported map styles
     href: supported-map-styles.md
@@ -50,6 +52,8 @@
     href: supported-browsers.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
+  - name: Mobility Service data structure
+    href: mobility-service-data-structure.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -70,15 +74,19 @@
       href: how-to-use-best-practices-for-search.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
+    - name: Request public transit routes
+      href: how-to-request-transit-data.md
+    - name: Request real-time public transit data
+      href: how-to-request-real-time-data.md
   - name: Develop with the Web SDK
     items:
     - name: Map control
       items:
-      - name: Use the map control
+      - name: Getting started with web map control
         href: how-to-use-map-control.md
       - name: Create a map
         href: map-create.md
-      - name: Choose a map style
+      - name: Change style of the map
         href: choose-map-style.md
       - name: Add controls to the map
         href: map-add-controls.md
@@ -120,8 +128,14 @@
         href: map-route.md
   - name: Develop with the Android SDK
     items:
-    - name: How to use Android map control
+    - name: Getting started with Android map control
       href: how-to-use-android-map-control-library.md
+    - name: Add a symbol layer
+      href: how-to-add-symbol-to-android-map.md
+    - name: Add shapes
+      href: how-to-add-shapes-to-android-map.md
+    - name: Change the style of the map
+      href: set-android-map-styles.md
 - name: Reference
   items:
   - name: API and parameter extensions
@@ -140,6 +154,8 @@
       href: https://docs.microsoft.com/rest/api/maps/data
     - name: Geolocation service
       href: https://docs.microsoft.com/rest/api/maps/geolocation
+    - name: Mobility service
+      href: https://docs.microsoft.com/rest/api/maps/mobility
     - name: Render service
       href: https://docs.microsoft.com/rest/api/maps/render
     - name: Route service
@@ -158,6 +174,8 @@
     items:
     - name: Map control
       href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+    - name: Drawing tools
+      href: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
     - name: Service module
       href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
   - name: Resource Manager template

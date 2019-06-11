@@ -36,7 +36,7 @@ Accounts in sophisticated IT enterprises include hundreds of parameters that def
 
 ## Role-based access control
 Role-based access control (RBAC) uses roles and provisioning policies to evaluate, test, and enforce your business processes and rules for granting access to users. Key administrators create provisioning policies and assign users to roles and that define sets of entitlements to resources for these roles. RBAC extends the identity management solution to use software-based processes and reduce user manual interaction in the provisioning process.
-Azure AD RBAC enables the company to restrict the number of operations that an individual can do once he has access to the Azure portal. By using RBAC to control access to the portal, IT Admins ca delegate access by using the following access management approaches:
+Azure AD RBAC enables the company to restrict the number of operations that an individual can do once they have access to the Azure portal. By using RBAC to control access to the portal, IT Admins ca delegate access by using the following access management approaches:
 
 * **Group-based role assignment**: You can assign access to Azure AD groups that can be synced from your local Active Directory. This enables you to leverage the existing investments that your organization has made in tooling and processes for managing groups. You can also use the delegated group management feature of Azure AD Premium.
 * **Leverage built in roles in Azure**: You can use three roles — Owner, Contributor, and Reader, to ensure that users and groups have permission to do only the tasks they need to do their jobs.

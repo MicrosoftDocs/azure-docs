@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/09/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -21,6 +21,9 @@ Monthly budgets are evaluated against spending every four hours. However, data a
 Budgets reset automatically at the end of a period (monthly, quarterly, or annually) for the same budget amount when you select an expiration date in the future. Because they reset with the same budget amount, you need to create separate budgets when budgeted currency amounts differ for future periods.
 
 The examples in this tutorial walk you through creating and editing a budget for an Azure Enterprise Agreement (EA) subscription.
+
+Watch the [How to create a budget to monitor your spending with Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) video to see how you can create budgets in Azure to monitor spending.
+
 
 In this tutorial, you learn how to:
 

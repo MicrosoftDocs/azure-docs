@@ -3,8 +3,8 @@ title: Understand the OpenID Connect authentication code flow in Azure AD | Micr
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OpenID Connect.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/4/2019
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -103,7 +103,7 @@ At this point, the user is asked to enter their credentials and complete the aut
 
 ### Sample response
 
-A sample response, after the user has authenticated, could look like this:
+A sample response, sent to the `redirect_uri` specified in the sign-in request after the user has authenticated, could look like this:
 
 ```
 POST / HTTP/1.1
@@ -212,7 +212,7 @@ By including permission scopes in the request and using `response_type=code+id_t
 
 ### Successful response
 
-A successful response using `response_mode=form_post` looks like:
+A successful response, sent to the `redirect_uri` using `response_mode=form_post`, looks like:
 
 ```
 POST /myapp/ HTTP/1.1

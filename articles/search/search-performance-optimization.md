@@ -75,7 +75,7 @@ There are two options for keeping your distributed search services in sync which
 
 ### Use indexers for updating content on multiple services
 
-If you are already using indexer on one service, you can configure a second indexer on a second service to use the same data source object, pulling data from the same location. Each service in each region has its own indexer and a target index (your search corpus is not shared, which means data is duplicated), but each indexer references the same data source.
+If you are already using indexer on one service, you can configure a second indexer on a second service to use the same data source object, pulling data from the same location. Each service in each region has its own indexer and a target index (your search index is not shared, which means data is duplicated), but each indexer references the same data source.
 
 Here is a high-level visual of what that architecture would look like.
 

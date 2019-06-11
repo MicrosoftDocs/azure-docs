@@ -73,6 +73,9 @@ else
 
 Careful consideration should be made when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they're robust and can handle transient errors that may cause the runbook to restart or fail. If a runbook fails, it is retried. If a runbook normally runs within a time constraint, logic to check the execution time should be implemented in the runbook to ensure operations like start up, shut down or scale out are run only during specific times.
 
+> [!NOTE]
+> The local time on the Azure sandbox process is set to UTC time. Calculations for date and time in your runbooks need to take this into consideration.
+
 ### Tracking progress
 
 It is a good practice to author runbooks to be modular in nature. This means structuring the logic in the runbook such that it can be reused and restarted easily. Tracking progress in a runbook is a good way to ensure that the logic in a runbook executes correctly if there were issues. Some possible ways to track the progress of the runbook is by using an external source such as storage accounts, a database, or shared files. By tracking the state externally, you can create logic in your runbook to first check the state of the last action the runbook took. Then based off the results, either skip or continue specific tasks in the runbook.

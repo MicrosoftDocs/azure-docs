@@ -3,14 +3,14 @@ title: Azure Traffic Manager - FAQs
 description: This article provides answers to frequently asked questions about Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)
@@ -317,7 +317,7 @@ Yes. Traffic Manager supports probing over HTTPS. Configure **HTTPS** as the pro
 Traffic manager cannot provide any certificate validation, including:
 
 * Server-side certificates are not validated
-* SNI server-side certificates are not supported
+* SNI server-side certificates are not validated
 * Client certificates are not supported
 
 ### Do I use an IP address or a DNS name when adding an endpoint?

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
 ---
 
@@ -60,7 +60,7 @@ For examples that use the insights token, see [C#](#use-with-c) | [Java](#use-wi
 
 ### C# prerequisites
 
-- Any version of [Visual Studio 2017](https://www.visualstudio.com/downloads/) to get this code running on Windows.
+- Any version of [Visual Studio 2019](https://www.visualstudio.com/downloads/) to get this code running on Windows.
 - An Azure subscription. For this quickstart, you can use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
 
 ## Run the application

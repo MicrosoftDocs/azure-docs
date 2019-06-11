@@ -4,7 +4,7 @@ description: This article provides an overview of web application firewall (WAF)
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
 ---
@@ -33,7 +33,7 @@ This section describes the core benefits that Application Gateway and its WAF pr
 
 * Protect your web applications from web vulnerabilities and attacks without modification to back-end code.
 
-* Protect multiple web applications at the same time. An instance of Application Gateway can host of up to 20 websites that are protected by a web application firewall.
+* Protect multiple web applications at the same time. An instance of Application Gateway can host of up to 100 websites that are protected by a web application firewall.
 
 ### Monitoring
 
@@ -116,12 +116,19 @@ The Application Gateway WAF can be configured to run in the following two modes:
 * **Prevention mode**: Blocks intrusions and attacks that the rules detect. The attacker receives a "403 unauthorized access" exception, and the connection is terminated. Prevention mode records such attacks in the WAF logs.
 
 ### Anomaly Scoring mode
- 
+
 OWASP has two modes for deciding whether to block traffic: Traditional mode and Anomaly Scoring mode.
 
 In Traditional mode, traffic that matches any rule is considered independently of any other rule matches. This mode is easy to understand. But the lack of information about how many rules match a specific request is a limitation. So, Anomaly Scoring mode was introduced. It's the default for OWASP 3.*x*.
 
 In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked when the firewall is in Prevention mode. Rules have a certain severity: *Critical*, *Error*, *Warning*, or *Notice*. That severity affects a numeric value for the request, which is called the Anomaly Score. For example, one *Warning* rule match contributes 3 to the score. One *Critical* rule match contributes 5.
+
+|Severity  |Value  |
+|---------|---------|
+|Critical     |5|
+|Error        |4|
+|Warning      |3|
+|Notice       |2|
 
 There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the Application Gateway WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
 

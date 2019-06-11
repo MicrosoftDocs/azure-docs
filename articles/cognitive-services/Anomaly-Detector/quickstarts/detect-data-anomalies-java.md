@@ -24,7 +24,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 ## Prerequisites
 
-- The [Java&trade; Development Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or later.
+- The [Java&trade; Development Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or later.
 
 - Import these libraries from the Maven Repository
     - [JSON in Java](https://mvnrepository.com/artifact/org.json/json) package

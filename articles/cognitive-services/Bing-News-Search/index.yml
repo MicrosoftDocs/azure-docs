@@ -6,15 +6,15 @@ metadata:
   title: Bing News Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: Learn how to use the Bing News Search API to search the web for news. 
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/16/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: The Bing News Search API enables you to integrate Bing's news search capabilities in your applications. By sending search queries with the API, you can get relevant news articles from multiple categories and sources, similar to bing.com/news.
 sections:
@@ -91,7 +91,7 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference">Bing News Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference">Bing News Search API v5</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference">Bing News Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference">Bing News Search API v5</a></p>
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet">.NET</a></p>
             <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable">Java</a></p>

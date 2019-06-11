@@ -5,21 +5,18 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 02/01/2019
+ ms.date: 04/23/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 
-If you do not already have a VNet, you can quickly create one using PowerShell. You can also create a virtual network using the Azure portal.
+To quickly create a VNet, you can click "Try It" in this article to open a PowerShell console in Azure Cloud Shell. Adjust the values, then copy and paste the commands into the console window. 
 
-* Be sure to verify that the address space for the VNet that you create does not overlap with any of the address ranges for other VNets that you want to connect to, or with your on-premises network address spaces. 
-* If you already have a VNet, verify that it meets the required criteria and does not have a virtual network gateway.
-
-You can easily create your VNet by clicking "Try It" in this article to open a PowerShell console. Adjust the values, then copy and paste the commands into the console window.
+Be sure to verify that the address space for the VNet that you create does not overlap with any of the address ranges for other VNets that you want to connect to, or with your on-premises network address spaces.
 
 ### Create a resource group
 
-Adjust the PowerShell commands, then create a resource group.
+If you don't already have a resource group that you want to use, create a new one. Adjust the PowerShell commands to reflect the resource group name you want to use, then run the following cmdlet:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
@@ -27,7 +24,7 @@ New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
 
 ### Create a VNet
 
-Adjust the PowerShell commands to create the VNet that is compatible for your environment.
+Adjust the PowerShell commands to create a VNet that is compatible for your environment.
 
 ```azurepowershell-interactive
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name FrontEnd -AddressPrefix "10.1.0.0/24"

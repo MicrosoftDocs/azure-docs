@@ -1,17 +1,10 @@
 ---
 title: Move Azure resources to new subscription or resource group | Microsoft Docs
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 05/17/2019
 ms.author: tomfitz
 
 ---
@@ -109,6 +102,7 @@ The following list provides a general summary of Azure services that can be move
 * SignalR Service
 * Storage - storage accounts in different regions can't be moved in the same operation. Instead, use separate operations for each region.
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+* Storage Sync Service
 * Stream Analytics - Stream Analytics jobs can't be moved when in running state.
 * SQL Database server - database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
 * Time Series Insights
@@ -169,6 +163,7 @@ The following scenarios aren't yet supported:
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved.
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
+* Virtual machines in an existing Virtual Network where the user does not intend to move all resources in the Virtual Network.
 
 To move virtual machines configured with Azure Backup, use the following workaround:
 
@@ -218,6 +213,22 @@ When moving a Web App _across subscriptions_, the following limitations apply:
 - All App Service resources in the resource group must be moved together.
 - App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, it must be moved back to that original resource group first, and then it can be moved across subscriptions.
 
+If you don't remember the original resource group, you can find it through diagnostics. For your web app, select **Diagnose and solve problems**. Then, select **Configuration and Management**.
+
+![Select diagnostics](./media/resource-group-move-resources/select-diagnostics.png)
+
+Select **Migration Options**.
+
+![Select migration options](./media/resource-group-move-resources/select-migration.png)
+
+Select the option for recommended steps to move the web app.
+
+![Select recommended steps](./media/resource-group-move-resources/recommended-steps.png)
+
+You see the recommended actions to take before moving the resources. The information includes the original resource group for the web app.
+
+![Recommendations](./media/resource-group-move-resources/recommendations.png)
+
 ### App Service Certificate limitations
 
 You can move your App Service Certificate to a new resource group or subscription. If your App Service Certificate is bound to a web app, you must take some steps before moving the resources to a new subscription. Delete the SSL binding and private certificate from the web app before moving the resources. The App Service Certificate doesn't need to be deleted, just the private certificate in the web app.
@@ -247,7 +258,7 @@ When moving resources to a new subscription, the following restrictions apply:
 * The target subscription must not have any other classic resources.
 * The move can only be requested through a separate REST API for classic moves. The standard Resource Manager move commands don't work when moving classic resources to a new subscription.
 
-To move classic resources to a new subscription, use the REST operations that are specific to classic resources. To use REST, perform the following steps:
+To move classic resources to a new subscription, use the REST operations that are specific to classic resources. To use REST, do the following steps:
 
 1. Check if the source subscription can participate in a cross-subscription move. Use the following operation:
 
@@ -308,7 +319,7 @@ The operation may run for several minutes.
 
 ### Recovery Services limitations
 
- To move a Recovery Services vault, you must enroll in a [limited public preview](../backup/backup-azure-move-recovery-services-vault.md).
+ To move a Recovery Services vault, follow these steps: [Move resources to new resource group or subscription](../backup/backup-azure-move-recovery-services-vault.md).
 
 Currently, you can move one Recovery Services vault, per region, at a time. You can't move vaults that back up Azure Files, Azure File Sync, or SQL in IaaS virtual machines.
 

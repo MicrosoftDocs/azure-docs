@@ -1,17 +1,15 @@
 ---
 title: APIs for Azure reservation automation | Microsoft Docs
 description: Learn about the Azure APIs that you can use to programmatically get reservation information.
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 04/25/2019
 ms.author: banders
 
 ---
@@ -27,7 +25,38 @@ You can also analyze your resource usage by using the Consumption API Usage Deta
 
 ## Buy a reservation
 
-You can't currently buy a reservation programmatically. To buy a reservation, see the following articles:
+You can purchase Azure reservations and software plans programmatically by using REST APIs. To learn more, see [Reservation Order - Purchase API](/rest/api/reserved-vm-instances/reservationorder/purchase).
+
+Here's a sample request to purchase by using the REST API:
+
+```
+PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
+```
+
+Request body:
+
+```
+{
+ "sku": {
+    "name": "standard_D1"
+  },
+ "location": "westus",
+ "properties": {
+    "reservedResourceType": "VirtualMachines",
+    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "term": "P1Y",
+    "quantity": "1",
+    "displayName": "TestReservationOrder",
+    "appliedScopes": null,
+    "appliedScopeType": "Shared",
+    "reservedResourceProperties": {
+      "instanceFlexibility": "On"
+    }
+  }
+}
+```
+
+You can also buy a reservation in the Azure portal. For more information, see the following articles:
 
 Service plans:
 - [Virtual machine](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)

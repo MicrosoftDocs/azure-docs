@@ -1,14 +1,15 @@
 ---
-title: Limitations in Azure Database for PostgreSQL
-description: This article describes limitations in Azure Database for PostgreSQL, such as number of connection and storage engine options.
+title: Limitations in Azure Database for PostgreSQL - Single Server
+description: This article describes limitations in Azure Database for PostgreSQL - Single Server, such as number of connection and storage engine options.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 1/22/2019
+ms.date: 06/05/2019
 ---
-# Limitations in Azure Database for PostgreSQL
-The following sections describe capacity and functional limits in the database service.
+# Limitations in Azure Database for PostgreSQL - Single Server
+The following sections describe capacity and functional limits in the database service. If you'd like to learn about resource (compute, memory, storage) tiers, see the [pricing tiers](concepts-pricing-tiers.md) article.
+
 
 ## Maximum connections
 The maximum number of connections per pricing tier and vCores are as follows: 

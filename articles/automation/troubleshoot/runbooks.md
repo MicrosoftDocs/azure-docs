@@ -300,6 +300,8 @@ This error occurs due to one of the following issues:
 
 4. Your runbook attempted to call an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
 
+5. Your runbook attempted to write too much exception data to the output stream.
+
 #### Resolution
 
 Any of the following solutions fix the problem:
@@ -311,6 +313,8 @@ Any of the following solutions fix the problem:
 * Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers aren't limited by the memory and network limits that Azure sandboxes are.
 
 * If you need to call a process (such as .exe or subprocess.call) in a runbook, you'll need to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+* There is a 1MB limit on the job output stream. Ensure that you enclose calls to an executable or subprocess in a try/catch block. If they throw an exception, write the message from that exception into an Automation variable. This will prevent it from being written into the job output stream.
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 
