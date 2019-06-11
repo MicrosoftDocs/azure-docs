@@ -365,6 +365,15 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 3. Are the "first" and "last" options useful? Some popular web searches use these options, and others do not.
 
+4. Type in "town", and click search. No paging options are displayed if there are less than one page worth of results.
+
+ ![Searching for "town"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
+
+5. Type in "pool", and click search. Then select the last page of results. The last page is the only page that may contain less than **ResultsPerPage** results.
+
+ ![Searching for "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
+
+
 Now save off this project and let's try an alternative to this form of paging.
 
 ## Extend your app with infinite scrolling

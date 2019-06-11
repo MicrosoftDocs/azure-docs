@@ -35,7 +35,7 @@ DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<
 
 This one call initiates a search of Azure data and returns the results. 
 
-![Searching for 24-hour](./media/tutorial-csharp-create-first-app/azure-search-24-hour.png)
+![Searching for "24-hour"](./media/tutorial-csharp-create-first-app/azure-search-24-hour.png)
 
 
 ## Prerequisites
@@ -49,17 +49,9 @@ To complete this tutorial, you need to:
 1. Locate the sample app at TBD-First-app.
 1. Select **Clone or download** and make your private local copy of the project.
 1. Using Visual Studio open the solution and select **Start without debugging** (or press F5).
-1. Type in some words (for example "wifi", "view", "bar", "parking") and page through the results!
+1. Type in some words (for example "wifi", "view", "bar", "parking"), and examine the results!
 
  ![Searching for "wifi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
-
-Note how no paging options are displayed if there is less than one page worth of results.
-
- ![Searching for "town"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
-
-The last page of results may contain less than a full page.
-
- ![Searching for "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
 
 Hopefully this project will run smoothly, and you have Azure app running. Many of the essential components for more sophisticated searches are included in this one app, so it is a good idea to go through it, and recreate it step by step.
 
