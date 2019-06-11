@@ -72,7 +72,7 @@ Encrypt your VM with [az vm encryption](/cli/azure/vm/encryption?view=azure-cli-
 az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvault myKV
 ```
 
-After a moment the process will return, "The encryption request was accepted. Please use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/show?view=azure-cli-latest).
+After a moment the process will return, "The encryption request was accepted. Please use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show).
 
 ```azurecli-interactive
 az vm show --name MyVM -g MyResourceGroup
