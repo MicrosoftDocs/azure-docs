@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 05/22/2019
+ms.date: 06/13/2019
 ---
 # Overview Azure SQL Database managed instance resource limits
 
@@ -33,7 +33,7 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 | Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, vCore=1 LP (hyper-thread) |
 | vCores | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memory (memory/core ratio) | 7 GB per vCore | 5.1 GB per vCore |
-| Max In-Memory OLTP memory | Instance limit: 3 GB per vCore<br/>Database limits:<br/> - 8-core: 8GB per database<br/> - 16-core: 20GB per database<br/> - 24-core: 36GB per database | Instance limit: 2.5 GB per vCore<br/>Database limits:<br/> - 8-core: 13GB per database<br/> - 16-core: 32GB per database |
+| Max In-Memory OLTP memory | Instance limit: 3 GB per vCore<br/>Database limits:<br/> - 8-core: 8 GB per database<br/> - 16-core: 20 GB per database<br/> - 24-core: 36 GB per database | Instance limit: 2.5 GB per vCore<br/>Database limits:<br/> - 8-core: 13 GB per database<br/> - 16-core: 32 GB per database |
 | Max instance storage (General Purpose) |  8 TB | 8 TB |
 | Max instance storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
@@ -98,7 +98,7 @@ The following table shows the default regional limits for supported subscription
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional and MSDN Platforms|2|32|
 
-\* When planning your deployments, consider that a Business Critical (BC) vCore (due to added redundancy) consumes 4x more capacity than a General Purpose (GP) vCore. So, for your calculations, 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies one subscription in a region. There is no limit per individual subnets except that sum of all vCores deployed across multipe subnets must be lower or equal to **max number of vCore units**.
+\* When planning your deployments, consider that a Business Critical (BC) vCore (due to added redundancy) consumes 4x more capacity than a General Purpose (GP) vCore. So, for your calculations, 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies one subscription in a region. There is no limit per individual subnets except that sum of all vCores deployed across multiple subnets must be lower or equal to **max number of vCore units**.
 
 ** Larger subnet and vCore limits are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
 
