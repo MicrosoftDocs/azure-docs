@@ -198,7 +198,7 @@ The ASP VNet Integration UI will show you all of the VNets that are used by the 
 * **Add routes** Adding routes will drive outbound traffic into your VNet.
 
 **Routing** 
-The routes that are defined in your VNet are used to direct traffic into your VNet from your app. If you need to send additional outbound traffic into the VNet, then you can add those address blocks here. This capabilty only works with gateway required VNet Integration.
+The routes that are defined in your VNet are used to direct traffic into your VNet from your app. If you need to send additional outbound traffic into the VNet, then you can add those address blocks here. This capability only works with gateway required VNet Integration.
 
 **Certificates**
 When the gateway required VNet Integration enabled, there is a required exchange of certificates to ensure the security of the connection. Along with the certificates are the DNS configuration, routes, and other similar things that describe the network.
