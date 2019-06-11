@@ -53,7 +53,7 @@ The initial cost analysis view includes the following areas:
 
 **Total** – Shows the total costs for the current month.
 
-**Forecast** – Shows the total forecasted costs for the current month (forecast is in preview).
+**Forecast** – Shows the total forecasted costs for time period you choose (forecast is in preview).
 
 **Budget** – Shows the planned spending limit for the selected scope, if available.
 
@@ -93,7 +93,7 @@ There's also the **daily** view showing costs for each day. The daily view doesn
 Here's a daily view of recent spending with spending forecast turned on.
 ![Daily view showing example daily costs for the current month](./media/quick-acm-cost-analysis/daily-view.png)
 
-When turn off the spending forecast, you don't see projected spending for future dates.
+When turn off the spending forecast, you don't see projected spending for future dates. Also, when you look at costs for past time periods, cost forecast doesn't show costs.
 
 Generally, you can expect to see data or notifications for consumed resources within 8-12 hours.
 
@@ -103,7 +103,7 @@ Generally, you can expect to see data or notifications for consumed resources wi
 
 Most [Azure resources support tagging](../azure-resource-manager/tag-support.md), however some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Cost Management only supports resource tags from the date the tags are applied directly to the resource. Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to learn about using Azure tag policy to improve cost data visibility.
 
-Here's a view of Azure service costs for a view of the last month.
+Here's a view of Azure service costs for the current month.
 
 ![Grouped daily accumulated view showing example Azure service costs for last month](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
