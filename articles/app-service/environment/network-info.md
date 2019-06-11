@@ -94,7 +94,7 @@ The ASE communicates out to internet accessible addresses on the following ports
 | Azure SQL | 1433 | 
 | Monitoring | 12000 |
 
-The complete list of outbound dependencies are listed in the document that describes [Locking down App Service Environment outbound traffic](./firewall-integration.md). If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. 
+The outbound dependencies are listed in the document that describes [Locking down App Service Environment outbound traffic](./firewall-integration.md). If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. 
 
 ### Customer DNS ###
 
