@@ -39,11 +39,11 @@ Azure Disk Encryption requires Internet connectivity for access to Active Direct
 
 ## Extension schemata
 
-There are two schemata for Azure Disk Encryption: a newer, recommended schema that does not use Azure Active Directory (AAD) properties, and an older schema that requires AAD properties.
+There are two schemata for Azure Disk Encryption: v1.1, a newer, recommended schema that does not use Azure Active Directory (AAD) properties, and v0.1, an older schema that requires AAD properties.
 
-### No AAD schema (recommended)
+### Schema v1.1: No AAD (recommended)
 
-This recommended schema does not require Azure Active Directory properties.
+The v1.1 schema is recommended and does not require Azure Active Directory properties.
 
 ```json
 {
@@ -70,9 +70,9 @@ This recommended schema does not require Azure Active Directory properties.
 ```
 
 
-### AAD schema 
+### Schema v0.1: with AAD 
 
-This older schema requires `aadClientID` and either `aadClientSecret` or `AADClientCertificate`.
+The 0.1 schema requires `aadClientID` and either `aadClientSecret` or `AADClientCertificate`.
 
 Using `aadClientSecret`:
 
