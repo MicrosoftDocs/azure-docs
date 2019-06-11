@@ -70,10 +70,15 @@ There will be 2 types of RHEL 7 image SKUs in this naming convention: SKUs that 
 >[!NOTE]
 > RHEL 6 set of images were not moved to the new naming convention.
 
-### Extended Update Support (EUS)
+## Extended Update Support (EUS)
 As of April 2019, RHEL images are available that are attached to the Extended Update Support (EUS) repositories by default. More details on RHEL EUS are available in [Red Hat's documentation](https://access.redhat.com/articles/rhel-eus).
 
-#### For customers that want to use EUS images:
+Instructions on how to switch your VM to EUS and more details about EUS support end-of-life dates are available [here](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+
+>[!NOTE]
+> EUS is not supported on RHEL Extras. This means that if you are installing a package that is usually available from the RHEL Extras channel, you will not be able to do so while on EUS. The Red Hat Extras Product Life Cycle is detailed [here](https://access.redhat.com/support/policy/updates/extras/).
+
+### For customers that want to use EUS images:
 Customers that want to use images that are attached to EUS repositories should use the RHEL image that contains a RHEL minor version number in the SKU. These images will be raw-partitioned (i.e. not LVM).
 
 For example, you may see the following 2 RHEL 7.4 images available:
@@ -83,10 +88,10 @@ RedHat:RHEL:7.4:7.4.2019041718
 ```
 In this case, `RedHat:RHEL:7.4:7.4.2019041718` will be attached to EUS repositories by default, and `RedHat:RHEL:7-RAW:7.4.2018010506` will be attached to non-EUS repositories by default.
 
-#### For customers that don't want to use EUS images:
+### For customers that don't want to use EUS images:
 If you don't want to use an image that is connected to EUS by default, deploy using an image that does not contain a minor version number in the SKU.
 
-##### RHEL images with EUS
+#### RHEL images with EUS
 The following table will apply for RHEL images that contain a minor version in the SKU.
 
 >[!NOTE]
