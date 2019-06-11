@@ -1,6 +1,6 @@
 ---
 title: Azure regional quota increase requests | Microsoft Docs
-description: Regional quota increase requests in Azure
+description: Regional quota increase requests
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
