@@ -1,5 +1,5 @@
 ---
-title: Implementing Logging, Auditing and Visibility in Azure Australia How-to article
+title: Gateway Logging, Auditing and Visibility in Azure Australia
 description: How to configure Logging, Auditing, and Visibility within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
@@ -8,9 +8,7 @@ ms.date: 04/25/2019
 ms.author: grgale
 ---
 
-# Implementing Logging, Auditing, and Visibility in Azure Australia
-
-## Background
+# Gateway Logging, Auditing and Visibility in Azure Australia
 
 Detecting and responding to cyber security threats relies on generating, collecting and analysing data related to the operation of a system.
 
@@ -381,3 +379,7 @@ Azure Automation enables Commonwealth entities to trigger actions in response to
 |Azure Automation Documentation|[https://docs.microsoft.com/en-us/azure/automation](https://docs.microsoft.com/en-us/azure/automation)|
 |How-to guide: Use an alert to trigger an Azure Automation runbook|[https://docs.microsoft.com/en-us/azure/automation/automation-create-alert-triggered-runbook](https://docs.microsoft.com/en-us/azure/automation/automation-create-alert-triggered-runbook)|
 |
+
+## Next steps
+
+Review the article on [Gateway Secure Remote Administration](gateway-secure-remote-administration.md) for details on securely managing your Gateway environment in Azure.

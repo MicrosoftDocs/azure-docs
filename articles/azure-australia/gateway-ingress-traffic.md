@@ -10,8 +10,6 @@ ms.author: grgale
 
 # Controlling ingress traffic in Azure
 
-## Introduction
-
 A core element of securing ICT systems is controlling network traffic. Traffic should be restricted to only that necessary for a system to function. This reduces the potential for compromise.
 
 This guide gives details about how inbound (ingress) network traffic works within Azure, and recommendations for implementing network security controls for an internet connected system.
@@ -365,3 +363,7 @@ Azure Policy is a key component for enforcing and maintaining the integrity of t
 |Ensure HTTPS Storage Account sample policy|[https://docs.microsoft.com/en-us/azure/governance/policy/samples/ensure-https-storage-account](https://docs.microsoft.com/en-us/azure/governance/policy/samples/ensure-https-storage-account)_
 |Force NSG on a subnet sample policy| [https://docs.microsoft.com/en-us/azure/governance/policy/samples/nsg-on-subnet](https://docs.microsoft.com/en-us/azure/governance/policy/samples/nsg-on-subnet)|
 |
+
+## Next steps
+
+Review the article on Gateway Egress Traffic Management and Control for details on managing traffic flows from your Azure environment to other netwroks using your Gateway components in Azure.

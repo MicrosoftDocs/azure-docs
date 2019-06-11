@@ -1,5 +1,5 @@
 ---
-title: Implementing Secure Remote Administration on Azure
+title: Secure Remote Administration of your Gateway in Azure
 description: Guidance on configuring Secure Remote Administration within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
@@ -8,15 +8,13 @@ ms.date: 04/25/2019
 ms.author: grgale
 ---
 
-# Implementing Secure Remote Administration
-
-## Background
+# Secure Remote Administration of your Gateway in Azure
 
 It's critical to the availability and integrity of any system that administrative activities are conducted securely and are controlled. Administrative activities should be done from a secure device, over a secure connection, and be backed by strong authentication and authorisation processes. Secure Remote Administration ensures that only authorised actions are performed and only by authorised administrators.
 
 This guide provides information on implementing a secure remote administration capability for an internet accessible system hosted in Azure that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC’s Information Security Manual (ISM).
 
-## Australian Cyber Security Centre (ACSC) Requirements
+## Australian Cyber Security Centre (ACSC) requirements
 
 The overall security requirements for Commonwealth systems are defined in the ISM. To assist Commonwealth entities in providing secure administration, the ACSC has published [ACSC Protect: Secure Administration](https://www.acsc.gov.au/publications/protect/secure-administration.htm)
 
@@ -54,7 +52,7 @@ The architecture is designed to ensure that a privileged account is granted only
 
 **Note:** For more information on the Logging and auditing element, see the [Azure Perimeter Protection Guide – Logging, Auditing, and Visibility](https://aka.ms/appg-lav)
 
-## Administration Workflow
+## Administration workflow
 
 Administering systems deployed in Azure is divided into two distinct categories, administering the Azure configuration and administering workloads deployed in Azure. Azure configuration is conducted through the Azure portal and workload administration is completed through administrative mechanisms such as Remote Desktop Protocol (RDP), Secure Shell (SSH) or for PaaS capabilities, using tools such as SQL Management Studio.
 
@@ -62,7 +60,7 @@ Gaining access for administration is a multi-step process involving the componen
 
 **Note:** The steps described here are the general process using the Graphical User Interface (GUI) components of Azure. These steps can also be completed using other interfaces such as PowerShell.
 
-### Azure configuration and Portal Access
+### Azure configuration and Azure portal access
 
 |Step |Description |
 |---|---|
@@ -76,7 +74,7 @@ Gaining access for administration is a multi-step process involving the componen
 
 Once the privileged account has completed the steps to gain administrative access to the Azure portal, access to the workloads can be configured and administrative connections can be made.
 
-### Azure Workload Administration
+### Azure workload administration
 
 |Step |Description|
 |---|---|
@@ -88,7 +86,7 @@ Once the privileged account has completed the steps to gain administrative acces
 |Jump Server|Once successfully authenticated, the RDP connection is encrypted using Transport Layer Security (TLS) and then sent through the encrypted IPSec tunnel to the Azure VPN Gateway, through the RD Gateway and on to the Jump Server. From the Jump Server, the administrator can now RDP or SSH to workload virtual machines as specified in the JIT request.|
 |
 
-## General Guidance
+## General guidance
 
 When implementing the components listed in this guide, the following general guidance applies:
 
@@ -112,15 +110,15 @@ When implementing the components listed in this guide, the following general gui
 |ACSC Protect: Secure Administration|[ACSC Protect: Secure Administration](https://acsc.gov.au/publications/protect/secure-administration.htm)|
 |How To: Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD|[Integrate RD Gateway with NPS and  AAD](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-nps-extension-rdg)|
 
-## Component Guidance
+## Component guidance
 
 This section provides information on the purpose of each component and its role in the overall Secure Remote Administration architecture. Additional links are provided to access useful resources such as reference documentation, guides, and tutorials.
 
-## Secure Devices
+## Secure devices
 
 The physical devices used by privileged users to perform administrative functions are valuable targets for malicious actors. Maintaining the security and integrity of the physical devices and ensuring that they are free from malicious software and protecting them from compromise is a key part of providing a secure remote administration capability. This involves high priority security configuration as specified in the ACSC’s Essential Eight Strategies to Mitigate Cyber Security Incidents such as application whitelisting, patching applications, application hardening, and patching operating systems. These capabilities must be installed, configured, audited, validated, and reported on to ensure the state of a device is compliant with organisation requirements.
 
-### Privileged Workstation
+### Privileged workstation
 
 The privileged workstation is a hardened machine that can be used to perform administrative duties and is only accessible to administrative accounts. The privileged workstation should have policies and configuration in place to limit the software that can be run, its access to network resources and the internet and credentials should be protected in the event that the device is stolen or compromised.|
 
@@ -130,7 +128,7 @@ The privileged workstation is a hardened machine that can be used to perform adm
 |Securing Privileged Access Reference Material|[https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)|
 |
 
-### Mobile Device
+### Mobile device
 
 A mobile device is at greater risk of accidental loss or theft due to its portability and size and needs to be secured appropriately. The mobile device provides a strong additional factor for authentication given its ability to enforce authentication for device access, traceability through location services, encryption functions, and the ability to be remotely wiped. When using a mobile device as an additional authentication factor for Azure, the device should be configured to use the Microsoft Authenticator App with PIN or Biometric authentication and not through phone calls or text messages.
 
@@ -178,7 +176,7 @@ JIT is an Azure Security Center capability that utilises Network Security Groups
 |Automating Azure Just In Time VM Access|[https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access](https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access)|
 |
 
-## Secure Communication
+## Secure communication
 
 Communications traffic for administration activities can contain highly sensitive information, such as administrative credentials and must be managed and protected accordingly. Providing secure communication involves reliable encryption capabilities to prevent eavesdropping and network segmentation and restrictions that limit administrative traffic to authorised end points and controls lateral movement if a system is compromised.
 
@@ -221,7 +219,7 @@ NSGs function as Access Control Lists (ACLs) for network traffic entering or lea
 |How to: Plan Virtual Networks|[https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm)|
 |
 
-## Strong Authentication
+## Strong authentication
 
 Securely identifying privileged users before granting access to systems is a core component of secure administration. Mechanisms must be in place to protect the credentials associated with a privileged account and to prevent malicious actors from gaining access to systems through impersonation or credential theft.
 
@@ -265,11 +263,11 @@ Azure MFA is an authentication service provided within Azure Active Directory to
 |How to: Deploy cloud-based Azure Multi-Factor Authentication|[https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted)|
 |
 
-## Strong Authorisation
+## Strong authorisation
 
 Once a privileged account has been securely identified, it can be granted access to resources. Authorisation controls and manages the privileges that are assigned to a specific account. Strong Authorisation processes align with the ACSC’s Essential Eight strategy for mitigating cyber security incidents of restricting administrative privileges.
 
-### Identity and Access Management
+### Identity and access management
 
 Access to perform privileged actions within Azure is based on roles that are assigned to that account. Azure includes an extensive and granular range of roles with specific permissions to undertaken specific tasks. These roles can be granted at multiple levels such as a subscription or resource group. Role assignment and permission management are based on accounts and groups in Azure Active Directory and is managed through Access Control (IAM) within Azure.
 
@@ -289,12 +287,16 @@ PIM is an Azure Active Directory component that controls access to privileged ro
 |Start using PIM|[https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-getting-started](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-getting-started)|
 |
 
-### Conditional Access
+### Conditional access
 
-Conditional Access is a component of Azure Active Directory that allows or denies access to resources based on conditions. These conditions can be network location based, device type, compliance status, group membership and more. Conditional Access is used to enforce MFA, device management, and compliance through Intune and group membership of administrative accounts.
+Conditional access is a component of Azure Active Directory that allows or denies access to resources based on conditions. These conditions can be network location based, device type, compliance status, group membership and more. Conditional Access is used to enforce MFA, device management, and compliance through Intune and group membership of administrative accounts.
 
 |Resources |Link |
 |---|---|
 |Conditional Access Documentation|[https://docs.microsoft.com/en-us/azure/active-directory/conditional-access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access)|
 |How to: Require Managed Devices for cloud app access with conditional access|[https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/require-managed-devices](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/require-managed-devices)|
 |
+
+## Next steps
+
+Review the article on [Gateway Ingress Traffic Management and Control](gateway-ingress-traffic.md) for details on controlling traffic flows through your Gateway components in Azure.
