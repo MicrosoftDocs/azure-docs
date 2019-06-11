@@ -88,6 +88,7 @@ The zip file also provides the values of some of the important settings on the A
 **IKEv2**
 
 |**Cipher** | **Integrity** | **PRF** | **DH Group** |
+|---		| ---			| ---		| --- 	|
 |GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_24 |
 |GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_14 |
 |GCM_AES256 |	GCM_AES256	| SHA384	| GROUP_ECP384 |
@@ -109,6 +110,7 @@ The zip file also provides the values of some of the important settings on the A
 **IPsec**
 
 |**Cipher** | **Integrity** | **PFS Group** |
+|---		| ---			| ---		|
 |GCM_AES256	| GCM_AES256 | GROUP_NONE |
 |GCM_AES256	| GCM_AES256 | GROUP_24 |
 |GCM_AES256	| GCM_AES256 | GROUP_14 |
