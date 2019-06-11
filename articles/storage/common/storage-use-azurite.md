@@ -236,7 +236,6 @@ Azurite v3 follows a **Try best to serve** compatible strategy with Azure Storag
 * If an incoming request has a **higher API version** than Azurite, Azurite will return a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request).
 * If an incoming request has a **lower API version** header, the emulator attempts to handle the request with Azurite’s baseline API version behavior.
 * Azurite will return API version in the response header as the baseline API version
-* SAS accepts the pattern from API version 2015-04-05
 
 ### RA-GRS
 
@@ -266,8 +265,6 @@ Azurite v3 uses a TypeScript server code generator based on Azure Storage REST A
 ### Features scope
 
 Legacy Azurite v2 supports Azure Storage Blob, Queue, and Table services. Azurite v3 currently supports the Azure Storage Blob Service, with Queue support scheduled to follow. Azure Table Service support is currently under review.
-
-Azurite v3 supports features from Azure Storage API version 2018-03-28, and will maintain parity with the latest API versions, in a more frequent update frequency than legacy Azurite v2.
 
 ## We welcome contributions
 
