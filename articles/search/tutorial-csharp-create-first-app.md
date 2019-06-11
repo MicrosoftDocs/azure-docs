@@ -74,14 +74,14 @@ To create this project from scratch, and hence help reinforce the components of 
 
 ![Creating an MVC project](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
 
-3. Next, in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. There is one package we need to install. Select the **Browse** tab then type "Azure Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list. You will have to click through a few additional dialogs to complete the installation.
+3. Next, in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. There is one package we need to install. Select the **Browse** tab then type "Azure Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list (version 9.0.1, or later). You will have to click through a few additional dialogs to complete the installation.
 
 ![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
 
 ### Initialize Azure Search
 
-For this sample, we are using publicly available hotel data. This data is an arbitrary collection of 60 or so fictional hotel names and descriptions, created solely for the purpose of providing demo data. In order to access this data, you need to specify a name and key for it.
+For this sample, we are using publicly available hotel data. This data is an arbitrary collection of 50 fictional hotel names and descriptions, created solely for the purpose of providing demo data. In order to access this data, you need to specify a name and key for it.
 
 1. Open up the appsettings.json file in your project and add the following name and key. The API key shown here is not an example of a key, it is exactly the key you need to access the hotel data. Your appsettings.json file should now look like this.
 
@@ -232,7 +232,7 @@ namespace FirstAzureSearch.Models
 }
 ```
 
-5. The set of **Hotel**, **Address**, and **Room** classes are what is known in Azure as _complex types_, an important feature of Azure Search. Complex types can be many levels deep of classes and subclasses, and enable far more complex data systems to be searched than using _simple types_ (a class containing only primitive members). We do need one more model, so go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
+5. The set of **Hotel**, **Address**, and **Room** classes are what is known in Azure as [_complex types_](search-howto-complex-data-types.md), an important feature of Azure Search. Complex types can be many levels deep of classes and subclasses, and enable far more complex data structures to be represented than using _simple types_ (a class containing only primitive members). We do need one more model, so go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
 
 ```cs
 using System.Collections;
@@ -322,7 +322,7 @@ namespace FirstAzureSearch.Models
 
 This time we have a bit more to look at than members. Note first the static class entitled **GlobalVariables**. As the name implies, this is how global variables are declared when using MVC architecture. We only have one global variable here, **ResultsPerPage**, determining how many results to display on the client in one page. In other components of this project, this variable is accessed as **GlobalVariables.ResultsPerPage**.
 
-The **SearchData** class itself contains a method to add a hotel to an **ArrayList** of hotels. This list contains hotels that have been returned from Azure Search. 
+The **SearchData** class itself contains a method to add a hotel to an **ArrayList** of hotels. This list contains hotels that have been returned from the index.
 
 Another critical bit of data in this class is **searchText**, containing the text entered by the user. The other members provide control data such as the number of results in total and the current page that is being displayed on the client. We will revisit these fields when looking at the client code (the **Index** view).
 
@@ -529,7 +529,7 @@ That completes our view. We are making good progress. The models and views are c
 
 ## Define methods
 
-We need to add to the contents of the one controller (**Home Controller**) which is created by default. 
+We need to modify to the contents of the one controller (**Home Controller**) which is created by default. 
 
 1. Open the HomeController.cs file and replace the **using** statements with the following. 
 
@@ -546,7 +546,7 @@ using Microsoft.Azure.Search.Models;
 
 ### Add Index methods
 
-We need two **Index** methods, one taking no parameters (the app-first-opened case) and one taking a model as a parameter (user has entered search text). The first of these methods is created by default. 
+We need two **Index** methods, one taking no parameters (for the case when the app is first opened), and one taking a model as a parameter (for when the user has entered search text). The first of these methods is created by default. 
 
 1. Add the following method after the default **Index()** method.
 

@@ -11,7 +11,7 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Use facets to improve network efficiency - Azure Search
 
-Learn how to improve network efficiency by implementing a facet search. Learn that facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. Learn that facets are attributes of the data (such as a pool, wifi, free parking, view, and so on, in our hotels data), and stay relevant for the lifespan of a page. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
+Learn how to improve network efficiency by implementing a facet search. Facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. Facets are attributes of the data (such as a pool, wifi, free parking, view, and so on, in our hotels data), and stay relevant for the lifespan of a page. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -84,7 +84,7 @@ public partial class Hotel
 
 ### Add an autocomplete script to the view
 
-In order to initiate a facet search, we need to add some JavaScript to the index.cshtml file.
+In order to initiate a facet search, we need to send a query. The following JavaScript added to the index.cshtml file provides the query logic and presentation we need.
 
 1. Locate the **@Html.TextBoxFor(m => m.searchText, ...)** statement and add a unique **id**, similar to the following.
 
