@@ -83,16 +83,16 @@ Azure VPN Gateways support a range of cryptographic algorithms from the IPsec an
 
 |Attribute | SHOULD | MUST|
 |--- | --- | ---|
-|saLifeTimeSeconds | < 14,400 secs | > 300 secs (min)|
-|saDataSizeKilobytes | | > 1024 Kbytes (min)|
-|ipsecEncryption | | AES256|GCMAES256|
-|ipsecIntegrity | | SHA256|GCMAES256|
-|ikeEncryption | | AES256|GCMAES256|
-|ikeIntegrity | | SHA256|GCMAES256|
-|dhGroup | DHGroup14\|DHGroup24\|**ECP256\|ECP384**<sup>[1]</sup> | DHGroup2|
-|pfsGroup | PFS2048\|PFS24\|**ECP256\|ECP384**<sup>[1]</sup> |
+|saLifeTimeSeconds | <14400 secs | >300 secs (min)|
+|saDataSizeKilobytes | | >1024 Kbytes (min)|
+|ipsecEncryption | | AES256-GCMAES256|
+|ipsecIntegrity | | SHA256-GCMAES256|
+|ikeEncryption | | AES256-GCMAES256|
+|ikeIntegrity | | SHA256-GCMAES256|
+|dhGroup | DHGroup14, DHGroup24, **ECP256, ECP384**| DHGroup2|
+|pfsGroup | PFS2048, PFS24, **ECP256, ECP384**|
 |
-<sup>[1]- Use of Elliptic Curve encryption algorithms are preferred</sup>
+*Attributes in bold are preferred even though other settings can be used*
 
 ### Related services
 
@@ -122,7 +122,7 @@ Subnet | A subnet of the virtual network needs to be created for the VPN Gateway
 
 ### Create VPN Gateway
 
-<sup>[2] - Assuming virtual network has previously been created</sup>
+*These steps assume a virtual network has already been created*
 
 1. Create a new Public IP address
 2. Create a VPN Gateway subnet

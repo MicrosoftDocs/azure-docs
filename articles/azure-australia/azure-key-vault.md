@@ -158,6 +158,6 @@ SSE is used for managed disks but customer-managed keys are not supported.  Encr
 
 ## Next Steps
 
-Review the article on [Securing Customer Data](securing_your_data.md)
+Review the article on [Securing Customer Data](securing-your-data.md)
 
 Review additional Azure Key Vault documentation and tutorials in the [Reference Library](reference-library.md)
