@@ -94,23 +94,24 @@ This index is named "hotels-quickstart" and has the field definitions you see be
     {
         "name": "hotels-quickstart",  
         "fields": [
-            {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
-            {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
-            {"name": "Description", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "false", "facetable": "false", "analyzer": "en.lucene"},
-            {"name": "Description_fr", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "false", "facetable": "false", "analyzer": "fr.lucene"},
-            {"name": "Category", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
-            {"name": "Tags", "type": "Collection(Edm.String)", "searchable": "true", "filterable": "true", "sortable": "false", "facetable": "true"},
-            {"name": "ParkingIncluded", "type": "Edm.Boolean", "filterable": "true", "sortable": "true", "facetable": "true"},
-            {"name": "LastRenovationDate", "type": "Edm.DateTimeOffset", "filterable": "true", "sortable": "true", "facetable": "true"},
-            {"name": "Rating", "type": "Edm.Double", "filterable": "true", "sortable": "true", "facetable": "true"},
+            {"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true},
+            {"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": true, "facetable": false},
+            {"name": "Description", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false, "analyzer": "en.lucene"},
+            {"name": "Category", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true},
+            {"name": "Tags", "type": "Collection(Edm.String)", "searchable": true, "filterable": true, "sortable": false, "facetable": true},
+            {"name": "ParkingIncluded", "type": "Edm.Boolean", "filterable": true, "sortable": true, "facetable": true},
+            {"name": "LastRenovationDate", "type": "Edm.DateTimeOffset", "filterable": true, "sortable": true, "facetable": true},
+            {"name": "Rating", "type": "Edm.Double", "filterable": true, "sortable": true, "facetable": true},
             {"name": "Address", "type": "Edm.ComplexType", 
             "fields": [
-            {"name": "StreetAddress", "type": "Edm.String", "filterable": "false", "sortable": "false", "facetable": "false", "searchable": "true"},
-            {"name": "City", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
-            {"name": "StateProvince", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
-            {"name": "PostalCode", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"},
-            {"name": "Country", "type": "Edm.String", "searchable": "true", "filterable": "true", "sortable": "true", "facetable": "true"}
-        ]
+            {"name": "StreetAddress", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "searchable": true},
+            {"name": "City", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true},
+            {"name": "StateProvince", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true},
+            {"name": "PostalCode", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true},
+            {"name": "Country", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true}
+            ]
+         }
+      ]
     }
     "@
     ```
@@ -132,18 +133,18 @@ This index is named "hotels-quickstart" and has the field definitions you see be
     ```
     {
         "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes/$entity",
-        "@odata.etag":  "\"0x8D6A99E2DED96B0\"",
+        "@odata.etag":  "\"0x8D6EDE28CFEABDA\"",
         "name":  "hotels-quickstart",
         "defaultScoringProfile":  null,
         "fields":  [
                     {
-                        "name":  "hotelId",
+                        "name":  "HotelId",
                         "type":  "Edm.String",
-                        "searchable":  false,
+                        "searchable":  true,
                         "filterable":  true,
                         "retrievable":  true,
-                        "sortable":  false,
-                        "facetable":  false,
+                        "sortable":  true,
+                        "facetable":  true,
                         "key":  true,
                         "indexAnalyzer":  null,
                         "searchAnalyzer":  null,
@@ -151,13 +152,13 @@ This index is named "hotels-quickstart" and has the field definitions you see be
                         "synonymMaps":  ""
                     },
                     {
-                        "name":  "baseRate",
-                        "type":  "Edm.Double",
-                        "searchable":  false,
-                        "filterable":  true,
+                        "name":  "HotelName",
+                        "type":  "Edm.String",
+                        "searchable":  true,
+                        "filterable":  false,
                         "retrievable":  true,
                         "sortable":  true,
-                        "facetable":  true,
+                        "facetable":  false,
                         "key":  false,
                         "indexAnalyzer":  null,
                         "searchAnalyzer":  null,
@@ -182,84 +183,85 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
     ```powershell
     $body = @"
+    {
         "value": [
         {
         "@search.action": "upload",
         "HotelId": "1",
         "HotelName": "Secret Point Motel",
         "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
-        "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
         "Category": "Boutique",
         "Tags": [ "pool", "air conditioning", "concierge" ],
         "ParkingIncluded": false,
         "LastRenovationDate": "1970-01-18T00:00:00Z",
         "Rating": 3.60,
-        "Address": {
+        "Address": 
+            {
             "StreetAddress": "677 5th Ave",
             "City": "New York",
             "StateProvince": "NY",
             "PostalCode": "10022",
             "Country": "USA"
-            }
+            } 
         },
         {
         "@search.action": "upload",
         "HotelId": "2",
         "HotelName": "Twin Dome Motel",
         "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
-        "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
         "Category": "Boutique",
         "Tags": [ "pool", "free wifi", "concierge" ],
         "ParkingIncluded": false,
         "LastRenovationDate": "1979-02-18T00:00:00Z",
         "Rating": 3.60,
-        "Address": {
+        "Address": 
+            {
             "StreetAddress": "140 University Town Center Dr",
             "City": "Sarasota",
             "StateProvince": "FL",
             "PostalCode": "34243",
             "Country": "USA"
-            }
+            } 
         },
         {
         "@search.action": "upload",
         "HotelId": "3",
         "HotelName": "Triple Landscape Hotel",
         "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
-        "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
         "Category": "Resort and Spa",
         "Tags": [ "air conditioning", "bar", "continental breakfast" ],
         "ParkingIncluded": true,
         "LastRenovationDate": "2015-09-20T00:00:00Z",
         "Rating": 4.80,
-        "Address": {
+        "Address": 
+            {
             "StreetAddress": "3393 Peachtree Rd",
             "City": "Atlanta",
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
-            }
+            } 
         },
         {
         "@search.action": "upload",
         "HotelId": "4",
         "HotelName": "Sublime Cliff Hotel",
         "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
-        "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
         "Category": "Boutique",
         "Tags": [ "concierge", "view", "24-hour front desk service" ],
         "ParkingIncluded": true,
         "LastRenovationDate": "1960-02-06T00:00:00Z",
         "Rating": 4.60,
-        "Address": {
+        "Address": 
+            {
             "StreetAddress": "7400 San Pedro Ave",
             "City": "San Antonio",
             "StateProvince": "TX",
             "PostalCode": "78216",
             "Country": "USA"
-                }
             }
-        ]
+        }
+    ]
     }
     "@
     ```
@@ -279,7 +281,7 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
     ```
     {
-        "@odata.context":  "https://mydemo.search.windows.net/indexes/hotels-quickstart/$metadata#Collection(Microsoft.Azure.Search.V2017_11_11.IndexResult)",
+        "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels-quickstart\u0027)/$metadata#Collection(Microsoft.Azure.Search.V2019_05_06.IndexResult)",
         "value":  [
                     {
                         "key":  "1",
@@ -313,10 +315,14 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
 This step shows you how to query an index using the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-1. Set the endpoint to the *hotels-quickstart* docs collection and add a **search** parameter to include query strings. This string is an empty search and it returns an unranked list of all documents.
+Be sure to use single quotes on search $urls. Query strings include **$** characters, and you can omit having to escape them if the entire string is enclosed in single quotes..
+
+1. Set the endpoint to the *hotels-quickstart* docs collection and add a **search** parameter to pass in a query string. 
+  
+   This string executes an empty search (search=*), returning an unranked list (search score  = 1.0) of arbitrary documents. By default, Azure Search returns 50 matches at a time. As structured, this query returns an entire document structure and values. Add **$count=true** to get a count of all documents in the results.
 
     ```powershell
-    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*'
+    $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
     ```
 
 1. Run the command to send the **$url** to the service.
@@ -329,74 +335,57 @@ This step shows you how to query an index using the [Search Documents API](https
 
     ```
     {
-        "@odata.context":  "https://mydemo.search.windows.net/indexes/hotels-quickstart/$metadata#docs(*)",
-        "value":  [
-                    {
-                        "@search.score":  1.0,
-                        "hotelId":  "1",
-                        "baseRate":  199.0,
-                        "description":  "Best hotel in town",
-                        "description_fr":  null,
-                        "hotelName":  "Fancy Stay",
-                        "category":  "Luxury",
-                        "tags":  "pool view wifi concierge",
-                        "parkingIncluded":  false,
-                        "smokingAllowed":  false,
-                        "lastRenovationDate":  "2010-06-27T00:00:00Z",
-                        "rating":  5,
-                        "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
-                    },
-                    {
-                        "@search.score":  1.0,
-                        "hotelId":  "2",
-                        "baseRate":  79.99,
-                        "description":  "Cheapest hotel in town",
-                        "description_fr":  null,
-                        "hotelName":  "Roach Motel",
-                        "category":  "Budget",
-                        "tags":  "motel budget",
-                        "parkingIncluded":  true,
-                        "smokingAllowed":  true,
-                        "lastRenovationDate":  "1982-04-28T00:00:00Z",
-                        "rating":  1,
-                        "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
-                    },
-                    {
-                        "@search.score":  1.0,
-                        "hotelId":  "3",
-                        "baseRate":  129.99,
-                        "description":  "Close to town hall and the river",
-                        "description_fr":  null,
-                        "hotelName":  null,
-                        "category":  null,
-                        "tags":  "",
-                        "parkingIncluded":  null,
-                        "smokingAllowed":  null,
-                        "lastRenovationDate":  null,
-                        "rating":  null,
-                        "location":  null
-                    }
-                ]
-    }
+    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels-quickstart\u0027)/$metadata#docs(*)",
+    "@odata.count":  4,
+    "value":  [
+                  {
+                      "@search.score":  0.1547872,
+                      "HotelId":  "2",
+                      "HotelName":  "Twin Dome Motel",
+                      "Description":  "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+                      "Category":  "Boutique",
+                      "Tags":  "pool free wifi concierge",
+                      "ParkingIncluded":  false,
+                      "LastRenovationDate":  "1979-02-18T00:00:00Z",
+                      "Rating":  3.6,
+                      "Address":  "@{StreetAddress=140 University Town Center Dr; City=Sarasota; StateProvince=FL; PostalCode=34243; Country=USA}"
+                  },
+                  {
+                      "@search.score":  0.009068266,
+                      "HotelId":  "3",
+                      "HotelName":  "Triple Landscape Hotel",
+                      "Description":  "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel\u0027s restaurant services.",
+                      "Category":  "Resort and Spa",
+                      "Tags":  "air conditioning bar continental breakfast",
+                      "ParkingIncluded":  true,
+                      "LastRenovationDate":  "2015-09-20T00:00:00Z",
+                      "Rating":  4.8,
+                      "Address":  "@{StreetAddress=3393 Peachtree Rd; City=Atlanta; StateProvince=GA; PostalCode=30326; Country=USA}"
+                  },
+                . . . 
     ```
 
 Try a few other query examples to get a feel for the syntax. You can do a string search, verbatim $filter queries, limit the results set, scope the search to specific fields, and more.
 
 ```powershell
 # Query example 1
-# Search the entire index for the term 'budget'
-# Return only the `hotelName` field, "Roach hotel"
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=budget&$select=hotelName'
+# Search the entire index for the terms 'hotels' and 'wifi'
+# Return only the HotelName and HotelId fields
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=hotels wifi&$count=true&$select=HotelName,HotelId'
 
 # Query example 2 
-# Apply a filter to the index to find hotels cheaper than $150 per night
-# Returns the `hotelId` and `description`. Two documents match.
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=baseRate lt 150&$select=hotelId,description'
+# Apply a filter to the index to find hotels rated 4 or highter
+# Returns the HotelId and Description. Two documents match.
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
 
 # Query example 3
-# Search the entire index, order by a specific field (`lastRenovationDate`) in descending order
-# Take the top two results, and show only `hotelName` and `lastRenovationDate`
-$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
+# Take the top two results, and show only HotelId,HotelName,Description in the results
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
+
+# Query example 4
+# Sort by a specific field (`lastRenovationDate`) in descending order
+
+$url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
 ```
 ## Clean up 
 
