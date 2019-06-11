@@ -111,13 +111,13 @@ An Unknown health state can be caused by the following issues:
 - The Azure VM service is unavailable, or maintenance is being performed.
 - The workspace [daily data or retention limit](../platform/manage-cost-storage.md) was met.
 
-Select **View health diagnostics** to open a page showing all the components of the VM, associated health criteria, state changes, and other significant issues encountered by monitoring components related to the VM.
+Select **View health diagnostics** to open a page showing all the components of a VM, associated health criteria, state changes, and other issues detected by monitoring components related to the VM.
 
 For more information, see [Health diagnostics](#health-diagnostics).
 
-In the **Component health** section, the table shows a health rollup status of the primary performance categories monitored by health criteria for those areas, specifically **CPU**, **Memory**, **Disk**, and **Network**. Selecting any one of the components opens a page that lists all of the health criterion monitoring and the respective health state of that component.
+In the **Component health** section, the table shows a health-rollup status of the primary performance categories monitored by the health criteria for those areas, including **CPU**, **Memory**, **Disk**, and **Network**. Selecting any one of these components opens a page that lists all of the health criterion monitoring and the respective health state of that component.
 
-When you access health from an Azure VM running Windows, the health state of the top five core Windows services is shown under **Core services health**. Selecting any one of the services opens a page that lists the health criteria monitoring that component, and its health state.
+When you access health from an Azure VM that runs Windows, the health state of the top five core Windows services is shown under **Core services health**. Selecting any one of the services opens a page that lists the health criteria monitoring that component, and its health state.
 
 Selecting the name of the health criteria opens the property pane. In this pane, you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert.
 
