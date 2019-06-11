@@ -1,22 +1,16 @@
 ---
-title: Configuring and using Azure Key Vault for key management
+title: Azure Key Vault use by Australian Government agencies
 description: Guidance on configuring and using Azure Key Vault for key management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
-ms.topic: quickstart
-ms.date: 04/25/2019
+ms.topic: article
+ms.date: 06/11/2019
 ms.author: grgale
 ---
 
-# Azure Key Vault: Quickstart Guide
+# Azure Key Vault use by Australian Government agencies
 
-## Introduction
-
-### Purpose
-
- The secure storage of cryptographic keys and management of the cryptographic key lifecycle are critical elements within cryptographic systems.  The service that provides this capability in Azure is the Azure Key Vault. Key Vault has been IRAP security accessed and ACSC certified for PROTECTED.  This guide outlines the key considerations when using Key Vault to comply with the Australian Signals Directorate’s (ASD) [Information Security Manual Controls](https://acsc.gov.au/infosec/ism/) (ISM).
-
-### Overview
+The secure storage of cryptographic keys and management of the cryptographic key lifecycle are critical elements within cryptographic systems.  The service that provides this capability in Azure is the Azure Key Vault. Key Vault has been IRAP security accessed and ACSC certified for PROTECTED.  This article outlines the key considerations when using Key Vault to comply with the Australian Signals Directorate’s (ASD) [Information Security Manual Controls](https://acsc.gov.au/infosec/ism/) (ISM).
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets. Because this data is sensitive and business critical, Key Vault enables secure access to key vaults, allowing only authorized users and applications. There are three main artifacts managed and controlled by Key Vault:
 
@@ -24,15 +18,15 @@ Azure Key Vault is a cloud service that safeguards encryption keys and secrets. 
 - secrets
 - certificates
 
-This guide will focus on management of keys using Key Vault.
+This article will focus on management of keys using Key Vault.
 
 ![Azure Key Vault](media/azurekeyvault_overview.png)
 
 *Diagram 1 – Azure Key Vault*
 
-## Key Design Considerations
+## Key design considerations
 
-### Deployment Options
+### Deployment options
 
 There are two options for creating Azure Key Vaults. Both options use the Thales nShield family of Hardware Security Modules (HSM), are Federal Information Processing Standards (FIPS) validated, and are approved to store keys in PROTECTED environments. The options are:
 
@@ -72,13 +66,13 @@ Access to Key Vaults should be explicitly restricted to the minimum set of netwo
 
 Key Vault supports BYOK.  BYOK enables users to import keys from their existing key infrastructures.  Thales provides an [Australian toolset](https://www.microsoft.com/en-us/download/details.aspx?id=45345) to support the secure transfer and import of keys from an external HSM (for example, keys generated with an offline workstation) into Key Vault.
 
-### Key Vault Auditing and Logging
+### Key Vault auditing and logging
 
 The ACSC requires Commonwealth entities to use the appropriate Azure services to undertake real-time monitoring and reporting on their Azure workloads.
 
 Logging is enabled by enabling the **_“AuditEvent”_** diagnostic setting on Key Values.  Audit events will be logged to the specified storage account.  **_“RetentionInDays”_** period should be set according to the data retention policy.  [Operations](https://docs.microsoft.com/en-au/azure/key-vault/key-vault-logging#interpret) on both the management plane and data plane are audited and logged. The [Azure Key Vault solution in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/azure-key-vault) can be used to review Key Vault AuditEvent logs.  A number of other Azure services can be used to process and distribute Key Vault AuditEvents.
 
-### Key Rotation
+### Key rotation
 
 Storing keys in Key Vault provided a single point to maintain keys outside applications that enable keys to be updated without affecting the behaviour of the applications. Storing keys in Azure Key Vault enables various strategies for supporting key rotation:
 
@@ -88,7 +82,7 @@ Storing keys in Key Vault provided a single point to maintain keys outside appli
 
 These options enable keys to be rotated on a periodic basis to satisfy compliance requirements or on an ad-hoc basis if there are concerns that keys may have been compromised.
 
-#### Key Rotation strategies
+#### Key rotation strategies
 
 It is important to develop an appropriate key rotation strategy for keys which are stored in KeyVault.  Using the wrong key will lead to information being incorrectly decrypted, and losing keys can lead to the complete loss of access to information.  Examples of key rotation strategies for different scenarios include:
 
@@ -162,18 +156,8 @@ While Microsoft manages the DEKs, SSE has an option to use customer-managed KEKs
 
 SSE is used for managed disks but customer-managed keys are not supported.  Encryption of managed disks can be done using Azure Disk Encryption with customer-managed KEK keys in Key Vault.
 
-## Further Information
+## Next Steps
 
-### Related Documentation
+Review the article on [Securing Customer Data](securing_customer_data.md)
 
-[Azure Key Vault Overview](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview)
-[About keys, secrets, and certificates](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates)
-[Configure Azure Key Vault firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-network-security)
-[Secure access to a key vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
-[Azure Data Encryption-at-Rest](https://docs.microsoft.com/en-us/azure/security/azure-security-encryption-atrest)
-
-### Tutorials
-
-[How to use Azure Key Vault with Azure Windows Virtual Machines in .NET](https://docs.microsoft.com/en-us/azure/key-vault/tutorial-net-windows-virtual-machine)
-[Azure Key Vault managed storage account - PowerShell](https://docs.microsoft.com/en-us/azure/key-vault/tutorial-net-windows-virtual-machine)
-[Setup key rotation and auditing](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-key-rotation-log-monitoring)
+Review additional Azure Key Vault documentation and tutorials in the [Reference Library](reference-library.md)

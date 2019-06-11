@@ -4,32 +4,38 @@
   items:
   - name: What is Azure Australia?
     href: australia-overview.md
-- name: Getting started in Azure Australia
+- name: Concepts
   items:
-  - name: Connect securely to Azure Australia with VPN Gateway
-    href: configure-vpn-gateway.md
-  - name: Identity federation in Azure Australia
-    href: configure-identity-federation.md
-  - name: Implementing Role Based Access Controls
-    href: implement-rbac-pim.md
-  - name: Using Azure Key Vault for secure key management
-    href: configure-use-azure-key-vault.md
-  - name: Implement Azure system monitoring
-    href: implement-azure-system-monitoring.md
-  - name: Implementing Site Recovery and Backup for Essential 8 compliance
-    href: implement-asr-backup.md  
-- name: Build a Gateway in Azure Australia
-  items: 
-  - name: Implement logging, auditing and visibility gateway services
-    href: implement-gateway-logging-auditing-visibility.md
-  - name: Implement secure remote administration gateway services
-    href: configure-gateway-secure-remote-administration.md
-  - name: Implement data ingress management and control gateway services
-    href: control-gateway-ingress-traffic.md  
+  - name: Securing your Azure environment
+    items:
+      - name: Securing your data in Azure
+        href: securing-your-data.md
+      - name: Azure VPN Gateway
+        href: vpn-gateway.md
+      - name: Azure Key Vault
+        href: azure-key-vault.md
+      - name: Identity federation in Azure Australia
+        href: identity-federation.md
+      - name: Role Based Access Controls and Privileged Identity Management
+        href: rbac-pim.md
+      - name: Implementing Site Recovery and Backup for Essential 8 compliance
+        href: implement-asr-backup.md
+      - name: Azure system monitoring
+        href: system-monitoring.md  
+  - name: Build a Gateway in Azure Australia
+    items:
+      - name: Gateway logging, auditing and visibility
+        href: gateway-logging-auditing-visibility.md
+      - name: Gateway secure remote administration
+        href: gateway-secure-remote-administration.md
+      - name: Gateway data ingress management and control
+        href: gateway-ingress-traffic.md  
 - name: Resources
   items:
-  - name: Azure Australia Frequently Asked Questions Answered
-    href: security-faq.md
+  - name: Azure Australia Security Explained
+    href: security-explained.md
+  - name: Azure Australia Additional Resources
+    href: reference-library.md
   - name: Australian Cyber Security Centre (ACSC) Website
     href: https://cyber.gov.au/
   - name: Australian Certified Cloud Services List (CCSL)

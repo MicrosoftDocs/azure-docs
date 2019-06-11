@@ -1,5 +1,5 @@
 ---
-title: Implementing Role Based Access Control and Privileged Identity Management in Azure Australia
+title: Role Based Access Control and Privileged Identity Management in Azure Australia
 description: Guidance on Implementing Role Based Access Control and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: Galey801
 ms.service: azure-australia
@@ -8,13 +8,13 @@ ms.date: 04/25/2019
 ms.author: grgale
 ---
 
-# Implementing Role Based Access Control and Privileged Identity Management
+#Role Based Access Control (RBAC) and Privileged Identity Management (PIM)
 
 Managing administrative privilege is a critical step in ensuring security within any IT environment. Restricting administrative privilege via the use of Least Privilege Security is a requirement of the [ACSC ISM](https://acsc.gov.au/infosec/ism/index.htm) and forms part of the [ACSC Essential 8](https://www.acsc.gov.au/infosec/mitigationstrategies.htm) list of security recommendations.
 
 Microsoft provides a suite of controls to implement Just-in-Time and Just-Enough-Access within Microsoft Azure. Understanding these controls is essential for an effective security posture in the Cloud. This guide will provide an overview of the controls themselves and the key design considerations when implementing them.
 
-## Role-Based Access Control
+## Role-Based Access Control (RBAC)
 
 Role-Based Access Control is central to the management of access to all resources within Microsoft Azure and the management of Azure Active Directory (AAD). RBAC can be implemented alongside a number of complementary features available in Azure. This guide will focus on implementing effective RBAC while leveraging Azure Management Groups, Azure Active Directory Groups, and Azure Privileged Identity Management (PIM).
 
@@ -36,11 +36,11 @@ When assigning privileges to individuals or teams, whenever possible the assignm
 
 In a hybrid cloud scenario, on-premises Windows Server Active Directory Security Groups can be synchronized to your Azure Active Directory instance. If you have already implemented RBAC on-premises using these Windows Server Active Directory Security Groups, these groups, once synchronized, can then be used to implement RBAC for your Azure Resources. Otherwise, your cloud environment can be seen as a clean slate to design and implement a robust privilege management plan built around your Azure Active Directory implementation.
 
-### Azure Resource Roles versus Azure Active Directory Administrator Roles
+### Azure resource roles versus Azure Active Directory Administrator roles
 
-Microsoft Azure offers a wide variety of built-in Roles for [Azure Resources](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) and [Azure Active Directory Administration](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles). Both types of Role provide specific granular access to either Azure Resources or for Azure AD administrators. It is important to note that Azure Resource roles cannot be used to provide administrative access to Azure AD and Azure AD Roles do not provide specific access to Azure Resources.
+Microsoft Azure offers a wide variety of built-in roles for [Azure Resources](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) and [Azure Active Directory Administration](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles). Both types of Role provide specific granular access to either Azure Resources or for Azure AD administrators. It is important to note that Azure Resource roles cannot be used to provide administrative access to Azure AD and Azure AD roles do not provide specific access to Azure resources.
 
-Some examples of the types of access that can be assigned to an Azure Resource using a built-in role are:
+Some examples of the types of access that can be assigned to an Azure resource using a built-in role are:
 
 * Allow one user to manage virtual machines in a subscription and another user to manage virtual networks
 * Allow a DBA group to manage SQL databases in a subscription
@@ -118,9 +118,9 @@ Azure Management Groups can be used by an organisation to manage the assignment 
 
 Azure Management Groups are mapped to Azure Subscriptions within an Azure Tenancy. This allows an organisation to segregate Azure Resources belonging to specific business units and provide a level of granular control over both cost management and privilege assignment.
 
-## Privileged Identity Management
+## Privileged Identity Management (PIM)
 
-Microsoft has implemented Just-In-Time and Just-Enough-Access through Azure Privileged Identity Management. This service enables administrative staff to control, manage, and monitor privileged access to Azure Resources. PIM allows Security Principals to be made "eligible" for a Role by administrative staff, allowing users to request the activation of the Role through the Azure portal or via PowerShell cmdlets. By default, Role assignment can be activated for a period of between 1 and 72 hours. If necessary, the user can request an extension to their Role assignment and the option to make Role assignment permanent does exist. Optionally, the requirement for Multi-factor Authentication can be enforced when users request the activation of their eligible roles. Once the allocated period of the Role activation expires, the Security Principal no longer has the privileged access granted by the Role.
+Microsoft has implemented Just-In-Time (JIT) and Just-Enough-Access (JEA) through Azure Privileged Identity Management. This service enables administrative staff to control, manage, and monitor privileged access to Azure Resources. PIM allows Security Principals to be made "eligible" for a Role by administrative staff, allowing users to request the activation of the Role through the Azure portal or via PowerShell cmdlets. By default, Role assignment can be activated for a period of between 1 and 72 hours. If necessary, the user can request an extension to their Role assignment and the option to make Role assignment permanent does exist. Optionally, the requirement for Multi-factor Authentication can be enforced when users request the activation of their eligible roles. Once the allocated period of the Role activation expires, the Security Principal no longer has the privileged access granted by the Role.
 
 The use of PIM prevents the common privilege assignment issues that can occur in environments that don't use Just-In-Time access or don't conduct routine audits of privilege assignment. One common issue is the assignment of elevated privileges being forgotten and remaining in place long after the task requiring elevated privileges has been completed. Another issue is the proliferation of elevated privileges within an environment through the cloning of the access assigned to a Security Principal when configuring other similar Security Principals.
 
@@ -159,20 +159,6 @@ It is vital that Security Principals within an environment are routinely audited
 
 The progress of pending Access Reviews can be monitored at any time via a dashboard in the Azure portal. Access to the role being reviewed will remain unchanged until the Access Review has been completed. It is also possible to [audit](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-use-audit-log) all PIM user assignments and activations within a nominated time period.
 
-## Further reading
+## Next steps
 
-### Azure solutions overview
-
-* [Azure RBAC Overview](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
-* [Azure Privileged Identify Management Overview](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure)
-* [Azure Management Groups Overview](https://docs.microsoft.com/en-us/azure/governance/management-groups/)
-
-### Related documentation
-
-* [Azure Identity and Access Control Best Practices](https://docs.microsoft.com/en-us/azure/security/azure-security-identity-management-best-practices)
-* [Managing AAD Groups](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-manage-groups)
-* [Hybrid Identity](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity)
-* [RBAC Custom Roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles)
-* [Built in Roles for Azure Resources](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles)
-* [Securing Privileged Access in Hybrid Cloud Environments](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
-* [Azure Enterprise Scaffold](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold)
+Review the article on [System Monitoring in Azure Australia](system-monitoring.md).

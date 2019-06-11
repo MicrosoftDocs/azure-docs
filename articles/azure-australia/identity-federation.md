@@ -54,7 +54,7 @@ Password hash synchronisation can be used in scenarios where OFFICIAL:Sensitive 
 
 All three of these options support [Password Write-Back](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-writeback), which the [ACSC Consumer Guide](https://aka.ms/au-irap) recommends being disabled. However; organisations should evaluate the risk of disabling Password Writeback against the productivity gains and reduced support effort of using self-service password resets.
 
-#### Pass-Through Authentication
+#### Pass-Through Authentication (PTA)
 
 Pass-Through Authentication was released after the IRAP assessment was completed and therefore; should be individually evaluated to determine how the solution fits your organisation's risk profile. Pass-Through Authentication is preferred over Federation by Microsoft due to the improved security posture.
 
@@ -67,7 +67,7 @@ Pass-Through Authentication presents several design factors to be considered:
 * Best Practice is to avoid installing the agent directly onto an Active Directory Domain Controllers. By default when deploying Azure AD Connect with Pass-Through authentication it will install the agent on the AD Connect server.
 * Pass-Through Authentication is a lower maintenance option than Active Directory Federation Services because it does not require dedicated server infrastructure, certificate management, or inbound firewall rules.
 
-#### Active Directory Federation Services
+#### Active Directory Federation Services (ADFS)
 
 Active Directory Federation Services was included within the IRAP assessment and is approved for use in PROTECTED environments.
 
@@ -79,7 +79,7 @@ Active Directory Federation Services presents several design factors to be consi
 * Federation Services uses PKI and certificates, which require ongoing management and renewal.
 * Federation Services should be deployed on dedicated servers, and will require the relevant network infrastructure to make it securely accessible externally.
 
-### Multi-Factor Authentication
+### Multi-Factor Authentication (MFA)
 
 The ISM section on multi-factor authentication recommends implementing it in the following scenarios based on your risk profile:
 
@@ -99,17 +99,6 @@ Azure Multi-Factor Authentication supports the following ISM acceptable forms of
 
 Privileged Identity Management, a component of Azure Active Directory, can be used to enforce the use of Multi-Factor authentication when users elevate their permissions to meet the fourth recommendation.
 
-## Further Reading
+## Next steps
 
-* [Azure Certification Documents](https://aka.ms/azureirap)
-* [Azure AD Connect - Installation Guide](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-roadmap)
-* [Password Write-Back](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-writeback)
-* [Install and Run the IDFix Tool](https://docs.microsoft.com/en-us/office365/enterprise/install-and-run-idfix)
-* [Azure AD UPN Population](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-userprincipalname)
-* [Azure AD Connect - Synchronised Attributes](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized)
-* [Azure AD Connect - Best-Practice Configuration Guide](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration)
-* [Azure AD Connect - User Sign-In Options](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-user-signin)
-* [Azure AD Connect and Federation](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-fed-whatis)
-* [Pass-Through Authentication Documentation](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta)
-* [Deploying Azure Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted)
-* [Azure Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure)
+Review the article on [Role-Based Access Controls and Privileged Identity Management](rbac-pim.md).

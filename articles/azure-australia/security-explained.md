@@ -1,14 +1,14 @@
 ---
-title: Azure Australia Security Frequently Asked Questions
-description: The most commonly asked questions and answers relating to the Australian regions and meeting the specific requirements of Australian Government policy, regulations, and legislation.
+title: Azure Australia Security Explained
+description: These are the areas most often asked about by Australian Government agencies, and other organisations that have adopted the ISM as their security controls framework, relating to the Australian regions and meeting the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
-ms.topic: conceptual
-ms.date: 04/25/2019
+ms.topic: article
+ms.date: 06/11/2019
 ms.author: grgale
 ---
 
-# Azure Australia Security
+# Azure Australia Security Explained
 
 ## IRAP assessment and Certified Cloud Services List (CCSL) certification documents
 

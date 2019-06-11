@@ -1,5 +1,5 @@
 ---
-title: Implementing System Monitoring on Azure Quickstart Guide
+title: System Monitoring to ensure you are secure in Azure
 description: Guidance on configuring System Monitoring within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: galey801
 ms.service: azure-australia
@@ -8,9 +8,7 @@ ms.date: 04/25/2019
 ms.author: grgale
 ---
 
-# System Monitoring with Microsoft Azure
-
-## Background
+# System Monitoring to ensure you are secure in Azure
 
 It is critical that all organisations implement robust security strategies that include real time monitoring and routine security assessments to enhance the day to day operational security of their IT environments. The same security considerations have to be made when moving workloads into a cloud environment. Security within a cloud environment is a joint effort between the customer and the cloud provider. This guide will outline four services which Microsoft Azure provides to facilitate these requirements with consideration to the recommendations contained within the [Australian Cyber Security Centre's (ACSC) Information Security Manual Controls](https://acsc.gov.au/infosec/ism/index.htm) (ISM), specifically, the implementation of centralised event logging, event log auditing, and security vulnerability assessment and management. The Microsoft Azure services are:
 
@@ -135,7 +133,7 @@ Azure Policy has a library of built-in policy definitions, this library of defin
 
 All deployed Azure policies contribute to an organisation's Secure Score. In a highly bespoke environment, custom Azure Policy definitions can be created and deployed to provide audit information tailored to specific workloads.
 
-## Getting Started
+## Getting started
 
 To begin working with Azure Security Center as well as making full use of Azure Monitor, Advisor and Policy, Microsoft recommends the following initial steps:
 
@@ -144,9 +142,9 @@ To begin working with Azure Security Center as well as making full use of Azure 
 * Enable Automatic Provisioning of the Microsoft Monitoring Agent to supported Azure Virtual Machines
 * Review, prioritise, and mitigate the security recommendations and alerts on the Security Centre dashboard
 
-## Further Reading
+## Next Steps
 
-### Azure Solution Overview
+This article explained how various built-in security capabilities within Azure assist you to maintain visibility and protection of your Azure environment. Now that you've been exposed at a high level, learn how to use each service in more detail:
 
 * [Azure Security Center Overview](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
 * [Azure Monitor Overview](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
@@ -154,16 +152,3 @@ To begin working with Azure Security Center as well as making full use of Azure 
 * [Azure Policy Overview](https://docs.microsoft.com/en-us/azure/governance/policy/overview)
 * [Azure Event Hub Overview](https://docs.microsoft.com/en-us/azure/event-hubs/)
 * [Azure Sentinel Overview](https://docs.microsoft.com/en-us/azure/sentinel/)
-
-### Related Documentation
-
-* [Azure Governance](https://docs.microsoft.com/en-us/azure/governance/)
-* [Azure Security Best Practices](https://docs.microsoft.com/en-us/azure/security/security-best-practices-and-patterns)
-* [Platforms and features supported by Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage)
-* [Azure Activity Log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/activity-logs-overview)
-* [Azure Diagnostic Logs](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostic-logs-overview)
-* [Azure Security Center Alerts](https://docs.microsoft.com/en-us/azure/security-center/security-center-managing-and-responding-alerts)
-* [Azure Log Integration](https://docs.microsoft.com/en-us/azure/security/security-azure-log-integration-overview)
-* [Analyze Log Data in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview)
-* [Stream Azure Monitor Logs to an Event Hub](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/stream-monitoring-data-event-hubs)
-* [Event Hub Security and Authentication](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-authentication-and-security-model-overview)

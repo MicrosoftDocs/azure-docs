@@ -30,8 +30,17 @@ This article outlines the foundational principles for securing your services and
 
 ## Next Steps
 
-The first step to using Azure Australia is to establish secure connectivity.
-[Configure VPN Gateway for secure connection to Azure Australia](configure-vpn-gateway.md)
+There are two categories of documentation provided for Australian Government agencies migrating to Azure.
 
-Another key step for Government agencies is the establishment of perimeter security capabilities. The How tos provide guidance to agencies to do it.
-[Implement gateway auditing, logging and visibility is the first guide](implement-gateway-logging-auditing-visibility.md)
+### Securing your Azure environment
+
+Identity, role-based access control, data protection through encryption and rights management, and effective monitoring and configuration control are key elements that you need to implement. In this section there are a series of articles explaining the built-in capabilities of Azure and how they relate to the ISM and ASD Essential 8.
+
+Start with [Securing your data in Azure](securing-your-data.md)
+
+### Building a Gateway in Azure
+
+Another key step for Government agencies is the establishment of perimeter security capabilities. These capabilities are generally called Secure Internet Gateways (SIG) and when using Azure it is your responsibility to ensure these protections are in place. Microsoft does not operate a SIG; however, with the combination of our Edge services that protect all customers, and specific services deployed within your Azure environment you can operate an equivalent capability.
+
+Start with
+[Gateway auditing, logging and visibility](gateway-logging-auditing-visibility.md).

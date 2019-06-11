@@ -1,14 +1,14 @@
 ---
-title: Getting started with Azure VPN Gateway in Azure Australia
-description: Implementing VPN Gateway on Azure Australia
+title: Azure VPN Gateway configuration for Australian Government agencies
+description: Implementing VPN Gateway in Azure Australia by Government agencies
 author: galey801
 ms.service: azure-australia
 ms.topic: article
-ms.date: 04/25/19
+ms.date: 06/11/19
 ms.author: grgale
 ---
 
-# Getting started with Azure VPN Gateway in Azure Australia
+# Azure VPN Gateway configuration for Australian Government agencies
 
 A critical service with any public cloud is the secure connection of cloud resources and services to existing on-premises systems.  The service that provides this capability in Azure is the Azure VPN Gateway (VPN Gateway). This article outlines the key considerations with configuring the VPN Gateway to comply with the Australian Signals Directorate’s (ASD) [Information Security Manual Controls](https://acsc.gov.au/infosec/ism/) (ISM).
 
@@ -189,9 +189,11 @@ New-AzVirtualNetworkGatewayConnection `
                     -SharedKey "AzureA1b2C3"
 ```
 
-## Further Reading
+## Next steps
 
-[Azure Virtual Network Gateway Overview](https://docs.microsoft.com/en-us/azure/vpn-gateway/)  
-[What is VPN Gateway?](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)  
-[Create a VNet with a Site-to-Site VPN connection using PowerShell](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)  
-[Create and manage a VPN gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell)
+This article covered the specific configuration of VPN Gateway to meet the requirements specified in the Information Security Manual (ISM) for securing Australian Government PROTECTED data while in transit. For detailed steps to configure your VPN Gateway:
+
+* [Azure Virtual Network Gateway Overview](https://docs.microsoft.com/en-us/azure/vpn-gateway/)  
+* [What is VPN Gateway?](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)  
+* [Create a VNet with a Site-to-Site VPN connection using PowerShell](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)  
+* [Create and manage a VPN gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell)
