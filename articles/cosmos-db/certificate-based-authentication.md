@@ -1,18 +1,18 @@
 ---
-title: Certificate-based authentication with Azure Cosmos DB
-description: Learn how to configure an app for certificate-based authentication to access keys from Azure Cosmos DB.
-author: SnehaGunda
+title: Azure Active Directory certificate-based authentication with Azure Cosmos DB
+description: Learn how to configure an Azure Active Directory identity for certificate-based authentication to access keys from Azure Cosmos DB.
+author: voellm
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/319/2019
-ms.author: sngun
+ms.date: 06/11/2019
+ms.author: tvoellm
 ms.reviewer: sngun
 
 ---
 
-# Certificate-based authentication with Azure Cosmos DB
+# Certificate-based authentication for an Azure Active Directory identity to access keys from an Azure Cosmos account
 
-Certificate-based authentication enables your client application to be authenticated by using Azure Active Directory with a client certificate on a Windows, Android, or an iOS device. Your application can then read Azure Cosmo DB keys without having the keys directly in the application. This article describes how to create a sample Azure Active Directory application, configure it for certificate-based authentication, sign into Azure using the new application identity, and then it retrieves the keys from your Azure Cosmos account. This article uses Azure PowerShell to achieve the scenario, you can also do the same steps in C# code as well.
+Certificate-based authentication enables your client application to be authenticated by using Azure Active Directory with a client certificate. You can perform certificate-based authentication on a machine where you need an identity, such as an on-premise machine or virtual machine in Azure. Your application can then read Azure Cosmo DB keys without having the keys directly in the application. This article describes how to create a sample Azure Active Directory application, configure it for certificate-based authentication, sign into Azure using the new application identity, and then it retrieves the keys from your Azure Cosmos account. This article uses Azure PowerShell to set up the identities and provides a C# sample app that authenticates and accesses keys from your Azure Cosmos account.  
 
 ## Prerequisites:
 
