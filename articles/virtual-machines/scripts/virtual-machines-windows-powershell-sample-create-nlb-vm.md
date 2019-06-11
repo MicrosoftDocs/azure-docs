@@ -65,7 +65,7 @@ This script uses the following commands to create the deployment. Each item in t
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Create a virtual machine. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
-You can also create the VMs using your own custom mananaged image. In the VM configuration, for `Set-AzVMSourceImage` use the `-Id` and `-VM` parameters instead of -PublisherName, -Offer, -Skus, and -Version.
+You can also create the VMs using your own custom managed image. In the VM configuration, for `Set-AzVMSourceImage` use the `-Id` and `-VM` parameters instead of `-PublisherName`, `-Offer`, `-Skus`, and `-Version`.
 
 For example, creating the VM config would be:
 
