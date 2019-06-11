@@ -80,6 +80,9 @@ Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 
 
 Total price = $148.8+23.81 = $172.61
 
+> [!NOTE]
+> The Max function returns the largest value in a pair of values.
+
 **Example 3**
 
 An Application Gateway WAF_v2 is provisioned for a month. During this time, it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer and does 80 request per second. Assuming connections are short lived, and that compute unit calculation for the application supports 10 RPS per compute unit, your price would be:
@@ -89,6 +92,9 @@ Fixed price = 744(hours) * $0.36 = $267.84
 Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/sec, 80/10 WAF RPS), 8.88/2.22 capacity unit for throughput) * $0.0144 = 744 * 8 * 0.0144 = $85.71
 
 Total price = $267.84 + $85.71 = $353.55
+
+> [!NOTE]
+> The Max function returns the largest value in a pair of values.
 
 ## Scaling Application Gateway and WAF v2
 
