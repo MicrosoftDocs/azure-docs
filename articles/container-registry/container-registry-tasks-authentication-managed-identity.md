@@ -511,4 +511,4 @@ In this article, you learned about using managed identities with Azure Container
 [az-group-create]: /cli/azure/group?#az-group-create
 [az-keyvault-create]: /cli/azure/keyvault?#az-keyvault-create
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
-[az-keyvault-set-policy] : /cli/azure/keyvault#az-keyvault-set-policy
+[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
