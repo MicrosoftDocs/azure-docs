@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Use an Azure managed identity in ACR Tasks 
 
-Use a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to authenticate from ACR Tasks to an Azure container registry or other Azure resources, without needing to provide or manage credentials in code. For example ...
+Use a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to authenticate from ACR Tasks to an Azure container registry or other Azure resources, without needing to provide or manage credentials in code. For example, ...
 
 In this article, you learn more about managed identities and how to:
 
@@ -39,92 +39,12 @@ After you set up an Azure resource with a managed identity, give the identity th
 
 For this tutorial you need three container registries:
 
-* You use the first registry to create and execute ACR tasks. In this article, this registry is named *myregistry*. 
+* You use the first registry to create and execute ACR tasks. In this article, this source registry is named *myregistry*. 
 * The second and third registries are target registries for the first example task to push an image it builds. In this article, the target registries are named *customregistry1* and *customregistry2*
 
 Replace with your own registry names in later steps.
 
 If you don't already have the needed Azure container registries, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). You don't need to push images to the registry yet.
-
-
-<!-----
-
-## Example 1: Access with a user-assigned identity
-
-### Create an identity
-
-Create an identity in your subscription using the [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) command. You can use the same resource group you used previously to create the container registry or virtual machine, or a different one.
-
-```azurecli-interactive
-az identity create --resource-group myResourceGroup --name myACRId
-```
-
-To configure the identity in the following steps, use the [az identity show][az-identity-show] command to store the identity's resource ID and service principal ID in variables.
-
-```azurecli
-# Get resource ID of the user-assigned identity
-userID=$(az identity show --resource-group myResourceGroup --name myACRId --query id --output tsv)
-
-# Get service principal ID of the user-assigned identity
-spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
-```
-
-Because you need the identity's ID in a later step when you sign in to the CLI from your virtual machine, show the value:
-
-```bash
-echo $userID
-```
-
-The ID is of the form:
-
-```
-/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId
-```
-
-### Configure the VM with the identity
-
-The following [az vm identity assign][az-vm-identity-assign] command configures your Docker VM with the user-assigned identity:
-
-```azurecli
-az vm identity assign --resource-group myResourceGroup --name myDockerVM --identities $userID
-```
-
-### Grant identity access to the container registry
-
-Now configure the identity to access your container registry. First use the [az acr show][az-acr-show] command to get the resource ID of the registry:
-
-```azurecli
-resourceID=$(az acr show --resource-group myResourceGroup --name myContainerRegistry --query id --output tsv)
-```
-
-Use the [az role assignment create][az-role-assignment-create] command to assign the AcrPull role to the registry. This role provides [pull permissions](container-registry-roles.md) to the registry. To provide both pull and push permissions, assign the ACRPush role.
-
-```azurecli
-az role assignment create --assignee $spID --scope $resourceID --role acrpull
-```
-
-### Use the identity to access the registry
-
-SSH into the Docker virtual machine that's configured with the identity. Run the following Azure CLI commands, using the Azure CLI installed on the VM.
-
-First, authenticate to the Azure CLI with [az login][az-login], using the identity you configured on the VM. For `<userID>`, substitute the ID of the identity you retrieved in a previous step. 
-
-```azurecli
-az login --identity --username <userID>
-```
-
-Then, authenticate to the registry with [az acr login][az-acr-login]. When you use this command, the CLI uses the Active Directory token created when you ran `az login` to seamlessly authenticate your session with the container registry. (Depending on your VM's setup, you might need to run this command and docker commands with `sudo`.)
-
-```azurecli
-az acr login --name myContainerRegistry
-```
-
-You should see a `Login succeeded` message. You can then run `docker` commands without providing credentials. For example, run [docker pull][docker-pull] to pull the `aci-helloworld:v1` image, specifying the login server name of your registry. The login server name consists of your container registry name (all lowercase) followed by `.azurecr.io` - for example, `mycontainerregistry.azurecr.io`.
-
-```
-docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
-```
----->
 
 ## Example: Task with a system-assigned identity
 
@@ -143,7 +63,7 @@ steps:
 
 ### Create task with system-assigned identity
 
-Create the task *multiple-reg* by executing the following [az acr task create][az-acr-task-create] command. The task context is the multipleRegistries folder of the samples repo, and the command references the file `testtask.yaml`. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task. For example purposes, this task is set up so you have to triggeri t manually, but you could trigger the task to run when commits are pushed to the repo or a pull request is made. 
+Create the task *multiple-reg* by executing the following [az acr task create][az-acr-task-create] command. The task context is the multipleRegistries folder of the samples repo, and the command references the file `testtask.yaml` in the repo. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task. This task is set up so you have to trigger it manually, but you could trigger the task to run when commits are pushed to the repo or a pull request is made. 
 
 ```azurecli
 az acr task create \
@@ -156,7 +76,7 @@ az acr task create \
   --assign-identity
 ```
 
-In the command output, the `identity` section shows an identity of type `SystemAssigned` is set in the task. The `principalID` is the service principal ID of the identity:
+In the command output, the `identity` section shows an identity of type `SystemAssigned` is set in the task. The `principalId` is the service principal ID of the identity:
 
 ```console
 [...]
@@ -173,7 +93,7 @@ In the command output, the `identity` section shows an identity of type `SystemA
 Use the [az acr task show][az-acr-task-show] command to store the `principalId` in a variable, to use in later commands:
 
 ```azurecli
-principal_id=$(az acr task show --name multiple-reg --registry myregistry --query identity.principalId --output tsv)
+principalID=$(az acr task show --name multiple-reg --registry myregistry --query identity.principalId --output tsv)
 ```
 
 ### Give identity push permissions to two target container registries
@@ -334,7 +254,6 @@ az keyvault create --name mykeyvault --resource-group myResourceGroup --location
 
 Store a sample secret in the key vault using the [az keyvault secret set][az-keyvault-secret-set] command:
 
-
 ```azurecli
 az keyvault secret set \
   --name SampleSecret \
@@ -342,6 +261,8 @@ az keyvault secret set \
   --description ACRTasksecret  \
   --vault-name mykeyvault
 ```
+
+For example, you might want to store credentials to authenticate with a private Docker registry so you can pull a private image.
 
 ### Create an identity
 
@@ -358,66 +279,92 @@ To configure the identity in the following steps, use the [az identity show][az-
 resourceID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query id --output tsv)
 
 # Get service principal ID of the user-assigned identity
-spID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query principalId --output tsv)
+principalID=$(az identity show --resource-group myResourceGroup --name myACRTasksId --query principalId --output tsv)
 ```
 
 ### Grant identity access to keyvault to read secret
 
-Run the following [az keyvault set-policy][az-keyvault-set-policy] command to set an access policy on the key vault. The following example allows the user-assigned identity to get secrets from the key vault:
+Run the following [az keyvault set-policy][az-keyvault-set-policy] command to set an access policy on the key vault. The following example allows the user-assigned identity to get secrets from the key vault. This access is needed later to run a multi-step task successfully.
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
 ```
 
+### Grant identity Reader access to the resource group for registry
 
-### Grant identity read access to RG for registry
+Run the following [az role assignment create][az-role-assignment-create] command to assign the identity a Reader role, in this case to the resource group containing the source registry. This role is needed later to run a multi-step task successfully.
 
 ```azurecli
-az role assignment create --role reader --resource-group myResourceGroup --assignee $principalId
-
+az role assignment create --role reader --resource-group myResourceGroup --assignee $principalID
 ```
 
-### Create task
+### Create task with user-assigned identity
 
-#### Task YAML file
+Now create a [multi-step task](container-registry-tasks-multi-step.md) and assign it the user-assigned identity. For this example task, create a [YAML file](container-registry-tasks-reference-yaml.md) named `managed-identities.yaml` in a local working directory and paste the following contents. Be sure to replace the key vault name in the file with the name of your key vault
 
 ```yml
 version: v1.0.0
+# Replace mykeyvault with the name of your key vault
 secrets:
   - id: name
-    keyvault: https://acrtaskkv.vault.azure.net/secrets/SampleSecret
+    keyvault: https://mykeyvault.vault.azure.net/secrets/SampleSecret
 steps:
-  # Verify that we can access the secret in the key vault
+  # Verify that the task can access the secret in the key vault
   - cmd: bash -c 'if [ -z "$MY_SECRET" ]; then echo "Secret not resolved"; else echo "Secret resolved"; fi'
     env: 
       - MY_SECRET='{{.Secrets.name}}' 
 
-  # Build/push the website image to source registry
+  # Build/push the website image to source registry, using dockerfile in the Azure-Samples repo
   - cmd: docker build -t {{.Run.Registry}}/my-website:{{.Run.ID}} https://github.com/Azure-Samples/aci-helloworld.git
   - push: 
     - "{{.Run.Registry}}/my-website:{{.Run.ID}}"
   
-  # Login to Azure with identity and list the tags to verify that we have the image!
+  # Login to Azure with identity and list the tags to verify that the image is in the registry
   - cmd: microsoft/azure-cli az login --identity
   - cmd: microsoft/azure-cli az acr repository show-tags -n {{.Values.registryName}} --repository my-website
 ```
 
+This task does the following:
 
+* Verifies that it can access the secret in your key vault. This step is for demonstration purposes. For exampleou might need a task step similar to this one to get credentials to access a private Docker Hub repo.
+* Builds and pushes the `mywebsite` image to the source registry.
+* Logs into the Azure CLI to list the `my-website` image tags in the source registry.
 
-Create task with user-assigned identity, identified by `$resourceID`. Run from local context so we don't have to worry about pushing anything to the repo 
+Create a task called *msitask* and pass it the resource ID of the user-assigned identity you created previously. This example task is created from the `managed-identities.yaml` file you created in your local working directory, so you have to trigger it manually.
 
 ```azurecli
-az acr task create -n msitask --registry danlep0501 -c https://github.com/dlepow/acr-tasks.git \
-  --file managed-identities.yaml --pull-request-trigger-enabled false --commit-trigger-enabled false \
+az acr task create \
+  --name msitask \
+  --registry myregistry \
+  --context /dev/null \
+  --file managed-identities.yaml \
+  --pull-request-trigger-enabled false \
+  --commit-trigger-enabled false \
   --assign-identity $resourceID
 ```
 
-### Manually trigger the task
+In the command output, the `identity` section shows an identity of type `UserAssigned` is set in the task. The `principalId` is the service principal ID of the identity:
 
-Pass registry name and resourceID of the user-assigned identity:
+```console
+[...]
+"identity": {
+    "principalId": null,
+    "tenantId": null,
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/xxxxxxxx-d12e-4760-9ab6-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRTasksId": {
+        "clientId": "xxxxxxxx-f17e-4768-bb4e-xxxxxxxxxxxx",
+        "principalId": "xxxxxxxx-1335-433d-bb6c-xxxxxxxxxxxx"
+      }
+[...]
+```
+
+### Manually run the task
+
+Use the [az acr task run][az-acr-task-run] command to manually trigger the task. The `--set` parameter is used to pass in the source registry name to the task:
 
 ```azurecli
-az acr task run --name msitask --registry danlep0501 --set registryName=danlep0501  --set resourceID=$resourceID
+az acr task run --name msitask --registry myregistry --set registryName=myregistry  
 
 ```
 
@@ -433,8 +380,8 @@ Waiting for an agent...
 2019/06/10 23:25:41 Successfully set up Docker network: acb_default_network
 2019/06/10 23:25:41 Setting up Docker configuration...
 2019/06/10 23:25:42 Successfully set up Docker configuration
-2019/06/10 23:25:42 Logging in to registry: danlep0501.azurecr.io
-2019/06/10 23:25:43 Successfully logged into danlep0501.azurecr.io
+2019/06/10 23:25:42 Logging in to registry: myregistry.azurecr.io
+2019/06/10 23:25:43 Successfully logged into myregistry.azurecr.io
 2019/06/10 23:25:43 Executing step ID: acb_step_0. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
 2019/06/10 23:25:43 Launching container with name: acb_step_0
 Secret resolved
@@ -484,11 +431,11 @@ Step 6/6 : CMD node /usr/src/app/index.js
 Removing intermediate container 451ac0a9b6ed
  ---> ffc244c914fd
 Successfully built ffc244c914fd
-Successfully tagged danlep0501.azurecr.io/my-website:cf32
+Successfully tagged myregistry.azurecr.io/my-website:cf32
 2019/06/10 23:25:58 Successfully executed container: acb_step_1
 2019/06/10 23:25:58 Executing step ID: acb_step_2. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
-2019/06/10 23:25:58 Pushing image: danlep0501.azurecr.io/my-website:cf32, attempt 1
-The push refers to repository [danlep0501.azurecr.io/my-website]
+2019/06/10 23:25:58 Pushing image: myregistry.azurecr.io/my-website:cf32, attempt 1
+The push refers to repository [myregistry.azurecr.io/my-website]
 8863750e462a: Preparing
 adb3577ced7a: Preparing
 4d146dfedfd5: Preparing
@@ -503,20 +450,20 @@ adb3577ced7a: Pushed
 6dfaec39e726: Pushed
 2ec940494cc0: Pushed
 cf32: digest: sha256:cbb4aa83b33f6959d83e84bfd43ca901084966a9f91c42f111766473dc977f36 size: 1577
-2019/06/10 23:26:05 Successfully pushed image: danlep0501.azurecr.io/my-website:cf32
+2019/06/10 23:26:05 Successfully pushed image: myregistry.azurecr.io/my-website:cf32
 2019/06/10 23:26:05 Executing step ID: acb_step_3. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
 2019/06/10 23:26:05 Launching container with name: acb_step_3
 [
   {
     "environmentName": "AzureCloud",
-    "id": "e44f251c-c67e-4760-9ed6-bf99a306ecff",
+    "id": "xxxxxxxx-d12e-4760-9ab6-xxxxxxxxxxxx",
     "isDefault": true,
     "name": "DanLep Internal Consumption",
     "state": "Enabled",
-    "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "user": {
-      "assignedIdentityInfo": "MSIResource-/subscriptions/e44f251c-c67e-4760-9ed6-bf99a306ecff/resourcegroups/danlep0429/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRTasksId",
-      "name": "userAssignedIdentity",
+    "tenantId": "xxxxxxxx-86f1-41af-91ab-xxxxxxxxxxxx",
+      "user": {
+      "assignedIdentityInfo": "MSI",
+      "name": "systemAssignedIdentity",
       "type": "servicePrincipal"
     }
   }
@@ -533,7 +480,6 @@ cf32: digest: sha256:cbb4aa83b33f6959d83e84bfd43ca901084966a9f91c42f111766473dc9
 2019/06/10 23:26:14 Step ID: acb_step_2 marked as successful (elapsed time in seconds: 6.791506)
 2019/06/10 23:26:14 Step ID: acb_step_3 marked as successful (elapsed time in seconds: 3.852972)
 2019/06/10 23:26:14 Step ID: acb_step_4 marked as successful (elapsed time in seconds: 5.079079)
-
 ```
 
 
@@ -542,9 +488,9 @@ cf32: digest: sha256:cbb4aa83b33f6959d83e84bfd43ca901084966a9f91c42f111766473dc9
 In this article, you learned about using managed identities with Azure Container Registry Tasks and how to:
 
 > [!div class="checklist"]
-> * Enable a system-assigned identity on an ACR task
-> * Grant the identity access to two Azure container registries
-> * Use the managed identity to access the registries from a task and push a container image 
+> * Enable a system-assigned identity or user-assigned on an ACR task
+> * Grant the identity access to Azure resources, such as other Azure container registries
+> * Use the managed identity to access the resources from a task  
 
 * Learn more about [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/).
 
