@@ -198,17 +198,17 @@ Once everything's set up correctly, no further code changes are necessary.  `Azu
 
 Custom service authentication allows you to store a service principal's client certificate in Key Vault and use it for service principal authentication. 
 
-Either you or MSI must have the permissions necessary to retrieve the client certificate from the Key Vault. Tthe AppAuthentication library uses the retrieved certificate as the service principal.
+You or MSI must have the permissions necessary to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal.
 
-To use custom services authentication, provide the certificate's secret identifier in the connection string:
+To use custom services authentication, replace `{KeyVaultCertificateSecretIdentifier}` in this connection string with the certificate's secret identifier:
 
 ```
 RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultSecretIdentifier={KeyVaultCertificateSecretIdentifier}
 ```
 
-To find the `KeyVaultCertificateSecretIdentifier` value for your certificate in the portal, follow these steps.
+To find the certificate's secret identifier, follow these steps.
 
-1. Click on the name of your Key Vault in the portal.
+1. In the portal, click on the name of your Key Vaul.
 
 1. In the left-hand sidebar, click on "Certificates".
 
