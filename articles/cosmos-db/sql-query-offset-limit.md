@@ -75,12 +75,8 @@ The results are:
     ]
 ```
 
-## References
-
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-
 ## Next steps
 
-- [Getting started][sql-query-getting-started.md]
-- [SELECT clause][sql-query-select.md]
-- [ORDER BY clause][sql-query-order-by.md]
+- [Getting started](sql-query-getting-started.md)
+- [SELECT clause](sql-query-select.md)
+- [ORDER BY clause](sql-query-order-by.md)

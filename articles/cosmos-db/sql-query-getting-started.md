@@ -16,9 +16,9 @@ Azure Cosmos DB SQL API accounts support querying items using Structured Query L
 
 * Use JavaScript's programming model as the foundation for the query language. JavaScript's type system, expression evaluation, and function invocation are the roots of the SQL API. These roots provide a natural programming model for features like relational projections, hierarchical navigation across JSON items, self-joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript.
 
-## <a id="GettingStarted"></a>Get started with SQL queries
+## Get started with SQL queries
 
-In your SQL API Cosmos DB account, create a container called `Families`. Create two simple JSON items in the container, and run a few simple queries against them.
+In your SQL API Cosmos DB account, create a container called `Families`. Create two simple JSON items in the container. You can run most of the sample queries in the Azure Cosmos DB query docs using this data set.
 
 ### Create JSON items
 
@@ -60,7 +60,7 @@ The second item uses `givenName` and `familyName` instead of `firstName` and `la
       {
         "familyName": "Merriam",
         "givenName": "Jesse",
-        "gender": "female", 
+        "gender": "female",
         "grade": 1,
         "pets": [
             { "givenName": "Goofy" },
@@ -161,9 +161,8 @@ The preceding examples show several aspects of the Cosmos DB query language:
 
 * A Cosmos DB container is a schema-free collection of JSON items. The relations within and across container items are implicitly captured by containment, not by primary key and foreign key relations. This feature is important for the intra-item joins discussed later in this article.
 
-## <a id="References"></a>References
+## References
 
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
@@ -175,10 +174,6 @@ The preceding examples show several aspects of the Cosmos DB query language:
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB][introduction]
+- [Introduction to Azure Cosmos DB](introduction.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Azure Cosmos DB consistency levels][consistency-levels]
-
-[1]: ./media/how-to-sql-query/sql-query1.png
-[introduction]: introduction.md
-[consistency-levels]: consistency-levels.md
+- [SELECT clause](sql-query-select.md)

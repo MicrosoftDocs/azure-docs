@@ -8,16 +8,16 @@ ms.date: 05/17/2019
 ms.author: mjbrown
 
 ---
-# <a id="ScalarExpressions"></a>Scalar Expressions
+# Scalar Expressions
 
-The SELECT clause supports scalar expressions. A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators.
+The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators.
 
-##  <a name="bk_syntax"></a> Syntax
+## Syntax
   
 ```sql  
 <scalar_expression> ::=  
-       <constant>   
-     | input_alias   
+       <constant>
+     | input_alias
      | parameter_name  
      | <scalar_expression>.property_name  
      | <scalar_expression>'['"property_name"|array_index']'  
@@ -25,9 +25,9 @@ The SELECT clause supports scalar expressions. A scalar expression is a combinat
      | <scalar_expression> binary_operator <scalar_expression>    
      | <scalar_expression> ? <scalar_expression> : <scalar_expression>  
      | <scalar_function_expression>  
-     | <create_object_expression>   
+     | <create_object_expression>
      | <create_array_expression>  
-     | (<scalar_expression>)   
+     | (<scalar_expression>)
   
 <scalar_function_expression> ::=  
         'udf.' Udf_scalar_function([<scalar_expression>][,…n])  
@@ -39,8 +39,9 @@ The SELECT clause supports scalar expressions. A scalar expression is a combinat
 <create_array_expression> ::=  
    '[' [<scalar_expression>][,…n] ']'  
   
-```  
-##  <a name="bk_arguments"></a> Arguments
+```
+
+## Arguments
   
 - `<constant>`  
   
@@ -91,7 +92,7 @@ The SELECT clause supports scalar expressions. A scalar expression is a combinat
   
    Represents a value of the specified parameter name. Parameter names must have a single \@ as the first character.  
   
-##  <a name="bk_remarks></a> Remarks
+## Remarks
   
   When calling a built-in or user-defined scalar function all arguments must be defined. If any of the arguments is undefined, the function will not be called and the result will be undefined.  
   
@@ -99,7 +100,7 @@ The SELECT clause supports scalar expressions. A scalar expression is a combinat
   
   When creating an array, any element value that is assigned **undefined** value will be skipped and not included in the created object. This will cause the next defined element to take its place in such a way that the created array will not have skipped indexes.  
 
-##  <a name="bk_examples"></a> Examples
+## Examples
 
 ```sql
     SELECT ((2 + 11 % 7)-2)/3
@@ -114,7 +115,6 @@ The results are:
 ```
 
 In the following query, the result of the scalar expression is a Boolean:
-
 
 ```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState
@@ -134,24 +134,8 @@ The results are:
     ]
 ```
 
-## <a id="References"></a>References
-
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-- [JSON](https://json.org/)
-- [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
-- Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
-- Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
-- Lu, Ooi, Tan. "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
-- Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: A Not-So-Foreign Language for Data Processing." *SIGMOD* (2008).
-
 ## Next steps
 
-- [Introduction to Azure Cosmos DB][introduction]
+- [Introduction to Azure Cosmos DB](introduction.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Azure Cosmos DB consistency levels][consistency-levels]
-
-[1]: ./media/how-to-sql-query/sql-query1.png
-[introduction]: introduction.md
-[consistency-levels]: consistency-levels.md
+- [Subqueries](sql-query-subquery.md)

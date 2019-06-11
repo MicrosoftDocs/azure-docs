@@ -11,7 +11,7 @@ ms.author: mjbrown
 # Operators
 This article details the various operators supported by Azure Cosmos DB.
 
-##  <a name="bk_equalityandcomparisonoperators"></a> Equality and Comparison Operators 
+## Equality and Comparison Operators
 
 The following table shows the result of equality comparisons in the SQL API between any two JSON types.
 
@@ -29,7 +29,7 @@ For comparison operators such as `>`, `>=`, `!=`, `<`, and `<=`, comparison acro
 
 If the result of the scalar expression is `Undefined`, the item isn't included in the result, because `Undefined` doesn't equal `true`.
 
-##  <a name="bk_logicaloperators"></a> Logical (AND, OR and NOT) operators
+## Logical (AND, OR and NOT) operators
 
 Logical operators operate on Boolean values. The following tables show the logical truth tables for these operators:
 
@@ -62,7 +62,7 @@ Logical operators operate on Boolean values. The following tables show the logic
 
 The special operator * projects the entire item as is. When used, it must be the only projected field. A query like `SELECT * FROM Families f` is valid, but `SELECT VALUE * FROM Families f` and  `SELECT *, f.id FROM Families f` are not valid.
 
-##  <a name="bk_-and--operators"></a> ? and ?? operators
+## ? and ?? operators
 
 You can use the Ternary (?) and Coalesce (??) operators to build conditional expressions, as in programming languages like C# and JavaScript. 
 
@@ -89,24 +89,8 @@ Use the ?? operator to efficiently check for a property in an item when querying
     FROM Families f
 ```
 
-## <a id="References"></a>References
-
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-- [JSON](https://json.org/)
-- [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
-- Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
-- Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
-- Lu, Ooi, Tan. "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
-- Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: A Not-So-Foreign Language for Data Processing." *SIGMOD* (2008).
-
 ## Next steps
 
-- [Introduction to Azure Cosmos DB][introduction]
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Azure Cosmos DB consistency levels][consistency-levels]
-
-[1]: ./media/how-to-sql-query/sql-query1.png
-[introduction]: introduction.md
-[consistency-levels]: consistency-levels.md
+- [Keywords](sql-query-keywords.md)
+- [SELECT clause](sql-query-select.md)

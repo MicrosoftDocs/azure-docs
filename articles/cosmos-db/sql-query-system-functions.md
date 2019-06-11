@@ -8,7 +8,7 @@ ms.date: 05/31/2019
 ms.author: mjbrown
 
 ---
-# <a id="system_functions></a> System functions
+# System functions
 
  Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
   
@@ -35,7 +35,7 @@ If you’re currently using a user-defined function (UDF) for which a built-in f
 
 The main difference between Cosmos DB functions and ANSI SQL functions is that Cosmos DB functions are designed to work well with schemaless and mixed-schema data. For example, if a property is missing or has a non-numeric value like `unknown`, the item is skipped instead of returning an error.
 
-###  <a name="bk_mathematical_functions"></a> Mathematical functions  
+##  <a name="bk_mathematical_functions"></a> Mathematical functions  
 
 The mathematical functions each perform a calculation, based on input values that are provided as arguments, and return a numeric value.
 
@@ -52,35 +52,6 @@ The result is:
 ```
 
 Here’s a table of supported built-in mathematical functions.
-
-| Usage | Description |
-|----------|--------|
-| ABS (num_expr) | Returns the absolute (positive) value of the specified numeric expression. |
-| CEILING (num_expr) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
-| FLOOR (num_expr) | Returns the largest integer less than or equal to the specified numeric expression. |
-| EXP (num_expr) | Returns the exponent of the specified numeric expression. |
-| LOG (num_expr, base) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base. |
-| LOG10 (num_expr) | Returns the base-10 logarithmic value of the specified numeric expression. |
-| ROUND (num_expr) | Returns a numeric value, rounded to the closest integer value. |
-| TRUNC (num_expr) | Returns a numeric value, truncated to the closest integer value. |
-| SQRT (num_expr) | Returns the square root of the specified numeric expression. |
-| SQUARE (num_expr) | Returns the square of the specified numeric expression. |
-| POWER (num_expr, num_expr) | Returns the power of the specified numeric expression to the value specified. |
-| SIGN (num_expr) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
-| ACOS (num_expr) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
-| ASIN (num_expr) | Returns the angle, in radians, whose sine is the specified numeric expression. This function is also called arcsine. |
-| ATAN (num_expr) | Returns the angle, in radians, whose tangent is the specified numeric expression. This function is also called arctangent. |
-| ATN2 (num_expr) | Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions. |
-| COS (num_expr) | Returns the trigonometric cosine of the specified angle, in radians, in the specified expression. |
-| COT (num_expr) | Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression. |
-| DEGREES (num_expr) | Returns the corresponding angle in degrees for an angle specified in radians. |
-| PI () | Returns the constant value of PI. |
-| RADIANS (num_expr) | Returns radians when a numeric expression, in degrees, is entered. |
-| SIN (num_expr) | Returns the trigonometric sine of the specified angle, in radians, in the specified expression. |
-| TAN (num_expr) | Returns the tangent of the input expression, in the specified expression. |
-
-###  <a name="bk_mathematical_functions"></a> Mathematical functions  
- The following functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.  
   
 ||||  
 |-|-|-|  
@@ -920,220 +891,1890 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
 ```  
 [{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
 ```  
-### Type-checking functions
+
+### Type checking functions
 
 The type-checking functions let you check the type of an expression within a SQL query. You can use type-checking functions to determine the types of properties within items on the fly, when they're variable or unknown. Here’s a table of supported built-in type-checking functions:
 
-| **Usage** | **Description** |
-|-----------|------------|
-| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Returns a Boolean indicating if the type of the value is an array. |
-| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Returns a Boolean indicating if the type of the value is a Boolean. |
-| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | Returns a Boolean indicating if the type of the value is null. |
-| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | Returns a Boolean indicating if the type of the value is a number. |
-| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | Returns a Boolean indicating if the type of the value is a JSON object. |
-| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | Returns a Boolean indicating if the type of the value is a string. |
-| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | Returns a Boolean indicating if the property has been assigned a value. |
-| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | Returns a Boolean indicating if the type of the value is a string, number, Boolean, or null. |
+The following functions support type checking against input values, and each return a Boolean value.  
+  
+||||  
+|-|-|-|  
+|[IS_ARRAY](#bk_is_array)|[IS_BOOL](#bk_is_bool)|[IS_DEFINED](#bk_is_defined)|  
+|[IS_NULL](#bk_is_null)|[IS_NUMBER](#bk_is_number)|[IS_OBJECT](#bk_is_object)|  
+|[IS_PRIMITIVE](#bk_is_primitive)|[IS_STRING](#bk_is_string)||  
+  
+####  <a name="bk_is_array"></a> IS_ARRAY  
+ Returns a Boolean value indicating if the type of the specified expression is an array.  
+  
+ **Syntax**  
+  
+```  
+IS_ARRAY(<expression>)  
+```  
+  
+ **Arguments**  
+  
+- `expression`  
+  
+   Is any valid expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_ARRAY function.  
+  
+```  
+SELECT   
+ IS_ARRAY(true) AS isArray1,   
+ IS_ARRAY(1) AS isArray2,  
+ IS_ARRAY("value") AS isArray3,  
+ IS_ARRAY(null) AS isArray4,  
+ IS_ARRAY({prop: "value"}) AS isArray5,   
+ IS_ARRAY([1, 2, 3]) AS isArray6,  
+ IS_ARRAY({prop: "value"}.prop2) AS isArray7  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"isArray1":false,"isArray2":false,"isArray3":false,"isArray4":false,"isArray5":false,"isArray6":true,"isArray7":false}]
+```  
+  
+####  <a name="bk_is_bool"></a> IS_BOOL  
+ Returns a Boolean value indicating if the type of the specified expression is a Boolean.  
+  
+ **Syntax**  
+  
+```  
+IS_BOOL(<expression>)  
+```  
+  
+ **Arguments**  
+  
+- `expression`  
+  
+   Is any valid expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_BOOL function.  
+  
+```  
+SELECT   
+    IS_BOOL(true) AS isBool1,   
+    IS_BOOL(1) AS isBool2,  
+    IS_BOOL("value") AS isBool3,   
+    IS_BOOL(null) AS isBool4,  
+    IS_BOOL({prop: "value"}) AS isBool5,   
+    IS_BOOL([1, 2, 3]) AS isBool6,  
+    IS_BOOL({prop: "value"}.prop2) AS isBool7  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"isBool1":true,"isBool2":false,"isBool3":false,"isBool4":false,"isBool5":false,"isBool6":false,"isBool7":false}]
+```  
+  
+####  <a name="bk_is_defined"></a> IS_DEFINED  
+ Returns a Boolean indicating if the property has been assigned a value.  
+  
+ **Syntax**  
+  
+```  
+IS_DEFINED(<expression>)  
+```  
+  
+ **Arguments**  
+  
+- `expression`  
+  
+   Is any valid expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example checks for the presence of a property within the specified JSON document. The first returns true since "a" is present, but the second returns false since "b" is absent.  
+  
+```  
+SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isDefined2 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"isDefined1":true,"isDefined2":false}]  
+```  
+  
+####  <a name="bk_is_null"></a> IS_NULL  
+ Returns a Boolean value indicating if the type of the specified expression is null.  
+  
+ **Syntax**  
+  
+```  
+IS_NULL(<expression>)  
+```  
+  
+ **Arguments**  
+  
+- `expression`  
+  
+   Is any valid expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_NULL function.  
+  
+```  
+SELECT   
+    IS_NULL(true) AS isNull1,   
+    IS_NULL(1) AS isNull2,  
+    IS_NULL("value") AS isNull3,   
+    IS_NULL(null) AS isNull4,  
+    IS_NULL({prop: "value"}) AS isNull5,   
+    IS_NULL([1, 2, 3]) AS isNull6,  
+    IS_NULL({prop: "value"}.prop2) AS isNull7  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"isNull1":false,"isNull2":false,"isNull3":false,"isNull4":true,"isNull5":false,"isNull6":false,"isNull7":false}]
+```  
+  
+####  <a name="bk_is_number"></a> IS_NUMBER  
+ Returns a Boolean value indicating if the type of the specified expression is a number.  
+  
+ **Syntax**  
+  
+```  
+IS_NUMBER(<expression>)  
+```  
+  
+ **Arguments**  
+  
+- `expression`  
+  
+   Is any valid expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_NULL function.  
+  
+```  
+SELECT   
+    IS_NUMBER(true) AS isNum1,   
+    IS_NUMBER(1) AS isNum2,  
+    IS_NUMBER("value") AS isNum3,   
+    IS_NUMBER(null) AS isNum4,  
+    IS_NUMBER({prop: "value"}) AS isNum5,   
+    IS_NUMBER([1, 2, 3]) AS isNum6,  
+    IS_NUMBER({prop: "value"}.prop2) AS isNum7  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false}]  
+```  
+  
+####  <a name="bk_is_object"></a> IS_OBJECT  
+ Returns a Boolean value indicating if the type of the specified expression is a JSON object.  
+  
+ **Syntax**  
+  
+```  
+IS_OBJECT(<expression>)  
+```  
+  
+ **Arguments**  
+  
+- `expression`  
+  
+   Is any valid expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_OBJECT function.  
+  
+```  
+SELECT   
+    IS_OBJECT(true) AS isObj1,   
+    IS_OBJECT(1) AS isObj2,  
+    IS_OBJECT("value") AS isObj3,   
+    IS_OBJECT(null) AS isObj4,  
+    IS_OBJECT({prop: "value"}) AS isObj5,   
+    IS_OBJECT([1, 2, 3]) AS isObj6,  
+    IS_OBJECT({prop: "value"}.prop2) AS isObj7  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"isObj1":false,"isObj2":false,"isObj3":false,"isObj4":false,"isObj5":true,"isObj6":false,"isObj7":false}]
+```  
+  
+####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
+ Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or null).  
+  
+ **Syntax**  
+  
+```  
+IS_PRIMITIVE(<expression>)  
+```  
+  
+ **Arguments**  
+  
+- `expression`  
+  
+   Is any valid expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_PRIMITIVE function.  
+  
+```  
+SELECT   
+           IS_PRIMITIVE(true) AS isPrim1,   
+           IS_PRIMITIVE(1) AS isPrim2,  
+           IS_PRIMITIVE("value") AS isPrim3,   
+           IS_PRIMITIVE(null) AS isPrim4,  
+           IS_PRIMITIVE({prop: "value"}) AS isPrim5,   
+           IS_PRIMITIVE([1, 2, 3]) AS isPrim6,  
+           IS_PRIMITIVE({prop: "value"}.prop2) AS isPrim7  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"isPrim1": true, "isPrim2": true, "isPrim3": true, "isPrim4": true, "isPrim5": false, "isPrim6": false, "isPrim7": false}]  
+```  
+  
+####  <a name="bk_is_string"></a> IS_STRING  
+ Returns a Boolean value indicating if the type of the specified expression is a string.  
+  
+ **Syntax**  
+  
+```  
+IS_STRING(<expression>)  
+```  
+  
+ **Arguments**  
+  
+- `expression`  
+  
+   Is any valid expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_STRING function.  
+  
+```  
+SELECT   
+       IS_STRING(true) AS isStr1,   
+       IS_STRING(1) AS isStr2,  
+       IS_STRING("value") AS isStr3,   
+       IS_STRING(null) AS isStr4,  
+       IS_STRING({prop: "value"}) AS isStr5,   
+       IS_STRING([1, 2, 3]) AS isStr6,  
+       IS_STRING({prop: "value"}.prop2) AS isStr7  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
+```  
 
-Using these functions, you can run queries like the following example:
+## String functions  
 
-```sql
-    SELECT VALUE IS_NUMBER(-4)
+The following scalar functions perform an operation on a string input value and return a string, numeric, or Boolean value:
+  
+||||  
+|-|-|-|  
+|[CONCAT](#bk_concat)|[CONTAINS](#bk_contains)|[ENDSWITH](#bk_endswith)|  
+|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTH](#bk_length)|  
+|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
+|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
+|[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
+|[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[UPPER](#bk_upper)||
+  
+####  <a name="bk_concat"></a> CONCAT  
+ Returns a string that is the result of concatenating two or more string values.  
+  
+ **Syntax**  
+  
+```  
+CONCAT(<str_expr>, <str_expr> [, <str_expr>])  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example returns the concatenated string of the specified values.  
+  
+```  
+SELECT CONCAT("abc", "def") AS concat  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"concat": "abcdef"}  
+```  
+  
+####  <a name="bk_contains"></a> CONTAINS  
+ Returns a Boolean indicating whether the first string expression contains the second.  
+  
+ **Syntax**  
+  
+```  
+CONTAINS(<str_expr>, <str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example checks if "abc" contains "ab" and contains "d".  
+  
+```  
+SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"c1": true, "c2": false}]  
+```  
+  
+####  <a name="bk_endswith"></a> ENDSWITH  
+ Returns a Boolean indicating whether the first string expression ends with the second.  
+  
+ **Syntax**  
+  
+```  
+ENDSWITH(<str_expr>, <str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example returns the "abc" ends with "b" and "bc".  
+  
+```  
+SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"e1": false, "e2": true}]  
+```  
+  
+####  <a name="bk_index_of"></a> INDEX_OF  
+ Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.  
+  
+ **Syntax**  
+  
+```  
+INDEX_OF(<str_expr>, <str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a numeric expression.  
+  
+  **Examples**  
+  
+  The following example returns the index of various substrings inside "abc".  
+  
+```  
+SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", "c") AS i3 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"i1": 0, "i2": 1, "i3": -1}]  
+```  
+  
+####  <a name="bk_left"></a> LEFT  
+ Returns the left part of a string with the specified number of characters.  
+  
+ **Syntax**  
+  
+```  
+LEFT(<str_expr>, <num_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+- `num_expr`  
+  
+   Is any valid numeric expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example returns the left part of "abc" for various length values.  
+  
+```  
+SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"l1": "a", "l2": "ab"}]  
+```  
+  
+####  <a name="bk_length"></a> LENGTH  
+ Returns the number of characters of the specified string expression.  
+  
+ **Syntax**  
+  
+```  
+LENGTH(<str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example returns the length of a string.  
+  
+```  
+SELECT LENGTH("abc") AS len 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"len": 3}]  
+```  
+  
+####  <a name="bk_lower"></a> LOWER  
+ Returns a string expression after converting uppercase character data to lowercase.  
+  
+ **Syntax**  
+  
+```  
+LOWER(<str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example shows how to use LOWER in a query.  
+  
+```  
+SELECT LOWER("Abc") AS lower
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"lower": "abc"}]  
+  
+```  
+  
+####  <a name="bk_ltrim"></a> LTRIM  
+ Returns a string expression after it removes leading blanks.  
+  
+ **Syntax**  
+  
+```  
+LTRIM(<str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example shows how to use LTRIM inside a query.  
+  
+```  
+SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
+```  
+  
+####  <a name="bk_replace"></a> REPLACE  
+ Replaces all occurrences of a specified string value with another string value.  
+  
+ **Syntax**  
+  
+```  
+REPLACE(<str_expr>, <str_expr>, <str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example shows how to use REPLACE in a query.  
+  
+```  
+SELECT REPLACE("This is a Test", "Test", "desk") AS replace 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"replace": "This is a desk"}]  
+```  
+  
+####  <a name="bk_replicate"></a> REPLICATE  
+ Repeats a string value a specified number of times.  
+  
+ **Syntax**  
+  
+```  
+REPLICATE(<str_expr>, <num_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+- `num_expr`  
+  
+   Is any valid numeric expression. If num_expr is negative or non-finite, the result is undefined.
+
+  > [!NOTE]
+  > The maximum length of the result is 10,000 characters i.e. (length(str_expr)  *  num_expr) <= 10,000.
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example shows how to use REPLICATE in a query.  
+  
+```  
+SELECT REPLICATE("a", 3) AS replicate  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"replicate": "aaa"}]  
+```  
+  
+####  <a name="bk_reverse"></a> REVERSE  
+ Returns the reverse order of a string value.  
+  
+ **Syntax**  
+  
+```  
+REVERSE(<str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example shows how to use REVERSE in a query.  
+  
+```  
+SELECT REVERSE("Abc") AS reverse  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"reverse": "cbA"}]  
+```  
+  
+####  <a name="bk_right"></a> RIGHT  
+ Returns the right part of a string with the specified number of characters.  
+  
+ **Syntax**  
+  
+```  
+RIGHT(<str_expr>, <num_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+- `num_expr`  
+  
+   Is any valid numeric expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example returns the right part of "abc" for various length values.  
+  
+```  
+SELECT RIGHT("abc", 1) AS r1, RIGHT("abc", 2) AS r2 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"r1": "c", "r2": "bc"}]  
+```  
+  
+####  <a name="bk_rtrim"></a> RTRIM  
+ Returns a string expression after it removes trailing blanks.  
+  
+ **Syntax**  
+  
+```  
+RTRIM(<str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example shows how to use RTRIM inside a query.  
+  
+```  
+SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"r1": "   abc", "r2": "abc", "r3": "abc"}]  
+```  
+  
+####  <a name="bk_startswith"></a> STARTSWITH  
+ Returns a Boolean indicating whether the first string expression starts with the second.  
+  
+ **Syntax**  
+  
+```  
+STARTSWITH(<str_expr>, <str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example checks if the string "abc" begins with "b" and "a".  
+  
+```  
+SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"s1": false, "s2": true}]  
+```  
+
+  ####  <a name="bk_stringtoarray"></a> StringToArray  
+ Returns expression translated to an Array. If expression cannot be translated, returns undefined.  
+  
+ **Syntax**  
+  
+```  
+StringToArray(<expr>)  
+```  
+  
+ **Arguments**  
+  
+- `expr`  
+  
+   Is any valid scalar expression to be evaluated as a JSON Array expression. Note that nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)
+  
+  **Return Types**  
+  
+  Returns an Array expression or undefined.  
+  
+  **Examples**  
+  
+  The following example shows how StringToArray behaves across different types. 
+  
+ The following are examples with valid input.
+
+```
+SELECT 
+    StringToArray('[]') AS a1, 
+    StringToArray("[1,2,3]") AS a2,
+    StringToArray("[\"str\",2,3]") AS a3,
+    StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+    StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
-The result is:
+Here is the result set.
 
-```json
-    [true]
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
-### String functions
+The following is an example of invalid input. 
+   
+ Single quotes within the array are not valid JSON.
+Even though they are valid within a query, they will not parse to valid arrays. 
+ Strings within the array string must either be escaped "[\\"\\"]" or the surrounding quote must be single '[""]'.
 
-The following scalar functions perform an operation on a string input value and return a string, numeric, or Boolean value. Here's a table of built-in string functions:
-
-| Usage | Description |
-| --- | --- |
-| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Returns the number of characters of the specified string expression. |
-| [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Returns a string that is the result of concatenating two or more string values. |
-| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Returns part of a string expression. |
-| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Returns a Boolean indicating whether the first string expression starts with the second. |
-| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Returns a Boolean indicating whether the first string expression ends with the second. |
-| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Returns a Boolean indicating whether the first string expression contains the second. |
-| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string isn't found. |
-| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Returns the left part of a string with the specified number of characters. |
-| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Returns the right part of a string with the specified number of characters. |
-| [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Returns a string expression after it removes leading blanks. |
-| [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | Returns a string expression after truncating all trailing blanks. |
-| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Returns a string expression after converting uppercase character data to lowercase. |
-| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | Returns a string expression after converting lowercase character data to uppercase. |
-| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Replaces all occurrences of a specified string value with another string value. |
-| [REPLICATE (str_expr, num_expr)](sql-api-query-reference.md#bk_replicate) | Repeats a string value a specified number of times. |
-| [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Returns the reverse order of a string value. |
-
-Using these functions, you can run queries like the following, which returns the family `id` in uppercase:
-
-```sql
-    SELECT VALUE UPPER(Families.id)
-    FROM Families
+```
+SELECT
+    StringToArray("['5','6','7']")
 ```
 
-The results are:
+Here is the result set.
 
-```json
-    [
-        "WAKEFIELDFAMILY",
-        "ANDERSENFAMILY"
-    ]
+```
+[{}]
 ```
 
-Or concatenate strings, like in this example:
-
-```sql
-    SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
-    FROM Families
+The following are examples of invalid input.
+   
+ The expression passed will be parsed as a JSON array; the following do not evaluate to type array and thus return undefined.
+   
+```
+SELECT
+    StringToArray("["),
+    StringToArray("1"),
+    StringToArray(NaN),
+    StringToArray(false),
+    StringToArray(undefined)
 ```
 
-The results are:
+Here is the result set.
 
-```json
-    [{
-      "id": "WakefieldFamily",
-      "location": "NY,NY"
-    },
-    {
-      "id": "AndersenFamily",
-      "location": "Seattle,WA"
-    }]
+```
+[{}]
 ```
 
-You can also use string functions in the WHERE clause to filter results, like in the following example:
+####  <a name="bk_stringtoboolean"></a> StringToBoolean  
+ Returns expression translated to a Boolean. If expression cannot be translated, returns undefined.  
+  
+ **Syntax**  
+  
+```  
+StringToBoolean(<expr>)  
+```  
+  
+ **Arguments**  
+  
+- `expr`  
+  
+   Is any valid scalar expression to be evaluated as a Boolean expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression or undefined.  
+  
+  **Examples**  
+  
+  The following example shows how StringToBoolean behaves across different types. 
+ 
+ The following are examples with valid input.
 
-```sql
-    SELECT Families.id, Families.address.city
-    FROM Families
-    WHERE STARTSWITH(Families.id, "Wakefield")
+Whitespace is allowed only before or after "true"/"false".
+
+```  
+SELECT 
+    StringToBoolean("true") AS b1, 
+    StringToBoolean("    false") AS b2,
+    StringToBoolean("false    ") AS b3
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"b1": true, "b2": false, "b3": false}]
+```  
+
+The following are examples with invalid input.
+
+ Booleans are case sensitive and must be written with all lowercase characters i.e. "true" and "false".
+
+```  
+SELECT 
+    StringToBoolean("TRUE"),
+    StringToBoolean("False")
+```  
+
+Here is the result set.  
+  
+```  
+[{}]
+``` 
+
+The expression passed will be parsed as a Boolean expression; these inputs do not evaluate to type Boolean and thus return undefined.
+
+```  
+SELECT 
+    StringToBoolean("null"),
+    StringToBoolean(undefined),
+    StringToBoolean(NaN), 
+    StringToBoolean(false), 
+    StringToBoolean(true)
+```  
+
+Here is the result set.  
+  
+```  
+[{}]
+```  
+
+####  <a name="bk_stringtonull"></a> StringToNull  
+ Returns expression translated to null. If expression cannot be translated, returns undefined.  
+  
+ **Syntax**  
+  
+```  
+StringToNull(<expr>)  
+```  
+  
+ **Arguments**  
+  
+- `expr`  
+  
+   Is any valid scalar expression to be evaluated as a null expression.
+  
+  **Return Types**  
+  
+  Returns a null expression or undefined.  
+  
+  **Examples**  
+  
+  The following example shows how StringToNull behaves across different types. 
+
+The following are examples with valid input.
+
+ Whitespace is allowed only before or after "null".
+
+```  
+SELECT 
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"n1": null, "n2": null, "n3": true}]
+```  
+
+The following are examples with invalid input.
+
+Null is case sensitive and must be written with all lowercase characters i.e. "null".
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+  
+ Here is the result set.  
+  
+```  
+[{}]
+```  
+
+The expression passed will be parsed as a null expression; these inputs do not evaluate to type null and thus return undefined.
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{}]
+```  
+
+####  <a name="bk_stringtonumber"></a> StringToNumber  
+ Returns expression translated to a Number. If expression cannot be translated, returns undefined.  
+  
+ **Syntax**  
+  
+```  
+StringToNumber(<expr>)  
+```  
+  
+ **Arguments**  
+  
+- `expr`  
+  
+   Is any valid scalar expression to be evaluated as a JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
+  
+  **Return Types**  
+  
+  Returns a Number expression or undefined.  
+  
+  **Examples**  
+  
+  The following example shows how StringToNumber behaves across different types. 
+
+Whitespace is allowed only before or after the Number.
+
+```  
+SELECT 
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
+```  
+  
+ Here is the result set.  
+  
+```  
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
+```  
+
+In JSON a valid Number must be either be an integer or a floating point number.
+
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+  
+ Here is the result set.  
+  
+```  
+{{}}
+```  
+
+The expression passed will be parsed as a Number expression; these inputs do not evaluate to type Number and thus return undefined. 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+  
+ Here is the result set.  
+  
+```  
+{{}}
+```  
+
+####  <a name="bk_stringtoobject"></a> StringToObject  
+ Returns expression translated to an Object. If expression cannot be translated, returns undefined.  
+  
+ **Syntax**  
+  
+```  
+StringToObject(<expr>)  
+```  
+  
+ **Arguments**  
+  
+- `expr`  
+  
+   Is any valid scalar expression to be evaluated as a JSON object expression. Note that nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
+  
+  **Return Types**  
+  
+  Returns an object expression or undefined.  
+  
+  **Examples**  
+  
+  The following example shows how StringToObject behaves across different types. 
+  
+ The following are examples with valid input.
+
+``` 
+SELECT 
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+Here is the result set.
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
-The results are:
+ The following are examples with invalid input.
+Even though they are valid within a query, they will not parse to valid objects. 
+ Strings within the string of object must either be escaped "{\\"a\\":\\"str\\"}" or the surrounding quote must be single 
+ '{"a": "str"}'.
 
-```json
-    [{
-      "id": "WakefieldFamily",
-      "city": "NY"
-    }]
+Single quotes surrounding property names are not valid JSON.
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
 ```
 
-### Array functions
+Here is the result set.
 
-The following scalar functions perform an operation on an array input value and return a numeric, Boolean, or array value. Here's a table of built-in array functions:
+```  
+[{}]
+```  
 
-| Usage | Description |
-| --- | --- |
-| [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Returns the number of elements of the specified array expression. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |Returns an array that is the result of concatenating two or more array values. |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |Returns part of an array expression. |
+Property names without surrounding quotes are not valid JSON.
 
-Use array functions to manipulate arrays within JSON. For example, here's a query that returns all item `id`s where one of the `parents` is `Robin Wakefield`: 
-
-```sql
-    SELECT Families.id 
-    FROM Families 
-    WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
 ```
 
-The result is:
+Here is the result set.
 
-```json
-    [{
-      "id": "WakefieldFamily"
-    }]
+```  
+[{}]
+``` 
+
+The following are examples with invalid input.
+
+ The expression passed will be parsed as a JSON object; these inputs do not evaluate to type object and thus return undefined.
+
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ Here is the result set.
+
+```
+[{}]
 ```
 
-You can specify a partial fragment for matching elements within the array. The following query finds all item `id`s that have `parents` with the `givenName` of `Robin`:
+####  <a name="bk_substring"></a> SUBSTRING  
+ Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string.  
+  
+ **Syntax**  
+  
+```  
+SUBSTRING(<str_expr>, <num_expr>, <num_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+- `num_expr`  
+  
+   Is any valid numeric expression to denote the start and end character.    
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example returns the substring of "abc" starting at 1 and for a length of 1 character.  
+  
+```  
+SELECT SUBSTRING("abc", 1, 1) AS substring  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"substring": "b"}]  
+```  
+####  <a name="bk_tostring"></a> ToString  
+ Returns a string representation of scalar expression. 
+  
+ **Syntax**  
+  
+```  
+ToString(<expr>)
+```  
+  
+ **Arguments**  
+  
+- `expr`  
+  
+   Is any valid scalar expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example shows how ToString behaves across different types.   
+  
+```  
+SELECT 
+    ToString(1.0000) AS str1, 
+    ToString("Hello World") AS str2, 
+    ToString(NaN) AS str3, 
+    ToString(Infinity) AS str4,
+    ToString(IS_STRING(ToString(undefined))) AS str5, 
+    ToString(0.1234) AS str6, 
+    ToString(false) AS str7, 
+    ToString(undefined) AS str8
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"str1": "1", "str2": "Hello World", "str3": "NaN", "str4": "Infinity", "str5": "false", "str6": "0.1234", "str7": "false"}]  
+```  
+ Given the following input:
+```  
+{"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
+```    
+ The following example shows how ToString can be used with other string functions like CONCAT.   
+ 
+```  
+SELECT 
+CONCAT(ToString(p.Weight), p.WeightUnits) 
+FROM p in c.Products 
+```  
 
-```sql
-    SELECT Families.id 
-    FROM Families 
-    WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+Here is the result set.  
+  
+```  
+[{"$1":"4lb" },
+{"$1":"32kg"},
+{"$1":"400g" },
+{"$1":"8999mg" }]
+
+```  
+Given the following input.
 ```
-
-The result is:
-
-```json
-    [{
-      "id": "WakefieldFamily"
-    }]
+{"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
-
-Here's another example that uses ARRAY_LENGTH to get the number of `children` per family:
-
-```sql
-    SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
-    FROM Families 
+The following example shows how ToString can be used with other string functions like REPLACE.   
 ```
-
-The results are:
-
-```json
-    [{
-      "id": "WakefieldFamily",
-      "numberOfChildren": 2
-    },
-    {
-      "id": "AndersenFamily",
-      "numberOfChildren": 1
-    }]
+SELECT 
+    n.id AS nutrientID,
+    REPLACE(ToString(n.nutritionValue), "6", "9") AS nutritionVal
+FROM food 
+JOIN n IN food.nutrients
 ```
+Here is the result set.  
+ ```
+[{"nutrientID":"305"},
+{"nutrientID":"306","nutritionVal":"30"},
+{"nutrientID":"307","nutritionVal":"912"},
+{"nutrientID":"308","nutritionVal":"90"},
+{"nutrientID":"309","nutritionVal":"null"}]
+``` 
+ 
+####  <a name="bk_trim"></a> TRIM  
+ Returns a string expression after it removes leading and trailing blanks.  
+  
+ **Syntax**  
+  
+```  
+TRIM(<str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example shows how to use TRIM inside a query.  
+  
+```  
+SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM("abc") AS t4
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"t1": "abc", "t2": "abc", "t3": "abc", "t4": "abc"}]  
+``` 
+####  <a name="bk_upper"></a> UPPER  
+ Returns a string expression after converting lowercase character data to uppercase.  
+  
+ **Syntax**  
+  
+```  
+UPPER(<str_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `str_expr`  
+  
+   Is any valid string expression.  
+  
+  **Return Types**  
+  
+  Returns a string expression.  
+  
+  **Examples**  
+  
+  The following example shows how to use UPPER in a query  
+  
+```  
+SELECT UPPER("Abc") AS upper  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"upper": "ABC"}]  
+```  
+  
+## Array functions  
 
-### Spatial functions
+The following scalar functions perform an operation on an array input value and return numeric, Boolean or array value:
+  
+||||  
+|-|-|-|  
+|[ARRAY_CONCAT](#bk_array_concat)|[ARRAY_CONTAINS](#bk_array_contains)|[ARRAY_LENGTH](#bk_array_length)|  
+|[ARRAY_SLICE](#bk_array_slice)|||  
+  
+####  <a name="bk_array_concat"></a> ARRAY_CONCAT  
+ Returns an array that is the result of concatenating two or more array values.  
+  
+ **Syntax**  
+  
+```  
+ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])  
+```  
+  
+ **Arguments**  
+  
+- `arr_expr`  
+  
+   Is any valid array expression.  
+  
+  **Return Types**  
+  
+  Returns an array expression.  
+  
+  **Examples**  
+  
+  The following example how to concatenate two arrays.  
+  
+```  
+SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"arrayConcat": ["apples", "strawberries", "bananas"]}]  
+```  
+  
+####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
+Returns a Boolean indicating whether the array contains the specified value. You can check for a partial or full match of an object by using a boolean expression within the command. 
 
-Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying: 
+**Syntax**  
+  
+```  
+ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
+```  
+  
+ **Arguments**  
+  
+- `arr_expr`  
+  
+   Is any valid array expression.  
+  
+- `expr`  
+  
+   Is any valid expression.  
 
-| Usage | Description |
-| --- | --- |
-| ST_DISTANCE (point_expr, point_expr) | Returns the distance between the two GeoJSON `Point`, `Polygon`, or `LineString` expressions. |
-| T_WITHIN (point_expr, polygon_expr) | Returns a Boolean expression indicating whether the first GeoJSON object (`Point`, `Polygon`, or `LineString`) is within the second GeoJSON object (`Point`, `Polygon`, or `LineString`). |
-| ST_INTERSECTS (spatial_expr, spatial_expr) | Returns a Boolean expression indicating whether the two specified GeoJSON objects (`Point`, `Polygon`, or `LineString`) intersect. |
-| ST_ISVALID | Returns a Boolean value indicating whether the specified GeoJSON `Point`, `Polygon`, or `LineString` expression is valid. |
-| ST_ISVALIDDETAILED | Returns a JSON value containing a Boolean value if the specified GeoJSON `Point`, `Polygon`, or `LineString` expression is valid, and if invalid, the reason as a string value. |
+- `bool_expr`  
+  
+   Is any boolean expression. If it's set to 'true'and if the specified search value is an object, the command checks for a partial match (the search object is a subset of one of the objects). If it's set to 'false', the command checks for a full match of all objects within the array. The default value if not specified is false. 
+  
+  **Return Types**  
+  
+  Returns a Boolean value.  
+  
+  **Examples**  
+  
+  The following example how to check for membership in an array using ARRAY_CONTAINS.  
+  
+```  
+SELECT   
+           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "apples") AS b1,  
+           ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes") AS b2  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"b1": true, "b2": false}]  
+```  
 
-You can use spatial functions to perform proximity queries against spatial data. For example, here's a query that returns all family items that are within 30 km of a specified location using the ST_DISTANCE built-in function:
+The following example how to check for a partial match of a JSON in an array using ARRAY_CONTAINS.  
+  
+```  
+SELECT  
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}, true) AS b1, 
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "apples"}) AS b2,
+    ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) AS b3 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{
+  "b1": true,
+  "b2": false,
+  "b3": false
+}] 
+```  
+  
+####  <a name="bk_array_length"></a> ARRAY_LENGTH  
+ Returns the number of elements of the specified array expression.  
+  
+ **Syntax**  
+  
+```  
+ARRAY_LENGTH(<arr_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `arr_expr`  
+  
+   Is any valid array expression.  
+  
+  **Return Types**  
+  
+  Returns a numeric expression.  
+  
+  **Examples**  
+  
+  The following example how to get the length of an array using ARRAY_LENGTH.  
+  
+```  
+SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"len": 3}]  
+```  
+  
+####  <a name="bk_array_slice"></a> ARRAY_SLICE  
+ Returns part of an array expression.
+  
+ **Syntax**  
+  
+```  
+ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])  
+```  
+  
+ **Arguments**  
+  
+- `arr_expr`  
+  
+   Is any valid array expression.  
+  
+- `num_expr`  
+  
+   Zero-based numeric index at which to begin the array. Negative values may be used to specify the starting index relative to the last element of the array i.e. -1 references the last element in the array.  
 
-```sql
-    SELECT f.id
-    FROM Families f
-    WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+- `num_expr`  
+
+   Maximum number of elements in the resulting array.    
+
+  **Return Types**  
+  
+  Returns an array expression.  
+  
+  **Examples**  
+  
+  The following example shows how to get different slices of an array using ARRAY_SLICE.  
+  
+```  
+SELECT
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1) AS s1,  
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1) AS s2,
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 1) AS s3,
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 2) AS s4,
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 0) AS s5,
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1000) AS s6,
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, -100) AS s7      
+  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{  
+           "s1": ["strawberries", "bananas"],   
+           "s2": ["strawberries"],
+           "s3": ["strawberries"],  
+           "s4": ["strawberries", "bananas"], 
+           "s5": [],
+           "s6": ["strawberries", "bananas"],
+           "s7": [] 
+}]  
+```  
+
+## Date and Time function
+
+The following scalar functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format. 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ Returns the current UTC date and time as an ISO 8601 string.
+  
+ **Syntax**
+  
 ```
-
-The result is:
-
-```json
-    [{
-      "id": "WakefieldFamily"
-    }]
+GetCurrentDateTime ()
 ```
+  
+  **Return Types**
+  
+  Returns the current UTC date and time ISO 8601 string value. 
 
-For more information on geospatial support in Cosmos DB, see [Working with geospatial data in Azure Cosmos DB](geospatial.md). 
+  This is expressed in the format YYYY-MM-DDThh:mm:ss.sssZ where:
+  
+  |||
+  |-|-|
+  |YYYY|four-digit year|
+  |MM|two-digit month (01 = January, etc.)|
+  |DD|two-digit day of month (01 through 31)|
+  |T|signifier for beginning of time elements|
+  |hh|two digit hour (00 through 23)|
+  |mm|two digit minutes (00 through 59)|
+  |ss|two digit seconds (00 through 59)|
+  |.sss|three digits of decimal fractions of a second|
+  |Z|UTC (Coordinated Universal Time) designator||
+  
+  For more details on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
-## <a id="References"></a>References
+  **Remarks**
 
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-- [JSON](https://json.org/)
-- [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
-- Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
-- Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
-- Lu, Ooi, Tan. "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
-- Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: A Not-So-Foreign Language for Data Processing." *SIGMOD* (2008).
+  GetCurrentDateTime is a nondeterministic function. 
+  
+  The result returned is UTC (Coordinated Universal Time).
+
+  **Examples**  
+  
+  The following example shows how to get the current UTC Date Time using the GetCurrentDateTime built-in function.
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ Here is an example result set.
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ Returns the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970. 
+  
+ **Syntax**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  **Return Types**  
+  
+  Returns a numeric value, the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+
+  **Remarks**
+
+  GetCurrentTimestamp is a nondeterministic function. 
+  
+  The result returned is UTC (Coordinated Universal Time).
+
+  **Examples**  
+  
+  The following example shows how to get the current timestamp using the GetCurrentTimestamp built-in function.
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ Here is an example result set.
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
+## Spatial functions  
+
+Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
+  
+|||||
+|-|-|-|-|
+|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|
+|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)||||
+  
+####  <a name="bk_st_distance"></a> ST_DISTANCE  
+ Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.  
+  
+ **Syntax**  
+  
+```  
+ST_DISTANCE (<spatial_expr>, <spatial_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `spatial_expr`  
+  
+   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+  
+  **Return Types**  
+  
+  Returns a numeric expression containing the distance. This is expressed in meters for the default reference system.  
+  
+  **Examples**  
+  
+  The following example shows how to return all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. .  
+  
+```  
+SELECT f.id   
+FROM Families f   
+WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{  
+  "id": "WakefieldFamily"  
+}]  
+```  
+  
+####  <a name="bk_st_within"></a> ST_WITHIN  
+ Returns a Boolean expression indicating whether the GeoJSON object (Point, Polygon, or LineString) specified in the first argument is within the GeoJSON (Point, Polygon, or LineString) in the second argument.  
+  
+ **Syntax**  
+  
+```  
+ST_WITHIN (<spatial_expr>, <spatial_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `spatial_expr`  
+  
+   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+ 
+- `spatial_expr`  
+  
+   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean value.  
+  
+  **Examples**  
+  
+  The following example shows how to find all family documents within a polygon using ST_WITHIN.  
+  
+```  
+SELECT f.id   
+FROM Families f   
+WHERE ST_WITHIN(f.location, {  
+    'type':'Polygon',   
+    'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]  
+})  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{ "id": "WakefieldFamily" }]  
+```  
+
+####  <a name="bk_st_intersects"></a> ST_INTERSECTS  
+ Returns a Boolean expression indicating whether the GeoJSON object (Point, Polygon, or LineString) specified in the first argument intersects the GeoJSON (Point, Polygon, or LineString) in the second argument.  
+  
+ **Syntax**  
+  
+```  
+ST_INTERSECTS (<spatial_expr>, <spatial_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `spatial_expr`  
+  
+   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+ 
+- `spatial_expr`  
+  
+   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean value.  
+  
+  **Examples**  
+  
+  The following example shows how to find all areas that intersect with the given polygon.  
+  
+```  
+SELECT a.id
+FROM Areas a
+WHERE ST_INTERSECTS(a.location, {  
+    'type':'Polygon',
+    'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]  
+})  
+```  
+  
+ Here is the result set.  
+  
+```  
+[{ "id": "IntersectingPolygon" }]  
+```  
+  
+####  <a name="bk_st_isvalid"></a> ST_ISVALID  
+ Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid.  
+  
+ **Syntax**  
+  
+```  
+ST_ISVALID(<spatial_expr>)  
+```  
+  
+ **Arguments**
+  
+- `spatial_expr`  
+  
+   Is any valid GeoJSON Point, Polygon, or LineString expression.  
+  
+  **Return Types**  
+  
+  Returns a Boolean expression.  
+  
+  **Examples**  
+  
+  The following example shows how to check if a point is valid using ST_VALID.  
+  
+  For example, this point has a latitude value that's not in the valid range of values [-90, 90], so the query returns false.  
+  
+  For polygons, the GeoJSON specification requires that the last coordinate pair provided should be the same as the first, to create a closed shape. Points within a polygon must be specified in counter-clockwise order. A polygon specified in clockwise order represents the inverse of the region within it.  
+  
+```  
+SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{ "b": false }]  
+```  
+  
+####  <a name="bk_st_isvaliddetailed"></a> ST_ISVALIDDETAILED  
+ Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.  
+  
+ **Syntax**  
+  
+```  
+ST_ISVALIDDETAILED(<spatial_expr>)  
+```  
+  
+ **Arguments**  
+  
+- `spatial_expr`  
+  
+   Is any valid GeoJSON point or polygon expression.  
+  
+  **Return Types**  
+  
+  Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid, and if invalid, additionally the reason as a string value.  
+  
+  **Examples**  
+  
+  The following example how to check validity (with details) using ST_ISVALIDDETAILED.  
+  
+```  
+SELECT ST_ISVALIDDETAILED({   
+  "type": "Polygon",   
+  "coordinates": [[ [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] ]]  
+}) AS b 
+```  
+  
+ Here is the result set.  
+  
+```  
+[{  
+  "b": {
+    "valid": false,
+    "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points."   
+  }  
+}]  
+```  
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB][introduction]
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Azure Cosmos DB consistency levels][consistency-levels]
-
-[1]: ./media/how-to-sql-query/sql-query1.png
-[introduction]: introduction.md
-[consistency-levels]: consistency-levels.md
+- [Introduction to Azure Cosmos DB](introduction.md)
+- [UDFs](sql-query-udfs.md)
+- [Aggregates](sql-query-aggregates.md)

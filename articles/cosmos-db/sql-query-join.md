@@ -8,13 +8,13 @@ ms.date: 05/17/2019
 ms.author: mjbrown
 
 ---
-# <a id="Joins"></a>Joins
+# Joins
 
 In a relational database, joins across tables are the logical corollary to designing normalized schemas. In contrast, the SQL API uses the denormalized data model of schema-free items, which is the logical equivalent of a *self-join*.
 
 Inner joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.
 
-##  <a name="bk_syntax"></a> Syntax
+## Syntax
 
 The language supports the syntax `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. This query returns a set of tuples with `N` values. Each tuple has values produced by iterating all container aliases over their respective sets. 
 
@@ -96,7 +96,7 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   > [!NOTE]
   > This resulted in cross product between `<from_source2>` and `<from_source3>` because both are scoped to the same `<from_source1>`.  This resulted in 4 (2x2) tuples having value A, 0 tuples having value B (1x0) and 2 (2x1) tuples having value C.  
   
-##  <a name="bk_examples"></a> Examples
+## Examples
 
 The following examples show how the JOIN clause works. In the following example, the result is empty, since the cross product of each item from source and an empty set is empty:
 
@@ -247,24 +247,8 @@ The results are:
     ]
 ```
 
-## <a id="References"></a>References
-
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-- [JSON](https://json.org/)
-- [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
-- Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
-- Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
-- Lu, Ooi, Tan. "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
-- Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: A Not-So-Foreign Language for Data Processing." *SIGMOD* (2008).
-
 ## Next steps
 
-- [Introduction to Azure Cosmos DB][introduction]
+- [Getting started](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Azure Cosmos DB consistency levels][consistency-levels]
-
-[1]: ./media/how-to-sql-query/sql-query1.png
-[introduction]: introduction.md
-[consistency-levels]: consistency-levels.md
+- [Subqueries](sql-query-subquery.md)

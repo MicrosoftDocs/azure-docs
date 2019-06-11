@@ -33,7 +33,8 @@ WHERE <filter_condition>
 
 ## Remarks
   
-  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition.  
+  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition. 
+
 ## Examples
 
 The following query requests items that contain an `id` property whose value is `AndersenFamily`. It excludes any item that does not have an `id` property or whose value doesn't match `AndersenFamily`.
@@ -100,15 +101,8 @@ You can also use the unary operators +,-, ~, and NOT in queries, as shown in the
 
 You can also use property references in queries. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` with value equal to `true`. Any other value, such as `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, or `<array>`, excludes the item from the result. 
 
-## References
-
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-
 ## Next steps
 
-- [Getting started][sql-query-getting-started.md]
+- [Getting started](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [FROM clause][sql-query-from.md]
-
-[1]: ./media/how-to-sql-query/sql-query1.png
-[introduction]: introduction.md
+- [FROM clause](sql-query-from.md)

@@ -105,12 +105,8 @@ Additionally, you can order by multiple properties. A query that orders by multi
 
 This query retrieves the family `id`  in ascending order of the city name. If multiple items have the same city name, the query will order by the `creationDate` in descending order.
 
-## References
-
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-
 ## Next steps
 
-- [Getting started][sql-query-getting-started.md]
-- [SELECT clause][sql-query-select.md]
-- [OFFSET LIMIT clause][sql-query-offset-limit.md]
+- [Getting started](sql-query-getting-started.md)
+- [SELECT clause](sql-query-select.md)
+- [OFFSET LIMIT clause](sql-query-offset-limit.md)

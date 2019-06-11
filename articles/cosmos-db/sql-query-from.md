@@ -158,13 +158,8 @@ The results are:
     ]
 ```
 
-## References
-
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-
 ## Next steps
 
-- [Getting started][sql-query-getting-started.md]
-- [SELECT clause][sql-query-select.md]
-- [WHERE clause][sql-query-where.md]
-
+- [Getting started](sql-query-getting-started.md)
+- [SELECT clause](sql-query-select.md)
+- [WHERE clause](sql-query-where.md)

@@ -39,7 +39,7 @@ Multi-value subqueries return a set of documents and are always used within the 
 * Optimizing JOIN expressions. 
 * Evaluating expensive expressions once and referencing multiple times.
 
-### Optimize JOIN expressions
+## Optimize JOIN expressions
 
 Multi-value subqueries can optimize JOIN expressions by pushing predicates after each select-many expression rather than after all cross-joins in the WHERE clause.
 
@@ -71,7 +71,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 Assume that only one item in the tags array matches the filter, and there are five items for both nutrients and servings arrays. The JOIN expressions will then expand to 1 x 1 x 5 x 5 = 25 items, as opposed to 1,000 items in the first query.
 
-### Evaluate once and reference many times
+## Evaluate once and reference many times
 
 Subqueries can help optimize queries with expensive expressions such as user-defined functions (UDFs), complex strings, or arithmetic expressions. You can use a subquery along with a JOIN expression to evaluate the expression once but reference it many times.
 
@@ -114,7 +114,7 @@ JOIN (SELECT VALUE avg(n.nutritionValue) FROM n IN c.nutrients) AvgNutritionValu
 WHERE AvgNutritionValue > 80
 ```
 
-### Mimic join with external reference data
+## Mimic join with external reference data
 
 You might often need to reference static data that rarely changes, such as units of measurement or country codes. It’s better not to duplicate such data for each document. Avoiding this duplication will save on storage and improve write performance by keeping the document size smaller. You can use a subquery to mimic inner-join semantics with a collection of reference data.
 
@@ -181,7 +181,7 @@ Scalar subqueries can be further classified as:
 * Simple-expression scalar subqueries
 * Aggregate scalar subqueries
 
-### Simple-expression scalar subqueries
+## Simple-expression scalar subqueries
 
 A simple-expression scalar subquery is a correlated subquery that has a SELECT clause that doesn't contain any aggregate expressions. These subqueries provide no optimization benefits because the compiler converts them into one larger simple expression. There's no correlated context between the inner and outer queries.
 
@@ -345,7 +345,7 @@ JOIN (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') AS count
 WHERE count_mg > 20
 ```
 
-#### EXISTS expression
+## EXISTS expression
 
 Azure Cosmos DB supports EXISTS expressions. This is an aggregate scalar subquery built into the Azure Cosmos DB SQL API. EXISTS is a Boolean expression that takes a subquery expression and returns true if the subquery returns any rows. Otherwise, it returns false.
 
@@ -364,7 +364,7 @@ SELECT EXISTS (SELECT undefined)
 
 The subquery will enclose the list of values in the selected list in an object. If the selected list has no values, the subquery will return the single value ‘{}’. This value is defined, so EXISTS evaluates to true.
 
-#### Example: Rewriting ARRAY_CONTAINS and JOIN as EXISTS
+### Example: Rewriting ARRAY_CONTAINS and JOIN as EXISTS
 
 A common use case of ARRAY_CONTAINS is to filter a document by the existence of an item in an array. In this case, we're checking to see if the tags array contains an item named "orange."
 
@@ -430,7 +430,7 @@ Query output:
 ]
 ```
 
-#### ARRAY expression
+## ARRAY expression
 
 You can use the ARRAY expression to project the results of a query as an array. You can use this expression only within the SELECT clause of the query.
 
@@ -515,6 +515,5 @@ Query output:
 
 ## Next steps
 
-- [SQL query examples](how-to-sql-query.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Model document data](modeling-data.md)

@@ -143,19 +143,19 @@
         - name: OFFSET LIMIT
           displayName: offset limit
           href: sql-query-offset-limit.md
+      - name: Subquery
+        displayName: subquery
+        href: sql-query-subquery.md
+      - name: JOIN
+        displayName: join
+        href: sql-query-join.md     
       - name: Aliasing
         displayName: alias, aliasing
         href: sql-query-aliasing.md
       - name: Objects and arrays
         displayName: object and array creation, object and array
         href: sql-query-object-array.md
-      - name: JOIN
-        displayName: join
-        href: sql-query-join.md
-      - name: Subquery
-        displayName: subquery
-        href: sql-query-subquery.md
-      - name: Keyword
+      - name: Keywords
         displayName: keywords, distinct, between, in, top
         href: sql-query-keywords.md
       - name: Operators
@@ -166,7 +166,7 @@
         href: sql-query-scalar-expressions.md
       - name: Functions
         items:
-        - name: User-defined functions(UDF's)
+        - name: User-defined functions
           displayName: functions, udf
           href: sql-query-udfs.md
         - name: Aggregates

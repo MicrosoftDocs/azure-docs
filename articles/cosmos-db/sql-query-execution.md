@@ -9,13 +9,13 @@ ms.author: tisande
 
 ---
 
-## <a id="sql_query_execution"></a>SQL query execution
+# SQL query execution
 
 Any language capable of making HTTP/HTTPS requests can call the Cosmos DB REST API. Cosmos DB also offers programming libraries for .NET, Node.js, JavaScript, and Python programming languages. The REST API and libraries all support querying through SQL, and the .NET SDK also supports [LINQ querying](sql-query-linq-to-sql.md).
 
 The following examples show how to create a query and submit it against a Cosmos DB database account.
 
-### <a id="RestAPI"></a>REST API
+## REST API
 
 Cosmos DB offers an open RESTful programming model over HTTP. The resource model consists of a set of resources under a database account, which an Azure subscription provisions. The database account consists of a set of *databases*, each of which can contain multiple *containers*, which in turn contain *items*, UDFs, and other resource types. Each Cosmos DB resource is addressable using a logical and stable URI. A set of resources is called a *feed*. 
 
@@ -104,7 +104,7 @@ The next, more complex query returns multiple results from a join:
                   FROM Families f
                   JOIN c IN f.children
                   JOIN p in c.pets",
-        "parameters": [] 
+        "parameters": []
     }
 ```
 
@@ -139,7 +139,7 @@ The results are:
     }
 ```
 
-If a query's results can't fit in a single page, the REST API returns a continuation token through the `x-ms-continuation-token` response header. Clients can paginate results by including the header in the subsequent results. You can also control the number of results per page through the `x-ms-max-item-count` number header. 
+If a query's results can't fit in a single page, the REST API returns a continuation token through the `x-ms-continuation-token` response header. Clients can paginate results by including the header in the subsequent results. You can also control the number of results per page through the `x-ms-max-item-count` number header.
 
 If a query has an aggregation function like COUNT, the query page may return a partially aggregated value over only one page of results. Clients must perform a second-level aggregation over these results to produce the final results. For example, sum over the counts returned in the individual pages to return the total count.
 
@@ -149,7 +149,7 @@ If the configured indexing policy on the container can't support the specified q
 
 You can get detailed metrics on query execution by setting the `x-ms-documentdb-populatequerymetrics` header to `true`. For more information, see [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md).
 
-### <a id="DotNetSdk"></a>C# (.NET SDK)
+## C# (.NET SDK)
 
 The .NET SDK supports both LINQ and SQL querying. The following example shows how to perform the preceding filter query with .NET:
 
@@ -243,9 +243,9 @@ You can also explicitly control paging by creating `IDocumentQueryable` using th
 
 For more .NET samples with queries, see the [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet) in GitHub.
 
-### <a id="JavaScriptServerSideApi"></a>JavaScript server-side API
+## JavaScript server-side API
 
-Cosmos DB provides a programming model for executing JavaScript based application logic directly on containers, using stored procedures and triggers. The JavaScript logic registered at the container level can then issue database operations on the items of the given container, wrapped in ambient ACID transactions.
+Azure Cosmos DB provides a programming model for executing JavaScript based application logic directly on containers, using stored procedures and triggers. The JavaScript logic registered at the container level can then issue database operations on the items of the given container, wrapped in ambient ACID transactions.
 
 The following example shows how to use `queryDocuments` in the JavaScript server API to make queries from inside stored procedures and triggers:
 
@@ -280,24 +280,9 @@ The following example shows how to use `queryDocuments` in the JavaScript server
             });
     }
 ```
-## <a id="References"></a>References
-
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-- [JSON](https://json.org/)
-- [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
-- Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
-- Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
-- Lu, Ooi, Tan. "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
-- Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: A Not-So-Foreign Language for Data Processing." *SIGMOD* (2008).
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB][introduction]
+- [Introduction to Azure Cosmos DB](introduction.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Azure Cosmos DB consistency levels][consistency-levels]
-
-[1]: ./media/how-to-sql-query/sql-query1.png
-[introduction]: introduction.md
-[consistency-levels]: consistency-levels.md
+- [Azure Cosmos DB consistency levels](consistency-levels.md)

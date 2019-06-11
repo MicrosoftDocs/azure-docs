@@ -165,14 +165,8 @@ The results are:
     }]
 ```
 
-## References
-
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
- 
 ## Next steps
 
-- [Getting started][sql-query-getting-started.md]
+- [Getting started](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [WHERE clause][sql-query-where.md]
-
-[1]: ./media/how-to-sql-query/sql-query1.png
+- [WHERE clause](sql-query-where.md)

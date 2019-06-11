@@ -52,4 +52,6 @@ ms.author: tisande
   
 ## Next steps  
 
-- [Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)  
+- [Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB consistency levels](consistency-levels.md)  

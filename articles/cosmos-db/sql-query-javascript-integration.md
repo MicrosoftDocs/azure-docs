@@ -8,16 +8,16 @@ ms.date: 05/31/2019
 ms.author: tisande
 
 ---
-## <a id="JavaScriptIntegration"></a>JavaScript integration
+# JavaScript integration
 
 Azure Cosmos DB provides a programming model for executing JavaScript-based application logic directly on containers, using stored procedures and triggers. This model supports:
 
 * High-performance transactional CRUD operations and queries against items in a container, by virtue of the deep integration of the JavaScript runtime within the database engine.
 * A natural modeling of control flow, variable scoping, and assignment and integration of exception-handling primitives with database transactions. 
 
-For more information about Azure Cosmos DB JavaScript integration, see the [JavaScript server-side API](sql-query-execution.md#JavaScriptServerSideApi) section.
+For more information about Azure Cosmos DB JavaScript integration, see the [JavaScript server-side API](sql-query-execution.md#JavaScript-server-side-API) section.
 
-### Operator evaluation
+## Operator evaluation
 
 Cosmos DB, by virtue of being a JSON database, draws parallels with JavaScript operators and evaluation semantics. Cosmos DB tries to preserve JavaScript semantics in terms of JSON support, but the operation evaluation deviates in some instances.
 
