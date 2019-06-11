@@ -42,13 +42,26 @@ The storage you provision is the amount of storage capacity available to your Az
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
+| Storage size | 5 GB to 1 TB | 5 GB to 4 TB<br>up to 16 TB (preview) | 5 GB to 4 TB <br>up to 16 TB (preview) |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
-| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
+| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6,000 IOPS |
 
 You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
+
+### Large storage preview
+
+|              | **General Purpose** | **Memory Optimized** |
+|:-------------|:--------------------|:---------------------|
+| Storage type | Azure Premium Storage | Azure Premium Storage |
+| Storage size | 32 GB to 16 TB| 32 to 16 TB |
+| Storage increment size | 1 GB | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+
+> [!IMPORTANT]
+> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, South Central US, West US, West US 2, North Europe, West Europe, Southeast Asia, Japan East, Korea Central, Australia East
+>
 
 ### Reaching the storage limit
 

@@ -50,6 +50,19 @@ You can add additional storage capacity during and after the creation of the ser
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
+### Large storage preview
+
+|              | **General Purpose** | **Memory Optimized** |
+|:-------------|:--------------------|:---------------------|
+| Storage type | Azure Premium Storage | Azure Premium Storage |
+| Storage size | 32 GB to 16 TB| 32 to 16 TB |
+| Storage increment size | 1 GB | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+
+> [!IMPORTANT]
+> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, South Central US, West US, West US 2, North Europe, West Europe, Southeast Asia, Japan East, Korea Central, Australia East
+>
+
 ### Reaching the storage limit
 
 Servers with less than 100 GB provisioned storage are marked read-only if the free storage is less than 512MB or 5% of the provisioned storage size. Servers with more than 100 GB provisioned storage are marked read only when the free storage is less than 5 GB.
