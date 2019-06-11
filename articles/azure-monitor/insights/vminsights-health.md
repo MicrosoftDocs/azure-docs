@@ -269,7 +269,7 @@ To see an updated health state, you can refresh the Health Diagnostics page by s
 
 ## Alerts
 
-THe Azure Monitor for VMs Health feature integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state, when the condition is detected. Alerts are categorized by severity, from Sev 0 through Sev 4, with Sev 0 representing the highest level.
+THe Azure Monitor for VMs health feature integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state, when the condition is detected. Alerts are categorized by severity, from Sev 0 through Sev 4, with Sev 0 representing the highest level.
 
 Alerts aren't associated with an action group to notify you when the alert has been triggered. The subscription owner must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
 
@@ -378,7 +378,7 @@ To enable or disable an alert for a specific health criteria, the health criteri
 
 #### Associate an action group with health criteria
 
-Azure Monitor for VMs Health supports SMS and email notifications when alerts are generated from unhealthy health criteria. To configure notifications, note the name of the configured action group to send SMS or email notifications.
+The Azure Monitor for VMs health feature supports SMS and email notifications when alerts are generated from unhealthy health criteria. To configure notifications, note the name of the configured action group to send SMS or email notifications.
 
 >[!NOTE]
 >This action must be performed against each monitored VM that you want to receive a notification for. It doesn't apply to all VMs in a resource group.
