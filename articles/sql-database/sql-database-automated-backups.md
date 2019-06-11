@@ -57,6 +57,9 @@ If you need to keep the backups for longer than the maximum retention period, yo
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL databases, all elastic pools and databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR will not be deleted and these databases can be restored.
 
+> [!IMPORTANT]
+> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) does not currently support long-term backup retention.
+
 ### Default backup retention period
 
 #### DTU-based purchasing model
