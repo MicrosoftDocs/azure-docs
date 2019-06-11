@@ -58,7 +58,7 @@ Time Series Models can be created and managed through the [Time Series Insights 
 
 Time Series Model *instances* are the time series themselves.
 
-In most cases, instances are uniquely identified by the *deviceId* or *assetId*.
+In most cases, instances are uniquely identified by the **deviceId** or **assetId**.
 
 Instances have descriptive information associated with them called *instance properties*. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
 
@@ -80,7 +80,7 @@ Instances are defined by **typeId**, **timeSeriesId**, **name**, **description**
 | instanceFields | *instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations. |
 
 > [!NOTE]
-> Instances inherit all properties from hierarchies, and additional *instanceFields* can be added for further instance property definition.
+> Instances inherit all properties from hierarchies, and additional **instanceFields** can be added for further instance property definition.
 
 Instances have the following JSON representation:
 
@@ -124,7 +124,7 @@ The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/sampl
 
 ### Hierarchy definition
 
-Hierarchies are defined by *Hierarchy ID*, *name*, and *source*.
+Hierarchies are defined by hierarchy **id**, **name**, and **source**.
 
 | Property | Description |
 | ---| ---|
@@ -187,7 +187,7 @@ Consider an example where hierarchy **H1** has *building*, *floor*, and *room* a
 }
 ```
 
-Given the *instance fields* used in the above definition and several time series, the hierarchy attributes and values will appear as shown in the following table:
+Given the **instance fields** used in the above definition and several time series, the hierarchy attributes and values will appear as shown in the following table:
 
 | Time Series ID | Instance fields |
 | --- | --- |
@@ -216,7 +216,7 @@ The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/sampl
 
 ### Type properties
 
-Time Series Model types are defined by the an *id*, *name*, *description*, and *variables*.
+Time Series Model types are defined by the an **id**, **name**, **description**, and **variables**.
 
 | Property | Description |
 | ---| ---|
