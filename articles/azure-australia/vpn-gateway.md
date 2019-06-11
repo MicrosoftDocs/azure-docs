@@ -89,20 +89,21 @@ Azure VPN Gateways support a range of cryptographic algorithms from the IPsec an
 |ipsecIntegrity |  | SHA256-GCMAES256|
 |ikeEncryption | | AES256-GCMAES256|
 |ikeIntegrity |  | SHA256-GCMAES256|
-|dhGroup | DHGroup14, DHGroup24, **ECP256, ECP384**| DHGroup2|
-|pfsGroup | PFS2048, PFS24, **ECP256, ECP384**|
+|dhGroup | DHGroup14, DHGroup24, ECP256, ECP384| DHGroup2|
+|pfsGroup | PFS2048, PFS24, ECP256, ECP384|
 |
-*Attributes in bold are preferred even though other settings can be used*
+*For dhGroup and pfsGroup ECP256 and ECP384 are preferred even though other settings can be used*
 
 ### Related services
 
 When designing and configuring an Azure VPN Gateway there are a number of related services that must also exist and be configured:
 
-Service | Action Required
---- | ---
-Virtual Network | VPN Gateways are attached to a virtual network.  A virtual network needs to be created prior to the creation of a new VPN Gateway.
-Public IP Address | S2S VPN Gateways need a public IP address to establish connectivity between the on-premises VPN device and the VPN Gateway.  A public IP address needs to create prior to creating a S2S VPN Gateway.
-Subnet | A subnet of the virtual network needs to be created for the VPN Gateway.
+|Service | Action Required|
+|--- | ---|
+|Virtual Network | VPN Gateways are attached to a virtual network.  A virtual network needs to be created prior to the creation of a new VPN Gateway.|
+|Public IP Address | S2S VPN Gateways need a public IP address to establish connectivity between the on-premises VPN device and the VPN Gateway.  A public IP address needs to create prior to creating a S2S VPN Gateway.|
+|Subnet | A subnet of the virtual network needs to be created for the VPN Gateway.|
+|
 
 ## Implementation Steps using PowerShell
 
