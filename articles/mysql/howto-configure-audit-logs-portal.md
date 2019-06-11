@@ -46,13 +46,17 @@ Enable and configure audit logging.
 1. Click on "+ Add diagnostic setting"
 ![Add diagnostic setting](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
-1. Provide a diagnostic setting name, specify which data sinks to send the audit logs (storage account, event hub, and/or Log Analytics workspace), and select "MySqlAuditLogs".
+1. Provide a diagnostic setting name.
+
+1. Specify which data sinks to send the audit logs (storage account, event hub, and/or Log Analytics workspace).
+
+1. Select "MySqlAuditLogs" as the log type.
 ![Configure diagnostic setting](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
 
-1. Once you have configured the data sinks to pipe the audit logs to, you can click **Save**.
+1. Once you've configured the data sinks to pipe the audit logs to, you can click **Save**.
 ![Save diagnostic setting](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
 
-1. Access the audit logs by exploring them in the data sinks you configured. Note that it may take up to 10 minutes for the logs to appear.
+1. Access the audit logs by exploring them in the data sinks you configured. It may take up to 10 minutes for the logs to appear.
 
 ## Next steps
 

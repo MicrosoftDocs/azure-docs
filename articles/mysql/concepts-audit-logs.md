@@ -23,7 +23,7 @@ Other parameters you can adjust include:
 
 | **Event** | **Description** |
 |---|---|
-| CONNECTION | - Connection initiation (successful or unsuccessful) <br> -  User re-authentication with different user/password during session <br> - Connection termination |
+| CONNECTION | - Connection initiation (successful or unsuccessful) <br> -  User reauthentication with different user/password during session <br> - Connection termination |
 | DML_SELECT | SELECT queries |
 | DML_NONSELECT | INSERT/DELETE/UPDATE queries |
 | DML | DML = DML_SELECT + DML_NONSELECT |
@@ -35,7 +35,9 @@ Other parameters you can adjust include:
 
 ## Access audit logs
 
-Audit logs are integrated with Azure Monitor Diagnostic Logs. Once you have enabled audit logs on your MySQL server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/diagnostic-logs-overview.md).
+Audit logs are integrated with Azure Monitor Diagnostic Logs. Once you've enabled audit logs on your MySQL server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs in the Azure portal, see the [audit log portal article](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+
+## Schema
 
 The following table describes what's in each log. Depending on the output method, the fields included and the order in which they appear may vary.
 
@@ -61,12 +63,12 @@ The following table describes what's in each log. Depending on the output method
 | `rows_sent_s` | Number of rows sent |
 | `rows_examined_s` | Number of rows examined |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| `insert_id_s` | Insert id |
+| `insert_id_s` | Insert ID |
 | `sql_text_s` | Full query |
-| `server_id_s` | The server's id |
-| `thread_id_s` | Thread id |
+| `server_id_s` | The server's ID |
+| `thread_id_s` | Thread ID |
 | `\_ResourceId` | Resource URI |
 
 ## Next Steps
 
-- [How to configure and access server logs from the Azure CLI](howto-configure-server-logs-in-cli.md).
+- [How to configure audit logs in the Azure portal](howto-configure-audit-logs-portal.md)
