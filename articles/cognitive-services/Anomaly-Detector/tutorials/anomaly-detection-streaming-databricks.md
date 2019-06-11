@@ -668,7 +668,7 @@ Result as below:
 +--------------------+-------+
 |2019-04-16T00:00:00Z|  false|
 +--------------------+-------+
-
+```
 
 That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run anomaly detection on streaming data in near real time.
 Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 
