@@ -26,9 +26,7 @@ The following diagram shows the Azure defence-in-depth model. For example, Micro
 
 ![alt text](media/defenceindepth.png)
 
-This page outlines the foundational principles for securing your services and applications, with guidance and best practices on how to apply these principles. In other words, how customers should make smart use of Azure Australia to meet the obligations and responsibilities that are required for a solution that handles Government sensitive and classified information.
-
-
+This article outlines the foundational principles for securing your services and applications, with guidance and best practices on how to apply these principles. In other words, how customers should make smart use of Azure Australia to meet the obligations and responsibilities that are required for a solution that handles Government sensitive and classified information.
 
 ## Next Steps
 
