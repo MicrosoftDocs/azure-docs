@@ -116,10 +116,11 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 2. Then you can create records in your DNS server to access the endpoints that are only accessible from within your virtual network.
 
 ## <a name="routing"> </a> Routing
-+ A load balanced private virtual IP address from the subnet range will be reserved and used to access the API Management service endpoints from within the vnet.
-+ A load balanced public IP address (VIP) will also be reserved to provide access to the management service endpoint only over port 3443.
-+ An IP address from a subnet IP range (DIP) will be used to access resources within the vnet and a public IP address (VIP) will be used to access resources outside the vnet.
-+ Load balanced public and private IP addresses can be found on the Overview/Essentials blade in the Azure portal.
++ A load balanced *private* virtual IP address from the subnet range will be reserved and used to access the API Management service endpoints from within the virtual network. This *private* IP address can be found on the Overview blade for the service in the Azure portal. This address must be registered with the DNS servers used by the virtual network.
++ A load balanced *public* IP address (VIP) will also be reserved to provide access to the management service endpoint over port 3443. This IP *public* address can be found on the Overview blade for the service in the Azure portal. The *public* virtual IP address is used only for control plane traffic to the `management` endpoint over port 3443 and can be locked down to the [ApiManagement][ServiceTags] servicetag.
++ IP addresses from the subnet IP range (DIP) will be assigned to each VM in the service and will used to access resources within the vnet. A public IP address (VIP) will be used to access resources outside the vnet. If IP restriction lists are used to secure resources within the VNET, the entire range for the subnet where the API Management service is deployed must specified to grant or restrict access from the service.
++ The load balanced public and private IP addresses can be found on the Overview blade in the Azure portal.
++ The IP addresses assigned for public and private access may change if the service is removed from and then added back into the virtual network. If this happens it may be necessary to update DNS registrations, routing rules, and IP restriction lists within the virtual network.
 
 ## <a name="related-content"> </a>Related content
 To learn more, see the following articles:
