@@ -91,7 +91,7 @@ You can apply Personalizer in situations where:
 * You have a place in your application where making a contextual decision of what to show to users will improve that goal.
 * The best choice can and should be learned from collective user behavior and total reward score.
 * The use of machine learning for personalization follows [responsible use guidelines](ethics-responsible-use.md) and choices for your team.
-* The decision can be expressed as ranking the best option ([action](concepts-actions.md)) from a limited set of choices.
+* The decision can be expressed as ranking the best option ([action](concepts-features.md#actions-represent-a-list-of-options) from a limited set of choices.
 * How well that choice worked can be computed by your business logic, by measuring some aspect of user behavior, and expressing it in a number between -1 and 1.
 * The reward score doesn't bring in too many confounding or external factors, specifically the experiment duration is low enough that the reward score can be computed while it's still relevant.
 * You can express the context for the rank as a dictionary of at least 5 features that you think would help make the right choice, and that doesn't include personally identifiable information.
