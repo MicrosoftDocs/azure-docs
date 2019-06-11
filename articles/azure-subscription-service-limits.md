@@ -276,7 +276,25 @@ To learn more about limits on a more granular level, such as document size, quer
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
 ### Azure Monitor limits
-[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits.md)]
+
+#### Alerts
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-alerts.md)]
+
+#### Action groups
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
+
+#### Log Analytis workspaces
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-workspaces.md)]
+
+#### Application Insights
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-app-insights.md)]
+
+
+
 
 ### Notification Hubs limits
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]

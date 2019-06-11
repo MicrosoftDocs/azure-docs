@@ -16,4 +16,18 @@ ms.author: bwren
 
 # Azure Monitor service limits
 
-[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits.md)]
+## Alerts
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-alerts.md)]
+
+## Action groups
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
+
+## Log Analytis workspaces
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-workspaces.md)]
+
+## Application Insights
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-app-insights.md)]
