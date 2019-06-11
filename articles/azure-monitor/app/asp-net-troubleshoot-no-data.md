@@ -257,7 +257,7 @@ You can modify these parameters as needed.
    - Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel
 
 
-For more information, see [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)
+For more information, see [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 
 ## Still not working...
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
