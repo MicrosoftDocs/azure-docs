@@ -56,7 +56,7 @@ In the real-time fraud detection tutorial, the output is sent to Azure Blob stor
 The dataset is created with the following settings:
 
 * **defaultRetentionPolicy: BasicFIFO** - Data is FIFO, with a maximum of 200,000 rows.
-* **defaultMode: pushStreaming** - The dataset supports both streaming tiles and traditional report-based visuals (a.k.a. push).
+* **defaultMode: pushStreaming** - The dataset supports both streaming tiles and traditional report-based visuals (also known as push).
 
 Currently, you can't create datasets with other flags.
 
