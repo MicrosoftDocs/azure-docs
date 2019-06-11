@@ -31,7 +31,7 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, vCore=1 LP (hyper-thread) |
-| vCores | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
+| vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memory (memory/core ratio) | 7 GB per vCore | 5.1 GB per vCore |
 | Max In-Memory OLTP memory | Instance limit: 3 GB per vCore<br/>Database limits:<br/> - 8-core: 8 GB per database<br/> - 16-core: 20 GB per database<br/> - 24-core: 36 GB per database | Instance limit: 2.5 GB per vCore<br/>Database limits:<br/> - 8-core: 13 GB per database<br/> - 16-core: 32 GB per database |
 | Max instance storage (General Purpose) |  8 TB | 8 TB |
