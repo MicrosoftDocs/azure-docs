@@ -173,7 +173,7 @@ No. The Azure PowerShell script only migrates the configuration. Actual traffic 
 
 The Azure PowerShell script creates a new v2 gateway with an appropriate size to handle the traffic on your existing v1 gateway. Autoscaling is disabled by default, but you can enable AutoScaling when you run the script.
 
-### I configured my v1 gateway  to send logs to Azure storage. Does the script replicate this configuration for V2 as well?
+### I configured my v1 gateway  to send logs to Azure storage. Does the script replicate this configuration for v2 as well?
 
 No. The script doesn't  replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
 
