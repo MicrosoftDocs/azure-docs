@@ -17,6 +17,8 @@ This feature enables the following scenarios:
 
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
 - **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
+ 
+The following Azure PowerShell examples show how you can add, remove, and configure public IP addresses for Azure Firewall.
 
 ## Add a public IP address to an existing firewall
 
