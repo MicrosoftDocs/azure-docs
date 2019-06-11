@@ -80,7 +80,8 @@ Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 
 
 Total price = $148.8+23.81 = $172.61
 
-Note: The Max function returns the largest value in a pair of values.
+> [!NOTE]
+> The Max function returns the largest value in a pair of values.
 
 **Example 3**
 
