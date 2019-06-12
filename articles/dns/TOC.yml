@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DNS?
     href: dns-overview.md
+  - name: What is Azure Private DNS?
+    href: private-dns-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -41,6 +43,8 @@
     href: dns-domain-delegation.md
   - name: FAQ
     href: dns-faq.md
+  - name: FAQ - Private DNS
+    href: dns-faq-private.md
   - name: Using private DNS zones
     href: private-dns-overview.md
   - name: Private DNS scenarios
