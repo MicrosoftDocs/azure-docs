@@ -3,8 +3,8 @@ title: Integrate with Microsoft identity platform | Azure
 description: Learn about best practices and common oversights when integrating with the Microsoft identity platform (v2.0).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about security best practices so I can integrate my application with Microsoft identity platform.
@@ -28,13 +28,13 @@ If you’re just getting started, check out the [documentation](index.yml) to le
 
 ## Testing your integration
 
-Use the following checklist to ensure that your application is effectively integrated with the [Microsoft identity platform](https://docs.microsoft.com/legal/mdsa).
+Use the following checklist to ensure that your application is effectively integrated with the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/).
 
 ### Basics
 
 |   |   |
 |---|---|
-| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Read and understand the [Microsoft Platform Policies](https://docs.microsoft.com/legal/mdsa). Ensure that your application adheres to the terms outlined as they're designed to protect users and the platform. |
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Read and understand the [Microsoft Platform Policies](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Ensure that your application adheres to the terms outlined as they're designed to protect users and the platform. |
 
 ### Ownership
 

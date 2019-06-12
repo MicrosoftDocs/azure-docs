@@ -4,7 +4,7 @@ description: Learn how to register and call stored procedures, triggers, and use
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 12/08/2018
+ms.date: 05/21/2019
 ms.author: mjbrown
 ---
 
@@ -184,7 +184,7 @@ Trigger trigger = new Trigger
     TriggerOperation = TriggerOperation.Create,
     TriggerType = TriggerType.Pre
 };
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
@@ -199,7 +199,7 @@ dynamic newItem = new
     isComplete = false
 };
 
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new List<string> { "trgPreValidateToDoItemTimestamp" } };
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
 ```
@@ -425,7 +425,7 @@ var udfTax = new UserDefinedFunction
     Body = File.ReadAllText($@"..\js\{udfId}.js"),
 };
 
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```

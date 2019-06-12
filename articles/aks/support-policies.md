@@ -1,5 +1,5 @@
 ---
-title: Support policies for Azure Kubernetes Service (AKS) 
+title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
 services: container-service
 author: jnoller
@@ -12,7 +12,7 @@ ms.author: jenoller
 #Customer intent: As a cluster operator or developer, I want to understand what AKS components I need to manage, what components are managed by Microsoft (including security patches), and networking and preview features.
 ---
 
-# Support policies for Azure Kubernetes Service 
+# Support policies for Azure Kubernetes Service
 
 This article provides details about technical support policies and limitations for Azure Kubernetes Service (AKS). The article also details worker node management, managed control plane components, third-party open-source components, and security or patch management.
 
@@ -60,13 +60,13 @@ Microsoft provides technical support for the following:
 * Questions or issues about customization of control plane components such as the Kubernetes API server, etcd, and kube-dns.
 * Issues about networking, such as Azure CNI, kubenet, or other network access and functionality issues. Issues could include DNS resolution, packet loss, routing, and so on. Microsoft supports various networking scenarios:
   * Kubenet (basic) and advanced networking (Azure CNI) within the cluster and associated components
-  * Connectivity to other Azure services and applications 
+  * Connectivity to other Azure services and applications
   * Ingress controllers and ingress or load balancer configurations
   * Network performance and latency
 
 Microsoft doesn't provide technical support for the following:
 
-* Questions about how to use Kubernetes. For example, Microsoft Support doesn't provide advice on how to create custom ingress controllers, use application workloads, or apply third-party or open-source software packages or tools. 
+* Questions about how to use Kubernetes. For example, Microsoft Support doesn't provide advice on how to create custom ingress controllers, use application workloads, or apply third-party or open-source software packages or tools.
   > [!NOTE]
   > Microsoft Support can advise on AKS cluster functionality, customization, and tuning (for example, Kubernetes operations issues and procedures).
 * Third-party open-source projects that aren't provided as part of the Kubernetes control plane or deployed with AKS clusters. These projects might include Istio, Helm, Envoy, or others.
@@ -85,7 +85,7 @@ Microsoft doesn't provide technical support for the following:
 Microsoft and customers share responsibility for Kubernetes worker nodes where:
 
 * The base OS image has required additions (such as monitoring and networking agents).
-* The worker nodes receive OS patches automatically. 
+* The worker nodes receive OS patches automatically.
 * Issues with the Kubernetes control plane components that run on the worker nodes are automatically remediated. Components include the following:
   * Kube-proxy
   * Networking tunnels that provide communication paths to the Kubernetes master components
@@ -122,7 +122,7 @@ Although customers can sign in to and change worker nodes, doing this is discour
 
 ## Network ports, access, and NSGs
 
-As a managed service, AKS has specific networking and connectivity requirements. These requirements are less flexible than requirements for normal IaaS components. In AKS, operations like customizing NSG rules, blocking a specific port (for example, using firewall rules that block outbound port 443), and whitelisting URLs can make your cluster unsupportable. 
+As a managed service, AKS has specific networking and connectivity requirements. These requirements are less flexible than requirements for normal IaaS components. In AKS, operations like customizing NSG rules, blocking a specific port (for example, using firewall rules that block outbound port 443), and whitelisting URLs can make your cluster unsupportable.
 
 > [!NOTE]
 > Currently, AKS doesn't allow you to completely lock down egress from your cluster (for example, explicit domain or port whitelisting). The list of URLs and ports is subject to change without warning. You can get the updated list by creating an Azure Support ticket. The list is only for customers who are willing to accept that their cluster availability could be affected *at any time.*
@@ -138,9 +138,13 @@ In two scenarios, alpha or beta features might be rolled out before they're gene
 
 ## Preview features or feature flags
 
-For features and functionality that require extended testing and user feedback, Microsoft releases new preview features or features behind a feature flag. Consider these features as prerelease or beta features. 
+For features and functionality that require extended testing and user feedback, Microsoft releases new preview features or features behind a feature flag. Consider these features as prerelease or beta features.
 
-Preview features or feature-flag features aren't meant for production. Ongoing changes in APIs and behavior, bug fixes, and other changes can result in unstable clusters and downtime. Support for these features is limited to bug reporting and issue reporting. Don't enable these features on production systems or subscriptions.
+Preview features or feature-flag features aren't meant for production. Ongoing changes in APIs and behavior, bug fixes, and other changes can result in unstable clusters and downtime.
+
+Features in public preview are fall under 'best effort' support as these features are in preview and not meant for production and are supported by the AKS technical support teams during business hours only. For additional information please see:
+
+* [Azure Support FAQ](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > Preview features take effect at the Azure *subscription* level. Don't install preview features on a production subscription. On a production subscription, preview features can change default API behavior and affect regular operations.

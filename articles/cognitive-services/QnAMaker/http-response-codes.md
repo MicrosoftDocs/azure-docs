@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 
 # QnA Maker API HTTP response codes
-The [management](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) and prediction APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general. 
+The [management](https://go.microsoft.com/fwlink/?linkid=2092179) and prediction APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general. 
 
 ### Management
 

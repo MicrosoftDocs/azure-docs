@@ -4,7 +4,7 @@ description: Learn about specific considerations when using Universal Windows Pl
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

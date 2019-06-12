@@ -57,7 +57,7 @@ To connect to a Service Fabric cluster, you need the clusters management endpoin
 ### Connect to a secure cluster
 You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).
 
-If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or log in using AAD.
+If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or sign in using AAD.
 
 ## Understand the Service Fabric Explorer layout
 You can navigate through Service Fabric Explorer by using the tree on the left. At the root of the tree, the cluster dashboard provides an overview of your cluster, including a summary of application and node health.
@@ -119,16 +119,22 @@ EventStore is a feature offered by the platform that provides Service Fabric pla
 >[!NOTE]
 >As of Service Fabric version 6.4. the EventStore APIs are only available for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
 
+## Image Store Viewer
+Image store viewer is a feature offered if using Native Image Store that allows for viewing the current contents of the Image store and get file and folder information, along with removing files/folders.
+
+![Service Fabric Explorer cluster map][sfx-imagestore]
+
 
 ## Next steps
 * [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
-[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
-[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
-[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
-[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
-[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-dashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-map.png
+[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/sfx-application-tree.png
+[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/sfx-service-essentials.png
+[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/sfx-delete-application.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
+[sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png

@@ -3,8 +3,8 @@ title: Azure Active Directory authentication and authorization error codes | Mic
 description: Learn about the AADSTS error codes that are returned from the Azure AD security token service (STS).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 02/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

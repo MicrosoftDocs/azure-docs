@@ -2,13 +2,13 @@
 title: Capacity limits - Azure SQL Data Warehouse | Microsoft Docs
 description: Maximum values allowed for various components of Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: sachinpMSFT
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: design
 ms.date: 11/14/2018
-ms.author: anvang
+ms.author: martinle
 ms.reviewer: igorstan
 ---
 
@@ -49,7 +49,7 @@ Maximum values allowed for various components of Azure SQL Data Warehouse.
 ## Loads
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB.<br/><br/> |
+| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/><br/> |
 
 ## Queries
 | Category | Description | Maximum |

@@ -7,7 +7,7 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.custom: seodec2018
 ---
 # How to compose a query in Azure Search
@@ -116,7 +116,7 @@ Azure Search supports a broad range of query types.
 | Filtered search | [OData filter expression](query-odata-filter-orderby-syntax.md) and either parser | Filter queries evaluate a boolean expression over all *filterable* fields in an index. Unlike search, a filter query matches the exact contents of a field, including case-sensitivity on string fields. Another difference is that filter queries are expressed in OData syntax. <br/>[Filter expression example](search-query-simple-examples.md#example-3-filter-queries) |
 | Geo-search | [Edm.GeographyPoint type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on the field, filter expression, and either parser | Coordinates stored in a field having an Edm.GeographyPoint are used for "find near me" or map-based search controls. <br/>[Geo-search example](search-query-simple-examples.md#example-5-geo-search)|
 | Range search | filter expression and simple parser | In Azure Search, range queries are built using the filter parameter. <br/>[Range filter example](search-query-simple-examples.md#example-4-range-filters) | 
-| [Intra-field filtering](query-lucene-syntax.md#bkmk_fields) | Search parameter and Full parser | Build a composite query expression targeting a single field. <br/>[Intra-field filtering example](search-query-lucene-examples.md#example-2-intra-field-filtering) |
+| [Fielded search](query-lucene-syntax.md#bkmk_fields) | Search parameter and Full parser | Build a composite query expression targeting a single field. <br/>[Fielded search example](search-query-lucene-examples.md#example-2-fielded-search) |
 | [fuzzy search](query-lucene-syntax.md#bkmk_fuzzy) | Search parameter and Full parser | Matches on terms having a similar construction or spelling. <br/>[Fuzzy search example](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [proximity search](query-lucene-syntax.md#bkmk_proximity) | Search parameter and Full parser | Finds terms that are near each other in a document. <br/>[Proximity search example](search-query-lucene-examples.md#example-4-proximity-search) |
 | [term boosting](query-lucene-syntax.md#bkmk_termboost) | Search parameter and Full parser | Ranks a document higher if it contains the boosted term, relative to others that don't. <br/>[Term boosting example](search-query-lucene-examples.md#example-5-term-boosting) |

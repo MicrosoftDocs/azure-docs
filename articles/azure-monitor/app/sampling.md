@@ -169,11 +169,9 @@ Use extension methods of ```TelemetryProcessorChainBuilder``` as shown below to 
 > If you use this method to configure sampling, please make sure to use aiOptions.EnableAdaptiveSampling = false; settings with AddApplicationInsightsTelemetry().
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
 {
-    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
-
-    var builder = configuration .TelemetryProcessorChainBuilder;
+    var builder = configuration.TelemetryProcessorChainBuilder;
     // version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
     // var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
@@ -528,3 +526,4 @@ apply sampling to those items already sampled in the SDK itself.'
 ## Next steps
 
 * [Filtering](../../azure-monitor/app/api-filtering-sampling.md) can provide more strict control of what your SDK sends.
+* Read the Developer Network article [Optimize Telemetry with Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).

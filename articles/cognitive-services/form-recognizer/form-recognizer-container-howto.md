@@ -2,14 +2,13 @@
 title: Install and run container - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Form Recognizer container to parse form and table data.
-author: PatrickFarley
+author: IEvangelist
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/07/2019
-ms.author: pafarley
+ms.date: 06/10/2019
+ms.author: dapine
 ---
 # Install and run Form Recognizer containers
 Form Recognizer applies machine learning technology to identify and extract key-value pairs and tables from forms. It associates values and table entries to them and then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model using a simple REST API in order to reduce complexity and easily integrate it in your workflow automation process or other application. Only five documents (or an empty form) are needed, so you can get results quickly, accurately and tailored to your specific content, without heavy manual intervention or extensive data science expertise. It does not require data labeling or data annotation.
@@ -109,9 +108,9 @@ Replace these parameters with your own values in the following example `docker r
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
@@ -137,6 +136,8 @@ Run the first container on port 5000.
 
 ```bash 
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+--mount type=bind,source=c:\input,target=/input  \
+--mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
@@ -256,7 +257,7 @@ formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=form
 
 ### Form Recognizer
 
-The container provides REST endpoint APIs, which can be found [here](https://docs.microsoft.com/azure/cognitive-services/formrecognizer-service/rest-apis#formrecognier-api) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-formrecognizer).
+The container provides REST endpoint APIs, which can be found [here](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -277,6 +278,10 @@ The Form Recognizer containers send billing information to Azure, using a _Form 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](form-recognizer-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

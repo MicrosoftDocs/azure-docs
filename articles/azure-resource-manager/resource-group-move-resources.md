@@ -1,17 +1,10 @@
 ---
 title: Move Azure resources to new subscription or resource group | Microsoft Docs
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/17/2019
 ms.author: tomfitz
 
 ---
@@ -109,6 +102,7 @@ The following list provides a general summary of Azure services that can be move
 * SignalR Service
 * Storage - storage accounts in different regions can't be moved in the same operation. Instead, use separate operations for each region.
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+* Storage Sync Service
 * Stream Analytics - Stream Analytics jobs can't be moved when in running state.
 * SQL Database server - database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
 * Time Series Insights
@@ -169,6 +163,7 @@ The following scenarios aren't yet supported:
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved.
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
+* Virtual machines in an existing Virtual Network where the user does not intend to move all resources in the Virtual Network.
 
 To move virtual machines configured with Azure Backup, use the following workaround:
 
@@ -324,7 +319,7 @@ The operation may run for several minutes.
 
 ### Recovery Services limitations
 
- To move a Recovery Services vault, you must enroll in a [limited public preview](../backup/backup-azure-move-recovery-services-vault.md).
+ To move a Recovery Services vault, follow these steps: [Move resources to new resource group or subscription](../backup/backup-azure-move-recovery-services-vault.md).
 
 Currently, you can move one Recovery Services vault, per region, at a time. You can't move vaults that back up Azure Files, Azure File Sync, or SQL in IaaS virtual machines.
 

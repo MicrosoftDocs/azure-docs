@@ -62,7 +62,7 @@ In `location`, be sure to set `proxy_pass` with the correct port for app. In thi
 
 ```console
 # nginx Configuration File
-# http://wiki.nginx.org/Configuration
+# https://wiki.nginx.org/Configuration
 
 # Run as a less privileged user for security reasons.
 user nginx;
@@ -124,7 +124,7 @@ http {
 
 ### Base64-encode secrets and configuration file
 
-Base64-encode the Nginx configuration file, the SSL certificate, and the SSL key. You use the encoded contents to configure the Nginx container.
+Base64-encode the Nginx configuration file, the SSL certificate, and the SSL key. In the next section, you enter the encoded contents in a YAML file used to deploy the container group.
 
 ```console
 cat nginx.conf | base64 -w 0 > base64-nginx.conf
@@ -144,7 +144,7 @@ Copy the following YAML into a new file named `deploy-aci.yaml`. In Azure Cloud 
 code deploy-aci.yaml
 ```
 
-Enter the contents of the base64-encoded files where indicated under `secret`. During deployment, these files are added to a [secret volume](container-instances-volume-secret.md) in the container group. In this example, the secret volume is mounted to the Nginx container.
+Enter the contents of the base64-encoded files where indicated under `secret`. For example, `cat` each of the base64-encoded files to see its contents. During deployment, these files are added to a [secret volume](container-instances-volume-secret.md) in the container group. In this example, the secret volume is mounted to the Nginx container.
 
 ```YAML
 api-version: 2018-10-01
@@ -177,9 +177,9 @@ properties:
           memoryInGB: 1.5
   volumes:
   - secret:
-      ssl.crt: <base64-ssl.crt>
-      ssl.key: <base64-ssl.key>
-      nginx.conf: <base64-nginx.conf>
+      ssl.crt: <Enter contents of base64-ssl.crt here>
+      ssl.key: <Enter contents of base64-ssl.key here>
+      nginx.conf: <Enter contents of base64-nginx.conf here>
     name: nginx-config
   ipAddress:
     ports:

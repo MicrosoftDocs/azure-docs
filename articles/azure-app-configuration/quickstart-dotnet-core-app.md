@@ -36,7 +36,7 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -58,7 +58,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. Run the following command to restore packages for your project:
 

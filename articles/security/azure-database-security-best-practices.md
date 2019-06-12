@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 05/06/2019
 ms.author: terrylan
 ---
 
@@ -161,6 +161,10 @@ Enabling these capabilities helps you:
 - Detect and respond to potential threats.
 
 In addition, Threat Detection integrates alerts with Azure Security Center for a central view of the security state of all of your Azure resources.
+
+## Enable Feature restrictions
+
+The data contained in your databases can be exposed to attackers using attack vectors that leverage database errors and query execution times. Azure SQL Database provides a number of feature restriction mechanisms to protect your database. To learn more, see [SQL Database Feature Restrictions](../sql-database/sql-database-feature-restrictions.md).
 
 ## Next steps
 See [Azure security best practices and patterns](security-best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.
