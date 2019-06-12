@@ -63,6 +63,8 @@ The `dotnet new console` command that you ran earlier created a project, includi
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
+// Install Newtonsoft.Json with NuGet
 using Newtonsoft.Json;
 ```
 
