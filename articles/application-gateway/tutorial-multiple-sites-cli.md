@@ -3,21 +3,18 @@ title: Create an application gateway that hosts multiple web sites - Azure CLI
 description: Learn how to create an application gateway that hosts multiple web sites using the Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
 ---
-# Tutorial: Create an application gateway that hosts multiple web sites using the Azure CLI
+# Create an application gateway that hosts multiple web sites using the Azure CLI
 
-You can use the Azure CLI to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define backend address pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of *www\.contoso.com* and *www\.fabrikam.com*.
+You can use the Azure CLI to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this article, you define backend address pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This article assumes that you own multiple domains and uses examples of *www\.contoso.com* and *www\.fabrikam.com*.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up the network
@@ -29,8 +26,7 @@ In this tutorial, you learn how to:
 
 ![Multi-site routing example](./media/tutorial-multiple-sites-cli/scenario.png)
 
-
-If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-multiple-sites-powershell.md).
+If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -44,11 +40,11 @@ A resource group is a logical container into which Azure resources are deployed 
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## Create network resources 
+## Create network resources
 
 Create the virtual network and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet). You can then add the subnet that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip).
 
@@ -250,15 +246,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create backend listeners
-> * Create routing rules
-> * Create virtual machine scale sets with the backend pools
-> * Create a CNAME record in your domain
-
-> [!div class="nextstepaction"]
-> [Create an application gateway with URL path-based routing rules](./tutorial-url-route-cli.md)
+* [Create an application gateway with URL path-based routing rules](./tutorial-url-route-cli.md)

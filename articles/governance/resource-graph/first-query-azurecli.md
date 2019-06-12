@@ -9,7 +9,7 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ---
-# Run your first Resource Graph query using Azure CLI
+# Quickstart: Run your first Resource Graph query using Azure CLI
 
 The first step to using Azure Resource Graph is to check that the extension for [Azure
 CLI](/cli/azure/) is installed. This quickstart walks you through the process of adding the
@@ -90,7 +90,7 @@ When the final query is run several times, assuming that nothing in your environ
 the results returned will be consistent and as expected -- ordered by the **Name** property, but
 still limited to the top five results.
 
-## Cleanup
+## Clean up resources
 
 If you wish to remove the Resource Graph extension from your Azure CLI environment, you can do so by
 using the following command:

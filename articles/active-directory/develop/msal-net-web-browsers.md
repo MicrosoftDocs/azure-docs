@@ -4,7 +4,7 @@ description: Learn about specific considerations when using Xamarin Android with
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -90,7 +90,7 @@ As a developer using MSAL.NET, you have several options for displaying the inter
 
 #### Choosing between embedded web browser or system browser on Xamarin.iOS
 
-In your iOS app, in `AppDelegate.cs` you can can initialize the `ParentWindow` to `null`. It's not used in iOS
+In your iOS app, in `AppDelegate.cs` you can initialize the `ParentWindow` to `null`. It's not used in iOS
 
 ```csharp
 App.ParentWindow = null; // no UI parent on iOS

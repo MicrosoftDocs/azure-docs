@@ -28,22 +28,16 @@ In this article, you learn how to perform account management operations on Azure
 For instructions on how to perform data management operations on Data Lake Storage Gen1 using .NET SDK, see [Filesystem operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## Prerequisites
-* **Visual Studio 2013, 2015, or 2017**. The instructions below use Visual Studio 2017.
+* **Visual Studio 2013 or above**. The instructions below use Visual Studio 2019.
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Create a .NET application
-1. Open Visual Studio and create a console application.
-2. From the **File** menu, click **New**, and then click **Project**.
-3. From **New Project**, type or select the following values:
+1. In Visual Studio, select the **File** menu, **New**, and then **Project**.
+2. Choose **Console App (.NET Framework)**, and then select **Next**.
+3. In **Project name**, enter `CreateADLApplication`, and then select **Create**.
 
-   | Property | Value |
-   | --- | --- |
-   | Category |Templates/Visual C#/Windows |
-   | Template |Console Application |
-   | Name |CreateADLApplication |
-4. Click **OK** to create the project.
-5. Add the NuGet packages to your project.
+4. Add the NuGet packages to your project.
 
    1. Right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
    2. In the **NuGet Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include prerelease** check box is selected.
@@ -54,7 +48,7 @@ For instructions on how to perform data management operations on Data Lake Stora
 
         ![Add a NuGet source](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Create a new Azure Data Lake account")
    4. Close the **NuGet Package Manager**.
-6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
+5. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
 
         using System;
         using System.IO;
@@ -70,7 +64,7 @@ For instructions on how to perform data management operations on Data Lake Stora
 		using Microsoft.Azure.Management.DataLake.Store.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. Declare the variables and provide the values for placeholders. Also, make sure the local path and file name you provide exist on the computer.
+6. Declare the variables and provide the values for placeholders. Also, make sure the local path and file name you provide exist on the computer.
 
         namespace SdkSample
         {

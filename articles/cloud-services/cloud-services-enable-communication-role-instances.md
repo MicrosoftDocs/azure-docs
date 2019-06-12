@@ -21,7 +21,7 @@ ms.author: jeconnoc
 Cloud service roles communicate through internal and external connections. External connections are called **input endpoints** while internal connections are called **internal endpoints**. This topic describes how to modify the [service definition](cloud-services-model-and-package.md#csdef) to create endpoints.
 
 ## Input endpoint
-The input endpoint is used when you want to expose a port to the outside. You specify the protocol type and the port of the endpoint which then applies for both the external and internal ports for the endpoint. If you want, you can specify a different internal port for the endpoint with the [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) attribute.
+The input endpoint is used when you want to expose a port to the outside. You specify the protocol type and the port of the endpoint which then applies for both the external and internal ports for the endpoint. If you want, you can specify a different internal port for the endpoint with the [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) attribute.
 
 The input endpoint can use the following protocols: **http, https, tcp, udp**.
 

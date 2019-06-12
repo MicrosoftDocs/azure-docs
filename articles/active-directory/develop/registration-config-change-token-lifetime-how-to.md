@@ -3,8 +3,8 @@ title: How to change the token lifetime defaults for a custom-developed applicat
 description: How to update Token Lifetime policies for your application that you are developing on Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ---

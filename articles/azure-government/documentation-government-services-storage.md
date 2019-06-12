@@ -70,7 +70,7 @@ These are the URLs for storage accounts in Azure Government:
 >
 >
 
-For more information on APIs, see the [Cloud Storage Account Constructor](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.-ctor).
+For more information on APIs, see the [Cloud Storage Account Constructor](https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account.cloudstorageaccount).
 
 The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 

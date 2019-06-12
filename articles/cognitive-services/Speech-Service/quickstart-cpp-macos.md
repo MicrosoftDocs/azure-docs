@@ -26,7 +26,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.5.0`.
+The current version of the Cognitive Services Speech SDK is `1.5.1`.
 
 The Speech SDK for macOS can be downloaded as a zipped framework bundle from https://aka.ms/csspeech/macosbinary.
 
@@ -77,7 +77,7 @@ Download and install the SDK as follows:
 * Run the following command to build the application.
 
   ```sh
-  g++ helloworld.cpp -o helloworld --std=c++11 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
+  g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
   ```
 
 ## Run the app

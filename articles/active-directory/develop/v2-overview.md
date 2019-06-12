@@ -3,8 +3,8 @@ title: Microsoft identity platform (v2.0) overview - Azure
 description: Learn about the Microsoft identity platform (v2.0) endpoint and platform.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to understand about the Microsoft identity platform (v2.0) endpoint and platform so I can decide if this platform meets my application development needs and requirements.
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Microsoft identity platform (v2.0) overview
 
-Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as Microsoft Graph, or APIs that developers have built. The Microsoft identity platform consists of:
+Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as Microsoft Graph, or APIs that developers have built. The Microsoft identity platform consists of:
 
 - **OAuth 2.0 and OpenID Connect standard-compliant authentication service** that enables developers to authenticate any Microsoft identity, including:
   - Work or school accounts (provisioned through Azure AD)
@@ -51,13 +51,9 @@ Working with identity doesn’t have to be hard. Choose a scenario that applies 
 - [Build a daemon app](scenario-daemon-overview.md)
 - [Build a mobile app](scenario-mobile-overview.md)
 
-<!--- We are making updates to the application scenarios chart. This is placeholder text for it.
-
-The following chart outlines the full set of authentication scenarios and best practices – use it as a reference when integrating the Microsoft identity platform before shipping your app.
+The following chart outlines common authentication app scenarios – use it as a reference when integrating the Microsoft identity platform with your app.
 
 [![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
-
---->
 
 ## Next steps
 
@@ -80,4 +76,4 @@ When you’re ready to launch your app into a **production environment**, review
 
 ## Learn more
 
-If you’d planning to build a customer-facing application that signs in social and local identities, take a look at the [Azure AD B2C overview](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+If you’re planning to build a customer-facing application that signs in social and local identities, see the [Azure AD B2C overview](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

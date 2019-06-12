@@ -65,7 +65,7 @@ profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
   #include <abstractions/base>
   
   file,
-  # Deny all file writes.
+  # Deny all file writes.
   deny /** w,
 }
 ```
@@ -134,7 +134,7 @@ From your local machine, now create a pod manifest named *aks-seccomp.yaml* and 
 ```yaml
 apiVersion: v1
 kind: Pod
-metadata:
+metadata:
   name: chmod-prevented
   annotations:
     seccomp.security.alpha.kubernetes.io/pod: localhost/prevent-chmod
@@ -214,7 +214,7 @@ This article focused on how to secure your AKS cluster. To implement some of the
 <!-- EXTERNAL LINKS -->
 [kured]: https://github.com/weaveworks/kured
 [k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
-[seccomp]: https://docs.docker.com/engine/security/seccomp/
+[seccomp]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

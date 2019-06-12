@@ -67,6 +67,7 @@ This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
 
 
+
 ## Clean up resources
 
 When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.

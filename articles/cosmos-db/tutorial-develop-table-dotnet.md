@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/11/2019
+ms.date: 05/20/2019
 ---
 # Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK
 
@@ -35,15 +35,15 @@ You need the following to complete this sample successfully:
 
 ## Create a .NET console project
 
-In Visual Studio, create a new .NET console application. The following steps show you how to create a console application in Visual Studio 2017. The steps are similar in other versions of Visual Studio. You can use the Azure Cosmos DB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
+In Visual Studio, create a new .NET console application. The following steps show you how to create a console application in Visual Studio 2019. You can use the Azure Cosmos DB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
 1. Select **File** > **New** > **Project**.
 
-1. Select **Installed** > **Visual C#** > **Console App (.NET Core)**.
+1. Choose **Console App (.NET Core)**, and then select **Next**.
 
-1. In the **Name** field, enter a name for your application, for example, **CosmosTableSamples** (you can provide a different name as needed).
+1. In the **Project name** field, enter a name for your application, such as **CosmosTableSamples**. (You can provide a different name as needed.)
 
-1. Select **OK**.
+1. Select **Create**.
 
 All code examples in this sample can be added to the Main() method of your console application's **Program.cs** file.
 
@@ -57,7 +57,9 @@ To obtain the NuGet package, follow these steps:
 
 ## Configure your storage connection string
 
-1. From the [Azure portal](https://portal.azure.com/), click **Connection String**. Use the copy button on the right side of the window to copy the **PRIMARY CONNECTION STRING**.
+1. From the [Azure portal](https://portal.azure.com/), navigate to your Azure Cosmos account or the Table Storage account. 
+
+1. Open the **Connection String** or **Access keys** pane. Use the copy button on the right side of the window to copy the **PRIMARY CONNECTION STRING**.
 
    ![View and copy the PRIMARY CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
    
@@ -129,11 +131,7 @@ To obtain the NuGet package, follow these steps:
 
 ## Create a Table 
 
-<<<<<<< HEAD
 The [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) class enables you to retrieve tables and entities stored in Table storage. Because we don’t have any tables in the Cosmos DB Table API account, let’s add the `CreateTableAsync` method to the **Common.cs** class to create a table:
-=======
-The [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient?view=azure-dotnet) class enables you to retrieve tables and entities stored in Table storage. Because we don’t have any tables in the Cosmos DB Table API account, let’s add the `CreateTableAsync` method to the **Common.cs** class to create a table:
->>>>>>> ab82b362c6333111062c208bcd54a742d9d81f2c
 
 ```csharp
 public static async Task<CloudTable> CreateTableAsync(string tableName)
@@ -166,11 +164,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 ## Define the entity 
 
-<<<<<<< HEAD
 Entities map to C# objects by using a custom class derived from [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). To add an entity to a table, create a class that defines the properties of your entity.
-=======
-Entities map to C# objects by using a custom class derived from [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity?view=azure-dotnet). To add an entity to a table, create a class that defines the properties of your entity.
->>>>>>> ab82b362c6333111062c208bcd54a742d9d81f2c
 
 Right click on your project **CosmosTableSamples**. Select **Add**, **New Folder** and name it as **Model**. Within the Model folder add a class named **CustomerEntity.cs** and add the following code to it.
 
@@ -196,19 +190,11 @@ namespace CosmosTableSamples.Model
 }
 ```
 
-<<<<<<< HEAD
 This code defines an entity class that uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify it in the table. Entities with the same partition key can be queried faster than entities with different partition keys but using diverse partition keys allows for greater scalability of parallel operations. Entities to be stored in tables must be of a supported type, for example derived from the [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity) class. Entity properties you'd like to store in a table must be public properties of the type, and support both getting and setting of values. Also, your entity type must expose a parameter-less constructor.
 
 ## Insert or merge an entity
 
 The following code example creates an entity object and adds it to the table. The InsertOrMerge method within the [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) class is used to insert or merge an entity. The [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) method is called to execute the operation. 
-=======
-This code defines an entity class that uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify it in the table. Entities with the same partition key can be queried faster than entities with different partition keys but using diverse partition keys allows for greater scalability of parallel operations. Entities to be stored in tables must be of a supported type, for example derived from the [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity?view=azure-dotnet) class. Entity properties you'd like to store in a table must be public properties of the type, and support both getting and setting of values. Also, your entity type must expose a parameter-less constructor.
-
-## Insert or merge an entity
-
-The following code example creates an entity object and adds it to the table. The InsertOrMerge method within the [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation?view=azure-dotnet) class is used to insert or merge an entity. The [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) method is called to execute the operation. 
->>>>>>> ab82b362c6333111062c208bcd54a742d9d81f2c
 
 Right click on your project **CosmosTableSamples**. Select **Add**, **New Item** and add a class named **SamplesUtils.cs**. This class stores all the code required to perform CRUD operations on the entities. 
 
