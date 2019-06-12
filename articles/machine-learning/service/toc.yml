@@ -118,6 +118,8 @@
       href: how-to-enable-virtual-network.md
     - name: Secure web services with SSL
       href: how-to-secure-web-service.md
+    - name: Regenerate storage access keys
+      href: how-to-change-storage-access-key.md
 - name: How-to guides
   items:
   - name: Manage workspaces
@@ -220,6 +222,8 @@
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
       href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: Custom Docker image
+      href: how-to-deploy-custom-docker-image.md
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
