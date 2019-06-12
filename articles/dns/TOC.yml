@@ -43,6 +43,10 @@
     href: dns-domain-delegation.md
   - name: FAQ
     href: dns-faq.md
+  - name: FAQ - Private DNS
+    href: dns-faq-private.md
+  - name: Using private DNS zones
+    href: private-dns-overview.md
   - name: Private DNS scenarios
     href: private-dns-scenarios.md
   - name: DNS metrics and alerts
