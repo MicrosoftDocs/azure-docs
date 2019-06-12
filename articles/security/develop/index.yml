@@ -1,0 +1,55 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure security for developers
+metadata:
+  document_id: 
+  title: Secure Development Guidance - Sample apps, best practices
+  description: Learn how to develop secure apps on Azure
+  services: security
+  ms.subservice: develop
+  author: TerryLanfear
+  manager: barbkess
+  ms.service: security
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/11/2019
+  ms.author: terrylan
+abstract:
+  description: "Learn how to develop and deploy secure applications on Azure with our sample apps, best practices, and guidance."
+
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+      - href: /azure/security/develop
+        html: <p>Deploy your first web application to Azure</p>
+        image:
+          src: media/index/i_managed.svg
+        title: Get started
+      - href: https://docs.microsoft.com/en-us/learn/modules/top-5-security-items-to-consider
+        html: <p>Top five security items for web apps</p>
+        image:
+          src: media/index/i_perftier.svg
+        title: Build your skills with Microsoft Learn
+
+- title: Secure sample apps
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Web app in a Linux container</a>
+
+- title: Concepts
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Secure development best practices</a>
+    - html: <a href="/azure/sql-database/sql-database-cli-samples">Threat modeling</a>
+
+    
