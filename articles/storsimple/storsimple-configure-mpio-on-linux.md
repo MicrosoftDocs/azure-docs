@@ -413,7 +413,7 @@ A. To verify whether your device is whitelisted, use the following troubleshooti
     dm-3 devnode blacklisted, unmonitored
 
 
-For more information, go to [troubleshooting for multipathing](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
+For more information, go to [troubleshooting for multipathing](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## List of useful commands
 | Type | Command | Description |
@@ -440,6 +440,6 @@ For more information, go to [troubleshooting for multipathing](https://access.re
 ## Next steps
 As you are configuring MPIO on Linux host, you may also need to refer to the following CentoS 6.6 documents:
 
-* [Setting up MPIO on CentOS](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/dm_multipath/index)
+* [Setting up MPIO on CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Linux Training Guide](http://linux-training.be/linuxsys.pdf)
 
