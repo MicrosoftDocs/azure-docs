@@ -176,25 +176,25 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 ## Move the data into Azure Data Lake Storage Gen2
 
-First, copy data into your Azure Data Lake storage account. Then, apply access permissions to files and directories.
+You already have the data into your Azure Storage account. Now you will copy the data into your Azure Data Lake storage account and apply access permissions to files and directories.
 
 > [!NOTE]
 > This step is needed if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you can skip this section.
 
-### Copy data to the storage account
+### Copy data to the Azure Data Lake Storage Gen 2 account
 
 You can copy data by using Azure Data Factory, or by using your Azure-based Hadoop cluster. 
 
-To use Azure Data Factory, see [Azure Data Factory to move data to ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Make sure to specify **Azure Blob Storage** as the source.
+- To use Azure Data Factory, see [Azure Data Factory to move data to ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Make sure to specify **Azure Blob Storage** as the source.
 
-To use your Azure-based Hadoop cluster, run this DistCp command:
+- To use your Azure-based Hadoop cluster, run this DistCp command:
 
-```bash
+    ```bash
     
     hadoop distcp -Dfs.azure.account.key.{source_account}.dfs.windows.net={source_account_key} abfs://{source_container} @{source_account}.dfs.windows.net/[path] abfs://{dest_container}@{dest_account}.dfs.windows.net/[path]
-```
+    ```
 
-This command copies both data and metadata from your storage account into your Data Lake Storage Gen2 storage account.
+    This command copies both data and metadata from your storage account into your Data Lake Storage Gen2 storage account.
 
 ### Create a service principal for your Azure Data Lake Storage Gen2 account
 
