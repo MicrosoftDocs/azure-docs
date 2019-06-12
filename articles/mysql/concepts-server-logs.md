@@ -7,7 +7,7 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
 ---
-# Slow Query Logs in Azure Database for MySQL
+# Slow query logs in Azure Database for MySQL
 In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
 
 For more information about the MySQL slow query log, see the MySQL reference manual's [slow query log section](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
@@ -66,10 +66,10 @@ The following table describes what's in each log. Depending on the output method
 | `rows_sent_s` | Number of rows sent |
 | `rows_examined_s` | Number of rows examined |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| `insert_id_s` | Insert id |
+| `insert_id_s` | Insert ID |
 | `sql_text_s` | Full query |
-| `server_id_s` | The server's id |
-| `thread_id_s` | Thread id |
+| `server_id_s` | The server's ID |
+| `thread_id_s` | Thread ID |
 | `\_ResourceId` | Resource URI |
 
 ## Next Steps

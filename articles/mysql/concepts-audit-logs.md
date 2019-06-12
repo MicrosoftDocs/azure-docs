@@ -119,6 +119,6 @@ Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and A
 | `sql_text` | Full query text |
 | `\_ResourceId` | Resource URI |
 
-## Next Steps
+## Next steps
 
 - [How to configure audit logs in the Azure portal](howto-configure-audit-logs-portal.md)
