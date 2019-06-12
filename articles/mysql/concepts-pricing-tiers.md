@@ -66,7 +66,6 @@ We are increasing the storage limits in our General Purpose and Memory Optimized
 >
 > The large storage preview currently does not support:
 >
-> * Incoming connections through virtual network service endpoints
 > * Geographically redundant backups
 > * Cross region replication
 
