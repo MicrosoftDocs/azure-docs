@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 06/12/2019
 ms.author: danlep
 ---
 
 # Use an Azure managed identity in ACR Tasks 
 
-Use a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to authenticate from ACR Tasks to an Azure container registry or other Azure resources, without needing to provide or manage credentials in code. For example, ...
+Use a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) to authenticate from ACR Tasks to an Azure container registry or other Azure resources, without needing to provide or manage credentials in code. For example, use a managed identity to pull or push container images to another registry as a step in a task.
 
 In this article, you learn more about managed identities and how to:
 
@@ -33,14 +33,14 @@ Managed identities are of two types:
 
 * A *system-managed identity*, which is unique to a specific resource such as an ACR task and lasts for the lifetime of that resource.
 
-After you set up an Azure resource with a managed identity, give the identity the access you want to another resource, just like any security principal. For example, assign a managed identity a role with pull, push and pull, or other permissions to a private registry in Azure. (For a complete list of registry roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).) You can give an identity access to one or more resources.
+After you set up an Azure resource with a managed identity, grant the identity access to another resource, just like any security principal. For example, assign a managed identity a role with pull, push and pull, or other permissions to a private container registry in Azure. (For a complete list of registry roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).) You can give an identity access to one or more resources.
 
 ## Create container registries
 
 For this tutorial you need three container registries:
 
 * You use the first registry to create and execute ACR tasks. In this article, this source registry is named *myregistry*. 
-* The second and third registries are target registries for the first example task to push an image it builds. In this article, the target registries are named *customregistry1* and *customregistry2*
+* The second and third registries are target registries for the first example task to push an image it builds. In this article, the target registries are named *customregistry1* and *customregistry2*.
 
 Replace with your own registry names in later steps.
 
@@ -63,7 +63,7 @@ steps:
 
 ### Create task with system-assigned identity
 
-Create the task *multiple-reg* by executing the following [az acr task create][az-acr-task-create] command. The task context is the multipleRegistries folder of the samples repo, and the command references the file `testtask.yaml` in the repo. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task. This task is set up so you have to trigger it manually, but you could trigger the task to run when commits are pushed to the repo or a pull request is made. 
+Create the task *multiple-reg* by executing the following [az acr task create][az-acr-task-create] command. The task context is the multipleRegistries folder of the samples repo, and the command references the file `testtask.yaml` in the repo. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task. This task is set up so you have to trigger it manually, but you could set it up to run when commits are pushed to the repo or a pull request is made. 
 
 ```azurecli
 az acr task create \
@@ -107,7 +107,7 @@ reg1_id=$(az acr show --name customregistry1 --query id --output tsv)
 reg2_id=$(az acr show --name customregistry2 --query id --output tsv)
 ```
 
-Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpush` role to each registry. This role has permissions to pull and push images to the container registry.
+Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpush` role to each registry. This role has permissions to pull and push images to a container registry.
 
 ```azurecli
 az role assignment create --assignee $principal_id --scope $reg1_id --role acrpush
@@ -147,25 +147,6 @@ az acr task run \
 Output is similar to:
 
 ```console
-Queued a run with ID: cf31
-Waiting for an agent...
-2019/05/31 22:15:50 Downloading source code...
-2019/05/31 22:15:52 Finished downloading source code
-2019/05/31 22:15:52 Using acb_vol_b2c7f60e-6b7c-4e71-9475-a37731f4abf5 as the home volume
-2019/05/31 22:15:54 Creating Docker network: acb_default_network, driver: 'bridge'
-2019/05/31 22:15:55 Successfully set up Docker network: acb_default_network
-2019/05/31 22:15:55 Setting up Docker configuration...
-2019/05/31 22:15:55 Successfully set up Docker configuration
-2019/05/31 22:15:55 Logging in to registry: customregistry1.azurecr.io
-2019/05/31 22:15:57 Successfully logged into customregistry1.azurecr.io
-2019/05/31 22:15:57 Logging in to registry: myregistry.azurecr.io
-2019/05/31 22:15:58 Successfully logged into myregistry.azurecr.io
-2019/05/31 22:15:58 Logging in to registry: customregistry2.azurecr.io
-2019/05/31 22:16:00 Successfully logged into customregistry2.azurecr.io
-2019/05/31 22:16:00 Executing step ID: acb_step_0. Timeout(sec): 600, Working directory: 'multipleRegistries', Network: 'acb_default_network'
-2019/05/31 22:16:00 Scanning for dependencies...
-2019/05/31 22:16:01 Successfully scanned dependencies
-2019/05/31 22:16:01 Launching container with name: acb_step_0
 Sending build context to Docker daemon  4.096kB
 Step 1/1 : FROM hello-world
  ---> fce289e99eb9
@@ -236,7 +217,7 @@ Run ID: cf31 was successful after 35s
 
 ## Example: Task with a user-assigned identity
 
-In this example you create a user-assigned identity with permissions to read secrets from an Azure key vault. You assign this identity to a multistep task that reads the secret and logs into the Azure CLI to ....
+In this example you create a user-assigned identity with permissions to read secrets from an Azure key vault. You assign this identity to a multistep task that reads the secret, builds an image, and signs into the Azure CLI to read the image tag.
 
 ### Create a key vault and store a secret
 
@@ -266,7 +247,7 @@ For example, you might want to store credentials to authenticate with a private 
 
 ### Create an identity
 
-Create an identity named *myACRTasksId* in your subscription using the [az identity create][az-identity-create] command. You can use the same resource group you used previously to create the container registry or key vault, or a different one.
+Create an identity named *myACRTasksId* in your subscription using the [az identity create][az-identity-create] command. You can use the same resource group you used previously to create a container registry or key vault, or a different one.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRTasksId
@@ -319,18 +300,18 @@ steps:
   - push: 
     - "{{.Run.Registry}}/my-website:{{.Run.ID}}"
   
-  # Login to Azure with identity and list the tags to verify that the image is in the registry
+  # Login to Azure CLI with identity and list the tags to verify that the image is in the registry
   - cmd: microsoft/azure-cli az login --identity
   - cmd: microsoft/azure-cli az acr repository show-tags -n {{.Values.registryName}} --repository my-website
 ```
 
 This task does the following:
 
-* Verifies that it can access the secret in your key vault. This step is for demonstration purposes. For exampleou might need a task step similar to this one to get credentials to access a private Docker Hub repo.
+* Verifies that it can access the secret in your key vault. This step is for demonstration purposes. In a real-world scenario, you might need a task step to get credentials to access a private Docker Hub repo.
 * Builds and pushes the `mywebsite` image to the source registry.
 * Logs into the Azure CLI to list the `my-website` image tags in the source registry.
 
-Create a task called *msitask* and pass it the resource ID of the user-assigned identity you created previously. This example task is created from the `managed-identities.yaml` file you created in your local working directory, so you have to trigger it manually.
+Create a task called *msitask* and pass it the resource ID of the user-assigned identity you created previously. This example task is created from the `managed-identities.yaml` file you saved in your local working directory, so you have to trigger it manually.
 
 ```azurecli
 az acr task create \
@@ -365,10 +346,9 @@ Use the [az acr task run][az-acr-task-run] command to manually trigger the task.
 
 ```azurecli
 az acr task run --name msitask --registry myregistry --set registryName=myregistry  
-
 ```
 
-Output shows secret is resolved, image is successfully built and pushed, successfully logged into Azure CLI with the identity, and tag is read from registry `registryName`:
+Output shows the secret is resolved, the image is successfully built and pushed, and the task logs into the Azure CLI with the identity to read the image tag from the source registry:
 
 ```console
 Queued a run with ID: cf32
@@ -389,66 +369,9 @@ Secret resolved
 2019/06/10 23:25:44 Executing step ID: acb_step_1. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
 2019/06/10 23:25:44 Launching container with name: acb_step_1
 Sending build context to Docker daemon  74.75kB
-Step 1/6 : FROM node:8.9.3-alpine
-8.9.3-alpine: Pulling from library/node
-1160f4abea84: Pulling fs layer
-66ff3f133e43: Pulling fs layer
-4c8ff6f0a4db: Pulling fs layer
-1160f4abea84: Verifying Checksum
-1160f4abea84: Download complete
-4c8ff6f0a4db: Verifying Checksum
-4c8ff6f0a4db: Download complete
-66ff3f133e43: Verifying Checksum
-66ff3f133e43: Download complete
-1160f4abea84: Pull complete
-66ff3f133e43: Pull complete
-4c8ff6f0a4db: Pull complete
-Digest: sha256:40201c973cf40708f06205b22067f952dd46a29cecb7a74b873ce303ad0d11a5
-Status: Downloaded newer image for node:8.9.3-alpine
- ---> 144aaf4b1367
-Step 2/6 : RUN mkdir -p /usr/src/app
- ---> Running in 5f0f7646504b
-Removing intermediate container 5f0f7646504b
- ---> 50bc41bb0691
-Step 3/6 : COPY ./app/* /usr/src/app/
- ---> 56c3e5c8d7bd
-Step 4/6 : WORKDIR /usr/src/app
- ---> Running in 8765dda66264
-Removing intermediate container 8765dda66264
- ---> 449e1e4c7e33
-Step 5/6 : RUN npm install
- ---> Running in 718bbdcc9c02
-npm notice created a lockfile as package-lock.json. You should commit this file.
-npm WARN aci-helloworld@1.0.0 No description
-npm WARN aci-helloworld@1.0.0 No repository field.
-npm WARN aci-helloworld@1.0.0 No license field.
 
-added 53 packages in 1.812s
-Removing intermediate container 718bbdcc9c02
- ---> fe821de1a07b
-Step 6/6 : CMD node /usr/src/app/index.js
- ---> Running in 451ac0a9b6ed
-Removing intermediate container 451ac0a9b6ed
- ---> ffc244c914fd
-Successfully built ffc244c914fd
-Successfully tagged myregistry.azurecr.io/my-website:cf32
-2019/06/10 23:25:58 Successfully executed container: acb_step_1
-2019/06/10 23:25:58 Executing step ID: acb_step_2. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
-2019/06/10 23:25:58 Pushing image: myregistry.azurecr.io/my-website:cf32, attempt 1
-The push refers to repository [myregistry.azurecr.io/my-website]
-8863750e462a: Preparing
-adb3577ced7a: Preparing
-4d146dfedfd5: Preparing
-1dfbdf308b77: Preparing
-2ec940494cc0: Preparing
-6dfaec39e726: Preparing
-6dfaec39e726: Waiting
-adb3577ced7a: Pushed
-4d146dfedfd5: Pushed
-1dfbdf308b77: Pushed
-8863750e462a: Pushed
-6dfaec39e726: Pushed
-2ec940494cc0: Pushed
+[...]
+
 cf32: digest: sha256:cbb4aa83b33f6959d83e84bfd43ca901084966a9f91c42f111766473dc977f36 size: 1577
 2019/06/10 23:26:05 Successfully pushed image: myregistry.azurecr.io/my-website:cf32
 2019/06/10 23:26:05 Executing step ID: acb_step_3. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
