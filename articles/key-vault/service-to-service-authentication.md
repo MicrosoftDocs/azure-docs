@@ -214,11 +214,11 @@ To find the certificate's secret identifier, follow these steps.
 
 1. Click on the certificate you wish to use for custom services authentication and then, on the next page, click on the current version.
 
-  ![Finding the custom certificate to use](./media/service-to-service-authentication/customcert1.png)
+    ![Finding the custom certificate to use](./media/service-to-service-authentication/customcert1.png)
 
 1. Scroll to the bottom of the certificate page and note the "Secret Identifier" in the last field.
 
-  ![Finding the custom certificate "Secret Identifier"](./media/service-to-service-authentication/customcert2.png)
+    ![Finding the custom certificate "Secret Identifier"](./media/service-to-service-authentication/customcert2.png)
 
 ## Connection String Support
 
