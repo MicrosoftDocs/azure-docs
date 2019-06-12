@@ -76,7 +76,7 @@ Select **Users** on the left menu to see the list of users registered with the l
 You can set quotas per user by using the following steps: 
 
 1. Select **Users** on the left menu.
-2. Select **Quota per user: unlimited** on the toolbar. 
+2. Select **Quota per user:** on the toolbar. 
 3. On the **Quota per user** page, specify the number of hours you want to give to each user (student): 
     1. **0 hours (schedule only)**. Users can use their VMs only during the scheduled time or when you as the lab owner turns on VMs for them.
 
