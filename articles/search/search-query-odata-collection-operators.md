@@ -86,7 +86,7 @@ Not every feature of filter expressions is available inside the body of a lambda
 
 For more details on these limitations as well as examples, see [Troubleshooting collection filters in Azure Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why these limitations exist, see [Understanding collection filters in Azure Search](search-query-understand-collection-filters.md).
 
-## See also  
+## Next steps  
 
 - [Filters in Azure Search](search-filters.md)
 - [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)

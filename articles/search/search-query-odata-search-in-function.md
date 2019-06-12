@@ -98,7 +98,7 @@ Find all hotels without the tag 'motel' or 'cabin':
 
     Tags/all(tag: not search.in(tag, 'motel, cabin'))
 
-## See also  
+## Next steps  
 
 - [Filters in Azure Search](search-filters.md)
 - [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)

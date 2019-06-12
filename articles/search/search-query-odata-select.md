@@ -102,7 +102,7 @@ An example result might look like this:
 }
 ```
 
-## See also  
+## Next steps  
 
 - [How to work with search results in Azure Search](search-pagination-page-layout.md)
 - [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)

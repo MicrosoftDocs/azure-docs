@@ -180,7 +180,7 @@ In practice, these are the types of filters you're most likely to use anyway. It
 
 For specific examples of which kinds of filters are allowed and which aren't, see [How to write valid collection filters](search-query-troubleshoot-collection-filters.md#bkmk_examples).
 
-## See also  
+## Next steps  
 
 - [Troubleshooting OData collection filters in Azure Search](search-query-troubleshoot-collection-filters.md)
 - [Filters in Azure Search](search-filters.md)

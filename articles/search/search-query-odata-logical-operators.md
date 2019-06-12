@@ -101,7 +101,7 @@ Match documents for hotels in Vancouver, Canada where there is a deluxe room wit
 
     Address/City eq 'Vancouver' and Address/Country eq 'Canada' and Rooms/any(room: room/Type eq 'Deluxe Room' and room/BaseRate lt 160)
 
-## See also  
+## Next steps  
 
 - [Filters in Azure Search](search-filters.md)
 - [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)

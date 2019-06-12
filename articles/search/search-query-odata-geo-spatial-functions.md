@@ -112,7 +112,7 @@ Sort hotels in descending order by `search.score` and `rating`, and then in asce
 
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
 
-## See also  
+## Next steps  
 
 - [Filters in Azure Search](search-filters.md)
 - [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)

@@ -188,7 +188,7 @@ Find hotels where the terms "hotel" and "airport" are no more than five words ap
 
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
 
-## See also  
+## Next steps  
 
 - [Filters in Azure Search](search-filters.md)
 - [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)

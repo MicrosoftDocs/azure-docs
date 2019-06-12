@@ -148,7 +148,7 @@ Match documents for hotels where at least one room has type "Deluxe Room", where
 
     Rooms/any(room: room/Type eq 'Deluxe Room')
 
-## See also  
+## Next steps  
 
 - [Filters in Azure Search](search-filters.md)
 - [OData expression language overview for Azure Search](query-odata-filter-orderby-syntax.md)

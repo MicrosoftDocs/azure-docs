@@ -217,7 +217,7 @@ For examples of how to construct valid filters for each case, see [How to write 
 
 If you write filters often, and understanding the rules from first principles would help you more than just memorizing them, see [Understanding OData collection filters in Azure Search](search-query-understand-collection-filters.md).
 
-## See also  
+## Next steps  
 
 - [Understanding OData collection filters in Azure Search](search-query-understand-collection-filters.md)
 - [Filters in Azure Search](search-filters.md)
