@@ -252,7 +252,7 @@ When users submit job to a cluster with reader-only role permission, Ambari cred
 
 ### Link cluster from Spark Submission window
 
-1. Create an HDInsight Project. 
+1. Create an HDInsight Project.
 
 2. Right click the package. Then select **Submit Spark Application to HDInsight**.
    
@@ -285,9 +285,6 @@ There are two modes to submit the jobs. If storage credential is provided, batch
 
 ![eclipse get error when cluster busy](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
-## Feedback
-If you have any feedback, or if you encounter any other problems when using this tool, send us an email at hdivstool@microsoft.com.
-
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
@@ -305,7 +302,6 @@ If you have any feedback, or if you encounter any other problems when using this
 * [Use Azure Toolkit for IntelliJ to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
 * [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through VPN](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through SSH](../hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)

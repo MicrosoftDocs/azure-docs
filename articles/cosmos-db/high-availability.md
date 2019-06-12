@@ -72,7 +72,7 @@ This feature is available in following Azure regions:
 
 The following table summarizes the high availability capability of various account configurations: 
 
-|KPI  |Single Region without Availability Zones (Non-AZ)  |Single Region with Availability Zones (AZ)  |Multi-regions with Availability Zones (AZ, 2 regions) – Most Recommended Setting |
+|KPI  |Single region without Availability Zones (Non-AZ)  |Single region with Availability Zones (AZ)  |Multi-region writes with Availability Zones (AZ, 2 regions) – Most recommended setting |
 |---------|---------|---------|---------|
 |Write availability SLA     |   99.99%      |    99.99%     |  99.999%  |
 |Read availability SLA   |   99.99%      |   99.99%      |  99.999%       |
