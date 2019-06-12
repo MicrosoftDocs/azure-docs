@@ -81,7 +81,7 @@ If you don't get an email after following the steps, make sure your email addres
 
 ### Opt-out of getting your subscription's invoices in email
 
-To opt-out of getting your invoice by email, follow the preceding steps and clicki **Opt out of emailed invoices**. This option removes any email addresses set to receive invoices in email. You can reconfigure recipients if you opt back in.
+To opt-out of getting your invoice by email, follow the preceding steps and click **Opt out of emailed invoices**. This option removes any email addresses set to receive invoices in email. You can reconfigure recipients if you opt back in.
 
  ![Screenshot that shows the opt-out flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
