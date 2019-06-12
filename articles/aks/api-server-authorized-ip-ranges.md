@@ -32,21 +32,13 @@ You need the Azure CLI version 2.0.61 or later installed and configured. Run `a
 
 ### Install aks-preview CLI extension
 
-To configure API server authorized IP ranges, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
+To configure API server authorized IP ranges, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-If you have previously installed the *aks-preview* extension, check the version number using the [az extension list][az-extension-list] command:
-
-```azurecli-interactive
-az extension list --query "[?name=='aks-preview']" -o table
-```
-
-If needed, update to the latest version using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
+# Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
 
