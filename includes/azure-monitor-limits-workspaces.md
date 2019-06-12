@@ -13,29 +13,16 @@ ms.custom: "include file"
 
 **Data collection volume and retention** 
 
-Current pricing tiers (introduced April 2018)
 
-[!div class="mx-tdBreakAll"]
-| Tier | Limit per day | Data retention | Comment |
-|:---|:---|:---|:---|
-| Per GB 2018 | No limit | 30 - 730 days | Data retention beyond 31 days is available for additional charges. Learn more about Azure Monitor pricing. |
-
-Legacy tiers (introduced April 2016)
-
-[!div class="mx-tdBreakAll"]
-| Pricing Tier | Limit per day | Data retention | Comment |
-|:---|:---|:---|:---|
-| Free | 500 MB | 7 days | When your workspace reaches the 500-MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC. |
-| Standalone (Per GB) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about Azure Monitor pricing. |
-| Per Node (OMS) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about Azure Monitor pricing. |
-
-Legacy original pricing tiers
-
-[!div class="mx-tdBreakAll"]
-| Pricing Tier | Limit per day | Data retention | Comment |
-|:---|:---|:---|:---|
-| Standard | No limit | 30 days  | Retention can't be adjusted |
-| Premium  | No limit | 365 days | Retention can't be adjusted |
+> [!div class="mx-tdBreakAll"]
+> |    | Tier | Limit per day | Data retention | Comment |
+> |:---|:---|:---|:---|:---|
+> | Current pricing tiers (introduced April 2018) | Per GB 2018 | No limit | 30 - 730 days | Data retention beyond 31 days is available for additional charges. Learn more about Azure Monitor pricing. |
+> | Legacy tiers (introduced April 2016) | Free | 500 MB | 7 days | When your workspace reaches the 500-MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC. |
+> | | Standalone (Per GB) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about Azure Monitor pricing. |
+> | | Per Node (OMS) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about Azure Monitor pricing. |
+> | Legacy original pricing tiers | Standard | No limit | 30 days  | Retention can't be adjusted |
+> | | Premium  | No limit | 365 days | Retention can't be adjusted |
 
 
 **Number of workspaces per subscription.**
