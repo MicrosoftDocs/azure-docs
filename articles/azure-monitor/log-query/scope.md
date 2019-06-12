@@ -61,7 +61,7 @@ Your query will be blocked from running if the scope includes workspaces in 20 o
 ![Query failed](media/scope/query-failed.png)
 
 ## Time range
-The time range species the set of records that are evaluated for the query based on when the record was created. This is defined by a standard property on every record in the workspace or application as specified in the following table.
+The time range specifies the set of records that are evaluated for the query based on when the record was created. This is defined by a standard property on every record in the workspace or application as specified in the following table.
 
 | Location | Property |
 |:---|:---|
