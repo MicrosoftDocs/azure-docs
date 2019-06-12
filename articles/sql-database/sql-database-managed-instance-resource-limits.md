@@ -26,7 +26,7 @@ Managed instance has characteristics and resource limits that depend on the unde
 
 ### Hardware generation characteristics
 
-Azure SQL Database managed instance can be deployed on two hardware generations: Gen4 and Gen5. Hardware generations have different characteristics that are described in the following table:
+Azure SQL Database managed instance can be deployed on two hardware generations: Gen4 and Gen5. Hardware generations have different characteristics, as described in the following table:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -56,10 +56,9 @@ Managed instance has two service tiers: General Purpose and Business Critical. T
 | Max tempDB size | 192 - 1,920 GB (24 GB per vCore) | No constraints - limited by the max instance storage size |
 | Max sessions | 30000 | 30000 |
 
-**Notes**:
-
-- Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
-- Throughput and IOPS also depend on the page size that is not explicitly limited by managed instance.
+> [!NOTE]
+> - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
+> - Throughput and IOPS also depend on the page size that is not explicitly limited by managed instance.
 
 ## Supported regions
 
@@ -128,8 +127,8 @@ To initiate the process of obtaining a larger quota:
 
      > [!IMPORTANT]
      > A valid request should include:
-     > - Region in which subscription limit needs to be increased
-     > - Required number of vCores, per service tier in existing subnets after the quota increase (if any of the existing subnets needs to be expanded
+     > - Region in which subscription limit needs to be increased.
+     > - Required number of vCores, per service tier in existing subnets after the quota increase (if any of the existing subnets needs to be expanded.
      > - Required number of new subnets and total number of vCores per service tier within the new subnets (if you need to deploy managed instances in new subnets).
 
 5. Click **Next**.
