@@ -57,11 +57,11 @@
       href: tutorial-machine-learning-edge-01-intro.md
     - name: Set up development machine and Azure services
       href: tutorial-machine-learning-edge-02-prepare-environment.md
-    - name: Generate training data for a machine learning module
+    - name: Generate simulated device data
       href: tutorial-machine-learning-edge-03-generate-data.md
     - name: Train and deploy an Azure Machine Learning model
       href: tutorial-machine-learning-edge-04-train-model.md
-    - name: Configure an IoT Edge device as a transparent gateway
+    - name: Configure a transparent gateway
       href: tutorial-machine-learning-edge-05-configure-edge-device.md
     - name: Create and deploy IoT Edge modules
       href: tutorial-machine-learning-edge-06-custom-modules.md
