@@ -54,7 +54,7 @@ The following table compares features of the Live Event types.
 
 ## System presets
 
-The resolutions and bitrates contained in the output from the live encoder is determined by the [presetName](https://docs.microsoft.com/en-us/rest/api/media/liveevents/create#liveeventencoding). If using a **Standard** live encoder (LiveEventEncodingType.Standard), then the *Default720p* preset specifies a set of 6 resolution/bit rate pairs described below. Otherwise, if using a **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), then the *Default1080p* preset specifiesthe output set of resolution/bit rate pairs. 
+The resolutions and bitrates contained in the output from the live encoder is determined by the [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). If using a **Standard** live encoder (LiveEventEncodingType.Standard), then the *Default720p* preset specifies a set of 6 resolution/bit rate pairs described below. Otherwise, if using a **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), then the *Default1080p* preset specifiesthe output set of resolution/bit rate pairs. 
 
 ### Output Video Streams for Default720p
 
