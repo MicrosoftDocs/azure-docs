@@ -1,13 +1,13 @@
 ---
-title: CI/CD with Azure Pipelines and Visual Studio Resource Group project
-description: Describes how to set up continuous integration in Azure Pipelines by using Azure Resource Group deployment projects in Visual Studio.
+title: CI/CD with Azure Pipelines and Resource Manager templates
+description: Describes how to set up continuous integration in Azure Pipelines by using Azure Resource Group deployment projects in Visual Studio to deploy Resource Manager templates.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 06/12/2019
 ms.author: tomfitz
 ---
-# Integrate Visual Studio project with Azure Pipelines
+# Integrate Resource Manager templates with Azure Pipelines
 
 Visual Studio provides the Azure Resource Group project for creating templates and deploying them to your Azure subscription. You can integrate this project with Azure Pipelines for continuous integration and continuous deployment (CI/CD).
 
@@ -25,11 +25,11 @@ This article assumes your Visual Studio project and Azure DevOps organization ar
 
 * You have an Azure DevOps organization. If you don't have one, [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops). If your team already has an Azure DevOps organization, make sure you're an administrator of the Azure DevOps project that you want to use.
 
-* You've configured a [service connection](/azure/devops/pipelines/library/service-endpoints) to your Azure subscription. The tasks in the pipeline execute under the identity of the service principal.
+* You've configured a [service connection](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) to your Azure subscription. The tasks in the pipeline execute under the identity of the service principal. For steps to create the connection, see [Create a DevOps project](resource-manager-tutorial-use-azure-pipelines.md#create-a-devops-project).
 
 * You have a Visual Studio project that was created from the **Azure Resource Group** starter template. For information about creating that type of project, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-* Your Visual Studio project is [shared to an Azure DevOps project](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
+* Your Visual Studio project is [connected to an Azure DevOps project](/azure/devops/repos/git/share-your-code-in-git-vs-2017?view=azure-devops).
 
 ## Create pipeline
 
@@ -53,7 +53,7 @@ You're ready to either add an Azure PowerShell task or the copy file and deploy 
 
 ## Azure PowerShell task
 
-This section shows how to configure continuous deployment by using a single task that runs the PowerShell script in your project. The following YAML file runs an Azure PowerShell script:
+This section shows how to configure continuous deployment by using a single task that runs the PowerShell script in your project. The following YAML file creates an [Azure PowerShell task](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=azure-devops):
 
 ```yaml
 pool:
@@ -135,7 +135,7 @@ You can select the currently running pipeline to see details about the tasks. Wh
 
 This section shows how to configure continuous deployment by using a two tasks to stage the artifacts and deploy the template. 
 
-The following YAML shows the copy task:
+The following YAML shows the [Azure file copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
 
 ```yaml
 - task: AzureFileCopy@3
@@ -170,7 +170,7 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
-The following YAML shows the deploy task:
+The following YAML shows the [Azure resource group deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops):
 
 ```yaml
 - task: AzureResourceGroupDeployment@2
@@ -243,4 +243,5 @@ Now, that you understand how to create the tasks, let's go through the steps to 
 You can select the currently running pipeline to see details about the tasks. When it finishes, you see the results for each step.
 
 ## Next steps
-Read [Azure Resource Manager overview](resource-group-overview.md) to learn more about Azure Resource Manager and Azure resource groups.
+
+For step-by-step process on using Azure Pipelines with Resource Manager templates, see [Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines](resource-manager-tutorial-use-azure-pipelines.md).
