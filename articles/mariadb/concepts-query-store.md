@@ -102,11 +102,11 @@ The following options apply specifically to wait statistics.
 > [!NOTE]
 > Currently **query_store_capture_mode** supersedes this configuration, meaning both **query_store_capture_mode** and **query_store_wait_sampling_capture_mode** have to be enabled to ALL for wait statistics to work. If **query_store_capture_mode** is turned off, then wait statistics is turned off as well since wait statistics utilizes the performance_schema enabled, and the query_text captured by query store.
 
-Use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md) to get or set a different value for a parameter.
+Use the [Azure portal](howto-server-parameters.md) to get or set a different value for a parameter.
 
 ## Views and functions
 
-View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md#how-to-create-additional-admin-users) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
+View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md#create-additional-admin-users) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
 
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same hash.
 
