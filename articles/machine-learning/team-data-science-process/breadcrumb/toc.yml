@@ -83,15 +83,10 @@
     topicHref: /azure/machine-learning/index
     items:
     - name: Team Data Science Process
-      tocHref: /azure/machine-learning/studio/
+      tocHref: /azure/machine-learning/
       topicHref: /azure/machine-learning/team-data-science-process/index
       items:
       - name: Studio
-        tocHref: /azure/machine-learning/studio/algorithm-choice
+        tocHref: /azure/machine-learning/studio/
         topicHref: /azure/machine-learning/studio/index
-      - name: Studio
-        tocHref: /azure/machine-learning/studio/algorithm-cheat-sheet
-        topicHref: /azure/machine-learning/studio/index
-      - name: Studio
-        tocHref: /azure/machine-learning/studio/create-workspace
-        topicHref: /azure/machine-learning/studio/index
+  
