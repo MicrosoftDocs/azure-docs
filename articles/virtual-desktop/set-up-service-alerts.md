@@ -1,5 +1,5 @@
 ---
-title: Set up service alerts - Azure
+title: Set up service alerts for Windows Virtual Desktop - Azure
 description: How to set up Azure Service Health to receive service notifications for Windows Virtual Desktop.
 services: virtual-desktop
 author: ChJenk
@@ -19,8 +19,6 @@ In this tutorial, you'll learn how to:
 > * Create and configure service alerts.
 
 To learn more about Azure Service Health, see the [Azure Health Documentation](https://docs.microsoft.com/azure/service-health/).
-
-![Screenshot of Azure Service Health.](media/service-alerts.png)
 
 ## Prerequisites
 
