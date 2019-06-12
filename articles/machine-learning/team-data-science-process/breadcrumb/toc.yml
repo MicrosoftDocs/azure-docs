@@ -56,7 +56,7 @@
         items:
         - name: Blobs
           tocHref: /azure/storage/blobs/
-          topicHref: /azure/storage/blobs/storage-blobs-introduction
+          topicHref: /azure/storage/blobs/index
 
 - name: Azure
   tocHref: /azure/
@@ -67,7 +67,7 @@
     topicHref: /azure/machine-learning/index
     items:
     - name: Team Data Science Process
-      tocHref: /azure/storage/blobs/
+      tocHref: /azure/storage/common/
       topicHref: /azure/machine-learning/team-data-science-process/index
       items:
       - name: Storage
