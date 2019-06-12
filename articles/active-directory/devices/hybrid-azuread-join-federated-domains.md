@@ -146,7 +146,7 @@ If some of your domain-joined devices are Windows downlevel devices, you must:
 To successfully complete hybrid Azure AD join of your Windows downlevel devices and to avoid certificate prompts when devices authenticate to Azure AD, you can push a policy to your domain-joined devices to add the following URLs to the local intranet zone in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
-- Your organization's STS (federated domains)
+- Your organization's STS (For federated domains)
 - `https://autologon.microsoftazuread-sso.com` (For seamless SSO)
 
 You also must enable **Allow updates to status bar via script** in the user’s local intranet zone.
