@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 06/10/2019
 ms.author: kumud;tyao
 ---
 
@@ -26,9 +26,6 @@ An Azure WAF policy can be applied to web applications hosted on Application Gat
 ## What is WAF for Azure Front Door Service? 
 
 Azure Front Door is a highly scalable, globally distributed application and content delivery network. Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the Azure network edge, close to attack sources before they enter your virtual network, offers protection without sacrificing performance.
-
-## How will I be charged for Azure WAF for Front Door?
-During public preview, WAF usage at Front Door are free of charge. Note that Front Door charge is extra. See Front Door Service pricing [here](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ## Does Azure WAF support HTTPS?
 
