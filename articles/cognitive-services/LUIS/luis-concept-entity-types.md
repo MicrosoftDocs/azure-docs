@@ -109,9 +109,23 @@ Machine-learned entities learn from context in the utterance. This makes variati
 
 ## Non-machine-learned entities don't use context
 
-Non-machine learned entities do not use context for matching in the utterance. If you want context of the utterance to matter for non-machine learned entities, you should use [roles](luis-concept-roles.md).
+The following non-machine learned entities do not take utterance context into account when matching entities: 
 
-If you have a non-machine-learned entity, such as regex or list, which is matching beyond the instance you want, consider creating one entity with two roles. One roles will capture what you are looking for, and one role will capture what you are not looking for. Both versions will need to be labeled in example utterances.  
+* [Prebuilt entities](#prebuilt-entity)
+* [Regex entities](#regular-expression-entity)
+* [List entities](#list-entity) 
+
+These entities do not require labeling or training the model. Once you add or configure the entity, the entities are extracted. The tradeoff is that these entities can be overmatched, where if context was taken into account, the match would not have been made. 
+
+This happens with list entities on new models frequently. You build and test your model with a list entity but when you publish your model and receive queries from the endpoint, you realize your model is overmatching due to lack of context. 
+
+If you want to match words or phrases and take context into account, you have two options. The first is to use a simple entity paired with a phrase list. The phrase list will not be used for matching but instead will help signal relatively similar words (interchangeable list). If you must have an exact match instead of a phrase list's variations, use a list entity with a role, described below.
+
+### Context with non-machine-learned entities
+
+If you want context of the utterance to matter for non-machine learned entities, you should use [roles](luis-concept-roles.md).
+
+If you have a non-machine-learned entity, such as [prebuilt entities](#prebuilt-entity), [regex](#regular-expression-entity) entities or [list](#list-entity) entities, which is matching beyond the instance you want, consider creating one entity with two roles. One role will capture what you are looking for, and one role will capture what you are not looking for. Both versions will need to be labeled in example utterances.  
 
 ## Composite entity
 
@@ -137,8 +151,9 @@ List entities represent a fixed, closed set of related words along with their sy
 The entity is a good fit when the text data:
 
 * Are a known set.
+* Doesn't change often. If you need to change the list often or want the list to self-expand, a simple entity boosted with a phrase list is a better choice. 
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
-* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with a list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
+* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Fuzzy matching, case-insensitivity, stemming, plurals, and other variations are not resolved with a list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
 
 ![list entity](./media/luis-concept-entities/list-entity.png)
 
@@ -236,7 +251,7 @@ Regular expressions may match more than you expect to match. An example of this 
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ``` 
 
-This regex expression also matches any words that end with this numbers, such as `phone`. In order to fix issues like this, make sure the regex matches takes into account word boundaries. The regex to use word boundaries for this example is used in the following regex:
+This regex expression also matches any words that end with these numbers, such as `phone`. In order to fix issues like this, make sure the regex matches takes into account word boundaries. The regex to use word boundaries for this example is used in the following regex:
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
