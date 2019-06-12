@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Quickstart: Use a device capability model to create a device
 
-For a plug and play device, a Device Capability Model (DCM) describes a physical device and often associated with a product SKU. A DCM defines the set of interfaces implemented by the digital twin, and a device can be created based on that. This quickstart shows you how to create a Plug and Play device using a DCM.
+A _device capability model_ (DCM) describes the capabilities of a plug and play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code to create a plug and play device using a DCM.
 
 ## Prerequisites
 
@@ -24,24 +24,24 @@ Install the newest version of Visual Studio Code from [https://code.visualstudio
 
 ### Install Azure IoT Device Workbench
 
-Install the Azure IoT Device Workbench extension from a .vsix file. Install the extension within VS Code as shown in following steps, the extension can't be installed from Windows Explorer:
+Install the Azure IoT Device Workbench extension from a .vsix file. Use the following steps to install the extension in VS Code. The extension can't be installed from Windows Explorer:
 
 1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr).
 1. In VS Code, select **Extensions**.
 1. Select the **...** menu dropdown.
 1. Select **Install from VSIX**.
-1. Select the .vsix file you just downloaded.
+1. Select the .vsix file you downloaded.
 1. Select **Install**.
 
 ![Install Azure IoT Device Workbench extension](media/quickstart-create-pnp-device/install-vsix.png)
 
-### Install Digital Twin Explorer
+### Install the digital twin explorer
 
-Download and install the Digital Twin Explorer from the [latest release]().
+Download and install the digital twin explorer tool from the [latest release]().
 
 ### Azure IoT Hub
 
-You will need to create a device identity in an Azure IoT Hub. If you don't have one, follow instructions [here](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node#create-an-iot-hub) to create one.
+Create a device identity in an Azure IoT Hub. If you don't have one, follow instructions [here](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node#create-an-iot-hub) to create one.
 
 ## Create your model
 
@@ -54,9 +54,9 @@ To create a new interface in VS Code:
 
 1. Enter **DeviceInformation.interface.json** as the name of your interface file. A default interface file is created.
 
-1. Copy the contents from the file [here]() into the file you just created.
+1. Copy the contents from the file [here]() into the file you created.
   
-1. Make the id unique, for example:
+1. Make the value of the **@id** property unique, for example:
 
 ```json
 "@id": "http://yourdomain.com/environmentalsensor/1.0.1"
@@ -111,7 +111,7 @@ To submit your interface file to the model repository in VS Code:
 1. Use **Ctrl+Shift+P** to open the command palette, enter **Azure IoT Plug and Play**, and select **Submit file to Model Repository**:
    ![Submit an interface to the model repository](media/quickstart-create-pnp-device/submit.png)
 
-1. Select the interface and DCM files you just created:
+1. Select the interface and DCM files you created:
    ![Select files to submit](media/quickstart-create-pnp-device/submit-file.png)
 
 1. In the plug and play model repository UI, select **Refresh** to see the files you submitted files:
