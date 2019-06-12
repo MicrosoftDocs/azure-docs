@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ---
 
-# Mapping data flow activity parameters
+# Mapping data flow parameters
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -18,7 +18,7 @@ Mapping data flows in data factory support the use of parameters. You can define
 * Use the data flow expression language to set a dynamic value
 * Use either expression language to set a static literal value
 
-Use this capability to make your data flows general-purpose, flexible, and reusable.
+Use this capability to make your data flows general-purpose, flexible, and reusable. You can parameterize data flow settings and expressions with these parameters.
 
 > [!NOTE]
 > To use pipeline control flow expressions, your data flow parameter must be of type string
@@ -31,25 +31,19 @@ Use this capability to make your data flows general-purpose, flexible, and reusa
 
 ## Parameters in data flow
 
-To add parameters to your data flow, click on the blank portion of the data flow canvas to see the general properties. In the settings pane, you will see a tab called Parameters. Click the New button to generate new parameters which can be set from the pipeline, passing values into your data flow. Set the parameter name and data type for each parameter.
+To add parameters to your data flow, click on the blank portion of the data flow canvas to see the general properties. In the settings pane, you will see a tab called Parameters. Click the New button to generate new parameters, which can then be set from the pipeline, passing values into your data flow. Enter a parameter name and select the data type for each parameter.
+
+Inside of your data flow expressions, you can utilize the parameters using the values set from the pipeline. Parameters begin with $ and are immutable. You will also find the list of your available parameters inside of the Expression Builder under the Parameters tab. You can use these values within your expressions, although you may not assign new values to the parameters.
 
 ![Data flow parameters 2](media/data-flow/params1.png "Data flow parameters 2")
 
-### Hash
+## Set data flow parameters from pipeline
 
-Azure Data Factory will produce a hash of columns to produce uniform partitions such that rows with similar values will fall in the same partition. When using the Hash option, test for possible partition skew. You can set the number of physical partitions.
+![Data flow parameters activity](media/data-flow/params3.png "Data flow parameters activity")
 
-### Dynamic Range
 
-Dynamic Range will use Spark dynamic ranges based on the columns or expressions that you provide. You can set the number of physical partitions. 
+![Data flow parameters expression language](media/data-flow/params4.png "Data flow parameters expression language")
 
-### Fixed Range
-
-You must build an expression that provides a fixed range for values within your partitioned data columns. You should have a good understanding of your data before using this option in order to avoid partition skew. The value that enter for the expression will be used as part of a partition function. You can set the number of physical partitions.
-
-### Key
-
-If you have a good understanding of the cardinality of your data, key partitioning may be a good partition strategy. Key partitioning will create partitions for each unique value in your column. You cannot set the number of partitions because the number will be based on unique values in the data.
 
 ## Next steps
 
