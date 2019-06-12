@@ -271,6 +271,7 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
 
 ### SQL Server Agent
 
+- Enabling and disabling SQL Server Agent is currently not supported in managed instance. SQL Agent is always running.
 - SQL Server Agent settings are read only. The procedure `sp_set_agent_properties` isn't supported in Managed Instance. 
 - Jobs
   - T-SQL job steps are supported.
