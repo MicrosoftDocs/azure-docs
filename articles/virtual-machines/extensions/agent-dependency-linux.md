@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Dependency virtual machine extension for Linux | Microsoft Docs
-description: Deploy the Azure Monitor Dependency Agent on Linux virtual machine by using a virtual machine extension.
+description: Deploy the Azure Monitor Dependency agent on Linux virtual machine by using a virtual machine extension.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mgoedtel
@@ -20,17 +20,17 @@ ms.author: magoedte
 ---
 # Azure Monitor Dependency virtual machine extension for Linux
 
-The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependency Agent. The Azure VM Dependency Agent virtual machine extension for Linux is published and supported by Microsoft. The extension installs the Dependency Agent on Azure virtual machines. This document details the supported platforms, configurations, and deployment options for the Azure VM Dependency Agent virtual machine extension for Linux.
+The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependency agent. The Azure VM Dependency agent virtual machine extension for Linux is published and supported by Microsoft. The extension installs the Dependency agent on Azure virtual machines. This document details the supported platforms, configurations, and deployment options for the Azure VM Dependency agent virtual machine extension for Linux.
 
 ## Prerequisites
 
 ### Operating system
 
-The Azure VM Dependency Agent extension for Linux can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
+The Azure VM Dependency agent extension for Linux can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
 
 ## Extension schema
 
-The following JSON shows the schema for the Azure VM Dependency Agent extension on an Azure Linux VM. 
+The following JSON shows the schema for the Azure VM Dependency agent extension on an Azure Linux VM. 
 
 ```json
 {
@@ -79,11 +79,11 @@ The following JSON shows the schema for the Azure VM Dependency Agent extension 
 
 ## Template deployment
 
-You can deploy Azure VM extensions with Azure Resource Manager templates. You can use the JSON schema detailed in the previous section in an Azure Resource Manager template to run the Azure VM Dependency Agent extension during an Azure Resource Manager template deployment.
+You can deploy Azure VM extensions with Azure Resource Manager templates. You can use the JSON schema detailed in the previous section in an Azure Resource Manager template to run the Azure VM Dependency agent extension during an Azure Resource Manager template deployment.
 
 The JSON for a virtual machine extension can be nested inside the virtual machine resource. Or, you can place it at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources).
 
-The following example assumes the Dependency Agent extension is nested inside the virtual machine resource. When you nest the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
+The following example assumes the Dependency agent extension is nested inside the virtual machine resource. When you nest the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 
 
 ```json
@@ -126,7 +126,7 @@ When you place the extension JSON at the root of the template, the resource name
 
 ## Azure CLI deployment
 
-You can use the Azure CLI to deploy the Dependency Agent VM extension to an existing virtual machine.  
+You can use the Azure CLI to deploy the Dependency agent VM extension to an existing virtual machine.  
 
 ```azurecli
 
