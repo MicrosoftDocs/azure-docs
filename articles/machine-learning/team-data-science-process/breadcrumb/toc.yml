@@ -15,7 +15,7 @@
         topicHref: /azure/storage/index
         items:
         - name: Blobs
-          tocHref: /azure/storage/blobs/storage-python-how-to-use-blob-storage
+          tocHref: /azure/storage/blobs/
           topicHref: /azure/storage/blobs/index
 
 - name: Azure
@@ -33,6 +33,10 @@
       - name: Storage
         tocHref: /azure/storage/common/
         topicHref: /azure/storage/index
+        items:
+        - name: Blobs
+          tocHref: /azure/storage/common/
+          topicHref: /azure/storage/blobs/index
 
 - name: Azure
   tocHref: /studio/
