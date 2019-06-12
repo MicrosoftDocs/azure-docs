@@ -1,15 +1,15 @@
 ---
-title: Autoscaling and Zone-redundant Application Gateway in Azure
+title: Autoscaling and Zone-redundant Application Gateway v2
 description: This article introduces the Azure Application Standard_v2 and WAF_v2 SKU, which includes Autoscaling and Zone-redundant features.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/1/2019
+ms.date: 6/13/2019
 ms.author: victorh
 ---
 
-# Autoscaling and Zone-redundant Application Gateway 
+# Autoscaling and Zone-redundant Application Gateway v2 
 
 Application Gateway and Web Application Firewall (WAF) are also available under a Standard_v2 and WAF_v2 SKU. The v2 SKU offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features under the Standard and WAF SKU continue to be supported in the new v2 SKU, with a few exceptions listed in [comparison](#differences-with-v1-sku) section.
 
@@ -100,7 +100,7 @@ Total price = $267.84 + $85.71 = $353.55
 
 Application Gateway and WAF can be configured to scale in two modes:
 
-- **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale up or  down based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring to run gateways at peak provisioned capacity for anticipated maximum traffic load. Customers must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 do not fall below the minimum instance count specified, even in the absence of traffic. You'll be billed for this minimum capacity even in the absence of any traffic. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You'll continue to be billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 20 if not specified.
+- **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale up or  down based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring to run gateways at peak provisioned capacity for anticipated maximum traffic load. Customers must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 don't fall below the minimum instance count specified, even in the absence of traffic. You'll be billed for this minimum capacity even in the absence of any traffic. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You'll continue to be billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 20 if not specified.
 - **Manual** - You can alternatively choose Manual mode where the gateway won't autoscale. In this mode, if there is more traffic than what Application Gateway or WAF can handle, it could result in traffic loss. With manual mode, specifying instance count is mandatory. Instance count can vary from 1 to 125 instances.
 
 ## Feature comparison between v1 SKU and v2 SKU
@@ -143,11 +143,12 @@ The following table compares the features available with each SKU.
 |FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
 |Netwatcher integration|Not supported.|
-|Azure Support Center integration|Not yet available.
+|Azure Security Center integration|Not yet available.
 
 ## Migrate from v1 to v2
 
-An Azure PowerShell script is available in the PowerShell gallery to help you migrate from your v1 Application Gateway/WAF to the v2 Autoscaling SKU. This script helps you copy the configuration from your v1 gateway. Traffic migration is still your responsibility. For more details, see [Migrate Azure Application Gateway from v1 to v2](migrate-v1-v2.md).
+An Azure PowerShell script is available in the PowerShell gallery to help you migrate from your v1 Application Gateway/WAF to the v2 Autoscaling SKU. This script helps you copy the configuration from your v1 gateway. Traffic migration is still your responsibility. For more information, see [Migrate Azure Application Gateway from v1 to v2](migrate-v1-v2.md).
+
 ## Next steps
 
 - [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
