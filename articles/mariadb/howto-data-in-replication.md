@@ -10,7 +10,7 @@ ms.date: 09/24/2018
 
 # How to configure Azure Database for MariaDB Data-in Replication
 
-In this article, you will learn how to set up Data-in Replication in the Azure Database for MariaDB service by configuring the master and replica servers. Data-in Replication allows you to synchronize data from a master MariaDB server running on-premises, in virtual machines, or database services hosted by other cloud providers into a replica in the Azure Database for MariaDB service. 
+In this article, you will learn how to set up Data-in Replication in the Azure Database for MariaDB service by configuring the master and replica servers. Data-in Replication allows you to synchronize data from a master MariaDB server running on-premises, in virtual machines, or database services hosted by other cloud providers into a replica in the Azure Database for MariaDB service. We recommanded you setup the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/) when your master service's version is 10.2 or above.
 
 This article assumes that you have at least some prior experience with MariaDB servers and databases.
 
@@ -111,7 +111,16 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    The results should be like following. Make sure to note the binary file name as it will be used in later steps.
 
    ![Master Status Results](./media/howto-data-in-replication/masterstatus.png)
+   
+6. Get GTID position (Optional, needed for replication with GTID)
+
+   Run the function [`binlog_gtid_pos`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) command to get the GTID position for the correspond binlog file name and offset.
+  
+    ```sql
+    select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
+    ```
  
+
 ## Dump and restore master server
 
 1. Dump all databases from master server
@@ -137,10 +146,16 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench.
 
-   To link two servers and start replication, login to the target replica server in the Azure DB for MariaDB service and set the external instance as the master server. This is done by using the `mysql.az_replication_change_master` stored procedure on the Azure DB for MariaDB server.
+   To link two servers and start replication, login to the target replica server in the Azure DB for MariaDB service and set the external instance as the master server. This is done by using the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure on the Azure DB for MariaDB server.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   ```
+   
+   or
+   
+   ```sql
+   CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
    - master_host: hostname of the master server
@@ -148,6 +163,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    - master_password: password for the master server
    - master_log_file: binary log file name from running `show master status`
    - master_log_pos: binary log position from running `show master status`
+   - master_gtid_pos: GTID position from running `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca: CA certificate’s context. If not using SSL, pass in empty string.
        - It is recommended to pass this parameter in as a variable. See the following examples for more information.
 
@@ -194,6 +210,10 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    If the state of `Slave_IO_Running` and `Slave_SQL_Running` are "yes" and the value of `Seconds_Behind_Master` is “0”, replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value is not "0", it means that the replica is processing updates. 
 
+4. Update correspond server variables to make data-in replication more safe (Only needed for replication without GTID)
+	
+	Because of MariaDB native replication limitation, you need to setup [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without GTID scenario. We recommand you check your slave server's `sync_master_info` and `sync_relay_log_info` variables and change them ot `1` if you want to make sure the data-in replication is stable.
+	
 ## Other stored procedures
 
 ### Stop replication
