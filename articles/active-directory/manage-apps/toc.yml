@@ -45,7 +45,7 @@
         href: application-proxy-network-topology.md
       - name: Comparison of remote access solutions
         href: application-proxy-migration.md
-    - name: Provision users
+    - name: Automatic user provisioning
       href: user-provisioning.md
     - name: Application security
       items:
