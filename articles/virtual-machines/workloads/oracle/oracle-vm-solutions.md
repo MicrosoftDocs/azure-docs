@@ -71,7 +71,7 @@ Azure NetApp Files was designed to meet the core requirements of running high-pe
 - Scalable performance tiers that reflect the real-world range of IOPS demands
 - Low latency
 - High availability, high durability and manageability at scale, typically demanded by mission critical enterprise workloads (like SAP and Oracle)
-- Fast and efficient backup and recovery and cloning, to achieve the most aggressive RTO and RPO SLA’s
+- Fast and efficient backup and recovery, to achieve the most aggressive RTO and RPO SLA’s
 
 These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems running within Azure data center environment – as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. See [Azure NetApp Files documentation](https://docs.microsoft.com/azure/azure-netapp-files/) for more information on how to deploy and access Azure NetApp Files NFS volumes. See [Oracle on Azure Deployment Best Practice Guide Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) for best practice recommendations for operating an Oracle database on Azure NetApp Files.
 
