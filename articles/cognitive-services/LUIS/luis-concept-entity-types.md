@@ -103,6 +103,16 @@ Pattern.any entities need to be marked in the [Pattern](luis-how-to-model-intent
 
 Mixed entities use a combination of entity detection methods.
 
+## Machine-learned entities use context
+
+Machine-learned entities learn from context in the utterance. This makes variation of placement in example utterances significant. 
+
+## Non-machine-learned entities don't use context
+
+Non-machine learned entities do not use context for matching in the utterance. If you want context of the utterance to matter for non-machine learned entities, you should use [roles](luis-concept-roles.md).
+
+If you have a non-machine-learned entity, such as regex or list, which is matching beyond the instance you want, consider creating one entity with two roles. One roles will capture what you are looking for, and one role will capture what you are not looking for. Both versions will need to be labeled in example utterances.  
+
 ## Composite entity
 
 A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity. 
@@ -219,6 +229,8 @@ The entity is a good fit when:
 
 [Tutorial](luis-quickstart-intents-regex-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+
+Regular expressions may match more than you expect to match. An example of this is numeric word matching such as `one` and `two`. An example is the following regex: 
 
 ## Simple entity 
 
