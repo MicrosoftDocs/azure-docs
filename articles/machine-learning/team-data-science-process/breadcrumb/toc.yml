@@ -67,11 +67,11 @@
       topicHref: /azure/machine-learning/team-data-science-process/index
       items:
       - name: HDInsight
-        topHref: /azure/hdinsight/spark/
+        tocHref: /azure/hdinsight/spark/
         topicHref: /azure/hdinsight/index
         items:
         - name: Spark
-          topHref: /azure/hdinsight/spark/
+          tocHref: /azure/hdinsight/spark/
           topicHref: /azure/hdinsight/spark/apache-spark-overview
 
 - name: Azure
@@ -87,9 +87,9 @@
       topicHref: /azure/machine-learning/team-data-science-process/index
       items:
       - name: HDInsight
-        topHref: /azure/hdinsight/spark/
+        tocHref: /azure/hdinsight/spark/
         topicHref: /azure/hdinsight/index
         items:
         - name: ML Services
-          topHref: /azure/hdinsight/r-server/
+          tocHref: /azure/hdinsight/r-server/
           topicHref: /azure/hdinsight/r-server/index
