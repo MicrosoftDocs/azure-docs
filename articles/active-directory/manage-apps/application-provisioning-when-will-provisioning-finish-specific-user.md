@@ -22,20 +22,20 @@ ms.collection: M365-identity-device-management
 
 # Check the status of user provisioning
 
-The Azure AD provisioning service runs an initial sync against the source system and target system, followed by periodic incremental syncs. When you configure provisioning for an app, you can check the current status of the provisioning service and see when a user will be able to access an app.
+The Azure AD provisioning service runs an initial provisioning cycle against the source system and target system, followed by periodic incremental cycles. When you configure provisioning for an app, you can check the current status of the provisioning service and see when a user will be able to access an app.
 
 ## View the provisioning progress bar (preview)
 
- On the **Provisioning** page for an app, you can view the status of the Azure AD provisioning sync service. The **Current Status** section at the bottom of the page shows whether a sync cycle has started provisioning user accounts. You can watch the progress of the sync, see how many users and groups have been provisioned, and see how many roles are created.
+ On the **Provisioning** page for an app, you can view the status of the Azure AD provisioning service. The **Current Status** section at the bottom of the page shows whether a provisioning cycle has started provisioning user accounts. You can watch the progress of the cycle, see how many users and groups have been provisioned, and see how many roles are created.
 
-When you first configure automatic provisioning, the **Current Status** section at the bottom of the page shows the status of the initial sync. This section updates each time an incremental sync runs. The following details are shown:
-- The type of sync (initial or incremental) that is currently running or was last completed.
-- A **progress bar** showing the percentage of the sync process that has completed. The percentage reflects the count of pages synced. Note that each page could contain multiple users or groups, so the percentage doesn't directly correlate to the number of users, groups, or roles provisioned.
+When you first configure automatic provisioning, the **Current Status** section at the bottom of the page shows the status of the initial provisioning cycle. This section updates each time an incremental cycle runs. The following details are shown:
+- The type of provisioning cycle (initial or incremental) that is currently running or was last completed.
+- A **progress bar** showing the percentage of the provisioning cycle that has completed. The percentage reflects the count of pages provisioned. Note that each page could contain multiple users or groups, so the percentage doesn't directly correlate to the number of users, groups, or roles provisioned.
 - A **Refresh** button you can use to keep the view updated.
 - The number of users and groups provisioned, and the number of roles created.
 - A **View Audit Logs** link, which opens the Azure AD audit logs for details about all operations run by the user provisioning service, including provisioning status for individual users (see the [Use audit logs](#use-audit-logs-to-check-a-users-provisioning-status) section below).
 
-After a sync is complete, the **Statistics to date** section shows the cumulative numbers of users and groups that have been provisioned to date, along with the completion date and duration of the last sync. The **Activity ID** uniquely identifies the most recent provisioning cycle. The **Job ID** is a unique identifier for the sync job, and is specific to the app in your tenant.
+After a provisioning cycle is complete, the **Statistics to date** section shows the cumulative numbers of users and groups that have been provisioned to date, along with the completion date and duration of the last cycle. The **Activity ID** uniquely identifies the most recent provisioning cycle. The **Job ID** is a unique identifier for the provisioning job, and is specific to the app in your tenant.
 
 The provisioning progress can viewed in the Azure portal, in the **Azure Active Directory &gt; Enterprise Apps &gt; \[application name\] &gt; Provisioning** tab.
 
@@ -65,7 +65,7 @@ The time it takes for a given user to be provisioned depends mainly on whether y
 
 - For **initial syncs**, the job time depends on many factors, including the number of users and groups in scope for provisioning, and the total number of users and group in the source system. The first sync between Azure AD and an app can take anywhere from 20 minutes to several hours, depending on the size of the Azure AD directory and the number of users in scope for provisioning. A comprehensive list of factors that affect initial sync performance are summarized later in this section.
 
-- For **incremental syncs** after the initial sync, job times tend to be faster (e.g. within 10 minutes), as the provisioning service stores watermarks that represent the state of both systems after the initial sync, improving performance of subsequent syncs. The job time depends on the number of changes detected in that sync cycle. If there are fewer than 5,000 user or group membership changes, the job can finish within a single incremental sync cycle. 
+- For **incremental syncs** after the initial sync, job times tend to be faster (e.g. within 10 minutes), as the provisioning service stores watermarks that represent the state of both systems after the initial sync, improving performance of subsequent syncs. The job time depends on the number of changes detected in that provisioning cycle. If there are fewer than 5,000 user or group membership changes, the job can finish within a single incremental provisioning cycle. 
 
 The following table summarizes synchronization times for common provisioning scenarios. In these scenarios, the source system is Azure AD and the target system is a SaaS application. The sync times are derived from a statistical analysis of sync jobs for the SaaS applications ServiceNow, Workplace, Salesforce, and G Suite.
 
