@@ -129,7 +129,7 @@ To enable name resolution between the virtual network and resources in joined ne
 
 2. Configure the virtual network to use the custom DNS server.
 
-3. Find the Azure assigned DNS suffix for your virtual network. This value is similar to `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. For information on finding the DNS suffix, see the [Example: Custom DNS](#example-dns) section.
+3. Find the Azure assigned DNS suffix for your virtual network. This value is similar to `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. For information on finding the DNS suffix, see the [Example: Custom DNS](hdinsight-create-virtual-network.md#example-dns) section.
 
 4. Configure forwarding between the DNS servers. The configuration depends on the type of remote network.
 
@@ -155,7 +155,7 @@ To enable name resolution between the virtual network and resources in joined ne
 
        The DNS server for each network forwards requests to the other, based on DNS suffix. Other requests are resolved using the Azure recursive resolver.
 
-     For an example of each configuration, see the [Example: Custom DNS](#example-dns) section.
+     For an example of each configuration, see the [Example: Custom DNS](hdinsight-create-virtual-network.md#example-dns) section.
 
 For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
