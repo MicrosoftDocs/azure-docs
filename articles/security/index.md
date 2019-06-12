@@ -166,16 +166,7 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
                         <h3>Developers</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
-                                <a class="barLink" href="https://aka.ms/SecurityResponsepaper">Secure development best practices</a>
-                            </li>
-                            <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-threat-detection">Secure sample apps</a>
-                            </li>
-                            <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-azure-network-security">Secure development resources</a>
-                            </li>
-                            <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-develop-secure-apps">Develop secure applications on Azure</a>
+                                <a class="barLink" href="/azure/security/develop/secure-dev-overview">Secure development best practices</a>
                             </li>
                         </ul>
                     </div>

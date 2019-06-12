@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure security for developers
 metadata:
   document_id: 
-  title: Secure Development Guidance - Sample apps, best practices
+  title: Secure Development Guidance on Microsoft Azure - Sample apps, best practices
   meta.description: Learn how to develop secure apps on Azure.
   services: security
   author: TerryLanfear
@@ -25,7 +25,7 @@ sections:
     className: cardsM
     columns: 2
     items:
-      - href: /azure/security/develop
+      - href: /azure/security/develop/secure-dev-overview
         html: <p>Deploy your first web application to Azure</p>
         image:
           src: media/index/i_managed.svg
@@ -42,7 +42,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Web app in a Linux container</a>
+    - html: <a href="/azure/security/develop/secure-dev-overview">Web app in a Linux container</a>
 
 - title: Concepts
   items:
@@ -50,7 +50,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Secure development best practices</a>
-    - html: <a href="/azure/sql-database/sql-database-cli-samples">Threat modeling</a>
+    - html: <a href="/azure/security/develop/secure-dev-overview">Secure development best practices</a>
+    - html: <a href="/azure/security/azure-security-threat-modeling-tool">Threat modeling</a>
 
     
