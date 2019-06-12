@@ -43,7 +43,9 @@ If you are ready, let's start.
 
 ## Copy your data to a Data Box device
 
-If your data size exceeds the capacity of the Data Box device, then use the [optional procedure to split the data across multiple Data Box devices](#appendix-split-data-across-multiple-data-box-devices). 
+If your data fits into a Data Box device, then you'll copy the data to the Data Box device. 
+
+If your data size exceeds the capacity of the Data Box device, then use the [optional procedure to split the data across multiple Data Box devices](#appendix-split-data-across-multiple-data-box-devices) and then perform this step. 
 
 To copy the data from your on-premises HDFS store to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
 
@@ -174,7 +176,7 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 ## Move the data into Azure Data Lake Storage Gen2
 
-First, copy data into your storage account. Then, apply access permissions to files and directories.
+First, copy data into your Azure Data Lake storage account. Then, apply access permissions to files and directories.
 
 > [!NOTE]
 > This step is needed if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you can skip this section.
@@ -219,6 +221,7 @@ This command generates a list of copied files with their permissions.
 1. Run this command to generate a list of unique identities.
 
    ```bash
+   
    ./copy-acls.py -s ./filelist.json -i ./id_map.json -g
    ```
 
@@ -233,6 +236,7 @@ This command generates a list of copied files with their permissions.
 Run this command to apply permissions to the data that you copied into the Data Lake Storage Gen2 account:
 
 ```bash
+
 ./copy-acls.py -s ./filelist.json -i ./id_map.json  -A <storage-account-name> -C <container-name> --dest-spn-id <application-id>  --dest-spn-secret <client-secret>
 ```
 
@@ -251,6 +255,7 @@ Before you move your data onto a Data Box device, you'll need to download some h
 1. From your edge or head node of your on-premises Hadoop cluster, run this command:
 
    ```bash
+   
    git clone https://github.com/jamesbak/databox-adls-loader.git
    cd databox-adls-loader
    ```
@@ -260,18 +265,21 @@ Before you move your data onto a Data Box device, you'll need to download some h
 2. Make sure that have the [jq](https://stedolan.github.io/jq/) package installed on your local computer.
 
    ```bash
+   
    sudo apt-get install jq
    ```
 
 3. Install the [Requests](http://docs.python-requests.org/en/master/) python package.
 
    ```bash
+   
    pip install requests
    ```
 
 4. Set execute permissions on the required scripts.
 
    ```bash
+   
    chmod +x *.py *.sh
 
    ```
@@ -322,7 +330,7 @@ If your data doesn't exceed the size of a singe Data Box device, you can proceed
 
 You'll need to exclude some directories from the DisCp job. For example, exclude directories that contain state information that keep the cluster running.
 
-On the on-premise Hadoop cluster where you plan to initiate the DistCp job, create a file that specifies the list of directories that you want to exclude.
+On the on-premises Hadoop cluster where you plan to initiate the DistCp job, create a file that specifies the list of directories that you want to exclude.
 
 Here's an example:
 
