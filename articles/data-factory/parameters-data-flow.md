@@ -29,7 +29,7 @@ Use this capability to make your data flows general-purpose, flexible, and reusa
 * If your data flow has parameters, you will see the list of available parameters in the Parameters tab.** Click on the text box next to each parameter to enter your parameter value.
 * You can choose to create your parameter expression via the pipeline control flow expression language or data flow expressions.
 
-## Parameters in data flow
+## Create parameters in data flow
 
 ![Data flow parameters 1](media/data-flow/params1.png "Data flow parameters 1")
 
@@ -41,12 +41,22 @@ Inside of your data flow expressions, you can utilize the parameters using the v
 
 ## Set data flow parameters from pipeline
 
-
+Once you've created your data flow with parameters, you can now execute that data flow from a pipeline with the Execute Data Flow Activity. Once you add that activity to your pipeline design canvas, you will be presented with the available data flow parameters in the activity's parameters setting tab.
 
 ![Data flow parameters expression language](media/data-flow/params4.png "Data flow parameters expression language")
 
+When you click in the text box to fill-in parameter values, you will be presented with the Data Flow Expression Builder. Here, you can enter any expression or literal values that you wish that match the data type of the parameter. Below are examples of data flow expression and a literal string from the expression builder:
+
+* ```toInteger(Role)```
+* ```'this is my static literal string'```
+
+If your parameter data type is a string, then you can choose to enter either a pipeline or a data flow expression. If you choose pipeline expression, you will instead be presented with the pipeline expression panel. Make sure to include pipeline functions inside string interpolation syntax using '@{<expression>}', for example:
+
+```'@{pipeline().RunId}'```
+
+![Data flow parameters sample](media/data-flow/params5.png "Data flow parameters sample")
 
 ## Next steps
 
-[Execute data flow activity](control-flow-execute-data-flow-activity.md)
-[Control flow expressions](control-flow-expression-language-functions.md)
+* [Execute data flow activity](control-flow-execute-data-flow-activity.md)
+* [Control flow expressions](control-flow-expression-language-functions.md)
