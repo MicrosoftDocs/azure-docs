@@ -21,13 +21,13 @@ Mapping data flows in data factory support the use of parameters. You can define
 Use this capability to make your data flows general-purpose, flexible, and reusable. You can parameterize data flow settings and expressions with these parameters.
 
 > [!NOTE]
-> To use pipeline control flow expressions, your data flow parameter must be of type string
-
-![Data flow parameters 3](media/data-flow/params3.png "Data flow parameters 3")
+> To use pipeline control flow expressions, your data flow parameter must be of type string.
 
 * Add an Execute Data Flow activity to the pipeline canvas.
 * If your data flow has parameters, you will see the list of available parameters in the Parameters tab.** Click on the text box next to each parameter to enter your parameter value.
 * You can choose to create your parameter expression via the pipeline control flow expression language or data flow expressions.
+
+![Data flow parameters 3](media/data-flow/params3.png "Data flow parameters 3")
 
 ## Create parameters in data flow
 
