@@ -44,9 +44,9 @@ You can connect to consortium members using the Azure Blockchain Development Kit
 
 1. Complete the prerequisite [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md).
 1. Choose **Azure Blockchain: Connect to Consortium** from the Visual Studio Code (VS Code) command palette.
-1. Choose **Connect to Azure Blockchain Service consortium**. If prompted for Azure authentication, follow the prompts to authenticate using a browser. 
+1. Choose **Connect to Azure Blockchain Service consortium**. If prompted for Azure authentication, follow the prompts to authenticate using a browser.
 1. Select the subscription and resource group associated with your Azure Blockchain Service consortium member.
-1. Choose the consortium member from the list.
+1. Choose your consortium from the list.
 
 ## Create smart contract
 
@@ -62,26 +62,27 @@ Your Solidity project includes a simple contract and all the necessary files to 
 
 ## Build smart contract
 
-Explain build.
+Your smart contracts are located in the project's **contracts** directory. Smart contracts need to be compiled before you deploy them to the blockchain. Use the **build** command to compile all the contracts in your project.
 
-1. Open the contract folder.
-1. Choose **Azure Blockchain: Build Contracts** from the VS Code command palette.
+1. In VS Code, select **File > Open folder** and choose the **contracts** folder in your project.
+1. Right-click **HelloBlockchain.sol** and choose **Build Contracts** from the menu.
 
-Once compiled, you have your contract, contract metadata (e.g., contract ABI, bytecode) available in the ./build directory.
+    [screenshot]
 
-Once you deployment/creation of the Azure Blockchain Service is complete you will also see that consortium in your VS Code Blockchain tab. 
+Once compiled, your contract, contract metadata (contract ABI and bytecode) is stored in the **build** sub-directory.
 
 ## Deploy smart contract
 
-Explain deploy.
+Truffle uses migration scripts to deploy your contracts to an Ethereum network. Migrations are JavaScript files located in the project's **migrations** directory.
 
-1. To deploy your contract, choose **Azure Blockchain: Deploy Contracts** from the VS Code command palette.
-1. Options for test, local, and consortium. Choose consortium network. 
-1. Generate mnemonic. Save it.
+1. To deploy your smart contract, right-click **HelloBlockchain.sol** and choose **Deploy Contracts** from the menu.
+1. Choose your Azure Blockchain consortium network under **From truffle-config.js**. The consortium network was added to the project's Truffle configuration file when you created the project.
 
-the deployment process gives users the option to deploy a contract to a local Ethereum emulation environment, an Azure Blockchain Service, or various public Ethereum endpoints such as a testnet, or mainnet. 
+    [screenshot]
 
+1. Choose **Generate mnemonic** and save the mnemonic file. The mnemonic is used to generate a Ethereum private key.
 
+## Part II
 
 1. In the **contracts** folder, create a new file named `SimpleStorage.sol`. Add the following code.
 
@@ -99,13 +100,13 @@ the deployment process gives users the option to deploy a contract to a local Et
             storedData = x;
         }
     
-        function get() view public returns (string memory retVal) {
+        function get() public view returns (string memory retVal) {
             return storedData;
         }
     }
     ```
     
-1. In the **migrations** folder, create a new file named `2_deploy_simplestorage.js`. Add the following code.
+1. In the **migrations** folder, create a new file named `3_deploy_simplestorage.js`. Add the following code.
 
     ```solidity
     var SimpleStorage = artifacts.require("SimpleStorage.sol");
@@ -145,7 +146,7 @@ Example output:
 ```
 admin@desktop:/mnt/c/truffledemo$ truffle migrate --network defaultnode
 
-2_deploy_simplestorage.js
+3_deploy_simplestorage.js
 =========================
 
    Deploying 'SimpleStorage'
