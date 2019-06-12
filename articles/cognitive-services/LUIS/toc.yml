@@ -204,7 +204,7 @@
       items:
       - name: Node.js
         displayName: Application insight, kusto
-        href: luis-tutorial-function-appinsights.md
+        href: luis-tutorial-bot-nodejs-appinsights.md
       - name: C#
         displayName: Application insight, kusto
         href: luis-tutorial-bot-csharp-appinsights.md
