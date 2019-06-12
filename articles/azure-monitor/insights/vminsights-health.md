@@ -169,7 +169,7 @@ Selecting **View all health criteria** opens a page showing a list of all the he
     - **Dependency**. Provides a health rollup between different entities. This health criteria allows the health of an entity to depend on the health of another type of entity that it relies on for successful operation.
     - **Aggregate** Provides a combined health state of similar health criteria. Unit and dependency health criterion are typically configured under an aggregate health criterion. In addition to providing better general organization of the many different health criteria targeted at an entity, aggregate health criterion provides a unique health state for distinct categories of the entities.
 
-* **Category**. The type of health criteria used to group similar criteria for reporting purposes. These criteria are either **Availability** or **Performance**.
+* **Category**. The type of health criteria used to group similar criteria for reporting purposes. These categories are **Availability** and **Performance**.
 
 To see which instances are unhealthy, select a value under the **Unhealthy Component** column. In this page, a table lists the components that are in a critical health state.
 
@@ -191,7 +191,7 @@ Start health diagnostics by using the following methods:
  
 * From the guest VM in the Azure Monitor for VMs **Health** tab, by selecting **View health diagnostics**.
 
-Health diagnostics organizes health information into two categories: Availability and Performance.
+Health diagnostics organizes health information into two categories: availability and performance.
  
 All health criteria defined for a specific component such as logical disk, CPU, and so on, can be viewed without filtering on the two categories (in an all-up view of all criteria), or filtering the results by either category when you select the **Availability** or **Performance** tabs.
 
@@ -219,7 +219,7 @@ For example, the following figure shows that the VM has two instances of logical
 
 ### Health criteria
 
-The center column in the Health Diagnostics page is the **Health Criteria** column. The health model defined for the VM is displayed in a hierarchical tree. The health model for a VM consists of unit and aggregate health criteria.
+The center column in the Health Diagnostics page is **Health Criteria**. The health model defined for the VM is displayed in a hierarchical tree. The health model for a VM consists of unit and aggregate health criteria.
 
 ![Example health criteria presented in Health diagnostics](./media/vminsights-health/health-diagnostics-page-healthcriteria.png)
 
@@ -273,7 +273,7 @@ The Azure Monitor for VMs health feature integrates with [Azure Alerts](../../az
 
 Alerts aren't associated with an action group to notify you when the alert has been triggered. The subscription owner must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
 
-The total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the section **Alerts**. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.
+The total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the **Alerts**section. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.
 
 For example, if you select the row corresponding to **Sev level 1**, you'll see the following view:
 
@@ -307,7 +307,7 @@ To learn more about managing alerts, see [Create, view, and manage alerts using 
 
 ![Alert details pane for a selected alert](./media/vminsights-health/alert-details-pane-01.png)
 
-An alert state can also be changed for one or multiple alerts by selecting them and then selecting **Change state** from the **All Alerts** page on the upper leftmost corner. Select one of the states on the **Change alert state** pane, add a description of the change in the **Comment** field, and then select **Ok** to commit your changes. When the information is verified and the changes are applied, track the progress under **Notifications** in the menu.
+An alert state can also be changed for one or multiple alerts by selecting them and then selecting **Change state** from the **All Alerts** page in the upper-leftmost corner. Select one of the states on the **Change alert state** pane, add a description of the change in the **Comment** field, and then select **Ok** to commit your changes. When the information is verified and the changes are applied, track the progress under **Notifications** in the menu.
 
 ### Configure alerts
 Certain alert-management tasks can't be managed from the Azure portal, and must be performed by using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Specifically:
@@ -325,7 +325,7 @@ To identify the *monitorId* for specific health criteria, the following example 
 
 1. In a terminal window, type **armclient.exe login**. Doing so prompts you to sign in to Azure.
 
-2. Enter the following command to retrieve all the health criterion active on a specific VM and identify the value for *monitorId* property.
+2. Enter the following command to retrieve all the health criterion active on a specific VM and identify the value for *monitorId* property:
 
     ```
     armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
