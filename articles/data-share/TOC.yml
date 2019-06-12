@@ -24,6 +24,10 @@
     href: how-to-add-recipients.md 
   - name: How to monitor my Data Share
     href: how-to-monitor.md         
+  - name: How to accept a Data Share Invitation
+    href: accept-invite.md    
+  - name: How to refresh my data
+    href: refresh-data.md
 - name: Resources
   items:
   - name: Blog
