@@ -45,7 +45,7 @@ We recommend you create service alerts for the following health event types:
 
 To configure service alerts:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Service Health.**
 3. Use the instructions in [Create activity log alerts on service notifications](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) to set up your alerts and notifications.
 
