@@ -247,23 +247,23 @@ Other health criterion can be three states, where you can configure the value fo
 
 To learn more about health criteria, knowledge articles are included to help you identify problems, causes, and resolutions. Select **View information** on the page to see the related knowledge article.
 
-To review all of the health criterion knowledge articles included with Azure Monitor for VMs health feature, see [Azure Monitor health knowledge documentation](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+To review all the knowledge articles included with Azure Monitor for VMs health feature, see [Azure Monitor health knowledge documentation](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
 
 ### State changes
 
-The rightmost column in the Health Diagnostics page is **State Changes**. This column lists all the state changes associated with the health criteria selected in the **Health Criteria** section, or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table.
+In rightmost column in the **Health Diagnostics** page is **State Changes**. It lists all the state changes associated with the health criteria selected in the **Health Criteria** section, or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table.
 
 ![Example state changes presented in Health diagnostics](./media/vminsights-health/health-diagnostics-page-statechanges.png)
 
 The following section shows the health-criteria state and the associated time. This information is sorted with the latest state at the top of the column.
 
-### Association of Component Model, Health Criteria, and State change columns
+### Association of Component Model, Health Criteria, and State Changes columns
 
-The three columns are interlinked with each other. When you select a discovered instance in the **Component Model** section, the **Health Criteria** section is filtered to that component view and correspondingly the **State Change** section is updated based on the selected health criteria.
+The three health diagnostics columns are interlinked with each other. When you select an instance in the **Component Model** column, the **Health Criteria** column is filtered to that component view, and the **State Changes** column is then updated based on the selected health criteria.
 
 ![Example of selecting monitored instance and results](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-In the previous example, when you select **Disk - 1 D:**, the Health Criteria tree is filtered to **Disk - 1D:**. The **State Change** column shows the state change based on the availability of **Disk - 1 D:**.
+For example, if you select *Disk - 1 D:* from the list under **Component Model**, **Health Criteria** filters to *Disk - 1D:*, and **State Changes** shows the state change based on the availability of *Disk - 1 D:*.
 
 To see an updated health state, you can refresh the Health Diagnostics page by selecting the **Refresh** link. If there is an update to the health criterion's health state based on the pre-defined polling interval, this task allows you to avoid waiting and reflects the latest health state. The **Health Criteria State** is a filter allowing you to scope the results based on the selected health state - Healthy, Warning, Critical, Unknown, and All. The **Last Updated** time in the upper-right corner represents the last time the Health Diagnostics page was refreshed.
 
