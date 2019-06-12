@@ -163,9 +163,11 @@ The echo sample demonstrates programmatic use of device streams to send and rece
 
 Try this instead of a table:
 
-[C# Service and Device Programs](quickstart-device-streams-echo-csharp.md)
-[Node.js Service Program](quickstart-device-streams-echo-nodejs.md)
-[C Device Program](quickstart-device-streams-echo-c.md)
+* [C# Service and Device Programs](quickstart-device-streams-echo-csharp.md)
+
+* [Node.js Service Program](quickstart-device-streams-echo-nodejs.md)
+
+* [C Device Program](quickstart-device-streams-echo-c.md)
 
 
 | **SDK** | **Service Program** | **Device Program** |
