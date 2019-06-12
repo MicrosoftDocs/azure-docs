@@ -11,15 +11,15 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/03/2019
+ms.date: 06/12/2019
 ---
-# SQL Database serverless (preview)
+# Azure SQL Database serverless (preview)
+
+Azure SQL Database serverless (preview) is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
 
 ## Serverless compute tier
 
-SQL Database serverless (preview) is a single database compute tier that autoscales compute and bills for the amount of compute used per second. 
-
-A database in the serverless compute tier is parameterized by the compute range it can use and an autopause delay.
+The serverless compute tier for a single database is parameterized by the compute range it can use and an autopause delay.
 
 ![serverless billing](./media/sql-database-serverless/serverless-billing.png)
 
@@ -32,8 +32,8 @@ A database in the serverless compute tier is parameterized by the compute range 
 
 - The total bill for a serverless database is the summation of the compute bill and storage bill.
 Billing for compute is based on the amount of vCores used and memory used per second.
-- The minimum compute billed is based on min vCores and min memory.
-- While the database is paused, only storage is billed.
+- The minimum amount of compute billed is based on min vCores and min memory.
+- Only storage is billed while the database is paused.
 
 ## Scenarios
 
@@ -67,11 +67,11 @@ The following table summarizes distinctions between the serverless compute tier 
 
 SQL Database serverless is currently only supported in the General Purpose tier on Generation 5 hardware in the vCore purchasing model.
 
-## Autoscale
+## Autoscaling
 
 ### Scaling responsiveness
 
-In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the max vCores value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
+In general, serverless databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the max vCores value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. For example, if the resource demand is 4 vCores, but only 2 vCores are available, then it may take up to a few minutes to load balance before 4 vCores are provided. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
 
 ### Memory management
 
@@ -92,9 +92,9 @@ In both serverless and provisioned compute databases, cache entries may be evict
 
 The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. When the database is busy, the cache is allowed to grow unconstrained up to the max memory limit.
 
-## Autopause and autoresume
+## Autopausing and autoresuming
 
-### Autopause
+### Autopausing
 
 Autopausing is triggered if all of the following conditions are true for the duration of the autopause delay:
 
@@ -103,7 +103,15 @@ Autopausing is triggered if all of the following conditions are true for the dur
 
 An option is provided to disable autopausing if desired.
 
-### Autoresume
+The following features do not support autopausing.  That is, if any of the following features are used, then the database remains online regardless of the duration of database inactivity:
+
+- Geo-replication (active geo-replication and auto-failover groups).
+- Long-term backup retention (LTR).
+- The sync database used in SQL data sync.
+
+Autopausing is temporarily prevented during the deployment of some service updates which require the database be online.  In such cases, autopausing becomes allowed again once the service update completes.
+
+### Autoresuming
 
 Autoresuming is triggered if any of the following conditions are true at any time:
 
@@ -122,26 +130,19 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Modifying certain database metadata|Adding new database tags.<br>Changing max vCores, min vCores, or autopause delay.|
 |SQL Server Management Studio (SSMS)|Using SSMS version 18 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 17.9.1 with IntelliSense turned-off.|
 
+Autoresuming is also triggered during the deployment of some service updates which require the database be online.
+
 ### Connectivity
 
 If a serverless database is paused, then the first login will resume the database and return an error stating that the database is unavailable with error code 40613. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.
 
 ### Latency
 
-The latency to autopause or autoresume a serverless database is generally on the order of 1 minute.
-
-### Feature support
-
-The following features do not support autopausing and autoresuming. That is, if any of the following features are used, then the database remains online regardless of duration of database inactivity:
-
-- Geo-replication (active geo-replication and auto failover groups)
-- Long-term backup retention (LTR)
-- The sync database used in SQL data sync.
-
+The latency to autoresume and autopause a serverless database is generally order of 1 minute to autoresume and 1-10 minutes to autopause.
 
 ## Onboarding into serverless compute tier
 
-Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps:
+Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps.
 
 1. Specify the service objective name. The service objective prescribes the service tier, hardware generation, and max vCores. The following table shows the service objective options:
 
@@ -156,20 +157,18 @@ Creating a new database or moving an existing database into a serverless compute
    |Parameter|Value choices|Default value|
    |---|---|---|---|
    |Min vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
-   |Autopause delay|Min: 360 minutes (6 hours)<br>Max: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|360 minutes|
+   |Autopause delay|Minimum: 360 minutes (6 hours)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|360 minutes|
 
 > [!NOTE]
 > Using T-SQL to move an existing database into serverless or change its compute size is not currently supported but can be done via the Azure portal or PowerShell.
 
-### Create new serverless database using Azure portal
+### Create new database in serverless compute tier using Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
 
-### Create new serverless database using PowerShell
+### Create new database in serverless compute tier using PowerShell
 
-The following example creates a new database in the serverless compute tier defined by service objective named GP_S_Gen5_4 with default values for the min vCores and autopause delay.
-
-Serverless requires a newer version of PowerShell than is currently in the gallery, so run `Update-Module Az.Sql` to get the latest serverless-enabled cmdlets.
+The following example creates a new database in the serverless compute tier.  This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
 ```powershell
 New-AzSqlDatabase `
@@ -184,9 +183,9 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
-### Move provisioned compute database into serverless compute tier
+### Move database from provisioned compute tier into serverless compute tier
 
-The following example moves an existing single database from the provisioned compute tier into the serverless compute tier. This example explicitly specifies the min vCores, max vCores, and autopause delay.
+The following example moves a database from the provisioned compute tier into the serverless compute tier. This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
 ```powershell
 Set-AzSqlDatabase
@@ -201,7 +200,7 @@ Set-AzSqlDatabase
   -AutoPauseDelayInMinutes 1440
 ```
 
-### Move serverless database into provisioned compute tier
+### Move database from serverless compute tier into provisioned compute tier
 
 A serverless database can be moved into a provisioned compute tier in the same way as moving a provisioned compute database into a serverless compute tier.
 
@@ -223,7 +222,7 @@ Modifying the autopause delay is performed by using the [Set-AzSqlDatabase](http
 
 ### Resources used and billed
 
-The resources of a serverless database are encapsulated by the following entities:
+The resources of a serverless database are encapsulated by app package, SQL instance, and user resource pool entities.
 
 #### App package
 
