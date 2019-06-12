@@ -24,9 +24,9 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 >
 > For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
 
 * The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 
