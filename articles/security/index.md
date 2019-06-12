@@ -157,7 +157,6 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
 </ul>
 
 <ul class="cardsL panelContent singlePanelContent" style="display:flex!important;">
-
     <li style="list-style: none;">
         <div class="cardSize">
             <div class="cardPadding">
@@ -184,8 +183,6 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
             </div>
         </div>
     </li>
-
-
     <li style="list-style: none;">
         <div class="cardSize">
             <div class="cardPadding">
@@ -212,7 +209,6 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
             </div>
         </div>
     </li>
-
     <li style="list-style: none;">
         <div class="cardSize">
             <div class="cardPadding">
@@ -251,7 +247,6 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
             </div>
         </div>
     </li>
-
 </ul>
 
 <ul class="cardsFTitle panelContent">
