@@ -15,20 +15,25 @@ ms.author: pafarley
 
 # What is Form Recognizer?
 
-Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model by using a simple REST API to reduce complexity and easily integrate it into your workflow or application. To get started, you just need five form documents or an empty form of the same type as your input material. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise.
+Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract data from form documents.
 
-## Request access
-Form Recognizer is available in a limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. The form requests information about you, your company, and the user scenario for which you'll use Form Recognizer. If your request is approved by the Azure Cognitive Services team, you'll receive an email with instructions for accessing the service.
+The custom Form Recognizer model extracts key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model by using a simple REST API to reduce complexity and easily integrate it into your workflow or application. To get started, you just need five form documents or an empty form of the same type as your input material. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise.
 
 ## What it does
+
+### Custom models
 
 When you submit your input data, the algorithm trains to it, clusters the forms by types, discovers what keys and tables are present, and learns to associate values to keys and entries to tables. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. By contrast, pre-trained machine learning models require standardized data and are less accurate when used with input material that deviates from traditional formats, like industry-specific forms.
 
 After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
+### Pre-built models
+
+Form Recognizer also includes a model for reading receipts.
+
 ## What it includes
 
-Form Recognizer is available as a REST API. You can create, train, and score a model by invoking the API. If you want, you can run the model in a local Docker container.
+Form Recognizer is available as a REST API. You can create, train, and score a custom model or access the pre-built model by invoking the API. If you want, you can run the model in a local Docker container.
 
 ## Input requirements
 
@@ -48,6 +53,10 @@ Form Recognizer doesn't currently support these types of input data:
 * Complex tables (nested tables, merged headers or cells, and so on).
 * Checkboxes or radio buttons.
 * PDF documents longer than 50 pages.
+
+## Request access
+
+Form Recognizer is available in a limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. The form requests information about you, your company, and the user scenario for which you'll use Form Recognizer. If your request is approved by the Azure Cognitive Services team, you'll receive an email with instructions for accessing the service.
 
 ## Where do I start?
 
