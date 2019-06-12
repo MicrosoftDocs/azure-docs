@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 06/12/2019
 ms.author: alkohli
 ---
 
