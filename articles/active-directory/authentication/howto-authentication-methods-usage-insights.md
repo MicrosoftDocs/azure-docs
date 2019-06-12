@@ -43,6 +43,7 @@ To access authentication method usage and insights:
 1. Browse to **Azure Active Directory** > **Password reset** > **Usage & insights**.
 1. From the **Registration** or **Usage** overviews you can choose to open the pre-filtered reports to filter based on your needs.
 
+![Usage & insights overview](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
 To access usage & insights, go to https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsOverviewBlade. This will bring you to the overview:
 
