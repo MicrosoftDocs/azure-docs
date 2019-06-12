@@ -71,7 +71,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * When assigning a user to Zoom, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Configuring automatic user provisioning to Zoom 
+## Configure automatic user provisioning to Zoom 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users or groups in Zoom based on user and/or group assignments in Azure AD.
 
@@ -96,7 +96,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://api.zoom.us/scim` in **Tenant URL**. To retrieve the **Secret Token** of your Zoom account, follow the walkthrough as described in Step 6.
+5. Under the **Admin Credentials** section, enter `https://api.zoom.us/scim` in **Tenant URL**. To retrieve the **Secret Token** of your Zoom account, follow the walkthrough as described in Step 6.
 
 6. Sign in to your [Zoom Admin Console](https://zoom.us/signin). Navigate to **Advanced > Zoom for Developers** in the left navigation pane.
 
