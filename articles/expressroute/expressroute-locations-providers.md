@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 06/11/2019
 ms.author: jaredr80
 ---
 # ExpressRoute partners and peering locations
@@ -87,14 +87,14 @@ The following table shows connectivity locations and the service providers for e
 | **Dubai2** | du datamena | UAE North | du datamena, Orixcom |
 | **Dublin** | Equinix | North Europe | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | n/a | DE-CIX, Interxion |
-| **Hong Kong SAR** | Equinix | East Asia | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **Hong Kong SAR** | Equinix | East Asia | Aryaka Networks, British Telecom, Chief Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Johannesburg** | Teraco | South Africa North | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | n/a | TIME dotCom |
 | **Las Vegas** | Switch | n/a | CenturyLink Cloud Connect, Megaport |
 | **London** | Equinix | UK South | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **London2** | Telehouse | UK South | IX Reach, Equinix |
 | **Los Angeles** | CoreSite | n/a | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
-| **Marseille** |Interxion | France South | Interxion |
+| **Marseille** |Interxion | France South | Interxion, Jaguar Network |
 | **Melbourne** | NextDC | Australia Southeast | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | Equinix | n/a | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | n/a | Bell Canada, Cologix, Telus, Zayo |

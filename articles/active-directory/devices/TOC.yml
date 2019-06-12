@@ -1,8 +1,8 @@
-- name: Device Management Documentation
+- name: Device Identities Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is device management in Azure AD?
+  - name: What is a device identity?
     href: overview.md
   - name: What is enterprise state roaming?
     href: enterprise-state-roaming-overview.md
@@ -29,7 +29,7 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Manage devices using the Azure portal
+  - name: Manage device identity
     href: device-management-azure-portal.md
   - name: Manage stale devices
     href: manage-stale-devices.md
