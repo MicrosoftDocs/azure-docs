@@ -189,9 +189,10 @@ To use Azure Data Factory, see [Azure Data Factory to move data to ADLS Gen2](ht
 
 To use your Azure-based Hadoop cluster, run this DistCp command:
 
-    ```bash
+```bash
+    
     hadoop distcp -Dfs.azure.account.key.{source_account}.dfs.windows.net={source_account_key} abfs://{source_container} @{source_account}.dfs.windows.net/[path] abfs://{dest_container}@{dest_account}.dfs.windows.net/[path]
-    ```
+```
 
 This command copies both data and metadata from your storage account into your Data Lake Storage Gen2 storage account.
 
@@ -208,6 +209,7 @@ To create a service principal, see [How to: Use the portal to create an Azure AD
 From the on-premises Hadoop cluster, run this command:
 
 ```bash
+
 sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
 ```
 
