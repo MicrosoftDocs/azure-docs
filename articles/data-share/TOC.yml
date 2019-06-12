@@ -18,9 +18,9 @@
     href: terminology.md
 - name: How-to Guides
   items:
-  - name: Adding datasets to a Data Share 
+  - name: How to add a dataset to my data share 
     href: how-to-add-datasets.md
-  - name: Adding recipients to a Data Share 
+  - name: How to add recipients to my data share
     href: how-to-add-recipients.md 
   - name: How to monitor my Data Share
     href: how-to-monitor.md         
