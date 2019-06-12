@@ -80,9 +80,11 @@ Match documents where for all rooms, the `rooms/amenities` field contains "tv" a
 
 ## Limitations
 
-Not every feature of filter expressions is available inside the body of a lambda expression. The limitations differ depending on the data type of the collection field that you want to filter. The following table summarizes the limitations. For more details on these limitations as well as examples, see [Understanding collection filters in Azure Search](search-query-odata-understanding-collections.md).
+Not every feature of filter expressions is available inside the body of a lambda expression. The limitations differ depending on the data type of the collection field that you want to filter. The following table summarizes the limitations.
 
 [!INCLUDE [Limitations on OData lambda expressions in Azure Search](../../includes/search-query-odata-lambda-limitations.md)]
+
+For more details on these limitations as well as examples, see [Troubleshooting collection filters in Azure Search](search-query-troubleshoot-collection-filters.md). For more in-depth information on why these limitations exist, see [Understanding collection filters in Azure Search](search-query-understand-collection-filters.md).
 
 ## See also  
 
