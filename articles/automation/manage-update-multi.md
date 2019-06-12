@@ -79,7 +79,7 @@ Computers that have recently been enabled for Update Management might not have b
 
 - **Non-compliant**: Computers that are missing at least one critical or security update.
 
-- **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last 3 hours. For Windows computers, the expected timeframe is in the last 12 hours.
+- **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last hour. For Windows computers, the expected timeframe is in the last 12 hours.
 
 To view the status of the agent, select the link in the **UPDATE AGENT READINESS** column. Selecting this option opens the **Hybrid Worker** pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
 
