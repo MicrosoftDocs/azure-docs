@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 06/12/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern.any entity to improve predictions. 
 ---
@@ -72,7 +72,7 @@ Use the following steps:
 3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patt-any`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
 ## Add example utterances 
-Remove the prebuilt keyPhrase entity if it is difficult to create and label the FormName entity. 
+Remove the prebuilt **keyPhrase** entity if it is difficult to create and label the FormName entity. 
 
 1. Select **Build** from the top navigation, then select **Intents** from left navigation.
 
@@ -90,7 +90,7 @@ Remove the prebuilt keyPhrase entity if it is difficult to create and label the 
     Without a Pattern.any entity, it would be difficult for LUIS to understand where the form title ends because of the many variations of form names.
 
 ## Create a Pattern.any entity
-The Pattern.any entity extracts entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
+The Pattern.any entity extracts entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity.  
 
 1. Select **Entities** in the left navigation.
 
@@ -135,6 +135,11 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
     The entity `FormName` is found first, then the pattern is found, determining the intent. If you have a test result where the entities are not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern).
 
 4. Close the test panel by selecting the **Test** button in the top navigation.
+
+## Using an explicit list
+
+If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem.
+
 
 ## Clean up resources
 
