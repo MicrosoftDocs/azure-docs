@@ -11,7 +11,7 @@ ms.date: 06/12/2019
 ms.author: alkohli
 ---
 
-# Azure Data Box Edge/Azure Data Box Gateway 1905 release notes
+# Azure Data Box Edge and Azure Data Box Gateway 1905 release notes
 
 ## Overview
 
@@ -25,7 +25,7 @@ This release corresponds to the software versions:
 - **Data Box Edge 1905 (1.6.887.626)**
 
 > [!NOTE]
-> Update 1905 can only be applied to the Data Box Edge devices that are running GA version of the software.
+> Update 1905 can be applied only to Data Box Edge devices that are running GA version of the software.
 
 ## What's new
 
@@ -38,5 +38,5 @@ No new issues are release noted for this release. All the release noted issues h
 
 ## Next steps
 
-- [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
-- [Prepare to deploy Azure Data Box Edge](data-box-edge-deploy-prep.md).
+- [Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
+- [Prepare to deploy Azure Data Box Edge](data-box-edge-deploy-prep.md)
