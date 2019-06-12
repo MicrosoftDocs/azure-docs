@@ -8,13 +8,13 @@ ms.custom:
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: vanto
 manager: craigg
 ms.date: 06/12/2019
 ---
 # Azure SQL Database traffic migration to newer Gateway nodes
 
-The majority of regions currently have [two IP Gateway addresses]((sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses)) for Azure SQL Database. Your SQL Database server typically resolves to the IP address of the default Gateway, and can be confirmed by running a nslookup command as follows:
+The majority of regions currently have [two IP Gateway addresses](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) for Azure SQL Database. Your SQL Database server typically resolves to the IP address of the default Gateway, and can be confirmed by running a nslookup command as follows:
 
 `nslookup <ServerName>.database.windows.net`
 
