@@ -19,9 +19,9 @@ ms.custom: seodec18
 ---
 # Continuous deployment to Azure App Service
 
-[Azure App Service](overview.md) enables continuous deployment from BitBucket, GitHub, and [Azure Repos](https://azure.microsoft.com/services/devops/repos/) by pulling in updates from your repository. This article shows you how to prepare your repository, and then use the Azure portal to configure continuous deployment through Kudu build service or Azure Pipelines (Preview). 
+[Azure App Service](overview.md) enables continuous deployment from BitBucket, GitHub, and [Azure Repos](https://azure.microsoft.com/services/devops/repos/) by pulling in updates from your repository. This article shows you how to use the Azure portal to configure continuous deployment through Kudu build service or Azure Pipelines (Preview). 
 
-For more information on publishing projects through these source control services, see [Create a repo (GitHub)], [Create a repo (BitBucket)], and [Create a new Git repo (Azure Repos)].
+For more information on the source control services, see [Create a repo (GitHub)], [Create a repo (BitBucket)], and [Create a new Git repo (Azure Repos)].
 
 To manually configure continuous deployment from a cloud repository that the portal doesn't directly support, such as [GitLab](https://gitlab.com/)), see [Set up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
@@ -66,7 +66,7 @@ You can use the built-in Kudu App Service build service to continuously deploy f
      
    - For Bitbucket, drop down and select the Bitbucket **Team**, **Repository** and **Branch** you want to deploy continuously.
      
-   - For Azure Repos, drop down and select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy continuously.
+   - For Azure Repos, drop down and select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy.
      
      > [!NOTE]
      > To use Azure Repos, you need to link your Azure DevOps organization to your Azure subscription. For more information, see [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
@@ -99,14 +99,14 @@ If your Azure account has the necessary permissions, you can set up Azure Pipeli
      
      If you don't see any repositories, you may need to authorize Azure App Service in GitHub. Browse to your GitHub repository and go to **Settings** > **Applications** > **Authorized OAuth Apps**. Select **Azure App Service**, and then select **Grant**.
      
-   - For Azure Repos, drop down and select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy continuously.
+   - For Azure Repos, drop down and select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy.
      
      > [!NOTE]
      > To use Azure Repos, you need to link your Azure DevOps organization to your Azure subscription. For more information, see [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
      
 1. Select **Continue**.
    
-1. On the **Configure** page, in the **Build** section, specify the language framework that Azure Pipelines should use to run the build tasks for your repository, and then select **Continue**.
+1. On the **Configure** page, in the **Build** section, specify the language framework that Azure Pipelines should use, and then select **Continue**.
    
 1. On the **Test** page, choose whether to enable load tests, and then select **Continue**.
    
@@ -121,7 +121,7 @@ After configuration completes, new commits in the selected repository deploy con
 
 ## Disable continuous deployment
 
-To disable continuous deployment, at the top of the **Deployment Center** page for your App Service app, select **Disconnect**.
+To disable continuous deployment, select **Disconnect** at the top of the **Deployment Center** page.
 
 ![Disable continuous deployment](media/app-service-continuous-deployment/disable.png)
 
