@@ -31555,8 +31555,23 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-function-appinsights.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-bot-nodejs-appinsights",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-csharp-tutorial-build-bot-framework-sample.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-nodejs-tutorial-build-bot-framework-sample.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-nodejs-tutorial-bf-v4",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-speech-to-intent.md",
-      "redirect_url": "/azure/cognitive-services//speech-service/how-to-recognize-intents-from-speech-csharp",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp",
       "redirect_document_id": true
     },
     {
@@ -37259,6 +37274,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/oms-portal-transition.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/oms-portal-faq.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/analysis-services/analysis-services-import-pbix.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -39515,6 +39540,11 @@
     },
     {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-datafu-udf.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-migrate-from-windows-to-linux.md",
       "redirect_url": "/azure/hdinsight/",
       "redirect_document_id": true
     },

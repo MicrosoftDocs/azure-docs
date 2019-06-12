@@ -69,7 +69,7 @@ The errorlevel returned by *AppCmd.exe* are listed in the winerror.h file, and c
 ### Example of managing the error level
 This example adds a compression section and a compression entry for JSON to the *Web.config* file, with error handling and logging.
 
-The relevant sections of the [ServiceDefinition.csdef] file are shown here, which include setting the [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) attribute to `elevated` to give *AppCmd.exe* sufficient permissions to change the settings in the *Web.config* file:
+The relevant sections of the [ServiceDefinition.csdef] file are shown here, which include setting the [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) attribute to `elevated` to give *AppCmd.exe* sufficient permissions to change the settings in the *Web.config* file:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
