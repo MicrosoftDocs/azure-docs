@@ -4,3 +4,5 @@
   items:
   - name: What is Azure IoT Plug and Play?
     href: concepts-plug-play.md
+  - name: Use a device capability model to create a device.
+    href: quickstart-use-a-device-capability-model-to-create-a-device.md"
