@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Quickstart: Use the Translator Text API to translate a string using C#
 
-In this quickstart, you'll learn how to translate a text string from English to German, Italian, and Thai using .NET Core, C# 7.1 or later, and the Translator Text REST API.
+In this quickstart, you'll learn how to translate a text string from English to German, Italian, Japanese and Thai using .NET Core, C# 7.1 or later, and the Translator Text REST API.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
@@ -196,7 +196,7 @@ foreach (TranslationResult o in deserializedOutput)
 
 ## Put it all together
 
-The last step is to call `TranslateTextRequest()` in the `Main` function. In this sample, we're translating to German (`de`), Italian (`it`), and Thai (`th`). Locate `static void Main(string[] args)` and replace it with this code:
+The last step is to call `TranslateTextRequest()` in the `Main` function. In this sample, we're translating to German (`de`), Italian (`it`), Japanese (`ja`), and Thai (`th`). Locate `static void Main(string[] args)` and replace it with this code:
 
 ```csharp
 static async Task Main(string[] args)
@@ -257,6 +257,10 @@ This message is built from the raw JSON, which will look like this:
       {
         "text": "Salve, mondo!",
         "to": "it"
+      },
+      {
+        "text": "ハローワールド！",
+        "to": "ja"
       },
       {
         "text": "หวัดดีชาวโลก!",
