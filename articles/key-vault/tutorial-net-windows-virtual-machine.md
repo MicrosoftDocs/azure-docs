@@ -49,9 +49,9 @@ When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure 
 
 Next, to get an access token, your code calls a local metadata service that's available on the Azure resource. To authenticate to an Azure Key Vault service, your code uses the access token that it gets from the local MSI endpoint. 
 
-## Set up the project
+## Create resources and assign permissions
 
-Before you start coding you need to create some resources, put a secret into your key vault, and set up the .NET project.
+Before you start coding you need to create some resources, put a secret into your key vault, and assign permissions.
 
 ### Log in to Azure
 
@@ -61,9 +61,7 @@ To log in to Azure by using the Azure CLI, enter:
 az login
 ```
 
-### Create resources and assign permissions
-
-#### Create a resource group
+### Create a resource group
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. 
 
@@ -76,7 +74,7 @@ az group create --name "<YourResourceGroupName>" --location "West US"
 
 Your newly created resource group will be used throughout this tutorial.
 
-#### Create a key vault and populate it with a secret
+### Create a key vault and populate it with a secret
 
 Create a key vault in your resource group by providing the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command with the following information:
 
@@ -100,14 +98,14 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 This secret stores the value **MySecret**.
 
-#### Create a virtual machine
+### Create a virtual machine
 Create a virtual machine by using one of the following methods:
 
 * [The Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
 * [The Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-#### Assign an identity to the VM
+### Assign an identity to the VM
 Create a system-assigned identity for the virtual machine bwith the [az vm identity assign]/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
 
 ```azurecli
@@ -123,24 +121,26 @@ Note the system-assigned identity that's displayed in the following code. The ou
 }
 ```
 
-#### Assign permissions to the VM identity
+### Assign permissions to the VM identity
 Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-#### Log on to the virtual machine
+### Log on to the virtual machine
 
 To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
 ## Set up the console app
 
-## Install .NET Core
+Create a console app and install the required packages using the `dotnet` command.
+
+### Install .NET Core
 
 To install .NET Core, go to the [.NET downloads](https://www.microsoft.com/net/download) page.
 
-## Create and run a sample .NET app
+### Create and run a sample .NET app
 
 Open a command prompt.
 
