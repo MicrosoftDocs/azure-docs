@@ -38,7 +38,7 @@ Azure Disk Encryption supports the following customer scenarios:
 * Backing up and restoring encrypted VMs.
 * Bring your own encryption (BYOE) and bring your own key (BYOK) scenarios, in which the customers use their own encryption keys and store them in an Azure key vault.
 
-The solution supports the following scenarios for VMs when they're enabled in Microsoft Azure:
+It also supports the following scenarios for VMs when they're enabled in Microsoft Azure:
 
 * Integration with Azure Key Vault.
 * [Standard tier VMs](https://azure.microsoft.com/pricing/details/virtual-machines/). [Linux VMs](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) within these tiers must meet the minimum memory requirement of 7 GB. 
@@ -59,11 +59,11 @@ The solution supports the following scenarios for VMs when they're enabled in Mi
 
 Azure Disk Encryption does not work for the following scenarios, features, and technology:
 
-* Encryption of basic tier VM or VMs created through the classic VM creation method.
+* Encrypting basic tier VM or VMs created through the classic VM creation method.
 * Disabling encryption on an OS drive or data drive of a Linux VM when the OS drive is encrypted.
-* OS drive encryption for Linux virtual machine scale sets.
-* Encryption of Windows VMs configured with software-based RAID systems.
-* Encryption of custom images on Linux VMs.
+* Encrypting OS drive  for Linux virtual machine scale sets.
+* Encrypting Windows VMs configured with software-based RAID systems.
+* Encrypting custom images on Linux VMs.
 * Integration with an on-premises key management system.
 * Azure Files (shared file system).
 * Network File System (NFS).
@@ -71,16 +71,16 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 
 ## Encryption features
 
-When you enable and deploy Disk Encryption for Azure VMs, the following capabilities are enabled depending on the provided configuration:
+When you enable and deploy Azure Disk Encryption for Azure VMs, you can configure the following capabilities to be enabled:
 
-* Encryption of the OS volume to protect the boot volume at rest in your storage.
-* Encryption of data volumes to protect the data volumes at rest in your storage.
+* Encrypting the OS volume to protect the boot volume at rest in your storage.
+* Encryptng data volumes to protect the data volumes at rest in your storage.
 * Disabling encryption on the OS and data drives for Windows VMs.
 * Disabling encryption on the data drives for Linux VMs (only when the OS drive isn't encrypted).
-* Safeguard the encryption keys and secrets in your Azure Key Vault subscription.
-* Report the encryption status of the encrypted VM.
-* Remove the disk encryption configuration settings from the VM.
-* Back up and restore the encrypted VMs by using the Azure Backup service.
+* Safeguarding the encryption keys and secrets in your Azure Key Vault subscription.
+* Reporting the encryption status of the encrypted VM.
+* Removing the disk encryption configuration settings from the VM.
+* Backing up and restoring the encrypted VMs by using the Azure Backup service.
 
 Azure Disk Encryption for VMs for Windows and Linux includes:
 
@@ -90,7 +90,7 @@ Azure Disk Encryption for VMs for Windows and Linux includes:
 * [The Azure CLI disk encryption cmdlets](/cli/azure/vm/encryption?view=azure-cli-latest).
 * [The Azure Resource Manager disk encryption templates](azure-security-disk-encryption-appendix.md#resource-manager-templates).
 
-The Azure Disk Encryption solution is supported on VMs that run Windows or Linux OS. For more information about the supported operating systems, see [Frequently asked questions](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+Azure Disk Encryption is supported on VMs that run Windows or Linux OS. For more information about the supported operating systems, see [Frequently asked questions](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 
 > [!NOTE]
 > There's no additional charge to encrypt VM disks with Azure Disk Encryption. Standard [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) applies to the key vault that's used to store the encryption keys. 
