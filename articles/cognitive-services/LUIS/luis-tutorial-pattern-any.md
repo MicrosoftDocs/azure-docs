@@ -64,7 +64,7 @@ The varying length includes words that may confuse LUIS about where the entity e
 
 1. Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
-1. Import the JSON into a new app.
+1. In the [LUIS portal](https://www.luis.ai), on the **My apps** page, import the JSON into a new app.
 
 1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patt-any`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
