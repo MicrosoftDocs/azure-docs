@@ -23,7 +23,7 @@ Use this capability to make your data flows general-purpose, flexible, and reusa
 > [!NOTE]
 > To use pipeline control flow expressions, your data flow parameter must be of type string
 
-![Data flow parameters 1](media/data-flow/params3.png "Data flow parameters 1")
+![Data flow parameters 3](media/data-flow/params3.png "Data flow parameters 3")
 
 * Add an Execute Data Flow activity to the pipeline canvas.
 * If your data flow has parameters, you will see the list of available parameters in the Parameters tab.** Click on the text box next to each parameter to enter your parameter value.
@@ -31,15 +31,16 @@ Use this capability to make your data flows general-purpose, flexible, and reusa
 
 ## Parameters in data flow
 
+![Data flow parameters 1](media/data-flow/params1.png "Data flow parameters 1")
+
 To add parameters to your data flow, click on the blank portion of the data flow canvas to see the general properties. In the settings pane, you will see a tab called Parameters. Click the New button to generate new parameters, which can then be set from the pipeline, passing values into your data flow. Enter a parameter name and select the data type for each parameter.
 
 Inside of your data flow expressions, you can utilize the parameters using the values set from the pipeline. Parameters begin with $ and are immutable. You will also find the list of your available parameters inside of the Expression Builder under the Parameters tab. You can use these values within your expressions, although you may not assign new values to the parameters.
 
-![Data flow parameters 2](media/data-flow/params1.png "Data flow parameters 2")
+![Data flow parameters 2](media/data-flow/params2.png "Data flow parameters 2")
 
 ## Set data flow parameters from pipeline
 
-![Data flow parameters activity](media/data-flow/params3.png "Data flow parameters activity")
 
 
 ![Data flow parameters expression language](media/data-flow/params4.png "Data flow parameters expression language")
