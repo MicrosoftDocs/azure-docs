@@ -58,7 +58,7 @@ Complete the following steps to open a work folder, and create a file in Visual 
 
 ## Set the Azure environment
 
-1. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
+1. [Connect](#connect-to-Azure-account) to your Azure account or link a cluster if you haven't yet done so.
 
 2. From the menu bar navigate to **View** > **Command Palette...**, and enter **HDInsight: Set Azure Environment**.
 
@@ -147,7 +147,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 3. Right-click the script editor, and select **HDInsight: Set Default Cluster**.  
 
-4. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
+4. [Connect](#connect-to-Azure-account) to your Azure account or link a cluster if you haven't yet done so.
 
 5. Select a cluster as the default cluster for the current script file. The tools automatically update the configuration file **.VSCode\settings.json**. 
 
@@ -169,7 +169,7 @@ With HDInsight Tools for Visual Studio Code, you can submit interactive Hive que
     SELECT * FROM hivesampletable;
     ```
 
-4. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
+4. [Connect](#connect-to-Azure-account) to your Azure account or link a cluster if you haven't yet done so.
 
 5. Right-click the script editor, select **HDInsight: Hive Interactive** to submit the query, or use shortcut **Ctrl + Alt + I**.  Select **HDInsight: Hive Batch** to submit the script, or use shortcut **Ctrl + Alt + H**.  
 
@@ -204,7 +204,7 @@ You can submit interactive PySpark queries by following the steps below:
         print(sortedCollection[i])
    ```
 
-4. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
+4. [Connect](#connect-to-Azure-account) to your Azure account or link a cluster if you haven't yet done so.
 
 5. Choose all the code and right-click the script editor, select **HDInsight: PySpark Interactive** to submit the query, or use shortcut **Ctrl + Alt + I**.
 
@@ -260,7 +260,7 @@ You can submit interactive PySpark queries by following the steps below:
         spark.stop()
     ```
 
-4. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
+4. [Connect](#connect-to-Azure-account) to your Azure account or link a cluster if you haven't yet done so.
 
 5. Right-click the script editor, and then select **HDInsight: PySpark Batch**, or use shortcut **Ctrl + Alt + H**. 
 
@@ -333,7 +333,7 @@ Submit a file, notice the .vscode folder is added automatically to the work fold
 
 **Azure HDInsight** has been added to the Explorer view. You can browse and manage you cluster(s) directly through **Azure HDInsight**.
 
-1. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
+1. [Connect](#connect-to-Azure-account) to your Azure account or link a cluster if you haven't yet done so.
 
 2. From the menu bar, navigate to **View** > **Explorer**.
 
