@@ -106,7 +106,7 @@ Create a virtual machine by using one of the following methods:
 * [The Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
 ### Assign an identity to the VM
-Create a system-assigned identity for the virtual machine bwith the [az vm identity assign]/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
+Create a system-assigned identity for the virtual machine with the [az vm identity assign]/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -128,7 +128,7 @@ Assign the previously created identity permissions to your key vault with the [a
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-### Log on to the virtual machine
+### Sign in to the virtual machine
 
 To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
