@@ -18,6 +18,8 @@ For a plug and play device, a Device Capability Model (DCM) describes a physical
    ![Img](img/install-vsix.png)
    > NOTE: You must do this from within VS Code as you see in the image above. It is not directly installable from Windows Explorer.
    
+### Install Digital Twin Explorer
+Download and install the Digital Twin Explorer from the [latest release]().
 ### Azure IoT Hub
 You will need to create a device identity in an Azure IoT Hub. If you don't have one, follow instructions [here](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node#create-an-iot-hub) to create one.
 
@@ -111,4 +113,13 @@ implementations of functions
 #### Build the codes
 #### Run the device app using command `the command`
 
-## Validate Plug and Play Device Codes in Azure Portal
+## Validate Plug and Play Device Codes in Digital Twin Explorer
+
+1. Open the application and connect with your IoT Hub connection string on the landing page.
+2. Find the device you are using in your hub, and click to view the details.
+3. Select `Telemetry` page under `interfaceX` to view the telemetry data being sent by the device.
+4. Select `Properties` page under `interfaceX` to view the reported properties.
+5. Select `Writable Properties` page under `interfaceX`. Under property `X`, update the value to be Y.
+6. Select `Device Twin`, confirm the change you just made in property `X`.
+7. Select `Command` page under `interfaceX`. Select command `X` and click submit.
+8. Go to the device to verify that the command has been executed as expected.
