@@ -1,52 +1,5 @@
 
 
-<a name="node"></a>
-## Node
-A node record
-
-*Type* : object
-
-
-<a name="nodelist"></a>
-## NodeList
-Results of a node search
-
-
-|Name|Description|Schema|
-|---|---|---|
-|**nodes**  <br>*required*|The nodes returned  <br>**Example** : `[ "[node](#node)" ]`|< [Node](#node) > array|
-|**operation**  <br>*optional*|If the query includes an operation id, this is the status of that operation  <br>**Example** : `"[operationstatus](#operationstatus)"`|[OperationStatus](#operationstatus)|
-
-
-<a name="nodecreation"></a>
-## NodeCreation
-Specifies how to add nodes to a cluster
-
-
-|Name|Description|Schema|
-|---|---|---|
-|**sets**  <br>*required*|A list of node definitions to create. The request must contain at least one set. Each set can specify a different set of properties.  <br>**Example** : `[ "object" ]`|< [sets](#nodecreation-sets) > array|
-|**requestId**  <br>*optional*|Optional user-supplied unique token to prevent duplicate operations  <br>**Example** : `"string"`|string|
-
-<a name="nodecreation-sets"></a>
-**sets**
-
-|Name|Description|Schema|
-|---|---|---|
-|**nodearray**  <br>*required*|The name of the nodearray to start nodes from  <br>**Example** : `"execute"`|string|
-|**definition**  <br>*optional*|The definition of the bucket to use. This is provided by the cluster status API call.  If some of the items given in the status call are missing, or the entire bucket property is missing, the first bucket that matches the given items is used.  <br>**Example** : `"object"`|[definition](#nodecreation-definition)|
-|**count**  <br>*required*|The number of nodes to create  <br>**Example** : `1`|integer|
-|**placementGroupId**  <br>*optional*|If given, nodes with the same value for groupId will all be started in the same placement group.  <br>**Example** : `"string"`|string|
-|**nodeAttributes**  <br>*optional*|Additional attributes to be set on each node from this set  <br>**Example** : `"[node](#node)"`|[Node](#node)|
-
-<a name="nodecreation-definition"></a>
-**definition**
-
-|Name|Description|Schema|
-|---|---|---|
-|**machineType**  <br>*optional*|**Example** : `"A2"`|string|
-
-
 <a name="clusterstatus"></a>
 ## ClusterStatus
 Status of the cluster
@@ -54,43 +7,44 @@ Status of the cluster
 
 |Name|Description|Schema|
 |---|---|---|
+|**maxCoreCount**  <br>*required*|The maximum number of cores that may be added to this cluster  <br>**Example** : `0`|integer|
+|**maxCount**  <br>*required*|The maximum number of nodes that may be added to this cluster  <br>**Example** : `0`|integer|
+|**nodearrays**  <br>*required*|**Example** : `[ "object" ]`|< [nodearrays](#clusterstatus-nodearrays) > array|
 |**nodes**  <br>*optional*|An optional list of nodes in this cluster, only included if nodes=true is in the query  <br>**Example** : `[ "[node](#node)" ]`|< [Node](#node) > array|
 |**state**  <br>*optional*|The current state of the cluster, if it has been started at least once  <br>**Example** : `"string"`|string|
 |**targetState**  <br>*optional*|The desired state of the cluster (eg Started or Terminated)  <br>**Example** : `"string"`|string|
-|**maxCount**  <br>*required*|The maximum number of nodes that may be added to this cluster  <br>**Example** : `0`|integer|
-|**maxCoreCount**  <br>*required*|The maximum number of cores that may be added to this cluster  <br>**Example** : `0`|integer|
-|**nodearrays**  <br>*required*|**Example** : `[ "object" ]`|< [nodearrays](#clusterstatus-nodearrays) > array|
 
 <a name="clusterstatus-nodearrays"></a>
 **nodearrays**
 
 |Name|Description|Schema|
 |---|---|---|
-|**name**  <br>*required*|The nodearray this is describing  <br>**Example** : `"execute"`|string|
-|**maxCount**  <br>*required*|The maximum number of nodes that may be in this nodearray  <br>**Example** : `0`|integer|
-|**maxCoreCount**  <br>*required*|The maximum number of cores that may be in this nodearray  <br>**Example** : `0`|integer|
-|**nodearray**  <br>*required*|The attributes of this nodearray  <br>**Example** : `"[node](#node)"`|[Node](#node)|
 |**buckets**  <br>*required*|Each bucket of allocation for this nodearray. The "core count" settings are always a multiple of the core count for this bucket.  <br>**Example** : `[ "object" ]`|< [buckets](#clusterstatus-buckets) > array|
+|**maxCoreCount**  <br>*required*|The maximum number of cores that may be in this nodearray  <br>**Example** : `0`|integer|
+|**maxCount**  <br>*required*|The maximum number of nodes that may be in this nodearray  <br>**Example** : `0`|integer|
+|**name**  <br>*required*|The nodearray this is describing  <br>**Example** : `"execute"`|string|
+|**nodearray**  <br>*required*|The attributes of this nodearray  <br>**Example** : `"[node](#node)"`|[Node](#node)|
 
 <a name="clusterstatus-buckets"></a>
 **buckets**
 
 |Name|Description|Schema|
 |---|---|---|
-|**definition**  <br>*optional*|The properties of this bucket, used to create nodes from this bucket. The create-nodes API takes this definition in its `bucket` property.  <br>**Example** : `"object"`|[definition](#clusterstatus-buckets-definition)|
-|**bucketId**  <br>*required*|The identifier for this bucket. This will always have the same value  for a given bucket in a nodearray, as long as the cluster is not deleted.  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
-|**maxCount**  <br>*required*|The maximum number of nodes that may be in this bucket, including global and nodearray limits  <br>**Example** : `0`|integer|
-|**maxCoreCount**  <br>*required*|The maximum number of cores that may be in this bucket, including global and nodearray limits.  Always a multiple of maxCount.  <br>**Example** : `0`|integer|
-|**maxPlacementGroupSize**  <br>*required*|The maximum total number of instances that can be in a placement group in this bucket  <br>**Example** : `0`|integer|
-|**maxPlacementGroupCoreSize**  <br>*required*|The maximum total number of cores that can be in a placement group in this bucket. Always a multiple of maxPlacementGroupSize.  <br>**Example** : `0`|integer|
-|**quotaCount**  <br>*required*|The number of total instances that can be started (given quotaCoreCount)  <br>**Example** : `0`|integer|
-|**quotaCoreCount**  <br>*required*|The number of total cores that can be started for this family. This might not be an integer multiple of quotaCount.  <br>**Example** : `0`|integer|
-|**consumedCoreCount**  <br>*required*|The number of cores for this family that are already in use  <br>**Example** : `0`|integer|
-|**activeCount**  <br>*required*|The number of nodes in use for this bucket, in this nodearray. This includes nodes which are still acquiring a VM.  <br>**Example** : `0`|integer|
 |**activeCoreCount**  <br>*required*|The number of cores in use for this bucket, in this nodearray  <br>**Example** : `0`|integer|
+|**activeCount**  <br>*required*|The number of nodes in use for this bucket, in this nodearray. This includes nodes which are still acquiring a VM.  <br>**Example** : `0`|integer|
 |**activeNodes**  <br>*optional*|The node names in use for this bucket, in this nodearray. This includes nodes which are still acquiring a VM. This is only included if nodes=true is in the query.  <br>**Example** : `[ "string" ]`|< string > array|
-|**availableCount**  <br>*required*|How many extra nodes may be created in this bucket, in this nodearray. Note this may be less than implied by maxCount and usedCount, since maxCount may be limited globally.  <br>**Example** : `0`|integer|
 |**availableCoreCount**  <br>*required*|How many extra cores may be created in this bucket, in this nodearray. Always a multiple of availableCount.  <br>**Example** : `0`|integer|
+|**availableCount**  <br>*required*|How many extra nodes may be created in this bucket, in this nodearray. Note this may be less than implied by maxCount and usedCount, since maxCount may be limited globally.  <br>**Example** : `0`|integer|
+|**bucketId**  <br>*required*|The identifier for this bucket. This will always have the same value  for a given bucket in a nodearray, as long as the cluster is not deleted.  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
+|**consumedCoreCount**  <br>*required*|The number of cores for this family that are already in use  <br>**Example** : `0`|integer|
+|**definition**  <br>*optional*|The properties of this bucket, used to create nodes from this bucket. The create-nodes API takes this definition in its `bucket` property.  <br>**Example** : `"object"`|[definition](#clusterstatus-buckets-definition)|
+|**maxCoreCount**  <br>*required*|The maximum number of cores that may be in this bucket, including global and nodearray limits.  Always a multiple of maxCount.  <br>**Example** : `0`|integer|
+|**maxCount**  <br>*required*|The maximum number of nodes that may be in this bucket, including global and nodearray limits  <br>**Example** : `0`|integer|
+|**maxPlacementGroupCoreSize**  <br>*required*|The maximum total number of cores that can be in a placement group in this bucket. Always a multiple of maxPlacementGroupSize.  <br>**Example** : `0`|integer|
+|**maxPlacementGroupSize**  <br>*required*|The maximum total number of instances that can be in a placement group in this bucket  <br>**Example** : `0`|integer|
+|**quotaCoreCount**  <br>*required*|The number of total cores that can be started for this family. This might not be an integer multiple of quotaCount.  <br>**Example** : `0`|integer|
+|**quotaCount**  <br>*required*|The number of total instances that can be started (given quotaCoreCount)  <br>**Example** : `0`|integer|
+|**valid**  <br>*required*|If true, this bucket represents a currently valid bucket to use for new nodes. If false, this bucket represents existing nodes only.  <br>**Example** : `true`|boolean|
 |**virtualMachine**  <br>*required*|The properties of the virtual machines launched from this bucket  <br>**Example** : `"object"`|[virtualMachine](#clusterstatus-buckets-virtualmachine)|
 
 <a name="clusterstatus-buckets-definition"></a>
@@ -105,8 +59,55 @@ Status of the cluster
 
 |Name|Description|Schema|
 |---|---|---|
-|**vcpuCount**  <br>*required*|The number of virtual CPUs this machine type has  <br>**Example** : `32`|integer|
 |**memory**  <br>*required*|The RAM in this virtual machine, in GB  <br>**Example** : `7.5`|number|
+|**vcpuCount**  <br>*required*|The number of virtual CPUs this machine type has  <br>**Example** : `32`|integer|
+
+
+<a name="node"></a>
+## Node
+A node record
+
+*Type* : object
+
+
+<a name="nodecreation"></a>
+## NodeCreation
+Specifies how to add nodes to a cluster
+
+
+|Name|Description|Schema|
+|---|---|---|
+|**requestId**  <br>*optional*|Optional user-supplied unique token to prevent duplicate operations  <br>**Example** : `"string"`|string|
+|**sets**  <br>*required*|A list of node definitions to create. The request must contain at least one set. Each set can specify a different set of properties.  <br>**Example** : `[ "object" ]`|< [sets](#nodecreation-sets) > array|
+
+<a name="nodecreation-sets"></a>
+**sets**
+
+|Name|Description|Schema|
+|---|---|---|
+|**count**  <br>*required*|The number of nodes to create  <br>**Example** : `1`|integer|
+|**definition**  <br>*optional*|The definition of the bucket to use. This is provided by the cluster status API call.  If some of the items given in the status call are missing, or the entire bucket property is missing, the first bucket that matches the given items is used.  <br>**Example** : `"object"`|[definition](#nodecreation-definition)|
+|**nodeAttributes**  <br>*optional*|Additional attributes to be set on each node from this set  <br>**Example** : `"[node](#node)"`|[Node](#node)|
+|**nodearray**  <br>*required*|The name of the nodearray to start nodes from  <br>**Example** : `"execute"`|string|
+|**placementGroupId**  <br>*optional*|If given, nodes with the same value for groupId will all be started in the same placement group.  <br>**Example** : `"string"`|string|
+
+<a name="nodecreation-definition"></a>
+**definition**
+
+|Name|Description|Schema|
+|---|---|---|
+|**machineType**  <br>*optional*|**Example** : `"A2"`|string|
+
+
+<a name="nodelist"></a>
+## NodeList
+Results of a node search
+
+
+|Name|Description|Schema|
+|---|---|---|
+|**nodes**  <br>*required*|The nodes returned  <br>**Example** : `[ "[node](#node)" ]`|< [Node](#node) > array|
+|**operation**  <br>*optional*|If the query includes an operation id, this is the status of that operation  <br>**Example** : `"[operationstatus](#operationstatus)"`|[OperationStatus](#operationstatus)|
 
 
 <a name="nodemanagementrequest"></a>
@@ -116,9 +117,9 @@ Specifies how to perform actions on nodes in a cluster. There are multiple ways 
 
 |Name|Description|Schema|
 |---|---|---|
-|**names**  <br>*optional*|A list of node names to manage  <br>**Example** : `[ "name1", "name2" ]`|< string > array|
-|**ids**  <br>*optional*|A list of node ids to manage  <br>**Example** : `[ "id1", "id2" ]`|< string > array|
 |**filter**  <br>*optional*|A filter expression that matches nodes. Note that strings must be escaped properly.  <br>**Example** : `"State === \"Started\""`|string|
+|**ids**  <br>*optional*|A list of node ids to manage  <br>**Example** : `[ "id1", "id2" ]`|< string > array|
+|**names**  <br>*optional*|A list of node names to manage  <br>**Example** : `[ "name1", "name2" ]`|< string > array|
 |**requestId**  <br>*optional*|Optional user-supplied unique token to prevent duplicate operations  <br>**Example** : `"string"`|string|
 
 
@@ -127,8 +128,8 @@ Specifies how to perform actions on nodes in a cluster. There are multiple ways 
 
 |Name|Description|Schema|
 |---|---|---|
-|**operationId**  <br>*required*|The id of this operation  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
 |**nodes**  <br>*required*|An array of information about each node in the management request  <br>**Example** : `[ "object" ]`|< [nodes](#nodemanagementresult-nodes) > array|
+|**operationId**  <br>*required*|The id of this operation  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
 
 <a name="nodemanagementresult-nodes"></a>
 **nodes**
@@ -136,8 +137,8 @@ Specifies how to perform actions on nodes in a cluster. There are multiple ways 
 |Name|Description|Schema|
 |---|---|---|
 |**id**  <br>*required*|The id of the node  <br>**Example** : `"id1"`|string|
-|**name**  <br>*required*|The name of the node  <br>**Example** : `"name1"`|string|
 |**message**  <br>*optional*|Indicates why the action on this node could not be carried out, if present  <br>**Example** : `"string"`|string|
+|**name**  <br>*required*|The name of the node  <br>**Example** : `"name1"`|string|
 
 
 <a name="operationstatus"></a>
