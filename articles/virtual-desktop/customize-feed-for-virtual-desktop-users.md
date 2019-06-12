@@ -9,15 +9,17 @@ ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: v-hevem
 ---
-# Customize Feed for Windows Virtual Desktop users
+# Customize feed for Windows Virtual Desktop users
+
+You can customize the feed so the RemoteApp and remote desktop resources appear in a recognizable way for your users.
 
 First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
 
 ## Customize the display name for a RemoteApp
 
-The default FriendlyName for a RemoteApp is the same as the Name. Configuring this change would allow users to easily identify a specific application.
+You can change the display name for a published RemoteApp by setting the friendly name. By default, the friendly name is the same as the name of the RemoteApp program.
 
-To retrieve the RemoteApp, run the following PowerShell cmdlet:
+To retrieve a list of published RemoteApps for an app group, run the following PowerShell cmdlet:
 
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
@@ -33,16 +35,16 @@ Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 
 ## Customize the display name for a Remote Desktop
 
-The default FriendlyName for a RemoteDesktop is the same as the Name. Configuring this change would allow users to easily identify a specific desktop.
+You can change the display name for a published remote desktop by setting the friendly name. If you manually created the host pool and desktop app group through PowerShell, the default friendly name is "Session Desktop". If you created the host pool and desktop app group through the GitHub ARM template or the Azure Marketplace offering, the default friendly name is the same as the host pool name.
 
-To retrieve the RemoteDesktop, run the following PowerShell cmdlet:
+To retrieve the remote desktop resource, run the following PowerShell cmdlet:
 
 ```powershell
 Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
 ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](media/get-rdsremotedesktop.png)
 
-To assign a friendly name to a RemoteDesktop, run the following PowerShell cmdlet:
+To assign a friendly name to the remote desktop resource, run the following PowerShell cmdlet:
 
 ```powershell
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
