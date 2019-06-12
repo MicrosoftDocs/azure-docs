@@ -15,7 +15,7 @@ For a plug and play device, a Device Capability Model (DCM) describes a physical
    3. Select "Install from VSIX"
    4. Select the `.vsix` file you just downloaded
    5. Click Install
-   ![Img](img/install-vsix.png)
+   ![Img](media/quickstart-create-pnp-device/install-vsix.png)
    > NOTE: You must do this from within VS Code as you see in the image above. It is not directly installable from Windows Explorer.
    
 ### Install Digital Twin Explorer
@@ -28,7 +28,7 @@ You will need to create a device identity in an Azure IoT Hub. If you don't have
 ### Create new Plug and Play Interface 
 
 1. In VS Code, press `F1`, type **Azure IoT Plug and Play** in the command palette, and then select **Create Interface** to create a new interface from scratch.
-    ![Img](img/create-interface.png)
+    ![Img](media/quickstart-create-pnp-device/create-interface.png)
 
 2. Provide the name of your interface file `DeviceInformation.interface.json` and then press `Enter`. A default interface file will be created.
 3. Copy the contents from the file [here]() into the file you just created.
@@ -67,40 +67,40 @@ You will need to create a device identity in an Azure IoT Hub. If you don't have
 
 1. In VS Code, press the `F1` key, type **Azure IoT Plug and Play** in the command palette, and select **Open Model Repository**. 
 
-   ![Img](img/open-model-repo.png)
+   ![Img](media/quickstart-create-pnp-device/open-model-repo.png)
 
 2. Do not enter any connection string.
 
 3. This will open the model repository in VS Code UI.
-   ![Img](img/model-repo-ui.png)
+   ![Img](media/quickstart-create-pnp-device/model-repo-ui.png)
 
 ### Submit Interface to Model Repository
 
 1. In VS Code, press the `F1` key, type **Azure IoT Plug and Play** in the command palette, and select **Submit file to Model Repository**. 
 
-   ![Img](img/submit.png)
+   ![Img](media/quickstart-create-pnp-device/submit.png)
 
 2. Select the Interface and Device Capability Model files you just created.
-   ![Img](img/submit-file.png)
+   ![Img](media/quickstart-create-pnp-device/submit-file.png)
 
 3. In the Plug & Play Model Repository UI, click the **Refresh** button to see the submitted files.
-   ![Img](img/model-repo-ui-submitted.png)
+   ![Img](media/quickstart-create-pnp-device/model-repo-ui-submitted.png)
 
 
 ### Develop Device Code in C
 
 #### Generate the C Code Stubs
 1. In VS Code, press the `F1` key, type **Azure IoT Plug and Play** in the command palette, and select **Generate Device Code Stub**.
-    ![Img](img/command-generate-device-code.png)
+    ![Img](media/quickstart-create-pnp-device/command-generate-device-code.png)
 
 2. When prompted for a capability model, select the EnvironmentalSensorX4000.capabilitymodel.json capability model file.
-    ![Img](img/select-dcm.png)
+    ![Img](media/quickstart-create-pnp-device/select-dcm.png)
 
 3. When prompted a language, select **ANSI C**.
-    ![Img](img/device-lang.png)
+    ![Img](media/quickstart-create-pnp-device/device-lang.png)
 
 4. When prompted a platform, select **General platform**
-   ![Img](img/reveal-in-folder.png)
+   ![Img](media/quickstart-create-pnp-device/reveal-in-folder.png)
    
 5. Select the folder where you would like the C files to be outputed to.
 
