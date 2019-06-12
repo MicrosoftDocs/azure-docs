@@ -146,7 +146,7 @@ The new release of Azure Disk Encryption eliminates the requirement to provide a
 
 
 ## Terminology
-The following table defines some of the common terms used in Azure disk encrption documentation:
+The following table defines some of the common terms used in Azure disk encryption documentation:
 
 | Terminology | Definition |
 | --- | --- |
