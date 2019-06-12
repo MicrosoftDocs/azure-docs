@@ -1,5 +1,5 @@
 ---
-title: Customize feed for Windows Virtual Desktop Users with PowerShell  - Azure
+title: Customize feed for Windows Virtual Desktop users
 description: How to customize feed for Windows Virtual Desktop users with PowerShell cmdlets.
 services: virtual-desktop
 author: v-hevem
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 05/30/2019
 ms.author: v-hevem
 ---
-# Customize Feed for Windows Virtual Desktop Users
+# Customize Feed for Windows Virtual Desktop users
 
 First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
 
-## Configure a RemoteApp
+## Customize the display name for a RemoteApp
 
 The default FriendlyName for a RemoteApp is the same as the Name. Configuring this change would allow users to easily identify a specific application.
 
@@ -31,7 +31,7 @@ Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](media/set-rdsremoteapp.png)
 
-## Configure a RemoteDesktop
+## Customize the display name for a Remote Desktop
 
 The default FriendlyName for a RemoteDesktop is the same as the Name. Configuring this change would allow users to easily identify a specific desktop.
 
