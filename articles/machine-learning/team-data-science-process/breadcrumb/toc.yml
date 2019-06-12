@@ -55,7 +55,7 @@
         topicHref: /azure/storage/index
         items:
         - name: Blobs
-          tocHref: /azure/storage/blobs/
+          tocHref: /azure/storage/blobs/storage-python-how-to-use-blob-storage
           topicHref: /azure/storage/blobs/index
 
 - name: Azure
@@ -87,5 +87,11 @@
       topicHref: /azure/machine-learning/team-data-science-process/index
       items:
       - name: Studio
-        tocHref: /azure/machine-learning/studio/
+        tocHref: /azure/machine-learning/studio/algorithm-choice
+        topicHref: /azure/machine-learning/studio/index
+      - name: Studio
+        tocHref: /azure/machine-learning/studio/algorithm-cheat-sheet
+        topicHref: /azure/machine-learning/studio/index
+      - name: Studio
+        tocHref: /azure/machine-learning/studio/create-workspace
         topicHref: /azure/machine-learning/studio/index
