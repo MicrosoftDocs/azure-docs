@@ -20,7 +20,7 @@ Cost Management includes all usage and purchases, including reservations and thi
 
 ## Supported Microsoft Azure offers
 
-The following information shows the currently supported [Microsoft Azure offers](https://azure.microsoft.com/support/legal/offer-details/) by Azure Cost Management. Your signed agreement for Azure offer determines the type of the Azure subscription that you have.
+The following information shows the currently supported [Microsoft Azure offers](https://azure.microsoft.com/support/legal/offer-details/) by Azure Cost Management. Your signed agreement for an Azure offer determines the type of the Azure subscription that you have.
 
 | Category  | **Offer name** | **Quota ID** | **Offer number** |
 | --- | --- | --- | --- |
