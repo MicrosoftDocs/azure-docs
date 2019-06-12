@@ -11,52 +11,50 @@ ms.custom: "include file"
 ---
 
 
-The following limits apply to each Log Analytics workspace in the current consumption-based pricing tier introduced in April 2018:
+**Data collection volume and retention** 
 
-|     | Per GB 2018 |
-|:---|:---|
-| Data volume collected per day | No limit |
-| Data retention period | 30 to 730 days<sup>1</sup> |
+Current tier (introduced April 2018)
 
-The following limits apply to each Log Analytics workspace with the most recent legacy pricing tiers:
+| Pricing Tier | Limit per day | Data retention | Comment |
+|:---|:---|:---|:---|
+| Per GB 2018 | No limit | 30 - 730 days | Data retention beyond 31 days is available for additional charges. Learn more about Azure Monitor pricing. |
 
-|  | Free | Standalone (Per GB) | Per Node (OMS) | Comments |
-|:---|:---|:---|:---|:---|
-| Data volume collected per day |500 MB<sup>2</sup> |No limit |No limit | Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). |
-| Data retention period |7 days | 30 to 730 days<sup>1</sup> | 30 to 730 days<sup>1</sup> | When your workspace reaches the 500-MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC. |
+Legacy tiers (introduced April 2016)
 
-The following limits apply to each Log Analytics workspace with the oldest legacy pricing tiers:
+| Pricing Tier | Limit per day | Data retention | Comment |
+|:---|:---|:---|:---|
+| Free | 500 MB | 7 days | When your workspace reaches the 500-MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC. |
+| Standalone (Per GB) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about Azure Monitor pricing. |
+| Per Node (OMS) | No limit | 30 to 730 days | Data retention beyond 31 days is available for additional charges. Learn more about Azure Monitor pricing. |
 
-|  | Standard | Premium | 
-| --- | --- | --- | --- | --- | --- |--- |
-| Data volume collected per day | No limit | No limit | 
-| Data retention period |30 days | 365 days |
+Legacy original pricing tiers
 
-<sup>1</sup>Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-
-<sup>2</sup>When your workspace reaches the 500-MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC.
+| Pricing Tier | Limit per day | Data retention | Comment |
+|:---|:---|:---|:---|
+| Standard | No limit | 30 days  | Retention can't be adjusted |
+| Premium  | No limit | 365 days | Retention can't be adjusted |
 
 
-The following limits apply to Log Analytics workspaces per subscription.
+**Number of workspaces per subscription.**
 
 | Pricing tier    | Number of workspaces per subscription | Comments
 |:---|:---|:---|
 | Free tier  | 10 | This limit can't be increased. |
-| All tiers other than Free | N/A | You're limited by the number of resources within a resource group and the number of resource groups per subscription. | 
+| All other tiers | N/A | You're limited by the number of resources within a resource group and the number of resource groups per subscription. | 
 
-You cannot create new Log Analytics workspaces in the following regions:
+**Region capacity**
 
 | Region | Explanation |
 |:---|:---|
-| West Central US | This region is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019. |
+| West Central US | You cannot currently create a new workspace in this region since it is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019. |
 
-The following limits apply to Log Analytics in the Azure portal:
+**Azure portal**
 
 | Category | Limits | Comments |
 |:---|:---|:---|
 | Maximum records returned by a log query | 10,000 | Reduce results using query scope, time range, and filters in the query. |
 
-The following limits apply to the Log Analytics APIs:
+**Log Analytics APIs:**
 
 | Category | Limits | Comments |
 |:---|:---|:---|
