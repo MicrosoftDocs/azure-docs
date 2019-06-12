@@ -100,7 +100,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 
 ## Whitelist Device Streaming Endpoints
 
-As mentioned [earlier](#overview), your device creates an outbound connection to IoT Hub streaming endpoint during device streams initiation process. Your firewalls on the device or its network must allow outbound connectivity to the streaming gateway over port 443 (note that communication takes place over a WebSocket connection that is encrypted using TLS).
+As mentioned at the beginning of this article, your device creates an outbound connection to IoT Hub streaming endpoint during device streams initiation process. Your firewalls on the device or its network must allow outbound connectivity to the streaming gateway over port 443 (note that communication takes place over a WebSocket connection that is encrypted using TLS).
 
 The hostname of device streaming endpoint can be found on the Azure IoT Hub portal under the Overview tab.
 !["Device stream endpoints"](./media/iot-hub-device-streams-overview/device-stream-portal.PNG)
@@ -164,24 +164,24 @@ The echo sample demonstrates programmatic use of device streams to send and rece
 Try this instead of a table:
 
 [C# Service and Device Programs](quickstart-device-streams-echo-csharp.md)
-[Node.js Service Program](quickstart-device-streams-echo-nodejs)
-[C Device Program](quickstart-device-streams-echo-c)
+[Node.js Service Program](quickstart-device-streams-echo-nodejs.md)
+[C Device Program](quickstart-device-streams-echo-c.md)
 
 
 | **SDK** | **Service Program** | **Device Program** |
 | ----- | ------------ | ----------------- |
 |[C#](quickstart-device-streams-echo-csharp.md)| X | X |
-|[Node.js](quickstart-device-streams-echo-nodejs) | X | - |
-|[C](quickstart-device-streams-echo-c)| - | X |
+|[Node.js](quickstart-device-streams-echo-nodejs.md) | X | - |
+|[C](quickstart-device-streams-echo-c.md)| - | X |
 
 == <br>
-Not keen about this; does it make sense? 
+Not keen about this; does it make sense?
 
 | **Service Program** | **Device Program** |
 | ----- | ------------ | ----------------- | 
 |[C#](quickstart-device-streams-echo-csharp.md)|[C#](quickstart-device-streams-echo-csharp.md)|
-|[Node.js](quickstart-device-streams-echo-nodejs) | - |
-| - | [C](quickstart-device-streams-echo-c)|
+|[Node.js](quickstart-device-streams-echo-nodejs.md) | - |
+| - | [C](quickstart-device-streams-echo-c.md)|
 
 == <br>
 Don't want to use this; don't want to hyperlink the word [link].
