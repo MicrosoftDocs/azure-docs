@@ -788,7 +788,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/bastion/">
-                                                <img src="media/index/frontdoor.svg" alt="" />
+                                                <img src="media/index/web_connect.svg" alt="" />
                                                 <p>Azure Bastion</p>
                                             </a>
                                         </li>
