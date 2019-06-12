@@ -33,7 +33,7 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
    >Use a direct cable from the PC to the back of the device, as this works better than connecting through adapters or extensions.
 
 3. Verify the power indicator LED next to the USB cable is solid white.
-4. Device power-on takes a few seconds and is ready to use when the front-facing LED streaming indicator turns off.
+4. Device power-on takes a few seconds. The device is ready to use when the front-facing LED streaming indicator turns off.
 
     ![Full device features](./media/quickstarts/full-device-features.png)
 
