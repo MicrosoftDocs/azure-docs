@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Mapping Data Flow Parameters
+title: Azure Data Factory mapping data flow parameters
 description: Learn how to parameterize a mapping data flow from data factory pipelines
 author: kromerm
 ms.author: makromer
