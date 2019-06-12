@@ -17,7 +17,7 @@ ms.author: magoedte
 
 # Understand the health of your Azure virtual machines
 
-Azure includes services for specific roles or tasks in the monitoring space. However, it doesn't provide in-depth health perspectives of operating systems (OSs) hosted on Azure virtual machines (VMs). Although you can use Azure Monitor for different conditions, it's not designed to model and represent the health of core components, or the overall health of VMs.
+Azure includes services for specific roles or tasks in the monitoring space, but it doesn't provide in-depth health perspectives of operating systems (OSs) hosted on Azure virtual machines (VMs). Although you can use Azure Monitor for different conditions, it's not designed to model and represent the health of core components, or the overall health of VMs.
 
 By using the Azure Monitor for VMs health feature, you can actively monitor the availability and performance of a Windows or Linux guest OS. The health feature uses a model that represents key components and their relationships, provides criteria that specifies how to measure component health, and sends an alert when it detects an unhealthy condition.
 
@@ -78,7 +78,7 @@ This section outlines the default health criteria to monitor Azure Windows and L
 
 To sign in, go to the [Azure portal](https://portal.azure.com).
 
-## Introduction to Azure Monitor for VMs health feature
+## Introduction to the Azure Monitor for VMs health feature
 
 Before you use the health feature for a single VM or group of VMs, it's important to understand how the information is presented and what the visualizations represent.
 
@@ -119,7 +119,7 @@ In the **Component health** section, a table shows the health rollup status of p
 
 When you access health from an Azure VM that runs Windows, the health state of the top five core Windows services is shown under **Core services health**. Selecting any of the services opens a page that lists the health criteria monitoring for that component along with its health state.
 
-Selecting the name of the health criteria opens the property pane. In this pane, you can review the configuration details, including if the health criteria has a corresponding Azure Monitor alert.
+Selecting the name of the health criteria opens the property pane. In this pane, you can review the configuration details, including if the health criteria have a corresponding Azure Monitor alert.
 
 For more information, see [Health Diagnostics and working with health criteria](#health-diagnostics).
 
@@ -185,7 +185,7 @@ Start health diagnostics by using the following methods:
 
     1. On the **Health** page, select the icon for **Critical**, **Warning**, **Healthy**, or **Unknown** health state under the section **Guest VM health**.
     2. Go to the page that lists all the VMs matching that filtered category.
-    3. Select the value in the **Health State** column to open health diagnostics scoped to that particular VM.
+    3. Select the value in the **Health State** column to open the health diagnostics scoped to that VM.
 
 * By OS from the aggregate VM perspective in Azure Monitor. Under **VM distribution**, selecting any one of the column values will open the **Virtual Machines** page and return a list in the table matching the filtered category. Selecting the value under **Health State** column opens health diagnostics for the selected VM.
  
@@ -195,7 +195,7 @@ Health diagnostics organizes health information into two categories: **Availabil
  
 All health criteria defined for a specific component such as logical disk, CPU, and so on, can be viewed without filtering on the two categories (in an all-up view of all criteria), or filtering the results by either category when you select the **Availability** or **Performance** tabs.
 
-Also, the criteria category can be seen next to the **Health Criteria** column. If the criteria doesn't match the selected category, a message stating **No health criteria available for the selected category** appears in the **Health Criteria** column.
+Also, the criteria category can be seen next to the **Health Criteria** column. If the criteria don't match the selected category, a message stating **No health criteria available for the selected category** appears in the **Health Criteria** column.
 
 The state of a health criteria is defined by one of the four types: **Critical**, **Warning**, **Healthy**, and **Unknown**. The first three states are configurable, meaning that you can modify the threshold values of the monitors directly in the **Health Criteria** configuration pane, or by using the Azure Monitor REST API [update monitor operation](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). **Unknown** isn't configurable and is reserved for specific scenarios.
 
@@ -237,7 +237,7 @@ The **Unit** health criteria type can have its configuration modified by selecti
 
 In the configuration pane for the selected health criteria, by using the example **Average Disk Seconds Per Write**, the threshold can be configured with a different numeric value. It's a two-state monitor, meaning it can change only from **Healthy** to **Warning**.
 
-Other health criterion use three states, where you can configure the value for warning and critical health-state thresholds. You can also modify a threshold by using the Azure Monitor REST API [monitor configuration](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
+Other health criterion sometimes use three states, where you can configure the value for warning and critical health-state thresholds. You can also modify a threshold by using the Azure Monitor REST API [monitor configuration](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
 
 >[!NOTE]
 >Applying health criteria configuration changes to one instance applies them to all monitored instances. For example, if you select **Disk -1 D:** and then modify the **Average Disk Seconds Per Write** threshold, it doesn't apply only to that instance, but all other disk instances discovered and monitored on the VM.
@@ -247,7 +247,7 @@ Other health criterion use three states, where you can configure the value for w
 
 To learn more about health criteria, knowledge articles are included to help you identify problems, causes, and resolutions. Select **View information** on the page to see the related knowledge article.
 
-To review all the knowledge articles included with Azure Monitor for VMs health feature, see [Azure Monitor health knowledge documentation](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+To review all the knowledge articles included with the Azure Monitor for VMs health feature, see [Azure Monitor health knowledge documentation](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
 
 ### State changes
 
@@ -269,7 +269,7 @@ To see an updated health state, you can refresh the Health Diagnostics page by s
 
 ## Alerts
 
-THe Azure Monitor for VMs health feature integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state, when the condition is detected. Alerts are categorized by severity, from Sev 0 through Sev 4, with Sev 0 representing the highest level.
+The Azure Monitor for VMs health feature integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state, when the condition is detected. Alerts are categorized by severity, from Sev 0 through Sev 4, with Sev 0 representing the highest level.
 
 Alerts aren't associated with an action group to notify you when the alert has been triggered. The subscription owner must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
 
@@ -279,7 +279,7 @@ For example, if you select the row corresponding to **Sev level 1**, you'll see 
 
 ![Example of all Severity Level 1 alerts](./media/vminsights-health/vminsights-sev1-alerts-01.png)
 
-The **All Alerts** page is not only scoped to show alerts matching your selection, but is also filtered by **Resource type** to show only health alerts raised by a VM resource. This format is reflected in the list of alerts, under the column **Target Resource**, where it shows the Azure VM the alert when a particular unhealthy condition was met.
+The **All Alerts** page isn't scoped to show only alerts matching your selection. It's also filtered by **Resource type** to show only health alerts raised by a VM resource. This format is reflected in the alert list, under the column **Target Resource**, where it shows the Azure VM the raised alert when an unhealthy condition was met.
 
 Alerts from other resource types or services are not intended to be included in this view. These alerts include log alerts, which are based on log queries or metric alerts that you'd normally view from the default Azure Monitor [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page.
 
@@ -290,11 +290,11 @@ You can filter this view by selecting values in the dropdown menus at the top of
 |Subscription |Select an Azure subscription. Only alerts in the selected subscription are included in the view. |
 |Resource Group |Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
 |Resource type |Select one or more resource types. By default, only alerts of target **Virtual machines** is selected and included in this view. This column is only available after a resource group has been specified. |
-|Resource |Select a resource. Only alerts with that resource as a target are included in the view. This column is available only after a resource type has been specified. | 
-|Severity |elect an alert severity, or select **All** to include alerts of all severities. | 
+|Resource |Select a resource. Only alerts with that resource as a target are included in the view. This column is available only after a resource type has been specified. |
+|Severity |Select an alert severity or select **All** to include alerts of all severities. |
 |Monitor Condition |Select a monitor condition to filter alerts if they have been fired or resolved by the system if the condition is no longer active. Or, select **All** to include alerts of all conditions. |
 |Alert state |Select an alert state, **New**, **Acknowledge**, **Closed**, or **All** to include alerts of all states. |
-|Monitor service |Select a service, or select **All** to include all services. Only alerts from VM Insights are supported for this feature.|
+|Monitor service |Select a service or select **All** to include all services. Only alerts from VM Insights are supported for this feature.|
 |Time range| Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. |
 
 When you select an alert, the **Alert detail** page is displayed. This page provides details of the alert and allows you to change its state.
@@ -319,7 +319,9 @@ Each example uses [ARMClient](https://github.com/projectkudu/armclient) on your 
 
 #### Enable or disable alert rule
 
-To enable or disable an alert for a specific health criteria, the health criteria property *alertGeneration* needs to be modified with a value of either **Disabled** or **Enabled**. To identify the *monitorId* of a particular health criteria, the following example shows how to query for that value for the criteria **LogicalDisk\Avg Disk Seconds Per Transfer**.
+To enable or disable an alert for specific health criteria, the property *alertGeneration* must be modified with a value of either **Disabled** or **Enabled**.
+
+To identify the *monitorId* for specific health criteria, the following example shows how to query for that value for the criteria **LogicalDisk\Avg Disk Seconds Per Transfer**:
 
 1. In a terminal window, type **armclient.exe login**. Doing so prompts you to sign in to Azure.
 
@@ -398,7 +400,7 @@ The Azure Monitor for VMs health feature supports SMS and email notifications wh
     armclient GET "subscriptions/subscriptionName/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings?api-version=2018-08-31-preview"
     ```
 
-    The output should look similar to the following criteria:
+    The output should look like the following criteria:
     
     ```
     {
