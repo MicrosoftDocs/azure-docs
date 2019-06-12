@@ -61,7 +61,7 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 
 * Encrypting basic tier VM or VMs created through the classic VM creation method.
 * Disabling encryption on an OS drive or data drive of a Linux VM when the OS drive is encrypted.
-* Encrypting OS drive  for Linux virtual machine scale sets.
+* Encrypting OS drive for Linux virtual machine scale sets.
 * Encrypting Windows VMs configured with software-based RAID systems.
 * Encrypting custom images on Linux VMs.
 * Integration with an on-premises key management system.
@@ -74,7 +74,7 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 When you enable and deploy Azure Disk Encryption for Azure VMs, you can configure the following capabilities to be enabled:
 
 * Encrypting the OS volume to protect the boot volume at rest in your storage.
-* Encryptng data volumes to protect the data volumes at rest in your storage.
+* Encrypting data volumes to protect the data volumes at rest in your storage.
 * Disabling encryption on the OS and data drives for Windows VMs.
 * Disabling encryption on the data drives for Linux VMs (only when the OS drive isn't encrypted).
 * Safeguarding the encryption keys and secrets in your Azure Key Vault subscription.
@@ -86,7 +86,7 @@ Azure Disk Encryption for VMs for Windows and Linux includes:
 
 * [The disk encryption extension for Windows](../virtual-machines/extensions/azure-disk-enc-windows.md).
 * [The disk encryption extension for Linux](../virtual-machines/extensions/azure-disk-enc-linux.md).
-* T[he PowerShell disk encryption cmdlets](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0).
+* [The PowerShell disk encryption cmdlets](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0).
 * [The Azure CLI disk encryption cmdlets](/cli/azure/vm/encryption?view=azure-cli-latest).
 * [The Azure Resource Manager disk encryption templates](azure-security-disk-encryption-appendix.md#resource-manager-templates).
 
@@ -163,5 +163,3 @@ The following table defines some of the common terms used in Azure disk encrypti
 
 To get started, see the [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md).
 
-> [!div class="nextstepaction"]
-> [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md)
