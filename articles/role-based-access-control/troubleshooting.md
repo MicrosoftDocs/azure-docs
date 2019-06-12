@@ -85,7 +85,7 @@ These role assignments occur when you assign a role to a security principal (use
 
 To remove these role assignments, use the [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) or [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) commands.
 
-In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you will get "The provided information does not map to a role assignment" error message. The following shows an example of the error message:
+In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you will get the error message: "The provided information does not map to a role assignment". The following shows an example of the error message:
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -98,7 +98,7 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-If you get the "The provided information does not map to a role assignment" error message, make sure you also specify the `-Scope` or `-ResourceGroupName` parameters.
+If you get the error message: "The provided information does not map to a role assignment", make sure you also specify the `-Scope` or `-ResourceGroupName` parameters.
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
