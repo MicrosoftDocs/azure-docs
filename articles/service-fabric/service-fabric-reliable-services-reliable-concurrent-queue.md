@@ -250,7 +250,7 @@ while(!cancellationToken.IsCancellationRequested)
                 // If an item was dequeued, add to the buffer for processing
                 processItems.Add(ret.Value);
             }
-        } while (processItems.Count < threshold && ret.HasValue);
+        } while (!cancellationToken.IsCancellationRequested && processItems.Count < threshold && ret.HasValue);
 
         await txn.CommitAsync();
     }
@@ -289,7 +289,7 @@ do
                 // Buffer the dequeues
                 processItems.Add(ret.Value);
             }
-        } while (ret.HasValue && processItems.Count < batchSize);
+        } while (!cancellationToken.IsCancellationRequested && ret.HasValue && processItems.Count < batchSize);
 
         await txn.CommitAsync();
     }
