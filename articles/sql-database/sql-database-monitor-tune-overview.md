@@ -34,7 +34,7 @@ Azure SQL Database **provides the advices that can help you troubleshoot and fix
 You have the following options for monitoring and troubleshooting database performance:
 
 - In the [Azure portal](https://portal.azure.com), click **SQL databases**, select the database, and then use the Monitoring chart to look for resources approaching their maximum. DTU consumption is shown by default. Click **Edit** to change the time range and values shown.
-- Tools such as SQL Server Management Studio provide many useful reports where you can monitor resource utilization and identify top resource consuming queries.
+- Tools such as SQL Server Management Studio provide many useful reports like a [Performance Dashboard](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) where you can monitor resource utilization and identify top resource consuming queries, or [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) where you can identify the queries with regressed performance.
 - Use [Query Performance Insight](sql-database-query-performance.md) the [Azure portal](https://portal.azure.com) in  to identify the queries that spend the most of resources. This feature is available in Single Database and Elastic Pools only.
 - Use [SQL Database Advisor](sql-database-advisor-portal.md) to view recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. This feature is available in Single Database and Elastic Pools only.
 - Use [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) for automatic monitoring of your database performance. Once a performance issue is detected, a diagnostic log is generated with details and Root Cause Analysis (RCA) of the issue. Performance improvement recommendation is provided when possible.
@@ -53,8 +53,8 @@ To diagnose and resolve performance issues, begin by understanding the state of 
 For a workload with performance issues, the performance issue may be due to CPU contention (a **running-related** condition) or individual queries are waiting on something (a **waiting-related** condition).
 
 The causes or **running-related** issues might be:
-- **Compilation issues** - SQL Query Optimizer might produce sub-optimal plan due to stale statistics, incorrect estimation of the number of rows that will be processed or estimate of required memory. If you know that query was executed faster in the past or on other instance (either Managed Instance or SQL Server instance), take the actual execution plans and compare see are they different. Try to apply query hints or rebuilds statistics or indexes to get the better plan. Enable Automatic plan correction in Azure SQL Database to automatically mitigate these issues.
-- **Execution issues** - if the query plan is optimal then it is probably hitting some limit in the database such as log write throughput or it might use defragmented indexes that should be rebuilt. A large number of concurrent queries that are spending the resources might also be the cause of execution issues. **Waiting-related** issues are in most of the cases related to the execution issues, because the queries that are not executing efficiently are probably waiting for some resources.
+- **Compilation issues** - SQL Query Optimizer might produce sub-optimal plan due to stale statistics, incorrect estimation of the number of rows that will be processed, or the estimate of required memory. If you know that query was executed faster in the past or on other instance (either Managed Instance or SQL Server instance), take the actual execution plans and compare them to see are they different. Try to apply query hints or rebuilds statistics or indexes to get the better plan. Enable Automatic plan correction in Azure SQL Database to automatically mitigate these issues.
+- **Execution issues** - if the query plan is optimal then it is probably hitting some resource limits in the database such as log write throughput or it might use defragmented indexes that should be rebuilt. A large number of concurrent queries that are spending the resources might also be the cause of execution issues. **Waiting-related** issues are in most of the cases related to the execution issues, because the queries that are not executing efficiently are probably waiting for some resources.
 
 The causes or **waiting-related** issues might be:
 - **Blocking** - one query might hold the lock on some objects in database while others are trying to access the same objects. You can easily identify the blocking queries using DMV or monitoring tools.
@@ -137,6 +137,24 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
+### Factors influencing query plan changes
+
+A query execution plan recompilation may result in a generated query plan that differs from what was originally cached. There are various reasons why an existing original plan might be automatically recompiled:
+- Changes in the schema being referenced by the query
+- Data changes to the tables being referenced by the query 
+- Changes to query context options 
+
+A compiled plan may be ejected from cache for a variety of reasons, including instance restarts, database scoped configuration changes, memory pressure, and explicit requests to clear the cache. Additionally, using a RECOMPILE hint means a plan won't be cached.
+
+A recompilation (or fresh compilation after cache eviction) can still result in the generation of an identical query execution plan from the one originally observed.  If, however, there are changes to the plan compared to the prior or original plan, the following are the most common explanations for why a query execution plan changed:
+
+- **Changed physical design**. For example, new indexes created that more effectively cover the requirements of a query may be used on a new compilation if the query optimizer decides it is more optimal to leverage that new index than use the data structure originally selected for the first version of the query execution.  Any physical changes to the referenced objects may result in a new plan choice at compile-time.
+
+- **Server resource differences**. In a scenario where one plan differs on “system A” vs. “system B” – the availability of resources, such as number of available processors, can influence what plan gets generated.  For example, if one system has a higher number of processors, a parallel plan may be chosen. 
+
+- **Different statistics**. The statistics associated with the referenced objects changed or are materially different from the original system’s statistics.  If the statistics change and a recompile occurs, the query optimizer will use statistics as of that specific point in time. The revised statistics may have significantly different data distributions and frequencies that were not the case in the original compilation.  These changes are used to estimate cardinality estimates (number of rows anticipated to flow through the logical query tree).  Changes to cardinality estimates can lead us to choose different physical operators and associated order-of-operations.  Even minor changes to statistics can result in a changed query execution plan.
+
+- **Changed database compatibility level or cardinality estimator version**.  Changes to the database compatibility level can enable new strategies and features that may result in a different query execution plan.  Beyond the database compatibility level, disabling or enabling trace flag 4199 or changing the state of the database scoped configuration QUERY_OPTIMIZER_HOTFIXES can also influence query execution plan choices at compile-time.  Trace flags 9481 (force legacy CE) and 2312 (force default CE) are also plan affecting. 
 
 ### Resolve problem queries or provide more resources
 

@@ -4,7 +4,7 @@ description: Learn about SQL syntax, database concepts, and SQL queries for Azur
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
 
 ---
@@ -751,7 +751,7 @@ This query retrieves the family `id`  in ascending order of the city name. If mu
 
 ## <a id="OffsetLimitClause"></a>OFFSET LIMIT clause
 
-OFFSET LIMIT is an optional clause to skip then take some number of values from the query. The OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause. Currently This clause is supported for queries within a single partition only, cross-partition queries don't yet support it. 
+OFFSET LIMIT is an optional clause to skip then take some number of values from the query. The OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause. Currently this clause is supported for queries within a single partition only, cross-partition queries don't yet support it. 
 
 When OFFSET LIMIT is used in conjunction with an ORDER BY clause, the result set is produced by doing skip and take on the ordered values. If no ORDER BY clause is used, it will result in a deterministic order of values.
 

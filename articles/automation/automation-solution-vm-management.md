@@ -65,7 +65,8 @@ To deploy the Start/Stop VMs during off hours solution to an Automation Account 
 | Microsoft.OperationsManagement/solutions/write | Resource Group |
 | Microsoft.OperationalInsights/workspaces/* | Resource Group |
 | Microsoft.Insights/diagnosticSettings/write | Resource Group |
-| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Resource Group |
+| Microsoft.Insights/ActionGroups/Write | Resource Group |
+| Microsoft.Insights/ActionGroups/read | Resource Group |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Resource Group |
 | Microsoft.Resources/deployments/* | Resource Group |
 

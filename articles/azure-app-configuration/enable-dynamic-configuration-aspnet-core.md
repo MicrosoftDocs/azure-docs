@@ -164,7 +164,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
     ![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Sign in to the [Azure portal](https://aka.ms/azconfig/portal). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
+4. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
 
 5. Select **Configuration Explorer**, and update the values of the following keys:
 

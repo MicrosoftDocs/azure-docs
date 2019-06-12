@@ -4,7 +4,7 @@ description: Learn how a deployment manifest declares which modules to deploy, h
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/28/2019
+ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,11 +13,14 @@ ms.custom: seodec18
 
 # Learn how to deploy modules and establish routes in IoT Edge
 
-Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which are part of the IoT Edge runtime. Additionally, any IoT Edge device can run multiple modules to perform any number of processes. You deploy all these modules to a device at once, so IoT Edge provides a way to declare which modules to install and how to configure them to work together. 
+Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which are part of the IoT Edge runtime. IoT Edge device can run multiple additional modules for any number of processes. Use a deployment manifest to tell your device which modules to install and how to configure them to work together. 
 
 The *deployment manifest* is a JSON document that describes:
 
-* The **IoT Edge agent** module twin, which includes the container image for each module, the credentials to access private container registries, and instructions for how each module should be created and managed.
+* The **IoT Edge agent** module twin, which includes three components. 
+  * The container image for each module that runs on the device.
+  * The credentials to access private container registries that contain module images.
+  * Instructions for how each module should be created and managed.
 * The **IoT Edge hub** module twin, which includes how messages flow between modules and eventually to IoT Hub.
 * Optionally, the desired properties of any additional module twins.
 
@@ -129,7 +132,9 @@ Every route needs a source and a sink, but the condition is an optional piece th
 
 ### Source
 
-The source specifies where the messages come from. IoT Edge can route messages from leaf devices or modules.
+The source specifies where the messages come from. IoT Edge can route messages from modules or leaf devices. 
+
+Using the IoT SDKs, modules can declare specific output queues for their messages using the ModuleClient class. Output queues aren't necessary, but are helpful for managing multiple routes. Leaf devices can use the DeviceClient class of the IoT SDKs to send messages to IoT Edge gateway devices in the same way that they would send messages to IoT Hub. For more information, see [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
 
 The source property can be any of the following values:
 
@@ -137,7 +142,7 @@ The source property can be any of the following values:
 | ------ | ----------- |
 | `/*` | All device-to-cloud messages or twin change notifications from any module or leaf device |
 | `/twinChangeNotifications` | Any twin change (reported properties) coming from any module or leaf device |
-| `/messages/*` | Any device-to-cloud message sent by a module or leaf device through some or no output |
+| `/messages/*` | Any device-to-cloud message sent by a module through some or no output, or by a leaf device |
 | `/messages/modules/*` | Any device-to-cloud message sent by a module through some or no output |
 | `/messages/modules/<moduleId>/*` | Any device-to-cloud message sent by a specific module through some or no output |
 | `/messages/modules/<moduleId>/outputs/*` | Any device-to-cloud message sent by a specific module through some output |
