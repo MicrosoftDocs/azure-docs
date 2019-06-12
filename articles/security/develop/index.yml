@@ -28,12 +28,12 @@ sections:
       - href: /azure/security/develop/secure-dev-overview
         html: <p>Deploy your first web application to Azure</p>
         image:
-          src: media/index/i_managed.svg
+          src: /media/common/i_get-started.svg
         title: Get started
       - href: https://docs.microsoft.com/en-us/learn/modules/top-5-security-items-to-consider
         html: <p>Top five security items for web apps</p>
         image:
-          src: media/index/i_perftier.svg
+          src: /media/common/i_learn-about.svg
         title: Build your skills with Microsoft Learn
 
 - title: Secure sample apps

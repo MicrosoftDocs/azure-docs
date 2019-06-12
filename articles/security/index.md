@@ -162,7 +162,7 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_article.svg" alt="" /></div>
+                        <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_code-samples.svg" alt="" /></div>
                         <h3>Developers</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
