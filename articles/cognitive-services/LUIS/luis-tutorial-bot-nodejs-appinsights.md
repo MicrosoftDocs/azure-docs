@@ -107,7 +107,7 @@ Open Application Insights to see the LUIS entries.
 
 1. In the portal, select **All resources** then filter by the web app bot name. Click on the resource with the type **Application Insights**. The icon for Application Insights is a light bulb. 
 
-    ![[Search for app insights in the Azure portal](./media/luis-tutorial-appinsights/search-for-app-insights.png)
+    ![Search for app insights in the Azure portal](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. When the resource opens, click on the **Search** icon of the magnifying glass in the far right panel. A new panel to the right displays. Depending on how much telemetry data is found, the panel may take a second to display. Search for `LUIS-results` and hit enter on the keyboard. The list is narrowed to just LUIS query results added with this tutorial.
 
