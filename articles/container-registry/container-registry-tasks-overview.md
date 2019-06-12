@@ -1,18 +1,18 @@
 ---
-title: Automate OS and framework patching with Azure Container Registry Tasks (ACR Tasks)
-description: An introduction to ACR Tasks, a suite of features in Azure Container Registry that provides secure, automated container image build and patching in the cloud.
+title: Automate building and patching container images with Azure Container Registry Tasks (ACR Tasks)
+description: An introduction to ACR Tasks, a suite of features in Azure Container Registry that provides secure, automated container image build, management, and patching in the cloud.
 services: container-registry
 author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: danlep
 ---
 
-# Automate OS and framework patching with ACR Tasks
+# Automate container image builds and maintenance with ACR Tasks
 
-Containers provide new levels of virtualization, isolating application and developer dependencies from infrastructure and operational requirements. What remains, however, is the need to address how this application virtualization is patched.
+Containers provide new levels of virtualization, isolating application and developer dependencies from infrastructure and operational requirements. What remains, however, is the need to address how this application virtualization is managed and patched over the container lifecycle.
 
 ## What is ACR Tasks?
 
@@ -21,7 +21,7 @@ Containers provide new levels of virtualization, isolating application and devel
 Build and test container images with ACR Tasks in four ways:
 
 * [Quick task](#quick-task): Build and push container images on-demand, in Azure, without needing a local Docker Engine installation. Think `docker build`, `docker push` in the cloud. Build from local source code or a Git repository.
-* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is committed to a Git repository.
+* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is committed to a Git repository or a pull request is made.
 * [Build on base image update](#automate-os-and-framework-patching): Trigger a container image build  when that image's base image has been updated.
 * [Multi-step tasks](#multi-step-tasks): Define multi-step tasks that build images, run containers as commands, and push images to a registry. This feature of ACR Tasks supports on-demand task execution and parallel image build, test, and push operations.
 
@@ -61,7 +61,7 @@ Learn how to trigger builds on source code commit in the second ACR Tasks tutori
 
 ## Automate OS and framework patching
 
-The power of ACR Tasks to truly enhance your container build workflow comes from its ability to detect an update to a base image. When the updated base image is pushed to your registry, ACR Tasks can automatically build any application images based on it.
+The power of ACR Tasks to truly enhance your container build workflow comes from its ability to detect an update to a base image. When the updated base image is pushed to your registry, or a base image is updated in a public repo such as in Docker Hub, ACR Tasks can automatically build any application images based on it.
 
 Container images can be broadly categorized into *base* images and *application* images. Your base images typically include the operating system and application frameworks upon which your application is built, along with other customizations. These base images are themselves typically based on public upstream images, for example: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], or [Node.js][base-node]. Several of your application images might share a common base image.
 
@@ -72,7 +72,7 @@ Because ACR Tasks dynamically discovers base image dependencies when it builds a
 Learn about OS and framework patching in the third ACR Tasks tutorial, [Automate image builds on base image update with Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Base image updates trigger builds only when both the base and application images reside in the same Azure container registry, or the base resides in a public Docker Hub repository.
+> Currently, base image updates trigger builds only when both the base and application images reside in the same Azure container registry, or the base resides in a public Docker Hub or Microsoft Container Registry repository.
 
 ## Multi-step tasks
 
