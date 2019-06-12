@@ -48,10 +48,6 @@ For more information, see [Azure Key Vault](azure-key-vault.md)
 
 Isolation is all about using boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications. For example, the separation between tenants is an essential security mechanism for multi-tenant cloud platforms such as Microsoft Azure. Logical isolation helps prevent one tenant from interfering with the operations of any other tenant.
 
-### Environment isolation
-
-The Azure Australia environment is a physical instance that is separate from the rest of Microsoft's network. This is achieved through a series of physical and logical controls that include the following:  Securing of physical barriers using biometric devices and cameras.  Use of specific credentials and multi-factor authentication by Microsoft personnel requiring logical access to the production environment.  All service infrastructure for Azure Australia is located within the United States.
-
 #### Per-customer isolation
 
 Azure implements network access control and segregation through layer 2 VLAN isolation, access control lists, load balancers, and IP filters.
