@@ -120,9 +120,9 @@
     - name: Slow query logs
       items: 
       - name: Azure portal
-        href: howto-configure-server-logs-in-portal.md
+        href: howto-configure-server-logs-portal.md
       - name: Azure CLI
-        href: howto-configure-server-logs-in-cli.md
+        href: howto-configure-server-logs-cli.md
     - name: Audit logs
       items: 
       - name: Azure portal
