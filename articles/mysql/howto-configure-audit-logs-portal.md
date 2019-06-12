@@ -12,6 +12,9 @@ ms.date: 06/11/2019
 
 You can configure the [Azure Database for MySQL audit logs](concepts-audit-logs.md) and diagnostic settings from the Azure portal.
 
+> [!IMPORTANT]
+> Audit log functionality is currently in preview.
+
 ## Prerequisites
 
 To step through this how-to guide, you need:
