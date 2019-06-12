@@ -78,9 +78,9 @@ Install the Moby command-line interface (CLI). The CLI is useful for development
    sudo apt-get install moby-cli
    ```
 
-### Verify your Linux Kernel for Moby Compatibility
+### Verify your Linux kernel for Moby compatibility
 
-Many embedded device manufacturers ship device images which contain custom Linux Kernels that may be missing features required for container runtime compatibility. If you encounter issues when installing the recommended [Moby](https://github.com/moby/moby) container runtime, you may be able to troubleshoot your Linux Kernel configuration using the [check-config](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) script supplied in the official [Moby Github repository](https://github.com/moby/moby) by running the following commands on the device.
+Many embedded device manufacturers ship device images which contain custom Linux kernels that may be missing features required for container runtime compatibility. If you encounter issues when installing the recommended [Moby](https://github.com/moby/moby) container runtime, you may be able to troubleshoot your Linux kernel configuration using the [check-config](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) script supplied in the official [Moby Github repository](https://github.com/moby/moby) by running the following commands on the device.
 
    ```bash
    curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
