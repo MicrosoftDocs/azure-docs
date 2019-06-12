@@ -110,8 +110,8 @@ reg2_id=$(az acr show --name customregistry2 --query id --output tsv)
 Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpush` role to each registry. This role has permissions to pull and push images to a container registry.
 
 ```azurecli
-az role assignment create --assignee $principal_id --scope $reg1_id --role acrpush
-az role assignment create --assignee $principal_id --scope $reg2_id --role acrpush
+az role assignment create --assignee $principalID --scope $reg1_id --role acrpush
+az role assignment create --assignee $principalID --scope $reg2_id --role acrpush
 ```
 
 ### Add target registry credentials to task
