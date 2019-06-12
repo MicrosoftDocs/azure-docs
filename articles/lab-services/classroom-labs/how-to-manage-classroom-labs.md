@@ -47,7 +47,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
         > Make a note of user name and password. They won't be shown again.
     3. Disable **Use same password for all virtual machines** option if you want students to set their own passwords. This step is **optional**. 
 
-        A teacher can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled, so the students will be prompted to set a password when they log in for the first time.
+        A teacher can choose to use the same password for all the VMs in the lab, or allow students to set passwords for their VMs. By default, this setting is enabled for all Windows and Linux images except for Ubuntu. When you select **Ubuntu** VM, this setting is disabled, so the students will be prompted to set a password when they sign in for the first time.
     1. Select **Create**. 
 
         ![Set credentials](../media/tutorial-setup-classroom-lab/set-credentials.png)
