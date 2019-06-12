@@ -77,11 +77,11 @@ In this section, you'll build the iOS app that will connect to the notification 
 
    1. Select **Next**.
 
-1. Create a new folder called SupportingFiles.
+1. Create a new folder called **SupportingFiles**.
 
-1. Create a new p-list file called devsettings.plist in the SupportingFiles folder. Be sure to add this folder to your gitignore file so it isn't committed when working with a git repo. In a production app, you would likely be conditionally setting these secrets as part of an automated build process. However, such settings aren't covered in this walkthrough.
+1. Create a new p-list file called **devsettings.plist** in the **SupportingFiles** folder. Be sure to add this folder to your **gitignore** file so it isn't committed when working with a git repo. In a production app, you would likely be conditionally setting these secrets as part of an automated build process. However, such settings aren't covered in this walkthrough.
 
-1. Update devsettings.plist to include the following configuration entries, using your own values from the notification hub that you provisioned:
+1. Update **devsettings.plist** to include the following configuration entries, using your own values from the notification hub that you provisioned:
 
    | Key                            | Type                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
@@ -114,7 +114,7 @@ In this section, you'll build the iOS app that will connect to the notification 
 
 1. Select the **Capabilities** tab and ensure that **push notifications** are enabled.
 
-1. Open your AppDelegate.swift file to implement the **UNUserNotificationCenterDelegate** protocol and add the following code to the top of the class:
+1. Open your **AppDelegate.swift** file to implement the **UNUserNotificationCenterDelegate** protocol and add the following code to the top of the class:
 
     ```swift
     @UIApplicationMain
@@ -165,7 +165,7 @@ In this section, you'll build the iOS app that will connect to the notification 
     return true
     ```
 
-    This code retrieves the setting values from devsettings.plist, sets the **AppDelegate** class as the **UNUserNotificationCenter** delegate, requests authorization for push notifications, and then calls **registerForRemoteNotifications**.
+    This code retrieves the setting values from **devsettings.plist**, sets the **AppDelegate** class as the **UNUserNotificationCenter** delegate, requests authorization for push notifications, and then calls **registerForRemoteNotifications**.
 
     To keep it simple, the code supports *iOS 10 and later only*. You can add support for previous OS versions by conditionally using the respective APIs and approaches as you would normally do.
 
@@ -186,7 +186,7 @@ In this section, you'll build the iOS app that will connect to the notification 
 
     The code uses the **installationId** and **pushChannel** values to register with the notification hub. In this case, you're using **UIDevice.current.identifierForVendor** to provide a unique value to identify the device and then formatting the **deviceToken** to provide the desired **pushChannel** value. The **showAlert** function exists simply to display some message text for demonstration purposes.
 
-1. Still in the AppDelegate.swift file, add the **willPresent** and **didReceive** functions to **UNUserNotificationCenterDelegate**. These functions display an alert when they're notified that an app is running in either the foreground or the background respectively.
+1. Still in the **AppDelegate.swift** file, add the **willPresent** and **didReceive** functions to **UNUserNotificationCenterDelegate**. These functions display an alert when they're notified that an app is running in either the foreground or the background respectively.
 
     ```swift
     @available(iOS 10.0, *)
@@ -206,7 +206,7 @@ In this section, you'll build the iOS app that will connect to the notification 
 
 1. Add print statements to the bottom of the **didRegisterForRemoteNotificationsWithDeviceToken** function to verify that **installationId** and **pushChannel** are being assigned values.
 
-1. Create the Models, Services, and Utilities folders for the foundational components you'll be adding to the project later.
+1. Create the **Models**, **Services**, and **Utilities** folders for the foundational components you'll be adding to the project later.
 
 1. Check that the project builds and runs on a physical device. Push notifications can't be tested by using the simulator.
 
@@ -214,7 +214,7 @@ In this section, you'll build the iOS app that will connect to the notification 
 
 In this step, you'll create a set of models to represent the [Notification Hubs REST API](/rest/api/notificationhubs/) payloads and to store the required shared access signature (SAS) token data.
 
-1. Add a new Swift file called PushTemplate.swift to the Models folder. This model provides a struct representing the **BODY** of an individual template as part of the **DeviceInstallation** payload.
+1. Add a new Swift file called **PushTemplate.swift** to the **Models** folder. This model provides a struct representing the **BODY** of an individual template as part of the **DeviceInstallation** payload.
 
     ```swift
     import Foundation
@@ -228,7 +228,7 @@ In this step, you'll create a set of models to represent the [Notification Hubs 
     }
     ```
 
-1. Add a new Swift file called DeviceInstallation.swift to the Models folder. This file defines a struct representing the payload for creating or updating a **Device Installation**. Add the following code to the file:
+1. Add a new Swift file called **DeviceInstallation.swift** to the **Models** folder. This file defines a struct representing the payload for creating or updating a **Device Installation**. Add the following code to the file:
 
     ```swift
     import Foundation
@@ -249,7 +249,7 @@ In this step, you'll create a set of models to represent the [Notification Hubs 
     }
     ```
 
-1. Add a new swift file called TokenData.swift to the Models folder. This model will be used to store a SAS token along with its expiration.
+1. Add a new swift file called **TokenData.swift** to the **Models** folder. This model will be used to store a SAS token along with its expiration.
 
     ```swift
     import Foundation
@@ -278,7 +278,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 The process itself involves the same six key steps:  
 
-1. Computing the expiry in [UNIX Epoch time](https://en.wikipedia.org/wiki/Unix_time) format, which means the number of seconds elapsed since 12:00:00 AM Coordinated Universal Time, January 1, 1970.
+1. Computing the expiry in [UNIX Epoch time](https://en.wikipedia.org/wiki/Unix_time) format, which means the number of seconds elapsed since midnight Coordinated Universal Time, January 1, 1970.
 1. Formatting the **ResourceUrl** that represents the resource you're trying to access so it's percent-encoded and lowercase. The **ResourceUrl** has the form `'https://<namespace>.servicebus.windows.net/<hubName>'`.
 1. Preparing the **StringToSign**, which is formatted as `'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`.
 1. Computing and Base64-encoding the **Signature** by using the HMAC-SHA256 hash of the **StringToSign** value. The hash value is used with the **Key** part of the **Connection String** for the respective **Authorization Rule**.
@@ -293,7 +293,7 @@ To add and configure the bridging header:
 
 1. In Xcode, select **File** > **New** > **File** > **Header File**. Name the header file BridgingHeader.h.
 
-1. Edit the file to import CommonHMAC.h:
+1. Edit the file to import **CommonHMAC.h**:
 
     ```swift
     #import <CommonCrypto/CommonHMAC.h>
@@ -317,7 +317,7 @@ To add and configure the bridging header:
 
    There are many third-party open-source wrapper libraries available that might make using **CommonCrypto** a bit easier. However, discussion of such libraries is beyond the scope of this article.
 
-1. Add a new Swift file named TokenUtility.swift within the Utilities folder and add the following code:
+1. Add a new Swift file named **TokenUtility.swift** within the **Utilities** folder and add the following code:
 
    ```swift
    import Foundation
@@ -378,7 +378,7 @@ To add and configure the bridging header:
     }
    ```
 
-    This utility encapsulates the logic responsible for generating the SAS token.
+   This utility encapsulates the logic responsible for generating the SAS token.
 
    As outlined previously, the **getSasToken** function orchestrates the high-level steps required to prepare the token. The function will be called by the installation service later in this tutorial.
 
@@ -430,7 +430,7 @@ No registration exists for the specified **installationId** at this point. Howev
 
 Next you'll implement our basic wrapper around the [Installations REST API](/rest/api/notificationhubs/create-overwrite-installation).  
 
-Add a new Swift file called NotificationRegistrationService.swift under the Services folder, and then add the following code to this file:
+Add a new Swift file called **NotificationRegistrationService.swift** under the **Services** folder, and then add the following code to this file:
 
 ```swift
 import Foundation
@@ -546,7 +546,7 @@ Finally, **encodeToJson** converts the respective model objects into JSON for us
 
 The last step is updating **AppDelegate** to use the **NotificationRegistrationService** to register with our **NotificationHub**.
 
-1. Open AppDelegate.swift and add a class-level variable to store a reference to the **NotificationRegistrationService**:
+1. Open **AppDelegate.swift** and add a class-level variable to store a reference to the **NotificationRegistrationService**:
 
     ```swift
     var registrationService : NotificationRegistrationService?

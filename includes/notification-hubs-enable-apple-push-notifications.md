@@ -82,14 +82,14 @@ To push notifications to an iOS app, register your application with Apple and al
 
     ![Generated certificate download page](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
 
-    The certificate is downloaded and saved to your computer in your Downloads folder.
+    The certificate is downloaded and saved to your computer in your **Downloads** folder.
 
     ![Locate certificate file in the Downloads folder](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
     > [!NOTE]
-    > By default, the downloaded development certificate is named aps_development.cer.
+    > By default, the downloaded development certificate is named **aps_development.cer**.
 
-1. Select the downloaded push certificate aps_development.cer.
+1. Select the downloaded push certificate **aps_development.cer**.
 
     This action installs the new certificate in the Keychain, as shown in the following image:
 
@@ -105,7 +105,7 @@ To push notifications to an iOS app, register your application with Apple and al
     Make a note of the file name and location of the exported .p12 certificate, which is used to enable authentication with APNS.
 
     > [!NOTE]
-    > This tutorial creates a file named QuickStart.p12. Your file name and location might be different.
+    > This tutorial creates a file named **QuickStart.p12**. Your file name and location might be different.
 
 ## Create a provisioning profile for the app
 
