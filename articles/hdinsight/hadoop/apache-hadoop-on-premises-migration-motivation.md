@@ -88,9 +88,9 @@ This section provides template questionnaires to help gather important informati
 |Big Data eco-system components|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Cluster types|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |Number of clusters|4|
-|Number of Master Nodes|2|
-|Number of Worker Nodes|100|
-|Number of Edge Nodes| 5|
+|Number of master Nodes|2|
+|Number of worker Nodes|100|
+|Number of edge Nodes| 5|
 |Total Disk space|100 TB|
 |Master Node configuration|m/y, cpu, disk, etc.|
 |Data Nodes configuration|m/y, cpu, disk, etc.|
