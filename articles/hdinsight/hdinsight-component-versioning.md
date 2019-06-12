@@ -141,7 +141,7 @@ For information on pricing and SLA for the Enterprise Security Package, see [HDI
 
 ## Service level agreement for HDInsight cluster versions
 
-The service level agreement (SLA) is defined in terms of a _support window_. The support window is the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. If the version has a _support expiration date_ that has passed, the HDInsight cluster is outside the support window. For more information about supported versions, see the list of [supported HDInsight cluster versions](hdinsight-migrate-from-windows-to-linux.md). The support expiration date for a specified HDInsight version X (after a newer X+1 version is available) is calculated as the later of:  
+The service level agreement (SLA) is defined in terms of a _support window_. The support window is the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. If the version has a _support expiration date_ that has passed, the HDInsight cluster is outside the support window. The support expiration date for a specified HDInsight version X (after a newer X+1 version is available) is calculated as the later of:  
 
 * Formula 1: Add 180 days to the date when the HDInsight cluster version X was released.
 * Formula 2: Add 90 days to the date when the HDInsight cluster version X+1 is made available in Azure portal.
