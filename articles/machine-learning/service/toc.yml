@@ -97,7 +97,7 @@
   - name: Model management (MLOps)
     displayName: deploy, deployment, mlops, operationalize, operationalization
     href: concept-model-management-and-deployment.md
-  - name: Reusable ML pipelines
+  - name: ML pipelines
     href: concept-ml-pipelines.md
   - name: Model interpretability
     displayName: explainability
@@ -118,6 +118,8 @@
       href: how-to-enable-virtual-network.md
     - name: Secure web services with SSL
       href: how-to-secure-web-service.md
+    - name: Regenerate storage access keys
+      href: how-to-change-storage-access-key.md
 - name: How-to guides
   items:
   - name: Manage workspaces

@@ -31,7 +31,7 @@ The following steps are supported on macOS, Windows, and Linux-based operating s
 
 To complete this quickstart:
 
-* Install [PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)
+* Install [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 * Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 
