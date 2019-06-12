@@ -34,8 +34,8 @@ Next, let's create a webhook.
 
 Let's create a webhook for an offline transcription. The scenario: a user has a long running audio file that they would like to transcribe asynchronously with the Batch Transcription API. 
 
-To create a web hook
-POST https://<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
+Webhooks can be created by making a
+POST request to https://\<region\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
 Configuration parameters for the request are provided as JSON:
 
@@ -137,7 +137,7 @@ Sends a POST request to the registered URL if an entity for the subscribed event
 
 A quick test can be done using the website https://bin.webhookrelay.com. From there, you can obtain call back URLs to pass as parameter to the HTTP POST for creating a webhook described earlier in the document.
 
-Click on 'Create Bucket' and follow the on-screen instructions to obtain a hook. Then use the information provided in this page to register the hook with the Speech service. The payload of a relay message -in response to the completion of a transcription- looks as follows:
+Click on 'Create Bucket' and follow the on-screen instructions to obtain a hook. Then use the information provided in this page to register the hook with the Speech service. The payload of a relay message – in response to the completion of a transcription – looks as follows:
 
 ```json
 {
