@@ -1,20 +1,20 @@
 ---
-title: Query Store in Azure Database for MySQL
-description: This article describes the Query Store feature in Azure Database for MySQL
+title: Query Store in Azure Database for MariaDB
+description: This article describes the Query Store feature in Azure Database for MariaDB
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 06/12/2019
 ---
-# Monitor Azure Database for MySQL performance with Query Store
+# Monitor Azure Database for MariaDB performance with Query Store
 
-**Applies to:** Azure Database for MySQL 5.7
+**Applies to:** Azure Database for MariaDB 10.2
 
 > [!NOTE]
 > Query Store is in preview. Support for Query Store in the Azure portal is being rolled out and may not yet be available in your region.
 
-The Query Store feature in Azure Database for MySQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in the **mysql** schema database in the Azure Database for MySQL instance.
+The Query Store feature in Azure Database for Mariadb provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in the **mysql** schema database in the Azure Database for MariaDB instance.
 
 ## Common scenarios for using Query Store
 
@@ -34,7 +34,7 @@ Query Store is an opt-in feature, so it isn't active by default on a server. The
 
 ### Enable Query Store using the Azure portal
 
-1. Sign in to the Azure portal and select your Azure Database for MySQL server.
+1. Sign in to the Azure portal and select your Azure Database for MariaDB server.
 1. Select **Server Parameters** in the **Settings** section of the menu.
 1. Search for the query_store_capture_mode parameter.
 1. Set the value to ALL and **Save**.
@@ -102,11 +102,11 @@ The following options apply specifically to wait statistics.
 > [!NOTE]
 > Currently **query_store_capture_mode** supersedes this configuration, meaning both **query_store_capture_mode** and **query_store_wait_sampling_capture_mode** have to be enabled to ALL for wait statistics to work. If **query_store_capture_mode** is turned off, then wait statistics is turned off as well since wait statistics utilizes the performance_schema enabled, and the query_text captured by query store.
 
-Use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md) to get or set a different value for a parameter.
+Use the [Azure portal](howto-server-parameters.md) to get or set a different value for a parameter.
 
 ## Views and functions
 
-View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
+View and manage Query Store using the following views and functions. Anyone in the [select privilege public role](howto-create-users.md#create-additional-admin-users) can use these views to see the data in Query Store. These views are only available in the **mysql** database.
 
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they will have the same hash.
 
@@ -169,7 +169,7 @@ This view returns wait events data in Query Store. There is one row for each dis
 
 ## Limitations and known issues
 
-- If a MySQL server has the parameter `default_transaction_read_only` on, Query Store cannot capture data.
+- If a MariaDB server has the parameter `default_transaction_read_only` on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (\>= 6000 bytes).
 - The retention period for wait statistics is 24 hours.
 - Wait statistics uses sample ti capture a fraction of events. The frequency can be modified using the parameter `query_store_wait_sampling_frequency`.
