@@ -57,8 +57,10 @@
     href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: How to
   items:
-  - name: Create private DNS zone and record - Azure CLI
-    href: private-dns-getstarted-cli.md
+  - name: Private DNS
+    items:
+    - name: Create private DNS zone and record - Azure CLI
+      href: private-dns-getstarted-cli.md
   - name: Alias records for load balanced web apps
     href: dns-alias-appservice.md
   - name: Manage DNS zones
