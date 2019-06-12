@@ -38,11 +38,14 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ![Source Part](media/data-flow/sourcepart2.png "Source Part")
 
-### You can match Spark data partitioning to your source database partitioning based on a database table column key in the source transformation
+### Partition your source data
 
 * Go to "Optimize" and select "Source". Set either a specific table column or a type in a query.
 * If you chose "column", then pick the partition column.
 * Also, set the maximum number of connections to your Azure SQL DB. You can try a higher setting to gain parallel connections to your database. However, some cases may result in faster performance with a limited number of connections.
+* Your source database tables do not need to be partitioned.
+* Setting a query in your Source transformation that matches the partitioning scheme of your database table will allow the source database engine to leverage partition elimination.
+* If your source is not already partitioned, ADF will still use data partitioning in the Spark transformation environment based on the key that you select in the Source transformation.
 
 ### Set batch size and query on source
 
@@ -56,7 +59,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ![Sink](media/data-flow/sink4.png "Sink")
 
-* In order to avoid row-by-row processing of your data floes, set the "Batch size" in the sink settings for Azure SQL DB. This will tell ADF to process database writes in batches based on the size provided.
+* In order to avoid row-by-row processing of your data flows, set the "Batch size" in the sink settings for Azure SQL DB. This will tell ADF to process database writes in batches based on the size provided.
 
 ### Set partitioning options on your sink
 
@@ -89,7 +92,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ### Use staging to load data in bulk via Polybase
 
-* In order to avoid row-by-row processing of your data floes, set the "Staging" option in the Sink settings so that ADF can leverage Polybase to avoid row-by-row inserts into DW. This will instruct ADF to use Polybase so that data can be loaded in bulk.
+* In order to avoid row-by-row processing of your data flows, set the "Staging" option in the Sink settings so that ADF can leverage Polybase to avoid row-by-row inserts into DW. This will instruct ADF to use Polybase so that data can be loaded in bulk.
 * When you execute your data flow activity from a pipeline, with Staging turned on, you will need to select the Blob store location of your staging data for bulk loading.
 
 ### Increase the size of your Azure SQL DW
