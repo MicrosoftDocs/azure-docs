@@ -30,9 +30,9 @@ This article describes all these forms of OData expressions using a formal gramm
 
 We can describe the subset of the OData language supported by Azure Search using an EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) grammar. Rules are listed "top-down", starting with the most complex expressions, and breaking them down into more primitive expressions. At the top are the grammar rules that correspond to specific parameters of the Azure Search REST API:
 
-- [`$filter`](search-filters.md), defined by the `filter_expression` rule.
-- [`$orderby`](query-odata-filter-orderby-syntax.md#order-by-syntax), defined by the `order_by_expression` rule.
-- [`$select`](https://docs.microsoft.com/rest/api/searchservice/Search-Documents#request), defined by the `select_expression` rule.
+- [`$filter`](search-query-odata-filter.md), defined by the `filter_expression` rule.
+- [`$orderby`](search-query-odata-orderby.md), defined by the `order_by_expression` rule.
+- [`$select`](search-query-odata-select.md), defined by the `select_expression` rule.
 - Field paths, defined by the `field_path` rule. Field paths are used throughout the API. They can refer to either top-level fields of an index, or sub-fields with one or more [complex field](search-howto-complex-data-types.md) ancestors.
 
 After the EBNF is a browsable [syntax diagram](https://en.wikipedia.org/wiki/Syntax_diagram) that allows you to interactively explore the grammar and the relationships between its rules.

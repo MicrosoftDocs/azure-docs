@@ -22,7 +22,7 @@ translation.priority.mt:
 ---
 # OData `search.score` function in Azure Search
 
-When you send a query to Azure Search without the [**$orderby** parameter](query-odata-filter-orderby-syntax.md#order-by-syntax), the results that come back will be sorted in descending order by relevance score. Even when you do use **$orderby**, the relevance score will be used to break ties by default. However, sometimes it is useful to use the relevance score as an initial sort criteria, and some other criteria as the tie-breaker. The `search.score` function allows you to do this.
+When you send a query to Azure Search without the [**$orderby** parameter](search-query-odata-orderby.md), the results that come back will be sorted in descending order by relevance score. Even when you do use **$orderby**, the relevance score will be used to break ties by default. However, sometimes it is useful to use the relevance score as an initial sort criteria, and some other criteria as the tie-breaker. The `search.score` function allows you to do this.
 
 ## Syntax
 
