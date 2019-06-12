@@ -13,14 +13,16 @@ ms.custom: "include file"
 
 **Data collection volume and retention** 
 
-Current tier (introduced April 2018)
+Current pricing tiers (introduced April 2018)
 
-| Pricing Tier | Limit per day | Data retention | Comment |
+[!div class="mx-tdBreakAll"]
+| Tier | Limit per day | Data retention | Comment |
 |:---|:---|:---|:---|
 | Per GB 2018 | No limit | 30 - 730 days | Data retention beyond 31 days is available for additional charges. Learn more about Azure Monitor pricing. |
 
 Legacy tiers (introduced April 2016)
 
+[!div class="mx-tdBreakAll"]
 | Pricing Tier | Limit per day | Data retention | Comment |
 |:---|:---|:---|:---|
 | Free | 500 MB | 7 days | When your workspace reaches the 500-MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC. |
@@ -29,6 +31,7 @@ Legacy tiers (introduced April 2016)
 
 Legacy original pricing tiers
 
+[!div class="mx-tdBreakAll"]
 | Pricing Tier | Limit per day | Data retention | Comment |
 |:---|:---|:---|:---|
 | Standard | No limit | 30 days  | Retention can't be adjusted |
@@ -37,7 +40,8 @@ Legacy original pricing tiers
 
 **Number of workspaces per subscription.**
 
-| Pricing tier    | Number of workspaces per subscription | Comments
+[!div class="mx-tdBreakAll"]
+| Pricing tier    | Workspace limit | Comments
 |:---|:---|:---|
 | Free tier  | 10 | This limit can't be increased. |
 | All other tiers | N/A | You're limited by the number of resources within a resource group and the number of resource groups per subscription. | 
@@ -54,7 +58,7 @@ Legacy original pricing tiers
 |:---|:---|:---|
 | Maximum records returned by a log query | 10,000 | Reduce results using query scope, time range, and filters in the query. |
 
-**Log Analytics APIs:**
+**Log Analytics APIs**
 
 | Category | Limits | Comments |
 |:---|:---|:---|
