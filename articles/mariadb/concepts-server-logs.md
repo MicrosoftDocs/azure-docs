@@ -24,7 +24,7 @@ Logs are available for up to seven days from their creation. If the total size o
 
 Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
-## Configure slow query slogging
+## Configure slow query logging
 By default the slow query log is disabled. To enable it, set slow_query_log to ON.
 
 Other parameters you can adjust include:
