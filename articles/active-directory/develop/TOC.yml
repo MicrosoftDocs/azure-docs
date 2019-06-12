@@ -55,7 +55,7 @@
       items:
       - name: .NET Core console (daemon)
         href: quickstart-v2-netcore-daemon.md
-      - name: ASP.NET daemon Web app
+      - name: ASP.NET daemon web app
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
     items:
@@ -228,17 +228,21 @@
           - name: Initialize applications (JS)
             href: msal-js-initializing-client-applications.md
         - name: Handle errors and exceptions
-          href: msal-handling-exceptions.md
-        - name: Test MSAL applications
-          href: msal-testing.md
+          href: msal-handling-exceptions.md        
         - name: Logging
           href: msal-logging.md
         - name: Single sign-on (JS)
           href: msal-js-sso.md
         - name: Prompt behavior (JS)
-          href: msal-js-prompt-behavior.md        
+          href: msal-js-prompt-behavior.md 
+        - name: ADFS support (.NET)
+          href: msal-net-adfs-support.md
         - name: Integrate with Azure AD B2C
-          href: msal-b2c-overview.md
+          items:
+          - name: JavaScript
+            href: msal-b2c-overview.md
+          - name: .NET
+            href: msal-net-aad-b2c-considerations.md
         - name: Considerations and known issues
           items:
             - name: MSAL.NET
@@ -252,9 +256,7 @@
               - name: Xamarin iOS
                 href: msal-net-xamarin-ios-considerations.md
               - name: Universal Windows Platform
-                href: msal-net-uwp-considerations.md
-              - name: Apply an AAD B2C policy
-                href: msal-net-aad-b2c-considerations.md
+                href: msal-net-uwp-considerations.md              
             - name: MSAL.js
               items:
               - name: Considerations using IE
@@ -295,6 +297,8 @@
       items:
       - name: Applications and service principals
         href: app-objects-and-service-principals.md
+      - name: How and why apps are added to Azure AD
+        href: active-directory-how-applications-are-added.md
       - name: Single tenant and multi-tenant apps
         href: single-and-multi-tenant-apps.md
     - name: Permissions and consent
@@ -362,6 +366,12 @@
               href: msal-net-user-gets-consent-for-multiple-resources.md
             - name: Provide your own HttpClient
               href: msal-net-provide-httpclient.md
+        - name: MSAL.js
+          items:
+            - name: Avoid page reloads
+              href: msal-js-avoid-page-reloads.md
+            - name: Pass custom state in authentication requests
+              href:  msal-js-pass-custom-state-authentication-request.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ---
 
@@ -72,8 +72,7 @@ let options = {
     url: 'translate',
     qs: {
       'api-version': '3.0',
-      'to': 'it',
-      'to': 'de'
+      'to': ['de', 'it']
     },
     headers: {
       'Ocp-Apim-Subscription-Key': subscriptionKey,

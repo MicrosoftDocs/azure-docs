@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 06/06/2019
 ms.author: magoedte
 ---
 
@@ -40,16 +40,11 @@ If the *Microsoft Monitoring Agent* VM extension is not installing or reporting,
    * You can also review the VM agent log file `C:\WindowsAzure\logs\WaAppAgent.log`
    * If the log does not exist, the VM agent is not installed.
    * [Install the Azure VM Agent](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. Confirm the Microsoft Monitoring Agent extension heartbeat task is running using the following steps:
-   * Log in to the virtual machine
-   * Open task scheduler and find the `update_azureoperationalinsight_agent_heartbeat` task
-   * Confirm the task is enabled and is running every one minute
-   * Check the heartbeat logfile in `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`
-3. Review the Microsoft Monitoring Agent VM extension log files in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
-4. Ensure the virtual machine can run PowerShell scripts
-5. Ensure permissions on C:\Windows\temp haven’t been changed
-6. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
-7. Review the Microsoft Monitoring Agent setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
+2. Review the Microsoft Monitoring Agent VM extension log files in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
+3. Ensure the virtual machine can run PowerShell scripts
+4. Ensure permissions on C:\Windows\temp haven’t been changed
+5. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+6. Review the Microsoft Monitoring Agent setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 For more information, see [troubleshooting Windows extensions](../../virtual-machines/extensions/oms-windows.md).
 

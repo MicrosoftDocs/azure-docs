@@ -26,7 +26,6 @@ This article lists the new features and improvements in the SQL Database service
 | Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
 | Elastic queries | For information, see [Elastic query overview](sql-database-elastic-query-overview.md). |
 | Elastic transactions | [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md). |
-| Instance collation with managed instances |For information, see [Use PowerShell with Azure Resource Manager template to create a managed instance in Azure SQL Database](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 |Memory Grant Feedback (Row Mode) (under compatibility level 150)|For information, see [Memory Grant Feedback (Row Mode)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Query editor in the Azure portal |For information, see [Use the Azure portal's SQL query editor to connect and query data](sql-database-connect-query-portal.md).|
 | R services / machine learning with single databases and elastic pools |For information, see [Machine Learning Services in Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
@@ -36,9 +35,20 @@ This article lists the new features and improvements in the SQL Database service
 |SQL Analytics|For information, see [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
 |Table Variable Deferred Compilation (under compatibility level 150)|For information, see [Table Variable Deferred Compilation](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | Threat detection with managed instances |For information, see [Configure threat detection in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md).|
-| Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md).|
 | Transparent data encryption (TDE) with Bring Your Own Key (BYOK) with managed instances |For information, see [Azure SQL Transparent Data Encryption with customer-managed keys in Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).|
 | &nbsp; |
+
+## June 2019
+
+### Service improvements
+
+| Service improvements | Details |
+| --- | --- |
+| 4 vCores managed instance on Gen5 hardware generation| For more information, see https://aka.ms/four-cores-sql-mi-update. |
+| Managed Instance - support for subscriptions with Azure monthly credit for Visual Studio subscribers | For more information, see https://aka.ms/sql-mi-visual-studio-subscribers. |
+|Larger regional limits for managed instance| For more information, see [Regional resource limitations](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
+| &nbsp; |
+
 
 ## May 2019
 
@@ -48,6 +58,8 @@ This article lists the new features and improvements in the SQL Database service
 | --- | --- |
 |Hyperscale service tier released for general availability| For more information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md) and [Get high-performance scaling for your Azure database workloads with Hyperscale](https://azure.microsoft.com/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
 |Serverless compute tier released for public preview | For more information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
+|Time zone support for managed instances released for general availability |For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md).|
+|Instance collation with managed instances released for general availability |For information, see [Use PowerShell with Azure Resource Manager template to create a managed instance in Azure SQL Database](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
 | Transaction log rates and target IOPS increased for databases using the vCore-based purchasing model| For more information, see [Resource limits for single databases using the vCore-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) and [Resource limits for single databases using the DTU-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
 | &nbsp; |
 

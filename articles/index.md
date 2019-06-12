@@ -987,7 +987,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
+                                            <a href="/azure/cognitive-services/Anomaly-Detector/overview">
                                                 <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                 <p>Anomaly Finder</p>
                                             </a>
@@ -1383,6 +1383,12 @@ featureFlags:
                                             <a href="/azure/blockchain-workbench">
                                                 <img src="media/index/blockchain-workbench.svg" alt="" />
                                                 <p>Blockchain Workbench</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-app-configuration/">
+                                                <img src="media/index/azure-appconf.svg" alt="" />
+                                                <p>App Configuration</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4063,7 +4069,7 @@ featureFlags:
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
+                                                                <a class="barLink" href="/azure/cognitive-services/Anomaly-Detector/overview">
                                                                     <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                                     <span>Anomaly Finder</span>
                                                                 </a>
@@ -5308,6 +5314,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Blockchain Workbench</h3>
                                                     <p>Connect your blockchain to the cloud without the heavy lifting</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-app-configuration/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-appconf.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>App Configuration</h3>
+                                                    <p>Fast, scalable parameter storage for app configuration</p>
                                                 </div>
                                             </div>
                                         </div>
