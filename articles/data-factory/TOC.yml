@@ -486,6 +486,8 @@
       href: control-flow-expression-language-functions.md
     - name: System variables
       href: control-flow-system-variables.md
+    - name: Data flow parameters
+      href: parameters-data-flow.md
   - name: Security
     items:
     - name: Data movement security considerations
