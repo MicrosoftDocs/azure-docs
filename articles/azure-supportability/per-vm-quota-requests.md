@@ -14,7 +14,7 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 You can now request an increase via **Help + Support** blade or the **Usages + Quota** blade in the portal. 
 
-## Request per VM vCPU quota increase at subscription level using the **Help + Support** blade
+## Request per VM Series vCPU quota increase at subscription level using the **Help + Support** blade
 
 Follow the instructions below to create a support request via Azure's 'Help + Support' blade available in the Azure portal. 
 
@@ -55,7 +55,7 @@ Follow the instructions below to create a support request via Azure's 'Help + Su
 ![New Limits](./media/resource-manager-core-quotas-request/new-limits.png)
 
 
-## Request per VM vCPU quota increase at subscription level using **Usages + Quota** blade
+## Request per VM Series vCPU quota increase at subscription level using **Usages + Quota** blade
 
 Follow the instructions below using to create a support request via Azure's 'Usage + quota' blade available in the Azure portal. 
 
