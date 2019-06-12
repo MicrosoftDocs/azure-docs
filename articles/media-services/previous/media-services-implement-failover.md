@@ -405,8 +405,7 @@ In this section, you create the ability to handle redundancy.
         {
 
             var ismAssetFiles = asset.AssetFiles.ToList().
-                        Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase))
-                        .ToArray();
+                        Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase));
 
             if (ismAssetFiles.Count() != 1)
                 throw new ArgumentException("The asset should have only one, .ism file");
@@ -418,10 +417,9 @@ In this section, you create the ability to handle redundancy.
         public static IAssetFile GetPrimaryFile(IAsset asset)
         {
             // Cast the reference to a true IAssetFile type. 
-            IAssetFile theManifest = asset.AssetFiles.ToList().
+	    IAssetFile theManifest = asset.AssetFiles.ToList().
                 Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).
-                ToArray().
-                FirstOrDefault();
+                FirstOrDefault();	
 
             return theManifest;
         }
