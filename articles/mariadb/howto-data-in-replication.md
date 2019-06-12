@@ -10,7 +10,7 @@ ms.date: 09/24/2018
 
 # How to configure Azure Database for MariaDB Data-in Replication
 
-In this article, you will learn how to set up Data-in Replication in the Azure Database for MariaDB service by configuring the master and replica servers. Data-in Replication allows you to synchronize data from a master MariaDB server running on-premises, in virtual machines, or database services hosted by other cloud providers into a replica in the Azure Database for MariaDB service. We recommanded you setup the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/) when your master service's version is 10.2 or above.
+In this article, you will learn how to set up Data-in Replication in the Azure Database for MariaDB service by configuring the master and replica servers. Data-in Replication allows you to synchronize data from a master MariaDB server running on-premises, in virtual machines, or database services hosted by other cloud providers into a replica in the Azure Database for MariaDB service. We recommanded you setup the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/) when your master server's version is 10.2 or above.
 
 This article assumes that you have at least some prior experience with MariaDB servers and databases.
 
@@ -114,7 +114,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    
 6. Get GTID position (Optional, needed for replication with GTID)
 
-   Run the function [`binlog_gtid_pos`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) command to get the GTID position for the correspond binlog file name and offset.
+   Run the function [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) command to get the GTID position for the correspond binlog file name and offset.
   
     ```sql
     select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
