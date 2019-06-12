@@ -123,9 +123,7 @@ You can set quotas per user by using the following steps:
     ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)
 
 ## Set a schedule for the lab
-If you configure the quota setting to **0 hours (schedule only)**, you must set a schedule for the lab. 
-
-## Add a recurring schedule (weekly)
+If you configured the quota setting to **0 hours (schedule only)**, you must set a schedule for the lab. In this tutorial, you set the schedule to be a recurring weekly schedule.
 
 1. Switch to the **Schedules** page, and select **Add schedule** on the toolbar. 
 
