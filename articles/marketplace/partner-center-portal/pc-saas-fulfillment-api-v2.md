@@ -9,7 +9,7 @@ ms.date: 05/23/2019
 ms.author: evansma
 ---
 
-# SaaS Fulfillment APIs, Version 2 
+# SaaS fulfillment APIs, version 2 
 
 This article details the API that enables independent software vendors (ISVs) to sell their SaaS applications in the AppSource and Azure Marketplace. This API is a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
 
@@ -646,7 +646,7 @@ Internal server error.
 
 #### Get operation status
 
-Enables the publisher to track the status of the specified triggered async operation (such as **Subscribe**, **Unsubscribe**, **ChangePlan**, or **ChangeQuantity**).
+Enables the publisher to track the status of the specified triggered async operation (such as `subscribe`, `unsubscribe`, `changePlan`, or `changeQuantity`).
 
 ##### Get<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -792,12 +792,12 @@ The publisher must implement a webhook in this SaaS to proactively notify users 
 }
 ```
 Where the action can be one of the following: 
-- `Subscribe` (when the resource has been activated)
-- `Unsubscribe` (when the resource has been deleted)
-- `ChangePlan` (when the change plan operation has completed)
-- `ChangeQuantity` (when the change quantity operation has completed)
-- `Suspend` (when resource has been suspended)
-- `Reinstate` (when resource has been reinstated after suspension)
+- `subscribe` (when the resource has been activated)
+- `unsubscribe` (when the resource has been deleted)
+- `changePlan` (when the change plan operation has completed)
+- `changeQuantity` (when the change quantity operation has completed)
+- `suspend` (when resource has been suspended)
+- `reinstate` (when resource has been reinstated after suspension)
 
 Where the status can be one of the following: 
 - **NotStarted** <br>
