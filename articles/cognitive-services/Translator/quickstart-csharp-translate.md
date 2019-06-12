@@ -194,7 +194,7 @@ foreach (TranslationResult o in deserializedOutput)
 
 ## Put it all together
 
-The last step is to call `TranslateTextRequest()` in the `Main` function. In this sample, we're translating to German (`de`), Italian (`it`), and Thai (`th`). Locate `static void Main(string[] args)` and add replace it with this code:
+The last step is to call `TranslateTextRequest()` in the `Main` function. In this sample, we're translating to German (`de`), Italian (`it`), and Thai (`th`). Locate `static void Main(string[] args)` and replace it with this code:
 
 ```csharp
 static async Task Main(string[] args)
