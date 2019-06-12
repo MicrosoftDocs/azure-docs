@@ -93,7 +93,12 @@ Using the same PowerShell session, update the Key Vault access policy for manage
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
+
+# If we have multiple subscriptions and switch our subscriptions via Select-AzContext -Name 'subscription name', use the following command:
+
 Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
+
 ```
 
 Note that permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
