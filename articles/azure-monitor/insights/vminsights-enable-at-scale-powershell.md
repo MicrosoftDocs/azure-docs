@@ -199,7 +199,7 @@ To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, 
 - The scoped resource group that's specified by *ResourceGroup*. 
 - A single VM or virtual machine scale set that's specified by *Name*.
 
-For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension isn't installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency Agent VM extensions.
+For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension isn't installed, the script tries to reinstall it. If the VM extension is installed, the script installs the Log Analytics and Dependency agent VM extensions.
 
 This script requires Azure PowerShell module Az version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -209,7 +209,7 @@ To get a list of the script's argument details and example usage, run `Get-Help`
 Get-Help .\Install-VMInsights.ps1 -Detailed
 
 SYNOPSIS
-    This script installs VM extensions for Log Analytics and the Dependency Agent as needed for VM Insights.
+    This script installs VM extensions for Log Analytics and the Dependency agent as needed for VM Insights.
 
 
 SYNTAX
@@ -221,7 +221,7 @@ SYNTAX
 DESCRIPTION
     This script installs or reconfigures the following on VMs and virtual machine scale sets:
     - Log Analytics VM extension configured to supplied Log Analytics workspace
-    - Dependency Agent VM extension
+    - Dependency agent VM extension
 
     Can be applied to:
     - Subscription
@@ -320,7 +320,7 @@ VMs or virtual machine scale sets matching criteria:
 db-ws-1 VM running
 db-ws2012 VM running
 
-This operation will install the Log Analytics and Dependency Agent extensions on the previous two VMs or virtual machine scale sets.
+This operation will install the Log Analytics and Dependency agent extensions on the previous two VMs or virtual machine scale sets.
 VMs in a non-running state will be skipped.
 Extension will not be reinstalled if already installed. Use -ReInstall if desired, for example, to update workspace.
 
