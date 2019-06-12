@@ -177,10 +177,11 @@ In the following table, each row has two versions of the utterance. The top utte
 
 |Utterance|
 |--|
-|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?<br>Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?|
+|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br>`Was **The Man Who Mistook His Wife for a Hat and Other Clinical Tales** written by an American this year?`|
 |`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
 |`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
+||
 
 ## Prebuilt entity
 
