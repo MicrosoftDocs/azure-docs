@@ -16,8 +16,8 @@
       href: secure-develop.md
     - name: Deploy secure apps
       href: secure-deploy.md
-   - name: Security best practices for Azure solutions
-     href: ./security/security-best-practices-and-patterns.md
+  - name: Security best practices for Azure solutions
+    href: ./security/security-best-practices-and-patterns.md
 
 -name: Resources
  expanded: false

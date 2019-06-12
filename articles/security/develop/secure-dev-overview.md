@@ -67,7 +67,7 @@ The SDL phases are:
   - Release
   - Response
 
-![](./media/security-overview/01-sdl-phase.png)
+![](./media/secure-dev-overview/01-sdl-phase.png)
 
 In these articles we group the SDL phases into design, develop, and deploy.
 

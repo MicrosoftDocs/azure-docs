@@ -32,7 +32,7 @@ reduce the number and severity of exploitable vulnerabilities in your
 application. You'll be more prepared to react appropriately to the
 ever-changing threat landscape.
 
-![](./media/security-training/02-training.png)
+![](./media/secure-design/02-training.png)
 
 Use the following resources during the training stage to familiarize
 yourself with the Azure services that are available to developers and
@@ -182,7 +182,7 @@ and functional specifications. It also is critical for performing risk
 analysis that helps mitigate security and privacy issues throughout a
 project.
 
-![](./media/security-design/04-design.png)
+![](./media/secure-design/04-design.png)
 
 When you have security requirements in place and use secure design
 concepts, you can avoid or minimize opportunities for a security flaw. A
@@ -357,7 +357,7 @@ to system services, applying the principle of least privilege, and
 employing layered defenses wherever possible.
 
 We discuss [conducting an attack surface
-review](security-verification.md#conduct-attack-surface-review) during the verification phase of
+review](secure-develop.md#conduct-attack-surface-review) during the verification phase of
 the SDL.
 
 > [!NOTE]

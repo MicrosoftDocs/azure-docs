@@ -31,7 +31,7 @@ Assume that your application will be used in ways that you didn't intend
 it to be used. This helps you guard against accidental or intentional
 misuse of your application.
 
-![](./media/security-implementation/05-implementation.png)
+![](./media/secure-develop/05-implementation.png)
 
 ### Perform code reviews
 
@@ -177,7 +177,7 @@ The verification phase involves a comprehensive effort to ensure that
 the code meets the security and privacy tenets that were established in
 the preceding phases.
 
-![](./media/security-verification/06-verification.png)
+![](./media/secure-develop/06-verification.png)
 
 ### Find and fix vulnerabilities in your application dependencies
 

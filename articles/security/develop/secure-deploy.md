@@ -30,7 +30,7 @@ This includes planning ways to effectively perform post-release
 servicing tasks and address security vulnerabilities that might occur
 later.
 
-![](./media/security-release/07-release.png)
+![](./media/secure-deploy/07-release.png)
 
 ### Check your application’s performance before you launch
 
@@ -90,7 +90,7 @@ The response post-release phase centers on the development team being
 able and available to respond appropriately to any reports of emerging
 software threats and vulnerabilities.
 
-![](./media/security-response/08-response.png)
+![](./media/secure-deploy/08-response.png)
 
 ### Execute the incident response plan
 
