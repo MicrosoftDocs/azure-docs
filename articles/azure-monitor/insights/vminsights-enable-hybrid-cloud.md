@@ -26,20 +26,20 @@ Before you get started, be sure to review the [prerequisites](vminsights-enable-
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->The Azure Monitor for VMs Map Dependency Agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+>The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 The steps to complete this task are summarized as follows:
 
 1. Install Log Analytics agent for Windows or Linux. Before you install the agent, review the [Log Analytics agent overview](../platform/log-analytics-agent.md) article to understand system prerequisites and deployment methods.
 
-2. Download and install the Azure Monitor for VMs Map Dependency Agent for [Windows](https://aka.ms/dependencyagentwindows) or [Linux](https://aka.ms/dependencyagentlinux).
+2. Download and install the Azure Monitor for VMs Map Dependency agent for [Windows](https://aka.ms/dependencyagentwindows) or [Linux](https://aka.ms/dependencyagentlinux).
 
 3. Enable the collection of performance counters.
 
 4. Deploy Azure Monitor for VMs.
 
-## Install the Dependency Agent on Windows
-You can install the Dependency Agent manually on Windows computers by running `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install the agent interactively.
+## Install the Dependency agent on Windows
+You can install the Dependency agent manually on Windows computers by running `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install the agent interactively.
 
 >[!NOTE]
 >*Administrator* privileges are required to install or uninstall the agent.
@@ -53,10 +53,10 @@ The following table highlights the parameters that are supported by setup for th
 
 For example, to run the installation program with the `/?` parameter, enter **InstallDependencyAgent-Windows.exe /?**.
 
-Files for the Windows Dependency Agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency Agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
+Files for the Windows Dependency agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
 
-## Install the Dependency Agent on Linux
-The Dependency Agent is installed on Linux servers from *InstallDependencyAgent-Linux64.bin*, a shell script with a self-extracting binary. You can run the file by using `sh` or add execute permissions to the file itself.
+## Install the Dependency agent on Linux
+The Dependency agent is installed on Linux servers from *InstallDependencyAgent-Linux64.bin*, a shell script with a self-extracting binary. You can run the file by using `sh` or add execute permissions to the file itself.
 
 >[!NOTE]
 > Root access is required to install or configure the agent.
@@ -70,11 +70,11 @@ The Dependency Agent is installed on Linux servers from *InstallDependencyAgent-
 
 For example, to run the installation program with the `-help` parameter, enter **InstallDependencyAgent-Linux64.bin -help**.
 
-Install the Linux Dependency Agent as root by running the command `sh InstallDependencyAgent-Linux64.bin`.
+Install the Linux Dependency agent as root by running the command `sh InstallDependencyAgent-Linux64.bin`.
 
-If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
+If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
 
-Files for the Dependency Agent are placed in the following directories:
+Files for the Dependency agent are placed in the following directories:
 
 | Files | Location |
 |:--|:--|
