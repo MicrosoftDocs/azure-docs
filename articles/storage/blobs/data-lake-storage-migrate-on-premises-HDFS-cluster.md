@@ -43,7 +43,7 @@ If you are ready, let's start.
 
 ## Copy your data to a Data Box device
 
-If your data fits into a Data Box device, then you'll copy the data to the Data Box device. 
+If your data fits into a single Data Box device, then you'll copy the data to the Data Box device. 
 
 If your data size exceeds the capacity of the Data Box device, then use the [optional procedure to split the data across multiple Data Box devices](#appendix-split-data-across-multiple-data-box-devices) and then perform this step. 
 
