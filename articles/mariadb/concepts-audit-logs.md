@@ -31,7 +31,7 @@ Other parameters you can adjust include:
 | `DML_NONSELECT` | INSERT/DELETE/UPDATE queries |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
 | `DDL` | Queries like "DROP DATABASE" |
-| `DCL` | Queries like "GRANT PERMISSION" |s
+| `DCL` | Queries like "GRANT PERMISSION" |
 | `ADMIN` | Queries like "SHOW STATUS" |
 | `GENERAL` | All in DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and ADMIN |
 
