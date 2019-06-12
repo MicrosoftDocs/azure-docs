@@ -7,16 +7,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/12/2019
 
 ms.author: mimart
 author: msmimart
-<<<<<<< HEAD
-manager: daveba
-=======
 manager: celestedg
->>>>>>> 735caf522949a719fa1aa3dd60af16d417337d31
-ms.reviewer: mal
+ms.reviewer: elisol
 
 ms.collection: M365-identity-device-management
 ---
@@ -24,8 +20,6 @@ ms.collection: M365-identity-device-management
 # Azure Active Directory B2B collaboration invitation redemption
 
 This article describes the ways guest users can access your resources and the consent process they'll encounter. If you send an invitation email to the guest, the invitation includes a link the guest can redeem to get access your app or portal. The invitation email is just one of the ways guests can get access to your resources. As an alternative, you can add guests to your directory and give them a direct link to the portal or app you want to share. Regardless of the method they use, guests are guided through a first-time consent process. This process ensures that your guests agree to privacy terms and accept any [terms of use](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) you've set up.
-
-If you choose not to send invitations, you can add a guest user to your directory and give them a direct link to an app or portal. In either case,  
 
 When you add a guest user to your directory, the guest user account has a consent status (viewable in PowerShell) that’s initially set to **PendingAcceptance**. This setting remains until the guest accepts your invitation and agrees to your privacy policy and terms of use. After that, the consent status changes to **Accepted**, and the consent pages are no longer presented to the guest.
 
