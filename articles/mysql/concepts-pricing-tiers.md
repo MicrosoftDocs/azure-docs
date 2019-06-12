@@ -64,6 +64,11 @@ We are increasing the storage limits in our General Purpose and Memory Optimized
 > [!IMPORTANT]
 > Large storage is currently in public preview in the following regions: East US, East US 2, Central US, West US, West US 2, North Europe, West Europe, Southeast Asia, Japan East, Korea Central, Australia East
 >
+> The large storage preview currently does not support:
+>
+> * Incoming connections through virtual network service endpoints
+> * Geographically redundant backups
+> * Cross region replication
 
 ### Reaching the storage limit
 
