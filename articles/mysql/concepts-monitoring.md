@@ -35,7 +35,7 @@ These metrics are available for Azure Database for MySQL:
 |backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used.|
 
 ## Server logs
-You can enable slow query logging on your server. These logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
+You can enable slow query and audit logging on your server. These logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account. To learn more about logging, visit the [audit logs](concepts-audit-logs.md) and [slow query logs](concepts-server-logs.md) articles.
 
 ## Query Store
 [Query Store](concepts-query-store.md) is a public preview feature that keeps track of query performance over time including query runtime statistics and wait events. The feature persists query runtime performance information in the **mysql** schema. You can control the collection and storage of data via various configuration knobs.

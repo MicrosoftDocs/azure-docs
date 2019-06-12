@@ -35,7 +35,7 @@ The following table briefly describes the application tiers that are specific to
 | Tier | Description | Collection method |
 |:---|:---|:---|
 | [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View AAD data in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
-| [Azure subscription](#azure-subscription) |  Telemetry related to the health and operation of Azure itself. | View in portal or configure collection to Azure Monitor using a log profile. |
+| [Azure subscription](#azure-subscription) | Data related to the health and management of cross-resource services in your Azure subscription such as Resource Manager and Service Health. | View in portal or configure collection to Azure Monitor using a log profile. |
 | [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically, view in Metrics Explorer.<br>Configure diagnostic settings to collect logs in Azure Monitor.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
 
 ### Azure, other cloud, or on-premises 
@@ -160,9 +160,9 @@ When you enable Application Insights for an application by installing an instrum
 |                    | Dependency information between application components to support Application Map and telemetry correlation. | [Telemetry correlation in Application Insights](../app/correlation.md) <br> [Application Map](../app/app-map.md) |
 |            | Results of availability tests that test the availability and responsiveness of your application from different locations on the public Internet. | [Monitor availability and responsiveness of any web site](../app/monitor-web-app-availability.md) |
 | Azure Monitor Metrics | Application Insights collects metrics describing the performance and operation of the application in addition to custom metrics that you define in your application into the Azure Monitor metrics database. | [Log-based and pre-aggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights API for custom events and metrics](../app/api-custom-events-metrics.md) |
-| Azure Storage | Send application data to Azure Storage for archiving. | [Export telemetry from Application Insights](/../app/export-telemetry.md) |
+| Azure Storage | Send application data to Azure Storage for archiving. | [Export telemetry from Application Insights](../app/export-telemetry.md) |
 |            | Details of availability tests are stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis. Results of availability tests are stored in Azure Monitor Logs. | [Monitor availability and responsiveness of any web site](../app/monitor-web-app-availability.md) |
-|            | Profiler trace data is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [Profile production applications in Azure with Application Insights](/app/profiler-overview..md) 
+|            | Profiler trace data is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [Profile production applications in Azure with Application Insights](../app/profiler-overview.md) 
 |            | Debug snapshot data that is captured for a subset of exceptions is stored in Azure Storage. Use Application Insights in the Azure portal to download for local analysis.  | [How snapshots work](../app/snapshot-debugger.md#how-snapshots-work) |
 
 ## Monitoring Solutions and Insights

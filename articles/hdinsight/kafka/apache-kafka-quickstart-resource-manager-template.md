@@ -6,10 +6,11 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/16/2018
+ms.date: 06/12/2019
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
-# Quickstart: Create an Apache Kafka on HDInsight cluster
+
+# Quickstart: Create Apache Kafka cluster in Azure HDInsight using Resource Manager template
 
 [Apache Kafka](https://kafka.apache.org/) is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
 

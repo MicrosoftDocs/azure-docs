@@ -23,7 +23,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Download AzCopy
 
-First, download the AzCopy V10 executable file to any folder on your computer. For convenience, consider adding the AzCopy folder location to your system path for ease of use.
+First, download the AzCopy V10 executable file to any directory on your computer. 
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
@@ -34,17 +34,15 @@ First, download the AzCopy V10 executable file to any folder on your computer. F
 
 ## Run AzCopy
 
-From a command prompt, navigate to the directory where you downloaded the file.
+For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system.
 
-To view a list of AzCopy commands, type `azCopy`, and then press the ENTER key.
+If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in Windows PowerShell command prompts.
 
-To learn more about a specific command, type `azCopy` followed by the name of the command.
+To see a list of commands, type `azcopy -h` and then press the ENTER key.
 
-AzCopy supports the following options when authenticating with Azure Storage:
-- **Azure Active Directory** (Supported for **Blob and Data Lake Storage Gen2 services**). Use ```.\azcopy login``` to sign in with Azure Active Directory.  The user should have ["Storage Blob Data Contributor" role assigned](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) to write to Blob storage with Azure Active Directory authentication. For authentication via managed identities for Azure resources, use `azcopy login --identity`.
-- **Shared access signature tokens [Supported for Blob and File services]**. Append the shared access signature (SAS) token to the blob path on the command line to use it. You can generate SAS tokens with the Azure portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
 
-For example, to learn about the `copy` command, type `azcopy copy`, and then press the ENTER key.
+![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
 
@@ -80,7 +78,7 @@ These roles can be assigned to your identity in any of these scopes:
 
 To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or folder. In the ACL, your identity needs write permission on the target folder, and execute permission on container and each parent folder.
+You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or directory. In the ACL, your identity needs write permission on the target directory, and execute permission on container and each parent directory.
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
@@ -101,7 +99,7 @@ These roles can be assigned to your identity in any of these scopes:
 
 To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or folder. In the ACL, your identity needs read permission on the target folder, and execute permission on container and each parent folder.
+You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or directory. In the ACL, your identity needs read permission on the target directory, and execute permission on container and each parent directory.
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 

@@ -1,5 +1,5 @@
 ---
-title: Dataset definition and versioning with azureml-datasets
+title: Version and manage dataset definitions with azureml-datasets
 titleSuffix: Azure Machine Learning service
 description: Learn how to update Dataset definitions and manage the lifecycle of definitions
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 05/02/2019
 ---
 
-# Update and manage the lifecycle of Dataset definitions
+# Version and manage your dataset definitions
 
 Learn how to update and manage Dataset definitions with Azure Machine Learning Datasets (preview).
 
@@ -32,7 +32,7 @@ You need to have an Azure subscription and a workspace to register your Dataset 
 
 The sample file used in the examples in this document is available at [https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv).
 
-## Update Dataset definitions
+## Create and update definitions
 
 We will first create and register a Dataset with your workspace.
 

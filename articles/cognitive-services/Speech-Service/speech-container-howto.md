@@ -3,25 +3,25 @@ title: Install Speech containers
 titleSuffix: Azure Cognitive Services
 description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.  
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.author: diberry
+ms.date: 06/11/2019
+ms.author: dapine
 ---
 
 # Install and run Speech Service containers
 
-Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The two speech containers we support now are **speech-to-text** and **text-to-speech**. 
+Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. 
 
 The two speech containers are **speech-to-text** and **text-to-speech**. 
 
-|Function|Features|Lastest|
+|Function|Features|Latest|
 |-|-|--|
-|Speech-to-text| <li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|1.1.1|
-|Text-to-Speech| <li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |1.1.0|
+|Speech-to-text| <li>Transcribes continuous real-time speech or batch audio recordings into text with intermediate results.|1.1.1|
+|Text-to-Speech| <li>Converts text to natural-sounding speech. with plain text input or Speech Synthesis Markup Language (SSML). |1.1.0|
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -69,7 +69,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
-**Note**; The minimum and recommended are based off of Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model, and it is _recommended_ that the entire file fits in memory, which is an additional 4-6 GB. Also, the first run of the either container may take longer, since models are being paged into memory.
+**Note**; The minimum and recommended are based off of Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model, and it is _recommended_ that the entire file fits in memory, which is an additional 4-6 GB. Also, the first run of either container may take longer, since models are being paged into memory.
 
 ## Get the container image with `docker pull`
 
@@ -255,7 +255,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ### Text-to-speech
 
-The container provides REST endpoint APIs which can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
+The container provides REST endpoint APIs which can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -276,6 +276,10 @@ The Speech containers send billing information to Azure, using a _Speech_ resour
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](speech-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

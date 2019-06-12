@@ -35,7 +35,7 @@ App Service on Linux supports a number of Built-in images in order to increase d
 | PHP | 5.6, 7.0, 7.2 |
 | Python | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
-| Ruby | 2.3, 2.4 |
+| Ruby | 2.3, 2.4, 2.5, 2.6 |
 
 ## Deployments
 

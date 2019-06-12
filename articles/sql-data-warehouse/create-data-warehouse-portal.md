@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create and query Azure SQL Data Warehouse - Azure Portal | Microsoft Docs"
+title: "Quickstart: Create and query Azure SQL Data Warehouse - Azure portal | Microsoft Docs"
 description: Create and query a data warehouse with Azure SQL Data Warehouse in the Azure portal.
 services: sql-data-warehouse
 author: XiaoyuL-Preview
@@ -7,9 +7,10 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: development
-ms.date: 08/02/2018
+ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: sqlfreshmay19 
 ---
 # Quickstart: Create and query an Azure SQL data warehouse in the Azure portal
 
@@ -75,7 +76,7 @@ Follow these steps to create a SQL data warehouse that contains the AdventureWor
 
 8. Click **Apply**.
 
-9. Now that you have completed the SQL Data Warehouse form, click **Create** to provision the database. Provisioning takes a few minutes. 
+9. Now that you've completed the SQL Data Warehouse form, click **Create** to provision the database. Provisioning takes a few minutes.
 
     ![click create](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -85,31 +86,30 @@ Follow these steps to create a SQL data warehouse that contains the AdventureWor
 
 ## Create a server-level firewall rule
 
-The SQL Data Warehouse service creates a firewall at the server-level that prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) for your client's IP address. 
+The SQL Data Warehouse service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) for your client's IP address.
 
 > [!NOTE]
 > SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 
-1. After the deployment completes, click **SQL data warehouses** from the left-hand menu and then click **mySampleDatabase** on the **SQL data warehouses** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration. 
+1. After the deployment completes, select **All services** from the left-hand menu. Select **Databases**, select the star next to **SQL data warehouses** to add SQL data warehouses to your favorites.
+1. Select **SQL data warehouses** from the left-hand menu and then click **mySampleDatabase** on the **SQL data warehouses** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration.
+1. Copy this fully qualified server name for use to connect to your server and its databases in this and other quick starts. To open server settings, click the server name.
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. To open server settings, click the server name.
+   ![find server name](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
-   ![find server name](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
+1. Click **Show firewall settings**.
 
-3. To open server settings, 
-4. click the server name.
+   ![server settings](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-   ![server settings](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+1. The **Firewall settings** page for the SQL Database server opens.
 
-5. Click **Show firewall settings**. The **Firewall settings** page for the SQL Database server opens. 
+   ![server firewall rule](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
-   ![server firewall rule](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
+1. To add your current IP address to a new firewall rule, click **Add client IP** on the toolbar. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-4. To add your current IP address to a new firewall rule, click **Add client IP** on the toolbar. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+1. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
-5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
-
-6. Click **OK** and then close the **Firewall settings** page.
+1. Click **OK** and then close the **Firewall settings** page.
 
 You can now connect to the SQL server and its data warehouses using this IP address. The connection works from SQL Server Management Studio or another tool of your choice. When you connect, use the ServerAdmin account you created previously.
 
@@ -121,8 +121,8 @@ You can now connect to the SQL server and its data warehouses using this IP addr
 Get the fully qualified server name for your SQL server in the Azure portal. Later you use the fully qualified name when connecting to the server.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Data warehouses** from the left-hand menu, and click your data warehouse on the **SQL datawarehouses** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20180430.database.windows.net. 
+2. Select **SQL Data warehouses** from the left-hand menu, and click your data warehouse on the **SQL data warehouses** page.
+3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20180430.database.windows.net.
 
     ![connection information](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -139,8 +139,8 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Server type | Database engine | This value is required |
    | Server name | The fully qualified server name | Here's an example: **mynewserver-20180430.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
-   | Login | The server admin account | This is the account that you specified when you created the server. |
-   | Password | The password for your server admin account | This is the password that you specified when you created the server. |
+   | Login | The server admin account | Account that you specified when you created the server. |
+   | Password | The password for your server admin account | Password that you specified when you created the server. |
    ||||
 
     ![connect to server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -177,12 +177,12 @@ SQL Data Warehouse uses T-SQL as the query language. To open a query window and 
 
 ## Clean up resources
 
-You are being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately. 
+You're being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately.
 
-- If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you are only charged for data storage. You can resume compute whenever you are ready to work with the data.
-- If you want to remove future charges, you can delete the data warehouse. 
+- If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you're only charged for data storage. You can resume compute whenever you're ready to work with the data.
+- If you want to remove future charges, you can delete the data warehouse.
 
-Follow these steps to clean up resources as you desire.
+Follow these steps to clean up resources you no longer need.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), click on your data warehouse.
 
@@ -190,7 +190,7 @@ Follow these steps to clean up resources as you desire.
 
 2. To pause compute, click the **Pause** button. When the data warehouse is paused, you see a **Resume** button. To resume compute, click **Resume**.
 
-3. To remove the data warehouse so you are not charged for compute or storage, click **Delete**.
+3. To remove the data warehouse so you aren't charged for compute or storage, click **Delete**.
 
 4. To remove the SQL server you created, click **mynewserver-20180430.database.windows.net** in the previous image, and then click **Delete**. Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
@@ -198,7 +198,7 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-You have now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
+You've now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
 > [Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)

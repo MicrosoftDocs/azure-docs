@@ -40,7 +40,7 @@ In this tutorial series, you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Install Visual Studio 2017](https://www.visualstudio.com/), and install the **Azure development** and **ASP.NET and web development** workloads.
+* [Install Visual Studio 2019](https://www.visualstudio.com/), and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md).
 
 ## Download the voting sample application
@@ -71,18 +71,18 @@ The front-end web service of the Voting application is listening on a specific p
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Take note of the service endpoint, which is needed in a later step.  If you are deploying to an existing cluster, open this port by creating a load-balancing rule and probe in the Azure load balancer using a [PowerShell script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) or via the load balancer for this cluster in the [Azure portal](https://portal.azure.com).
+Take note of the service endpoint, which is needed in a later step.  If you're deploying to an existing cluster, open this port by creating a load-balancing rule and probe in the Azure load balancer using a [PowerShell script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) or via the load balancer for this cluster in the [Azure portal](https://portal.azure.com).
 
 ### Create a test cluster in Azure
 In Solution Explorer, right-click on **Voting** and select **Publish**.
 
-In **Connection Endpoint**, select **Create New Cluster**.  If you are deploying to an existing cluster, select the cluster endpoint from the list.  The Create Service Fabric Cluster dialog opens.
+In **Connection Endpoint**, select **Create New Cluster**.  If you're deploying to an existing cluster, select the cluster endpoint from the list.  The Create Service Fabric Cluster dialog opens.
 
 In the **Cluster** tab, enter the **Cluster name** (for example, "mytestcluster"), select your subscription, select a region for the cluster (such as South Central US), enter the number of cluster nodes (we recommend three nodes for a test cluster), and enter a resource group (such as "mytestclustergroup"). Click **Next**.
 
 ![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-In the **Certificate** tab, enter the password and output path for the cluster certificate. A self-signed certificate is created as a PFX file and saved to the specified output path.  The certificate is used for both node-to-node and client-to-node security.  A self-signed certificate should not be used for production clusters.  This certificate is used by Visual Studio to authenticate with the cluster and deploy applications. Select **Import certificate** to install the PFX in the CurrentUser\My certificate store of your computer.  Click **Next**.
+In the **Certificate** tab, enter the password and output path for the cluster certificate. A self-signed certificate is created as a PFX file and saved to the specified output path.  The certificate is used for both node-to-node and client-to-node security.  Don't use a self-signed certificate for production clusters.  This certificate is used by Visual Studio to authenticate with the cluster and deploy applications. Select **Import certificate** to install the PFX in the CurrentUser\My certificate store of your computer.  Click **Next**.
 
 ![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

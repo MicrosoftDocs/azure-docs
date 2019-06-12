@@ -16,6 +16,8 @@
     href: manage-app-groups.md
   - name: 5. Create a host pool to validate service updates
     href: create-validation-host-pool.md
+  - name: 6. Deploy a management tool
+    href: manage-resources-using-ui.md
 - name: How-to
   items:
   - name: Connect to Windows Virtual Desktop resources
@@ -40,6 +42,8 @@
     href: configure-vm-gpu.md
   - name: Automatically scale session hosts
     href: set-up-scaling-script.md
+  - name: Customize RDP Properties
+    href: customize-rdp-properties.md
 - name: Concepts
   items:
   - name: Windows Virtual Desktop environment
@@ -48,6 +52,8 @@
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
+  - name: FSLogix profile containers and Azure files
+    href: fslogix-containers-azure-files.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
@@ -62,6 +68,8 @@
     href: troubleshoot-client-connection.md
   - name: Windows Virtual Desktop PowerShell 
     href: troubleshoot-powershell.md
+  - name: Diagnosing graphics performance issues
+    href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
   - name: PowerShell

@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 05/24/2019
 ms.author: mbullwin
 ---
 # Instrument web apps at runtime with Application Insights Status Monitor
@@ -316,7 +316,6 @@ View your telemetry:
 * [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
 * [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
-* [Create dashboards](../../azure-monitor/app/app-insights-dashboards.md)
 
 Add more telemetry:
 

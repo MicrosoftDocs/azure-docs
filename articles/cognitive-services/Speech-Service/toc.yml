@@ -97,6 +97,9 @@
       - name: 'Java (Windows, macOS, Linux)'
         href: quickstart-virtual-assistant-java-jre.md
         displayName: virtual assistant, speech-enabled bot, conversational agent
+      - name: 'Java (Android)'
+        href: quickstart-virtual-assistant-java-android.md
+        displayName: virtual assistant, speech-enabled bot, conversational agent
   - name: REST APIs
     items:
     - name: List supported voices by region
@@ -122,7 +125,6 @@
     href: how-to-recognize-intents-from-speech-csharp.md
     displayName: recognize intent, intent recognition, language understanding service, luis
   - name: Build a Flask app to translate and synthesize text, REST
-    maintainContext: true
     href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
 - name: Concepts
   items:
@@ -198,11 +200,11 @@
   - name: Use containers
     items:
     - name: Install and run containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises 
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
       href: speech-container-howto.md
     - name: Configure containers
       href: speech-container-configuration.md
-      displayName: docker, container, billing, apikey, pull, logging, on-premises 
+      displayName: docker, container, billing, apikey, pull, logging, on-premises
 - name: Samples
   items:
   - name: Speech SDK
@@ -222,6 +224,8 @@
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
     - name: Scenario availability
       href: scenario-availability.md
+    - name: Ship an application
+      href: ship-application.md
     - name: Release notes
       href: releasenotes.md
     - name: C++
@@ -315,7 +319,7 @@
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacy & cookies
