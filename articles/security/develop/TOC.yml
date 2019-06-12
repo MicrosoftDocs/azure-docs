@@ -19,6 +19,6 @@
   - name: Security best practices for Azure solutions
     href: ./security/security-best-practices-and-patterns.md
 
--name: Resources
- expanded: false
+- name: Resources
+  expanded: false
 

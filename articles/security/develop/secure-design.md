@@ -90,7 +90,7 @@ with security best practices on Azure:
 ## Requirements
 The requirements definition phase is a crucial step in defining what your application is and what it will do when it's released. The requirements phase is also a time to think about the security controls that you will build into your application. During this phase, you also begin the steps that you will take throughout the SDL to ensure that you release and deploy a secure application.
 
-![](./media/security-requirements/03-requirement.png)
+![](./media/secure-design/03-requirement.png)
 
 ### Consider security and privacy issues
 This phase is the best time to consider foundational security and
