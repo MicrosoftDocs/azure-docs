@@ -7,11 +7,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 06/12/2019
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
-# Quickstart: Create an Apache Kafka on HDInsight cluster
+# Quickstart: Create Apache Kafka cluster in Azure HDInsight using PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
 
@@ -24,9 +24,9 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 >
 > For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
 
 * The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 

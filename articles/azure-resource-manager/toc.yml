@@ -41,7 +41,6 @@
     displayName: DevOps
     href: resource-manager-tutorial-use-azure-pipelines.md
   - name: Use safe deployment practices
-  - name: Use safe deployment practices
     displayName: adm
     href: deployment-manager-tutorial.md
   - name: Use health check in Deployment Manager
