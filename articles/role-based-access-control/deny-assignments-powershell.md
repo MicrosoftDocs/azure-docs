@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/10/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -117,18 +117,6 @@ Get-AzDenyAssignment -Scope /subscriptions/<subscription_id>
 
 ```Example
 PS C:\> Get-AzDenyAssignment -Scope /subscriptions/11111111-1111-1111-1111-111111111111
-```
-
-### List deny assignments at a management group scope
-
-To list all deny assignments at a management group scope, use [Get-AzDenyAssignment](/powershell/module/az.resources/get-azdenyassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
-
-```azurepowershell
-Get-AzDenyAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
-```
-
-```Example
-PS C:\> Get-AzDenyAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
 ```
 
 ## Next steps
