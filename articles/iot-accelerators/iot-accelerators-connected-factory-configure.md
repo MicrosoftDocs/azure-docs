@@ -277,7 +277,7 @@ The OEE/KPI figures for the Connected Factory simulation are parameterized by:
 * The OPC UA node values to be included in the calculation.
 * How the figure is computed from the telemetry values.
 
-Connected Factory uses the OEE formulas as published by the https://www.oeefoundation.org.
+Connected Factory uses the OEE formulas as published by the [http://www.oeefoundation.org](http://www.oeefoundation.org).
 
 OPC UA node objects in stations enable tagging for usage in OEE/KPI calculation. The **Relevance** property indicates for which OEE/KPI figure the OPC UA node value should be used. The **OpCode** property defines how the value is included in the computation.
 
@@ -335,4 +335,4 @@ The **OpCode** in the configuration configures the computation logic to calculat
 
 ## Next steps
 
-A suggested next step is to learn how to [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md).
+A suggested next step is to learn how to [Customize the Connected Factory solution](iot-accelerators-connected-factory-customize.md).

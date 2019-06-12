@@ -22,7 +22,6 @@ Customers will need to work with their local carriers and co-location providers 
 The available ports will be dynamic and will be available by PowerShell to view the capacity. Locations include and *are subject to change based on availability*:
 
 * Amsterdam
-* Canberra
 * Chicago
 * Washington DC
 * Dallas 
