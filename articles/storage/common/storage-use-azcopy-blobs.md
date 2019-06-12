@@ -186,7 +186,7 @@ This section contains the following examples:
 
 ## Synchronize files
 
-You can synchronize the contents of a local file system to a blob container. You can also synchronize a blob container to a local file system on your computer. Synchronization is one-way. In other words, you choose which of these two endpoints is the source and which one is the destination.
+You can synchronize the contents of a local file system with a blob container. Synchronization is one-way. In other words, you choose which of these two endpoints is the source and which one is the destination.
 
 > [!NOTE]
 > Currently, this scenario is supported only for accounts that don't have a hierarchical namespace. The current release of AzCopy doesn't synchronize between other sources and destinations (For example: File storage or Amazon Web Services (AWS) S3 buckets).
@@ -198,18 +198,18 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 > [!NOTE]
 > To prevent accidental deletions, make sure to enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you use the `--delete-destination=prompt|true` flag.
 
-### Synchronize a container to a local file system
+### Update a container with changes to a local file system
 
-In this case, the local file system becomes the source and the container is the destination.
+In this case, the container is the destination, and the local file system is the source.
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy sync "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
 | **Example** | `azcopy sync "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
 
-### Synchronize a local file system to a container
+### Update a local file system with changes to a container
 
-In this case, the container becomes the source and the local file system is the destination.
+In this case, the local file system is the destination, and the container is the source.
 
 |    |     |
 |--------|-----------|
