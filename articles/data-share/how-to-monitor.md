@@ -1,6 +1,6 @@
 ---
-title: How to add recipients to my data share
-description: How to add recipients to my data share
+title: How to monitor my data share
+description: How to monitor my data share
 author: joannapea
 
 ms.service: azure-data-share
