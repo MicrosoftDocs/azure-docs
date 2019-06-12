@@ -233,9 +233,10 @@ if (<My custom error logic>)
     throw "There was an error, abort deployment"
 }
 ```
+
 ## Known issues
 
-* You can't pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
+* You can't pass a boolean, objects, or arrays to parameters when using pre and post scripts. The runbook will fail. For a complete list of supported types, see [parameters](#passing-parameters).
 
 ## Next steps
 
