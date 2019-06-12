@@ -23,7 +23,7 @@ ms.custom: seodec18
 
 For more information on the source control services, see [Create a repo (GitHub)], [Create a repo (BitBucket)], and [Create a new Git repo (Azure Repos)].
 
-To manually configure continuous deployment from a cloud repository that the portal doesn't directly support, such as [GitLab](https://gitlab.com/)), see [Set up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+To manually configure continuous deployment from a cloud repository that the portal doesn't directly support, such as [GitLab](https://gitlab.com/), see [Set up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -88,6 +88,8 @@ If your Azure account has the necessary permissions, you can set up Azure Pipeli
 - To use Azure Pipelines continuous delivery, your Azure account must have permissions to write to Azure Active Directory and create a service. 
   
 - For Azure App Service to create the necessary Azure Pipelines in your Azure DevOps organization, your Azure account must have the **Owner** role in your Azure subscription.
+
+To configure Azure Pipelines (Preview):
 
 1. On the **Deployment Center** page for your App Service app, select **GitHub** or **Azure Repos**, and then select **Continue**. For GitHub, you can also select **Change account** to change the authorized account. 
    
