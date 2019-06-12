@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 ## Prepare your repository
 
-To get automatic builds from the Azure App Service Kudu build server, make sure that your repository root has the correct files in your project.
+To get automatic builds from Azure App Service, make sure that your repository root has the correct files in your project.
 
 | Runtime | Root directory files |
 |-|-|
@@ -30,6 +30,5 @@ To customize your deployment, include a _.deployment_ file in the repository roo
 
 > [!NOTE]
 > If you develop in Visual Studio, let [Visual Studio create a repository for you](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio). The project is immediately ready to be deployed by using Git.
->
 >
 
