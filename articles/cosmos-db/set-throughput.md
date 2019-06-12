@@ -83,7 +83,7 @@ You can retrieve the minimum throughput of a container or a database programmati
 
 When using the .NET SDK, the [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) method allows you to retrieve the minimum throughput of a container or a database. 
 
-You can scale the provisioned throughput of a container or a database at any time. 
+You can scale the provisioned throughput of a container or a database at any time. When a scale operation is performed to increase the throughput, it can take longer time due to the system tasks to provision the required resources. You can check the status of the scale operation in Azure portal or programmatically using the SDKs. When using the .Net SDK, you can get the status of the scale operation by using the `DocumentClient.ReadOfferAsync` method.
 
 ## Comparison of models
 
