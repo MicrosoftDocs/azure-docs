@@ -189,7 +189,7 @@ This section contains the following examples:
 You can synchronize the contents of a local file system to a blob container. You can also synchronize a blob container to a local file system on your computer. Synchronization is one-way. In other words, you choose which of these two endpoints is the source and which one is the destination.
 
 > [!NOTE]
-> The current release of AzCopy doesn't synchronize between other sources and destinations (For example: File storage or Amazon Web Services (AWS) S3 buckets).
+> Currently, this scenario is supported only for accounts that don't have a hierarchical namespace. The current release of AzCopy doesn't synchronize between other sources and destinations (For example: File storage or Amazon Web Services (AWS) S3 buckets).
 
 The `sync` command compares file names and last modified timestamps. Set the `--delete-destination` optional flag to a value of `true` or `prompt` to delete files in the destination directory if those files no longer exist in the source directory.
 
@@ -206,8 +206,6 @@ In this case, the local file system becomes the source and the container is the 
 |--------|-----------|
 | **Syntax** | `azcopy sync "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
 | **Example** | `azcopy sync "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
-| **Example** (hierarchical namespace) | `azcopy sync "C:\myDirectory" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive` |
-
 
 ### Synchronize a local file system to a container
 
@@ -217,7 +215,7 @@ In this case, the container becomes the source and the local file system is the 
 |--------|-----------|
 | **Syntax** | `azcopy sync "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "C:\myDirectory" --recursive` |
 | **Example** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
-| **Example** (hierarchical namespace) | `azcopy sync "https://mystorageaccount.dfs.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
+|
 
 ## Next steps
 
