@@ -177,7 +177,7 @@ You can link an HDInsight cluster by using the Apache Ambari managed username. S
         |User Name| Enter cluster user name, default is admin.|
         |Password| Enter password for user name.|
     
-        ![link Hdinsight cluster dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![link HdInsight cluster dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy Service**  
   
@@ -451,12 +451,12 @@ If the cluster is busy, you might get the error below.
 
 ![Intellij get error when cluster busy](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
-## Feedback and known issues
+## Known issues
+
 Currently, viewing Spark outputs directly is not supported.
 
-If you have any suggestions or feedback, or if you encounter any problems when you use this plug-in, email us at hdivstool@microsoft.com.
-
 ## <a name="seealso"></a>Next steps
+
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
 ### Demo

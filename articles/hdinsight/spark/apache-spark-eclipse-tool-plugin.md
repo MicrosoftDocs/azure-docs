@@ -285,9 +285,6 @@ There are two modes to submit the jobs. If storage credential is provided, batch
 
 ![eclipse get error when cluster busy](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
-## Feedback
-If you have any feedback, or if you encounter any other problems when using this tool, send us an email at hdivstool@microsoft.com.
-
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
