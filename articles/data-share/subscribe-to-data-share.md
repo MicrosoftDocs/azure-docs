@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Subscribe to an Azure Data Share
-description: Tutorial - Subscribe to an Azure Data Share
+title: Tutorial - Accept and receive data 
+description: Tutorial - Accept and receive data 
 author: joannapea
 
 ms.service: data-share
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
 ---
-# Tutorial: Subscribe to an Azure Data Share 
+# Tutorial: Accept and receive data 
 
 This tutorial will teach you:
 
