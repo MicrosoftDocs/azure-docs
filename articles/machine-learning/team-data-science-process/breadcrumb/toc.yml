@@ -35,7 +35,7 @@
         topicHref: /azure/storage/index
 
 - name: Azure
-  tocHref: /azure/
+  tocHref: /studio/
   topicHref: /azure/index
   items:
   - name: Machine Learning
@@ -50,42 +50,3 @@
         tocHref: /azure/machine-learning/studio/
         topicHref: /azure/machine-learning/studio/index
   
-  - name: Azure
-    tocHref: /azure/
-    topicHref: /azure/index
-    items:
-    - name: Machine Learning
-      tocHref: /azure/hdinsight/
-      topicHref: /azure/machine-learning/index
-      items:
-      - name: Team Data Science Process
-        tocHref: /azure/hdinsight/spark/
-        topicHref: /azure/machine-learning/team-data-science-process/index
-        items:
-        - name: HDInsight
-          topHref: /azure/hdinsight/spark/
-          topicHref: /azure/hdinsight/index
-          items:
-          - name: Spark
-            topHref: /azure/hdinsight/spark/
-            topicHref: /azure/hdinsight/spark/apache-spark-overview
-
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Machine Learning
-    tocHref: /azure/hdinsight/
-    topicHref: /azure/machine-learning/index
-    items:
-    - name: Team Data Science Process
-      tocHref: /azure/hdinsight/spark/
-      topicHref: /azure/machine-learning/team-data-science-process/index
-      items:
-      - name: HDInsight
-        topHref: /azure/hdinsight/spark/
-        topicHref: /azure/hdinsight/index
-        items:
-        - name: ML Services
-          topHref: /azure/hdinsight/r-server/
-          topicHref: /azure/hdinsight/r-server/index
