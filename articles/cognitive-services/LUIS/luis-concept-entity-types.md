@@ -230,7 +230,17 @@ The entity is a good fit when:
 [Tutorial](luis-quickstart-intents-regex-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
-Regular expressions may match more than you expect to match. An example of this is numeric word matching such as `one` and `two`. An example is the following regex: 
+Regular expressions may match more than you expect to match. An example of this is numeric word matching such as `one` and `two`. An example is the following regex, which matches the number `one` along with other numbers:
+
+```text
+(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
+``` 
+
+This regex expression also matches any words that end with this numbers, such as `phone`. In order to fix issues like this, make sure the regex matches takes into account word boundaries. The regex to use word boundaries for this example is used in the following regex:
+
+```text
+\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
+```
 
 ## Simple entity 
 
