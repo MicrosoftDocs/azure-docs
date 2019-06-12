@@ -44,7 +44,7 @@ You can prepare recordings of individual utterances and the matching transcript 
 To produce a good voice font, create the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential.
 
 > [!TIP]
-> To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [How to record voice samples for a custom voice](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/record-custom-voice-samples).
+> To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [How to record voice samples for a custom voice](record-custom-voice-samples.md).
 
 ### Audio files
 
