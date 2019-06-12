@@ -50,3 +50,10 @@ To assign a friendly name to the remote desktop resource, run the following Powe
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
 ```
 ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](media/set-rdsremotedesktop.png)
+
+## Next Steps
+
+Now that you've customized the feed for users, you can sign in to a Windows Virtual Desktop client to test it out. To do so, continue to the Connect to Windows Virtual Desktop How-tos:
+	
+[Connect from Windows 10 or Windows 7](connect-windows-7-and-10.md)
+[Connect from a web browser](connect-web.md) 
