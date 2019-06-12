@@ -84,7 +84,7 @@ The scopes are also displayed on the consent screen that's presented to end user
 
 In this paragraph, you'll learn how to register your protected Web API so that it can be called securely by daemon applications:
 
-- you'll need to expose application permissions
+- you' statuill need to expose application permissions
 - tenant admins may require AAD to acquire tokens for your Web App only for registered applications;
 
 #### How to expose application permissions (app roles)
@@ -116,16 +116,16 @@ The content of `appRoles` should be the following (the `id` can be any unique GU
 
 The Web API tests for the app role (that's the developer way of doing it). But you can even ask Azure Active Directory to issue a token for your Web API only to applications that were approved by the tenant admin. To add this additional security:
 
-1. On the app **Overview** page for your app registration, select the hyperlink with the name of your application in **Managed application in local directory**. The title for this field can be truncated. You could, for instance, read: `Managed application in ...`)
+1. On the app **Overview** page for your app registration, select the hyperlink with the name of your application in **Managed application in local directory**. The title for this field can be truncated. You could, for instance, read: `Managed application in ...`
 
-   > !INFO
+   > [!NOTE]
    >
    > When you select this link you will navigate to the **Enterprise Application Overview** page associated with the service principal for your application in the tenant where you created it. You can navigate back to the app registration page by using the back button of your browser.
 
 1. Select the **Properties** page in the **Manage** section of the Enterprise application pages
 1. If you want AAD to enforce access to your Web API from only certain clients, set **User assignment required?** to **Yes**.
 
-   > ! IMPORTANT
+   > [!IMPORTANT]
    >
    > By setting **User assignment required?** to **Yes**, AAD will check the app role assignments of the clients when they request an access token for the Web API. If the client was not be assigned to any AppRoles, AAD would just return `invalid_client: AADSTS501051: Application xxxx is not assigned to a role for the xxxx`
    >
