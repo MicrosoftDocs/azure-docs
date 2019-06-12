@@ -36,7 +36,7 @@ This state is the steady state of a provisioned service.
 
 #### Provisioning for update 
 
-This state signifies that an update to an existing service is pending. Such an update can be initiated by the customer either from the marketplace or on the SaaS (only for direct-to-customer transactions).
+This state signifies that an update to an existing service is pending. Such an update can be initiated by the customer, either from the marketplace or on the SaaS (only for direct-to-customer transactions).
 
 ##### Provisioning for update (when it's initiated from the marketplace)
 
@@ -56,7 +56,7 @@ This state indicates that a customer’s payment hasn't  been received. By polic
 
 - As an ISV, you may choose to degrade or block the user’s access to the service.
 - The subscription must be kept in a recoverable state that can restore full functionality without any loss of data or settings. 
-- You can expect to get a reinstate request for this subscription via the fulfillment API or a de-provisioning request at the end of the grace period. 
+- Expect to get a reinstate request for this subscription via the fulfillment API or a de-provisioning request at the end of the grace period. 
 
 #### Unsubscribed 
 
@@ -127,7 +127,7 @@ Code: 400<br>
 Bad request. x-ms-marketplace-token is missing, malformed, or expired.
 
 Code: 403<br>
-Unauthorized. The authetication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+Unauthorized. The authentication token wasn't provided or is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
 
 Code: 404<br>
 Not found.
@@ -194,7 +194,7 @@ Response payload:<br>
           },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
-          ], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
+          ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
@@ -262,7 +262,7 @@ Response Body:
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
               "tenantId": "<guid>"
           },
-        "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
+        "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
         "status": "Subscribed", // Indicates the status of the operation.
 }
@@ -818,7 +818,7 @@ Sample URI: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-ver
 
 The API endpoint paths are the same across both mock and real APIs, but the API versions are different. The version is `2018-09-15` for the mock version and `2018-08-31` for the production version. 
 
-Any of the API calls in this article can be made to the mock host endpoint. In general, you can expect to get mock data back as a response. Calls to the update subscription methods on the mock API always return 500. 
+Any of the API calls in this article can be made to the mock host endpoint. In general, expect to get mock data back as a response. Calls to the update subscription methods on the mock API always return 500. 
 
 ## Next steps
 
