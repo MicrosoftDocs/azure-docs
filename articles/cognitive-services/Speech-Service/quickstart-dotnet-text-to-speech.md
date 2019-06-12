@@ -43,7 +43,7 @@ This quickstart requires C# 7.1 or later. There are a few ways to change the C# 
 
 Open your project, then open `tts-sample.csproj`. Make sure that `LangVersion` is set to 7.1 or later. If there isn't a property group for the language version, add these lines:
 
-```csharp
+```xml
 <PropertyGroup>
    <LangVersion>7.1</LangVersion>
 </PropertyGroup>
