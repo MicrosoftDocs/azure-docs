@@ -1,7 +1,7 @@
 ---
 # required metadata
-title: Azure Active Directory guided setups steps
-description: App registration portal content
+title: Reply URLs/redirect URls restrictions & limitations
+description: Reply URLs/redirect URls restrictions & limitations
 author: SureshJa
 ms.author: sureshja
 manager: 
@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 # Reply URLs/redirect URls restrictions & limitations
 
 ## Maximum number of URIs
-A maximum of 256 redirect URIs can be added to an app registration if the app is configured to sign in Microsoft work or school accounts in any organization's Azure AD tenant (i.e. `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs*). However, if the app is configured to sign in both personal and work or school accounts (i.e. `signInAudience` field in the application manifest is set to either *AzureADandPersonalMicrosoftAccount*), a maximum of 100 redirect URIs are allowed.
+A maximum of 256 redirect URIs can be added to an app registration if the app is configured to sign in Microsoft work or school accounts in any organization's Azure AD tenant (i.e. `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs*). However, if the app is configured to sign in both personal and work or school accounts (i.e. `signInAudience` field in the application manifest is set to *AzureADandPersonalMicrosoftAccount*), a maximum of 100 redirect URIs are allowed.
 
 ## Maximum URI length
 A maximum of 256 characters are allowed for each redirect URI added to an app registration.
@@ -47,8 +47,8 @@ If you have a number of sub-domains, and if your scenario requires you to redire
 
 1) Create a 'common' reply URL per application to process the security tokens you receive from the authorization endpoint.
 2) Your application can send application-specific parameters (e.g., sub-domain URL where the user originated or anything like branding information) in the state parameter. When using state parameter, please ensure you guard against CSRF protection as specified in [section 10.12 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12)). 
-3) The application specific parameters will include all the information needed for application to render the correct experience for the user (i.e. construct the appropriate application state). Please note that the Azure AD authorization endpoint strips HTML from the state parameter. So make sure you are not passing HTML content in state parameter.
+3) The application specific parameters will include all the information needed for application to render the correct experience for the user (i.e. construct the appropriate application state). Please note that the Azure AD authorization endpoint strips HTML from the state parameter, so make sure you are not passing HTML content in this parameter.
 4) When Azure AD sends a response to the 'common' reply URL, it will send the state parameter back to the application.
 5) The application can then use the value in the state parameter to determine which URL to further send the user to. Please ensure you validate for CSRF protection.
 
-> Note: This approach allows a compromized client to modify the additional parameters sent in the state thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client will need to protect these parameters by encrypting state or verifying it by some other means.
+> Note: This approach allows a compromized client to modify the additional parameters sent in the state thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client will need to protect these parameters by encrypting state or verifying it by some other means (e.g. validating domain name in the redirect URI against the token).
