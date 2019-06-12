@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 06/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -74,7 +74,6 @@ A successful response will be a JSON object containing the required information 
 |`device_code`     | String | A long string used to verify the session between the client and the authorization server. The client uses this parameter to request the access token from the authorization server. |
 |`user_code`       | String | A short string shown to the user that's used to identify the session on a secondary device.|
 |`verification_uri`| URI | The URI the user should go to with the `user_code` in order to sign in. |
-|`verification_uri_complete`| URI | A URI that combines the `user_code` and the `verification_uri`, used for non-textual transmission to the user (for example, via Bluetooth to a device, or through a QR code).  |
 |`expires_in`      | int | The number of seconds before the `device_code` and `user_code` expire. |
 |`interval`        | int | The number of seconds the client should wait between polling requests. |
 | `message`        | String | A human-readable string with instructions for the user. This can be localized by including a **query parameter** in the request of the form `?mkt=xx-XX`, filling in the appropriate language culture code. |
