@@ -7,7 +7,7 @@
     topicHref: /azure/machine-learning/index
     items:
     - name: Team Data Science Process
-      tocHref: /azure/storage/blobs/
+      tocHref: /azure/storage/
       topicHref: /azure/machine-learning/team-data-science-process/index
       items:
       - name: Storage
@@ -27,7 +27,7 @@
     topicHref: /azure/machine-learning/index
     items:
     - name: Team Data Science Process
-      tocHref: /azure/storage/common/
+      tocHref: /azure/storage/
       topicHref: /azure/machine-learning/team-data-science-process/index
       items:
       - name: Storage
@@ -37,6 +37,10 @@
         - name: Blobs
           tocHref: /azure/storage/common/
           topicHref: /azure/storage/blobs/index
+          items:
+          - name: Create a storage account
+            tocHref: /azure/storage/common/storage-quickstart-create-account
+            topicHref: /azure/storage/common/storage-quickstart-create-account
 
 - name: Azure
   tocHref: /studio/
@@ -72,7 +76,7 @@
         items:
         - name: Spark
           tocHref: /azure/hdinsight/spark/
-          topicHref: /azure/hdinsight/spark/apache-spark-overview
+          topicHref: /azure/hdinsight/spark/index
 
 - name: Azure
   tocHref: /azure/
