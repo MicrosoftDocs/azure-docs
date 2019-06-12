@@ -26,7 +26,7 @@ FunctionApp
  | - bin
 ```
 
-In version 2.x of the Functions runtime, all functions in the function app must share the same language worker.  
+In version 2.x of the Functions runtime, all functions in the function app must share the same language stack.  
 
 The [host.json](../articles/azure-functions/functions-host-json.md) file, which contains some runtime-specific configurations, is in the root folder of the function app. A `bin` folder contains packages and other library files required by the function app. See the language-specific requirements for a function app project:
 
