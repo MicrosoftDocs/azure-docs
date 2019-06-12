@@ -36,7 +36,7 @@ Common causes for this problem are:
 
 - CIFS utilities (cfs-utils) are not installed on the client.
 - The minimum SMB/CIFS version, 2.1, is not installed on the client.
-- SMB 3.0 encryption is not supported on the client. SMB 3.0 encryption is available in Ubuntu 16.4 and later versions, along with SUSE 12.3 and later versions. Other distributions require kernel 4.11 and later versions.
+- SMB 3.0 encryption is not supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
 - You're trying to connect to a storage account over TCP port 445, which is not supported.
 - You're trying to connect to an Azure file share from an Azure VM, and the VM is not in the same region as the storage account.
 - If the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account, Azure Files will allow only connections that use SMB 3.0 with encryption.
