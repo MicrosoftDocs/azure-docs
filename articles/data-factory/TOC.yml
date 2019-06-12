@@ -508,7 +508,7 @@
     items:
     - name: Azure integration runtime
       href: create-azure-integration-runtime.md
-    - name: Self hosted integration runtime
+    - name: Self-hosted integration runtime
       href: create-self-hosted-integration-runtime.md
     - name: Azure-SSIS integration runtime
       href: create-azure-ssis-integration-runtime.md
