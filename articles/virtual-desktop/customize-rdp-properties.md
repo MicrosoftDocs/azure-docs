@@ -44,3 +44,10 @@ You can reset individual custom RDP properties to their default values by follow
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
 ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](media/resetcustomrdpproperty.png)
+
+## Next steps
+
+Now that you've customized the RDP properties for a given host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. To do so, continue to the Connect to Windows Virtual Desktop How-tos:
+
+- [Connect from Windows 10 and Windows 7](connect-windows-7-and-10.md)
+- [Connect from a web browser](connect-web.md)
