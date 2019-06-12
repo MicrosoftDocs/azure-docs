@@ -60,7 +60,7 @@ curl -k --user "<hdinsight user>:<user password>" -v -X GET "https://<spark_clus
     curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches" 
     ```
 
-* If you want to retrieve a specific batch with a given batchId
+* If you want to retrieve a specific batch with a given batch ID
 
     ```cmd
     curl -k --user "admin:mypassword1!" -v -X GET "https://mysparkcluster.azurehdinsight.net/livy/batches/{batchId}"
@@ -74,7 +74,7 @@ curl -k --user "<hdinsight user>:<user password>" -v -X DELETE "https://<spark_c
 
 ### Example
 
-Deleting a batch job with batch id `5`.
+Deleting a batch job with batch ID `5`.
 
 ```cmd
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/5"
