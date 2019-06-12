@@ -19,11 +19,11 @@ ms.author: magoedte
 
 Azure includes services for specific roles or tasks in the monitoring space. However, it doesn't provide in-depth health perspectives of operating systems (OSs) hosted on Azure virtual machines (VMs). Although you can use Azure Monitor for different conditions, it's not designed to model and represent the health of core components, or the overall health of VMs.
 
-By using the Azure Monitor for VMs health feature, you can actively monitor the availability and performance of a Windows or Linux guest OS. The health feature uses a model that represents key components and their relationships, provides criteria that specifies how to measure component health, and sends an alert when it detects an unhealthy condition.
+By using the Azure Monitor for VMs' health feature, you can actively monitor the availability and performance of a Windows or Linux guest OS. The health feature uses a model that represents key components and their relationships, provides criteria that specifies how to measure component health, and sends an alert when it detects an unhealthy condition.
 
 Viewing the overall health state of an Azure VM and the underlying OS can be observed from two perspectives: directly from a VM, or across all VMs in a resource group from Azure Monitor.
 
-This article shows how to quickly assess, investigate, and resolve health issues when they are detected by the Azure Monitor for VMs health feature.
+This article shows how to quickly assess, investigate, and resolve health issues when they are detected by the Azure Monitor for VMs' health feature.
 
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
 
@@ -78,7 +78,7 @@ This section outlines the default health criteria to monitor Azure Windows and L
 
 To sign in, go to the [Azure portal](https://portal.azure.com).
 
-## Introduction to Azure Monitor for VM's health feature
+## Introduction to Azure Monitor for VMs health feature
 
 Before you use the health feature for a single VM or group of VMs, it's important to understand how the information is presented and what the visualizations represent.
 
@@ -86,7 +86,7 @@ Before you use the health feature for a single VM or group of VMs, it's importan
 
 To view the health of an Azure VM, select **Insights (preview)** in the left pane of the VM. In the VM insights page, the **Health** tab is open by default and shows the health view of the VM.
 
-![Azure Monitor for VM's health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
+![Azure Monitor for VMs health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
 In the **Health** tab, under **Guest VM health**, the table shows the health state of the VM and the total number of VM health alerts raised by an unhealthy component.
 
@@ -235,7 +235,7 @@ The **Unit** health criteria type can have its configuration modified by selecti
 
 ![Configuring a health criteria example](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-In the configuration pane for the selected health criteria, by using the example **Average Disk Seconds Per Write**, the threshold can be configured with a different numeric value. It's a two-state monitor, meaning it can only change from **Healthy** to **Warning**.
+In the configuration pane for the selected health criteria, by using the example **Average Disk Seconds Per Write**, the threshold can be configured with a different numeric value. It's a two-state monitor, meaning it can change only from **Healthy** to **Warning**.
 
 Other health criterion can be three states, where you can configure the value for warning and critical health-state thresholds. You can also modify a threshold by using the Azure Monitor REST API [monitor configuration](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
 
@@ -289,8 +289,8 @@ You can filter this view by selecting values in the dropdown menus at the top of
 |-------|------------|
 |Subscription |Select an Azure subscription. Only alerts in the selected subscription are included in the view. |
 |Resource Group |Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
-|Resource type |Select one or more resource types. By default, only alerts of target **Virtual machines** is selected and included in this view. This column is only available after a resource group has been specified. | 
-|Resource |Select a resource. Only alerts with that resource as a target are included in the view. This column is only available after a resource type has been specified. | 
+|Resource type |Select one or more resource types. By default, only alerts of target **Virtual machines** is selected and included in this view. This column is only available after a resource group has been specified. |
+|Resource |Select a resource. Only alerts with that resource as a target are included in the view. This column is available only after a resource type has been specified. | 
 |Severity |elect an alert severity, or select **All** to include alerts of all severities. | 
 |Monitor Condition |Select a monitor condition to filter alerts if they have been fired or resolved by the system if the condition is no longer active. Or, select **All** to include alerts of all conditions. |
 |Alert state |Select an alert state, **New**, **Acknowledge**, **Closed**, or **All** to include alerts of all states. |
@@ -392,13 +392,13 @@ The Azure Monitor for VMs health feature supports SMS and email notifications wh
     armclient PUT https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings/default?api-version=2018-08-31-preview $payload
     ```
 
-3. To verify the value of the property **actionGroupResourceIds** was successfully updated, type the following command:
+3. To verify that the value of the property **actionGroupResourceIds** was successfully updated, enter the following command:
 
     ```
     armclient GET "subscriptions/subscriptionName/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings?api-version=2018-08-31-preview"
     ```
 
-    The output should resemble the following criteria:
+    The output should look similar to the following criteria:
     
     ```
     {
@@ -421,5 +421,5 @@ The Azure Monitor for VMs health feature supports SMS and email notifications wh
 
 ## Next steps
 
-- To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md)
-- To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md)
+- To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md).
+- To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
