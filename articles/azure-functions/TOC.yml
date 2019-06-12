@@ -45,6 +45,8 @@
       href: functions-add-output-binding-storage-queue-python.md
     - name: Storage - portal
       href: functions-integrate-storage-queue-output-binding.md
+    - name: Storage - Visual Studio Code
+      href: functions-add-output-binding-storage-queue-vs-code.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
@@ -136,6 +138,8 @@
       href: functions-test-a-function.md
     - name: Develop and debug locally
       href: functions-develop-local.md
+    - name: Visual Studio Code development
+      href: functions-develop-vs-code.md
     - name: Visual Studio development
       href: functions-develop-vs.md
     - name: Core Tools development
