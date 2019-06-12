@@ -116,7 +116,7 @@ public class SentenceLength
 
 ## Create a function to translate text
 
-Within the `Program` class, create a function called `TranslateTextRequest`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
+Within the `Program` class, create a asynchronous function called `TranslateTextRequest`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
 
 ```csharp
 // This sample requires C# 7.1 or later for async/await.
@@ -160,7 +160,7 @@ Inside the `HttpRequestMessage` you'll:
 * Insert the request body (serialized JSON object)
 * Add required headers
 * Make an asynchronous request
-* Print the response
+* Print the response using the classes you created earlier
 
 Add this code to the `HttpRequestMessage`:
 
@@ -213,6 +213,8 @@ static async Task Main(string[] args)
     await TranslateTextRequest(subscriptionKey, host, route, textToTranslate);
 }
 ```
+
+You'll notice that in `Main`, you're declaring `subscriptionKey`, `host`, and `route`. Additionally, you're prompting the user for input with `Console.Readline()` and assigning the value to `textToTranslate`.
 
 ## Run the sample app
 
