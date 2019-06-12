@@ -18,7 +18,7 @@ Speech containers enable customers to build one speech application architecture 
 
 The two speech containers are **speech-to-text** and **text-to-speech**. 
 
-|Function|Features|Lastest|
+|Function|Features|Latest|
 |-|-|--|
 |Speech-to-text| <li>Transcribes continuous real-time speech or batch audio recordings into text with intermediate results.|1.1.1|
 |Text-to-Speech| <li>Converts text to natural-sounding speech. with plain text input or Speech Synthesis Markup Language (SSML). |1.1.0|
@@ -69,7 +69,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
-**Note**; The minimum and recommended are based off of Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model, and it is _recommended_ that the entire file fits in memory, which is an additional 4-6 GB. Also, the first run of the either container may take longer, since models are being paged into memory.
+**Note**; The minimum and recommended are based off of Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model, and it is _recommended_ that the entire file fits in memory, which is an additional 4-6 GB. Also, the first run of either container may take longer, since models are being paged into memory.
 
 ## Get the container image with `docker pull`
 

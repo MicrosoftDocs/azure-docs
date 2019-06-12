@@ -31555,8 +31555,23 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-function-appinsights.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-bot-nodejs-appinsights",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-csharp-tutorial-build-bot-framework-sample.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-nodejs-tutorial-build-bot-framework-sample.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-nodejs-tutorial-bf-v4",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-speech-to-intent.md",
-      "redirect_url": "/azure/cognitive-services//speech-service/how-to-recognize-intents-from-speech-csharp",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp",
       "redirect_document_id": true
     },
     {
