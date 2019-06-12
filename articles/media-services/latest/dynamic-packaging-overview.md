@@ -19,29 +19,29 @@ ms.author: juliako
 
 # Dynamic Packaging
 
-Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS and XBOX). These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) format and Xbox require Smooth Streaming. If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG DASH, or Smooth Streaming, you can take advantage of **Dynamic Packaging**. The packaging is agnostic to the video resolution, SD/HD/UHD-4K are supported.
+Microsoft Azure Media Services can be used to encode many media source file formats, and deliver them via different streaming protocols, with or without content protection, to reach all major devices (for example, iOS and Android devices). These clients understand different protocols, for example iOS requires streams to be delivered in HTTP Live Streaming (HLS) format and Android devices support HLS as well as MPEG DASH. To prepare your source files for delivery by adaptive bitrate streaming, they need to be [encoded](encoding-concept.md) into a set of multiple bitrate (also called adaptive bitrate) MP4 (ISO Base Media 14496-12) files. From this set of MP4 files, you can deliver video via HLS or MPEG-DASH or Smooth Streaming protocols using **Dynamic Packaging**.
 
 In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols (HLS or DASH). Dynamic Packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). 
 
-To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. One way to get the files is to encode your mezzanine (source) file with Media Services. To make videos in the encoded Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, DASH, or Smooth), you receive the stream in the protocol you have chosen.
+To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. One way to get the files is to encode your mezzanine (source) file with Media Services. To make videos in the encoded Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, MPEG DASH, or Smooth Streaming), you receive the stream in the protocol you have chosen.
 
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
 
-In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand. 
+In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand videos. 
 
 > [!NOTE]
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Common on-demand workflow
 
-The following is a common Media Services streaming workflow where Dynamic Packaging is used.
+The following is a common Media Services streaming workflow where Dynamic Packaging is used along with the Standard Encoder in Azure Media Services.
 
-1. Upload an input file (called a mezzanine file). For example, MP4, MOV, or MXF (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md).
-2. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
+1. Upload an input file such as a QuickTime/MOV or MXF file (for the list of supported formats see [Formats Supported by the Media Encoder Standard](media-encoder-standard-formats.md). This is also referred to as the mezzanine or source file.
+2. [Encode](dynamic-packaging-overview.md#encode-to-adaptive-bitrate-mp4s) your mezzanine file into an H.264/AAC MP4 adaptive bitrate set 
 3. Publish the asset that contains the adaptive bitrate MP4 set. You publish by creating a **Streaming Locator**.
-4. Build URLs that target different formats (HLS, Dash, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
+4. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The **Streaming Endpoint** would take care of serving the correct manifest and requests for all these different formats.
 
-The following diagram shows the on-demand streaming with dynamic packaging workflow.
+The following diagram shows the on-demand streaming with Dynamic Packaging workflow.
 
 ![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
@@ -86,11 +86,14 @@ The following diagram shows the live streaming with dynamic packaging workflow.
 |MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
-## Video codecs supported by dynamic packaging
+## Video codecs supported by Dynamic Packaging
 
 Dynamic Packaging supports MP4 files, which contain video encoded with [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC or AVC1), [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 or hvc1).
 
-## Audio codecs supported by dynamic packaging
+> [!NOTE]
+> Resolutions of up to 4K, and frame rates of up to 60 frames/second have been tested with Dynamic Packaging. The [Premium Encoder](https://docs.microsoft.com/en-us/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to H.265, via the legacy v2 APIs. Please contact amshelp@microsoft.com if you have questions on this topic. 
+
+## Audio codecs supported by Dynamic Packaging
 
 ### MP4 files support
 
@@ -111,7 +114,10 @@ Dynamic Packaging supports MP4 files, which contain audio encoded with
     * DTS Express (dtse)
     * DTS-HD Lossless (no core) (dtsl)
 
-### Multi audio tracks
+> [!NOTE]
+> The [Premium Encoder](https://docs.microsoft.com/en-us/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to Dolby Digital Plus, via the legacy v2 APIs. Please contact amshelp@microsoft.com if you have questions on this topic. 
+
+### Multiple audio tracks
 
 When streaming Assets that have multiple audio tracks with multiple codecs and languages, Dynamic Packaging supports multi audio tracks for the HLS output (version 4 or above).
  
