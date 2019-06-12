@@ -138,7 +138,7 @@ The **Health** tab provides the following information:
 * How many VMs are unhealthy because of an issue detected with a processor, disk, memory, or network adapter, categorized by health state.
 * How many VMs are unhealthy because of an issue detected with a core OS service, categorized by health state.
 
-In the **Health** tab, you can identify the critical issues detected by the health criteria monitoring the VM, and review alert details and associated knowledge articles. These articles can assist in the diagnosis and remediation of the issues. Select any of the severities to open the [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page filtered by that severity.
+In the **Health** tab, you can identify the critical issues detected by the health criteria monitoring the VM, and review alert details and associated knowledge articles. These articles can assist in the diagnosis and remediation of issues. Select any of the severities to open the [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page filtered by that severity.
 
 The **VM distribution by operating system** list shows VMs listed by Windows edition or Linux distribution, along with their version. In each OS category, the VMs are broken down further based on the health of the VM.
 
@@ -160,7 +160,7 @@ The **Insights (preview)** page shows a rollup health status for the VM and aler
 
 Selecting the health status for one of the VMs shows the **Health Diagnostics** view of the VM. In this view, you can determine which health criteria is reflecting a health-state issue. When the **Health Diagnostics** page opens, it shows all the VM components and their associated health criteria with the current health state.
 
-For more information, see [Health Diagnostics](#health-diagnostics).
+For more information, see [Health diagnostics](#health-diagnostics).
 
 Selecting **View all health criteria** opens a page showing a list of all the health criteria available with this feature. The information can be further filtered based on the following options:
 
@@ -191,7 +191,7 @@ Start health diagnostics by using the following methods:
  
 * From the guest VM in the Azure Monitor for VMs **Health** tab, by selecting **View health diagnostics**.
 
-Health diagnostics organizes health information into two categories: **Availability** and **Performance**.
+Health diagnostics organizes health information into two categories: Availability and Performance.
  
 All health criteria defined for a specific component such as logical disk, CPU, and so on, can be viewed without filtering on the two categories (in an all-up view of all criteria), or filtering the results by either category when you select the **Availability** or **Performance** tabs.
 
