@@ -15,7 +15,7 @@ This article is the first in a series on best-practices for migrating on-premise
 
 ## Why to migrate to Azure HDInsight
 
-Azure HDInsight is a cloud distribution of the Hadoop components from the [Hortonworks Data Platform(HDP)](https://hortonworks.com/products/data-center/hdp/). Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. HDInsight includes the most popular open-source frameworks such as:
+Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data. HDInsight includes the most popular open-source frameworks such as:
 
 - Apache Hadoop
 - Apache Spark
@@ -84,7 +84,6 @@ This section provides template questionnaires to help gather important informati
 | **Question** | **Example** | **Answer** |
 |---|---|---|
 |**Topic**: **Environment**|||
-|Cluster Distribution type|Hortonworks, Cloudera, MapR| |
 |Cluster Distribution version|HDP 2.6.5, CDH 5.7|
 |Big Data eco-system components|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Cluster types|Hadoop, Spark, Confluent Kafka, Storm, Solr|
@@ -193,7 +192,6 @@ This section provides template questionnaires to help gather important informati
 |Share metastores between different clusters?|Yes||
 |Deconstruct workloads?|Replace Hive jobs with Spark jobs||
 |Use ADF for data orchestration?|No||
-|HDInsight vs Hortonworks Data Platform on IaaS?|HDInsight||
 
 ## Next steps
 

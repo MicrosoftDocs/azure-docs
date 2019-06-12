@@ -39529,6 +39529,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/hdinsight/hdinsight-migrate-from-windows-to-linux.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-troubleshoot-service-principals.md",
       "redirect_url" : "/azure/active-directory-domain-services/alert-service-principal",
       "redirect_document_id": true

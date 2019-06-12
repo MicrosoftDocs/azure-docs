@@ -15,8 +15,6 @@ ms.date: 06/07/2019
 
 Learn about the [Apache Hadoop](https://hadoop.apache.org/) ecosystem components and versions in Microsoft Azure HDInsight, as well as the Enterprise Security Package. Also, learn how to check Hadoop component versions in HDInsight.
 
-Each HDInsight version is a cloud distribution of a version of Hortonworks Data Platform (HDP).
-
 ## Apache Hadoop components available with different HDInsight versions
 
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the HDP distribution and a set of components that are contained within that distribution. As of April 4, 2017, the default cluster version used by Azure HDInsight is 3.6 and is based on HDP 2.6.
