@@ -559,7 +559,7 @@
         href: how-to-configure-cross-origin-resource-sharing.md
       - name: Secure Azure Cosmos keys using Key Vault
         href: access-secrets-from-keyvault.md
-      - name: Certificate-based authentication with AAD
+      - name: Certificate-based authentication with Azure AD
         href: certificate-based-authentication.md
     - name: Enterprise readiness 
       items:
