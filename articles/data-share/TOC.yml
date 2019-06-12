@@ -20,13 +20,10 @@
   items:
   - name: Adding datasets to a Data Share 
     href: how-to-add-datasets.md
-  items:
-  - name: Adding recipients to a Data Share 
+   - name: Adding recipients to a Data Share 
     href: how-to-add-recipients.md 
-  items:
-  - name: How to monitor my Data Share
-    href: how-to-monitor.md 
-        
+   - name: How to monitor my Data Share
+    href: how-to-monitor.md         
 - name: Resources
   items:
   - name: Blog
