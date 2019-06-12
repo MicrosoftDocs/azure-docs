@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
+ms.date: 04/30/2019
 ---
 
 # Tutorial: Scale apps in Azure App Service using Ansible
@@ -25,8 +25,8 @@ ms.date: 04/22/2019
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 - **Azure App Service app** - If you don't have an Azure App Service app, [configure an app in Azure App Service using Ansible](ansible-create-configure-azure-web-apps.md).
 
 ## Scale up an app

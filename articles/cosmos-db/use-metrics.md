@@ -6,7 +6,7 @@ author: kanshiG
 ms.author: govindk
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.reviewer: sngun
 ---
 # Monitor and debug with metrics in Azure Cosmos DB

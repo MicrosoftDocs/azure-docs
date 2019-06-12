@@ -4,7 +4,7 @@ description: This article lists all releases of Azure AD Application Proxy and d
 services: active-directory
 documentationcenter: ''
 author: msmimart
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.assetid: 
 ms.service: active-directory

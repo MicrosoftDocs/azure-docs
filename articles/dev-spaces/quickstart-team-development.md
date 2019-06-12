@@ -5,8 +5,8 @@ author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.author: zarhoads
-ms.date: "04/25/2019"
-ms.topic: "quickstart"
+ms.date: 04/25/2019
+ms.topic: quickstart
 description: "Team Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: jeconnoc
@@ -19,7 +19,7 @@ In this guide, you will learn how to:
 - Deploy a large application with multiple microservices to a dev space.
 - Test a single microservice in an isolated dev space within the context of the full application.
 
-![Azure Dev Spaces Bike Sharing sample application](media/quickstart-team-development/bikeshare.png)
+![Azure Dev Spaces team development](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In this guide, you will learn how to:
 
 ## Create an Azure Kubernetes Service cluster
 
-You must create an AKS cluster in a [supported region](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
+You must create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -84,8 +84,10 @@ Use the `helm init` and `helm install` commands to set up and install the sample
 ```cmd
 cd charts/
 helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
+helm install -n bikesharing . --dep-up --namespace dev --atomic 
 ```
+> [!Note]
+> **If you are using an RBAC-enabled cluster**, be sure to configure [a service account for Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). Otherwise, `helm` commands will fail.
 
 The `helm install` command may take several minutes to complete. The output of the command shows the status of all the services it deployed to the cluster when completed:
 
@@ -95,7 +97,7 @@ $ helm init --wait
 ...
 Happy Helming!
 
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
+$ helm install -n bikesharing . --dep-up --namespace dev --atomic
 
 Hang tight while we grab the latest from your chart repositories...
 ...
@@ -119,7 +121,9 @@ http://dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Navigate to the *bikesharingweb* service by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is *http://dev.bikesharingweb.fedcab0987.eus.azds.io/*. Select *Aurelia Briggs (customer)* as the user. Verify you see the text *Hi Aurelia Briggs | Sign Out* at the top.
+Navigate to the *bikesharingweb* service by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Select *Aurelia Briggs (customer)* as the user. Verify you see the text *Hi Aurelia Briggs | Sign Out* at the top.
+
+![Azure Dev Spaces Bike Sharing sample application](media/quickstart-team-development/bikeshare.png)
 
 ## Create child dev spaces
 
@@ -156,7 +160,7 @@ http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
 
 Confirm that the URLs displayed by the `azds list-uris` command have the *azureuser2.s.dev* prefix. This prefix confirms that the current space selected is *azureuser2*, which is a child of *dev*.
 
-Navigate to the *bikesharingweb* service for the *dev/azureuser2* dev space by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is *http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/*. Select *Aurelia Briggs (customer)* as the user. Verify you see the text *Hi Aurelia Briggs | Sign out* at the top.
+Navigate to the *bikesharingweb* service for the *dev/azureuser2* dev space by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/`. Select *Aurelia Briggs (customer)* as the user. Verify you see the text *Hi Aurelia Briggs | Sign out* at the top.
 
 ## Update code
 
@@ -224,3 +228,6 @@ Learn how Azure Dev Spaces helps you develop more complex apps across multiple c
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-nodejs.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

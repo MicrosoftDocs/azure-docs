@@ -105,10 +105,11 @@ The following section describes the configuration of auditing using the Azure po
 10. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
 11. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
 
-
 > [!IMPORTANT]
->Enabling auditing on an Azure SQL Data Warehouse, or on a server that has an Azure SQL Data Warehouse on it, **will result in the Data Warehouse being resumed**, even in the case where it was previously paused. **Please make sure to pause the Data Warehouse again after enabling auditing**.'
+> Enabling auditing on an paused Azure SQL Data Warehouse is not possible. To enable it, un-pause the Data Warehouse.
 
+> [!WARNING]
+> Enabling auditing on a server that has an Azure SQL Data Warehouse on it **will result in the Data Warehouse being resumed and re-paused again** which may incur in billing charges.
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 

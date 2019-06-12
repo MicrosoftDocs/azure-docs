@@ -32,7 +32,7 @@ We want to hear from our customers so that we can focus on fixing problems that 
 | --- | --- |
 | Several common HTTP headers aren't provided in the REST API. |If you develop Media Services applications by using the REST API, you find that some common HTTP header fields (including CLIENT-REQUEST-ID, REQUEST-ID, and RETURN-CLIENT-REQUEST-ID) aren't supported. The headers will be added in a future update. |
 | Percent-encoding isn't allowed. |Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). For this reason, percent-encoding isn't allowed. The value of the Name property can't have any of the following [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can be only one "." for the file name extension. |
-| The ListBlobs method that is part of the Azure Storage SDK version 3.x fails. |Media Services generates SAS URLs based on the [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) version. If you want to use the Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) method that is part of the Storage SDK version 2.x. |
+| The ListBlobs method that is part of the Azure Storage SDK version 3.x fails. |Media Services generates SAS URLs based on the [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) version. If you want to use the Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) method that is part of the Storage SDK version 2.x. |
 | The Media Services throttling mechanism restricts the resource usage for applications that make excessive requests to the service. The service might return the "Service Unavailable" 503 HTTP status code. |For more information, see the description of the 503 HTTP status code in [Media Services error codes](media-services-encoding-error-codes.md). |
 | When you query entities, a limit of 1,000 entities is returned at one time because the public REST version 2 limits query results to 1,000 results. |Use Skip and Take (.NET)/top (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Some clients can come across a repeat tag issue in the Smooth Streaming manifest. |For more information, see [this section](media-services-deliver-content-overview.md#known-issues). |
@@ -40,6 +40,10 @@ We want to hear from our customers so that we can focus on fixing problems that 
 
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
+
+## March 2019
+
+The Media Hyperlapse Preview feature of Azure Media Services was deprecated.
 
 ## December 2018
 

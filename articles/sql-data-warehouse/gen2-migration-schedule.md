@@ -33,9 +33,9 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | Canada East |\* |\* |
 | Central US |Available |June 1, 2019 |
 | China East |\* |\* |
-| China East 2 |\* |\* |
+| China East 2 |\* |Gen2 only |
 | China North |\* |\* |
-| China North 2 |\* |\* |
+| China North 2 |Available |Gen2 only |
 | East Asia |Available |June 1, 2019 |
 | East US |Available |June 1, 2019 |
 | East US 2 |Available |June 1, 2019 |

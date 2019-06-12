@@ -1,15 +1,15 @@
 ---
-title: 'How to backup and restore a server in Azure Database for PostgreSQL'
-description: Learn how to backup and restore a server in Azure Database for PostgreSQL by using the Azure CLI.
+title: How to backup and restore a server in Azure Database for PostgreSQL - Single Server
+description: Learn how to backup and restore a server in Azure Database for PostgreSQL - Single Server by using the Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 05/06/2019
 ---
 
-# How to back up and restore a server in Azure Database for PostgreSQL using the Azure CLI
+# How to back up and restore a server in Azure Database for PostgreSQL - Single Server using the Azure CLI
 
 ## Backup happens automatically
 Azure Database for PostgreSQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.

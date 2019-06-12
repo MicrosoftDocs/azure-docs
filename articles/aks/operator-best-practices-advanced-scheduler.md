@@ -27,6 +27,8 @@ This best practices article focuses on advanced Kubernetes scheduling features f
 
 When you create your AKS cluster, you can deploy nodes with GPU support or a large number of powerful CPUs. These nodes are often used for large data processing workloads such as machine learning (ML) or artificial intelligence (AI). As this type of hardware is typically an expensive node resource to deploy, limit the workloads that can be scheduled on these nodes. You may instead wish to dedicate some nodes in the cluster to run ingress services, and prevent other workloads.
 
+This support for different nodes is provided by using multiple node pools. An AKS cluster provides one or more node pools. Support for multiple node pools in AKS is currently in preview.
+
 The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
 
 * A **taint** is applied to a node that indicates only specific pods can be scheduled on them.
@@ -49,13 +51,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -68,6 +70,8 @@ When this pod is deployed, such as using `kubectl apply -f gpu-toleration.yaml`,
 When you apply taints, work with your application developers and owners to allow them to define the required tolerations in their deployments.
 
 For more information about taints and tolerations, see [applying taints and tolerations][k8s-taints-tolerations].
+
+For more information about how to use multiple node pools in AKS, see [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools].
 
 ### Behavior of taints and tolerations in AKS
 
@@ -149,11 +153,11 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: hardware
-          operator: In
-          values: highmem
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values: highmem
 ```
 
 The *IgnoredDuringExecution* part of the setting indicates that if the node labels change, the pod shouldn't be evicted from the node. The Kubernetes scheduler only uses the updated node labels for new pods being scheduled, not pods already scheduled on the nodes.
@@ -191,3 +195,4 @@ This article focused on advanced Kubernetes scheduler features. For more informa
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

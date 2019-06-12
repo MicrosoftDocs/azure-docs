@@ -113,7 +113,8 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -360,7 +361,8 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1094,7 +1096,8 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1405,7 +1408,8 @@ Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1711,7 +1715,8 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2019,7 +2024,8 @@ Save the json below as all-vms-in-subscription-dynamic.json for the purpose of t
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2322,7 +2328,8 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2633,7 +2640,8 @@ Save the json below as list-of-vms-dynamic.json for the purpose of this walk-thr
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."

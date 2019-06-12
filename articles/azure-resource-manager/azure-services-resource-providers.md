@@ -110,7 +110,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Virtual Network](../virtual-network/index.yml)<br />[Load Balancer](../load-balancer/index.yml)<br />[Application Gateway](/application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Azure Firewall](../firewall/index.yml)<br />[Azure Front Door Service](../frontdoor/index.yml) |
+| Microsoft.Network | [Virtual Network](../virtual-network/index.yml)<br />[Load Balancer](../load-balancer/index.yml)<br />[Application Gateway](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Azure Firewall](../firewall/index.yml)<br />[Azure Front Door Service](../frontdoor/index.yml) |
 | Microsoft.NotificationHubs | [Notification Hubs](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../azure-monitor/index.yml) |

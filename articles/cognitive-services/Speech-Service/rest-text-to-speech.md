@@ -39,25 +39,25 @@ The `voices/list` endpoint allows you to get a full list of voices for a specifi
 
 | Region | Endpoint |
 |--------|----------|
-| Australia East | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Brazil South | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Canada Central | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Central US | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| East Asia | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| East US | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| East US 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| France Central | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| India Central | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Japan East | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Korea Central | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| North Central US | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| North Europe | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| South Central US | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Southeast Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| UK South | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| West US | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| West US 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Australia East | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### Request headers
 
@@ -163,7 +163,7 @@ This table lists required and optional headers for text-to-speech requests.
 
 ### Audio outputs
 
-This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Services supports 24 KHz, 16 KHz, and 8 KHz audio outputs.
+This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type. The Speech Services supports 24 kHz, 16 kHz, and 8 kHz audio outputs.
 
 |||
 |-|-|
@@ -176,7 +176,7 @@ This is a list of supported audio formats that are sent in each request as the `
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24 kHz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
 
 ### Request body
 

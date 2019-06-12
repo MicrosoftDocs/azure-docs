@@ -115,6 +115,9 @@ Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Plann
 E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### Updating to the latest version of deployment planner
+
+The latest updates are summarized in the Deployment Planner [version history](site-recovery-deployment-planner-history.md).
+
 If you have previous version of the deployment planner, do either of the following:
  * If the latest version doesn't contain a profiling fix and profiling is already in progress on your current version of the planner, continue the profiling.
  * If the latest version does contain a profiling fix, we recommended that you stop profiling on your current version and restart the profiling with the new version.

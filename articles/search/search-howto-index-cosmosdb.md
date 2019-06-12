@@ -14,6 +14,12 @@ ms.custom: seodec2018
 ---
 # How to index Cosmos DB using an Azure Search indexer
 
+
+> [!Note]
+> MongoDB API support is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
+>
+> SQL API is generally available.
+
 This article shows you how to configure an Azure Cosmos DB [indexer](search-indexer-overview.md) to extract content and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with existing text extracted from Azure Cosmos DB. 
 
 Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](https://docs.microsoft.com/azure/cosmos-db/index-overview) and [Azure Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Search indexing, your Azure Cosmos DB database must already exist and contain data.
@@ -21,7 +27,7 @@ Because terminology can be confusing, it's worth noting that [Azure Cosmos DB in
 You can use the [portal](#cosmos-indexer-portal), REST APIs, or .NET SDK to index Cosmos content. The Cosmos DB indexer in Azure Search can crawl [Azure Cosmos items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessed through these protocols:
 
 * [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search support for this API is in public preview)  
+* [MongoDB API (preview)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
 > User Voice has existing items for additional API support. You can cast a vote for the Cosmos APIs you would like to see supported in Azure Search: [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), 
@@ -114,7 +120,7 @@ When indexing is complete, you can use [Search explorer](search-explorer.md) to 
 
 You can use the REST API to index Azure Cosmos DB data, following a three-part workflow common to all indexers in Azure Search: create a data source, create an index, create an indexer. Data extraction from Cosmos storage occurs when you submit the Create Indexer request. After this request is finished, you will have a queryable index. 
 
-If you are evaluating MongoDB, you must use the REST API to create the data source.
+If you are evaluating MongoDB, you must use the REST `api-version=2019-05-06-Preview` to create the data source.
 
 In your Cosmos DB account you can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can turn off automatic indexing. When indexing is turned off, documents can be accessed only through their self-links or by queries by using the document ID. Azure Search requires Cosmos DB automatic indexing to be turned on in the collection that will be indexed by Azure Search. 
 
@@ -273,9 +279,11 @@ This indexer runs every two hours (schedule interval is set to "PT2H"). To run a
 
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
+For more information about defining indexer schedules see [How to schedule indexers for Azure Search](search-howto-schedule-indexers.md).
+
 ## Use .NET
 
-The .NET SDK has fully parity with the REST API. We recommend that you review the previous REST API section to learn concepts, workflow, and requirements. You can then refer to following .NET API reference documentation to implement a JSON indexer in managed code.
+The generally available .NET SDK has full parity with the generally available REST API. We recommend that you review the previous REST API section to learn concepts, workflow, and requirements. You can then refer to following .NET API reference documentation to implement a JSON indexer in managed code.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -350,12 +358,6 @@ The following example creates a data source with a soft-deletion policy:
             "softDeleteMarkerValue": "true"
         }
     }
-
-## Watch this video
-
-In this slightly older 7-minute video, Azure Cosmos DB Program Manager Andrew Liu demonstrates how to add an Azure Search index to an Azure Cosmos DB container. The portal pages shown in the video are outdated, but the information is still relevant.
-
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 ## <a name="NextSteps"></a>Next steps
 

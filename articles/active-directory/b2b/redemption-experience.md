@@ -11,7 +11,11 @@ ms.date: 03/20/2019
 
 ms.author: mimart
 author: msmimart
+<<<<<<< HEAD
 manager: daveba
+=======
+manager: celestedg
+>>>>>>> 735caf522949a719fa1aa3dd60af16d417337d31
 ms.reviewer: mal
 
 ms.collection: M365-identity-device-management

@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/11/2019
 ms.author: juliako
 
 ---
@@ -29,7 +29,7 @@ Azure Media Services enables you to deliver live events to your customers on the
 This article gives an overview and guidance of live streaming with Media Services and links to other relevant articles.
 
 > [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Dynamic Packaging
 
@@ -63,9 +63,9 @@ When using live encoding with Media Services, you would configure your on-premis
 
 To understand the live streaming workflow in Media Services v3, you have to first review and understand the following concepts: 
 
-- [Streaming Endpoints](streaming-endpoint-concept.md)
-- [Live Events and Live Outputs](live-events-outputs-concept.md)
-- [Streaming Locators](streaming-locators-concept.md)
+- [Streaming Endpoints API](streaming-endpoint-concept.md)
+- [Live Events and Live Outputs API](live-events-outputs-concept.md)
+- [Streaming Locators API](streaming-locators-concept.md)
 
 ### General steps
 
@@ -89,7 +89,7 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 - [States and billing](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

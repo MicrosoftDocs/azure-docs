@@ -113,7 +113,7 @@ The **-Outcome** parameter can also be combined with other optional filtering pa
 
 Error scenarios are categorized in internal to the service and external to Windows Virtual Desktop.
 
-* Internal Issue: specifies scenarios which cannot be mitigated by the tenant administrator and need to be resolved as support issue. When raising a ticket provide the activity ID, tenant name and approximate timeframe the issue occurred.
+* Internal Issue: specifies scenarios that can't be mitigated by the tenant administrator and need to be resolved as a support issue. When providing feedback through the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), include the activity ID and approximate time frame of when the issue occurred.
 * External Issue: relate to scenarios which can be mitigated by the system administrator. These are external to Windows Virtual Desktop.
 
 The following table lists common errors your admins might run into.

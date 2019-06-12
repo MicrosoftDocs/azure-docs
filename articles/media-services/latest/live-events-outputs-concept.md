@@ -12,13 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 06/06/2019
 ms.author: juliako
 
 ---
 # Live Events and Live Outputs
 
-Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article. <br/>The list of sections is listed on the right of the page.
+Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article.
+
+> [!TIP]
+> For customers migrating from Media Services v2 APIs, the **Live Event** entity replaces **Channel** in v2 and **Live Output** replaces **Program**.
+
 
 ## Live Events
 
@@ -71,48 +75,53 @@ Once the Live Event is created, you can get ingest URLs that you will provide to
 
 You can either use non-vanity URLs or vanity URLs. 
 
+> [!NOTE] 
+> For an ingest URL to be predictive, set the "vanity" mode.
+
 * Non-vanity URL
 
     Non-vanity URL is the default mode in AMS v3. You potentially get the Live Event quickly but ingest URL is known only when the live event is started. The URL will change if you do stop/start the Live Event. <br/>Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest URL is not a problem.
 * Vanity URL
 
     Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to re-configure their encoders when they start the Live Event. They want a predictive ingest URL, which does not change over time.
+    
+    To specify this mode, you set `vanityUrl` to `true` at creation time (default is `false`). You also need to pass your own access token (`LiveEventInput.accessToken`) at creation time. You specify the token value to avoid a random token in the URL. The access token has to be a valid GUID string (with or without the dashes). Once the mode is set it cannot be updated.
 
-> [!NOTE] 
-> For an ingest URL to be predictive, you need to use "vanity" mode and pass your own access token (to avoid a random token in the URL).
+    The access token needs to be unique in your data center. If your application needs to use a vanity URL, it is recommended to always create a new GUID instance for your access token (instead of reusing any existing GUID). 
 
 ### Live ingest URL naming rules
 
 The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).<br/>
-The *access token* below is what you need to specify for fixed URL. It is also 128 bit hex number.
+The *access token* is what you need to specify for fixed URL. You must set an access token string that is a valid length GUID string. <br/>
+The *stream name* indicates the stream name for a specific connection. The stream name value is usually added by the live encoder that you use.
 
 #### Non-vanity URL
 
 ##### RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/<access token>`
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### Vanity URL
 
 ##### RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/<access token>`
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## Live Event preview URL
 
@@ -140,7 +149,7 @@ If you have published the **Live Output**'s **Asset** using a **Streaming Locato
 
 For more information, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

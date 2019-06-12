@@ -96,6 +96,8 @@ In AKS, you can create an Ingress resource using something like NGINX, or use th
 
 Another common feature of Ingress is SSL/TLS termination. On large web applications accessed via HTTPS, the TLS termination can be handled by the Ingress resource rather than within the application itself. To provide automatic TLS certification generation and configuration, you can configure the Ingress resource to use providers such as Let's Encrypt. For more information on configuring an NGINX Ingress controller with Let's Encrypt, see [Ingress and TLS][aks-ingress-tls].
 
+You can also configure your ingress controller to preserve the client source IP on requests to containers in your AKS cluster. When a client's request is routed to a container in your AKS cluster via your ingress controller, the original source ip of that request will not be available to the target container. When you enable *client source IP preservation*, the source IP for the client is available in the request header under *X-Forwarded-For*. If you are using client source IP preservation on your ingress controller, you cannot use SSL pass-through. Client source IP preservation and SSL pass-through can be used with other services, such as the *LoadBalancer* type.
+
 ## Network security groups
 
 A network security group filters traffic for VMs, such as the AKS nodes. As you create Services, such as a LoadBalancer, the Azure platform automatically configures any network security group rules that are needed. Don't manually configure network security group rules to filter traffic for pods in an AKS cluster. Define any required ports and forwarding as part of your Kubernetes Service manifests, and let the Azure platform create or update the appropriate rules. You can also use network policies, as discussed in the next section, to automatically apply traffic filter rules to pods.
@@ -104,7 +106,7 @@ A network security group filters traffic for VMs, such as the AKS nodes. As you 
 
 By default, all pods in an AKS cluster can send and receive traffic without limitations. For improved security, you may want to define rules that control the flow of traffic. Backend applications are often only exposed to required frontend services, or database components are only accessible to the application tiers that connect to them.
 
-Network policy is a Kubernetes feature currently in preview in AKS that lets you control the traffic flow between pods. You can choose to allow or deny traffic based on settings such as assigned labels, namespace, or traffic port. Network security groups are more for the AKS nodes, not pods. The use of network policies is a more suitable, cloud-native way to control the flow of traffic. As pods are dynamically created in an AKS cluster, the required network policies can be automatically applied.
+Network policy is a Kubernetes feature available in AKS that lets you control the traffic flow between pods. You can choose to allow or deny traffic based on settings such as assigned labels, namespace, or traffic port. Network security groups are more for the AKS nodes, not pods. The use of network policies is a more suitable, cloud-native way to control the flow of traffic. As pods are dynamically created in an AKS cluster, the required network policies can be automatically applied.
 
 For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)][use-network-policies].
 

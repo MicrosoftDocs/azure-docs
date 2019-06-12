@@ -216,7 +216,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
 ## Create a simulated device
 
-[!INCLUDE [iot-hub-include-create- imulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
+[!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
 ## Next steps
 

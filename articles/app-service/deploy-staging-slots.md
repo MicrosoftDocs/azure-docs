@@ -213,7 +213,7 @@ When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions
 
 For more information on customizing the `applicationInitialization` element, see [Most common deployment slot swap failures and how to fix them](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-You can also customize the warm-up behavior with one or more of the following [app settings](web-sites-configure.md):
+You can also customize the warm-up behavior with one or more of the following [app settings](configure-common.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warmup your site. Add this app setting by specifying a custom path that begins with a slash as the value. For example, `/statuscheck`. The default value is `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. For example: `200,202` . If the returned status code is not in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
@@ -261,6 +261,8 @@ To let users opt in to your beta app, set the same query parameter to the name o
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+By default, new slots are given a routing rule of `0%`, shown in grey. By explicitly setting this value to `0%` (shown in black text), your users can access the staging slot manually by using the `x-ms-routing-name` query parameter, but they will not be routed to the slot automatically since the routing percentage is set to 0. This is an advanced scenario where you can "hide" your staging slot from the public while allowing internal teams to test changes on the slot.
 
 <a name="Delete"></a>
 

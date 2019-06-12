@@ -8,7 +8,7 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -71,13 +71,15 @@ In this section, you'll learn how to use Blob storage to store logged events and
 
 1. [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you don't already have one. You can place it in the same resource group as Azure Search to simplify clean up later if you want to delete all resources used in this exercise.
 
+   Your storage account must exist in the same region as Azure Search.
+
 2. Open your search service Overview page. In the left-navigation pane, scroll down to **Monitoring** and click **Enable Monitoring**.
 
    ![Enable monitoring](./media/search-monitor-usage/enable-monitoring.png "Enable monitoring")
 
 3. Choose the data you want to export: Logs, Metrics or both. You can copy it to a storage account, send it to an event hub or export it to Azure Monitor logs.
 
-   For archival to Blob storage, only the storage account must exist. Containers and blobs will be created when log data is exported.
+   For archival to Blob storage, only the storage account must exist. Containers and blobs will be created as-needed when log data is exported.
 
    ![Configure blob storage archive](./media/search-monitor-usage/configure-blob-storage-archive.png "Configure blob storage archive")
 
@@ -167,7 +169,7 @@ Both the Azure Search REST API and the .NET SDK provide programmatic access to s
 * [Count Documents](/rest/api/searchservice/count-documents)
 * [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
 
-To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Quickstart - Set up sign-in for a desktop app using Azure Active Directory B2C | Microsoft Docs
 description: Run a sample ASP.NET desktop application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
 ## Prerequisites
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload. 
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload. 
 - A social account from either Facebook, Google, Microsoft, or Twitter.
 - [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) or clone the sample web app from GitHub.
 
@@ -41,14 +41,14 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
     ![Sample application](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    The sample supports several sign-up options including using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, Microsoft, or Twitter. 
+    The sample supports several sign-up options. These options include using a social identity provider or creating a local account using an email address. For this quickstart, use a social identity provider account from either Facebook, Google, Microsoft, or Twitter. 
 
 
 2. Azure AD B2C presents a custom login page for a fictitious brand called Wingtip Toys for the sample web app. To sign up using a social identity provider, click the button of the identity provider you want to use. 
 
     ![Sign In or Sign Up provider](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
-    You authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
+    You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
 2. Finish the sign-in process for the identity provider.
 
@@ -76,7 +76,7 @@ Click **Call API** to make a request to the protected resource.
 
     The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
 
-You have successfully used your Azure AD B2C user account to make an authorized call an Azure AD B2C protected web API.
+You've successfully used your Azure AD B2C user account to make an authorized call an Azure AD B2C protected web API.
 
 ## Clean up resources
 
@@ -84,7 +84,12 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quick
 
 ## Next steps
 
-In this quickstart, you used a sample desktop application to sign in with a custom login page, sign in with a social identity provider, create an Azure AD B2C account, and call a web API protected by Azure AD B2C. 
+In this quickstart, you used a sample desktop application to: 
+
+* Sign in with a custom login page
+* Sign in with a social identity provider
+* Create an Azure AD B2C account
+* Call a web API protected by Azure AD B2C
 
 Get started creating your own Azure AD B2C tenant. 
 

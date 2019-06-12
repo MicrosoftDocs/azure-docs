@@ -19,7 +19,7 @@ Manually stop a running container group - for example, by using the [az containe
 
 *When a container group enters the Stopped state, it terminates and recycles all the containers in the group. It does not preserve container state.*
 
-Although the containers in a Stopped container group are recycled, the [resources](container-instances-container-groups.md#resource-allocation) remain allocated for your use. Therefore, billing continues for a Stopped container group.
+When the containers are recycled, the [resources](container-instances-container-groups.md#resource-allocation) are deallocated and billing stops for the container group.
 
 The stop action has no effect if the container group already terminated (is in either a Succeeded or Failed state). For example, a container group with run-once container tasks that ran successfully terminates in the Succeeded state. Attempts to stop the group in that state do not change the state. 
 
