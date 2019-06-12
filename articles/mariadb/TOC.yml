@@ -63,8 +63,10 @@
     items:
     - name: Monitor
       href: concepts-monitoring.md
-    - name: Server logs
+    - name: Slow query logs
       href: concepts-server-logs.md
+    - name: Audit logs
+      href: concepts-audit-logs.md
   - name: Development
     items:
     - name: Drivers and tools compatibility
