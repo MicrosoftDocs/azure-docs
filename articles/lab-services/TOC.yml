@@ -78,8 +78,6 @@
         href: classroom-labs/how-to-connect-peer-virtual-network.md
       - name: Attach or detach a shared image gallery
         href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-      - name: Set or reset passwords for virtual machines 
-        href: classroom-labs/how-to-set-virtual-machine-passwords.md
     - name: Create, configure, and use classroom labs
       items:        
       - name: Create and manage classroom labs
@@ -98,6 +96,8 @@
         href: classroom-labs/how-to-use-shared-image-gallery.md            
       - name: Enable remote desktop connection for Linux
         href: classroom-labs/how-to-enable-remote-desktop-linux.md
+      - name: Set or reset passwords for virtual machines 
+        href: classroom-labs/how-to-set-virtual-machine-passwords.md
   - name: DevTest Labs
     items:
     - name: Specify resource group for lab virtual machines
