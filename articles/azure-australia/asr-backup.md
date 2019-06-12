@@ -10,9 +10,9 @@ ms.author: grgale
 
 # Backup and Disaster Recovery in Azure Australia
 
-A critical consideration for any organisation is the implementation and management of backup and disaster recovery plans and its supporting infrastructure. The importance of having a backup solution is highlighted by its inclusion in the [Australian Cyber Security Center's Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm).
+Having backup and disaster recovery plans with the supporting infrastructure in place is critical for all organisations. The importance of having a backup solution is highlighted by its inclusion in the [Australian Cyber Security Center's Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm).
 
-Microsoft Azure provides two services to facilitate these objectives: Azure Backup and Azure Site Recovery. These services are designed to enable Azure customers to protect their on-premises and cloud native data for a variety of design scenarios. Azure Backup and Azure Site Recovery both use a common storage and management resource: the Azure Recovery Services Vault. This vault is used to manage, monitor, and segregate Azure Backup and Azure Site Recovery Data.
+Microsoft Azure provides two services that enable resilience: Azure Backup and Azure Site Recovery. These services enable you to protect your data, both on-premises and in the cloud,  for a variety of design scenarios. Azure Backup and Azure Site Recovery both use a common storage and management resource: the Azure Recovery Services Vault. This vault is used to manage, monitor, and segregate Azure Backup and Azure Site Recovery Data.
 
 This article details the key design elements for implementing Azure Backup and Azure Site Recovery in line with the [Australian Signals Directorate’s (ASD) Information Security Manual (ISM) Controls](https://acsc.gov.au/infosec/ism/index.htm).
 
@@ -20,7 +20,7 @@ This article details the key design elements for implementing Azure Backup and A
 
 ![Azure Backup](media/backup_overview.png)
 
-Azure Backup resembles a traditional on-premises backup solution and provides the ability to backup both on-premises and Azure hosted data. Azure Backup can be used to backup the following data types to Azure:
+Azure Backup resembles a traditional on-premises backup solution and provides the ability to backup both on-premises and Azure hosted data. Azure Backup can be used to back up the following data types to Azure:
 
 * Files and folders
 * Supported Windows and Linux operating systems hosted on:
@@ -48,7 +48,7 @@ The ISM provides guidance on the security considerations that should be made whe
 
 ### Data sovereignty
 
-Organisations need to ensure that data sovereignty is maintained when utilising cloud based storage locations. Azure Policy provides the means to restrict the permitted locations where an Azure resource can be created. Using the built-in Azure Policy "Allowed Locations" ensures that any Azure resources created under the scope of an assigned Azure Policy can only be created in the nominated geographical locations.
+Organisations need to ensure that data sovereignty is maintained when utilising cloud based storage locations. Azure Policy provides the means to restrict the permitted locations where an Azure resource can be created. The built-in Azure Policy "Allowed Locations" is used to ensure that any Azure resources created under the scope of an assigned Azure Policy can only be created in the nominated geographical locations.
 
 The Azure Policy items for geographic restriction for Azure resources are:
 
@@ -59,7 +59,7 @@ These policies allow Azure administrators to restrict creation to a list of nomi
 
 ### Redundant and geographically dispersed storage
 
-Data stored in the Azure Recovery Service Vault is always stored on redundant storage. By default the Recovery Service Vault uses Azure Geographically Redundant Storage (GRS). Data stored using GRS is replicated to other Azure datacenters in the Recovery Service Vault's [secondary paired region](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). This replicated data is stored as read-only and is only made writeable in the event of an Azure failover event. Within the Azure datacenter, the data is replicated between separate fault domains and upgrade domains to minimise the change of hardware or maintenance-based outage. GRS provides at least 99.99999999999999% availability annually.
+Data stored in the Azure Recovery Service Vault is always stored on redundant storage. By default the Recovery Service Vault uses Azure Geographically Redundant Storage (GRS). Data stored using GRS is replicated to other Azure datacenters in the Recovery Service Vault's [secondary paired region](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). This replicated data is stored as read-only and is only made writeable if there is an Azure failover event. Within the Azure datacenter, the data is replicated between separate fault domains and upgrade domains to minimise the chance of hardware or maintenance-based outage. GRS provides at least 99.99999999999999% availability annually.
 
 The Azure Recovery Services Vault can be configured to utilise Locally Redundant Storage (LRS). LRS is a lower-cost storage option with the trade-off of reduced availability. This redundancy model utilises the same in-datacenter replication between separate fault domains and upgrade domains but is not replicated between geographic regions. Data located on LRS storage, while not as resilient as GRS, still provides at least 99.999999999% availability annually.
 
