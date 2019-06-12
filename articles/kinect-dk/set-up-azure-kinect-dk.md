@@ -27,7 +27,7 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 > [!NOTE]
 > Make sure to remove the camera protective film before using the device.
 
-1. Plug the power connector into the power jack on the back of your device. Connect the USB power adopter to the other end of the cable, and then plug it into a power outlet.
+1. Plug the power connector into the power jack on the back of your device. Connect the USB power adapter to the other end of the cable, and then plug it into a power outlet.
 2. Connect the USB data cable into your device, and then to your PC.
    >[!NOTE]
    >Use a direct cable from the PC to the back of the device, as this works better than connecting through adapters or extensions.
