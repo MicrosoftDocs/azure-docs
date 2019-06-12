@@ -7,7 +7,9 @@
   - name: Choose a version of Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md
   - name: Release notes
-    href: sql-database-release-notes.md 
+    href: sql-database-release-notes.md
+  - name: Gateway IP Gen3 to Gen4 migration
+    href: sql-database-gateway-migration.md
 - name: Quickstarts
   expanded: true
   items:

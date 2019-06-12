@@ -1,5 +1,5 @@
 ---
-title: Directing Azure traffic to Azure SQL Database and SQL Data Warehouse | Microsoft Docs
+title: Azure SQL Database and SQL Data Warehouse Connectivity Architecture | Microsoft Docs
 description: This document explains the Azure SQL connectivity architecture for database connections from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
@@ -68,7 +68,7 @@ Aliases:  mydbsrv.database.windows.net
 
 The table below lists the IP Addresses of the Gateways in each region. Some regions may have up to four alternate IP addresses (representing up to four Gateways). In all regions, the majority of logins are serviced by the default Gateway. The alternate Gateways are additional capacity that shall be used to service logins when the default Gateway is overloaded. In regions with alternate Gateways, we recommend that you allow outbound firewall rules from your on-premises environment to all the IP addresses associated with these Gateways.
 
-| Region Name          | Gateway IP address <td colspan=3>**Alternate Gateway IP addresses** | | | |
+| Region Name          | Gateway IP address <td colspan=3><b>Alternate Gateway IP addresses</b> | | | |
 | - | - | - | - | - |
 | Australia East       | 13.75.149.87       | 40.79.161.1     | | |
 | Australia South East | 191.239.192.109    | 13.73.109.251   | | |
