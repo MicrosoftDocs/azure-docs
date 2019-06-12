@@ -98,7 +98,7 @@ At line:1 char:1
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
 ```
 
-If you get the error message: "The provided information does not map to a role assignment", make sure you also specify the `-Scope` or `-ResourceGroupName` parameters.
+If you get this error message, make sure you also specify the `-Scope` or `-ResourceGroupName` parameters.
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
