@@ -24,9 +24,7 @@ translation.priority.mt:
 
 To [filter](query-odata-filter-orderby-syntax.md) on collection fields in Azure Search, you can use the [`any` and `all` operators](search-query-odata-collection-operators.md) together with **lambda expressions**. A lambda expression is a sub-filter that is applied to each element of a collection.
 
-Not every feature of filter expressions is available inside a lambda expression. Which features are available differs depending on the data type of the collection field that you want to filter.
-
-If you're encountering errors while trying to write a complex filter over collection fields, this article will help you troubleshoot the problem.
+Not every feature of filter expressions is available inside a lambda expression. Which features are available differs depending on the data type of the collection field that you want to filter. This can result in an error if you try to use a feature in a lambda expression that isn't supported in that context. If you're encountering such errors while trying to write a complex filter over collection fields, this article will help you troubleshoot the problem.
 
 ## Common collection filter errors
 
@@ -189,7 +187,7 @@ However, there are limitations on how such comparison expressions can be combine
 
 <a name="bkmk_complex"></a>
 
-## Rules for filtering on complex collections
+## Rules for filtering complex collections
 
 Lambda expressions over complex collections support a much more flexible syntax than lambda expressions over collections of primitive types. You can use any filter construct inside such a lambda expression that you can use outside one, with only two exceptions.
 
