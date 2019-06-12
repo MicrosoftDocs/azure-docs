@@ -56,7 +56,19 @@ Complete the following steps to open a work folder, and create a file in Visual 
 
 3. Name the new file with either the .hql (Hive queries) or the .py (Spark script) file extension.  This example uses **HelloWorld.hql**.
 
-## Connect to HDInsight Cluster
+## Set the Azure environment
+
+1. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
+
+2. From the menu bar navigate to **View** > **Command Palette...**, and enter **HDInsight: Set Azure Environment**.
+
+3. Select an environment as your default login entry.
+
+4. Meanwhile, the tool has already saved your default login entry in **.VSCode\settings.json**. You can also directly update it in this configuration file. 
+
+   ![Set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
+
+## Connect to Azure account
 
 Before you can submit scripts to HDInsight clusters from Visual Studio Code, you need to either connect to your Azure account, or link a cluster (using Ambari username/password or domain joined account).  Complete the following steps to connect to Azure:
 
@@ -76,7 +88,9 @@ Before you can submit scripts to HDInsight clusters from Visual Studio Code, you
    After you're connected, your Azure account name is shown on the status bar at the bottom left of the Visual Studio Code window.  
   
 
-<h2 id="linkcluster">Create link: Azure HDInsight</h2>
+## Link a cluster
+
+### Link: Azure HDInsight
 
 You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.org/) managed username or link an Enterprise Security Pack secure Hadoop cluster by using a domain username (such as: user1@contoso.com).
 
@@ -100,7 +114,8 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
    > The linked username and password are used if the cluster both logged in Azure subscription and Linked a cluster.  
 
 
-## Create link: Generic Livy Endpoint
+
+### Link: Generic Livy Endpoint
 
 1. From the menu bar navigate to **View** > **Command Palette...**, and enter **HDInsight: Link a Cluster**.
 
@@ -130,25 +145,13 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 2. Select the file  **HelloWorld.hql** created [earlier](#open-hdinsight-work-folder) and it will open in the script editor.
 
-3. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
+3. Right-click the script editor, and select **HDInsight: Set Default Cluster**.  
 
-4. Right-click the script editor, and select **HDInsight: Set Default Cluster**.  
+4. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
 
 5. Select a cluster as the default cluster for the current script file. The tools automatically update the configuration file **.VSCode\settings.json**. 
 
    ![Set default cluster configuration](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
-
-## Set the Azure environment
-
-1. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
-
-2. From the menu bar navigate to **View** > **Command Palette...**, and enter **HDInsight: Set Azure Environment**.
-
-3. Select an environment as your default login entry.
-
-4. Meanwhile, the tool has already saved your default login entry in **.VSCode\settings.json**. You can also directly update it in this configuration file. 
-
-   ![Set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
 
 ## Submit interactive Hive queries, Hive batch scripts
@@ -159,13 +162,14 @@ With HDInsight Tools for Visual Studio Code, you can submit interactive Hive que
 
 2. Select the file  **HelloWorld.hql** created [earlier](#open-hdinsight-work-folder) and it will open in the script editor.
 
-3. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
 
-4. Copy and paste the following code into your Hive file, and then save it.
+3. Copy and paste the following code into your Hive file, and then save it.
 
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
+
+4. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
 
 5. Right-click the script editor, select **HDInsight: Hive Interactive** to submit the query, or use shortcut **Ctrl + Alt + I**.  Select **HDInsight: Hive Batch** to submit the script, or use shortcut **Ctrl + Alt + H**.  
 
@@ -185,10 +189,7 @@ You can submit interactive PySpark queries by following the steps below:
 
 2. Create a new file **HelloWorld.py** following the [earlier](#open-hdinsight-work-folder) steps.
 
-
-3. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
-
-4. Copy and paste the following code into the script file:
+3. Copy and paste the following code into the script file:
    ```python
    from operator import add
    lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
@@ -203,6 +204,8 @@ You can submit interactive PySpark queries by following the steps below:
         print(sortedCollection[i])
    ```
 
+4. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
+
 5. Choose all the code and right-click the script editor, select **HDInsight: PySpark Interactive** to submit the query, or use shortcut **Ctrl + Alt + I**.
 
    ![pyspark interactive right click](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
@@ -211,18 +214,20 @@ You can submit interactive PySpark queries by following the steps below:
 
    ![pyspark interactive python interactive window](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
 
-7. Enter **"%%info"**, and then press **Shift + Enter** to view job information.
+7. Enter **"%%info"**, and then press **Shift + Enter** to view job information. (Optional)
 
    ![view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
-8. The tool also supports the **SQL Clause** query.
+8. The tool also supports the **Spark SQL** query.
 
    ![Pyspark Interactive view result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
 
    The submission status appears on the left of the bottom status bar when you're running queries. Don't submit other queries when the status is **PySpark Kernel (busy)**.  
 
    > [!NOTE] 
+   >
    > When **Python Extension Enabled** is unchecked in the settings (The default setting is checked), the submitted pyspark interaction results will use the old window.
+   >
    > ![pyspark interactive python extension disabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
 
 
@@ -232,9 +237,7 @@ You can submit interactive PySpark queries by following the steps below:
 
 2. Create a new file **BatchFile.py** following the [earlier](#open-hdinsight-work-folder) steps.
 
-3. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
-
-4. Copy and paste the following code into the script file:
+3. Copy and paste the following code into the script file:
 
     ```python
     from __future__ import print_function
@@ -257,9 +260,11 @@ You can submit interactive PySpark queries by following the steps below:
         spark.stop()
     ```
 
-4. Right-click the script editor, and then select **HDInsight: PySpark Batch**, or use shortcut **Ctrl + Alt + H**. 
+4. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
 
-5. Select a cluster to which to submit your PySpark job. 
+5. Right-click the script editor, and then select **HDInsight: PySpark Batch**, or use shortcut **Ctrl + Alt + H**. 
+
+6. Select a cluster to which to submit your PySpark job. 
 
    ![Submit Python job result](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
@@ -328,7 +333,7 @@ Submit a file, notice the .vscode folder is added automatically to the work fold
 
 **Azure HDInsight** has been added to the Explorer view. You can browse and manage you cluster(s) directly through **Azure HDInsight**.
 
-1. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
+1. [Connect](#connect-to-hdinsight-cluster) to your Azure account or link a cluster if you haven't yet done so.
 
 2. From the menu bar, navigate to **View** > **Explorer**.
 
@@ -342,7 +347,7 @@ Submit a file, notice the .vscode folder is added automatically to the work fold
 
 
 ## Preview Hive Table
-You can preview Hive Table in your cluster(s) directly through **Azure HDInsight**.
+You can preview Hive Table in your cluster(s) directly through **Azure HDInsight** explorer.
 1. [Connect](https://review.docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode?branch=pr-en-us-75339#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
 
 2. Click **Azure** icon from leftmost column.
@@ -369,7 +374,9 @@ You can preview Hive Table in your cluster(s) directly through **Azure HDInsight
    3. When there is no content in the table, the message shows: **0 row is displayed for Hive table**.
 
 >[!NOTE]
+>
 >In Linux, install xclip to enable copy table data.
+>
 >![hdinsight for vscode in linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
 ## Additional features
 
@@ -384,58 +391,47 @@ HDInsight for Visual Studio Code supports the following features:
     ![HDInsight Tools for Visual Studio Code syntax highlights](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
 ## Reader Only Role
-Users with cluster **Reader** **only** **role** can no longer submit job to the HDInsight cluster nor view the Hive database. If you know Ambari credentials, you can follow instruction below to manually link the cluster. Otherwise, you need to contact the cluster administrator to upgrade your role to [**HDInsight** **Cluster** **Operator**](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure Portal](https://ms.portal.azure.com/).
 
-### Link cluster from view Hive database
+Users with cluster **Reader** **only** **role** can no longer submit job to the HDInsight cluster nor view the Hive database. You need to contact the cluster administrator to upgrade your role to [**HDInsight** **Cluster** **Operator**](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure Portal](https://ms.portal.azure.com/). If you know Ambari credentials, you can manually link the cluster following the instruction below.
 
-- When you use the reader only role to view Hive database cluster, you will be prompted to fill in the appropriate **Ambari** **username** and **password**. Then, review OUTPUT view for verification.
+### Browse HDInsight Cluster  
 
-1. Sign in with reader only role account.
-2. Click **Azure** icon from leftmost column.
+When clicking on the Azure HDInsight explorer to expand an HDInsight cluster, you will be prompted to link the cluster if you are reader only role for the cluster. Follow the steps below to link to the cluster via Ambari credentials. 
 
-   ![HDInsight Tools for Visual Studio Code Azure Icon](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-icon.png)
+### Submit job to HDInsight cluster
 
-3. Expand the subscription.
-4. Expand the cluster with Reader only role. Enter the **Ambari** **username** and **Password**.
+When submitting job to an HDInsight cluster, you will be prompted to link the cluster if you are reader only role for the cluster. Follow the steps below to link to the cluster via Ambari credentials. 
+
+### Link to cluster
+
+1.	Enter the Ambari username 
+2.	Enter Ambari user Password.
 
    ![HDInsight Tools for Visual Studio Code User Name](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png)
 
    ![HDInsight Tools for Visual Studio Code Password](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png)
 
-If the cluster is linked successfully, check it from **HDInsight** **:** **List** **Cluster**. The stage of the cluster will become admin.
+> [!NOTE]
+>
+>You can use HDInsight: List Cluster to check the linked cluster.
+>
+>![HDInsight Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-reader-linked.png)
 
-![HDInsight Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-reader-linked.png)
+## Azure Data Lake Storage Gen2 (ADLS Gen2)
 
-### Submit job to reader role cluster
-- When you submit job to reader role cluster, you will be prompted to fill in the appropriate **Ambari** **username** and **password**. Then, review OUTPUT view for verification.
- 1. Sign in with reader only role account.
- 2. Submit job to a reader role cluster.
- 3. Enter the **Ambari** **username** and **password**.
+### Browse an ADLS Gen2 Account
 
- If the cluster is successfully linked, the job will be successfully submitted.
+When clicking on the Azure HDInsight explorer to expand an ADLS Gen2 account, you will be prompted to enter the storage **Access key** if your Azure account has no access to the Gen2 storage. The ADLS Gen2 account will be auto expanded once the access key is validated successfully. 
 
- ### View and submit jobs to a Gen2 storage account is a reader only role cluster
+### Submit jobs to HDInsight cluster with ADLS Gen2
 
- - Expand the cluster of Gen2 storage accounts with reader only role, you need to enter the storage **Access** **key**. You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
+When submitting job to an HDInsight cluster with ADLS Gen2, you will be prompted to enter the storage **Access key** if your Azure account has no write access to the Gen2 storage.  The job will be successfully submitted once the access key is validated successfully. 
 
-   1. Sign in with reader only role account.
-   2. Expand the Gen2 cluster.
-   3. Expand the **Data** **Lake** **Storage** **Gen2**.
-   4. Enter **Access** **Key**.
+![HDInsight Tools for Visual Studio Code AccessKey](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)   
 
-   ![HDInsight Tools for Visual Studio Code AccessKey](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)   
-
-   If you enter a valid access key, expand the **Data** **Lake** **Storage** **Gen2** will succeed.
-
-    ![HDInsight Tools for Visual Studio Code expand DataLakeStorageGen2](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-expand-DataLakeStorageGen2.png) 
-
-- Submit a job to a Gen2 storage account is a reader only role cluster, you need to enter the storage **Access** **key**. You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
-
-    1. Sign in with reader only role account.
-    2. Submit job to a Gen2 storage account is a reader only role cluster.
-    3. Enter **Access** **Key**.
-
-    If you enter a valid access key, the job will be successfully submitted.
+> [!NOTE]
+> 
+>You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
 
 ## Unlink cluster
 
@@ -444,7 +440,6 @@ If the cluster is linked successfully, check it from **HDInsight** **:** **List*
 2. Select cluster to unlink.  
 
 3. Review **OUTPUT** view for verification.  
-
 
 ## Logout  
 
