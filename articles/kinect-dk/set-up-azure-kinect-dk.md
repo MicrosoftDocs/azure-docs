@@ -42,7 +42,7 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 1. Select the link to [Download the SDK](sensor-sdk-download.md).
 2. Install the SDK on your PC.
 
-## Verify device streams data
+## Verify that the device streams data
 
 1. Launch `k4aviewer.exe` located under the installed tools directory (for example `C:\Program Files\Azure Kinect SDK\tools\k4aviewer.exe`). You can launch it from either the command line or by double-clicking the executable. Azure Kinect Viewer is also available as a link in the start menu.
 2. Select **Open Device**, then **Start**.
