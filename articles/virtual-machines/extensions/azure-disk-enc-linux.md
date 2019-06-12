@@ -38,8 +38,7 @@ Azure Disk Encryption for Linux requires Internet connectivity for access to Act
 
 ## Extension schemata
 
-There are two schemata for Azure Disk Encryption: v1.1, a newer, recommended schema that does not use Azure Active Directory (AAD) properties, and v0.1, an older schema that requires AAD properties.
-
+There are two schemata for Azure Disk Encryption: v1.1, a newer, recommended schema that does not use Azure Active Directory (AAD) properties, and v0.1, an older schema that requires AAD properties. You must use the schema version corresponding to the extension you are using: schema v1.1 for the AzureDiskEncryptionForLinux extension version 1.1, schema v0.1 for the AzureDiskEncryptionForLinux extension version 0.1.
 ### Schema v1.1: No AAD (recommended)
 
 The v1.1 schema is recommended and does not require Azure Active Directory properties.
