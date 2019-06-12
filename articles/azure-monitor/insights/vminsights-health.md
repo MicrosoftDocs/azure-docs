@@ -421,5 +421,5 @@ The Azure Monitor for VMs health feature supports SMS and email notifications wh
 
 ## Next steps
 
-- To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md). 
-- To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+- To identify limitations and overall VM performance, see [View Azure VM Performance](vminsights-performance.md)
+- To learn about discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md)
