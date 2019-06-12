@@ -89,6 +89,9 @@ Although rare, an Azure data center can have an outage. When an outage occurs, i
 > [!IMPORTANT]
 > To use active geo-replication and auto-failover groups, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and fail over using the Azure portal, PowerShell, or the REST API using Azure subscription permissions or using Transact-SQL with SQL Server permissions.
 
+> [NOTE]
+> Auto Failover Groups applies to multiple databases where Active Geo-Replication applies to an individual database.
+
 Use auto-failover groups if your application meets any of these criteria:
 
 - Is mission critical.
