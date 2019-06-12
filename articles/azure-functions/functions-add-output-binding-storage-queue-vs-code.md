@@ -72,14 +72,12 @@ To create a binding, right-click (Ctrl+click on macOS) the `function.json` file 
 | Prompt | Value | Description |
 | -------- | ----- | ----------- |
 | **Select binding direction** | `out` | The binding is an output binding. |
-| **Select binding with direction "out"** | `Azure Queue Storage` | The binding is an Azure Storage queue binding. |
-| **The name used to identify this binding in yoru code** | `msg` | Name that identifies the binding parameter referenced in your code. |
+| **Select binding with direction...** | `Azure Queue Storage` | The binding is an Azure Storage queue binding. |
+| **The name used to identify this binding in your code** | `msg` | Name that identifies the binding parameter referenced in your code. |
+| **The queue to which the message will be sent** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
+| **Select setting from "local.setting.json"** | `AzureWebJobsStorage` | The name of an application setting that contains the connection string for the Storage account. The `AzureWebJobsStorage` setting contains the connection string for the Storage account you created with the function app. |
 
-
-| **`queueName`** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
-| **`connection`** | `AzureWebJobsStorage` | The name of an app setting that contains the connection string for the Storage account. The `AzureWebJobsStorage` setting contains the connection string for the Storage account you created with the function app. |
-
-The `bindings` array in your function.json file should now look like the following example:
+A binding is added to the `bindings` array in your function.json file, which should now look like the following example:
 
 ```json
 {

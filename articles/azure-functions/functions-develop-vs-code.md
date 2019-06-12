@@ -21,7 +21,7 @@ The Azure Functions extension provides the following benefits:
 * Publish your Azure Functions project directly to Azure. 
 * Write your functions in a variety of languages while having all of the benefits of Visual Studio Code. 
 
-The extension supports the following languages supported by the Azure Functions version 2.x runtime: 
+The extension can be used with the following languages supported by the Azure Functions version 2.x runtime: 
 
 * [C# compiled](functions-dotnet-class-library.md) 
 * [C# script](functions-reference-csharp.md)<sup>*</sup>
@@ -82,22 +82,22 @@ The Functions extension lets you create a function app project, along with your 
 
 You can add input and output bindings to your function by modifying the function.json file. For more information, see  [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-The project template creates a project in your chosen language, installs required dependencies. Regardless of language, the new project has the following files:
+The project template creates a project in your chosen language, installs required dependencies. For any language, the new project has the following files:
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used when running in Azure. For more information, see [Local settings file](#local-settings-file).
+* **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings-file).
 
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you must excluded it from your project source control.
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-By default, these settings are not migrated automatically when the project is published to Azure. After publishing completes, you are given the option of publishing settings from local.settings.json to your function app in Azure. To learn more, see  .
+By default, these settings are not migrated automatically when the project is published to Azure. After publishing completes, you are given the option of publishing settings from local.settings.json to your function app in Azure. To learn more, see  [Publish application settings](#publish-application-settings).
 
 Values in **ConnectionStrings** are never published.
 
-The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
+The function application settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference articles:
 
 * [C# precompiled](functions-dotnet-class-library.md#environment-variables)
 * [C# script (.csx)](functions-reference-csharp.md#environment-variables)
@@ -154,11 +154,21 @@ A new C# class library (.cs) file is added to your project.
 
 You can expand you function by adding input and output bindings. The way that you do this depends on your project language. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md). 
 
-The following examples connect to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` app setting in local.settings.json. 
+The following examples connect to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` application setting in local.settings.json. 
 
 ### JavaScript
 
-Update the function.json file to add the desired binding to the `bindings` array. The following is an example of a Queue storage binding named `msg`:
+Visual Studio Code lets you add bindings to your function.json file by following a convenient set of prompts. To create a binding, right-click (Ctrl+click on macOS) the `function.json` file in your function folder and choose **Add binding...**. The following are example prompts to define a new storage output binding:
+
+| Prompt | Value | Description |
+| -------- | ----- | ----------- |
+| **Select binding direction** | `out` | The binding is an output binding. |
+| **Select binding with direction...** | `Azure Queue Storage` | The binding is an Azure Storage queue binding. |
+| **The name used to identify this binding in your code** | `msg` | Name that identifies the binding parameter referenced in your code. |
+| **The queue to which the message will be sent** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
+| **Select setting from "local.setting.json"** | `MyStorageConnection` | The name of an application setting that contains the connection string for the Storage account. The `AzureWebJobsStorage` setting contains the connection string for the Storage account you created with the function app. |
+
+In this example, the following binding is added to the `bindings` array in your function.json file:
 
 ```javascript
 {
@@ -169,6 +179,8 @@ Update the function.json file to add the desired binding to the `bindings` array
     "connection": "MyStorageConnection"
 }
 ```
+
+You can also add the same binding definition directly to your function.json.
 
 In your function code, the `msg` binding is accessed from the `context`, as in the following example:
 
@@ -192,7 +204,7 @@ This code requires you to add the following `using` statement:
 using Microsoft.Azure.WebJobs.Extensions.Storage;
 ```
 
-The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You simply add one or more messages to the collection, which are sent to the queue when the function completes.
+The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection, which are sent to the queue when the function completes.
 
 To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---c-example) reference.
 
@@ -202,7 +214,7 @@ To learn more, see the [Queue storage output binding](functions-bindings-storage
 
 The Azure Functions extension lets you run an Azure Functions project on your local development computer. Local settings are read from the local.settings.json file.
 
-To debug your functions, press F5. Core Tools is started and output is shown in the Terminal. With the project running, you can trigger your functions as you would when deployed to Azure. When running in debug mode, breakpoints are hit in Visual Studio Code, as expected.
+To debug your functions, press F5. Azure Functions Core Tools is started and output is shown in the Terminal. With the project running, you can trigger your functions as you would when deployed to Azure. When running in debug mode, breakpoints are hit in Visual Studio Code, as expected.
 
 The request URL for HTTP triggers is displayed in the output in the terminal. Function keys for HTTP triggers are not used when running locally. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).  
 
@@ -235,7 +247,7 @@ To give you control over the settings associated with creating Azure Functions a
 
 1. In the **Azure: Functions** area, select the Deploy to Function App icon.
 
-    ![Function app settings](./media/functions-develop-vs-code/function-app-publish-project.png)
+    ![Function application settings](./media/functions-develop-vs-code/function-app-publish-project.png)
 
 1. If not signed-in, you are prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After successful sign in from the browser, go back to Visual Studio Code. 
 
@@ -265,21 +277,42 @@ To be able to call an HTTP triggered function, you need the URL of the function 
 
 The function URL is copied to the clipboard, along with any required keys passed using the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
 
-## Publish function app settings
+## Republish project files
 
-Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project.
+When you set up [continuous deployment](functions-continuous-deployment.md), your function app in Azure is updated whenever source files are updated in the connected source location. While we recommend this development practice, you can also republish your project file updates from Visual Studio Code. 
+
+> [!IMPORTANT]
+> Publishing to an existing function app overwrites the content of that app in Azure.
+
+1. In Visual Studio Code, press F1 to open the command palette. In the command palette, search for and select `Azure Functions: Deploy to function app...`.
+
+1. If not signed-in, you are prompted to **Sign in to Azure**. After successful sign in from the browser, go back to Visual Studio Code. If you have multiple subscriptions, **Select a subscription** that contains your function app.
+
+1. Choose your existing function app in Azure. When warned about overwriting all files in the function app, choose **Deploy** to acknowledge the warning and continue. 
+
+The project is rebuilt, repackaged, and uploaded to Azure. The existing project is replaced by the new package, and the function app restarts.
+
+## Application settings in Azure
+
+The settings in the local.settings.json file in your project should be the same as the application settings in the function app in Azure. Any settings you add to the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project. Likewise, any settings that you create in your function app [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) must be downloaded to your local project.
+
+### Publish application settings
 
 The easiest way to publish the required settings to your function app in Azure is to use the **Upload settings** link that is displayed after you successfully publish your project.
 
-![Deployment complete upload app settings](./media/functions-develop-vs-code/upload-app-settings.png)
+![Deployment complete upload application settings](./media/functions-develop-vs-code/upload-app-settings.png)
 
-You can also publish settings by using the `Azure Functions: Upload Local Setting` command in the command palette. Individual settings are added to app setting in Azure by using the `Azure Functions: Add New Setting...` command. 
+You can also publish settings by using the `Azure Functions: Upload Local Setting` command in the command palette. Individual settings are added to application settings in Azure by using the `Azure Functions: Add New Setting...` command. 
 
-When a field in your local.settings.json already exists as an app setting, you are warned about overwriting the remote setting. This displays the **Application Settings** dialog for the function app, where you can add new application settings or modify existing ones.
+When a field in your local.settings.json already exists as an application setting, you are warned about overwriting the remote setting. This displays the **Application Settings** dialog for the function app, where you can add new application settings or modify existing ones.
 
 View existing app settings in the **Azure: Functions** area by expanding your subscription, your function app, and **Application Settings**.
 
 ![View function app setting in Visual Studio Code](./media/functions-develop-vs-code/view-app-settings.png)
+
+### Download settings from Azure
+
+If you have created application settings in Azure, you can download them into your local 
 
 ## Monitoring functions
 
@@ -295,20 +328,38 @@ To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 The Azure Functions extension provides a very useful graphical interface in the Azure area for interacting with your function apps in Azure. The same functionality is also available as commands in the command palette (F1). The following Azure Functions-specific commands are available:
 
-
 |Azure Functions command  | Description  |
 |---------|---------|
-|**Add new settings**     |  Create a new application setting in Azure. To learn more, see [Publish function app settings](#publish-function-app-settings).       |
-| **Configure deployment source** | Connect your function app in Azure to a Git repository. To learn more, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). |
-| **Connect to GitHub repository** |         |
-|      |         |
-|Row5     |         |
-|Row6     |         |
-|Row7     |         |
-|Row8     |         |
-|Row9     |         |
-|Row10     |         |
-
+|**Add New Settings...**  |  Creates a new application setting in Azure. To learn more, see [Publish application settings](#publish-application-settings). You may also need to [download this setting to your local settings](#download-settings-from-azure). |
+| **Configure Deployment Source...** | Connect your function app in Azure to a local Git repository. To learn more, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). |
+| **Connect to GitHub Repository...** | Connect your function app a GitHub repository. |
+| **Copy Function URL** | Gets the remote URL of an HTTP triggered function running in Azure. To learn more, see how to [get the deployed function URL](#get-deployed-function-url). |
+| **Create function app in Azure...** | Creates a new function app in your subscription in Azure. To learn more, see how to [publish to a new function app in Azure](#publish-to-a-new-function-app-in-azure).        |
+| **Decrypt Settings** | Use to decrypt [local settings](#local-settings-file) that have been encrypted by using `Azure Functions: Encrypt Settings`.  |
+| **Delete Function App...** | Removes an existing function app from your subscription in Azure. When there are no other apps in the App Service plan, you are given the option to delete that also. Other resources, such as storage accounts and resource groups, aren't deleted. To remove all resources, you should instead [delete the resource group](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Your local project isn't affected. |
+|**Delete Function...**  | Removes an existing function from a function app in Azure. Because this deletion doesn't affect your local project, instead consider removing the function locally and then [republishing your project](#republish-project-files). |
+| **Delete Proxy...** | Removes an Azure Functions proxy from your function app in Azure. To learn more about proxies, see [Work with Azure Functions Proxies](functions-proxies.md). |
+| **Delete Setting...** | Deletes a function application setting in Azure. Doesn't affect settings in your local.settings.json file. |
+| **Disconnect from Repo...**  | Remove the [continuous deployment](functions-continuous-deployment.md) connection between a function app in Azure and a source control repository. |
+| **Download Remote Settings...** | Downloads settings from the chosen function app in Azure into your local.settings.json file. If the local file is encrypted, it is decrypted, updated, and encrypted again. If settings exist with different values in both locations, you are asked to choose how to proceed. Make sure that you have saved changes to your local.settings.json file before running this command. |
+| **Edit settings...** | Changes the value of an existing function application setting in Azure. Doesn't affect settings in your local.settings.json file.  |
+| **Encrypt settings** | Encrypts individual items in the `Values` array in the [local settings](#local-settings-file). In this file, `IsEncrypted` is also set to `true`, which tells the local runtime to decrypt settings before using them. You should encrypt local settings to reduce the risk of leaking valuable information. In Azure, application settings are always stored encrypted. |
+| **Execute Function Now** | Starts a [timer triggered function](functions-bindings-timer.md) in Azure manually for test purposes. To learn more about triggering non-HTTP functions in Azure, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md). |
+| **Initialize Project for Use with VS Code...** | Adds the required Visual Studio Code project files to an existing Functions project. Use this command to work with a project you created using Core Tools. |
+| **Install of Update Azure Functions Core Tools** | Installs or updates the [Azure Functions Core Tools](functions-run-local.md) that are used by the extension.  |
+| **Redeploy**  | Lets you redeploy project files from a connected Git repository to a specific deployment in Azure. To republish local updates from Visual Studio Code, simply [republish your project](#republish-project-files). |
+| **Rename Settings...** | Changes the key name of an existing function application setting in Azure. Doesn't affect settings in your local.settings.json file. After renaming settings in Azure, you should [download those changes to the local project](#download-settings-from-azure). |
+| **Restart** | Restarts the function app in Azure. Deploying updates also restarts the function app. |
+| **Set AzureWebJobStorage...**| Sets the value of the `AzureWebJobStorage` application setting. This setting is required by Azure functions, and is usually set when the function app is created in Azure. |
+| **Start** | Starts a stopped function app in Azure. | 
+| **Start Streaming Logs** | Starts the stream logs for the function app in Azure. Do this during troubleshooting in Azure if you need to see remote logging information in near-real time. To learn more, see [Streaming Logs](functions-monitoring.md#streaming-logs). |
+| **Stop** | Shuts-down a function app running in Azure. |
+| **Stop Streaming Logs** | Stops the stream logs for the function app in Azure. |
+| **Toggle as Slot Setting** | When enabled, makes sure that an application setting persists for a given deployment slot. |
+| **Uninstall Azure Functions Core Tools** | Removes the Azure Functions Core Tools, which is required by the extension. |
+| **Upload Local Settings...** | Uploads settings from your local.settings.json file to the chosen function app in Azure. If the local file is encrypted, it is decrypted, uploaded, and encrypted again. If settings exist with different values in both locations, you are asked to choose how to proceed. Make sure that you have saved changes to your local.settings.json file before running this command. |
+| **View Commit in GitHub** | Shows you the latest commit in a specific deployment when your function app is connected to a repository. |
+| **View Deployment Logs** | Shows you the logs for a specific deployment to the function app in Azure. |
 
 ## Next steps
 
