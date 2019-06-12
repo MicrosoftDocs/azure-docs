@@ -158,32 +158,32 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
 
 <ul class="cardsL panelContent singlePanelContent" style="display:flex!important;">
 
-<li style="list-style: none;">
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card">
-                <div class="cardText">
-                    <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_article.svg" alt="" /></div>
-                    <h3>Developers</h3>
-                    <ul class="noBullet">
-                        <li style="list-style: none;">
-                            <a class="barLink" href="https://aka.ms/SecurityResponsepaper">Secure development best practices</a>
-                        </li>
-                        <li style="list-style: none;">
-                            <a class="barLink" href="/azure/security/azure-threat-detection">Secure sample apps</a>
-                        </li>
-                        <li style="list-style: none;">
-                            <a class="barLink" href="/azure/security/abstract-azure-network-security">Secure development resources</a>
-                        </li>
-                        <li style="list-style: none;">
-                            <a class="barLink" href="/azure/security/abstract-develop-secure-apps">Develop secure applications on Azure</a>
-                        </li>
-                    </ul>
+    <li style="list-style: none;">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_article.svg" alt="" /></div>
+                        <h3>Developers</h3>
+                        <ul class="noBullet">
+                            <li style="list-style: none;">
+                                <a class="barLink" href="https://aka.ms/SecurityResponsepaper">Secure development best practices</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/azure-threat-detection">Secure sample apps</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/abstract-azure-network-security">Secure development resources</a>
+                            </li>
+                            <li style="list-style: none;">
+                                <a class="barLink" href="/azure/security/abstract-develop-secure-apps">Develop secure applications on Azure</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</li>
+    </li>
 
 
     <li style="list-style: none;">
