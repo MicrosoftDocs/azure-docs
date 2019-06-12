@@ -10,6 +10,11 @@ ms.author: victorh
 ---
 # Azure Private DNS FAQ
 
+> [!IMPORTANT]
+> Azure Private DNS is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Does Azure DNS support private domains?
 
 Support for private domains is supported using Azure Private DNS Zones feature. Private DNS zones are managed using the same tools as internet-facing Azure DNS zones. They're resolvable only from within your specified virtual networks. For more information, see the [overview](private-dns-overview.md).
