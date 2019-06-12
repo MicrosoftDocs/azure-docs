@@ -5,12 +5,17 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: overview
-ms.date: 6/15/2019
+ms.date: 6/12/2019
 ms.author: victorh
 #Customer intent: As an administrator, I want to evaluate Azure Private DNS so I can determine if I want to use it instead of my current DNS service.
 ---
 
 # What is Azure Private DNS?
+
+> [!IMPORTANT]
+> Azure Private DNS is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The Domain Name System, or DNS, is responsible for translating (or resolving) a service name to its IP address.  Azure DNS is a hosting service for DNS domains, providing name resolution using the Microsoft Azure infrastructure. In addition to supporting internet-facing DNS domains, Azure DNS also supports private DNS zones.
 
