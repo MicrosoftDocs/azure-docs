@@ -145,6 +145,12 @@
         - name: Indexing policies
           displayName: consistent, none
           href: index-policy.md
+      - name: Data types
+        items:
+        - name: DateTime
+          href: working-with-dates.md
+        - name: Geospatial
+          href: geospatial.md
       - name: Time to live
         displayName: delete, delete data, ttl
         href: time-to-live.md
@@ -621,12 +627,6 @@
         href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Set up Azure DevOps CI/CD pipeline
       href: tutorial-setup-ci-cd.md
-    - name: Data types
-      items:
-      - name: DateTime
-        href: working-with-dates.md
-      - name: Geospatial
-        href: geospatial.md
     - name: Visualize Cosmos DB data
       items:
       - name: Use Power BI 
