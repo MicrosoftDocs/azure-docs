@@ -29,7 +29,7 @@ Bringing your devices to Azure AD maximizes user productivity through single sig
 
 In this tutorial, you learn how to configure hybrid Azure AD join for Active Directory domain-joined computers devices in a managed environment. 
 
-A managed environment can be deployed either through [password hash sync (PHS)](../hybrid/whatis-phs) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta) with [seamless single sign-on](../hybrid/how-to-connect-sso). These scenarios don't require you to configure a federation server for authentication.
+A managed environment can be deployed either through [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md). These scenarios don't require you to configure a federation server for authentication.
 
 In this tutorial, you learn how to:
 
@@ -52,7 +52,7 @@ This tutorial assumes that you're familiar with these articles:
 
 To configure the scenario in this article, you need the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or later) installed.
 
-Verify that Azure AD Connect has synced the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OUs), you must also configure the OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Configure filtering by using Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering#organizational-unitbased-filtering).
+Verify that Azure AD Connect has synced the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OUs), you must also configure the OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Configure filtering by using Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
 Beginning with version 1.1.819.0, Azure AD Connect includes a wizard that you can use to configure hybrid Azure AD join. The wizard significantly simplifies the configuration process. The wizard configures the service connection points (SCPs) for device registration.
 
@@ -142,7 +142,7 @@ You also must enable **Allow updates to status bar via script** in the user’s 
 
 ### Configure seamless SSO
 
-To successfully complete hybrid Azure AD join of your Windows downlevel devices in a managed domain that uses [PHS]../hybrid/whatis-phs) or [PTA](../hybrid/how-to-connect-pta) as your Azure AD cloud authentication method, you must also [configure seamless SSO](../hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature).
+To successfully complete hybrid Azure AD join of your Windows downlevel devices in a managed domain that uses [PHS]../hybrid/whatis-phs.md) or [PTA](../hybrid/how-to-connect-pta.md) as your Azure AD cloud authentication method, you must also [configure seamless SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
 
 ### Install Microsoft Workplace Join for Windows downlevel computers
 
