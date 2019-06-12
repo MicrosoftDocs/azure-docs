@@ -504,8 +504,14 @@
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
-    - name: Working with containers and items
+    - name: Work with containers and items
       items:
+      - name: Work with Cosmos DB data
+        items:
+        - name: Work with data using Azure Storage Explorer
+          href: storage-explorer.md
+        - name: Work with data using Azure Cosmos explorer
+          href: data-explorer.md
       - name: Create a container
         href: how-to-create-container.md
       - name: Create a container with large partition key
@@ -520,10 +526,6 @@
       - name: Configure time to live
         displayName: delete, delete data, ttl
         href: how-to-time-to-live.md
-      - name: Work with data using Azure Storage Explorer
-        href: storage-explorer.md
-      - name: Work with data using Azure Cosmos explorer
-        href: data-explorer.md
       - name: Manage indexing policies
         href: how-to-manage-indexing-policy.md
       - name: Define unique keys
@@ -531,6 +533,31 @@
       - name: SQL subquery examples
         displayName: subquery, exists
         href: how-to-sql-subquery.md
+    - name: Best practices
+      items:
+      - name: Performance tips
+        items:
+        - name: Get query execution metrics
+          displayName: query profile, profile
+          href: profile-sql-api-query.md 
+        - name: Tune query performance
+          href: sql-api-query-metrics.md    
+        - name: Performance tips for .NET SDK
+          href: performance-tips.md
+        - name: Performance tips for Java SDK
+          href: performance-tips-java.md
+        - name: Performance tips for Async Java SDK
+          href: performance-tips-async-java.md
+        - name: Performance test - sample app
+          href: performance-testing.md
+      - name: Cost-effective reads and writes
+        href: key-value-store-cost.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot Java Async SDK
+        href: troubleshoot-java-async-sdk.md
+      - name: Troubleshoot .NET SDK
+        href: troubleshoot-dot-net-sdk.md
     - name: Change Feed
       items:
       - name: Azure Cosmos DB Trigger logs
@@ -600,24 +627,6 @@
         href: working-with-dates.md
       - name: Geospatial
         href: geospatial.md
-    - name: Best practices
-      items:
-      - name: Performance tips
-        items:
-        - name: Get query execution metrics
-          href: profile-sql-api-query.md 
-        - name: Tune query performance
-          href: sql-api-query-metrics.md    
-        - name: Performance tips for .NET SDK
-          href: performance-tips.md
-        - name: Performance tips for Java SDK
-          href: performance-tips-java.md
-        - name: Performance tips for Async Java SDK
-          href: performance-tips-async-java.md
-        - name: Performance test - sample app
-          href: performance-testing.md
-      - name: Cost-effective reads and writes
-        href: key-value-store-cost.md
     - name: Visualize Cosmos DB data
       items:
       - name: Use Power BI 
@@ -670,12 +679,6 @@
         href: bulk-executor-dot-net.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
-    - name: Troubleshoot
-      items:
-      - name: Troubleshoot Java Async SDK
-        href: troubleshoot-java-async-sdk.md
-      - name: Troubleshoot .NET SDK
-        href: troubleshoot-dot-net-sdk.md
   - name: Reference
     items:
     - name: .NET
