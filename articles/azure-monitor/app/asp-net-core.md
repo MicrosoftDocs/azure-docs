@@ -54,7 +54,7 @@ The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.0" />
         </ItemGroup>
     ```
 
