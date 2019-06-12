@@ -51,18 +51,7 @@ This article answers common questions about role-based access control (RBAC) for
 
 ## Role assignments without a security principal
 
-When you list your role assignments using Azure PowerShell or Azure CLI, you might see role assignments with the following properties:
-
-```azurepowershell
-DisplayName        :
-ObjectType         : Unknown
-```
-
-```azurecli
-"principalName": ""
-```
-
-For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following:
+When you list your role assignments using Azure PowerShell, you might see assignments with an empty `DisplayName` and an `ObjectType` set to Unknown. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following:
 
 ```Example
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -76,7 +65,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-[az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following:
+Similarly, when you list your role assignments using Azure CLI, you might see assignments with an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following:
 
 ```
 {
@@ -103,7 +92,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 Remove-AzRoleAssignment : The provided information does not map to a role assignment.
 At line:1 char:1
-+ Remove-AzRoleAssignment -ObjectId ba92f5b4-2d11-453d-a403-e96b0029c9f ...
++ Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 ...
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 + CategoryInfo          : CloseError: (:) [Remove-AzRoleAssignment], KeyNotFoundException
 + FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
