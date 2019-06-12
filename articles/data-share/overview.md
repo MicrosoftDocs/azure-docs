@@ -48,3 +48,5 @@ All key capabilities listed above are supported through the Azure or via REST AP
 
     ![Supported Scenarios](./media/supported-scenarios.png "Supported Scenarios")
 
+## Azure Data Share Security 
+Placeholder. 

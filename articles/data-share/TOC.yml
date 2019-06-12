@@ -14,16 +14,19 @@
       href: subscribe-to-data-share.md
 - name: Concepts
   items:
-  - name: Share Subscription
-    href: share-subscription.md
-  - name: Snapshot
-    href: snapshot.md
-  - name: Recipient 
-    href: recipient.md
-  - name: Data Share
-    href: data-share.md
-  - name: Synchronization
-    href: synchronization.md
+  - name: Azure Data Share Terminology 
+    href: terminology.md
+- name: How-to Guides
+  items:
+  - name: Adding datasets to a Data Share 
+    href: how-to-add-datasets.md
+  items:
+  - name: Adding recipients to a Data Share 
+    href: how-to-add-recipients.md 
+  items:
+  - name: How to monitor my Data Share
+    href: how-to-monitor.md 
+        
 - name: Resources
   items:
   - name: Blog
