@@ -5,12 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 5/29/2019
+ms.date: 06/13/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
 ---
 
 # Tutorial: Create an Azure DNS private zone using Azure PowerShell
+
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 This tutorial walks you through the steps to create your first private DNS zone and record using Azure PowerShell.
 
@@ -113,7 +115,7 @@ This will take a few minutes to complete.
 
 ## Create an additional DNS record
 
-You create record sets by using the `New-AzPrivateDnsRecordSet` cmdlet. The following example creates a record with the relative name **db** in the DNS Zone **private.contoso.com**, in resource group **MyAzureResourceGroup**. The fully-qualified name of the record set is **db.private.contoso.com**. The record type is "A", with IP address "10.2.0.4", and the TTL is 3600 seconds.
+You create record sets by using the `New-AzPrivateDnsRecordSet` cmdlet. The following example creates a record with the relative name **db** in the DNS Zone **private.contoso.com**, in resource group **MyAzureResourceGroup**. The fully qualified name of the record set is **db.private.contoso.com**. The record type is "A", with IP address "10.2.0.4", and the TTL is 3600 seconds.
 
 ```azurepowershell
 New-AzPrivateDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `

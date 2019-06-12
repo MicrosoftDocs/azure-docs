@@ -5,16 +5,16 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 5/29/2019
+ms.date: 6/13/2019
 ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
 ---
 
 # Create an Azure DNS private zone using the Azure CLI
 
-This tutorial walks you through the steps to create your first private DNS zone and record using the Azure CLI.
-
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+
+This tutorial walks you through the steps to create your first private DNS zone and record using the Azure CLI.
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
 
