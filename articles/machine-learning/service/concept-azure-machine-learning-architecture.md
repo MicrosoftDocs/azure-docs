@@ -189,6 +189,8 @@ The Azure Machine Learning service provides a base image, which is used by defau
 
 For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
+For an example of deploying a model using a custom image, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
+
 ### Image registry
 
 The image registry keeps track of images that are created from your models. You can provide additional metadata tags when you create the image. Metadata tags are stored by the image registry, and you can query them to find your image.

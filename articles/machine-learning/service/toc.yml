@@ -214,6 +214,8 @@
     - name: IoT Edge
       href: ../../iot-edge/tutorial-deploy-machine-learning.md
       maintainContext: true
+    - name: Custom Docker image
+      href: how-to-deploy-custom-docker-image.md
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
