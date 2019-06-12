@@ -4,7 +4,7 @@ description: Learn about monitoring and diagnostics for Azure Service Fabric clu
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

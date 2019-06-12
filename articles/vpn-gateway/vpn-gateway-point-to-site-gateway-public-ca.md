@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/16/2019
 ms.author: cherylmc
 
 ---
@@ -25,17 +25,7 @@ Previously, a self-signed certificate for the gateway (issued behind the scenes 
 Only older gateways are affected by this change. If your gateway certificate needs to be transitioned, you will receive communication or toast in the Azure portal. You can check to see if your gateway is affected by using the steps in this article.
 
 > [!IMPORTANT]
-> The transition is scheduled for March 12, 2019 starting at 18:00 UTC. You can create a support case if you prefer a different time window. Make and finalize your request at least 24 hours in advance.  You can request one of the following windows:
->
-> * 06:00 UTC on February 25
-> * 18:00 UTC on February 25
-> * 06:00 UTC on March 1
-> * 18:00 UTC on March 1
->
-> **All remaining gateways will transition on March 12, 2019 starting at 18:00 UTC**.
->
-> Customers will receive an email when their gateway completes the transition process.
-> 
+> The transition to public CA certificates was completed on May 12, 2019. **This document will be removed on May 31, 2019.**
 
 ## 1. Verify your certificate
 
@@ -52,7 +42,7 @@ Only older gateways are affected by this change. If your gateway certificate nee
 
 ### Classic
 
-1. On a client computer, navigate to path %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. In the Gateway ID folder, you can view the certificate.
+1. On a client computer, navigate to path `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. In the Gateway ID folder, you can view the certificate.
 2. On the General tab for the certificate, verify that the issuing authority is "DigiCert Global Root CA". If you have anything other than this issuing authority, your gateway certificate is part of the update and will be transitioned.
 
 ## 2. Check certificate transition schedule

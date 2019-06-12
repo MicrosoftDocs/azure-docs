@@ -4,7 +4,7 @@ description: This article describes how to configure Cross-Origin Resource Shari
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2018
+ms.date: 05/23/2019
 ms.author: dech
 
 ---

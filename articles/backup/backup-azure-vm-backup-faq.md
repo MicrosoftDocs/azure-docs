@@ -6,7 +6,7 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 05/21/2019
 ms.author: sogup
 ---
 # Frequently asked questions-Back up Azure VMs
@@ -18,25 +18,25 @@ This article answers common questions about backing up Azure VMs with the [Azure
 
 ### Which VM images can be enabled for backup when I create them?
 When you create a VM, you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions)
- 
-### Is the backup cost included in the VM cost? 
+
+### Is the backup cost included in the VM cost?
 
 No. Backup costs are separate from a VM's costs. Learn more about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
- 
-### Which permissions are required to enable backup for a VM? 
 
-If you're a VM contributor, you can enable backup on the VM. If you're using a custom role, you need the following permissions to enable backup on the VM: 
+### Which permissions are required to enable backup for a VM?
 
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
+If you're a VM contributor, you can enable backup on the VM. If you're using a custom role, you need the following permissions to enable backup on the VM:
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
 If your Recovery Services vault and VM have different resource groups, make sure you have write permissions in the resource group for the Recovery Services vault.  
 
 
@@ -62,7 +62,7 @@ Yes. Backups run when a machine is shut down. The recovery point is marked as cr
 ### Can I cancel an in-progress backup job?
 Yes. You can cancel backup job in a **Taking snapshot** state. You can't cancel a job if data transfer from the snapshot is in progress.
 
-### I enabled lock on resource group created by Azure Backup Service (i.e ` AzureBackupRG_<geo>_<number>`), will my backups continue to work?
+### I enabled lock on resource group created by Azure Backup Service (i.e `AzureBackupRG_<geo>_<number>`), will my backups continue to work?
 If you lock the resource group created by Azure Backup Service, backups will start to fail as there's a maximum limit of 18 restore points.
 
 User needs to remove the lock and clear the restore point collection from that resource group in order to make the future backups successful, [follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
@@ -82,7 +82,7 @@ Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup servi
 ### I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?
 Azure Backup can't back up the WA-enabled disk but can exclude it from backup. However, the backup won't provide database consistency because information on the WA-enabled disk isn't backed up. You can back up disks with this configuration if you want operating system disk backup, and backup of disks that aren't WA-enabled.
 
-We're running private preview for an SAP HANA backup with an RPO of 15 minutes. It's built in a similar way to SQL DB backup, and uses the backInt interface for third-party solutions certified by SAP HANA. If you're interested, email us at ` AskAzureBackupTeam@microsoft.com ` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs**.
+We're running private preview for an SAP HANA backup with an RPO of 15 minutes. It's built in a similar way to SQL DB backup, and uses the backInt interface for third-party solutions certified by SAP HANA. If you're interested, email us at `AskAzureBackupTeam@microsoft.com` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs**.
 
 
 ## Restore
@@ -134,3 +134,6 @@ The VM is backed up using the schedule and retention settings in the modified or
 3. Re-enabled backup in the same or new vault.
 
 You can restore the VM from available restore points that were created before the move operation.
+
+### Is there a limit on number of VMs that can be associated with a same backup policy?
+Yes, there is a limit of 100 VMs that can be associated to the same backup policy from portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.

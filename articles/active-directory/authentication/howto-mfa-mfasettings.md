@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 06/03/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # Configure Azure Multi-Factor Authentication settings
 
-This article helps you to manage Multi-Factor Authentication settings in the Azure portal. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every [version of Azure Multi-Factor Authentication](concept-mfa-whichversion.md#what-features-do-i-need).
+This article helps you to manage Multi-Factor Authentication settings in the Azure portal. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every version of Azure Multi-Factor Authentication.
 
-You can access settings related to Multi-Factor Authentication from the Azure portal by browsing to **Azure Active Directory** > **MFA**.
+You can access settings related to Azure Multi-Factor Authentication from the Azure portal by browsing to **Azure Active Directory** > **MFA**.
 
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -30,8 +30,8 @@ Some of these settings apply to MFA Server, Azure MFA, or both.
 | Feature | Description |
 | ------- | ----------- |
 | Account lockout | Temporarily lock accounts in the multi-factor authentication service if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
-| [Block/unblock users](#block-and-unblock-users) | Used to block specific users on MFA Server (on-premises) from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
-| [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests from MFA Server. |
+| [Block/unblock users](#block-and-unblock-users) | Used to block specific users from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
+| [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests |
 | Notifications | Enable notifications of events from MFA Server. |
 | [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
@@ -54,7 +54,7 @@ The reporting available here is specific to MFA Server (on-premises). For Azure 
 
 ## Block and unblock users
 
-Use the _block and unblock users_ feature to prevent users from receiving authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. This feature is specific to MFA Server (on-premises).
+Use the _block and unblock users_ feature to prevent users from receiving authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
 
 ### Block a user
 
@@ -74,7 +74,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 
 ## Fraud alert
 
-Configure the _fraud alert_ feature so that your users can report fraudulent attempts to access their resources. Users can report fraud attempts by using the mobile app or through their phone. This feature is specific to MFA Server (on-premises).
+Configure the _fraud alert_ feature so that your users can report fraudulent attempts to access their resources. Users can report fraud attempts by using the mobile app or through their phone.
 
 ### Turn on fraud alerts
 

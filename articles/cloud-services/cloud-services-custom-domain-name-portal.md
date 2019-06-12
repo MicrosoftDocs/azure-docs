@@ -18,7 +18,7 @@ ms.author: jeconnoc
 
 ---
 # Configuring a custom domain name for an Azure cloud service
-When you create a Cloud Service, Azure assigns it to a subdomain of **cloudapp.net**. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://contoso.cloudapp.net. Azure also assigns a virtual IP address.
+When you create a Cloud Service, Azure assigns it to a subdomain of **cloudapp.net**. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like `http://contoso.cloudapp.net`. Azure also assigns a virtual IP address.
 
 However, you can also expose your application on your own domain name, such as **contoso.com**. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
 
@@ -60,7 +60,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 
 1. Use one of these methods to find the **.cloudapp.net** domain name assigned to your cloud service.
 
-   * Login to the [Azure portal], select your cloud service, look at the **Essentials** section and then find the **Site URL** entry.
+   * Login to the [Azure portal], select your cloud service, look at the **Overview** section and then find the **Site URL** entry.
 
        ![quick glance section showing the site URL][csurl]
 
@@ -95,7 +95,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
 
 1. Use one of the following methods to get the IP address of your cloud service.
 
-   * Login to the [Azure portal], select your cloud service, look at the **Essentials** section and then find the **Public IP addresses** entry.
+   * Login to the [Azure portal], select your cloud service, look at the **Overview** section and then find the **Public IP addresses** entry.
 
        ![quick glance section showing the VIP][vip]
 

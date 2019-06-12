@@ -4,7 +4,7 @@ description: An overview of using defragmentation or packing as a strategy for m
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552

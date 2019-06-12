@@ -2,15 +2,11 @@
 title: Set up Azure Key Vault with end-to-end key rotation and auditing | Microsoft Docs
 description: Use this how-to guide to help you set up key rotation and monitor key vault logs.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: ''
 
-ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
@@ -19,8 +15,6 @@ ms.author: barclayn
 # Set up Azure Key Vault with key rotation and auditing
 
 ## Introduction
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 After you have a key vault, you can start using it to store keys and secrets. Your applications no longer need to persist your keys or secrets, but can request them from the vault as needed. A key vault allows you to update keys and secrets without affecting the behavior of your application, which opens up a breadth of possibilities for your key and secret management.
 
@@ -35,6 +29,8 @@ This article walks through:
 
 > [!NOTE]
 > This article doesn't explain in detail the initial setup of your key vault. For this information, see [What is Azure Key Vault?](key-vault-overview.md). For cross-platform command-line interface instructions, see [Manage Key Vault using the Azure CLI](key-vault-manage-with-cli2.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Set up Key Vault
 
@@ -162,6 +158,9 @@ When you run your application, you should now be authenticating to Azure Active 
 
 ## Key rotation using Azure Automation
 
+> [!IMPORTANT]
+> Azure Automation runbooks still require the use of the `AzureRM` module.
+
 You are now ready to set up a rotation strategy for the values you store as Key Vault secrets. Secrets can be rotated in several ways:
 
 - As part of a manual process
@@ -206,7 +205,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -231,12 +230,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 In the editor pane, select **Test pane** to test your script. After the script runs without error, you can select **Publish**, and then you can apply a schedule for the runbook in the runbook configuration pane.

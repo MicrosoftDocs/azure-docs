@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DNS?
     href: dns-overview.md
+  - name: What is Azure Private DNS?
+    href: private-dns-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -104,7 +106,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=dns
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.dns
+    href: /powershell/module/az.dns
   - name: Azure CLI
     href: /cli/azure/network/dns
   - name: .NET

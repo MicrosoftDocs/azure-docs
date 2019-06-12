@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
-ms.author: robin.shahan
+ms.author: robinsh
 ---
 
 # Get started with device management (.NET/.NET)
@@ -31,7 +31,7 @@ At the end of this tutorial, you have two .NET console apps:
 
 To complete this tutorial, you need the following:
 
-* Visual Studio 2017.
+* Visual Studio.
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 

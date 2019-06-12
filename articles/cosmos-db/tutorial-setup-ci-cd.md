@@ -4,7 +4,7 @@ description: Tutorial on how to set up build and release workflow in Azure DevOp
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/02/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
 ---
@@ -42,6 +42,9 @@ Now that the extension is installed, sign in to your Azure DevOps account and fi
    ![Select the team project, repository, and branch for the build pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Finally, select the desired template for the build pipeline. We'll select the **ASP.NET** template in this tutorial. 
+
+> [!NOTE]
+> The agent pool to be selected for this CI should have Docker for Windows installed unless the installation is done manually in a prior task as a part of the CI. See [Microsoft hosted agents](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) article for a selection of agent pools; we recommend to start with `Hosted VS2017` or `Hosted VS2019`. 
 
 Now we have a build pipeline that we can set up to use the Azure Cosmos DB emulator build task. 
 
@@ -124,7 +127,7 @@ namespace todo.Tests
 }
 ```
 
-Navigate to the Execution Options in the Visual Studio Test task. In the **Settings file** option,  specify that the tests are configured using the **.runsettings** file. In the **Override test run parameters** option, add in ` -endpoint $(CosmosDbEmulator.Endpoint)`. Doing so will configure the Test task to refer to the endpoint of the emulator build task, instead of the one defined in the **.runsettings** file.  
+Navigate to the Execution Options in the Visual Studio Test task. In the **Settings file** option,  specify that the tests are configured using the **.runsettings** file. In the **Override test run parameters** option, add in `-endpoint $(CosmosDbEmulator.Endpoint)`. Doing so will configure the Test task to refer to the endpoint of the emulator build task, instead of the one defined in the **.runsettings** file.  
 
 ![Override endpoint variable with Emulator build task endpoint](./media/tutorial-setup-ci-cd/addExtension_5.png)
 

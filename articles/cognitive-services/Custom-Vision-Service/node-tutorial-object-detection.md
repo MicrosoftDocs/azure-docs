@@ -9,13 +9,13 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 03/21/2019
 ms.author: areddish
 ---
 
 # Quickstart: Create an object detection project with the Custom Vision Node.js SDK
 
-This article provides information and sample code to help you get started using the Custom Vision SDK with Node.js to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application.
+This article provides information and sample code to help you get started using the Custom Vision SDK with Node.js to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application.
 
 ## Prerequisites
 
@@ -54,9 +54,12 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 const trainingKey = "<your training key>";
 const predictionKey = "<your prediction key>";
+const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
 const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+
+const publishIterationName = "detectModel";
 
 const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
@@ -177,9 +180,9 @@ To add the images, tags, and regions to the project, insert the following code a
     await Promise.all(fileUploadPromises);
 ```
 
-### Train the project
+### Train the project and publish
 
-This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
+This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```javascript
     console.log("Training...");
@@ -194,11 +197,11 @@ This code creates the first iteration in the project and marks it as the default
     }
     console.log("Training status: " + trainingIteration.status);
 
-    trainingIteration.isDefault = true;
-    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### Get and use the default prediction endpoint
+### Get and use the published iteration on the prediction endpoint
 
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
@@ -206,7 +209,7 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
     const predictor = new PredictionApi.PredictionAPIClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_od_image.jpg`);
 
-    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id })
+    const results = await predictor.detectImage(sampleProject.id, publishIterationName, testFile)
 
     // Show results
     console.log("Results:");
@@ -220,7 +223,7 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
 
 Run *sample.js*.
 
-```PowerShell
+```powershell
 node sample.js
 ```
 

@@ -25,6 +25,8 @@ Azure virtual machine (VM) extensions are small applications that provide post-d
 
 This article provides an overview of VM extensions, prerequisites for using Azure VM extensions, and guidance on how to detect, manage, and remove VM extensions. This article provides generalized information because many VM extensions are available, each with a potentially unique configuration. Extension-specific details can be found in each document specific to the individual extension.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Use cases and samples
 
 Several different Azure VM extensions are available, each with a specific use case. Some examples include:
@@ -90,27 +92,27 @@ The following methods can be used to run an extension against an existing VM.
 Several PowerShell commands exist for running individual extensions. To see a list, use [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) and filter on *Extension*:
 
 ```powershell
-Get-Command Set-Az*Extension* -Module AzureRM.Compute
+Get-Command Set-Az*Extension* -Module Az.Compute
 ```
 
 This provides output similar to the following:
 
 ```powershell
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Cmdlet          Set-AzVMAccessExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMADDomainExtension                     4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMAEMExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMBackupExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMBginfoExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMChefExtension                         4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMDscExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMExtension                             4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
+CommandType     Name                                          Version    Source
+-----------     ----                                          -------    ------
+Cmdlet          Set-AzVMAccessExtension                       4.5.0      Az.Compute
+Cmdlet          Set-AzVMADDomainExtension                     4.5.0      Az.Compute
+Cmdlet          Set-AzVMAEMExtension                          4.5.0      Az.Compute
+Cmdlet          Set-AzVMBackupExtension                       4.5.0      Az.Compute
+Cmdlet          Set-AzVMBginfoExtension                       4.5.0      Az.Compute
+Cmdlet          Set-AzVMChefExtension                         4.5.0      Az.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      Az.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      Az.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      Az.Compute
+Cmdlet          Set-AzVMDscExtension                          4.5.0      Az.Compute
+Cmdlet          Set-AzVMExtension                             4.5.0      Az.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      Az.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      Az.Compute
 ```
 
 The following example uses the Custom Script extension to download a script from a GitHub repository onto the target virtual machine and then run the script. For more information on the Custom Script extension, see [Custom Script extension overview](custom-script-windows.md).

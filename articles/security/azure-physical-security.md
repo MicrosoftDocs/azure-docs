@@ -1,6 +1,6 @@
 ---
-title: Azure facilities, premises, and physical security | Microsoft Docs
-description: The article describes the Azure datacenters, including physical infrastructure, security, and compliance offerings.
+title: Physical security of Azure datacenters - Microsoft Azure | Microsoft Docs
+description: The article describes what Microsoft does to secure the Azure datacenters, including physical infrastructure, security, and compliance offerings.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 04/28/2019
 ms.author: terrylan
 
 ---
 
 # Azure facilities, premises, and physical security
+This article describes what Microsoft does to secure the Azure infrastructure.
+
+## Datacenter infrastructure
 Azure is composed of a [globally distributed datacenter infrastructure](https://azure.microsoft.com/global-infrastructure/), supporting thousands of online services and spanning more than 100 highly secure facilities worldwide.
 
-The infrastructure is designed to bring applications closer to users around the world, preserving data residency, and offering comprehensive compliance and resiliency options for customers. Azure has 52 regions worldwide, and is available in 140 countries.
+The infrastructure is designed to bring applications closer to users around the world, preserving data residency, and offering comprehensive compliance and resiliency options for customers. Azure has 52 regions worldwide, and is available in 140 countries/regions.
 
 A region is a set of datacenters that is interconnected via a massive and resilient network. The network includes content distribution, load balancing, redundancy, and encryption by default. With more global regions than any other cloud provider, Azure gives you the flexibility to deploy applications where you need them.
 
@@ -64,9 +67,9 @@ Microsoft uses best practice procedures and a wiping solution that is [NIST 800-
 Upon a system's end-of-life, Microsoft operational personnel follow rigorous data handling and hardware disposal procedures to assure that hardware containing your data is not made available to untrusted parties. We use a secure erase approach for hard drives that support it. For hard drives that can’t be wiped, we use a destruction process that destroys the drive and renders the recovery of information impossible. This destruction process can be to disintegrate, shred, pulverize, or incinerate. We determine the means of disposal according to the asset type. We retain records of the destruction. All Azure services use approved media storage and disposal management services.
 
 ## Compliance
-We design and manage the Azure infrastructure to meet a broad set of international and industry-specific compliance standards, such as ISO 27001, HIPAA, FedRAMP, SOC 1, and SOC 2. We also meet country-specific standards, including Australia IRAP, UK G-Cloud, and Singapore MTCS. Rigorous third-party audits, such as those done by the British Standards Institute, verify adherence to the strict security controls these standards mandate.
+We design and manage the Azure infrastructure to meet a broad set of international and industry-specific compliance standards, such as ISO 27001, HIPAA, FedRAMP, SOC 1, and SOC 2. We also meet country- or region-specific standards, including Australia IRAP, UK G-Cloud, and Singapore MTCS. Rigorous third-party audits, such as those done by the British Standards Institute, verify adherence to the strict security controls these standards mandate.
 
-For a full list of compliance standards that Azure adheres to, see the [Compliance offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
+For a full list of compliance standards that Azure adheres to, see the [Compliance offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## Next steps
 To learn more about what Microsoft does to help secure the Azure infrastructure, see:

@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein, carlr
 manager: craigg
-ms.date: 02/18/2019
+ms.date: 03/25/2019
 ---
 # Getting started with Azure SQL Database managed instance
 
@@ -59,9 +59,10 @@ If you already have a VNet and subnet where you would like to deploy your manage
 
  If you have not created the network environment as described in the previous step, the Azure portal can do it for you – the only drawback is the fact that it configures it with some default parameters that you cannot change later. As an alternative you can use:
 
-- [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)
+- [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
 - [PowerShell with Resource Manager template](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
 - [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
+- [Resource Manager Template](sql-database-single-database-get-started-template.md)
 
 ## Migrating to a managed instance with minimal downtime
 

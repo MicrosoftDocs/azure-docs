@@ -1,9 +1,9 @@
 ---
-title: Azure database security best practices| Microsoft Docs
+title: Database security best practices - Microsoft Azure
 description: This article provides a set of best practices for Azure database security.
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 
@@ -13,23 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
-ms.author: tomsh
+ms.date: 05/06/2019
+ms.author: terrylan
 ---
 
 # Azure database security best practices
+This article describes best practices for database security.
+
+The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Opinions and technologies change over time and this article is updated on a regular basis to reflect those changes.
+
+## Secure databases
 Security is a top concern for managing databases, and it has always been a priority for [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Your databases can be tightly secured to help satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1. A current list of security compliance certifications is available at the [Microsoft Trust Center site](https://azure.microsoft.com/support/trust-center/services/). You also can choose to place your databases in specific Azure datacenters based on regulatory requirements.
-
-In this article, we discuss a collection of Azure database security best practices. These best practices are derived from our experience with Azure database security and the experiences of customers like yourself.
-
-For each best practice, we explain:
-
--	What the best practice is
--	Why you want to enable that best practice
--	What might be the result if you fail to enable the best practice
--	How you can learn to enable the best practice
-
-This Azure Database Security Best Practices article is based on a consensus opinion and Azure platform capabilities and feature sets as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
 
 ## Use firewall rules to restrict database access
 Microsoft Azure SQL Database provides a relational database service for Azure and other internet-based applications. To provide access security, SQL Database controls access with:
@@ -56,7 +50,7 @@ For more information about firewall rules in SQL Database, see [SQL Database fir
 ## Enable database authentication
 SQL Database supports two types of authentication, SQL Server authentication and Azure AD authentication.
 
-### *SQL Server Authentication*
+### *SQL Server authentication*
 
 Benefits include the following:
 
@@ -167,6 +161,10 @@ Enabling these capabilities helps you:
 - Detect and respond to potential threats.
 
 In addition, Threat Detection integrates alerts with Azure Security Center for a central view of the security state of all of your Azure resources.
+
+## Enable Feature restrictions
+
+The data contained in your databases can be exposed to attackers using attack vectors that leverage database errors and query execution times. Azure SQL Database provides a number of feature restriction mechanisms to protect your database. To learn more, see [SQL Database Feature Restrictions](../sql-database/sql-database-feature-restrictions.md).
 
 ## Next steps
 See [Azure security best practices and patterns](security-best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.

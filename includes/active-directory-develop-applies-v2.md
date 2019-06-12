@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/26/2018
-ms.author: andret
+ms.date: 04/12/2019
+ms.author: celested
 ms.custom: include file 
 
 ---
 
 |   |
 |---|
-| **Applies to:**<br><ul><li>Azure AD v2.0 endpoint</ul> |
+| **Applies to:**<br><ul><li>Microsoft identity platform endpoint</ul> |
 |   |

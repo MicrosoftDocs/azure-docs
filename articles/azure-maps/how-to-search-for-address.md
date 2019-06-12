@@ -2,18 +2,25 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: How to search for an address using the Azure Maps Search service  | Microsoft Docs 
 description: Learn how to search for an address using the Azure Maps Search service
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ---
 
 # Find an address using the Azure Maps search service
 
 The Maps search service is a set of RESTful APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the search can be used as parameters in other Maps services like route and traffic flow.
+
+In this article you will learn, how to:
+
+* Search for an address using [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Search for an address along with properties and coordinates
+* Make a [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to search for a street address
+* Search for a cross street using [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## Prerequisites
 
@@ -57,7 +64,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
     The ambiguous query string of "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) results with categories falling in "pizza" and "restaurant". Each result returns a street address, latitude / longitude values, view port, and entry points for the location.
   
-    The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
+    The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries/regions for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
 
 5. Add the following Key / Value pair to the **Params** section and click **Send**:
 

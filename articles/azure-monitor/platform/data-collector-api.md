@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/02/2019
 ms.author: bwren
 ---
 
@@ -56,7 +56,8 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 | Authorization |The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
 | Log-Type |Specify the record type of the data that is being submitted. The size limit for this parameter is 100 characters. |
 | x-ms-date |The date that the request was processed, in RFC 1123 format. |
-| time-generated-field |The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| x-ms-AzureResourceId | Resource ID of the Azure resource the data should be associated with. This populates the [_ResourceId](log-standard-properties.md#_resourceid) property and allows the data to be included in [resource-centric](manage-access.md#access-modes) queries. If this field isn't specified, the data will not be included in resource-centric queries. |
+| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
 
 ## Authorization
 Any request to the Azure Monitor HTTP Data Collector API must include an authorization header. To authenticate a request, you must sign the request with either the primary or the secondary key for the workspace that is making the request. Then, pass that signature as part of the request.   
@@ -161,6 +162,11 @@ But, if you then made this next submission, Azure Monitor would create the new p
 If you then submitted the following entry, before the record type was created, Azure Monitor would create a record with three properties, **number_s**, **boolean_s**, and **string_s**. In this entry, each of the initial values is formatted as a string:
 
 ![Sample record 4](media/data-collector-api/record-04.png)
+
+## Reserved properties
+The following properties are reserved and should not be used in a custom record type. You will receive an error if your payload includes any of these property names.
+
+- tenant
 
 ## Data limits
 There are some constraints around the data posted to the Azure Monitor Data collection API.
@@ -465,7 +471,7 @@ While the Data Collector API should cover most of your needs to collect free-for
 
 | Alternative | Description | Best suited for |
 |---|---|---|
-| [Custom events](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native SDK-based ingestion in Application Insights | Application Insights, typically instrumented through an SDK within your application, offers the ability for you to send custom data through Custom Events. | <ul><li> Data that is generated within your application, but not picked up by SDK through one of the default data types (ie: requests, dependencies, exceptions, etc).</li><li> Data that is most often correlated to other application data in Application Insights </li></ul> |
+| [Custom events](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native SDK-based ingestion in Application Insights | Application Insights, typically instrumented through an SDK within your application, offers the ability for you to send custom data through Custom Events. | <ul><li> Data that is generated within your application, but not picked up by SDK through one of the default data types (ie: requests, dependencies, exceptions, etc).</li><li> Data that is most often correlated to other application data in Application Insights </li></ul> |
 | [Data Collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data formatted in a JSON object can be sent here. Once sent, it will be processed, and available in Logs to be correlated with other data in Logs or against other Application Insights data. <br/><br/> It is fairly easy to upload the data as files to an Azure Blob blob, from where these files will be processed and uploaded to Log Analytics. Please see [this](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) article for a sample implementation of such a pipeline. | <ul><li> Data that is not necessarily generated within an application instrumented within Application Insights.</li><li> Examples include lookup and fact tables, reference data, pre-aggregated statistics, etc. </li><li> Intended for data that will be cross-referenced against other Azure Monitor data (for example, Application Insights, other Logs data types, Security Center, Azure Monitor for Containers/VMs, etc). </li></ul> |
 | [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) is the data platform that powers Application Insights Analytics and Azure Monitor Logs. Now Generally Availabile ("GA"), using the data platform in its raw form provides you complete flexibility (but requiring the overhead of management) over the cluster (RBAC, retention rate, schema, etc). ADX provides many [ingestion options](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) including [CSV, TSV, and JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) files. | <ul><li> Data that will not be correlated to any other data under Application Insights or Logs. </li><li> Data requiring advanced ingestion or processing capabilities not today available in Azure Monitor Logs. </li></ul> |
 

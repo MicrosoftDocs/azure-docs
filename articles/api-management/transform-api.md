@@ -77,7 +77,7 @@ The original response should look like this:
 
    ![Policies](./media/transform-api/transform-api.png)
 
-7. Modify your **<outbound>** code to look like this:
+7. Modify your **\<outbound>** code to look like this:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />

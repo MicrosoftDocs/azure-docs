@@ -3,7 +3,7 @@ title: Configure rules and actions in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 01/28/2019
+ms.date: 06/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Tutorial: Configure rules and actions for your device in Azure IoT Central (New UI design)
+# Tutorial: Configure rules and actions for your device in Azure IoT Central
 
 *This article applies to operators, builders, and administrators.*
 

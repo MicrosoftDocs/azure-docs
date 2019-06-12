@@ -21,7 +21,7 @@ Many organizations find their users create passwords using common local words su
 
 ## Add to the custom list
 
-Configuring the custom banned password list requires an Azure Active Directory Premium P1 or P2 license. For more detailed information about Azure Active Directory licensing, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/).|
+Configuring the custom banned password list requires an Azure Active Directory Premium P1 or P2 license. For more detailed information about Azure Active Directory licensing, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password protection**.
 1. Set the option **Enforce custom list**, to **Yes**.

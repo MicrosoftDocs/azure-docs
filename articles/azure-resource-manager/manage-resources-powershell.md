@@ -94,8 +94,6 @@ $storageAccount = Get-AzResource -ResourceGroupName $srcResourceGroupName -Resou
 Move-AzResource -DestinationResourceGroupName $destResourceGroupName -ResourceId $storageAccount.ResourceId
 ```
 
-To go through a tutorial, see [Tutorial: Move Azure resources to another resource group or subscription](./resource-manager-tutorial-move-resources.md). 
-
 For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
 ## Lock resources

@@ -4,7 +4,7 @@ description: Upgrade the Service Fabric code and/or configuration that runs a Se
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db

@@ -1,13 +1,13 @@
 ---
-title: Use PostgreSQL extensions in Azure Database for PostgreSQL
-description: Describes the ability to extend the functionality of your database using extensions in Azure Database for PostgreSQL.
+title: Use PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
+description: Describes the ability to extend the functionality of your database using extensions in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 5/6/2019
 ---
-# PostgreSQL extensions in Azure Database for PostgreSQL
+# PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function as do built-in features. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## How to use PostgreSQL extensions
@@ -43,6 +43,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Provides functions that manipulate whole tables, including crosstab. |
 > | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Generates universally unique identifiers (UUIDs). |
+> | [orafce](https://github.com/orafce/orafce) | Provides a subset of functions and packages emulated from commercial databases. |
 
 ### Full-text search extensions
 
@@ -66,7 +67,6 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | **Extension** | **Description** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL loadable procedural language. |
-> | [plv8](https://plv8.github.io/) | A Javascript language extension for PostgreSQL that can be used for stored procedures, triggers, etc. |
 
 ### Miscellaneous extensions
 
@@ -88,7 +88,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** |
 > |---|---|
-> | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. |
+> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. |
 > | address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Used to support geocoding address normalization step. |
 > | [pgrouting](https://pgrouting.org/) | Extends the PostGIS / PostgreSQL geospatial database to provide geospatial routing functionality. |
 

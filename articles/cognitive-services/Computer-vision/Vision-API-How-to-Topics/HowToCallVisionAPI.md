@@ -43,8 +43,7 @@ Features are broken down on:
 
 Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header.
 
-To obtain a subscription key, see [How to Obtain Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md
-).
+To obtain a free trial key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 1. Passing the subscription key through a query string, see below as a Computer Vision API example:
 
@@ -163,13 +162,13 @@ Here's an example:
 
 Field | Type | Content
 ------|------|------|
-Tags  | object | Top-level object for array of tags
-tags[].Name | string	| Keyword from tags classifier
-tags[].Score	| number	| Confidence score, between 0 and 1.
-description	 | object	| Top-level object for a description.
-description.tags[] |	string	| List of tags.  If there insufficient confidence in the ability to produce a caption, the tags maybe the only information available to the caller.
-description.captions[].text	| string	| A phrase describing the image.
-description.captions[].confidence	| number	| Confidence for the phrase.
+Tags  | `object` | Top-level object for array of tags
+tags[].Name | `string`	| Keyword from tags classifier
+tags[].Score	| `number`	| Confidence score, between 0 and 1.
+description	 | `object`	| Top-level object for a description.
+description.tags[] |	`string`	| List of tags.  If there insufficient confidence in the ability to produce a caption, the tags maybe the only information available to the caller.
+description.captions[].text	| `string`	| A phrase describing the image.
+description.captions[].confidence	| `number`	| Confidence for the phrase.
 
 ## Retrieve and understand the JSON output of domain-specific models
 
@@ -225,10 +224,10 @@ The categories field is a list of one or more of the [86-categories](../Category
 
 Field	| Type	| Content
 ------|------|------|
-categories | object	| Top-level object
-categories[].name	 | string	| Name from 86-category taxonomy
-categories[].score	| number	| Confidence score, between 0 and 1
-categories[].detail	 | object?      | Optional detail object
+categories | `object`	| Top-level object
+categories[].name	 | `string`	| Name from 86-category taxonomy
+categories[].score	| `number`	| Confidence score, between 0 and 1
+categories[].detail	 | `object?`      | Optional detail object
 
 Note that if multiple categories match (for example, 86-category classifier returns a score for both people_ and people_young when model=celebrities), the details are attached to the most general level match (people_ in that example.)
 

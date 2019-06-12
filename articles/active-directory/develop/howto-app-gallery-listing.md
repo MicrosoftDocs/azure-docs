@@ -3,8 +3,8 @@ title: List your application in the Azure Active Directory application gallery |
 description: Learn how to list an application that supports single sign-on in the Azure Active Directory app gallery
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2019
-ms.author: celested
+ms.date: 04/08/2019
+ms.author: ryanwi
 ms.reviewer: elisol, bryanla
-ms.custom: aaddev
+ms.custom: "aaddev, seoapril2019"
 
 ms.collection: M365-identity-device-management
 ---
 
 # How to: List your application in the Azure Active Directory application gallery
+
+This article shows how to list an application in the Azure AD application gallery, implement single sign-on (SSO), and manage the listing.
 
 ## What is the Azure AD application gallery?
 

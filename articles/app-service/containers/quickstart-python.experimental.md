@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 03/28/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -167,13 +167,10 @@ The left menu provides different pages for configuring your app.
 The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app . You can also create production Python apps using a custom container instead.
 
 > [!div class="nextstepaction"]
-> [Python with PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure a custom startup command](how-to-configure-python.md#customize-startup-command)
+> [Configure Python app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Troubleshooting](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [Use custom images](tutorial-custom-docker-image.md)
+> [Tutorial: Deploy from private container repository](tutorial-custom-docker-image.md)

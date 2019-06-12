@@ -3,7 +3,7 @@ title: Troubleshooting hybrid Azure Active Directory joined down-level devices |
 description: Troubleshooting hybrid Azure Active Directory joined down-level devices. 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: jairoc
 
 #Customer intent: As an IT admin, I want to fix issues with my hybrid Azure AD joined devices so that I can my users can use this feature.
@@ -85,7 +85,7 @@ If the device was not hybrid Azure AD joined, you can attempt to do hybrid Azure
     
   - Autoworkplace.exe is unable to silently authenticate with Azure AD or AD FS. This could be caused by missing or misconfigured AD FS (for federated domains) or missing or misconfigured Azure AD Seamless Single Sign-On (for managed domains) or network issues. 
     
-    - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMUTLIAUTHN is not configured at the AD FS server. 
+    - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMULTIAUTHN is not configured at the AD FS server. 
      
     - Another possibility is that home realm discovery (HRD) page is waiting for user interaction, which prevents **autoworkplace.exe** from silently requesting a token.
      

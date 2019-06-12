@@ -19,6 +19,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 # Reset a user's password using Azure Active Directory
+
 As an administrator, you can reset a user's password if the password is forgotten, if the user gets locked out of a device, or if the user never received a password.
 
 >[!Note]
@@ -29,7 +30,7 @@ As an administrator, you can reset a user's password if the password is forgotte
 
 ## To reset a password
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator, user administrator, or password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a user administrator, or password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
 
 2. Select **Azure Active Directory**, select **Users**, search for and select the user that needs the reset, and then select **Reset Password**.
 
@@ -47,6 +48,7 @@ As an administrator, you can reset a user's password if the password is forgotte
     >The temporary password never expires. The next time the user signs in, the password will still work, regardless how much time has passed since the temporary password was generated.
 
 ## Next steps
+
 After you've reset your user's password, you can perform the following basic processes:
 
 - [Add or delete users](add-users-azure-active-directory.md)

@@ -3,7 +3,7 @@ title: Service concepts in Azure IoT Hub Device Provisioning Service | Microsoft
 description: Describes service provisioning concepts specific to devices with the Device Provisioning Service and IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps

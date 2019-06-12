@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/25/2019
+ms.date: 04/12/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -85,36 +85,22 @@ The Data Box Edge solution comprises of Data Box Edge resource, Data Box Edge ph
 Data Box Edge physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
 - **Resource availability** - For this release, the Data Box Edge resource is available in the following regions:
-    - **United States** - West US2 and East US
+    - **United States** - East US
     - **European Union** - West Europe
     - **Asia Pacific** - SE Asia
-
+    
+    Data Box Edge can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. 
 
     The regions where the storage accounts store Data Box data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance. 
 
 
-## Sign up
-
-Data Box Edge is in preview and you need to sign up. Perform the following steps to sign up for Data Box Gateway:
-
-1. Sign into the Azure portal at: [https://aka.ms/databox-edge](https://aka.ms/databox-edge).
-
-2. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the Data Box Edge option, click **Sign up**.
-
-    ![The Data Box Edge sign up 3](media/data-box-edge-overview/data-box-edge-sign-up3.png)
-
-3.  Answer the questions regarding data residence country, time-frame, target Azure service for data transfer, network bandwidth, and data transfer frequency. Review **Privacy and terms** and select the checkbox against **Microsoft can use your email address to contact you**.
-
-    ![The Data Box Edge sign up 4](media/data-box-edge-overview/data-box-edge-sign-up4.png)
-
-4. Once you are signed up and enabled for preview, you can order a Data Box Edge.
-
 ## Next steps
 
-- Review the [Data Box Edge system requirements](https://aka.ms/dbe-docs).
-- Understand the [Data Box Edge limits](https://aka.ms/dbe-docs).
-- Deploy [Azure Data Box Edge](https://aka.ms/dbe-docs) in Azure portal.
+- Review the [Data Box Edge system requirements](data-box-edge-system-requirements.md).
+- Understand the [Data Box Edge limits](data-box-edge-limits.md).
+- Deploy [Azure Data Box Edge](data-box-edge-deploy-prep.md) in Azure portal.
 
 
 

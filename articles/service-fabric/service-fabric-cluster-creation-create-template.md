@@ -4,7 +4,7 @@ description: Learn how to create a Resource Manager template for a Service Fabri
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -23,6 +23,9 @@ An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a networ
 Cluster security is configured when the cluster is first set up and cannot be changed later. Before setting up a cluster, read [Service Fabric cluster security scenarios][service-fabric-cluster-security]. In Azure, Service Fabric uses x509 certificate to secure your cluster and its endpoints, authenticate clients, and encrypt data. Azure Active Directory is also recommended to secure access to management endpoints. Azure AD tenants and users must be created before creating the cluster.  For more information, read [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 Before deploying a production cluster to run production workloads, be sure to first read the [Production readiness checklist](service-fabric-production-readiness-checklist.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Create the Resource Manager template
 Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.
@@ -236,14 +239,14 @@ The RM modules do not have the ability to generate the Azure AD configuration fo
 ## Test your template
 Use the following PowerShell command to test your Resource Manager template with a parameter file:
 
-```PowerShell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+```powershell
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 In case you run into issues and get cryptic messages, then use "-Debug" as an option.
 
-```PowerShell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
+```powershell
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
 The following diagram illustrates where your key vault and Azure AD configuration fit into your Resource Manager template.

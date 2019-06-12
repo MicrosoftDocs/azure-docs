@@ -4,7 +4,7 @@ description: Understand the image store connection string
 services: service-fabric
 documentationcenter: .net
 author: alexwun
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030

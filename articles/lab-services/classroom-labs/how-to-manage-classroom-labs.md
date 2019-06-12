@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 06/07/2019
 ms.author: spelluru
 
 ---
@@ -24,7 +24,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
 ## Create a classroom lab
 
-1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
+1. Navigate to [Azure Lab Services website](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
 2. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
@@ -33,10 +33,10 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. On the **Select virtual machine specifications** page, do the following steps:
-    1. Select a **size** for virtual machines (VMs) created in the lab. 
-    2. Select the **region** in which you want the VMs to be created. 
-    3. Select the **VM image** to be used to create VMs in the lab. 
-    4. Select **Next**.
+    1. Select a **size** for virtual machines (VMs) created in the lab. Currently, **small**, **medium**, **medium (virtualization)**, **large**, and **GPU** sizes are allowed. For details, see the [VM sizes](#vm-sizes) section.
+    1. Select the **region** in which you want the VMs to be created. 
+    1. Select the **VM image** to be used to create VMs in the lab. If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
+    1. Select **Next**.
 
         ![Specify VM specifications](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
 5. On the **Set credentials** page, specify default credentials for all VMs in the lab. 
@@ -56,7 +56,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. The following steps are optional steps in this tutorial: 
     1. Start the template VM by selecting **Start**.
-    2. Connect to the template VM by selecting **Connect**. 
+    2. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
     3. Install and configure software on your template VM. 
     4. **Stop** the VM.  
     5. Enter a **description** for the template
@@ -84,6 +84,15 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+### VM sizes  
+
+| Size | Cores | RAM | Description | 
+| ---- | ----- | --- | ----------- | 
+| Small | 2 | 3.5 GB | This size is best suited for command line, opening web browser, low traffic web servers, small to medium databases. |
+| Medium | 4 | 7 GB | This size is best suited for relational databases, in-memory caching, and analytics | 
+| Medium (Nested virtualization) | 4 | 16 GB | This size is best suited for relational databases, in-memory caching, and analytics. This size also supports nested virtualization. <p>This size can be used in scenarios where each student need multiple VMs. Teachers can use nested virtualization to set up a few small size nested virtual machines inside the virtual machine. </p> |
+| Large | 8 | 32 GB | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size also supports nested virtualization |  
+| GPU | 12 | 112 GB | This size is best suited for compute-intensive, graphics-intensive, and visualization workloads | 
 
 ## View all classroom labs
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).

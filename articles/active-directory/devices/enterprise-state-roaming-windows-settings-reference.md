@@ -4,7 +4,7 @@ description: A complete list of all the settings that will be roamed or backed u
 services: active-directory
 keywords: enterprise state roaming, windows cloud
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: curtand
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
-ms.author: markvi
+ms.author: joflore
 
 ms.collection: M365-identity-device-management
 ---

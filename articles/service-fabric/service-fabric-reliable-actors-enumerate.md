@@ -4,7 +4,7 @@ description: Learn how to enumerate Reliable Actors and their metadata.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb

@@ -1,7 +1,6 @@
 ---
 title: 'Azure Toolkit for Eclipse: Create Scala applications for HDInsight Spark '
 description: Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster, directly from the Eclipse IDE.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -41,7 +40,7 @@ When you open Eclipse, HDInsight Tool automatically detects whether you installe
 
 ![Automatic installation of the Scala plug-in](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
-User can either [sign in to Azure subscription](#Sign-in-to-your-Azure-subscription), or [link a HDInsight cluster](#Link-a-cluster) using Ambari username/password or domain joined credential to start. 
+User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscription), or [link a HDInsight cluster](#link-a-cluster) using Ambari username/password or domain joined credential to start. 
 
 ## Sign in to your Azure subscription
 1. Start the Eclipse IDE and open Azure Explorer. On the **Window** menu, select **Show View**, and then select **Other**. In the dialog box that opens, expand **Azure**, select **Azure Explorer**, and then select **OK**.
@@ -220,6 +219,60 @@ To resolve this error, you need [download the executable](https://public-repo-1.
 1. Right-click the **LogQuery** application, point to **Run As**, and then select **1 Scala Application**. Output like this appears on the **Console** tab:
    
    ![Spark application local run result](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
+
+## Reader-only role
+When users submit job to a cluster with reader-only role permission, Ambari credentials is required.
+
+### Link cluster from context menu
+
+1. Sign in with reader-only role account.
+       
+2. From **Azure Explorer**, expand **HDInsight** to view HDInsight clusters that are in your subscription. The clusters marked **"Role:Reader"** only have reader-only role permission.
+
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
+
+3. Right click the cluster with reader-only role permission. Select **Link this cluster** from context menu to link cluster. Enter the Ambari username and password.
+
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
+
+4. If the cluster is linked successfully, HDInsight will be refreshed.
+   The stage of the cluster will become linked.
+  
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
+
+
+
+### Link cluster by expanding Jobs node
+
+1. Click **Jobs** node, **Cluster Job Access Denied** window pops up.
+   
+2. Click **Link this cluster** to link cluster.
+   
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+
+### Link cluster from Spark Submission window
+
+1. Create an HDInsight Project. 
+
+2. Right click the package. Then select **Submit Spark Application to HDInsight**.
+   
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
+
+3. Select a cluster which has reader-only role permission for **Cluster Name**. Warning message shows out. You can click **Link this cluster** to link cluster.
+   
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
+   
+### View Storage Accounts
+
+* For clusters with reader-only role permission, click **Storage Accounts** node, **Storage Access Denied** window pops up. 
+     
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
+
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
+
+* For linked clusters, click **Storage Accounts** node, **Storage Access Denied** window pops up. 
+     
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
 
 ## Known problems
 When link a cluster, I would suggest you to provide credential of storage.

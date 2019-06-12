@@ -3,8 +3,8 @@ title: An assigned application is not appearing on the access panel | Microsoft 
 description: Troubleshoot why an application is not appearing in the Access Panel 
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2018
-ms.author: celested
+ms.author: mimart
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
 ---

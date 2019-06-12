@@ -11,7 +11,7 @@ ms.author: xshi
 
 # Use Cloud Explorer for Visual Studio to send and receive messages between your device and IoT Hub
 
-![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
+![End-to-end diagram](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) is a useful Visual Studio extension that enables you to view your Azure resources, inspect their properties and perform key developer actions from within Visual Studio. This article focuses on how to use Cloud Explorer to send and receive messages between your device and your IoT Hub.
 
@@ -43,10 +43,14 @@ The Cloud Explorer component from Visual Studio Installer only supports monitori
 
     ![Click Account Management](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-1. Click **Manage Accounts** in Cloud Explorer.
-1. Click **Add an account...** in the new window to sign in to Azure for the first time.
-1. After you sign in, your Azure subscription list will be shown. Select the Azure subscriptions you want to view and click **Apply**.
-1. Expand **Your subscription** > **IoT Hubs** > **Your IoT Hub**, the device list will be shown under your IoT Hub node.
+
+2. Click **Manage Accounts** in Cloud Explorer.
+
+3. Click **Add an account...** in the new window to sign in to Azure for the first time.
+
+4. After you sign in, your Azure subscription list will be shown. Select the Azure subscriptions you want to view and click **Apply**.
+
+5. Expand **Your subscription** > **IoT Hubs** > **Your IoT Hub**, the device list will be shown under your IoT Hub node.
 
     ![Device List](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
 
@@ -58,11 +62,11 @@ To monitor messages that are sent from your device to your IoT Hub, follow these
 
     ![Start Monitoring D2C Message](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message.png)
 
-1. The monitored messages will be shown in the **IoT Hub** output pane.
+2. The monitored messages will be shown in the **IoT Hub** output pane.
 
     ![Monitoring D2C Message Result](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result.png)
 
-1. To stop monitoring, right-click on any IoT Hub or device and select **Stop Monitoring D2C Message**.
+3. To stop monitoring, right-click on any IoT Hub or device and select **Stop Monitoring D2C Message**.
 
 ## Send cloud-to-device messages
 
@@ -72,8 +76,9 @@ To send a message from your IoT Hub to your device, follow these steps:
 
     ![Send C2D Message](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
 
-1. Enter the message in input box.
-1. Results will be shown in the **IoT Hub** output pane.
+2. Enter the message in input box.
+
+3. Results will be shown in the **IoT Hub** output pane.
 
     ![Send C2D Message Result](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result.png)
 

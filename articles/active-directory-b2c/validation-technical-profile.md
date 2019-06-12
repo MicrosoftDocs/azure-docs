@@ -2,14 +2,14 @@
 title: Define a validation technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
 description: Define an Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -61,8 +61,8 @@ The **Precondition** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Type | Yes | The type of check or query to perform for the precondition. Either `ClaimsExist` is specified to ensure that actions should be performed if the specified claims exist in the user's current claim set, or `ClaimEquals` is specified that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
-| ExecuteActionsIf | Yes | Indicates whether the actions in the precondition should be performed if the test is true or false. |
+| `Type` | Yes | The type of check or query to perform for the precondition. Either `ClaimsExist` is specified to ensure that actions should be performed if the specified claims exist in the user's current claim set, or `ClaimEquals` is specified that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
+| `ExecuteActionsIf` | Yes | Indicates whether the actions in the precondition should be performed if the test is true or false. |
 
 The **Precondition** element contains following elements:
 

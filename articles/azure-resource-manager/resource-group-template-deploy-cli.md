@@ -11,7 +11,7 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 03/28/2019
 ms.author: tomfitz
 
 ---
@@ -38,6 +38,8 @@ To deploy to a **subscription**, use [az deployment create](/cli/azure/deploymen
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
+
+Currently, management group deployments are only supported through the REST API. See [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).
 
 The examples in this article use resource group deployments. For more information about subscription deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
@@ -73,7 +75,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
 To deploy an external template, use the **template-uri** parameter. Use the URI in the example to deploy the sample template from GitHub.
-   
+
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
 az group deployment create \
@@ -98,7 +100,12 @@ az group deployment create --resource-group examplegroup \
 
 ## Redeploy when deployment fails
 
-When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use the `--rollback-on-error` parameter in the deployment command.
+This feature is also known as *Rollback on error*. When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use the `--rollback-on-error` parameter in the deployment command. This functionality is useful if you've got a known good state for your infrastructure deployment and want to revert to this state. There are a number of caveats and restrictions:
+
+- The redeployment is run exactly as it was run previously with the same parameters. You can't change the parameters.
+- The previous deployment is run using the [complete mode](./deployment-modes.md#complete-mode). Any resources not included in the previous deployment are deleted, and any resource configurations are set to their previous state. Make sure you fully understand the [deployment modes](./deployment-modes.md).
+- The redeployment only affects the resources, any data changes aren't affected.
+- This feature is only supported on Resource Group deployments, not subscription level deployments. For more information about subscription level deployment, see [Create resource groups and resources at the subscription level](./deploy-to-subscription.md).
 
 To use this option, your deployments must have unique names so they can be identified in the history. If you don't have unique names, the current failed deployment might overwrite the previously successful deployment in the history. You can only use this option with root level deployments. Deployments from a nested template aren't available for redeployment.
 
@@ -257,9 +264,10 @@ If your template has a syntax error, the command returns an error indicating it 
 ```
 
 ## Next steps
-* The examples in this article deploy resources to a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
-* To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
-* To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
-* For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
-* To safely roll out your service to more than one region, see [Azure Deployment Manager](deployment-manager-overview.md).
+
+- The examples in this article deploy resources to a resource group in your default subscription. To use a different subscription, see [Manage multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
+- To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
+- To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
+- For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](resource-manager-cli-sas-token.md).
+- To safely roll out your service to more than one region, see [Azure Deployment Manager](deployment-manager-overview.md).

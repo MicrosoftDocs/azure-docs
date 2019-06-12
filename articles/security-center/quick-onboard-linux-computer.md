@@ -54,7 +54,7 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 
    ![Install the agent][5]
 
-The logs for the Security Center Agent for Linux can be found at: */var/opt/microsoft/omsagent/<workspace id>/log/*
+The logs for the Security Center Agent for Linux can be found at: */var/opt/microsoft/omsagent/\<workspace id>/log/*
 
   ![Logs for agent][6]
 

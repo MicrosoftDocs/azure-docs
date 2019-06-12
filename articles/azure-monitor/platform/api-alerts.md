@@ -89,9 +89,9 @@ All actions have the properties in the following table.  Different types of aler
 
 | Property | Description |
 |:--- |:--- |
-| Type |Type of the action.  Currently the possible values are Alert and Webhook. |
-| Name |Display name for the alert. |
-| Version |The API version being used.  Currently, this should always be set to 1. |
+| `Type` |Type of the action.  Currently the possible values are Alert and Webhook. |
+| `Name` |Display name for the alert. |
+| `Version` |The API version being used.  Currently, this should always be set to 1. |
 
 ### Retrieving actions
 
@@ -149,8 +149,8 @@ Thresholds have the properties in the following table.
 
 | Property | Description |
 |:--- |:--- |
-| Operator |Operator for the threshold comparison. <br> gt = Greater Than <br> lt = Less Than |
-| Value |Value for the threshold. |
+| `Operator` |Operator for the threshold comparison. <br> gt = Greater Than <br> lt = Less Than |
+| `Value` |Value for the threshold. |
 
 For example, consider an event query with an Interval of 15 minutes, a Timespan of 30 minutes, and a Threshold of greater than 10. In this case, the query would be run every 15 minutes, and an alert would be triggered if it returned 10 events that were created over a 30-minute span.
 
@@ -182,9 +182,9 @@ Log Analytics allows you to classify your alerts into categories, to allow easie
 
 |Log Analytics Severity Level  |Azure Alerts Severity Level  |
 |---------|---------|
-|critical |Sev 0|
-|warning |Sev 1|
-|informational | Sev 2|
+|`critical` |Sev 0|
+|`warning` |Sev 1|
+|`informational` | Sev 2|
 
 Following is a sample response for an action with only a threshold and severity. 
 
@@ -279,7 +279,7 @@ Use the Put method with an existing action ID to modify an Action Group associat
 By default actions, follow standard template and format for notifications. But user can customize some actions, even if they are controlled by Action Groups. Currently, customization is possible for Email Subject and Webhook Payload.
 
 ##### Customize E-Mail Subject for Action Group
-By default, the email subject for alerts is: Alert Notification <AlertName> for <WorkspaceName>. But this can be customized, so that you can specific words or tags - to allow you to easily employ filter rules in your Inbox. 
+By default, the email subject for alerts is: Alert Notification `<AlertName>` for `<WorkspaceName>`. But this can be customized, so that you can specific words or tags - to allow you to easily employ filter rules in your Inbox. 
 The customize email header details need to send along with ActionGroup details, as in sample below.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",

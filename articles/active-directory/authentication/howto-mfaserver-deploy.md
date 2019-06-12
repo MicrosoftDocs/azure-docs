@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 05/20/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -24,6 +24,9 @@ ms.collection: M365-identity-device-management
 Now that we have determined to use on-premises Multi-Factor Authentication Server, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the MFA server installed and are looking to upgrade, see [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md). If you're looking for information on installing just the web service, see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
 
 ## Plan your deployment
+
+> [!WARNING]
+> Starting in March of 2019 MFA Server downloads will only be available to paid tenants. Free/trial tenants will no longer be able to download or generate and use activation credentials.
 
 Before you download the Azure Multi-Factor Authentication Server, think about what your load and high availability requirements are. Use this information to decide how and where to deploy.
 
@@ -87,6 +90,9 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 
 ## Download the MFA Server
 
+> [!WARNING]
+> Starting in March of 2019 MFA Server downloads will only be available to paid tenants. Free/trial tenants will no longer be able to download or generate and use activation credentials.
+
 Follow these steps to download the Azure Multi-Factor Authentication Server from the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
@@ -99,9 +105,6 @@ Follow these steps to download the Azure Multi-Factor Authentication Server from
 5. Keep this page open as we will refer to it after running the installer.
 
 ## Install and configure the MFA Server
-
-> [!WARNING]
-> Starting in March of 2019 MFA Server downloads will only be available to paid tenants. Free/trial tenants will no longer be able to download or generate and use activation credentials.
 
 Now that you have downloaded the server you can install and configure it. Be sure that the server you are installing it on meets requirements listed in the planning section.
 

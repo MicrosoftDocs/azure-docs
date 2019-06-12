@@ -2,7 +2,6 @@
 title: Storm-starter examples on Apache Storm on HDInsight - Azure 
 description: Learn how to do big data analytics and process data in real-time using Apache Storm and the storm-starter examples on HDInsight.
 keywords: storm-starter, apache storm example
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -16,9 +15,6 @@ ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 Learn how to use [Apache Storm](https://storm.apache.org/) in HDInsight using the storm-starter examples.
 
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
-
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Prerequisites
 

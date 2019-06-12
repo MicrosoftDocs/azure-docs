@@ -45,7 +45,7 @@ ms.author: crdun
                 App.MobileService.CurrentUser = user;
    
                 // Consider adding a check to determine if the token is 
-                // expired, as shown in this post: http://aka.ms/jww5vp.
+                // expired, as shown in this post: https://aka.ms/jww5vp.
    
                 success = true;
                 message = string.Format("Cached credentials for user - {0}", user.UserId);

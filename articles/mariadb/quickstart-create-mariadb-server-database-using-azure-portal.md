@@ -6,10 +6,10 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/15/2019
 ---
 
-# Quickstart: Create an Azure Database for MariaDB server by using the Azure portal
+# Create an Azure Database for MariaDB server by using the Azure portal
 
 Azure Database for MariaDB is a managed service you can use to run, manage, and scale highly available MariaDB databases in the cloud. This quickstart shows you how to create an Azure Database for MariaDB server in about five minutes by using the Azure portal.  
 
@@ -27,7 +27,7 @@ To create an Azure Database for MariaDB server:
 
 1. Select the **Create a resource** button (+) in the upper left corner of the portal.
 
-2. In the search box, enter **Azure Database for MariaDB** to find the service.
+2. Select **Databases** > **Azure Database for MariaDB**. You can also type **MariaDB** in the search box to find the service.
 
    ![Azure Database for MariaDB option](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
@@ -46,7 +46,7 @@ To create an Azure Database for MariaDB server:
     Confirm password | *your choice*| Confirm the admin account password.
     Location | *the region closest to your users*| Choose the location that is closest to your users or to your other Azure applications.
     Version | *the latest version*| The latest version (unless you have specific requirements to use a different version).
-    Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (2 vCores)</li><li>**Storage** (5 GB)</li><li>**Backup Retention Period** (7 days)</li></ul><br>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
+    Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (4 vCores)</li><li>**Storage** (100 GB)</li><li>**Backup Retention Period** (7 days)</li></ul><br>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
   
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mariadb/) for more information.

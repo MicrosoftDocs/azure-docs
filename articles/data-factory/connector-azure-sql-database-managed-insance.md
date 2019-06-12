@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: jingwang
 
 ---
@@ -26,7 +26,7 @@ You can copy data from Azure SQL Database Managed Instance to any supported sink
 
 Specifically, this Azure SQL Database Managed Instance connector supports:
 
-- Copying data by using SQL or Windows authentication.
+- Copying data by using SQL authentication.
 - As a source, retrieving data by using a SQL query or stored procedure.
 - As a sink, appending data to a destination table or invoking a stored procedure with custom logic during copy.
 
@@ -51,9 +51,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SqlServer**. | Yes. |
-| connectionString |This property specifies the connectionString information that's needed to connect to the managed instance by using either SQL authentication or Windows authentication. For more information, see the following examples. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes. |
-| userName |This property specifies a user name if you use Windows authentication. An example is **domainname\\username**. |No. |
-| password |This property specifies a password for the user account you specified for the user name. Select **SecureString** to store the connectionString information securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No. |
+| connectionString |This property specifies the connectionString information that's needed to connect to the managed instance by using SQL authentication. For more information, see the following examples. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes. |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Provision the self-hosted integration runtime in the same virtual network as your managed instance. |Yes. |
 
 >[!TIP]
@@ -109,37 +107,11 @@ The following properties are supported for the Azure SQL Database Managed Instan
 }
 ```
 
-**Example 3: Use Windows authentication**
-
-```json
-{
-    "name": "AzureSqlMILinkedService",
-    "properties": {
-        "type": "SqlServer",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
-            },
-            "userName": "<domain\\username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
 ## Dataset properties
 
 For a full list of sections and properties available for use to define datasets, see the datasets article. This section provides a list of properties supported by the Azure SQL Database Managed Instance dataset.
 
-To copy data to and from Azure SQL Database Managed Instance, set the type property of the dataset to **SqlServerTable**. The following properties are supported:
+To copy data to and from Azure SQL Database Managed Instance, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -158,6 +130,7 @@ To copy data to and from Azure SQL Database Managed Instance, set the type prope
             "referenceName": "<Managed Instance linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -279,7 +252,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **SqlSink**. | Yes. |
-| writeBatchSize |This property inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are integers for the number of rows. |No (default: 10,000). |
+| writeBatchSize |Number of rows to inserts into the SQL table **per batch**.<br/>Allowed values are integers for the number of rows. By default, Data Factory dynamically determine the appropriate batch size based on the row size.  |No |
 | writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the time span. An example is “00:30:00,” which is 30 minutes. |No. |
 | preCopyScript |This property specifies a SQL query for the copy activity to execute before writing data into the managed instance. It's invoked only once per copy run. You can use this property to clean up preloaded data. |No. |
 | sqlWriterStoredProcedureName |This name is for the stored procedure that defines how to apply source data into the target table. Examples of procedures are to do upserts or transforms by using your own business logic. <br/><br/>This stored procedure is *invoked per batch*. To do an operation that runs only once and has nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. |No. |
@@ -435,9 +408,9 @@ When data is copied into Azure SQL Database Managed Instance, a stored procedure
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. It's typically used when an upsert (update + insert) or extra processing must be done before the final insertion of source data in the destination table. Extra processing can include tasks such as merging columns, looking up additional values, and insertion into multiple tables.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in the managed instance. The sample assumes that input data and the sink "Marketing" table each have three columns: ProfileID, State, and Category. Perform the upsert based on the ProfileID column, and apply for only a specific category.
+The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
 
-**Output dataset**
+**Output dataset:** the "tableName" should be the same table type parameter name in your stored procedure (see below stored procedure script).
 
 ```json
 {
@@ -456,7 +429,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 }
 ```
 
-Define the SqlSink section in a copy activity as follows:
+Define the **SQL sink** section in copy activity as follows.
 
 ```json
 "sink": {
@@ -471,7 +444,7 @@ Define the SqlSink section in a copy activity as follows:
 }
 ```
 
-In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and merges it into the output table. The parameter name of the table type in the stored procedure is the same as "tableName" that's defined in the dataset.
+In your database, define the stored procedure with the same name as the **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure should be the same as the **tableName** defined in the dataset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

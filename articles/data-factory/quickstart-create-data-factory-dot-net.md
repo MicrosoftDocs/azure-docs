@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/26/2019
 ms.author: jingwang
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
@@ -31,12 +31,15 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### Visual Studio
+
 The walkthrough in this article uses Visual Studio 2017. You can also use Visual Studio 2013 or 2015.
 
 ### Azure .NET SDK
+
 Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on your machine.
 
 ## Create an application in Azure Active Directory
+
 Following instructions from the sections in [this article](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) to do the following tasks: 
 
 1. **Create an Azure Active Directory application**. Create an application in Azure Active Directory that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
@@ -59,7 +62,7 @@ Using Visual Studio 2013/2015/2017, create a C# .NET console application.
 1. Click **Tools** -> **NuGet Package Manager** -> **Package Manager Console**.
 2. In the **Package Manager Console**, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -277,13 +280,13 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```csharp
     // Check the copy activity run details
     Console.WriteLine("Checking copy activity run details...");
-   
-    List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
-    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
+
+    RunFilterParameters filterParams = new RunFilterParameters(DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10));
+    ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(resourceGroup, dataFactoryName, runResponse.RunId, filterParams);
     if (pipelineRun.Status == "Succeeded")
-        Console.WriteLine(activityRuns.First().Output);
+        Console.WriteLine(queryResponse.Value.First().Output);
     else
-        Console.WriteLine(activityRuns.First().Error);
+        Console.WriteLine(queryResponse.Value.First().Error);
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -403,6 +406,7 @@ Press any key to exit...
 ```
 
 ## Verify the output
+
 The pipeline automatically creates the output folder in the adftutorial blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
 
 1. In the Azure portal, on the **adftutorial** container page, click **Refresh** to see the output folder. 
@@ -414,6 +418,7 @@ The pipeline automatically creates the output folder in the adftutorial blob con
     ![Refresh](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## Clean up resources
+
 To programmatically, delete the data factory, add the following lines of code to the program: 
 
 ```csharp
@@ -422,4 +427,5 @@ To programmatically, delete the data factory, add the following lines of code to
 ```
 
 ## Next steps
+
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 

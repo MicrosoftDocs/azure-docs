@@ -3,8 +3,8 @@ title: Web API apps in Azure Active Directory
 description: Describes what web API applications are and the basics on protocol flow, registration, and token expiration for this app type. 
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -65,7 +65,7 @@ See the code samples for Web Application to Web API scenarios. And, check back f
 
 ## App registration
 
-To register an application with the Azure AD v1.0 endpoint, see [Register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md).
+To register an application with the Azure AD v1.0 endpoint, see [Register an app](quickstart-register-app.md).
 
 * Single tenant - For both the application identity and delegated user identity cases, the web application and the web API must be registered in the same directory in Azure AD. The web API can be configured to expose a set of permissions, which are used to limit the web application’s access to its resources. If a delegated user identity type is being used, the web application needs to select the desired permissions from the **Permissions to other applications** drop-down menu in the Azure portal. This step is not required if the application identity type is being used.
 * Multi-tenant - First, the web application is configured to indicate the permissions it requires to be functional. This list of required permissions is shown in a dialog when a user or administrator in the destination directory gives consent to the application, which makes it available to their organization. Some applications only require user-level permissions, which any user in the organization can consent to. Other applications require administrator-level permissions, which a user in the organization cannot consent to. Only a directory administrator can give consent to applications that require this level of permissions. When the user or administrator consents, the web application and the web API are both registered in their directory.

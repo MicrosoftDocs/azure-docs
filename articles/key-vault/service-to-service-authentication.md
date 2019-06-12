@@ -10,7 +10,6 @@ ms.author: mbaldwin
 ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
 ---
 
@@ -98,7 +97,7 @@ To use Azure CLI for local development:
 
 Use `az account get-access-token` to verify access.  If you receive an error, verify that Step 1 completed successfully. 
 
-If Azure CLI is not installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` cannot find the path for Azure CLI.  Use the **AzureCLIPath**environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
+If Azure CLI is not installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` cannot find the path for Azure CLI.  Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
 
 If you are signed in to Azure CLI using multiple accounts or your account has access to multiple subscriptions, you need to specify the specific subscription to be used.  To do so, use:
 

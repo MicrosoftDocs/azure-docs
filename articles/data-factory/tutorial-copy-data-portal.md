@@ -79,9 +79,10 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory. 
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**. 
+2. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
   
-   ![New data factory creation](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
       
      ![New data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)

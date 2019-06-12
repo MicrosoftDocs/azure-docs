@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a virtual network in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Create, change, or delete a virtual network

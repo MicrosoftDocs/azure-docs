@@ -98,8 +98,10 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 2. Click through the certificate warning.
 3. If you receive a response, the VPN gateway is considered healthy. If you don't receive a response, the gateway might not be healthy or an NSG on the gateway subnet is causing the problem. The following text is a sample response:
 
-    &lt;?xml version="1.0"?>
-    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### Step 8. Check whether the on-premises VPN device has the perfect forward secrecy feature enabled
 

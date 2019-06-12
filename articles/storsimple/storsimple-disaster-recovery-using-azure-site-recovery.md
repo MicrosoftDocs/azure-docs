@@ -18,6 +18,9 @@ ms.author: vidarmsft
 
 ---
 # Automated Disaster Recovery solution using Azure Site Recovery for file shares hosted on StorSimple
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Overview
 Microsoft Azure StorSimple is a hybrid cloud storage solution that addresses the complexities of unstructured data commonly associated with file shares. StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and cloud storage. Integrated data protection, with local and cloud snapshots, eliminates the need for a sprawling storage infrastructure.
 
@@ -163,7 +166,7 @@ You can create a recovery plan in ASR to automate the failover process of the fi
    
 1. In the automation account, click **Variables** &gt; **Add a variable** and add the following variables. You can choose to encrypt these assets. These variables are recovery plan specific. If your recovery plan, which you will create in the next step, name is TestPlan, then your variables should be TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, and so on.
 
-   - **BaseUrl**: The Resource Manager url for the Azure cloud. Get using **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
+   - **BaseUrl**: The Resource Manager url for the Azure cloud. Get using **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
    - *RecoveryPlanName***-ResourceGroupName**: The Resource Manager group that has the StorSimple resource.
    - *RecoveryPlanName***-ManagerName**: The StorSimple resource that has the StorSimple device.
    - *RecoveryPlanName***-DeviceName**: The StorSimple Device that has to be failed over.

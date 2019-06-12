@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -32,6 +32,9 @@ These instructions only apply to circuits created with service providers that of
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Configuration prerequisites
 
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the [routing requirements](expressroute-routing.md) page, and the [workflows](expressroute-workflows.md) page before you begin configuration.
@@ -55,17 +58,17 @@ To sign in to your Azure account, use the following examples:
 1. Open your PowerShell console with elevated rights and connect to your account.
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. Check the subscriptions for the account.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. If you have more than one subscription, select the subscription that you want to use.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
@@ -180,6 +183,10 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 ## Azure public peering
 
 This section provides instructions on how to create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
+
+> [!NOTE]
+> Azure public peering is deprecated for new circuits.
+>
 
 ### To create Azure public peering
 

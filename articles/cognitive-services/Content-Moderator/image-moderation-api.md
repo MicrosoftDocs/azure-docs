@@ -63,7 +63,7 @@ Example extract:
 
 ## Detecting faces
 
-Detecting faces helps to detect personally identifiable information (PII) such as faces in the images. You detect potential faces and the number of potential faces in each image.
+Detecting faces helps to detect personal data such as faces in the images. You detect potential faces and the number of potential faces in each image.
 
 A response includes this information:
 

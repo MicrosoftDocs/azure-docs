@@ -1,5 +1,5 @@
 ---
-title: 'Create an index in C# - Azure Search'
+title: 'Quickstart: Create an index in a C# console application - Azure Search'
 description: Learn how to create a full text searchable index in C# using the Azure Search .NET SDK.
 author: heidisteen
 manager: cgronlun
@@ -9,12 +9,19 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/22/2019
+ms.date: 05/16/2019
 
 ---
 # Quickstart: 1 - Create an Azure Search index in C#
+> [!div class="op_single_selector"]
+> * [C#](search-create-index-dotnet.md)
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Python](search-get-started-python.md)
+> * [Postman](search-fiddler.md)
+>*
 
-This article walks you through the process of creating [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). This is the first lesson in a 3-part exercise for creating, loading, and query an index. Index creation is accomplished by performing these tasks:
+This article walks you through the process of creating [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). This quickstart is the first lesson in a three-part exercise for creating, loading, and query an index. Index creation is accomplished by performing these tasks:
 
 > [!div class="checklist"]
 > * Create a [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) object to connect to a search service.
@@ -23,37 +30,43 @@ This article walks you through the process of creating [an Azure Search index](s
 
 ## Prerequisites
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
+The following services, tools, and data are used in this quickstart. 
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
++ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
-Get the URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-  1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
++ [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) provides the sample solution, a .NET Core console application written in C#, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute so that you can modify files. Data is included in the solution.
 
-  2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+## Get a key and URL
 
-  ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+Calls to the service require a URL endpoint and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+
+2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+
+![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## 1 - Open the project
+## 1 - Configure and build
 
-Download the sample code [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) from GitHub. 
+1. Open the **DotNetHowTo.sln** file in Visual Studio.
 
-In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
+1. In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. 
 
+   ```json
+   {
+       "SearchServiceName": "Put your search service name here (not the full URL)",
+       "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+    }
+   ```
+   For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
 
-```json
-{
-    "SearchServiceName": "Put your search service name here",
-    "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-}
-```
+1. Press F5 to build the solution and run the console app. The remaining steps in this exercise and those steps that follow are an exploration of how this code works. 
 
-Once those values are set, you can F5 build the solution to run the console app. The remaining steps in this exercise and those that follow are an exploration of how this code works. 
-
-Alternatively, you can refer to [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md) for more detailed coverage of the SDK behaviors. 
+Alternatively, you can refer to [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md) for more detailed coverage of the SDK behaviors. 
 
 <a name="CreateSearchServiceClient"></a>
 
@@ -88,7 +101,7 @@ A single call to the `Indexes.Create` method creates an index. This method takes
 
 1. Set the `Name` property of the `Index` object to the name of your index.
 
-2. Set the `Fields` property of the `Index` object to an array of `Field` objects. The easiest way to create the `Field` objects is by calling the `FieldBuilder.BuildForType` method, passing a model class for the type parameter. A model class has properties that map to the fields of your index. This allows you to bind documents from your search index to instances of your model class.
+2. Set the `Fields` property of the `Index` object to an array of `Field` objects. The easiest way to create the `Field` objects is by calling the `FieldBuilder.BuildForType` method, passing a model class for the type parameter. A model class has properties that map to the fields of your index. This mapping allows you to bind documents from your search index to instances of your model class.
 
 > [!NOTE]
 > If you don't plan to use a model class, you can still define your index by creating `Field` objects directly. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, to name a few.
@@ -97,7 +110,7 @@ A single call to the `Indexes.Create` method creates an index. This method takes
 
 It is important that you keep your search user experience and business needs in mind when designing your index. Each field must be assigned the [attributes](https://docs.microsoft.com/rest/api/searchservice/Create-Index) that control which search features (filtering, faceting, sorting, and so forth) apply to which fields. For any property you do not explicitly set, the `Field` class defaults to disabling the corresponding search feature unless you specifically enable it.
 
-In this example, the index name is "hotels" and fields are defined using a model class. Each property of the model class has attributes which determine the search-related behaviors of the corresponding index field. The model class is defined as follows:
+In this example, the index name is "hotels" and fields are defined using a model class. Each property of the model class has attributes that determine the search-related behaviors of the corresponding index field. The model class is defined as follows:
 
 ```csharp
 using System;
@@ -155,7 +168,7 @@ public partial class Hotel
 
 We have carefully chosen the attributes for each property based on how we think they will be used in an application. For example, it is likely that people searching for hotels will be interested in keyword matches on the `description` field, so we enable full-text search for that field by adding the `IsSearchable` attribute to the `Description` property.
 
-Please note that exactly one field in your index of type `string` must be the designated as the *key* field by adding the `Key` attribute (see `HotelId` in the above example).
+Note that exactly one field in your index of type `string` must be the designated as the *key* field by adding the `Key` attribute (see `HotelId` in the above example).
 
 The index definition above uses a language analyzer for the `description_fr` field because it is intended to store French text. For more information, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
 
@@ -164,7 +177,7 @@ The index definition above uses a language analyzer for the `description_fr` fie
 > 
 > 
 
-Now that we've defined a model class, we can create an index definition very easily:
+Now that we've defined a model class, we can create an index definition easily:
 
 ```csharp
 var definition = new Index()
