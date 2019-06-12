@@ -1,6 +1,6 @@
-# Quickstart: Use a device capibility model to create a device
+# Quickstart: Use a device capability model to create a device
 
-A plug and play device can be created by generating boilerplate device code from a Device Capability Model (DCM) file. This quickstart shows you how to create a Plug and Play device using Azure IoT Device Workbench.
+For a plug and play device, a Device Capability Model (DCM) describes a physical device and often associated with a product SKU. A Device Capability Model defines the set of interfaces implemented by the digital twin, and a device can be created based on that. This quickstart shows you how to create a Plug and Play device using a device capability model.
 
 ## Prerequisites
 
