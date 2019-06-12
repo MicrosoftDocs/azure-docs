@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure managed workstations - Azure Active Directory
-description: Learn how to deploy secure Azure-managed workstations to reduce the risk of breach due to misconfiguration or compromise
+description: Learn how to deploy secure Azure-managed workstations to reduce the risk of breach due to misconfiguration or compromise.
 
 services: active-directory
 ms.service: active-directory
@@ -17,6 +17,7 @@ ms.reviewer: frasim
 
 ms.collection: M365-identity-device-management
 ---
+
 # Deploy a secure workstation
 
 Now that you understand [Why securing workstation access is important?](concept-azure-managed-workstation.md) it is time to begin the process of deployment using the available tools. This guidance will use the defined profiles to create a workstation that is more secure from the start.

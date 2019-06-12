@@ -1,6 +1,6 @@
 ---
-title: Why secure workstations are important - Azure Active Directory
-description: Learn why organizations should create secure Azure-managed workstations
+title: Build secure workstations - Azure Active Directory
+description: Learn how to create secure, Azure-managed workstations and understand why they're important.
 
 services: active-directory
 ms.service: active-directory
@@ -17,11 +17,12 @@ ms.reviewer: frasim
 
 ms.collection: M365-identity-device-management
 ---
-# Building secure workstations
 
-Secured isolated workstations are critically important for the security of sensitive roles like administrators, developers, and operators of critical services. Many other security controls and assurances will fail or have no effect if the underlying client workstation security has been compromised.
+# Build secure, Azure-managed workstations
 
-This document explains what it takes to build a secure client workstation with detailed step by step instructions, including how to set up starting security controls. This type of workstations at times is called a privileged access workstation (PAW), which this reference is used, and built upon. The guidance however looks to cloud-based technology to manage the service, and introduces security capabilities introduced starting in Windows 10RS5, Microsoft Defender ATP, Azure Active Directory, and Intune.
+Secured, isolated workstations are critically important to maintain the security of sensitive roles such as administrators, developers, and critical service operators. Many other security controls and assurances can fail or be ineffective if client workstation security is compromised.
+
+This document covers what you need to build a secure client workstation. The article also contains detailed instructions to set up initial security controls. This type of workstations at times is called a privileged access workstation (PAW), which this reference is used, and built upon. The guidance however looks to cloud-based technology to manage the service, and introduces security capabilities introduced starting in Windows 10RS5, Microsoft Defender ATP, Azure Active Directory, and Intune.
 
 > [!NOTE]
 > This article explains the concept of secure workstation and its importance. If you are already familiar with the concept and would like to skip to deployment, please read [How to Deploy a Secure Workstation](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
@@ -52,10 +53,9 @@ This document provides a solution to help protect your computing devices by isol
 * Microsoft Defender Advanced Threat Protection (ATP) for endpoint protection, detection, and response with cloud management
 * Azure AD PIM for managing authorization, including Just In Time (JIT) privileged access to resources
 
-## Who benefit from using a secure workstation
+## Who benefits from using a secure workstation?
 
-All users, and operators benefit from using a secure workstation. 
-An attacker who compromises a PC or device can do several things including impersonate all cached accounts, and use credentials, and tokens used on that device while they are logged on. This risk makes securing the devices used for any privileged role including administrative rights so important as devices where a privileged account is used are targets for lateral movement and privilege escalation attacks. These accounts may be used for a variety of assets such as:
+All users, and operators benefit from using a secure workstation. An attacker who compromises a PC or device can do several things including impersonate all cached accounts, and use credentials, and tokens used on that device while they are logged on. This risk makes securing the devices used for any privileged role including administrative rights so important as devices where a privileged account is used are targets for lateral movement and privilege escalation attacks. These accounts may be used for a variety of assets such as:
 
 * Administrators of on-premises and cloud-based systems
 * Developer workstations for critical systems
@@ -65,7 +65,7 @@ An attacker who compromises a PC or device can do several things including imper
 
 Microsoft recommends implementing elevated security controls for privileged workstations where these accounts are used to reduce risk. Additional guidance can be found in the [Azure Active Directory feature deployment guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365 roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
 
-## Why dedicated workstations
+## Why use dedicated workstations?
 
 While it is possible to add security to an existing device, it is better to start with a secure foundation. Starting with a known good device and a set of known security controls puts your organization in the best position to maintain that increased level of security. With the ever growing number of attack vectors allowed by casual email and web browsing, it is increasingly hard to ensure a device can be trusted. This guide works under the assumption a dedicated workstation separated from standard productivity, browsing, and email tasks are completed. Removal of productivity, web browsing, and email from a device can have a negative impact on productivity, but this safeguard is typically acceptable for scenarios where the job tasks don’t explicitly require it and risk of a security incident is high.
 
@@ -85,7 +85,7 @@ Essential to a secured workstation is a supply chain solution where the workstat
 Throughout the guidance, multiple security profiles and roles will be addressed to achieve a more secure solution for users, developers, and IT operations staff. These profiles have been aligned to support common users in organizations that can benefit from an enhanced, or secure workstation, while balancing usability and risk. The guidance will provide configuration of settings based on industry accepted standards. This guidance is used to illustrate a method in hardening Windows 10 and reducing the risks associated with device or user compromise using policy and technology to help manage security features and risks.
 ![Secure workstation Levels](./media/concept-azure-managed-workstation/seccon-levels.png)
 
-* **Low Security** – A managed standard workstation provides a good starting point for most home, and small business use. These devices are Azure AD registered and Intune managed. The profile permits users to run any applications and browse any website. An antimalware solution like [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) should be enabled.
+* **Low Security** – A managed standard workstation provides a good starting point for most home, and small business use. These devices are Azure AD registered and Intune managed. The profile permits users to run any applications and browse any website. An anti-malware solution like [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) should be enabled.
 * **Enhanced Security** – Is an entry level protected solution, good for home users, small business users, as well as general developers.
    * The Enhanced workstation provides a policy based means to enhance the security of the Low Security profile. This profile allows for a secure means to work with customer data, and be able to use productivity tools such as checking email and web browsing. An Enhanced workstation can be used to audit user behavior, and profile use of a workstation by enabling audit policies, and logging to Intune. In this profile, the workstation will enable security controls and policies described in the content, and deployed in the Enhanced Workstation - Windows10 (1809) script. The deployment also takes advantage of advanced malware protection using [Advanced Threat Protection (ATP)](https://docs.microsoft.com/office365/securitycompliance/office-365-atp)
 * **High Security** – The most effective means to reduce the attack surface of a workstation is to remove the ability to self-administer the workstation. Removing local administrative rights is a step that enhances security and can impact productivity if implemented incorrectly. The High Security profile builds on the enhanced security profile with one considerable change, the removal of the local admin. This profile is designed to help with users that maybe a high profile user such as an executive or users that may have contact with sensitive data such as payroll, or approval of services, and processes.
