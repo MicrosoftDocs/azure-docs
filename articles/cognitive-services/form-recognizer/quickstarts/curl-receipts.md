@@ -24,9 +24,11 @@ To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [cURL](https://curl.haxx.se/windows/) installed.
 
+## Create a Form Recognizer resource
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## Sample JSON response
-
 
 ```json
 {
