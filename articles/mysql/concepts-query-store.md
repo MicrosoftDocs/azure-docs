@@ -12,7 +12,7 @@ ms.date: 06/05/2019
 **Applies to:** Azure Database for MySQL 5.7
 
 > [!NOTE]
-> Query Store is in public preview.
+> Query Store is in preview.
 
 The Query Store feature in Azure Database for MySQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in the **mysql** schema database in the Azure Database for MySQL instance.
 
@@ -116,32 +116,32 @@ This view returns all the data in Query Store. There is one row for each distinc
 
 | **Name** | **Data Type** | **IS_NULLABLE** | **Description** |
 |---|---|---|---|
-| schema_name| varchar| NO | Name of the schema |
-| query_id| bigint | NO| Unique ID generated for the specific query, if the same query executes in different schema, a new ID will be generated |
-| timestamp_id | timestamp| NO| Timestamp in which the query is executed. This is based on the query_store_interval configuration|
-| query_digest_text| longtext| NO| The normalized query text after removing all the literals|
-| query_text | longtext| NO| First appearance of the actual query with literals|
-| query_digest_truncated | bit| YES| Whether the query text has been truncated. Value will be Yes if the query is longer than 1 KB|
-| execution_count | bigint| NO| The number of times the query got executed for this timestamp ID / during the configured interval period|
-| warning_count | bigint| NO| Number of warnings this query generated during the internal|
-| error_count | bigint| NO| Number of errors this query generated during the interval|
-| sum_timer_wait | double| YES| Total execution time of this query during the interval|
-| avg_timer_wait | double| YES| Average execution time for this query during the interval|
-| min_timer_wait | double| YES| Minimum execution time for this query|
-| max_timer_wait | double| YES| Maximum execution time|
-| sum_lock_time | bigint| NO| Total amount of time spent for all the locks for this query execution during this time window|
-| sum_rows_affected | bigint| NO| Number of rows affected|
-| sum_rows_sent | bigint| NO| Number of rows sent to client|
-| sum_rows_examined | bigint| NO| Number of rows examined|
-| sum_select_full_join | bigint| NO| Number of full joins|
-| sum_select_scan | bigint| NO| No, of select scans|
-| sum_sort_rows | bigint| NO| Number of rows sorted|
-| sum_no_index_used | bigint| NO| Number of times when the query did not use any indexes|
-| sum_no_good_index_used | bigint| NO| Number of times when the query execution engine did not use any good indexes|
-| sum_created_tmp_tables | bigint| NO| Total number of temp tables created|
-| sum_created_tmp_disk_tables | bigint| NO| Total number of temp tables created in disk (generates I/O)|
-| first_seen | timestamp| NO| The first occurrence (UTC) of the query during the aggregation window|
-| last_seen | timestamp| NO| The last occurrence (UTC) of the query during this aggregation window|
+| `schema_name`| varchar(64) | NO | Name of the schema |
+| `query_id`| bigint(20) | NO| Unique ID generated for the specific query, if the same query executes in different schema, a new ID will be generated |
+| `timestamp_id` | timestamp| NO| Timestamp in which the query is executed. This is based on the query_store_interval configuration|
+| `query_digest_text`| longtext| NO| The normalized query text after removing all the literals|
+| `query_sample_text` | longtext| NO| First appearance of the actual query with literals|
+| `query_digest_truncated` | bit| YES| Whether the query text has been truncated. Value will be Yes if the query is longer than 1 KB|
+| `execution_count` | bigint(20)| NO| The number of times the query got executed for this timestamp ID / during the configured interval period|
+| `warning_count` | bigint(20)| NO| Number of warnings this query generated during the internal|
+| `error_count` | bigint(20)| NO| Number of errors this query generated during the interval|
+| `sum_timer_wait` | double| YES| Total execution time of this query during the interval|
+| `avg_timer_wait` | double| YES| Average execution time for this query during the interval|
+| `min_timer_wait` | double| YES| Minimum execution time for this query|
+| `max_timer_wait` | double| YES| Maximum execution time|
+| `sum_lock_time` | bigint(20)| NO| Total amount of time spent for all the locks for this query execution during this time window|
+| `sum_rows_affected` | bigint(20)| NO| Number of rows affected|
+| `sum_rows_sent` | bigint(20)| NO| Number of rows sent to client|
+| `sum_rows_examined` | bigint(20)| NO| Number of rows examined|
+| `sum_select_full_join` | bigint(20)| NO| Number of full joins|
+| `sum_select_scan` | bigint(20)| NO| Number of select scans |
+| `sum_sort_rows` | bigint(20)| NO| Number of rows sorted|
+| `sum_no_index_used` | bigint(20)| NO| Number of times when the query did not use any indexes|
+| `sum_no_good_index_used` | bigint(20)| NO| Number of times when the query execution engine did not use any good indexes|
+| `sum_created_tmp_tables` | bigint(20)| NO| Total number of temp tables created|
+| `sum_created_tmp_disk_tables` | bigint(20)| NO| Total number of temp tables created in disk (generates I/O)|
+| `first_seen` | timestamp| NO| The first occurrence (UTC) of the query during the aggregation window|
+| `last_seen` | timestamp| NO| The last occurrence (UTC) of the query during this aggregation window|
 
 ### mysql.query_store_wait_stats
 
@@ -149,23 +149,23 @@ This view returns wait events data in Query Store. There is one row for each dis
 
 | **Name**| **Data Type** | **IS_NULLABLE** | **Description** |
 |---|---|---|---|
-| interval_start | timestamp | NO| Start of the interval (15-minute increment)|
-| interval_end | timestamp | NO| End of the interval (15-minute increment)|
-| query_id | bigint(20) | NO| Generated unique ID on the normalized query (from query store)|
-| query_digest_id | varchar(32) | NO| The normalized query text after removing all the literals (from query store) |
-| query_digest_text | longtext | NO| First appearance of the actual query with literals (from query store) |
-| event_type | varchar(32) | NO| Category of the wait event |
-| event_name | varchar(128) | NO| Name of the wait event |
-| count_star | bigint(20) | NO| Number of wait events sampled during the interval for the query |
-| sum_timer_wait_ms | double | NO| Total wait time (in milliseconds) of this query during the interval |
+| `interval_start` | timestamp | NO| Start of the interval (15-minute increment)|
+| `interval_end` | timestamp | NO| End of the interval (15-minute increment)|
+| `query_id` | bigint(20) | NO| Generated unique ID on the normalized query (from query store)|
+| `query_digest_id` | varchar(32) | NO| The normalized query text after removing all the literals (from query store) |
+| `query_digest_text` | longtext | NO| First appearance of the actual query with literals (from query store) |
+| `event_type` | varchar(32) | NO| Category of the wait event |
+| `event_name` | varchar(128) | NO| Name of the wait event |
+| `count_star` | bigint(20) | NO| Number of wait events sampled during the interval for the query |
+| `sum_timer_wait_ms` | double | NO| Total wait time (in milliseconds) of this query during the interval |
 
 ### Functions
 
 | **Name**| **Description** |
 |---|---|
-| mysql.az_purge_querystore_data(TIMESTAMP) | Purges all query store data before the given time stamp |
-| mysql.az_procedure_purge_querystore_event(TIMESTAMP) | Purges all wait event data before the given time stamp |
-| mysql.az_procedure_purge_recommendation(TIMESTAMP) | Purges recommendations whose expiration is before the given time stamp |
+| `mysql.az_purge_querystore_data(TIMESTAMP)` | Purges all query store data before the given time stamp |
+| `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Purges all wait event data before the given time stamp |
+| `mysql.az_procedure_purge_recommendation(TIMESTAMP)` | Purges recommendations whose expiration is before the given time stamp |
 
 ## Limitations and known issues
 
@@ -175,4 +175,5 @@ This view returns wait events data in Query Store. There is one row for each dis
 - Wait statistics uses sample ti capture a fraction of events. The frequency can be modified using the parameter `query_store_wait_sampling_frequency`.
 
 ## Next steps
+
 - Learn more about [Query Performance Insights](concepts-query-performance-insight.md)

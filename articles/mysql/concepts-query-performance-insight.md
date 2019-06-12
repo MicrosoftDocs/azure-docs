@@ -12,7 +12,7 @@ ms.date: 06/05/2019
 **Applies to:** Azure Database for MySQL 5.7
 
 > [!NOTE]
-> Query Performance Insight is in public preview.
+> Query Performance Insight is in preview. Support for Query Performance Insight in the Azure portal is being rolled out and may not yet be available in your region.
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 
