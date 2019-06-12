@@ -2,13 +2,13 @@
   href: /azure/hdinsight
 - name: Overview
   items:
-  - name: About Apache Hadoop on HDInsight
+  - name: What is Apache Hadoop in HDInsight?
     href: apache-hadoop-introduction.md
     maintainContext: true
   - name: Apache Hadoop architecture in HDInsight
     href: ../hdinsight-hadoop-architecture.md
     maintainContext: true
-  - name: Apache Hadoop components on HDInsight
+  - name: Apache Hadoop components in HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
