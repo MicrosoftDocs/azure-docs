@@ -161,6 +161,13 @@ These samples are covered in greater detail below.
 
 The echo sample demonstrates programmatic use of device streams to send and receive bytes between service and device applications. Note that you can use service and device programs in different languages. For example, you can use the C device program with the C# service program.
 
+Try this instead of a table:
+
+[C# Service and Device Programs](quickstart-device-streams-echo-csharp.md)
+[Node.js Service Program](quickstart-device-streams-echo-nodejs)
+[C Device Program](quickstart-device-streams-echo-c)
+
+
 | **SDK** | **Service Program** | **Device Program** |
 | ----- | ------------ | ----------------- |
 |[C#](quickstart-device-streams-echo-csharp.md)| X | X |
