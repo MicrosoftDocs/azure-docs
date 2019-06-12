@@ -56,6 +56,3 @@ Both data stores for HDInsight clusters--Azure Blob storage and Azure Data Lake 
 * [Plan for HDInsight clusters with ESP](apache-domain-joined-architecture.md)
 * [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md)
 * [Manage HDInsight clusters with ESP](apache-domain-joined-manage.md)
-* [Configure Apache Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md)
-* [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
-

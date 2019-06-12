@@ -136,7 +136,4 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 ## Next steps
 
-In this article, you learned what is Azure HDInsight and how it provides Hadoop and other cluster types on Azure. Proceed to the next article to learn how to create an Apache Hadoop cluster in HDInsight.
-
-> [!div class="nextstepaction"]
-> [Create Apache Hadoop cluster in HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Create Apache Hadoop cluster in HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
