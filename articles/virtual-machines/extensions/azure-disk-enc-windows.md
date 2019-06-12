@@ -143,15 +143,15 @@ Using `AADClientCertificate`:
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
-| (AAD schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (AAD schema) AADClientSecret | password | string |
-| (AAD schema) AADClientCertificate | thumbprint | string |
+| (0.1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (0.1 schema) AADClientSecret | password | string |
+| (0.1 schema) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON dictionary |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | KeyVaultURL | url | string |
-| Passphrase | password | string | 
+| (optional) Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS, Data, All | string |
 
