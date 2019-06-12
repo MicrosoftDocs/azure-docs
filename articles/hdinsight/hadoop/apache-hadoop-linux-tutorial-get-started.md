@@ -8,7 +8,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 05/14/2019
+ms.date: 06/12/2019
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Resource Manager template
 ---
 
