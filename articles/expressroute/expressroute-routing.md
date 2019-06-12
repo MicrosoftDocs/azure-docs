@@ -2,12 +2,12 @@
 title: 'Routing requirements - ExpressRoute: Azure | Microsoft Docs'
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 services: expressroute
-author: ganesr
+author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.author: ganesr
+ms.date: 06/12/2019
+ms.author: cherylmc
 ms.custom: seodec18
 
 ---
