@@ -61,9 +61,6 @@ The varying length includes words that may confuse LUIS about where the entity e
 |{FormName} is published in French[?]|
 
 ## Import example app
-Continue with the app created in the last tutorial, named **HumanResources**. 
-
-Use the following steps:
 
 1. Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
