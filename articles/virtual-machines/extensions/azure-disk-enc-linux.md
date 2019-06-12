@@ -139,7 +139,7 @@ Using `AADClientCertificate`:
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
+| typeHandlerVersion | 0.1, 1.1 | int |
 | (0.1 schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (0.1 schema) AADClientSecret | password | string |
 | (0.1 schema) AADClientCertificate | thumbprint | string |
