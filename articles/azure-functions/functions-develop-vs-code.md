@@ -30,6 +30,8 @@ The extension can be used with the following languages supported by the Azure Fu
 * [PowerShell](functions-reference-powershell.md)
 * [Python](functions-reference-python.md)
 
+<sup>*</sup>Requires you that you [set C# script as your default project language](#c-script-projects).
+
 In this article, examples are currently only available for JavaScript (Node.js) and C# class library functions.  
 
 This article provides details about how to use the Azure Functions extension to develop functions and publish them to Azure. Before you read this article, you should [Create your first function using Visual Studio Code](functions-create-first-function-vs-code.md).
@@ -323,6 +325,18 @@ To enable Application Insights for your function app:
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 To learn more, see [Monitor Azure Functions](functions-monitoring.md).
+
+## C\# script projects
+
+By default, all C# projects are created as [C# compiled class library projects](functions-dotnet-class-library.md). If you instead prefer to work with C# script projects, you must select C# script as the default language in the Azure Functions extension settings.
+
+1. Click **File > Preferences > Settings**.
+
+1. Navigate through **User Settings > Extensions > Azure Functions**.
+
+1. Choose **C#Script** from **Azure Function: Project Language**.
+
+At this point, calls made to the underlying Core Tools include the `--csx` option, which generates and publishes C# script (.csx) project files. With a default language specified, all created projects default to C# script projects. You are not asked to choose a project language when a default is set. To create other language projects, you must change this setting or remove it from the user settings.json file. After you remove this setting, you are again asked to choose your the language when you create a project.
 
 ## Command palette reference
 
