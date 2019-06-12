@@ -45,7 +45,7 @@ To accomplish these tasks, we use three custom modules:
 
 The diagram below shows the modules, inputs, outputs, and the IoT Edge Hub routes for the full solution:
 
-![IoT Edge three modules architecture diagram](media/tutorial-machine-learning-edge-06-custom-modules/06-create-a.png)
+![IoT Edge three modules architecture diagram](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 The steps in this article are typically performed by a cloud developer.
 
@@ -59,7 +59,7 @@ During execution of the second of our two Azure Notebooks, we created and publis
 
 3. Right click on the explorer panel (in the blank space) and select **New IoT Edge Solution**.
 
-    ![Create new IoT Edge solution](media/tutorial-machine-learning-edge-06-custom-modules/06-create-b.png)
+    ![Create new IoT Edge solution](media/tutorial-machine-learning-edge-06-custom-modules/new-edge-solution-command.png)
 
 4. Accept the default solution name **EdgeSolution**.
 
@@ -167,7 +167,7 @@ Next, we add the Router module to our solution. The Router module handles severa
 4. When prompted for your Docker Image Repository, use the registry from the machine learning workspace (you can find the registry in the registryCredentials node of your *deployment.template.json* file). This value is the fully qualified address to the registry, like **\<your registry\>.azurecr.io/turbofanrouter**.
 
     > [!NOTE]
-    > In this article, we use the Azure Container Registry created by the Machine Learning service workspace, which we used to train and deploy our classifier. This is purely for convenience. We could have created a new container registry and published our modules there.
+    > In this article, we use the Azure Container Registry created by the Azure Machine Learning service workspace, which we used to train and deploy our classifier. This is purely for convenience. We could have created a new container registry and published our modules there.
 
 5. Open a new terminal window in Visual Studio Code (**View** > **Terminal**) and copy files from the modules directory.
 
@@ -371,7 +371,7 @@ As mentioned in the intro, the writer module relies on the presence of bind moun
    ls -la /data
    ```
 
-   ![Directory permissions for avrofiles](media/tutorial-machine-learning-edge-06-custom-modules/06-create-c.png)
+   ![Directory permissions for avrofiles](media/tutorial-machine-learning-edge-06-custom-modules/avrofiles-directory-permissions.png)
 
 #### Add directory to the module
 
@@ -749,9 +749,9 @@ Now that we have made the configuration changes, we are ready to build the image
 
 Once the build successfully completes, we will be able to use the Azure portal to review our published modules.
 
-1. In the Azure portal, navigate to your Machine Learning service workspace and click the hyperlink for **Registry**.
+1. In the Azure portal, navigate to your Azure Machine Learning service workspace and click the hyperlink for **Registry**.
 
-    ![Navigate to registry from machine learning service workspace](media/tutorial-machine-learning-edge-06-custom-modules/06-create-f.png)
+    ![Navigate to registry from machine learning service workspace](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
 
 2. From the registry side navigator, select **Repositories**.
 
@@ -759,7 +759,7 @@ Once the build successfully completes, we will be able to use the Azure portal t
 
 4. Select **turbofanrouter** and note that you have published one image tagged as 0.0.1-amd64.
 
-   ![View first tagged version of turbofanrouter](media/tutorial-machine-learning-edge-06-custom-modules/06-create-d.png)
+   ![View first tagged version of turbofanrouter](media/tutorial-machine-learning-edge-06-custom-modules/tagged-image-turbofanrouter-repo.png)
 
 ### Deploy modules to IoT Edge device
 
@@ -775,7 +775,7 @@ We have built and configured the modules in our solution, now we will deploy the
 
 5. Refresh again after a few minutes and you will see the modules running.
 
-   ![View running modules in Visual Studio COde](media/tutorial-machine-learning-edge-06-custom-modules/06-create-e.png)
+   ![View running modules in Visual Studio Code](media/tutorial-machine-learning-edge-06-custom-modules/view-running-modules-list.png)
 
 > [!NOTE]
 > It can take several minutes for the modules to start and settle into a steady running state. During that time, you may see modules start and stop as they try to establish a connection with the IoT Edge hub module.

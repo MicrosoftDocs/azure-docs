@@ -61,8 +61,6 @@ Azure Notebook accounts are independent from Azure subscriptions. To use Azure N
 
 5. Create a user ID for Azure Notebooks.
 
-    ![Create a user ID](media/tutorial-machine-learning-edge-04-train-model/04-train-a.png)
-
 ### Upload Jupyter notebooks files
 
 In this step, we create a new Azure Notebooks project and upload files to it. Specifically, the files that we upload are:
@@ -99,7 +97,7 @@ Now that that project is created, run the **01-turbofan\_regression.ipynb** note
 
 1. From the turbofan project page, select **01-turbofan\_regression.ipynb**.
 
-    ![Select first notebook to run](media/tutorial-machine-learning-edge-04-train-model/04-train-c.png)
+    ![Select first notebook to run](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
 2. If prompted, choose the Python 3.6 Kernel from the dialog and select **Set Kernel**.
 

@@ -72,11 +72,11 @@ In this section, we create the self-signed certificates using a Docker image tha
 
 To store our certificates securely and to make them accessible from multiple devices, we will upload the certificates into Azure Key Vault. As you can see from the list above, we have two types of certificate files: PFX and PEM. We will treat the PFX as Key Vault Certificates to be uploaded to Key Vault. The PEM files are plain text and we will treat them as Key Vault Secrets. We will use the Key Vault associated with the Azure Machine Learning service workspace we created by running the [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
 
-1. From the [Azure portal](https://portal.azure.com), navigate to your Machine Learning service workspace.
+1. From the [Azure portal](https://portal.azure.com), navigate to your Azure Machine Learning service workspace.
 
-2. From the overview page of the Machine Learning service workspace, copy the name of the Key Vault.
+2. From the overview page of the Azure Machine Learning service workspace, find the name of the **Key Vault**.
 
-    ![Copy key vault name](media/tutorial-machine-learning-edge-05-configure-edge-device/05-configure-a.png)
+    ![Copy key vault name](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 
 3. On your development machine, upload the certificates to Key Vault. Replace **\<subscriptionId\>** and **\<keyvaultname\>** with your resource information.
 
@@ -89,7 +89,7 @@ To store our certificates securely and to make them accessible from multiple dev
 
 5. The script will run for few minutes with output that lists the new Key Vault entries.
 
-    ![Key Vault script output](media/tutorial-machine-learning-edge-05-configure-edge-device/05-configure-b.png)
+    ![Key Vault script output](media/tutorial-machine-learning-edge-05-configure-edge-device/key-vault-entries-output.png)
 
 ## Create IoT Edge device
 
@@ -105,9 +105,9 @@ For this tutorial, we create the new device identity using Visual Studio Code. Y
 
 4. Give the device a name. For convenience, we use **aaTurbofanEdgeDevice** so it sorts ahead of all of the client devices we created earlier through the device harness to send the test data.
 
-5. The new device will appear in the devices view.
+5. The new device will appear in the list of devices.
 
-    ![View new aaTurbofanEdgeDevice in VS Code explorer](media/tutorial-machine-learning-edge-05-configure-edge-device/05-configure-c.png)
+    ![View new aaTurbofanEdgeDevice in VS Code explorer](media/tutorial-machine-learning-edge-05-configure-edge-device/iot-hub-devices-list.png)
 
 ## Deploy Azure Virtual Machine
 
@@ -125,11 +125,11 @@ To use the image from the marketplace in a scripted deployment, we need to enabl
 
 1. In the search bar, enter and select **Azure IoT Edge on Ubuntu**.
 
-1. Select the hyperlink, **Want to deploy programmatically? Get started**.
+1. Select the **Want to deploy programmatically? Get started** hyperlink.
 
 1. Select the **Enable** button, then **Save**.
 
-    ![Enable programmatic deployment for VM](media/tutorial-machine-learning-edge-05-configure-edge-device/05-configure-d.png)
+    ![Enable programmatic deployment for VM](media/tutorial-machine-learning-edge-05-configure-edge-device/deploy-ubuntu-vm.png)
 
 1. You will see a success notification.
 
@@ -170,7 +170,7 @@ Next, run the script to create the virtual machine for your IoT Edge device.
 
 7. The script outputs the SSH connection string for connecting to the VM. Copy the connection string for the next step.
 
-    ![Copy SSH connection string for VM](media/tutorial-machine-learning-edge-05-configure-edge-device/05-configure-e.png)
+    ![Copy SSH connection string for VM](media/tutorial-machine-learning-edge-05-configure-edge-device/vm-ssh-connection-string.png)
 
 ## Connect to your IoT Edge device
 
@@ -235,7 +235,7 @@ The *Azure IoT Edge on Ubuntu* image that we used to create the IoT Edge VM come
 
 1. In Visual Studio Code right-click on the IoT Edge device, then select **Copy Device Connection String**.
 
-    ![Copy connection string from Visual Studio Code](media/tutorial-machine-learning-edge-05-configure-edge-device/05-configure-f.png)
+    ![Copy connection string from Visual Studio Code](media/tutorial-machine-learning-edge-05-configure-edge-device/copy-device-connection-string-command.png)
 
 2. In your SSH session, run the command to update the config.yaml file with your device connection string.
 

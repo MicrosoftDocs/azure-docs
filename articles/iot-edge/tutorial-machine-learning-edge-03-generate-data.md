@@ -60,11 +60,11 @@ The real-world equivalent to the work in this step would likely be performed by 
    * The notification may take a few seconds to appear.
    * If you missed this notification, check the “bell” icon in the lower right-hand corner.
 
-   ![VS Code extension popup](media/tutorial-machine-learning-edge-03-generate-data/03-generate-a.png)
+   ![VS Code extension popup](media/tutorial-machine-learning-edge-03-generate-data/add-required-assets.png)
 
 1. Select **Restore** to restore the package dependencies.
 
-   ![VS Code restore prompt](media/tutorial-machine-learning-edge-03-generate-data/03-generate-b.png)
+   ![VS Code restore prompt](media/tutorial-machine-learning-edge-03-generate-data/restore-package-dependencies.png)
 
 1. Validate that your environment is properly set up by triggering a build, `Ctrl + Shift + B` or **Terminal** > **Run Build Task**.
 
@@ -72,7 +72,7 @@ The real-world equivalent to the work in this step would likely be performed by 
 
 1. The build runs and outputs a success message.
 
-   ![Build succeeded output message](media/tutorial-machine-learning-edge-03-generate-data/03-generate-c.png)
+   ![Build succeeded output message](media/tutorial-machine-learning-edge-03-generate-data/build-success.png)
 
 1. You can make this build the default build task by selecting **Terminal** > **Configure Default Build Task...** and choosing **Build** from the prompt.
 
@@ -98,7 +98,7 @@ Now that we have the project building, connect to your IoT hub to access the con
 
 1. Click into the **Azure IoT Hub devices** frame and click **...** for more actions. Select **Copy IoT Hub connection string**.
 
-   ![Copy IoT Hub connection string](media/tutorial-machine-learning-edge-03-generate-data/03-generate-d.png)
+   ![Copy IoT Hub connection string](media/tutorial-machine-learning-edge-03-generate-data/copy-hub-connection-string.png)
 
 ### Run the DeviceHarness project
 
@@ -112,7 +112,7 @@ Now that we have the project building, connect to your IoT hub to access the con
 
 1. In the **Azure IoT Hub devices** frame, click on the refresh button.
 
-   ![Refresh IoT Hub device list](media/tutorial-machine-learning-edge-03-generate-data/03-generate-e.png)
+   ![Refresh IoT Hub device list](media/tutorial-machine-learning-edge-03-generate-data/refresh-hub-device-list.png)
 
 1. Note that devices are added to the IoT Hub and that the devices show up in green to indicate that data is being sent via that device.
 
@@ -130,7 +130,7 @@ The data sent by the DeviceHarness went to your IoT hub. It is easy to verify th
 
 1. In the overview page you should see that data has been sent to the hub:  
 
-   ![View device to cloud messages in IoT Hub](media/tutorial-machine-learning-edge-03-generate-data/03-generate-f.png)
+   ![View device to cloud messages in IoT Hub](media/tutorial-machine-learning-edge-03-generate-data/iot-hub-usage.png)
 
 ## Validate data in Azure Storage
 
@@ -144,13 +144,11 @@ The data we just sent to your IoT hub was routed to the storage container that w
 
 1. In the content pane click on the folder for the name of the IoT hub, then the year, the month, the day, and the hour. You will see several folders representing the minutes when the data was written.
 
-   ![View folders in blob storage](media/tutorial-machine-learning-edge-03-generate-data/03-generate-g.png)
+   ![View folders in blob storage](media/tutorial-machine-learning-edge-03-generate-data/confirm-data-storage-results.png)
 
 1. Click into one of those folders to find data files labeled **00** and **01** corresponding to the partition.
 
-1. The files are written in [Avro](http://avro.apache.org/) format but double-clicking on one of these files will open another browser tab and partially render the data. If instead you are prompted to open the file in a program, you can choose VS Code and it will render fine. The result will look like:  
-
-   ![View data from IoT devices](media/tutorial-machine-learning-edge-03-generate-data/03-generate-h.png)
+1. The files are written in [Avro](http://avro.apache.org/) format but double-clicking on one of these files will open another browser tab and partially render the data. If instead you are prompted to open the file in a program, you can choose VS Code and it will render correctly.
 
 1. There is no need to try to read or interpret the data right now; we will do it in next article.
 
