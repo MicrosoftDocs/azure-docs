@@ -24,7 +24,7 @@ To set up Azure Monitor for VMs:
 * Enable a single Azure VM or virtual machine scale set by selecting **Insights (preview)** directly from the VM or virtual machine scale set.
 * Enable two or more Azure VMs and virtual machine scale sets by using Azure Policy. This method ensures that on existing and new VMs and scale sets, the required dependencies are installed and properly configured. Noncompliant VMs and scale sets are reported, so you can decide whether to enable them and to remediate them.
 * Enable two or more Azure VMs or virtual machine scale sets across a specified subscription or resource group by using PowerShell.
-* Enable two or more monitor VMs or physical computers hosted in your corporate network or other cloud environment.
+* Enable Azure Monitor for VMs to monitor VMs or physical computers hosted in your corporate network or other cloud environment.
 
 ## Prerequisites
 
@@ -176,7 +176,7 @@ Enable Azure Monitor for VMs by using one of the methods described in this table
 | Multiple Azure VMs or virtual machine scale sets | [Enable through Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md) | You can enable multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group by using Azure PowerShell or Azure Resource Manager templates. |
 | Hybrid cloud | [Enable for the hybrid environment](vminsights-enable-hybrid-cloud.md) | You can deploy to VMs or physical computers that are hosted in your datacenter or other cloud environments. |
 
-## Performance counters 
+## Performance counters enabled 
 
 Azure Monitor for VMs configures a Log Analytics workspace to collect the performance counters that it uses. The following tables list the objects and counters that are collected every 60 seconds.
 
