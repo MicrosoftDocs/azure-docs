@@ -15,7 +15,7 @@ The Apple Push Notification Service (APNS) uses certificates to authenticate you
 
 Generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed push certificate.
 
-1. On your Mac, run the Keychain Access tool. It can be opened from the Utilities folder or the Other folder on the Launchpad.
+1. On your Mac, run the Keychain Access tool. It can be opened from the **Utilities** folder or the **Other** folder on the Launchpad.
 
 1. Select **Keychain Access**, expand **Certificate Assistant**, and then select **Request a Certificate from a Certificate Authority**.
 
@@ -29,7 +29,7 @@ Generate the Certificate Signing Request (CSR) file, which is used by Apple to g
 
     ![Choose a filename for the certificate](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-save-csr.png)
 
-    This action saves the CSR file in the selected location. The default location is Desktop. Remember the location chosen for the file.
+    This action saves the CSR file in the selected location. The default location is **Desktop**. Remember the location chosen for the file.
 
 Next, register your app with Apple, enable push notifications, and upload the exported CSR to create a push certificate.
 

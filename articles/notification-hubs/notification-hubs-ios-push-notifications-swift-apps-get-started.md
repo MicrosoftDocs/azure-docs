@@ -291,7 +291,7 @@ For the purposes of this Swift example, you're going to use Apple's open-source 
 
 To add and configure the bridging header:
 
-1. In Xcode, select **File** > **New** > **File** > **Header File**. Name the header file BridgingHeader.h.
+1. In Xcode, select **File** > **New** > **File** > **Header File**. Name the header file **BridgingHeader.h**.
 
 1. Edit the file to import **CommonHMAC.h**:
 
