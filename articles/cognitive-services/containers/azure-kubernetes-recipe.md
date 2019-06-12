@@ -33,7 +33,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
 This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. You need to push both these images to your own Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results.
 
-![Conceptual idea of running sample containers](../media/how-tos/container-instance-sample/containers.png)
+![Conceptual idea of running sample containers](../text-analytics/media/how-tos/container-instance-sample/containers.png)
 
 ## The sample containers
 
@@ -103,7 +103,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     az acr login --name pattyregistry
     ```
 
-## Get website Docker image 
+## Get website Docker image
 
 1. The sample code used in this procedure is in the Cognitive Services containers samples repository. Clone the repository to have a local copy of the sample.
 
@@ -382,7 +382,7 @@ If the `EXTERNAL-IP` for the service is shown as pending, rerun the command unti
 
 Open a browser and navigate to the external IP of the `language` container from the previous section: `http://<external-ip>:5000/swagger/index.html`. You can use the `Try it` feature of the API to test the language detection endpoint.
 
-![View the container's swagger documentation](../media/how-tos/container-instance-sample/language-detection-container-swagger-documentation.png)
+![View the container's swagger documentation](../text-analytics/media/how-tos/container-instance-sample/language-detection-container-swagger-documentation.png)
 
 ## Test the client application container
 
@@ -402,7 +402,7 @@ az group delete --name cogserv-container-rg
 
 ## Next steps
 
-* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
 * Use the Text Analytics Connected Service](../vs-text-connected-service.md)
 
 <!--

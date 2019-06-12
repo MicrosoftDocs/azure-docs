@@ -33,8 +33,6 @@ This solution works with any Cognitive Services container. The Cognitive Service
 
 All variables in angle brackets, `<>`, need to be replaced with your own values. This replacement includes the angle brackets.
 
-If this solution has any known issues for specific containers, they are listed in [troubleshooting this recipe](#trouble-shooting-this-recipe).
-
 ## Step 2: Launch your container on Azure Container Instances (ACI)
 
 **Creating the Azure Container Instance (ACI) resource.**
@@ -88,7 +86,3 @@ If this solution has any known issues for specific containers, they are listed i
 1. Select **Execute** to send the request to your Container Instance.
 
     You have successfully created and used Cognitive Services containers in Azure Container Instance.
-
-## Trouble-shooting this solution
-
-## Next steps
