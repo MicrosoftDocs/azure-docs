@@ -269,7 +269,7 @@ The icons in the status field indicate the online statuses of pods, as described
 ## Disk capacity workbook
 Workbooks combine text, [log queries](../log-query/query-language.md), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
-Azure Monitor for containers includes a workbooks to get you started, **Disk capacity**.  This workbook presents interactive disk usage charts for each disk presented to the node within a container by the following perspectives:
+Azure Monitor for containers includes a workbook to get you started, **Disk capacity**.  This workbook presents interactive disk usage charts for each disk presented to the node within a container by the following perspectives:
 
 - Disk % usage for all disks
 - Free disk space for all disks
