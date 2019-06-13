@@ -140,7 +140,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview and is o
 |TempDB size (GB)|32|64|128|
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Target IOPS (64 KB)|250|500|1000|
+|Target IOPS (64 KB)|500|1000|2000|
 |Log rate limits (MBps)|2.5|5.6|10|
 |Max concurrent workers (requests)|75|150|300|
 |Max allowed sessions|30000|30000|30000|
