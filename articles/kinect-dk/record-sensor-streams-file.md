@@ -27,7 +27,7 @@ This quickstart assumes:
 
 ## Create recording
 
-1. Open a command prompt, and provide the path to the recorder.exe. For example: `C:\Program Files\Azure Kinect SDK\tools\k4arecorder.exe`.
+1. Open a command prompt, and provide the path to `k4arecorder.exe`. For example: `C:\Program Files\Azure Kinect SDK vX.Y.Z\tools\k4arecorder.exe`, where `X.Y.Z` is the installed version of the SDK.
 2. Record 5 seconds.
 
     `k4arecorder.exe -l 5 %TEMP%\output.mkv`
