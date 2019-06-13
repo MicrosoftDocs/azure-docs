@@ -25,7 +25,7 @@ Some situations where field mappings are useful:
 * You need to Base64 encode or decode your data. Field mappings support several **mapping functions**, including functions for Base64 encoding and decoding.
 
 > [!NOTE]
-> The field mapping feature of Azure Search indexers provides a simple way to map data fields to index fields, with a few options for data conversion. More complex data might require pre-processing to transform it into a form that's easy to index.
+> The field mapping feature of Azure Search indexers provides a simple way to map data fields to index fields, with a few options for data conversion. More complex data might require pre-processing to reshape it into a form that's easy to index.
 >
 > Microsoft Azure Data Factory is a powerful cloud-based solution for importing and transforming data. You can also write code to transform source data before indexing. For code examples, see [Model relational data](search-example-adventureworks-modeling.md) and [Model multilevel facets](search-example-adventureworks-multilevel-faceting.md).
 >
@@ -118,21 +118,9 @@ Performs *URL-safe* Base64 encoding of the input string. Assumes that the input 
 
 #### Example - document key lookup
 
-Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) ). If your data contains URL-unsafe characters and you want to use it to populate a key field in your search index, use this function. Once the key is encoded, you can use base64 decode to retrieve the original value. For details, see the [base64 encoding and decoding](#base64details) section.
+Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) ). If the source field for your key contains URL-unsafe characters, you can use the `base64Encode` function to convert it at indexing time.
 
-```JSON
-
-"fieldMappings" : [
-  {
-    "sourceFieldName" : "SourceKey",
-    "targetFieldName" : "IndexKey",
-    "mappingFunction" : { "name" : "base64Encode" }
-  }]
-```
-
-#### Example - retrieve original key
-
-You have a blob indexer that indexes blobs with the blob path metadata as the document key. After retrieving the encoded document key, you want to decode the path and download the blob.
+When you retrieve the encoded key at search time, you can then use the `base64Decode` function to get the original key value, and use that to retrieve the source document.
 
 ```JSON
 
@@ -147,7 +135,9 @@ You have a blob indexer that indexes blobs with the blob path metadata as the do
   }]
  ```
 
-If you don't need to look up documents by keys and also don't need to decode the encoded content, you can just leave out `parameters` for the mapping function, which defaults `useHttpServerUtilityUrlTokenEncode` to `true`. Otherwise, see [base64 details](#base64details) section to decide which settings to use.
+If you don't include a parameters property for your mapping function, it defaults to the value `{"useHttpServerUtilityUrlTokenEncode" : true}`.
+
+Azure Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more details, see [base64 encoding options](#base64details) to decide which parameters to use.
 
 <a name="base64DecodeFunction"></a>
 
@@ -155,9 +145,9 @@ If you don't need to look up documents by keys and also don't need to decode the
 
 Performs Base64 decoding of the input string. The input is assumed to be a *URL-safe* Base64-encoded string.
 
-#### Example - decode blob metadata
+#### Example - decode blob metadata or URLs
 
-Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding to represent arbitrary UTF-8 strings in blob custom metadata. To make search data more meaningful, you can use the base64Decode function to turn the encoded data back into regular strings when populating your search index.
+Your source data might contain contains Base64-encoded strings, such as blob metadata strings or web URLs, that you want to make searchable as plain text. You can use the `base64Decode` function to turn the encoded data back into regular strings when populating your search index.
 
 ```JSON
 
@@ -172,11 +162,13 @@ Blob custom metadata values must be ASCII-encoded. You can use Base64 encoding t
   }]
 ```
 
-If you don't specify any `parameters`, then the default value of `useHttpServerUtilityUrlTokenDecode` is `true`. See the [base64 encoding options](#base64details) section to decide which settings to use.
+If you don't include a parameters property, it defaults to the value `{"useHttpServerUtilityUrlTokenEncode" : true}`.
+
+Azure Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more details, see [base64 encoding options](#base64details) to decide which parameters to use.
 
 <a name="base64details"></a>
 
-### base64 encoding options
+#### base64 encoding options
 
 Azure Search supports two different Base64 encodings: **HttpServerUtility URL token**, and **URL-safe Base64 encoding without padding**. You must use the same encoding as the mapping functions to encode a document key for lookup, encode a value that will be decoded by the indexer, or decode a field that was encoded by the indexer.
 
