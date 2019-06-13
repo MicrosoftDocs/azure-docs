@@ -33,7 +33,7 @@ This section outlines the default health criteria to monitor Azure Windows and L
 
 ### Windows VMs
 
-- Available megabytes of memory
+- Available Megabytes of Memory
 - Average disk seconds per write (logical disk)
 - Average disk seconds per write (disk)
 - Average logical disk seconds per read
