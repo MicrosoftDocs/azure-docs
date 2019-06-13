@@ -16,6 +16,41 @@ ms.custom: seodec18
 
 This article describes changes to data storage and ingress from Azure Time Series Insights Preview. It covers the underlying storage structure, file format, and Time Series ID property. The article also discusses the underlying ingress process, throughput, and limitations.
 
+## Time Series Insights data ingress
+
+Azure Time Series Insights data ingress policies determine where data can be sourced from and in what format.
+
+[![Time Series Model overview](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+
+### Ingress policies
+
+The Time Series Insights Preview supports the same event sources and file types that Time Series Insights currently supports.
+
+Supported event sources include:
+
+- Azure IoT Hub
+- Azure Event Hubs
+  
+  > [!NOTE]
+  > Azure Event Hub instances support Kafka.
+
+Supported file types include:
+
+* JSON: For more information about the supported JSON shapes we can handle, see [How to shape JSON](./time-series-insights-send-events.md#json).
+
+### Data availability
+
+The Time Series Insights Preview indexes data by using a blob-size optimization strategy. Data becomes available to query after it’s indexed, which is based on how much data is coming in and at what velocity.
+
+> [!IMPORTANT]
+> * The Time Series Insights general availability (GA) release will make data available within 60 seconds of hitting an event source. 
+> * During the preview, expect a longer period before the data is made available.
+> * If you experience any significant latency, be sure to contact us.
+
+### Scale
+
+The Time Series Insights Preview supports an initial ingress scale of up to 1 Mega Byte per Second (Mbps) per environment. Enhanced scaling support is ongoing. We plan to update our documentation to reflect those improvements.
+
 ## Data storage
 
 When you create a Time Series Insights Preview pay-as-you-go SKU environment, you're creating two resources:
@@ -112,39 +147,6 @@ You can access your data in three general ways:
 
 Don't delete blobs. Not only are they useful for auditing and maintaining a record of your data, the Time Series Insights Preview maintains blob metadata within each blob.
 
-## Time Series Insights data ingress
-
-Azure Time Series Insights data ingress policies determine where data can be sourced from and in what format.
-
-### Ingress policies
-
-The Time Series Insights Preview supports the same event sources and file types that Time Series Insights currently supports.
-
-Supported event sources include:
-
-- Azure IoT Hub
-- Azure Event Hubs
-  
-  > [!NOTE]
-  > Azure Event Hub instances support Kafka.
-
-Supported file types include:
-
-* JSON: For more information about the supported JSON shapes we can handle, see [How to shape JSON](./time-series-insights-send-events.md#json).
-
-### Data availability
-
-The Time Series Insights Preview indexes data by using a blob-size optimization strategy. Data becomes available to query after it’s indexed, which is based on how much data is coming in and at what velocity.
-
-> [!IMPORTANT]
-> * The Time Series Insights general availability (GA) release will make data available within 60 seconds of hitting an event source. 
-> * During the preview, expect a longer period before the data is made available.
-> * If you experience any significant latency, be sure to contact us.
-
-### Scale
-
-The Time Series Insights Preview supports an initial ingress scale of up to 1 Mega Byte per Second (Mbps) per environment. Enhanced scaling support is ongoing. We plan to update our documentation to reflect those improvements.
-
 ## Partitions
 
 Each Time Series Insights Preview environment must have a **Time Series ID** property and a **Timestamp** property that uniquely identify it. Your Time Series ID acts as a logical partition for your data and gives the Time Series Insights Preview environment a natural boundary for distributing data across physical partitions. Physical partition management is managed by Time Series Insights Preview in an Azure storage account.
@@ -183,8 +185,3 @@ It's important to select an appropriate Time Series ID, because it's an immutabl
 - Read the [Azure Time Series Insights Preview Storage and Ingress](./time-series-insights-update-storage-ingress.md).
 
 - Read about the new [Data modeling](./time-series-insights-update-tsm.md).
-
-<!-- Images -->
-[1]: media/v2-update-storage-ingress/storage-architecture.png
-[2]: media/v2-update-storage-ingress/parquet-files.png
-[3]: media/v2-update-storage-ingress/blob-storage.png
