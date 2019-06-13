@@ -558,7 +558,7 @@
     items:
     - name: Configure Azure AD auth
       href: sql-database-aad-authentication-configure.md
-    - name: Conditional access
+    - name: Conditional Access
       href: sql-database-conditional-access.md
     - name: Multi-factor AAD auth
       href: sql-database-ssms-mfa-authentication.md
