@@ -7,11 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/12/2019
 ms.topic: quickstarts
 keywords: kinect, azure, sensor, sdk, body, tracking, joint, application, first
+
+#Customer intent: As an Azure Kinect DK developer, I want to create a new Azure Kinect DK application.
+
 ---
 
 # Quickstart: Build your first Azure Kinect body tracking application
 
 Getting started with the Azure Kinect Body Tracking API? This quickstart will get you up and running the body tracking!
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 1. [Set up Azure Kinect device](set-up-azure-kinect-dk.md)
