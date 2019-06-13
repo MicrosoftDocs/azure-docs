@@ -52,6 +52,14 @@ Here are the settings needed to enable the profiler:
 
 You can set these values using [Azure Resource Manager Templates](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure Powershell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp),  [Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
+### Enabling Profiler for other clouds manually
+
+In addition to the above app settings, you can use these app settings to enable profiler for other clouds.
+
+|App Setting    | US Government Values   
+|---------------|----------|
+|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    |
+|ApplicationInsightsEndpoint | https://dc.applicationinsights.us |
 
 ## Disable Profiler
 
