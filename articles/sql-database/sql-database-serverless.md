@@ -19,23 +19,24 @@ Azure SQL Database serverless (preview) is a compute tier for single databases t
 
 ## Serverless compute tier
 
-The serverless compute tier for a single database is parameterized by the compute range it can use and an autopause delay.
+The serverless compute tier for a single database is parameterized by a compute scaling range and an autopause delay.  The configuration of these parameters shape the database performance experience and compute cost.
 
 ![serverless billing](./media/sql-database-serverless/serverless-billing.png)
 
 ### Performance configuration
 
-- The number of minimum vCores and maximum vCores are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
-- The autopause delay is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login occurs.
+- The **minimum vCores** and **maximum vCores** are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
+- The **autopause delay** is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login or other activity occurs.  Alternatively, autopausing can be disabled.
 
-### Pricing overview
+### Cost
 
-- The total bill for a serverless database is the summation of the compute bill and storage bill.
-Billing for compute is based on the amount of vCores used and memory used per second.
-- The minimum amount of compute billed is based on min vCores and min memory.
-- Only storage is billed while the database is paused.
+- The cost for a serverless database is the summation of the compute cost and storage cost.
+- When compute usage is between the min and max compute limits configured, the compute cost is based on vCore and memory usage.
+- When compute usage is below the min compute limits configured, the compute cost is based on the min vCores and min memory configured.
+- When the database is paused, compute costs are zero and only storage is billed.
+- The storage cost is determined in the same way as in the provisioned compute tier.
 
-For billing details, see [Billing](sql-database-serverless.md#billing).
+For more cost details, see [Billing](sql-database-serverless.md#billing).
 
 ## Scenarios
 
