@@ -11,17 +11,33 @@ ms.date: 06/05/2019
 
 # How to Purchase Software on AppSource
 
-Partners can now sell offers on AppSource.  See the information below for making purchases on AppSource.
+Partners can now sell offers on [AppSource](https://appsource.microsoft.com/).  See the information below for making purchases on AppSource.
 
 ## Requirements
 
 1. Azure Active Directory. To learn more, see [Quickstart: Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
-1. A valid credit card.
+
+>[!Note]
+>To purchase SaaS offers, you need a work or school account.
+
+2. A valid credit card.
+
+>[!Note]
+>The credit card needs to belong to the country/region in which the customer is purchasing the offer. To select the country, the user should use the “Country/Billing region picker” in the footer.
 
 ## Steps for making purchases on AppSource
 
-1. In the AppSource storefront, find an offer that you would like to purchase.
-1. Select **Get it now**.
+1. In [AppSource](https://appsource.microsoft.com/), select your billing/country region.
+1. Find the offer that you would like to purchase. [AppSource](https://appsource.microsoft.com/) has four kinds of offers:
+    - Free offers: These can be used without requiring to purchase anything.
+    - Free trials: These offers provide a limited time/functionality for you to try the application. The trial also provides you ways to purchase the full offering.
+    - Contact the partner: Some offers require a customizations and cannot be tried as a self-serve offering. These offers provide you an opportunity to share your contact information with the partner to contact you.
+    - Purchasable from AppSource: These offers require you to provide a credit card and purchase the offering 
+
+>[!Note]
+>This article is applicable only to apps purchasable from AppSource.
+
+3. Select **Get it now**.
 1. Choose the plan:
     1. Set the number of seats.
     1. Set the billing term.
@@ -32,18 +48,13 @@ Partners can now sell offers on AppSource.  See the information below for making
 
 ## How to configure software post-purchase
 
+Once your order is received, it can take several seconds to get confirmed. Once confirmed, you will receive a link to configure your SaaS subscription. 
+
 1. On the **Order Confirmation** page, select **Configure**.
 1. Complete provisioning and set up on the software provider's website.
 
 >[!Note]
 >This step is mandatory and can be completed at any time.
-
-3. On the **Order Confirmation** page, select **Manage subscriptions**.
-1. Redirect to the Microsoft 365 Admin Center, see [About the Microsoft 365 admin center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center?view=o365-worldwide) for more information.
-1. The following actions can be completed in the Microsoft 365 Admin Center:
-    1. Add or remove licenses.
-    1. Cancel a license subscription.
-    1. License renewal.
 
 ## Contacting support
 
