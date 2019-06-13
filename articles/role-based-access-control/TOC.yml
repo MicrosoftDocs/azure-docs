@@ -32,7 +32,7 @@
     href: role-definitions.md
   - name: PIM for Azure resources
     href: pim-azure-resource.md
-  - name: Conditional access for Azure management
+  - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
 - name: How-to guides
   items:
