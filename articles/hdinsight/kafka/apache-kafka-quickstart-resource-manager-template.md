@@ -23,9 +23,9 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 >
 > For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
 
-## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
 
 * An SSH client. The steps in this document use SSH to connect to the cluster.
 
@@ -250,10 +250,6 @@ To store records into the test topic you created earlier, and then read them usi
 4. Use __Ctrl + C__ to stop the consumer.
 
 You can also programmatically create producers and consumers. For an example of using this API, see the [Apache Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) document.
-
-## Troubleshoot
-
-If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Clean up resources
 

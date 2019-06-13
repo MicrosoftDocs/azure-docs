@@ -122,7 +122,7 @@ The following table summarizes the access permissions for our roles and applicat
 
 | Role | Management plane permissions | Data plane permissions |
 | --- | --- | --- |
-| Security team | Key Vault Contributor | Keys: back up, create, delete, get, import, list, restore<br>Secrets: all operations |
+| Security team | Key Vault Contributor | Keys: backup, create, delete, get, import, list, restore<br>Secrets: all operations |
 | Developers and&nbsp;operators | Key Vault deploy permission<br><br> **Note**: This permission allows deployed VMs to fetch secrets from a key vault. | None |
 | Auditors | None | Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. |
 | Application | None | Keys: sign<br>Secrets: get |
