@@ -27,12 +27,12 @@ This quickstart assumes:
 
 ## Create recording
 
-1. Open a command prompt, and provide the path to `k4arecorder.exe`. For example: `C:\Program Files\Azure Kinect SDK vX.Y.Z\tools\k4arecorder.exe`, where `X.Y.Z` is the installed version of the SDK.
+1. Open a command prompt, and provide the path to the recorder.exe. For example: `C:\Program Files\Azure Kinect SDK\tools\k4arecorder.exe`.
 2. Record 5 seconds.
 
     `k4arecorder.exe -l 5 %TEMP%\output.mkv`
 
-3. The recorder uses the following default settings *Depth NFOV unbinned and RGB 1080p at 30 fps with IMU*. For a complete overview of recording options and tips, refer to [Azure Kinect recorder](azure-kinect-dk-recorder.md).
+3. By default, the recorder uses the NFOV Unbinned depth mode and outputs 1080p RGB at 30 fps including IMU data. For a complete overview of recording options and tips, refer to [Azure Kinect recorder](azure-kinect-dk-recorder.md).
 
 ## Play back recording
 
