@@ -14,7 +14,7 @@ ms.author: rezas
 
 Azure IoT Hub *device streams* facilitate the creation of secure bi-directional TCP tunnels for a variety of cloud-to-device communication scenarios. A device stream is mediated by an IoT Hub *streaming endpoint* which acts as a proxy between your device and service endpoints. This setup, depicted in the diagram below, is especially useful when devices are behind a network firewall or reside inside of a private network. As such, IoT Hub device streams help address customers' need to reach IoT devices in a firewall-friendly manner and without the need to broadly opening up incoming or outgoing network firewall ports.
 
-![Alt text](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png "IoT Hub device streams overview")
+!["IoT Hub device streams overview"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png )
 
 Using IoT Hub device streams, devices remain secure and will only need to open up outbound TCP connections to IoT hub's streaming endpoint over port 443. Once a stream is established, the service-side and device-side applications will each have programmatic access to a WebSocket client object to send and receive raw bytes to one another. The reliability and ordering guarantees provided by this tunnel is on par with TCP.
 
@@ -76,7 +76,7 @@ An established stream terminates when either of the TCP connections to the gatew
 
 Both the device and the service sides of a device stream must be capable of establishing TLS-enabled connections to IoT Hub and its streaming endpoint. This requires outbound connectivity over port 443 to these endpoints. The hostname associated with these endpoints can be found on the *Overview* tab of IoT Hub, as shown in the figure below:
 
-!["Device stream endpoints"](./media/iot-hub-device-streams-overview/device-stream-portal.png)
+!["Device stream endpoints"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
 Alternatively, the endpoints information can use be retrieved using Azure CLI under the hub's properties section, specifically, `property.hostname` and `property.deviceStreams` keys.
 
@@ -103,7 +103,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 As mentioned at the beginning of this article, your device creates an outbound connection to IoT Hub streaming endpoint during device streams initiation process. Your firewalls on the device or its network must allow outbound connectivity to the streaming gateway over port 443 (note that communication takes place over a WebSocket connection that is encrypted using TLS).
 
 The hostname of device streaming endpoint can be found on the Azure IoT Hub portal under the Overview tab.
-!["Device stream endpoints"](./media/iot-hub-device-streams-overview/device-stream-portal.PNG)
+!["Device stream endpoints"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
 Alternatively, you can find this information using Azure CLI:
 
@@ -123,17 +123,17 @@ Follow the steps below to configure Azure Monitor logs for your IoT Hub's device
 
 1. Navigate to the *Diagnostic settings* tab in your IoT Hub, and click on *Turn on diagnostics* link.
 
-   !["Enabling diagnostics logs"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG)
+   !["Enabling diagnostics logs"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
 
 2. Provide a name for your diagnostics settings, and choose *Send to Log Analytics* option. You will be guided to choose an existing Log Analytics workspace resource or create a new one. Additionally, check the *DeviceStreams* from the list.
 
-    !["Enable device streams logs"](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG )
+    !["Enable device streams logs"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
 
 3. You can now access your device streams logs under the *Logs* tab in your IoT Hub's portal. Device stream activity logs will appear in the `AzureDiagnostics` table and have `Category=DeviceStreams`.
 
    As shown below, the identity of the target device and the result of the operation is also available in the logs.
 
-   !["Access device stream logs"](./media/iot-hub-device-streams-overview/device-streams-log-analytics.PNG)
+   !["Access device stream logs"](./media/iot-hub-device-streams-overview/device-streams-logs.png)
 
 ## Regional Availability
 
