@@ -43,7 +43,7 @@ The following release notes are for version 6.2.0.0 of the Azure File Sync agent
 
 List of issues fixed in this release:  
 - After creating a server endpoint, High CPU usage may occur when background recall is downloading files to the server
-- Sync and Cloud Tiering operations may fail with error ECS_E_SERVER_CREDENTIAL_NEEDED due to token expiration
+- Sync and cloud tiering operations may fail with error ECS_E_SERVER_CREDENTIAL_NEEDED due to token expiration
 - Recalling a file may fail if the URL to download the file contains reserved characters 
 
 ## Agent version 6.1.0.0
