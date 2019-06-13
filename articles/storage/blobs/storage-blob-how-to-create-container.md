@@ -66,7 +66,7 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
     }
     catch (StorageException e)
     {
-        Console.WriteLine("HTTP error code {0} : {1}",
+        Console.WriteLine("HTTP error code {0}: {1}",
                             e.RequestInformation.HttpStatusCode,
                             e.RequestInformation.ErrorCode);
         Console.WriteLine(e.Message);
@@ -104,7 +104,7 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
     }
     catch (StorageException e)
     {
-        Console.WriteLine("HTTP error code {0} : {1}",
+        Console.WriteLine("HTTP error code {0}: {1}",
                             e.RequestInformation.HttpStatusCode,
                             e.RequestInformation.ErrorCode);
         Console.WriteLine(e.Message);
@@ -137,11 +137,12 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 
     try
     {
+        // Delete the specified container and handle the exception.
         await container.DeleteAsync();
     }
     catch (StorageException e)
     {
-        Console.WriteLine("HTTP error code {0} : {1}",
+        Console.WriteLine("HTTP error code {0}: {1}",
                             e.RequestInformation.HttpStatusCode,
                             e.RequestInformation.ErrorCode);
         Console.WriteLine(e.Message);
