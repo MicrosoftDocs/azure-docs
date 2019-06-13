@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 05/06/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
 ---
 
@@ -19,6 +19,56 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+
+## 2019-06-10 
+
+### Azure Machine Learning Data Prep SDK v1.1.5
+
++ **Bug fixes and improvements**
+  + For interpreted datetime values that have a 2-digit year format, the range of valid years has been updated to match Windows May Release. The range has been changed from 1930-2029 to 1950-2049.
+  + When reading in a file and setting `handleQuotedLineBreaks=True`, `\r` will be treated as a new line.
+  + Fixed a bug that caused `read_pandas_dataframe` to fail in some cases.
+  + Improved performance of `get_profile`.
+  + Improved error messages.
+
+## 2019-05-28
+
+### Azure Machine Learning Data Prep SDK v1.1.4
+
++ **New features**
+  + You can now use the following expression language functions to extract and parse datetime values into new columns.
+    + `RegEx.extract_record()` extracts datetime elements into a new column.
+    + `create_datetime()` creates datetime objects from separate datetime elements.
+  + When calling `get_profile()`, you can now see that quantile columns are labeled as (est.) to clearly indicate that the values are approximations.
+  + You can now use ** globbing when reading from Azure Blob Storage.
+    + e.g. `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+
++ **Bug fixes**
+  + Fixed a bug related to reading a Parquet file from a remote source (Azure Blob).
+
+## 2019-05-14
+
+### Azure Machine Learning SDK for Python v1.0.39
++ **Changes**
+  + Run configuration auto_prepare_environment option is being deprecated, with auto prepare becoming the default.
+
+## 2019-05-08
+
+### Azure Machine Learning Data Prep SDK v1.1.3
+
++ **New features**
+  + Added support to read from a PostgresSQL database, either by calling read_postgresql or using a Datastore.
+    + See examples in how-to guides:
+      + [Data Ingestion notebook](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [Datastore notebook](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **Bug fixes and improvements**
+  + Fixed issues with column type conversion:
+  + Now correctly converts a boolean or numeric column to a boolean column.
+  + Now does not fail when attempting to set a date column to be date type.
+  + Improved JoinType types and accompanying reference documentation. When joining two dataflows, you can now specify one of these types of join:
+    + NONE, MATCH, INNER, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, FULL.
+  + Improved data type inferencing to recognize more date formats.
 
 ## 2019-05-06
 
@@ -37,6 +87,15 @@ In Azure portal, you can now:
 + Added ability to download the config.json file from the Overview page of the Azure Machine Learning service workspace.
 + Support Machine Learning service workspace creation from Azure Databricks workspace 
 
+## 2019-04-26
+
+### Azure Machine Learning SDK for Python v1.0.33
++ **New features**
+  + The _Workspace.create_ method now accepts default cluster configurations for CPU and GPU clusters.
+  + If Workspace creation fails, depended resources are cleaned.
+  + Default Azure Container Registry SKU was switched to basic.
+  + Azure Container Registry is created lazily, when needed for run or image creation.
+  + Support for Environments for training runs.
 
 ### Notebook Virtual Machine 
 
@@ -350,7 +409,7 @@ Azure Machine Learning service is now generally available.
 With this release, we are announcing a new managed compute experience through the [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute target replaces Azure Batch AI compute for Azure Machine Learning. 
 
 This compute target:
-+ Is used for model training and batch inferencing
++ Is used for model training and batch inference/scoring
 + Is single- to multi-node compute
 + Does the cluster management and job scheduling for the user
 + Autoscales by default

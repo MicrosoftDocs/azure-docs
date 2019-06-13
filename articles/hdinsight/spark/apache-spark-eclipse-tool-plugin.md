@@ -220,6 +220,60 @@ To resolve this error, you need [download the executable](https://public-repo-1.
    
    ![Spark application local run result](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
+## Reader-only role
+When users submit job to a cluster with reader-only role permission, Ambari credentials is required.
+
+### Link cluster from context menu
+
+1. Sign in with reader-only role account.
+       
+2. From **Azure Explorer**, expand **HDInsight** to view HDInsight clusters that are in your subscription. The clusters marked **"Role:Reader"** only have reader-only role permission.
+
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
+
+3. Right click the cluster with reader-only role permission. Select **Link this cluster** from context menu to link cluster. Enter the Ambari username and password.
+
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
+
+4. If the cluster is linked successfully, HDInsight will be refreshed.
+   The stage of the cluster will become linked.
+  
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
+
+
+
+### Link cluster by expanding Jobs node
+
+1. Click **Jobs** node, **Cluster Job Access Denied** window pops up.
+   
+2. Click **Link this cluster** to link cluster.
+   
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
+
+### Link cluster from Spark Submission window
+
+1. Create an HDInsight Project. 
+
+2. Right click the package. Then select **Submit Spark Application to HDInsight**.
+   
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
+
+3. Select a cluster which has reader-only role permission for **Cluster Name**. Warning message shows out. You can click **Link this cluster** to link cluster.
+   
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
+   
+### View Storage Accounts
+
+* For clusters with reader-only role permission, click **Storage Accounts** node, **Storage Access Denied** window pops up. 
+     
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
+
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
+
+* For linked clusters, click **Storage Accounts** node, **Storage Access Denied** window pops up. 
+     
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
+
 ## Known problems
 When link a cluster, I would suggest you to provide credential of storage.
 

@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
 ---
 
@@ -43,29 +43,24 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Ubuntu | 18.04| OS and data disk |
 | Ubuntu | 16.04| OS and data disk |
 | Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
-| RHEL | 7.6 | OS and data disk* |
-| RHEL | 7.5 | OS and data disk* |
-| RHEL | 7.4 | OS and data disk* |
-| RHEL | 7.3 | OS and data disk* |
-| RHEL | 7.2 | OS and data disk* |
-| RHEL | 6.8 | Data disk* |
-| RHEL | 6.7 | Data disk* |
+| RHEL | 7.6 | OS and data disk (see note below) |
+| RHEL | 7.5 | OS and data disk (see note below) |
+| RHEL | 7.4 | OS and data disk (see note below) |
+| RHEL | 7.3 | OS and data disk (see note below) |
+| RHEL | 7.2 | OS and data disk (see note below) |
+| RHEL | 6.8 | Data disk (see note below) |
+| RHEL | 6.7 | Data disk (see note below) |
 | CentOS | 7.5 | OS and data disk |
 | CentOS | 7.4 | OS and data disk |
 | CentOS | 7.3 | OS and data disk |
 | CentOS | 7.2n | OS and data disk |
-| CentOS | 6.8 | OS and data disk |
-| CentOS | 7.1 | Data disk |
-| CentOS | 7.0 | Data disk |
-| CentOS | 6.7 | Data disk |
-| CentOS | 6.6 | Data disk |
-| CentOS | 6.5 | Data disk |
+| CentOS | 6.8 | Data disk |
 | openSUSE | 42.3 | Data disk |
 | SLES | 12-SP4 | Data disk |
 | SLES | 12-SP3 | Data disk |
 
 > [!NOTE]
-> New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
+> The new ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. See [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) for more information.
 
 ## How can I start using Azure Disk Encryption?
 
@@ -82,6 +77,9 @@ No, Azure Disk Encryption only encrypts mounted volumes.
 ## How do I rotate secrets or encryption keys?
 
 To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
+
+>[!WARNING]
+> - If you have previously used [Azure Disk Encryption with Azure AD app](azure-security-disk-encryption-prerequisites-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet.
 
 ## How do I add or remove a key encryption key if I didn't originally use one?
 
@@ -118,7 +116,9 @@ Yes. Disk encryption using an Azure AD app is still supported. However, when enc
 Use the latest version of the Azure PowerShell SDK to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk Encryption is *not* supported by Azure SDK version 1.1.0.
 
 > [!NOTE]
-> The Linux Azure disk encryption preview extension is deprecated. For details, see [Deprecating Azure disk encryption preview extension for Linux IaaS VMs](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/).
+> The Linux Azure disk encryption preview extension "Microsoft.OSTCExtension.AzureDiskEncryptionForLinux" is deprecated. This extension was published for Azure disk encryption preview release. You should not use the preview version of the extension in your testing or production deployment.
+
+> For deployment scenarios like Azure Resource Manager (ARM), where you have a need to deploy Azure disk encryption extension for Linux VM to enable encryption on your Linux IaaS VM, you must use the Azure disk encryption production supported extension "Microsoft.Azure.Security.AzureDiskEncryptionForLinux".
 
 ## Can I apply Azure Disk Encryption on my custom Linux image?
 
@@ -154,7 +154,7 @@ On Linux, ADE uses the decrypt default of aes-xts-plain64 with a 256-bit volume 
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## Is XFS filesystem supported?
-XFS volumes are supported for data disk encryption only with the EncryptFormalAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+XFS volumes are supported for data disk encryption only with the EncryptFormatAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## Can I backup and restore an encrypted VM? 
 

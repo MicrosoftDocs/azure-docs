@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM sizes - GPU | Microsoft Docs
+title: Azure Linux VM sizes - Accelerated compute | Microsoft Docs
 description: Lists the different GPU optimized sizes available for Linux virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 05/14/2019
 ms.author: jonbeck
 
 ---
 
-# GPU optimized virtual machine sizes
+# Accelerated compute virtual machine sizes
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 

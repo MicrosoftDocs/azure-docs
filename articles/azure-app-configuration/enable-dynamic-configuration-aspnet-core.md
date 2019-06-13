@@ -60,6 +60,9 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
     ```
 
     The second parameter in the `.Watch` method is the polling interval at which the ASP.NET client library queries an app configuration store. The client library checks the specific configuration setting to see if any change occurred.
+    
+    > [!NOTE]
+    > The default polling interval for the `Watch` extension method is 30 seconds if not specified.
 
 2. Add a *Settings.cs* file that defines and implements a new `Settings` class.
 
@@ -161,9 +164,9 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
     ![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Sign in to the [Azure portal](https://aka.ms/azconfig/portal). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
+4. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
 
-5. Select **Key/Value Explorer**, and update the values of the following keys:
+5. Select **Configuration Explorer**, and update the values of the following keys:
 
     | Key | Value |
     |---|---|

@@ -1,14 +1,12 @@
 ---
-title: Azure HDInsight Tools - Use Visual Studio Code for Hive, LLAP or PySpark | Microsoft Docs
+title: Azure HDInsight Tools - Use Visual Studio Code for Hive, LLAP, or PySpark
 description: Learn how to use the Azure HDInsight Tools for Visual Studio Code to create and submit queries and scripts.
-Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 05/30/2019
 ---
 
 # Use Azure HDInsight Tools for Visual Studio Code
@@ -66,12 +64,12 @@ Before you can submit scripts to HDInsight clusters from Visual Studio Code, you
 
     ![HDInsight Tools for Visual Studio Code login](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Follow the sign-in instructions in the **OUTPUT** pane.
+2. Follow the sign in instructions in the **OUTPUT** pane.
     + For Azure global environment, **HDInsight: Login** command will trigger **Sign in to Azure** action in the HDInsight explorer and vice versa.
 
         ![Sign in instructions for azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
-    + For Other environments, follow the sign-in instructions.
+    + For Other environments, follow the sign in instructions.
 
         ![Sign in instructions for other environment](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
@@ -356,7 +354,7 @@ Submit a file, notice the .vscode folder is added automatically to the work fold
 
 HDInsight for Visual Studio Code supports the following features:
 
-- **IntelliSense auto-complete**. Suggestions pop up for keyword, methods, variables, and so on. Different icons represent different types of objects.
+- **IntelliSense autocomplete**. Suggestions pop up for keyword, methods, variables, and so on. Different icons represent different types of objects.
 
     ![HDInsight Tools for Visual Studio Code IntelliSense object types](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 - **IntelliSense error marker**. The language service underlines the editing errors for the Hive script.     

@@ -102,6 +102,9 @@ public class ValuesController : ControllerBase
 
 ### Capture ILogger logs from Startup.cs and Program.cs in ASP.NET Core apps
 
+> [!NOTE]
+> In ASP.NET Core 3.0 and later, it is no longer possible to inject `ILogger` in Startup.cs and Program.cs. See https://github.com/aspnet/Announcements/issues/353 for more details.
+
 The new ApplicationInsightsLoggerProvider can capture logs from early in the application-startup pipeline. Although ApplicationInsightsLoggerProvider is automatically enabled in  Application Insights (starting with version 2.7.0-beta3), it doesn't have an instrumentation key set up until later in the pipeline. So, only logs from **Controller**/other classes will be captured. To capture every log starting with **Program.cs** and **Startup.cs** itself, you must explicitly enable an instrumentation key for ApplicationInsightsLoggerProvider. Also, *TelemetryConfiguration* is not fully set up when you log from **Program.cs** or **Startup.cs** itself. So those logs will have a minimum configuration that uses InMemoryChannel, no sampling, and no standard telemetry initializers or processors.
 
 The following examples demonstrate this capability with **Program.cs** and **Startup.cs**.
@@ -138,14 +141,13 @@ public class Program
 
             // Adding the filter below to ensure logs of all severity from Program.cs
             // is sent to ApplicationInsights.
-            // Replace YourAppName with the namespace of your application's Program.cs.
             builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
-                             ("YourAppName.Program", LogLevel.Trace);
+                             (typeof(Program).FullName, LogLevel.Trace);
+
             // Adding the filter below to ensure logs of all severity from Startup.cs
             // is sent to ApplicationInsights.
-            // Replace YourAppName with the namespace of your application's Startup.cs.
             builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
-                             ("YourAppName.Startup", LogLevel.Trace);
+                             (typeof(Startup).FullName, LogLevel.Trace);
             }
         );
 }
@@ -435,7 +437,7 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> If you use the Microsoft.ApplicationInsights.AspNetCore package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions).
+> If you use the Microsoft.ApplicationInsights.AspNetCore package to enable Application Insights, modify this code to get `TelemetryClient` directly in the constructor. For an example, see [this FAQ](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#frequently-asked-questions).
 
 
 ### What Application Insights telemetry type is produced from ILogger logs? Or where can I see ILogger logs in Application Insights?

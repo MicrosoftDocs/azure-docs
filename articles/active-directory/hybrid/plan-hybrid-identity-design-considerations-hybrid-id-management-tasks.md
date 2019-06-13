@@ -42,24 +42,24 @@ While defining those requirements, ensure that at least the following questions 
   
   * Does the hybrid identity solution handles license management?
     * If yes, what capabilities are available?
-* Does the solution handle group-based license management? 
+  * Does the solution handle group-based license management? 
   
-      - If yes, is it possible to assign a security group to it? 
-       - If yes, will the cloud directory automatically assign licenses to all the members of the group? 
-        - What happens if a user is subsequently added to, or removed from the group, will a license be automatically assigned or removed as appropriate? 
+    * If yes, is it possible to assign a security group to it? 
+    * If yes, will the cloud directory automatically assign licenses to all the members of the group? 
+    * What happens if a user is subsequently added to, or removed from the group, will a license be automatically assigned or removed as appropriate? 
 * Integration with other third-party identity providers:
-* Can this hybrid solution be integrated with third-party identity providers to implement single sign-on?
-* Is it possible to unify all the different identity providers into a cohesive identity system?
-* If yes, how and which are they and what capabilities are available?
+  * Can this hybrid solution be integrated with third-party identity providers to implement single sign-on?
+  * Is it possible to unify all the different identity providers into a cohesive identity system?
+  * If yes, how and which are they and what capabilities are available?
 
 ## Synchronization Management
 One of the goals of an identity manager, to be able to bring all the identity providers and keep them synchronized. You keep the data synchronized based on an authoritative master identity provider. In a hybrid identity scenario, with a synchronized management model, you manage all user and device identities in an on-premises server and synchronize the accounts and, optionally, passwords to the cloud. The user enters the same password on-premises as they do in the cloud, and at sign-in, the password is verified by the identity solution. This model uses a directory synchronization tool.
 
 ![directory sync](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png)
 To proper design the synchronization of your hybrid identity solution ensure that the following questions are answered:
-•    What are the sync solutions available for the hybrid identity solution?
-•    What are the single sign on capabilities available?
-•    What are the options for identity federation between B2B and B2C?
+*    What are the sync solutions available for the hybrid identity solution?
+*    What are the single sign on capabilities available?
+*    What are the options for identity federation between B2B and B2C?
 
 ## Next steps
 [Determine hybrid identity management adoption strategy](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)

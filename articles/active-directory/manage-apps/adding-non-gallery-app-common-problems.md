@@ -3,8 +3,8 @@ title: Problem adding a non-gallery application | Microsoft Docs
 description: Understand common problems people face when adding custom non-gallery applications 
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---

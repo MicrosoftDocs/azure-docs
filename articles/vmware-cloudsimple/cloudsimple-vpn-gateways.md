@@ -31,6 +31,8 @@ Use cases for site-to-site VPN include:
 * Convenient transfer of VM templates, ISOs, and other files from your on-premises resources to your private cloud vCenter.
 * Accessibility of workloads running on your private cloud from your on-premises network.
 
+![Site-to-Site VPN connection topology](media/cloudsimple-site-to-site-vpn-connection.png)
+
 ### Cryptographic parameters
 
 A site-to-site VPN connection uses the following default cryptographic parameters to establish a secure connection.  When you create a connection from on-premises VPN device, the parameters must match.

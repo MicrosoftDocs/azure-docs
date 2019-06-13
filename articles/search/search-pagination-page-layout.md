@@ -14,7 +14,7 @@ ms.custom: seodec2018
 # How to work with search results in Azure Search
 This article provides guidance on how to implement standard elements of a search results page, such as total counts, document retrieval, sort orders, and navigation. Page-related options that contribute data or information to your search results are specified through the [Search Document](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) requests sent to your Azure Search Service. 
 
-In the REST API, requests include a GET command, path, and query parameters that inform the service what is being requested, and how to formulate the response. In the .NET SDK, the equivalent API is [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+In the REST API, requests include a GET command, path, and query parameters that inform the service what is being requested, and how to formulate the response. In the .NET SDK, the equivalent API is [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
 Several code samples include a web frontend interface, which you can find here: [New York City Jobs demo app](https://azjobsdemo.azurewebsites.net/) and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 

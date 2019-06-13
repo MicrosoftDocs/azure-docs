@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/29/2019
+ms.date: 05/03/2019
 ms.author: kumud
 ---
 
@@ -69,6 +69,7 @@ Available in all regions.
 ## Limitations
 
 - Portal cannot be used to configure or view TCP Reset.  Use templates, REST API, Az CLI 2.0, or PowerShell instead.
+- TCP RST only sent during TCP connection in ESTABLISHED state.
 
 ## Next steps
 

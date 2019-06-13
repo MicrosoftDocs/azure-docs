@@ -14,6 +14,10 @@
     href: create-host-pools-azure-marketplace.md
   - name: 4. Manage app groups
     href: manage-app-groups.md
+  - name: 5. Create a host pool to validate service updates
+    href: create-validation-host-pool.md
+  - name: 6. Deploy a management tool
+    href: manage-resources-using-ui.md
 - name: How-to
   items:
   - name: Connect to Windows Virtual Desktop resources
@@ -30,10 +34,10 @@
     href: create-host-pools-user-profile.md
   - name: Configure the Windows Virtual Desktop load-balancing method
     href: configure-host-pool-load-balancing.md
-  - name: Identify issues with the diagnostics feature
-    href: diagnostics-role-service.md
   - name: Prepare and customize a master VHD image
     href: set-up-customize-master-image.md
+  - name: Install Office on a master VHD image
+    href: install-office-on-wvd-master-image.md  
   - name: Configure GPU for Windows Virtual Desktop 
     href: configure-vm-gpu.md
   - name: Automatically scale session hosts
@@ -46,10 +50,14 @@
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
     href: host-pool-load-balancing.md
+  - name: FSLogix profile containers and Azure files
+    href: fslogix-containers-azure-files.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
+  - name: Identify issues with the diagnostics feature 
+    href: diagnostics-role-service.md   
   - name: Tenant and host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
@@ -58,6 +66,8 @@
     href: troubleshoot-client-connection.md
   - name: Windows Virtual Desktop PowerShell 
     href: troubleshoot-powershell.md
+  - name: Diagnosing graphics performance issues
+    href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
   - name: PowerShell

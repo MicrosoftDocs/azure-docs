@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migrate from federation to password hash synchronization for Azure AD | Microsoft Docs'
+title: 'Azure AD Connect: Migrate from federation to PHS for Azure AD | Microsoft Docs'
 description: This article has information about moving your hybrid identity environment from federation to password hash synchronization.
 services: active-directory
 author: billmath
@@ -8,7 +8,7 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -109,7 +109,7 @@ For more information, see these articles:
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> If **SupportsMfa** is set to **True**, you're using an on-premises multi-factor authentication solution to inject a second-factor challenge into the user authentication flow. This setup no longer works for Azure AD authentication scenarios. 
+> If **SupportsMfa** is set to **True**, you're using an on-premises multi-factor authentication solution to inject a second-factor challenge into the user authentication flow. This setup no longer works for Azure AD authentication scenarios after converting this domain from federated to managed authentication. After you disable federation, you sever the relationship to your on-premises federation and this includes on-premises MFA adapters. 
 >
 > Instead, use the Azure Multi-Factor Authentication cloud-based service to perform the same function. Carefully evaluate your multi-factor authentication requirements before you continue. Before you convert your domains, make sure that you understand how to use Azure Multi-Factor Authentication, the licensing implications, and the user registration process.
 

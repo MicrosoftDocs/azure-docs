@@ -34,7 +34,7 @@ You must have permission to list storage accounts. You can get this permission b
 Storage Explorer can also use account keys to authenticate requests. You can get access to keys with more powerful roles, such as the "Contributor" role.
 
 > [!NOTE]
-> Access keys grant unrestricted permissions to anyone who holds them. Therefore, it is generally not recommended they be handed out to account users. If you need to revoke access keys, you can regenerate them from the [Azure Portal](https://portal.azure.com/).
+> Access keys grant unrestricted permissions to anyone who holds them. Therefore, it's generally not recommended they be handed out to account users. If you need to revoke access keys, you can regenerate them from the [Azure Portal](https://portal.azure.com/).
 
 #### Data Roles
 
@@ -61,7 +61,7 @@ We don't yet have an RBAC-related solution at this time. As a workaround, you ca
 Certificate errors are caused by one of the two following situations:
 
 1. The app is connected through a "transparent proxy", which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it using a self-signed certificate.
-2. You are running an application that is injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that do inject certificates includes anti-virus and network traffic inspection software.
+2. You're running an application that is injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that do inject certificates includes anti-virus and network traffic inspection software.
 
 When Storage Explorer sees a self-signed or untrusted certificate, it can no longer know whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer trust it by doing the following steps:
 
@@ -70,7 +70,7 @@ When Storage Explorer sees a self-signed or untrusted certificate, it can no lon
 
 This issue may also be the result of multiple certificates (root and intermediate). Both certificates must be added to overcome the error.
 
-If you are unsure of where the certificate is coming from, you can try these steps to find it:
+If you're unsure of where the certificate is coming from, you can try these steps to find it:
 
 1. Install Open SSL
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (any of the light versions should be sufficient)
@@ -79,17 +79,17 @@ If you are unsure of where the certificate is coming from, you can try these ste
     * Windows: open the installation directory, click **/bin/**, and then double-click **openssl.exe**.
     * Mac and Linux: run **openssl** from a terminal.
 3. Execute `s_client -showcerts -connect microsoft.com:443`
-4. Look for self-signed certificates. If you are unsure of which certificates are self-signed, look for anywhere the subject `("s:")` and issuer `("i:")` are the same.
+4. Look for self-signed certificates. If you're unsure of which certificates are self-signed, look for anywhere the subject `("s:")` and issuer `("i:")` are the same.
 5. When you have found any self-signed certificates, for each one, copy and paste everything from and including **-----BEGIN CERTIFICATE-----** to **-----END CERTIFICATE-----** to a new .cer file.
 6. Open Storage Explorer, click **Edit** > **SSL Certificates** > **Import Certificates**, and then use the file picker to find, select, and open the .cer files that you created.
 
-If you cannot find any self-signed certificates using the preceding steps, contact us through the feedback tool for more help. Alternatively, you can choose to launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore certificate errors.
+If you can't find any self-signed certificates using the preceding steps, contact us through the feedback tool for more help. You can also choose to launch Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When launched with this flag, Storage Explorer will ignore certificate errors.
 
 ## Sign-in issues
 
 ### Blank Sign-in Dialog
 
-Blank sign-in dialogs are most often caused by ADFS asking Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue you can attempt to use Device Code Flow for sign-in. To do so, perform the following steps:
+Blank sign-in dialogs are most often caused by ADFS asking Storage Explorer to perform a redirect, which is unsupported by Electron. To work around this issue, you can attempt to use Device Code Flow for sign-in. To do so, complete the following steps:
 
 1. Menu: Preview -> "Use Device Code Sign-In".
 2. Open the Connect Dialog (either via the plug icon on the left-hand vertical bar, or "Add Account" on the account panel).
@@ -104,15 +104,15 @@ If you find yourself having issues signing into the account you want to use beca
 
 ### Reauthentication loop or UPN change
 
-If you are in a reauthentication loop, or have changed the UPN of one of your accounts, try the following:
+If you're in a reauthentication loop, or have changed the UPN of one of your accounts, try the following steps:
 
 1. Remove all accounts and then close Storage Explorer
 2. Delete the .IdentityService folder from your machine. On Windows, the folder is located at `C:\users\<username>\AppData\Local`. For Mac and Linux, you can find the folder at the root of your user directory.
-3. If you are on Mac or Linux, you will also need to delete the Microsoft.Developer.IdentityService entry from your OS' keystore. On Mac, the keystore is the "Gnome Keychain" application. For Linux, the application is usually called "Keyring", but the name may be different depending on your distribution.
+3. If you're on Mac or Linux, you'll also need to delete the Microsoft.Developer.IdentityService entry from your OS' keystore. On Mac, the keystore is the "Gnome Keychain" application. For Linux, the application is usually called "Keyring", but the name may be different depending on your distribution.
 
 ### Conditional Access
 
-Conditional access is not supported when Storage Explorer is being used on Windows 10, Linux, or macOS. This is due to a limitation in the AAD Library used by Storage Explorer.
+Conditional access isn't supported when Storage Explorer is being used on Windows 10, Linux, or macOS. This is because of a limitation in the AAD Library used by Storage Explorer.
 
 ## Mac Keychain errors
 
@@ -126,32 +126,32 @@ The macOS Keychain can sometimes get into a state that causes issues for Storage
     ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. Launch Storage Explorer.
-6. A pop-up should appear saying something like "Service hub wants to access the keychain". When it does, enter your Mac admin account password and click **Always Allow** (or **Allow** if **Always Allow** is not available).
+6. A pop-up should appear saying something like "Service hub wants to access the keychain". When it does, enter your Mac admin account password and click **Always Allow** (or **Allow** if **Always Allow** isn't available).
 7. Try to sign in.
 
 ### General sign-in troubleshooting steps
 
-* If you are on macOS, and the sign-in window never appears over the "Waiting for authentication..." dialog, then try [these steps](#mac-keychain-errors)
+* If you're on macOS, and the sign-in window never appears over the "Waiting for authentication..." dialog, then try [these steps](#mac-keychain-errors)
 * Restart Storage Explorer
 * If the authentication window is blank, wait at least one minute before closing the authentication dialog box.
 * Ensure that your proxy and certificate settings are properly configured for both your machine and Storage Explorer.
-* If you are on Windows and have access to Visual Studio 2017 on the same machine and sign in, try signing in to Visual Studio 2017. After a successful sign-in to Visual Studio 2017, you should be able to open Storage Explorer and see your account in the account panel.
+* If you're on Windows and have access to Visual Studio 2019 on the same machine and sign in, try signing in to Visual Studio 2019. After a successful sign-in to Visual Studio 2019, you can open Storage Explorer and see your account in the account panel.
 
 If none of these methods work [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ### Missing subscriptions and broken tenants
 
-If you are unable to retrieve your subscriptions after you successfully sign in, try the following troubleshooting methods:
+If you're unable to retrieve your subscriptions after you successfully sign in, try the following troubleshooting methods:
 
-* Verify that your account has access to the subscriptions you expect. You can verify your access by signing into portal for the Azure environment you are trying to use.
-* Make sure that you have signed in using the correct Azure environment (Azure, Azure China 21Vianet, Azure Germany, Azure US Government, or Custom Environment).
-* If you are behind a proxy, make sure that you have configured the Storage Explorer proxy properly.
+* Verify that your account has access to the subscriptions you expect. You can verify your access by signing into portal for the Azure environment you're trying to use.
+* Make sure that you've signed in using the correct Azure environment (Azure, Azure China 21Vianet, Azure Germany, Azure US Government, or Custom Environment).
+* If you're behind a proxy, make sure that you've configured the Storage Explorer proxy properly.
 * Try removing and readding the account.
-* If there is a "More information" link, look and see what error messages are being reported for the tenants that are failing. If you are not sure what to do with the error messages you see, then feel free to [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* If there's a "More information" link, look and see what error messages are being reported for the tenants that are failing. If you'ren't sure what to do with the error messages you see, then feel free to [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## Cannot remove attached account or storage resource
+## Can't remove attached account or storage resource
 
-If you are unable to remove an attached account or storage resource through the UI, you can manually delete all attached resources by deleting the following folders:
+If you're unable to remove an attached account or storage resource through the UI, you can manually delete all attached resources by deleting the following folders:
 
 * Windows: `%AppData%/StorageExplorer`
 * macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
@@ -171,25 +171,25 @@ First, make sure that the following information you entered are all correct:
 * Username and password if required by the proxy
 
 > [!NOTE]
-> Storage Explorer does not support proxy auto-config files for configuring proxy settings.
+> Storage Explorer doesn't support proxy auto-config files for configuring proxy settings.
 
 ### Common solutions
 
-If you are still experiencing issues, try the following troubleshooting methods:
+If you're still experiencing issues, try the following troubleshooting methods:
 
 * If you can connect to the Internet without using your proxy, verify that Storage Explorer works without proxy settings enabled. If this is the case, there may be an issue with your proxy settings. Work with your proxy administrator to identify the problems.
 * Verify that other applications using the proxy server work as expected.
-* Verify that you can connect to the portal for the Azure environment you are trying to use
+* Verify that you can connect to the portal for the Azure environment you're trying to use
 * Verify that you can receive responses from your service endpoints. Enter one of your endpoint URLs into your browser. If you can connect, you should receive an InvalidQueryParameterValue or similar XML response.
 * If someone else is also using Storage Explorer with your proxy server, verify that they can connect. If they can connect, you may have to contact your proxy server admin.
 
 ### Tools for diagnosing issues
 
-If you have networking tools, such as Fiddler for Windows, you may be able to diagnose the problems as follows:
+If you have networking tools, such as Fiddler for Windows, you can diagnose the problems as follows:
 
 * If you have to work through your proxy, you may have to configure your networking tool to connect through the proxy.
 * Check the port number used by your networking tool.
-* Enter the local host URL and the networking tool's port number as proxy settings in Storage Explorer. When done correctly, your networking tool starts logging network requests made by Storage Explorer to management and service endpoints. For example, enter https://cawablobgrs.blob.core.windows.net/ for your blob endpoint in a browser, and you will receive a response resembles the following, which suggests the resource exists, although you cannot access it.
+* Enter the local host URL and the networking tool's port number as proxy settings in Storage Explorer. When done correctly, your networking tool starts logging network requests made by Storage Explorer to management and service endpoints. For example, enter https://cawablobgrs.blob.core.windows.net/ for your blob endpoint in a browser, and you'll receive a response resembles the following, which suggests the resource exists, although you can't access it.
 
 ![code sample](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -197,16 +197,16 @@ If you have networking tools, such as Fiddler for Windows, you may be able to di
 
 If your proxy settings are correct, you may have to contact your proxy server admin, and
 
-* Make sure that your proxy does not block traffic to Azure management or resource endpoints.
-* Verify the authentication protocol used by your proxy server. Storage Explorer does not currently support NTLM proxies.
+* Make sure that your proxy doesn't block traffic to Azure management or resource endpoints.
+* Verify the authentication protocol used by your proxy server. Storage Explorer doesn't currently support NTLM proxies.
 
 ## "Unable to Retrieve Children" error message
 
-If you are connected to Azure through a proxy, verify that your proxy settings are correct. If you are granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
+If you're connected to Azure through a proxy, verify that your proxy settings are correct. If you're granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
 
-## Connection String Does Not Have Complete Configuration Settings
+## Connection String doesn't Have Complete Configuration Settings
 
-If you receive this error message, it is possible that you do not have the needed permissions to obtain the keys for your Storage account. To confirm if this is the case, go to the portal and locate your Storage account. You can quickly do this by right-clicking on the node for your Storage account and clicking "Open in Portal". Once you do, go to the "Access Keys" blade. If you do not have permissions to view keys, then you will see a page with the message "You do not have access". To work around this issue, you can either obtain the account key from someone else and attach with name and key, or you can ask someone for a SAS to the Storage account and use it to attach the Storage account.
+If you receive this error message, it's possible that you don't have the needed permissions to obtain the keys for your Storage account. To confirm if this is the case, go to the portal and locate your Storage account. You can quickly do this by right-clicking on the node for your Storage account and clicking "Open in Portal". Once you do, go to the "Access Keys" blade. If you don't have permissions to view keys, then you will see a page with the message "You don't have access". To work around this issue, you can either obtain the account key from someone else and attach with name and key, or you can ask someone for a SAS to the Storage account and use it to attach the Storage account.
 
 If you do see the account keys, file an issue on GitHub so we can help you resolve the issue.
 
@@ -230,7 +230,7 @@ If you accidentally attached using an invalid SAS URL and are unable to detach, 
 
 In general, the following packages are required to run Storage Explorer on Linux:
 
-* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Note: Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed then you will need to patch Storage Explorer (see below). If you are running Storage Explorer 1.8.0 or greater then you should be able to use up to .NET Core 2.2. Versions beyond 2.2 have not been verified to work at this time.
+* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Note: Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed then you will need to patch Storage Explorer (see below). If you're running Storage Explorer 1.8.0 or greater then you should be able to use up to .NET Core 2.2. Versions beyond 2.2 have not been verified to work at this time.
 * `libgnome-keyring-common` and `libgnome-keyring-dev`
 * `libgconf-2-4`
 
@@ -271,7 +271,7 @@ If you have a version of .NET Core greater than 2.0 installed and are running St
 
 ## Open In Explorer From Azure portal Doesn't Work
 
-If the "Open In Explorer" button on the Azure portal doesn't work for you, make sure you are using a compatible browser. The following browsers have been tested for compatibility.
+If the "Open In Explorer" button on the Azure portal doesn't work for you, make sure you're using a compatible browser. The following browsers have been tested for compatibility.
 * Microsoft Edge
 * Mozilla Firefox
 * Google Chrome

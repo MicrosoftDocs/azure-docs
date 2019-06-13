@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ---
 
@@ -130,7 +130,7 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Sample response
 
-Find the country abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 A successful response is returned in JSON as shown in the following example:
 

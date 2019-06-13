@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -26,14 +26,14 @@ Azure AD's geographically distributed architecture combines extensive monitoring
 
 The following architecture elements are covered in this article:
  *	Service architecture design
- *	Usability 
+ *	Scalability
  *	Continuous availability
- *	Data centers
+ *	Datacenters
 
 ### Service architecture design
 The most common way to build an accessible and usable, data-rich system is through independent building blocks or scale units. For the Azure AD data tier, scale units are called *partitions*. 
 
-The data tier has several front-end services that provide read-write capability. The diagram below shows how the components of a single-directory partition are delivered throughout geographically distributed data centers. 
+The data tier has several front-end services that provide read-write capability. The diagram below shows how the components of a single-directory partition are delivered throughout geographically distributed datacenters. 
 
   ![Single-directory partition diagram](./media/active-directory-architecture/active-directory-architecture.png)
 
@@ -45,7 +45,7 @@ The *primary replica* receives all *writes* for the partition it belongs to. Any
 
 **Secondary replicas**
 
-All directory *reads* are serviced from *secondary replicas*, which are at data centers that are physically located across different geographies. There are many secondary replicas, as data is replicated asynchronously. Directory reads, such as authentication requests, are serviced from data centers that are close to customers. The secondary replicas are responsible for read scalability.
+All directory *reads* are serviced from *secondary replicas*, which are at datacenters that are physically located across different geographies. There are many secondary replicas, as data is replicated asynchronously. Directory reads, such as authentication requests, are serviced from datacenters that are close to customers. The secondary replicas are responsible for read scalability.
 
 ### Scalability
 
@@ -57,7 +57,7 @@ Directory applications connect to the nearest datacenters. This connection impro
 
 ### Continuous availability
 
-Availability (or uptime) defines the ability of a system to perform uninterrupted. The key to Azure AD’s high-availability is that the services can quickly shift traffic across multiple geographically distributed data centers. Each data center is independent, which enables de-correlated failure modes.
+Availability (or uptime) defines the ability of a system to perform uninterrupted. The key to Azure AD’s high-availability is that the services can quickly shift traffic across multiple geographically distributed datacenters. Each datacenter is independent, which enables de-correlated failure modes. Through this high availability design, Azure AD requires no downtime for maintenance activities.
 
 Azure AD’s partition design is simplified compared to the enterprise AD design, using a single-master design that includes a carefully orchestrated and deterministic primary replica failover process.
 
@@ -69,21 +69,21 @@ Read operations (which outnumber writes by many orders of magnitude) only go to 
 
 **Data durability**
 
-A write is durably committed to at least two data centers prior to it being acknowledged. This happens by first committing the write on the primary, and then immediately replicating the write to at least one other data center. This write action ensures that a potential catastrophic loss of the data center hosting the primary does not result in data loss.
+A write is durably committed to at least two datacenters prior to it being acknowledged. This happens by first committing the write on the primary, and then immediately replicating the write to at least one other datacenter. This write action ensures that a potential catastrophic loss of the datacenter hosting the primary does not result in data loss.
 
 Azure AD maintains a zero [Recovery Time Objective (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) to not lose data on failovers. This includes:
 -  Token issuance and directory reads
 -  Allowing only about 5 minutes RTO for directory writes
 
-### Data centers
+### Datacenters
 
-Azure AD’s replicas are stored in datacenters located throughout the world. For more information, see [Azure datacenters](https://azure.microsoft.com/overview/datacenters).
+Azure AD’s replicas are stored in datacenters located throughout the world. For more information, see [Azure global infrastructure](https://azure.microsoft.com/global-infrastructure/).
 
-Azure AD operates across data centers with the following characteristics:
+Azure AD operates across datacenters with the following characteristics:
 
- * Authentication, Graph, and other AD services reside behind the Gateway service. The Gateway manages load balancing of these services. It will fail over automatically if any unhealthy servers are detected using transactional health probes. Based on these health probes, the Gateway dynamically routes traffic to healthy data centers.
- * For *reads*, the directory has secondary replicas and corresponding front-end services in an active-active configuration operating in multiple data centers. In case of a failure of an entire data center, traffic will be automatically routed to a different datacenter.
- *	For *writes*, the directory will fail over primary (master) replica across data centers via planned (new primary is synchronized to old primary) or emergency failover procedures. Data durability is achieved by replicating any commit to at least two data centers.
+ * Authentication, Graph, and other AD services reside behind the Gateway service. The Gateway manages load balancing of these services. It will fail over automatically if any unhealthy servers are detected using transactional health probes. Based on these health probes, the Gateway dynamically routes traffic to healthy datacenters.
+ * For *reads*, the directory has secondary replicas and corresponding front-end services in an active-active configuration operating in multiple datacenters. In case of a failure of an entire datacenter, traffic will be automatically routed to a different datacenter.
+ *	For *writes*, the directory will fail over primary (master) replica across datacenters via planned (new primary is synchronized to old primary) or emergency failover procedures. Data durability is achieved by replicating any commit to at least two datacenters.
 
 **Data consistency**
 

@@ -241,7 +241,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Leapsome test user
 
-In this section, you create a user called Britta Simon in Leapsome. Work with [Leapsome Client support team](mailto:support@leapsome.com) to add the users or the domain, which needs to be whitelisted in the Leapsome platform. If the domain is added by the team, users will get automatically provisioned to the Leapsome platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Leapsome. Work with [Leapsome Client support team](mailto:support@leapsome.com) to add the users or the domain that must be added to an allow list for the Leapsome platform. If the domain is added by the team, users will get automatically provisioned to the Leapsome platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 

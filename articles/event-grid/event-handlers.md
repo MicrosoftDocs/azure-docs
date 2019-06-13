@@ -68,6 +68,28 @@ Use Logic Apps to automate business processes for responding to events.
 | [Tutorial: send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT hub. |
 | [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
 
+## Service Bus Queue (Preview)
+
+Use Service Bus as an event handler to route your events in Event Grid directly to Service Bus queues for use in buffering or command and control scenarios in enterprise applications. The preview does not work with Service Bus Topics and Sessions, but it does work with all tiers of Service Bus queues.
+
+Please note, while Service Bus as a handler is in public preview, you must install the CLI or PowerShell extension when using those to create event subscriptions.
+
+### Using CLI
+
+For Azure CLI, the following example subscribes a connects and Event Grid topic to a Service Bus queue:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebusqueue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
+
 ## Queue Storage
 
 Use Queue storage to receive events that need to be pulled. You might use Queue storage when you have a long running process that takes too long to respond. By sending events to Queue storage, the app can pull and process events on its own schedule.

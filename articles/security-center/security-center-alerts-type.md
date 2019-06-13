@@ -14,7 +14,7 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Understanding security alerts in Azure Security Center

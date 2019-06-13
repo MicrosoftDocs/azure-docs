@@ -4,8 +4,11 @@
   items:
   - name: About Security Center
     href: security-center-intro.md
-  - name: Security Center supported platforms & features
+  - name: Security Center supported platforms and features
     href: security-center-os-coverage.md
+  - name: Endpoint protection assessment and recommendations 
+    href: security-center-endpoint-protection.md
+
 - name: Quickstarts
   expanded: true
   items:
@@ -45,6 +48,8 @@
     href: security-center-onboarding.md
   - name: Server protection with Windows Defender ATP
     href: security-center-wdatp.md
+  - name: Advanced data security for IaaS
+    href: security-center-iaas-advanced-data.md
   - name: Protect App Service
     href: security-center-app-services.md
   - name: Working with security policies
@@ -57,19 +62,20 @@
     href: security-center-powershell-onboarding.md
   - name: Security Center settings
     href: security-center-policies-overview.md
-    items:
-    - name: Data collection
-      href: security-center-enable-data-collection.md
-    - name: Built-in security policies
-      href: security-center-policy-definitions.md
-    - name: Email notifications
-      href: security-center-provide-security-contact-details.md
-    - name: Pricing tier
-      href: security-center-pricing.md
-    - name: Security configurations
-      href: security-center-customize-os-security-config.md
-    - name: Tenant-wide visibility
-      href: security-center-management-groups.md
+  - name: Compare baselines using File Integrity Monitoring
+    href: security-center-file-integrity-monitoring-baselines.md
+  - name: Data collection
+    href: security-center-enable-data-collection.md
+  - name: Built-in security policies
+    href: security-center-policy-definitions.md
+  - name: Email notifications
+    href: security-center-provide-security-contact-details.md
+  - name: Pricing tier
+    href: security-center-pricing.md
+  - name: Security configurations
+    href: security-center-customize-os-security-config.md
+  - name: Tenant-wide visibility
+    href: security-center-management-groups.md
   - name: Implement security recommendations
     href: security-center-recommendations.md
     items:

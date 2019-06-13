@@ -1,16 +1,17 @@
 ---
-title: What is HBase in Azure HDInsight? 
+title: What is Apache HBase in Azure HDInsight? 
 description: An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about use cases and compare HBase to other Hadoop clusters.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
 ---
 
-# What is Apache HBase in HDInsight: A NoSQL database that provides BigTable-like capabilities for Apache Hadoop
+# What is Apache HBase in Azure HDInsight
+
 [Apache HBase](https://hbase.apache.org/) is an open-source, NoSQL database that is built on [Apache Hadoop](https://hadoop.apache.org/) and modeled after [Google BigTable](https://cloud.google.com/bigtable/). HBase provides random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.
 
 From user perspective, HBase is similar to a database. Data is stored in the rows and columns of a table, and data within a row is grouped by column family. HBase is a schemaless database in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
@@ -24,7 +25,7 @@ HDInsight HBase is offered as a managed cluster that is integrated into the Azur
 The HDInsight implementation leverages the scale-out architecture of HBase to provide automatic sharding of tables, strong consistency for reads and writes, and automatic failover. Performance is enhanced by in-memory caching for reads and high-throughput streaming for writes. HBase cluster can be created inside virtual network. For details, see  [Create HDInsight clusters on Azure Virtual Network](./apache-hbase-provision-vnet.md).
 
 ## How is data managed in HDInsight HBase?
-Data can be managed in HBase by using the `create`, `get`, `put`, and `scan` commands from the HBase shell. Data is written to the database by using `put` and read by using `get`. The `scan` command is used to obtain data from multiple rows in a table. Data can also be managed using the HBase C# API, which provides a client library on top of the HBase REST API. An HBase database can also be queried by using [Apache Hive](https://hive.apache.org/). For an introduction to these programming models, see [Get started using Apache HBase with Apache Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md). Co-processors are also available, which allow data processing in the nodes that host the database.
+Data can be managed in HBase by using the `create`, `get`, `put`, and `scan` commands from the HBase shell. Data is written to the database by using `put` and read by using `get`. The `scan` command is used to obtain data from multiple rows in a table. Data can also be managed using the HBase C# API, which provides a client library on top of the HBase REST API. An HBase database can also be queried by using [Apache Hive](https://hive.apache.org/). For an introduction to these programming models, see [Get started using Apache HBase with Apache Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md). Coprocessors are also available, which allow data processing in the nodes that host the database.
 
 > [!NOTE]  
 > Thrift is not supported by HBase in HDInsight.

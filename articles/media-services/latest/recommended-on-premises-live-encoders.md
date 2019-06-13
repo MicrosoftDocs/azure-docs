@@ -66,6 +66,9 @@ Media Services recommends using one of the following live encoders that have mul
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
 
+> [!TIP]
+>  If you are streaming live events in multiple languages (for example, one English audio track and one Spanish audio track), you can accomplish this with the Media Excel live encoder configured to send the live feed to a pass-through Live Event.
+
 ## Configuring on-premises live encoder settings
 
 For information about what settings are valid for your live event type, see [Live Event types comparison](live-event-types-comparison.md).

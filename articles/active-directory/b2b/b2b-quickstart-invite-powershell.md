@@ -11,6 +11,7 @@ ms.date: 08/28/2018
 
 ms.author: mimart
 author: msmimart
+manager: celestedg
 ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan"
 #customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user through PowerShell.

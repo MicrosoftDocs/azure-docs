@@ -6,13 +6,33 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 05/21/2019
 ms.author: saurse
 ---
 
 # Troubleshoot Microsoft Azure Recovery Services (MARS) Agent
 
 Here's how to resolve errors you might see during configuration, registration, backup, and restore.
+
+## Basic troubleshooting
+
+We recommend you perform the below validation, before you start troubleshooting Microsoft Azure Recovery Services (MARS) agent:
+
+- [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Ensure there is network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50)
+- Ensure Microsoft Azure Recovery Services is running (in Service console). If required restart and retry the operation
+- [Ensure 5-10% free volume space is available on scratch folder location](https://aka.ms/AB-AA4dwtt)
+- [Check if another process or antivirus software is interfering with Azure Backup](https://aka.ms/AB-AA4dwtk)
+- [Scheduled backup fails, but manual backup works](https://aka.ms/ScheduledBackupFailManualWorks)
+- Ensure your OS has the latest updates
+- [Ensure unsupported drives and files with unsupported attributes are excluded from backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- Ensure **System Clock** on the protected system is configured to correct time zone <br>
+- [Ensure that the server has at least .Net Framework version 4.5.2 and higher](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- If you are trying to **reregister your server** to a vault, then: <br>
+  - Ensure the agent is uninstalled on the server and it is deleted from portal <br>
+  - Use the same passphrase that was initially used for registering the server <br>
+- In case of offline backup ensure that Azure PowerShell version 3.7.0 is installed on both source and copy computer before you begin offline backup operation
+- [Consideration when Backup agent is running on an Azure virtual machine](https://aka.ms/AB-AA4dwtr)
 
 ## Invalid vault credentials provided
 
@@ -30,7 +50,8 @@ Here's how to resolve errors you might see during configuration, registration, b
 
 | Error details | Possible causes | Recommended actions |
 | ---     | ---     | ---    |
-| **Error** <br /><ol><li>*The Microsoft Azure Recovery Service Agent was unable to connect to Microsoft Azure Backup. (ID: 100050) Check your network settings and ensure that you are able to connect to internet*<li>*(407) Proxy Authentication Required* |Proxy blocking the connection. |  <ul><li>Launch **IE** > **Setting** > **Internet options** > **Security** > **Internet**. Then select **Custom Level** and scroll until you see the file download section. Select **Enable**.<li>You might also have to add these sites in IE [trusted sites](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Change the settings to use a proxy server. Then provide the proxy server details. <li>If you have anti-virus software installed on the server, exclude the following files from the anti-virus scan. <ul><li>CBEngine.exe (instead of dpmra.exe).<li>CSC.exe (related to .NET Framework). There is a CSC.exe for every .NET version that's installed on the server. Exclude CSC.exe files that are tied to all versions of .NET framework on the affected server. <li>Scratch folder or cache location. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>The bin folder C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+| **Error** <br /><ol><li>*The Microsoft Azure Recovery Service Agent was unable to connect to Microsoft Azure Backup. (ID: 100050) Check your network settings and ensure that you are able to connect to internet*<li>*(407) Proxy Authentication Required* |Proxy blocking the connection. |  <ul><li>Launch **IE** > **Setting** > **Internet options** > **Security** > **Internet**. Then select **Custom Level** and scroll until you see the file download section. Select **Enable**.<li>You might also have to add these sites in IE [trusted sites](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Change the settings to use a proxy server. Then provide the proxy server details.<li> If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these [URLs](backup-configure-vault.md#verify-internet-access) and [IP address](backup-configure-vault.md#verify-internet-access). <li>If you have anti-virus software installed on the server, exclude the following files from the anti-virus scan. <ul><li>CBEngine.exe (instead of dpmra.exe).<li>CSC.exe (related to .NET Framework). There is a CSC.exe for every .NET version that's installed on the server. Exclude CSC.exe files that are tied to all versions of .NET framework on the affected server. <li>Scratch folder or cache location. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>The bin folder C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+
 
 
 ## Failed to set the encryption key for secure backups
@@ -43,34 +64,48 @@ Here's how to resolve errors you might see during configuration, registration, b
 
 | Error details | Possible causes | Recommended actions |
 |---------|---------|---------|
-|**Error** <br /><ol>*The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Retry the operation after some time. If the issue persists, please contact Microsoft support*     | <li> The scratch folder is located on a volume that has insufficient space. <li> The scratch folder has been moved incorrectly to another location. <li> The OnlineBackup.KEK file is missing.         | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space equal to 5-10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Questions about the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|**Error** <br />*The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Retry the operation after some time. If the issue persists, please contact Microsoft support*     | <li> The scratch folder is located on a volume that has insufficient space. <li> The scratch folder has been moved incorrectly to another location. <li> The OnlineBackup.KEK file is missing.         | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space equal to 5-10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Questions about the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## Encryption passphrase not correctly configured
 
 | Error details | Possible causes | Recommended actions |
 |---------|---------|---------|
-|**Error** <br /><ol>*Error 34506. The encryption passphrase stored on this computer is not correctly configured*.    | <li> The scratch folder is located on a volume that has insufficient space. <li> The scratch folder has been moved incorrectly to another location. <li> The OnlineBackup.KEK file is missing.        | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space equivalent to 5-10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Questions about the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+|**Error** <br />*Error 34506. The encryption passphrase stored on this computer is not correctly configured*.    | <li> The scratch folder is located on a volume that has insufficient space. <li> The scratch folder has been moved incorrectly to another location. <li> The OnlineBackup.KEK file is missing.        | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space equivalent to 5-10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Questions about the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 
 ## Backups don't run according to the schedule
 If scheduled backups don't get triggered automatically, while manual backups work without issues, try the following actions:
 
 - Ensure Windows Server backup schedule does not conflict with Azure files and folders backup schedule.
-- Go to **Control Panel** > **Administrative Tools** > **Task Scheduler**. Expand **Microsoft**, and select **Online Backup**. Double-click **Microsoft-OnlineBackup**, and go to the **Triggers** tab. Ensure that the status is set to **Enabled**. If it isn't, select **Edit**, and select the **Enabled** check box and click **OK**. On the **General** tab, go to **Security options** and ensure that the user account selected for running the task is either **SYSTEM** or **Local Administrators' group** on the server.
 
-- See if PowerShell 3.0 or later is installed on the server. To check the PowerShell version, run the following command and verify that the *Major* version number is equal to or greater than 3.
+- Ensure the  Online Backup status is set to **Enable**. To verify the status perform the below:
+
+  - Open **Task Scheduler** and expand **Microsoft**, and select **Online Backup**.
+  - Double-click **Microsoft-OnlineBackup**, and go to the **Triggers** tab.
+  - Verify if the status is set to **Enabled**. If it isn't, then select **Edit** > **Enabled** check box and click **OK**.
+
+- Ensure the user account selected for running the task is either **SYSTEM** or **Local Administrators' group** on the server. To verify the user account, go to the **General** tab and check the **Security** options.
+
+- Ensure PowerShell 3.0 or later is installed on the server. To check the PowerShell version, run the following command and verify that the *Major* version number is equal to or greater than 3.
 
   `$PSVersionTable.PSVersion`
 
-- See if the following path is part of the *PSMODULEPATH* environment variable.
+- Ensure the following path is part of the *PSMODULEPATH* environment variable
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- If the PowerShell execution policy for *LocalMachine* is set to restricted, the PowerShell cmdlet that triggers the backup task might fail. Run the following commands in elevated mode, to check and set the execution policy to either *Unrestricted* or *RemoteSigned*.
+- If the PowerShell execution policy for *LocalMachine* is set to restricted, the PowerShell cmdlet that triggers the backup task might fail. Run the following commands in elevated mode, to check and set the execution policy to either *Unrestricted* or *RemoteSigned*
 
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+
+- Ensure there are no missing or corrupted **PowerShell** module **MSonlineBackup**. In case there are any missing or corrupt file, to resolve this issue perform the below:
+
+  - From any machine having MARS agent that is working properly, copy the MSOnlineBackup folder from *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* path.
+  - Paste this in problematic machine in the same path *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)*.
+  - If **MSOnlineBackup** folder is already exists in the machine, paste or replace the content files inside it.
+
 
 > [!TIP]
 > To ensure that changes are applied consistently, reboot the server after performing the steps above.

@@ -76,7 +76,7 @@ At this point, it's a good time to decide on a naming standard for your policies
  
 ![Naming standard](./media/plan-conditional-access/11.png)
 
-While a descriptive name helps you to keep an overview of your conditional access implementation, the sequence number is helpful if you need to reference a policy in a conversation. For example, if you talk a fellow administrator on the phone, you can ask him to open policy EM063 to solve an issue.
+While a descriptive name helps you to keep an overview of your conditional access implementation, the sequence number is helpful if you need to reference a policy in a conversation. For example, if you talk a fellow administrator on the phone, you can ask them to open policy EM063 to solve an issue.
 
 
 
@@ -126,7 +126,7 @@ To simplify the sign-in experience of your users, you might want to allow them t
 
 Common use cases to require MFA are access:
 
-- [By admins](baseline-protection.md#require-mfa-for-admins)
+- [By admins](howto-baseline-protect-administrators.md)
 - [To specific apps](app-based-mfa.md) 
 - [From network locations, you don't trust](untrusted-networks.md).
 

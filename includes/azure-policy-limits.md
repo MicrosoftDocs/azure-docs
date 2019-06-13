@@ -5,7 +5,7 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: "include"
-ms.date: 09/18/2018
+ms.date: 05/30/2019
 ms.author: dacoulte
 ms.custom: "include file"
 ---
@@ -22,5 +22,5 @@ the subscription or the [management group](../articles/governance/management-gro
 | Policy definition | Parameters | 20 |
 | Initiative definition | Policies | 100 |
 | Initiative definition | Parameters | 100 |
-| Policy or initiative assignments | Exclusions (notScopes) | 250 |
+| Policy or initiative assignments | Exclusions (notScopes) | 400 |
 | Policy rule | Nested conditionals | 512 |

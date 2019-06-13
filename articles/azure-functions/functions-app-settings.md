@@ -117,7 +117,7 @@ The version of the Functions runtime to use in this function app. A tilde with m
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), and `python` (Python).
+The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell), and `python` (Python).
 
 |Key|Sample value|
 |---|------------|
@@ -212,7 +212,7 @@ Here is an example proxies.json in a function app at the URL myfunction.com
 
 ## Next steps
 
-[Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#settings)
 
 [See global settings in the host.json file](functions-host-json.md)
 

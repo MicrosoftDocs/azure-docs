@@ -9,13 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/30/2019
 ms.author: diberry
 ---
 
 # LUIS bot in Node.js with the Bot Framework 3.x and the Azure Web app bot
 
 Using Node.js, build a chat bot integrated with language understanding (LUIS). This chat bot uses the prebuilt HomeAutomation domain to quickly implement a bot solution. The bot is built with the Bot Framework 3.x and the Azure Web app bot.
+
+A [Bot Framework 4.x with LUIS tutorial](luis-nodejs-tutorial-bf-v4.md) is also available.
 
 ## Prerequisite
 
@@ -93,7 +95,7 @@ Open **Application Settings** in the first browser window and edit the **LuisApp
 
   ![Update the LUIS app ID in Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-If you don't have the LUIS app ID, log in to the [LUIS](luis-reference-regions.md) website using the same account you use to log in to Azure. Select on **My apps**. 
+If you don't have the LUIS app ID, sign in to the [LUIS](luis-reference-regions.md) website using the same account you use to sign in to Azure. Select on **My apps**. 
 
 1. Find the LUIS app you previously created, that contains the intents and entities from the HomeAutomation domain.
 
@@ -231,7 +233,7 @@ bot.dialog('TurnOff',
 ```
 ## Test the bot
 
-In the Azure Portal, select on **Test in Web Chat** to test the bot. Try type messages like "Turn on the lights", and "turn off my heater" to invoke the intents that you added to it.
+In the Azure portal, select on **Test in Web Chat** to test the bot. Try type messages like "Turn on the lights", and "turn off my heater" to invoke the intents that you added to it.
    ![Test HomeAutomation bot in Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]

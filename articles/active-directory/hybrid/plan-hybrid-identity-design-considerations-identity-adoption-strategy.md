@@ -196,8 +196,7 @@ Even though you may have settled on a solution for your strategy, you still need
 | On-premises AD |Multi-Factor Authentication Server |
 
 > [!NOTE]
-> You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
-> 
+> You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](../authentication/concept-mfa-howitworks.md).
 > 
 
 ## Multi-Factor Auth Provider

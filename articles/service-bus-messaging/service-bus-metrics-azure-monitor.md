@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus metrics in Azure Monitor (preview) | Microsoft Docs
-description: Use Azure Monitoring to monitor Service Bus entities
+description: Use Azure Monitor to monitor Service Bus entities
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -156,7 +156,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
 
 ## Next steps
 
-See the [Azure Monitoring overview](../monitoring-and-diagnostics/monitoring-overview.md).
+See the [Azure Monitor overview](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

@@ -33,10 +33,9 @@ Before you can create service principals and role assignments, you’ll need to 
     Install-Module AzureAD
     ```
 
-2. Run the following cmdlets with the values in quotes replaced by the values relevant to your session. If you just created your Windows Virtual Desktop tenant from the [Create a tenant in Windows Virtual Desktop tutorial](./tenant-setup-azure-active-directory.md), then use "Default Tenant Group" as your tenant group name.
+2. Run the following cmdlets with the values in quotes replaced by the values relevant to your session.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
@@ -63,8 +62,7 @@ Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and c
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## Sign in with the service principal

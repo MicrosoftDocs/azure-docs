@@ -29,7 +29,7 @@ Switching between the two license models incurs **no downtime**, does not restar
 ## Remarks
 
 
- - CSP customers can utilize the AHB benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license. 
+ - Azure Cloud Solution Partner (CSP) customers can utilize the Azure Hybrid Benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license. 
  - When registering a custom SQL Server VM image with the resource provider, specify the license type as = 'AHUB'. Leaving the license type as blank, or specifying 'PAYG' will cause the registration to fail. 
  - If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
  - Adding a SQL Server VM to an availability set requires recreating the VM. As such, any VMs added to an availablity set will go back to the default pay-as-you-go license type and AHB will need to be enabled again. 

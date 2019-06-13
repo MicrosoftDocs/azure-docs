@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Services
 description: Start using the Bing Local Business Search API in Node.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018

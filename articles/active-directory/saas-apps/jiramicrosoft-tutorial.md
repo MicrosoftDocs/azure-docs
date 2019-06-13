@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 05/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -40,7 +40,7 @@ Use your Microsoft Azure Active Directory account with Atlassian JIRA server to 
 To configure Azure AD integration with JIRA SAML SSO by Microsoft, you need the following items:
 
 - An Azure AD subscription
-- JIRA Core and Software 6.0 to 7.12 or JIRA Service Desk 3.0 to 3.5 should installed and configured on Windows 64-bit version
+- JIRA Core and Software 6.4 to 8.0 or JIRA Service Desk 3.0 to 3.5 should installed and configured on Windows 64-bit version
 - JIRA server is HTTPS enabled
 - Note the supported versions for JIRA Plugin are mentioned in below section.
 - JIRA server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD
@@ -58,7 +58,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 ## Supported versions of JIRA
 
-* JIRA Core and Software: 6.0 to 7.12
+* JIRA Core and Software: 6.4 to 8.0
 * JIRA Service Desk 3.0.0 to 3.5.0
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
@@ -178,34 +178,40 @@ To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft, perform th
 
 6. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon52.png)
+	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon53.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
 
-	a. In the **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
+	1. In the **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal and click the **Resolve** button. It reads the IdP metadata URL and populates all the fields information.
 
-	b. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **JIRA SAML SSO by Microsoft Domain and URLs** section on Azure portal.
+	1. Copy the **Identifier, Reply URL and Sign on URL** values and paste them in **Identifier, Reply URL and Sign on URL** textboxes respectively in **JIRA SAML SSO by Microsoft Domain and URLs** section on Azure portal.
 
-	c. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
+	1. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
 
-	d. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the JIRA user ID. If the user ID is not matched, then system will not allow users to sign in.
+	1. In **SAML User ID Locations** select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the JIRA user ID. If the user ID is not matched, then system will not allow users to sign in.
 
-	> [!Note]
-	> Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
+	   > [!Note]
+	   > Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
 
-	e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User ID is expected.
+	1. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User ID is expected.
 
-	f. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
+	1. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
 
-	g. In **Domain Name** type the domain name here in case of the ADFS-based login.
+	1. In **Domain Name** type the domain name here in case of the ADFS-based login.
 
-	h. Check **Enable Single Sign out** if you wish to sign out from Azure AD when a user sign out from JIRA.
+	1. Check **Enable Single Sign out** if you wish to sign out from Azure AD when a user sign out from JIRA.
+	
+	1. Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
+	
+	   > [!Note]
+	   > To enable the default login form for admin login on login page when force azure login is enabled, add the query parameter in the browser URL.
+	   > `https://<domain:port>/login.action?force_azure_login=false`
 
-	i. Click **Save** button to save the settings.
+	1. Click **Save** button to save the settings.
 
-	> [!NOTE]
-	> For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](../ms-confluence-jira-plugin-adminguide.md) and there is also [FAQ](../ms-confluence-jira-plugin-faq.md) for your assistance
+	   > [!NOTE]
+	   > For more information about installation and troubleshooting, visit [MS JIRA SSO Connector Admin Guide](../ms-confluence-jira-plugin-adminguide.md). There is also an [FAQ](../ms-confluence-jira-plugin-faq.md) for your assistance.
 
 ### Create an Azure AD test user 
 

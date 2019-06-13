@@ -124,20 +124,35 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
    ![The Azure Explorer link](./media/apache-spark-intellij-tool-plugin/show-azure-explorer.png)
 
 2. From Azure Explorer, right-click the **Azure** node, and then select **Sign In**.
+   
+   ![The Azure Explorer link](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
 
-3. In the **Azure Sign In** dialog box, select **Sign in**, and then enter your Azure credentials.
+
+3. In the **Azure Sign In** dialog box, choose **Device Login**, and then select **Sign in**.
 
     ![The Azure Sign In dialog box](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
 
-4. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions that are associated with the credentials. Select your subscription and then select the **Select** button.
+4. In the **Azure Device Login** dialog box, click **Copy&Open**.
+   
+   ![The Azure Sign In dialog box](./media/apache-spark-intellij-tool-plugin/view-explorer-5.png)
+
+5. In the browser interface, paste the code, and then click **Next**.
+   
+   ![The Azure Sign In dialog box](./media/apache-spark-intellij-tool-plugin/view-explorer-6.png)
+
+6. Enter your Azure credentials, and then close the browser.
+   
+   ![The Azure Sign In dialog box](./media/apache-spark-intellij-tool-plugin/view-explorer-7.png)
+
+7. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions that are associated with the credentials. Select your subscription and then select the **Select** button.
 
     ![The Select Subscriptions dialog box](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
 
-5. From **Azure Explorer**, expand **HDInsight** to view the HDInsight Spark clusters that are in your subscription.
+8. From **Azure Explorer**, expand **HDInsight** to view the HDInsight Spark clusters that are in your subscriptions.
 
     ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-3.png)
 
-6. To view the resources (for example, storage accounts) that are associated with the cluster, you can further expand a cluster-name node.
+9.  To view the resources (for example, storage accounts) that are associated with the cluster, you can further expand a cluster-name node.
 
     ![An expanded cluster-name node](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
@@ -162,7 +177,7 @@ You can link an HDInsight cluster by using the Apache Ambari managed username. S
         |User Name| Enter cluster user name, default is admin.|
         |Password| Enter password for user name.|
     
-        ![link hdinsight cluster dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![link Hdinsight cluster dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy Service**  
   
@@ -176,13 +191,13 @@ You can link an HDInsight cluster by using the Apache Ambari managed username. S
         |User Name| Enter cluster user name, default is admin.|
         |Password| Enter password for user name.|
 
-        ![link livy cluster dialog](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
+        ![link Livy cluster dialog](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
 
-4. You can see your linked cluster from the **HDInsight** node.
+1. You can see your linked cluster from the **HDInsight** node.
 
    ![linked cluster](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
-5. You also can unlink a cluster from **Azure Explorer**.
+2. You also can unlink a cluster from **Azure Explorer**.
 
    ![unlinked cluster](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
@@ -332,13 +347,68 @@ It is convenient for you to foresee the script result by sending some code to th
 
    ![Send Selection to Spark Console](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
+## Reader-only role
+When users submit job to a cluster with reader-only role permission, Ambari credentials is required.
+
+### Link cluster from context menu
+
+1. Sign in with reader-only role account.
+       
+2. From **Azure Explorer**, expand **HDInsight** to view HDInsight clusters that are in your subscription. The clusters marked **"Role:Reader"** only have reader-only role permission.
+
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-15.png)
+
+3. Right click the cluster with reader-only role permission. Select **Link this cluster** from context menu to link cluster. Enter the Ambari username and Password.
+
+  
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-11.png)
+
+4. If the cluster is linked successfully, HDInsight will be refreshed.
+   The stage of the cluster will become linked.
+  
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-8.png)
+
+
+
+### Link cluster by expanding Jobs node
+
+1. Click **Jobs** node, **Cluster Job Access Denied** window pops up.
+   
+2. Click **Link this cluster** to link cluster.
+   
+    ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-9.png)
+
+### Link cluster from Run/Debug Configurations window
+
+1. Create an HDInsight Configuration. Then select **Remotely Run in Cluster**.
+   
+2. Select a cluster which has reader-only role permission for **Spark clusters(Linux only)**. Warning message shows out. You can Click **Link this cluster** to link cluster.
+   
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/create-config-1.png)
+   
+### View Storage Accounts
+
+* For clusters with reader-only role permission, click **Storage Accounts** node, **Storage Access Denied** window pops up. You can click **Open Azure Storage Explorer** to open Storage Explorer.
+     
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-14.png)
+
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-10.png)
+
+* For linked clusters, click **Storage Accounts** node, **Storage Access Denied** window pops up. You can click **Open Azure Storage** to open Storage Explorer.
+     
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-13.png)
+
+
+   ![HDInsight Spark clusters in Azure Explorer](./media/apache-spark-intellij-tool-plugin/view-explorer-12.png)
+  
+
 ## Convert existing IntelliJ IDEA applications to use Azure Toolkit for IntelliJ
 
 You can convert the existing Spark Scala applications that you created in IntelliJ IDEA to be compatible with Azure Toolkit for IntelliJ. You can then use the plug-in to submit the applications to an HDInsight Spark cluster.
 
 1. For an existing Spark Scala application that was created through IntelliJ IDEA, open the associated .iml file.
 
-1. At the root level is a **module** element like the following:
+2. At the root level is a **module** element like the following:
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
 
@@ -346,7 +416,7 @@ You can convert the existing Spark Scala applications that you created in Intell
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
-1. Save the changes. Your application should now be compatible with Azure Toolkit for IntelliJ. You can test it by right-clicking the project name in Project. The pop-up menu now has the option **Submit Spark Application to HDInsight**.
+3. Save the changes. Your application should now be compatible with Azure Toolkit for IntelliJ. You can test it by right-clicking the project name in Project. The pop-up menu now has the option **Submit Spark Application to HDInsight**.
 
 ## Troubleshooting
 

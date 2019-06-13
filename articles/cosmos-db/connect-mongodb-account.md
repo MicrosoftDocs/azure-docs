@@ -5,14 +5,14 @@ author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 
 ---
 
 # Connect a MongoDB application to Azure Cosmos DB
-Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos DB database as the data store for your MongoDB app. 
+Learn how to connect your MongoDB app to an Azure Cosmos DB by using a MongoDB connection string. You can then use an Azure Cosmos database as the data store for your MongoDB app. 
 
 This tutorial provides two ways to retrieve connection string information:
 

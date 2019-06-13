@@ -49,7 +49,7 @@ A LUIS app contains a domain-specific natural language model. You can start the 
 * **Custom Entities** LUIS gives you several ways to identify your own custom intents and entities including machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
 
 ## Build the LUIS model
-Build the model with the [authoring](https://aka.ms/luis-authoring-apis) APIs or with the LUIS portal.
+Build the model with the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs or with the LUIS portal.
 
 The LUIS model begins with categories of user intentions called **[intents](luis-concept-intent.md)**. Each intent needs examples of user **[utterances](luis-concept-utterance.md)**. Each utterance can provide a variety of data that needs to be extracted with **[entities](luis-concept-entity-types.md)**. 
 
@@ -61,7 +61,7 @@ The LUIS model begins with categories of user intentions called **[intents](luis
 
 ## Query prediction endpoint
 
-After the model is built and published to the endpoint, the client application sends utterances to the published prediction [endpoint](https://aka.ms/luis-endpoint-apis) API. The API applies the model to the text for analysis. The API responds with the prediction results in a JSON format.  
+After the model is built and published to the endpoint, the client application sends utterances to the published prediction [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API. The API applies the model to the text for analysis. The API responds with the prediction results in a JSON format.  
 
 The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the following **Contact Type** entity. 
 
@@ -122,6 +122,6 @@ Author a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [cust
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

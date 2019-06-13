@@ -44,11 +44,11 @@ When you need **production endpoint queries**, create an Azure Resource then ass
 
 When the Azure resource creation process is finished, [assign the key](luis-how-to-azure-subscription.md) to the app. 
 
-    * The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+* The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
-    * The endpoint key can be used for all your LUIS apps or for specific LUIS apps. 
+* The endpoint key can be used for all your LUIS apps or for specific LUIS apps. 
 
-    * Do not use the endpoint key for authoring LUIS apps. 
+* Do not use the endpoint key for authoring LUIS apps. 
 
 ## Use endpoint key in query
 The LUIS endpoint accepts two styles of query, both use the endpoint key, but in different places:

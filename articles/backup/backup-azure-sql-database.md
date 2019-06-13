@@ -139,6 +139,8 @@ Copy-Only Full |  Secondary
 
       ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
+> [!NOTE]
+> If your SQL Server has multiple instances of SQL Server installed, then you must add sysadmin permission for **NT Service\AzureWLBackupPluginSvc** account to all SQL instances.
 
 ## Next steps
 

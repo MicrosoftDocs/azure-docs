@@ -4,7 +4,7 @@ description: This article describes how to configure security and permissions as
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 This article discusses the two types of Azure Time Series Insights Preview access policies.
 
-## Sign in to TSI
+## Sign in to Time Series Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Locate your Time Series Insights environment. Enter `Time Series` in the **Search** box. Select **Time Series Environment** in the search results.
