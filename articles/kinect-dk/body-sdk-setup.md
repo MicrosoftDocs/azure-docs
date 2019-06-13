@@ -73,4 +73,4 @@ If everything is set up correctly, a window is displayed with a 3D point cloud a
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Coordinate systems](azure-kinect-dk-coordinate-systems.md)
+>[Coordinate systems](coordinate-systems.md)

@@ -32,7 +32,7 @@ This quickstart assumes:
 
     `k4arecorder.exe -l 5 %TEMP%\output.mkv`
 
-3. By default, the recorder uses the NFOV Unbinned depth mode and outputs 1080p RGB at 30 fps including IMU data. For a complete overview of recording options and tips, refer to [Azure Kinect recorder](azure-kinect-dk-recorder.md).
+3. By default, the recorder uses the NFOV Unbinned depth mode and outputs 1080p RGB at 30 fps including IMU data. For a complete overview of recording options and tips, refer to [Azure Kinect recorder](recorder.md).
 
 ## Play back recording
 

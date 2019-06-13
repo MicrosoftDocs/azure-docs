@@ -18,9 +18,9 @@
 - name: Concepts
   items:
    - name: Depth camera
-     href: azure-kinect-dk-depth-camera.md
+     href: depth-camera.md
    - name: Coordinate systems
-     href: azure-kinect-dk-coordinate-systems.md
+     href: coordinate-systems.md
    - name: Body tracking joints
      href: body-joints.md
    - name: Body tracking index map
@@ -54,15 +54,15 @@
    - name: Add Azure Kinect library to a project
      href: add-library-to-project.md
    - name: Update Azure Kinect firmware
-     href: azure-kinect-dk-update-device-firmware.md
+     href: update-device-firmware.md
    - name: Use recorder with external synchronized units
-     href: azure-kinect-dk-record-external-synchronized-units.md
+     href: record-external-synchronized-units.md
 - name: Tools
   items:
     - name: Sensor viewer
       href: azure-kinect-sensor-viewer.md
     - name: Recorder
-      href: azure-kinect-dk-recorder.md
+      href: recorder.md
     - name: Firmware tool
       href: azure-kinect-firmware-tool.md
 - name: Resources

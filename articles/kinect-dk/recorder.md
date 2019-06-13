@@ -82,4 +82,4 @@ For any issues with recording, refer to [Troubleshooting](https://support.micros
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Using recorder with external synchronized units](azure-kinect-dk-record-external-synchronized-units.md)
+>[Using recorder with external synchronized units](record-external-synchronized-units.md)

@@ -66,7 +66,7 @@ If you have any issues, check [Troubleshooting](troubleshooting.md).
 
 [Azure Kinect DK hardware information](hardware-specification.md)
 
-[Update device firmware](azure-kinect-dk-update-device-firmware.md)
+[Update device firmware](update-device-firmware.md)
 
 Learn more about [Kinect for Azure viewer](azure-kinect-sensor-viewer.md)
 

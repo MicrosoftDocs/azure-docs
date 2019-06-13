@@ -81,4 +81,4 @@ Now you know how to use Azure Kinect sensor SDK image transformation functions, 
 
 Also you can review
 
-[Coordinate systems](azure-kinect-dk-coordinate-systems.md)
+[Coordinate systems](coordinate-systems.md)

@@ -25,4 +25,4 @@ The body index map is stored as a `k4a_image_t` and has the same resolution as t
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Coordinate systems](azure-kinect-dk-coordinate-systems.md)
+>[Coordinate systems](coordinate-systems.md)

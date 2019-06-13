@@ -154,7 +154,7 @@ If a tag doesn't exist, it's assumed to have the default value.
 
 ## Timestamp synchronization
 
-The Matroska format requires that recordings must start with a timestamp of zero. When [externally syncing cameras](azure-kinect-dk-record-external-synchronized-units.md), the first timestamp from of each device can be non-zero.
+The Matroska format requires that recordings must start with a timestamp of zero. When [externally syncing cameras](record-external-synchronized-units.md), the first timestamp from of each device can be non-zero.
 
 To preserve the original timestamps from the devices between recording and playback, the file stores an offset to apply to the timestamps.
 
