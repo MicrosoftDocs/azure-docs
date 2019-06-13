@@ -50,17 +50,19 @@ A Host group is created in a single azure Zone. Once created, all hosts will pla
 
 ### Use Fault Domains for fault isolation 
 
-A host can be created with a specific fault domain property. Unlike virtual machine in an availability set or scale set, where you specify the fault domain count, for dedicated hosts you specify the exact fault domain for the host. This way you can create unbalanced topologies and have full control of the fault isolation of your VMs.  
+A host can be created with a specific fault domain property. Unlike virtual machine in an availability set or scale set, where you specify the fault domain count, for dedicated hosts you specify the exact fault domain for the host. You can create unbalanced topologies and have full control of the fault isolation of your VMs.  
 
-Up to 3 logical fault domains are supported within a single host group. Fault domains are mapped to physical racks in the data center. So that two hosts in the same group with different fault domain, will be placed to different racks. Note that fault domains is not the same as collocation. Having the same fault domain for two hosts does not mean they are in proximity with each other.  
+Up to 3 logical fault domains are supported within a single host group. Fault domains are mapped to physical racks in the data center. Two hosts in the same group with different fault domain, will be placed to different racks. 
+
+Fault domains are not the same as collocation. Having the same fault domain for two hosts does not mean they are in proximity with each other.  
 
 Fault domains are scoped to the same host groups. You should not make any assumption on anti-affinity between two host groups. 
 
-VMs deployed to hosts with different fault domains, will have their underlying managed disks services from multiple storage stamps to increase the fault isolation protection to the underlying storage system.  However, at the beginning of the preview program, this storage alignment is not yet fully operational. As a result, a customer who wishes to achieve the same high availability promise provided with availability set will have to redeploy her or his VMs before dedicated hosts are declared as GA.  
+VMs deployed to hosts with different fault domains, will have their underlying managed disks services from multiple storage stamps to increase the fault isolation protection.   
 
 ### Using Availability Zones and Fault Domains  
 
-You can use both capabilities to achieve even more fault isolation domains. In each availability zone you may use up to 3 FDs bringing it up to a potential for 9 fault isolation units within a single region.  
+You can use both capabilities to achieve even more fault isolation domains. In each availability zone you may use up to 3 FDs bringing it up to 9 fault isolation units within a single region.  
 
  
 ## VM families and Hardware generations 
