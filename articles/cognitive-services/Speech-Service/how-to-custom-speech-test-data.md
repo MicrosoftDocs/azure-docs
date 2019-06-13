@@ -39,7 +39,7 @@ Each dataset you upload must meet the requirements for the data type that you ch
 After your dataset is uploaded, you have a few options:
 
 * You can navigate to the **Testing** tab and visually inspect audio only or audio + human-labeled transcription data.
-* You can navigate to the **Training** tab and us audio + human transcription data or related text data to train a custom model.
+* You can navigate to the **Training** tab and use audio + human transcription data or related text data to train a custom model.
 
 ## Audio data for testing
 
