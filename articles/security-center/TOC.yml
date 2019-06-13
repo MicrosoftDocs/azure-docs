@@ -77,8 +77,9 @@
   - name: Tenant-wide visibility
     href: security-center-management-groups.md
   - name: Implement security recommendations
-    href: security-center-recommendations.md
     items:
+    - name: What are security recommendations
+      href: security-center-recommendations.md
     - name: Strengthen security posture
       href: security-center-monitoring.md
     - name: Protect your machines and apps

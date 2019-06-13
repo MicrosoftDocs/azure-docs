@@ -81,7 +81,7 @@ In SMSS, connect to your Azure SQL Database server.
 
 5. To view the database's objects, expand **Databases** and then expand **mySampleDatabase**.
 
-   ![view database objects](./media/sql-database-connect-query-ssms/connected.png)  
+   ![mySampleDatabase objects](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## Query data
 
@@ -100,7 +100,7 @@ Run this [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL
 
 3. On the toolbar, select **Execute** to retrieve data from the `Product` and `ProductCategory` tables.
 
-    ![query to retrieve data from two tables](./media/sql-database-connect-query-ssms/query2.png)
+    ![query to retrieve data from table Product and ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
 ## Insert data
 
@@ -140,7 +140,7 @@ Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL
 
 2. Select **Execute**. The following result appears.
 
-   ![result](./media/sql-database-connect-query-ssms/result.png)
+   ![result of Product table query](./media/sql-database-connect-query-ssms/result.png)
 
 ## Update data
 
