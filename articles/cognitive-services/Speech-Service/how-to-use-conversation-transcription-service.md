@@ -38,7 +38,7 @@ The first step is to create voice signatures for the conversation participants. 
 * The input audio wave file for creating voice signatures shall be in 16-bit samples, 16 kHz sample rate, and a single channel (Mono) format.
 * The recommended length for each audio sample is between 30 seconds and two minutes.
 
-The following example shows two different ways to create voice signature by [using the REST API.] (https://aka.ms/cts/signaturegenservice) from C#:
+The following example shows two different ways to create voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) from C#:
 
 ```csharp
 class Program
