@@ -18,8 +18,7 @@ You can create an HDInsight cluster with Enterprise Security Package (ESP) that'
 
 The enterprise admin can configure role-based access control (RBAC) for Apache Hive security by using [Apache Ranger](https://ranger.apache.org/). Configuring RBAC restricts data access to only what's needed. Finally, the admin can audit the data access by employees and any changes done to access control policies. The admin can then achieve a high degree of governance of their corporate resources.
 
-> [!NOTE]  
-> Apache Oozie is now enabled on ESP clusters. To access the Oozie web UI, users should enable [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
+Apache Oozie is now enabled on ESP clusters. To access the Oozie web UI, users should enable [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Enterprise security contains four major pillars: perimeter security, authentication, authorization, and encryption.
 
@@ -50,7 +49,7 @@ A HDInsight cluster with ESP uses the familiar Apache Ranger UI to search audit 
 ## Encryption
 Protecting data is important for meeting organizational security and compliance requirements. Along with restricting access to data from unauthorized employees, you should encrypt it. 
 
-Both data stores for HDInsight clusters--Azure Blob storage and Azure Data Lake Storage Gen1/Gen2--support transparent server-side [encryption of data](../../storage/common/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this capability of server-side encryption of data at rest.
+Both data stores for HDInsight clusters, Azure Blob storage and Azure Data Lake Storage Gen1/Gen2, support transparent server-side [encryption of data](../../storage/common/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this capability of server-side encryption of data at rest.
 
 ## Next steps
 
