@@ -104,7 +104,7 @@ For Azure operations personnel, the following access principles apply:
 * Access is just-in-time (JIT), and is granted on a per-incident basis or for a specific maintenance event, and for a limited duration.
 * Access is rule-based, with defined roles that are only assigned the permissions required for troubleshooting.
 
-Screening standards include the validation of US citizenship of all Microsoft support and operational staff before access is granted to Azure Government-hosted systems. Support personnel who need to transfer data use the secure capabilities within Azure Government. Secure data transfer requires a separate set of authentication credentials to gain access.
+Screening standards include the validation of US citizenship of all Microsoft support and operational staff before access is granted to Azure Government-hosted systems. Support personnel who need to transfer data use the secure capabilities within Azure Government. Secure data transfer requires a separate set of authentication credentials to gain access. 
 
 ## Next steps
 For supplemental information and updates please subscribe to the
