@@ -1,4 +1,4 @@
-﻿---
+---
 layout: HubPage
 hide_bc: true
 experimental: true
@@ -784,6 +784,12 @@ featureFlags:
                                             <a href="/azure/frontdoor/">
                                                 <img src="media/index/frontdoor.svg" alt="" />
                                                 <p>Azure Front Door Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/bastion/">
+                                                <img src="media/index/web_connect.svg" alt="" />
+                                                <p>Azure Bastion</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2425,6 +2431,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Front Door Service</h3>
                                                     <p>Scalable and secure entry point to deliver global web apps</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<li>
+                                <a href="/azure/bastion/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/web_connect.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Bastion</h3>
+                                                    <p>Secure seamless connectivity to virtual machines over SSL via the Azure portal without a public IP address</p>
                                                 </div>
                                             </div>
                                         </div>
