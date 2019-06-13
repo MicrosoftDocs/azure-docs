@@ -191,19 +191,13 @@ You can copy data by using Azure Data Factory, or by using your Azure-based Hado
     hadoop distcp -Dfs.azure.account.key.<source_account>.dfs.windows.net=<source_account_key> abfs://<source_container> @<source_account>.dfs.windows.net/<source_path> abfs://<dest_container>@<dest_account>.dfs.windows.net/<dest_path>
     ```
 
-    * Replace the `<source_account>` placeholder with the name of the storage account that contains the data.
+    * Replace the `<source_account>` and `<dest_account>` placeholders with the names of the source and destination storage accounts.
+
+    * Replace the `<source_container>` and `<dest_container>` placeholders with the names of the source and destination containers.
+
+    * Replace the `<source_path>` and `<dest_path>` placeholders with the source and destination directory paths.
 
     * Replace the `<source_account_key>` placeholder with the access key of the storage account that contains the data.
-
-    * Replace the `<source_container>` placeholder with the name of the container that contains the data.
-
-    * Replace the `<source_path>` placeholder with the directory path to the data that you want to copy.
-
-    * Replace the `<dest_container>` placeholder with the name of the container to you will copy the data to.
-
-    * Replace the `<dest_account>` placeholder with the name of the storage account that you are copying the data to.
-
-    * Replace the `<dest_path>` placeholder with the path to the directory that will contain the data.
 
     This command copies both data and metadata from your storage account into your Data Lake Storage Gen2 storage account.
 
