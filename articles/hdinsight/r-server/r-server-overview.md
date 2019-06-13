@@ -14,8 +14,6 @@ ms.date: 06/12/2019
 
 Microsoft Machine Learning Server is available as a deployment option when you create HDInsight clusters in Azure. The cluster type that provides this option is called **ML Services**. This capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
-
 ML Services on HDInsight provides the latest capabilities for R-based analytics on datasets of virtually any size, loaded to either Azure Blob or Data Lake storage. Since ML Services cluster is built on open-source R, the R-based applications you build can leverage any of the 8000+ open-source R packages. The routines in ScaleR, Microsoft’s big data analytics package are also available.
 
 The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of ScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using ScaleR’s Hadoop Map Reduce or Apache Spark compute contexts.
