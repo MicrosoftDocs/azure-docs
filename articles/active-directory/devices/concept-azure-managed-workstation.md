@@ -47,7 +47,7 @@ This document provides a solution to help protect your computing devices by isol
 
 * Intune for device management, including application and URL whitelisting
 * Autopilot for device setup and deployment and refresh 
-* Azure AD for user management, conditional access, and multi-factor authentication
+* Azure AD for user management, Conditional Access, and multi-factor authentication
 * Windows 10 (current version) for device health attestation and user experience
 * Microsoft Defender Advanced Threat Protection (ATP) for endpoint protection, detection, and response with cloud management
 * Azure AD PIM for managing authorization, including Just In Time (JIT) privileged access to resources

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/04/2019
+ms.date: 06/13/2019
 ms.author: v-mohabe
 
 ---
@@ -43,7 +43,8 @@ After setting a security policy, Security Center analyzes the security state of 
 ![Security center overview](./media/security-center-recommendations/asc-overview.png)
 
 1. Select the **Recommendations tile** under **Overview**. The **Recommendations** list opens.
-![View recommendations](./media/security-center-recommendations/view-recommendations.png)
+    
+      ![View recommendations](./media/security-center-recommendations/view-recommendations.png)
 
     You can filter recommendations. To filter the recommendations, select **Filter** on the **Recommendations** blade. The **Filter** blade opens and you select the severity and state values you wish to see.
 
@@ -61,8 +62,8 @@ After setting a security policy, Security Center analyzes the security state of 
 
     ![Recommendation details](./media/security-center-recommendations/recommendation-details.png)
 
->[!NOTE]
-See [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
+>[!NOTE] 
+> See [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
   
  ### Apply recommendations
 > After reviewing all recommendations, decide which one to apply first. We recommend that you use the secure score impact to evaluate which recommendations should be applied first.
