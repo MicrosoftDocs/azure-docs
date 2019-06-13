@@ -54,12 +54,12 @@ You can set these values using [Azure Resource Manager Templates](../../azure-mo
 
 ### Enabling Profiler for other clouds manually
 
-In addition to the above app settings, you can use these app settings to enable profiler for other clouds.
+If you want to enable the profiler for other clouds, you can use the below app settings.
 
-|App Setting    | US Government Values   
-|---------------|----------|
-|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    |
-|ApplicationInsightsEndpoint | https://dc.applicationinsights.us |
+|App Setting    | US Government Values| China Cloud |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
+|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
 
 ## Disable Profiler
 
