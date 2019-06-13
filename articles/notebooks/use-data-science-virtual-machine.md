@@ -56,13 +56,15 @@ When a project is run on a VM, the files are mounted on the root directory of th
 
 ![Shutdown button in Azure Notebooks](media/shutdown.png)
 
-If multiple users will share a DSVM you can avoid blocking each other by creating and using a DSVM user for each notebook user.
-
 ### How to Create new DSVM users
-1. Go to [Azure Portal](https://ms.portal.azure.com).
-2. Navigate to your virtual machine.
-3. Click 'Reset password' under 'Support + troubleshooting' in the left margin.
-4. Enter a new username and password and click 'Update' (Your old usernames should still continue to work).
+
+If multiple users share a DSVM, you can avoid blocking each other by creating and using a DSVM user for each notebook user:
+
+1. On the [Azure Portal](https://portal.azure.com), navigate to your virtual machine.
+1. Under **Support + troubleshooting** in the left margin, select **Reset password**.
+1. Enter a new username and password and select **Update**. (Existing usernames are not affected.)
+1. Repeat the previous step for any additional users.
+
 ## Next steps
 
 Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).
