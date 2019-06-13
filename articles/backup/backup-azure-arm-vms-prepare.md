@@ -65,6 +65,9 @@ In addition, there are a couple of things that you might need to do in some circ
 
 ![List of backup vaults](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
+> [!NOTE]
+> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in *Retain instant recovery snapshot* section of the Azure Virtual Machine Backup policy.  Applying a lock to this resource group can cause backup failures.
+
 ### Modify storage replication
 
 By default, vaults use [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
