@@ -1,24 +1,18 @@
-- name: Secure development guidance
-  href: index.md
-- name: Overview
-
-- name: Sample apps
+- name: Secure Development Guidance
+  href: index.yml
 
 - name: Concepts
   expanded: true
   items:
-  - name: Secure development best practices
-    href: secure-dev-overview.md
+  - name: Best practices
     items:
+    - name: Overview
+      href: secure-dev-overview.md
     - name: Design secure apps
       href: secure-design.md
     - name: Develop secure apps
       href: secure-develop.md
     - name: Deploy secure apps
       href: secure-deploy.md
-  - name: Security best practices for Azure solutions
-    href: https://docs.microsoft.com/azure/security/security-best-practices-and-patterns
 
-- name: Resources
-  expanded: false
 
