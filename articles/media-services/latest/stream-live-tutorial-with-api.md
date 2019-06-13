@@ -22,9 +22,6 @@ ms.author: juliako
 
 In Azure Media Services, [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Live Events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
 
-> [!NOTE]
-> Make sure to review [Live streaming with Media Services v3](live-streaming-overview.md) before proceeding. 
-
 The tutorial shows you how to:    
 
 > [!div class="checklist"]
@@ -35,6 +32,11 @@ The tutorial shows you how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+> [!NOTE]
+> Even though the tutorial uses .NET SDK examples, the general steps are the same for [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or other supported [SDKs](media-services-apis-overview.md#sdks).
+>
+> Currently, you cannot use the Azure portal to manage v3 resources.
+
 ## Prerequisites
 
 The following are required to complete the tutorial.
@@ -44,6 +46,9 @@ The following are required to complete the tutorial.
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
 - A camera or a device (like laptop) that is used to broadcast an event.
 - An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service. The stream has to be in **RTMP** or **Smooth Streaming** format.
+
+> [!TIP]
+> Make sure to review [Live streaming with Media Services v3](live-streaming-overview.md) before proceeding. 
 
 ## Download and configure the sample
 
