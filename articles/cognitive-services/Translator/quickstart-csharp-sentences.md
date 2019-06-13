@@ -63,15 +63,38 @@ The `dotnet new console` command that you ran earlier created a project, includi
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
+// Install Newtonsoft.Json with NuGet
 using Newtonsoft.Json;
+```
+
+## Create classes for the JSON response
+
+Next, we're going to create a class that's used when deserializing the JSON response returned by the Translator Text API.
+
+```csharp
+/// <summary>
+/// The C# classes that represents the JSON returned by the Translator Text API.
+/// </summary>
+public class BreakSentenceResult
+{
+    public int[] SentLen { get; set; }
+    public DetectedLanguage DetectedLanguage { get; set; }
+}
+
+public class DetectedLanguage
+{
+    public string Language { get; set; }
+    public float Score { get; set; }
+}
 ```
 
 ## Create a function to determine sentence length
 
-Within the `Program` class, create a function called `BreakSentence`. This class encapsulates the code used to call the BreakSentence resource and prints the result to console.
+Within the `Program` class, create a function called `BreakSentence`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
 
 ```csharp
-static void BreakSentence()
+static public async Task BreakSentenceRequest(string subscriptionKey, string host, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -80,20 +103,12 @@ static void BreakSentence()
 }
 ```
 
-## Set the subscription key, host name, and path
-
-Add these lines to the `BreakSentence` function. You'll notice that along with the `api-version`, you can define the input language. In this sample it's English.
-
-```csharp
-string host = "https://api.cognitive.microsofttranslator.com";
-string route = "/breaksentence?api-version=3.0&language=en";
-string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-```
+## Serialize the Break Sentence request
 
 Next, you need to create and serialize the JSON object that includes the text. Keep in mind, you can pass more than one object in the `body` array.
 
 ```csharp
-System.Object[] body = new System.Object[] { new { Text = @"How are you? I am fine. What did you do today?" } };
+object[] body = new object[] { new { Text = inputText } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
@@ -123,35 +138,47 @@ Inside the `HttpRequestMessage` you'll:
 Add this code to the `HttpRequestMessage`:
 
 ```csharp
+// Build the request.
 // Set the method to POST
 request.Method = HttpMethod.Post;
-
-// Construct the full URI
+// Construct the URI and add headers.
 request.RequestUri = new Uri(host + route);
-
-// Add the serialized JSON object to your request
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-
-// Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request, get response
-var response = client.SendAsync(request).Result;
-var jsonResponse = response.Content.ReadAsStringAsync().Result;
-
-// Print the response
-Console.WriteLine(jsonResponse);
-Console.WriteLine("Press any key to continue.");
+// Send the request and get response.
+HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+// Read response as a string.
+string result = await response.Content.ReadAsStringAsync();
+// Deserialize the response using the classes created earlier.
+BreakSentenceResult[] deserializedOutput = JsonConvert.DeserializeObject<BreakSentenceResult[]>(result);
+foreach (BreakSentenceResult o in deserializedOutput)
+{
+    Console.WriteLine("The detected language is '{0}'. Confidence is: {1}.", o.DetectedLanguage.Language, o.DetectedLanguage.Score);
+    Console.WriteLine("The first sentence length is: {0}", o.SentLen[0]);
+}
 ```
 
 ## Put it all together
 
-The last step is to call `BreakSentence()` in the `Main` function. Locate `static void Main(string[] args)` and add these lines:
+The last step is to call `BreakSentenceRequest()` in the `Main` function. Locate `static void Main(string[] args)` and add replace it with this code:
 
 ```csharp
-BreakSentence();
-Console.ReadLine();
+static async Task Main(string[] args)
+{
+    // This is our main function.
+    // Output languages are defined in the route.
+    // For a complete list of options, see API reference.
+    string subscriptionKey = "YOUR_TRANSLATOR_TEXT_KEY_GOES_HERE";
+    string host = "https://api.cognitive.microsofttranslator.com";
+    string route = "/breaksentence?api-version=3.0";
+    // Feel free to use any string.
+    string breakSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
+    await BreakSentenceRequest(subscriptionKey, host, route, breakSentenceText);
+}
 ```
+
+You'll notice that in `Main`, you're declaring `subscriptionKey`, `host`, `route`, and the text to evaluate `breakSentenceText`.
 
 ## Run the sample app
 
@@ -163,14 +190,24 @@ dotnet run
 
 ## Sample response
 
+After you run the sample, you should see the following printed to terminal:
+
+```bash
+The detected language is \'en\'. Confidence is: 1.
+The first sentence length is: 25
+```
+
+This message is built from the raw JSON, which will look like this:
+
 ```json
 [
     {
-        "sentLen": [
-            13,
-            11,
-            22
-        ]
+        "detectedLanguage":
+        {
+            "language":"en",
+            "score":1.0
+        },
+        "sentLen":[25,32,35]
     }
 ]
 ```
