@@ -83,7 +83,10 @@ Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with y
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Now use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your ACR login server name. If you experience issues pushing to your ACR registry, make sure that you have run the [az acr login][az-acr-login] command.
+Now use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your ACR login server name.
+
+> [!NOTE]
+> If you experience issues pushing to your ACR registry, make sure that you are still logged in. Run the [az acr login][az-acr-login] command using the name of your Azure Container Registry that you created in the [Create an Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) step. For example, `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

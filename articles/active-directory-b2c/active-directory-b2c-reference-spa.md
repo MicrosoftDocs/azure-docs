@@ -2,14 +2,14 @@
 title: Single-page sign in using implicit flow - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to add single-page sign in using the OAuth 2.0 implicit flow with Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 

@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 06/05/2019
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -55,17 +55,15 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 At the prompt, enter the password for the user account.
 
 ## Monitor replication
-Azure Database for PostgreSQL provides the **Max Lag Across Replicas** metric in Azure Monitor. This metric is available on the master server only. The metric shows the lag in bytes between the master and the most-lagging replica. 
+Azure Database for PostgreSQL provides two metrics for monitoring replication. The two metrics are **Max Lag Across Replicas** and **Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](howto-read-replicas-portal.md).
 
-Azure Database for PostgreSQL also provides the **Replica Lag** metric in Azure Monitor. This metric is available for replicas only. 
+The **Max Lag Across Replicas** metric shows the lag in bytes between the master and the most-lagging replica. This metric is available on the master server only.
 
-The metric is calculated from the `pg_stat_wal_receiver` view:
+The **Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your master server, the metric reflects this time lag. This metric is available for replica servers only. Replica Lag is calculated from the `pg_stat_wal_receiver` view:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-The Replica Lag metric shows the time since the last replayed transaction. If there are no transactions occurring on your master server, the metric reflects this time lag.
 
 Set an alert to inform you when the replica lag reaches a value that isn’t acceptable for your workload. 
 

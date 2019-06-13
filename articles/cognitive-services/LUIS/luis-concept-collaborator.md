@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: diberry
 ---
 # Collaborating with other authors
@@ -25,7 +25,7 @@ See [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active
 
 ## LUIS app owner
 
-The account that creates an app is the owner and each app has a single owner. The owner is listed on the app **[Settings](luis-how-to-collaborate.md)** page. The owner can delete the app receive email when the endpoint quota reaches 75% of the monthly limit. 
+The account that creates an app is the owner and each app has a single owner. The owner is listed on the app **[Settings](luis-how-to-collaborate.md)** page. The owner receives email when the endpoint quota reaches 75% of the monthly limit. 
 
 ## Authorization roles
 LUIS doesn't support different roles for owners and collaborators with one exception. The owner is the only account that can delete the app.

@@ -45,7 +45,7 @@ The following sections list changes in the most recent releases.
 
 **Breaking changes** 
 
-*	[Installing a wake word](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) has been simplified, it is now part of the app and does not need separate installation on the device.
+*	[Installing a wake word](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) has been simplified, it is now part of the app and does not need separate installation on the device.
 *	The wake word recognition has changed, and two events are supported.
     - RecognizingKeyword, indicates the speech result contains (unverified) keyword text.
     - RecognizedKeyword, indicates that keyword recognition completed recognizing the given keyword.

@@ -55,6 +55,9 @@ Create, read, update, and delete users | Global Administrator ([see documentatio
 Read all configuration | Global Administrator | 
 Read B2C audit logs | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
+> [!NOTE]
+> Azure AD B2C global administrators do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
+
 ## Company branding
 
 Task | Least privileged role | Additional roles
