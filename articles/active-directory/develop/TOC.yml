@@ -139,6 +139,8 @@
           href: scenario-protected-web-api-app-registration.md
         - name: Code configuration
           href: scenario-protected-web-api-app-configuration.md
+        - name: Verification of scopes or app roles
+          href: scenario-protected-web-api-verification-scope-app-roles.md
         - name: Move to production
           href: scenario-protected-web-api-production.md
       - name: Web API that calls web APIs
@@ -531,7 +533,7 @@
         href: consent-framework.md
       - name: Application consent experiences
         href: application-consent-experience.md
-    - name: Conditional access
+    - name: Conditional Access
       href: conditional-access-dev-guide.md
     - name: National Clouds
       href: authentication-national-cloud.md
