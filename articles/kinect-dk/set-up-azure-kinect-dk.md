@@ -12,9 +12,9 @@ keywords: azure, kinect, dev kit, azure dk, set up, hardware, quick, usb, power,
 
 ---
 
-# Quickstart: Set up Azure Kinect DK
+# Quickstart: Set up your Azure Kinect DK
 
-This quickstart provides guidance about how to set up your Azure Kinect hardware. We'll show you how to test sensor stream visualization and use the Azure Kinect Viewer.
+This quickstart provides guidance about how to set up your Azure Kinect DK. We'll show you how to test sensor stream visualization and use the Azure Kinect Viewer.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -44,7 +44,7 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 
 ## Verify that the device streams data
 
-1. Launch `k4aviewer.exe` located under the installed tools directory (for example, `C:\Program Files\Azure Kinect SDK vX.Y.Z\tools\k4aviewer.exe`, where `X.Y.Z` is the installed version of the SDK). You can launch it either from the command line or by double-clicking the executable. Azure Kinect Viewer is also available as a link in the start menu.
+1. Launch the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md), located under the installed tools directory as `k4aviewer.exe` (for example, `C:\Program Files\Azure Kinect SDK vX.Y.Z\tools\k4aviewer.exe`, where `X.Y.Z` is the installed version of the SDK). You can launch it either from the command line or by double-clicking the executable. Azure Kinect Viewer is also available as a link in the start menu.
 2. Select **Open Device**, then **Start**.
 
     ![Azure Kinect Viewer](./media/quickstarts/viewer.png)
@@ -58,7 +58,7 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 
     ![Visualization Tool](./media/quickstarts/visualization-tool.png)
 
-4. You're done with your Kinect setup.  Now you can start developing your application or integrating services.
+4. You're done with your Azure Kinect DK setup. Now you can start developing your application or integrating services.
 
 If you have any issues, check [Troubleshooting](troubleshooting.md).
 
@@ -68,10 +68,10 @@ If you have any issues, check [Troubleshooting](troubleshooting.md).
 
 [Update device firmware](azure-kinect-dk-update-device-firmware.md)
 
-Learn more about [Kinect for Azure viewer](azure-kinect-sensor-viewer.md)
+Learn more about [Azure Kinect Viewer](azure-kinect-sensor-viewer.md)
 
 ## Next steps
 
-After the Azure Kinect device is ready and working, you can also learn how to
+After the Azure Kinect DK is ready and working, you can also learn how to
 > [!div class="nextstepaction"]
->[Record sensor streams to a file](record-sensor-streams-file.md)
+> [Record sensor streams to a file](record-sensor-streams-file.md)
