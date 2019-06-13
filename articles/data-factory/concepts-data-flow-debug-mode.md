@@ -20,13 +20,13 @@ Azure Data Factory Mapping Data Flow's debug mode can be switched on with the "D
 ## Overview
 When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off in Azure Data Factory. You should be aware of the hourly charges incurred by Azure Databricks during the time that you have the debug session turned on.
 
-In most cases, its a good practice to build your Data Flows in debug mode so that you can validate your business logic and view your data transformations before publishing your work in Azure Data Factory. Use the "Debug" button on the pipeline panel to test your data flow inside of a pipeline.
+In most cases, it's a good practice to build your Data Flows in debug mode so that you can validate your business logic and view your data transformations before publishing your work in Azure Data Factory. Use the "Debug" button on the pipeline panel to test your data flow inside of a pipeline.
 
 > [!NOTE]
 > While the debug mode light is green on the Data Factory toolbar, you'll be charged at the Data Flow debug rate of 8 cores/hr of general compute with a 60 minute time-to-live 
 
 > [!NOTE]
->When running in Debug Mode in Data Flow, your data will not be written to the Sink transform. A Debug session is intended to serve as a test >harness for your transformations. Sinks are not required during debug and are ignored in your data flow. If you wish to test writing the data >in your Sink, execute the Data Flow from an Azure Data Factory Pipeline and use the Debug execution from a pipeline.
+>When running in Debug Mode in Data Flow, your data will not be written to the Sink transform. A Debug session is intended to serve as a test harness for your transformations. Sinks are not required during debug and are ignored in your data flow. If you wish to test writing the data in your Sink, execute the Data Flow from an Azure Data Factory Pipeline and use the Debug execution from a pipeline.
 
 ## Debug settings
 Debug settings can be edited by clicking "Debug Settings" on the Data Flow canvas toolbar. You can select the limits and/or file source to use for each of your Source transformations here. The row limits in this setting are only for the current debug session. You can also select the staging linked service to be used for a SQL DW source. 
@@ -44,7 +44,7 @@ With debug on, the Data Preview tab will light-up on the bottom panel. Without d
 ![Data preview](media/data-flow/datapreview.png "Data preview")
 
 ## Data profiles
-Selecting individual columns in your data preview tab will pop up a chart on the far-right of your data grid with detailed statistics about each field. Azure Data Factory will make a determination based upon the data sampling of which type of chart to display. High-cardinality fields will default to NULL / NOT NULL charts while categorical and numeric data that has low cardinality will display bar charts showing data value frequency. you'll also see max / len length of string fields, min / max values in numeric fields, standard dev, percentiles, counts, and average. 
+Selecting individual columns in your data preview tab will pop up a chart on the far-right of your data grid with detailed statistics about each field. Azure Data Factory will make a determination based upon the data sampling of which type of chart to display. High-cardinality fields will default to NULL/NOT NULL charts while categorical and numeric data that has low cardinality will display bar charts showing data value frequency. You'll also see max/len length of string fields, min/max values in numeric fields, standard dev, percentiles, counts, and average. 
 
 ![Column statistics](media/data-flow/stats.png "Column statistics")
 
