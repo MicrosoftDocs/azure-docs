@@ -8,6 +8,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
+#Customer intent: As a user of Azure HDInsight, I want to learn how the Enterprise Security Package can provide additional security controls.
 ---
 
 # What is Enterprise Security Package in Azure HDInsight
