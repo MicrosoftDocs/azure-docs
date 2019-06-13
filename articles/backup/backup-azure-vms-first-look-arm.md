@@ -65,10 +65,8 @@ In order to back up Azure VMs, Azure Backup installs an extension on the VM agen
     - To see when the next scheduled backup will run, click the backup policy name.
 
 
-
 > [!NOTE]
-> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in “Retain instant recovery snapshot” section of the Backup policy.  Applying a lock to this resource group can cause backup failures.
-
+> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in “Retain instant recovery snapshot” section of the Azure Virtual Machine Backup policy. Applying a lock to this resource group can cause backup failures.
 
 
 ## Run a backup immediately
