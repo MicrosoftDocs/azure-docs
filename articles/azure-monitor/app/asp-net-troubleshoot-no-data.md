@@ -246,18 +246,10 @@ You can modify these parameters as needed.
 - **MaxCollectSec**. Set this parameter to prevent PerfView from running indefinitely and affecting the performance of your server.
 - **OnlyProviders**. Set this paramater to only collect logs from the SDK. You can customize this list based on your specific investigations. 
 
-   Our full list of providers is:
 
-   - Microsoft-ApplicationInsights-Core
-   - Microsoft-ApplicationInsights-Extensibility-DependencyCollector
-   - Microsoft-ApplicationInsights-Extensibility-Rtia-SharedCore
-   - Microsoft-ApplicationInsights-Extensibility-Web
-   - Microsoft-ApplicationInsights-Extensibility-WindowsServer
-   - Microsoft-ApplicationInsights-Web
-   - Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel
-
-
-For more information, see [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+For more information,
+- [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+- [Application Insights Event Sources](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## Still not working...
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
