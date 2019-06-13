@@ -78,11 +78,11 @@ When you rename a Windows machine, all currently configured backups are stopped.
 - If you need to recover data backed up to the vault with the old server name, use the option to restore to an alternate location in the Recover Data Wizard. [Learn more](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
 
 ### What is the maximum file path length for backup?
-The MARS agent relies on NTFS, and uses the filepath length specification limited by the [Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). If the files you want to protect are longer than the allowed value, back up the parent folder or the disk drive.  
+The MARS agent relies on NTFS, and uses the filepath length specification limited by the [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). If the files you want to protect are longer than the allowed value, back up the parent folder or the disk drive.  
 
 ### What characters are allowed in file paths?
 
-The MARS agent relies on NTFS, and allows [supported characters](/windows/desktop/FileIO/naming-a-file#naming_conventions) in file names/paths.
+The MARS agent relies on NTFS, and allows [supported characters](/windows/desktop/FileIO/naming-a-file#naming-conventions) in file names/paths.
 
 ### The warning "Azure Backups have not been configured for this server" appears.
 This warning can appear even though you've configured a backup policy, when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault.

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 06/07/2019
 ms.author: magoedte
 ---
 
@@ -30,7 +30,7 @@ Before getting started, be sure to review the [prerequisites](vminsights-enable-
 
 The tasks to complete this task are summarized as follows:
 
-1. Install Log Analytics Agent for Windows or Linux.
+1. Install Log Analytics agent for Windows or Linux. Before installing the agent, review the [Log Analytics agent overview](../platform/log-analytics-agent.md) article to understand system prerequisites and deployment methods.  
 
 2. Download and install the Azure Monitor for VMs Map Dependency agent for [Windows](https://aka.ms/dependencyagentwindows) or [Linux](https://aka.ms/dependencyagentlinux).
 
