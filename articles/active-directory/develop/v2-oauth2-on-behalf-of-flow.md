@@ -159,7 +159,7 @@ The following example shows a success response to a request for an access token 
 
 ### Error response example
 
-An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a conditional access policy (such as multi-factor authentication) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the conditional access policy.
+An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a Conditional Access policy (such as multi-factor authentication) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
 
 ```
 {
