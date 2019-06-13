@@ -191,7 +191,7 @@ This is incompatible with passwordless.
 
 Apart from the [Integrated Windows Authentication constraints](#integrated-windows-authentication), the following constraints also apply:
 
-- The username/password flow is not compatible with conditional access and multi-factor authentication: As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you cannot use this flow. Many organizations do that.
+- The username/password flow is not compatible with Conditional Access and multi-factor authentication: As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you cannot use this flow. Many organizations do that.
 - It works only for Work and school accounts (not MSA)
 - The flow is available on .NET desktop and .NET core, but not on Universal Windows Platform.
 

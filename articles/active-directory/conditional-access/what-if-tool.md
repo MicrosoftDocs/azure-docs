@@ -1,8 +1,8 @@
 ---
-title: What is the what if tool in Azure Active Directory conditional access?
-description: Learn how you can understand the impact of your conditional access policies on your environment.
+title: What is the what if tool in Azure Active Directory Conditional Access?
+description: Learn how you can understand the impact of your Conditional Access policies on your environment.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Conditional Access to apps, Conditional Access with Azure AD, secure access to company resources, Conditional Access policies
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -19,26 +19,26 @@ ms.date: 11/20/2018
 ms.author: joflore
 ms.reviewer: nigu
 
-#Customer intent: As an IT admin, I want to know how to use the What If tool for my existing conditional access policies, so that I can understand the impact they have on my environment. 
+#Customer intent: As an IT admin, I want to know how to use the What If tool for my existing Conditional Access policies, so that I can understand the impact they have on my environment. 
 
 ms.collection: M365-identity-device-management
 ---
 
-# What is the what if tool in Azure Active Directory conditional access?
+# What is the what if tool in Azure Active Directory Conditional Access?
 
-[Conditional access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect form the conditional access policies in your environment? To answer this question, you can use the **conditional access what if tool**.
+[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect form the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access what if tool**.
 
-This article explains how you can use this tool to test your conditional access policies.
+This article explains how you can use this tool to test your Conditional Access policies.
 
 ## What it is
 
-The **conditional access what if policy tool** allows you to understand the impact of your conditional access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report. The report does not only list the applied conditional access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
+The **Conditional Access what if policy tool** allows you to understand the impact of your Conditional Access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report. The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
 
 The what if tools also provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.	
 
 ## How it works
 
-In the **conditional access what if tool**, you first need to configure the settings of the sign-in scenario you want to simulate. These settings include:
+In the **Conditional Access what if tool**, you first need to configure the settings of the sign-in scenario you want to simulate. These settings include:
 
 - The user you want to test 
 
@@ -55,7 +55,7 @@ When the evaluation has finished, the tool generates a report of the affected po
 
 ## Running the tool
 
-You can find the **what if** tool on the **[Conditional access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
+You can find the **what if** tool on the **[Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
 
 To start the tool, in the toolbar on top of the list of policies, click **What if**.
 
@@ -122,8 +122,8 @@ On the list of policies that don't apply to your user, you can and also find the
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+- If you want to know how to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
 
-- If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
+- If you are ready to configure Conditional Access policies for your environment, see the [best practices for Conditional Access in Azure Active Directory](best-practices.md). 
 
 - if you want to migrate classic policies, see [Migrate classic policies in the Azure portal](policy-migration.md)  

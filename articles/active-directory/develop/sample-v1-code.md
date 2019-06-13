@@ -110,7 +110,7 @@ Platform | Sample
 
 ### Web API calling Microsoft Graph or another Web API
 
-The following samples demonstrate a web API that calls another web API. The second sample shows how to handle conditional access.
+The following samples demonstrate a web API that calls another web API. The second sample shows how to handle Conditional Access.
 
  Platform |  Calls Microsoft Graph | Calls another ASP.NET or ASP.NET Core 2.0 Web API
  -------- |  --------------------- | -------------------------

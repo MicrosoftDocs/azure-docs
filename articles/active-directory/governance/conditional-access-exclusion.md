@@ -1,6 +1,6 @@
 ---
-title: Use access reviews to manage users excluded from conditional access policies - Azure Active Directory | Microsoft Docs
-description: Learn how to use Azure Active Directory (Azure AD) access reviews to manage users that have been excluded from conditional access policies
+title: Use access reviews to manage users excluded from Conditional Access policies - Azure Active Directory | Microsoft Docs
+description: Learn how to use Azure Active Directory (Azure AD) access reviews to manage users that have been excluded from Conditional Access policies
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Use Azure AD access reviews to manage users excluded from conditional access policies
+# Use Azure AD access reviews to manage users excluded from Conditional Access policies
 
 In an ideal world, all users would follow the access polices to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. This article describes some examples where exclusions might be required and how you, as the IT administrator, can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly using Azure Active Directory (Azure AD) access reviews.
 
@@ -27,27 +27,27 @@ In an ideal world, all users would follow the access polices to secure access to
 
 ## Why would you exclude users from policies?
 
-As an IT administrator, you might use [Azure AD conditional access](../conditional-access/overview.md) to require users to authenticate using multi-factor authentication (MFA) or sign in from a trusted network or device. During the deployment planning, you find out that some of these requirements cannot be met by all users. For example, there are users who work from a remote office that is not part of your internal network or there is an executive who uses an old phone that is not supported. The business requires that these users be allowed to sign in and do their job, therefore, they are excluded from the conditional access policies.
+As an IT administrator, you might use [Azure AD Conditional Access](../conditional-access/overview.md) to require users to authenticate using multi-factor authentication (MFA) or sign in from a trusted network or device. During the deployment planning, you find out that some of these requirements cannot be met by all users. For example, there are users who work from a remote office that is not part of your internal network or there is an executive who uses an old phone that is not supported. The business requires that these users be allowed to sign in and do their job, therefore, they are excluded from the Conditional Access policies.
 
-As another example, you might use [named locations](../conditional-access/location-condition.md) in conditional access to configure a set of counties and regions from which you don't want to allow users to access their tenant.
+As another example, you might use [named locations](../conditional-access/location-condition.md) in Conditional Access to configure a set of counties and regions from which you don't want to allow users to access their tenant.
 
 ![Named locations](./media/conditional-access-exclusion/named-locations.png)
 
-However, in some cases, users might have a legitimate reason to sign in from these blocked countries/regions. For example, users might be traveling for work or personal reasons. In this example, the conditional access policy to block these countries/regions could have a dedicated cloud security group for the users who are excluded from the policy. Users who need access while traveling, can add themselves to the group using [Azure AD self-service Group management](../users-groups-roles/groups-self-service-management.md).
+However, in some cases, users might have a legitimate reason to sign in from these blocked countries/regions. For example, users might be traveling for work or personal reasons. In this example, the Conditional Access policy to block these countries/regions could have a dedicated cloud security group for the users who are excluded from the policy. Users who need access while traveling, can add themselves to the group using [Azure AD self-service Group management](../users-groups-roles/groups-self-service-management.md).
 
-Another example might be that you have a conditional access policy that [blocks legacy authentication for the vast majority of your users](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft strongly recommends that you block the use of legacy protocols in your tenant to improve your security posture. However, if you have some users that absolutely need to use legacy authentication methods to access your resources via Office 2010 or IMAP/SMTP/POP based clients, then you can exclude these users from the policy that block legacy authentication methods.
+Another example might be that you have a Conditional Access policy that [blocks legacy authentication for the vast majority of your users](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft strongly recommends that you block the use of legacy protocols in your tenant to improve your security posture. However, if you have some users that absolutely need to use legacy authentication methods to access your resources via Office 2010 or IMAP/SMTP/POP based clients, then you can exclude these users from the policy that block legacy authentication methods.
 
 ## Why are exclusions challenging?
 
-In Azure AD, you can scope a conditional access policy to a set of users. You can also exclude some of these users by selecting Azure AD roles, individual users, or guests of users. It is important to remember that when these exclusions are configured, the policy intent can't be enforced for those users. If these exclusions were configured as either a list of individual users or via a legacy on-premises security group, then it limits the visibility of this exclusion list (users may not know of its existence) and the IT administrator's control over it (users can join the security group to by-pass the policy). Additionally, users that qualified for the exclusion at one time may no longer need it or be eligible for it.
+In Azure AD, you can scope a Conditional Access policy to a set of users. You can also exclude some of these users by selecting Azure AD roles, individual users, or guests of users. It is important to remember that when these exclusions are configured, the policy intent can't be enforced for those users. If these exclusions were configured as either a list of individual users or via a legacy on-premises security group, then it limits the visibility of this exclusion list (users may not know of its existence) and the IT administrator's control over it (users can join the security group to by-pass the policy). Additionally, users that qualified for the exclusion at one time may no longer need it or be eligible for it.
 
 At the beginning of an exclusion, there is a short list of users who bypass the policy. Over time, more and more users are excluded, and the list grows. At some point, there is a need to review the list and confirm that each of these users should still be excluded. Managing the list from a technical point of view, can be relatively easy, but who makes the business decisions and how do you make sure it is all auditable?
 
-However, if you configure the exclusion to the conditional access policy using an Azure AD group, then you can use access reviews as a compensating control, to drive visibility, and reduce the number of users who have an exception.
+However, if you configure the exclusion to the Conditional Access policy using an Azure AD group, then you can use access reviews as a compensating control, to drive visibility, and reduce the number of users who have an exception.
 
-## How to create an exclusion group in a conditional access policy
+## How to create an exclusion group in a Conditional Access policy
 
-Follow these steps to create a new Azure AD group and a conditional access policy that does not apply to that group.
+Follow these steps to create a new Azure AD group and a Conditional Access policy that does not apply to that group.
 
 ### Create an exclusion group
 
@@ -65,11 +65,11 @@ Follow these steps to create a new Azure AD group and a conditional access polic
 
     ![New group pane](./media/conditional-access-exclusion/new-group.png)
 
-### Create a conditional access policy that excludes the group
+### Create a Conditional Access policy that excludes the group
 
-Now you can create a conditional access policy that uses this exclusion group.
+Now you can create a Conditional Access policy that uses this exclusion group.
 
-1. In the left navigation, click **Azure Active Directory** and then click **Conditional access** to open the **Policies** blade.
+1. In the left navigation, click **Azure Active Directory** and then click **Conditional Access** to open the **Policies** blade.
 
 1. Click **New policy** to open the **New** pane.
 
@@ -86,15 +86,15 @@ Now you can create a conditional access policy that uses this exclusion group.
     > [!NOTE]
     > As a best practice, it is recommended to exclude at least one administrator account from the policy when testing to make sure you are not locked out of your tenant.
 
-1. Continue with setting up the conditional access policy based on your organizational requirements.
+1. Continue with setting up the Conditional Access policy based on your organizational requirements.
 
     ![Select excluded users](./media/conditional-access-exclusion/select-excluded-users.png)
 
-Let's cover two examples where you can use access reviews to manage exclusions in conditional access policies.
+Let's cover two examples where you can use access reviews to manage exclusions in Conditional Access policies.
 
 ## Example 1: Access review for users accessing from blocked countries/regions
 
-Let's say you have a conditional access policy that blocks access from certain countries/regions. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
+Let's say you have a Conditional Access policy that blocks access from certain countries/regions. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
 
 > [!NOTE]
 > A Global administrator or User administrator role is required to create access reviews.
@@ -115,7 +115,7 @@ Let's say you have a conditional access policy that blocks access from certain c
 
 ## Example 2: Access review for users accessing with legacy authentication
 
-Let's say you have a conditional access policy that blocks access for users using legacy authentication and older client versions. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
+Let's say you have a Conditional Access policy that blocks access for users using legacy authentication and older client versions. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
 
 1. This review would need to be a recurring review.
 
@@ -135,7 +135,7 @@ Let's say you have a conditional access policy that blocks access for users usin
 
 ## Access review results and audit logs
 
-Now that you have everything in place, group, conditional access policy, and access reviews, it is time to monitor and track the results of these reviews.
+Now that you have everything in place, group, Conditional Access policy, and access reviews, it is time to monitor and track the results of these reviews.
 
 1. In the Azure portal, open the  **Access reviews** blade.
 
@@ -154,4 +154,4 @@ As an IT administrator, you know that managing exclusion groups to your policies
 ## Next steps
 
 - [Create an access review of groups or applications](create-access-review.md)
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

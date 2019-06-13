@@ -42,7 +42,7 @@
       href: claims-mapping.md
     - name: B2B user token
       href: user-token.md
-    - name: Conditional access for B2B
+    - name: Conditional Access for B2B
       href: conditional-access.md
     - name: B2B for hybrid organizations
       href: hybrid-organizations.md

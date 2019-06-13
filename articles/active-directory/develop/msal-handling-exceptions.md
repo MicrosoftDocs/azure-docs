@@ -1,6 +1,6 @@
 ---
 title: Errors and exceptions (MSAL) | Azure
-description: Learn how to handle errors and exceptions, conditional access, and claims challenge in MSAL applications.
+description: Learn how to handle errors and exceptions, Conditional Access, and claims challenge in MSAL applications.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -135,20 +135,20 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 });
 ```
 
-## Conditional access and claims challenges
-When getting tokens silently, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you are trying to access.
+## Conditional Access and claims challenges
+When getting tokens silently, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you are trying to access.
 
-The pattern to handle this error is to interactively acquire a token using MSAL. Interactively acquiring a token prompts the user and gives them the opportunity to satisfy the required conditional access policy.
+The pattern to handle this error is to interactively acquire a token using MSAL. Interactively acquiring a token prompts the user and gives them the opportunity to satisfy the required Conditional Access policy.
 
-In certain cases when calling an API requiring conditional access, you can receive a claims challenge in the error from the API. For instance if the conditional access policy is to have a managed device (Intune) the error will be something like [AADSTS53000: Your device is required to be managed to access this resource](reference-aadsts-error-codes.md) or something similar. In this case, you can pass the claims in the acquire token call so that the user is prompted to satisfy the appropriate policy.
+In certain cases when calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. For instance if the Conditional Access policy is to have a managed device (Intune) the error will be something like [AADSTS53000: Your device is required to be managed to access this resource](reference-aadsts-error-codes.md) or something similar. In this case, you can pass the claims in the acquire token call so that the user is prompted to satisfy the appropriate policy.
 
 ### .NET
-When calling an API requiring conditional access from MSAL.NET, your application will need to handle claim challenge exceptions. This will appear as an [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) where the [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) property won't be empty.
+When calling an API requiring Conditional Access from MSAL.NET, your application will need to handle claim challenge exceptions. This will appear as an [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) where the [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) property won't be empty.
 
 To handle the claim challenge, you will need to use the `.WithClaim()` method of the `PublicClientApplicationBuilder` class.
 
 ### JavaScript
-When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you are trying to access.
+When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you are trying to access.
 
 The pattern to handle this error is to make an interactive call to acquire token in MSAL.js such as `acquireTokenPopup` or `acquireTokenRedirect` as in the following example:
 
@@ -166,9 +166,9 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 });
 ```
 
-Interactively acquiring the token prompts the user and gives them the opportunity to satisfy the required conditional access policy.
+Interactively acquiring the token prompts the user and gives them the opportunity to satisfy the required Conditional Access policy.
 
-When calling an API requiring conditional access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error as `extraQueryParameters` in the call to acquire tokens so that the user is prompted to satisfy the appropriate policy:
+When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error as `extraQueryParameters` in the call to acquire tokens so that the user is prompted to satisfy the appropriate policy:
 
 ```javascript
 var request = {

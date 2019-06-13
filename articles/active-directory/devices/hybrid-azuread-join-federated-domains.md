@@ -25,7 +25,7 @@ In a similar way to a user, a device is another core identity you want to protec
 - Hybrid Azure AD join
 - Azure AD registration
 
-By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [conditional access](../active-directory-conditional-access-azure-portal.md).
+By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [Conditional Access](../active-directory-conditional-access-azure-portal.md).
 
 In this tutorial, you learn how to configure hybrid Azure AD join for AD domain-joined computers devices in a federated environment using AD FS.
 
@@ -166,7 +166,7 @@ When using the **Get-MSolDevice** cmdlet to check the service details:
 
 - An object with the **device ID** that matches the ID on the Windows client must exist.
 - The value for **DeviceTrustType** must be **Domain Joined**. This is equivalent to the **Hybrid Azure AD joined** state on the Devices page in the Azure AD portal.
-- The value for **Enabled** must be **True** and **DeviceTrustLevel** must be **Managed** for devices that are used in conditional access.
+- The value for **Enabled** must be **True** and **DeviceTrustLevel** must be **Managed** for devices that are used in Conditional Access.
 
 **To check the service details:**
 

@@ -27,7 +27,7 @@
       href: manage-guest-access-with-access-reviews.md
     - name: Manage user access with reviews
       href: manage-user-access-with-access-reviews.md
-    - name: Manage users excluded from conditional access
+    - name: Manage users excluded from Conditional Access
       href: conditional-access-exclusion.md
 - name: How-to guides
   expanded: true

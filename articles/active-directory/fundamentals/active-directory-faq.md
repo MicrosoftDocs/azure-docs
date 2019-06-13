@@ -192,7 +192,7 @@ For more information, see [How to provide secure remote access to on-premises ap
 - - -
 **Q: How do I require multi-factor authentication for users who access a particular application?**
 
-**A:** With Azure AD conditional access, you can assign a unique access policy for each application. In your policy, you can require multi-factor authentication always, or when users are not connected to the local network.  
+**A:** With Azure AD Conditional Access, you can assign a unique access policy for each application. In your policy, you can require multi-factor authentication always, or when users are not connected to the local network.  
 
 For more information, see [Securing access to Office 365 and other apps connected to Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 

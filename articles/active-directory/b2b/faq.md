@@ -55,12 +55,12 @@ Unless a user is assigned the role of limited administrator, B2B collaboration u
 
 ### Can I block access to the Azure portal for guest users?
 Yes! When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
-To block a guest user's access to the [Azure portal](https://portal.azure.com), use a conditional access policy in the Windows Azure classic deployment model API:
+To block a guest user's access to the [Azure portal](https://portal.azure.com), use a Conditional Access policy in the Windows Azure classic deployment model API:
 1. Modify the **All Users** group so that it contains only members.
    ![Screenshot showing All Users group where UserType is not equal Guest](media/faq/modify-all-users-group.png)
 2. Create a dynamic group that contains guest users.
    ![Screenshot showing a new All Guest Users group](media/faq/group-with-guest-users.png)
-3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video:
+3. Set up a Conditional Access policy to block guest users from accessing the portal, as shown in the following video:
   
    > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
@@ -108,7 +108,7 @@ We are removing the differences between B2B and business-to-consumer (B2C) colla
 All Azure AD-integrated applications can support Azure B2B guest users, but they must use an endpoint set up as a tenant to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
 
 ### Can we force multi-factor authentication for B2B guest users if our partners don't have multi-factor authentication?
-Yes. For more information, see [Conditional access for B2B collaboration users](conditional-access.md).
+Yes. For more information, see [Conditional Access for B2B collaboration users](conditional-access.md).
 
 ### In SharePoint, you can define an "allow" or "deny" list for external users. Can we do this in Azure?
 Yes. Azure AD B2B collaboration supports allow lists and deny lists. 

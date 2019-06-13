@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Block access when a session risk is detected with Azure Active Directory conditional access | Microsoft Docs
-description: In this quickstart, you learn how you can configure an Azure Active Directory (Azure AD) conditional access policy to block sign-ins based on session risks.
+title: Quickstart - Block access when a session risk is detected with Azure Active Directory Conditional Access | Microsoft Docs
+description: In this quickstart, you learn how you can configure an Azure Active Directory (Azure AD) Conditional Access policy to block sign-ins based on session risks.
 
 services: active-directory
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure a policy to handle suspicious sign-ins, so that they can be automatically handled.
 ms.collection: M365-identity-device-management
 ---
-# Quickstart: Block access when a session risk is detected with Azure Active Directory conditional access  
+# Quickstart: Block access when a session risk is detected with Azure Active Directory Conditional Access  
 
-To keep your environment protected, you might want to block suspicious users from sign-in. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyzes each sign-in and calculates the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. The likelihood (low, medium, high) is indicated in form of a calculated value called [sign-in risk levels](conditions.md#sign-in-risk). By setting the sign-in risk condition, you can configure a conditional access policy to respond to specific sign-in risk levels.
+To keep your environment protected, you might want to block suspicious users from sign-in. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyzes each sign-in and calculates the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. The likelihood (low, medium, high) is indicated in form of a calculated value called [sign-in risk levels](conditions.md#sign-in-risk). By setting the sign-in risk condition, you can configure a Conditional Access policy to respond to specific sign-in risk levels.
 
-This quickstart shows how to configure a [conditional access policy](../active-directory-conditional-access-azure-portal.md) that blocks a sign-in when a configured sign-in risk level has been detected.
+This quickstart shows how to configure a [Conditional Access policy](../active-directory-conditional-access-azure-portal.md) that blocks a sign-in when a configured sign-in risk level has been detected.
 
 ![Create policy](./media/app-sign-in-risk/1000.png)
 
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete the scenario in this tutorial, you need:
 
-- **Access to an Azure AD Premium P2 edition** - While conditional access is an Azure AD Premium P1 capability, you need a P2 edition because the scenario in this quickstart requires Identity Protection.
+- **Access to an Azure AD Premium P2 edition** - While Conditional Access is an Azure AD Premium P1 capability, you need a P2 edition because the scenario in this quickstart requires Identity Protection.
 
 - **Identity Protection** - The scenario in this quickstart requires Identity Protection to be enabled. If you don't know how to enable Identity Protection, see [Enabling Azure Active Directory Identity Protection](../identity-protection/enable.md).
 
@@ -47,11 +47,11 @@ The goal of this step is to make sure that your test account can access your ten
 1. Sign in to your [Azure portal](https://portal.azure.com) as **Alain Charon**.
 1. Sign out.
 
-## Create your conditional access policy
+## Create your Conditional Access policy
 
 The scenario in this quickstart uses a sign-in from a Tor Browser to generate a detected **Sign-ins from anonymous IP addresses** risk event. The risk level of this risk event is medium. To respond to this risk event, you set the sign-in risk condition to medium. In a production environment, you should set the sign-in risk condition either to high or to medium and high.
 
-This section shows how to create the required conditional access policy. In your policy, set:
+This section shows how to create the required Conditional Access policy. In your policy, set:
 
 | Setting | Value |
 | --- | --- |
@@ -62,17 +62,17 @@ This section shows how to create the required conditional access policy. In your
 
 ![Create policy](./media/app-sign-in-risk/130.png)
 
-**To configure your conditional access policy:**
+**To configure your Conditional Access policy:**
 
-1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a conditional access administrator.
+1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a Conditional Access administrator.
 
 1. In the Azure portal, on the left navbar, click **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-1. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
+1. On the **Azure Active Directory** page, in the **Security** section, click **Conditional Access**.
 
-   ![Conditional access](./media/app-sign-in-risk/03.png)
+   ![Conditional Access](./media/app-sign-in-risk/03.png)
 
 1. On the **Conditional Access** page, in the toolbar on the top, click **Add**.
 
@@ -88,7 +88,7 @@ This section shows how to create the required conditional access policy. In your
 
 1. On the **Users and groups** page:
 
-   ![Conditional access](./media/app-sign-in-risk/107.png)
+   ![Conditional Access](./media/app-sign-in-risk/107.png)
 
    1. Click **Select users and groups**, and then select **Users and groups**.
 
@@ -104,7 +104,7 @@ This section shows how to create the required conditional access policy. In your
 
 1. On the **Cloud apps** page:
 
-   ![Conditional access](./media/app-sign-in-risk/109.png)
+   ![Conditional Access](./media/app-sign-in-risk/109.png)
 
    1. Click **All cloud apps**.
 
@@ -134,7 +134,7 @@ This section shows how to create the required conditional access policy. In your
 
 1. On the **Grant** page:
 
-   ![Conditional access](./media/app-sign-in-risk/105.png)
+   ![Conditional Access](./media/app-sign-in-risk/105.png)
 
    1. Select **Block access**.
 
@@ -148,15 +148,15 @@ This section shows how to create the required conditional access policy. In your
 
 ## Evaluate a simulated sign-in
 
-Now that you have configured your conditional access policy, you probably want to know whether it works as expected. As a first step, use the conditional access **what if policy tool** to simulate a sign-in of your test user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report.  
+Now that you have configured your Conditional Access policy, you probably want to know whether it works as expected. As a first step, use the Conditional Access **what if policy tool** to simulate a sign-in of your test user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report.  
 
 When you run the **what if policy tool** for this scenario, the **Block access for medium risk level** should be listed under **Policies that will apply**.
 
 ![User](./media/app-sign-in-risk/117.png)
 
-**To evaluate your conditional access policy:**
+**To evaluate your Conditional Access policy:**
 
-1. On the [Conditional access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page, in the menu on the top, click **What If**.  
+1. On the [Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page, in the menu on the top, click **What If**.  
 
    ![What If](./media/app-sign-in-risk/14.png)
 
@@ -170,17 +170,17 @@ When you run the **what if policy tool** for this scenario, the **Block access f
 
 1. Click **What If**.
 
-## Test your conditional access policy
+## Test your Conditional Access policy
 
-In the previous section, you have learned how to evaluate a simulated sign-in. In addition to a simulation, you should also test your conditional access policy to make sure that it works as expected.
+In the previous section, you have learned how to evaluate a simulated sign-in. In addition to a simulation, you should also test your Conditional Access policy to make sure that it works as expected.
 
-To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) as **Alan Charon** using the Tor Browser. Your sign-in attempt should be blocked by your conditional access policy.
+To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) as **Alan Charon** using the Tor Browser. Your sign-in attempt should be blocked by your Conditional Access policy.
 
 ![Multi-factor authentication](./media/app-sign-in-risk/118.png)
 
 ## Clean up resources
 
-When no longer needed, delete the test user, the Tor Browser and the conditional access policy:
+When no longer needed, delete the test user, the Tor Browser and the Conditional Access policy:
 
 - If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 

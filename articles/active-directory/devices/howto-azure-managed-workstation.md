@@ -101,11 +101,11 @@ To further strengthen the process of joining devices to Azure AD, browse to **Az
 
 From the Azure portal, browse to **Azure Active Directory** > **Mobility (MDM and MAM)** > **Microsoft Intune**. Change the setting **MDM user scope** to **All** and choose **Save** as we will allow any device to be managed by Intune in this scenario. More information can be found in the article [Intune Quickstart: Set up automatic enrollment for Windows 10 devices](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment). We will create Intune configuration and compliance policies in a future step.
 
-#### Azure AD conditional access
+#### Azure AD Conditional Access
 
-Azure AD conditional access can help keep these privileged administrative tasks on compliant devices. Users we have defined as members of the **Secure Workstation Users** group will be required to perform multi-factor authentication when signing in to cloud applications. We will follow the best practice guidance and exclude our emergency access accounts from the policy. Additional information can be found in the article [Manage emergency access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+Azure AD Conditional Access can help keep these privileged administrative tasks on compliant devices. Users we have defined as members of the **Secure Workstation Users** group will be required to perform multi-factor authentication when signing in to cloud applications. We will follow the best practice guidance and exclude our emergency access accounts from the policy. Additional information can be found in the article [Manage emergency access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 
-To configure conditional access from the Azure portal, browse to **Azure Active Directory** > **Conditional Access** > **New policy**.
+To configure Conditional Access from the Azure portal, browse to **Azure Active Directory** > **Conditional Access** > **New policy**.
 
 * **Name** - Secure device required policy
 * Assignments
@@ -121,7 +121,7 @@ To configure conditional access from the Azure portal, browse to **Azure Active 
       * For multiple controls - **Require all the selected controls**
 * Enable policy - **On**
 
-Organizations can optionally create policies to block countries where users would not access company resources. More information about IP location-based conditional access policies can be found in the article [What is the location condition in Azure Active Directory conditional access?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
+Organizations can optionally create policies to block countries where users would not access company resources. More information about IP location-based Conditional Access policies can be found in the article [What is the location condition in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
 
 ## Intune configuration
 

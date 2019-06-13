@@ -531,7 +531,7 @@
         href: consent-framework.md
       - name: Application consent experiences
         href: application-consent-experience.md
-    - name: Conditional access
+    - name: Conditional Access
       href: conditional-access-dev-guide.md
     - name: National Clouds
       href: authentication-national-cloud.md

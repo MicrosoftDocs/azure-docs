@@ -128,7 +128,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 If you need to call the same API several times, or if you need to call multiple APIs, take the following into consideration when you build your app:
 
 - **Incremental consent**: Microsoft identity platform allows apps to get user consent as permissions are required, rather than all at the start. Each time your app is ready to call an API, it should request only the scopes it needs to use.
-- **Conditional access**: In certain scenarios, you might get additional conditional access requirements when you make several API requests. This can happen if the first request has no conditional access policies applied and your app attempts to silently access a new API that requires conditional access. To handle this scenario, be sure to catch errors from silent requests and be prepared to make an interactive request.  To learn more, see [Guidance for conditional access](conditional-access-dev-guide.md).
+- **Conditional Access**: In certain scenarios, you might get additional Conditional Access requirements when you make several API requests. This can happen if the first request has no Conditional Access policies applied and your app attempts to silently access a new API that requires Conditional Access. To handle this scenario, be sure to catch errors from silent requests and be prepared to make an interactive request.  To learn more, see [Guidance for Conditional Access](conditional-access-dev-guide.md).
 
 ## Next steps
 

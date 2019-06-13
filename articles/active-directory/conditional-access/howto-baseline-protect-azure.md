@@ -1,6 +1,6 @@
 ---
 title: Baseline policy Require MFA for service management (preview) - Azure Active Directory
-description: Conditional access policy to require MFA for Azure Resource Manager
+description: Conditional Access policy to require MFA for Azure Resource Manager
 
 services: active-directory
 ms.service: active-directory
@@ -68,7 +68,7 @@ The policy **Baseline policy: Require MFA for service management (preview)** com
 
 To enable this policy and protect your administrators:
 
-1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
+1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select **Baseline policy: Require MFA for service management (preview)**.
 1. Set **Enable policy** to **Use policy immediately**.
@@ -79,6 +79,6 @@ To enable this policy and protect your administrators:
 
 For more information, see:
 
-* [Conditional access baseline protection policies](concept-baseline-protection.md)
+* [Conditional Access baseline protection policies](concept-baseline-protection.md)
 * [Five steps to securing your identity infrastructure](../../security/azure-ad-secure-steps.md)
-* [What is conditional access in Azure Active Directory?](overview.md)
+* [What is Conditional Access in Azure Active Directory?](overview.md)
