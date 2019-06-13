@@ -75,7 +75,7 @@ The `voice` element is used to specify the voice that is used for text-to-speech
 
 ```XML
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name='en-US-Jessa24kRUS'>
+    <voice  name="en-US-Jessa24kRUS">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -94,11 +94,11 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 **Example**
 
 ```xml
-<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-    <voice  name='en-US-Jessa24kRUS'>
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Jessa24kRUS">
         Good morning!
     </voice>
-    <voice  name='en-US-Guy24kRUS'>
+    <voice  name="en-US-Guy24kRUS">
         Good morning to you too Jessa!
     </voice>
 </speak>
@@ -143,8 +143,8 @@ Use this table to determine which speaking styles are supported for each neural 
 This SSML snippet illustrates how the `<mstts:express-as>` element is used to change the speaking style to `cheerful`.
 
 ```xml
-<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name='en-US-JessaNeural'>
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JessaNeural">
         <mstts:express-as type="cheerful">
             That'd be just amazing!
         </mstts:express-as>
@@ -176,8 +176,8 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 **Example**
 
 ```xml
-<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-    <voice  name='en-US-Jessa24kRUS'>
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Jessa24kRUS">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -202,7 +202,7 @@ The `s` element may contain text and the following elements: `audio`, `break`, `
 
 ```XML
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name='en-US-Jessa24kRUS'>
+    <voice  name="en-US-Jessa24kRUS">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -238,15 +238,15 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```XML
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name='en-US-Jessa24kRUS'>
+    <voice  name="en-US-Jessa24kRUS">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
 ```
 
 ```xml
-<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-    <voice  name='en-US-Jessa24kRUS'>
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Jessa24kRUS">
         <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
     </voice>
 </speak>
@@ -282,8 +282,8 @@ Speaking rate can be applied to standard voices at the word or sentence-level. W
 **Example**
 
 ```xml
-<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-    <voice  name='en-US-Guy24kRUS'>
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Guy24kRUS">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -298,8 +298,8 @@ Volume changes can be applied to standard voices at the word or sentence-level. 
 **Example**
 
 ```xml
-<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-    <voice  name='en-US-Jessa24kRUS'>
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Jessa24kRUS">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -314,8 +314,8 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 **Example**
 
 ```xml
-<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-    <voice  name='en-US-Guy24kRUS'>
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Guy24kRUS">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>
@@ -329,8 +329,8 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 **Example**
 
 ```xml
-<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-    <voice  name='en-US-Jessa24kRUS'>
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Jessa24kRUS">
         <prosody contour="(80%,+20%) (90%,+30%)" >
             Good morning.
         </prosody>
