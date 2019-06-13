@@ -189,7 +189,7 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
 
 1. In the bot emulator, enter `Hello` and get the proper response for the basic bot.
 
-    [![Basic bot response in emulator](./media/cognitive-services/luis/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png)](./media/cognitive-services/luis/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png#lightbox)
+    [![Basic bot response in emulator](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 
 ## Ask question for Book Flight intent
@@ -205,7 +205,7 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
 1. Select **Yes**. The bot responds with a summary of its actions. 
 1. From the log of the bot emulator, select the line that includes `Luis Trace`. This displays the JSON response from LUIS for the intent and entities of the utterance.
 
-    [![Basic bot response in emulator](./media/cognitive-services/luis/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/cognitive-services-luis/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
+    [![Basic bot response in emulator](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
 ## Learn more about Bot Framework
 
