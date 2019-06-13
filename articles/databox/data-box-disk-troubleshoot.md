@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/13/2019
 ms.author: alkohli
 ---
 
@@ -19,47 +19,51 @@ This article applies to Microsoft Azure Data Box Disk and describes the validati
 
 When you validate the data on the disks using the [validation tool](data-box-disk-deploy-copy-data.md#validate-data), an *error.xml* is generated to log any errors. The log file is located in the  `Drive:\DataBoxDiskImport\logs` folder of your drive. A link to the error log is provided when you run validation.
 
-Here is a sample of the error log when the data loaded into the PageBlob folder is not 512-bytes aligned. Any data uploaded to PageBlob must be 512-bytes aligned, for example, a VHD or VHDX.
+![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-	<ErrorLog Version="2018-10-01">
-		<SessionId>session#1</SessionId>
-		<ItemType>PageBlob</ItemType>
-		<SourceDirectory>D:\Dataset\TestDirectory</SourceDirectory>
-		<Errors>
-			<Error Code="Not512Aligned">
-				<Description>The file is not 512 bytes aligned.</Description>
-				<List>
-					<File Path="\Practice\myScript.ps1" />
-				</List>
-				<Count>1</Count>
-			</Error>
-		</Errors>
-		<Warnings />
-	</ErrorLog>
-```
+If you run multiple sessions for validation, then one error log is generated per session.
 
-Here is a sample of the error log when the container name is not valid. The folder that you create under `BlockBlob`, `PageBlob`, or `AzureFile` folders on the disk becomes a container in your Azure Storage account. The name of the container must follow the [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
+- Here is a sample of the error log when the data loaded into the `PageBlob` folder is not 512-bytes aligned. Any data uploaded to PageBlob must be 512-bytes aligned, for example, a VHD or VHDX. The errors in this file are in the `<Errors>` and warnings in `<Warnings>`.
 
-```xml
-	<?xml version="1.0" encoding="utf-8"?>
-	<ErrorLog Version="2018-10-01">
-	  <SessionId>bbsession</SessionId>
-	  <ItemType>BlockBlob</ItemType>
-	  <SourceDirectory>E:\BlockBlob</SourceDirectory>
-	  <Errors>
-	    <Error Code="InvalidShareContainerFormat">
-	      <List>
-	        <Container Name="Azu-reFile" />
-	        <Container Name="bbcont ainer1" />
-	      </List>
-	      <Count>2</Count>
-	    </Error>
-	  </Errors>
-	  <Warnings />
-</ErrorLog>
-```
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    	<ErrorLog Version="2018-10-01">
+    		<SessionId>session#1</SessionId>
+    		<ItemType>PageBlob</ItemType>
+    		<SourceDirectory>D:\Dataset\TestDirectory</SourceDirectory>
+    		<Errors>
+    			<Error Code="Not512Aligned">
+    				<Description>The file is not 512 bytes aligned.</Description>
+    				<List>
+    					<File Path="\Practice\myScript.ps1" />
+    				</List>
+    				<Count>1</Count>
+    			</Error>
+    		</Errors>
+    		<Warnings />
+    	</ErrorLog>
+    ```
+
+- Here is a sample of the error log when the container name is not valid. The folder that you create under `BlockBlob`, `PageBlob`, or `AzureFile` folders on the disk becomes a container in your Azure Storage account. The name of the container must follow the [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
+
+    ```xml
+    	<?xml version="1.0" encoding="utf-8"?>
+    	<ErrorLog Version="2018-10-01">
+    	  <SessionId>bbsession</SessionId>
+    	  <ItemType>BlockBlob</ItemType>
+    	  <SourceDirectory>E:\BlockBlob</SourceDirectory>
+    	  <Errors>
+    	    <Error Code="InvalidShareContainerFormat">
+    	      <List>
+    	        <Container Name="Azu-reFile" />
+    	        <Container Name="bbcont ainer1" />
+    	      </List>
+    	      <Count>2</Count>
+    	    </Error>
+    	  </Errors>
+    	  <Warnings />
+    </ErrorLog>
+    ```
 
 ## Validation tool errors
 

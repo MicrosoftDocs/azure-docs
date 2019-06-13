@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Disk troubleshooting | Microsoft Docs 
-description: Describes how to troubleshoot issues seen in Azure Data Box Disk.
+title: Azure Data Box Disk troubleshooting disk unlocking issues with logs | Microsoft Docs 
+description: Describes how to troubleshoot issues seen in Azure Data Box Disk using logs.
 services: databox
 author: alkohli
 
@@ -12,16 +12,16 @@ ms.author: alkohli
 ---
 # Troubleshoot disk unlocking issues in Azure Data Box Disk
 
-This article applies to Microsoft Azure Data Box Disk and describes the workflows used to troubleshoot any issues you see when you deploy this solution.
+This article applies to Microsoft Azure Data Box Disk and describes the workflows used to troubleshoot any issues when using the unlock tool. 
 
 
-## Query activity logs
+<!--## Query activity logs
 
 Use the activity logs to find who unlocked and accessed the disks. Your Data Box Disk arrive on your premises in a locked state. You can use the device credentials available in the Azure portal for your order to unlock them.  
 
 To figure out who accessed the **Device credentials** blade, you can query the Activity logs.  Any action that involves accessing **Device details > Credentials** blade is logged into the activity logs as `ListCredentials` action.
 
-![Query Activity logs](media/data-box-logs/query-activity-log-1.png)
+![Query Activity logs](media/data-box-logs/query-activity-log-1.png)-->
 
 
 ## Data Box Disk Unlock tool errors

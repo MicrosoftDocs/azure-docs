@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Disk troubleshooting | Microsoft Docs 
-description: Describes how to troubleshoot issues seen in Azure Data Box Disk.
+title: Azure Data Box Disk troubleshooting data upload issues using logs | Microsoft Docs 
+description: Describes how to use the logs and troubleshoot issues seen when uploading data to Azure Data Box Disk.
 services: databox
 author: alkohli
 
@@ -19,11 +19,12 @@ This article applies to Microsoft Azure Data Box Disk and describes the issues y
 
 When the data is uploaded to Azure at the datacenter, `_error.xml` and `_verbose.xml` files are generated. These logs are uploaded to the same storage account that was used to upload data. A sample of the `_error.xml` is shown below.
 	
-	```xml
-    <?xml version="1.0" encoding="utf-8"?>
+```xml
+ <?xml version="1.0" encoding="utf-8"?>
 	<DriveLog Version="2018-10-01">
 	  <DriveId>18041C582D7E</DriveId>
 	  <Summary>
+     <!--Summary for validation and data copy to Azure -->
 	    <ValidationErrors>
 	      <None Count="8" />
 	    </ValidationErrors>
@@ -32,6 +33,7 @@ When the data is uploaded to Azure at the datacenter, `_error.xml` and `_verbose
 	      <ContainerRenamed Count="3" Description="Renamed the container as the original container name does not follow Azure conventions." />
 	    </CopyErrors>
 	  </Summary>
+    <!--List of renamed containers with the new names, new file path in Azure, original invalid file path, and size -->
 	  <Blob Status="ContainerRenamed">
 	    <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/private.vhd</BlobPath>
 	    <OriginalFilePath>\PageBlob\pageblob test\private.vhd</OriginalFilePath>
@@ -49,7 +51,7 @@ When the data is uploaded to Azure at the datacenter, `_error.xml` and `_verbose
 	  </Blob>
 	  <Status>CompletedWithErrors</Status>
 	</DriveLog>
-    ```
+```
 
 ## Download logs
 
@@ -57,13 +59,13 @@ There are two ways to locate and download the diagnostics logs.
 
 - If there are any errors when uploading the data to Azure, the portal displays a path to the folder where the diagnostics logs are located.
 
-    ![Copy logs 1](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
+    ![Link to logs in the portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
 
-- Go to the storage account associated with your Data Box order. Go to **Blob service > Browse blobs** and look for the blob corresponding to the storage account. Go to **diagnosticslogcontainer > waies**.
+- Go to the storage account associated with your Data Box order. Go to **Blob service > Browse blobs** and look for the blob corresponding to the storage account. Go to **waies**.
 
     ![Copy logs 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
 
-In each case, you see the error logs and the verbose logs. Select each file and then download a local copy.
+In each case, you see the error logs and the verbose logs. Select each log and download a local copy.
 
 
 ## Data upload errors
