@@ -293,7 +293,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 
 **Example 2: invoke a stored procedure during copy**
 
-Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-stored-procedure-from-sql-sink).
+Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-stored-procedure-from-sql-sink).
 
 ```json
 "activities":[
@@ -385,7 +385,7 @@ You can configure **preCopyScript** property in Copy activity sink, in which cas
 
 Similar as described in [Upsert data](#upsert-data) section, when you need to apply extra processing before the final insertion of source data into the destination table, you can a) for large scale, load to a temporary table then invoke a stored procedure, or b) invoking a stored procedure during copy.
 
-## <a name="invoke-a-stored-procedure-from-sql-sink"></a> Invoke a stored procedure from a SQL sink
+## <a name="invoke-stored-procedure-from-sql-sink"></a> Invoke a stored procedure from a SQL sink
 
 When you copy data into Azure SQL Database Managed Instance, you can also configure and invoke a user-specified stored procedure with additional parameters.
 
