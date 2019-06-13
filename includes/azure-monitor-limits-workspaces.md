@@ -16,7 +16,8 @@ ms.custom: "include file"
 |:---|:---|:---|
 | Maximum characters for column name| 500 | |
 | Regions at capacity | West Central US | You cannot currently create a new workspace in this region since it is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019. |
-| Data export | Not available | Use Azure Function or Logic App to aggregate and export data. | 
+| Data export | Not currently minor
+available | Use Azure Function or Logic App to aggregate and export data. | 
 
 **Data collection volume and retention** 
 
