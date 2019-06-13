@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 This article describes changes to data storage and ingress from Azure Time Series Insights Preview. It covers the underlying storage structure, file format, and Time Series ID property. The article also discusses the underlying ingress process, throughput, and limitations.
 
-## Time Series Insights data ingress
+## Data ingress
 
 Azure Time Series Insights data ingress policies determine where data can be sourced from and in what format.
 
@@ -24,19 +24,15 @@ Azure Time Series Insights data ingress policies determine where data can be sou
 
 ### Ingress policies
 
-The Time Series Insights Preview supports the same event sources and file types that Time Series Insights currently supports.
-
-Supported event sources include:
+The Time Series Insights Preview supports the same event sources and file types that Time Series Insights currently supports:
 
 - Azure IoT Hub
 - Azure Event Hubs
   
-  > [!NOTE]
-  > Azure Event Hub instances support Kafka.
+> [!NOTE]
+> Azure Event Hub instances support Kafka.
 
-Supported file types include:
-
-* JSON: For more information about the supported JSON shapes we can handle, see [How to shape JSON](./time-series-insights-send-events.md#json).
+Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs. To optimize your IoT JSON data, learn [How to shape JSON](./time-series-insights-send-events.md#json).
 
 ### Data availability
 
