@@ -87,7 +87,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-### Deploy your app
+### Deploy the web app
 
 1. In your local terminal window, add an Azure remote to your local Git repository. In the command, replace \<url> with the URL of the Git remote that you got from the previous step.
    
@@ -165,14 +165,7 @@ The following error messages are common problems when you use Git to publish to 
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|You didn't specify a branch during `git push`, or you haven't set the `push.default` value in `.gitconfig`.|Run `git push` again, specifying the master branch: `git push azure master`.|
 |`src refspec [branchname] does not match any.`|You tried to push to a branch other than master on the 'azure' remote.|Run `git push` again, specifying the master branch: `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|This error can happen if you try to push a large git repository over HTTPS.|Change the git configuration on the local machine to make the `postBuffer` bigger. For example: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|You deployed a Node.js app with a _package.json_ file that specifies additional required modules.|Review the `npm ERR!` error messages before this error for more context on the failure. The following are known causes of this error and the corresponding `npm ERR!` messages:
-
-- **Malformed package.json file**: `npm ERR! Couldn't read dependencies.`
-
-- **Native module doesn't have a binary distribution for Windows**:
-  `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` 
-  or 
-  `npm ERR! [modulename@version] preinstall: \make || gmake\`|
+|`Error - Changes committed to remote repository but your web app not updated.`|You deployed a Node.js app with a _package.json_ file that specifies additional required modules.|Review the `npm ERR!` error messages before this error for more context on the failure. The following are the known causes of this error, and the corresponding `npm ERR!` messages:<br /><br />- **Malformed package.json file**: `npm ERR! Couldn't read dependencies.`<br /><br />- **Native module doesn't have a binary distribution for Windows**:<br /><br />  `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />  or <br />  `npm ERR! [modulename@version] preinstall: \make || gmake\`|
 
 ## Additional resources
 
