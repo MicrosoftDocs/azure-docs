@@ -216,24 +216,26 @@ To learn more, see the [Queue storage output binding](functions-bindings-storage
 
 The Azure Functions extension lets you run an Azure Functions project on your local development computer. Local settings are read from the local.settings.json file.
 
-To debug your functions, press F5. Azure Functions Core Tools is started and output is shown in the Terminal. With the project running, you can trigger your functions as you would when deployed to Azure. When running in debug mode, breakpoints are hit in Visual Studio Code, as expected.
+To debug your functions, press F5. Azure Functions Core Tools is started and output is shown in the Terminal. This is the same as running `func host start` Core Tools command from the Terminal, but with additional build tasks and an attached debugger.  
+
+With the project running, you can trigger your functions as you would when deployed to Azure. When running in debug mode, breakpoints are hit in Visual Studio Code, as expected.
 
 The request URL for HTTP triggers is displayed in the output in the terminal. Function keys for HTTP triggers are not used when running locally. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).  
 
 To learn more, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
-## Publish with advanced options
+## Publish to Azure
 
 Visual Studio Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
 
-By default, Visual Studio generates default values for the Azure resources needed by your function app. These values are based on the function app name you choose. For an example of using defaults to publishing your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).  
+When publishing from Visual Studio Code, one of two deployment methods are used:
 
-If you want to provide explicit names for the created resources, you can instead publish using advanced options.
+* [Zip Deploy with Run-From-Package enabled](functions-deployment-technologies.md#zip-deploy): used for most Azure Functions deployments.
+* [External package URL](functions-deployment-technologies.md#external-package-url): used for deployment to Linux apps on a [Consumption plan](functions-scale.md#consumption-plan).
 
-This section assumes that you are creating a new function app in Azure.
+By default, Visual Studio automatically generates values for the Azure resources needed by your function app. These values are based on the function app name you choose. For an example of using defaults to publishing your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
 
-> [!IMPORTANT]
-> Publishing to an existing function app overwrites the content of that app in Azure.
+If you want to provide explicit names for the created resources, you must enable publishing using advanced options.
 
 ### Enabled publishing with advanced create options
 
@@ -247,11 +249,13 @@ To give you control over the settings associated with creating Azure Functions a
 
 ### Publish to a new function app in Azure
 
+The following steps publish your project to a new function app created using advanced create options.
+
 1. In the **Azure: Functions** area, select the Deploy to Function App icon.
 
     ![Function application settings](./media/functions-develop-vs-code/function-app-publish-project.png)
 
-1. If not signed-in, you are prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After successful sign in from the browser, go back to Visual Studio Code. 
+1. If not signed-in, you are prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After successful sign in from the browser, go back to Visual Studio Code.
 
 1. If you have multiple subscriptions, **Select a subscription** for the function app, then choose **+ Create New Function App in Azure**.
 
@@ -269,16 +273,6 @@ To give you control over the settings associated with creating Azure Functions a
 
     A notification is displayed after your function app is created and the deployment package is applied. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
-### Get deployed function URL
-
-To be able to call an HTTP triggered function, you need the URL of the function when deployed to your function app. This URL includes any required [function keys](functions-bindings-http-webhook.md#authorization-keys). You can use the extension to get these URLs for your deployed functions.
-
-1. press F1 key to open the command palette, then search for and run the command **Azure Functions: Copy Function URL**.
-
-1. Follow the prompts to choose your function app in Azure and then the specific HTTP trigger you want to invoke. 
-
-The function URL is copied to the clipboard, along with any required keys passed using the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
-
 ## Republish project files
 
 When you set up [continuous deployment](functions-continuous-deployment.md), your function app in Azure is updated whenever source files are updated in the connected source location. While we recommend this development practice, you can also republish your project file updates from Visual Studio Code. 
@@ -294,6 +288,16 @@ When you set up [continuous deployment](functions-continuous-deployment.md), you
 
 The project is rebuilt, repackaged, and uploaded to Azure. The existing project is replaced by the new package, and the function app restarts.
 
+## Get deployed function URL
+
+To be able to call an HTTP triggered function, you need the URL of the function when deployed to your function app. This URL includes any required [function keys](functions-bindings-http-webhook.md#authorization-keys). You can use the extension to get these URLs for your deployed functions.
+
+1. press F1 key to open the command palette, then search for and run the command **Azure Functions: Copy Function URL**.
+
+1. Follow the prompts to choose your function app in Azure and then the specific HTTP trigger you want to invoke. 
+
+The function URL is copied to the clipboard, along with any required keys passed using the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
+
 ## Application settings in Azure
 
 The settings in the local.settings.json file in your project should be the same as the application settings in the function app in Azure. Any settings you add to the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project. Likewise, any settings that you create in your function app [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) must be downloaded to your local project.
@@ -306,7 +310,10 @@ The easiest way to publish the required settings to your function app in Azure i
 
 You can also publish settings by using the `Azure Functions: Upload Local Setting` command in the command palette. Individual settings are added to application settings in Azure by using the `Azure Functions: Add New Setting...` command. 
 
-When a field in your local.settings.json already exists as an application setting, you are warned about overwriting the remote setting. This displays the **Application Settings** dialog for the function app, where you can add new application settings or modify existing ones.
+> [!TIP]
+> Be sure to save your local.settings.json file before you publish it.
+
+If the local file is encrypted, it is decrypted, published, and encrypted again. If settings exist with different values in both locations, you are asked to choose how to proceed.
 
 View existing app settings in the **Azure: Functions** area by expanding your subscription, your function app, and **Application Settings**.
 
@@ -314,7 +321,9 @@ View existing app settings in the **Azure: Functions** area by expanding your su
 
 ### Download settings from Azure
 
-If you have created application settings in Azure, you can download them into your local 
+If you have created application settings in Azure, you can download them into your local.settings.json file. by using the `Azure Functions: Download Remote Settings...` command. 
+
+As with uploading, if the local file is encrypted, it is decrypted, updated, and encrypted again. If settings exist with different values in both locations, you are asked to choose how to proceed.
 
 ## Monitoring functions
 

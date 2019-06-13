@@ -52,6 +52,8 @@ When you change any of your triggers, the Functions infrastructure needs to be a
 
 ## Deployment technology details  
 
+These following deployment methods are supported by Azure Functions.
+
 ### External package URL
 
 __What it does:__ Allows you to reference a remote package (.zip) file that contains your function app. The file is downloaded from the provided URL, and the app runs in [Run-From-Package](run-functions-from-deployment-package.md) mode.

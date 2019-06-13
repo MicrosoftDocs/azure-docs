@@ -186,11 +186,14 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 ## Publish to Azure
 
+When publishing from Visual Studio, one of two deployment methods are used:
+
+* [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): standard deployment for web apps.
+* [Zip Deploy with Run-From-Package enabled](functions-deployment-technologies.md#zip-deploy): recommended for Azure Functions deployments.
+
+Use the following steps to publish your project to a function app in Azure.
+
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
-
-### Deployment Technology
-
-When publishing from Visual Studio, one of two technologies is used to perform the deployment: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) and [Zip Deploy with Run-From-Package enabled (recommended)](functions-deployment-technologies.md#zip-deploy).
 
 ## Function app settings
 
