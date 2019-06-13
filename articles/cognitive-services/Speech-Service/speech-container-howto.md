@@ -66,14 +66,13 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
 
-
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 **Note**; The minimum and recommended are based off of Docker limits, *not* the host machine resources. For example, speech-to-text containers memory map portions of a large language model, and it is _recommended_ that the entire file fits in memory, which is an additional 4-6 GB. Also, the first run of either container may take longer, since models are being paged into memory.
 
 ## Get the container image with `docker pull`
 
-Container images for Speech are available. 
+Container images for Speech are available.
 
 | Container | Repository |
 |-----------|------------|
@@ -84,7 +83,7 @@ Container images for Speech are available.
 
 ### Language locale is in container tag
 
-The `latest` tag pulls the `en-us` locale and `jessarus` voice. 
+The `latest` tag pulls the `en-us` locale and `jessarus` voice.
 
 #### Speech to text locales
 
@@ -113,7 +112,6 @@ The following table lists the supported locales for **speech-to-text** in the 1.
 |Korean|`ko-kr`|
 |Portuguese|`pt-br`|
 |Spanish|`es-es`<br>`es-mx`|
-
 
 #### Text to speech locales
 
@@ -166,8 +164,8 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required but not used billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
-1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
+1. [Run the container](#run-the-container-with-docker-run), with the required but not used billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
+1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
 ## Run the container with `docker run`
 
@@ -189,7 +187,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 ### Speech-to-text
@@ -199,7 +197,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 This command:
@@ -207,7 +205,7 @@ This command:
 * Runs a Speech container from the container image
 * Allocates 2 CPU cores and 2 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer. 
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
@@ -236,7 +234,9 @@ var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRe
 to this call using the container endpoint:
 
 ```C#
-var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", "YourSubscriptionKey");
+var config = SpeechConfig.FromEndpoint(
+    new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
+    "YourSubscriptionKey");
 ```
 
 #### For Python
@@ -257,9 +257,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 The container provides REST endpoint APIs which can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
-
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
 
 ## Stop the container
 
@@ -267,11 +265,11 @@ The container provides REST endpoint APIs which can be found [here](https://docs
 
 ## Troubleshooting
 
-When you run the container, the container uses **stdout** and **stderr** to output information that is helpful to troubleshoot issues that happen while starting or running the container. 
+When you run the container, the container uses **stdout** and **stderr** to output information that is helpful to troubleshoot issues that happen while starting or running the container.
 
 ## Billing
 
-The Speech containers send billing information to Azure, using a _Speech_ resource on your Azure account. 
+The Speech containers send billing information to Azure, using a _Speech_ resource on your Azure account.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
