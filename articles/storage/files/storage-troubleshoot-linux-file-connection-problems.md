@@ -112,9 +112,7 @@ Some Linux distributions don't yet support encryption features in SMB 3.0. Users
 
 ### Solution
 
-The encryption feature for SMB 3.0 for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10.
-
-If you can use one of the [Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30), that would be ideal.
+The encryption feature for SMB 3.0 for Linux was introduced in the 4.11 kernel. This feature enables mounting of an Azure file share from on-premises or from a different Azure region. This functionality is included in the Linux distributions listed in [Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Other distributions require kernel 4.11 and later versions.
 
 If your Linux SMB client doesn't support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the file share. Verify that the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is disabled on the storage account. 
 
