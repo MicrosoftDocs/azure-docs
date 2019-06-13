@@ -31,7 +31,7 @@ Before deploying the Azure Resource Manager template, you'll need an Azure Activ
 - Have permission to create an Azure AD application. Follow these steps to check if your user has the [required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
 After deploying the Azure Resource Manager template, you'll want to launch the management UI to validate. This user must:
-- Have a role assignment to read or write in your Windows Virtual Desktop tenant
+- Have a role assignment to view or edit your Windows Virtual Desktop tenant
 
 ## Run the Azure Resource Manager template to provision the management UI
 
