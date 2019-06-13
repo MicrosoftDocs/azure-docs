@@ -133,7 +133,7 @@ Follow the steps below to configure Azure Monitor logs for your IoT Hub's device
 
    As shown below, the identity of the target device and the result of the operation is also available in the logs.
 
-   !["Access device stream logs"](./media/iot-hub-device-streams-overview/device-streams-logs.png)
+   !["Access device stream logs"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
 
 ## Regional Availability
 
