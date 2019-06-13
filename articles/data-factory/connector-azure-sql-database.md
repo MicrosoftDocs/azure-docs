@@ -372,11 +372,11 @@ To copy data to Azure SQL Database, set the **type** property in the Copy Activi
 | writeBatchSize | Number of rows to inserts into the SQL table **per batch**.<br/> The allowed value is **integer** (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. | No |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Database. It's only invoked once per copy run. Use this property to clean up the preloaded data. | No |
-| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is **invoked per batch**. For operations that only run once and have nothing to do with source data, use the `preCopyScript` property. Example operations are delete and truncate. | No |
+| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is **invoked per batch**. For operations that only run once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. | No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | sqlWriterTableType | Specify a table type name to be used in the stored procedure. Copy Activity makes the data being moved available in a temporary table with this table type. Stored procedure code can then merge the data being copied with existing data. | No |
 
-#### Example: append data 
+**Example 1: append data**
 
 ```json
 "activities":[
@@ -408,7 +408,7 @@ To copy data to Azure SQL Database, set the **type** property in the Copy Activi
 ]
 ```
 
-#### Example: invoke a stored procedure during copy
+**Example 2: invoke a stored procedure during copy**
 
 Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
@@ -460,7 +460,7 @@ Refer to the respectively sections on how to configure in ADF and the best pract
 
 ### Append data
 
-This is the default behavior of this Azure SQL DB sink connector, and ADF do **bulk insert** to write to your table efficiently. You can simply configure the source and sink accordingly in Copy activity.
+This is the default behavior of this Azure SQL Database sink connector, and ADF do **bulk insert** to write to your table efficiently. You can simply configure the source and sink accordingly in Copy activity.
 
 ### Upsert data
 
