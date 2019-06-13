@@ -46,9 +46,9 @@ For firewall information required for Azure Government, see [Azure Government ma
 
 There are several ways you can verify if the agent is successfully communicating with Azure Monitor.
 
-1. Enable the [Azure Log Analytics Agent Health assessment](../insights/solution-agenthealth.md) in the workspace. From the Agent Health dashboard, view the **Count of unresponsive agents** column to quickly see if the agent is listed.  
+- Enable the [Azure Log Analytics Agent Health assessment](../insights/solution-agenthealth.md) in the workspace. From the Agent Health dashboard, view the **Count of unresponsive agents** column to quickly see if the agent is listed.  
 
-2. Run the following query to confirm the agent is sending a heartbeat to the workspace it is configured to report to. Replace <ComputerName> with the actual name of the machine.
+- Run the following query to confirm the agent is sending a heartbeat to the workspace it is configured to report to. Replace <ComputerName> with the actual name of the machine.
 
     ```
     Heartbeat 
@@ -58,11 +58,11 @@ There are several ways you can verify if the agent is successfully communicating
 
     If the computer is successfully communicating with the service, the query should return a result. If the query did not return a result, first verify the agent is configured to report to the correct workspace. If it is configured correctly, proceed to step 3 and search the Windows Event Log to identify if the agent is logging what issue might be preventing it from communicating with Azure Monitor.
 
-2. Another method to identify a connectivity issue is by running the **TestCloudConnectivity** tool. The tool is installed by default with the agent in the folder *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. From an elevated command prompt, navigate to the folder and run the tool. The tool returns the results and highlights where the test failed (for example, if it was related to a particular port/URL that was blocked). 
+- Another method to identify a connectivity issue is by running the **TestCloudConnectivity** tool. The tool is installed by default with the agent in the folder *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. From an elevated command prompt, navigate to the folder and run the tool. The tool returns the results and highlights where the test failed (for example, if it was related to a particular port/URL that was blocked). 
 
     ![TestCloudConnection tool execution results](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-3. Filter the *Operations Manager* event log by **Event sources** - *Health Service Modules*, *HealthService*, and *Service Connector* and filter by **Event Level** *Warning* and *Error* to confirm if it has written events from the following table. If they are, review the resolution steps included for each possible event.
+- Filter the *Operations Manager* event log by **Event sources** - *Health Service Modules*, *HealthService*, and *Service Connector* and filter by **Event Level** *Warning* and *Error* to confirm if it has written events from the following table. If they are, review the resolution steps included for each possible event.
 
     |Event ID |Source |Description |Resolution |
     |---------|-------|------------|-----------|
