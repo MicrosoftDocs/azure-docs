@@ -141,9 +141,48 @@ To find example commands, see any of these articles.
 
 - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
-## Configure, optimize, and troubleshoot AzCopy
+## Use AzCopy in a script
 
-See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+The version of azCopy that you download by using the `https://aka.ms/downloadazcopy-v10-linux` or `https://aka.ms/downloadazcopy-v10-windows` link will be updated over time. The link remains the same, but the target of the link will point to new versions of AzCopy over time. 
+
+If your script downloads AzCopy by using either of these links, it could encounter issues if these links lead to new versions of AzCopy that contain changes that are not compatible with your script.
+
+You can avoid these issues by obtaining a version-specific link to AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
+
+To obtain the link, run this command:
+
+**Linux**
+
+```
+curl -v https://aka.ms/downloadazcopy-v10-linux
+```
+
+**Windows**
+
+```
+(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent
+```
+
+The Url appears in the output of this command.
+
+Your script can then download AzCopy by using the version-specific URL. 
+
+**Linux**
+
+```
+wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz
+tar -xf azcopyv10.tar --strip-components=1
+./azcopy
+```
+
+> [!NOTE]
+> `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
+
+**Windows**
+```
+Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip
+<<Unzip here>>
+```
 
 ## Use AzCopy in Storage Explorer
 
@@ -163,7 +202,12 @@ In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload a
 If you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
 
 - [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+
 - [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+
+## Configure, optimize, and troubleshoot AzCopy
+
+See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Next steps
 
