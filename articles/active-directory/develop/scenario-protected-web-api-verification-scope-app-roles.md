@@ -1,5 +1,5 @@
 ---
-title: Protected web API - app code configuration | Azure
+title: Protected web API - app code configuration | Azure Active Directory
 description: Learn how to build a protected Web API and configure your application's code.
 services: active-directory
 documentationcenter: dev-center-name
@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Protected web API - adding authorization to your API.
+# Protected web API - adding authorization to your API
 
 This article describes how you can add authorization to your Web API. This protection ensures that it's only called by:
 
@@ -47,7 +47,7 @@ But this protection isn't enough. It only guaranties that ASP.NET / ASP.NET Core
 
 ## Verifying scopes in APIs called on behalf of users
 
-If your API is called by a client app on behalf of a user, then it needs to request a bearer token with specific scopes for the API (see [Code configuration | Bearer token](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-configuration#bearer-token))
+If your API is called by a client app on behalf of a user, then it needs to request a bearer token with specific scopes for the API (see [Code configuration | Bearer token](scenario-protected-web-api-app-configuration.md#bearer-token))
 
 ```CSharp
 [Authorize]
