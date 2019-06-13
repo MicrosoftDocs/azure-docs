@@ -44,11 +44,11 @@ You only need to authorize with a source control service once. To authorize Azur
 
 ## Select and configure a build provider
 
-After you authorize a source control service, you can configure your app for continuous deployment through the built-in Kudu App Service build service or through Azure Pipelines (Preview). 
+After you authorize a source control service, you can configure your app for continuous deployment through the built-in Kudu App Service build server or through Azure Pipelines (Preview). 
 
-### To configure Kudu App Service build service
+### Configure Kudu App Service build server
 
-You can use the built-in Kudu App Service build service to continuously deploy from GitHub, Bitbucket, or Azure Repos repositories. 
+You can use the built-in Kudu App Service build server to continuously deploy from GitHub, Bitbucket, or Azure Repos repositories. 
 
 1. Navigate to your Azure App Service app page in the [Azure portal](https://portal.azure.com), and select **Deployment Center** in the left menu.
    
@@ -81,7 +81,7 @@ After configuration completes, new commits in the selected repository and branch
 
 ![](media/app-service-continuous-deployment/github-finished.png)
 
-### To configure Azure Pipelines (Preview)
+### Configure Azure Pipelines (Preview) builds
 
 If your Azure account has the necessary permissions, you can set up Azure Pipelines (Preview) to continuously deploy from GitHub or Azure Repos repositories. 
 
@@ -91,7 +91,9 @@ If your Azure account has the necessary permissions, you can set up Azure Pipeli
 
 To configure Azure Pipelines (Preview):
 
-1. On the **Deployment Center** page for your App Service app, select **GitHub** or **Azure Repos**, and then select **Continue**. For GitHub, you can also select **Change account** to change the authorized account. 
+1. Navigate to your Azure App Service app page in the [Azure portal](https://portal.azure.com), and select **Deployment Center** in the left menu.
+   
+1. Select your authorized source control provider on the **Deployment Center** page, either **GitHub** or **Azure Repos**, and select **Continue**. For GitHub, you can also select **Change account** to change the authorized account. 
    
 1. On the **Build provider** page, select **Azure Pipelines (Preview)**, and then select **Continue**. 
    
@@ -104,7 +106,7 @@ To configure Azure Pipelines (Preview):
    - For Azure Repos, drop down and select the **Azure DevOps Organization**, **Project**, **Repository**, and **Branch** you want to deploy.
      
      > [!NOTE]
-     > To use Azure Repos, you need to link your Azure DevOps organization to your Azure subscription. For more information, see [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
+     > If your Azure DevOps organization doesn't appear in the list, you need to link it to your Azure subscription. For more information, see [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
      
 1. Select **Continue**.
    
