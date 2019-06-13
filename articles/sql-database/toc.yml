@@ -8,7 +8,7 @@
     href: sql-database-paas-vs-sql-server-iaas.md
   - name: Release notes
     href: sql-database-release-notes.md
-  - name: Gateway IP Gen3 to Gen4 migration
+  - name: Gateway IP migration updates
     href: sql-database-gateway-migration.md
 - name: Quickstarts
   expanded: true

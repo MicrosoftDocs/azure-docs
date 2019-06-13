@@ -12,30 +12,30 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 06/12/2019
 ---
-# Azure SQL Database traffic migration to newer Gateway nodes
+# Azure SQL Database traffic migration to newer Gateways
 
 The majority of regions currently have [two IP Gateway addresses](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) for Azure SQL Database. Your SQL Database server typically resolves to the IP address of the default Gateway, and can be confirmed by running a nslookup command as follows:
 
 `nslookup <ServerName>.database.windows.net`
 
-Here are the results you would see:
+Here is a sample result you would see:
 
-```
+<pre>
 >nslookup mydbsrv.database.windows.net
 Server:  DNSAnycast1.corp.microsoft.com
 Address:  10.50.10.50
 
 Non-authoritative answer:
 Name:    westus1-a.control.database.windows.net
-Address:  104.42.238.205
+<b>Address:  104.42.238.205</b>
 Aliases:  mydbsrv.database.windows.net
-```
+</pre>
 
-## Gen3 to Gen4 Gateway migration
+## Gateway migration
 
-As our Azure infrastructure improves, Microsoft will periodically refresh hardware to ensure we provide the best possible customer experience. We continue to build additional Gateways based on newer hardware generation. Our current plan is to migrate hardware from Gen3 to Gen4 in the coming months.
+As our Azure infrastructure improves, Microsoft will periodically refresh hardware to ensure we provide the best possible customer experience. We continue to build additional Gateways based on newer hardware generation. In the coming months, our plan is to add Gateways built on newer hardware generations, and retire the older Gateways in some regions.
 
-When this change happens, we'll stop accepting traffic on the IP address for the default Gateway beginning October 1, 2019. All new traffic will be routed to the IP addresses associated with [alternate Gateways](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) listed in each region.
+When this change happens, we'll stop accepting traffic on the IP address for the [default Gateway](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) beginning October 1, 2019. All new traffic will be routed to the IP addresses associated with **alternate Gateways** listed in each region. Regions with no alternate Gateways aren't impacted. However, as we add Gateways in the future, we'll update the list of IP addresses for those regions.
 
 ## Impact of this change
 
