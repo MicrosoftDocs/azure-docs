@@ -7,7 +7,7 @@ author: mialdrid
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/14/2019
 ms.author: mialdrid
 ms.custom: seodec18
 
@@ -133,25 +133,25 @@ This section helps you create, get, update, and delete the Azure private peering
    * **Optional -** An MD5 hash if you choose to use one.
 3. Select the Azure Private peering row, as shown in the following example:
 
-   ![private](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
+   ![private](./media/expressroute-howto-routing-portal-resource-manager/select-row-p.png)
 4. Configure private peering. The following image shows a configuration example:
 
-   ![configure private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+   ![configure private peering](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)
 5. Save the configuration once you have specified all parameters. After the configuration has been accepted successfully, you see something similar to the following example:
 
-   ![save private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+   ![save private peering](./media/expressroute-howto-routing-portal-resource-manager/save-p.png)
 
 ### <a name="getprivate"></a>To view Azure private peering details
 
 You can view the properties of Azure private peering by selecting the peering.
 
-![view private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+![view private peering](./media/expressroute-howto-routing-portal-resource-manager/view-p.png)
 
 ### <a name="updateprivate"></a>To update Azure private peering configuration
 
 You can select the row for peering and modify the peering properties.
 
-![update private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+![update private peering](./media/expressroute-howto-routing-portal-resource-manager/update-p.png)
 
 ### <a name="deleteprivate"></a>To delete Azure private peering
 
@@ -162,7 +162,7 @@ You can remove your peering configuration by selecting the delete icon, as shown
 > 
 > 
 
-![delete private peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
+![delete private peering](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
 ## <a name="public"></a>Azure public peering
 
