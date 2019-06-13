@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 06/13/2019
 ms.author: getroyer
 ---
 
@@ -56,7 +56,7 @@ When a project is run on a VM, the files are mounted on the root directory of th
 
 ![Shutdown button in Azure Notebooks](media/shutdown.png)
 
-### Create new DSVM users
+## Create new DSVM users
 
 If multiple users share a DSVM, you can avoid blocking each other by creating and using a DSVM user for each notebook user:
 
