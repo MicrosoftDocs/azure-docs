@@ -249,6 +249,8 @@
         items:
         - name: Log Analytics VM Extension
           href: platform/vmext-troubleshoot.md
+        - name: Log Analytics Windows agent
+          href: platform/agent-windows-troubleshoot.md
         - name: Log Analytics Linux agent
           href: platform/agent-linux-troubleshoot.md
     - name: Agent data sources
