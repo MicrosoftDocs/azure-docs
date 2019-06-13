@@ -47,7 +47,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ### View transactions by invoice sections
 
-Invoice sections help you organize the costs for a billing profile's invoice. For more information, see [understand invoice section](billing-mca-overview.md#understand-invoice-sections). When an invoice is generated, charges for all the sections in the billing profile are shown on the invoice.
+Invoice sections help you organize the costs for a billing profile's invoice. For more information, see [understand invoice section](billing-mca-overview.md#invoice-sections). When an invoice is generated, charges for all the sections in the billing profile are shown on the invoice.
 
 The following image shows charges for the Accounting Dept invoice section on a sample invoice.
 
