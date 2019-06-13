@@ -1,6 +1,6 @@
 ---
-title: Build a Plug and Play device that's ready for certification | Microsoft Docs
-description: As a device developer, learn about how you can build a Plug an Play device that's ready for certification.
+title: Build an Azure IoT Plug and Play device that's ready for certification | Microsoft Docs
+description: As a device developer, learn about how you can build a Plug and Play device that's ready for certification.
 author: tbhagwat3
 ms.author: tanmayb
 ms.date: 05/24/2019
@@ -11,40 +11,52 @@ services: iot-pnp
 manager: philmea
 ---
 
-
 # Build a Plug and Play device that's ready for certification
 
-This article describes how, as a device developer, you can build a Plug and Play device that's ready for certification.
+This tutorial describes how, as a device developer, you can build a Plug and Play device that's ready for certification.
 
-## Before you begin
+The certification tests check that:
 
-Before getting started:
+- The device capability model includes the standard **Device Information** interface.
+- The device code uses the Azure IoT Plug and Play device SDK.
+- The device code implements all the capabilities defined in the model.
+- The device can be provisioned to an IoT hub using the Azure IoT Device Provisioning Service.
 
-1. Read about {IoT Plug and Play](link) to understand how you can express your device's capabilities in the Digital Twin Definition Language.
-1. Install Visual Studio Code and the Azure IoT Workbench extension. [Learn more](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation).
+## Prerequisites
 
-## Model your device with the Digital Twin Definition Language
-To get started, launch Visual Studio Code and close any open project folders.
+To complete this tutorial, you need:
 
-Follow these steps to get started with modelling you device:
-1. In VS Code press `F1` to launch the VS Code command palette.
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [Azure IoT Workbench extension for VS Code](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
+
+## Model your device
+
+To certify your device you need a device capability model. You use the digital twin definition language to create a device capability model.
+
+To create a device capability model in VS Code:
+
+1. Use **Ctrl+Shift+P** to open the command palette:
 <Image to be added>
-1. Type **Plug and Play** and then select the **Azure IoT Plug & Play: Create Capability Model** command.
+
+1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Create Capability Model** command:
 <Image to be added>
-1. Provide a name for your capability model file and then press `Enter`. A default interface file will be created.
-1. Copy the contents from [here](Github link) into the file you just created.
+
+1. Enter a name for your capability model file. A default interface file is created.
+
+1. Copy the contents from [here](GitHub link) into the file you created.
 
 You now have an example model for your device. Edit it to make it your own.
 
-### Include standard interfaces
-The next step is including interfaces that are required for certification.
+## Include standard interfaces
 
-For your device to pass certification tests, the model for your device in the Digital Twin Definition Language must include the DeviceInformaation interface with the id:
+To pass the certification process, you must include the **Device Information** interface in your model. This interface has the following identification:
+
 ```json
    "@id": "http://azureiot.com/interfaces/DeviceInformation/1.0.0"
 ```
 
-To include the Device Information interface in your device's model, add the interface id to the "implements" property of the capability model.
+To include the **Device Information** interface in your device's model, add the interface ID to the `implements` property of the capability model:
+
 ```json
    {
     "@id": "http://example.com/thermostatDevice/1.0.0",
@@ -58,49 +70,60 @@ To include the Device Information interface in your device's model, add the inte
 }
 ```
 
-You can obtain the DeviceInformation interface to read it and understand more by following these steps:
-1. In VS Code press `F1` to launch the VS Code command palette.
-<Image to be added>
-1. Type **Plug and Play** and then select the **Azure IoT Plug and Play: Open Model Repository** command. Choose the Global Model Repository option. This will open the Global Model Repository in VS Code.
-<Image to be added>
-1. In the Global Model Repository, type **Device Information** in the search field.
-<Image to be added>
-1. Select the Device Information interface from the search results and click the download button to get a copy.
+To view the contents of the **Device Information** interface in VS Code:
+
+1. Use **Ctrl+Shift+P** to open the command palette:
 <Image to be added>
 
-## Generate code for your device's interfaces
-Now that you've modelled your device appropriately in the Digital Twin Definition Language, generate device code for it in Visual Studio Code. [Learn more](link).
-
-Follow these steps to do so: 
-1. Press `F1` to launch the VS Code command palette.
-<Image to be added>
-1. Type in **Plug and Play** and then select the **Azure IoT Plug & Play:Generate Device Code Stub**.
-<Image to be added>
-1. When prompted for a capability model, select your capability model file. 
-<Image to be added>
-1. When prompted a language, select ANSI C.
-<Image to be added>
-1. When prompted a platform, select General platform. 
-<Image to be added>
-1. Select the folder where you would like the C files to be outputed to.
+1. Enter **Plug and Play** and then select the **Azure IoT Plug and Play: Open Model Repository** command. Choose **Global Model Repository**. The global model repository opens in VS Code:
 <Image to be added>
 
-After you generate device code you will get the following files:
+1. In the global model repository, enter **Device Information** in the search field.
+<Image to be added>
+
+1. To create a local copy of the **Device Information** interface, select it in the search results, and then select **Download**:
+<Image to be added>
+
+## Generate code
+
+Now that you've modeled your device using  the digital twin definition language, generate device code for it in Visual Studio Code:
+
+1. Use **Ctrl+Shift+P** to open the command palette:
+<Image to be added>
+
+1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Generate Device Code Stub** command:
+<Image to be added>
+
+1. Choose your capability model file:
+<Image to be added>
+
+1. Choose **ANSI C** as the language:
+<Image to be added>
+
+1. Choose **General platform** as the platform:
+<Image to be added>
+
+1. Select a folder to save the generated C files:
+<Image to be added>
+
+The generated device code includes the following files:
 <File structure is in the works>
 
-## Update the generated code to make your device ready for certification
-For your device to pass certification tests it must: 
-1. Use the Azure IoT Plug and Play device SDK
-1. Be capable of provisioning through the Azure IoT Device Provisioning Service.
-1. Implement all the capabilities it claims in it's model.
+## Update the generated code
 
-By using the Code generation function in VS Code, your device code is already based on the Azure IoT Plug and Play device SDK. [Learn more](link) to use other SDK functionality for the rest of your device code.
+For your device to pass certification tests the code must:
 
-Copy [this code](link) to the ***** file in the generated code to enable your device to be provisioned with the Device Provisioning Service.
+- Use the Azure IoT Plug and Play device SDK.
+- Enable device provisioning through the Azure IoT Device Provisioning Service (DPS).
+- Implement all the capabilities defined in the model.
+
+If you use the code generation function in VS Code, your device code uses the Azure IoT Plug and Play device SDK.
+
+To add the ability to use DPS, copy [this code](link) to the ***** file in the generated code:
 <Image to be added>
 
-Finally, you will need to implement the Device Information interface on your device and provide device specific information from the device at run time. You can use example implementations of the Device Information interface for [Windows IoT Core](link) and [Linux](link) as references.
+Finally, you must implement the **Device Information** interface on your device and provide device-specific information from the device at run time. You can use example implementations of the **Device Information** interface for [Windows IoT Core](link) and [Linux](link) as references.
 
 ## Next steps
 
-Now that you've built an IoT Plug and Play ready for certification, learn how you can [certify your device](link) and list it in the Certified for Azure IoT device catalog.
+Now that you've built an IoT Plug and Play ready for certification, learn how to [certify your device](link) and list it in the Certified for Azure IoT device catalog.
