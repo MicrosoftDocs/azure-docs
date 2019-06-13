@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 06/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -25,7 +25,7 @@ This article describes how deny assignments are defined.
 
 ## How deny assignments are created
 
-Deny assignments are created and managed by Azure to protect resources. You can't directly create your own deny assignments. However, Azure Blueprints does utilize deny assignments to protect resources. For more information, see [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
+Deny assignments are created and managed by Azure to protect resources. For example, Azure Blueprints and Azure managed apps use deny assignments to protect system-managed resources. For more information, see [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## Compare role assignments and deny assignments
 
