@@ -56,7 +56,7 @@ When a project is run on a VM, the files are mounted on the root directory of th
 
 ![Shutdown button in Azure Notebooks](media/shutdown.png)
 
-### How to Create new DSVM users
+### Create new DSVM users
 
 If multiple users share a DSVM, you can avoid blocking each other by creating and using a DSVM user for each notebook user:
 
