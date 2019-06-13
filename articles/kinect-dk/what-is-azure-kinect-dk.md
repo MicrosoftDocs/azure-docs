@@ -21,7 +21,7 @@ The Azure Kinect DK development environment consists of the following multiple S
 
 In addition, Cognitive Vision services can be used with the device RGB camera.
 
-   ![Azure Kinect DK SDKs diagram](./media/quickstarts/sdk-diagram.jpg)
+   ![Azure Kinect SDKs diagram](./media/quickstarts/sdk-diagram.jpg)
 
 ## Azure Kinect Sensor SDK
 
@@ -49,11 +49,11 @@ The following tools are available in the Sensor SDK:
 * A sensor recording tool and playback reader API that uses the Matroska container format.
 * An Azure Kinect DK firmware update tool.
 
-## Azure Kinect DK Body Tracking SDK
+## Azure Kinect Body Tracking SDK
 
 The Body Tracking SDK includes a Windows library and runtime to track bodies in 3D when used with the Azure Kinect DK hardware.
 
-### Azure Kinect DK Body Tracking features
+### Azure Kinect Body Tracking features
 
 The following body-tracking features are available on the accompanying SDK:
 
@@ -62,7 +62,7 @@ The following body-tracking features are available on the accompanying SDK:
 * Offers a unique identity for each body.
 * Can track bodies over time.
 
-### Azure Kinect DK Body Tracking tools
+### Azure Kinect Body Tracking tools
 
 * Body Tracker has a viewer tool to track bodies in 3D.
 
