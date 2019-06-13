@@ -73,14 +73,14 @@ Azure Files offers two performance tiers: standard and premium.
 
 **Standard file shares** are backed by hard disk drives (HDDs). Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 
-Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any share larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.
+Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any shares larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.  You can onboard to 100 TiB standard shares by submitting this [form](https://aka.ms/azurefilesatscalesurvey).
 
 While in preview, these larger shares have the following limitations:
 
-- Require you to create a new storage account (cannot expand existing storage accounts)
-- Are only available on GPv1 and GPv2 storage accounts
-- Can only be created in West US 2, West Europe, and SE Asia regions
+- Requires you to create a new general purpose storage account (cannot expand existing storage accounts)
 - Are LRS only
+- LRS to GRS account conversion will not be allowed on subscription approved for larger file shares preview. GRS accounts once converted to LRS accounts will not be able to convert back to GRS accounts.
+- Available in 3 regions: West US 2, West Europe, and SE Asia regions.
 
 **Premium file shares (preview)** are backed by solid-state disks (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
 
