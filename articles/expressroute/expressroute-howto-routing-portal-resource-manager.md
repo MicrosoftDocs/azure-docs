@@ -184,7 +184,7 @@ This section helps you create, get, update, and delete the Azure public peering 
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
    * **Optional -** An MD5 hash if you choose to use one.
-3. Select the Azure public peering row, as shown in the following image:
+3. Select the Azure public peering row.
 
 4. Configure public peering.
 
@@ -192,15 +192,15 @@ This section helps you create, get, update, and delete the Azure public peering 
 
 ### <a name="getpublic"></a>To view Azure public peering details
 
-You can view the properties of Azure public peering by selecting the peering.
+View the properties of Azure public peering by selecting the peering.
 
 ### <a name="updatepublic"></a>To update Azure public peering configuration
 
-You can select the row for peering, then modify the peering properties.
+Select the row for peering, then modify the peering properties.
 
 ### <a name="deletepublic"></a>To delete Azure public peering
 
-You can remove your peering configuration by selecting the delete icon.
+Remove your peering configuration by selecting the delete icon.
 
 ## Next steps
 
