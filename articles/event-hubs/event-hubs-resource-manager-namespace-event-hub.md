@@ -32,7 +32,7 @@ In this quickstart, you use an [existing Resource Manager template](https://raw.
 
 To deploy the template:
 
-1. Select **Try it** from the following code block, and the follow the instructions to sign on to the Azure Cloud shell.
+1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -45,6 +45,8 @@ To deploy the template:
 
    Write-Host "Press [ENTER] to continue ..."
    ```
+
+   It takes a few moments to create an event hub.
 
 1. Select **Copy** to copy the PowerShell script.
 1. Right-click the shell console, and then select **Paste**.
