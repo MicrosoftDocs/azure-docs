@@ -43,7 +43,7 @@ You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play bac
 
 ## Next steps
 
-You may also review the following articles:
+Now that you've learned how to record sensor streams to a file, it's time to
 
 > [!div class="nextstepaction"]
 > [Build your first application](setup.md)
