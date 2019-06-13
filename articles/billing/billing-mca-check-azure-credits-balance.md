@@ -1,7 +1,7 @@
 ---
 title: Track Azure credit balance for a Microsoft Customer Agreement
 description: Learn how to check the Azure credit balance for a Microsoft Customer Agreement.
-author: bandersmsmft
+author: bandersmsft
 manager: amberb
 tags: billing
 ms.service: billing

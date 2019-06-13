@@ -44,7 +44,7 @@ For more information about your invoice, see [Understand your bill for Microsoft
 
 ### Download invoices for a Microsoft Customer Agreement
 
-Invoices are generated for each [billing profile](billing-mca-overview.md#understand-billing-profiles) in the Microsoft Customer Agreement. You must be a billing profile Owner, Contributor, Reader, or Invoice manager to download invoices from the Azure portal.
+Invoices are generated for each [billing profile](billing-mca-overview.md#billing-profiles) in the Microsoft Customer Agreement. You must be a billing profile Owner, Contributor, Reader, or Invoice manager to download invoices from the Azure portal.
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.
