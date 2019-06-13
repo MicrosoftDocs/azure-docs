@@ -98,7 +98,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 > Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) page.
 >
 
-## Whitelist Device Streaming Endpoints
+## Allow outbound connectivity to the device streaming endpoints
 
 As mentioned at the beginning of this article, your device creates an outbound connection to IoT Hub streaming endpoint during device streams initiation process. Your firewalls on the device or its network must allow outbound connectivity to the streaming gateway over port 443 (note that communication takes place over a WebSocket connection that is encrypted using TLS).
 
