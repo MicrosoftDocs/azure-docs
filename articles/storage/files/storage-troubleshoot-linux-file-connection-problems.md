@@ -22,17 +22,16 @@ In addition to the troubleshooting steps in this article, you can use [AzFileDia
 
 Common causes for this problem are:
 
-
 - You're using an incompatible Linux distribution client. We recommend that you use the following Linux distributions to connect to an Azure file share:
 
-    |   | SMB 2.1 <br>(Mounts on VMs within the same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+|   | SMB 2.1 <br>(Mounts on VMs within the same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
 - CIFS utilities (cfs-utils) are not installed on the client.
 - The minimum SMB/CIFS version, 2.1, is not installed on the client.
@@ -98,10 +97,10 @@ Reduce the number of concurrent open handles by closing some handles, and then r
     - Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
     - Using cp with parallel could improve copy speed, the number of threads depends on your use case and workload. This example uses six: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - Open source third party tools such as:
-    - [GNU Parallel](http://www.gnu.org/software/parallel/).
-    - [Fpart](https://github.com/martymac/fpart) - Sorts files and packs them into partitions.
-    - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Uses Fpart and a copy tool to spawn multiple instances to migrate data from src_dir to dst_url.
-    - [Multi](https://github.com/pkolano/mutil) - Multi-threaded cp and md5sum based on GNU coreutils.
+        - [GNU Parallel](http://www.gnu.org/software/parallel/).
+        - [Fpart](https://github.com/martymac/fpart) - Sorts files and packs them into partitions.
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Uses Fpart and a copy tool to spawn multiple instances to migrate data from src_dir to dst_url.
+        - [Multi](https://github.com/pkolano/mutil) - Multi-threaded cp and md5sum based on GNU coreutils.
 
 <a id="error115"></a>
 ## "Mount error(115): Operation now in progress" when you mount Azure Files by using SMB 3.0
