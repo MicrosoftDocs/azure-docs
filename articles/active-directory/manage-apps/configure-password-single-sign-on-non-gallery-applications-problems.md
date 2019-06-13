@@ -68,7 +68,7 @@ To configure password-based SSO by using automatic sign-in field capture, follow
 
 To manually capture sign-in fields, you must have the Access Panel browser extension installed. Also, your browser can't be running in *inPrivate*, *incognito*, or *private* mode.
 
-To install the extension, see [How to install the Access Panel Browser extension](#i-cannot-manually-detect-sign-in-fields-for-my-application) section.
+To install the extension, see [How to install the Access Panel Browser extension](#i-cant-manually-detect-sign-in-fields-for-my-app) section.
 
 To configure password-based SSO for an app by using **manual sign-in field capture**, follow these steps:
 
@@ -143,7 +143,7 @@ If you experience any of these behaviors, do the following things:
 
 ### Contact Support
 
-If you still have problems, open a Microsoft Support case. Describe what you tried, as well as the details that are listed in the [How to see the details of a portal notification](#i-cannot-manually-detect-sign-in-fields-for-my-application) and [How to get help by sending notification details to a support engineer](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) sections (if applicable).
+If you still have problems, open a Microsoft Support case. Describe what you tried, as well as the details that are listed in the [How to see the details of a portal notification](#i-cant-manually-detect-sign-in-fields-for-my-app) and [How to get help by sending notification details to a support engineer](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) sections (if applicable).
 
 ## How to install the Access Panel browser extension
 
