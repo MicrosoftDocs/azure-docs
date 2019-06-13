@@ -46,7 +46,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorRpCollectionLimitReached <br>
 **Error message**: The Restore Point collection max limit has reached. <br>
 * This issue could happen if there is a lock on the recovery point resource group preventing automatic cleanup of recovery point.
-* This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day as the instant RPs are retained for 7 days and only 18 instant RPs can be associated with a VM at any given time. <br>
+* This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day as the instant restore points are retained for 1-5 days as per the configured snapshot retention and only 18 instant RPs can be associated with a VM at any given time. <br>
 
 Recommended Action:<br>
 To resolve this issue, remove the lock on the resource group of the VM, and retry the operation to trigger clean-up.
@@ -116,9 +116,9 @@ Your recent backup job failed because there is an existing backup job in progres
 3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
 
 	* If a backup job is in progress, wait for it to complete or cancel the backup job.
-		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
 	* If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists then cancel the backup job.
-		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Retry backup operation.
 
 If the scheduled backup operation is taking longer time conflicting with the next backup configuration then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance) and [Restore consideration](backup-azure-vms-introduction.md#backup-and-restore-considerations).

@@ -9,14 +9,14 @@ editor: TomShinder
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ---
 # Azure Log Integration tutorial: Process Azure Key Vault events by using Event Hubs
 
 >[!IMPORTANT]
-> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads were disabled on Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> The Azure Log integration feature will be deprecated by 06/15/2019. AzLog downloads were disabled on Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 You can use Azure Log Integration to retrieve logged events and make them available to your security information and event management (SIEM) system. This tutorial shows an example of how Azure Log Integration can be used to process logs that are acquired through Azure Event Hubs.
 
@@ -89,10 +89,10 @@ You should see something like this:</br>
     - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Your subscription name might be different. You can see it as part of the output of the previous command.)
     - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any location of your choosing.)
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random``` (The name can be anything, but it should include only lowercase letters and numbers.)
-    - ``` $storageName = $name``` (This variable will be used for the storage account name.)
-    - ```$rgname = $name ``` (This variable will be used for the resource group name.)
-    - ``` $eventHubNameSpaceName = $name``` (This is the name of the event hub namespace.)
+    - ```$name = 'azlogtest' + $random``` (The name can be anything, but it should include only lowercase letters and numbers.)
+    - ```$storageName = $name``` (This variable will be used for the storage account name.)
+    - ```$rgname = $name``` (This variable will be used for the resource group name.)
+    - ```$eventHubNameSpaceName = $name``` (This is the name of the event hub namespace.)
 1. Specify the subscription that you will be working with:
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -111,7 +111,7 @@ You should see something like this:</br>
     ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. Get the rule ID that will be used with the insights provider:
     
-    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
+    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey'```
 1. Get all possible Azure locations and add the names to a variable that can be used in a later step:
     
     a. ```$locationObjects = Get-AzLocation```    
@@ -125,7 +125,7 @@ You should see something like this:</br>
     For more information about the Azure log profile, see [Overview of the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> You might get an error message when you try to create a log profile. You can then review the documentation for Get-AzLogProfile and Remove-AzLogProfile. If you run Get-AzLogProfile, you see information about the log profile. You can delete the existing log profile by entering the ```Remove-AzLogProfile -name 'Log Profile Name' ``` command.
+> You might get an error message when you try to create a log profile. You can then review the documentation for Get-AzLogProfile and Remove-AzLogProfile. If you run Get-AzLogProfile, you see information about the log profile. You can delete the existing log profile by entering the ```Remove-AzLogProfile -name 'Log Profile Name'``` command.
 >
 >![Resource Manager profile error](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -133,11 +133,11 @@ You should see something like this:</br>
 
 1. Create the key vault:
 
-   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location```
 
 1. Configure logging for the key vault:
 
-   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true```
 
 ## Generate log activity
 
@@ -167,7 +167,7 @@ Now that you have configured all the required elements to have Key Vault logging
 1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
 1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
-1. ``` $storagekey = $storagekeys[0].Value```
+1. ```$storagekey = $storagekeys[0].Value```
 
 Run the AzLog command for each event hub:
 

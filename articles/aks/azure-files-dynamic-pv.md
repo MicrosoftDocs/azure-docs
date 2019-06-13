@@ -33,7 +33,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 * *Standard_RAGRS* - standard read-access geo-redundant storage (RA-GRS)
 
 > [!NOTE]
-> Azure Files currently only work with Standard storage. If you use Premium storage, the volume fails to provision.
+> Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher.
 
 For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
@@ -134,7 +134,7 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## Use the persistent volume
 
-The following YAML creates a pod that uses the persistent volume claim *azurefile* to mount the Azure file share at the */mnt/azure* path.
+The following YAML creates a pod that uses the persistent volume claim *azurefile* to mount the Azure file share at the */mnt/azure* path. For Windows Server containers (currently in preview in AKS), specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
 Create a file named `azure-pvc-files.yaml`, and copy in the following YAML. Make sure that the *claimName* matches the PVC created in the last step.
 

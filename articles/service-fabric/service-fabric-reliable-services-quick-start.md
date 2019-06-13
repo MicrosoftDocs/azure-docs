@@ -4,7 +4,7 @@ description: Introduction to creating a Microsoft Azure Service Fabric applicati
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a

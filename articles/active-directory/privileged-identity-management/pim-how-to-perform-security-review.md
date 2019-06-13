@@ -1,6 +1,6 @@
 ---
-title: Perform an access review of my Azure AD directory roles in PIM | Microsoft Docs
-description: Learn how to perform an access review of your Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
+title: Review access to Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+description: Learn how to review access of Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,8 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
-# Perform an access review of my Azure AD directory roles in PIM
-Azure Active Directory (AD) Privileged Identity Management simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.  
+
+# Review access to Azure AD roles in PIM
+
+Azure Active Directory (AD) Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.  
 
 If you are assigned to an administrative role, your organization's privileged role administrator may ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com). Follow the steps in this article to perform a self-review of your assigned roles.
 

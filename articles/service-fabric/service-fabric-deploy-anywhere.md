@@ -4,7 +4,7 @@ description: You can create Service Fabric clusters on any VMs or computers runn
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217

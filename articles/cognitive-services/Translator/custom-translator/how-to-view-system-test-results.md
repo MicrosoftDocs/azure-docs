@@ -7,7 +7,7 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to view system test results, so that I can review test results and analyze my training.
 ---
@@ -80,6 +80,9 @@ To request a deployment:
     ![Deploy model](media/how-to/how-to-deploy-model-regions.png)
 
 5.  You can view the status of your model in the “Status” column.
+
+>[!Note]
+>Custom Translator supports 10 deployed models within a workspace at any point in time.
 
 ## Update deployment settings
 

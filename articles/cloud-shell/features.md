@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 04/26/2019
 ms.author: damaerte
 ---
 
@@ -47,6 +47,18 @@ Any changes made to the Azure resources, either made directly in Azure portal or
 
 ![](media/features-powershell/azure-drive.png)
 
+### Manage Exchange Online
+
+PowerShell in Cloud Shell contains a private build of the Exchange Online module.  Run `Connect-EXOPSSession` to get your Exchange cmdlets.
+
+![](media/features-powershell/exchangeonline.png)
+
+ Run `Get-Command -Module tmp_*`
+> [!NOTE]
+> The module name should begin with `tmp_`, if you have installed modules with the same prefix, their cmdlets will also be surfaced. 
+
+![](media/features-powershell/exchangeonlinecmdlets.png)
+
 ### Deep integration with open-source tooling
 
 Cloud Shell includes pre-configured authentication for open-source tools such as Terraform, Ansible, and Chef InSpec. Try it out from the example walkthroughs.
@@ -56,7 +68,7 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 |Category   |Name   |
 |---|---|
 |Linux tools            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Azure tools            |[Azure CLI](https://github.com/Azure/azure-cli) and [Azure classic CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Azure tools            |[Azure CLI](https://github.com/Azure/azure-cli) and [Azure classic CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Text editors           |code (Cloud Shell editor)<br> vim<br> nano<br> emacs    |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
@@ -72,11 +84,11 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.2](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps
 [Bash in Cloud Shell Quickstart](quickstart.md) <br>
 [PowerShell in Cloud Shell Quickstart](quickstart-powershell.md) <br>
-[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Learn about Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [Learn about Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

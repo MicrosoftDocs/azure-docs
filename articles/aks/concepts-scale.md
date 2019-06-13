@@ -2,12 +2,12 @@
 title: Concepts - Scale applications in Azure Kubernetes Services (AKS)
 description: Learn about scaling in Azure Kubernetes Service (AKS), including horizontal pod autoscaler, cluster autoscaler, and the Azure Container Instances connector.
 services: container-service
-author: iainfoulds
+author: zr-msft
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: iainfou
+ms.author: zarhoads
 ---
 
 # Scaling options for applications in Azure Kubernetes Service (AKS)
@@ -52,6 +52,8 @@ To respond to changing pod demands, Kubernetes has a cluster autoscaler (current
 ![Kubernetes cluster autoscaler](media/concepts-scale/cluster-autoscaler.png)
 
 Cluster autoscaler is typically used alongside the horizontal pod autoscaler. When combined, the horizontal pod autoscaler increases or decreases the number of pods based on application demand, and the cluster autoscaler adjusts the number of nodes as needed to run those additional pods accordingly.
+
+Cluster autoscaler should only be tested in preview on AKS clusters with a single node pool.
 
 To get started with the cluster autoscaler in AKS, see [Cluster Autoscaler on AKS][aks-cluster-autoscaler].
 

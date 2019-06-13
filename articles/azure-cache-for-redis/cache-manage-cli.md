@@ -53,9 +53,9 @@ The following properties are used when creating and updating Azure Cache for Red
 | Shard Count |-r, --shard-count |Number of Shards to create on a Premium Cluster Cache with clustering. |
 | Virtual Network |-v, --virtual-network |When hosting your cache in a VNET, specifies the exact ARM resource ID of the virtual network to deploy the Azure Cache for Redis in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | key type |-t, --key-type |Type of key to renew. Valid values: [Primary, Secondary] |
-| StaticIP |-p, --static-ip <static-ip> |When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache. If not provided, one is chosen for you from the subnet. |
-| Subnet |t, --subnet <subnet> |When hosting your cache in a VNET, specifies the name of the subnet in which to deploy the cache. |
-| VirtualNetwork |-v, --virtual-network <virtual-network> |When hosting your cache in a VNET, specifies the exact ARM resource ID of the virtual network to deploy the Azure Cache for Redis in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| StaticIP |-p, --static-ip \<static-ip\> |When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache. If not provided, one is chosen for you from the subnet. |
+| Subnet |t, --subnet \<subnet\> |When hosting your cache in a VNET, specifies the name of the subnet in which to deploy the cache. |
+| VirtualNetwork |-v, --virtual-network \<virtual-network\> |When hosting your cache in a VNET, specifies the exact ARM resource ID of the virtual network to deploy the Azure Cache for Redis in. Example format: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscription |-s, --subscription |The subscription identifier. |
 
 ## See all Azure Cache for Redis commands

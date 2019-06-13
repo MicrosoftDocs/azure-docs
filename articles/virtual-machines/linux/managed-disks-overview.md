@@ -5,8 +5,8 @@ services: "virtual-machines-linux,storage"
 author: roygara
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
-ms.topic: article
-ms.date: 02/11/2019
+ms.topic: overview
+ms.date: 04/22/2019
 ms.author: rogarana
 ms.subservice: disks
 ---

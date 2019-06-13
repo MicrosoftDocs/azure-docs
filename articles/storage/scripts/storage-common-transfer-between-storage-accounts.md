@@ -33,7 +33,7 @@ This sample takes in a source storage account name and key, a target storage acc
 The following are examples of the input for this sample:
 
 If AzCopy is installed at the default directory:
-```PowerShell
+```powershell
 srcStorageAccountName: ExampleSourceStorageAccountName
 srcStorageAccountKey: ExampleSourceStorageAccountKey
 DestStorageAccountName: ExampleTargetStorageAccountName

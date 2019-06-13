@@ -21,7 +21,9 @@
       "version": 0
     }
   ],
-  "notification_subscribers": [],
+  "notification_subscribers": [
+    "azure-docs-publish@microsoft.com"
+  ],
   "sync_notification_subscribers": [
     "tysonn@microsoft.com"
   ],
@@ -74,11 +76,13 @@
       "path_to_root": "policy-templates",
       "url": "https://github.com/Azure/azure-policy",
       "branch": "master",
-      "branch_mapping": {
-        "release-build-mysql": "release-build",
-        "release-build-postgresql": "release-build",
-        "release-build-stellar": "release-build"
-      }
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "blueprints-templates",
+      "url": "https://github.com/Azure/azure-blueprints",
+      "branch": "master",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "azure-docs-json-samples",
@@ -207,6 +211,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "samples-tsi",
+      "url": "https://github.com/Azure-Samples/Azure-Time-Series-Insights",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "media-services-v3-dotnet-core-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials",
       "branch": "master",
@@ -293,6 +303,12 @@
     {
       "path_to_root": "samples-cosmosdb-dotnet-web-app",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmosdb-nodejs-get-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
       "branch": "master",
       "branch_mapping": {}
     },

@@ -90,7 +90,7 @@ To override this default, specify a value for the **dataIntegrationUnits** prope
 You can see the actually used Data Integration Units for each copy run in the copy activity output when monitoring an activity run. Learn details from [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Setting of DIUs **larger than 4** currently works only when you **copy multiple files from Blob storage/Data Lake Storage/Amazon S3/cloud FTP/cloud SFTP to any other cloud data stores.**.
+> Setting of DIUs **larger than 4** currently applies only when you **copy multiple files from Azure Storage/Data Lake Storage/Amazon S3/Google Cloud Storage/cloud FTP/cloud SFTP to any other cloud data stores**.
 >
 
 **Example:**
@@ -131,7 +131,7 @@ For each Copy Activity run, Data Factory determines the number of parallel copie
 | Copy data from any source data store to Azure Table storage |4 |
 | All other copy scenarios |1 |
 
-[!TIP]
+> [!TIP]
 > When copying data between file-based stores, the default behavior (auto determined) usually give you the best throughput. 
 
 To control the load on machines that host your data stores, or to tune copy performance, you may choose to override the default value and specify a value for the **parallelCopies** property. The value must be an integer greater than or equal to 1. At run time, for the best performance, Copy Activity uses a value that is less than or equal to the value that you set.

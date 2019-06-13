@@ -7,4 +7,4 @@ ms.author: kromerm
 ---
 
 > [!NOTE] 
-> Mapping Data Flow is a new feature of Azure Data Factory. It is currently under limited public preview and is not subject to Azure customer SLA provisions.
+> Azure Data Factory Mapping Data Flow is currently a public preview feature and is not subject to Azure customer SLA provisions.

@@ -1,60 +1,55 @@
 ---
-title: Virtual machine Marketplace tab in the Cloud Partner Portal for Azure | Microsoft Docs
+title: Virtual machine Marketplace tab in the Cloud Partner Portal for Azure Marketplace
 description: Describes the Marketplace tab used in creating an Azure Marketplace VM offer.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: pbutlerm
+ms.date: 04/25/2019
+ms.author: pabutler
 ---
 
 # Virtual machine Marketplace tab
 
-The **Marketplace** tab of the **New Offer** page enables you to provide your prospective customers with marketing, sales, and legal information and agreements and manage leads generated from the marketplace. This long form is divided into four sections: **Overview**, **Marketing Artifacts**, **Lead Management**, and **Legal**. 
+The **Marketplace** tab of the **New Offer** page enables you to provide your prospective customers with marketing, sales, and legal information and agreements and manage leads generated from the marketplace. This long form is divided into four sections: **Overview**, **Marketing Artifacts**, **Lead Management**, and **Legal**.
+
 
 ## Overview section
 In this section, you enter the general information about your Azure Marketplace Offer.  An appended asterisk (*) on the field name indicates that it is required.
 
-![Overview section of the Marketplace tab on the New Offer form for virtual machines](./media/publishvm_008.png)
+![Overview section of the Marketplace tab for virtual machines](./media/publishvm_008.png)
 
-The following table describes the purpose and content of these fields.
+The following table describes the purpose and content of these fields. Required fields are indicted by an asterisk (*).
 
 |  **Field**                |     **Description**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Title**                 | Title of the offer, often the long, formal name. This title will be displayed prominently in the marketplace.  Maximum length of 50 characters. |
-| **Summary**               | Brief purpose or function of solution.  Maximum length of 100 characters. |
-| **Long Summary**          | Purpose or function of solution.  Maximum length of 256 characters. |
-| **Description**           | Description of solution.  Maximum length of 3000 characters, supports simple HTML formatting. |
-| **Microsoft CSP Reseller channel** | Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels. |
-| **Marketing Identifier**  | A unique URL to associate to this offer, typically includes your organization and solution name, maximum length 50 characters.  For example: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Preview Subscription IDs** | Add one to 100 subscription identifiers of previewers. These white-listed subscriptions will have access to the offer once it's published, before it goes live. |
+| **Title\***                 | Title of the offer, often the long, formal name. This title will be displayed prominently in the marketplace.  Maximum length of 50 characters. |
+| **Summary\***               | Brief purpose or function of solution.  Maximum length of 100 characters. |
+| **Long Summary\***          | Purpose or function of solution.  Maximum length of 256 characters. |
+| **Description\***           | Description of solution.  Maximum length of 3000 characters, supports simple HTML formatting. |
+| **Microsoft CSP Reseller channel\*** | Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels. |
+| **Marketing Identifier\***  | A unique URL to associate to this offer, typically includes your organization and solution name, maximum length 50 characters.  For example: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Preview Subscription IDs\*** | Add one to 100 subscription identifiers of previewers. These white-listed subscriptions will have access to the offer once it's published, before it goes live. |
 | **Useful Links**          | Add URLs to the documentations, release notes, FAQs, and so on. |
-| **Suggested Categories (Max 5)** | Multi-selection of business and technical categories that offer can be best associated with.  Maximum five allowed.  |
+| **Suggested Categories (Max 5)\*** | Multi-selection of business and technical categories that offer can be best associated with.  Maximum five allowed.  |
 |  |  |
 
 
 ## Marketing Artifacts section
 
-This second section is divided in three subsections: **Logos**, **Screenshot**, and **Videos**. Logos are the only required marketing artifacts, however all are highly recommended for best customer appeal.
+This second section is divided in three subsections: **Logos**, **Screenshot**, and **Videos**. Logos are the only required marketing artifacts, however all are highly recommended for best customer appeal. 
 
 ![Marketing Artifacts section of the Marketplace tab on the New Offer form for virtual machines](./media/publishvm_009.png)
+
+The following table describes the purpose and content of these fields. Required fields are indicted by an asterisk (*).
 
 |  **Field**                |     **Description**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logos*  |  |
-| **Small**                 | 40x40 pixel .ico bitmap                                                      |
-| **Medium**                | 90x90 pixel .ico bitmap                                                      |
-| **Large**                 | 115x115 pixel .ico  bitmap                                                   |
-| **Wide**                  | 255x115 pixel .ico bitmap                                                    |
+| **Small\***                 | 40x40 pixel .ico bitmap                                                      |
+| **Medium\***                | 90x90 pixel .ico bitmap                                                      |
+| **Large\***                 | 115x115 pixel .ico  bitmap                                                   |
+| **Wide\***                  | 255x115 pixel .ico bitmap                                                    |
 | **Hero**                  | 815x290 bitmap.  Optional, however once uploaded the hero icon cannot be deleted. |
 | *Screenshots*  | Optional, but maximum of five screenshots per SKU. |
 | **Name**                  | Name or title <!-- TODO - max char length? none specified in UI -->                               |
@@ -63,8 +58,7 @@ This second section is divided in three subsections: **Logos**, **Screenshot**, 
 | **Name**                  | Name or title  <!-- TODO - max char length? -->                              |
 | **Link**                  | Video URL, hosted on YouTube or Vimeo                                        |
 | **Thumbnail**             | 533x324 bitmap                                                               |
-|  |  |
-
+|   |   |
 
 ### Logo guidelines
 
@@ -101,7 +95,6 @@ The following image demonstrates how marketing information is displayed on the M
 
 
 ## Lead Management section
-<!-- this all should be referenced in a common location for lead management, not in this file. nothing unique for a vm specifically. -->
 
 The third section enables you to collect customers leads generated from your Azure Marketplace offers. It offers the following storage options (from a dropdown list) for this lead information.
 
@@ -118,15 +111,16 @@ After you successfully publish your offer, the lead connection is validated and 
 
 ## Legal section
 
-This last section enables you to provide the two legal documents required for each offer: Privacy Policy and the Terms of Use.
+This last section enables you to provide the required legal documents required for each offer.  
 
-|  **Field**                |     **Description**                                                          |
-|  ---------                |     ---------------                                                          |
-| **Privacy Policy URL**    | URL to your posted privacy policy                                            |
-| **Terms of use**          | policy as plain text or simple HTML.  <!-- TODO - max char length? -->       |
+|  **Field**                    |     **Description**                                        |
+|  ---------                    |     ---------------                                        |
+| **Privacy Policy URL\***      | URL to your posted privacy policy                          |
+| **Use Standard Contract?\***  |   |
+| **Terms of use\***            | policy as plain text or simple HTML.                       |
 |  |  |
 
-<br/>
+
+## Next steps
 
 In the next [Support](./cpp-support-tab.md) tab, you will provide technical and user support resources for your offer.
-

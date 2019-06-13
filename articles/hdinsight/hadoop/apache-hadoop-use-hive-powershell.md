@@ -1,7 +1,6 @@
 ---
 title: Use Apache Hive with PowerShell in HDInsight - Azure 
 description: Use PowerShell to run Hive queries in Apache Hadoop on HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -22,10 +21,9 @@ This document provides an example of using Azure PowerShell in the Azure Resourc
 
 ## Prerequisites
 
-* A Linux-based Apache Hadoop on HDInsight cluster version 3.4 or greater.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-  > [!IMPORTANT]  
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+* A Linux-based Apache Hadoop on HDInsight cluster version 3.4 or greater.
 
 * A client with Azure PowerShell.
 
@@ -37,13 +35,13 @@ Azure PowerShell provides *cmdlets* that allow you to remotely run Hive queries 
 
 The following cmdlets are used when running Hive queries in a remote HDInsight cluster:
 
-* `Connect-AzureRmAccount`: Authenticates Azure PowerShell to your Azure subscription.
-* `New-AzureRmHDInsightHiveJobDefinition`: Creates a *job definition* by using the specified HiveQL statements.
-* `Start-AzureRmHDInsightJob`: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
-* `Wait-AzureRmHDInsightJob`: Uses the job object to check the status of the job. It waits until the job completes or the wait time is exceeded.
-* `Get-AzureRmHDInsightJobOutput`: Used to retrieve the output of the job.
-* `Invoke-AzureRmHDInsightHiveJob`: Used to run HiveQL statements. This cmdlet blocks the query completes, then returns the results.
-* `Use-AzureRmHDInsightCluster`: Sets the current cluster to use for the `Invoke-AzureRmHDInsightHiveJob` command.
+* `Connect-AzAccount`: Authenticates Azure PowerShell to your Azure subscription.
+* `New-AzHDInsightHiveJobDefinition`: Creates a *job definition* by using the specified HiveQL statements.
+* `Start-AzHDInsightJob`: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
+* `Wait-AzHDInsightJob`: Uses the job object to check the status of the job. It waits until the job completes or the wait time is exceeded.
+* `Get-AzHDInsightJobOutput`: Used to retrieve the output of the job.
+* `Invoke-AzHDInsightHiveJob`: Used to run HiveQL statements. This cmdlet blocks the query completes, then returns the results.
+* `Use-AzHDInsightCluster`: Sets the current cluster to use for the `Invoke-AzHDInsightHiveJob` command.
 
 The following steps demonstrate how to use these cmdlets to run a job in your HDInsight cluster:
 
@@ -55,7 +53,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
         .\hivejob.ps1
 
-    When the script runs, you are prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to log in to your Azure subscription.
+    When the script runs, you are prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to sign in to your Azure subscription.
 
 3. When the job completes, it returns information similar to the following text:
 
@@ -77,7 +75,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
    > [!NOTE]  
    > For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasb://.
    >
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
    > For more information about **Here-Strings**, see <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
 
@@ -87,7 +85,7 @@ If no information is returned when the job completes, view the error logs. To vi
 
 ```powershell
 # Print the output of the Hive job.
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
         -HttpCredential $creds `

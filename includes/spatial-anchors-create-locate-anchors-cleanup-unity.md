@@ -1,1 +1,1 @@
-To clean up properly after a session, invoke Dispose().
+To clean up properly after a session, invoke `Dispose()`.

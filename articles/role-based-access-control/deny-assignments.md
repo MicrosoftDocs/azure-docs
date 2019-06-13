@@ -58,5 +58,5 @@ To support deny assignments, the **System-Defined Principal** has been introduce
 
 ## Next steps
 
-* [List deny assignments for Azure resources using the REST API](deny-assignments-rest.md)
+* [View deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
 * [Understand role definitions for Azure resources](role-definitions.md)

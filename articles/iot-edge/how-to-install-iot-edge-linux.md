@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
 ---
@@ -18,7 +18,7 @@ The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The r
 
 To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-This article lists the steps to install the Azure IoT Edge runtime on your Linux x64 (Intel/AMD) IoT Edge device. Refer to [Azure IoT Edge support](support.md#operating-systems) for a list of supported AMD64 operating systems.
+This article lists the steps to install the Azure IoT Edge runtime on your Ubuntu Linux x64 (Intel/AMD) IoT Edge device. Refer to [Azure IoT Edge supported systems](support.md#operating-systems) for a list of supported AMD64 operating systems.
 
 > [!NOTE]
 > Packages in the Linux software repositories are subject to the license terms located in each package (/usr/share/doc/*package-name*). Read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
@@ -28,12 +28,21 @@ This article lists the steps to install the Azure IoT Edge runtime on your Linux
 Prepare your device for the IoT Edge runtime installation.
 
 
-Install the repository configuration. Replace **\<release\>** with **16.04** or **18.04** as appropriate for your release of Ubuntu.
+Install the repository configuration. Choose either the **16.04** or **18.04** code snippet as appropriate for your release of Ubuntu:
 
+> [!NOTE]
+> Make sure you choose the code snippet from the correct code box for your version of Ubuntu.
+
+* For **Ubuntu 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
 
+* For **Ubuntu 18.04**:
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   ```
+   
 Copy the generated list.
 
    ```bash
@@ -68,6 +77,18 @@ Install the Moby command-line interface (CLI). The CLI is useful for development
    ```bash
    sudo apt-get install moby-cli
    ```
+
+### Verify your Linux kernel for Moby compatibility
+
+Many embedded device manufacturers ship device images which contain custom Linux kernels that may be missing features required for container runtime compatibility. If you encounter issues when installing the recommended [Moby](https://github.com/moby/moby) container runtime, you may be able to troubleshoot your Linux kernel configuration using the [check-config](https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh) script supplied in the official [Moby Github repository](https://github.com/moby/moby) by running the following commands on the device.
+
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+   chmod +x check-config.sh
+   ./check-config.sh
+   ```
+
+This will provide a detailed output which contains the status of kernel features that are used by the Moby runtime. You will want to ensure that all items under `Generally Necessary` and  `Network Drivers` are enabled to ensure that your kernel is fully compatible with the Moby runtime.  If you have identified any missing features, you may enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config.  Similarly, if you are using a kernel configuration generator like defconfig or menuconfig, you will need to find and enable the respective features and rebuild your kernel accordingly.  Once you have deployed your newly modified kernel, run the check-config script again to verify that your identified features have been successfully enabled.
 
 ## Install the Azure IoT Edge Security Daemon
 

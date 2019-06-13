@@ -683,7 +683,7 @@ Before you upload the secret to the key vault, you can optionally encrypt it by 
     $secretUrl = $response.id
 ```
 
-Use `$KeyEncryptionKey` and `$secretUrl` in the next step for [attaching the OS disk using KEK](#BKMK_URLKEK).
+Use `$KeyEncryptionKey` and `$secretUrl` in the next step for [attaching the OS disk using KEK](#bkmk_URLKEK).
 
 ##  <a name="bkmk_SecretURL"></a> Specify a secret URL when you attach an OS disk
 

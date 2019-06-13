@@ -56,7 +56,7 @@ The command returns `Login Succeeded` once completed.
 
 To list the images in your registry, navigate to your registry in the portal and select **Repositories**, then select the repository you created with `docker push`.
 
-In this example, we select the **busybox** repository, and we can see the `v1`-tagged image under **TAGS**.
+In this example, we select the **hello-world** repository, and we can see the `v1`-tagged image under **TAGS**.
 
 ![List container images in the Azure portal][qs-portal-09]
 

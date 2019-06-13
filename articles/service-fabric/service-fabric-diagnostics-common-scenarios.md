@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common scenarios with Azure Service Fabri
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

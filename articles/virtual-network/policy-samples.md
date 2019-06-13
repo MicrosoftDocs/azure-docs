@@ -3,8 +3,8 @@ title: Policy template samples | Microsoft Docs
 description: Azure policy template samples for Virtual Network.
 services: virtual-network
 documentationcenter:
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor:
 tags:
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 05/02/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 
 ---

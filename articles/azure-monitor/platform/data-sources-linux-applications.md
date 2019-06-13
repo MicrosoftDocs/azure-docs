@@ -19,7 +19,7 @@ ms.author: magoedte
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 This article provides details for configuring the [Log Analytics agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications into Azure Monitor.  The applications included in this article are:  
 
-- [MySQL](#MySQL)
+- [MySQL](#mysql)
 - [Apache HTTP Server](#apache-http-server)
 
 ## MySQL

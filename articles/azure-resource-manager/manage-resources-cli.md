@@ -22,7 +22,7 @@ Learn how to use Azure CLI with [Azure Resource Manager](resource-group-overview
 Other articles about managing resources:
 
 - [Manage Azure resources by using the Azure portal](./manage-resources-portal.md)
-- [Manage Azure resources by using Azure CLI](./manage-resources-cli.md)
+- [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md)
 
 ## Deploy resources to an existing resource group
 

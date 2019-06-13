@@ -18,7 +18,7 @@ ms.author: jingwang
 
 robots: noindex
 ---
-# Move data From a OData source using Azure Data Factory
+# Move data From an OData source using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-odata-connector.md)
 > * [Version 2 (current version)](../connector-odata.md)

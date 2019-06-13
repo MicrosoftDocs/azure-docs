@@ -52,7 +52,7 @@ To resolve this issue:
 
 To resolve this issue:
 
-To reprotect a failed-over VM, the Azure VM must be running so that Mobility Service registers with the configuration server on-premises and can start replicating by communicating with the process server. If the machine is on an incorrect network or isn't running (hung state or shut down), the configuration server can't reach Mobility Service on the VM to begin reprotection.
+To reprotect a failed-over VM, the Azure VM must be running so that Mobility Service registers with the configuration server on-premises and can start replicating by communicating with the process server. If the machine is on an incorrect network or isn't running (not responding or shut down), the configuration server can't reach Mobility Service on the VM to begin reprotection.
 
 * Restart the VM so that it can start communicating back on-premises.
 * Restart the reprotect job after you start the Azure virtual machine.

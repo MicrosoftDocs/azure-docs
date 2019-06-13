@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 04/11/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -22,7 +22,7 @@ Add user profile information, including a profile picture, job-specific informat
 As you'll see, there's more information available in a user's profile than what you're able to add during the user's creation. All this additional information is optional and can be added as needed by your organization.
 
 ## To add or change profile information
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a Global administrator or user administrator for the directory.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a User administrator for the organization.
 
 2. Select **Azure Active Directory**, select **Users**, and then select a user. For example, _Alain Charon_.
 
@@ -36,7 +36,7 @@ As you'll see, there's more information available in a user's profile than what 
 
     - **Profile picture.** Select a thumbnail image for the user's account. This picture appears in Azure Active Directory and on the user's personal pages, such as the myapps.microsoft.com page.
 
-    - **Identity.** Add any account-related information, such as a married last name or a changed user name. 
+    - **Identity.** Add or update an additional identity value for the user, such as a married last name. You can set this name independently from the values of First name and Last name. For example, you could use it to include initials, a company name, or to change the sequence of names shown. In another example, for two users whose names are ‘Chris Green’ you could use the Identity string to set their names to 'Chris B. Green' 'Chris R. Green (Contoso).'
 
     - **Job info.** Add any job-related information, such as the user's job title, department, or manager.
 

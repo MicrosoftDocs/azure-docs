@@ -3,8 +3,8 @@ title: Problems signing in to an application using a deeplink | Microsoft Docs
 description: How to troubleshoot issues accessing an application from a deeplink URL using Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 
 ms.collection: M365-identity-device-management
@@ -110,7 +110,7 @@ You may also download the extension for Chrome and Firefox from these direct lin
 
 To configure an application from the Azure AD gallery, you must:
 
--   [Add an application from the Azure AD gallery](#add-an-application-from-the-Azure-AD-gallery)
+-   [Add an application from the Azure AD gallery](#add-an-application-from-the-azure-ad-gallery)
 
 -   [Configure the application for password single sign-on](#configure-the-application-for-password-single-sign-on)
 

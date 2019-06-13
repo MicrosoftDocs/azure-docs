@@ -64,7 +64,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 |Type     | A        | Use an A record as the resource is an IP address.        |
 |TTL     | 1        | 1 is used for 1 hour        |
 |TTL unit     | Hours        | Hours are used as the time measurement         |
-|IP Address     | <your ip address>       | The public IP address.|
+|IP Address     | `<your ip address>`       | The public IP address.|
 
 ![create an A record](./media/dns-custom-domain/arecord.png)
 

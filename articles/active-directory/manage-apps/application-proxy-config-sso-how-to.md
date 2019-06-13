@@ -3,8 +3,8 @@ title: How to configure single sign-on to an Application Proxy application | Mic
 description: How you can configure single sign-on to your application proxy application quickly
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere, asteen
 
 ms.collection: M365-identity-device-management

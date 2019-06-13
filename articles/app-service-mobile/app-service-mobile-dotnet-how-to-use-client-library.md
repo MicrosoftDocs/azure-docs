@@ -77,7 +77,7 @@ Use one of the following methods to install the managed client SDK package for M
 * **Visual Studio**
   Right-click your project, click **Manage NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client` package, then click **Install**.
 * **Xamarin Studio**
-  Right-click your project, click **Add** > **Add NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client `package, and then click **Add Package**.
+  Right-click your project, click **Add** > **Add NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client` package, and then click **Add Package**.
 
 In your main activity file, remember to add the following **using** statement:
 

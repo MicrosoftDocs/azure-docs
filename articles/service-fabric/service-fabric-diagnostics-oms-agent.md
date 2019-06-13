@@ -4,7 +4,7 @@ description: Learn how to set up the Log Analytics Agent for monitoring containe
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

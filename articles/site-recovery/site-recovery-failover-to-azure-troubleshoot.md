@@ -126,8 +126,10 @@ The Azure Site Recovery Master Target registration with the configuration server
  
 This error is indicated by the following strings in the installation log: 
 
+```
 RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
- 
+```
+
 To resolve the issue:
  
 1. On the configuration server VM, open a command prompt and verify the proxy settings using the following commands:

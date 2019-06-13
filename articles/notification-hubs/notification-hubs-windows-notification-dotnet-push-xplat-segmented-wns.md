@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
 ---
 
@@ -218,30 +218,28 @@ In this section, you register with the notification hub on startup by using the 
 
 The app is now complete. It can store a set of categories in the device local storage that's used to register with the notification hub when users change the category selection. In the next section, you define a back end that can send category notifications to this app.
 
-## Send tagged notifications
-
-[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
-
-## Run the app and generate notifications
-
+## Run the UWP app 
 1. In Visual Studio, select **F5** to compile and start the app. The app UI provides a set of toggles that lets you choose the categories to subscribe to.
 
-    ![Breaking News app][1]
+    ![Breaking News app](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
 
 2. Enable one or more category toggles, and then click **Subscribe**.
 
     The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a dialog box.
 
-    ![Category toggles and Subscribe button][19]
+    ![Category toggles and Subscribe button](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png)
 
-3. Send a new notification from the back end in one of the following ways:
+## Create a console app to send tagged notifications
 
-   * **Console app**: Start the console app.
-   * **Java/PHP**: Run your app or script.
+[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-     Notifications for the selected categories appear as toast notifications.
+## Run the console app to send tagged notifications
 
-     ![Toast notifications][14]
+1. Run the app created in the previous section.
+2. Notifications for the selected categories appear as toast notifications. If you select the notification, you see the first UWP app window. 
+
+     ![Toast notifications](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png)
+
 
 ## Next steps
 
@@ -256,11 +254,6 @@ In this article, you learned how to broadcast breaking news by category. The bac
 [Send notifications from your back-end]: #send
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
-
-<!-- Images. -->
-[1]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
-[14]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
-[19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
 [get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

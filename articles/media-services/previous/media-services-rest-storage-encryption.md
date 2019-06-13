@@ -19,6 +19,10 @@ ms.author: juliako
 ---
 # Encrypting your content with storage encryption 
 
+> [!NOTE]
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 	> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> 	
+
 It is highly recommended to encrypt your content locally using AES-256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest.
 
 This article gives an overview of AMS storage encryption and shows you how to upload the storage encrypted content:
@@ -107,7 +111,7 @@ The following are general steps for generating content keys that you associate w
 
     Request body property    | Description
     ---|---
-    Id | The ContentKey ID is generated using the following format, “nb:kid:UUID:<NEW GUID>”.
+    Id | The ContentKey ID is generated using the following format, “nb:kid:UUID:\<NEW GUID>”.
     ContentKeyType | The content key type is an integer that defines the key. For storage encryption format, the value is 1.
     EncryptedContentKey | We create a new content key value that is a 256-bit (32 bytes) value. The key is encrypted using the storage encryption X.509 certificate that we retrieve from Microsoft Azure Media Services by executing an HTTP GET request for the GetProtectionKeyId and GetProtectionKey Methods. As an example, see the following .NET code: the  **EncryptSymmetricKeyData** method defined [here](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | This is the protection key ID for the storage encryption X.509 certificate that was used to encrypt our content key.

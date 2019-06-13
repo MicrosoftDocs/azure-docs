@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -53,7 +54,7 @@ To configure the integration of Salesforce into Azure AD, you need to add Salesf
 
 **To add Salesforce from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -61,13 +62,13 @@ To configure the integration of Salesforce into Azure AD, you need to add Salesf
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click the **New application** button at the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Salesforce**, select **Salesforce** from result panel then click **Add** button to add the application.
+4. In the search box, type **Salesforce**, select **Salesforce** from the result panel then click the **Add** button to add the application.
 
-	 ![Salesforce in the results list](common/search-new-app.png)
+	![Salesforce in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -97,7 +98,7 @@ To configure Azure AD single sign-on with Salesforce, perform the following step
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open the **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -130,13 +131,13 @@ To configure Azure AD single sign-on with Salesforce, perform the following step
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
 ### Configure Salesforce Single Sign-On
 
-1. Open a new tab in your browser and log in to your Salesforce administrator account.
+1. Open a new tab in your browser and sign in to your Salesforce administrator account.
 
 2. Click on the **Setup** under **settings icon** on the top right corner of the page.
 
@@ -202,8 +203,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon\@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -245,7 +245,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Salesforce tile in the Access Panel, you should be automatically signed in to the Salesforce for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

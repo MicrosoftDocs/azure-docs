@@ -110,7 +110,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (e.g) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (e.g) | python MyPythonScript.py <my-param1> | string |
+| commandToExecute (e.g) | python MyPythonScript.py \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix  (e.g) | false | boolean |
 | timestamp  (e.g) | 123456789 | 32-bit integer |

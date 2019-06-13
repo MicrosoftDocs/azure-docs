@@ -63,7 +63,7 @@ To configure the integration of GitHub into Azure AD, you need to add GitHub fro
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **GitHub**, select **GitHub** from result panel then click **Add** button to add the application.
+4. In the search box, type **GitHub**, select **GitHub.com** from result panel then click **Add** button to add the application.
 
 	 ![GitHub in the results list](common/search-new-app.png)
 

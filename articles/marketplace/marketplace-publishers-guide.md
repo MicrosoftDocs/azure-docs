@@ -1,21 +1,12 @@
 ---
-title: Azure Marketplace and AppSource publishing guide | Azure
+title: Azure Marketplace and AppSource publishing guide
 description: An overview of the Azure Marketplace and Microsoft AppSource for app and service publishers.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
 author: ellacroi
-manager: nunoc
-editor:
-
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-
 ---
 
 # Azure Marketplace and AppSource publishing guide
@@ -66,7 +57,7 @@ New listings in the Marketplace are eligible for a diverse set of free benefits 
 
 *   Co-selling: Begin or accelerate your journey to selling with Microsoft through the Marketplace. Access programs and support to drive joint sales with Microsoft teams.
 
-After you [submit your solution](https://azuremarketplace.microsoft.com/sell/signup) to the Marketplace, our onboarding team contacts you to support your publishing experience.
+After you [submit your solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) to the Marketplace, our onboarding team contacts you to support your publishing experience.  See [how to create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
 
 For more information about Microsoft Go-To-Market benefits and ways to grow your business in the Marketplace, see [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 

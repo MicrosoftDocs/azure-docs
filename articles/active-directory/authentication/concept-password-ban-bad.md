@@ -29,7 +29,7 @@ Some organizations may want to take security one step further by adding their ow
 
 The custom banned password list and the ability to enable on-premises Active Directory integration is managed using the Azure portal.
 
-![Modify the custom banned password list under Authentication Methods in the Azure portal](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![Modify the custom banned password list under Authentication Methods](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## On-premises hybrid scenarios
 
@@ -74,7 +74,7 @@ Each of the above passwords does not specifically match the banned password "abc
 
 Substring matching is used on the normalized password to check for the user’s first and last name as well as the tenant name (note that tenant name matching is not done when validating passwords on an Active Directory domain controller).
 
-Example: assume that we have a user John Doe that wants to reset his password to “J0hn123fb”. After normalization, this password would become “john123fb”. Substring matching finds that the password contains the user’s first name “John”. Even though “J0hn123fb” was not specifically on either banned password list, substring matching found “John" in the password. Therefore this password would be rejected.
+Example: assume that we have a user, Pol, who wants to reset their password to “P0l123fb”. After normalization, this password would become “pol123fb”. Substring matching finds that the password contains the user’s first name “Pol”. Even though “P0l123fb” was not specifically on either banned password list, substring matching found “Pol" in the password. Therefore this password would be rejected.
 
 #### Score Calculation
 
@@ -101,14 +101,17 @@ After normalization, this password becomes “contosoblankf9!”. The matching p
 Since this password is at least 5 points, it is accepted.
 
    > [!IMPORTANT]
-   > Please note that the banned password algorithm along with the global list can and do change at any time in Azure based on ongoing security analysis and research. For the on-premise DC agent service, updated algorithms will only take effect after the DC agent software is re-installed.
+   > Please note that the banned password algorithm along with the global list can and do change at any time in Azure based on ongoing security analysis and research. For the on-premises DC agent service, updated algorithms will only take effect after the DC agent software is re-installed.
 
 ## License requirements
 
 |   | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
 | --- | --- | --- |
-| Cloud-only users | Azure AD Free | Azure AD Basic |
+| Cloud-only users | Azure AD Free | Azure AD Premium P1 or P2 |
 | Users synchronized from on-premises Windows Server Active Directory | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |
+
+> [!NOTE]
+> On-premises Windows Server Active Directory users that not synchronized to Azure Active Directory also avail the benefits of Azure AD password protection based on existing licensing for synchronized users.
 
 Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 

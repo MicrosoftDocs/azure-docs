@@ -1,16 +1,13 @@
 ---
-title: Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 in Azure | Microsoft Docs
-description: Run the Micro Focus BankDemo application on Azure to learn to use Micro Focus Enterprise Server and Enterprise Developer.
-services: virtual-machines-linux
-documentationcenter:
-author: njray
-manager: edprice
-editor: edprice
-tags:
-keywords:
+title: Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 on Azure Virtual Machines
+description: Run the Micro Focus BankDemo application on Azure Virtual Machines (VMs) to learn to use Micro Focus Enterprise Server and Enterprise Developer.
+author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
 ---
 
-# Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 in Azure
+# Set up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 on Azure
 
 When you set up Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure, you can test deployments of IBM z/OS workloads. This article shows how to set up CICS BankDemo, a sample application that comes with Enterprise Developer.
 
@@ -19,13 +16,13 @@ terminals.
 
 ## Prerequisites
 
-- A VM with [Enterprise Developer](set-up-micro-focus-on-azure.md). Keep in mind that Enterprise Developer has a complete instance of Enterprise Server on it for development and test purposes. This is the instance of Enterprise Server used for the demo.
+- A VM with [Enterprise Developer](set-up-micro-focus-azure.md). Keep in mind that Enterprise Developer has a complete instance of Enterprise Server on it for development and test purposes. This instance is the instance of Enterprise Server used for the demo.
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Download and install it on the Enterprise Developer VM. Enterprise Server requires a database for the management of CICS regions, and the BankDemo application also uses a SQL Server database called BANKDEMO. This demo assumes you are using SQL Server Express for both databases. When installing, select the basic installation.
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS is used for managing the databases and running a T-SQL script. Download and install it on the Enterprise Developer VM.
 
-- [Visual Studio 2017](https://azure.microsoft.com/downloads/) with the latest service pack or [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), which you can download for free.
+- [Visual Studio 2019](https://azure.microsoft.com/downloads/) with the latest service pack or [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), which you can download for free.
 
 - Rumba Desktop or another 3270 emulator.
 
@@ -37,7 +34,7 @@ After you install Enterprise Developer 4.0 on the VM, you must configure the ins
 
 2. Click the **Search** icon next to the **Start** button and type **Windows features**. The Server Manager Add Roles and Features Wizard opens.
 
-3. Select **Web Server (IIS) Role**, and then check the following:
+3. Select **Web Server (IIS) Role**, and then check the following options:
 
     - Web Management Tools
     - IIS 6 Management Compatibility (select all available features)
@@ -45,7 +42,7 @@ After you install Enterprise Developer 4.0 on the VM, you must configure the ins
     - IIS Management Scripts and Tools
     - IIS Management Service
 
-4. Select **World Wide Web Services**, and check the following:
+4. Select **World Wide Web Services**, and check the following options:
 
      Application Development Features:
     - .NET Extensibility
@@ -58,12 +55,12 @@ After you install Enterprise Developer 4.0 on the VM, you must configure the ins
 
 5. Select **Windows Process Activation Service** and all its children.
 
-6. For **Features**, check **Microsoft .NET framework 3.5.1**, and check the following:
+6. For **Features**, check **Microsoft .NET framework 3.5.1**, and check the following options:
 
     - Windows Communication Foundation HTTP Activation
     - Windows Communication Foundation Non-HTTP Activation
 
-7. For **Features**, check **Microsoft .NET framework 4.6**, and check the following:
+7. For **Features**, check **Microsoft .NET framework 4.6**, and check the following options:
 
    - Named Pipe Activation
    - TCP Activation
@@ -87,7 +84,7 @@ After you install Enterprise Developer 4.0 on the VM, you must configure the ins
 
 ## Configure the local system account for SQL Server
 
-Some Enterprise Server processes need to be able to log on to SQL Server and create databases and other objects. These processes use the local system account, so you must give sysadmin authority to that account.
+Some Enterprise Server processes need to be able to sign in SQL Server and create databases and other objects. These processes use the local system account, so you must give sysadmin authority to that account.
 
 1. Launch the **SSMS** and click **Connect** to connect to the local SQLEXPRESS Server using Windows Authentication. It should be available in the **Server Name** list.
 
@@ -125,7 +122,7 @@ The query should run with no errors. When it is complete, you have the sample da
 
 ## Build the application in Enterprise Developer
 
-1. Open Visual Studio and log on.
+1. Open Visual Studio and sign in.
 
 2. Under the **File** menu option, select **Open Project/Solution**, navigate to **C:\\Users\\Public\\Documents\\Micro Focus\\Enterprise Developer\\Samples\\Mainframe\\CICS\\DotNet\\BankDemo**, and select the **sln** file.
 
@@ -147,7 +144,7 @@ The query should run with no errors. When it is complete, you have the sample da
 
 ## Deploy the BankDemo application into the Region database
 
-1. Open an Enterprise Developer command prompt (64bit) as Administrator.
+1. Open an Enterprise Developer command prompt (64 bit) as Administrator.
 
 2. Navigate to the **%PUBLIC%\\Documents\\Micro Focus\\Enterprise Developer\\samples\\Mainframe\\CICS\\DotNet\\BankDemo**.
 
@@ -207,7 +204,7 @@ The query should run with no errors. When it is complete, you have the sample da
 > [!NOTE]
 > The first step is important: You must set the Region to use the XA Resource Definition you just created.
 
-1. Navigate to the **BANDEMO CICS Region** under the **Regions Container**, and then select **Edit Region Startup File** from the **Actions** pane. Scroll down to the SQL properties and enter **bankdemo** for the **XA resource name** , or use the ellipsis to select it.
+1. Navigate to the **BANDEMO CICS Region** under the **Regions Container**, and then select **Edit Region Startup File** from the **Actions** pane. Scroll down to the SQL properties and enter **bankdemo** for the **XA resource name**, or use the ellipsis to select it.
 
 2. Click the **Save** icon to save your changes.
 
@@ -215,13 +212,13 @@ The query should run with no errors. When it is complete, you have the sample da
 
 4. In the bottom of the **Start/Stop Region** box that appears in the middle pane, select **Start**. After a few seconds, the region starts.
 
-     ![SQL Start/Stop box](/media/11-demo-sql.png)
+     ![SQL Start/Stop box](media/11-demo-sql.png)
 
      ![CICS Region BANKDEMO - Started screen](media/12-demo-cics.png)
 
 ## Create a listener
 
-You need to create a listener for the TN3270 sessions that access the BankDemo application.
+Create a listener for the TN3270 sessions that access the BankDemo application.
 
 1. In the left pane, expand **Configuration Editors** and select **Listener**.
 
@@ -235,7 +232,7 @@ You need to create a listener for the TN3270 sessions that access the BankDemo a
 
 6. Add a TN3270 channel by right-clicking **BANKDEMO Region** and selecting **Add Channel**.
 
-7. For **Name**, enter **TN3270**. For **Port**, enter **9024**. (Note that the ESDEMO application uses port 9230 so you need to use a different port.)
+7. For **Name**, enter **TN3270**. For **Port**, enter **9024**. The ESDEMO application uses port 9230 so you need to use a different port.
 
 8. To save the file, click the **Save** icon or choose **File** \> **Save**.
 
@@ -246,13 +243,13 @@ You need to create a listener for the TN3270 sessions that access the BankDemo a
 
 ## Configure Rumba to access the BankDemo application
 
-The final thing you need to do is configure a 3270 session using Rumba, a 3270 emulator. This step enables you to access the BankDemo application through the listener you just created.
+The final thing you need to do is configure a 3270 session using Rumba, a 3270 emulator. This step enables you to access the BankDemo application through the listener you created.
 
 1. From the Windows **Start** menu, launch Rumba Desktop.
 
 2. Under the **Connections** menu item, select **TN3270**.
 
-3. Click **Insert** and type **127.0.0.1** for the IP address and **9024** for the User Defined port.
+3. Click **Insert** and type **127.0.0.1** for the IP address and **9024** for the user-defined port.
 
 4. At the bottom of the dialog box, click **Connect**. A black CICS screen appears.
 
@@ -265,8 +262,9 @@ The final thing you need to do is configure a 3270 session using Rumba, a 3270 e
 
 Congratulations! You are now running a CICS application in Azure using Micro Focus Enterprise Server.
 
-## Learn more
+## Next steps
 
+- [Run Enterprise Server in Docker containers on Azure](run-enterprise-server-container.md)
 - [Mainframe Migration - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
 - [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)

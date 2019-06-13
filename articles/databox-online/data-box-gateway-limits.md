@@ -7,17 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/20/2019
 ms.author: alkohli
 ---
 
-# Azure Data Box Gateway limits (Preview)
-
+# Azure Data Box Gateway limits
 
 Consider these limits as you deploy and operate your Microsoft Azure Data Box Gateway solution. 
-
-> [!IMPORTANT] 
-> Data Box Gateway is in Preview. Review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
 
 
 ## Data Box Gateway service limits

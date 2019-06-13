@@ -14,7 +14,7 @@ manager: carmonm
 
 Rather than creating your own runbooks and modules in Azure Automation, you can access scenarios that have already been built by Microsoft and the community.
 
-You can get [PowerShell runbooks](#runbooks-in-runbook-gallery) and [modules](#modules-in-powerShell-gallery) from the PowerShell Gallery and [Python runbooks](#python-runbooks) from the Script Center Gallery. You can also contribute to the community by sharing scenarios that you develop, see [Adding a runbook to the gallery](#adding-a-runbook-to-the-runbook-gallery)
+You can get PowerShell runbooks and [modules](#modules-in-powershell-gallery) from the PowerShell Gallery and [Python runbooks](#python-runbooks) from the Script Center Gallery. You can also contribute to the community by sharing scenarios that you develop, see Adding a runbook to the gallery
 
 ## Runbooks in PowerShell Gallery
 

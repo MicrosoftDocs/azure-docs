@@ -228,11 +228,11 @@ az network public-ip show \
 
 ![Test base URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Change the URL to http://<ip-address>:8080/video/test.html to the end of the base URL and you should see something like the following example:
+Change the URL to `http://<ip-address>:8080/video/test.html` to the end of the base URL and you should see something like the following example:
 
 ![Test images URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Change the URL to http://<ip-address>:8080/video/test.html and you should see something like the following example.
+Change the URL to `http://<ip-address>:8080/video/test.html` and you should see something like the following example.
 
 ![Test video URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

@@ -90,7 +90,7 @@ Data is transit from outside and between Azure components is protected using [Tr
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. This by default is installed on the underlying PaaS virtual machine infrastructure and is managed by the Azure fabric transparently to the customer, ensuring
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. This by default is installed on the underlying PaaS virtual machine infrastructure and is managed by the Azure fabric transparently to the customer.
 
 ### PaaS services in this blueprint
 
@@ -186,7 +186,7 @@ This template uses the following Application Insights components:
 
 #### Azure Activity Logs
 
-[Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log) audits control-plane events for your subscriptions. Using the Activity Log, you can determine the 'what, who, and when' for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties.
+[Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) audits control-plane events for your subscriptions. Using the Activity Log, you can determine the 'what, who, and when' for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties.
 
 #### Azure Monitor
 

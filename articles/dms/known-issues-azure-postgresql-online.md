@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/23/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure DB for PostgreSQL
@@ -20,6 +20,10 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 ## Online migration configuration
 - The source PostgreSQL Server must be running version 9.5.11, 9.6.7, or 10.3 or later. For more information, see the article [Supported PostgreSQL Database Versions](../postgresql/concepts-supported-versions.md).
 - Only same version migrations are supported. For example, migrating PostgreSQL 9.5.11 to Azure Database for PostgreSQL 9.6.7 is not supported.
+
+    > [!NOTE]
+    > For PostgreSQL version 10, currently DMS only supports migration of version 10.3 to Azure Database for PostgreSQL. We are planning  to support newer versions of PostgreSQL very soon.
+
 - To enable logical replication in the **source PostgreSQL postgresql.conf** file, set the following parameters:
     - **wal_level** = logical
     - **max_replication_slots** = [max number of databases for migration]; if you want to migrate 4 databases, set the value to 4

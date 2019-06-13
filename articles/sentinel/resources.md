@@ -4,7 +4,7 @@ description: This document provides you with a list of useful resources when wor
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
 
 ---
@@ -33,7 +33,7 @@ Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 
 | **Vendor**  | **Use Case in Azure Sentinel** | **Link**|
 |----|----|----|
-| GitHub| Used to access Community page| <https://github.com/join> |
+| GitHub| Used to access Community page| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| Configure CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
 | PluralSight | Kusto Query Language course| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 

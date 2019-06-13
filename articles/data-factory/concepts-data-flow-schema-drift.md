@@ -21,7 +21,7 @@ In order to protect against Schema Drift, it is important to have the facilities
 * Define transformation parameters that can work with data patterns instead of hard-coded fields and values
 * Define expressions that understand patterns to match incoming fields, instead of using named fields
 
-In Azure Data Factory Data Flow, those facilities are surfaced through this workflow:
+## How to implement schema drift
 
 * Choose "Allow Schema Drift" in your Source Transformation
 
@@ -62,3 +62,10 @@ You can test this out with the Azure Data Factory Data Flow sample "Taxi Demo". 
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## Access new columns downstream
+
+When you generate new columns with column patterns, you can access those new columns later in your data flow transformations using the "byName" expression function.
+
+## Next steps
+
+In the [Data Flow Expression Language](data-flow-expression-functions.md) you will find additional facilities for column patterns and schema drift including "byName" and "byPosition".

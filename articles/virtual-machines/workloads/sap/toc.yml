@@ -68,6 +68,8 @@
       href: hana-monitor-troubleshoot.md
   - name: How to
     items:
+    - name: Azure HANA Large Instances control through Azure portal
+      href: hana-li-portal.md
     - name: HA Setup with STONITH
       href: ha-setup-with-stonith.md
     - name: OS Backup for Type II SKUs
@@ -84,6 +86,8 @@
     href: cal-s4h.md
   - name: SAP HANA infrastructure configurations and operations on Azure
     href: hana-vm-operations.md
+  - name: SAP HANA Azure virtual machine storage configurations
+    href: hana-vm-operations-storage.md
   - name: SAP HANA Availability in Azure Virtual Machines
     items:
     - name: SAP HANA on Azure Availability overview
@@ -120,8 +124,10 @@
       href: dbms_guide_sqlserver.md
     - name: Oracle Azure Virtual Machines DBMS deployment for SAP workload
       href: dbms_guide_oracle.md
-    - name: IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload
+    - name: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
       href: dbms_guide_ibm.md
+    - name: High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server
+      href: dbms-guide-ha-ibm.md
     - name: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
       href: dbms_guide_sapase.md
     - name: SAP MaxDB, liveCache and Content Server deployment on Azure

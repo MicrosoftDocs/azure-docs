@@ -115,5 +115,5 @@ The report provides the following information:
 ## Related links
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
-* [Risky IP report ](how-to-connect-health-adfs-risky-ip.md)
+* [Risky IP report](how-to-connect-health-adfs-risky-ip.md)
 

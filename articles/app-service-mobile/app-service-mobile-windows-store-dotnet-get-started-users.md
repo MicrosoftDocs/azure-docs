@@ -31,15 +31,13 @@ This tutorial is based on the Mobile Apps quickstart. You must first complete th
 
 Secure authentication requires that you define a new URL scheme for your app. This allows the authentication system to redirect back to your app once the authentication process is complete. In this tutorial, we use the URL scheme _appname_ throughout. However, you can use any URL scheme you choose. It should be unique to your mobile application. To enable the redirection on the server side:
 
-1. In the [Azure portal], select your App Service.
+1. In the [Azure portal](https://ms.portal.azure.com), select your App Service.
 
 2. Click the **Authentication / Authorization** menu option.
 
 3. In the **Allowed External Redirect URLs**, enter `url_scheme_of_your_app://easyauth.callback`.  The **url_scheme_of_your_app** in this string is the URL Scheme for your mobile application.  It should follow normal URL specification for a protocol (use letters and numbers only, and start with a letter).  You should make a note of the string that you choose as you will need to adjust your mobile application code with the URL Scheme in several places.
 
-4. Click **OK**.
-
-5. Click **Save**.
+4. Click **Save**.
 
 ## <a name="permissions"></a>Restrict permissions to authenticated users
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

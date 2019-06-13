@@ -12,7 +12,7 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 04/25/2019
 ms.author: genli
 
 ---
@@ -102,7 +102,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      ```
      
      ![Create gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
+5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machines\Scripts\`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
    
    * Add the following lines the `scripts.ini` file you created:
      
@@ -152,7 +152,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
     
     * From %windir%\System32
       * remove FixAzureVM.cmd
-    * From %windir%\System32\GroupPolicy\Machine\
+    * From %windir%\System32\GroupPolicy\Machine\Scripts
       * remove scripts.ini
     * From %windir%\System32\GroupPolicy
       * remove gpt.ini (if gpt.ini existed before, and you renamed it to gpt.ini.bak, rename the .bak file back to gpt.ini)

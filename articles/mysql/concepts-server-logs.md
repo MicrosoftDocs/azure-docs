@@ -1,19 +1,19 @@
 ---
 title: Server logs for Azure Database for MySQL
-description: Describes the logs available in Azure Database for MySQL, and the available parameters for enabling different logging levels.
+description: Describes the slow query logs available in Azure Database for MySQL, and the available parameters for enabling different logging levels.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/29/2019
 ---
-# Server Logs in Azure Database for MySQL
-In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting. 
+# Slow query logs in Azure Database for MySQL
+In Azure Database for MySQL, the slow query log is available to users. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting.
 
 For more information about the MySQL slow query log, see the MySQL reference manual's [slow query log section](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 
-## Access server logs
-You can list and download Azure Database for MySQL server logs using the Azure portal, and the Azure CLI.
+## Access slow query logs
+You can list and download Azure Database for MySQL slow query logs using the Azure portal, and the Azure CLI.
 
 In the Azure portal, select your Azure Database for MySQL server. Under the **Monitoring** heading, select the **Server Logs** page.
 
@@ -24,8 +24,7 @@ Logs are available for up to seven days from their creation. If the total size o
 
 Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
-
-## Configure logging 
+## Configure slow query logging 
 By default the slow query log is disabled. To enable it, set slow_query_log to ON.
 
 Other parameters you can adjust include:
@@ -47,31 +46,31 @@ The following table describes what's in each log. Depending on the output method
 
 | **Property** | **Description** |
 |---|---|
-| TenantId | Your tenant ID |
-| SourceSystem | `Azure` |
-| TimeGenerated [UTC] | Time stamp when the log was recorded in UTC |
-| Type | Type of the log. Always `AzureDiagnostics` |
-| SubscriptionId | GUID for the subscription that the server belongs to |
-| ResourceGroup | Name of the resource group the server belongs to |
-| ResourceProvider | Name of the resource provider. Always `MICROSOFT.DBFORMYSQL` |
-| ResourceType | `Servers` |
-| ResourceId | Resource URI |
-| Resource | Name of the server |
-| Category | `MySqlSlowLogs` |
-| OperationName | `LogEvent` |
-| Logical_server_name_s | Name of the server |
-| start_time_t [UTC] | Time the query began |
-| query_time_s | Total time the query took to execute |
-| lock_time_s | Total time the query was locked |
-| user_host_s | Username |
-| rows_sent_s | Number of rows sent |
-| rows_examined_s | Number of rows examined |
-| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| insert_id_s | Insert id |
-| sql_text_s | Full query |
-| server_id_s | The server's id |
-| thread_id_s | Thread id |
-| \_ResourceId | Resource URI |
+| `TenantId` | Your tenant ID |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | Time stamp when the log was recorded in UTC |
+| `Type` | Type of the log. Always `AzureDiagnostics` |
+| `SubscriptionId` | GUID for the subscription that the server belongs to |
+| `ResourceGroup` | Name of the resource group the server belongs to |
+| `ResourceProvider` | Name of the resource provider. Always `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | Resource URI |
+| `Resource` | Name of the server |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | Name of the server |
+| `start_time_t` [UTC] | Time the query began |
+| `query_time_s` | Total time the query took to execute |
+| `lock_time_s` | Total time the query was locked |
+| `user_host_s` | Username |
+| `rows_sent_s` | Number of rows sent |
+| `rows_examined_s` | Number of rows examined |
+| `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| `insert_id_s` | Insert ID |
+| `sql_text_s` | Full query |
+| `server_id_s` | The server's ID |
+| `thread_id_s` | Thread ID |
+| `\_ResourceId` | Resource URI |
 
 ## Next Steps
 - [How to configure and access server logs from the Azure CLI](howto-configure-server-logs-in-cli.md).

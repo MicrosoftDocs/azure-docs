@@ -32,7 +32,7 @@ This article describes how to access a classroom lab, connect to the VM in the l
 ## View all the classroom labs
 After you register to the labs, you can view all the classroom labs by taking the following steps: 
 
-1. Navigate to [https://labs.azure.com](https://labs.azure.com). 
+1. Navigate to [https://labs.azure.com](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
 2. Sign in to the service by using the user account that you used to register to the lab. 
 3. Confirm that you see all the labs you have access to. 
 
@@ -45,7 +45,8 @@ After you register to the labs, you can view all the classroom labs by taking th
 3. Do one of the following steps: 
    1. For **Windows** virtual machines, save the **RDP** file to the hard disk. Open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator/professor to log in to the machine. 
    3. For **Linux** virtual machines, copy and save the SSH connection string on the **Connect to your virtual machine** dialog box. Use this connection string from an SSH terminal (like [Putty](https://www.putty.org/)) to connect to the virtual machine.
-      ## Stop the virtual machine in a classroom lab
+
+## Stop the virtual machine in a classroom lab
 
 To stop your VM, select **Stop** on the tile. When the VM is stopped, the **Start** button on the tile is enabled. 
 
