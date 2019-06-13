@@ -27,6 +27,7 @@
     items:
     - name: With .NET
       href: stream-live-tutorial-with-api.md
+      displayName: Live Events, Live Outputs, ingest 
   - name: Analyze your video 
     items:
     - name: With .NET
