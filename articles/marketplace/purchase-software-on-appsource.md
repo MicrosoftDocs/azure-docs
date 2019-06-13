@@ -35,7 +35,7 @@ Partners can now sell offers on [AppSource](https://appsource.microsoft.com/).  
     - Purchasable from AppSource: These offers require you to provide a credit card and purchase the offering 
 
 >[!Note]
->This article is applicable only to apps purchasable from AppSource.
+>This article is applicable only to offers purchasable from AppSource.
 
 3. Select **Get it now**.
 1. Choose the plan:
