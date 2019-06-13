@@ -41,7 +41,7 @@ To follow the steps in this how-to guide:
 
 ## Use Cloud Shell to deploy with Kudu build server
 
-The easiest way to enable local Git deployment for your app with the Kudu App Service build service is to use Azure Cloud Shell. Start a Cloud Shell session by using one of the methods in the preceding table. 
+The easiest way to enable local Git deployment for your app with the Kudu App Service build server is to use Azure Cloud Shell. Start a Cloud Shell session by using one of the methods in the preceding table. 
 
 ### Configure a deployment user
 
@@ -89,7 +89,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### Deploy your app
 
-1. In your local terminal window, add an Azure remote to your local Git repository. In the command, replace \<url> with the URL of the Git remote that you got from the [previous step](#enable-local-git-with-kudu-build-server).
+1. In your local terminal window, add an Azure remote to your local Git repository. In the command, replace \<url> with the URL of the Git remote that you got from the previous step.
    
    ```bash
    git remote add azure <url>
@@ -97,7 +97,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
    
 1. Push to the Azure remote with `git push azure master`. 
    
-1. On the **Git Credential Manager** page, enter the deployment user password you created in [Configure a deployment user](#configure-a-deployment-user), not your Azure sign-in password.
+1. In the **Git Credential Manager** window, enter the deployment user password you created in [Configure a deployment user](#configure-a-deployment-user), not your Azure sign-in password.
    
 1. Review the output. You may see runtime-specific automation, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python. 
    
@@ -133,10 +133,10 @@ To enable local Git deployment for your app with Azure Pipelines (Preview):
 1. Depending on your App Service plan [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/), you may see a **Deploy to staging** page. Choose whether to [enable deployment slots](deploy-staging-slots.md), and then select **Continue**.
    
 1. On the **Summary** page, review the settings, and then select **Finish**.
-
+   
 1. When the Azure DevOps organization is ready, copy the Git repository URL from the **Deployment Center** page to use in the next step. 
-
-![](media/app-service-deploy-local-git/vsts-repo-ready.png)
+   
+   ![Copy the Git repository URL](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
 1. In your local terminal window, add an Azure remote to your local Git repository. In the command, replace \<url> with the URL of the Git remote that you got from the previous step.
    
@@ -158,53 +158,21 @@ To enable local Git deployment for your app with Azure Pipelines (Preview):
 
 The following error messages are common problems when you use Git to publish to an App Service app in Azure:
 
----
-**Message**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
-**Cause**: The app isn't up and running.
-**Resolution**: Start the app in the Azure portal. Git deployment is unavailable when the Web App is stopped.
-
----
-**Message**: `Couldn't resolve host 'hostname'`
-**Cause**: The address information for the 'azure' remote is incorrect.
-**Resolution**: Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.
-
----
-**Message**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
-**Cause**: You didn't specify a branch during `git push`, or you haven't set the `push.default` value in `.gitconfig`.
-**Resolution**: Run `git push` again, specifying the master branch. For example:
-
-```bash
-git push azure master
-```
-
----
-**Message**: `src refspec [branchname] does not match any.`
-**Cause**: You tried to push to a branch other than master on the 'azure' remote.
-**Resolution**: Run `git push` again, specifying the master branch. For example:
-
-```bash
-git push azure master
-```
-
----
-**Message**: `RPC failed; result=22, HTTP code = 5xx.`
-**Cause**: This error can happen if you try to push a large git repository over HTTPS.
-**Resolution**: Change the git configuration on the local machine to make the postBuffer bigger
-
-```bash
-git config --global http.postBuffer 524288000
-```
-
----
-**Message**: `Error - Changes committed to remote repository but your web app not updated.`
-**Cause**: You deployed a Node.js app with a _package.json_ file that specifies additional required modules.
-**Resolution**: Look at the 'npm ERR!' error messages before this error for more context on the failure. The following are known causes of this error and the corresponding `npm ERR!` messages:
+|Message|Cause|Resolution
+---|---|---|
+|`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|The app isn't up and running.|Start the app in the Azure portal. Git deployment isn't available when the web app is stopped.|
+|`Couldn't resolve host 'hostname'`|The address information for the 'azure' remote is incorrect.|Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|You didn't specify a branch during `git push`, or you haven't set the `push.default` value in `.gitconfig`.|Run `git push` again, specifying the master branch: `git push azure master`.|
+|`src refspec [branchname] does not match any.`|You tried to push to a branch other than master on the 'azure' remote.|Run `git push` again, specifying the master branch: `git push azure master`.|
+|`RPC failed; result=22, HTTP code = 5xx.`|This error can happen if you try to push a large git repository over HTTPS.|Change the git configuration on the local machine to make the `postBuffer` bigger. For example: `git config --global http.postBuffer 524288000`.|
+|`Error - Changes committed to remote repository but your web app not updated.`|You deployed a Node.js app with a _package.json_ file that specifies additional required modules.|Review the `npm ERR!` error messages before this error for more context on the failure. The following are known causes of this error and the corresponding `npm ERR!` messages:
 
 - **Malformed package.json file**: `npm ERR! Couldn't read dependencies.`
+
 - **Native module doesn't have a binary distribution for Windows**:
-  `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
-  or
-  `npm ERR! [modulename@version] preinstall: \make || gmake\`
+  `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` 
+  or 
+  `npm ERR! [modulename@version] preinstall: \make || gmake\`|
 
 ## Additional resources
 

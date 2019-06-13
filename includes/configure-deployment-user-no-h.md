@@ -14,6 +14,7 @@ FTP and local Git deployment to a web app require a *deployment user*. The deplo
 
 In the Azure Cloud Shell, configure your deployment credentials with the [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) command. Replace \<username> and \<password> in the following command with your new username and password. 
 - The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol. 
+  
 - The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols. 
 
 ```azurecli-interactive
