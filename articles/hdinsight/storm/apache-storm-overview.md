@@ -10,6 +10,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
+#Customer intent: As a developer, I want to understand how Storm on HDInsight is different from Storm on other platforms.
 ---
 
 # What is Apache Storm on Azure HDInsight?
