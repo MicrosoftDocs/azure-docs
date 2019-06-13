@@ -173,6 +173,16 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 | strength | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
 | time | Specifies the absolute duration of a pause in seconds or milliseconds. Examples of valid values are 2s and 500 | Optional |
 
+| Strength | Description |
+|----------|-------------|
+| None, or if no value provided | 0 ms |
+| x-weak | 250 ms |
+| weak | 500 ms |
+| medium | 750 ms |
+| strong | 1000 ms |
+| x-strong | 1250 ms |
+
+
 **Example**
 
 ```xml
