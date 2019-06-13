@@ -53,9 +53,9 @@ Next, to get an access token, your code calls a local metadata service that's av
 
 Before you start coding you need to create some resources, put a secret into your key vault, and assign permissions.
 
-### Log in to Azure
+### Sign in to Azure
 
-To log in to Azure by using the Azure CLI, enter:
+To sign in to Azure by using the Azure CLI, enter:
 
 ```azurecli
 az login
@@ -106,7 +106,7 @@ Create a virtual machine by using one of the following methods:
 * [The Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
 ### Assign an identity to the VM
-Create a system-assigned identity for the virtual machine with the [az vm identity assign]/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
+Create a system-assigned identity for the virtual machine with the [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -130,7 +130,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ### Sign in to the virtual machine
 
-To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
 ## Set up the console app
 
