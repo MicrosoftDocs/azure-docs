@@ -94,7 +94,7 @@ spec:
         operator: Exists
         effect: NoSchedule
       containers:
-      - image: nvidia/k8s-device-plugin:1.0.0-beta
+      - image: nvidia/k8s-device-plugin:1.11
         name: nvidia-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false
