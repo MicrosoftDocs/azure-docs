@@ -151,13 +151,13 @@ You can avoid these issues by obtaining a version-specific link to AzCopy. That 
 
 To obtain the link, run this command:
 
-**Linux**
+### Linux
 
 ```
 curl -v https://aka.ms/downloadazcopy-v10-linux
 ```
 
-**Windows**
+### Windows
 
 ```
 (curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent
@@ -165,9 +165,9 @@ curl -v https://aka.ms/downloadazcopy-v10-linux
 
 The Url appears in the output of this command.
 
-Your script can then download AzCopy by using the version-specific URL. 
+Your script can then download AzCopy by using the version-specific URL.
 
-**Linux**
+### Linux
 
 ```
 wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz
@@ -178,7 +178,8 @@ tar -xf azcopyv10.tar --strip-components=1
 > [!NOTE]
 > `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
 
-**Windows**
+### Windows
+
 ```
 Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip
 <<Unzip here>>
