@@ -56,9 +56,9 @@ Scopes are usually of the form `resourceURI/scopeName`. For Microsoft Graph, the
 
 During app registration, you'll need to define the following parameters:
 
-- One resource URI - By default the application registration portal recommends that you to use `api://{clientId}`. This resource URI is unique, but it's not human readable. You can change it, but make sure that it's unique.
-- One or several **scopes** (that client applications will refer to as **delegated permissions** for your Web API)
-- One or several **app roles** (that client applications will refer to as **application permissions** for your Web API)
+- The resource URI - By default the application registration portal recommends that you to use `api://{clientId}`. This resource URI is unique, but it's not human readable. You can change it, but make sure that it's unique.
+- One or more **scopes** (to client applications, they will show up as **delegated permissions** for your Web API)
+- One or more **app roles** (to client applications, they will show up as **application permissions** for your Web API)
 
 The scopes are also displayed on the consent screen that's presented to end users who use your application. Therefore, you'll need to provide the corresponding strings that describe the scope:
 
@@ -84,15 +84,15 @@ The scopes are also displayed on the consent screen that's presented to end user
 
 In this paragraph, you'll learn how to register your protected Web API so that it can be called securely by daemon applications:
 
-- you' statuill need to expose application permissions
-- tenant admins may require AAD to acquire tokens for your Web App only for registered applications;
+- you'll need to expose **application permissions**. You will only declare application permissions as daemon applications do not interact with users and therefore delegated permissions would not make sense.
+- tenant admins may require Azure AD to issue tokens for your Web App to only applications that have registered that they want to access one of the Web API apps permissions.
 
 #### How to expose application permissions (app roles)
 
 To Expose application permissions, you'll need to edit the manifest.
 
 1. In the application registration for your application, click **Manifest**.
-1. Edit the manifest by locating the `appRoles` setting and adding one or several application roles. The role definition is provided in the JSON block below.  Leave the `allowedMemberTypes` to "Application" only.
+1. Edit the manifest by locating the `appRoles` setting and adding one or several application roles. The role definition is provided in the sample JSON block below.  Leave the `allowedMemberTypes` to "Application" only. Please make sure that the **id** is a unique guid and **displayName** and **Value** don't contain any spaces.
 1. Save the manifest.
 
 The content of `appRoles` should be the following (the `id` can be any unique GUID)
@@ -114,7 +114,7 @@ The content of `appRoles` should be the following (the `id` can be any unique GU
 
 #### How to ensure that Azure AD issues tokens for your Web API only to allowed clients
 
-The Web API tests for the app role (that's the developer way of doing it). But you can even ask Azure Active Directory to issue a token for your Web API only to applications that were approved by the tenant admin. To add this additional security:
+The Web API checks for the app role (that's the developer way of doing it). But you can even configure Azure Active Directory to issue a token for your Web API only to applications that were approved by the tenant admin to access your API. To add this additional security:
 
 1. On the app **Overview** page for your app registration, select the hyperlink with the name of your application in **Managed application in local directory**. The title for this field can be truncated. You could, for instance, read: `Managed application in ...`
 
@@ -127,9 +127,9 @@ The Web API tests for the app role (that's the developer way of doing it). But y
 
    > [!IMPORTANT]
    >
-   > By setting **User assignment required?** to **Yes**, AAD will check the app role assignments of the clients when they request an access token for the Web API. If the client was not be assigned to any AppRoles, AAD would just return `invalid_client: AADSTS501051: Application xxxx is not assigned to a role for the xxxx`
+   > By setting **User assignment required?** to **Yes**, AAD will check the app role assignments of the clients when they request an access token for the Web API. If the client was not be assigned to any AppRoles, AAD would just return the following error: `invalid_client: AADSTS501051: Application xxxx is not assigned to a role for the xxxx`
    >
-   > If you keep **User assignment required?** to **No**, <span style='background-color:yellow; display:inline'>Azure AD  won’t check the app role assignments when a client requests an access token to your Web API</span>. Therefore, any daemon client (that is any client using client credentials flow) would still be able to obtain the access token for the  Web API just by specifying its audience. Any application, would be able to access the API without having to request permissions for it. Now this is not then end of it, as your Web API can always, as is done in this sample, verify that the application has the right role (which was authorized by the tenant admin), by validating that the access token has a `roles` claim, and the right value for this claim (in our case `access_as_application`).
+   > If you keep **User assignment required?** to **No**, <span style='background-color:yellow; display:inline'>Azure AD  won’t check the app role assignments when a client requests an access token for your Web API</span>. Therefore, any daemon client (that is any client using client credentials flow) would still be able to obtain an access token for the API just by specifying its audience. Any application, would be able to access the API without having to request permissions for it. Now, this is not then end of it, as your Web API can always, as explained in the next section, verify that the application has the right role (which was authorized by the tenant admin), by validating that the access token has a `roles` claim, and the right value for this claim (in our case `access_as_application`).
 
 1. Select **Save**
 
