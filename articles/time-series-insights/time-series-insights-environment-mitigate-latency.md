@@ -37,11 +37,11 @@ You are most likely to experience latency and throttling when you:
 
 Alerts can help you to help diagnose and mitigate latency issues caused by your environment.
 
-1. In the Azure portal, click **Metrics**.
+1. In the Azure portal, select **Metrics**.
 
    [![Metrics](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-1. Click **Add metric alert**.  
+1. Select **Add metric alert**.  
 
    [![Add metric alert](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
