@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial - Secure a Windows web server with SSL certificates in Azure | Microsoft Docs
 description: In this tutorial, you learn how to use Azure PowerShell to secure a Windows virtual machine that runs the IIS web server with SSL certificates stored in Azure Key Vault.
 services: virtual-machines-windows
@@ -55,7 +55,7 @@ $location = "East US"
 New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Next, create a Key Vault with [New-​Azure​Rm​Key​Vault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). Each Key Vault requires a unique name, and should be all lower case. Replace `mykeyvault` in the following example with your own unique Key Vault name:
+Next, create a Key Vault with [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). Each Key Vault requires a unique name, and should be all lower case. Replace `mykeyvault` in the following example with your own unique Key Vault name:
 
 ```azurepowershell-interactive
 $keyvaultName="mykeyvault"
@@ -66,7 +66,7 @@ New-AzKeyVault -VaultName $keyvaultName `
 ```
 
 ## Generate a certificate and store in Key Vault
-For production use, you should import a valid certificate signed by trusted provider with [Import-​Azure​Key​Vault​Certificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate). For this tutorial, the following example shows how you can generate a self-signed certificate with [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) that uses the default certificate policy from [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
+For production use, you should import a valid certificate signed by trusted provider with [Import-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azkeyvaultcertificate). For this tutorial, the following example shows how you can generate a self-signed certificate with [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultcertificate) that uses the default certificate policy from [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy). 
 
 ```azurepowershell-interactive
 $policy = New-AzKeyVaultCertificatePolicy `
