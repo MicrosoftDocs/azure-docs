@@ -230,5 +230,26 @@ Follow these instructions to capture troubleshooting logs for your framework.
 
 4. Revert these changes when you are finished.
 
+
+## <a name="PerfView"></a> Collect logs with PerfView
+[PerfView](https://github.com/Microsoft/perfview) is a free diagnostics and performance-analysis tool that help isolate CPU, memory, and other issues by collecting and visualizing diagnostics information from many sources.
+
+The Application Insights SDK log EventSource self-troubleshooting logs that can be captured by PerfView.
+
+To collect logs, download PerfView and run this command:
+```cmd
+PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+```
+
+You can modify these parameters as needed.
+
+- **MaxCollectSec**. Set this parameter to prevent PerfView from running indefinitely and affecting the performance of your server.
+- **OnlyProviders**. Set this paramater to only collect logs from the SDK. You can customize this list based on your specific investigations. 
+
+
+For more information,
+- [Recording performance traces with PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+- [Application Insights Event Sources](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+
 ## Still not working...
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

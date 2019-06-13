@@ -43,19 +43,7 @@ To complete this tutorial, you need the following:
 
 The Visual Studio Tools for Xamarin are required to open the solution, see the [Xamarin installation instructions][Install Xamarin]. If the tools are already installed, follow these steps to download and open the solution:
 
-### Visual Studio
-
-1. Go to the [Azure portal](https://portal.azure.com/).
-
-2. On the settings blade for your Mobile App, click **Quickstart** (under Deployment) > **Xamarin.Forms**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.
-
-   This action downloads a project that contains a client application that's connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
-
-3. Extract the project that you downloaded, and then open it in Visual Studio.
-
-4. Follow the instructions below to run the Android or Windows projects; and if there is a networked Mac computer available, the iOS project.
-
-### Visual Studio for Mac
+### Visual Studio (Windows and Mac)
 
 1. Go to the [Azure portal](https://portal.azure.com/) and navigate to the mobile app that you created. On the `Overview` blade, look for the URL which is the public endpoint for your mobile app. Example - the sitename for my app name "test123" will be https://test123.azurewebsites.net.
 

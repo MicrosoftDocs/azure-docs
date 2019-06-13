@@ -22,6 +22,9 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 1. Select the language for your function app project. In this article, JavaScript is used.
     ![Choose project language](./media/functions-create-function-app-vs-code/create-function-app-project-language.png)
 
+1. Select a template for the first function for your project. Provide a name for your function.
+    ![Choose first function](./media/functions-create-function-app-vs-code/create-function-app-project-first-function.png)
+
 1. When prompted, choose **Add to workspace**.
 
 Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../articles/azure-functions/functions-host-json.md) and [local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.

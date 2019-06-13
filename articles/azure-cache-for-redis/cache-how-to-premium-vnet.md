@@ -127,7 +127,7 @@ There are eight inbound port range requirements. Inbound requests in these range
 
 | Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) | (Redis subnet), Virtual Network, Azure Load Balancer |
+| 6379, 6380 |Inbound |TCP |Client communication to Redis, Azure load balancing | (Redis subnet) | (Redis subnet), Virtual Network, Azure Load Balancer <sup>2</sup> |
 | 8443 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 | 8500 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) |Azure Load Balancer |
 | 10221-10231 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet), Azure Load Balancer |
@@ -135,6 +135,8 @@ There are eight inbound port range requirements. Inbound requests in these range
 | 15000-15999 |Inbound |TCP |Client communication to Redis Clusters, Azure load Balancing | (Redis subnet) |Virtual Network, Azure Load Balancer |
 | 16001 |Inbound |TCP/UDP |Azure load balancing | (Redis subnet) |Azure Load Balancer |
 | 20226 |Inbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
+
+<sup>2</sup> You can use the Service Tag 'AzureLoadBalancer' (Resource Manager) (or 'AZURE_LOADBALANCER' for classic) for authoring the NSG rules.
 
 #### Additional VNET network connectivity requirements
 

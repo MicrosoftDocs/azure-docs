@@ -27,13 +27,15 @@ Additional information on RHEL images in Azure, including publishing and retenti
 Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
 
 ## Important information about Azure RHUI
-* Azure RHUI currently supports only the latest minor release in each RHEL family (RHEL6 or RHEL7). To upgrade an RHEL VM instance connected to RHUI to the latest minor version, run `sudo yum update`.
+* Azure RHUI is the update infrastructure that supports all RHEL PAYG VMs created in Azure. This does not preclude you from registering your PAYG RHEL VMs with Subscription Manager or Satellite or other source of updates, but doing so with a PAYG VM will result in indirect double-billing. See the following point for details.
+* Access to the Azure-hosted RHUI is included in the RHEL PAYG image price. If you unregister a PAYG RHEL VM from the Azure-hosted RHUI that does not convert the virtual machine into a bring-your-own-license (BYOL) type of VM. If you register the same VM with another source of updates, you might incur _indirect_ double charges. You're charged the first time for the Azure RHEL software fee. You're charged the second time for Red Hat subscriptions that were purchased previously. If you consistently need to use an update infrastructure other than Azure-hosted RHUI, consider registering to use the [RHEL BYOS images](https://aka.ms/rhel-byos).
+* The default behavior of RHUI is to upgrade your RHEL VM to the latest minor version when you run `sudo yum update`.
 
     For example, if you provision a VM from an RHEL 7.4 PAYG image and run `sudo yum update`, you end up with an RHEL 7.6 VM (the latest minor version in the RHEL7 family).
 
     To avoid this behavior, you can switch to [Extended Update Support channels](#rhel-eus-and-version-locking-rhel-vms) or build your own image as described in the [Create and upload a Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article. If you build your own image, you need to connect it to a different update infrastructure ([directly to Red Hat content delivery servers](https://access.redhat.com/solutions/253273) or a [Red Hat Satellite server](https://access.redhat.com/products/red-hat-satellite)).
 
-* Access to the Azure-hosted RHUI is included in the RHEL PAYG image price. If you unregister a PAYG RHEL VM from the Azure-hosted RHUI that does not convert the virtual machine into a bring-your-own-license (BYOL) type of VM. If you register the same VM with another source of updates, you might incur _indirect_ double charges. You're charged the first time for the Azure RHEL software fee. You're charged the second time for Red Hat subscriptions that were purchased previously. If you consistently need to use an update infrastructure other than Azure-hosted RHUI, consider registering to use the [RHEL BYOS images](https://aka.ms/rhel-byos).
+
 
 * RHEL SAP PAYG images in Azure (RHEL for SAP, RHEL for SAP HANA, and RHEL for SAP Business Applications) are connected to dedicated RHUI channels that remain on the specific RHEL minor version as required for SAP certification.
 
@@ -41,6 +43,9 @@ Information on Red Hat support policies for all versions of RHEL can be found on
 
 ## RHEL EUS and version-locking RHEL VMs
 Some customers may want to lock their RHEL VMs to a certain RHEL minor release. You can version-lock your RHEL VM to a specific minor version by updating the repositories to point to the Extended Update Support repositories. You can also undo the EUS version-locking operation.
+
+>[!NOTE]
+> EUS is not supported on RHEL Extras. This means that if you are installing a package that is usually available from the RHEL Extras channel, you will not be able to do so while on EUS. The Red Hat Extras Product Life Cycle is detailed [here](https://access.redhat.com/support/policy/updates/extras/).
 
 At the time of this writing, EUS support has ended for RHEL <= 7.3. See the "Red Hat Enterprise Linux Longer Support Add-Ons" section in the [Red Hat documentation](https://access.redhat.com/support/policy/updates/errata/) for more details.
 * RHEL 7.4 EUS support ends August 31, 2019

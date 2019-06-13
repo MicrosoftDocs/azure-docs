@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/01/2019
 ms.author: jingwang
 
 ---
@@ -361,6 +361,9 @@ GO
 
 ### Azure SQL Database as the sink
 
+> [!TIP]
+> Learn more on the supported write behaviors, configurations and best practice from [Best practice for loading data into Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
+
 To copy data to Azure SQL Database, set the **type** property in the Copy Activity sink to **SqlSink**. The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
@@ -369,14 +372,11 @@ To copy data to Azure SQL Database, set the **type** property in the Copy Activi
 | writeBatchSize | Number of rows to inserts into the SQL table **per batch**.<br/> The allowed value is **integer** (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. | No |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Database. It's only invoked once per copy run. Use this property to clean up the preloaded data. | No |
-| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. An example is to do upserts or transform by using your own business logic. <br/><br/>This stored procedure is **invoked per batch**. For operations that only run once and have nothing to do with source data, use the `preCopyScript` property. Example operations are delete and truncate. | No |
+| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is **invoked per batch**. For operations that only run once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. | No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | sqlWriterTableType | Specify a table type name to be used in the stored procedure. Copy Activity makes the data being moved available in a temporary table with this table type. Stored procedure code can then merge the data being copied with existing data. | No |
 
-> [!TIP]
-> When you copy data to Azure SQL Database, Copy Activity appends data to the sink table by default. To do an upsert or additional business logic, use the stored procedure in **SqlSink**. Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stored-procedure-for-sql-sink).
-
-#### Append data example
+**Example 1: append data**
 
 ```json
 "activities":[
@@ -408,7 +408,7 @@ To copy data to Azure SQL Database, set the **type** property in the Copy Activi
 ]
 ```
 
-#### Invoke a stored procedure during copy for upsert example
+**Example 2: invoke a stored procedure during copy**
 
 Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
@@ -447,84 +447,69 @@ Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stor
 ]
 ```
 
-## Identity columns in the target database
+## Best practice for loading data into Azure SQL Database
 
-This section shows you how to copy data from a source table without an identity column to a destination table with an identity column.
+When you copy data into Azure SQL Database, you may require different write behavior:
 
-#### Source table
+- **[Append](#append-data)**: my source data only has new records;
+- **[Upsert](#upsert-data)**: my source data has both inserts and updates;
+- **[Overwrite](#overwrite-entire-table)**: I want to reload entire dimension table each time;
+- **[Write with custom logic](#write-data-with-custom-logic)**: I need extra processing before the final insertion into the destination table.
+
+Refer to the respectively sections on how to configure in ADF and the best practices.
+
+### Append data
+
+This is the default behavior of this Azure SQL Database sink connector, and ADF do **bulk insert** to write to your table efficiently. You can simply configure the source and sink accordingly in Copy activity.
+
+### Upsert data
+
+**Option I** (suggested especially when you have large data to copy): the **most performant approach** to do upsert is the following: 
+
+- Firstly, leverage a [database scoped temporary table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) to bulk load all records using Copy activity. As operations against database scoped temporary tables are not logged, you can load millions of records in seconds.
+- Execute a Stored Procedure activity in ADF to apply a [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (or INSERT/UPDATE) statement, and use the temp table as source to perform all updates or inserts as a single transaction, reducing the amount of roundtrips and log operations. At the end of the Stored Procedure activity , temp table can be truncated to be ready for the next upsert cycle. 
+
+As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity** on success. The former copies data from your source store into an Azure SQL Database temporary table, say "**##UpsertTempTable**" as table name in dataset, then the latter invokes a Stored Procedure to merge source data from the temp table into target table, and clean up temp table.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+In your database, define a Stored Procedure with MERGE logic, like the following, which is pointed to from the above Stored Procedure activity. Assuming target **Marketing** table with three columns: **ProfileID**, **State**, and **Category**, and do the upsert based on the **ProfileID** column.
 
 ```sql
-create table dbo.SourceTbl
-(
-       name varchar(100),
-       age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+	MERGE TargetTable AS target
+	USING ##UpsertTempTable AS source
+	ON (target.[ProfileID] = source.[ProfileID])
+	WHEN MATCHED THEN
+		UPDATE SET State = source.State
+    WHEN NOT matched THEN
+    	INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-#### Destination table
+**Option II:** alternatively, you can choose to [Invoke stored procedure within Copy activity](#invoking-stored-procedure-for-sql-sink), while note this approach is executed for each row in the source table instead of leveraging bulk insert as the default approach in Copy activity, thus it doesn't fit for large scale upsert.
 
-```sql
-create table dbo.TargetTbl
-(
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
-)
-```
+### Overwrite entire table
 
-> [!NOTE]
-> The target table has an identity column.
+You can configure **preCopyScript** property in Copy activity sink, in which case for each Copy activity run, ADF executes the script first, then run the copy to insert the data. For example, to overwrite the entire table with the latest data, you can specify a script to first delete all records before bulk-loading the new data from the source.
 
-#### Source dataset JSON definition
+### Write data with custom logic
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
-
-#### Destination dataset JSON definition
-
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
-
-> [!NOTE]
-> Your source and target table have different schema. 
-
-The target has an additional column with an identity. In this scenario, you must specify the **structure** property in the target dataset definition, which doesn’t include the identity column.
+Similar as described in [Upsert data](#upsert-data) section, when you need to apply extra processing before the final insertion of source data into the destination table, you can a) for large scale, load to a database scoped temporary table then invoke a stored procedure, or b) invoking a stored procedure during copy.
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> Invoke stored procedure from SQL sink
 
-When you copy data into Azure SQL Database, you can also configure and invoke a user-specified stored procedure  with additional parameters.
+When you copy data into Azure SQL Database, you can also configure and invoke a user-specified stored procedure with additional parameters.
 
-You can use a stored procedure when built-in copy mechanisms don't serve the purpose. They're typically used when an upsert, insert plus update, or extra processing must be done before the final insertion of source data into the destination table. Some extra processing examples are merge columns, look up additional values, and insertion into more than one table.
+> [!TIP]
+> Invoking stored procedure processes the data row-by-row instead of bulk operation, which is not suggested for large scale copy. Learn more from [Best practice for loading data into Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
+
+You can use a stored procedure when built-in copy mechanisms don't serve the purpose, e.g. apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are merge columns, look up additional values, and insertion into more than one table.
 
 The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
 

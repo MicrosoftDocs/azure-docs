@@ -68,7 +68,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 ## Next steps
 
-In this tutorial, you learned how to create an app group, populate it with RemoteApp programs, and assign users to the app group. To learn more about how to sign in to Windows Virtual Desktop, continue to these how-to articles:
+In this tutorial, you learned how to create an app group, populate it with RemoteApp programs, and assign users to the app group. To learn how to create a validation host pool, see the following tutorial. You can use a validation host pool to monitor service updates before rolling them out to your production environment.
 
-- [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
-- [Connect to the Windows Virtual Desktop Preview web client](connect-web.md)
+> [!div class="nextstepaction"]
+> [Create a host pool to validate service updates](./create-validation-host-pool.md)
