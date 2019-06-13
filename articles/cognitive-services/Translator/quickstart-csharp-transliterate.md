@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 06/13/2019
 ms.author: erhopf
 ---
 
@@ -85,7 +85,7 @@ public class TransliterationResult
 
 ## Create a function to transliterate text
 
-Within the `Program` class, create an asynchronous function called `TransliterateTextRequest`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
+Within the `Program` class, create an asynchronous function called `TransliterateTextRequest()`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
 
 ```csharp
 static public async Task TransliterateTextRequest(string subscriptionKey, string host, string route, string inputText)

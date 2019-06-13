@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 06/13/2019
 ms.author: erhopf
 ---
 
 # Quickstart: Use the Translator Text API to determine sentence length using C#
 
-In this quickstart, you'll learn how to determine sentence lengths using .NET Core and the Translator Text API.
+In this quickstart, you'll learn how to determine sentence lengths using .NET Core, C# 7.1 or later, and the Translator Text API.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
@@ -91,7 +91,7 @@ public class DetectedLanguage
 
 ## Create a function to determine sentence length
 
-Within the `Program` class, create a function called `BreakSentence`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
+Within the `Program` class, create a function called `BreakSentence()`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
 
 ```csharp
 static public async Task BreakSentenceRequest(string subscriptionKey, string host, string route, string inputText)
@@ -103,7 +103,7 @@ static public async Task BreakSentenceRequest(string subscriptionKey, string hos
 }
 ```
 
-## Serialize the Break Sentence request
+## Serialize the break sentence request
 
 Next, you need to create and serialize the JSON object that includes the text. Keep in mind, you can pass more than one object in the `body` array.
 
