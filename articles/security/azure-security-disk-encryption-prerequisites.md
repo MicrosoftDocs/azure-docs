@@ -35,7 +35,7 @@ For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before yo
 ## <a name="bkmk_LinuxPrereq"></a> Additional prerequisites for Linux IaaS VMs 
 
 - Azure Disk Encryption for Linux requires 7 GB of RAM on the VM to enable OS disk encryption on [supported images](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Once the OS disk encryption process is complete, the VM can be configured to run with less memory.
-- Azure Disk Encryption requires the vfat module to be present on the system.  Removing or disabling this module from the default image will prevent the system from being able to read the key volume and obtain the key needed to unlock the disks on subsequent reboots. System hardening steps that remove the vfat module from the system are not compatible with Azure Disk Encryption. 
+- Azure Disk Encryption requires the dm-crypt and vfat modules to be present on the system. Removing or disabling vfat from the default image will prevent the system from reading the key volume and obtaining the key needed to unlock the disks on subsequent reboots. System hardening steps that remove the vfat module from the system are not compatible with Azure Disk Encryption. 
 - Before enabling encryption, the data disks to be encrypted need to be properly listed in /etc/fstab. Use a persistent block device name for this entry, as device names in the "/dev/sdX" format can't be relied upon to be associated with the same disk across reboots, particularly after encryption is applied. For more detail on this behavior, see: [Troubleshoot Linux VM device name changes](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Make sure the /etc/fstab settings are configured properly for mounting. To configure these settings, run the mount -a command or reboot the VM and trigger the remount that way. Once that is complete, check the output of the lsblk command to verify that the drive is still mounted. 
   - If the /etc/fstab file doesn't mount the drive properly before enabling encryption, Azure Disk Encryption won't be able to mount it properly.
@@ -57,9 +57,9 @@ An example of commands that can be used to mount the data disks and create the n
 **Group Policy:**
  - The Azure Disk Encryption solution uses the BitLocker external key protector for Windows IaaS VMs. For domain joined VMs, don't push any group policies that enforce TPM protectors. For information about the group policy for “Allow BitLocker without a compatible TPM,” see [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  BitLocker policy on domain joined virtual machines with custom group policy must include the following setting: [Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption will fail when custom group policy settings for BitLocker are incompatible. On machines that didn't have the correct policy setting, apply the new policy, force the new policy to update (gpupdate.exe /force), and then restarting may be required.
+-  BitLocker policy on domain joined virtual machines with custom group policy must include the following setting: [Configure user storage of BitLocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption will fail when custom group policy settings for BitLocker are incompatible. On machines that didn't have the correct policy setting, apply the new policy, force the new policy to update (gpupdate.exe /force), and then restarting may be required.
 
-- Azure Disk Encryption will fail if domain level group policy blocks the AES-CBC algorithm, which is used by Bitlocker.
+- Azure Disk Encryption will fail if domain level group policy blocks the AES-CBC algorithm, which is used by BitLocker.
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -239,7 +239,7 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 3. Select **Enable access to Azure Virtual Machines for deployment** and/or **Enable Access to Azure Resource Manager for template deployment**, if needed. 
 4. Click **Save**.
 
-![Azure key vault advanced access policies](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
+    ![Azure key vault advanced access policies](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 
 
 ## <a name="bkmk_KEK"></a> Set up a key encryption key (optional)
