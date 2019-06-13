@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
 
