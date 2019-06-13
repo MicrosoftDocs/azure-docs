@@ -1,6 +1,6 @@
 ---
-title: Build secure workstations - Azure Active Directory
-description: Learn how to create secure, Azure-managed workstations and understand why they're important.
+title: Understand secure workstations - Azure Active Directory
+description: Learn about secure, Azure-managed workstations and understand why they're important.
 
 services: active-directory
 ms.service: active-directory
@@ -18,20 +18,20 @@ ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ---
 
-# Build secure, Azure-managed workstations
+# Understand secure, Azure-managed workstations
 
-Secured, isolated workstations are critically important to maintain the security of sensitive roles such as administrators, developers, and critical service operators. Many other security controls and assurances can fail or be ineffective if client workstation security is compromised.
+Secured, isolated workstations are critically important for the security of sensitive roles like administrators, developers, and critical service operators. If client workstation security is compromised, many security controls and assurances can fail or be ineffective .
 
-This document covers what you need to build a secure client workstation. The article also contains detailed instructions to set up initial security controls. This type of workstations at times is called a privileged access workstation (PAW), which this reference is used, and built upon. The guidance however looks to cloud-based technology to manage the service, and introduces security capabilities introduced starting in Windows 10RS5, Microsoft Defender ATP, Azure Active Directory, and Intune.
+This document explains what you need for building a secure workstation, often known as a privileged access workstation (PAW). The article also contains detailed instructions to set up initial security controls. This guidance describes how cloud-based technology can manage the service. It's an approach that relies on security capabilities introduced in Windows 10RS5, Microsoft Defender ATP, Azure Active Directory, and Intune.
 
 > [!NOTE]
-> This article explains the concept of secure workstation and its importance. If you are already familiar with the concept and would like to skip to deployment, please read [How to Deploy a Secure Workstation](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
+> This article explains the concept of a secure workstation and its importance. If you are already familiar with the concept and would like to skip to deployment, visit [Deploy a Secure Workstation](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
 
-## Why securing workstation access is important
+## Why secure workstation access is important
 
-The rapid adoption of cloud services and the ability to work from anywhere has created a new method for exploitation. Attackers are exploiting weak security controls on devices where administrators work and are able to gain access to privileged resources.
+The rapid adoption of cloud services and the ability to work from anywhere has created a new exploitation method. By exploiting weak security controls on devices where administrators work, attackers can gain access to privileged resources.
 
-As documented in the [Verizon Threat report](https://enterprise.verizon.com/resources/reports/dbir/), and [Security Intelligence Report](https://aka.ms/sir) privileged misuse, and supply chain attacks are among the top five mechanisms used to breach organizations, and the second most commonly detected tactic in incidents reported in 2018.
+Privileged misuse and supply chain attacks are among the top five methods that attackers use to breach organizations. The [Verizon Threat report](https://enterprise.verizon.com/resources/reports/dbir/), and [Security Intelligence Report](https://aka.ms/sir) They are also the second most commonly detected tactics in incidents reported in 2018.
 
 Most attackers follow the path below:
 
