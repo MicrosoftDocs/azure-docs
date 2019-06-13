@@ -27,9 +27,9 @@ This article helps you complete these tasks:
 
 You need these things to complete the migration.
 
-* An Azure Storage account that **doesn't** have hierarchical namespaces enabled on it.
+* An Azure Storage account that **doesn't** have a hierarchical namespace.
 
-* If you want to migrate your data to Azure Data Lake storage Gen2, then you'll need to create a storage account, and then enable the **hierarchical namespace** feature on that account.
+* An Azure Storage account that **does** have a hierarchical namespace.
 
 * An on-premises Hadoop cluster that contains your source data.
 
@@ -183,16 +183,29 @@ You already have the data into your Azure Storage account. Now you will copy the
 
 ### Copy data to the Azure Data Lake Storage Gen 2 account
 
-You can copy data by using Azure Data Factory, or by using your Azure-based Hadoop cluster. 
+You can copy data by using Azure Data Factory, or by using your Azure-based Hadoop cluster.
 
-- To use Azure Data Factory, see [Azure Data Factory to move data to ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Make sure to specify **Azure Blob Storage** as the source.
+* To use Azure Data Factory, see [Azure Data Factory to move data to ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Make sure to specify **Azure Blob Storage** as the source.
 
-- To use your Azure-based Hadoop cluster, run this DistCp command:
+* To use your Azure-based Hadoop cluster, run this DistCp command:
 
     ```bash
-    
-    hadoop distcp -Dfs.azure.account.key.{source_account}.dfs.windows.net={source_account_key} abfs://{source_container} @{source_account}.dfs.windows.net/[path] abfs://{dest_container}@{dest_account}.dfs.windows.net/[path]
+    hadoop distcp -Dfs.azure.account.key.<source_account>.dfs.windows.net=<source_account_key> abfs://<source_container> @<source_account>.dfs.windows.net/<source_path> abfs://<dest_container>@<dest_account>.dfs.windows.net/<dest_path>
     ```
+
+    * Replace the `<source_account>` placeholder with the name of the storage account that contains the data.
+
+    * Replace the `<source_account_key>` placeholder with the access key of the storage account that contains the data.
+
+    * Replace the `<source_container>` placeholder with the name of the container that contains the data.
+
+    * Replace the `<source_path>` placeholder with the directory path to the data that you want to copy.
+
+    * Replace the `<dest_container>` placeholder with the name of the container to you will copy the data to.
+
+    * Replace the `<dest_account>` placeholder with the name of the storage account that you are copying the data to.
+
+    * Replace the `<dest_path>` placeholder with the path to the directory that will contain the data.
 
     This command copies both data and metadata from your storage account into your Data Lake Storage Gen2 storage account.
 
@@ -235,10 +248,11 @@ This command generates a list of copied files with their permissions.
 
 ### Apply permissions to copied files and apply identity mappings
 
+First, download the `copy-acls.py` script. See the [Download helper scripts and set up your edge node to run them](#download-helper-scripts) section of this article.
+
 Run this command to apply permissions to the data that you copied into the Data Lake Storage Gen2 account:
 
 ```bash
-
 ./copy-acls.py -s ./filelist.json -i ./id_map.json  -A <storage-account-name> -C <container-name> --dest-spn-id <application-id>  --dest-spn-secret <client-secret>
 ```
 
@@ -251,6 +265,8 @@ Run this command to apply permissions to the data that you copied into the Data 
 ## Appendix: Split data across multiple Data Box devices
 
 Before you move your data onto a Data Box device, you'll need to download some helper scripts, ensure that your data is organized to fit onto a Data Box device, and exclude any unnecessary files.
+
+<a id="download-helper-scripts" />
 
 ### Download helper scripts and set up your edge node to run them
 
