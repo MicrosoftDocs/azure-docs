@@ -309,8 +309,6 @@
         href: coupa-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
-      - name: CyberArk SAML Authentication
-        href: cyberark-saml-authentication-tutorial.md
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
     - name: D - E
@@ -483,8 +481,6 @@
         href: github-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
-      - name: GlobalOne
-        href: globalone-tutorial.md
       - name: GoodPractice Toolkit
         href: goodpractice-toolkit-tutorial.md
       - name: GoToMeeting
