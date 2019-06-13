@@ -149,17 +149,21 @@ First, log in to your container registry with [az acr login][az-acr-login]:
 az acr login --name $ACR_NAME
 ```
 
-Now, run the container locally with `docker run`. Replace **\<run-id\>** with the Run ID found in the output from the previous step (for example, "da6").
+Now, run the container locally with `docker run`. Replace **\<run-id\>** with the Run ID found in the output from the previous step (for example, "da6"). This example names the container `myapp` and includes the `--rm` parameter to remove the container when you stop it.
 
-```azurecli
-docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
+```bash
+docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
 Navigate to `http://localhost:8080` in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
 
 ![Screenshot of sample application rendered in browser][base-update-01]
 
-To stop and remove the container, press `Control+C`.
+To stop and remove the container, run the following command:
+
+```bash
+docker stop myapp
+```
 
 ## List the builds
 
@@ -232,7 +236,7 @@ If you'd like to perform the following optional step of running the newly built 
 If you're working locally (not in the Cloud Shell), and you have Docker installed, run the new application image once its build has completed. Replace `<run-id>` with the RUN ID you obtained in the previous step. If you're using the Cloud Shell, skip this section (Cloud Shell does not support `docker run`).
 
 ```bash
-docker run -d -p 8081:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
+docker run -d -p 8081:80 --name updatedapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
 Navigate to http://localhost:8081 in your browser, and you should see the updated Node.js version number (with the "a") in the web page:
@@ -241,7 +245,11 @@ Navigate to http://localhost:8081 in your browser, and you should see the update
 
 What's important to note is that you updated your **base** image with a new version number, but the last-built **application** image displays the new version. ACR Tasks picked up your change to the base image, and rebuilt your application image automatically.
 
-To stop and remove the container, press `Control+C`.
+To stop and remove the container, run the following command:
+
+```bash
+docker stop updatedapp
+```
 
 ## Clean up resources
 
