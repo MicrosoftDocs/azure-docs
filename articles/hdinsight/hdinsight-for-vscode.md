@@ -54,7 +54,7 @@ Complete the following steps to open a work folder, and create a file in Visual 
 
    ![New file](./media/hdinsight-for-vscode/new-file.png)
 
-3. Name the new file with either the .hql (Hive queries) or the .py (Spark script) file extension.  This example uses **HelloWorld.hql**.
+3. Name the new file with either the `.hql` (Hive queries) or the `.py` (Spark script) file extension.  This example uses **HelloWorld.hql**.
 
 ## Set the Azure environment
 
@@ -358,11 +358,11 @@ You can preview Hive Table in your cluster(s) directly through **Azure HDInsight
 
 5. Right-click on the Hive Table, e.g hivesampletable. Select **Preview**. 
 
-   ![hdinsight for vscode preview hive table](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
+   ![HDInsight for vscode preview hive table](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
 6. The **Preview Results** window will be opened.
 
-   ![hdinsight for vscode preview results window](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
+   ![HDInsight for vscode preview results window](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
    
 - **RESULTS** panel
 
@@ -377,7 +377,7 @@ You can preview Hive Table in your cluster(s) directly through **Azure HDInsight
 >
 >In Linux, install xclip to enable copy table data.
 >
->![hdinsight for vscode in linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
+>![HDInsight for vscode in linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
 ## Additional features
 
 HDInsight for Visual Studio Code supports the following features:
@@ -392,7 +392,7 @@ HDInsight for Visual Studio Code supports the following features:
 
 ## Reader Only Role
 
-Users with cluster **Reader** **only** **role** can no longer submit job to the HDInsight cluster nor view the Hive database. You need to contact the cluster administrator to upgrade your role to [**HDInsight** **Cluster** **Operator**](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure Portal](https://ms.portal.azure.com/). If you know Ambari credentials, you can manually link the cluster following the instruction below.
+Users with cluster **Reader** **only** **role** can no longer submit job to the HDInsight cluster nor view the Hive database. You need to contact the cluster administrator to upgrade your role to [**HDInsight** **Cluster** **Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure portal](https://ms.portal.azure.com/). If you know Ambari credentials, you can manually link the cluster following the instruction below.
 
 ### Browse HDInsight Cluster  
 
@@ -431,7 +431,7 @@ When submitting job to an HDInsight cluster with ADLS Gen2, you will be prompted
 
 > [!NOTE]
 > 
->You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
+>You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
 
 ## Unlink cluster
 
@@ -441,7 +441,7 @@ When submitting job to an HDInsight cluster with ADLS Gen2, you will be prompted
 
 3. Review **OUTPUT** view for verification.  
 
-## Logout  
+## Sign out  
 
 From the menu bar navigate to **View** > **Command Palette...**, and then enter **HDInsight: Logout**.  There will be a pop-up in the bottom right-hand corner stating **Logout successfully!**.
 
