@@ -35,7 +35,19 @@ The following table shows offer types and pricing models that can opt in to the 
 
 The CSP partner channel opt-in setting is found in the Marketplace or Storefront tab within the Cloud Partner Portal offer creation experience.
 
-![CSP opt-in experience](media/marketplace-publishers-guide/csp-opt-in.png)
+![CSP opt-in experience in CPP](media/marketplace-publishers-guide/csp-opt-in.png)
+
+As seen below, in Partner Center, publishers can opt-in to make their offers available in the CSP program by checking the box, **Make my offer available in the CSP program**.
+
+![CSP opt-in experience in Partner Center](media/marketplace-publishers-guide/pc-csp-opt-in.png)
+
+## Sharing collateral information with CSPs
+
+ISV collateral information is now available through the CSP channel for VMs and Azure apps in Cloud Partner Portal.  This feature provides an opportunity for publisher information to be optimized, as ISVs can share their collateral information with CSPs specifically.
+
+As seen below, in Cloud Partner Portal, publishers can send their website URL and channel contact information to the CSP channel:
+
+![CSP collateral information](media/marketplace-publishers-guide/cpp-csp-information.png)
 
 ## Next steps
 
