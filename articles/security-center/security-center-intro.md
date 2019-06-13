@@ -135,7 +135,7 @@ recommendations for how to mitigate them.
 
 ### Protect IoT and hybrid cloud workloads (Preview)
 
-Azure Security Center for IoT (Internet of Things) simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. For more information, see [Azure Security Center for IoT (Preview)](https://docs.microsoft.com/en-us/azure/asc-for-iot/).
+Azure Security Center for IoT (Internet of Things) simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. For more information, see [Azure Security Center for IoT (Preview)](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## Get secure faster
 
