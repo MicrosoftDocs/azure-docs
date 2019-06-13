@@ -260,7 +260,7 @@ A graphical representation of the skillset is shown below.
 
 ![Understand a skillset](media/cognitive-search-tutorial-blob/skillset.png "Understand a skillset")
 
-Outputs can be mapped to an index, used as input to a downstream skill, or both as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking.
+Outputs can be mapped to an index, used as input to a downstream skill, or both, as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking.
 
 For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
 
@@ -393,11 +393,9 @@ r = requests.put(endpoint + "/indexers/" + indexer_name, data=json.dumps(indexer
 print(r.status_code)
 ```
 
-The request should return a status code of 201 confirming success.
+The request should return a status code of 201 confirming success. However, the indexer may still be running, and this step can take several minutes to complete. Although the data set is small, analytical skills, such as image analysis, are computationally intensive and take time.
 
-Expect this step to take several minutes to complete. Although the data set is small, analytical skills, such as image analysis, are computationally intensive and take time to complete.
-
-To determine if the indexer is still running, see the script in the next section.
+Use the [Check indexer status](#check-indexer-status) script in the next section to determine when the indexer creation process is complete.
 
 > [!TIP]
 > Creating an indexer invokes the pipeline. If there is a problem accessing the data, mapping inputs and outputs, or with the order of operations, it will appear at this stage. To re-run the pipeline with code or script changes, you may need to delete objects first. For more information, see [Reset and re-run](#reset).
@@ -410,20 +408,28 @@ Also notice the ```"dataToExtract":"contentAndMetadata"``` statement in the conf
 
 When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction":"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
 
+<a name="check-indexer-status"></a>
+
 ## Check indexer status
 
-Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still running, run the following script.
+Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer create has completed, run the following script.
 
 ```python
-#Determine if the indexer is still running
+#Get indexer status
 r = requests.get(endpoint + "/indexers/" + indexer_name + "/status", headers=headers,params=params)
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-The response tells you whether the indexer is running. After indexing is finished, use another HTTP GET to the STATUS endpoint (as above) to see reports of any errors and warnings that occurred during enrichment.  
+In the response, monitor the "lastResult" for its "status" and "endTime" values. When the indexer creation has completed, the status will be set to "success" and an "endTime" will be specified. 
 
-Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status response for verbose information about warnings emitted during indexing.
- 
+Periodically run the script to check for completion. The process may take a few minutes. When the indexer is done, the status response will also include any errors and warnings that occurred during enrichment.
+
+ ![Indexer is created](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "Indexer is created")
+
+ Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign. For example, one of the JPEG files that does not have text will show the warning in this screenshot.
+
+![Example indexer warning](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Example indexer warning")
+
 ## Query your index
 
 After indexing is finished, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the default works fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](search-pagination-page-layout.md).
