@@ -161,38 +161,13 @@ These samples are covered in greater detail below.
 
 The echo sample demonstrates programmatic use of device streams to send and receive bytes between service and device applications. Note that you can use service and device programs in different languages. For example, you can use the C device program with the C# service program.
 
-Try this instead of a table:
+Here are the echo samples:
 
-* [C# Service and Device Programs](quickstart-device-streams-echo-csharp.md)
+* [C# service and service program](quickstart-device-streams-echo-csharp.md)
 
-* [Node.js Service Program](quickstart-device-streams-echo-nodejs.md)
+* [Node.js service program](quickstart-device-streams-echo-nodejs.md)
 
-* [C Device Program](quickstart-device-streams-echo-c.md)
-
-
-| **SDK** | **Service Program** | **Device Program** |
-| ----- | ------------ | ----------------- |
-|[C#](quickstart-device-streams-echo-csharp.md)| X | X |
-|[Node.js](quickstart-device-streams-echo-nodejs.md) | X | - |
-|[C](quickstart-device-streams-echo-c.md)| - | X |
-
-== <br>
-Not keen about this; does it make sense?
-
-| **Service Program** | **Device Program** |
-| ----- | ------------ | ----------------- | 
-|[C#](quickstart-device-streams-echo-csharp.md)|[C#](quickstart-device-streams-echo-csharp.md)|
-|[Node.js](quickstart-device-streams-echo-nodejs.md) | - |
-| - | [C](quickstart-device-streams-echo-c.md)|
-
-== <br>
-Don't want to use this; don't want to hyperlink the word [link].
-
-| SDK    | Service Program                      | Device Program                     |
-|--------|--------------------------------|---------------------------------------------|
-| C#     | [Link](quickstart-device-streams-echo-csharp.md) | [Link](quickstart-device-streams-echo-csharp.md) |
-| Node.js | [Link](quickstart-device-streams-echo-nodejs.md) | -          |
-| C      | -  | [Link](quickstart-device-streams-echo-c.md)      |
+* [C device program](quickstart-device-streams-echo-c.md)
 
 ### Local proxy sample (for SSH or RDP)
 
@@ -224,11 +199,11 @@ The setup leverages two *local proxy* programs shown in the figure below, namely
 
 Use the links below for instructions on how to run the local proxy programs in your language of choice. Similar to the [echo sample](#echo-sample), you can run device- and service-local proxy programs in different languages as they are fully interoperable.
 
-| SDK    | Service-Local Proxy                                       | Device-Local Proxy                                |
-|--------|-----------------------------------------------------------|---------------------------------------------------|
-| C#     | [Link](quickstart-device-streams-proxy-csharp.md)  | [Link](quickstart-device-streams-proxy-csharp.md) |
-| NodeJS | [Link](quickstart-device-streams-proxy-nodejs.md)         | -                                                 |
-| C      | -                                                         | [Link](quickstart-device-streams-proxy-c.md)      |
+* [C# service and service program](quickstart-device-streams-proxy-csharp.md)
+
+* [Node.js service program](quickstart-device-streams-proxy-nodejs.md)
+
+* [C device program](quickstart-device-streams-proxy-c.md)
 
 ## Next steps
 
