@@ -38,74 +38,26 @@ We recommend you perform the below validation, before you start troubleshooting 
 
 **Error message**: Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service. (ID: 34513)
 
-### Cause 1: The vault credentials are invalid
+| Cause | Recommended Action |
+| ---     | ---    |
+| **The vault credentials are invalid** <br/> <br/> Vault credential files might be corrupt or may have expired (i.e. downloaded more than 48 hours before the time of registration)| Download a new credentials from Recovery Services vault from the Azure portal (see *Step 6* under [**Download the MARS agent**](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) section) <br/> <ul><li> If you have already installed and registered Microsoft Azure Backup Agent, then open the Microsoft Azure Backup Agent MMC console and choose **Register Server** from Action Pane to complete the registration with the newly downloaded credentials <br/> <li> If the new installation failed then try re-installing using the new credentials</ul> **Note**: If multiple vault credential files are downloaded previously, only the latest downloaded file is valid within 48 hours. Hence it is recommended to download fresh new vault credentials file.
+| **Proxy Server/firewall is blocking <br/>or <br/>No Internet connectivity** <br/><br/> If your machine or Proxy Server has limited Internet access then without listing the necessary URLs the registration will fail.| To resolve this issue, perform the below:<br/> <ul><li> Work with your IT team to ensure the system has Internet connectivity<li> If you do not have Proxy server, then ensure the proxy option is unselected when registering the agent, verify proxy settings steps listed [here](#verifying-proxy-settings-for-windows)<li> If you do have a firewall/proxy server then work with your networking team to ensure that below URLs and IP address have access<br/> <br/> **URLs** <ul> <li> www.msftncsi.com <li> *.Microsoft.com <li>*.WindowsAzure.com <li>*.microsoftonline.com <li> *.windows.net<br/><br/> **IP address** <li> - 20.190.128.0/18 <li> - 40.126.0.0/18 <br/> <br/></ul> Try re-registering after you complete the above troubleshooting steps <br/> <br/>
+| **Anti-virus software is blocking** <br/> <br/> | If you have anti-virus software installed on the server, then add necessary exclustion rules for the following files from the anti-virus scan:<br/> <ui><li> *CBengine.exe* <li>	*CSC.exe*<li> Scratch folder, the default location is *C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* <li> Bin folder at *C:\Program Files\Microsoft Azure Recovery Services Agent\Bin*
 
--	Vault credential files might be corrupt
-- Vault credential files might be expired (i.e. downloaded more than 48 hours before the time of registration)
-Recommended Action:
--	Download a new credentials from Recovery Services vault from the Azure portal (see Step 6 under [Download the MARS agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) section)
-- If you have already installed and registered Microsoft Azure Backup Agent, then open the Microsoft Azure Backup Agent MMC console and choose **Register Server** from Action Pane
-- If install was not successful, then run the installer. Retry the registration
+### Additional recommendations
+- Go to *C:/Windows/Temp* and check whether there are more than 60,000 or 65,000 files with the .tmp extension. If there are, delete these files
+- Ensure the machine’s date and time is matching with local time zone
+- Ensure the [following](backup-configure-vault.md#verify-internet-access) sites are added to IE trusted sites
 
->[!NOTE]
-> If multiple vault credential files are downloaded previously, only the latest downloaded file is valid within 48 hours. Hence it is recommended to download fresh new vault credentials file.
+### Verifying proxy settings for Windows
 
-### Cause 2: Proxy Server or firewall is blocking the connection with Azure Backup Service
-
-If your machine or Proxy Server has limited internet access then without listing the necessary URLs the registration will fail.
-
-**Recommended Action**:
-
-- Verify proxy settings steps listed [here](#verifying-proxy-settings-for-windows)
-- Work with your networking team to ensure that firewall settings on the machine or Proxy Server allow below URLs and IP address
-
-**URLs**
-
-- www.msftncsi.com
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
-
-**IP address**
-
-- 20.190.128.0/18
-- 40.126.0.0/18
-
-Retry registering the server with recovery services vault once you perform the above actions
-
-### Cause 3: No internet connectivity
-
-- Work with your IT team to ensure the system has internet connectivity
-- If you do not have Proxy server, then ensure the proxy option is unselected when registering the agent
-
-### Cause 4: Anti-virus software is blocking
-
-If you have anti-virus software installed on the server, exclude the following files from the anti-virus scan:
-- *CBengine.exe*
--	*CSC.exe*, which is related to .NET Framework
-- Scratch folder or cache location. The default location is *C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*
-- The bin folder *C:\Program Files\Microsoft Azure Recovery Services Agent\Bin*
-
-### Other Recommendations
-
--	Go to *C:/Windows/Temp* and check whether there are more than 60,000 or 65,000 files with the .tmp extension. If there are, delete these files
--	Ensure the machine’s date and time is matching with local time zone
--	You might also have to add [these sites](backup-configure-vault.md#verify-internet-access) in IE trusted site
-
-#### Verifying proxy settings for Windows
-
-- Download psexec from [here](https://docs.microsoft.com/sysinternals/downloads/psexec)
-- Run the following command from elevated prompt:
-
-  `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"`
-
-
-- This will launch **Internet Explorer** window
-- Go to **Tools** -> **Internet Options** -> **Connections** -> **LAN settings**
-- Verify proxy settings for **System** account
+- Download **psexec** from [here](https://docs.microsoft.com/sysinternals/downloads/psexec)
+- Run the following command from elevated prompt: <br/> `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"`
+- This will launch *Internet Explorer* window
+- Go to *Tools* -> *Internet Options* -> *Connections* -> *LAN settings*
+- Verify proxy settings for *System* account
 - If no proxy is configured and proxy details are provided, then remove the details
--	If proxy is configured and proxy details are incorrect, then ensure **Proxy IP** and port details are accurate
+-	If proxy is configured and proxy details are incorrect, then ensure *Proxy IP* and *port* details are accurate
 - Close **Internet Explorer**
 
 ## Unable to download vault credential file
