@@ -41,17 +41,17 @@ To deploy the template:
    $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json"
 
    New-AzResourceGroup -Name $resourceGroupName -Location $location
-   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateFileName -projectName $projectName
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName
 
    Write-Host "Press [ENTER] to continue ..."
    ```
 
-1. Select **Copy** to copy the PowerShell code.
+1. Select **Copy** to copy the PowerShell script.
 1. Right-click the shell console, and then select **Paste**.
 
 ## Verify the deployment
 
-To verify the deployment, you can either open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.
+To verify the deployment, you can either open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -65,7 +65,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Clean up resources
 
-When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
+When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
