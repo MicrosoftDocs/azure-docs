@@ -8,8 +8,8 @@ author: qianw211
 
 ms.service: marketplace
 ms.topic: article
-ms.date: 02/27/2019
-ms.author: ellacroi
+ms.date: 06/13/2019
+ms.author: v-qiwe
 
 ---
 # Cloud Solution Providers
