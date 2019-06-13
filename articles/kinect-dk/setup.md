@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 1. [Set up Azure Kinect device](set-up-azure-kinect-dk.md).
-2. [Download](sensor-sdk-download.md), and install the Azure Kinect Sensor SDK.
+2. [Download](sensor-sdk-download.md) and install the Azure Kinect Sensor SDK.
 3. Review the functions we'll use:
 
     - [`k4a_device_get_installed_count()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc)
