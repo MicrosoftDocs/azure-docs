@@ -20,6 +20,7 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 
 ## Prerequisites
 
+* C# 7.1 or later
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet Package](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
@@ -40,6 +41,18 @@ Next, you'll need to install Json.Net. From your project's directory, run:
 
 ```console
 dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
+## Select the C# language version
+
+This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `sentences-sample.csproj` file. For all available options, such as changing the language in Visual Studio, see [Select the C# language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+
+Open your project, then open `sentences-sample.csproj`. Make sure that `LangVersion` is set to 7.1 or later. If there isn't a property group for the language version, add these lines:
+
+```xml
+<PropertyGroup>
+   <LangVersion>7.1</LangVersion>
+</PropertyGroup>
 ```
 
 ## Add required namespaces to your project
