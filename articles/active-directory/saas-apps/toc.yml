@@ -479,6 +479,8 @@
         href: github-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: GlobalOne
+        href: globalone-tutorial.md
       - name: GoodPractice Toolkit
         href: goodpractice-toolkit-tutorial.md
       - name: GoToMeeting
@@ -839,6 +841,8 @@
         href: opsgenie-tutorial.md
       - name: Optimizely
         href: optimizely-tutorial.md
+      - name: Oracle Cloud Infrastructure Console
+        href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
       - name: OrgChart Now
