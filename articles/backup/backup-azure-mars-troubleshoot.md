@@ -52,13 +52,15 @@ We recommend you perform the below validation, before you start troubleshooting 
 ### Verifying proxy settings for Windows
 
 - Download **psexec** from [here](https://docs.microsoft.com/sysinternals/downloads/psexec)
-- Run the following command from elevated prompt: <br/> `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"`
+- Run the following command from elevated prompt: <br/>
+  `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"`
+  
 - This will launch *Internet Explorer* window
 - Go to *Tools* -> *Internet Options* -> *Connections* -> *LAN settings*
 - Verify proxy settings for *System* account
 - If no proxy is configured and proxy details are provided, then remove the details
 -	If proxy is configured and proxy details are incorrect, then ensure *Proxy IP* and *port* details are accurate
-- Close **Internet Explorer**
+- Close *Internet Explorer*
 
 ## Unable to download vault credential file
 
