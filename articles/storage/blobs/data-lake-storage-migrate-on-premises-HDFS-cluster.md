@@ -270,7 +270,7 @@ Before you move your data onto a Data Box device, you'll need to download some h
    cd databox-adls-loader
    ```
 
-   This command clones the Github repository that contains the helper scripts.
+   This command clones the GitHub repository that contains the helper scripts.
 
 2. Make sure that have the [jq](https://stedolan.github.io/jq/) package installed on your local computer.
 
