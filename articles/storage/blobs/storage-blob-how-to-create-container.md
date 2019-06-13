@@ -151,7 +151,9 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 }
 ```
 
-## Resources for Azure Storage development with .NET
+## Resources for development with .NET
+
+The links below point to useful resources for developers using the Azure Storage client library for .NET.
 
 ### Azure Storage common APIs
 
