@@ -151,9 +151,17 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 }
 ```
 
-## Resources for Blob storage development with .NET
+## Resources for Azure Storage development with .NET
 
-- [API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+### Azure Storage common APIs
+
+- [API reference documentation](/dotnet/api/overview/azure/storage/client)
+- [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Common)
+- [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+
+### Blob storage APIs
+
+- [API reference documentation](/dotnet/api/overview/azure/storage/client)
 - [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 - [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 - [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
