@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor service limits | Microsoft Docs
-description: Describes recent terminology changes made to Azure monitoring services.
+description: Lists limits in different areas of Azure Monitor.
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -33,3 +33,9 @@ This article lists limits in different areas of Azure Monitor.
 ## Application Insights
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-app-insights.md)]
+
+## Next Steps
+
+- [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
+- [Monitoring usage and estimated costs in Azure Monitor](platform/usage-estimated-costs.md)
+- [Manage usage and costs for Application Insights](app/pricing.md)
