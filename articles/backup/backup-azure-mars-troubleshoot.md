@@ -47,9 +47,8 @@ Recommended Action:
 - If you have already installed and registered Microsoft Azure Backup Agent, then open the Microsoft Azure Backup Agent MMC console and choose **Register Server** from Action Pane
 - If install was not successful, then run the installer. Retry the registration
 
->
 >[!NOTE]
-If multiple vault credential files are downloaded previously, only the latest downloaded file is valid within 48 hours. Hence it is recommended to download fresh new vault credentials file.
+> If multiple vault credential files are downloaded previously, only the latest downloaded file is valid within 48 hours. Hence it is recommended to download fresh new vault credentials file.
 
 ### Cause 2: Proxy Server or firewall is blocking the connection with Azure Backup Service
 
@@ -57,26 +56,28 @@ If your machine or Proxy Server has limited internet access then without listing
 
 **Recommended Action**:
 
-- Verify proxy settings steps listed [here](#verifying_proxy_settings_for_windows)
+- Verify proxy settings steps listed [here](#verifying-proxy-settings-for-windows)
 - Work with your networking team to ensure that firewall settings on the machine or Proxy Server allow below URLs and IP address
 
 **URLs**
-•	www.msftncsi.com
-•	*.Microsoft.com
-•	*.WindowsAzure.com
-•	*.microsoftonline.com
-•	*.windows.net
+
+- www.msftncsi.com
+- *.Microsoft.com
+- *.WindowsAzure.com
+- *.microsoftonline.com
+- *.windows.net
 
 **IP address**
-•	20.190.128.0/18
-•	40.126.0.0/18
+
+- 20.190.128.0/18
+- 40.126.0.0/18
 
 Retry registering the server with recovery services vault once you perform the above actions
 
 ### Cause 3: No internet connectivity
 
-•	Work with you IT team to ensure the system has internet connectivity
-•	If you do not have Proxy server, then ensure the proxy option is unselected when registering the agent
+- Work with you IT team to ensure the system has internet connectivity
+- If you do not have Proxy server, then ensure the proxy option is unselected when registering the agent
 
 ### Cause 4: Anti-virus software is blocking
 
@@ -90,14 +91,15 @@ If you have anti-virus software installed on the server, exclude the following f
 
 -	Go to *C:/Windows/Temp* and check whether there are more than 60,000 or 65,000 files with the .tmp extension. If there are, delete these files
 -	Ensure the machine’s date and time is matching with local time zone
--	You might also have to add [these sites](https://docs.microsoft.com/azure/backup/backup-configure-vault#verify-internet-access) in IE trusted site
+-	You might also have to add [these sites](backup-configure-vault.md#verify-internet-access) in IE trusted site
 
 #### Verifying proxy settings for Windows
 
 - Download psexec from [here](https://docs.microsoft.com/sysinternals/downloads/psexec)
 - Run the following command from elevated prompt:
 
-  `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"``
+  `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"`
+
 
 - This will launch **Internet Explorer** window
 - Go to **Tools** -> **Internet Options** -> **Connections** -> **LAN settings**
