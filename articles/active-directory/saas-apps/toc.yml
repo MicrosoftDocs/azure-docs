@@ -307,6 +307,8 @@
         href: coupa-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: CyberArk SAML Authentication
+        href: cyberark-saml-authentication-tutorial.md
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
     - name: D - E
@@ -839,6 +841,8 @@
         href: opsgenie-tutorial.md
       - name: Optimizely
         href: optimizely-tutorial.md
+      - name: Oracle Cloud Infrastructure Console
+        href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
       - name: OrgChart Now
