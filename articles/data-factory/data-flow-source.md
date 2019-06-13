@@ -82,14 +82,14 @@ Choose settings to manage files in your source.
 
 Wildcard examples:
 
-```*``` Represents any set of characters
-```**``` Represents recursive directory nesting
-```?``` Replaces one character
-```[]``` Matches one of more characters in the brackets
+* ```*``` Represents any set of characters
+* ```**``` Represents recursive directory nesting
+* ```?``` Replaces one character
+* ```[]``` Matches one of more characters in the brackets
 
-```/data/sales/**/*.csv``` Gets all csv files under /data/sales
-```/data/sales/20??/**``` Gets all files in the 20th century
-```/data/sales/2004/*/12/[XY]1?.csv``` Gets all csv files in 2004 in December starting with X or Y prefixed by a 2-digit number
+* ```/data/sales/**/*.csv``` Gets all csv files under /data/sales
+* ```/data/sales/20??/**``` Gets all files in the 20th century
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Gets all csv files in 2004 in December starting with X or Y prefixed by a 2-digit number
 
 Container has to be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
 
