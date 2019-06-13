@@ -55,6 +55,6 @@ Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microso
 
 To learn more about marketplace GTM services, go to [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
-Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and configure your offer.
+Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/), or the [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) for SaaS offers, to create and configure your offer.
 
 ---
