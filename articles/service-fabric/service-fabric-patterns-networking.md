@@ -603,10 +603,6 @@ After deployment, you can see two load balancers in the resource group. If you b
 
 ## Next steps
 [Create a cluster](service-fabric-cluster-creation-via-arm.md)
-ternalLB.json
-    ```
 
 After deployment, you can see two load balancers in the resource group. If you browse the load balancers, you can see the public IP address and management endpoints (ports 19000 and 19080) assigned to the public IP address. You also can see the static internal IP address and application endpoint (port 80) assigned to the internal load balancer. Both load balancers use the same virtual machine scale set back-end pool.
 
-## Next steps
-[Create a cluster](service-fabric-cluster-creation-via-arm.md)

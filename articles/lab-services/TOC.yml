@@ -96,6 +96,8 @@
         href: classroom-labs/how-to-use-shared-image-gallery.md            
       - name: Enable remote desktop connection for Linux
         href: classroom-labs/how-to-enable-remote-desktop-linux.md
+      - name: Set or reset passwords for virtual machines 
+        href: classroom-labs/how-to-set-virtual-machine-passwords.md
   - name: DevTest Labs
     items:
     - name: Specify resource group for lab virtual machines
