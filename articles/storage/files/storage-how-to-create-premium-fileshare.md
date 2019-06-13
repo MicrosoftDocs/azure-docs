@@ -78,14 +78,14 @@ Then, upgrade your powershell module, sign in to your Azure subscription, create
 
 ### Upgrade your PowerShell module
 
-To interact with a premium file share from with PowerShell, you'll need to install the latest Az.Storage module.
+To interact with a premium file share from with PowerShell, you'll need to install an Az.Storage module released after June 18, 2019, or the latest Az.Storage module.
 
 Start by opening a PowerShell session with elevated permissions.
 
 Install the Az.Storage module:
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### Sign in to your Azure Subscription
@@ -141,15 +141,11 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 To start Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-If you want to log into your local installation of the CLI, run the login command:
+If you want to log into your local installation of the CLI, first make sure you have the latest version, then run the login command:
 
 ```cli
 az login
 ```
-
-### Add the preview storage CLI extension
-
-Because premium file shares are a preview feature, you'll have to add the preview extension to your shell. To do that, enter the following command by using either the Cloud Shell or a local shell: `az extension add --name storage-preview`
 
 ### Create a resource group
 
