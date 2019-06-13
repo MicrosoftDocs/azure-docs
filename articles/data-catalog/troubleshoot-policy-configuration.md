@@ -20,7 +20,7 @@ When using Azure Data Catalog, the following functionality is limited:
 
 - Creating Azure Data Catalog resources using Azure Resource Manager Templates or Azure PowerShell commands is not supported.
 
--	The Azure Data Catalog resource cannot be moved between Azure Tenants.
+- The Azure Data Catalog resource cannot be moved between Azure Tenants.
 
 ## Azure Active Directory policy configuration
 
