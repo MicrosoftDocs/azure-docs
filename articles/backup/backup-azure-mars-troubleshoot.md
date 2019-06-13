@@ -52,8 +52,7 @@ We recommend you perform the below validation, before you start troubleshooting 
 ### Verifying proxy settings for Windows
 
 - Download **psexec** from [here](https://docs.microsoft.com/sysinternals/downloads/psexec)
-- Run the following command from elevated prompt:
-  `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"`
+- Run this `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` command from elevated prompt:
 - This will launch *Internet Explorer* window
 - Go to *Tools* -> *Internet Options* -> *Connections* -> *LAN settings*
 - Verify proxy settings for *System* account
