@@ -5,15 +5,6 @@
   - name: What is Apache Hadoop in HDInsight?
     href: apache-hadoop-introduction.md
     maintainContext: true
-  - name: Apache Hadoop architecture in HDInsight
-    href: ../hdinsight-hadoop-architecture.md
-    maintainContext: true
-  - name: Apache Hadoop components in HDInsight
-    href: ../hdinsight-component-versioning.md
-    maintainContext: true
-  - name: HDInsight 4.0
-    href: ../hdinsight-version-release.md
-    maintainContext: true
 - name: Quickstarts
   items:
   - name: Create Apache Hadoop cluster - Portal
@@ -45,6 +36,15 @@
     maintainContext: true
 - name: Concepts
   items:
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
+  - name: Apache Hadoop architecture in HDInsight
+    href: ../hdinsight-hadoop-architecture.md
+    maintainContext: true
+  - name: Apache Hadoop components in HDInsight
+    href: ../hdinsight-component-versioning.md
+    maintainContext: true
   - name: Cluster capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
