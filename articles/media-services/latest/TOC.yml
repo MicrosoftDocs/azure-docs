@@ -122,6 +122,7 @@
       href: live-streaming-overview.md
     - name: Live Events and Live Outputs 
       href: live-events-outputs-concept.md    
+      displayName: vanity, ingest 
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
     - name: Using a cloud DVR
