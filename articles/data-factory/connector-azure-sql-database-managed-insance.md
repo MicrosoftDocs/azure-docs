@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 06/13/2019
 ms.author: jingwang
 
 ---
@@ -34,9 +34,9 @@ SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-database
 
 ## Prerequisites
 
-To use copy data from an Azure SQL Database Managed Instance that's located in a virtual network, set up a self-hosted integration runtime that can access the database. For more information, see [Self-hosted integration runtime](create-self-hosted-integration-runtime.md).
+To access Azure SQL Database Managed Instance **[public endpoint](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)**, you can use ADF managed Azure IR. Make sure you not only enable the public endpoint, but also allow public endpoint traffic on the network security group to make ADF being able to connect to your database, by following [this guidance](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
-If you provision your self-hosted integration runtime in the same virtual network as your managed instance, make sure that your integration runtime machine is in a different subnet than your managed instance. If you provision your self-hosted integration runtime in a different virtual network than your managed instance, you can use either a virtual network peering or virtual network to virtual network connection. For more information, see [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+To access Azure SQL Database Managed Instance **private endpoint**, set up a [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) that can access the database. If you provision the self-hosted integration runtime in the same virtual network as your managed instance, make sure that your integration runtime machine is in a different subnet than your managed instance. If you provision your self-hosted integration runtime in a different virtual network than your managed instance, you can use either a virtual network peering or virtual network to virtual network connection. For more information, see [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## Get started
 
@@ -52,10 +52,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
 |:--- |:--- |:--- |
 | type | The type property must be set to **SqlServer**. | Yes. |
 | connectionString |This property specifies the connectionString information that's needed to connect to the managed instance by using SQL authentication. For more information, see the following examples. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes. |
-| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Provision the self-hosted integration runtime in the same virtual network as your managed instance. |Yes. |
-
->[!TIP]
->You might see the error code "UserErrorFailedToConnectToSqlServer" with a message like "The session limit for the database is XXX and has been reached." If this error occurs, add `Pooling=false` to your connection string and try again.
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your managed instance has public endpoint and allow ADF to access). If not specified, it uses the default Azure Integration Runtime. |Yes. |
 
 **Example 1: Use SQL authentication**
 
@@ -67,7 +64,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
