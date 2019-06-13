@@ -153,7 +153,7 @@ data](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
 > The **DeployIfNotExists** policy is required for the **Audit** policy to return results.
-> Without the **DeployIfNotExists**, the **Audit** policy will show "0 of 0" resources as status.
+> Without the **DeployIfNotExists**, the **Audit** policy shows "0 of 0" resources as status.
 
 All built-in policies for Guest Configuration are included in an initiative to group the definitions
 for use in assignments. The built-in initiative named *[Preview]: Audit Password security settings
