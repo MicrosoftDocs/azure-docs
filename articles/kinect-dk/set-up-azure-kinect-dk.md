@@ -74,4 +74,4 @@ Learn more about [Kinect for Azure viewer](azure-kinect-sensor-viewer.md)
 
 After the Azure Kinect device is ready and working, you can also learn how to
 > [!div class="nextstepaction"]
->[Record sensor stream to a file](record-sensor-streams-file.md)
+>[Record sensor streams to a file](record-sensor-streams-file.md)
