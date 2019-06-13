@@ -89,7 +89,7 @@ You can either use non-vanity URLs or vanity URLs.
 
     The access token needs to be unique in your data center. If your application needs to use a vanity URL, it is recommended to always create a new GUID instance for your access token (instead of reusing any existing GUID). 
 
-    Use the following APIs to enable the Vanity URL and set the access token to a valid GUID:
+    Use the following APIs to enable the Vanity URL ("vanityUrl": true) and set the access token to a valid GUID (for example `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
     
     |Language|Enable Vanity URL|Set access token|
     |---|---|---|
