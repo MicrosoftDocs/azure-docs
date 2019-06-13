@@ -10,9 +10,15 @@ ms.author: robb
 ms.custom: "include file"
 ---
 
+**General workspace limits**
+
+| Category | Limits | Comments |
+|:---|:---|:---|
+| Maximum characters for column name| 500 | |
+| Regions at capacity | West Central US | You cannot currently create a new workspace in this region since it is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019. |
+| Data export | Not available | Use Azure Function or Logic App to aggregate and export data. | 
 
 **Data collection volume and retention** 
-
 
 | Tier | Limit per day | Data retention | Comment |
 |:---|:---|:---|:---|
@@ -54,13 +60,6 @@ ms.custom: "include file"
 | Maximum query running time | 10 minutes | See [Timeouts](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) for details.  |
 | Maximum request rate | 200 requests per 30 seconds per AAD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
 
-
-**General workspace limits**
-
-| Category | Limits | Comments |
-|:---|:---|:---|
-| Regions at capacity | West Central US | You cannot currently create a new workspace in this region since it is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019. |
-| Data export | Not available | Use Azure Function or Logic App to aggregate and export data. | 
 
 
 >[!NOTE]
