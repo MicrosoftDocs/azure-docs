@@ -1,6 +1,6 @@
 ---
 title: About Azure Kinect DK
-description: Azure Kinect development kit overview
+description: Azure Kinect DK overview
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -11,25 +11,25 @@ keywords: azure, kinect, overview, dev kit, DK, device, depth, body tracking, sp
 
 # What is Azure Kinect DK?
 
-Azure Kinect DK is a developer kit and PC peripheral with advanced AI sensors that provide sophisticated computer vision and speech models.  Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and SDKs.
+Azure Kinect DK is a developer kit with advanced AI sensors that provide sophisticated computer vision and speech models.  Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and SDKs.
 
-The Azure Kinect development environment consists of the following multiple SDKs:
+The Azure Kinect DK development environment consists of the following multiple SDKs:
 
 * Sensor SDK for low-level sensor and device access.
 * Body Tracking SDK for tracking bodies in 3D.
-* Speech SDK for enabling microphone access and Azure cloud-based speech services.
+* Speech Cognitive Services SDK for enabling microphone access and Azure cloud-based speech services.
 
 In addition, Cognitive Vision services can be used with the device RGB camera.
 
-   ![Azure Kinect SDK diagram](./media/quickstarts/sdk-diagram.jpg)
+   ![Azure Kinect SDKs diagram](./media/quickstarts/sdk-diagram.jpg)
 
-## Azure Kinect sensor SDK
+## Azure Kinect Sensor SDK
 
 The Azure Kinect Sensor SDK provides low-level sensor access for Azure Kinect DK hardware sensors and device configuration.
 
 To learn more about Azure Kinect Sensor SDK, see [Using Sensor SDK](overview-sensor-sdk.md).
 
-### Azure Kinect sensor SDK features
+### Azure Kinect Sensor SDK features
 
 The Sensor SDK has the following features that work once installed and run on the Kinect DK:
 
@@ -41,19 +41,19 @@ The Sensor SDK has the following features that work once installed and run on th
 * Camera-frame metadata access for image resolution, timestamp, and temperature recognition.
 * Device calibration to allow data access.
 
-### Azure Kinect sensor SDK tools
+### Azure Kinect Sensor SDK tools
 
 The following tools are available in the Sensor SDK:
 
 * A viewer tool to monitor device data streams and configure different modes.
-* A Sensor recording tool and playback reader API that uses the Matroska container format.
+* A sensor recording tool and playback reader API that uses the Matroska container format.
 * An Azure Kinect DK firmware update tool.
 
-## Azure Kinect body tracking SDK
+## Azure Kinect Body Tracking SDK
 
 The Body Tracking SDK includes a Windows library and runtime to track bodies in 3D when used with the Azure Kinect DK hardware.
 
-### Azure Kinect body tracking features
+### Azure Kinect Body Tracking features
 
 The following body-tracking features are available on the accompanying SDK:
 
@@ -62,11 +62,11 @@ The following body-tracking features are available on the accompanying SDK:
 * Offers a unique identity for each body.
 * Can track bodies over time.
 
-### Azure Kinect body tracking tools
+### Azure Kinect Body Tracking tools
 
 * Body Tracker has a viewer tool to track bodies in 3D.
 
-## Azure Kinect speech SDK
+## Speech Cognitive services SDK
 
 The Speech SDK enables Azure-connected speech services.
 
@@ -102,7 +102,7 @@ The Azure Kinect DK integrates Microsoft's latest sensor technology into single 
 You now have an overview of Azure Kinect DK. The next step is to dive in and set it up!
 
 > [!div class="nextstepaction"]
->[Using Azure Kinect sensor SDK](overview-sensor-sdk.md)
+>[Using Azure Kinect Sensor SDK](overview-sensor-sdk.md)
 
 > [!div class="nextstepaction"]
 >[Review the Azure Kinect DK Hardware Specification](hardware-specification.md)
