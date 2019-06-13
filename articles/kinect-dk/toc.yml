@@ -15,6 +15,8 @@
     href: setup.md
   - name: Set up Body Tracking SDK
     href: body-sdk-setup.md
+  - name: Build your first body tracking application
+    href: build-first-body-app.md
 - name: Concepts
   items:
    - name: Depth camera
@@ -51,6 +53,8 @@
      items:
        - name: Get body tracking results
          href: get-body-tracking-results.md
+       - name: Access data in body frame
+         href: access-data-in-body-frame.md  
    - name: Add Azure Kinect library to a project
      href: add-library-to-project.md
    - name: Update Azure Kinect firmware

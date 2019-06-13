@@ -65,7 +65,7 @@ case K4A_WAIT_RESULT_FAILED:
 
 ## Enqueue the capture and pop the results
 
-The tracker internally maintains an input queue and an output queue to asynchronously process the Azure Kinect DK captures more efficiently. '`k4abt_tracker_enqueue_capture` function is called to add a new capture to the input queue. `k4abt_tracker_pop_result` function is called to pop a result from the output queue. Use of the timeout value is dependent on the application and controls the queuing wait time.
+The tracker internally maintains an input queue and an output queue to asynchronously process the Azure Kinect DK captures more efficiently. Use the `k4abt_tracker_enqueue_capture` function to add a new capture to the input queue. Use the `k4abt_tracker_pop_result` function o pop a result from the output queue. Use of the timeout value is dependent on the application and controls the queuing wait time.
 
 ### Real-time processing
 Use this pattern for single-threaded applications that need real-time results and can accommodate dropped frames. The `simple_3d_viewer` sample located in `examples/src` is an example of real-time processing.
@@ -124,4 +124,4 @@ k4abt_frame_release(body_frame); // Remember to release the body frame once you 
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Retrieve images](retrieve-images.md)
+>[Access data in body frame](access-data-in-body-frame.md)
