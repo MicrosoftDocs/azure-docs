@@ -78,7 +78,7 @@ In addition, some containers are supported in Cognitive Services [**All-In-One o
 Azure Cognitive Services containers are publicly available through your Azure subscription, and Docker container images can be pulled from either the Microsoft Container Registry or Docker Hub. You can use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the appropriate registry.
 
 > [!IMPORTANT]
-> Currently, you must complete a sign-up process to access the following containers, in which you fill out and submit a questionnaire with questions about you, your company, and the use case for which you want to implement the containers. Once you're granted access and provided credentials, you can then pull the container images for the Face and Recognize Text containers from a private container registry hosted by Azure Container Registry.
+> Currently, you must complete a sign-up process to access the following containers, in which you fill out and submit a questionnaire with questions about you, your company, and the use case for which you want to implement the containers. Once you're granted access and provided credentials, you can then pull the container images from a private container registry hosted by Azure Container Registry.
 > * [Anomaly dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Face](Face/face-how-to-install-containers.md)
 > * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
