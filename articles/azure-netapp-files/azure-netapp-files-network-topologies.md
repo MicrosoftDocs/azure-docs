@@ -3,7 +3,7 @@ title: Guidelines for Azure NetApp Files network planning | Microsoft Docs
 description: Describes guidelines that can help you design an effective network architecture by using Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: ram-kakani
 manager: ''
 editor: ''
 
@@ -37,7 +37,7 @@ The features below are currently unsupported for Azure NetApp Files:
 
 The following network restrictions apply to Azure NetApp Files:
 
-* The number of VMs that can connect to a volume (with a VNet or across peered VNets) cannot exceed 1000.
+* The number of VMs in a VNet with an Azure NetApp Files volume (or across peered VNets) cannot exceed 1000.
 * In each Azure Virtual Network (VNet), only one subnet can be delegated to Azure NetApp Files.
 
 
