@@ -41,7 +41,7 @@ The following table describes the billing roles you use to manage your billing a
 
 ## Billing account roles and tasks
 
-A billing account lets you manage billing for your organization. You use billing account to organize costs, monitor charges, and invoices and control billing access for your organization. For more information, see [Understand billing account](billing-mca-overview.md#billing-account).
+A billing account lets you manage billing for your organization. You use billing account to organize costs, monitor charges, and invoices and control billing access for your organization. For more information, see [Understand billing account](billing-mca-overview.md#your-billing-account).
 
 The following tables show what role you need to complete tasks in the context of the billing account.
 
