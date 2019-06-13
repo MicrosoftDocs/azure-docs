@@ -44,7 +44,7 @@ If you are provisioning a new SQL Server virtual machine with Resource Manager, 
 
 ![SQL Azure Key Vault Integration](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
-For a detailed walkthrough of provisioning, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+For a detailed walkthrough of provisioning, see [Provision a SQL Server virtual machine in the Azure portal](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Existing VMs
 

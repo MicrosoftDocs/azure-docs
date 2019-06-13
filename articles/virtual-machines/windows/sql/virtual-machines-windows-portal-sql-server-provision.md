@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 When you create a SQL Server virtual machine, you can select one of several pre-configured images from the virtual machine gallery. The following steps demonstrate how to select one of the SQL Server 2017 images.
 
-1. Log in to the [Azure portal](https://portal.azure.com) using your account.
+1. Sign in to the [Azure portal](https://portal.azure.com) using your account.
 
 1. On the Azure portal, click **Create a resource**. The portal opens the **New** window.
 
@@ -135,10 +135,10 @@ On the **Networking** tab, configure your networking options.
 
 #### Monitoring
 
-On the **Monitoring** tab, configure monitoring and auto-shutdown. 
+On the **Monitoring** tab, configure monitoring and autoshutdown. 
 
 * Azure enables **Boot Monitoring** by default with the same storage account designated for the VM. You can change these settings here, as well as enabling **OS guest diagnostics**. 
-* You can enable **System assigned managed identity** and **auto-shutdown** on this tab as well. 
+* You can enable **System assigned managed identity** and **autoshutdown** on this tab as well. 
 
 ![SQL VM management settings](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 

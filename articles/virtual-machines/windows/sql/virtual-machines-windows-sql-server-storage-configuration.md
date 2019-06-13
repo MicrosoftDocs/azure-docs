@@ -37,7 +37,7 @@ To use the automated storage configuration settings, your virtual machine requir
 
 The following sections describe how to configure storage for new SQL Server virtual machines.
 
-### Azure Portal
+### Azure portal
 
 When provisioning an Azure VM using a SQL Server gallery image, you can choose to automatically configure the storage for your new VM. You specify the storage size, performance limits, and workload type. The following screenshot shows the Storage configuration blade used during SQL VM provisioning.
 
@@ -51,7 +51,7 @@ Based on your choices, Azure performs the following storage configuration tasks 
 * Associates the storage pool with a new drive on the virtual machine.
 * Optimizes this new drive based on your specified workload type (Data warehousing, Transactional processing, or General).
 
-For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration). For a full walkthrough of how to create a SQL Server VM in the Azure Portal, see [the provisioning tutorial](virtual-machines-windows-portal-sql-server-provision.md).
+For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration). For a full walkthrough of how to create a SQL Server VM in the Azure portal, see [the provisioning tutorial](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Resource Manage templates
 
@@ -99,13 +99,13 @@ However, after adding the drive, you must perform some extra manual configuratio
 
 ### Extend the drive
 
-The other option for expanding storage is to extend the existing drive. This option increases the available storage for your drive, but it does not increase performance. With storage pools, you cannot alter the number of columns after the storage pool is created. The number of columns determines the number of parallel writes, which can be striped across the data disks. Therefore, any added data disks cannot increase performance. They can only provide more storage for the data being written. This limitation also means that, when extending the drive, the number of columns determines the minimum number of data disks that you can add. So if you create a storage pool with four data disks, the number of columns is also four. Any time you extend the storage, you must add at least four data disks.
+The other option for expanding storage is to extend the existing drive. This option increases the available storage for your drive, but it does not increase performance. With storage pools, you cannot alter the number of columns after the storage pool is created. The number of columns determines the number of parallel writes, which can be striped across the data disks. Therefore, any added data disks cannot increase performance. They can only provide more storage for the data being written. This limitation also means that, when extending the drive, the number of columns determines the minimum number of data disks that you can add. So if you create a storage pool with four data disks, the number of columns is also four. Every time you extend the storage, you must add at least four data disks.
 
 ![Extend a drive for a SQL VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## Storage configuration
 
-This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure Portal.
+This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure portal.
 
 * If you have selected fewer than two TBs of storage for your VM, Azure does not create a storage pool.
 * If you have selected at least two TBs of storage for your VM, Azure configures a storage pool. The next section of this topic provides the details of the storage pool configuration.

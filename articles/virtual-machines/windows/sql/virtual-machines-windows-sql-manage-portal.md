@@ -55,7 +55,7 @@ Selecting your SQL Server VM will open the **SQL virtual machines** resource:
   > The **SQL virtual machines** resource is for dedicated SQL Server settings. Select the name of the VM in the **Virtual machine** field to navigate to settings that are specific to the VM, but not exclusive to SQL Server. 
 
 ## Access SQL Server configuration tab
-The SQL Server configuration tab has been deprecated and will be removed in the future. However, at this time, it is the only method to manage  [end of support (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server VMs, and SQL Server VMs that have not been [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider).
+The SQL Server configuration tab has been deprecated. At this time, it is the only method to manage  [end of support (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server VMs, and SQL Server VMs that have not been [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider).
 
 To access the deprecated SQL server configuration tab, you'll need to navigate to the **Virtual machines** resource. To do so, do the following:
 

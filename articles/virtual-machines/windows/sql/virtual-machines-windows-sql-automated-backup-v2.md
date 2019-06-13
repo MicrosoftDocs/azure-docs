@@ -62,7 +62,7 @@ The following table describes the options that can be configured for Automated B
 | **Automated Backup** | Enable/Disable (Disabled) | Enables or disables Automated Backup for an Azure VM running SQL Server 2016/2017 Developer, Standard, or Enterprise. |
 | **Retention Period** | 1-30 days (30 days) | The number of days to retain backups. |
 | **Storage Account** | Azure storage account | An Azure storage account to use for storing Automated Backup files in blob storage. A container is created at this location to store all backup files. The backup file naming convention includes the date, time, and database GUID. |
-| **Encryption** |Enable/Disable (Disabled) | Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account. It uses the same **automaticbackup** container with the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups. |
+| **Encryption** |Enable/Disable (Disabled) | Enables or disables encryption. When encryption is enabled, the certificates used to restore the backup are located in the specified storage account. It uses the same **automatic backup** container with the same naming convention. If the password changes, a new certificate is generated with that password, but the old certificate remains to restore prior backups. |
 | **Password** |Password text | A password for encryption keys. This password is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken. |
 
 ### Advanced Settings
@@ -133,7 +133,7 @@ In the **SQL Server settings** tab, select **Enable** under **Automated backup**
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-For existing SQL Server virtual machines, navigate to the [SQL virtuals machine resource](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) and then select **Backups** to configure your automated backups.
+For existing SQL Server virtual machines, navigate to the [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) and then select **Backups** to configure your automated backups.
 
 ![SQL Automated Backup for existing VMs](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
@@ -204,7 +204,7 @@ If your output shows that **Enable** is set to **False**, then you have to enabl
 ### Configure Automated Backup v2
 You can use PowerShell to enable Automated Backup as well as to modify its configuration and behavior at any time. 
 
-First, select or create a storage account for the backup files. The following script selects a storage account or creates it if it does not exist.
+First, select, or create a storage account for the backup files. The following script selects a storage account or creates it if it does not exist.
 
 ```powershell
 $storage_accountname = “yourstorageaccount”
@@ -315,7 +315,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 To monitor Automated Backup on SQL Server 2016/2017, you have two main options. Because Automated Backup uses the SQL Server Managed Backup feature, the same monitoring techniques apply to both.
 
-First, you can poll the status by calling [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Or query the [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) table valued function.
+First, you can poll the status by calling [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Or query the [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) table-valued function.
 
 Another option is to take advantage of the built-in Database Mail feature for notifications.
 
