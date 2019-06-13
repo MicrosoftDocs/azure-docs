@@ -127,7 +127,7 @@ Changes are applied at the sentence level, and style vary by voice. If a style i
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| type | Specifies the speaking style. Currently, speaking styles are voice specific. | This attribute is only required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then type must be provided. |
+| type | Specifies the speaking style. Currently, speaking styles are voice specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then type must be provided. If an invalid value is provided, this element will be ignored. |
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
