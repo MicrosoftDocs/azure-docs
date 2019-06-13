@@ -41,7 +41,7 @@
 1. Select **Access Policies** from the list. Note the two connection strings that are available to you. You'll later need them to handle push notifications.
 
       >[!IMPORTANT]
-      >Do *not* use the **DefaultFullSharedAccessSignature** policy in your application. This is meant to be used in your backend only.
+      >Do *not* use the **DefaultFullSharedAccessSignature** policy in your application. This is meant to be used in your back end only.
       >
 
       ![Azure portal - notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
