@@ -51,7 +51,7 @@
      items:
        - name: Get body tracking results
          href: get-body-tracking-results.md
-   - name: Add NuGet packet to VS project
+   - name: Add Azure Kinect library to a project
      href: azure-kinect-dk-add-nuget-to-project.md
    - name: Update Azure Kinect firmware
      href: azure-kinect-dk-update-device-firmware.md
