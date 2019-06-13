@@ -11,27 +11,17 @@
 ---
 
 
-Microsoft Azure Dedicated Host is a new Azure Compute service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure customer (subscription). 
+Microsoft Azure Dedicated Host is a new Azure Compute service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers we have in our data centers, but we surface the host as a manageable resource. You can place VMs directly into your own provisioned hosts. 
 
-Azure virtual machines are deployed in multiple datacenters around the world.  While it is up to the user to specify the region and availability zone (optional), they do not have control of  
+Azure virtual machines are deployed in multiple datacenters around the world.  While it is up to the user to specify the region and availability zone (optional), they do not have control of other settings are set by the Azure runtime to optimize additional requirements such as the utilization and fragmentation in the Azure datacenter. This article provides you with an overview of a way to allocate resources in proximity.  
 
- 
-
-other settings are set by the Azure runtime to optimize additional requirements such as the utilization and fragmentation in the Azure datacenter. This article provides you with an overview of a way to allocate resources in proximity.  
-
-What are Dedicated Hosts? 
-
-Dedicated hosts are nothing but the same physical servers we have in our data centers used to host Azure Virtual Machines, With ADH we surface the host as a manageable resource so that you can place VMs directly into your provisioned hosts. 
-
- 
 
 ## Benefits 
 
-With Azure Dedicated Hosts you have the benefits of: 
+Reserving the entire host with Azure Dedicated Hosts provides the following benefits: 
 
-Owning the entire host guarantees that no other VMs will be placed in your hosts 
-
-Owning the entire host enables you to control the platform maintenance at the level of the host (impacting all of the hosted VMs at the same time) 
+- No other VMs will be placed in your hosts 
+- You control the platform maintenance at the level of the host (impacting all of the hosted VMs at the same time) 
 
 
 
@@ -39,12 +29,11 @@ Owning the entire host enables you to control the platform maintenance at the le
 
 ![View of the new resources for dedicated hosts.](./media/virtual-machines-common-dedicated-hosts/host-group.png)
 
-A **host group** is a new ARM resource representing a collection of dedicated hosts. You create a host group in a region and an availability zone, and later provision hosts in it. 
+A **host group** is a new resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. 
 
-A **host** is a new ARM resource which is mapped to a physical server in our data center. The physical server is allocated with the creation of the host. A host is created within a host group and could be later used when creating VMs. A host has a SKU describing which VMs sizes could be created. Each host can host multiple VMs from different sizes as long as they are from the same family (e.g. DSv3, ESv3, FSv2). 
+A **host** is a resource, mapped to a physical server in our data center. The physical server is allocated when the host is created. A host is created within a host group. A host has a SKU describing which VMs sizes can be created. Each host can host multiple VMs, from different sizes, as long as they are from the same size series. 
 
-When provisioning a virtual machine (VM) in Azure, you may use one of your already deployed hosts to place the VM. In this way you have full control as to which VMs are placed within your hosts.  
-
+When provisioning a virtual machine (VM) in Azure, you may use one of your already deployed hosts to place the VM. You have full control as to which VMs are placed within your hosts.  
 
 ## Capacity considerations and reservations 
 
@@ -52,18 +41,18 @@ Once a host is provisioned, Azure assigns a physical server to it. In turn, this
 
 ## High Availability considerations 
 
-To deliver high availability, you are expected to have multiple VMs spreading on multiple hosts (minimum of 2). With Azure Dedicated Hosts you can choose several options to provision your infrastructure which will shape your fault isolation boundaries:  
+To deliver high availability, you are expected to have multiple VMs spreading on multiple hosts (minimum of 2). With Azure Dedicated Hosts you can choose several options to provision your infrastructure which will shape your fault isolation boundaries. 
 
 ### Use Availability Zones for fault isolation 
 
-A Host group could be created in a single AZ. Once created, all underlying hosts will follow and be placed anywhere within the zone. Unlike VMs, hosts within a host group are not limited to a single Fabric Cluster (unit of management for VMs).  If you chose to use availability zones, you are forced to create your virtual machines in the same zone. In other words, you can’t have a host group in a zone and try deploy ‘regional VMs’ into it.  
+A Host group is created in a single azure Zone. Once created, all hosts will placed within that zone. Unlike VMs, hosts within a host group are not limited to a single fabric cluster.  If you chose to use availability zones, you are forced to create your virtual machines in the same zone. You can’t have a host group in a zone and try deploy ‘regional VMs’ into it.  
 
 
 ### Use Fault Domains for fault isolation 
 
-A host could be created with a specified fault domain property. Unlike virtual machine in an availability set or scale set where you specify the fault domain count, when creating a host you specify the exact fault domain for the host. This way you can create unbalanced topologies and have full control of the fault isolation of your VMs (through dedicated hosts).  
+A host can be created with a specific fault domain property. Unlike virtual machine in an availability set or scale set, where you specify the fault domain count, for dedicated hosts you specify the exact fault domain for the host. This way you can create unbalanced topologies and have full control of the fault isolation of your VMs.  
 
-Up to 3 logical fault domains are supported within a single host group. Fault domains are mapped to physical racks in the data center. So that two hosts in the same group with different fault domain, will be placed to different racks. Note that fault domains is not a collocation construct. Having the same fault domain for two hosts does not mean they are in any proximity.  
+Up to 3 logical fault domains are supported within a single host group. Fault domains are mapped to physical racks in the data center. So that two hosts in the same group with different fault domain, will be placed to different racks. Note that fault domains is not the same as collocation. Having the same fault domain for two hosts does not mean they are in proximity with each other.  
 
 Fault domains are scoped to the same host groups. You should not make any assumption on anti-affinity between two host groups. 
 
