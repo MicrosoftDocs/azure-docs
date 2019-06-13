@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2019
+ms.date: 06/12/2019
 ms.author: magoedte
 ---
 
@@ -93,11 +93,18 @@ Heartbeat
     | summarize arg_max(TimeGenerated, * ) by Computer
 ```
 
-If the query returns results, then you need to determine if a particular data type is not getting collected and forwarded to the service. This could be caused by the agent not receiving updated configuration from the service or some other symptom preventing the agent from operating normally. Perform the following steps to further troubleshoot.
+If the query returns results, then you need to determine if a particular data type is not collected and forwarded to the service. This could be caused by the agent not receiving updated configuration from the service, or some other symptom preventing the agent from operating normally. Perform the following steps to further troubleshoot.
 
 1. Open an elevated command prompt on the computer and restart the agent service by typing `net stop healthservice && net start healthservice`.
 2. Open the *Operations Manager* event log and search for **event IDs** *7023, 7024, 7025, 7028* and *1210* from **Event source** *HealthService*.  These events indicate the agent is successfully receiving configuration from Azure Monitor and they are actively monitoring the computer. The event description for event ID 1210 will also specify on the last line all of the solutions and Insights that are included in the scope of monitoring on the agent.  
 
     ![Event ID 1210 description](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
 
-3. If after several minutes you do not see the expected data in the query results or visualization, depending on if you are viewing the data from a solution or Insight, from the *Operations Manager* event log, search for event ID *8000* from Event source *HealthService*. This event will specify if a workflow related to  performance, event, or other data type collected is unable to forward to the service for ingestion to the workspace. 
+3. If after several minutes you do not see the expected data in the query results or visualization, depending on if you are viewing the data from a solution or Insight, from the *Operations Manager* event log, search for **Event sources** *HealthService* and *Health Service Modules* and filter by **Event Level** *Warning* and *Error* to confirm if it has written events from the following table.
+
+    |Event ID |Source |Description |Resolution |
+    |---------|-------|------------|
+    |8000 |HealthService |This event will specify if a workflow related to  performance, event, or other data type collected is unable to forward to the service for ingestion to the workspace. | Event ID 2136 from source HealthService is written together with this event and can indicate the agent is unable to communicate with the service, possibly due to misconfiguration of the proxy and authentication settings, network outage, or the network firewall/proxy does not allow TCP traffic from the computer to the service.| 
+    |10102 and 10103 |Health Service Modules |Workflow could not resolve data source. |This can occur if the specified performance counter or instance does not exist on the computer or is incorrectly defined in the workspace data settings. If this is a user-specified [performance counter](data-sources-performance-counters.md#configuring-performance-counters), verify the information specified is following the correct format and exists on the target computers. |
+    |26002 |Health Service Modules |Workflow could not resolve data source. |This can occur if the specified Windows event log does not exist on the computer. This error can be safely ignored if the computer is not expected to have this event log registered, otherwise if this is a user-specified [event log](data-sources-windows-events.md#configuring-windows-event-logs), verify the information specified is correct. |
+
