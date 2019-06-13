@@ -44,15 +44,15 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 
 **Attributes**
 
-| Attribute | Description |
-|-----------|-------------|
-| version | **Required.** Indicates the version of the SSML specification used to interpret the document markup. The current version is 1.0. |
-| xml:lang | **Required.** Specifies the language of the root document. The value may contain a lowercase, two-letter language code (for example, **en**), or the language code and uppercase country/region (for example, **en-US**).  |
-| xmlns | **Required.** Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is https://www.w3.org/2001/10/synthesis. |
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| version | Indicates the version of the SSML specification used to interpret the document markup. The current version is 1.0. | Required |
+| xml:lang | Specifies the language of the root document. The value may contain a lowercase, two-letter language code (for example, **en**), or the language code and uppercase country/region (for example, **en-US**). | Required |
+| xmlns | Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is https://www.w3.org/2001/10/synthesis. | Required |
 
 ## Choose a voice for text-to-speech
 
-The `voice` element is used to specify the voice that is used for text-to-speech.
+The `voice` element is required. It is used to specify the voice that is used for text-to-speech.
 
 **Syntax**
 
@@ -64,9 +64,9 @@ The `voice` element is used to specify the voice that is used for text-to-speech
 
 **Attributes**
 
-| Attribute | Description |
-|-----------|-------------|
-| name | **Required.** Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). |
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| name | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
 
 **Example**
 
@@ -87,9 +87,9 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 
 **Attributes**
 
-| Attribute | Description |
-|-----------|-------------|
-| name | **Required.** Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). |
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| name | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
 
 **Example**
 
@@ -109,7 +109,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 > [!WARNING]
 > This feature will only work with neural voices.
 
-By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element.
+By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element. This is an optional element unique to Azure Speech Services.
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-JessaNeural`
@@ -125,9 +125,9 @@ Changes are applied at the sentence level, and style vary by voice. If a style i
 
 **Attributes**
 
-| Attribute | Description |
-|-----------|-------------|
-| type | Specifies the speaking style. Currently, speaking styles are voice specific. |
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| type | Specifies the speaking style. Currently, speaking styles are voice specific. | This attribute is only required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then type must be provided. |
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
@@ -168,10 +168,10 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 
 **Attributes**
 
-| Attribute | Description |
-|-----------|-------------|
-| strength | **Optional.** Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> |
-| time | **Optional.** Specifies the absolute duration of a pause in seconds or milliseconds. Examples of valid values are 2s and 500|
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| strength | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
+| time | Specifies the absolute duration of a pause in seconds or milliseconds. Examples of valid values are 2s and 500 | Optional |
 
 **Example**
 
@@ -229,10 +229,10 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 **Attributes**
 
-| Attribute | Description |
-|-----------|-------------|
-| alphabet | **Optional.** Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>ipa &ndash; International Phonetic Alphabet</li><li>sapi &ndash; Speech API Phone Set</li><li>ups &ndash; Universal Phone Set</li></ul>The alphabet applies only to the phoneme in the element. For more information, see [Phonetic Alphabet Reference](https://msdn.microsoft.com/en-us/library/hh362879(v=office.14).aspx). |
-| ph |  **Required if using phonemes.** A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the text-to-speech (TTS) engine rejects the entire SSML document and produces none of the speech output specified in the document. |
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| alphabet | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>ipa &ndash; International Phonetic Alphabet</li><li>sapi &ndash; Speech API Phone Set</li><li>ups &ndash; Universal Phone Set</li></ul>The alphabet applies only to the phoneme in the element. For more information, see [Phonetic Alphabet Reference](https://msdn.microsoft.com/en-us/library/hh362879(v=office.14).aspx). | Optional |
+| ph | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the text-to-speech (TTS) engine rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes. |
 
 **Examples**
 
@@ -266,14 +266,14 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 
 **Attributes**
 
-| Attribute | Description |
-|-----------|-------------|
-| pitch | **Optional.** Indicates the baseline pitch for the text. You may express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, 600Hz.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st", that specifies an amount to change the pitch. For example: +80Hz or -2st. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>.
-| contour | **Optional.** Represents changes in pitch for speech content as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`).
-| range  | **Optional.** A value that represents the range of pitch for the text. You may express `range` using the same absolute values, relative values, or enumeration values used to describe `pitch`.
-| rate  | **Optional.** Indicates the speaking rate of the text. You may express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul>
-| duration  | **Optional.** The period of time that should elapse while the speech synthesis (TTS) engine reads the text, in seconds or milliseconds. For example, *2s* or *1800ms*.
-| volume  | **Optional.** Indicates the volume level of the speaking voice. You may express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. For example, 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. For example +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul>
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| pitch | Indicates the baseline pitch for the text. You may express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, 600Hz.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st", that specifies an amount to change the pitch. For example: +80Hz or -2st. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | Optional |
+| contour | Represents changes in pitch for speech content as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
+| range  | A value that represents the range of pitch for the text. You may express `range` using the same absolute values, relative values, or enumeration values used to describe `pitch`. | Optional |
+| rate  | Indicates the speaking rate of the text. You may express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
+| duration  | The period of time that should elapse while the speech synthesis (TTS) engine reads the text, in seconds or milliseconds. For example, *2s* or *1800ms*. | Optional |
+| volume  | Indicates the volume level of the speaking voice. You may express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. For example, 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. For example +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
 
 ### Change speaking rate
 
