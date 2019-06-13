@@ -94,3 +94,7 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 | CassandraConnectionClosures | Cassandra Connection Closures |Count| Count |Number of Cassandra Connections closed| ClosureReason, Region| All | Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|
 
 ## Next steps
+
+* [View and monitor metrics from Azure Cosmos DB account metrics pane](use-metrics.md)
+
+* [Diagnostic logging in Azure Cosmos DB](logging.md)
