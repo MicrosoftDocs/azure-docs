@@ -154,7 +154,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### Module twin queries
 
-Querying on module twins is similar to querying on device twins, but using a different collection/namespace, i.e. instead of “from devices” you can query device.modules:
+Querying on module twins is similar to querying on device twins, but using a different collection/namespace; instead of from **devices**, you query from **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
