@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Secure Development Guidance
+title: Secure Development Documentation
 metadata:
   document_id: 
-  title: Secure Development Guidance on Microsoft Azure - Sample apps, best practices
+  title: Secure Development Documentation on Microsoft Azure
   meta.description: Learn how to develop secure apps on Azure.
   services: security
   author: TerryLanfear
@@ -26,7 +26,7 @@ sections:
     columns: 2
     items:
       - href: /azure/security/develop/secure-dev-overview
-        html: <p>Deploy your first web application to Azure</p>
+        html: <p>Develop a secure web application on Azure</p>
         image:
           src: /media/common/i_get-started.svg
         title: Get started
@@ -36,13 +36,6 @@ sections:
           src: /media/common/i_learn-about.svg
         title: Build your skills with Microsoft Learn
 
-- title: Secure sample apps
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/security/develop/secure-dev-overview">Web app in a Linux container</a>
 
 - title: Concepts
   items:
