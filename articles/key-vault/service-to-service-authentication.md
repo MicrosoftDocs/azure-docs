@@ -111,7 +111,7 @@ This command generates output only on failure.  To verify the current account se
 az account list
 ```
 
-### Authenticating with Azure AD Integrate authentication
+### Authenticating with Azure AD authentication
 
 To use Azure AD authentication, verify that:
 
@@ -203,12 +203,12 @@ This option allows you to store a service principal's client certificate in Key 
 * Local authentication, where you want to authenticate using an explicit service principal, and want to keep the service principal credential securely in a Key vault. Developer account must have access to key vault. 
 * Authentication from Azure where you want to use explicit credential (e.g. for cross-tenant scenarios), and want to seep the service principal credential securely in a key vault. Managed identity must have access to key vault. 
 
-You or MSI must have the permissions necessary to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal.
+Managed Identity or your developer identity must permission to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal.
 
 To use custom services authentication, replace `{KeyVaultCertificateSecretIdentifier}` in this connection string with the certificate's secret identifier:
 
 ```
-RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
 ```
 
 To find the certificate's secret identifier, follow these steps.
@@ -240,11 +240,10 @@ The following options are supported:
 | `RunAs=CurrentUser` | Local development | AzureServiceTokenProvider uses Azure AD Integrated Authentication to get token. |
 | `RunAs=App` | [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider uses a managed identity to get token. |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [User-assigned identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | AzureServiceTokenProvider uses a user-assigned identity to get token. |
-| `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Custom services authentication | {KeyVaultCertificateSecretIdentifier}` = the certificate's secret identifier |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Service principal	| `AzureServiceTokenProvider` uses certificate to get token from Azure AD. |
+| `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Custom services authentication | {KeyVaultCertificateSecretIdentifier}` = the certificate's secret identifier; TenantId is optional. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service principal |`AzureServiceTokenProvider` uses secret to get token from Azure AD. |
-
 
 
 ## Next steps
