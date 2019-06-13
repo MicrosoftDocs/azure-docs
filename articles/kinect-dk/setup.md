@@ -14,7 +14,7 @@ keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 
 # Quickstart: Set up your first Azure Kinect DK application
 
-Getting started with the Azure Kinect DK API? This quickstart will get you up and running with access to the device!
+Getting started with the Azure Kinect DK API? This quickstart will get you up and running with the device!
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
