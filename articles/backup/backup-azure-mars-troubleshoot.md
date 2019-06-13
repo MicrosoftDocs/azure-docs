@@ -76,7 +76,7 @@ Retry registering the server with recovery services vault once you perform the a
 
 ### Cause 3: No internet connectivity
 
-- Work with you IT team to ensure the system has internet connectivity
+- Work with your IT team to ensure the system has internet connectivity
 - If you do not have Proxy server, then ensure the proxy option is unselected when registering the agent
 
 ### Cause 4: Anti-virus software is blocking
@@ -168,11 +168,11 @@ If scheduled backups don't get triggered automatically, while manual backups wor
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
-- Ensure there are no missing or corrupted **PowerShell** module **MSonlineBackup**. In case there are any missing or corrupt file, to resolve this issue perform the below:
+- Ensure there are no missing or corrupted **PowerShell** module **MSonlineBackup**. In case there is any missing or corrupt file, to resolve this issue perform the below:
 
   - From any machine having MARS agent that is working properly, copy the MSOnlineBackup folder from *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* path.
   - Paste this in problematic machine in the same path *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)*.
-  - If **MSOnlineBackup** folder is already exists in the machine, paste or replace the content files inside it.
+  - If **MSOnlineBackup** folder is already existed in the machine, paste or replace the content files inside it.
 
 
 > [!TIP]
