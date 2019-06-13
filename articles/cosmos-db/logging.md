@@ -63,25 +63,34 @@ Azure Diagnostic Logs are emitted by a resource and provide rich, frequent data 
 <a id="#turn-on"></a>
 ## Turn on logging in the Azure portal
 
-To enable diagnostics logging, you must have the following resources:
+Use the following steps to enable diagnostic logging in the Azure portal:
 
-* An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account by using the Azure portal](create-sql-api-dotnet.md#create-account), [Azure CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
+1. Sign into the [Azure portal](https://portal.azure.com). 
 
-To enable diagnostic logging in the Azure portal, do the following steps:
-
-1. In the [Azure portal](https://portal.azure.com), in your Azure Cosmos DB account, select **Diagnostic logs** in the left navigation, and then select **Turn on diagnostics**.
+1. Navigate to your Azure Cosmos account. Open the **Diagnostic settings** pane, and then select **Add diagnostic setting** option.
 
     ![Turn on diagnostic logging for Azure Cosmos DB in the Azure portal](./media/logging/turn-on-portal-logging.png)
 
-2. In the **Diagnostic settings** page, do the following steps: 
+1. In the **Diagnostic settings** page, fill the form with with the following details: 
 
     * **Name**: Enter a name for the logs to create.
 
-    * **Archive to a storage account**: To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow the instructions to create an Azure Resource Manager, general-purpose account. Then, return to this page in the portal to select your storage account. It might take a few minutes for newly created storage accounts to appear in the drop-down menu.
-    * **Stream to an event hub**: To use this option, you need an existing Event Hubs namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub by using the Azure portal](../event-hubs/event-hubs-create.md). Then, return to this page in the portal to select the Event Hubs namespace and policy name.
-    * **Send to Log Analytics**: To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [Create a new workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in the portal. For more information about viewing your logs in Azure Monitor logs, see View logs in Azure Monitor logs.
-    * **Log DataPlaneRequests**: Select this option to log back-end requests from the underlying Azure Cosmos DB distributed platform for SQL, Graph, MongoDB, Cassandra, and Table API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
-    * **Log MongoRequests**: Select this option to log user-initiated requests from the Azure Cosmos DB front end for serving Cosmos accounts configured with Azure Cosmos DB's API for MongoDB. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
+    * You can store the logs to the following services:
+
+      * **Archive to a storage account**: To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) article. Then, return to the Azure Cosmos Db diagnostic settings pane in the portal to select your storage account. It might take a few minutes for newly created storage accounts to appear in the drop-down menu.
+
+      * **Stream to an event hub**: To use this option, you need an existing Event Hubs namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub by using the Azure portal](../event-hubs/event-hubs-create.md). Then, return to this page in the portal to select the Event Hub namespace and policy name.
+
+      * **Send to Log Analytics**: To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [Create a new workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in the portal. 
+
+   * You can log the following data:
+
+      * **DataPlaneRequests**: Select this option to log back-end requests from the underlying Azure Cosmos DB distributed platform for SQL, Graph, MongoDB, Cassandra, and Table API accounts. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
+
+      * **MongoRequests**: Select this option to log user-initiated requests from the Azure Cosmos DB front end for serving Cosmos accounts configured with Azure Cosmos DB's API for MongoDB. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
+
+      * **QueryRuntimeStatistics**:
+
     * **Metric Requests**: Select this option to store verbose data in [Azure metrics](../azure-monitor/platform/metrics-supported.md). If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are auto-deleted after the retention period expires.
 
 3. Select **Save**.

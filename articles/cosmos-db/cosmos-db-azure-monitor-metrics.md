@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ---
 
-# Get Azure Cosmos DB metrics from Azure Monitor
+# Get Azure Cosmos DB metrics from Azure Monitor and visualize them
 
-You can view Azure Cosmos DB metrics from Azure Monitor API. Azure Monitor provides several ways to interact with metrics, including the Azure portal, accessing them through the REST API, or querying them using PowerShell or CLI. Azure Cosmos DB metrics are low-latency numerical values, collected at one-minute frequency by default, you can also aggregate these metrics. 
+You can view Azure Cosmos DB metrics from Azure Monitor API. Azure Monitor provides several ways to interact with metrics, including the Azure portal, accessing them through the REST API, or querying them using PowerShell or CLI. Azure Cosmos DB metrics are low-latency numerical values, collected at one-minute frequency by default, you can also aggregate these metrics. These metrics are capable of supporting real-time scenarios.  
 
-This article describes different Azure Cosmos DB metrics you can view from Azure Monitor using Azure portal. You will use one of your existing Azure Cosmos accounts and view the different metrics at the request level and the operation level. So, make sure you have an Azure Cosmos account with sample data and perform CRUD operations on that data.
+This article describes different Azure Cosmos DB metrics you can view from Azure Monitor using Azure portal. You will use one of your existing Azure Cosmos accounts and view the different metrics at the database, container, region, request, or operation levels. So, make sure you have an Azure Cosmos account with sample data and perform CRUD operations on that data.
 
 ## View metrics from Azure portal
 
