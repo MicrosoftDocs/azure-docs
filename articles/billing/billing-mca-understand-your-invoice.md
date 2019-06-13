@@ -1,6 +1,6 @@
 ---
-title: Understand your Microsoft Customer Agreement invoice
-description: Learn how to read and understand your MCA bill.
+title: Understand your Microsoft Customer Agreement invoice in Azure
+description: Learn how to read and understand your Microsoft Customer Agreement bill in Azure
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -15,7 +15,7 @@ ms.author: banders
 
 # Terms in your Microsoft Customer Agreement invoice
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
+This article applies to an Azure billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md).
 
