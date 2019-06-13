@@ -53,6 +53,8 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 
 - On Internet Explorer, enable the RDS ActiveX add-on.
 
+- For the Azure AD pre-authentication flow, users can only connect to resources published to them in the **RemoteApp and Desktops** pane. Users can't connect to a desktop using the **Connect to a remote PC** pane.
+
 ## Deploy the joint RDS and Application Proxy scenario
 
 After setting up RDS and Azure AD Application Proxy for your environment, follow the steps to combine the two solutions. These steps walk through publishing the two web-facing RDS endpoints (RD Web and RD Gateway) as applications, and then directing traffic on your RDS to go through Application Proxy.
