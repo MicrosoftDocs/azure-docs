@@ -57,7 +57,7 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 ## Get the container image with `docker pull`
 
-Container images for Text Analytics are available from Microsoft Container Registry. 
+Container images for Text Analytics are available from Microsoft Container Registry.
 
 | Container | Repository |
 |-----------|------------|
@@ -65,7 +65,6 @@ Container images for Text Analytics are available from Microsoft Container Regis
 |Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Sentiment Analysis 2.x| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 |Sentiment Analysis 3.x| `containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0` |
-
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
 
@@ -101,23 +100,20 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0:latest
 ```
 
-
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
-
 
 ## How to use the container
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
-1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
+1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
 ## Run the container with `docker run`
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. Refer to [Gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values.
 
-[Examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
-
+[Examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
 ### Run v2 container example of docker run command
 
@@ -134,7 +130,7 @@ This command:
 * Runs a key phrase container from the container image
 * Allocates one CPU core and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer. 
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ### Run v3 container example of docker run command
 
@@ -151,7 +147,7 @@ This command:
 * Runs a key phrase container from the container image
 * Allocates 4 CPU cores and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer. 
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
@@ -160,19 +156,19 @@ This command:
 
 ## Query the container's v2 prediction endpoint
 
-The container provides REST-based query prediction endpoint APIs. 
+The container provides REST-based query prediction endpoint APIs.
 
 Use the host, `https://localhost:5000`, for container APIs.
 
 ## Query the container's v3 prediction endpoint
 
-The container provides REST-based query prediction endpoint APIs. 
+The container provides REST-based query prediction endpoint APIs.
 
 Use the host, `https://localhost:5000`, for container APIs.
 
 ### V3 API request POST body
 
-The following JSON is an example of a V3 API request's POST body: 
+The following JSON is an example of a V3 API request's POST body:
 
 ```json
 {
@@ -193,7 +189,7 @@ The following JSON is an example of a V3 API request's POST body:
 
 ### V3 API response body
 
-The following JSON is an example of a V3 API request's POST body: 
+The following JSON is an example of a V3 API request's POST body:
 
 ```json
 {
@@ -275,7 +271,7 @@ The following JSON is an example of a V3 API request's POST body:
 
 ## Troubleshooting
 
-If you run the container with an output [mount](../text-analytics-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
+If you run the container with an output [mount](../text-analytics-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
 ## Billing
 
