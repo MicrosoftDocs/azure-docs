@@ -72,24 +72,24 @@ In each case, you see the error logs and the verbose logs. Select each log and d
 
 The errors generated when uploading the data to Azure are summarized in the following table.
 
-| Error code/Description                        |Description                                     |
-|-------------------------------------------|--------------------------------------------------------|
-|None <br>  Completed successfully.           | No errors encountered. No action is required.      |
-|Completed <br> Completed successfully.       | No errors encountered. No action is required. |
-|Created <br> Successfully uploaded the blob. | For import disposition, means the blob was created as new. |
-|Renamed <br> Successfully renamed the blob.  |                                                            |
-|CompletedWithErrors <br> Upload completed with errors.| There were some errors during upload. The errors are written to *copylog* file in the storage account where the data was uploaded.  |
-|Corrupted  |                      |
-|StorageRequestFailed <br> Azure storage request failed.   |     |
-|LeasePresent <br> Lease is already present on the item. |      |
-|StorageRequestForbidden <br> |        |
-|Canceled <br> {0} was canceled.   | For the blob status in user logs; never used in recovery logs. |
-|ManagedDiskCreationTerminalFailure <br> Could not convert to managed disks. The data was uploaded as page blobs. | Managed disk creation failed. This is a terminal failure. You can manually convert the data in the page blobs in the staging account to managed disks.  |
-|DiskConversionNotStartedTierInfoMissing <br> Could not convert to managed disk as the data was uploaded outside of the precreated folders on the Data Box Disk.    | Since the VHD file was copied outside of the precreated tier folders, a managed disk wasn't created. The file is uploaded as page blob to the staging storage account as specified during order creation. You can convert it manually to a managed disk.|
-|InvalidWorkitem <br> Could not upload the data as it does not conform to Azure naming and limits conventions.   |These are files that didn't conform to Azure naming conventions and could not be uploaded as block blob. They are marked as invalid work item.|
-|InvalidPageBlobUploadAsBlockBlob <br> The invalid page blobs are uploaded as block blobs in a container with prefix `databoxdisk-invalid-pb-`. | |
-|InvalidAzureFileUploadAsBlockBlob <br> The invalid Azure Files are uploaded as block blobs in a  container with prefix `databoxdisk-invalid-af-`.  |  |
-|InvalidManagedDiskUploadAsBlockBlob <br> The invalid managed disk files are uploaded as block blobs in a container with prefix `databoxdisk-invalid-md-`.|   |
+| Error code | Description                        |Details                                     |
+|-------------|------------------------------|--------------------------------------------------------|
+|None |  Completed successfully.           | No errors encountered. No action is required.      |
+|Completed | Completed successfully.       | No errors encountered. No action is required. |
+|Created | Successfully uploaded the blob. | For import disposition, means the blob was created as new. |
+|Renamed | Successfully renamed the blob.  |                                                            |
+|CompletedWithErrors | Upload completed with errors.| There were some errors during upload. The errors are written to *copylog* file in the storage account where the data was uploaded.  |
+|Corrupted | |                      |
+|StorageRequestFailed | Azure storage request failed.   |     |
+|LeasePresent | Lease is already present on the item. |      |
+|StorageRequestForbidden | |        |
+|Canceled | {0} was canceled.   | For the blob status in user logs; never used in recovery logs. |
+|ManagedDiskCreationTerminalFailure | Could not convert to managed disks. The data was uploaded as page blobs. | Managed disk creation failed. This is a terminal failure. You can manually convert the data in the page blobs in the staging account to managed disks.  |
+|DiskConversionNotStartedTierInfoMissing | Could not convert to managed disk as the data was uploaded outside of the precreated folders on the Data Box Disk.    | Since the VHD file was copied outside of the precreated tier folders, a managed disk wasn't created. The file is uploaded as page blob to the staging storage account as specified during order creation. You can convert it manually to a managed disk.|
+|InvalidWorkitem | Could not upload the data as it does not conform to Azure naming and limits conventions.   |These are files that didn't conform to Azure naming conventions and could not be uploaded as block blob. They are marked as invalid work item.|
+|InvalidPageBlobUploadAsBlockBlob | The invalid page blobs are uploaded as block blobs in a container with prefix `databoxdisk-invalid-pb-`. | |
+|InvalidAzureFileUploadAsBlockBlob | The invalid Azure Files are uploaded as block blobs in a  container with prefix `databoxdisk-invalid-af-`.  |  |
+|InvalidManagedDiskUploadAsBlockBlob | The invalid managed disk files are uploaded as block blobs in a container with prefix `databoxdisk-invalid-md-`.|   |
 
 ## Next steps
 

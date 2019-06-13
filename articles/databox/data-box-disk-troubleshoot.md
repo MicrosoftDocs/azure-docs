@@ -69,27 +69,27 @@ If you run multiple sessions for validation, then one error log is generated per
 
 The errors contained in the *error.xml* with the corresponding recommended actions are summarized in the following table.
 
-| Error code/Description                       | Recommended actions               |
-|--------------------------------------|-----------------------------------|
-| `None` <br> Successfully validated the data. | No action is required. |
-| `InvalidXmlCharsInPath` <br> Could not create the path as the file path has characters that are not valid.| Having characters that are not valid in the file path will result in the failure of manifest file creation. Remove these characters to proceed.  |
-| `OpenFileForReadFailed`<br> Could not open the file.|File read failed due to an error. Details for the error should be in the exception. |
-| `Not512Aligned` <br> Could not upload the data as it is not 512 bytes aligned.| Remove the file and retry the validation. Only upload data that is 512 bytes aligned to this folder.  |
-| `InvalidBlobPath` <br> Could not upload the data as the upload path is not valid.| |
-| `EnumerationError` <br> Could not enumerate the files. | |
-| `ShareSizeExceeded` <br> Could not upload the file as it exceeds the available space in the share.|Reduce the size of the data in the share so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
-| `AzureFileSizeExceeded` <br> Could not upload the file as it exceeds the maximum size allowed for Azure Files.| Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation.|
-| `BlockBlobSizeExceeded` <br> Could not upload the data as it exceeds the maximum size allowed for a block blob. | Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
-| `ManagedDiskSizeExceeded` <br> Could not upload the data as it exceeds the maximum size allowed for a managed disk. | Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
-| `PageBlobSizeExceeded` <br> Could not upload the data as it exceeds the maximum size allowed for a page blob. | Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
-| `InvalidShareContainerFormat`          |The first folder created under the pre-existing folders on the disk becomes a container in your storage account. This share or container name does not conform to the Azure naming conventions. Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation.   |
-| `InvalidBlobNameFormat` <br> Could not upload the data as it does not follow the Azure naming conventions.|Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation. |
-| `InvalidFileNameFormat` <br> Could not upload the data as it does not follow the Azure naming conventions. |Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation. |
-| `InvalidDiskNameFormat` <br> Could not upload the data as it does not follow the Azure naming conventions. |Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation.       |
-| `NotPartOfFileShare` <br> Could not upload the files as the upload path is not valid. Upload the files to a folder in Azure Files.   | Remove the files in error and upload those files to a precreated folder. Retry the validation. |
-| `NotFixedVhd` <br> Could not upload as managed disks. The differencing VHDs are not supported.|Remove the differencing VHDs as these are not supported. Retry the validation. |
-| `NonVhdFileNotSupportedForManagedDisk` <br> Could not upload as managed disks. The non-VHD files are not supported. |Remove the non-VHD files as these are not supported. Retry the validation. |
-| `VhdAsBlockBlob` <br> Could not upload as managed disk. The VHD file is not valid.|Remove the VHDs that are not valid. Retry the validation. |
+| Error code| Description                       | Recommended actions               |
+|------------|--------------------------|-----------------------------------|
+| `None` | Successfully validated the data. | No action is required. |
+| `InvalidXmlCharsInPath` | Could not create the path as the file path has characters that are not valid.| Having characters that are not valid in the file path will result in the failure of manifest file creation. Remove these characters to proceed.  |
+| `OpenFileForReadFailed`| Could not open the file.|File read failed due to an error. Details for the error should be in the exception. |
+| `Not512Aligned` | Could not upload the data as it is not 512 bytes aligned.| Remove the file and retry the validation. Only upload data that is 512 bytes aligned to this folder.  |
+| `InvalidBlobPath` | Could not upload the data as the upload path is not valid.| |
+| `EnumerationError` | Could not enumerate the files. | |
+| `ShareSizeExceeded` | Could not upload the file as it exceeds the available space in the share.|Reduce the size of the data in the share so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
+| `AzureFileSizeExceeded` | Could not upload the file as it exceeds the maximum size allowed for Azure Files.| Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation.|
+| `BlockBlobSizeExceeded` | Could not upload the data as it exceeds the maximum size allowed for a block blob. | Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
+| `ManagedDiskSizeExceeded` | Could not upload the data as it exceeds the maximum size allowed for a managed disk. | Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
+| `PageBlobSizeExceeded` | Could not upload the data as it exceeds the maximum size allowed for a page blob. | Reduce the size of the file or the data so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
+| `InvalidShareContainerFormat`  |        |The first folder created under the pre-existing folders on the disk becomes a container in your storage account. This share or container name does not conform to the Azure naming conventions. Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation.   |
+| `InvalidBlobNameFormat` | Could not upload the data as it does not follow the Azure naming conventions.|Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation. |
+| `InvalidFileNameFormat` | Could not upload the data as it does not follow the Azure naming conventions. |Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation. |
+| `InvalidDiskNameFormat` | Could not upload the data as it does not follow the Azure naming conventions. |Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation.       |
+| `NotPartOfFileShare` | Could not upload the files as the upload path is not valid. Upload the files to a folder in Azure Files.   | Remove the files in error and upload those files to a precreated folder. Retry the validation. |
+| `NotFixedVhd` | Could not upload as managed disks. The differencing VHDs are not supported.|Remove the differencing VHDs as these are not supported. Retry the validation. |
+| `NonVhdFileNotSupportedForManagedDisk` | Could not upload as managed disks. The non-VHD files are not supported. |Remove the non-VHD files as these are not supported. Retry the validation. |
+| `VhdAsBlockBlob` | Could not upload as managed disk. The VHD file is not valid.|Remove the VHDs that are not valid. Retry the validation. |
 
 ## Next steps
 
