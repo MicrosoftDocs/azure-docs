@@ -16,27 +16,30 @@ ms.date: 04/26/2019
 ms.author: msfussell
 ---
 
-# Azure Service Fabric application design best practices
+# Azure Service Fabric app design best practices
 
-This article provides best practice guidance for building applications and services on Service Fabric.
+This article provides best practice guidance for building apps and services on Azure Service Fabric.
  
 ## Get familiar with Service Fabric
-* [So you want to learn about Service Fabric?](service-fabric-content-roadmap.md)
-* Read about [Service Fabric application scenarios](service-fabric-application-scenarios.md)
-* Then understand the programming model choices with [Service Fabric programming model overview](service-fabric-choose-framework.md)
+* Read the [So you want to learn about Service Fabric?](service-fabric-content-roadmap.md) article.
+* Read about [Service Fabric application scenarios](service-fabric-application-scenarios.md).
+* Understand the programming model choices by reading [Service Fabric programming model overview](service-fabric-choose-framework.md).
 
 
 
-## Application design guidance
-Become familiar with the [general architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) of a Service Fabric application and its [design considerations](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#design-considerations).
+## App design guidance
+Become familiar with the [general architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) of Service Fabric apps and their [design considerations](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#design-considerations).
 
 ### Choose an API gateway
 Use an API gateway service that communicates to back-end services that can then be scaled out. The most common API gateway services used are:
 
-- [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), which is [integrated with Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management)
-- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) or [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) using the [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) to read from Event Hub partitions
-- [Træfik reverse proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/) using the [Azure Service Fabric provider](https://docs.traefik.io/configuration/backends/servicefabric/)
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) note: this is not directly integrated with Service Fabric and Azure API Management is typically a preferred choice
+- [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), which is [integrated with Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
+- [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) or [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), using the [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) to read from Event Hub partitions.
+- [Træfik reverse proxy](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/), using the [Azure Service Fabric provider](https://docs.traefik.io/configuration/backends/servicefabric/).
+- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
+
+   > [!NOTE] 
+   > Azure Application Gateway isn't directly integrated with Service Fabric. Azure API Management is typically the preferred choice.
 - Build your own [ASP.NET Core](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore) web application gateway
 
 ### Choose stateless services
