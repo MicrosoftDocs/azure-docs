@@ -231,9 +231,9 @@ This command generates a list of copied files with their permissions.
 
 ### Generate a list of identities and map them to Azure Active Directory (ADD) identities
 
-First, download the `copy-acls.py` script. See the [Download helper scripts and set up your edge node to run them](#download-helper-scripts) section of this article.
+1. Download the `copy-acls.py` script. See the [Download helper scripts and set up your edge node to run them](#download-helper-scripts) section of this article.
 
-1. Run this command to generate a list of unique identities.
+2. Run this command to generate a list of unique identities.
 
    ```bash
    
@@ -242,9 +242,9 @@ First, download the `copy-acls.py` script. See the [Download helper scripts and 
 
    This script generates a file named `id_map.json` that contains the identities that you need to map to ADD-based identities.
 
-2. Open the `id_map.json` file in a text editor.
+3. Open the `id_map.json` file in a text editor.
 
-3. For each JSON object that appears in the file, update the `target` attribute of either an AAD User Principal Name (UPN) or ObjectId (OID), with the appropriate mapped identity. After you're done, save the file. You'll need this file in the next step.
+4. For each JSON object that appears in the file, update the `target` attribute of either an AAD User Principal Name (UPN) or ObjectId (OID), with the appropriate mapped identity. After you're done, save the file. You'll need this file in the next step.
 
 ### Apply permissions to copied files and apply identity mappings
 
