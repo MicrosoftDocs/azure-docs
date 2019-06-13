@@ -132,10 +132,6 @@ private void ValidateAppRole(string appRole)
     // The `role` claim tells you what permissions the client application has in the service.
     // In this case we look for a `role` value of `access_as_application`
     //
-
-    if (!isAppOnlyToken)
-    {
-    }
     Claim roleClaim = ClaimsPrincipal.Current.FindFirst("roles");
     if (roleClaim == null || !roleClaim.Value.Split(' ').Contains(appRole))
     {
@@ -152,7 +148,7 @@ This sample code is for ASP.NET. For ASP.NET Core, just replace `ClaimsPrincipal
 
 ### Accepting app only tokens if the Web API should only be called by daemon apps
 
-The `roles` claim is also used for users in user assignment patterns (See [How to: Add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md)). So just checking roles will allow apps to sign in as users and the other way around.
+The `roles` claim is also used for users in user assignment patterns (See [How to: Add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md)). So just checking roles will allow apps to sign in as users and the other way around, if the roles are assignable to both. We recommend having different roles declared for users and apps to prevent this confusion.
 
 If you want to only allow daemon applications to call your Web API, you'll want to add a condition, when you validate the app role, that the token is an app-only token:
 
@@ -162,7 +158,7 @@ string sub = ClaimsPrincipal.Current.FindFirst("sub");
 bool isAppOnlyToken = oid == sub;
 ```
 
-Of course checking the inverse condition will allow only app that sign-in a user to call your API.
+Checking the inverse condition will allow only apps that sign in a user, to call your API.
 
 ## Next steps
 
