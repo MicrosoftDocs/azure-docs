@@ -34,7 +34,7 @@ This article describes different Azure Cosmos DB metrics you can view from Azure
 
 ## Add filters to metrics
 
-You can also filter metrics and the chart displayed by a specific container name, database name, operation type, region, and status code. To filter the metrics, select **Add filter** and choose the required property such as **OperationType** and select a value such as **Query**. The graph then displays the request units consumed for the query operation for the selected period. 
+You can also filter metrics and the chart displayed by a specific **CollectionName**, **DatabaseName**, **OperationType**, **Region**, and **StatusCode**. To filter the metrics, select **Add filter** and choose the required property such as **OperationType** and select a value such as **Query**. The graph then displays the request units consumed for the query operation for the selected period. The operations executed via Stored procedure are not logged so they are not available under the OperationType metric.
 
 ![Add a filter to select the metric granularity](./media/cosmos-db-azure-monitor-metrics/add-metrics-filter.png)
 
