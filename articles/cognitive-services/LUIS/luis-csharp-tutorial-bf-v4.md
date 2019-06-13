@@ -14,16 +14,14 @@ ms.author: diberry
 ---
 
 # Tutorial: LUIS bot in C# with the Bot Framework 4.x and the Azure Web app bot
-Using C#, you can build a chat bot integrated with language understanding (LUIS). This bot uses the HomeAutomation app to implement a bot solution. The bot is built the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) with [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
+Using C#, you can build a chat bot integrated with language understanding (LUIS). This bot uses the HomeAutomation app to implement a bot solution. The bot is built the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) with [Bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) v4.
 
 **In this tutorial, you learn how to:**
 
 > [!div class="checklist"]
 > * Create a web app bot. This process creates a new LUIS app for you.
-> * Add a prebuilt domain to the new LUIS model
-> * Download the project created by the Web bot service
+> * Download the bot project created by the Web bot service
 > * Start bot & emulator locally on your computer
-> * Modify bot code for new LUIS intents
 > * View utterance results in bot
 
 ## Prerequisites
