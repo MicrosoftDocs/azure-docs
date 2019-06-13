@@ -155,6 +155,6 @@ In this section, you create a notification hub and configure authentication with
 
 1. Select **Sandbox** mode. Use the **Production** mode only if you want to send push notifications to users who purchased your app from the store.
 
-    ![Configure APNs certification in Azure portal][7]
+    ![Configure APNs certification in Azure portal](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-apple-config-cert.png)
 
 You've now configured your notification hub with APNs. You also have the connection strings to register your app and send push notifications.

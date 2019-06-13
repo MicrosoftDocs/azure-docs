@@ -48,7 +48,7 @@ To follow along, you need:
 - Your physical iPhone device registered in the [Apple Portal](https://developer.apple.com) and associated with your certificate.
 - An [Azure subscription](https://portal.azure.com) where you can create and manage resources.
 
-Even if you have no prior experience, you should be able to follow along the steps for creating this first-principles example. However, you'll benefit from familiarity with the following concepts:
+Even if you have no prior experience with iOS development, you should be able to follow along the steps for creating this first-principles example. However, you'll benefit from familiarity with the following concepts:
 
 - Building iOS apps with Xcode and Swift.
 - Configuring an [Azure Notification hub](notification-hubs-ios-apple-push-notification-apns-get-started.md) for iOS.
@@ -695,7 +695,7 @@ You now have a basic iOS Swift app connected to a notification hub via the [REST
 - [Notification Hubs REST APIs](/rest/api/notificationhubs/)
 - [Notification Hubs SDK for back-end operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)
 - [Notification Hubs SDK on GitHub](https://github.com/Azure/azure-notificationhubs)
-- [Register with application back-end](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
+- [Register with application back end](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 - [Registration management](notification-hubs-push-notification-registration-management.md)
 - [Working with tags](notification-hubs-tags-segment-push-message.md) 
 - [Working with custom templates](notification-hubs-templates-cross-platform-push-messages.md)
