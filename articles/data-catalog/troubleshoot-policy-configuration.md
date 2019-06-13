@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure Data Catalog
+title: How to troubleshoot Azure Data Catalog
 description: This article describes common troubleshooting concerns for Azure Data Catalog resources. 
 author: JasonWHowell
 ms.author: jasonh
@@ -14,9 +14,9 @@ This article describes common troubleshooting concerns for Azure Data Catalog re
 
 ## Functionality limitations
 
-When using Azure Data Catalog, the following functionality is not available and not supported:
+When using Azure Data Catalog, the following functionality is limited:
 
-- Guest User(s) is not supported.
+- The Windows Guest User account is not supported.
 
 - Creating Azure Data Catalog resources using Azure Resource Manager Templates or Azure PowerShell commands is not supported.
 
