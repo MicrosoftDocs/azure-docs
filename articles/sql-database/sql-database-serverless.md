@@ -19,21 +19,24 @@ Azure SQL Database serverless (preview) is a compute tier for single databases t
 
 ## Serverless compute tier
 
-The serverless compute tier for a single database is parameterized by the compute range it can use and an autopause delay.
+The serverless compute tier for a single database is parameterized by a compute scaling range and an autopause delay.  The configuration of these parameters shape the database performance experience and compute cost.
 
 ![serverless billing](./media/sql-database-serverless/serverless-billing.png)
 
-### Performance
+### Performance configuration
 
-- The number of minimum vCores and maximum vCores are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
-- The autopause delay is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login occurs.
+- The **minimum vCores** and **maximum vCores** are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
+- The **autopause delay** is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login or other activity occurs.  Alternatively, autopausing can be disabled.
 
-### Pricing
+### Cost
 
-- The total bill for a serverless database is the summation of the compute bill and storage bill.
-Billing for compute is based on the amount of vCores used and memory used per second.
-- The minimum amount of compute billed is based on min vCores and min memory.
-- Only storage is billed while the database is paused.
+- The cost for a serverless database is the summation of the compute cost and storage cost.
+- When compute usage is between the min and max compute limits configured, the compute cost is based on vCore and memory usage.
+- When compute usage is below the min compute limits configured, the compute cost is based on the min vCores and min memory configured.
+- When the database is paused, compute costs are zero and only storage is billed.
+- The storage cost is determined in the same way as in the provisioned compute tier.
+
+For more cost details, see [Billing](sql-database-serverless.md#billing).
 
 ## Scenarios
 
@@ -162,11 +165,13 @@ Creating a new database or moving an existing database into a serverless compute
 > [!NOTE]
 > Using T-SQL to move an existing database into serverless or change its compute size is not currently supported but can be done via the Azure portal or PowerShell.
 
-### Create new database in serverless compute tier using Azure portal
+### Create new database in serverless compute tier 
+
+#### Use Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
 
-### Create new database in serverless compute tier using PowerShell
+#### Use PowerShell
 
 The following example creates a new database in the serverless compute tier.  This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
@@ -184,6 +189,8 @@ New-AzSqlDatabase `
 ```
 
 ### Move database from provisioned compute tier into serverless compute tier
+
+#### Use PowerShell
 
 The following example moves a database from the provisioned compute tier into the serverless compute tier. This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
@@ -208,13 +215,19 @@ A serverless database can be moved into a provisioned compute tier in the same w
 
 ### Maximum vCores
 
+#### Use PowerShell
+
 Modifying the max vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MaxVcore` argument.
 
 ### Minimum vCores
 
+#### Use PowerShell
+
 Modifying the min vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MinVcore` argument.
 
 ### Autopause delay
+
+#### Use PowerShell
 
 Modifying the autopause delay is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `AutoPauseDelayInMinutes` argument.
 

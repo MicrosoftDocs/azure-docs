@@ -7,8 +7,8 @@ keywords: apache storm use cases,storm cluster,what is apache storm
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 05/24/2019
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
 ---
 

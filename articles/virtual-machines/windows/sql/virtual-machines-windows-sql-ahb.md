@@ -158,12 +158,14 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 Once the SQL VM resource provider has been registered to your subscription, you can then register your SQL Server VM with the resource provider using Azure CLI. 
 
 #### With Azure CLI
-Register SQL Server VM using Azure CLI with the following code snippet: 
+
+Register SQL Server VM using Azure CLI with the below code snippet: 
 
 ```azurecli
 # Register your existing SQL Server VM with the new resource provider
-az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation>
+az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation> --license-type <AHUB or PAYG>
 ```
+
 #### With PowerShell
 Register SQL Server VM using PowerShell with the following code snippet:
 

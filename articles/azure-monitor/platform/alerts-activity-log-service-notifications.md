@@ -87,7 +87,7 @@ Learn how to [Configure webhook notifications for existing problem management sy
 
 ## Alert with existing action group using Azure portal
 
-1. Follow steps 1 through 7 in the previous section to create your service health notification. 
+1. Follow steps 1 through 6 in the previous section to create your service health notification. 
 
 1. Under **Define action group**, click the **Select action group** button. Select the appropriate action group.
 
