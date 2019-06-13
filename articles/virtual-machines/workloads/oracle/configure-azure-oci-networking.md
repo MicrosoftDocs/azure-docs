@@ -57,9 +57,9 @@ The following image shows a high-level overview of the interconnection:
     * Click `Create`.
 1. Complete linking the FastConnect to the virtual cloud network under your Oracle tenant via Dynamic Routing Gateway, using Route Table.
 1. Configure private peering under your ExpressRoute circuit. You need the two /30 IP address spaces configured while setting up the FastConnect circuit. To configure peering, see the [step-by-step guide](../../../expressroute/expressroute-howto-routing-portal-resource-manager.md).
-    * The primary /30 IP address space should be entered in the `Primary Subnet`
-    * The secondary /30 IP address space should be entered in the `Secondary Subnet`
-    * Set a valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
+    * The primary /30 IP address space should be entered in the **Primary subnet**.
+    * The secondary /30 IP address space should be entered in the **Secondary subnet**.
+    * Set a valid **VLAN ID** to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both primary and secondary links you must use the same VLAN ID.
 1. Complete connecting the private peering to the virtual gateway of your VNet, following the [step-by-step guide](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
 Once you have completed the network configuration, you can verify the validity of your configuration by checking the ARP table and Route table under the ExpressRoute private peering blade in the Azure portal.
