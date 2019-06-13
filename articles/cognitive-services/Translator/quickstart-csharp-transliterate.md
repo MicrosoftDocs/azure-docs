@@ -155,7 +155,7 @@ foreach (TransliterationResult o in deserializedOutput)
 
 ## Put it all together
 
-The last step is to call `TransliterateTextRequest()` in the `Main` function. In this sample, we're transliterating from Japanese to latin script. Locate `static void Main(string[] args)` and add replace it with this code:
+The last step is to call `TransliterateTextRequest()` in the `Main` function. In this sample, we're transliterating from Japanese to latin script. Locate `static void Main(string[] args)` and replace it with this code:
 
 ```csharp
 static async Task Main(string[] args)

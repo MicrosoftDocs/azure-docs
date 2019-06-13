@@ -175,7 +175,7 @@ foreach (DetectResult o in deserializedOutput)
 
 ## Put it all together
 
-The last step is to call `DetectTextRequest()` in the `Main` function. Locate `static void Main(string[] args)` and add these lines:
+The last step is to call `DetectTextRequest()` in the `Main` function. Locate `static void Main(string[] args)` and replace it with this code:
 
 ```csharp
 static async Task Main(string[] args)

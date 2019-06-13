@@ -161,7 +161,7 @@ foreach (BreakSentenceResult o in deserializedOutput)
 
 ## Put it all together
 
-The last step is to call `BreakSentenceRequest()` in the `Main` function. Locate `static void Main(string[] args)` and add replace it with this code:
+The last step is to call `BreakSentenceRequest()` in the `Main` function. Locate `static void Main(string[] args)` and replace it with this code:
 
 ```csharp
 static async Task Main(string[] args)
