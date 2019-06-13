@@ -68,7 +68,7 @@ Aliases:  mydbsrv.database.windows.net
 
 The table below lists the IP Addresses of the Gateways in each region. Some regions may have up to four alternate IP addresses (representing up to four Gateways). In all regions, the majority of logins are serviced by the default Gateway. The alternate Gateways are additional capacity that shall be used to service logins when the default Gateway is overloaded. In regions with alternate Gateways, we recommend that you allow outbound firewall rules from your on-premises environment to all the IP addresses associated with these Gateways.
 
-| Region Name          | Gateway IP address | Alternate Gateway IP addresses |
+| Region Name          | Gateway IP address | Alternate Gateway IP addresses | | |
 | --- | --- | --- | --- | --- |
 | Australia East       | 13.75.149.87       | 40.79.161.1     | | |
 | Australia South East | 191.239.192.109    | 13.73.109.251   | | |
