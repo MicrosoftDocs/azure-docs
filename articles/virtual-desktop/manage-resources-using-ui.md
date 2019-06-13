@@ -66,3 +66,10 @@ Follow these instructions to launch the tool:
 
 > [!NOTE]
 > If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
+
+## Next steps
+
+Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service Health to monitor service issues and health advisories.
+
+> [!div class="nextstepaction"]
+> [Set up service alerts tutorial](./set-up-service-alerts.md)
