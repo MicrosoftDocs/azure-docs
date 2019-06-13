@@ -61,7 +61,7 @@ The following query returns information about queries in Query Store:
 SELECT * FROM mysql.query_store;
 ```
 
-Or this query for wait wait statistics:
+Or this query for wait statistics:
 
 ```sql
 SELECT * FROM mysql.query_store_wait_stats;
