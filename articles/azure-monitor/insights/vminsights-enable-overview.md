@@ -136,23 +136,23 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 |12 SP2 | 4.4.* |
 |12 SP3 | 4.4.* |
 
-### Microsoft Dependency Agent
+### The Microsoft Dependency agent
 
-The Map feature in Azure Monitor for VMs gets its data from Microsoft Dependency Agent. Dependency Agent relies on the Log Analytics agent for its connection to Log Analytics. So your system must have the Log Analytics agent installed and configured with Dependency Agent.
+The Map feature in Azure Monitor for VMs gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. So your system must have the Log Analytics agent installed and configured with the Dependency agent.
 
-Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, use the Azure VM Dependency Agent extension to install the agent as part of the experience.
+Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, use the Azure VM Dependency agent extension to install the agent as part of the experience.
 
-In a hybrid environment, you can download and install Dependency Agent manually. If your VMs are hosted outside Azure, use an automated deployment method.
+In a hybrid environment, you can download and install the Dependency agent manually. If your VMs are hosted outside Azure, use an automated deployment method.
 
 The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents need Dependency Agent. For more information, see [supported operating systems](#supported-operating-systems). |
-| Linux agents | Yes | Along with the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents need Dependency Agent. For more information, see [supported operating systems](#supported-operating-systems). |
+| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
+| Linux agents | Yes | Along with the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
 | System Center Operations Manager management group | No | |
 
-You can download Dependency Agent from these locations:
+You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
