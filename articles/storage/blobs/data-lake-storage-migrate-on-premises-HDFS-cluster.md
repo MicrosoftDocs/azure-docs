@@ -27,9 +27,7 @@ This article helps you complete these tasks:
 
 You need these things to complete the migration.
 
-* An Azure Storage account that **doesn't** have a hierarchical namespace.
-
-* An Azure Storage account that **does** have a hierarchical namespace.
+* Two storage accounts; one that has a hierarchical namespace enabled on it, and one that doesn't.
 
 * An on-premises Hadoop cluster that contains your source data.
 
@@ -233,6 +231,8 @@ This command generates a list of copied files with their permissions.
 
 ### Generate a list of identities and map them to Azure Active Directory (ADD) identities
 
+First, download the `copy-acls.py` script. See the [Download helper scripts and set up your edge node to run them](#download-helper-scripts) section of this article.
+
 1. Run this command to generate a list of unique identities.
 
    ```bash
@@ -247,8 +247,6 @@ This command generates a list of copied files with their permissions.
 3. For each JSON object that appears in the file, update the `target` attribute of either an AAD User Principal Name (UPN) or ObjectId (OID), with the appropriate mapped identity. After you're done, save the file. You'll need this file in the next step.
 
 ### Apply permissions to copied files and apply identity mappings
-
-First, download the `copy-acls.py` script. See the [Download helper scripts and set up your edge node to run them](#download-helper-scripts) section of this article.
 
 Run this command to apply permissions to the data that you copied into the Data Lake Storage Gen2 account:
 
