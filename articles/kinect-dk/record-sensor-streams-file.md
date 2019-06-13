@@ -46,10 +46,4 @@ You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play bac
 You may also review the following articles:
 
 > [!div class="nextstepaction"]
->[Azure Kinect recorder](azure-kinect-dk-recorder.md)
-
-> [!div class="nextstepaction"]
->[Azure Kinect viewer](azure-kinect-sensor-viewer.md)
-
-> [!div class="nextstepaction"]
->[Azure Kinect SDK record playback](record-playback-api.md)
+> [Build your first application](setup.md)
