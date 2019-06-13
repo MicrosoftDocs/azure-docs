@@ -1,27 +1,27 @@
 ---
-title: Access server logs in Azure Database for MySQL by using Azure CLI
-description: This article describes how to access the server logs in Azure Database for MySQL by using the Azure CLI command-line utility.
-author: rachel-msft
-ms.author: raagyema
+title: Access slow query logs in Azure Database for MySQL by using Azure CLI
+description: This article describes how to access the slow query logs in Azure Database for MySQL by using the Azure CLI.
+author: andrela
+ms.author: ajlam
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/12/219
 ---
-# Configure and access server logs by using Azure CLI
-You can download the Azure Database for MySQL server logs by using Azure CLI, the Azure command-line utility.
+# Configure and access slow query logs by using Azure CLI
+You can download the Azure Database for MySQL slow query logs by using Azure CLI, the Azure command-line utility.
 
 ## Prerequisites
 To step through this how-to guide, you need:
 - [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-cli.md)
 - The [Azure CLI](/cli/azure/install-azure-cli) or Azure Cloud Shell in the browser
 
-## Configure logging for Azure Database for MySQL
+## Configure logging
 You can configure the server to access the MySQL slow query log by taking the following steps:
-1. Turn on logging by setting the **slow\_query\_log** parameter to ON.
+1. Turn on slow query logging by setting the **slow\_query\_log** parameter to ON.
 2. Adjust other parameters, such as **long\_query\_time** and **log\_slow\_admin\_statements**.
 
-To learn how to set the value of these parameters through Azure CLI, see [How to configure server parameters](howto-configure-server-parameters-using-cli.md). 
+To learn how to set the value of these parameters through Azure CLI, see [How to configure server parameters](howto-configure-server-parameters-using-cli.md).
 
 For example, the following CLI command turns on the slow query log, sets the long query time to 10 seconds, and then turns off the logging of the slow admin statement. Finally, it lists the configuration options for your review.
 ```azurecli-interactive
