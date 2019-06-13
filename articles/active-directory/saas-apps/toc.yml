@@ -307,6 +307,8 @@
         href: coupa-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: CyberArk SAML Authentication
+        href: cyberark-saml-authentication-tutorial.md
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
     - name: D - E
@@ -839,6 +841,8 @@
         href: opsgenie-tutorial.md
       - name: Optimizely
         href: optimizely-tutorial.md
+      - name: Oracle Cloud Infrastructure Console
+        href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
       - name: OrgChart Now
@@ -867,6 +871,8 @@
         href: paloaltonetworks-captiveportal-tutorial.md
       - name: Palo Alto Networks - GlobalProtect
         href: paloaltoglobalprotect-tutorial.md
+      - name: PandaDoc
+        href: pandadoc-tutorial.md
       - name: Panopto
         href: panopto-tutorial.md
       - name: Panorama9
@@ -887,6 +893,8 @@
         href: peoplecart-tutorial.md
       - name: Perception United States (Non-UltiPro)
         href: perceptionunitedstates-tutorial.md
+      - name: Perceptyx
+        href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
       - name: PerformanceCentre
@@ -1456,4 +1464,3 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
-
