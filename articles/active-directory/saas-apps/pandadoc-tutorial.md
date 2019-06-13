@@ -95,16 +95,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
 
-	| Name | Namespace  |  Source Attribute|
-	| ---------------| --------------- | --------- |
+	| Name | Namespace  |
+	| ---------------| ---------|
 	| FirstName | user.givenname |
 	| LastName | user.surname |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	![image](common/new-save-attribute.png)
-
-	![image](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
