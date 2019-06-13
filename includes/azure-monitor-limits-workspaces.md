@@ -30,24 +30,37 @@ ms.custom: "include file"
 | Free tier  | 10 | This limit can't be increased. |
 | All other tiers | N/A | You're limited by the number of resources within a resource group and the number of resource groups per subscription. | 
 
-**Region capacity**
-
-| Region | Explanation |
-|:---|:---|
-| West Central US | You cannot currently create a new workspace in this region since it is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019. |
-
 **Azure portal**
 
 | Category | Limits | Comments |
 |:---|:---|:---|
 | Maximum records returned by a log query | 10,000 | Reduce results using query scope, time range, and filters in the query. |
 
-**Log Analytics APIs**
+
+**Data Collector API**
 
 | Category | Limits | Comments |
 |:---|:---|:---|
-| Data Collector API | Maximum size for a single post is 30 MB.<br>Maximum size for field values is 32 KB. | Split larger volumes into multiple posts.<br>Fields longer than 32 KB are truncated. |
-| Search API | 5,000 records returned for non-aggregated data.<br>500,000 records for aggregated data.<br>64,000,000 bytes (~61 MiB)<br>Query cannot run longer than 10 minutes. | Aggregated data is a search that includes the `summarize` command.<br>See [Timeouts](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) for details on query timeouts.  |
+| Maximum size for a single post | 30 MB | Split larger volumes into multiple posts. |
+| Maximum size for field values  | 32 KB | Fields longer than 32 KB are truncated. |
+
+**Search API**
+
+| Category | Limits | Comments |
+|:---|:---|:---|
+| Maximum records returned for non-aggregated data | 5,000 | |
+| Maximum records for aggregated data | 500,000 | Aggregated data is a search that includes the `summarize` command. |
+| Maximum size of data returned | 64,000,000 bytes (~61 MiB)| |
+| Maximum query running time | 10 minutes | See [Timeouts](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) for details.  |
+| Maximum request rate | 200 requests per 30 seconds per AAD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
+
+
+**General workspace limits**
+
+| Category | Limits | Comments |
+|:---|:---|:---|
+| Regions at capacity | West Central US | You cannot currently create a new workspace in this region since it is at temporary capacity limit. This limit is planned to be addressed by end of September, 2019. |
+| Data export | Not available | Use Azure Function or Logic App to aggregate and export data. | 
 
 
 >[!NOTE]
