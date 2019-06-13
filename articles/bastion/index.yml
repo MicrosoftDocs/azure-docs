@@ -16,14 +16,14 @@ sections:
 - title: Create and manage Azure Bastion
   items:
   - type: paragraph
-    text: Learn how to configure and manage a Bastion host.
+    text: Learn how to configure an Azure Bastion host, then connect to a virtual machine.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/bastion/bastion-create-host-portal">Create and modify a Bastion host</a>
+    - html: <a href="/azure/bastion/bastion-create-host-portal">Create and modify an Azure Bastion host</a>
     - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Connect to a Windows virtual machine</a>
     - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Connect to a Linux virtual machine</a>
-    - html: <a href="/azure/bastion-faq">Read the Bastion FAQ</a>
+    - html: <a href="/azure/bastion-faq">Read the Azure Bastion FAQ</a>
     
 - title: Reference
   items:
@@ -32,4 +32,4 @@ sections:
     className: cardsD
     items:
     - title: REST
-      html: <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Reference</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">Classic REST API Reference</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Reference</a></p>
