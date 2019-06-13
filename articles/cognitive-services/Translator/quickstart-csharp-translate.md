@@ -118,7 +118,7 @@ public class SentenceLength
 
 ## Create a function to translate text
 
-Within the `Program` class, create a asynchronous function called `TranslateTextRequest`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
+Within the `Program` class, create an asynchronous function called `TranslateTextRequest`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
 
 ```csharp
 // This sample requires C# 7.1 or later for async/await.
