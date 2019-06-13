@@ -45,7 +45,7 @@ To close active risk events, you have the following options:
 
 ## Require password reset with a user risk policy
 
-By configuring the [user risk conditional access policy](howto-user-risk-policy.md), you can require a password change if a specified user risk level has been automatically detected. 
+By configuring the [user risk Conditional Access policy](howto-user-risk-policy.md), you can require a password change if a specified user risk level has been automatically detected. 
 
 ![Reset password](./media/howto-close-active-risk-events/13.png)
 

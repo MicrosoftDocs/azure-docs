@@ -52,7 +52,7 @@ To respond to these threats, Azure AD Identity Protection empowers you to:
 
  
 
-Azure AD Identity Protection is a feature of Azure Active Directory Premium P2 that enables you to configure policies to automatically respond when a user’s identity is compromised or when someone other than the account owner is attempting to sign in using their identity. These policies, in addition to other conditional access controls provided by Azure AD, can either automatically block access or initiate mitigation actions, such as password reset or multi-factor authentication enforcement. Additionally, Identity Protection provides monitoring and reporting capabilities to gain deeper insight into risk and potential compromises in your organization. 
+Azure AD Identity Protection is a feature of Azure Active Directory Premium P2 that enables you to configure policies to automatically respond when a user’s identity is compromised or when someone other than the account owner is attempting to sign in using their identity. These policies, in addition to other Conditional Access controls provided by Azure AD, can either automatically block access or initiate mitigation actions, such as password reset or multi-factor authentication enforcement. Additionally, Identity Protection provides monitoring and reporting capabilities to gain deeper insight into risk and potential compromises in your organization. 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
@@ -149,7 +149,7 @@ Let’s look at the example of an employee of Contoso.
 
 2. Azure AD detects that the employee is signing in from an anonymous IP address, triggering a medium sign-in risk level. 
 
-3. The employee is challenged by an MFA prompt, because Contoso’s IT Admin configured the Identity Protection sign-in risk conditional access policy. The policy requires MFA for a sign-in risk of medium or higher. 
+3. The employee is challenged by an MFA prompt, because Contoso’s IT Admin configured the Identity Protection sign-in risk Conditional Access policy. The policy requires MFA for a sign-in risk of medium or higher. 
 
 4. The employee passes the MFA prompt and accesses Exchange Online, and their user risk level is not changed. 
 

@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Configure the Azure Multi-Factor Authentication registration policy
 
-Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication (MFA) registration by configuring a conditional access policy to require MFA registration no matter what app you are signing in to. This article explains what the policy can be used for and how to configure it.
+Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication (MFA) registration by configuring a Conditional Access policy to require MFA registration no matter what app you are signing in to. This article explains what the policy can be used for and how to configure it.
 
 ## What is the Azure Multi-Factor Authentication registration policy?
 

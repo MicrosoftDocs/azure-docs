@@ -30,8 +30,8 @@ A sign-in from a geographic location that is not typical for the specific user, 
 ### Azure AD Identity Protection
 A security module of Azure Active Directory that provides a consolidated view into risk events and potential vulnerabilities affecting an organization’s identities.
 
-### Conditional access
-A policy for securing access to resources. Conditional access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health, or user authentication method.
+### Conditional Access
+A policy for securing access to resources. Conditional Access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health, or user authentication method.
 
 ### Credentials
 Information that includes identification and proof of identification that is used to gain access to local and network resources. Examples of credentials are user names and passwords, smart cards, and certificates.
@@ -142,7 +142,7 @@ A risk event triggered when a user successfully signs in from a new location (IP
 See Risk level (sign-in)
 
 ### Sign-in risk policy
-A conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
+A Conditional Access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
 
 ### User compromise risk
 See Risk level (user compromise)
@@ -151,7 +151,7 @@ See Risk level (user compromise)
 See Risk level (user compromise).
 
 ### User risk policy
-A conditional access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
+A Conditional Access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
 
 ### Users flagged for risk
 Users that have risk events, which are either active or remediated

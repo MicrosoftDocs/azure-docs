@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 This playbook helps you to:
 
 * Populate data in the Identity Protection environment by simulating risk events and vulnerabilities
-* Set up risk-based conditional access policies and test the impact of these policies
+* Set up risk-based Conditional Access policies and test the impact of these policies
 
 
 ## Simulating Risk Events
@@ -131,7 +131,7 @@ For more information, see [How to configure the user risk policy](howto-user-ris
 6. Elevate the user risk of a test account by, for example, simulating one of the risk events a few times.
 7. Wait a few minutes, and then verify that user level for your user is Medium. If not, simulate more risk events for the user.
 8. As **Enforce Policy**, select **On**.
-9. You can now test user risk-based conditional access by signing in using a user with an elevated risk level.
+9. You can now test user risk-based Conditional Access by signing in using a user with an elevated risk level.
     
     
 
@@ -161,7 +161,7 @@ For more information, see [How to configure the sign-in risk policy](howto-sign-
 
 7. Click **Save**.
 
-8. You can now test Sign-in Risk-based conditional access by signing in using a risky session (for example, by using the Tor browser). 
+8. You can now test Sign-in Risk-based Conditional Access by signing in using a risky session (for example, by using the Tor browser). 
 
  
 

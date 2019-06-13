@@ -50,13 +50,13 @@ Selecting the right Azure AD capabilities for cloud governed management depends 
 
 ## Cloud governed management for AD-integrated applications
 
-Azure AD improves the management for an organization's on-premises Active Directory-integrated applications through secure remote access and conditional access to those applications. In addition, Azure AD also provides account lifecycle management and credential management for the user's existing AD accounts, including:
+Azure AD improves the management for an organization's on-premises Active Directory-integrated applications through secure remote access and Conditional Access to those applications. In addition, Azure AD also provides account lifecycle management and credential management for the user's existing AD accounts, including:
 
-* **Secure remote access and conditional access for on-premises applications**
+* **Secure remote access and Conditional Access for on-premises applications**
 
 For many organizations, the first step in managing access from the cloud for on-premises AD-integrated web and remote desktop-based applications is to deploy the [application proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) in front of those applications to provide secure remote access.
 
-After a single sign-on to Azure AD, users can access both cloud and on-premises applications through an external URL or an internal application portal. For example, Application Proxy  provides remote access and single sign-on to Remote Desktop, SharePoint, as well as apps such as Tableau and Qlik, and line of business (LOB) applications. Furthermore, conditional access policies can include displaying the [terms of use](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) and [ensuring the user has agreed to them](https://docs.microsoft.com/azure/active-directory/conditional-access/require-tou) before being able to access an application.
+After a single sign-on to Azure AD, users can access both cloud and on-premises applications through an external URL or an internal application portal. For example, Application Proxy  provides remote access and single sign-on to Remote Desktop, SharePoint, as well as apps such as Tableau and Qlik, and line of business (LOB) applications. Furthermore, Conditional Access policies can include displaying the [terms of use](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) and [ensuring the user has agreed to them](https://docs.microsoft.com/azure/active-directory/conditional-access/require-tou) before being able to access an application.
 
 ![App Proxy architecture](media/cloud-governed-management-for-on-premises/image2.png)
 
@@ -85,7 +85,7 @@ When an organization is ready to move an AD-integrated application to the cloud 
 
 ## Cloud governed management for on-premises federation-based applications
 
-For an organization that already uses an on-premises identity provider, moving applications to Azure AD enables more secure access and an easier administrative experience for federation management. Azure AD enables configuring granular per-application access controls, including Azure Multi-Factor Authentication, by using Azure AD conditional access. Azure AD supports more capabilities, including application-specific token signing certificates and configurable certificate expiration dates. These capabilities, tools, and guidance enable organizations to retire their on-premises identity providers. Microsoft's own IT, for one example, has moved 17,987 applications from Microsoft's internal Active Directory Federation Services (AD FS) to Azure AD.
+For an organization that already uses an on-premises identity provider, moving applications to Azure AD enables more secure access and an easier administrative experience for federation management. Azure AD enables configuring granular per-application access controls, including Azure Multi-Factor Authentication, by using Azure AD Conditional Access. Azure AD supports more capabilities, including application-specific token signing certificates and configurable certificate expiration dates. These capabilities, tools, and guidance enable organizations to retire their on-premises identity providers. Microsoft's own IT, for one example, has moved 17,987 applications from Microsoft's internal Active Directory Federation Services (AD FS) to Azure AD.
 
 ![Azure AD evolution](media/cloud-governed-management-for-on-premises/image5.png)
 
