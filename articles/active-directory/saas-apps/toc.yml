@@ -77,6 +77,8 @@
         href: amplitude-tutorial.md
       - name: Anaplan
         href: anaplan-tutorial.md
+      - name: ANAQUA
+        href: anaqua-tutorial.md
       - name: Andfrankly
         href: andfrankly-tutorial.md
       - name: Andromeda
@@ -301,10 +303,14 @@
         href: cornerstone-ondemand-tutorial.md
       - name: CorpTax
         href: corptax-tutorial.md
+      - name: Costpoint
+        href: costpoint-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: CyberArk SAML Authentication
+        href: cyberark-saml-authentication-tutorial.md
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
     - name: D - E
@@ -399,6 +405,8 @@
         href: evidence-tutorial.md
       - name: ExcelityGlobal
         href: excelityglobal-tutorial.md
+      - name: ExpenseIn
+        href: expensein-tutorial.md
       - name: Expensify
         href: expensify-tutorial.md
       - name: Explanation-Based Auditing System
@@ -439,6 +447,8 @@
         href: fm-systems-tutorial.md
       - name: Folloze
         href: folloze-tutorial.md
+      - name: Foodee
+        href: foodee-tutorial.md
       - name: ForeSee CX Suite
         href: foreseecxsuite-tutorial.md
       - name: Form.com
@@ -473,6 +483,8 @@
         href: github-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: GlobalOne
+        href: globalone-tutorial.md
       - name: GoodPractice Toolkit
         href: goodpractice-toolkit-tutorial.md
       - name: GoToMeeting
@@ -497,6 +509,8 @@
         href: halosys-tutorial.md
       - name: HappyFox
         href: happyfox-tutorial.md
+      - name: Helper Helper
+        href: helper-helper-tutorial.md
       - name: Help Scout
         href: helpscout-tutorial.md
       - name: Heroku
@@ -775,6 +789,8 @@
         href: myawardpoints-tutorial.md
       - name: myPolicies
         href: mypolicies-tutorial.md
+      - name: MyVR
+        href: myvr-tutorial.md
       - name: MyWorkDrive
         href: myworkdrive-tutorial.md
     - name: N - O
@@ -783,6 +799,8 @@
         href: n2f-expensereports-tutorial.md
       - name: Namely
         href: namely-tutorial.md
+      - name: NEOGOV
+        href: neogov-tutorial.md
       - name: Neota Logic Studio
         href: neotalogicstudio-tutorial.md
       - name: NetDocuments
@@ -827,12 +845,16 @@
         href: opsgenie-tutorial.md
       - name: Optimizely
         href: optimizely-tutorial.md
+      - name: Oracle Cloud Infrastructure Console
+        href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
       - name: OrgChart Now
         href: orgchartnow-tutorial.md
       - name: Origami
         href: origami-tutorial.md
+      - name: Otsuka Shokai
+        href: otsuka-shokai-tutorial.md
       - name: OutSystems
         href: outsystems-tutorial.md
       - name: OU Campus
