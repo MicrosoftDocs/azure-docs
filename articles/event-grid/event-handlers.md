@@ -80,14 +80,14 @@ For Azure CLI, you need the [Event Grid extension](/cli/azure/azure-cli-extensio
 
 In [CloudShell](/azure/cloud-shell/quickstart):
 
-* If you've installed the extension previously, update it `az extension update -n eventgrid`
-* If you haven't installed the extension previously, install it `az extension add -n eventgrid`
+* If you've installed the extension previously, update it with `az extension update -n eventgrid`.
+* If you haven't installed the extension previously, install it by using `az extension add -n eventgrid`.
 
 For a local installation:
 
 1. [Install the Azure CLI](/cli/azure/install-azure-cli). Make sure that you have the latest version, by checking with `az --version`.
-1. Uninstall previous versions of the extension `az extension remove -n eventgrid`
-1. Install the `eventgrid` extension with `az extension add -n eventgrid`
+1. Uninstall previous versions of the extension with `az extension remove -n eventgrid`.
+1. Install the `eventgrid` extension with `az extension add -n eventgrid`.
 
 ### Install module for PowerShell
 
@@ -95,24 +95,24 @@ For PowerShell, you need the [AzureRM.EventGrid module](https://www.powershellga
 
 In [CloudShell](/azure/cloud-shell/quickstart-powershell):
 
-* Install the module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+* Install the module with `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
 
 For a local installation:
 
-1. Open PowerShell console as administrator
-1. Install the module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+1. Open PowerShell console as administrator.
+1. Install the module with `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
 
 If the `-AllowPrerelease` parameter isn't available, use the following steps:
 
-1. Run `Install-Module PowerShellGet -Force`
-1. Run `Update-Module PowerShellGet`
-1. Close the PowerShell console
-1. Restart PowerShell as administrator
-1. Install the module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+1. Run `Install-Module PowerShellGet -Force`.
+1. Run `Update-Module PowerShellGet`.
+1. Close the PowerShell console.
+1. Restart PowerShell as administrator.
+1. Install the module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
 
 ### Using CLI to add a Service Bus handler
 
-For Azure CLI, the following example subscribes a connects and Event Grid topic to a Service Bus queue:
+For Azure CLI, the following example subscribes and connects an Event Grid topic to a Service Bus queue:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
