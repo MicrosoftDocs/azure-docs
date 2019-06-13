@@ -7,7 +7,7 @@ manager: barbkess
 
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 06/13/2019
 ms.author: barclayn
 
 ---
@@ -45,7 +45,7 @@ This article contains security recommendations for Azure App Service. Implementi
 |-|----|
 | Disable anonymous access | Unless you need to support anonymous requests, disable anonymous access. For more information on Azure App Service authentication options, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)|
 | Require authentication | Whenever possible, use the App Service authentication module rather than write code to handle authentication and authorization.  You can read more about the authentication module in the article titled [Authentication and authorization in Azure App Service](overview-authentication-authorization.md) |
-| Protect back-end resources with authenticated access | You can either use the user's identity or use an application identity to authenticate to a back-end resource. If you choose to use an application identity use a [managed identity](overview-managed-identity.md).
+| Protect back-end resources with authenticated access | You can either use the user's identity or use an application identity to authenticate to a back-end resource. When you choose to use an application identity use a [managed identity](overview-managed-identity.md).
 | Require client certificate authentication | Client certificate authentication improves security by only allowing connections from clients that can authenticate using certificates that you provide. |
 
 ## Data security
@@ -65,8 +65,7 @@ This article contains security recommendations for Azure App Service. Implementi
 | Use static IP restrictions | Azure App Service on Windows lets you define a list of IP addresses that are allowed to access your app. The allowed list can include individual IP addresses or a range of IP addresses defined by a subnet mask. For more information, see [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md).  |
 | Use the isolated pricing tier | Except for the isolated pricing tier, all tiers run your apps on the shared network infrastructure in Azure App Service. The isolated tier gives you complete network isolation by running your apps inside a dedicated [App Service environment](environment/intro.md). An App Service environment runs in your own instance of [Azure Virtual Network](/azure/virtual-network/).|
 | Use secure connections when accessing on-premises resources | You can use [Hybrid connections](app-service-hybrid-connections.md), [Virtual Network integration](web-sites-integrate-with-vnet.md), or [App Service environment's](environment/intro.md) to connect to on-premises resources. |
-| Limit network access | Network security groups allow you to restrict network access and control the number of exposed endpoints. For more information see [How To Control Inbound Traffic to an App Service Environment](app-service-app-service-environment-control-inbound-traffic.md) |
-
+| Limit network access | Network security groups allow you to restrict network access and control the number of exposed endpoints. For more information, see [How To Control Inbound Traffic to an App Service Environment](app-service-app-service-environment-control-inbound-traffic.md) |
 
 ## Monitoring
 
