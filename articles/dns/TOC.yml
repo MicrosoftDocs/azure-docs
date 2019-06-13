@@ -22,7 +22,7 @@
   - name: Create custom DNS records for a web app
     href: dns-web-sites-custom-domain.md
   - name: Create private DNS zone and record
-    href: private-dns-portal.md
+    href: private-dns-getstarted-powershell.md
   - name: Alias records for Traffic Manager
     href: tutorial-alias-tm.md
   - name: Alias records for Public IP addresses
@@ -57,10 +57,10 @@
     href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: How to
   items:
-  - name: Create private DNS zone and record - CLI
-    href: private-dns-getstarted-cli.md
-  - name: Create private DNS zone and record - PowerShell
-    href: private-dns-getstarted-powershell.md
+  - name: Private DNS
+    items:
+    - name: Create private DNS zone and record
+      href: private-dns-getstarted-cli.md
   - name: Alias records for load balanced web apps
     href: dns-alias-appservice.md
   - name: Manage DNS zones
