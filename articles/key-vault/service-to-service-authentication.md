@@ -151,7 +151,7 @@ When you run your code on an Azure App Service or an Azure VM with a managed ide
 
 When you run your code on an Azure App Service or an Azure VM with a managed identity enabled, the library automatically uses the managed identity. 
 
-Alternatively, you may authenticate with a user-assigned identity. For more information on user-assigned identities, see [About Managed Identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). The connection string is specified in the [Connection String Support](#connection-string-support) section below.
+Alternatively, you may authenticate with a user-assigned identity. For more information on user-assigned identities, see [About Managed Identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). To authenticate with a user-assigned identity, you need to specify the ClientId of the user-assigned identity in the connection string. The connection string is specified in the [Connection String Support](#connection-string-support) section below.
 
 ## Running the application using a Service Principal 
 
@@ -198,7 +198,10 @@ Once everything's set up correctly, no further code changes are necessary.  `Azu
 
 ### Running the application using custom services authentication
 
-Custom service authentication allows you to store a service principal's client certificate in Key Vault and use it for service principal authentication. 
+This option allows you to store a service principal's client certificate in Key Vault and use it for service principal authentication. You may use this for the following scenarios:
+
+* Local authentication, where you want to authenticate using an explicit service principal, and want to keep the service principal credential securely in a Key vault. Developer account must have access to key vault. 
+* Authentication from Azure where you want to use explicit credential (e.g. for cross-tenant scenarios), and want to seep the service principal credential securely in a key vault. Managed identity must have access to key vault. 
 
 You or MSI must have the permissions necessary to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal.
 
@@ -237,7 +240,8 @@ The following options are supported:
 | `RunAs=CurrentUser` | Local development | AzureServiceTokenProvider uses Azure AD Integrated Authentication to get token. |
 | `RunAs=App` | [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider uses a managed identity to get token. |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [User-assigned identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | AzureServiceTokenProvider uses a user-assigned identity to get token. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`	| Service principal	| `AzureServiceTokenProvider` uses certificate to get token from Azure AD. |
+| `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Custom services authentication | {KeyVaultCertificateSecretIdentifier}` = the certificate's secret identifier |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Service principal	| `AzureServiceTokenProvider` uses certificate to get token from Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service principal |`AzureServiceTokenProvider` uses secret to get token from Azure AD. |
 
