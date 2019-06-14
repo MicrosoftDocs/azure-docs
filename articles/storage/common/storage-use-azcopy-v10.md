@@ -44,7 +44,8 @@ To learn about a specific command, just include the name of the command (For exa
 
 ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
-Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service.
+> [!NOTE] 
+> As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 
 
 ## Choose how you'll provide authorization credentials
 
@@ -62,9 +63,13 @@ Use this table as a guide:
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
+#### Authorization to download files
+
 #### Authorization to upload files
 
-Verify that one of these roles has been assigned to your identity:
+If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your identity.
+
+If you want to upload files, then verify that one of these roles has been assigned to your identity:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -82,27 +87,6 @@ You don't need to have one of these roles assigned to your identity if your iden
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### Authorization to download files
-
-Verify that one of these roles has been assigned to your identity:
-
-- [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
-- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
-- [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
-
-These roles can be assigned to your identity in any of these scopes:
-
-- Container (file system)
-- Storage account
-- Resource group
-- Subscription
-
-To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or directory. In the ACL, your identity needs read permission on the target directory, and execute permission on container and each parent directory.
-
-To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
-
 #### Authenticate your identity
 
 After you've verified that your identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
@@ -110,6 +94,14 @@ After you've verified that your identity has been given the necessary authorizat
 ```azcopy
 azcopy login
 ```
+
+If you belong to more than one organization, include the tenant ID of the organization to which the storage account belongs.
+
+```azcopy
+azcopy login --tenant-id = <tenant-id>
+```
+
+Replace the `<tenant-id> placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
 
 This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
 
@@ -143,51 +135,30 @@ To find example commands, see any of these articles.
 
 ## Use AzCopy in a script
 
-The version of azCopy that you download by using the `https://aka.ms/downloadazcopy-v10-linux` or `https://aka.ms/downloadazcopy-v10-windows` link will be updated over time. The link remains the same, but the target of the link will point to new versions of AzCopy over time. 
+Over time, the links presented in the [download section](#download-and-install-azcopy) of this article will point new versions of AzCopy. Scripts that download AzCopy by using these links might encounter issues if new versions of AzCopy remove or change features that your script depends upon. 
 
-If your script downloads AzCopy by using either of these links, it could encounter issues if these links lead to new versions of AzCopy that contain changes that are not compatible with your script.
-
-You can avoid these issues by obtaining a version-specific link to AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
+To avoid these issues, obtain a static (un-changing) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
 
 To obtain the link, run this command:
 
-### Linux
-
-```
-curl -v https://aka.ms/downloadazcopy-v10-linux
-```
-
-### Windows
-
-```
-(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent
-```
-
-The Url appears in the output of this command.
-
-Your script can then download AzCopy by using the version-specific URL.
-
-### Linux
-
-```
-wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz
-tar -xf azcopyv10.tar --strip-components=1
-./azcopy
-```
+| Operating system  | Command |
+|--------|-----------|
+| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
 
 > [!NOTE]
-> `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
+> For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
 
-### Windows
+The Url appears in the output of this command. Your script can then download AzCopy by using that URL.
 
-```
-Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip
-<<Unzip here>>
-```
+| Operating system  | Command |
+|--------|-----------|
+| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
 ## Use AzCopy in Storage Explorer
 
-If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer.
+If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer. Storage Explorer uses your account key to perform operations so you won't need to provide additional authorization credentials beyond logging into Storage Explorer.
 
 In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
 
