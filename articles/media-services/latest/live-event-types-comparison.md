@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services LiveEvent types | Microsoft Docs
-description: This article shows a detailed table that compare LiveEvent types. 
+description: This article shows a detailed table that compares LiveEvent types. 
 services: media-services
 documentationcenter: ''
 author: Juliako
