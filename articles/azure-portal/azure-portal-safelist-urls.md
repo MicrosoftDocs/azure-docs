@@ -48,4 +48,4 @@ Add the following list of URLs to your proxy server or firewall to allow network
 ## Next Steps
 
 * Need to safelist IP addresses? Download the list of [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653).
-* Other Microsoft services use additional URLs and IP addresses for connectivity. To optimize network connectivity for Microsoft 365 services, see [Set up your network for Office 365](office365/enterprise/set-up-network-for-office-365).
+* Other Microsoft services use additional URLs and IP addresses for connectivity. To optimize network connectivity for Microsoft 365 services, see [Set up your network for Office 365](/office365/enterprise/set-up-network-for-office-365).
