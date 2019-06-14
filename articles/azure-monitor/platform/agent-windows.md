@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/14/2019
 ms.author: magoedte
 ---
 
@@ -197,4 +197,5 @@ In the search results returned, you should see heartbeat records for the compute
 
 ## Next steps
 
-Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to manage the agent during its deployment lifecycle on your machines.  
+- Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to manage the agent during its deployment lifecycle on your machines.  
+- Review [Troubleshooting the Windows agent](agent-windows-troubleshoot.md) if you encounter issues while installing or managing the agent.
