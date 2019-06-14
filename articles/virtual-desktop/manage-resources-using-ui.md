@@ -24,11 +24,14 @@ This management tool is a sample. Microsoft will provide important security and 
 
 ## What you need to run the Azure Resource Manager template
 
-Before deploying the Azure Resource Manager template, you'll need an Azure Active Directory user account that:
+Before deploying the Azure Resource Manager template, you'll need an Azure Active Directory user to deploy the management UI. This user must:
 
-- Has Azure Multi-Factor Authentication (MFA) disabled
-- Has permission to create resources in your Azure subscription
-- Has permissions to read your Windows Virtual Desktop tenant
+- Have Azure Multi-Factor Authentication (MFA) disabled
+- Have permission to create resources in your Azure subscription
+- Have permission to create an Azure AD application. Follow these steps to check if your user has the [required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+
+After deploying the Azure Resource Manager template, you'll want to launch the management UI to validate. This user must:
+- Have a role assignment to view or edit your Windows Virtual Desktop tenant
 
 ## Run the Azure Resource Manager template to provision the management UI
 
@@ -66,3 +69,10 @@ Follow these instructions to launch the tool:
 
 > [!NOTE]
 > If you have a custom Tenant Group, enter the name manually instead of choosing from the drop-down list.
+
+## Next steps
+
+Now that you've learned how to deploy and connect to the management tool, you can learn how to use Azure Service Health to monitor service issues and health advisories.
+
+> [!div class="nextstepaction"]
+> [Set up service alerts tutorial](./set-up-service-alerts.md)

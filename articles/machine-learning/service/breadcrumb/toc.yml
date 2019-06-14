@@ -42,9 +42,9 @@
       tocHref: /azure/architecture/data-guide/technology-choices/
       topicHref: /azure/machine-learning/service/index
       items:
-      - name: ML Products
-        tocHref: /azure/architecture/data-guide/technology-choices/
-        topicHref: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+      - name: Data Architecture Guide
+        tocHref: /azure/architecture/data-guide/
+        topicHref: /azure/architecture/data-guide/index
 
 - name: Azure
   tocHref: /azure/
@@ -58,6 +58,6 @@
       tocHref: /azure/devops/pipelines/
       topicHref: /azure/machine-learning/service/index
       items:
-      - name: CI/CD
+      - name: Pipelines
         tocHref: /azure/devops/pipelines/languages/
-        topicHref: /azure/devops/pipelines/languages/acr-template
+        topicHref: /azure/devops/pipelines/index
