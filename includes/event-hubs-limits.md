@@ -35,7 +35,7 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | --- | ---|
 | Bandwidth |  20 CUs |
 | Namespaces | 50 per CU |
-| Event Hubs |  No limit on event hubs/topics |
+| Event Hubs |  1000 per namespace |
 | Ingress events | Included |
 | Message Size | 1 Million Bytes |
 | Partitions | 2000 per CU |

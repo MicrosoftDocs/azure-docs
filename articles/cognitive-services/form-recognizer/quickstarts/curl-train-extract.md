@@ -49,7 +49,7 @@ First, you'll need a set of training data in an Azure Storage blob. You should h
 To train a Form Recognizer model by using the documents in your Azure blob container, call the **Train** API by running the cURL command that follows. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `<SAS URL>` with an Azure Blob storage container shared access signature (SAS) URL of the location of the training data.  
+1. Replace `<SAS URL>` with an Azure Blob storage container shared access signature (SAS) URL of the location of the training data. (Retrieve your SAS-URL by clicking 'Shared Access Signature' under settings menu in the storage account and 'Generate SAS and connection string' . This will show the Blob service SAS URL. Adjust this url by adding the containername After .net/ and before ?sv= in the url, eg: .blob.core.windows.net/<name_of_your_container>/?sv=…. This is the SAS-URL to be used.)
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
 ```bash
@@ -105,7 +105,7 @@ Next, you'll analyze a document and extract key-value pairs and tables from it. 
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<modelID>` with the model ID that you received in the previous section.
-1. Replace `<path to your form>` with the file path of your form. For example c:\temp\file.pdf. 
+1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
 1. Replace `<file type>` with the file type. Supported types: pdf, image/jpeg, image/png.
 1. Replace `<subscription key>` with your subscription key.
 

@@ -1,11 +1,11 @@
 ---
-title: Configure WAF custom rules using Azure PowerShell
+title: Configure Web Application Firewall custom rules using Azure PowerShell
 description: Learn how to configure WAF custom rules using Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/5/2019
+ms.date: 6/7/2019
 ms.author: victorh
 ---
 
@@ -19,7 +19,7 @@ This article creates an Application Gateway WAF that uses a custom rule. The cus
 
 To see more custom rule examples, see [Create and use custom web application firewall rules](create-custom-waf-rules.md)
 
-<!--- If you want run the Azure PowerShell in this article in one continuous script that you can copy, paste, and run, [see link to Samples]. --->
+If you want run the Azure PowerShell in this article in one continuous script that you can copy, paste, and run, see [Azure Application Gateway PowerShell samples](powershell-samples.md).
 
 ## Prerequisites
 

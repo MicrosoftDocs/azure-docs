@@ -3,13 +3,13 @@ title: Configure Speech containers
 titleSuffix: Azure Cognitive Services
 description: The speech container  
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: diberry
+ms.date: 06/11/2019
+ms.author: dapine
 ---
 
 # Configure Speech Service containers
