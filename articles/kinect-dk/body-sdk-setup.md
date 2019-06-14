@@ -1,12 +1,12 @@
 ---
-title: Quickstart- Set up Azure Kinect body tracking
+title: Quickstart - Set up Azure Kinect body tracking
 description: This quickstart provides steps to set up body tracking SDK for Azure Kinect
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
 ms.date: 06/10/2019
-ms.topic: overview 
-keywords: azure, kinect, rgb, IR, recording, sensor, sdk, access, depth, video, camera, imu, motion, sensor, audio, microphone, matroska, sensor sdk, download, body, tracking
+ms.topic: quickstarts 
+keywords: kinect, azure, sensor, access, depth, sdk, body, tracking, joint, setup, cuda, nvidia
 
 #Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect body tracking.
 
@@ -14,7 +14,7 @@ keywords: azure, kinect, rgb, IR, recording, sensor, sdk, access, depth, video, 
 
 # Quickstart: Set up Azure Kinect body tracking
 
-This quickstart will guide you through getting body tracking running on our Azure Kinect DK.
+This quickstart will guide you through getting body tracking running on your Azure Kinect DK.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -40,12 +40,12 @@ Follow the on-screen prompts to install CUDA 10.1 and all patches.
 
 ### [cuDNN v7.5.x for CUDA 10.1](https://developer.nvidia.com/rdp/cudnn-download)
 
-Sign in to NVIDIA Developer site with your Developer Program membership and download the cudnn64_7.dll. Ensure the dll path is added to the "Environment Variables - Path":
+Sign in to NVIDIA Developer site with your Developer Program membership and download the `cudnn64_7.dll`. Ensure the dll path is added to the "Environment Variables - Path":
 1. Launch "Control Panel" -> Select "System and Security" -> Select "System" -> Select "Advanced system settings"
 
     ![Setup system path 1](./media/quickstarts/install-system-path1.png)
 
-2. Select "Environment Variables" -> Double-click the "Path" variable under "System variables" block -> Make sure the path that contains your cudnn64_7.dll is there.
+2. Select "Environment Variables" -> Double-click the "Path" variable under "System variables" block -> Make sure the path that contains your `cudnn64_7.dll` is there.
 
     ![Setup system path 2](./media/quickstarts/install-system-path2.png)
 
@@ -53,17 +53,17 @@ Sign in to NVIDIA Developer site with your Developer Program membership and down
 
 CUDA 10.1 installs an older version of the NVIDIA graphics driver. Download and install the latest NVIDIA driver for your graphics card.
 
-## Set-up hardware
+## Set up hardware
 
-### [Set-up Azure Kinect DK](set-up-azure-kinect-dk.md)
+### [Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
 
-Launch `k4aviewer.exe` to check that your Azure Kinect DK is set up correctly.
+Launch the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) to check that your Azure Kinect DK is set up correctly.
 
 ## Verify body tracking
 
-Launch `k4abt_simple-3d-viewer.exe` sample to check that the Body Tracking SDK is set up correctly. The single 3d viewer sample uses the Sensor SDK and Body Tracking SDK to visualize body tracking. A pre-complied binary for the sample is located in the `examples/bin` folder.
+Launch the `k4abt_simple-3d-viewer.exe` sample to check that the Body Tracking SDK is set up correctly. The single 3d viewer sample uses the Sensor SDK and Body Tracking SDK to visualize body tracking. A pre-compiled binary for the sample is located in the `examples/bin` folder.
 
-If everything is set up correctly, a window is displayed with a 3D point cloud and tracked bodies.
+If everything is set up correctly, a window with a 3D point cloud and tracked bodies should appear.
 
 >[!NOTE]
 > The first time an Azure Kinect Body Tracking application is launched on a machine it may take several minutes to load as CUDA is initialized. Subsequent launches on the same machine will be faster.
@@ -73,4 +73,5 @@ If everything is set up correctly, a window is displayed with a 3D point cloud a
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Coordinate systems](coordinate-systems.md)
+>[Build your first body tracking application](build-first-body-app.md)
+

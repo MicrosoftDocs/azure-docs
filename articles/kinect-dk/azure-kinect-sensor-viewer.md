@@ -1,5 +1,5 @@
 ---
-title: Azure Kinect sensor viewer
+title: Azure Kinect Viewer
 description: Kinect for Azure sensor data stream viewer homepage
 author: tesych
 ms.author: tesych
@@ -9,9 +9,9 @@ ms.topic: conceptual
 keywords: azure, kinect, sensor, viewer, visualization, depth, rgb, color, imu, audio, microphone, point cloud
 ---
 
-# Azure Kinect sensor viewer
+# Azure Kinect Viewer
 
-Azure Kinect viewer `k4aviewer.exe` can be used to visualize all device data streams to:
+The Azure Kinect Viewer, found under the installed tools directory as `k4aviewer.exe` (for example, `C:\Program Files\Azure Kinect SDK vX.Y.Z\tools\k4aviewer.exe`, where `X.Y.Z` is the installed version of the SDK), can be used to visualize all device data streams to:
 
 * Verify sensors are working correctly.
 * Help positioning the device.
@@ -23,7 +23,7 @@ Azure Kinect Viewer is [open source](https://github.com/microsoft/Azure-Kinect-S
 
 ## Use viewer
 
-The viewer can operate in two modes; with live data from the sensor or from recorded data ([Azure Kinect Recorder](recorder.md)).
+The viewer can operate in two modes: with live data from the sensor or from recorded data ([Azure Kinect Recorder](recorder.md)).
 
 ### Start application
 
@@ -104,7 +104,7 @@ When changing configuration or inserting/removing synchronization cable, select 
 ## Next steps
 
 > [!div class="nextstepaction"]
->[External synchronization setup guide](https://support.microsoft.com/help/4494429/sync-multiple-devices).
+>[External synchronization setup guide](https://support.microsoft.com/help/4494429/sync-multiple-azure-kinect-dk-devices)
 
 ## Troubleshooting
 

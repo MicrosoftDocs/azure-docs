@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect coordinate systems
-description: Coordinate systems description associated with Azure DK sensors
+description: Azure Kinect DK coordinate systems description associated with Azure DK sensors
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -29,7 +29,7 @@ Points in the 3D-coordinate systems are represented as metric [X,Y,Z]-coordinate
 
 ### Depth and color camera
 
-The origin `[0,0,0]` is located at the focal point of the camera. The coordinate system is oriented such that the positive X-axis points right, the positive Y-axis points down, and the positive Z-axis points forward. 
+The origin `[0,0,0]` is located at the focal point of the camera. The coordinate system is oriented such that the positive X-axis points right, the positive Y-axis points down, and the positive Z-axis points forward.
 
 The depth camera is tilted 6 degrees downwards of the color camera, as shown below.
 
@@ -46,4 +46,4 @@ The gyroscope's origin `[0,0,0]` is identical to the origin of the depth camera.
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Learn about Azure Kinect SDK](overview-sensor-sdk.md)
+>[Learn about Azure Kinect Sensor SDK](overview-sensor-sdk.md)

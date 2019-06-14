@@ -1,6 +1,6 @@
 ---
-title: Azure Kinect depth camera
-description: Azure Kinect Depth camera concepts
+title: Azure Kinect DK depth camera
+description: Azure Kinect DK depth camera concepts
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -9,13 +9,13 @@ ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, depth camera, tof, principles, performance, invalidation
 ---
 
-# Depth camera
+# Azure Kinect DK depth camera
 
-This page covers how to use the depth camera in your Azure Kinect DK device. The depth camera is the second of the two cameras. As covered in previous sections, the other camera is the RGB camera.  
+This page covers how to use the depth camera in your Azure Kinect DK. The depth camera is the second of the two cameras. As covered in previous sections, the other camera is the RGB camera.  
 
 ## Operating principles
 
-The Azure Kinect depth camera implements the Amplitude Modulated Continuous Wave (AMCW) Time-of-Flight (ToF) principle. The camera casts modulated illumination in the near-IR (NIR) spectrum onto the scene. It then records an indirect measurement of the time it takes the light to travel from the camera to the scene and back.
+The Azure Kinect DK depth camera implements the Amplitude Modulated Continuous Wave (AMCW) Time-of-Flight (ToF) principle. The camera casts modulated illumination in the near-IR (NIR) spectrum onto the scene. It then records an indirect measurement of the time it takes the light to travel from the camera to the scene and back.
 
 These measurements are processed to generate a depth map. A depth map is a set of Z-coordinate values for every pixel of the image, measured in units of millimeters.
 
