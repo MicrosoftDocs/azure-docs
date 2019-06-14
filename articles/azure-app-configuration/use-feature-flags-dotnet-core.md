@@ -19,7 +19,7 @@ ms.custom: mvc
 #Customer intent: I want to control feature availability in my app by using the .NET Core Feature Manager library.
 ---
 
-# Tutorial: Use feature flags in a .NET Core app
+# Tutorial: Use feature flags in an ASP.NET Core app
 
 The .NET Core Feature Management libraries provide idiomatic support for implementing feature flags in a .NET or ASP.NET Core application. These libraries allow you to declaratively add feature flags to your code so that you don't have to write all the `if` statements for them manually.
 
@@ -107,7 +107,7 @@ Feature flag values are expected to change over time. By default, the feature ma
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(5);
+                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
            });
 });
 ```
