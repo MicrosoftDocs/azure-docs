@@ -97,6 +97,40 @@ Polling for transcription status may not be the most performant, or provide the 
 
 For more details, see [Webhooks](webhooks.md).
 
+## Speaker Separation (Diarization)
+
+Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports Diarization and is capable of recognizing 2 speakers on mono channel recordings.
+
+To request that your audio transcription request is processed for diarization you simply have to add the relevant parameter in the HTTP request as shown below.
+
+ ```json
+{
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
+  "description": "<optional description of the transcription>",
+  "properties": {
+    "AddWordLevelTimestamps" : "True",
+    "AddDiarization" : "True"
+  }
+}
+```
+
+Note that world level timestamps would also have to be 'turned on' as the parameters in the above request indicate.
+
+The corresponding audio will contain the speakers identified by a number (currently we support only 2 voices, so the speakers will be identified as 'Speaker 1 'and 'Speaker 2') followed by the transcription output.
+
+Also note that Diarization is not available in Stereo recordings. Furthermore, all JSON output will contain the Speaker tag. If diarization is not used it will simply show as 'Speaker: Null'
+
+Supported locales are listed below.
+
+| Language | locale |
+|--------|-------|
+| English | en-US |
+| Chinese | zh-CN |
+| Deutsch | de-DE |
+
 ## Sentiment
 
 Sentiment is a new feature in Batch Transcription API and is an important feature in the call center domain. Customers can use the `AddSentiment` parameters to their requests to 
