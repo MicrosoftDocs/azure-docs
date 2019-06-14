@@ -9,7 +9,7 @@ ms.topic: conceptual
 keywords: kinect, porting, body, tracking, index, segmentation, map
 ---
 
-# Body tracking index map
+# Azure Kinect body tracking index map
 
 The body index map includes the instance segmentation map for each body in the depth camera capture. Each pixel maps to the corresponding pixel in the depth or IR image. The value for each pixel represents which body the pixel belongs to. It can be either background (value `K4ABT_BODY_INDEX_MAP_BACKGROUND`) or the index of a detected `k4abt_body_t`.
 
@@ -25,4 +25,4 @@ The body index map is stored as a `k4a_image_t` and has the same resolution as t
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Coordinate systems](azure-kinect-dk-coordinate-systems.md)
+>[Build your first body tracking app](build-first-body-app.md)
