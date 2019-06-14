@@ -21,21 +21,21 @@ In this tutorial, you learn how to:
 > * Define methods
 > * Test the app
 
-You will also learn how straightforward a search call is. The key statements in the code you will develop are shown in the following few lines.
+You will also learn how straightforward a search call is. The key statements in the code you will develop are similar to the following few lines.
 
 ```cs
-parameters = new SearchParameters()
+var parameters = new SearchParameters
 {
     // Enter Hotel property names into this list, so only these values will be returned.
-    Select = new[] { "HotelName", "Description", "Tags", "Rooms" }
+    Select = new[] { "HotelName", "Description" }
 };
 
 DocumentSearchResult<Hotel> results  = await _indexClient.Documents.SearchAsync<Hotel>("search text", parameters);
 ```
 
-This one call initiates a search of Azure data and returns the results. 
+This one call initiates a search of Azure data and returns the results.
 
-![Searching for "24-hour"](./media/tutorial-csharp-create-first-app/azure-search-24-hour.png)
+![Searching for "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
 
 
 ## Prerequisites
@@ -59,7 +59,7 @@ To create this project from scratch, and hence help reinforce the components of 
 
 ## Set up a development environment
 
-1. In Visual Studio 2017, or later, select **New/Project** then **ASP.NET Core Web Application**. Give the project a name such as "FirstAzureSearch".
+1. In Visual Studio 2017, or later, select **New/Project** then **ASP.NET Core Web Application**. Give the project a name such as "FirstAzureSearchApp".
 ![Creating a cloud project](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
 
 2. After you have clicked **OK** for this project type, you will be given a second set of options that apply to this project. Select **Web Application (Model-View-Controller)**.
@@ -75,16 +75,10 @@ To create this project from scratch, and hence help reinforce the components of 
 
 For this sample, we are using publicly available hotel data. This data is an arbitrary collection of 50 fictional hotel names and descriptions, created solely for the purpose of providing demo data. In order to access this data, you need to specify a name and key for it.
 
-1. Open up the appsettings.json file in your project and add the following name and key. The API key shown here is not an example of a key, it is exactly the key you need to access the hotel data. Your appsettings.json file should now look like this.
+1. Open up the appsettings.json file in your project and replace the default lines with the following name and key. The API key shown here is not an example of a key, it is exactly the key you need to access the hotel data. Your appsettings.json file should now look like this.
 
 ```cs
 {
-  "Logging": {
-    "LogLevel": {
-      "Default": "Warning"
-    }
-  },
-  "AllowedHosts": "*",
   "SearchServiceName": "azs-playground",
   "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
 }
@@ -109,7 +103,7 @@ using Microsoft.Azure.Search.Models;
 using Microsoft.Spatial;
 using Newtonsoft.Json;
 
-namespace FirstAzureSearch.Models
+namespace FirstAzureSearchApp.Models
 {
     public partial class Hotel
     {
@@ -159,7 +153,7 @@ namespace FirstAzureSearch.Models
 ```cs
 using Microsoft.Azure.Search;
 
-namespace FirstAzureSearch.Models
+namespace FirstAzureSearchApp.Models
 {
     public partial class Address
     {
@@ -188,7 +182,7 @@ using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
 using Newtonsoft.Json;
 
-namespace FirstAzureSearch.Models
+namespace FirstAzureSearchApp.Models
 {
     public partial class Room
     {
@@ -227,96 +221,22 @@ namespace FirstAzureSearch.Models
 5. The set of **Hotel**, **Address**, and **Room** classes are what is known in Azure as [_complex types_](search-howto-complex-data-types.md), an important feature of Azure Search. Complex types can be many levels deep of classes and subclasses, and enable far more complex data structures to be represented than using _simple types_ (a class containing only primitive members). We do need one more model, so go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
 
 ```cs
-using System.Collections;
-
-namespace FirstAzureSearch.Models
+namespace FirstAzureSearchApp.Models
 {
-    public static class GlobalVariables
-    {
-        public static int ResultsPerPage
-        {
-            get
-            {
-                return 3;
-            }
-        }
-    }
-
     public class SearchData
     {
-        public SearchData()
-        {
-            hotels = new ArrayList();
-        }
-
-        [System.ComponentModel.DataAnnotations.Key]
-
-        // The text to search for in the hotels data.
+        // The text to search for.
         public string searchText { get; set; }
 
-        // The total number of results found for the search text.
-        public int resultCount { get; set; }
-
-        // The list of hotels to display in the current page.
-        public ArrayList hotels;
-
-        // The current page being displayed.
-        public int currentPage { get; set; }
-
-        // The total number of pages of results.
-        public int pageCount { get; set; }
-
-        public void AddHotel(string name, string desc, double rate, string bedOption, string[] tags)
-        {
-            // Populate a new Hotel class, but only with the data that has been provided.
-            Hotel hotel = new Hotel();
-            hotel.HotelName = name;
-            hotel.Description = desc;
-            hotel.Tags = tags;
-
-            // Create a single room for the hotel, containing the sample rate and room description.
-            Room room = new Room
-            {
-                BaseRate = rate,
-                BedOptions = bedOption
-            };
-
-            hotel.Rooms = new Room[1];
-            hotel.Rooms[0] = room;
-
-            hotels.Add(hotel);
-        }
-
-        public Hotel GetHotel(int index)
-        {
-            return (Hotel)hotels[index];
-        }
-
-        public string GetFullHotelDescription(int index)
-        {
-            Hotel h = (Hotel)hotels[index];
-
-            // Combine the tag data into a comma-delimited string.
-            string tagData = string.Join(", ", h.Tags);
-            string description = h.Description;
-
-            // Add highlights only if there are any.
-            if (tagData.Length > 0)
-            {
-                description += $"\nHighlights: {tagData}";
-            }
-
-            return $"Sample room: {h.Rooms[0].BedOptions} ${h.Rooms[0].BaseRate}\n{description}";
-        }
+        // The list of results.
+        public DocumentSearchResult<Hotel> resultList;
     }
 }
 ```
 
-This time we have a bit more to look at than members. Note first the static class entitled **GlobalVariables**. As the name implies, this is how global variables are declared when using MVC architecture. We only have one global variable here, **ResultsPerPage**, determining how many results to display on the client in one page. In other components of this project, this variable is accessed as **GlobalVariables.ResultsPerPage**.
+This class contains the user's input (**searchText**), and the search's output(**resultList**). The type of the output is critical, **DocumentSearchResult&lt;Hotel&gt;**, as this type exactly matches the results from the search, and we need to pass this through to the view.
 
-The **SearchData** class itself contains a method to add a hotel to an **ArrayList** of hotels. This list contains hotels that have been returned from the index.
 
-Another critical bit of data in this class is **searchText**, containing the text entered by the user. The other members provide control data such as the number of results in total and the current page that is being displayed on the client. We will revisit these fields when looking at the client code (the **Index** view).
 
 ## Create a web page
 
@@ -329,7 +249,7 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 2. The first line of Index.cshtml should reference the model we will be using to communicate data between the client (the view) and the server (the controller), which is the **searchData** model we created. Add this line to the Index.cshtml file.
 
 ```cs
-@model FirstAzureSearch.Models.SearchData
+@model FirstAzureSearchApp.Models.SearchData
 ```
 
 3. It is standard practice to enter a title for the View, so the next lines should be:
@@ -340,188 +260,133 @@ Delete the content of Index.cshtml in its entirety and rebuild the file in the f
 }
 ```
 
-4. Following the title, let's enter some HTML styling. No need to go into this script in detail, it is standard HTML.
+4. Following the title, enter a reference to an HTML stylesheet, which we will create shortly.
 
 ```cs
 <head>
-    <style>
-        textarea.box1 {
-            width: 648px;
-            height: 30px;
-            border: none;
-            background-color: azure;
-            font-size: 14pt;
-            color: blue;
-            padding-left: 5px;
-        }
-
-        textarea.box2 {
-            width: 648px;
-            height: 100px;
-            border: none;
-            background-color: azure;
-            font-size: 12pt;
-            padding-left: 5px;
-            margin-bottom: 24px;
-        }
-
-        .sampleTitle {
-            font: 32px/normal 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
-            margin: 20px 0;
-            font-size: 32px;
-            text-align: left;
-        }
-
-        .sampleText {
-            font: 16px/bold 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
-            margin: 20px 0;
-            font-size: 14px;
-            text-align: left;
-            height: 30px;
-        }
-
-        .searchBoxForm {
-            width: 648px;
-            box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
-            background-color: #fff;
-            display: inline-block;
-            border-collapse: collapse;
-            border-spacing: 0;
-            list-style: none;
-            color: #666;
-        }
-
-        .searchBox {
-            width: 568px;
-            font-size: 16px;
-            margin: 5px 0 1px 20px;
-            padding: 0 10px 0 0;
-            border: 0;
-            max-height: 30px;
-            outline: none;
-            box-sizing: content-box;
-            height: 35px;
-            vertical-align: top;
-        }
-
-        .searchBoxSubmit {
-            background-color: #fff;
-            border-color: #fff;
-            background-image: url(/images/search.png);
-            background-repeat: no-repeat;
-            height: 20px;
-            width: 20px;
-            text-indent: -99em;
-            border-width: 0;
-            border-style: solid;
-            margin: 10px;
-            outline: 0;
-        }
-
-        .pageButton {
-            border: none;
-            color: darkblue;
-            font-weight: normal;
-            width: 50px;
-        }
-
-        .pageButtonDisabled {
-            border: none;
-            color: lightgray;
-            font-weight: bold;
-            width: 50px;
-        }
-    </style>
+    <link rel="stylesheet" href="~/css/hotels.css" />
 </head>
 ```
 
-5. Now to the meat of the view. A key thing to remember is that the view has to handle two situations. Firstly, it must handle the display when the app is first launched, and the user has not yet entered any search text. Secondly, it must handle the display of a single page of results in addition to the search text boxes for repeated use by the user. To handle these two situations, we need to check whether the model provided to the view is null or not. A null model indicates we are in the first of the two situations (the initial running of the app). Add the following to the Index.cshtml file and read through the comments.
+5. Now to the meat of the view. A key thing to remember is that the view has to handle two situations. Firstly, it must handle the display when the app is first launched, and the user has not yet entered any search text. Secondly, it must handle the display of results, in addition to the search text box, for repeated use by the user. To handle these two situations, we need to check whether the model provided to the view is null or not. A null model indicates we are in the first of the two situations (the initial running of the app). Add the following to the Index.cshtml file and read through the comments.
 
 ```cs
-   <h1 class="sampleTitle">
-    <img src="~/images/azure-logo.png" width="80" />
-     Hotels demo app
+<body>
+    <h1 class="sampleTitle">
+        <img src="~/images/azure-logo.png" width="80" />
+        Hotels Search
     </h1>
 
-@using (Html.BeginForm("Index", "Home", FormMethod.Post))
-{
-    // Display the search text box, with the search icon to the right of it.
-    <div class="searchBoxForm">
-        @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox" }) <input class="searchBoxSubmit" type="submit" value="">
-    </div>
-
-    @if (Model != null)
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
-        // Show the result count.
-        <p class="sampleText">
-            @Html.DisplayFor(m => m.resultCount) Results
-        </p>
+        // Display the search text box, with the search icon to the right of it.
+        <div class="searchBoxForm">
+            @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox" }) <input class="searchBoxSubmit" type="submit" value="">
+        </div>
 
-        // Show the hotel data. All pages will have ResultsPerPage entries, except for the last page, which can have less.
-        @for (var i = 0; i < Model.hotels.Count; i++)
+        @if (Model != null)
         {
-            // Display the hotel name.
-            @Html.TextAreaFor(m => Model.GetHotel(i).HotelName, new { @class = "box1" })
+            // Show the result count.
+            <p class="sampleText">
+                @Html.DisplayFor(m => m.resultList.Results.Count) Results
+            </p>
 
-            // Display the hotel sample room and description.
-            @Html.TextArea("desc", Model.GetFullHotelDescription(i), new { @class = "box2" })
+            @for (var i = 0; i < Model.resultList.Results.Count; i++)
+            {
+                // Display the hotel name and description.
+                @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
+                @Html.TextArea("desc", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
+            }
         }
     }
-}
+</body>
 ```
 
-6. Finally, we complete the view with paging buttons: "next" and "previous". Following tutorials address both more complete numbered paging and infinite scrolling.
+6. Finally, we add the stylesheet. In Visual Studio, in the **File** menu select **New/File** then **Style Sheet** (with **General** highlighted). Replace the default code with the following. We will not be going into this file in any more detail, the styles are just standard HTML.
 
 ```cs
-    @if (Model != null && Model.pageCount > 1)
-    {
-        // If there is more than one page of results, show the paging buttons.
-        <table>
-            <tr>
-                <td>
-                    @using (Html.BeginForm("Prev", "Home", FormMethod.Post))
-                    {
-                        // Previous (<<) page button.
-                        @if (Model.currentPage > 0)
-                        {
-                            <input id="prev" type="submit" value="&#171;" class="pageButton">
-                        }
-                        else
-                        {
-                            // Show an inactive button, so the buttons remain in the same place on the view.
-                            <input id="prev" type="submit" value="&#171;" disabled class="pageButtonDisabled">
-                        }
+   textarea.box1 {
+    width: 648px;
+    height: 30px;
+    border: none;
+    background-color: azure;
+    font-size: 14pt;
+    color: blue;
+    padding-left: 5px;
+}
 
-                    }
-                </td>
+textarea.box2 {
+    width: 648px;
+    height: 100px;
+    border: none;
+    background-color: azure;
+    font-size: 12pt;
+    padding-left: 5px;
+    margin-bottom: 24px;
+}
 
-                <!-- Aid navigation by showing the current page and how many pages of results there are. -->
-                <td>&nbsp;&nbsp;Page @(Model.currentPage + 1) of @Model.pageCount&nbsp;&nbsp;</td>
+.sampleTitle {
+    font: 32px/normal 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
+    margin: 20px 0;
+    font-size: 32px;
+    text-align: left;
+}
 
-                <td>
-                    @using (Html.BeginForm("Next", "Home", FormMethod.Post))
-                    {
-                        // Next (>>) page button.
-                        @if (Model.currentPage < Model.pageCount - 1)
-                        {
-                            <input id="next" type="submit" value="&#187;" class="pageButton">
-                        }
-                        else
-                        {
-                            <input id="next" type="submit" value="&#187;" disabled class="pageButtonDisabled">
-                        }
-                    }
-                </td>
-            </tr>
-        </table>
-    }
+.sampleText {
+    font: 16px/bold 'Segoe UI Light',Arial,Helvetica,Sans-Serif;
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: left;
+    height: 30px;
+}
+
+.searchBoxForm {
+    width: 648px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
+    background-color: #fff;
+    display: inline-block;
+    border-collapse: collapse;
+    border-spacing: 0;
+    list-style: none;
+    color: #666;
+}
+
+.searchBox {
+    width: 568px;
+    font-size: 16px;
+    margin: 5px 0 1px 20px;
+    padding: 0 10px 0 0;
+    border: 0;
+    max-height: 30px;
+    outline: none;
+    box-sizing: content-box;
+    height: 35px;
+    vertical-align: top;
+}
+
+.searchBoxSubmit {
+    background-color: #fff;
+    border-color: #fff;
+    background-image: url(/images/search.png);
+    background-repeat: no-repeat;
+    height: 20px;
+    width: 20px;
+    text-indent: -99em;
+    border-width: 0;
+    border-style: solid;
+    margin: 10px;
+    outline: 0;
+}
+
 ```
+
+7. Save the stylesheet file as hotels.css, into the wwwroot/css folder, alongside the default site.css file.
 
 That completes our view. We are making good progress. The models and views are completed, only the controller is left to tie everything together.
 
 ## Define methods
 
-We need to modify to the contents of the one controller (**Home Controller**) which is created by default. 
+We need to modify to the contents of the one controller (**Home Controller**) which is created by default.
 
 1. Open the HomeController.cs file and replace the **using** statements with the following. 
 
@@ -530,7 +395,7 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using FirstAzureSearch.Models;
+using FirstAzureSearchApp.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Azure.Search;
 using Microsoft.Azure.Search.Models;
@@ -540,7 +405,7 @@ using Microsoft.Azure.Search.Models;
 
 We need two **Index** methods, one taking no parameters (for the case when the app is first opened), and one taking a model as a parameter (for when the user has entered search text). The first of these methods is created by default. 
 
-1. Add the following method after the default **Index()** method.
+1. Add the following method, after the default **Index()** method.
 
 ```cs
         [HttpPost]
@@ -554,12 +419,8 @@ We need two **Index** methods, one taking no parameters (for the case when the a
                     model.searchText = "";
                 }
 
-                // Make the Azure Search call for the first page.
-                await RunQueryAsync(model, 0);
-
-                // Ensure temporary data is stored for the next call.
-                TempData["page"] = 0;
-                TempData["searchfor"] = model.searchText;
+                // Make the Azure Search call.
+                await RunQueryAsync(model);
             }
 
             catch
@@ -570,69 +431,9 @@ We need two **Index** methods, one taking no parameters (for the case when the a
         }
 ```
 
-A few important things to take note of here. The **TempData** calls store a value (an **object**) in temporary storage, though this storage persists for only one call. If we store something in temporary data, it will be available for the next **Index** call but will most definitely be gone the next! Because of this short lifespan, we store the search text and page number back in temporary storage each and every call to **Index**.
+Notice the **async** declaration of the method, and the **await** call to **RunQueryAsync**. These keywords take care of making our calls asynchronous, and so avoid blocking threads on the server.
 
-Also note the **async** declaration of the method and the **await** call to **RunQueryAsync**. These keywords take care of making our calls asynchronous, and so avoids blocking threads on the server.
-
-Finally note the **catch** block uses the error model that was created for us by default.
-
-### Add paging methods
-
-As mentioned before a subsequent tutorial has a good look at paging. For this first tutorial, we are going to add **Next** and **Prev** controller methods. 
-
-1. Add the following two methods after your **Index(SearchData model)** method.
-
-```cs
-        public async Task<ActionResult> Next(SearchData model)
-        {
-            try
-            {
-                // Increment the current page.
-                int page = 1 + (int)TempData["page"];
-
-                // Recover the search text.
-                model.searchText = TempData["searchfor"].ToString();
-
-                // Make the Azure Search call.
-                await RunQueryAsync(model, page);
-
-                // Ensure temporary data is stored for the next call.
-                TempData["page"] = page;
-                TempData["searchfor"] = model.searchText;
-            }
-
-            catch
-            {
-                return View("Error", new ErrorViewModel { RequestId = "2" });
-            }
-            return View("Index", model);
-        }
-
-        public async Task<ActionResult> Prev(SearchData model)
-        {
-            try
-            {
-                // Decrement the current page.
-                int page = (int)TempData["page"] - 1;
-
-                // Recover the search text.
-                model.searchText = TempData["searchfor"].ToString();
-
-                // Make the Azure Search call.
-                await RunQueryAsync(model, page);
-
-                // Ensure temporary data is stored for the next call.
-                TempData["page"] = page;
-                TempData["searchfor"] = model.searchText;
-            }
-
-            catch
-            {
-                return View("Error", new ErrorViewModel { RequestId = "3" });
-            }
-            return View("Index", model);
-        }
-```
+The **catch** block uses the error model that was created for us by default.
 
 ### Note the error handling and other default views and methods
 
@@ -640,9 +441,11 @@ Depending on which version of .NET Core you are using, a slightly different set 
 
 We will be testing the Error view later on in this tutorial.
 
+In the GitHub sample, we have deleted the unused views, and their associated actions.
+
 ### Add the RunQueryAsync method
 
-The Azure Search call is encapsulated in our **RunQueryAsync** method. 
+The Azure Search call is encapsulated in our **RunQueryAsync** method.
 
 1. First add some static variables to set up the Azure service and a call to initiate them.
 
@@ -652,90 +455,47 @@ The Azure Search call is encapsulated in our **RunQueryAsync** method.
         private static IConfigurationBuilder _builder;
         private static IConfigurationRoot _configuration;
 
-        private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+        private void InitSearch()
         {
-            string searchServiceName = configuration["SearchServiceName"];
-            string queryApiKey = configuration["SearchServiceQueryApiKey"];
+            // Create a configuration using the appsettings file.
+            _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+            _configuration = _builder.Build();
 
-            SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(queryApiKey));
-            return serviceClient;
+            // Pull the values from the appsettings.json file.
+            string searchServiceName = _configuration["SearchServiceName"];
+            string queryApiKey = _configuration["SearchServiceQueryApiKey"];
+
+            // Create a service and index client.
+            _serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(queryApiKey));
+            _indexClient = _serviceClient.Indexes.GetClient("hotels");
         }
 ```
 
 2. Now add the **RunQueryAsync** method itself.
 
 ```cs
-        private async Task<ActionResult> RunQueryAsync(SearchData model, int page)
+        private async Task<ActionResult> RunQueryAsync(SearchData model)
         {
-            // Use static variables to set up the configuration and Azure service and index clients, for efficiency.
-            _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            _configuration = _builder.Build();
+            InitSearch();
 
-            _serviceClient = CreateSearchServiceClient(_configuration);
-            _indexClient = _serviceClient.Indexes.GetClient("hotels");
-
-            SearchParameters parameters;
-            DocumentSearchResult<Hotel> results;
-
-            parameters =
-               new SearchParameters()
-               {
-                   // Enter Hotel property names into this list so only these values will be returned.
-                   // If Select is empty, all values will be returned, which can be inefficient.
-                   Select = new[] { "HotelName", "Description", "Tags", "Rooms" }
-               };
-
-            // For efficiency, the search call should ideally be asynchronous, so we use the
-            // SearchAsync call rather than the Search call.
-            results = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
-
-            if (results.Results == null)
+            var parameters = new SearchParameters
             {
-                model.resultCount = 0;
-            }
-            else
-            {
-                // Record the total number of results.
-                model.resultCount = (int)results.Results.Count;
+                // Enter Hotel property names into this list so only these values will be returned.
+                // If Select is empty, all values will be returned, which can be inefficient.
+                Select = new[] { "HotelName", "Description" }
+            };
 
-                // Calculate the range of current page results.
-                int start = page * GlobalVariables.ResultsPerPage;
-                int end = Math.Min(model.resultCount, (page + 1) * GlobalVariables.ResultsPerPage);
+            // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
+            model.resultList = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
 
-                for (int i = start; i < end; i++)
-                {
-                    // Check for hotels with no room data provided.
-                    if (results.Results[i].Document.Rooms.Length > 0)
-                    {
-                        // Add a hotel with sample room data (an example of a "complex type").
-                        model.AddHotel(results.Results[i].Document.HotelName,
-                             results.Results[i].Document.Description,
-                             (double)results.Results[i].Document.Rooms[0].BaseRate,
-                             results.Results[i].Document.Rooms[0].BedOptions,
-                             results.Results[i].Document.Tags);
-                    }
-                    else
-                    {
-                        // Add a hotel with no sample room data.
-                        model.AddHotel(results.Results[i].Document.HotelName,
-                            results.Results[i].Document.Description,
-                            0d,
-                            "No room data provided",
-                            results.Results[i].Document.Tags);
-                    }
-                }
-
-                // Calculate the page count.
-                model.pageCount = (model.resultCount + GlobalVariables.ResultsPerPage - 1) / GlobalVariables.ResultsPerPage;
-                model.currentPage = page;
-            }
+            // Display the results.
             return View("Index", model);
         }
 ```
 
 In this method, we first ensure our Azure configuration is initiated, then set some search parameters. The list of fields in the **Select** parameter match exactly the member names in the **hotel** class. It is possible to leave out the **Select** parameter, in which case all fields are returned. However, setting no **Select** parameters is inefficient if we are only interested in a subset of the data. By specifying the fields we are interested in, only these fields are returned.
 
-The asynchronous call to search (**results = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one and a good idea is to stop at this point using a debugger and examine the contents of **results**. You should find that it is intuitive, providing you with the data you asked for and not much else.
+The asynchronous call to search (**model.resultList = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one, and a good idea is to stop at this point using a debugger and examine the contents of **model.resultList**. You should find that it is intuitive, providing you with the data you asked for and not much else.
 
 > [!NOTE]
 > This set of tutorials all use the asynchronous version of the API calls, to avoid blocking threads on the server. Both the synchronous and asynchronous versions of the API calls work similarly, there are some minor differences in declaring the methods and making the calls, but no additional lines of code are needed. It is best practice to avoid the synchronous calls, and use the asynchronous versions throughout your work with Azure Search.
@@ -754,23 +514,19 @@ Now, let's check the app runs correctly.
 
  ![Searching for "beach"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
 
-3. Test the next and previous page buttons. Check that when they are not relevant, they are grayed out.
-
-4. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Search.
+3. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Search, though we will not be covering it in the first tutorials.
  
- ![Searching for "five star"](./media/tutorial-csharp-create-first-app/azure-search-five-star.png)
+4. Try entering "hot" as search text. It does _not_ return entries with the word "hotel" in them. Our search is only locating whole words, though a few results are returned.
 
-5. Try entering "hot" as search text. It does _not_ return entries with the word "hotel" in them. Our search is only locating whole words.
-
-6. Try other words: "pool", "sunshine", "view" and whatever. You will see Azure Search working at its simplest but still convincing level.
+5. Try other words: "pool", "sunshine", "view" and whatever. You will see Azure Search working at its simplest, but still convincing level.
 
 ## Test edge conditions and errors
 
 It is important to verify that our error handling features work as they should, even when things are working perfectly. 
 
-1. In the **Prev** method, after the **try {** call, enter the line **Throw new Exception()**. This exception will force an error when we select the previous (<<) button.
+1. In the **Index** method, after the **try {** call, enter the line **Throw new Exception()**. This exception will force an error when we search on text.
 
-2. Run the app, enter "bar" as search text, select the next page, then select the previous page. You should get the error page appearing in your view.
+2. Run the app, enter "bar" as search text, and click the search icon. This should result in the error view.
 
  ![Force an error](./media/tutorial-csharp-create-first-app/azure-search-error.png)
 
@@ -784,13 +540,12 @@ It is important to verify that our error handling features work as they should, 
 Consider the following takeaways from this project:
 
 * An Azure Search call is concise, and it is easy to interpret the results.
-* Temporary storage persists for only one call and needs to be reset to survive additional calls.
 * Asynchronous calls add a small amount of complexity to the controller but is the best practice if you intend to develop industrial quality apps.
 * This app performed a straightforward text search, defined by what is set up in **searchParameters**. However, this one class can be populated with many members that add sophistication to a search. Not much additional work is needed.
 
 ## Next steps
 
-In order to provide the best user experience using Azure Search, we need to add more features, notably better paging (page numbers or infinite scrolling, depending on the application), and autocomplete/suggestions. We should also consider more sophisticated search parameters (for example, geospatial searches on hotels within a specified radius of a given point, and search results ordering).
+In order to provide the best user experience using Azure Search, we need to add more features, notably paging (either using page numbers, or infinite scrolling), and autocomplete/suggestions. We should also consider more sophisticated search parameters (for example, geographical searches on hotels within a specified radius of a given point, and search results ordering).
 
 These next steps are addressed in a series of tutorials. Let's start with paging.
 
