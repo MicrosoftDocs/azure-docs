@@ -315,6 +315,9 @@
         href: databasics-tutorial.md
       - name: Datahug
         href: datahug-tutorial.md
+        name: Dailpad
+        href: dailpad-provisioning-tutorial.md
+        href: datahug-tutorial.md
       - name: Dealpath
         href: dealpath-tutorial.md
       - name: Degreed
@@ -1404,7 +1407,9 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
-      - name: Jive
+        name: Envoy
+        href: envoy-provisioning-tutorial.md
+        name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
@@ -1422,6 +1427,10 @@
         href: netsuite-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+        name: proxyclick
+        href: proxyclick-provisioning-tutorial.md
+        name: peakon
+        href: peakon-provisioning-tutorial.md
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
@@ -1456,4 +1465,7 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
+        name: Zoom
+        href: zoom-provisioning-tutorial.md
+
 
