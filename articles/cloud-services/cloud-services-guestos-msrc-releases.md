@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/23/2019
+ms.date: 6/6/2019
 ms.author: raiye
 
 ---
@@ -21,51 +21,49 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## May 2019 Guest OS
 
->[!NOTE]
->The May Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the May Guest OS. This list is subject to change.
-
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206 ]  |  May IE Rollup   |  2,86, 3.73, 4.66  |  May 14, 2019  |
-|  Rel 19-05   |  [4505050 ]  |  May IE Rollup   |  2,86, 3.73, 4.66  |  May 18, 2019  |
-|  Rel 19-05   |  [4497932 ]  |  May Flash Update   |  3.73, 4.66, 5.31  |  May 14, 2019  |
-|  Rel 19-05   |  [4499175 ]  |  May Security Rollup   |  2.86  |  May 14, 2019  |
-|  Rel 19-05   |  [4495612 ]  |  May Security Rollup .NET 3.5   |  2.86  |  May 14, 2019  |
-|  Rel 19-05   |  [4495593 ]  |  May Security Rollup .NET 4.5.2   |  2.86  |  May 14, 2019  |
-|  Rel 19-05   |  [4499158 ]  |  May Security Rollup   |  3.73  |  May 14, 2019  |
-|  Rel 19-05   |  [4495607 ]  |  May Security Rollup .NET 3.5   |  3.73  |  May 14, 2019  |
-|  Rel 19-05   |  [4495591 ]  |  May Security Rollup .NET 4.5.2   |  3.73  |  May 14, 2019  |
-|  Rel 19-05   |  [4492872 ]  |  IE Rollup   |  3.73  |  April 16, 2019  |
-|  Rel 19-05   |  [4499165 ]  |  March Security Rollup   |  4.66  |  May 14, 2019  |
-|  Rel 19-05   |  [4495615 ]  |  May Security Rollup .NET 3.5   |  4.66  |  May 14, 2019  |
-|  Rel 19-05   |  [4495589 ]  |  May Security Rollup .NET 4.5.2   |  4.66  |  May 14, 2019  |
-|  Rel 19-05   |  [4498947 ]  |  May SSU   |  5.31  |  May 14, 2019  |
-|  Rel 19-05   |  [4494175 ]  |  May Microcode Update   |  5.31  |  May 14, 2019  |
-|  Rel 19-05   |  [4505052 ]  |  May Security Rollup   |  5.31  |  May 19, 2019  |
-|  Rel 19-05   |  [4499728 ]  |  May SSU   |  6.7  |  May 19, 2019  |
-|  Rel 19-05   |  [4505056 ]  |  May Security Rollup   |  6.7  |  May 19, 2019  |
-|  Rel 19-05   |  [4494174 ]  |  May Microcode Update   |  6.7  |  May 14, 2019  |
-|  Rel 19-05   |  [4495590 ]  |  May Security Rollup .NET   |  6.7  |  May 14, 2019  |
+|  Rel 19-05   |  [4498206]  |  May IE Rollup   |  2,86, 3.73, 4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4505050]  |  May IE Rollup   |  2,86, 3.73, 4.66  |  May 18, 2019  |
+|  Rel 19-05   |  [4497932]  |  May Flash Update   |  3.73, 4.66, 5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4499175]  |  May Security Rollup   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4495612]  |  May Security Rollup .NET 3.5   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4495593]  |  May Security Rollup .NET 4.5.2   |  2.86  |  May 14, 2019  |
+|  Rel 19-05   |  [4499158]  |  May Security Rollup   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4495607]  |  May Security Rollup .NET 3.5   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4495591]  |  May Security Rollup .NET 4.5.2   |  3.73  |  May 14, 2019  |
+|  Rel 19-05   |  [4492872]  |  IE Rollup   |  3.73  |  April 16, 2019  |
+|  Rel 19-05   |  [4499165]  |  March Security Rollup   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4495615]  |  May Security Rollup .NET 3.5   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4495589]  |  May Security Rollup .NET 4.5.2   |  4.66  |  May 14, 2019  |
+|  Rel 19-05   |  [4498947]  |  May SSU   |  5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4494175]  |  May Microcode Update   |  5.31  |  May 14, 2019  |
+|  Rel 19-05   |  [4505052]  |  May Security Rollup   |  5.31  |  May 19, 2019  |
+|  Rel 19-05   |  [4499728]  |  May SSU   |  6.7  |  May 19, 2019  |
+|  Rel 19-05   |  [4505056]  |  May Security Rollup   |  6.7  |  May 19, 2019  |
+|  Rel 19-05   |  [4494174]  |  May Microcode Update   |  6.7  |  May 14, 2019  |
+|  Rel 19-05   |  [4495590]  |  May Security Rollup .NET   |  6.7  |  May 14, 2019  |
 
-[KB4493510]: https://support.microsoft.com/kb/KB4493510
-[KB4493472]: https://support.microsoft.com/kb/KB4493472
-[KB4493451]: https://support.microsoft.com/kb/KB4493451
-[KB4493446]: https://support.microsoft.com/kb/KB4493446
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[4498206]: https://support.microsoft.com/kb/4498206
+[4505050]: https://support.microsoft.com/kb/4505050
+[4497932]: https://support.microsoft.com/kb/4497932
+[4499175]: https://support.microsoft.com/kb/4499175
+[4495612]: https://support.microsoft.com/kb/4495612
+[4495593]: https://support.microsoft.com/kb/4495593
+[4499158]: https://support.microsoft.com/kb/4499158
+[4495607]: https://support.microsoft.com/kb/4495607
+[4495591]: https://support.microsoft.com/kb/4495591
+[4492872]: https://support.microsoft.com/kb/4492872
+[4499165]: https://support.microsoft.com/kb/4499165
+[4495615]: https://support.microsoft.com/kb/4495615
+[4495589]: https://support.microsoft.com/kb/4495589
+[4498947]: https://support.microsoft.com/kb/4498947
+[4494175]: https://support.microsoft.com/kb/4494175
+[4505052]: https://support.microsoft.com/kb/4505052
+[4499728]: https://support.microsoft.com/kb/4499728
+[4505056]: https://support.microsoft.com/kb/4505056
+[4494174]: https://support.microsoft.com/kb/4494174
+[4495590]: https://support.microsoft.com/kb/4495590
 
 
 ## April 2019 Guest OS
@@ -79,11 +77,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 19-04 | [4493448] | Windows Security | 2.85 | April 9, 2019 |
 | Rel 19-04 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | April 9, 2019 |
 | Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | April 9, 2019 |
-| Rel 19-04 | [KB4490628] | Servicing Stack Update | 2.85 | March 12, 2019 |
-| Rel 19-04 | [KB4474419] | SHA2 Support | 2.85 | March 12, 2019 |
-| Rel 19-04 | [KB4489878] | March Non-Security Rollup | 2.85 | March 12, 2019 |
-| Rel 19-04 | [KB4489891] | March Non-Security Rollup | 3.72 | March 12, 2019 |
-| Rel 19-04 | [KB4489881] | March Non-Security Rollup | 4.65 | March 12, 2019 |
+| Rel 19-04 | [4490628] | Servicing Stack Update | 2.85 | March 12, 2019 |
+| Rel 19-04 | [4474419] | SHA2 Support | 2.85 | March 12, 2019 |
+| Rel 19-04 | [4489878] | March Non-Security Rollup | 2.85 | March 12, 2019 |
+| Rel 19-04 | [4489891] | March Non-Security Rollup | 3.72 | March 12, 2019 |
+| Rel 19-04 | [4489881] | March Non-Security Rollup | 4.65 | March 12, 2019 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -92,11 +90,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4493448]: https://support.microsoft.com/kb/4493448
 [4493478]: https://support.microsoft.com/kb/4493478
 [4493435]: https://support.microsoft.com/kb/4493435
-[KB4490628]: https://support.microsoft.com/kb/KB4490628
-[KB4474419]: https://support.microsoft.com/kb/KB4474419
-[KB4489878]: https://support.microsoft.com/kb/KB4489878
-[KB4489891]: https://support.microsoft.com/kb/KB4489891
-[KB4489881]: https://support.microsoft.com/kb/KB4489881
+[4490628]: https://support.microsoft.com/kb/KB4490628
+[4474419]: https://support.microsoft.com/kb/KB4474419
+[4489878]: https://support.microsoft.com/kb/KB4489878
+[4489891]: https://support.microsoft.com/kb/KB4489891
+[4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## March 2019 Guest OS
 

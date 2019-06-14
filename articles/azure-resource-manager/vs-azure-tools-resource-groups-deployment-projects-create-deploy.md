@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Azure resource group projects | Microsoft Docs
+title: Create & deploy Visual Studio Azure resource group projects
 description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
 services: azure-resource-manager
 documentationcenter: na

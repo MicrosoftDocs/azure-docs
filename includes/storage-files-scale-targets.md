@@ -1,9 +1,9 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
-ms.author: tamram
+ms.author: rogarana
 ---
 | Resource | Standard file shares | Premium file shares (preview) |
 |----------|---------------|------------------------------------------|
