@@ -388,9 +388,6 @@
         href: encompass-tutorial.md
       - name: Envi MMIS
         href: envimmis-tutorial.md
-      - name: Envoy
-        href: envoy-provisioning-tutorial
-        name: Envoy
         href: envoy-tutorial.md
       - name: ePlatform
         href: eplatform-tutorial.md
@@ -1376,6 +1373,13 @@
   - name: User provisioning tutorials
     expanded: true
     items:
+    - name: 0 - 9
+      items:
+      - name: 4me
+        href: 4me-provisioning-tutorial.md
+  - name: User provisioning tutorials
+    expanded: true
+    items:
     - name: A - L
       items:
       - name: Amazon Web Services (AWS) - Role Provisioning
@@ -1414,8 +1418,6 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
-        name: Envoy
-        href: envoy-provisioning-tutorial.md
         name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
@@ -1434,8 +1436,6 @@
         href: netsuite-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
-        name: proxyclick
-        href: proxyclick-provisioning-tutorial.md
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
@@ -1470,8 +1470,4 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
-        name: Zoom
-        href: zoom-provisioning-tutorial.md
-        name: 4me
-        href: 4me-provisioning-tutorial.md
 
