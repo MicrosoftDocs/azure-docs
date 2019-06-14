@@ -72,7 +72,7 @@ The following table shows connectivity locations and the service providers for e
 | **Location** | **Peering Location Owner** | **Local Azure Regions** | **Service Providers** |
 | --- | --- | --- | --- |
 | **Amsterdam** | Equinix | West Europe | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **Amsterdam2** | Interxion | West Europe | DE-CIX, Interxion |
+| **Amsterdam2** | Interxion | West Europe | DE-CIX, Interxion, Vodafone |
 | **Atlanta** | Equinix | n/a | Equinix, Megaport |
 | **Busan** |LG CNS | Korea South | LG CNS |
 | **Canberra** | CDC | Australia Central | CDC |
