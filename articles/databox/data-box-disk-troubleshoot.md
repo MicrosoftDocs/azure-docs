@@ -19,7 +19,7 @@ This article applies to Microsoft Azure Data Box Disk. The article describes how
 
 When you validate the data on the disks using the [validation tool](data-box-disk-deploy-copy-data.md#validate-data), an *error.xml* is generated to log any errors. The log file is located in the  `Drive:\DataBoxDiskImport\logs` folder of your drive. A link to the error log is provided when you run validation.
 
-![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)
+<!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
 If you run multiple sessions for validation, then one error log is generated per session.
 

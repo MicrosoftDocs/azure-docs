@@ -95,4 +95,4 @@ The issues seen when using a Split Copy tool to split the data over multiple dis
 
 ## Next steps
 
-- Learn how to [troubleshoot validation tool issues](data-box-disk-troubleshoot-validation.md).
+- Learn how to [troubleshoot validation tool issues](data-box-disk-troubleshoot.md).

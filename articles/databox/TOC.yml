@@ -116,11 +116,11 @@
         items:
         - name: Unlock issues
           href: data-box-disk-troubleshoot-unlock.md
-        - name: Data copy issues using logs
+        - name: Data copy issues
           href: data-box-disk-troubleshoot-data-copy.md
-        - name: Validation issues using logs
+        - name: Validation issues
           href: data-box-disk-troubleshoot.md
-        - name: Upload issues using logs
+        - name: Upload issues
           href: data-box-disk-troubleshoot-upload.md 
       - name: Contact Support
         href: data-box-disk-contact-microsoft-support.md  
