@@ -1,8 +1,9 @@
 ---
-title: Access Data in Body Frame
+title: Access Azure Kinect DK Data in Body Frame
 description: Describe the APIs to access the data stored in a Body Frame
 author: qm13
 ms.author: yijwan, quentinm
+ms.prod: kinect-dk
 ms.date: 6/12/2019
 ms.topic: quickstarts
 keywords: body, frame, azure, kinect, body, tracking, tips
@@ -27,7 +28,7 @@ Each body frame contains a collection of body structs, a 2D body index map, and 
 
 -![Body Frame Components](./media/how-to-guides/body-frame.png)
 
-## Accessing the collection of body structs
+## Access the collection of body structs
 
 Multiple bodies might be detected in a single capture. You can query the number of bodies by calling the [k4abt_frame_get_num_bodies()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html) function.
 
@@ -46,7 +47,7 @@ for (size_t i = 0; i < num_bodies; i++)
 }
 ```
 
-## Accessing the body index map
+## Access the body index map
 
 You use the [k4abt_frame_get_body_index_map()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html) function to access the body index map. Refer to  [body index Map](body-index-map.md) for detailed explanation of the body index map. Release the body index map when no longer needed.
 
@@ -56,7 +57,7 @@ k4a_image_t body_index_map = k4abt_frame_get_body_index_map(body_frame);
 k4a_image_release(body_index_map);
 ```
 
-## Accessing the input capture
+## Access the input capture
 
 The body tracker is an asynchronous API. The original capture may already have been released by the time the result is popped. Use the [k4abt_frame_get_capture()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html) function to query the 
 input capture used to generate this body tracking result. The reference count for the k4a_capture_t is increased each time this function is called. Use [k4a_release_capture()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html) function when the capture is no longer needed.
