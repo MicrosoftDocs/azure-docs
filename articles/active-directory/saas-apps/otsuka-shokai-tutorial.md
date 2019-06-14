@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 06/14/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -59,9 +59,11 @@ Configure and test Azure AD SSO with Otsuka Shokai using a test user called **B.
 To configure and test Azure AD SSO with Otsuka Shokai, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
-3. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
-4. **[Test SSO](#test-sso)** to verify whether the configuration works.
+2. **[Configure Otsuka Shokai](#configure-otsuka-shokai)** to configure the SSO settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
+5. **[Create Otsuka Shokai test user](#create-otsuka-shokai-test-user)** to have a counterpart of B. Simon in Otsuka Shokai that is linked to the Azure AD representation of user.
+6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
@@ -106,6 +108,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	g. Click **Save**.
 
+### Configure Otsuka Shokai
+
+1. When you connect to Customer's My Page from SSO app, the wizard of SSO setting starts.
+
+2. If Otsuka ID is not registered, proceed to Otsuka-ID new registration.   If you have registered Otsuka-ID, proceed to the linkage setting.
+
+3. Proceed to the end and when the top screen is displayed after logging in to Customer's My Page, the SSO settings are complete.
+
+4. The next time you connect to Customer's My Page from the SSO app, after the guidance screen opens, the top screen is displayed after logging in to Customer's My Page.
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B. Simon.
@@ -136,6 +148,10 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+### Create Otsuka Shokai test user
+
+New registration of SaaS account will be performed at the first access to Otsuka Shokai. In addition, we will also associate Azure AD account and SaaS account at the time of new creation.
+
 ### Test SSO
 
 When you select the Otsuka Shokai tile in the Access Panel, you should be automatically signed in to the Otsuka Shokai for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
@@ -146,4 +162,4 @@ When you select the Otsuka Shokai tile in the Access Panel, you should be automa
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
