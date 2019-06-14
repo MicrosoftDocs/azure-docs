@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/14/2019
 ms.author: alkohli
 ---
 
-# Troubleshoot data upload issues in Azure Data Box Disk
+# Understand logs to troubleshoot data upload issues in Azure Data Box Disk
 
 This article applies to Microsoft Azure Data Box Disk and describes the issues you see when you upload data to Azure.
 
@@ -72,24 +72,30 @@ In each case, you see the error logs and the verbose logs. Select each log and d
 
 The errors generated when uploading the data to Azure are summarized in the following table.
 
-| Error code | Description                        |Details                                     |
-|-------------|------------------------------|--------------------------------------------------------|
-|None |  Completed successfully.           | No errors encountered. No action is required.      |
-|Completed | Completed successfully.       | No errors encountered. No action is required. |
-|Created | Successfully uploaded the blob. | For import disposition, means the blob was created as new. |
-|Renamed | Successfully renamed the blob.  |                                                            |
-|CompletedWithErrors | Upload completed with errors.| There were some errors during upload. The errors are written to *copylog* file in the storage account where the data was uploaded.  |
-|Corrupted | |                      |
-|StorageRequestFailed | Azure storage request failed.   |     |
-|LeasePresent | Lease is already present on the item. |      |
-|StorageRequestForbidden | |        |
-|Canceled | {0} was canceled.   | For the blob status in user logs; never used in recovery logs. |
-|ManagedDiskCreationTerminalFailure | Could not convert to managed disks. The data was uploaded as page blobs. | Managed disk creation failed. This is a terminal failure. You can manually convert the data in the page blobs in the staging account to managed disks.  |
-|DiskConversionNotStartedTierInfoMissing | Could not convert to managed disk as the data was uploaded outside of the precreated folders on the Data Box Disk.    | Since the VHD file was copied outside of the precreated tier folders, a managed disk wasn't created. The file is uploaded as page blob to the staging storage account as specified during order creation. You can convert it manually to a managed disk.|
-|InvalidWorkitem | Could not upload the data as it does not conform to Azure naming and limits conventions.   |These are files that didn't conform to Azure naming conventions and could not be uploaded as block blob. They are marked as invalid work item.|
-|InvalidPageBlobUploadAsBlockBlob | The invalid page blobs are uploaded as block blobs in a container with prefix `databoxdisk-invalid-pb-`. | |
-|InvalidAzureFileUploadAsBlockBlob | The invalid Azure Files are uploaded as block blobs in a  container with prefix `databoxdisk-invalid-af-`.  |  |
-|InvalidManagedDiskUploadAsBlockBlob | The invalid managed disk files are uploaded as block blobs in a container with prefix `databoxdisk-invalid-md-`.|   |
+| Error code | Description                        |
+|-------------|------------------------------|
+|`None` |  Completed successfully.           |
+|`Renamed` | Successfully renamed the blob.  |                                                            |
+|`CompletedWithErrors` | Upload completed with errors. The details of the files in error are included in the log file.  |
+|`Corrupted`|CRC computed during data ingestion doesn’t match the CRC computed during upload.  |  
+|`StorageRequestFailed` | Azure storage request failed.   |     |
+|`LeasePresent` | This item is leased and is being used by another user. |
+|`StorageRequestForbidden` |Could not upload due to authentication issues. |
+|`ManagedDiskCreationTerminalFailure` | Could not upload as managed disks. The files are available in the staging storage account as page blobs. You can manually convert page blobs to managed disks.  |
+|`DiskConversionNotStartedTierInfoMissing` | Since the VHD file was copied outside of the precreated tier folders, a managed disk wasn't created. The file is uploaded as page blob to the staging storage account as specified during order creation. You can convert it manually to a managed disk.|
+|`InvalidWorkitem` | Could not upload the data as it does not conform to Azure naming and limits conventions.|
+|`InvalidPageBlobUploadAsBlockBlob` | Uploaded as block blobs in a container with prefix `databoxdisk-invalid-pb-`.|
+|`InvalidAzureFileUploadAsBlockBlob` | Uploaded as block blobs in a container with prefix `databoxdisk-invalid-af`-.|
+|`InvalidManagedDiskUploadAsBlockBlob` | Uploaded as block blobs in a container with prefix `databoxdisk-invalid-md`-.|
+|`InvalidManagedDiskUploadAsPageBlob` |Uploaded as page blobs in a container with prefix `databoxdisk-invalid-md-`. |
+|`MovedToOverflowShare` |Uploaded files to a new share as the original share size exceeded the maximum Azure size limit. The new file share name has the original name suffixed with `-2`.   |
+|`MovedToDefaultAzureShare` |Uploaded files that weren’t a part of any folder to a default share. The share name starts with `databox-`. |
+|`ContainerRenamed` |The container for these files didn’t conform to Azure naming conventions and is renamed. The new name starts with `databox-` and is suffixed with the SHA1 hash of the original name |
+|`ShareRenamed` |The share for these files didn’t conform to Azure naming conventions and is renamed. The new name starts with `databox-` and is suffixed with the SHA1 hash of the original name. |
+|`BlobRenamed` |These files didn’t conform to Azure naming conventions and were renamed. Check the `BlobPath` field for the new name. |
+|`FileRenamed` |These files didn’t conform to Azure naming conventions and were renamed. Check the `FileStoragePath` field for the new name. |
+|`DiskRenamed` |These files didn’t conform to Azure naming conventions and were renamed. Check the `BlobPath` field for the new name. |
+
 
 ## Next steps
 

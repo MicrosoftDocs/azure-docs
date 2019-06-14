@@ -1,13 +1,13 @@
 ---
-title: Azure Data Box Disk troubleshooting disk unlocking issues with logs | Microsoft Docs 
-description: Describes how to troubleshoot issues seen in Azure Data Box Disk using logs.
+title: Azure Data Box Disk troubleshooting disk unlocking issues | Microsoft Docs 
+description: Describes how to troubleshoot issues seen in Azure Data Box Disk.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/14/2019
 ms.author: alkohli
 ---
 # Troubleshoot disk unlocking issues in Azure Data Box Disk
@@ -29,7 +29,6 @@ To figure out who accessed the **Device credentials** blade, you can query the A
 
 | Error message/Tool behavior      | Recommendations                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| None<br><br>Data Box Disk unlock tool crashes.                                                                            | BitLocker not installed. Ensure that the host computer that is running the Data Box Disk unlock tool has BitLocker installed.                                                                            |
 | The current .NET Framework is not supported. The supported versions are 4.5 and later.<br><br>Tool exits with a message.  | .NET 4.5 is not installed. Install .NET 4.5 or later on the host computer that runs the Data Box Disk unlock tool.                                                                            |
 | Could not unlock or verify any volumes. Contact Microsoft Support.  <br><br>The tool fails to unlock or verify any locked drive. | The tool could not unlock any of the locked drives with the supplied passkey. Contact Microsoft Support for next steps.                                                |
 | Following volumes are unlocked and verified. <br>Volume drive letters: E:<br>Could not unlock any volumes with the following passkeys: werwerqomnf, qwerwerqwdfda <br><br>The tool unlocks some drives and lists the successful and failed drive letters.| Partially succeeded. Could not unlock some of the drives with the supplied passkey. Contact Microsoft Support for next steps. |
