@@ -15,7 +15,7 @@ ms.author: v-lilei
 
 In this tutorial, you learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Skills are backed by natural language processing (NLP) and image analysis capabilities in Cognitive Services. Through skillset composition and configuration, you can extract text and text representations of an image or scanned document file. You can also detect language, entities, key phrases, and more. The result is rich additional content in an Azure Search index, created with AI enrichments in an indexing pipeline. 
 
-In this tutorial, you'll use Python to perform following tasks:
+In this tutorial, you'll use Python to do the following tasks:
 
 > [!div class="checklist"]
 > * Create an indexing pipeline that enriches sample data in route to an index
@@ -406,7 +406,7 @@ The script sets ```"maxFailedItems"```  to -1, which instructs the indexing engi
 
 Also notice the ```"dataToExtract":"contentAndMetadata"``` statement in the configuration parameters. This statement tells the indexer to  extract the content from different file formats and the metadata related to each file.
 
-When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction":"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
+When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction":"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF)and images found in the data source, for instance a JPG file.
 
 <a name="check-indexer-status"></a>
 
@@ -470,14 +470,14 @@ Cognitive search allows you to see the structure of the enriched document. Enric
 
 To capture a snapshot of the enriched document created during indexing, add a field called ```enriched``` to your index. The indexer automatically dumps into the field a string representation of all the enrichments for that document.
 
-The ```enriched``` field will contain a string that is a logical representation of the in-memory enriched document in JSON.  The field value is a valid JSON document, however. Quotes are escaped so you will need to replace `\"` with `"` in order to view the document as formatted JSON.  
+The ```enriched``` field will contain a string that is a logical representation of the in-memory enriched document in JSON.  The field value is a valid JSON document, however. Quotes are escaped so you will need to replace `\"` with `"` to view the document as formatted JSON.  
 
 The ```enriched``` field is intended for debugging purposes, only to help you understand the logical shape of the content that expressions are being evaluated against. It can be a useful tool to understand and debug your skillset.
 
 To capture the contents of an enriched document, repeat the previous exercise, and include the `enriched` field when you build the index.
 
 [!Tip]
-Before you repeat these steps, you must delete the data source, index, indexer, and skillset that you just created. For more information, see [Reset and re-run](#reset).
+Before you repeat these steps, you must delete the data source, index, indexer, and skillset that you just created. For more information, see [Reset and rerun](#reset).
 
 ```python
 # Create index with enriched field
@@ -538,11 +538,11 @@ To reindex your documents with the new definitions:
 2. Modify the skillset and index definitions.
 3. Recreate an index and indexer on the service to run the pipeline.
 
-You can use the portal to delete indexes, indexers, and skillsets. When you delete the indexer, you can optionally, selectively delete the index, skillset and data source at the same time.
+You can use the portal to delete indexes, indexers, and skillsets. When you delete the indexer, you can optionally, selectively delete the index, skillset, and data source at the same time.
 
  ![Delete search objects](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Delete search objects in the portal")
 
-You can also delete them using a script. The following script will delete the skillset we created. You can easily modify the request to delete the index, indexer and data source.
+You can also delete them using a script. The following script will delete the skillset we created. You can easily modify the request to delete the index, indexer, and data source.
 
 ```python
 #delete the skillset
