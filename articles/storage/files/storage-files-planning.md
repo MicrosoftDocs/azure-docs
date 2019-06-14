@@ -78,7 +78,7 @@ Standard file shares are backed by hard disk drives (HDDs). Standard file shares
 Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any shares larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.
 
 > [!IMPORTANT]
-> - LRS to GRS account conversion will not be allowed on any storage account within the subscription that is approved for larger file shares preview. GRS accounts once converted to LRS accounts will not be able to convert back to GRS accounts.
+> - LRS to GRS account conversion will not be allowed on any storage account within the subscription that is approved for the larger file shares preview. GRS accounts, once converted to LRS accounts, will not be able to convert back to GRS accounts.
 > - Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
 > - Are only available with LRS.
 > - Available in three regions: West US 2, West Europe, and SE Asia regions.
