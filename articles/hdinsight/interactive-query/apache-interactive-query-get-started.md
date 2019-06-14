@@ -1,5 +1,5 @@
 ---
-title: What is Interactive Query In Azure HDInsight?
+title: What is Interactive Query in Azure HDInsight?
 description: An introduction to Interactive Query In Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
