@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > * Define methods
 > * Test the app
 
-You will also learn how straightforward a search call is. The key statements in the code you will develop are similar to the following few lines.
+You will also learn how straightforward a search call is. The key statements in the code you will develop are encapsulated in the following few lines.
 
 ```cs
 var parameters = new SearchParameters
@@ -70,12 +70,11 @@ To create this project from scratch, and hence help reinforce the components of 
 
 ![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
-
 ### Initialize Azure Search
 
 For this sample, we are using publicly available hotel data. This data is an arbitrary collection of 50 fictional hotel names and descriptions, created solely for the purpose of providing demo data. In order to access this data, you need to specify a name and key for it.
 
-1. Open up the appsettings.json file in your project and replace the default lines with the following name and key. The API key shown here is not an example of a key, it is exactly the key you need to access the hotel data. Your appsettings.json file should now look like this.
+1. Open up the appsettings.json file in your new project, and replace the default lines with the following name and key. The API key shown here is not an example of a key, it is _exactly_ the key you need to access the hotel data. Your appsettings.json file should now look like this.
 
 ```cs
 {
@@ -94,7 +93,7 @@ Models (C# classes) are used to communicate data between the client (the view), 
 
 1. Open up the **Models** folder of your project, using Solution Explorer, and you will see one default model in there: **ErrorViewModel.cs**.
 
-2. Right-click the **Models** folder and select **Add** then **new Item**. Then in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs. Replace all the contents of Hotel.cs with the following code. Notice the **Address** and **Room** members of the class, these fields are classes themselves and we will need models for them too.
+2. Right-click the **Models** folder and select **Add** then **new Item**. Then in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs. Replace all the contents of Hotel.cs with the following code. Notice the **Address** and **Room** members of the class, these fields are classes themselves so we will need models for them too.
 
 ```cs
 using System;
@@ -242,17 +241,17 @@ This class contains the user's input (**searchText**), and the search's output(*
 
 The project you created will by default create a number of client views. The exact views depend on the version of Core .NET you are using (we use 2.1 in this sample). They are all in the **Views** folder of the project. You will only need to modify the **Index** view (in the **Views/Home** folder).
 
-Delete the content of Index.cshtml in its entirety and rebuild the file in the following steps.
+Delete the content of Index.cshtml in its entirety, and rebuild the file in the following steps.
 
-1. We use two small images in the view. You can use your own or copy across the images from the GitHub project: azure-logo.png and search.png. These two images should be placed in the **wwwroot/images** folder.
+1. We use two small images in the view. You can use your own, or copy across the images from the GitHub project: azure-logo.png and search.png. These two images should be placed in the **wwwroot/images** folder.
 
-2. The first line of Index.cshtml should reference the model we will be using to communicate data between the client (the view) and the server (the controller), which is the **searchData** model we created. Add this line to the Index.cshtml file.
+2. The first line of Index.cshtml should reference the model we will be using to communicate data between the client (the view) and the server (the controller), which is the **SearchData** model we created. Add this line to the Index.cshtml file.
 
 ```cs
 @model FirstAzureSearchApp.Models.SearchData
 ```
 
-3. It is standard practice to enter a title for the View, so the next lines should be:
+3. It is standard practice to enter a title for the view, so the next lines should be:
 
 ```cs
 @{
@@ -377,7 +376,6 @@ textarea.box2 {
     margin: 10px;
     outline: 0;
 }
-
 ```
 
 7. Save the stylesheet file as hotels.css, into the wwwroot/css folder, alongside the default site.css file.
@@ -386,9 +384,9 @@ That completes our view. We are making good progress. The models and views are c
 
 ## Define methods
 
-We need to modify to the contents of the one controller (**Home Controller**) which is created by default.
+We need to modify to the contents of the one controller (**Home Controller**), which is created by default.
 
-1. Open the HomeController.cs file and replace the **using** statements with the following. 
+1. Open the HomeController.cs file and replace the **using** statements with the following.
 
 ```cs
 using System;
@@ -447,7 +445,7 @@ In the GitHub sample, we have deleted the unused views, and their associated act
 
 The Azure Search call is encapsulated in our **RunQueryAsync** method.
 
-1. First add some static variables to set up the Azure service and a call to initiate them.
+1. First add some static variables to set up the Azure service, and a call to initiate them.
 
 ```cs
         private static SearchServiceClient _serviceClient;
@@ -471,7 +469,7 @@ The Azure Search call is encapsulated in our **RunQueryAsync** method.
         }
 ```
 
-2. Now add the **RunQueryAsync** method itself.
+2. Now, add the **RunQueryAsync** method itself.
 
 ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model)
@@ -493,9 +491,9 @@ The Azure Search call is encapsulated in our **RunQueryAsync** method.
         }
 ```
 
-In this method, we first ensure our Azure configuration is initiated, then set some search parameters. The list of fields in the **Select** parameter match exactly the member names in the **hotel** class. It is possible to leave out the **Select** parameter, in which case all fields are returned. However, setting no **Select** parameters is inefficient if we are only interested in a subset of the data. By specifying the fields we are interested in, only these fields are returned.
+In this method, we first ensure our Azure configuration is initiated, then set some search parameters. The names of the fields in the **Select** parameter match exactly the property names in the **hotel** class. It is possible to leave out the **Select** parameter, in which case all properties are returned. However, setting no **Select** parameters is inefficient if we are only interested in a subset of the data. By specifying the properties we are interested in, only these properties are returned.
 
-The asynchronous call to search (**model.resultList = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one, and a good idea is to stop at this point using a debugger and examine the contents of **model.resultList**. You should find that it is intuitive, providing you with the data you asked for and not much else.
+The asynchronous call to search (**model.resultList = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one, and a good idea (when the app is running) is to set a breakpoint here, and use a debugger to examine the contents of **model.resultList**. You should find that it is intuitive, providing you with the data you asked for, and not much else.
 
 > [!NOTE]
 > This set of tutorials all use the asynchronous version of the API calls, to avoid blocking threads on the server. Both the synchronous and asynchronous versions of the API calls work similarly, there are some minor differences in declaring the methods and making the calls, but no additional lines of code are needed. It is best practice to avoid the synchronous calls, and use the asynchronous versions throughout your work with Azure Search.
@@ -510,7 +508,7 @@ Now, let's check the app runs correctly.
 
  ![Opening the app](./media/tutorial-csharp-create-first-app/azure-search-index.png)
 
-2. Enter text such as "beach" (or any text that comes to mind) and click the search icon. You should get some results.
+2. Enter text such as "beach" (or any text that comes to mind), and click the search icon. You should get some results.
 
  ![Searching for "beach"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
 
@@ -518,7 +516,7 @@ Now, let's check the app runs correctly.
  
 4. Try entering "hot" as search text. It does _not_ return entries with the word "hotel" in them. Our search is only locating whole words, though a few results are returned.
 
-5. Try other words: "pool", "sunshine", "view" and whatever. You will see Azure Search working at its simplest, but still convincing level.
+5. Try other words: "pool", "sunshine", "view", and whatever. You will see Azure Search working at its simplest, but still convincing level.
 
 ## Test edge conditions and errors
 
@@ -540,8 +538,8 @@ It is important to verify that our error handling features work as they should, 
 Consider the following takeaways from this project:
 
 * An Azure Search call is concise, and it is easy to interpret the results.
-* Asynchronous calls add a small amount of complexity to the controller but is the best practice if you intend to develop industrial quality apps.
-* This app performed a straightforward text search, defined by what is set up in **searchParameters**. However, this one class can be populated with many members that add sophistication to a search. Not much additional work is needed.
+* Asynchronous calls add a small amount of complexity to the controller, but are the best practice if you intend to develop  quality apps.
+* This app performed a straightforward text search, defined by what is set up in **searchParameters**. However, this one class can be populated with many members that add sophistication to a search. Not much additional work is needed to make this app considerably more powerful.
 
 ## Next steps
 
