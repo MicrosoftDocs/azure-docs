@@ -27,6 +27,7 @@
     items:
     - name: With .NET
       href: stream-live-tutorial-with-api.md
+      displayName: Live Events, Live Outputs, ingest 
   - name: Analyze your video 
     items:
     - name: With .NET
@@ -122,6 +123,7 @@
       href: live-streaming-overview.md
     - name: Live Events and Live Outputs 
       href: live-events-outputs-concept.md    
+      displayName: vanity, ingest 
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
     - name: Using a cloud DVR
