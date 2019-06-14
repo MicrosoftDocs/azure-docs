@@ -3,19 +3,20 @@ title: How applications appear on the access panel | Microsoft Docs
 description: Troubleshoot why an application is appearing in the Access Panel
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: mimart
 ms.reviewr: japere
+ms.collection: M365-identity-device-management
 ---
 
 # How applications appear on the access panel
@@ -41,41 +42,41 @@ A user may be seeing an application on their Access Panel because they had been 
 
 To check if a user is assigned to the application, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-6.  **Search** for the name of the application in question.
+6. **Search** for the name of the application in question.
 
-7.  click **Users and groups**.
+7. click **Users and groups**.
 
-8.  Check to see if your user is assigned to the application.
+8. Check to see if your user is assigned to the application.
 
-  * If you want to remove the user from the application, **click the row** of the user and select **delete**.
+   * If you want to remove the user from the application, **click the row** of the user and select **delete**.
 
 ### Check if a user is under a license related to the application
 
 To check a user’s assigned licenses, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Users and groups** in the navigation menu.
+4. click **Users and groups** in the navigation menu.
 
-5.  click **All users**.
+5. click **All users**.
 
-6.  **Search** for the user you are interested in and **click the row** to select.
+6. **Search** for the user you are interested in and **click the row** to select.
 
-7.  click **Licenses** to see which licenses the user currently has assigned.
+7. click **Licenses** to see which licenses the user currently has assigned.
 
    * If the user is assigned to an Office license, this enables First Party Office applications to appear on the user’s Access Panel.
 
@@ -91,45 +92,45 @@ A user may be seeing an application on their Access Panel because they are part 
 
 To check a group’s membership, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Users and groups** in the navigation menu.
+4. click **Users and groups** in the navigation menu.
 
-5.  click **All users**.
+5. click **All users**.
 
-6.  **Search** for the user you are interested in and **click the row** to select.
+6. **Search** for the user you are interested in and **click the row** to select.
 
-7.  click **Groups.**
+7. click **Groups.**
 
-8.  Check to see if your user is part of a Group assigned to the application.
+8. Check to see if your user is part of a Group assigned to the application.
 
    * If you want to remove the user from the group, **click the row** of the group and select delete.
 
 ### Check if a user is a member of a group assigned to a license
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Users and groups** in the navigation menu.
+4. click **Users and groups** in the navigation menu.
 
-5.  click **All users**.
+5. click **All users**.
 
-6.  **Search** for the user you are interested in and **click the row** to select.
+6. **Search** for the user you are interested in and **click the row** to select.
 
-7.  click **Groups.**
+7. click **Groups.**
 
-8.  click the row of a specific group.
+8. click the row of a specific group.
 
-9.  click **Licenses** to see which licenses the group has assigned to it.
+9. click **Licenses** to see which licenses the group has assigned to it.
 
-  * If the group is assigned to an Office license, this may enable certain First Party Office applications to appear on the user’s Access Panel.
+   * If the group is assigned to an Office license, this may enable certain First Party Office applications to appear on the user’s Access Panel.
 
 
 ## If these troubleshooting steps do not the resolve the issue

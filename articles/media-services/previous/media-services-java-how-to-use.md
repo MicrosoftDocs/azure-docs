@@ -12,13 +12,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
-ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.topic: conceptual
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Get started with the Java client SDK for Azure Media Services
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+# Get started with the Java client SDK for Azure Media Services  
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 This tutorial walks you through the steps of implementing a basic video content delivery service with Azure Media Services using the Java client SDK.
 
@@ -114,7 +116,7 @@ The code also relies on a locally stored video file. You must edit the code to p
         // This is using the default Adaptive Streaming encoding preset. 
         // You can choose to use a custom preset, or any other sample defined preset. 
         // In addition you can use other processors, like Speech Analyzer, or Redactor if desired.
-        private static String preferedEncoder = "Media Encoder Standard";
+        private static String preferredEncoder = "Media Encoder Standard";
         private static String encodingPreset = "Adaptive Streaming";
 
         public static void main(String[] args)
@@ -212,7 +214,7 @@ The code also relies on a locally stored video file. You must edit the code to p
 
             // Retrieve the list of Media Processors that match the name
             ListResult<MediaProcessorInfo> mediaProcessors = mediaService
-                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferedEncoder)));
+                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferredEncoder)));
 
             // Use the latest version of the Media Processor
             MediaProcessorInfo mediaProcessor = null;
@@ -313,7 +315,7 @@ For Media Services Javadoc documentation, see [Azure Libraries for Java document
 <!-- URLs. -->
 
 [Azure Media Services SDK Maven Package]: https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest
-[Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Azure for Java developers]: https://docs.microsoft.com/java/azure/
-[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Media Services Client Development]: https://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 

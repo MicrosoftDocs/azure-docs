@@ -3,13 +3,13 @@ title: How to deploy a Conversation Learner bot - Microsoft Cognitive Services |
 titleSuffix: Azure
 description: Learn how to deploy a Conversation Learner bot.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
 
 # How to deploy a Conversation Learner bot
@@ -40,7 +40,7 @@ Here's how to obtain the model ID:
     npm run ui
     ```
 
-2. Open browser to http://localhost:5050 
+2. Open browser to `http://localhost:5050` 
 
 3. Click on the Conversation Learner model you want to get the ID for
 
@@ -89,7 +89,7 @@ The bot is now running locally.  You can access it with the Bot Framework emulat
 
 Publish your Conversation Learner bot similar to the same way you would publish any other bot. At a high level, you upload your code to a hosted website, set the appropriate configuration values, and then register the bot with various channels. Detailed instructions are in this video showing how to publish your bot using Azure Bot Service.
 
-Once the bot is deployed and running you can connect different channels to it such as Facebook, Teams, Skype etc using an Azure Bot Channel Registration. For documentation on that process see: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Once the bot is deployed and running you can connect different channels to it such as Facebook, Teams, Skype etc. using an Azure Bot Channel Registration. For documentation on that process see: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Below are step-by-step instructions for deploying a Conversation Learner Bot to Azure.  These instructions assume that your bot source is available from a cloud-based source such as Azure DevOps Services, GitHub, BitBucket, or OneDrive, and will configure your bot for continuous deployment.
 
@@ -104,19 +104,20 @@ Below are step-by-step instructions for deploying a Conversation Learner Bot to 
 
 3. In the Azure portal, edit the Web App Bot resource you just created.
 
-    1. Click on "Application Settings" nav item on the left
-    1. Scroll down to the "App Settings" section
-    2. Add these settings:
+   1. Click on "Application Settings" nav item on the left
+   1. Scroll down to the "App Settings" section
+   2. Add these settings:
 
-        Environment variable | value
-        --- | --- 
-        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | Application Id GUID, obtained from the Conversation Learner UI under the "settings" for the model>
-        LUIS_AUTHORING_KEY      		 | LUIS authoring key for this model
+       Environment variable | value
+       --- | --- 
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_MODEL_ID      | Application Id GUID, obtained from the Conversation Learner UI under the "settings" for the model>
+       LUIS_AUTHORING_KEY               | LUIS authoring key for this model
+       LUIS_SUBSCRIPTION_KEY            | Not required, but recommended for published bots to avoid using your Authoring quota.
     
-    4. Click on "Save" near the top of the page
-    5. Open "Build" nav item on the left
-    6. Click on "Configure continuous deployment" 
-    7. Click on the "Setup" icon under deployments
-    8. Click on "Required Settings"
-    9. Select the source where your bot code is available, and configure the source.
+   4. Click on "Save" near the top of the page
+   5. Open "Build" nav item on the left
+   6. Click on "Configure continuous deployment" 
+   7. Click on the "Setup" icon under deployments
+   8. Click on "Required Settings"
+   9. Select the source where your bot code is available, and configure the source.

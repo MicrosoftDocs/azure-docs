@@ -1,15 +1,17 @@
 ---
-title: Data science with the Linux Data Science Virtual Machine on Azure| Microsoft Docs
+title: Learn how to use Linux Data Science Virtual Machine
+titleSuffix: Azure
 description: How to perform several common data science tasks with the Linux Data Science VM.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -21,7 +23,7 @@ ms.author: gokuma
 # Data science with a Linux Data Science Virtual Machine on Azure
 This walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM. The Linux Data Science Virtual Machine (DSVM) is a virtual machine image available on Azure that is pre-installed with a collection of tools commonly used for data analytics and machine learning. The key software components are itemized in the [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md) topic. The VM image makes it easy to get started doing data science in minutes, without having to install and configure each of the tools individually. You can easily scale up the VM, if needed, and stop it when not in use. So this resource is both elastic and cost-efficient.
 
-The data science tasks demonstrated in this walkthrough follow the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). This process provides a systematic approach to data science that enables teams of data scientists to effectively collaborate over the lifecycle of building intelligent applications. The data science process also provides an iterative framework for data science that can be followed by an individual.
+The data science tasks demonstrated in this walkthrough follow the steps outlined in the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview). This process provides a systematic approach to data science that enables teams of data scientists to effectively collaborate over the lifecycle of building intelligent applications. The data science process also provides an iterative framework for data science that can be followed by an individual.
 
 We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset in this walkthrough. This is a set of emails that are marked as either spam or ham (meaning they are not spam), and also contains some statistics on the content of the emails. The statistics included are discussed in the next but one section.
 
@@ -30,7 +32,7 @@ Before you can use a Linux Data Science Virtual Machine, you must have the follo
 
 * An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).
 * A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* [X2Go](https://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 * For a smoother scrolling experience, toggle the gfx.xrender.enabled flag in about:config in VMs FireFox browser. [See more here.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider toggling *mousewheel.enable_pixel_scrolling* to False. [Instructions here.](https://support.mozilla.org/en-US/questions/981140)
 * An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
 
@@ -46,7 +48,7 @@ If you need more storage space, you can create additional disks and attach them 
 
 To download the data, open a terminal window and run this command:
 
-    wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
 The downloaded file does not have a header row, so let's create another file that does have a header. Run this command to create a file with the appropriate headers:
 
@@ -95,7 +97,7 @@ The *spam* column was read as an integer, but it's actually a categorical variab
 
     data$spam <- as.factor(data$spam)
 
-To do some exploratory analysis, use the [ggplot2](http://ggplot2.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
+To do some exploratory analysis, use the [ggplot2](https://ggplot2.tidyverse.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
@@ -174,10 +176,10 @@ Let's also try a random forest model. Random forests train a multitude of decisi
     accuracy
 
 
-## Deploy a model to Azure ML
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of AzureML is its ability to publish any R function as a web service. The AzureML R package makes deployment easy to do right from our R session on the DSVM.
+## Deploy a model to Azure Machine Learning studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of Azure Machine Learning studio is its ability to publish any R function as a web service. The Azure Machine Learning studio R package makes deployment easy to do right from our R session on the DSVM.
 
-To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sign in. To find these values and initialize the AzureML variables with them:
+To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sign in. To find these values and initialize the Azure Machine Learning variables with them:
 
 Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -257,14 +259,14 @@ XGBoost can also call from python or a command line.
 For development using Python, the Anaconda Python distributions 2.7 and 3.5 have been installed in the DSVM.
 
 > [!NOTE]
-> The Anaconda distribution includes [Conda](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
+> The Anaconda distribution includes [Conda](https://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
 >
 >
 
 Let's read in some of the spambase dataset and classify the emails with support vector machines in scikit-learn:
 
     import pandas
-    from sklearn import svm    
+    from sklearn import svm
     data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
     X = data.ix[:, 0:57]
     y = data.ix[:, 57]
@@ -312,21 +314,19 @@ The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-pla
 
 > [!NOTE]
 > To use the Python Package Manager (via the `pip` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
-```python
-   import sys
-   ! {sys.executable} -m pip install numpy -y
-```
->
->
-
+>   ```python
+>    import sys
+>    ! {sys.executable} -m pip install numpy -y
+>   ```
+> 
+> 
+> 
 > [!NOTE]
 > To use the Conda installer (via the `conda` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
-```python
-   import sys
-   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
->
->
+>   ```python
+>    import sys
+>    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+>   ```
 
 Several sample notebooks are already installed on the VM:
 
@@ -353,7 +353,7 @@ Install and start Rattle with the following commands:
 >
 >
 
-Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle.
+Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle.
 
 To load and configure the dataset:
 
@@ -419,7 +419,7 @@ One of the nice features of Rattle is its ability to run several machine learnin
 Once you're finished building models, select the **Log** tab to view the R code run by Rattle during your session. You can select the **Export** button to save it.
 
 > [!NOTE]
-> There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ... * in the text of the log.
+> There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ...* in the text of the log.
 >
 >
 
@@ -509,7 +509,7 @@ Or what are the characteristics of email that frequently contain *3d*?
 
 Most emails that have a high occurrence of *3d* are apparently spam, so it could be a useful feature for building a predictive model to classify the emails.
 
-If you wanted to perform machine learning with data stored in a PostgreSQL database, consider using [MADlib](http://madlib.incubator.apache.org/).
+If you wanted to perform machine learning with data stored in a PostgreSQL database, consider using [MADlib](https://madlib.incubator.apache.org/).
 
 ## SQL Server Data Warehouse
 Azure SQL Data Warehouse is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational. For more information, see [What is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

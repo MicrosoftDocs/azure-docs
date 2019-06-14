@@ -7,9 +7,9 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 03/14/2019
 ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
+# Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
 # product-name-from-white-list
 
@@ -22,7 +22,8 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Submit clipping jobs from Azure Media Clipper
+# Submit clipping jobs from Azure Media Clipper 
+
 Azure Media Clipper requires a **submitSubclipCallback** method to be implemented for handling clipping job submission. This function is for implementing an HTTP POST of the Clipper output to a web service. This web service is where you can submit the encoding job. The output of the Clipper is either a Media Encoder Standard encoding preset for rendered jobs or the REST API payload for dynamic manifest filter calls. This pass-through model is necessary because media services account credentials are not secure in the client's browser.
 
 The following sequence diagram illustrates the workflow between the browser client, your web service, and Azure Media Services:
@@ -38,7 +39,7 @@ The following code sample illustrates a sample **submitSubclipCallback** method.
 // Parameter:
 // - subclip: object that represents the subclip (output contract).
 //
-// Returns: a Promise object that, when resolved, retuns true if the operation was accept in the back-end; otherwise, returns false.
+// Returns: a Promise object that, when resolved, returns true if the operation was accept in the back-end; otherwise, returns false.
 var onSubmitSubclip = function (subclip) {
     var promise = new Promise(function (resolve, reject) {
         // TODO: perform the back-end AJAX request to submit the subclip job.
@@ -106,7 +107,7 @@ The job output contract for rendered clipping is a JSON object with the followin
     "type": "job",
 
     /* Required if "type" === "job" */
-    /* NOTE: This is the preset for the Media Encoder Standard (MES) processor that can be used in the back-end to sumit the subclip job.
+    /* NOTE: This is the preset for the Media Encoder Standard (MES) processor that can be used in the back-end to submit the subclip job.
     The encoding profile ("Codecs" property) depends on the "singleBitrateMp4Profile" and "multiBitrateMp4Profile" option parameters
     specified when creating the widget instance. */
     /* REFERENCE: https://docs.microsoft.com/azure/media-services/media-services-advanced-encoding-with-mes */

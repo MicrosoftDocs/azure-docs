@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
 ---
@@ -32,6 +32,9 @@ The following are a list of restrictions that are present when using Run Command
 * The maximum time a script can run is 90 minutes, after which it will time out
 * Outbound connectivity from the VM is required to return the results of the script.
 
+> [!NOTE]
+> To function correctly, the Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts may run successfully but not return the results. If you are blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/security-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
+
 ## Azure CLI
 
 The following is an example using the [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) command to run a shell script on an Azure Linux VM.
@@ -49,7 +52,7 @@ Navigate to a VM in [Azure](https://portal.azure.com) and select **Run command**
 
 ![Run command list](./media/run-command/run-command-list.png)
 
-Choose a command to run. Some of the commands may have optional or required input parameters. For those commands the parameters are presented as text fields for you to provide the input values. For each command you can view the script that is being run by expanding **View script**. **RunShellScript** is different from the other commands as it allows you to provide your own custom script. 
+Choose a command to run. Some of the commands may have optional or required input parameters. For those commands the parameters are presented as text fields for you to provide the input values. For each command you can view the script that is being run by expanding **View script**. **RunShellScript** is different from the other commands as it allows you to provide your own custom script.
 
 > [!NOTE]
 > The built-in commands are not editable.
@@ -69,9 +72,9 @@ This table shows the list of commands available for Linux VMs. The **RunShellScr
 
 ## Limiting access to Run Command
 
-Listing the run commands or showing the details of a command require the `Microsoft.Compute/locations/runCommands/read` permission, which the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher have.
+Listing the run commands or showing the details of a command require the `Microsoft.Compute/locations/runCommands/read` permission at the subscription level, which the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher have.
 
-Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission, which the [Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher have.
+Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission at the subscription level, which the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher have.
 
 You can use one of the [built-in](../../role-based-access-control/built-in-roles.md) roles or create a [custom](../../role-based-access-control/custom-roles.md) role to use Run Command.
 

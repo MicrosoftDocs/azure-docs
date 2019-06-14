@@ -4,7 +4,7 @@ description: Learn about the prerequisites for Media Services using the Media Se
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
@@ -13,12 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Media Services development with .NET
-[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
+# Media Services development with .NET 
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 This article discusses how to start developing Media Services applications using .NET.
 
@@ -41,7 +43,7 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
 2. Build the solution.
 3. Use **NuGet** to install and add **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**). Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
    
-    Ensure that you have the newest version of NuGet installed. For more information and installation instructions, see [NuGet](http://nuget.codeplex.com/).
+    Ensure that you have the newest version of NuGet installed. For more information and installation instructions, see [NuGet](https://nuget.codeplex.com/).
 
     1. In Solution Explorer, right-click the name of the project and choose **Manage NuGet Packages**.
 
@@ -50,7 +52,7 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
     3. In the Online gallery, search for Azure MediaServices Extensions, choose **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**), and then click the **Install** button.
    
     4. The project is modified and references to the Media Services .NET SDK Extensions,  Media Services .NET SDK, and other dependent assemblies are added.
-4. To promote a cleaner development environment, consider enabling NuGet Package Restore. For more information, see [NuGet Package Restore"](http://docs.nuget.org/consume/package-restore).
+4. To promote a cleaner development environment, consider enabling NuGet Package Restore. For more information, see [NuGet Package Restore"](https://docs.nuget.org/consume/package-restore).
 5. Add a reference to **System.Configuration** assembly. This assembly contains the System.Configuration.**ConfigurationManager** class that is used to access configuration files (for example, App.config).
    
     1. To add references using the Manage References dialog, right-click the project name in the Solution Explorer. Then, click **Add**, then click **Reference...**.

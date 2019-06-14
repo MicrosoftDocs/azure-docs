@@ -11,6 +11,8 @@ ms.author: victorh
 
 # Enable the Azure Firewall public preview
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
 
 ## Enable using Azure PowerShell
@@ -18,23 +20,22 @@ ms.author: victorh
 To enable the Azure Firewall public preview, use the following Azure PowerShell commands:
 
 ```PowerShell
-Register-AzureRmProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGateway -ProviderNamespace Microsoft.Network
-
-Register-AzureRmProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGateway -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
 ```
 
 It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure PowerShell commands:
 
-```PowerShell
+```powershell
 
-Get-AzureRmProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGateway -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGateway -ProviderNamespace Microsoft.Network
 
-Get-AzureRmProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
 ```
 After the registration is complete, run the following command:
 
-```PowerShell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## Next steps

@@ -3,23 +3,24 @@ title: Use a Linux VM system-assigned managed identity to access Azure AD Graph 
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure AD Graph API.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: daveba
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
-ms.author: daveba
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure AD Graph API
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access the Azure AD Graph API to retrieve its group memberships. Managed identities for Azure resources are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code.  
 
@@ -33,15 +34,7 @@ For this tutorial, you will query your VM identity's membership in Azure AD grou
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 - [Install the latest version of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
@@ -139,7 +132,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
 2. **Connect** to the VM with the SSH client of your choice. 
-3. In the terminal window, using CURL, make a request to the local managed identiies for Azure resources endpoint to get an access token for the Azure AD Graph.  
+3. In the terminal window, using CURL, make a request to the local managed identities for Azure resources endpoint to get an access token for the Azure AD Graph.  
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://graph.windows.net' -H Metadata:true
@@ -159,7 +152,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
    }
    ```
 
-4. Using the object ID of your VM's service principal (the value you retrieved in earlier steps), you can query the Azure AD Graph API to retrieve its group memberships. Replace `<OBJECT-ID>` with the Object ID of your VM's service principal and `<ACCESS-TOKEN>` with the previously obtained acccess token:
+4. Using the object ID of your VM's service principal (the value you retrieved in earlier steps), you can query the Azure AD Graph API to retrieve its group memberships. Replace `<OBJECT-ID>` with the Object ID of your VM's service principal and `<ACCESS-TOKEN>` with the previously obtained access token:
 
    ```bash
    curl 'https://graph.windows.net/myorganization/servicePrincipals/<OBJECT-ID>/getMemberGroups?api-version=1.6' -X POST -d "{\"securityEnabledOnly\": false}" -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS-TOKEN>"

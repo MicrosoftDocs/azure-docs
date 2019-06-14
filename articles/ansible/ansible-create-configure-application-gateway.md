@@ -1,39 +1,39 @@
 ---
-title: Manage web traffic with Azure Application Gateway using Ansible (Preview)
-description: Learn how to use Ansible create and configure an Azure Application Gateway to manage web traffic
+title: Tutorial - Manage web traffic with Azure Application Gateway using Ansible | Microsoft Docs
+description: Learn how to use Ansible to create and configure an Azure Application Gateway to manage web traffic
+keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, web traffic
+ms.topic: tutorial
 ms.service: ansible
-keywords: ansible, azure, devops, bash, playbook, azure application gateway, load balancer, web traffic
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 09/20/2018
+ms.date: 04/30/2019
 ---
 
-# Manage web traffic with Azure Application Gateway using Ansible (Preview)
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is a web traffic load balancer that enables you to manage traffic to your web applications. 
+# Tutorial: Manage web traffic with Azure Application Gateway using Ansible
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create an Azure Application Gateway and use it manage traffic of two web servers running in Azure container instances. 
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-In this tutorial, you learn how to:
+[Azure Application Gateway](/azure/application-gateway/overview) is a web traffic load balancer that enables you to manage traffic to your web applications. Based on the source IP address and port, traditional load balancers route traffic to a destination IP address and port. Application Gateway gives you a finer level of control where traffic can be routed based on the URL. For example, you could define that if `images` is URL's path, traffic is routed to a specific set of servers (known as a pool) configured for images.
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
-> * Set up the network
-> * Create two Azure container instances with httpd image
-> * Create an application gateway with above Azure container instances in the backend pool
-
+>
+> * Set up a network
+> * Create two Azure container instances with HTTPD images
+> * Create an application gateway that works with the Azure container instances in the server pool
 
 ## Prerequisites
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You could install Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 will be released on Oct of 2018. After that, you need not specify the version here because the default version will be 2.7. 
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a resource group
-A resource group is a logical container into which Azure resources are deployed and managed.  
 
-The following example creates a resource group named **myResourceGroup** in the **eastus** location.
+The playbook code in this section creates an Azure resource group. A resource group is a logical container in which Azure resources are configured.  
+
+Save the following playbook as `rg.yml`:
 
 ```yml
 - hosts: localhost
@@ -47,15 +47,22 @@ The following example creates a resource group named **myResourceGroup** in the 
         location: "{{ location }}"
 ```
 
-Save above playbook as *rg.yml*. To run the playbook,  use the **ansible-playbook** command as follows:
+Before running the playbook, see the following notes:
+
+- The resource group name is `myResourceGroup`. This value is used throughout the tutorial.
+- The resource group is created in the `eastus` location.
+
+Run the playbook using the `ansible-playbook` command:
+
 ```bash
 ansible-playbook rg.yml
 ```
 
-## Create network resources 
-You need to create a virtual network for the application gateway to be able to communicate with other resources. 
+## Create network resources
 
-The following example creates a virtual network named **myVNet**, a subnet named **myAGSubnet**,  and a public IP address named **myAGPublicIPAddress** with domain named **mydomain**. 
+The playbook code in this section creates a virtual network to enable the application gateway to communicate with other resources.
+
+Save the following playbook as `vnet_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -93,13 +100,22 @@ The following example creates a virtual network named **myVNet**, a subnet named
         domain_name_label: "{{ publicip_domain }}"
 ```
 
-Save above playbook as *vnet_create.yml*. To run the playbook,  use the **ansible-playbook** command as follows:
+Before running the playbook, see the following notes:
+
+* The `vars` section contains the values that are used to create the network resources. 
+* You'll need to change these values for your specific environment.
+
+Run the playbook using the `ansible-playbook` command:
+
 ```bash
 ansible-playbook vnet_create.yml
 ```
 
-## Create backend servers
-In this example, you create two Azure container instances with httpd images to be used as backend servers for the application gateway.  
+## Create servers
+
+The playbook code in this section creates two Azure container instances with HTTPD images to be used as web servers for the application gateway.  
+
+Save the following playbook as `aci_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -142,22 +158,17 @@ In this example, you create two Azure container instances with httpd images to b
               - 80
 ```
 
-Save above playbook as *aci_create.yml*. To run the playbook,  use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
+
 ```bash
 ansible-playbook aci_create.yml
 ```
 
 ## Create the application gateway
 
-Now let us create an applicate gateway. The following example creates an applicate gateway named **myAppGateway** with backend, frontend, and http configuration.  
+The playbook code in this section creates an application gateway named `myAppGateway`.  
 
-> [!div class="checklist"]
-> * **appGatewayIP** defined in **gateway_ip_configurations** block - Subnet reference is required for ip configuration of the gateway. 
-> * **appGatewayBackendPool** defined in **backend_address_pools** block - An application gateway must have at least one backend address pool. 
-> * **appGatewayBackendHttpSettings** defined in **backend_http_settings_collection** block - Specifies that port 80 and an HTTP protocol is used for communication. 
-> * **appGatewayHttpListener** defined in **backend_http_settings_collection** block - The default listener associated with appGatewayBackendPool. 
-> * **appGatewayFrontendIP** defined in **frontend_ip_configurations** block - Assigns myAGPublicIPAddress to appGatewayHttpListener. 
-> * **rule1** defined in **request_routing_rules** block - The default routing rule that is associated with appGatewayHttpListener. 
+Save the following playbook as `appgw_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -241,22 +252,42 @@ Now let us create an applicate gateway. The following example creates an applica
             name: rule1
 ```
 
-Save above playbook as *appgw_create.yml*. To run the playbook,  use the **ansible-playbook** command as follows:
+Before running the playbook, see the following notes:
+
+* `appGatewayIP` is defined in the `gateway_ip_configurations` block. A subnet reference is required for IP configuration of the gateway.
+* `appGatewayBackendPool` is defined in the `backend_address_pools` block. An application gateway must have at least one back-end address pool.
+* `appGatewayBackendHttpSettings` is defined in the `backend_http_settings_collection` block. It specifies that port 80 and an HTTP protocol are used for communication.
+* `appGatewayHttpListener` is defined in the `backend_http_settings_collection` block. It's the default listener associated with appGatewayBackendPool.
+* `appGatewayFrontendIP` is defined in the `frontend_ip_configurations` block. It assigns myAGPublicIPAddress to appGatewayHttpListener.
+* `rule1` is defined in the `request_routing_rules` block. It's the default routing rule associated with appGatewayHttpListener.
+
+Run the playbook using the `ansible-playbook` command:
+
 ```bash
 ansible-playbook appgw_create.yml
 ```
 
-It may take several minutes for the application gateway to be created. 
+It might take several minutes for the application gateway to be created.
 
 ## Test the application gateway
 
-In above sample playbook for network resources, the domain named **mydomain** was created in **eastus**. Now you could navigate to the browser, type `http://mydomain.eastus.cloudapp.azure.com`, and you should see following page confirming that the Application Gateway is working as expected.
+1. In the [Create a resource group](#create-a-resource-group) section, you specify a location. Note its value.
 
-![Access Application Gateway](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
+1. In the [Create network resources](#create-network-resources) section, you specify the domain. Note its value.
+
+1. For the test URL by replacing the following pattern with the location and domain: `http://<domain>.<location>.cloudapp.azure.com`.
+
+1. Browse to the test URL.
+
+1. If you see the following page, the application gateway is working as expected.
+
+    ![Successful test of a working application gateway](media/ansible-application-gateway-configure/application-gateway.png)
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running below example. It deletes a resource group named **myResourceGroup**. 
+When no longer needed, delete the resources created in this article. 
+
+Save the following code as `cleanup.yml`:
 
 ```yml
 - hosts: localhost
@@ -269,11 +300,13 @@ If you don't need these resources, you can delete them by running below example.
         state: absent
 ```
 
-Save above playbook as *rg_delete*.yml. To run the playbook,  use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
+
 ```bash
-ansible-playbook rg_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps
-> [!div class="nextstepaction"] 
-> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
+
+> [!div class="nextstepaction"]
+> [Ansible on Azure](/azure/ansible/)

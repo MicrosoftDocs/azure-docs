@@ -4,11 +4,11 @@ description: Diagnostic functionality for Stateful Reliable Services in Azure Se
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
@@ -24,9 +24,9 @@ The Azure Service Fabric Stateful Reliable Services StatefulServiceBase class em
 The EventSource name for the Stateful Reliable Services StatefulServiceBase class is "Microsoft-ServiceFabric-Services." Events from this event source appear in the
 [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the service is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
-Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567),
+Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://www.microsoft.com/download/details.aspx?id=28567),
 [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), and the
-[Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+[Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Events
 | Event name | Event ID | Level | Event description |
@@ -106,7 +106,7 @@ The Reliable Services runtime emits the following events under the `Service Fabr
 | --- | --- |
 | Begin Txn Operations/sec | The number of new write transactions created per second.|
 | Txn Operations/sec | The number of add/update/delete operations performed on reliable collections per second.|
-| Avg. Flush Latency (ms) | The number of bytes being flushed to the disk by the Transactional Replicator per second |
+| Log Flush Bytes/sec | The number of bytes being flushed to the disk by the Transactional Replicator per second |
 | Throttled Operations/sec | The number of operations rejected every second by the Transactional Replicator due to throttling. |
 | Avg. Transaction ms/Commit | Average commit latency per transaction in milliseconds |
 | Avg. Flush Latency (ms) | Average duration of disk flush operations initiated by the Transactional Replicator in milliseconds |

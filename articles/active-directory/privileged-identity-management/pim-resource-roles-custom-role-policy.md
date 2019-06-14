@@ -1,5 +1,5 @@
 ---
-title: Use custom roles for Azure resources in PIM | Microsoft Docs
+title: Use custom roles for Azure resources in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to use custom roles for Azure resources in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
+ms.collection: M365-identity-device-management
 ---
 
 # Use custom roles for Azure resources in PIM
 
-You might need to apply strict Privileged Identity Management (PIM) settings to some members of a role, while providing greater autonomy for others. Consider a scenario in which your organization hires several contract associates to assist in the development of an application that will run in an Azure subscription.
+You might need to apply strict Azure Active Directory (Azure AD) Privileged Identity Management (PIM) settings to some members of a role, while providing greater autonomy for others. Consider a scenario in which your organization hires several contract associates to assist in the development of an application that will run in an Azure subscription.
 
 As a resource administrator, you want employees to be eligible for access without requiring approval. However, all contract associates must be approved when they request access to the organization's resources.
 
@@ -36,7 +37,7 @@ When you create custom role, include a descriptive name so you can easily rememb
 
 After the role is created in your tenant, in the Azure portal, go to the **Privileged Identity Management - Azure resources** pane. Select the resource that the role applies to.
 
-![The "Privileged Identity Management - Azure resources" pane](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+![The "Privileged Identity Management - Azure resources" pane](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 
 [Configure PIM role settings](pim-resource-roles-configure-role-settings.md) that should apply to these members of the role.
 

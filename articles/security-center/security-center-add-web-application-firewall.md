@@ -3,8 +3,8 @@ title: Add a web application firewall in Azure Security Center | Microsoft Docs
 description: This document shows you how to implement the Azure Security Center recommendations **Add a web application firewall** and **Finalize application protection**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2018
-ms.author: terrylan
+ms.date: 12/13/2018
+ms.author: rkarlin
 
 ---
 # Add a web application firewall in Azure Security Center
@@ -42,7 +42,9 @@ Security Center recommends that you provision a WAF to help defend against attac
 
 6. **New Web Application Firewall** opens, where you can perform **VM Configuration** steps and provide **WAF Information**. Select **VM Configuration**.
 7. Under **VM Configuration**, you enter information required to spin up the virtual machine that runs the WAF.
+
    ![VM configuration][4]
+   
 8. Return to **New Web Application Firewall** and select **WAF Information**. Under **WAF Information**, you configure the WAF itself. Step 7 allows you to configure the virtual machine on which the WAF runs and step 8 enables you to provision the WAF itself.
 
 ## Finalize application protection
@@ -69,12 +71,12 @@ This document showed you how to implement the Security Center recommendation "Ad
 
 To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-add-web-application-firewall/secure-web-application.png

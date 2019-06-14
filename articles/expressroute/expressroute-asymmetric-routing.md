@@ -1,20 +1,15 @@
 ---
-title: Asymmetric routing | Microsoft Docs
-description: This article walks you through the issues a customer might face with asymmetric routing in a network that has multiple links to a destination.
+title: Asymmetric routing - Azure ExpressRoute | Microsoft Docs
+description: This article walks you through the issues you might face with asymmetric routing in a network that has multiple links to a destination.
 documentationcenter: na
 services: expressroute
 author: osamazia
-manager: carmonm
-editor: ''
 
-ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
+ms.custom: seodec18
 
 ---
 # Asymmetric routing with multiple network paths
@@ -51,7 +46,7 @@ To understand the effect these two changes have on a network, let’s consider s
 
 Then, you turn on ExpressRoute and consume services offered by Microsoft over ExpressRoute. All other services from Microsoft are consumed over the Internet. You deploy a separate firewall at your edge that is connected to ExpressRoute. Microsoft advertises more specific prefixes to your network over ExpressRoute for specific services. Your routing infrastructure chooses ExpressRoute as the preferred path for those prefixes. If you are not advertising your public IP addresses to Microsoft over ExpressRoute, Microsoft communicates with your public IP addresses via the Internet. Forward traffic from your network to Microsoft uses ExpressRoute, and reverse traffic from Microsoft uses the Internet. When the firewall at the edge sees a response packet for a flow that it does not find in the state table, it drops the return traffic.
 
-If you choose to use the same network address translation (NAT) pool for ExpressRoute and for the Internet, you'll see similar issues with the clients in your network on private IP addresses. Requests for services like Windows Update go via the Internet because IP addresses for these services are not advertised via ExpressRoute. However, the return traffic comes back via ExpressRoute. If Microsoft receives an IP address with the same subnet mask from the Internet and ExpressRoute, it prefers ExpressRoute over the Internet. If a firewall or another stateful device that is on your network edge and facing ExpressRoute has no prior information about the flow, it drops the packets that belong to that flow.
+If you choose to advertise the same network address translation (NAT) pool for ExpressRoute and for the Internet, you'll see similar issues with the clients in your network on private IP addresses. Requests for services like Windows Update go via the Internet because IP addresses for these services are not advertised via ExpressRoute. However, the return traffic comes back via ExpressRoute. If Microsoft receives an IP address with the same subnet mask from the Internet and ExpressRoute, it prefers ExpressRoute over the Internet. If a firewall or another stateful device that is on your network edge and facing ExpressRoute has no prior information about the flow, it drops the packets that belong to that flow.
 
 ## Asymmetric routing solutions
 You have two main options to solve the problem of asymmetric routing. One is through routing, and the other is by using source-based NAT (SNAT).

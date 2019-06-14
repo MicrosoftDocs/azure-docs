@@ -966,6 +966,7 @@ Parameter options:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
+
     network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Removes the backend IP pool range resource from load balancer.
@@ -1330,6 +1331,7 @@ Parameter options:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
+
     network public-ip list [options] <resource-group>
 Lists all public IP resources within a resource group.
 
@@ -1351,7 +1353,9 @@ Parameter options:
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
+
     network public-ip show [options] <resource-group> <name>
 
 Displays public ip properties for a public ip resource within a resource group.
@@ -1451,7 +1455,7 @@ Parameter options:
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
     --subnet-name <subnet-name>                                  the subnet name
     -m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
-    -t, --tags <tags>                                                the comma seperated list of tags.
+    -t, --tags <tags>                                                the comma separated list of tags.
     Can be multiple. In the format of "name=value".
     Name is required and value is optional.
     For example, -t tag1=value1;tag2

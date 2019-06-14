@@ -16,33 +16,19 @@ metadata:
 abstract:
   description: Azure Relay service facilitates hybrid applications between on-premises and cloud environments within a corporate enterprise network and the public cloud, without having to open a firewall connection or require intrusive changes to a corporate network infrastructure.
 sections:
-- title: 5-Minute Quickstarts
-  items: 
-  - type: paragraph
-    text: 'Learn how to send and receive messages using Azure Relay:'
-  - type: list
-    style: icon48
-    items:
-    - image: 
-        src: /azure/media/index/logo_net.svg
-      text: .NET Web Sockets
-      href: /azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started
-    - image: 
-        src: /azure/media/index/logo_net.svg
-      text: .NET HTTP
-      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started
-    - image: 
-        src: /azure/media/index/logo_nodejs.svg
-      text: Node.js Web Sockets
-      href: /azure/service-bus-relay/relay-hybrid-connections-node-get-started
-    - image: 
-        src: /azure/media/index/logo_nodejs.svg
-      text: Node.js HTTP
-      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to create, manage, and send and receive messages, using Azure Relay
+    text: <b>Hybrid Connections:</b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">Send and receive messages - .NET Web Sockets</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started">Send and receive messages - .NET HTTP</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-node-get-started">Send and receive messages - Node.js Web Sockets</a>  
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started">Send and receive messages - Node.js HTTP</a>      
+  - type: paragraph
+    text: <b>Windows Communication Foundation (WCF) Relay:</b>
   - type: list
     style: ordered
     items:
@@ -52,12 +38,13 @@ sections:
 - title: Samples
   items:
   - type: paragraph
-    text: Find scripts to manage common tasks.
+    text: Samples on GitHub
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples">Azure Relay samples</a>
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections">Hybrid Connections</a>
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay">Windows Communication Foundation (WCF)</a>    
 - title: Reference
   items:
   - type: list

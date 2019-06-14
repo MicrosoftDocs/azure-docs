@@ -1,18 +1,19 @@
 ---
-title: When and how to use an Azure Multi-Factor Auth Provider?
+title: When and how to use an Azure Multi-Factor Auth Provider? - Azure Active Directory
 description: When should you use an Auth Provider with Azure MFA?
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # When to use an Azure Multi-Factor Authentication Provider
 
@@ -20,16 +21,12 @@ Two-step verification is available by default for global administrators who have
 
 An Azure Multi-Factor Auth Provider is used to take advantage of features provided by Azure Multi-Factor Authentication for users who **do not have licenses**.
 
-If you have licenses that cover all of the users in your organization, then you do not need an Azure Multi-Factor Auth Provider. Create an Azure Multi-Factor Authentication Provider only if you also need to provide two-step verification for some users that don't have licenses.
-
 > [!NOTE]
-> Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+> Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated, but migration is no longer possible. Multi-factor authentication will continue to be available as a feature in Azure AD Premium licenses.
 
 ## Caveats related to the Azure MFA SDK
 
-An Azure Multi-Factor Auth provider is required to download the SDK. Note the SDK has been deprecated and is no longer supported for new customers and will only continue to work until November 14, 2018. After that time, calls to the SDK will fail.
-
-To download the SDK, create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or other bundled licenses. If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or other bundled licenses. This configuration ensures that you are only billed if you have more unique users performing two-step verification than the number of licenses you own.
+Note the SDK has been deprecated and will only continue to work until November 14, 2018. After that time, calls to the SDK will fail.
 
 ## What is an MFA Provider?
 

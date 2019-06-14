@@ -3,20 +3,21 @@ title: Single and multi-tenant apps in Azure Active Directory
 description: Learn about the features and differences between single-tenant and multi-tenant apps in Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Tenancy in Azure Active Directory
@@ -25,7 +26,7 @@ Azure Active Directory (Azure AD) organizes objects like users and apps into gro
 
 ## Who can sign in to your app?
 
-When it comes to developing apps, developers can choose to configure their app to be either single-tenant or multi-tenant during app registration in the [Azure portal](http://portal.azure.com).
+When it comes to developing apps, developers can choose to configure their app to be either single-tenant or multi-tenant during app registration in the [Azure portal](https://portal.azure.com).
 * Single-tenant apps are only available in the tenant they were registered in, also known as their home tenant.
 * Multi-tenant apps are available to users in both their home tenant and other tenants.
 
@@ -41,7 +42,7 @@ In the Azure portal, you can configure your app to be single-tenant or multi-ten
 
 Building great multi-tenant apps can be challenging because of the number of different policies that IT administrators can set in their tenants. If you choose to build a multi-tenant app, follow these best practices:
 
-* Test your app in a tenant that has configured [conditional access policies](conditional-access-dev-guide.md).
+* Test your app in a tenant that has configured [Conditional Access policies](conditional-access-dev-guide.md).
 * Follow the principle of least user access to ensure that your app only requests permissions it actually needs. Avoid requesting permissions that require admin consent as this may prevent users from acquiring your app at all in some organizations. 
 * Provide appropriate names and descriptions for any permissions you expose as part of your app. This helps users and admins know what they are agreeing to when they attempt to use your app's APIs. For more information, see the best practices section in the [permissions guide](v1-permissions-and-consent.md).
 

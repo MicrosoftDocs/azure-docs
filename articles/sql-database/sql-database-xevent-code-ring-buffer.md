@@ -3,21 +3,21 @@ title: XEvent Ring Buffer code for SQL Database | Microsoft Docs
 description: Provides a Transact-SQL code sample that is made easy and quick by use of the Ring Buffer target, in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer:
+ms.reviewer: jrasnik
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/19/2018
 ---
 # Ring Buffer target code for extended events in SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](http://msdn.microsoft.com/library/ff878182.aspx).
+You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](https://msdn.microsoft.com/library/ff878182.aspx).
 
 This topic presents a Transact-SQL code sample that:
 
@@ -44,14 +44,14 @@ This topic presents a Transact-SQL code sample that:
 * SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
   You can download the latest ssms.exe from:
   
-  * Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
+  * Topic titled [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [A direct link to the download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## Code sample
 
 With very minor modification, the following Ring Buffer code sample can be run on either Azure SQL Database or Microsoft SQL Server. The difference is the presence of the node '_database' in the name of some dynamic management views (DMVs), used in the FROM clause in Step 5. For example:
 
-* sys.dm_xe**_database**_session_targets
+* sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
 
 &nbsp;
@@ -217,7 +217,7 @@ To view the results, we clicked the cell under the column header **target_data_X
 
 Then in the results pane we clicked the cell under the column header **target_data_XML**. This click created another file tab in ssms.exe in which the content of the result cell was displayed, as XML.
 
-The output is shown in the following block. It looks long, but it is just two **<event>** elements.
+The output is shown in the following block. It looks long, but it is just two **\<event>** elements.
 
 &nbsp;
 
@@ -347,6 +347,6 @@ Other code sample topics for extended events are available at the following link
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

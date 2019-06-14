@@ -25,7 +25,7 @@ Azure Security and Compliance Blueprints include guidance documents and automati
 
 ## Azure Security and Compliance Blueprint Customer Responsibility Matrix
 
-The Azure Security and Compliance Blueprint Customer Responsibility Matrix (CRM) is designed to aid Azure Government customers implementing and documenting system-specific security controls implemented within Azure. The CRM lists all [NIST SP 800-53](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf) security control requirements for FedRAMP and DISA baselines that include a customer implementation requirement. This includes controls with a shared responsibility between Azure and Azure customers and controls that must be fully implemented by Azure customers. Where appropriate, controls are delineated at a control sub-requirement granularity to provide specific guidance.
+The Azure Security and Compliance Blueprint Customer Responsibility Matrix (CRM) is designed to aid Azure Government customers implementing and documenting system-specific security controls implemented within Azure. The CRM lists all [NIST SP 800-53](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf) security control requirements for FedRAMP and DISA baselines that include a customer implementation requirement. This includes controls with a shared responsibility between Azure and Azure customers and controls that must be fully implemented by Azure customers. Where appropriate, controls are delineated at a control sub-requirement granularity to provide specific guidance.
 
 The CRM is available as Microsoft Excel workbook for the FedRAMP Moderate and High baselines, the DISA Cloud Computing SRG L4 and L5 baselines, and the NIST Cybersecurity Framework (CSF). The CRM is available for download from the [Service Trust Portal](https://aka.ms/azureblueprint).
 
@@ -43,6 +43,6 @@ Azure tenant administrators can use the [User Privacy blade](https://portal.azur
 
 For inquiries related to Azure Security and Compliance Blueprints, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide feedback, email [azureblueprint@microsoft.com](mailto:azureblueprint@microsoft.com).
 
-Visit the [Azure Security and Complaince Blueprint page](https://aka.ms/azureblueprint) on the Service Trust Portal.
+Visit the [Azure Security and Compliance Blueprint page](https://aka.ms/azureblueprint) on the Service Trust Portal.
 
 [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)

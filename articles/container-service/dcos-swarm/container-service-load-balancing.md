@@ -1,5 +1,5 @@
 ---
-title: Load balance containers in Azure DC/OS cluster
+title: (DEPRECATED) Load balance containers in Azure DC/OS cluster
 description: Load balance across multiple containers in an Azure Container Service DC/OS cluster.
 services: container-service
 author: rgardler
@@ -12,7 +12,9 @@ ms.author: rogardle
 ms.custom: mvc
 ---
 
-# Load balance containers in an Azure Container Service DC/OS cluster
+# (DEPRECATED) Load balance containers in an Azure Container Service DC/OS cluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In this article, we explore how to create an internal load balancer in a DC/OS managed Azure Container Service using Marathon-LB. This configuration enables you to scale your applications horizontally. It also allows you to take
 advantage of the public and private agent clusters by placing your load balancers on the public cluster and your application containers on the private cluster. In this tutorial, you:
@@ -92,7 +94,7 @@ Next, create a file named *hello-web.json* and copy in the following contents. T
 }
 ```
 
-Use the DC/OS CLI to run the application. By default Marathon deploys the applicaton to the private cluster. This means that the above deployment is only accessible via your load balancer, which is usually the desired behavior.
+Use the DC/OS CLI to run the application. By default Marathon deploys the application to the private cluster. This means that the above deployment is only accessible via your load balancer, which is usually the desired behavior.
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json

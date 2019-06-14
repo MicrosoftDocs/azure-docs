@@ -2,15 +2,15 @@
 title: Manage SSO and token customization using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Learn about managing SSO and token customization using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Manage SSO and token customization using custom policies in Azure Active Directory B2C
@@ -19,7 +19,11 @@ This article provides information about how you can manage your token, session, 
 
 ## Token lifetimes and claims configuration
 
-To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element. Inside, you'll need to put the information that affects your token lifetimes. The XML looks like this example:
+To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element. 
+
+Insert the ClaimsProviders element between the BasePolicy element and the RelyingParty element of the relying party file.
+
+Inside, you'll need to put the information that affects your token lifetimes. The XML looks like this example:
 
 ```XML
 <ClaimsProviders>
@@ -48,7 +52,18 @@ The following values are set in the previous example:
 - **Refresh token lifetime** - The refresh token lifetime value is set with the **refresh_token_lifetime_secs** metadata item. The default value is 1209600 seconds (14 days).
 - **Refresh token sliding window lifetime** - If you would like to set a sliding window lifetime to your refresh token, set the value of **rolling_refresh_token_lifetime_secs** metadata item. The default value is 7776000 (90 days). If you don't want to enforce a sliding window lifetime, replace the item with `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
 - **Issuer (iss) claim** - The Issuer (iss) claim is set with the **IssuanceClaimPattern** metadata item. The applicable values are `AuthorityAndTenantGuid` and `AuthorityWithTfp`.
-- **Setting claim representing policy ID** - The options for setting this value are `TFP` (trust framework policy) and `ACR` (authentication context reference). `TFP` is the recommended value. Set **AuthenticationContextReferenceClaimPattern** with the value of `None`. In your **OutputClaims** item, add this element:
+- **Setting claim representing policy ID** - The options for setting this value are `TFP` (trust framework policy) and `ACR` (authentication context reference). `TFP` is the recommended value. Set **AuthenticationContextReferenceClaimPattern** with the value of `None`. 
+
+    In the **ClaimsSchema** element, add this element: 
+    
+    ```XML
+    <ClaimType Id="trustFrameworkPolicy">
+      <DisplayName>Trust framework policy name</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    ```
+    
+    In your **OutputClaims** element, add this element:
     
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />

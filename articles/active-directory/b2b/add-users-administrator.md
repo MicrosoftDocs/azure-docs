@@ -5,43 +5,51 @@ description: Shows how an admin can add guest users to their directory from a pa
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 04/11/2019
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # Add Azure Active Directory B2B collaboration users in the Azure portal
 
-As a global administrator, or a user who is assigned any of the limited administrator directory roles, you can use the Azure portal to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources.
+As a user who is assigned any of the limited administrator directory roles, you can use the Azure portal to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources.
 
 After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can click the redemption URL in the invitation email. For more information about the redemption process, see [B2B collaboration invitation redemption](redemption-experience.md).
 
 > [!IMPORTANT]
 > You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](https://aka.ms/adprivacystatement) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
 
+## Before you begin
+
+Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. By default, all users and admins can invite guests. But your organization's external collaboration policies might be configured to prevent certain types of users or admins from inviting guests. To find out how to view and set these policies, see [Enable B2B external collaboration and manage who can invite guests](delegate-invitations.md).
+
 ## Add guest users to the directory
 
 To add B2B collaboration users to the directory, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user who is assigned a limited administrator directory role or the Guest Inviter role.
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Users**.
 4. Select **New guest user**.
 
    ![Shows where New guest user is in the UI](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
+   > [!NOTE]
+   > The **New guest user** option is also available on the **Organizational relationships** page. In **Azure Active Directory**, under **Manage**, select **Organizational relationships**.
+
 5. Under **User name**, enter the email address of the external user. Optionally, include a welcome message. For example:
 
    ![Shows where New guest user is in the UI](./media/add-users-administrator/InviteGuest.png) 
 
     > [!NOTE]
-    > Some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
+    > Group email addresses aren’t supported; enter the email address for an individual. Also, some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
 
 6. Select **Invite** to automatically send the invitation to the guest user. 
  
@@ -51,7 +59,7 @@ After you send the invitation, the user account is automatically added to the di
 ![Shows B2B user with Guest user type](./media/add-users-administrator/GuestUserType.png)  
 
 ## Add guest users to a group
-If you need to manually add B2B collaboration users to a group as an Azure AD administrator, follow these steps:
+If you need to manually add B2B collaboration users to a group, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. In the navigation pane, select **Azure Active Directory**.
@@ -68,7 +76,7 @@ You can also use dynamic groups with Azure AD B2B collaboration. For more inform
 
 ## Add guest users to an application
 
-To add B2B collaboration users to an application as an Azure AD administrator, follow these steps:
+To add B2B collaboration users to an application, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. In the navigation pane, select **Azure Active Directory**.
@@ -82,11 +90,11 @@ To add B2B collaboration users to an application as an Azure AD administrator, f
 7. Under **Add Assignment**, select **User and groups**.
 8. Do one of the following:
    - If the guest user already exists in the directory, search for the B2B user. Select the user, click **Select**, and then click **Assign** to add the user to the app.
-   - If the guest user does not already exist in the directory, select **Invite**.
+   - If the guest user does not already exist in the directory, under **Select member or invite an external user**, type the user's email address. In the message box, type an optional personal message. Under the message box, click **Invite**.
            
        ![Add invite button to add guest members](./media/add-users-administrator/AppInviteUsers.png)
    
-      Under **Invite a guest**, enter the email address, type an optional personal message, and then select **Invite**. Click **Select**, and then click **Assign** to add the user to the app. An invitation automatically goes out to the invited user.
+      Click **Select**, and then click **Assign** to add the user to the app. An invitation automatically goes out to the invited user.
 
 9. The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If you want to change the role, do the following:
    - Select the guest user, and then select **Edit**. 

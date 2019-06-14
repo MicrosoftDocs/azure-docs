@@ -4,7 +4,7 @@ description: Describes the Service Fabric CLI sfctl application commands.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
 
 ---
@@ -329,13 +329,13 @@ Reports health state of the specified Service Fabric application. The report mus
 | --application-id  [Required] | The identity of the application. <br><br> This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '\~' character. For example, if the application name is 'fabric\:/myapp/app1', the application identity would be 'myapp\~app1' in 6.0+ and 'myapp/app1' in previous versions. |
 | --health-property [Required] | The property of the health information. <br><br> An entity can have health reports for different properties. The property is a string and not a fixed enumeration to allow the reporter flexibility to categorize the state condition that triggers the report. For example, a reporter with SourceId "LocalWatchdog" can monitor the state of the available disk on a node, so it can report "AvailableDisk" property on that node. The same reporter can monitor the node connectivity, so it can report a property "Connectivity" on the same node. In the health store, these reports are treated as separate health events for the specified node. Together with the SourceId, the property uniquely identifies the health information. |
 | --health-state    [Required] | Possible values include\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
-| --source-id       [Required] | The source name which identifies the client/watchdog/system component which generated the health information. |
+| --source-id       [Required] | The source name that identifies the client/watchdog/system component that generated the health information. |
 | --description | The description of the health information. <br><br> It represents free text used to add human readable information about the report. The maximum string length for the description is 4096 characters. If the provided string is longer, it will be automatically truncated. When truncated, the last characters of the description contain a marker "[Truncated]", and total string size is 4096 characters. The presence of the marker indicates to users that truncation occurred. Note that when truncated, the description has less than 4096 characters from the original string. |
-| --immediate | A flag which indicates whether the report should be sent immediately. <br><br> A health report is sent to a Service Fabric gateway Application, which forwards to the health store. If Immediate is set to true, the report is sent immediately from HTTP Gateway to the health store, regardless of the fabric client settings that the HTTP Gateway Application is using. This is useful for critical reports that should be sent as soon as possible. Depending on timing and other conditions, sending the report may still fail, for example if the HTTP Gateway is closed or the message doesn't reach the Gateway. If Immediate is set to false, the report is sent based on the health client settings from the HTTP Gateway. Therefore, it will be batched according to the HealthReportSendInterval configuration. This is the recommended setting because it allows the health client to optimize health reporting messages to health store as well as health report processing. By default, reports are not sent immediately. |
+| --immediate | A flag that indicates whether the report should be sent immediately. <br><br> A health report is sent to a Service Fabric gateway Application, which forwards to the health store. If Immediate is set to true, the report is sent immediately from HTTP Gateway to the health store, regardless of the fabric client settings that the HTTP Gateway Application is using. This is useful for critical reports that should be sent as soon as possible. Depending on timing and other conditions, sending the report may still fail, for example if the HTTP Gateway is closed or the message doesn't reach the Gateway. If Immediate is set to false, the report is sent based on the health client settings from the HTTP Gateway. Therefore, it will be batched according to the HealthReportSendInterval configuration. This is the recommended setting because it allows the health client to optimize health reporting messages to health store as well as health report processing. By default, reports are not sent immediately. |
 | --remove-when-expired | Value that indicates whether the report is removed from health store when it expires. <br><br> If set to true, the report is removed from the health store after it expires. If set to false, the report is treated as an error when expired. The value of this property is false by default. When clients report periodically, they should set RemoveWhenExpired false (default). This way, is the reporter has issues (e.g. deadlock) and can't report, the entity is evaluated at error when the health report expires. This flags the entity as being in Error health state. |
 | --sequence-number | The sequence number for this health report as a numeric string. <br><br> The report sequence number is used by the health store to detect stale reports. If not specified, a sequence number is auto-generated by the health client when a report is added. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
-| --ttl | The duration for which this health report is valid. This field is using ISO8601 format for specifying the duration. <br><br> When clients report periodically, they should send reports with higher frequency than time to live. If clients report on transition, they can set the time to live to infinite. When time to live expires, the health event that contains the health information is either removed from health store, if RemoveWhenExpired is true, or evaluated at error, if RemoveWhenExpired false. If not specified, time to live defaults to infinite value. |
+| --ttl | The duration for which this health report is valid. This field uses ISO8601 format for specifying the duration. <br><br> When clients report periodically, they should send reports with higher frequency than time to live. If clients report on transition, they can set the time to live to infinite. When time to live expires, the health event that contains the health information is either removed from health store, if RemoveWhenExpired is true, or evaluated at error, if RemoveWhenExpired false. If not specified, time to live defaults to infinite value. |
 
 ### Global Arguments
 
@@ -431,23 +431,23 @@ Validates the supplied application upgrade parameters and starts upgrading the a
 
 |Argument|Description|
 | --- | --- |
-| --application-id      [Required] | The identity of the application. <br><br> This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '\~' character. For example, if the application name is 'fabric\:/myapp/app1', the application identity would be 'myapp\~app1' in 6.0+ and 'myapp/app1' in previous versions. |
-| --application-version [Required] | Target application version. |
+| --application-id      [Required] | The identity of the application. <br><br> This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the application name is "fabric\:/myapp/app1", the application identity would be "myapp\~app1" in 6.0+ and "myapp/app1" in previous versions. |
+| --application-version [Required] | The target application type version (found in the application manifest) for the application upgrade. |
 | --parameters          [Required] | A JSON encoded list of application parameter overrides to be applied when upgrading the application. |
 | --default-service-health-policy | JSON encoded specification of the health policy used by default to evaluate the health of a service type. |
 | --failure-action | The action to perform when a Monitored upgrade encounters monitoring policy or health policy violations. |
 | --force-restart | Forcefully restart processes during upgrade even when the code version has not changed. |
-| --health-check-retry-timeout | The amount of time to retry health evaluations when the application or cluster is unhealthy before the failure action is executed. Measured in milliseconds.  Default\: PT0H10M0S. |
-| --health-check-stable-duration | The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. Measured in milliseconds.  Default\: PT0H2M0S. |
-| --health-check-wait-duration | The amount of time to wait after completing an upgrade domain before applying health policies. Measured in milliseconds.  Default\: 0. |
+| --health-check-retry-timeout | The length of time between attempts to perform health checks if the application or cluster is not healthy.  Default\: PT0H10M0S. |
+| --health-check-stable-duration | The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain.  Default\: PT0H2M0S. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
+| --health-check-wait-duration | The length of time to wait after completing an upgrade domain before starting the health checks process.  Default\: 0. |
 | --max-unhealthy-apps | The maximum allowed percentage of unhealthy deployed applications. Represented as a number between 0 and 100. |
 | --mode | The mode used to monitor health during a rolling upgrade.  Default\: UnmonitoredAuto. |
 | --replica-set-check-timeout | The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. Measured in seconds. |
 | --service-health-policy | JSON encoded map with service type health policy per service type name. The map is empty be default. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
-| --upgrade-domain-timeout | The amount of time each upgrade domain has to complete before FailureAction is executed. Measured in milliseconds.  Default\: P10675199DT02H48M05.4775807S. |
-| --upgrade-timeout | The amount of time the overall upgrade has to complete before FailureAction is executed. Measured in milliseconds.  Default\: P10675199DT02H48M05.4775807S. |
-| --warning-as-error | Treat health evaluation warnings with the same severity as errors. |
+| --upgrade-domain-timeout | The amount of time each upgrade domain has to complete before FailureAction is executed.  Default\: P10675199DT02H48M05.4775807S. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
+| --upgrade-timeout | The amount of time the overall upgrade has to complete before FailureAction is executed.  Default\: P10675199DT02H48M05.4775807S. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
+| --warning-as-error | Indicates whether warnings are treated with the same severity as errors. |
 
 ### Global Arguments
 

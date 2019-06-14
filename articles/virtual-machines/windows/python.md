@@ -49,7 +49,7 @@ You should see in the output windows that the azure packages were successfully i
 
 ## Create credentials
 
-Before you start this step, make sure that you have an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
+Before you start this step, make sure that you have an [Active Directory service principal](../../active-directory/develop/howto-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
 1. Open *myPythonProject.py* file that was created, and then add this code to enable your application to run:
 
@@ -495,7 +495,7 @@ Many aspects of deployment should be considered when deciding on a size for your
 
 ### Add a data disk to the VM
 
-Virtual machines can have one or more [data disks](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) that are stored as VHDs.
+Virtual machines can have one or more [data disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) that are stored as VHDs.
 
 1. To add a data disk to the virtual machine, add this function after the variables in the .py file: 
 

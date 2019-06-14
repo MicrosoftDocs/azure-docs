@@ -4,7 +4,7 @@ description: This topic discusses how to process your media with Media Analytics
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
-# Analyze your media using the Azure portal
+# Analyze your media using the Azure portal 
 > [!NOTE]
 > To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 > 
@@ -69,11 +69,6 @@ A friendly name that lets you identify the job. [This](media-services-portal-che
 
 ### Output file
 A friendly name that lets you identify the output content. 
-
-## Azure Media Hyperlapse
-Azure Media Hyperlapse is an MP that creates smooth time-lapsed videos from first-person or action-camera content.  For more information, see [this](media-services-hyperlapse-content.md) topic. This section gives some details about options that you specify for this MP.
-
-![Analyze videos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### Speed
 Specify the speed with which to speed up the input video. The output is a stabilized and time-lapsed rendition of the input video.

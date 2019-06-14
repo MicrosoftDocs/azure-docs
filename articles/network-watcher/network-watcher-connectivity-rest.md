@@ -3,8 +3,8 @@ title: Troubleshoot connections with Azure Network Watcher - Azure REST API | Mi
 description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure REST API.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: 
 
 ms.service: network-watcher
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 08/02/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Troubleshoot connections with Azure Network Watcher using the Azure REST API
@@ -40,7 +40,7 @@ This article assumes you have the following resources:
 
 Log in to armclient with your Azure credentials.
 
-```PowerShell
+```powershell
 armclient login
 ```
 
@@ -298,7 +298,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000"
 $resourceGroupName = "NetworkWatcherRG"
 $networkWatcherName = "NetworkWatcher_westcentralus"
 $sourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoRG/providers/Microsoft.Compute/virtualMachines/MultiTierApp0"
-$destinationAddress = "http://bing.com"
+$destinationAddress = "https://bing.com"
 $destinationPort = "0"
 $requestBody = @"
 {

@@ -15,12 +15,9 @@ ms.author: jehollan
 ms.custom: mvc, devcenter
 ---
 
-# Create your first function with Java and Eclipse (Preview)
+# Create your first function with Java and Eclipse 
 
-> [!NOTE] 
-> Java for Azure Functions is currently in preview.
-
-This article shows you how to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with the Eclipse IDE and Apache Maven, test and debug it, then deploy it to Azure Functions. 
+This article shows you how to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function project with the Eclipse IDE and Apache Maven, test and debug it, then deploy it to Azure Functions. 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 

@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
@@ -63,7 +63,7 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 ### Examples
 
 #### A dataset with a parameter
-In the following example, the BlobDataset takes a parameter named **path**. Its value is used to set a value for the **folderPath** property by using the following expressions: `@{dataset().path}`. 
+In the following example, the BlobDataset takes a parameter named **path**. Its value is used to set a value for the **folderPath** property by using the expression: `dataset().path`. 
 
 ```json
 {

@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/11/2019
+ms.author: cynthn
+---
 # Use infrastructure automation tools with virtual machines in Azure
 To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
@@ -10,7 +17,7 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
     - [Azure Automation](#azure-automation) can perform actions across your Azure and on-premises infrastructure.
 
 - Automate application deployment and delivery
-    - Examples include [Azure DevOps Services](#visual-studio-team-services) and [Jenkins](#jenkins).
+    - Examples include [Azure DevOps Services](#azure-devops-services) and [Jenkins](#jenkins).
 
 ## Ansible
 [Ansible](https://www.ansible.com/) is an automation engine for configuration management, VM creation, or application deployment. Ansible uses an agent-less model, typically with SSH keys, to authenticate and manage target machines. Configuration tasks are defined in playbooks, with a number of Ansible modules available to carry out specific tasks. For more information, see [How Ansible works](https://www.ansible.com/how-ansible-works).
@@ -44,16 +51,7 @@ Learn how to:
 
 Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 
- We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets. The following table outlines the current cloud-init enabled images availability on the Azure platform:
-
-| Publisher | Offer | SKU | Version | cloud-init ready
-|:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04-LTS |latest |yes | 
-|Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
-|CoreOS |CoreOS |Stable |latest |yes |
-|OpenLogic |CentOS |7-CI |latest |preview |
-|RedHat |RHEL |7-RAW-CI |latest |preview |
-
+We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets. 
 Learn more details about cloud-init on Azure:
 
 - [Cloud-init support for Linux virtual machines in Azure](../articles/virtual-machines/linux/using-cloud-init.md)
@@ -67,7 +65,7 @@ DSC configurations define what to install on a machine and how to configure the 
 
 Learn how to:
 
-- [Create a basic DSC configuration](https://msdn.microsoft.com/powershell/dsc/quickstart).
+- [Create a basic DSC configuration](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
 - [Configure a DSC pull server](https://msdn.microsoft.com/powershell/dsc/pullserver).
 - [Use DSC for Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
 
@@ -116,9 +114,9 @@ Learn how to:
 ## Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. Azure DevOps Services integrates with Visual Studio and other editors to simplify usage. Azure DevOps Services can also create and configure Azure VMs and then deploy code to them.
 
-Learn how to:
+Learn more about:
 
-- [Create a continuous integration pipeline with Azure DevOps Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## Jenkins

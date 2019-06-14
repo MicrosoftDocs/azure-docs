@@ -1,28 +1,18 @@
 ---
 title: Azure Data Box Gateway manage users | Microsoft Docs 
 description: Describes how to use the Azure portal to manage users on your Azure Data Box Gateway.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
-ms.topic: overview
-ms.custom: 
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 10/09/2018
+ms.subservice: gateway
+ms.topic: article
+ms.date: 03/25/2019
 ms.author: alkohli
 ---
 # Use the Azure portal to manage users on your Azure Data Box Gateway 
 
 This article describes how to manage users on your Azure Data Box Gateway. You can manage the Azure Data Box Gateway via the Azure portal or via the local web UI. Use the Azure portal to add, modify, or delete users.
-
-> [!IMPORTANT]
-> - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
 
 In this article, you learn how to:
 

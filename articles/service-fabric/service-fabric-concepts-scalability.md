@@ -4,7 +4,7 @@ description: Describes how to scale Service Fabric services
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
@@ -98,12 +98,14 @@ Service Fabric supports partitioning. Partitioning splits a service into several
 Consider a service that uses a ranged partitioning scheme with a low key of 0, a high key of 99, and a partition count of 4. In a three-node cluster, the service might be laid out with four replicas that share the resources on each node as shown here:
 
 <center>
+
 ![Partition layout with three nodes](./media/service-fabric-concepts-scalability/layout-three-nodes.png)
 </center>
 
 If you increase the number of nodes, Service Fabric will move some of the existing replicas there. For example, let's say the number of nodes increases to four and the replicas get redistributed. Now the service now has three replicas running on each node, each belonging to different partitions. This allows better resource utilization since the new node isn't cold. Typically, it also improves performance as each service has more resources available to it.
 
 <center>
+
 ![Partition layout with four nodes](./media/service-fabric-concepts-scalability/layout-four-nodes.png)
 </center>
 

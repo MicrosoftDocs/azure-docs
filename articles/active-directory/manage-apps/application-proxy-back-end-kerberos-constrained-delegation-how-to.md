@@ -3,20 +3,21 @@ title: Troubleshoot Kerberos constrained delegation configurations for Applicati
 description: Troubleshoot Kerberos Constrained Delegation configurations for Application Proxy
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: barbkess
+ms.date: 04/23/2019
+ms.author: mimart
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot Kerberos constrained delegation configurations for Application Proxy
@@ -29,7 +30,7 @@ This article provides a single point of reference that helps troubleshoot and se
 
 This article makes the following assumptions:
 
--   Deployment of Azure AD Application Proxy per [Get started with Application Proxy](application-proxy-enable.md) and general access to non-KCD applications work as expected.
+-   Deployment of Azure AD Application Proxy per [Get started with Application Proxy](application-proxy-add-on-premises-application.md) and general access to non-KCD applications work as expected.
 
 -   The published target application is based on Internet Information Services (IIS) and the Microsoft implementation of Kerberos.
 
@@ -173,9 +174,9 @@ If you still can't make progress, Microsoft support can assist you. Create a sup
 
 ## Other scenarios
 
-- Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third-party applications like Tableau Server don't like this method of authenticating. These applications expect the more conventional negotiations to take place. The first request is anonymous, which allows the application to respond with the authentication types that it supports through a 401.
+- Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third-party applications don't like this method of authenticating. These applications expect the more conventional negotiations to take place. The first request is anonymous, which allows the application to respond with the authentication types that it supports through a 401.
 
 - Multi-hop authentication is commonly used in scenarios where an application is tiered, with a back end and front end, where both require authentication, such as SQL Server Reporting Services. To configure the multihop scenario, see the support article [Kerberos Constrained Delegation May Require Protocol Transition in Multi-hop Scenarios](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## Next steps
-[Configure KCD on a managed domain](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
+[Configure KCD on a managed domain](../../active-directory-domain-services/deploy-kcd.md).

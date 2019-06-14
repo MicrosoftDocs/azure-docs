@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure DC/OS cluster - Datadog
+title: (DEPRECATED) Monitor Azure DC/OS cluster - Datadog
 description: Monitor an Azure Container Service cluster with Datadog. Use the DC/OS web UI to deploy the Datadog agents to your cluster.
 services: container-service
 author: sauryadas
@@ -12,12 +12,14 @@ ms.author: saudas
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service DC/OS cluster with Datadog
+# (DEPRECATED) Monitor an Azure Container Service DC/OS cluster with Datadog
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In this article we will deploy Datadog agents to all the agent nodes in your Azure Container Service cluster. You will need an account with Datadog for this configuration. 
 
 ## Prerequisites
-[Deploy](container-service-deployment.md) and [connect](../container-service-connect.md) a cluster configured by Azure Container Service. Explore the [Marathon UI](container-service-mesos-marathon-ui.md). Go to [http://datadoghq.com](http://datadoghq.com) to set up a Datadog account. 
+[Deploy](container-service-deployment.md) and [connect](../container-service-connect.md) a cluster configured by Azure Container Service. Explore the [Marathon UI](container-service-mesos-marathon-ui.md). Go to [https://datadoghq.com](https://datadoghq.com) to set up a Datadog account. 
 
 ## Datadog
 Datadog is a monitoring service that gathers monitoring data from your containers within your Azure Container Service cluster. Datadog has a Docker Integration Dashboard where you can see specific metrics within your containers. Metrics gathered from your containers are organized by CPU, Memory, Network and I/O. Datadog splits metrics into containers and images. An example of what the UI looks like for CPU usage is below.

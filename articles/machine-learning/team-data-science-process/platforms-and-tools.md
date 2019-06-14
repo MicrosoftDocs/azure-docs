@@ -1,21 +1,15 @@
 ---
-title: Platforms and tools for data science team projects - Azure  | Microsoft Docs
+title: Platforms and tools for data science projects - Team Data Science Process
 description: Itemizes and discusses the data and analytics resources available to enterprises standardizing on the Team Data Science Process.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 
@@ -46,7 +40,7 @@ The data science virtual machine offered on both Windows and Linux by Microsoft,
 - Power BI desktop for Windows
 - SQL Server 2016 Developer Edition on Windows / Postgres on Linux
 
-It also includes **ML and AI tools** like CNTK (an Open Source Deep Learning toolkit from Microsoft), xgboost, mxnet and Vowpal Wabbit.
+It also includes **ML and AI tools** like xgboost, mxnet and Vowpal Wabbit.
 
 Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
 
@@ -131,17 +125,17 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 		ssh-keygen
 		cat .ssh/id_rsa.pub
 
-![](./media/platforms-and-tools/resources-1-generate_ssh.png)
+![Commands to generate the SSH key](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copy the entire ssh key including *ssh-rsa*. 
 - Log in to your Azure DevOps Services. 
 - Click **<Your Name\>** at the top right corner of the page and click **security**. 
 	
-	![](./media/platforms-and-tools/resources-2-user-setting.png)
+	![Click your name and then click security](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - Click **SSH public keys**, and click **+Add**. 
 
-	![](./media/platforms-and-tools/resources-3-add-ssh.png)
+	![Click SSH public keys and then click +Add](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - Paste the ssh key just copied into the text box and save.
 
@@ -150,4 +144,4 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](http://aka.ms/datascienceprocess) learning path.
+For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) learning path.

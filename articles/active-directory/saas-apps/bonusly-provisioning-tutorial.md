@@ -7,14 +7,16 @@ author: zchia
 writer: zchia
 manager: beatrizd-msft
 
-ms.assetid: na
+ms.assetid: 879b0ee9-042a-441b-90a7-8c364d62426a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 03/27/2019
 ms.author: v-wingf-msft
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Bonusly for automatic user provisioning
@@ -28,39 +30,34 @@ The objective of this tutorial is to demonstrate the steps to be performed in Bo
 
 The scenario outlined in this tutorial assumes that you already have the following:
 
-*   An Azure AD tenant
-*   A [Bonusly tenant](https://bonus.ly/pricing)
-*   A user account in Bonusly with Admin permissions
+* An Azure AD tenant
+* A [Bonusly tenant](https://bonus.ly/pricing)
+* A user account in Bonusly with Admin permissions
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Bonusly Rest API](https://bonusly.gelato.io/reference), which is available to Bonusly developers.
 
 ## Adding Bonusly from the gallery
+
 Before configuring Bonusly for automatic user provisioning with Azure AD, you need to add Bonusly from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add Bonusly from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise applications** > **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications Section][2]
-	
-3. To add Bonusly, click the **New application** button on the top of the dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![The New application button][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-4. In the search box, type **Bonusly**.
+	![The New application button](common/add-new-app.png)
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/AppSearch.png)
+4. In the search box, type **Bonusly**, select **Bonusly** from result panel then click **Add** button to add the application.
 
-5. In the results panel, select **Bonusly**, and then click the **Add** button to add Bonusly to your list of SaaS applications.
-
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/AppSearchResults.png)
-
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/AppCreation.png)
+	![Bonusly in the results list](common/search-new-app.png)
 
 ## Assigning users to Bonusly
 
@@ -68,13 +65,13 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Bonusly. Once decided, you can assign these users and/or groups to Bonusly by following the instructions here:
 
-*   [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### Important tips for assigning users to Bonusly
 
-*	It is recommended that a single Azure AD user is assigned to Bonusly to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to Bonusly to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-*	When assigning a user to Bonusly, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to Bonusly, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Configuring automatic user provisioning to Bonusly
 
@@ -85,14 +82,16 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Bonusly in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise Applications**, select **All applications**, then select **Bonusly**.
 
-2. Select Bonusly from your list of SaaS applications.
- 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/AppInstanceSearch.png)
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the applications list, select **Bonusly**.
+
+	![The Bonusly link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
-	
+
 	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
@@ -100,6 +99,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
 
 5. Under the **Admin Credentials** section, input the **Secret Token** of your Bonusly account as described in Step 6.
+
+	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/secrettoken.png)
 
 6. The **Secret Token** for your Bonusly account is located in **Admin > Company > Integrations**. In the **If you want to code** section, click on **API > Create New API Access Token** to create a new Secret Token.
 
@@ -118,7 +119,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 8. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Bonusly. If the connection fails, ensure your Bonusly account has Admin permissions and try again.
 
 	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/TestConnection.png)
-	
+
 9. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
 	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/EmailNotification.png)
@@ -147,7 +148,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/SaveProvisioning.png)
 
-
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Bonusly.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
@@ -156,7 +156,6 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 * [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
 
 ## Next steps
 

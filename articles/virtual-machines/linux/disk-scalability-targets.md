@@ -8,7 +8,7 @@ ms.date: 11/15/2017
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
-ms.component: disks
+ms.subservice: disks
 ---
 
 # Scalability and performance targets for VM disks on Linux
@@ -18,6 +18,8 @@ ms.component: disks
 See [Linux VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
 
 ## Managed virtual machine disks
+
+Sizes denoted with an asterisk are currently in preview. See our [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
@@ -29,4 +31,3 @@ See [Linux VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirt
 ## See also
 
 [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits)
-

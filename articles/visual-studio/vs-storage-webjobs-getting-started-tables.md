@@ -19,7 +19,7 @@ ms.author: ghogen
 ## Overview
 This article provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure table storage service. The code samples use the [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) version 1.x.
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) for more information.
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [Get started with Azure Table storage using .NET](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) for more information.
 
 Some of the code snippets show the **Table** attribute used in functions that are called manually, that is, not by using one of the trigger attributes.
 
@@ -139,5 +139,5 @@ For more information about how to use the **CloudTable** object, see [Get starte
 For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## Next steps
-This article has provided code samples that show how to handle common scenarios for working with Azure tables. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).
+This article has provided code samples that show how to handle common scenarios for working with Azure tables. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs documentation resources](https://go.microsoft.com/fwlink/?linkid=390226).
 

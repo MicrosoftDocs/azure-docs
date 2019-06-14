@@ -1,10 +1,10 @@
 ---
-title: Data Security and Encryption Best Practices | Microsoft Docs
+title: Data security and encryption best practices - Microsoft Azure
 description: This article provides a set of best practices for data security and encryption using built in Azure capabilities.
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
@@ -13,29 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
-ms.author: barclayn
+ms.date: 05/06/2019
+ms.author: terrylan
 
 ---
-# Azure Data Security and Encryption Best Practices
+# Azure data security and encryption best practices
+This article describes best practices for data security and encryption.
+
+The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Opinions and technologies change over time and this article is updated on a regular basis to reflect those changes.
+
+## Protect data
 To help protect data in the cloud, you need to account for the possible states in which your data can occur, and what controls are available for that state. Best practices for Azure data security and encryption relate to the following data states:
 
 - At rest: This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.
 - In transit: When data is being transferred between components, locations, or programs, it’s in transit. Examples are transfer over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process.
 
-In this article we will discuss a collection of Azure data security and encryption best practices. These best practices are derived from our experience with Azure data security and encryption and the experiences of customers like yourself.
-
-For each best practice, we’ll explain:
-
-* What the best practice is
-* Why you want to enable that best practice
-* What might be the result if you fail to enable the best practice
-* Possible alternatives to the best practice
-* How you can learn to enable the best practice
-
-This Azure Data Security and Encryption Best Practices article is based on a consensus opinion, and Azure platform capabilities and feature sets, as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
-
 ## Choose a key management solution
+
 Protecting your keys is essential to protecting your data in the cloud.
 
 [Azure Key Vault](../key-vault/key-vault-overview.md) helps safeguard cryptographic keys and secrets that cloud applications and services use. Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
@@ -66,6 +60,7 @@ Use RBAC to control what users have access to. For example, if you want to grant
 >
 
 ## Manage with secure workstations
+
 > [!NOTE]
 > The subscription administrator or owner should use a secure access workstation or a privileged access workstation.
 >
@@ -80,7 +75,8 @@ Because the vast majority of attacks target the end user, the endpoint becomes o
 **Detail**: Enforce security policies across all devices that are used to consume data, regardless of the data location (cloud or on-premises).
 
 ## Protect data at rest
-[Data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step toward data privacy, compliance, and data sovereignty.
+
+[Data encryption at rest](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step toward data privacy, compliance, and data sovereignty.
 
 **Best practice**: Apply disk encryption to help safeguard your data.   
 **Detail**: Use [Azure Disk Encryption](azure-security-disk-encryption.md). It enables IT administrators to encrypt Windows and Linux IaaS VM disks. Disk Encryption combines the industry-standard Windows BitLocker feature and the Linux dm-crypt feature to provide volume encryption for the OS and the data disks.
@@ -90,9 +86,10 @@ Azure Storage and Azure SQL Database encrypt data at rest by default, and many s
 **Best practices**: Use encryption to help mitigate risks related to unauthorized data access.   
 **Detail**: Encrypt your drives before you write sensitive data to them.
 
-Organizations that don’t enforce data encryption are more exposed to data-integrity issues. For example, unauthorized or rogue users might steal data in compromised accounts or gain unauthorized access to data coded in Clear Format. Companies also must prove that they are diligent and using correct security controls to enhance their data security in order to comply with industry regulations.
+Organizations that don’t enforce data encryption are more exposed to data-confidentiality issues. For example, unauthorized or rogue users might steal data in compromised accounts or gain unauthorized access to data coded in Clear Format. Companies also must prove that they are diligent and using correct security controls to enhance their data security in order to comply with industry regulations.
 
 ## Protect data in transit
+
 Protecting data in transit should be an essential part of your data protection strategy. Because data is moving back and forth from many locations, we generally recommend that you always use SSL/TLS protocols to exchange data across different locations. In some circumstances, you might want to isolate the entire communication channel between your on-premises and cloud infrastructures by using a VPN.
 
 For data moving between your on-premises infrastructure and Azure, consider appropriate safeguards such as HTTPS or VPN. When sending encrypted traffic between an Azure virtual network and an on-premises location over the public internet, use [Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/).
@@ -109,11 +106,12 @@ Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and H
 **Detail**: Use [ExpressRoute](../expressroute/expressroute-introduction.md). If you choose to use ExpressRoute, you can also encrypt the data at the application level by using [SSL/TLS](https://support.microsoft.com/kb/257591) or other protocols for added protection.
 
 **Best practice**: Interact with Azure Storage through the Azure portal.   
-**Detail**: All transactions occur via HTTPS. You can also use [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) over HTTPS to interact with [Azure Storage](https://azure.microsoft.com/services/storage/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+**Detail**: All transactions occur via HTTPS. You can also use [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) over HTTPS to interact with [Azure Storage](https://azure.microsoft.com/services/storage/).
 
 Organizations that fail to protect data in transit are more susceptible to [man-in-the-middle attacks](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx), and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
 ## Secure email, documents, and sensitive data
+
 You want to control and secure email, documents, and sensitive data that you share outside your company. [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/) is a cloud-based solution that helps an organization to classify, label, and protect its documents and emails. This can be done automatically by administrators who define rules and conditions, manually by users, or a combination where users get recommendations.
 
 Classification is identifiable at all times, regardless of where the data is stored or with whom it’s shared. The labels include visual markings such as a header, footer, or watermark. Metadata is added to files and email headers in clear text. The clear text ensures that other services, such as solutions to prevent data loss, can identify the classification and take appropriate action.
@@ -128,9 +126,10 @@ We recommend that you:
 - Apply labels that reflect your business requirements. For example: Apply a label named “highly confidential” to all documents and emails that contain top-secret data, to classify and protect this data. Then, only authorized users can access this data, with any restrictions that you specify.
 - Configure [usage logging for Azure RMS](https://docs.microsoft.com/azure/information-protection/log-analyze-usage) so that you can monitor how your organization is using the protection service.
 
-Organizations that are weak on [data classification](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) and file protection might be more susceptible to data leakage or data misuse. With proper file protection, you can analyze data flows to gain insight into your business, detect risky behaviors and take corrective measures, track access to documents, and so on.
+Organizations that are weak on [data classification](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) and file protection might be more susceptible to data leakage or data misuse. With proper file protection, you can analyze data flows to gain insight into your business, detect risky behaviors and take corrective measures, track access to documents, and so on.
 
 ## Next steps
+
 See [Azure security best practices and patterns](security-best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.
 
 The following resources are available to provide more general information about Azure security and related Microsoft services:

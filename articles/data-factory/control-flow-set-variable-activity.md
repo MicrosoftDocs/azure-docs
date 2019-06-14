@@ -3,21 +3,18 @@ title: Set Variable Activity in Azure Data Factory | Microsoft Docs
 description: Learn how to use the Set Variable activity to set the value of an existing variable defined in a Data Factory pipeline
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: 
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
-ms.author: douglasl
+ms.date: 10/10/2018
+author: sharonlo101
+ms.author: shlo
+manager: craigg
 ---
 # Set Variable Activity in Azure Data Factory
 
-Use the Set Variable activity to set the value of an existing variable defined in a Data Factory pipeline.
+Use the Set Variable activity to set the value of an existing variable of type String, Bool, or Array defined in a Data Factory pipeline.
 
 ## Type properties
 

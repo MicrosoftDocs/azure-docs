@@ -1,26 +1,31 @@
 ---
-title: Language detection cognitive search skill (Azure Search) | Microsoft Docs
+title: Language detection cognitive search skill - Azure Search
 description: Evaluates unstructured text, and for each record, returns a language identifier with a score indicating the strength of the analysis in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
 
-
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/02/2019
 ms.author: luisca
+ms.custom: seodec2018
 ---
 #	Language detection cognitive skill
 
-For up to 120 languages, the **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis.
+The **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 
 This capability is especially useful when you need to provide the language of the text as input to other skills (for example, the [Sentiment Analysis skill](cognitive-search-skill-sentiment.md) or [Text Split skill](cognitive-search-skill-textsplit.md)).
 
+Language detection leverages Bing's natural language processing libraries, which exceeds the number of [supported languages and regions](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) listed for Text Analytics. The exact list of languages is not published, but includes all widely-spoken languages, plus variants, dialects, and some regional and cultural languages. If you have content expressed in a less frequently used language, you can [try the Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) to see if it returns a code. The response for languages that cannot be detected is `unknown`.
+
 > [!NOTE]
-> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
+>
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+
 
 ## @odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill
@@ -48,7 +53,7 @@ Parameters are case-sensitive.
 
 ```json
  {
-    "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill ",
+    "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
     "inputs": [
       {
         "name": "text",

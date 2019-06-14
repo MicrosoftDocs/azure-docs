@@ -10,10 +10,9 @@ services: iot-dps
 manager: arjmands
 ms.custom: mvc
 ---
-
 # How to use different attestation mechanisms with Device Provisioning Service Client SDK for C
 
-This article shows you how to use different [attestation mechanisms](concepts-security.md#attestation-mechanism) with the Device Provisioning Service Client SDK for C. You can use either a physical device or a simulator. The provisioning service supports authentication for two types of attestation mechanisms: X**.**509 and Trusted Platform Module (TPM).
+This article shows you how to use different [attestation mechanisms](concepts-security.md#attestation-mechanism) with the Device Provisioning Service Client SDK for C. You can use either a physical device or a simulator. The provisioning service supports authentication for two types of attestation mechanisms: X.509 and Trusted Platform Module (TPM).
 
 ## Prerequisites
 
@@ -93,14 +92,14 @@ Build the SDK prior to creating device enrollment.
 
 ### Windows
 - To build the SDK in Windows, take the following steps to generate project files:
-    - Open a "Developer Command Prompt for VS2015"
-    - Run the following CMake commands from the root of the repository:
-      ```
-      cd azure-iot-sdk-c
-      mkdir cmake
-      cd cmake
-      cmake -G "Visual Studio 14 2015" ..
-      ```
+  - Open a "Developer Command Prompt for VS2015"
+  - Run the following CMake commands from the root of the repository:
+    ```
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    cmake -G "Visual Studio 14 2015" ..
+    ```
     This command builds x86 libraries. To build for x64, modify the cmake generator argument: 
     ```
     cmake .. -G "Visual Studio 14 2015 Win64"
@@ -138,6 +137,7 @@ Build the SDK prior to creating device enrollment.
 If you are using TPM, follow instructions in ["Create and provision a simulated device using IoT Hub Device Provisioning Service"](./quick-create-simulated-device.md) to create a device enrollment entry in your Device Provisioning Service and simulate first boot.
 
 ### X**.**509
+
 1. To enroll a device in the provisioning service, you need note down the Endorsement Key and Registration ID for each device, which are displayed in the Provisioning Tool provided by Client SDK. Run the following command to print out the root CA certificate (for enrollment groups) and the leaf certificate (for individual enrollment):
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
@@ -180,4 +180,3 @@ Once the device has been provisioned with the provisioning service, this API use
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

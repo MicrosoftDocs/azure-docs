@@ -3,8 +3,8 @@ title: Azure Active Directory risk events | Microsoft Docs
 description: This artice gives you a detailed overview of what risk events are.
 services: active-directory
 keywords: azure active directory identity protection, security, risk, risk level, vulnerability, security policy
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -12,15 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: report-monitor
-ms.date: 05/14/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 11/13/2018
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory risk events
 
-The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Discovering compromised identities is no easy task. Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called *risk event*.
+The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Discovering compromised identities is no easy task. Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a **risk event**.
+
+There are two places where you review reported risk events:
+
+ - **Azure AD reporting** - Risk events are part of Azure AD's security reports. For more information, see the [users at risk security report](concept-user-at-risk.md) and the [risky sign-ins security report](concept-risky-sign-ins.md).
+
+ - **Azure AD Identity Protection** - Risk events are also part of the reporting capabilities of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+
+In addition, you can use the [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/graph-get-started.md). 
 
 Currently, Azure Active Directory detects six types of risk events:
 
@@ -31,18 +40,21 @@ Currently, Azure Active Directory detects six types of risk events:
 - [Sign-ins from IP addresses with suspicious activity](#sign-ins-from-ip-addresses-with-suspicious-activity) 
 - [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) 
 
-
 ![Risk event](./media/concept-risk-events/91.png)
 
-The insight you get for a detected risk event is tied to your Azure AD subscription. With the Azure AD Premium P2 edition, you get the most detailed information about all underlying detections. With the Azure AD Premium P1 edition, detections that are not covered by your license appear as the risk event **Sign-in with additional risk detected**.
+> [!IMPORTANT]
+> Sometimes, you may find a risk event without a corresponding sign-in entry in the [sign-ins report](concept-sign-ins.md). This is because Identity Protection evaluates risk for both **interactive** and **non-interactive** sign-ins, whereas the sign-ins report shows only the interactive sign-ins.
 
+The insight you get for a detected risk event is tied to your Azure AD subscription. 
 
-This article gives you a detailed overview of what risk events are and how you can use them to protect your Azure AD identities.
+* With the **Azure AD Premium P2 edition**, you get the most detailed information about all underlying detections. 
+* With the **Azure AD Premium P1 edition**, advanced detections (such as unfamiliar sign-in properties) are not covered by your license, and will appear under the name **Sign-in with additional risk detected**. Additionally, the risk level and risk detail fields are hidden.
 
+While the detection of risk events already represents an important aspect of protecting your identities, you also have the option to either manually address them or implement automated responses by configuring Conditional Access policies. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## Risk event types
 
-The risk event type property is an identifier for the suspicious action a risk event record has been created for.
+The **risk event type** property is an identifier for the suspicious action a risk event record has been created for.
 
 Microsoft's continuous investments into the detection process lead to:
 
@@ -51,19 +63,18 @@ Microsoft's continuous investments into the detection process lead to:
 
 ### Leaked credentials
 
-When cybercriminals compromise valid passwords of legitimate users, the criminals often share those credentials. This is usually done by posting them publicly on the dark web or paste sites or by trading or selling the credentials on the black market. The Microsoft leaked credentials service acquires username / password pairs by monitoring public and dark web sites and by working with:
+When cybercriminals compromise valid passwords of legitimate users, they often share those credentials. This is usually done by posting them publicly on the dark web or paste sites or by trading or selling the credentials on the black market. The Microsoft leaked credentials service acquires username / password pairs by monitoring public and dark web sites and by working with:
 
 - Researchers
 - Law enforcement
 - Security teams at Microsoft
 - Other trusted sources 
 
-When the service acquires username / password pairs, they are checked against AAD users' current valid credentials. When a match is found, it means that a user's password has been compromised, and a *leaked credentials risk event* is created.
+When the service acquires username / password pairs, they are checked against AAD users' current valid credentials. When a match is found, it means that a user's password has been compromised, and a **leaked credentials risk event** is created.
 
 ### Sign-ins from anonymous IP addresses
 
 This risk event type identifies users who have successfully signed in from an IP address that has been identified as an anonymous proxy IP address. These proxies are used by people who want to hide their device’s IP address, and may be used for malicious intent.
-
 
 ### Impossible travel to atypical locations
 
@@ -82,12 +93,11 @@ Identity Protection detects sign-ins from unfamiliar locations also for basic au
 This risk event type identifies sign-ins from devices infected with malware, that are known to actively communicate with a bot server. This is determined by correlating IP addresses of the user’s device against IP addresses that were in contact with a bot server. 
 
 ### Sign-ins from IP addresses with suspicious activity
-This risk event type identifies IP addresses from which a high number of failed sign-in attempts were seen, across multiple user accounts, over a short period of time. This matches traffic patterns of IP addresses used by attackers, and is a strong indicator that accounts are either already or are about to be compromised. This is a machine learning algorithm that ignores obvious "*false-positives*", such as IP addresses that are regularly used by other users in the organization.  The system has an initial learning period of 14 days where it learns the sign-in behavior of a new user and new tenant.
-
+This risk event type identifies IP addresses from which a high number of failed sign-in attempts were seen, across multiple user accounts, over a short period of time. This matches traffic patterns of IP addresses used by attackers, and is a strong indicator that accounts are either already or are about to be compromised. This is a machine learning algorithm that ignores obvious false-positives, such as IP addresses that are regularly used by other users in the organization.  The system has an initial learning period of 14 days where it learns the sign-in behavior of a new user and new tenant.
 
 ## Detection type
 
-The detection type property is an indicator (Real-time or Offline) for the detection timeframe of a risk event. Currently, most risk events are detected offline in a post-processing operation after the risk event has occurred.
+The detection type property is an indicator (**Real-time** or **Offline**) for the detection timeframe of a risk event. Currently, most risk events are detected offline in a post-processing operation after the risk event has occurred.
 
 The following table lists the amount of time it takes for a detection type to show up in a related report:
 
@@ -111,7 +121,7 @@ For the risk event types Azure Active Directory detects, the detection types are
 
 ## Risk level
 
-The risk level property of a risk event is an indicator (High, Medium, or Low) for the severity and the confidence of a risk event. This property helps you to prioritize the actions you must take. 
+The risk level property of a risk event is an indicator (**High**, **Medium**, or **Low**) for the severity and the confidence of a risk event. This property helps you to prioritize the actions you must take. 
 
 The severity of the risk event represents the strength of the signal as a predictor of identity compromise. The confidence is an indicator for the possibility of false positives. 
 
@@ -147,40 +157,19 @@ Unfamiliar locations can provide a strong indication that an attacker is able to
 
 ### Sign-ins from infected devices
 
-This risk event identifies IP addresses, not user devices. If several devices are behind a single IP address, and only some are controlled by a bot network, sign-ins from other devices my trigger this event unnecessarily, which is the reason for classifying this risk event as **Low**.  
+This risk event identifies IP addresses, not user devices. If several devices are behind a single IP address, and only some are controlled by a bot network, sign-ins from other devices my trigger this event unnecessarily, which is why this risk event is classified as **Low**.  
 
-We recommend that you contact the user and scan all the user's devices. It is also possible that a user's personal device is infected, or as mentioned earlier, that someone else was using an infected device from the same IP address as the user. Infected devices are often infected by malware that have not yet been identified by anti-virus software, and may also indicate as bad user habits that may have caused the device to become infected.
+We recommend that you contact the user and scan all the user's devices. It is also possible that a user's personal device is infected or that someone else was using an infected device from the same IP address as the user. Infected devices are often infected by malware that have not yet been identified by anti-virus software, and may also indicate any bad user habits that may have caused the device to become infected.
 
-For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
-
+For more information about how to address malware infections, see the [Malware Protection Center](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/).
 
 ### Sign-ins from IP addresses with suspicious activity
 
 We recommend that you contact the user to verify if they actually signed in from an IP address that was marked as suspicious. The risk level for this event type is “**Medium**” because several devices may be behind the same IP address, while only some may be responsible for the suspicious activity. 
 
 
- 
-## Next steps
+## Next Steps
 
-Risk events are the foundation for protecting your Azure AD's identities. Azure AD can currently detect six risk events: 
-
-
-| Risk Event Type | Risk Level | Detection Type |
-| :-- | --- | --- |
-| [Users with leaked credentials](#leaked-credentials) | High | Offline |
-| [Sign-ins from anonymous IP addresses](#sign-ins-from-anonymous-ip-addresses) | Medium | Real-time |
-| [Impossible travel to atypical locations](#impossible-travel-to-atypical-locations) | Medium | Offline |
-| [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) | Medium | Real-time |
-| [Sign-ins from infected devices](#sign-ins-from-infected-devices) | Low | Offline |
-| [Sign-ins from IP addresses with suspicious activity](#sign-ins-from-ip-addresses-with-suspicious-activity) | Medium | Offline|
-
-Where can you find the risk events that have been detected in your environment?
-There are two places where you review reported risk events:
-
- - **Azure AD reporting** - Risk events are part of Azure AD's security reports. For more information, see the [users at risk security report](concept-user-at-risk.md) and the [risky sign-ins security report](concept-risky-sign-ins.md).
-
- - **Azure AD Identity Protection** - Risk events are also part of [Azure Active Directory Identity Protection's](../active-directory-identityprotection.md) reporting capabilities.
-    
-
-While the detection of risk events already represents an important aspect of protecting your identities, you also have the option to either manually address them or even implement automated responses by configuring conditional access policies. For more information, see of [Azure Active Directory Identity Protection's](../active-directory-identityprotection.md).
- 
+* [Users at risk security report](concept-user-at-risk.md)
+* [Risky sign-ins security report](concept-risky-sign-ins.md)
+* [Azure AD Identity Protection](../active-directory-identityprotection.md).

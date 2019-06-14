@@ -1,7 +1,8 @@
 ---
-title: Azure Batch render manager support
+title: Render manager support - Azure Batch
 description: Using Azure for rendering using Azure Batch render manager integration
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
@@ -28,7 +29,7 @@ Scripts and instructions to enable Azure Batch pool VMs to be used as Qube worke
 
 Royal Render has Azure and Azure Batch integration built-in, allowing you to extend a render farm with Azure-based VMs. For a summary, see [the help files](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
-For an example of a Royal Render customer using the Azure integration, see the [Jellyfish Pictures customer story](https://customers.microsoft.com/en-gb/story/jellyfishpictures).
+For an example of a Royal Render customer using the Azure integration, see the [Jellyfish Pictures customer story](https://customers.microsoft.com/story/jellyfishpictures).
 
 ## Using Azure with Thinkbox Deadline
 

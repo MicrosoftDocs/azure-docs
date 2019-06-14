@@ -2,12 +2,12 @@
 title: Azure File Sync on-premises firewall and proxy settings | Microsoft Docs
 description: Azure File Sync on-premises network configuration
 services: storage
-author: fauhse
+author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 08/08/2018
-ms.author: fauhse
-ms.component: files
+ms.date: 11/26/2018
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # Azure File Sync proxy and firewall settings
@@ -41,10 +41,10 @@ Azure File Sync will work through any means available that allow reach into Azur
 ## Proxy
 Azure File Sync supports app-specific and machine-wide proxy settings.
 
-**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 3.0.12.0 or later and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
+**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 4.0.1.0 or newer and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
 
 PowerShell commands to configure app-specific proxy settings:
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
@@ -54,28 +54,28 @@ To configure machine-wide proxy settings, follow the steps below:
 
 1. Configure proxy settings for .NET applications 
 
-  - Edit these two files:  
-    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
-    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+   - Edit these two files:  
+     C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+     C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-  - Add the <system.net> section in the machine.config files (below the <system.serviceModel> section).  Change 127.0.01:8888 to the IP address and port for the proxy server. 
-  ```
+   - Add the <system.net> section in the machine.config files (below the <system.serviceModel> section).  Change 127.0.01:8888 to the IP address and port for the proxy server. 
+     ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
           <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
         </defaultProxy>
       </system.net>
-  ```
+     ```
 
 2. Set the WinHTTP proxy settings 
 
-  - Run the following command from an elevated command prompt or PowerShell to see the existing proxy setting:   
+   - Run the following command from an elevated command prompt or PowerShell to see the existing proxy setting:   
 
-    netsh winhttp show proxy
+     netsh winhttp show proxy
 
-  - Run the following command from an elevated command prompt or PowerShell to set the proxy setting (change 127.0.01:8888 to the IP address and port for the proxy server):  
+   - Run the following command from an elevated command prompt or PowerShell to set the proxy setting (change 127.0.01:8888 to the IP address and port for the proxy server):  
 
-    netsh winhttp set proxy 127.0.0.1:8888
+     netsh winhttp set proxy 127.0.0.1:8888
 
 3. Restart the Storage Sync Agent service by running the following command from an elevated command prompt or PowerShell: 
 
@@ -88,14 +88,14 @@ As mentioned in a previous section, port 443 needs to be open outbound. Based on
 
 The following table describes the required domains for communication:
 
-| Service | Domain | Usage |
-|---------|----------------|------------------------------|
-| **Azure Resource Manager** | https://management.azure.com | Any user call (like PowerShell) goes to/through this URL, including the initial server registration call. |
-| **Azure Active Directory** | https://login.windows.net | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
-| **Azure Active Directory** | https://graph.windows.net/ | As part of deploying Azure File Sync, a service principal in the subscription's Azure Active Directory will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
-| **Azure Storage** | &ast;.core.windows.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure file share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
-| **Azure File Sync** | &ast;.one.microsoft.com | After initial server registration, the server receives a regional URL for the Azure File Sync service instance in that region. The server can use the URL to communicate directly and efficiently with the instance handling its sync. |
-| **Microsoft PKI** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | Once the Azure File Sync agent is installed, the PKI URL is used to download intermediate certificates required to communicate with the Azure File Sync service and Azure file share. The OCSP URL is used to check the status of a certificate. |
+| Service | Public cloud endpoint | Azure Government endpoint | Usage |
+|---------|----------------|---------------|------------------------------|
+| **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | Any user call (like PowerShell) goes to/through this URL, including the initial server registration call. |
+| **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Azure Resource Manager calls must be made by an authenticated user. To succeed, this URL is used for user authentication. |
+| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | As part of deploying Azure File Sync, a service principal in the subscription's Azure Active Directory will be created. This URL is used for that. This principal is used for delegating a minimal set of rights to the Azure File Sync service. The user performing the initial setup of Azure File Sync must be an authenticated user with subscription owner privileges. |
+| **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | When the server downloads a file, then the server performs that data movement more efficiently when talking directly to the Azure file share in the Storage Account. The server has a SAS key that only allows for targeted file share access. |
+| **Azure File Sync** | &ast;.one.microsoft.com | &ast;.afs.azure.us | After initial server registration, the server receives a regional URL for the Azure File Sync service instance in that region. The server can use the URL to communicate directly and efficiently with the instance handling its sync. |
+| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | Once the Azure File Sync agent is installed, the PKI URL is used to download intermediate certificates required to communicate with the Azure File Sync service and Azure file share. The OCSP URL is used to check the status of a certificate. |
 
 > [!Important]
 > When allowing traffic to &ast;.one.microsoft.com, traffic to more than just the sync service is possible from the server. There are many more Microsoft services available under subdomains.
@@ -104,22 +104,24 @@ If &ast;.one.microsoft.com is too broad, you can limit the server's communicatio
 
 For business continuity and disaster recovery (BCDR) reasons you may have specified your Azure file shares in a globally redundant (GRS) storage account. If that is the case, then your Azure file shares will fail over to the paired region in the event of a lasting regional outage. Azure File Sync uses the same regional pairings as storage. So if you use GRS storage accounts, you need to enable additional URLs to allow your server to talk to the paired region for Azure File Sync. The table below calls this "Paired region". Additionally, there is a traffic manager profile URL that needs to be enabled as well. This will ensure network traffic can be seamlessly re-routed to the paired region in the event of a fail-over and is called "Discovery URL" in the table below.
 
-| Region | Primary endpoint URL | Paired region | Discovery URL |
-|--------|---------------------------------------|--------|---------------------------------------|
-| Australia East | https://kailani-aue.one.microsoft.com | Australia Souteast | https://kailani-aue.one.microsoft.com |
-| Australia Southeast | https://kailani-aus.one.microsoft.com | Australia East | https://tm-kailani-aus.one.microsoft.com |
-| Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |
-| Canada East | https://kailani-cae.one.microsoft.com | Canada Central | https://tm-kailani.cae.one.microsoft.com |
-| Central US | https://kailani-cus.one.microsoft.com | East US 2 | https://tm-kailani-cus.one.microsoft.com |
-| East Asia | https://kailani11.one.microsoft.com | Southeast Asia | https://tm-kailani11.one.microsoft.com |
-| East US | https://kailani1.one.microsoft.com | West US | https://tm-kailani1.one.microsoft.com |
-| East US 2 | https://kailani-ess.one.microsoft.com | Central US | https://tm-kailani-ess.one.microsoft.com |
-| North Europe | https://kailani7.one.microsoft.com | West Europe | https://tm-kailani7.one.microsoft.com |
-| Southeast Asia | https://kailani10.one.microsoft.com | East Asia | https://tm-kailani10.one.microsoft.com |
-| UK South | https://kailani-uks.one.microsoft.com | UK West | https://tm-kailani-uks.one.microsoft.com |
-| UK West | https://kailani-ukw.one.microsoft.com | UK South | https://tm-kailani-ukw.one.microsoft.com |
-| West Europe | https://kailani6.one.microsoft.com | North Europe | https://tm-kailani6.one.microsoft.com |
-| West US | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
+| Cloud  | Region | Primary endpoint URL | Paired region | Discovery URL |
+|--------|--------|----------------------|---------------|---------------|
+| Public |Australia East | https://kailani-aue.one.microsoft.com | Australia Southeast | https://kailani-aue.one.microsoft.com |
+| Public |Australia Southeast | https://kailani-aus.one.microsoft.com | Australia East | https://tm-kailani-aus.one.microsoft.com |
+| Public | Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |
+| Public | Canada East | https://kailani-cae.one.microsoft.com | Canada Central | https://tm-kailani.cae.one.microsoft.com |
+| Public | Central US | https://kailani-cus.one.microsoft.com | East US 2 | https://tm-kailani-cus.one.microsoft.com |
+| Public | East Asia | https://kailani11.one.microsoft.com | Southeast Asia | https://tm-kailani11.one.microsoft.com |
+| Public | East US | https://kailani1.one.microsoft.com | West US | https://tm-kailani1.one.microsoft.com |
+| Public | East US 2 | https://kailani-ess.one.microsoft.com | Central US | https://tm-kailani-ess.one.microsoft.com |
+| Public | North Europe | https://kailani7.one.microsoft.com | West Europe | https://tm-kailani7.one.microsoft.com |
+| Public | Southeast Asia | https://kailani10.one.microsoft.com | East Asia | https://tm-kailani10.one.microsoft.com |
+| Public | UK South | https://kailani-uks.one.microsoft.com | UK West | https://tm-kailani-uks.one.microsoft.com |
+| Public | UK West | https://kailani-ukw.one.microsoft.com | UK South | https://tm-kailani-ukw.one.microsoft.com |
+| Public | West Europe | https://kailani6.one.microsoft.com | North Europe | https://tm-kailani6.one.microsoft.com |
+| Public | West US | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
+| Government | US Gov Arizona | https://usgovarizona01.afs.azure.us | US Gov Texas | https://tm-usgovarizona01.afs.azure.us |
+| Government | US Gov Texas | https://usgovtexas01.afs.azure.us | US Gov Arizona | https://tm-usgovtexas01.afs.azure.us |
 
 - If you use locally redundant (LRS) or zone redundant (ZRS) storage accounts, you only need to enable the URL listed under "Primary endpoint URL".
 
@@ -139,3 +141,4 @@ Setting up domain restricting firewall rules can be a measure to improve securit
 ## Next steps
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
 - [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)

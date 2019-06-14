@@ -1,5 +1,5 @@
 ---
-title: Key phrase extraction cognitive search skill (Azure Search) | Microsoft Docs
+title: Key phrase extraction cognitive search skill - Azure Search
 description: Evaluates unstructured text, and for each record, returns a list of key phrases in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
@@ -9,17 +9,21 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/02/2019
 ms.author: luisca
+ms.custom: seodec2018
 ---
 #	Key Phrase Extraction cognitive skill
 
-The **Key Phrase Extraction** skill evaluates unstructured text, and for each record, returns a list of key phrases.
+The **Key Phrase Extraction** skill evaluates unstructured text, and for each record, returns a list of key phrases. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 
 This capability is useful if you need to quickly identify the main talking points in the record. For example, given input text "The food was delicious and there were wonderful staff", the service returns "food" and "wonderful staff".
 
 > [!NOTE]
-> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
+>
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+
 
 ## @odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
@@ -30,12 +34,14 @@ The maximum size of a record should be 50,000 characters as measured by `String.
 ## Skill parameters
 
 Parameters are case-sensitive.
+
 | Inputs	            | Description |
 |---------------------|-------------|
 | defaultLanguageCode | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
 | maxKeyPhraseCount   | (Optional) The maximum number of key phrases to produce. |
 
 ## Skill inputs
+
 | Inputs	 | Description |
 |--------------------|-------------|
 | text | The text to be analyzed.|

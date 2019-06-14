@@ -5,7 +5,7 @@ services: virtual-machine-scale-sets
 ms.custom: vs-azure
 ms.workload: azure-vs
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: negat
+ms.author: manayar
 ms.custom: H1Hack27Feb2017
 
 ---

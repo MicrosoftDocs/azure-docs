@@ -3,20 +3,21 @@ title: Problem saving administrator credentials while configuring user provision
 description: How to troubleshoot common issues faced when configuring user provisioning to an application already listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: barbkess
-ms.reviewer: asmalser
+ms.author: mimart
+ms.reviewer: arvinh
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application 
@@ -27,7 +28,7 @@ When using the Azure portal to configure [automatic user provisioning](user-prov
 
 If SAML-based single sign-on is also configured for the same application, the most likely cause of the error is that Azure AD's internal, per-application storage limit for certificates and credentials has been exceeded.
 
-Azure AD currently has a maximum storage capacity of one kilobyte for all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD).
+Azure AD currently has a maximum storage capacity of 1024 bytes for all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD).
 
 When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens is stored here, and often consumes over 50% percent of the space.
 

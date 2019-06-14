@@ -33,13 +33,13 @@ When you mount a *gitRepo* volume, you can set three properties to configure the
 
 To mount a gitRepo volume when you deploy container instances with the [Azure CLI](/cli/azure), supply the `--gitrepo-url` and `--gitrepo-mount-path` parameters to the [az container create][az-container-create] command. You can optionally specify the directory within the volume to clone into (`--gitrepo-dir`) and the commit hash of the revision to be cloned (`--gitrepo-revision`).
 
-This example command clones the [aci-helloworld][aci-helloworld] sample application into `/mnt/aci-helloworld` in the container instance:
+This example command clones the Microsoft [aci-helloworld][aci-helloworld] sample application into `/mnt/aci-helloworld` in the container instance:
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name hellogitrepo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --dns-name-label aci-demo \
     --ports 80 \
     --gitrepo-url https://github.com/Azure-Samples/aci-helloworld \
@@ -86,17 +86,17 @@ For example, the Azure CLI `--gitrepo-url` parameter for a private GitHub reposi
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-For an Azure DevOps Git repository, specify any user name (you can use "azuredevopsuser" as in the following example) in combination with a valid PAT:
+For an Azure Repos Git repository, specify any user name (you can use "azurereposuser" as in the following example) in combination with a valid PAT:
 
 ```azurecli
---gitrepo-url https://azuredevopsuser:abcdef1234fdsa4321abcdef@azuredevopsorganizationname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azurereposuser:abcdef1234fdsa4321abcdef@dev.azure.com/your-org/_git/some-private-repository
 ```
 
-For more information about personal access tokens for GitHub and Azure DevOps, see the following:
+For more information about personal access tokens for GitHub and Azure Repos, see the following:
 
 GitHub: [Creating a personal access token for the command line][pat-github]
 
-Azure DevOps: [Create personal access tokens to authenticate access][pat-vsts]
+Azure Repos: [Create personal access tokens to authenticate access][pat-repos]
 
 ## Next steps
 
@@ -109,7 +109,7 @@ Learn how to mount other volume types in Azure Container Instances:
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
 [pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[pat-vsts]: https://docs.microsoft.com/vsts/organizations/accounts/use-personal-access-tokens-to-authenticate
+[pat-repos]: https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

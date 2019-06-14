@@ -4,7 +4,7 @@ description: include file
 author: ghogen
 services: container-service
 ms.service: multiple
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/01/2018
 ms.author: ghogen

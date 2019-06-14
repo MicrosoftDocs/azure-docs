@@ -6,9 +6,9 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 05/22/2019
 ms.author: cherylmc
-Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
+#Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ---
 
 # Virtual WAN partners
@@ -42,7 +42,7 @@ A branch device (a customer on-premises VPN device or SDWAN CPE) typically uses 
 
 ###  <a name="access"></a>Access control
 
-Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information. For more information, see [Create service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). While this functionality is outside of the Azure Virtual WAN offering, we list below the typical steps taken to set up access in Azure after which the relevant details are inputted into the device management dashboard
+Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information. For more information, see [Create service principal](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). While this functionality is outside of the Azure Virtual WAN offering, we list below the typical steps taken to set up access in Azure after which the relevant details are inputted into the device management dashboard
 
 * Create an Azure Active Directory application for your on-premises device controller.
 * Get application ID and authentication key
@@ -195,69 +195,7 @@ The device configuration file contains the settings to use when configuring your
 
 ## <a name="default"></a>Default policies for IPsec connectivity
 
-### Initiator
-
-The following sections list the supported policy combinations when Azure is the initiator for the tunnel.
-
-**Phase-1**
-
-* AES_256, SHA1, DH_GROUP_2
-* AES_256, SHA_256, DH_GROUP_2
-* AES_128, SHA1, DH_GROUP_2
-* AES_128, SHA_256, DH_GROUP_2
-* 3DES, SHA1, DH_GROUP_2
-* 3DES, SHA_256, DH_GROUP_2
-
-**Phase-2**
-
-* GCM_AES_256, GCM_AES_256, PFS_NONE
-* AES_256, SHA_1, PFS_NONE
-* CBC_3DES, SHA_1, PFS_NONE
-* AES_256, SHA_256, PFS_NONE
-* AES_128, SHA_1, PFS_NONE
-* CBC_3DES, SHA_256, PFS_NONE
-
-### Responder
-
-The following sections list the supported policy combinations when Azure is the responder for the tunnel.
-
-**Phase-1**
-
-* AES_256, SHA1, DH_GROUP_2
-* AES_256, SHA_256, DH_GROUP_2
-* AES_128, SHA1, DH_GROUP_2
-* AES_128, SHA_256, DH_GROUP_2
-* 3DES, SHA1, DH_GROUP_2
-* 3DES, SHA_256, DH_GROUP_2
-
-**Phase-2**
-
-* GCM_AES_256, GCM_AES_256, PFS_NONE
-* AES_256, SHA_1, PFS_NONE
-* CBC_3DES, SHA_1, PFS_NONE
-* AES_256, SHA_256, PFS_NONE
-* AES_128, SHA_1, PFS_NONE
-* CBC_3DES, SHA_256, PFS_NONE
-* CBC_DES, SHA_1, PFS_NONE 
-* AES_256, SHA_1, PFS_1
-* AES_256, SHA_1, PFS_2
-* AES_256, SHA_1, PFS_14
-* AES_128, SHA_1, PFS_1
-* AES_128, SHA_1, PFS_2
-* AES_128, SHA_1, PFS_14
-* CBC_3DES, SHA_1, PFS_1
-* CBC_3DES, SHA_1, PFS_2
-* CBC_3DES, SHA_256, PFS_2
-* AES_256, SHA_256, PFS_1
-* AES_256, SHA_256, PFS_2
-* AES_256, SHA_256, PFS_14
-* AES_256, SHA_1, PFS_24
-* AES_256, SHA_256, PFS_24
-* AES_128, SHA_256, PFS_NONE
-* AES_128, SHA_256, PFS_1
-* AES_128, SHA_256, PFS_2
-* AES_128, SHA_256, PFS_14
-* CBC_3DES, SHA_1, PFS_14
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
 ### Does everything need to match between the virtual hub vpngateway policy and my on-premises SDWAN/VPN device or SD-WAN configuration?
 

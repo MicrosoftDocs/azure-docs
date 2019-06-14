@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Event Grid
+  - name: What is Event Grid?
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
@@ -93,10 +93,16 @@
     href: security-authentication.md
   - name: Delivery and retry
     href: delivery-and-retry.md
+  - name: Event filtering
+    href: event-filtering.md
+  - name: Event Domains
+    href: event-domains.md
   - name: Event sources
     href: event-sources.md
   - name: Event handlers
     href: event-handlers.md
+  - name: Geo disaster recovery
+    href: geo-disaster-recovery.md
 - name: How-to guides
   items:
   - name: Post to custom topic
@@ -105,6 +111,8 @@
     href: receive-events.md
   - name: Dead letter and retry
     href: manage-event-delivery.md
+  - name: Filter events
+    href: how-to-filter-events.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions
@@ -115,14 +123,26 @@
     href: input-mappings.md
   - name: Use CloudEvents schema
     href: cloudevents-schema.md
+  - name: Manage topics with Event Domains
+    href: how-to-event-domains.md
+  - name: Implement client-side failover
+    href: custom-disaster-recovery.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/eventgrid
   - name: PowerShell
-    href: /powershell/module/azurerm.eventgrid
+    href: /powershell/module/az.eventgrid
   - name: REST
     href: /rest/api/eventgrid
+  - name: .NET
+    href: /dotnet/api/overview/azure/eventgrid
+  - name: Java
+    href: /java/api/overview/azure/eventgrid
+  - name: Python
+    href: /python/api/overview/azure/event-grid
+  - name: Node.js
+    href: /javascript/api/overview/azure/eventgrid
   - name: Subscription schema
     href: subscription-creation-schema.md
   - name: Event schema
@@ -144,6 +164,10 @@
       href: event-schema-resource-groups.md
     - name: Service Bus
       href: event-schema-service-bus.md
+    - name: Azure Maps
+      href: event-schema-azure-maps.md
+    - name: App Configuration
+      href: event-schema-app-configuration.md
   - name: Template resources
     items:
     - name: Event subscriptions
@@ -163,4 +187,4 @@
   - name: Pricing Calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-eventgrid
+    href: https://stackoverflow.com/questions/tagged/azure-eventgrid

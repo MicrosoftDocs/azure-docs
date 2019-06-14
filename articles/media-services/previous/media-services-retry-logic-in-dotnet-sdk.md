@@ -2,7 +2,7 @@
 title: Retry logic in the Media Services SDK for .NET | Microsoft Docs
 description: The topic gives an overview of retry logic in the Media Services SDK for .NET.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Retry logic in the Media Services SDK for .NET
+# Retry logic in the Media Services SDK for .NET  
+
 When working with Microsoft Azure services, transient faults can occur. If a transient fault occurs, in most cases, after a few retries the operation succeeds. The Media Services SDK for .NET implements the retry logic to handle transient faults associated with exceptions and errors that are caused by web requests, executing queries, saving changes, and storage operations.  By default, the Media Services SDK for .NET executes four retries before re-throwing the exception to your application. The code in your application must then handle this exception properly.  
 
  The following is a brief guideline of Web Request, Storage, Query, and SaveChanges policies:  
@@ -45,7 +46,7 @@ The following table describes exceptions that the Media Services SDK for .NET ha
 | IOException |No |Yes |No |No |
 
 ### <a name="WebExceptionStatus"></a> WebException status codes
-The following table shows for which WebException error codes the retry logic is implemented. The [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) enumeration defines the status codes.  
+The following table shows for which WebException error codes the retry logic is implemented. The [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) enumeration defines the status codes.  
 
 | Status | Web Request | Storage | Query | SaveChanges |
 | --- | --- | --- | --- | --- |

@@ -11,7 +11,7 @@ ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
@@ -85,7 +85,7 @@ Before you begin this tutorial, you must have the following prerequisites:
 3. Download and review the Hive query file (**HQL**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). This query transforms input data to produce output data. 
 4. Download and review the sample input file (**input.log**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Create a blob container named **adfgetstarted** in your Azure Blob Storage. 
-6. Upload **partitionweblogs.hql** file to the **script** folder in the **adfgetstarted** container. Use tools such as [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
+6. Upload **partitionweblogs.hql** file to the **script** folder in the **adfgetstarted** container. Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/). 
 7. Upload **input.log** file to the **inputdata** folder in the **adfgetstarted** container. 
 
 After you complete the prerequisites, select one of the following tools/SDKs to do the tutorial: 

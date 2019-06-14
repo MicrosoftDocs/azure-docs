@@ -121,20 +121,22 @@ when you leave the **Keys** page.
 
 **Create the application identity for your logic app in PowerShell**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 You can perform this task through Azure Resource Manager with PowerShell. 
 In PowerShell, run these commands:
 
-1. `Switch-AzureMode AzureResourceManager`
+1. `Add-AzAccount`
 
-2. `Add-AzureAccount`
+2. `$SecurePassword = Read-Host -AsSecureString` (Enter a password and hit enter)
 
-3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password "identity-password"`
+3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Make sure to copy the **Tenant ID** (GUID for your Azure AD tenant), 
 the **Application ID**, and the password that you used.
 
 For more information, learn how to 
-[create a service principal with PowerShell to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+[create a service principal with PowerShell to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 #### Part 2: Create an Azure AD application identity for your web app or API app
 
@@ -331,7 +333,7 @@ Check the caller's identity, and reject requests that don't match.
 
 <!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
-[authenticate with on-premises Active Directory in your Azure app](../app-service/app-service-authentication-overview.md).
+[authenticate with on-premises Active Directory in your Azure app](../app-service/overview-authentication-authorization.md).
 
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps. -->

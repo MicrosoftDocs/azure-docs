@@ -1,3 +1,10 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+---
 1. Copy the installation to the server, and then open the installer.
 2. On **Installation Option**, select **Install mobility service**.
 

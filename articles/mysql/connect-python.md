@@ -1,11 +1,8 @@
 ---
 title: 'Connect to Azure Database for MySQL from Python'
 description: This quickstart provides several Python code samples you can use to connect and query data from Azure Database for MySQL.
-services: mysql
-author: jasonwhowell
-ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
@@ -21,7 +18,11 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## Install Python and the MySQL connector
-Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your own machine. Depending on your platform, follow the steps in the appropriate section:
+Install [Python](https://www.python.org/downloads/) and the [MySQL connector for Python](https://dev.mysql.com/downloads/connector/python/) on your own machine. Depending on your platform, follow the steps in the appropriate section below. 
+
+> [!NOTE]
+> This quickstart uses a raw SQL query approach to connect to MySQL to run queries. If you are using a web framework, use the recommended connector for those frameworks. For example, [mysqlclient](https://pypi.org/project/mysqlclient/) is suggested for use with Django.
+>
 
 ### Windows
 1. Download and Install Python 2.7 from [python.org](https://www.python.org/downloads/windows/). 
@@ -50,7 +51,7 @@ Install [Python](https://www.python.org/downloads/) and the [MySQL connector for
 
    ```bash
    pip install mysql-connector-python-rf
-   ```
+   ``` 
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
@@ -60,7 +61,6 @@ Get the connection information needed to connect to the Azure Database for MySQL
 3. Click the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
  ![Azure Database for MySQL server name](./media/connect-python/1_server-overview-name-login.png)
-   
 
 ## Run Python code
 - Paste the code into a text file, and then save the file into a project folder with file extension .py (such as C:\pythonmysql\createtable.py or /home/username/pythonmysql/createtable.py).

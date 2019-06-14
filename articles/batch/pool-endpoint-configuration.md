@@ -2,13 +2,13 @@
 title: Configure node endpoints in Azure Batch pool | Microsoft Docs
 description: How to configure or disable access to SSH or RDP ports on compute nodes in an Azure Batch pool.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # Configure or disable remote access to compute nodes in an Azure Batch pool
@@ -23,7 +23,7 @@ The endpoint configuration consists of one or more [network address translation 
 Each NAT pool configuration includes one or more [network security group (NSG) rules](/rest/api/batchservice/pool/add#networksecuritygrouprule). Each NSG rule allows or denies certain network traffic to the endpoint. You can choose to allow or deny all traffic, traffic identified by a [service tag](../virtual-network/security-overview.md#service-tags) (such as "Internet"), or traffic from specific IP addresses or subnets.
 
 ### Considerations
-* The pool endpoint configuration is part of the pool's [network configuration](/rest/api/batchservice/pool/add#NetworkConfiguration). The network configuration can optionally include settings to join the pool to an [Azure virtual network](batch-virtual-network.md). If you set up the pool in a virtual network, you can create NSG rules that use address settings in the virtual network.
+* The pool endpoint configuration is part of the pool's [network configuration](/rest/api/batchservice/pool/add#networkconfiguration). The network configuration can optionally include settings to join the pool to an [Azure virtual network](batch-virtual-network.md). If you set up the pool in a virtual network, you can create NSG rules that use address settings in the virtual network.
 * You can configure multiple NSG rules when you configure a NAT pool. The rules are checked in the order of priority. Once a rule applies, no more rules are tested for matching.
 
 
