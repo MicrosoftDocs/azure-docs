@@ -10,13 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
+#Customer intent: As a developer, I want to understand how Storm on HDInsight is different from Storm on other platforms.
 ---
 
 # What is Apache Storm on Azure HDInsight?
 
 [Apache Storm](https://storm.apache.org/) is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with [Apache Hadoop](https://hadoop.apache.org/). Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## Why use Apache Storm on HDInsight?
 
@@ -34,8 +33,7 @@ Storm on HDInsight provides the following features:
 
 * **Dynamic scaling**: You can add or remove worker nodes with no impact to running Storm topologies.
 
-    > [!NOTE]  
-    > You must deactivate and reactivate running topologies to take advantage of new nodes added through scaling operations.
+    * You must deactivate and reactivate running topologies to take advantage of new nodes added through scaling operations.
 
 * **Create streaming pipelines using multiple Azure services**: Storm on HDInsight integrates with other Azure services such as Event Hubs, SQL Database, Azure Storage, and Azure Data Lake Storage.
 
@@ -145,7 +143,9 @@ How data streams are joined varies between applications. For example, you can jo
 
 In the following Java example, fieldsGrouping is used to route tuples that originate from components "1", "2", and "3" to the MyJoiner bolt:
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```java
+builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```
 
 ### Batches
 
