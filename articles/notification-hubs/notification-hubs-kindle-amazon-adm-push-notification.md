@@ -56,7 +56,7 @@ In this tutorial, you create/update code to do the following tasks:
         ![New App Submission page](./media/notification-hubs-kindle-get-started/new-app-submission-page.png) 
 2.  At the top, switch to the **App Services** tab.
 
-    ![App Sevices tab](./media/notification-hubs-kindle-get-started/app-services-tab.png)
+    ![App Services tab](./media/notification-hubs-kindle-get-started/app-services-tab.png)
 1. On the **App Services** tab, scroll down, and select **View Mobile Ads** in the **Mobile Ads** section. You see the **Mobile Ads** page in a new tab in the web browser. 
 
     ![Mobile Ads section - View Mobile Ads link](./media/notification-hubs-kindle-get-started/view-mobile-ads-link.png)
