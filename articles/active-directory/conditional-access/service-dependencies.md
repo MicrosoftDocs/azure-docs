@@ -1,8 +1,8 @@
 ---
-title: What are service dependencies in Azure Active Directory conditional access? | Microsoft Docs
-description: Learn how conditions are used in Azure Active Directory conditional access to trigger a policy.
+title: What are service dependencies in Azure Active Directory Conditional Access? | Microsoft Docs
+description: Learn how conditions are used in Azure Active Directory Conditional Access to trigger a policy.
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
+keywords: Conditional Access to apps, Conditional Access with Azure AD, secure access to company resources, Conditional Access policies
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -19,15 +19,15 @@ ms.date: 03/18/2019
 ms.author: joflore
 ms.reviewer: calebb
 
-#Customer intent: As an IT admin, I need to understand what service dependencies are in conditional access so that I can assess how policies are applied
+#Customer intent: As an IT admin, I need to understand what service dependencies are in Conditional Access so that I can assess how policies are applied
 
 ms.collection: M365-identity-device-management
 ---
 
-# What are service dependencies in Azure Active Directory conditional access? 
+# What are service dependencies in Azure Active Directory Conditional Access? 
 
 
-With conditional access policies, you can specify access requirements to websites and services. For example, your access requirements can include requiring multi-factor authentication (MFA) or [managed devices](require-managed-devices.md). 
+With Conditional Access policies, you can specify access requirements to websites and services. For example, your access requirements can include requiring multi-factor authentication (MFA) or [managed devices](require-managed-devices.md). 
 
 
 When you access a site or service directly, the impact of a related policy is typically easy to assess. For example, if you have a policy that requires MFA for SharePoint Online configured, MFA is enforced for each sign-in to the SharePoint web portal. However, it is not always straight-forward to assess the impact of a policy because there are cloud apps with dependencies to other cloud apps. For example, Microsoft Teams leverages SharePoint online. So, when you access Microsoft Teams in our current scenario, you are also subject to the SharePoint MFA policy.   
@@ -78,4 +78,4 @@ The below table lists additional service dependencies, where the client apps mus
 
 ## Next steps
 
-To learn how to implement conditional access in your environment, see [Plan your conditional access deployment in Azure Active Directory](plan-conditional-access.md).
+To learn how to implement Conditional Access in your environment, see [Plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md).
