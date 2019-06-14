@@ -56,7 +56,19 @@ ds = ws.get_default_datastore()
 
 ### Register your own datastore with the workspace
 
-If you have existing Azure Storage, you can register it as a datastore on your workspace.   All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. 
+If you have existing Azure Storage, you can register it as a datastore on your workspace. 
+
+<a name="store"></a>
+
+####  Storage guidance
+
+We recommend blob storage and blob datastores. Both standard and premium storage are available for blobs. If cost isn't an issue, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, if you train against a large data set.
+
+>[!NOTE]
+> There may be scenarios where you may want to use AzurePostgreSqlDatastore or AzureSqlDatabaseDatastore. For example, if you  have relational data in a database that you want to train against.
+
+#### Register your datastore
+All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. 
 
 The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
 
@@ -191,7 +203,7 @@ The following matrix displays the available data access functionalities for the 
 | Azure DataLake Analytics       |N/A                                           |N/A                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)             |N/A                                                                         |
 
 > [!NOTE]
-> There may be scenarios in which highly iterative, large data processes run faster using [`as_download()`] instead of [`as_mount()`]; this can be validated experimentally.
+> There may be scenarios in which highly iterative, large data processes run faster using `as_download()` instead of `as_mount()`; this can be validated experimentally.
 
 ### Examples 
 
