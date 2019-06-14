@@ -481,6 +481,8 @@
         href: github-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: GlobalOne
+        href: globalone-tutorial.md
       - name: GoodPractice Toolkit
         href: goodpractice-toolkit-tutorial.md
       - name: GoToMeeting
