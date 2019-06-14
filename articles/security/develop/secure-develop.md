@@ -31,8 +31,6 @@ Assume that your application will be used in ways that you didn't intend
 it to be used. This helps you guard against accidental or intentional
 misuse of your application.
 
-![](./media/secure-develop/05-implementation.png)
-
 ### Perform code reviews
 
 Before you check in code, conduct [code reviews](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) to increase overall code quality and reduce the risk of creating bugs. You can use [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) to manage the code review process.
@@ -176,8 +174,6 @@ examining the browser's cache or by simply pressing the browser's
 The verification phase involves a comprehensive effort to ensure that
 the code meets the security and privacy tenets that were established in
 the preceding phases.
-
-![](./media/secure-develop/06-verification.png)
 
 ### Find and fix vulnerabilities in your application dependencies
 

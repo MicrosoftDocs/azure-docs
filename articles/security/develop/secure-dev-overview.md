@@ -1,6 +1,6 @@
 ---
 title: Secure development best practices on Microsoft Azure
-description: description goes here
+description: Best practices to help you develop more secure code and deploy a more secure application in the cloud.
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
@@ -30,7 +30,7 @@ it’s not a simple thing to get right. Fortunately, Azure provides many
 services that can help you secure your application in the cloud. These articles address activities and Azure services you can implement at each
 stage of your software development lifecycle to help you develop more secure code and deploy a more secure application in the cloud.
 
-## Security Development Lifecycle
+## Security development lifecycle
 
 Following best practices for secure software development requires
 integrating security into each phase of the software development
@@ -67,7 +67,7 @@ The SDL phases are:
   - Release
   - Response
 
-![](./media/secure-dev-overview/01-sdl-phase.png)
+![Security Development Lifecycle](./media/secure-dev-overview/01-sdl-phase.png)
 
 In these articles we group the SDL phases into design, develop, and deploy.
 

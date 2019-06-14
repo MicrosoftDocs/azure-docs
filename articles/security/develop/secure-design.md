@@ -32,8 +32,6 @@ reduce the number and severity of exploitable vulnerabilities in your
 application. You'll be more prepared to react appropriately to the
 ever-changing threat landscape.
 
-![](./media/secure-design/02-training.png)
-
 Use the following resources during the training stage to familiarize
 yourself with the Azure services that are available to developers and
 with security best practices on Azure:
@@ -90,8 +88,6 @@ with security best practices on Azure:
 ## Requirements
 The requirements definition phase is a crucial step in defining what your application is and what it will do when it's released. The requirements phase is also a time to think about the security controls that you will build into your application. During this phase, you also begin the steps that you will take throughout the SDL to ensure that you release and deploy a secure application.
 
-![](./media/secure-design/03-requirement.png)
-
 ### Consider security and privacy issues
 This phase is the best time to consider foundational security and
 privacy issues. Defining acceptable levels of security and privacy at
@@ -108,7 +104,7 @@ safe.
 ### Ask security questions
 Ask security questions like:
 
-  - Does my application contain sensitive data or [personally identifiable information (PII)](https://en.wikipedia.org/wiki/Personally_identifiable_information?WT.mc_id=shehackspurple-blog-tajanca)?
+  - Does my application contain sensitive data?
 
   - Does my application collect or store data that requires me to adhere
     to industry standards and compliance programs like the [Federal Financial Institution Examination Council (FFIEC)](https://docs.microsoft.com/azure/security/blueprints/ffiec-analytics-overview) or the [Payment Card Industry Data Security Standards (PCI DSS)](https://docs.microsoft.com/azure/security/blueprints/pcidss-analytics-overview)?
@@ -181,8 +177,6 @@ The design phase is critical for establishing best practices for design
 and functional specifications. It also is critical for performing risk
 analysis that helps mitigate security and privacy issues throughout a
 project.
-
-![](./media/secure-design/04-design.png)
 
 When you have security requirements in place and use secure design
 concepts, you can avoid or minimize opportunities for a security flaw. A
@@ -306,11 +300,11 @@ table lists the STRIDE threats and gives some example mitigations that
 use features provided by Azure. These mitigations won’t work in every
 situation.
 
-| **Threat**             | **Security property** | **Potential Azure platform mitigation** |
+| Threat | Security property | Potential Azure platform mitigation |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Spoofing               | Authentication        | [Require HTTPS connections](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
-| Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring).|
+| Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
 | Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) and [in transit](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
 | Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), combined with application design best practices, provides defense against DDoS attacks.|
 | Elevation of Privilege | Authorization         | Use Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|

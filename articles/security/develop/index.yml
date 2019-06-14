@@ -30,7 +30,7 @@ sections:
         image:
           src: /media/common/i_get-started.svg
         title: Get started
-      - href: https://docs.microsoft.com/en-us/learn/modules/top-5-security-items-to-consider
+      - href: https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider
         html: <p>Top five security items for web apps</p>
         image:
           src: /media/common/i_learn-about.svg
