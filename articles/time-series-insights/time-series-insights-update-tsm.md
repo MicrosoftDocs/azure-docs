@@ -41,10 +41,10 @@ Eventually, these limitations revealed the importance of smart data aggregation 
 * Data visualization doesn't necessarily associate or combine data into a convenient unified object. For example, showing voltage sensors along with temperature sensors.
 * Managing multi-dimensional data-visualization for several entities along with comparison, zooming, and time range functionalities can be difficult to accomplish.
 
-**Time Series Models provide a convenient solution** for many of the scenarios encountered in the fictitious scenario above.
+**Time Series Models provide a convenient solution** for many of the scenarios encountered in the fictitious example above:
 
 * Time Series Models play a vital role in queries and navigation because they contextualize data by allowing comparisons to be drawn across time ranges and between sensor and device kinds.
-* Data is further contextualized because data persisted in Time Series Model preserve time-series query computations and use the formulas that are stored in them.
+* Data is further contextualized because data persisted in a Time Series Model preserves time-series query computations and use the formulas that are stored in them.
 * Time Series Models organize and aggregate data for improved visualization and management capabilities.
 
 ### Key capabilities
@@ -238,7 +238,7 @@ Time Series Model types are defined by an **id**, **name**, **description**, and
 | id | The UUID for the type |
 | name | A string used to provide a name for the type |
 | description | A string description for the type |
-| variables | Specify variables associated with the type (see below for further information) |
+| variables | Specify variables associated with the type |
 
 A JSON type response object will take the following form:
 
