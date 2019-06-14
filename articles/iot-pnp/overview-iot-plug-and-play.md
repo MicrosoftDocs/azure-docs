@@ -50,7 +50,7 @@ IoT Plug and Play will be useful for two types of developers:
 
 ## Use Plug and Play devices
 
-As a _solution developer_, you can develop a cloud-hosted IoT solution that uses IoT Plug and Play devices. You can use either of the following Azure services:
+As a solution developer, you can develop a cloud-hosted IoT solution that uses IoT Plug and Play devices. You can use either of the following Azure services:
 
 - [IoT Central](../iot-central/overview-iot-central.md) - a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds.
 - [IoT Hub](../iot-hub/about-iot-hub.md) - a managed cloud service, that acts as a message hub for secure, bi-directional communication between your IoT application and your devices.
@@ -61,7 +61,7 @@ When you connect an IoT Plug and Play device, you can view its device capability
 
 ## Develop an IoT device application
 
-As a _device developer_, you can develop an IoT hardware product that supports IoT Plug and Play. The process involves two key steps:
+As a device developer, you can develop an IoT hardware product that supports IoT Plug and Play. The process involves two key steps:
 
 1. Define the device capability model and interfaces. You author a set of JSON files that declare your device's capabilities using the DTDL. A device capability model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different device capability models.
 
@@ -71,7 +71,7 @@ The IoT Device Workbench for VS Code provides many features to assist you, howev
 
 ## Certify a Plug and Play device
 
-As a _device developer_, you can submit IoT hardware products for certification. You can publish a certified device in the Certified for IoT device catalog. The certification process steps include:
+As a device developer, you can submit IoT hardware products for certification. You can publish a certified device in the Certified for IoT device catalog. The certification process steps include:
 
 - Join the [Microsoft Partner Network](https://partner.microsoft.com).
 - Onboard to the Certified for Azure IoT portal.
