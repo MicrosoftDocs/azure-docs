@@ -153,12 +153,13 @@ Other than using more than 25 policies for appropriate secure user management, t
 you protect service interfaces from unauthorized access by assigning an [Azure Policy](../../../policy/overview.md)
 definition that monitors unrestricted storage accounts. Storage accounts with unrestricted access
 can allow unintended access to information contained within the information system. This blueprint
-also assigns two other policies: one that monitor whitelist activity and one that monitors network
+also assigns three other policies: one that monitor whitelist activity and two that monitor network
 security groups with permissive rules.
 
 - Audit unrestricted network access to storage accounts
 - [Preview]: Monitor possible app Whitelisting in Azure Security Center
-- [Preview]: Monitor permissive network access in Azure Security Center
+- Monitor permissive network access of Internet facing VMs in Azure Security Center
+- Monitor permissive network access of VMs running web-apps in Azure Security Center
 
 ## 12 Secure Service Administration
 
