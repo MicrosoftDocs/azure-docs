@@ -37,7 +37,7 @@ This sample monitors a location's current weather conditions and alerts a user b
 
 This sample involves using the Weather Underground API to check current weather conditions for a location.
 
-The first thing you need is a Weather Underground account. You can create one for free at [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Once you have an account, you will need to acquire an API key. You can do so by visiting [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api), then selecting Key Settings. The Stratus Developer plan is free and sufficient to run this sample.
+The first thing you need is a Weather Underground account. You can create one for free at [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Once you have an account, you will need to acquire an API key. You can do so by visiting [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), then selecting Key Settings. The Stratus Developer plan is free and sufficient to run this sample.
 
 Once you have an API key, add the following **app setting** to your function app.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
@@ -121,6 +121,9 @@ This OptionalClaims object causes the ID token returned to the client to include
 ## Configuring optional claims
 
 You can configure optional claims for your application by modifying the application manifest (See example below). For more info, see the [Understanding the Azure AD application manifest article](reference-app-manifest.md).
+
+> [!IMPORTANT]
+> Access tokens are **always** generated using the manifest of the resource, not the client.  So in the request `...scope=https://graph.microsoft.com/user.read...` the resource is Graph.  Thus, the access token is created using the Graph manifest, not the client's manifest.  Changing the manifest for your application will never cause tokens for Graph to look different.  In order to validate that your `accessToken` changes are in effect, request a token for your application, not another app.  
 
 **Sample schema:**
 

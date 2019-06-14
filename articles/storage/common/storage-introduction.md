@@ -81,7 +81,9 @@ For more information about Table storage, see [Overview of Azure Table storage](
 
 ## Disk storage
 
-Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
+An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk ‘managed’ because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
+
+For more information about managed disks, see [Introduction to Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## Types of storage accounts
 

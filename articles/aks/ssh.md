@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: iainfou
 
 #Customer intent: As a cluster operator, I want to learn how to use SSH to connect to VMs in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -31,18 +31,25 @@ By default, SSH keys are obtained, or generated, then added to nodes when you cr
 > [!NOTE]
 > SSH keys can currently only be added to Linux nodes using the Azure CLI. If you use Windows Server nodes, use the SSH keys provided when you created the AKS cluster and skip to the step on [how to get the AKS node address](#get-the-aks-node-address). Or, [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp].
 
+The steps to get the private IP address of the AKS nodes is different based on the type of AKS cluster you run:
+
+* For most AKS clusters, follow the steps to [get the IP address for regular AKS clusters](#add-ssh-keys-to-regular-aks-clusters).
+* If you use any preview features in AKS that use virtual machine scale sets, such as multiple node pools or Windows Server container support, [follow the steps for virtual machine scale set-based AKS clusters](#add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters).
+
+### Add SSH keys to regular AKS clusters
+
 To add your SSH key to a Linux AKS node, complete the following steps:
 
-1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name:
+1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*:
 
     ```azurecli-interactive
-    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
 1. List the VMs in the AKS cluster resource group using the [az vm list][az-vm-list] command. These VMs are your AKS nodes:
 
     ```azurecli-interactive
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+    az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
     ```
 
     The following example output shows the AKS nodes:
@@ -57,25 +64,61 @@ To add your SSH key to a Linux AKS node, complete the following steps:
 
     ```azurecli-interactive
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+      --resource-group $CLUSTER_RESOURCE_GROUP \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
+    ```
+
+### Add SSH keys to virtual machine scale set-based AKS clusters
+
+To add your SSH key to a Linux AKS node that's part of a virtual machine scale set, complete the following steps:
+
+1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name. The cluster name is assigned to the variable named *CLUSTER_RESOURCE_GROUP*:
+
+    ```azurecli-interactive
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+    ```
+
+1. Next, get the virtual machine scale set for your AKS cluster using the [az vmss list][az-vmss-list] command. The virtual machine scale set name is assigned to the variable named *SCALE_SET_NAME*:
+
+    ```azurecli-interactive
+    SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+    ```
+
+1. To add your SSH keys to the nodes in a virtual machine scale set, use the [az vmss extension set][az-vmss-extension-set] command. The cluster resource group and virtual machine scale set name are provided from the previous commands. By default, the username for the AKS nodes is *azureuser*. If needed, update the location of your own SSH public key location, such as *~/.ssh/id_rsa.pub*:
+
+    ```azurecli-interactive
+    az vmss extension set  \
+        --resource-group $CLUSTER_RESOURCE_GROUP \
+        --vmss-name $SCALE_SET_NAME \
+        --name VMAccessForLinux \
+        --publisher Microsoft.OSTCExtensions \
+        --version 1.4 \
+        --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
+    ```
+
+1. Apply the SSH key to the nodes using the [az vmss update-instances][az-vmss-update-instances] command:
+
+    ```azurecli-interactive
+    az vmss update-instances --instance-ids '*' \
+        --resource-group $CLUSTER_RESOURCE_GROUP \
+        --name $SCALE_SET_NAME
     ```
 
 ## Get the AKS node address
 
 The AKS nodes are not publicly exposed to the internet. To SSH to the AKS nodes, you use the private IP address. In the next step, you create a helper pod in your AKS cluster that lets you SSH to this private IP address of the node. The steps to get the private IP address of the AKS nodes is different based on the type of AKS cluster you run:
 
-* For most AKS clusters, follow the steps to [get the IP address for regular AKS clusters](#regular-aks-clusters).
-* If you use any preview features in AKS that use virtual machine scale sets, such as multiple node pools or Windows Server container support, [follow the steps for virtual machine scale set-based AKS clusters](#virtual-machine-scale-set-based-aks-clusters).
+* For most AKS clusters, follow the steps to [get the IP address for regular AKS clusters](#ssh-to-regular-aks-clusters).
+* If you use any preview features in AKS that use virtual machine scale sets, such as multiple node pools or Windows Server container support, [follow the steps for virtual machine scale set-based AKS clusters](#ssh-to-virtual-machine-scale-set-based-aks-clusters).
 
-### Regular AKS clusters
+### SSH to regular AKS clusters
 
 View the private IP address of an AKS cluster node using the [az vm list-ip-addresses][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] step:
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
 The following example output shows the private IP addresses of the AKS nodes:
@@ -86,7 +129,7 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
-### Virtual machine scale set-based AKS clusters
+### SSH to virtual machine scale set-based AKS clusters
 
 List the internal IP address of the nodes using the [kubectl get command][kubectl-get]:
 
@@ -197,3 +240,6 @@ If you need additional troubleshooting data, you can [view the kubelet logs][vie
 [aks-windows-rdp]: rdp.md
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
+[az-vmss-list]: /cli/azure/vmss#az-vmss-list
+[az-vmss-extension-set]: /cli/azure/vmss/extension#az-vmss-extension-set
+[az-vmss-update-instances]: /cli/azure/vmss#az-vmss-update-instances

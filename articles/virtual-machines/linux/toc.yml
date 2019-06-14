@@ -85,9 +85,10 @@
       items:
       - name: Optimize performance
         href: storage-performance.md
-    - name: GPU optimized
-      href: sizes-gpu.md
+    - name: Accelerated compute
       items:
+      - name: GPU optimized
+        href: sizes-gpu.md
       - name: Setup GPU drivers
         href: n-series-driver-setup.md
     - name: High performance compute
@@ -218,11 +219,11 @@
       displayName: AAD
       items:
         - name: Red Hat Enterprise Linux
-          href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+          href: ../../active-directory-domain-services/join-rhel-linux-vm.md
         - name: CentOS
-          href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+          href: ../../active-directory-domain-services/join-centos-linux-vm.md
         - name: Ubuntu
-          href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
+          href: ../../active-directory-domain-services/join-ubuntu-linux-vm.md
     - name: Sign in with Azure Active Directory credentials
       href: login-using-aad.md
     - name: Updates and patches

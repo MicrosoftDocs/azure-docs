@@ -4,7 +4,7 @@ description: Learn about the different ways to log and monitor data stored in Az
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 

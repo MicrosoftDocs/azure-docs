@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 05/31/2019
 ms.author: tyao;kumud
 
 ---
@@ -16,11 +16,6 @@ ms.author: tyao;kumud
 # Azure web application firewall monitoring and logging 
 
 Azure web application firewall (WAF) monitoring and logging are provided through logging and integration with Azure Monitor and Azure Monitor logs.
-
-> [!IMPORTANT]
-> The WAF monitoring and logging feature for Azure Front Door is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Azure Monitor
 

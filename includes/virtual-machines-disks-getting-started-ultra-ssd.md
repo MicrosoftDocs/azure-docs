@@ -32,7 +32,8 @@ Preserve the **Zones** value, it represents your availability zone and you will 
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-If there was no response from the command, then your registration to the feature is either still pending, or not approved yet.
+> [!NOTE]
+> If there was no response from the command, then your registration to the feature is either still pending, or not approved yet.
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to get your first VMs deployed with ultra SSD.
 

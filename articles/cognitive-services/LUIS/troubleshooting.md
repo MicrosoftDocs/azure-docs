@@ -16,6 +16,10 @@ ms.author: diberry
 
 This article contains answers to frequently asked questions about Language Understanding (LUIS).
 
+## What's new
+
+[Learn more](whats-new.md) about what's new in Language Understanding.
+
 <a name="luis-authoring"></a>
 
 ## Authoring
@@ -291,6 +295,10 @@ The following features were released at the Build 2019 Conference:
 * [Improved prebuilt domains](luis-reference-prebuilt-domains.md) 
 * [Dynamic list entities](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [External entities](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+
+Videos:
+
+* [How to use Azure Conversational AI to scale your business for the next generation](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## Next steps
 

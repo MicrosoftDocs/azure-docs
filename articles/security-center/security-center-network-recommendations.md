@@ -127,16 +127,14 @@ The third level displays virtual machines, which is similar to what is described
 
 |Resource type|Secure score|Recommendation|Description|
 |----|----|----|----|
-|Machine|40|Enable Network Security Groups on virtual machines|Enable Network Security Groups to control network access of your virtual machines.|
-|Subnet|35|Enable network security groups on subnets |Enable network  security groups to control network access of resources deployed in your subnets.|
-|Machine|30|Apply a Just-In-Time network access control|Apply just in time VM access control to permanently lock down access to selected ports, and enable authorized users to open them via the same mechanism and for a limited amount of time.|
+|Machine|40|Network Security Groups for virtual machines should be enabled|Enable Network Security Groups to control network access of your virtual machines.|
+|Subnet|35|Network Security Groups on the subnet level should be enabled|Enable network  security groups to control network access of resources deployed in your subnets.|
+|Machine|30|Just-In-Time network access control should be applied on virtual machines|Apply just in time VM access control to permanently lock down access to selected ports, and enable authorized users to open them via the same mechanism and for a limited amount of time.|
 |Machine|20|Restrict access through Internet facing endpoint|Harden the network security groups of your Internet facing VMs by restricting the access of your existing allow rules.|
 |Machine|10|Add a next generation firewall|Add a Next Generation Firewall (NGFW) solution to better protect your internet facing VMs.|
 |Machine|5|Route traffic through network gateway firewall only|In order to complete the deployment of your next generation firewall solution, traffic to your protected internet facing VMs should be routed only via the next generation firewall solution.|
 |VNet|5|Enable DDoS protection standard|Applications with public IPs in these virtual networks are not protected with the DDOS protection service standard. It is advised to enable it to enable mitigation of network volumetric and protocol attacks.|
-|Machine|10|Add a next generation firewall|dd a Next Generation Firewall (NGFW) solution to better protect your Internet facing VMs.|
-|Machine|5|Route traffic through network gateway firewall only|In order to complete the deployment of your next generation firewall solution, traffic to your protected Internet facing VMs should be routed only via the next generation firewall solution.|
-Vnet|5|Enable DDoS protection standard|Applications with public IP addresses in these virtual networks are not protected with the DDOS protection service standard. It is advised to enable it to enable mitigation of network volumetric and protocol attacks.|
+
 ## See also
 To learn more about recommendations that apply to other Azure resource types, see the following:
 

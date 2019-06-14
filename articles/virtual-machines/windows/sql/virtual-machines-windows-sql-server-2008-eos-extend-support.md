@@ -52,7 +52,7 @@ SQL Server requires app-consistent Azure Site Recovery snapshots to guarantee re
 
 ### Database Migration Service
 
-The [Database Migration Service](/dms/dms-overview) is an option for customers if migrating from on-premises to Azure VM by upgrading SQL Server to  SQL Server 2012 and greater.
+The [Database Migration Service](/azure/dms/dms-overview) is an option for customers if migrating from on-premises to Azure VM by upgrading SQL Server to  SQL Server 2012 and greater.
 
 ## Disaster recovery
 

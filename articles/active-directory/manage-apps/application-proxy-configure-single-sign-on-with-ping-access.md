@@ -154,9 +154,9 @@ To collect this information:
 
 ### Update GraphAPI to send custom fields (optional)
 
-For a list of security tokens that Azure AD sends for authentication, see [Microsoft identity platform ID tokens](../develop/id-tokens.md). If you need a custom claim that sends other tokens, set the `acceptMappedClaims` application field to `True`. You can use Graph Explorer or the Azure AD portal's application manifest to make this change.
+If you need a custom claim that sends other tokens within the access_token consumed by PingAccess, set the `acceptMappedClaims` application field to `True`. You can use Graph Explorer or the Azure AD portal's application manifest to make this change.
 
-This example uses Graph Explorer:
+**This example uses Graph Explorer:**
 
 ```
 PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
@@ -166,7 +166,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 
-This example uses the [Azure Active Directory portal](https://aad.portal.azure.com/) to update the `acceptMappedClaims` field:
+**This example uses the [Azure Active Directory portal](https://aad.portal.azure.com/) to update the `acceptMappedClaims` field:**
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) as an application administrator.
 2. Select **Azure Active Directory** > **App registrations**. A list of applications appears.
@@ -175,7 +175,29 @@ This example uses the [Azure Active Directory portal](https://aad.portal.azure.c
 5. Search for the `acceptMappedClaims` field, and change the value to `True`.
 6. Select **Save**.
 
-### Use a custom claim (optional)
+
+### Use of optional claims (optional)
+Optional claims allows you to add standard-but-not-included-by-default claims that every user and tenant has. 
+You can configure optional claims for your application by modifying the application manifest. For more info, see the [Understanding the Azure AD application manifest article](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+
+Example to include email address into the access_token that PingAccess will consume:
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### Use of claims mapping policy (optional)
+[Claims Mapping Policy (preview)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) for attributes which do not exist in AzureAD. Claims mapping allows you to migrate old on-prem apps to the cloud by adding additional custom claims that are backed by your ADFS or user objects
 
 To make your application use a custom claim and include additional fields, be sure you've also [created a custom claims mapping policy and assigned it to the application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
@@ -183,6 +205,16 @@ To make your application use a custom claim and include additional fields, be su
 > To use a custom claim, you must also have a custom policy defined and assigned to the application. This policy should include all required custom attributes.
 >
 > You can do policy definition and assignment through PowerShell, Azure AD Graph Explorer, or Microsoft Graph. If you're doing them in PowerShell, you may need to first use `New-AzureADPolicy` and then assign it to the application with `Add-AzureADServicePrincipalPolicy`. For more information, see [Claims mapping policy assignment](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+Example:
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
+
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
+
+### Enable PingAccess to use custom claims (optional but required if you expect the application to consume additional claims)
+When you will configure PingAccess in the following step, the Web Session you will create (Settings->Access->Web Sessions) must have **Request Profile** deselected and **Refresh User Attributes** set to **No**
 
 ## Download PingAccess and configure your application
 

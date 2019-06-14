@@ -137,7 +137,7 @@ When you add the user-defined routes, define the route for each related Batch IP
 
 ![Example user-defined route for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-For more information, see the [Create an Azure Batch pool in a virtual network](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) article.
+For more information, see the [Create an Azure Batch pool in a virtual network](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) article.
 
 ### Create Machine Learning Compute in a virtual network
 

@@ -2,12 +2,12 @@
 title: Limitations for Windows Server node pools in Azure Kubernetes Service (AKS)
 description: Learn about the known limitations when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: tylermsft
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.author: iainfou
+ms.date: 05/31/2019
+ms.author: twhitney
 
 #Customer intent: As a cluster operator, I want to understand the current limitations when running Windows node pools and application workloads.
 ---
@@ -19,9 +19,10 @@ In Azure Kubernetes Service (AKS), you can create a node pool that runs Windows 
 This article outlines some of the limitations and OS concepts for Windows Server nodes in AKS. Node pools for Windows Server are currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
 >
-> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
+> * [AKS Support Policies][aks-support-policies]
+> * [Azure Support FAQ][aks-faq]
 
 ## Limitations for Windows Server in Kubernetes
 
@@ -42,6 +43,7 @@ The following upstream limitations for Windows Server containers in Kubernetes a
 The following additional limitations apply to Windows Server node pool support in AKS:
 
 - An AKS cluster always contains a Linux node pool as the first node pool. This first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
+- Currently, AKS only supports the basic load balancer, which only allows for one backend pool, the default Linux node pool. As a result, outbound traffic from Windows pods will always be [translated to an Azure-managed public IP address][azure-outbound-traffic]. Since this IP address is not configurable, it is not currently possible to whitelist traffic coming from Windows pods. 
 - AKS clusters must use the Azure CNI (advanced) networking model.
     - Kubenet (basic) networking is not supported. You can't create an AKS cluster that uses kubenet. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models].
     - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
@@ -55,6 +57,8 @@ The following additional limitations apply to Windows Server node pool support i
 - Preview features in AKS such as Network Policy and cluster autoscaler, aren't endorsed for Windows Server nodes.
 - Ingress controllers should only be scheduled on Linux nodes using a NodeSelector.
 - Azure Dev Spaces is currently only available for Linux-based node pools.
+- Group managed service accounts (gMSA) support when the Windows Server nodes aren't joined to an Active Directory domain is not currently available in AKS.
+    - The open-source, upstream [aks-engine][aks-engine] project does currently provide gMSA support if you need to use this feature.
 
 ## OS concepts that are different
 
@@ -72,11 +76,14 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes]: https://kubernetes.io
+[aks-engine]: https://github.com/azure/aks-engine
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [windows-node-cli]: windows-container-cli.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md
+[azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat

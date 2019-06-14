@@ -94,7 +94,7 @@ sections:
     className: cardsD
     items:
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference">Bing Image Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference/">Bing Image Search API v5</p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference">Bing Image Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference/">Bing Image Search API v5</p>
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet">.NET</a></p>
             <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/imagesearch?view=azure-java-stable">Java</a></p>
