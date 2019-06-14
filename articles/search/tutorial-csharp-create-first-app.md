@@ -93,7 +93,7 @@ Models (C# classes) are used to communicate data between the client (the view), 
 
 1. Open up the **Models** folder of your project, using Solution Explorer, and you will see one default model in there: **ErrorViewModel.cs**.
 
-2. Right-click the **Models** folder and select **Add** then **new Item**. Then in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs. Replace all the contents of Hotel.cs with the following code. Notice the **Address** and **Room** members of the class, these fields are classes themselves so we will need models for them too.
+2. Right-click the **Models** folder and select **Add** then **New Item**. Then, in the dialog that appears, select **ASP.NET Core** then the first option **Class**. Rename the .cs file to Hotel.cs, and click **Add**. Replace all the contents of Hotel.cs with the following code. Notice the **Address** and **Room** members of the class, these fields are classes themselves so we will need models for them too.
 
 ```cs
 using System;
@@ -220,6 +220,8 @@ namespace FirstAzureSearchApp.Models
 5. The set of **Hotel**, **Address**, and **Room** classes are what is known in Azure as [_complex types_](search-howto-complex-data-types.md), an important feature of Azure Search. Complex types can be many levels deep of classes and subclasses, and enable far more complex data structures to be represented than using _simple types_ (a class containing only primitive members). We do need one more model, so go through the process of creating a new model class again, though this time call the class SearchData.cs and replace the default code with the following.
 
 ```cs
+using Microsoft.Azure.Search.Models;
+
 namespace FirstAzureSearchApp.Models
 {
     public class SearchData
@@ -233,13 +235,13 @@ namespace FirstAzureSearchApp.Models
 }
 ```
 
-This class contains the user's input (**searchText**), and the search's output(**resultList**). The type of the output is critical, **DocumentSearchResult&lt;Hotel&gt;**, as this type exactly matches the results from the search, and we need to pass this through to the view.
+This class contains the user's input (**searchText**), and the search's output (**resultList**). The type of the output is critical, **DocumentSearchResult&lt;Hotel&gt;**, as this type exactly matches the results from the search, and we need to pass this through to the view.
 
 
 
 ## Create a web page
 
-The project you created will by default create a number of client views. The exact views depend on the version of Core .NET you are using (we use 2.1 in this sample). They are all in the **Views** folder of the project. You will only need to modify the **Index** view (in the **Views/Home** folder).
+The project you created will by default create a number of client views. The exact views depend on the version of Core .NET you are using (we use 2.1 in this sample). They are all in the **Views** folder of the project. You will only need to modify the Index.cshtml file (in the **Views/Home** folder).
 
 Delete the content of Index.cshtml in its entirety, and rebuild the file in the following steps.
 
@@ -249,6 +251,7 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
 
 ```cs
 @model FirstAzureSearchApp.Models.SearchData
+
 ```
 
 3. It is standard practice to enter a title for the view, so the next lines should be:
@@ -257,6 +260,7 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
 @{
     ViewData["Title"] = "Home Page";
 }
+
 ```
 
 4. Following the title, enter a reference to an HTML stylesheet, which we will create shortly.
@@ -265,6 +269,7 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
 <head>
     <link rel="stylesheet" href="~/css/hotels.css" />
 </head>
+
 ```
 
 5. Now to the meat of the view. A key thing to remember is that the view has to handle two situations. Firstly, it must handle the display when the app is first launched, and the user has not yet entered any search text. Secondly, it must handle the display of results, in addition to the search text box, for repeated use by the user. To handle these two situations, we need to check whether the model provided to the view is null or not. A null model indicates we are in the first of the two situations (the initial running of the app). Add the following to the Index.cshtml file and read through the comments.
@@ -494,9 +499,6 @@ The Azure Search call is encapsulated in our **RunQueryAsync** method.
 In this method, we first ensure our Azure configuration is initiated, then set some search parameters. The names of the fields in the **Select** parameter match exactly the property names in the **hotel** class. It is possible to leave out the **Select** parameter, in which case all properties are returned. However, setting no **Select** parameters is inefficient if we are only interested in a subset of the data. By specifying the properties we are interested in, only these properties are returned.
 
 The asynchronous call to search (**model.resultList = await _indexClient.Documents.SearchAsync&lt;Hotel&gt;(model.searchText, parameters);**) is what this tutorial and app are all about. The **DocumentSearchResult** class is an interesting one, and a good idea (when the app is running) is to set a breakpoint here, and use a debugger to examine the contents of **model.resultList**. You should find that it is intuitive, providing you with the data you asked for, and not much else.
-
-> [!NOTE]
-> This set of tutorials all use the asynchronous version of the API calls, to avoid blocking threads on the server. Both the synchronous and asynchronous versions of the API calls work similarly, there are some minor differences in declaring the methods and making the calls, but no additional lines of code are needed. It is best practice to avoid the synchronous calls, and use the asynchronous versions throughout your work with Azure Search.
 
 Now for the moment of truth.
 
