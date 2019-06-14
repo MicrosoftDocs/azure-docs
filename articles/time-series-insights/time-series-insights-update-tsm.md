@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 06/14/2019
 ms.custom: seodec18
 ---
 
@@ -24,13 +24,28 @@ This document describes Time Series Models, their capabilities, and how to start
 
 Traditionally, the data that's collected from IoT devices lack contextual information, which makes it difficult to find and analyze sensors quickly. The main motivation for Time Series Model is to simplify finding and analyzing IoT data. It achieves this objective by enabling the curation, maintenance, and enrichment of time series data to help prepare consumer-ready datasets.
 
-**Consider the fictitious scenario of a new smart oven by Contoso.** Each smart oven has five temperature sensors. Until recently, each Contoso temperature sensor sent, stored, and visualized its data individually:
+**Consider the fictitious scenario of a new Contoso smart oven.** Suppose that each Contoso smart oven has five temperature sensors, one for each top burner and one for the oven itself. Until recently, each Contoso temperature sensor sent, stored, and visualized its data individually. For its kitchen appliance monitoring, Contoso relied on basic charts, one for each sensor.
 
-* When customers wanted to know how hot the overall oven would get when most of the top burners were on, Contoso had more difficulty analyzing and presenting a unified answer about the overall oven.
-* When Contoso's engineers wanted to verify that the top burners being run simultaneously wouldn't result in inefficient power draw, there was difficulty cross-referencing which sensors were associated with each other. Furthermore, since the data was largely derived from the sensors (and not an aggregate parent entity like the smart oven itself), determining the overall impact on power was a non-starter.
-* Without the ability to structure, organize, and define the overarching smart oven Time Series Model, each temperature sensor maintained dislocated, isolated, and less informative data points. Turning these data points into actionable insights was more difficult since each data set lived independently of the others.
+[![Basic isolated charts](media/v2-update-tsm/basic-charting.png)](media/v2-update-tsm/basic-charting.png#lightbox)
 
-Time Series Models play a vital role in queries and navigation because they contextualize device and non-device entities. Data that's persisted in Time Series Model powers time-series query computations by taking advantage of the formulas stored in them.
+While Contoso was satisfied with their initial data aggregation and visualization solution, several limitations became apparent:
+
+* When customers wanted to know how hot the overall oven would get when most of the top burners were on, Contoso had more difficulty analyzing and presenting a unified answer about the conditions of the overall oven.
+* When Contoso engineers wanted to verify that the top burners being run simultaneously wouldn't result in inefficient power draw, there was difficulty cross-referencing which temperature and voltage sensors were associated with each other.
+* When Contoso quality assurance team wanted to audit and compare the history between two sensor versions, there was difficulty determining what data belonged to which sensor version.
+
+Without the ability to structure, organize, and define the overarching smart oven Time Series Model, each temperature sensor maintained dislocated, isolated, and less informative data points. Turning these data points into actionable insights was more difficult since each data set lived independently of the others.
+
+Eventually, these limitations revealed the importance of smart data aggregation and visualization tools to accompany Contoso's new oven. Even overlaying sensor data into one chart failed to provide the necessary data:
+
+* Data visualization doesn't necessarily associate or combine data into a convenient unified object. For example, showing voltage sensors along with temperature sensors.
+* Managing multi-dimensional data-visualization for several entities along with comparison, zooming, and time range functionalities can be difficult to accomplish.
+
+**Time Series Models provide a convenient solution** for many of the scenarios encountered in the fictitious scenario above.
+
+* Time Series Models play a vital role in queries and navigation because they contextualize data by allowing comparisons to be drawn across time ranges and between sensor and device kinds.
+* Data is further contextualized because data persisted in Time Series Model preserve time-series query computations and use the formulas that are stored in them.
+* Time Series Models organize and aggregate data for improved visualization and management capabilities.
 
 ### Key capabilities
 
