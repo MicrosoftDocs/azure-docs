@@ -7,13 +7,13 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create an Apache Spark cluster - Portal
+    - name: Create Apache Spark cluster - Portal
       href: apache-spark-jupyter-spark-sql-use-portal.md
-    - name: Create an Apache Spark cluster - PowerShell
+    - name: Create Apache Spark cluster - PowerShell
       href: apache-spark-jupyter-spark-sql-use-powershell.md
-    - name: Create an Apache Spark cluster - Azure CLI
+    - name: Create Apache Spark cluster - Azure CLI
       href: apache-spark-create-cluster-cli.md
-    - name: Create an Apache Spark cluster - Resource Manager template
+    - name: Create Apache Spark cluster - Template
       displayName: resource manager template, arm template, resource manager group
       href: apache-spark-jupyter-spark-sql.md
 - name: Tutorials
