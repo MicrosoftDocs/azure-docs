@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * An Azure AD tenant
 * [A Zoom tenant](https://zoom.us/pricing)
-* A user account in Zoom with Admin permissions.
+* A user account in Zoom with Admin permissions
 
 ## Add Zoom from the gallery
 
@@ -57,7 +57,7 @@ Before configuring Zoom for automatic user provisioning with Azure AD, you need 
 
 	![Zoom in the results list](common/search-new-app.png)
 
-## Assigning users to Zoom
+## Assign users to Zoom
 
 Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
 
@@ -71,14 +71,14 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * When assigning a user to Zoom, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Configuring automatic user provisioning to Zoom 
+## Configure automatic user provisioning to Zoom 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Zoom based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users or groups in Zoom based on user and/or group assignments in Azure AD.
 
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Zoom, following the instructions provided in the [Zoom single sign-on tutorial](zoom-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
-### To configure automatic user provisioning for Zoom in Azure AD:
+### Configure automatic user provisioning for Zoom in Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
@@ -96,13 +96,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://api.zoom.us/scim` in **Tenant URL**. To retrieve the **Secret Token** of your Zoom account, follow the walkthrough as described in Step 6.
+5. Under the **Admin Credentials** section, enter `https://api.zoom.us/scim` in **Tenant URL**. To retrieve the **Secret Token** of your Zoom account, follow the walkthrough as described in Step 6.
 
 6. Sign in to your [Zoom Admin Console](https://zoom.us/signin). Navigate to **Advanced > Zoom for Developers** in the left navigation pane.
 
 	![Zoom Integrations](media/zoom-provisioning-tutorial/zoom01.png)
 
-	Navigate to **Manage** in the top right hand corner of the page. 
+	Navigate to **Manage** in the top-right corner of the page. 
 
 	![Zoom Install](media/zoom-provisioning-tutorial/zoom02.png)
 
@@ -154,7 +154,7 @@ This operation starts the initial synchronization of all users and/or groups def
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
-## Connector Limitations
+## Connector limitations
 
 * Zoom does not support provisioning for groups.
 
