@@ -29,16 +29,16 @@ The diagram shows the following components of a workspace:
 
 + A workspace can contain [Notebook VMs](quickstart-run-cloud-notebook.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams or projects.
-+ [Compute targets](concept-azure-machine-learning-architecture.md#compute-target) are used to run your experiments.
++ [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
-+ [Experiments](concept-azure-machine-learning-architecture.md#experiment) are training runs you use to build your models.  You can create and run experiments with
++ [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  You can create and run experiments with
     + The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
     + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Azure portal.
     + The [visual interface (preview)](ui-concept-visual-interface.md).
-+ [Pipelines](concept-azure-machine-learning-architecture.md#pipeline) are reusable workflows for training and retraining your model.
-+ [Datasets](concept-azure-machine-learning-architecture.md#dataset) aid in management of the data you use for model training and pipeline creation.
-+ Once you have a model you want to deploy, you create a [registered model](concept-azure-machine-learning-architecture.md#model-registry).
-+ Use the registered model and a scoring script to create a [deployment](concept-azure-machine-learning-architecture.md#image-registry).
++ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
++ [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
++ Once you have a model you want to deploy, you create a registered model.
++ Use the registered model and a scoring script to create a [deployment](concept-azure-machine-learning-architecture.md#deployment).
 
 ## Tools for workspace interaction
 

@@ -72,7 +72,7 @@ Encrypt your VM with [az vm encryption](/cli/azure/vm/encryption?view=azure-cli-
 az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvault myKV
 ```
 
-You can verify that encryption is enabled on your VM with [az vm show](/cli/azure/vm/show?view=azure-cli-latest)
+You can verify that encryption is enabled on your VM with [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show)
 
 ```azurecli-interactive
 az vm show --name MyVM -g MyResourceGroup
