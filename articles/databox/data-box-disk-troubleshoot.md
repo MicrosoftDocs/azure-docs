@@ -74,9 +74,7 @@ The errors contained in the *error.xml* with the corresponding recommended actio
 | `None` | Successfully validated the data. | No action is required. |
 | `InvalidXmlCharsInPath` |Could not create a manifest file as the file path has characters that are not valid. | Remove these characters to proceed.  |
 | `OpenFileForReadFailed`| Could not process the file. This could be due to an access issue or file system corruption.|Could not read the file due to an error. The error details are in the exception. |
-| `Not512Aligned` | This file is not in a valid format for PageBlob folder.| Only upload data that is 512 bytes aligned to `PageBlob` folder.
-Remove the file from the PageBlob folder or move it to the BlockBlob folder. Retry the validation.
-  |
+| `Not512Aligned` | This file is not in a valid format for PageBlob folder.| Only upload data that is 512 bytes aligned to `PageBlob` folder. Remove the file from the PageBlob folder or move it to the BlockBlob folder. Retry the validation.|
 | `InvalidBlobPath` | File path doesn’t map to a valid blob path in cloud as per the Azure Blob naming conventions.|Follow the Azure naming guidelines to rename the file path. |
 | `EnumerationError` | Could not enumerate the file for validation. |There could be multiple reasons for this error. A most likely reason is access to the file. |
 | `ShareSizeExceeded` | This file caused the Azure file share size to exceed the Azure limit of 5 TB.|Reduce the size of the data in the share so that it conforms to the [Azure object size limits](data-box-disk-limits.md#azure-object-size-limits). Retry the validation. |
