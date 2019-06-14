@@ -121,3 +121,7 @@ Get started with [development here](index.yml).
 **Q: Does it work with Xamarin?**
 
 **A:** Yes. While we don't provide a Xamarin SDK, we expect developers can use Azure Spatial Anchors in their Xamarin apps by integrating with the Azure Spatial Anchors API.
+
+**Q: What ports and protocols does Azure Spatial Anchors use?**
+
+**A:** Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Azure Active Directory](../active-directory/), which communicates using HTTPS over port 443.
