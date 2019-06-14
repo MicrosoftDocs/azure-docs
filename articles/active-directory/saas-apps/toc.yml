@@ -384,7 +384,7 @@
       - name: Envi MMIS
         href: envimmis-tutorial.md
       - name: Envoy
-        href: envoy-tutorial.md
+        href: envoy-provisioning-tutorial.md
       - name: ePlatform
         href: eplatform-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
@@ -930,7 +930,7 @@
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
       - name: Proxyclick
-        href: proxyclick-tutorial.md
+        href: proxyclick-provisioning-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
@@ -1342,7 +1342,7 @@
       - name: Zoho One
         href: zohoone-tutorial.md
       - name: Zoom
-        href: zoom-tutorial.md
+        href: zoom-provisioning-tutorial.md
       - name: Zscaler
         href: zscaler-tutorial.md
       - name: Zscaler Beta
