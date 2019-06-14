@@ -126,26 +126,23 @@ For example, you can add a new location telemetry measurement:
 
 | Display Name        | Field Name    |
 | --------------------| ------------- |
-| NW Territory        | nwterritory   |
 | Asset Location      |  assetloc     |
 
-!["Create Location" form with details for location measurement](./media/howto-set-up-template/measurementsform.png)
+!["Create Location" form with details for location measurement](./media/howto-set-up-template/locationmeasurementsform.png)
 
 After you select **Save**, the **Location** measurement appears in the list of measurements. In a short while, you see the visualization of the location data from the simulated device.
 
 When displaying location, you can choose from the following options: latest location and location history. **Location history** is only applied over the selected time range.
 
-> [!NOTE]
-> The data type of the location measurement is an object that contains longitude, latitude, and an optional altitude.
-> The structure will look as below:
->
->   ```javascript
->   assetloc: {
->     lon: floating point number,
->     lat: floating point number,
->     alt?: floating point number
->   }
->   ```
+The data type of the location measurement is an object that contains longitude, latitude, and an optional altitude. The following snippet shows the JavaScript structure:
+
+```javascript
+assetloc: {
+  lon: floating point number,
+  lat: floating point number,
+  alt?: floating point number
+}
+```
 
 ## Settings
 
@@ -289,7 +286,7 @@ If you configured a location measurement, you can visualize the location with a 
 
 1. On the device dashboard, select **Map** from the library.
 
-1. Give the map a title. The following example has the title **Device Current Location**. Then choose the location measurement that you previously configured on the **Measurements** tab. In the following example, **NW Territory** is selected.
+1. Give the map a title. The following example has the title **Device Current Location**. Then choose the location measurement that you previously configured on the **Measurements** tab. In the following example, the **Asset Location** measurement is selected.
 
    !["Configure Map" form with details for title and properties](./media/howto-set-up-template/locationcloudproperty5map.png)
 
