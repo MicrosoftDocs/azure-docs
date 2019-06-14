@@ -1,6 +1,6 @@
 ---
-title: Create or delete a blob container in Azure Storage with .NET
-description: Learn how to create or delete an Azure Storage container from .NET code.
+title: Create or delete a blob container with .NET - Azure Storage 
+description: Learn how to create or delete a blob container in Azure Storage using the .NET client library.
 services: storage
 author: tamram
 
@@ -13,7 +13,7 @@ ms.subservice: blobs
 
 # Create or delete a container in Azure Storage with .NET
 
-Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This how-to article shows how to create and delete containers with the Azure Storage client library for .NET.
+Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create and delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
 
 ## Name a container
 
@@ -151,22 +151,7 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 }
 ```
 
-## Resources for development with .NET
-
-The links below point to useful resources for developers using the Azure Storage client library for .NET.
-
-### Azure Storage common APIs
-
-- [API reference documentation](/dotnet/api/overview/azure/storage/client)
-- [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Common)
-- [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-
-### Blob storage APIs
-
-- [API reference documentation](/dotnet/api/overview/azure/storage/client)
-- [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
-- [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
-- [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
 
 ## See also
 
