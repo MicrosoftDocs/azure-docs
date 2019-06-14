@@ -21,9 +21,12 @@ To trigger a task on a commit to a Git repository, ACR Tasks need a personal acc
 
 1. Navigate to the PAT creation page on GitHub at https://github.com/settings/tokens/new
 1. Enter a short **description** for the token, for example, "ACR Tasks Demo"
-1. Under **repo**, enable **repo:status** and **public_repo**
+1. Select scopes for ACR to access the repo. To access a public repo as in this tutorial, under **repo**, enable **repo:status** and **public_repo**
 
    ![Screenshot of the Personal Access Token generation page in GitHub][build-task-01-new-token]
+
+   > [!NOTE]
+   > To generate a PAT to access a *private* repo, select the scope for full **repo** control.
 
 1. Select the **Generate token** button (you may be asked to confirm your password)
 1. Copy and save the generated token in a **secure location** (you use this token when you define a task in the following section)

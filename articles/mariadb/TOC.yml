@@ -59,12 +59,20 @@
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
-  - name: Monitor
+  - name: Monitor and tune
     items:
     - name: Monitor
       href: concepts-monitoring.md
-    - name: Server logs
+    - name: Slow query logs
       href: concepts-server-logs.md
+    - name: Audit logs
+      href: concepts-audit-logs.md
+    - name: Query Store
+      href: concepts-query-store.md
+    - name: Query Performance Insight
+      href: concepts-query-performance-insight.md
+    - name: Performance Recommendations
+      href: concepts-performance-recommendations.md
   - name: Development
     items:
     - name: Drivers and tools compatibility
@@ -75,6 +83,8 @@
     items:
     - name: Data-in replication
       href: concepts-data-in-replication.md
+    - name: Read replicas
+      href: concepts-read-replicas.md  
 - name: How-to guides
   items:
   - name: Firewall rules
@@ -110,13 +120,19 @@
   - name: Auto grow storage
     items:
     - name: Azure portal
-      href: howto-auto-grow-storage-portal.md
+      href: howto-auto-grow-storage-portal.md  
   - name: Access server logs
     items:
-    - name: Azure portal
-      href: howto-configure-server-logs-portal.md
-    - name: Azure CLI
-      href: howto-configure-server-logs-cli.md
+    - name: Slow query logs
+      items: 
+      - name: Azure portal
+        href: howto-configure-server-logs-portal.md
+      - name: Azure CLI
+        href: howto-configure-server-logs-cli.md
+    - name: Audit logs
+      items: 
+      - name: Azure portal
+        href: howto-configure-audit-logs-portal.md
   - name: Monitor
     items:
     - name: Create alerts on metrics
@@ -125,6 +141,8 @@
     items:
     - name: Configure data-in replication
       href: howto-data-in-replication.md
+    - name: Create read replicas Azure portal
+      href: howto-read-replicas-portal.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot connection errors

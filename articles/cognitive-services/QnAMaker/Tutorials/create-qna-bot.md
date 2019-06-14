@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 06/11/2019
 ms.author: tulasim
 ---
 
@@ -50,7 +50,7 @@ Create a bot as a client application for the knowledge base.
     |Location|`west us`|The bot's Azure resource location.|
     |Pricing tier|`F0`|The free tier for the Azure bot service.|
     |App name|`my-tutorial-kb-bot-app`|This is a web app to support your bot only. This should not be the same app name as your QnA Maker service is already using. Sharing QnA Maker's web app with any other resource is not supported.|
-    |SDK Language|C#|This is the underlying programming language used by the bot framework SDK. Your choices are C# or Node.js.|
+    |SDK Language|C#|This is the underlying programming language used by the bot framework SDK. Your choices are [C#](https://github.com/Microsoft/botbuilder-dotnet) or [Node.js](https://github.com/Microsoft/botbuilder-js).|
     |QnA Auth Key|**Do not change**|This value is filled in for you.|
     |App service plan/Location|**Do not change**|For this tutorial, the location is not important.|
     |Azure Storage|**Do not change**|Conversation data is stored in Azure Storage tables.|

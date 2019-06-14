@@ -5,32 +5,49 @@
  author: MGoedtel
  ms.service: log-analytics
  ms.topic: include
- ms.date: 05/16/2018
+ ms.date: 06/10/2019
  ms.author: magoedte
  ms.custom: include file
 ---
 
-The following limits apply to Azure Log Analytics resources per subscription.
 
-| Resource | Default limit | Comments
-| --- | --- | --- |
-| Number of free workspaces per subscription | 10 | This limit can't be increased. |
-| Number of paid workspaces per subscription | N/A | You're limited by the number of resources within a resource group and the number of resource groups per subscription. | 
+The following limits apply to each Log Analytics workspace in the current consumption-based pricing tier introduced in April 2018:
+
+|     | Per GB 2018 |
+| --- | --- | 
+| Data volume collected per day | None |
+| Data retention period | 30 to 730 days<sup>1</sup> |
+
+The following limits apply to each Log Analytics workspace the most recent legacy pricing tiers:
+
+|  | Free | Standalone (Per GB) | Per Node (OMS) |
+| --- | --- | --- | --- | --- | --- |--- |
+| Data volume collected per day |500 MB<sup>2</sup> |None |None |
+| Data retention period |7 days | 30 to 730 days<sup>1</sup> | 30 to 730 days<sup>1</sup> |
+
+The following limits apply to each Log Analytics workspace the oldest legacy pricing tiers:
+
+|  | Standard | Premium | 
+| --- | --- | --- | --- | --- | --- |--- |
+| Data volume collected per day | None | None | 
+| Data retention period |30 days | 365 days |
+
+<sup>1</sup>Data retention beyond 31 days is available for additional charges. Learn more about [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+<sup>2</sup>When your workspace reaches the 500-MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC.
 
 >[!NOTE]
->As of April 2, 2018, new workspaces in a new subscription automatically use the *Per GB* pricing plan. For existing subscriptions created before April 2, or a subscription that was tied to an existing Enterprise Agreement enrollment, you can continue to choose from the three pricing tiers for new workspaces. 
+>Depending on how long you've been using Log Analytics, you might have access to legacy pricing tiers. Learn more about [Log Analytics legacy pricing tiers](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
 >
 
-The following limits apply to each Log Analytics workspace.
+The following limits apply to Azure Log Analytics resources (workspaces) per subscription.
 
-|  | Free | Standard | Premium | Standalone | OMS | Per GB |
-| --- | --- | --- | --- | --- | --- |--- |
-| Data volume collected per day |500 MB<sup>1</sup> |None |None | None | None | None
-| Data retention period |7 days |1 month |12 months | 1 month<sup>2</sup> | 1 month<sup>2</sup>| 1 month<sup>2</sup>|
+| Pricing tier    | Number of workspaces per subscription | Comments
+| --- | --- | --- |
+| Free tier  | 10 | This limit can't be increased. |
+| All tiers other than Free | N/A | You're limited by the number of resources within a resource group and the number of resource groups per subscription. | 
 
-<sup>1</sup>When customers reach their 500-MB daily data transfer limit, data analysis stops and resumes at the start of the next day. A day is based on UTC.
-
-<sup>2</sup>The data retention period for the Standalone, OMS, and Per GB pricing plans can be increased to 730 days.
+The following limits apply to the Log Analytics APIs:
 
 | Category | Limits | Comments
 | --- | --- | --- |

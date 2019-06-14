@@ -51,7 +51,7 @@ Once that is done, the SDK will handle the exchange of the account key for an ac
 
 ## Azure AD user authentication
 
-For applications targeting Azure Active Directory users, the recommended approach is to use an Azure AD token for the user, which you can obtain using the ADAL library as described in the following documentation: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; you should follow the steps listed under “Quick starts”, which include:
+For applications targeting Azure Active Directory users, the recommended approach is to use an Azure AD token for the user, which you can obtain using the ADAL library as described in the following documentation: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); you should follow the steps listed under “Quick starts”, which include:
 
 1. Configuration in Azure portal
     1.	Register your application in Azure AD as **Native application**. As part of registering, you will need to determine whether your application should be multi-tenant or not, and provide the redirect URLs allowed for your application.  
@@ -84,7 +84,7 @@ The recommended option to deploy apps leveraging Azure Spatial Anchors to produc
 
 Here, it is assumed that your app uses its own mechanism (for example: Microsoft account, PlayFab, Facebook, Google ID, custom username/password, etc.) to authenticate to its backend service. Once your users are authenticated to your backend service, that service can retrieve an Azure AD token, exchange it for an access token for Azure Spatial Anchors, and return it back to your client application.
 
-The Azure AD access token is retrieved using the ADAL library as described in the following documentation: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; you should follow the steps listed under “Quick starts”, which include:
+The Azure AD access token is retrieved using the ADAL library as described in the following documentation: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); you should follow the steps listed under “Quick starts”, which include:
 
 1.	Configuration in Azure portal:
     1.	Register your application in Azure AD:
