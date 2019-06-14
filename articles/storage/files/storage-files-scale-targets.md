@@ -46,8 +46,7 @@ Premium file shares are provisioned in a special storage account called **filest
 
 > [!NOTE]
 > Standard file shares larger than 5 TiB are in preview and have certain limitations.
-> For a list of limitations, see [Planning for an Azure Files deployment](storage-files-planning.md).
-> You can onboard to 100 TiB standard shares by submitting this [form](https://aka.ms/azurefilesatscalesurvey).
+> For a list of limitations and to onboard to the preview of these larger file share sizes, see the [Standard file shares](storage-files-planning.md#standard-file-shares) section of the planning guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

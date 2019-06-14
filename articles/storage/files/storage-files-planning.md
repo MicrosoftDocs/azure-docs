@@ -71,18 +71,23 @@ If you are using Azure File Sync to access your Azure file share, we will always
 
 Azure Files offers two performance tiers: standard and premium.
 
-**Standard file shares** are backed by hard disk drives (HDDs). Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
+### Standard file shares
 
-Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any shares larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.  You can onboard to 100 TiB standard shares by submitting this [form](https://aka.ms/azurefilesatscalesurvey).
+Standard file shares are backed by hard disk drives (HDDs). Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 
-While in preview, these larger shares have the following limitations:
+Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any shares larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.
 
-- Requires you to create a new general purpose storage account (cannot expand existing storage accounts)
-- Are LRS only
-- LRS to GRS account conversion will not be allowed on subscription approved for larger file shares preview. GRS accounts once converted to LRS accounts will not be able to convert back to GRS accounts.
-- Available in 3 regions: West US 2, West Europe, and SE Asia regions.
+> [!IMPORTANT]
+> - LRS to GRS account conversion will not be allowed on any storage account within the subscription that is approved for larger file shares preview. GRS accounts once converted to LRS accounts will not be able to convert back to GRS accounts.
+> - Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
+> - Are only available with LRS.
+> - Available in three regions: West US 2, West Europe, and SE Asia regions.
 
-**Premium file shares (preview)** are backed by solid-state disks (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
+If you'd like to onboard to the preview of these larger file share sizes, submit this [form](https://aka.ms/azurefilesatscalesurvey). 
+
+### Premium file shares (preview)
+
+Premium file shares (preview) are backed by solid-state disks (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
 
 Azure Backup is available for premium file shares and Azure Kubernetes Service supports premium file shares in version 1.13 and above.
 
