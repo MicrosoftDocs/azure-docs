@@ -1416,11 +1416,7 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
-<<<<<<< HEAD
         name: Envoy
-=======
-        name: envoy
->>>>>>> 42cc73b625d31b849d90a0f516c3aaeaa903ac3b
         href: envoy-provisioning-tutorial.md
         name: Jive
         href: jive-provisioning-tutorial.md
@@ -1480,10 +1476,3 @@
         href: zscaler-zscloud-provisioning-tutorial.md
         name: Zoom
         href: zoom-provisioning-tutorial.md
-<<<<<<< HEAD
-
-
-=======
-        name: 4me
-        href: 4me-provisioning-tutorial.md
->>>>>>> 42cc73b625d31b849d90a0f516c3aaeaa903ac3b
