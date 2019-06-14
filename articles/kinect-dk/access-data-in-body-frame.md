@@ -13,18 +13,19 @@ keywords: body, frame, azure, kinect, body, tracking, tips
 This article describes the data contained in a body frame and the functions to access the data.
 
 The following functions are covered:
-  * [k4abt_frame_get_num_bodies()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
-  * [k4abt_frame_get_body_skeleton()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
-  * [k4abt_frame_get_body_id()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
-  * [k4abt_frame_get_timestamp_usec()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
-  * [k4abt_frame_get_body_index_map()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
-  * [k4abt_frame_get_capture()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
+
+- [k4abt_frame_get_num_bodies()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
+- [k4abt_frame_get_body_skeleton()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
+- [k4abt_frame_get_body_id()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
+- [k4abt_frame_get_timestamp_usec()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
+- [k4abt_frame_get_body_index_map()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
+- [k4abt_frame_get_capture()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
 
 ## Key components of a body frame
 
-Each body frame contains a collection of body structs, a 2D body index map, and the input capture that generated this result. 
+Each body frame contains a collection of body structs, a 2D body index map, and the input capture that generated this result.
 
-![Body Frame Components](./media/how-to-guides/body-frame.png)
+-![Body Frame Components](./media/how-to-guides/depth-camera.png)
 
 ## Accessing the collection of body structs
 
@@ -47,7 +48,7 @@ for (size_t i = 0; i < num_bodies; i++)
 
 ## Accessing the body index map
 
-You use the [k4abt_frame_get_body_index_map()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html) function to access the body index map. Refer to  [body index Map](body-index.md) for detailed explanation of the body index map. Release the body index map when no longer needed.
+You use the [k4abt_frame_get_body_index_map()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html) function to access the body index map. Refer to  [body index Map](body-index-map.md) for detailed explanation of the body index map. Release the body index map when no longer needed.
 
 ```C
 k4a_image_t body_index_map = k4abt_frame_get_body_index_map(body_frame);
