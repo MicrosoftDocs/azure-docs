@@ -51,7 +51,7 @@ Before you start the setup, we recommend you do the following:
 
 To complete the setup, you need the following access:
 
-- Owner of the billing profile that was created when the Microsoft Customer Agreement was signed. To learn more about billing profiles, see [understand billing profiles](billing-mca-overview.md#understand-billing-profiles).
+- Owner of the billing profile that was created when the Microsoft Customer Agreement was signed. To learn more about billing profiles, see [understand billing profiles](billing-mca-overview.md#billing-profiles).
 
 - Enterprise administrator on the enrollment that is renewed.
 
@@ -83,9 +83,9 @@ Your new billing account simplifies billing for your organization while providin
 
 ![Image of ea-mca-post-transition-hierarchy](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
-1. You use the billing account to manage billing for your Microsoft customer agreement. To learn more about billing account, see [understand billing account](billing-mca-overview.md#understand-billing-account).
-2. You use the billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [understand billing profiles](billing-mca-overview.md#understand-billing-profiles).
-3. You use an invoice section to organize your costs based on your needs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [understand invoice sections](billing-mca-overview.md#understand-invoice-sections).
+1. You use the billing account to manage billing for your Microsoft customer agreement. To learn more about billing account, see [understand billing account](billing-mca-overview.md#your-billing-account).
+2. You use the billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [understand billing profiles](billing-mca-overview.md#billing-profiles).
+3. You use an invoice section to organize your costs based on your needs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [understand invoice sections](billing-mca-overview.md#invoice-sections).
 4. The accounts that were created in your Enterprise Agreement aren’t supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections.
 
 ## Understand changes to your billing administrators' access

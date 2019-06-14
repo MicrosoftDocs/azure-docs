@@ -1,29 +1,24 @@
 ---
-title: Understand the terms in your price sheet for a Microsoft Customer Agreement - Azure | Microsoft Docs
-description: Learn how to read and understand your usage and bill for your Azure subscription
-services: ''
-documentationcenter: ''
-author: jureid
+title: Understand the terms in your price sheet for a Microsoft Customer Agreement - Azure
+description: Learn how to read and understand your usage and bill for a Microsoft Customer Agreement.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
 ---
-# Understand the terms in your price sheet for a Microsoft Customer Agreement
+# Terms in your Microsoft Customer Agreement price sheet
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
+This article applies to an Azure billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 If you are a billing profile Owner, Contributor, Reader, or Invoice Manager you can download your organization's price sheet from the Azure portal. See [View and download your organization's pricing](billing-ea-pricing.md).
 
-## Detailed terms and descriptions in your Microsoft Customer Agreement price sheet
+## Terms and descriptions in your price sheet
 
 The following section describes the important terms shown in your Microsoft Customer Agreement price sheet.
 
@@ -56,7 +51,7 @@ The following section describes the important terms shown in your Microsoft Cust
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 
