@@ -15,7 +15,7 @@ ms.date: 06/14/2019
 ms.author: magoedte
 ---
 
-# Collect log data with the Azure Log Analytics agent
+# Collect log data with the Log Analytics agent
 
 The Azure Log Analytics agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to an Azure Monitor and store collected log data from different sources in your Log Analytics workspace, as well as any unique logs or metrics as defined in a monitoring solution. 
 
