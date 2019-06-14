@@ -63,7 +63,7 @@ CloudSimple provides three different connectivity options to connect to your Clo
 
 - Azure ExpressRoute connection from your on-premises datacenter to CloudSimple region network: A high-speed low-latency secure private connection that bridges your on-premises ExpressRoute circuit with your CloudSimple ExpressRoute circuit by using Global Reach. To set up the connection, see [Connect from on-premises to CloudSimple by using ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection).
 - ExpressRoute connection from your Azure virtual network to your CloudSimple region network: A high-speed, low-latency secure private connection that bridges your virtual network on Azure with your CloudSimple ExpressRoute circuit by using virtual network gateways. To set up the connection, see [Connect your CloudSimple private cloud environment to the Azure virtual network by using ExpressRoute](https://docs.azure.cloudsimple.com/azure-expressroute-connection).
-- Site-to-site VPN connection from your on-premises datacenter to your CloudSimple region network: A secure virtual private network from your on-premises VPN device to your CloudSimple private cloud region. To set up the connection, see [Set up VPN connection between your on-premises network and CloudSimple private cloud].
+- Site-to-site VPN connection from your on-premises datacenter to your CloudSimple region network: A secure virtual private network from your on-premises VPN device to your CloudSimple private cloud region. To set up the connection, see [Set up a VPN connection between your on-premises network and CloudSimple private cloud](https://docs.azure.cloudsimple.com/set-up-vpn).
 
 **How do I connect to a private cloud?**
 
