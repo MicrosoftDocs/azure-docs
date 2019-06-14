@@ -39,7 +39,7 @@ The official Apache versions of all HDInsight 4.0 components are given below. Th
 - Apache Pig 0.16.0
 - Apache Ranger 0.7.0
 - Apache Slider 0.92.0
-- Apache Spark 2.3.2
+- Apache Spark 2.3.1
 - Apache Sqoop 1.4.7
 - Apache TEZ 0.9.1
 - Apache Zeppelin 0.8.0
