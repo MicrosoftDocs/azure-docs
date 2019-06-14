@@ -109,7 +109,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 
 ## Adjust speaking styles
 
-> [!WARNING]
+> [!IMPORTANT]
 > This feature will only work with neural voices.
 
 By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element. This is an optional element unique to Azure Speech Services.
