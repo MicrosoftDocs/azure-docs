@@ -73,7 +73,7 @@ You use the following APIs to train and extract structured data from forms.
 | REST API | Description |
 |-----|-------------|
 | Train | Train	a new model to analyze your forms by using five forms from the same type or an empty form.  |
-| Analyze  |Analyze a single document passed in as a stream to extract key-value pairs and tables from the form with your custom model.  |
+| Analyze  |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
 
 Explore the [REST API reference documentation](https://aka.ms/form-recognizer/api) to learn more. 
 
