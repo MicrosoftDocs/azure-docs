@@ -25,7 +25,7 @@ The position and orientation of each joint form its own joint coordinate system.
 
 ## Joint hierarchy
 
-A skeleton includes 24 joints with the joint hierarchy flowing from the center of the body to the extremities. Each connection (bone) links the parent with a child. The figure illustrates the joint locations and connection relative to the human body.
+A skeleton includes 26 joints with the joint hierarchy flowing from the center of the body to the extremities. Each connection (bone) links the parent joint with a child joint. The figure illustrates the joint locations and connection relative to the human body.
 
 ![Joint hierarchy](./media/concepts/joint-hierarchy.png)
 
@@ -48,15 +48,17 @@ The following table enumerates the standard joint connections.
 | 12   |HIP_LEFT       | PELVIS         |
 | 13   |KNEE_LEFT      | HIP_LEFT       |
 | 14   |ANKLE_LEFT     | KNEE_LEFT      |
-| 15   |HIP_RIGHT      | PELVIS         |
-| 16   |KNEE_RIGHT     | HIP_RIGHT      |
-| 17   |ANKLE_RIGHT    | KNEE_RIGHT     |
-| 18   |HEAD           | NECK           |
-| 19   |NOSE           | HEAD           |
-| 20   |EYE_LEFT       | HEAD           |
-| 21   |EAR_LEFT       | HEAD           |
-| 22   |EYE_RIGHT      | HEAD           |
-| 23   |EAR_RIGHT      | HEAD           |
+| 15   |FOOT_LEFT      | ANKLE_LEFT     |
+| 16   |HIP_RIGHT      | PELVIS         |
+| 17   |KNEE_RIGHT     | HIP_RIGHT      |
+| 18   |ANKLE_RIGHT    | KNEE_RIGHT     |
+| 19   |FOOT_RIGHT     | ANKLE_RIGHT    |
+| 20   |HEAD           | NECK           |
+| 21   |NOSE           | HEAD           |
+| 22   |EYE_LEFT       | HEAD           |
+| 23   |EAR_LEFT       | HEAD           |
+| 24   |EYE_RIGHT      | HEAD           |
+| 25   |EAR_RIGHT      | HEAD           |
 
 ## Next steps
 

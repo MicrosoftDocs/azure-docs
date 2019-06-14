@@ -14,17 +14,11 @@ keywords: kinect, azure, sensor, access, depth, sdk, body, tracking, joint, setu
 
 # Quickstart: Set up Azure Kinect body tracking
 
-This quickstart will guide you through getting body tracking running on your Azure Kinect DK.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This quickstart will guide you through the process of getting body tracking running on your Azure Kinect DK.
 
 ## System requirements
 
-- Windows 10 PC
-  - Core i5 or better
-- NVIDIA GPU
-  - GeForce GTX 1070 or better
-  - GeForce RTX 2070 or better
+The Body Tracking SDK requires a NVIDIA GPU. The suggested minimum body tracking host PC requirement is described in [system requirements](system-requirements.md).
 
 ## Install software
 
@@ -61,7 +55,7 @@ Launch the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) to check that yo
 
 ## Verify body tracking
 
-Launch the `k4abt_simple-3d-viewer.exe` sample to check that the Body Tracking SDK is set up correctly. The single 3d viewer sample uses the Sensor SDK and Body Tracking SDK to visualize body tracking. A pre-compiled binary for the sample is located in the `examples/bin` folder.
+Launch the `k4abt_simple-3d-viewer.exe` sample to check that the Body Tracking SDK is set up correctly. The simple 3d viewer sample uses the Sensor SDK and Body Tracking SDK to visualize body tracking. A pre-compiled binary for the sample is located in the `examples/bin` folder.
 
 If everything is set up correctly, a window with a 3D point cloud and tracked bodies should appear.
 

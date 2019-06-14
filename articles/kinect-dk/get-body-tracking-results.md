@@ -11,7 +11,7 @@ keywords: kinect, azure, sensor, sdk, body, tracking, joint
 
 # Get body tracking results
 
-Body tracking processes an Azure Kinect DK capture to generate body tracking results. It also maintains global status of the tracker, processing queues and the output queue. There are three steps in using the body tracker:
+Body Tracking SDK uses a body tracker object to process an Azure Kinect DK captures and generates body tracking results. It also maintains global status of the tracker, processing queues and the output queue. There are three steps in using the body tracker:
 
 - Create a tracker
 - Capture depth and IR images using Azure Kinect DK
@@ -45,7 +45,7 @@ Image capture using Azure Kinect DK is covered in the section [Retrieve images](
 >[!NOTE]
 > `K4A_DEPTH_MODE_NFOV_UNBINNED` or `K4A_DEPTH_MODE_WFOV_2X2BINNED` modes are recommended for best performance and accuracy. Do not use the `K4A_DEPTH_MODE_OFF` or `K4A_DEPTH_MODE_PASSIVE_IR` modes.
 
-The supported Azure Kinect DK modes are described [here](hardware-specification.md) and [k4a_depth_mode_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
+The supported Azure Kinect DK modes are described in the Azure Kinect DK [hardware specification](hardware-specification.md) and [k4a_depth_mode_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html) structure.
 
 ```C
 // Capture a depth frame
