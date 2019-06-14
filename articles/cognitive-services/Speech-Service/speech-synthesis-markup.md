@@ -19,6 +19,9 @@ Speech Synthesis Markup Language (SSML) is an XML-based markup language that let
 
 The Speech Services implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/speech-synthesis).
 
+> [!IMPORTANT]
+> Chinese, Japanese, and Korean characters count as two characters for billing. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
 ## Standard, neural, and custom voices
 
 Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales. For a complete list of supported languages, locales, and voices (neural and standard), see [language support](language-support.md).
@@ -197,9 +200,9 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 
 `p` and `s` elements are used to denote paragraphs and sentences, respectively. In the absence of these elements, the text-to-speech service automatically determines the structure of the SSML document.
 
-The `p` element may contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
+The `p` element may contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, `mstts:express-as`, and `s`.
 
-The `s` element may contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, and `sub`.
+The `s` element may contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `mstts:express-as`, and `sub`.
 
 **Syntax**
 
