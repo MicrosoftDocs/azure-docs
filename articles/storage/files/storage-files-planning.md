@@ -78,10 +78,12 @@ Standard file shares are backed by hard disk drives (HDDs). Standard file shares
 Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any shares larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.
 
 > [!IMPORTANT]
-> - LRS to GRS account conversion will not be allowed on any storage account within the subscription that is approved for the larger file shares preview. GRS accounts, once converted to LRS accounts, will not be able to convert back to GRS accounts.
+> - Any subscription enrolled in this preview will not be able to create additional storage accounts unless they are using LRS.
+> Existing storage accounts in the subscription enrolled in the preview that are using storage redundancy options other than LRS will still function.
 > - Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
 > - Are only available with LRS.
 > - Available in three regions: West US 2, West Europe, and SE Asia regions.
+> - For storage accounts enrolled in this preview, converting a GRS storage account to LRS is possible, however once you do that you will no longer be able to convert it back to GRS.
 
 If you'd like to onboard to the preview of these larger file share sizes, submit this [form](https://aka.ms/azurefilesatscalesurvey). 
 
