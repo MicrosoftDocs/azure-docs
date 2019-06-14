@@ -321,7 +321,7 @@ In this tutorial, you create/update code to do the following tasks:
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
     ```
-## Update MainActivity class
+## Create an ADM object
 1 In the `MainActivity.java` file, add the following import statements:
 
     ```java
