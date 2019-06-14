@@ -335,8 +335,8 @@ When you copy data into Azure SQL Database Managed Instance, you might require d
 
 - [Append](#append-data): My source data has only new records.
 - [Upsert](#upsert-data): My source data has both inserts and updates.
-- [Overwrite](#overwrite-entire-table): I want to reload the entire dimension table each time.
-- [Write with custom logic](#write-data-with-custom-logic): I need extra processing before the final insertion into the destination table.
+- [Overwrite](#overwrite-the-entire-table): I want to reload the entire dimension table each time.
+- [Write with custom logic](#write-data-with-custom-logic): I need extra processing before the final insertion into the destination table. 
 
 See the respective sections for how to configure in Azure Data Factory and best practices.
 
