@@ -63,11 +63,11 @@ When you connect an IoT Plug and Play device, you can view its device capability
 
 As a device developer, you can develop an IoT hardware product that supports IoT Plug and Play. The process involves two key steps:
 
-1. Define the device capability model and interfaces. You author a set of JSON files that declare your device's capabilities using the DTDL. A device capability model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different device capability models.
+1. Define the device capability model and interfaces. You author a set of JSON files that declare your device's capabilities using the [DTDL](https://aka.ms/DTDL). A device capability model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different device capability models.
 
 1. Author the device software or firmware that implements the capabilities declared in the device capability model and interfaces. The Azure IoT SDK includes APIs to implement device capability models.
 
-The IoT Device Workbench for VS Code provides many features to assist you, however you can use any IDE to author and implement device capability models.
+The [IoT Device Workbench for VS Code](https://aka.ms/iot-workbench-pnp-pr) provides many features to assist you, however you can use any IDE to author and implement device capability models.
 
 ## Certify a Plug and Play device
 
