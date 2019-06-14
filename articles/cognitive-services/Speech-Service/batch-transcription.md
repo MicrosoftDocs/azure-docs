@@ -99,9 +99,9 @@ For more details, see [Webhooks](webhooks.md).
 
 ## Speaker Separation (Diarization)
 
-Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports Diarization and is capable of recognizing 2 speakers on mono channel recordings.
+Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports Diarization and is capable of recognizing two speakers on mono channel recordings.
 
-To request that your audio transcription request is processed for diarization you simply have to add the relevant parameter in the HTTP request as shown below.
+To request that your audio transcription request is processed for diarization, you simply have to add the relevant parameter in the HTTP request as shown below.
 
  ```json
 {
@@ -117,11 +117,11 @@ To request that your audio transcription request is processed for diarization yo
 }
 ```
 
-Note that world level timestamps would also have to be 'turned on' as the parameters in the above request indicate.
+Word level timestamps would also have to be 'turned on' as the parameters in the above request indicate. 
 
-The corresponding audio will contain the speakers identified by a number (currently we support only 2 voices, so the speakers will be identified as 'Speaker 1 'and 'Speaker 2') followed by the transcription output.
+The corresponding audio will contain the speakers identified by a number (currently we support only two voices, so the speakers will be identified as 'Speaker 1 'and 'Speaker 2') followed by the transcription output.
 
-Also note that Diarization is not available in Stereo recordings. Furthermore, all JSON output will contain the Speaker tag. If diarization is not used it will simply show as 'Speaker: Null'
+Also note that Diarization is not available in Stereo recordings. Furthermore, all JSON output will contain the Speaker tag. If diarization is not used, it will show 'Speaker: Null' inteh JSON output.
 
 Supported locales are listed below.
 
@@ -141,7 +141,7 @@ Sentiment is a new feature in Batch Transcription API and is an important featur
 4.	Pinpoint what went well when turning negative calls to positive
 5.	Identify what customers like and what they dislike about a product or a service
 
-Sentiment is scored per audio segment where an audio segment is defined as the time lapse between the start of the utterance (offset) and the detection silence of end of byte stream. The entire text within that segment is used to calculate sentiment. We DO NOT calculate any aggregate sentiment values for the entire call or the entire speech of each channel. These are left to the domain owner to further apply.
+Sentiment is scored per audio segment where an audio segment is defined as the time lapse between the start of the utterance (offset) and the detection silence of end of byte stream. The entire text within that segment is used to calculate sentiment. We DO NOT calculate any aggregate sentiment values for the entire call or the entire speech of each channel. These aggregations are left to the domain owner to further apply.
 
 Sentiment is applied on the lexical form.
 
@@ -180,7 +180,7 @@ A JSON output sample looks like below:
   ]
 }
 ```
-The features uses a Sentiment model which is currently in Beta.
+The feature uses a Sentiment model, which is currently in Beta.
 
 ## Sample code
 
