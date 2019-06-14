@@ -27,7 +27,7 @@ ms.custom: "include file"
 | Pricing tier    | Workspace limit | Comments
 |:---|:---|:---|
 | Free tier  | 10 | This limit can't be increased. |
-| All other tiers | N/A | You're limited by the number of resources within a resource group and the number of resource groups per subscription. | 
+| All other tiers | No limit | You're limited by the number of resources within a resource group and the number of resource groups per subscription. |
 
 **Azure portal**
 
