@@ -43,6 +43,8 @@ Eventually, these limitations revealed the importance of smart data aggregation 
 
 **Time Series Models provide a convenient solution** for many of the scenarios encountered in the fictitious example above:
 
+[![Time Series Model charting](media/v2-update-tsm/tsi-charting.png)](media/v2-update-tsm/tsi-charting.png#lightbox)
+
 * Time Series Models play a vital role in queries and navigation because they contextualize data by allowing comparisons to be drawn across time ranges and between sensor and device kinds.
 * Data is further contextualized because data persisted in a Time Series Model preserves time-series query computations and use the formulas that are stored in them.
 * Time Series Models organize and aggregate data for improved visualization and management capabilities.
