@@ -401,79 +401,95 @@ TBD
 
 2. Run the project to make sure it still works.
 
-### Add a paging field to the model
+### Add paging fields to the model
 
-1. Add a **paging** field to the **SearchData** class (in the SearchData.cs) model file, perhaps after the **pageCount** field.
+1. First, add a **paging** property to the **SearchData** class (in the SearchData.cs model file).
 
-```cs 
- public string paging { get; set; }
+```cs
+        // Record if the next page is requested.
+        public string paging { get; set; }
 ```
 
 This variable is a string, which holds "next" if the next page of results should be sent, or be null for the first page of a search.
 
-### Add a vertical scroll bar to the view
-
-1. Locate the section of the index.cshtml file that displays the results (it starts with the **@for (var i = 0; i &lt; Model.hotels.Count; i++)** ).
-2. Replace the loop with the **&lt;div&gt;** section below. The **&lt;div&gt;** section is around the area that should be scrollable and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()" (or any name you want to give it), like so.
+2. In the same file, and within the namespace, add a global variable class with one property. In MVC global variables are declared in their own static class. **ResultsPerPage** sets the number of results per page. 
 
 ```cs
-        <div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()">
-
-            <!-- Show the hotel data. All pages will have ResultsPerPage entries, except for the last page. -->
-            @for (var i = 0; i < Model.hotels.Count; i++)
+    public static class GlobalVariables
+    {
+        public static int ResultsPerPage
+        {
+            get
             {
-                // Display the hotel name.
-                @Html.TextAreaFor(m => Model.GetHotel(i).HotelName, new { @class = "box1" })
-
-                // Display the hotel sample room and description.
-                @Html.TextArea("idh", Model.GetFullHotelDescription(i), new { @class = "box2" })
+                return 3;
             }
-        </div>
+        }        
+    }
+```
+
+### Add a vertical scroll bar to the view
+
+1. Locate the section of the index.cshtml file that displays the results (it starts with the **@if (Model != null)**).
+
+1. Replace the section with the code below. The new **&lt;div&gt;** section is around the area that should be scrollable and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()" (or any name you want to give it), like so.
+
+```cs
+        @if (Model != null)
+        {
+            // Show the result count.
+            <p class="sampleText">
+                @Html.DisplayFor(m => m.resultList.Count) Results
+            </p>
+
+            <div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()">
+
+                <!-- Show the hotel data. -->
+                @for (var i = 0; i < Model.resultList.Results.Count; i++)
+                {
+                    // Display the hotel name and description.
+                    @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
+                    @Html.TextArea("desc", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
+                }
+            </div>
+        }
 ```
 
 3. Directly underneath the loop, after the &lt;/div&gt; tag, add the scroll function.
 
 ```cs
         <script>
-            function scrolled() {
-                if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
-                    $.getJSON("/Home/Next", function (data) {
-                        var div = document.getElementById('myDiv');
+                function scrolled() {
+                    if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
+                        $.getJSON("/Home/Next", function (data) {
+                            var div = document.getElementById('myDiv');
 
-                        // Append the returned data to the current list of hotels.
-                        for (var i = 0; i < data.length; i += 2) {
-                            div.innerHTML += '\n<textarea class="box1">' + data[i] + '</textarea>';
-                            div.innerHTML += '\n<textarea class="box2">' + data[i + 1] + '</textarea>';
-                        }
-                    });
+                            // Append the returned data to the current list of hotels.
+                            for (var i = 0; i < data.length; i += 2) {
+                                div.innerHTML += '\n<textarea class="box1">' + data[i] + '</textarea>';
+                                div.innerHTML += '\n<textarea class="box2">' + data[i + 1] + '</textarea>';
+                            }
+                        });
+                    }
                 }
-            }
-        </script>
+         </script>
 ```
 
 The **if** statement in the script above tests to see if the user has scrolled to the bottom of the vertical scroll bar. If they have, a call to the **Home** controller is made to an action called **Next**. No other information is needed by the controller, it will return the next page of data. This data is then formatted using identical HTML styles as the original page. If no results are returned, nothing is appended and things stay as they are.
 
-4. Delete the old page handling section that begins with **@if (Model != null && Model.pageCount &gt; 1)** and ends just before the end &lt;/body&gt; tag. No need for paging buttons with our infinite page system!
-
 ### Handle the Next action
 
-There are only three actions that need to be sent to the controller: the first running of the app, which calls **Index()**, the first search by the user, which calls **Index(model)**, and then the calls for more results via **Next(model)**.
+There are only three actions that need to be sent to the controller: the first running of the app, which calls **Index()**, the first search by the user, which calls **Index(model)**, and then the subsequent calls for more results via **Next(model)**.
 
-1. Open the home controller file and delete the old actions **Next** and **Prev**, and the **RunQueryAsync** method from the original tutorial.
+1. Open the home controller file and delete the **RunQueryAsync** method from the original tutorial.
 
-2. Replace the **Index(model)** action with the following code. It now handles the **paging** field when it is null or set to "next" and handles the calls to Azure Search.
+2. Replace the **Index(model)** action with the following code. It now handles the **paging** field when it is null, or set to "next", and handles the call to Azure Search.
 
 ```cs
         public async Task<ActionResult> Index(SearchData model)
         {
             try
             {
-                // Use static variables to set up the configuration and Azure service and index clients, for efficiency.
-                _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-                _configuration = _builder.Build();
-
-                _serviceClient = CreateSearchServiceClient(_configuration);
-                _indexClient = _serviceClient.Indexes.GetClient("hotels");
+                InitSearch();
 
                 int page;
 
@@ -484,7 +500,8 @@ There are only three actions that need to be sent to the controller: the first r
 
                     // Recover the search text.
                     model.searchText = TempData["searchfor"].ToString();
-                } else
+                }
+                else
                 {
                     // First call. Check for valid text input.
                     if (model.searchText == null)
@@ -495,53 +512,29 @@ There are only three actions that need to be sent to the controller: the first r
                 }
 
                 // Setup the search parameters.
-                SearchParameters sp = new SearchParameters()
+                var parameters = new SearchParameters
                 {
-                    Select = new[] { "HotelName", "Description", "Tags", "Rooms" },
+                    // Enter Hotel property names into this list so only these values will be returned.
+                    // If Select is empty, all values will be returned, which can be inefficient.
+                    Select = new[] { "HotelName", "Description" },
                     SearchMode = SearchMode.All,
+
+                    // Skip past results that have already been returned.
+                    Skip = page * GlobalVariables.ResultsPerPage,
+
+                    // Take only the next page worth of results.
+                    Top = GlobalVariables.ResultsPerPage,
+
+                    // Include the total number of results.
+                    IncludeTotalResultCount = true,
                 };
 
-                DocumentSearchResult<Hotel> results = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, sp);
+                // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
+                model.resultList = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
 
-                if (results.Results == null)
-                {
-                    model.resultCount = 0;
-                }
-                else
-                {
-                    // Record the total number of results.
-                    model.resultCount = (int)results.Results.Count;
-
-                    int start = page * GlobalVariables.ResultsPerPage;
-                    int end = Math.Min(model.resultCount, (page + 1) * GlobalVariables.ResultsPerPage);
-
-                    for (int i = start; i < end; i++)
-                    {
-                        // Check for hotels with no room data provided.
-                        if (results.Results[i].Document.Rooms.Length > 0)
-                        {
-                            // Add a hotel with sample room data (an example of a "complex type").
-                            model.AddHotel(results.Results[i].Document.HotelName,
-                                 results.Results[i].Document.Description,
-                                 (double)results.Results[i].Document.Rooms[0].BaseRate,
-                                 results.Results[i].Document.Rooms[0].BedOptions,
-                                 results.Results[i].Document.Tags);
-                        }
-                        else
-                        {
-                            // Add a hotel with no sample room data.
-                            model.AddHotel(results.Results[i].Document.HotelName,
-                                results.Results[i].Document.Description,
-                                0d,
-                                "No room data provided",
-                                results.Results[i].Document.Tags);
-                        }
-                    }
-
-                    // Ensure Temp data is stored for the next call.
-                    TempData["page"] = page;
-                    TempData["searchfor"] = model.searchText;
-                }
+                // Ensure TempData is stored for the next call.
+                TempData["page"] = page;
+                TempData["searchfor"] = model.searchText;
             }
             catch
             {
@@ -551,21 +544,29 @@ There are only three actions that need to be sent to the controller: the first r
         }
 ```
 
+Similar to the numbered paging method, we use the **Skip** and **Top** search settings to request just the data we need is returned.
+
 3. Add the **Next** action to the home controller. Note how it returns a list, each hotel adding two elements to the list: a hotel name and a hotel description. This format is set to match the **scrolled** function's use of the returned data in the view.
 
 ```cs
         public async Task<ActionResult> Next(SearchData model)
         {
+            // Set the next page setting, and call the Index(model) action.
             model.paging = "next";
             await Index(model);
 
-            List<string> hotels = new List<string>();
-            for (int n = 0; n < model.hotels.Count; n++)
+            // Create an empty list.
+            var nextHotels = new List<string>();
+
+            // Add a hotel name, then description, to the list.
+            for (int n = 0; n < model.resultList.Results.Count; n++)
             {
-                hotels.Add(model.GetHotel(n).HotelName);
-                hotels.Add(model.GetFullHotelDescription(n));
+                nextHotels.Add(model.resultList.Results[n].Document.HotelName);
+                nextHotels.Add(model.resultList.Results[n].Document.Description);
             }
-            return new JsonResult(hotels);
+
+            // Rather than return a view, return the list of data.
+            return new JsonResult(nextHotels);
         }
 ```
 
@@ -588,7 +589,7 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 2. Scroll down all the way to the bottom of the results. Notice how all information is now on the one view page. You can scroll all the way back to the top without triggering any server calls.
 
-More sophisticated infinite scrolling systems might use the mouse wheel or similar other mechanism to trigger the loading of a new page of results. We will not be taking infinite scrolling any further in these tutorials, but it has a certain charm to it as it avoids extra mouse clicks and you might want to investigate other options further!
+More sophisticated infinite scrolling systems might use the mouse wheel, or similar other mechanism, to trigger the loading of a new page of results. We will not be taking infinite scrolling any further in these tutorials, but it has a certain charm to it as it avoids extra mouse clicks, and you might want to investigate other options further!
 
 ## Takeaways
 
@@ -604,7 +605,7 @@ Consider the following takeaways from this project:
 
 ## Next steps
 
-The next two tutorials use numbered paging. The later tutorial on geospatial filtering uses infinite scrolling.
+Paging is fundamental to internet searches. With that well covered, the next step is to improve the user experience further, by adding type-ahead searches.
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Add autocompletion and suggestions - Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)
