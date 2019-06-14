@@ -18,6 +18,8 @@
     href: create-validation-host-pool.md
   - name: 6. Deploy a management tool
     href: manage-resources-using-ui.md
+  - name: 7. Set up service alerts
+    href: set-up-service-alerts.md
 - name: How-to
   items:
   - name: Connect to Windows Virtual Desktop resources
