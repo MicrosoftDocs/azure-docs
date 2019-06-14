@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/21/2019
+ms.date: 06/13/2019
 ms.author: juliako
 
 ---
@@ -86,6 +86,7 @@ Some things that you might want to specify when creating the live event are:
 * The streaming protocol for the Live Event (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You cannot change the protocol option while the Live Event or its associated Live Outputs are running. If you require different protocols, you should create separate Live Event for each streaming protocol.  
 * IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
 * When creating the event, you can specify to auto start it. <br/>When autostart is set to true, the Live Event will be started after creation. That means, the billing starts as soon as the Live Event startsrunning. You must explicitly call Stop on the Live Event resource to halt further billing. For more information, see [Live Event states and billing](live-event-states-billing.md).
+* For an ingest URL to be predictive, set the "vanity" mode. For detailed information, see [Live Event ingest URLs](live-events-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

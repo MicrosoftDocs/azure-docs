@@ -169,7 +169,7 @@ Both the Azure Search REST API and the .NET SDK provide programmatic access to s
 * [Count Documents](/rest/api/searchservice/count-documents)
 * [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
 
-To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+To enable using PowerShell or the Azure CLI, see the documentation [here](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## Next steps
 

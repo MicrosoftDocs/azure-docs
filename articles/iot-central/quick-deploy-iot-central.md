@@ -3,7 +3,7 @@ title: Create an Azure IoT Central application | Microsoft Docs
 description: Create a new Azure IoT Central application. Create a Trial or Pay-As-You-Go application using an application template.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/07/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central

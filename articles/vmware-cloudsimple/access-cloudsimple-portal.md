@@ -14,6 +14,10 @@ manager: dikamath
 
 Single sign-on is supported for access to the CloudSimple portal. After you sign in to the Azure portal, you can access the CloudSimple portal without signing in again. The first time you access the CloudSimple portal you're prompted to authorize the [CloudSimple Service Authorization](#consent-to-cloudsimple-service-authorization-application) application.  Authorization is a one-time action.
 
+## Before you begin
+
+Only users with builtin **Owner** and **Contributor** roles can access CloudSimple portal.  The roles must be configured on the subscription.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article.
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).

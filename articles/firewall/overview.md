@@ -56,7 +56,7 @@ All outbound virtual network traffic IP addresses are translated to the Azure Fi
 
 ### Inbound DNAT support
 
-Inbound network traffic to your firewall public IP address is translated (Destination Network Address Translation) and filtered to the private IP addresses on your virtual networks. 
+Inbound network traffic to your firewall public IP address is translated (Destination Network Address Translation) and filtered to the private IP addresses on your virtual networks.
 
 ### Azure Monitor logging
 
@@ -76,8 +76,7 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Port range in network and application rules|Ports are limited to 64,000 as high ports are reserved for management and health probes. |We're working to relax this limitation.|
 |Threat intelligence alerts may get masked|Network rules with destination 80/443 for outbound filtering masks threat intelligence alerts when configured to alert only mode.|Create outbound filtering for 80/443 using application rules. Or, change the threat intelligence mode to **Alert and Deny**.|
 |Azure Firewall uses Azure DNS only for name resolution|Azure Firewall resolves FQDNs using Azure DNS only. A custom DNS server isn't supported. There's no impact on DNS resolution on other subnets.|We're working to relax this limitation.|
-|Azure Firewall SNAT/DNAT doesn't work for private IP destinations|Azure Firewall SNAT/DNAT support is limited to Internet egress/ingress. SNAT/DNAT doesn't currently work for private IP destinations. For example, spoke to spoke.|This is being investigated.
-
+|Azure Firewall SNAT/DNAT doesn't work for private IP destinations|Azure Firewall SNAT/DNAT support is limited to Internet egress/ingress. SNAT/DNAT doesn't currently work for private IP destinations. For example, spoke to spoke.|This is on the road map for a future update.
 ## Next steps
 
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)

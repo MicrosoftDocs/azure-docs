@@ -15,7 +15,7 @@
         href: 23video-tutorial.md
       - name: 360 Online
         href: 360online-tutorial.md
-      - name: 4me
+        name: 4me
         href: 4me-tutorial.md
       - name: 8x8 Virtual Office
         href: 8x8virtualoffice-tutorial.md
@@ -307,6 +307,8 @@
         href: coupa-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: CyberArk SAML Authentication
+        href: cyberark-saml-authentication-tutorial.md
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
     - name: D - E
@@ -387,6 +389,8 @@
       - name: Envi MMIS
         href: envimmis-tutorial.md
       - name: Envoy
+        href: envoy-provisioning-tutorial
+        name: Envoy
         href: envoy-tutorial.md
       - name: ePlatform
         href: eplatform-tutorial.md
@@ -842,6 +846,8 @@
         href: opsgenie-tutorial.md
       - name: Optimizely
         href: optimizely-tutorial.md
+      - name: Oracle Cloud Infrastructure Console
+        href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
       - name: OrgChart Now
@@ -870,6 +876,8 @@
         href: paloaltonetworks-captiveportal-tutorial.md
       - name: Palo Alto Networks - GlobalProtect
         href: paloaltoglobalprotect-tutorial.md
+      - name: PandaDoc
+        href: pandadoc-tutorial.md
       - name: Panopto
         href: panopto-tutorial.md
       - name: Panorama9
@@ -880,7 +888,7 @@
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
         href: pavaso-digital-close-tutorial.md
-      - name: Peakon
+        name: peakon
         href: peakon-tutorial.md
       - name: Pega Systems
         href: pegasystems-tutorial.md
@@ -890,6 +898,8 @@
         href: peoplecart-tutorial.md
       - name: Perception United States (Non-UltiPro)
         href: perceptionunitedstates-tutorial.md
+      - name: Perceptyx
+        href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
       - name: PerformanceCentre
@@ -932,7 +942,7 @@
         href: promaster-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
-      - name: Proxyclick
+        name: Proxyclick
         href: proxyclick-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
@@ -1344,9 +1354,8 @@
         href: zoho-mail-tutorial.md
       - name: Zoho One
         href: zohoone-tutorial.md
-      - name: Zoom
+        name: Zoom
         href: zoom-tutorial.md
-      - name: Zscaler
         href: zscaler-tutorial.md
       - name: Zscaler Beta
         href: zscaler-beta-tutorial.md
@@ -1407,7 +1416,11 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+<<<<<<< HEAD
         name: Envoy
+=======
+        name: envoy
+>>>>>>> 42cc73b625d31b849d90a0f516c3aaeaa903ac3b
         href: envoy-provisioning-tutorial.md
         name: Jive
         href: jive-provisioning-tutorial.md
@@ -1467,5 +1480,10 @@
         href: zscaler-zscloud-provisioning-tutorial.md
         name: Zoom
         href: zoom-provisioning-tutorial.md
+<<<<<<< HEAD
 
 
+=======
+        name: 4me
+        href: 4me-provisioning-tutorial.md
+>>>>>>> 42cc73b625d31b849d90a0f516c3aaeaa903ac3b
