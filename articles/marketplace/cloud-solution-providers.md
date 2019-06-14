@@ -35,6 +35,8 @@ The following table shows offer types and pricing models that can opt in to the 
 
 The CSP program opt-in setting is configured in the Partner Center or Cloud Partner Portal offer creation experience. ([Learn more about the changing publisher experience.](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293))
 
+In Cloud Partner Portal, this is set on the Marketplace or Storefront tab. In Partner Center, this is set in the Offer setup tab under Setup details.
+
 ![CSP opt-in experience in CPP](media/marketplace-publishers-guide/csp-opt-in.png)
 
 As seen below, in Partner Center, publishers can opt-in to make their offers available in the CSP program by checking the box, **Make my offer available in the CSP program**.
