@@ -22,11 +22,7 @@ In Azure Media Services, a  [Live Event](https://docs.microsoft.com/rest/api/med
 
 ## Types comparison 
 
-The following table compares features of the Live Event types. The types are set during creation using these properties:
-
-* **LiveEventEncodingType.None** - An on-premises live encoder sends a multi-bitrate stream. The ingested streams passes through the Live Event without any further processing. 
-* **LiveEventEncodingType.Standard** - An on-premises live encoder sends a single-bitrate stream to the Live Event and Media Services creates multi-bitrate streams. If the contribution feed is of 720p or higher resolution, the **Default720p** preset will encode a set of 6 resolution/bit rate pairs (details follow later in the article).
-* **LiveEventEncodingType.Premium1080p** - An on-premises live encoder sends a single-bitrate stream to the Live Event and Media Services creates multi-bitrate streams. The Default1080p preset specifies the output set of resolution/bit rate pairs (details follow later in the article). 
+The following table compares features of the Live Event types. 
 
 | Feature | Pass-through Live Event | Standard or Premium1080p Live Event |
 | --- | --- | --- |
