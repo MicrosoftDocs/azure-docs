@@ -178,7 +178,7 @@ xxxx
 }
 ```
 
-We use an HTML table to align things neatly. However all the action comes from the **@Html.ActionLink** statements, each calling the controller with a **new** model created with different entries to the **paging** property we added earlier.
+We use an HTML table to align things neatly. However all the action comes from the @Html.ActionLink statements, each calling the controller with a **new** model created with different entries to the **paging** property we added earlier.
 
 The first and last page options do not send strings such as "first" and "last", but instead send the correct page numbers.
 
@@ -365,7 +365,7 @@ The **RunQueryAsync** method will now show a syntax error, because of the third 
 
 Now select **Start Without Debugging** (or press the F5 key).
 
-1. Search on some text that will give plenty of results (such as "bar" or "pool"). Can you page neatly through the results?
+1. Search on some text that will give plenty of results (such as "wifi"). Can you page neatly through the results?
 
 ![Numbered paging through "pool" results](./media/tutorial-csharp-create-first-app/azure-search-numbered-paging.png)
 
@@ -373,13 +373,14 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 3. Are the "first" and "last" options useful? Some popular web searches use these options, and others do not.
 
-4. Type in "town", and click search. No paging options are displayed if there are less than one page worth of results.
+4. Go to the the last page of results. The last page is the only page that may contain less than **ResultsPerPage** results.
+
+ ![Examining last page of "wifi"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
+
+5. Type in "town", and click search. No paging options are displayed if there are less than one page worth of results.
 
  ![Searching for "town"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
 
-5. Type in "pool", and click search. Then select the last page of results. The last page is the only page that may contain less than **ResultsPerPage** results.
-
- ![Searching for "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
 
 
 Now save off this project and let's try an alternative to this form of paging.
