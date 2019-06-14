@@ -928,7 +928,7 @@
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
       - name: Proxyclick
-        href: proxyclick-provisioning-tutorial.md
+        href: proxyclick-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
@@ -1418,7 +1418,7 @@
         href: netsuite-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
-      - name: Proxyclick
+      - name: proxyclick
         href: proxyclick-provisioning-tutorial.md
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
