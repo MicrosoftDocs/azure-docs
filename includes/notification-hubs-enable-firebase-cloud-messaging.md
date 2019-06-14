@@ -14,7 +14,7 @@
 2. After you create your project, select **Add Firebase to your Android app**. 
 
     ![Add Firebase to your Android app](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
-3. On the **Add Firebase to your Android app** page, do the following steps: 
+3. On the **Add Firebase to your Android app** page, take the following steps: 
     1. For **Android package name**, copy the value of your **applicationId** in your application's **build.gradle** file. In this example, it's `com.fabrikam.fcmtutorial1app`. 
 
         ![Specify the package name](./media/notification-hubs-enable-firebase-cloud-messaging/specify-package-name-fcm-settings.png)
@@ -42,8 +42,8 @@
     4. Select **Sync now*** on the toolbar. 
  
         ![build.gradle configuration changes](./media/notification-hubs-enable-firebase-cloud-messaging/build-gradle-configurations.png)
-6. Select **Next** on the page. 
-7. Select **Skip this step** on the page. 
+6. Select **Next**. 
+7. Select **Skip this step**. 
 
     ![Skip the last step](./media/notification-hubs-enable-firebase-cloud-messaging/skip-this-step.png)1. 
 8. In the Firebase console, select the cog for your project. Then select **Project Settings**.

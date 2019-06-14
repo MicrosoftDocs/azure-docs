@@ -38,7 +38,7 @@ In this tutorial, you take the following steps:
 
 ## Prerequisites
 
-To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For more information, see [Azure free account](https://azure.microsoft.com/free/). In addition to an active Azure account, you also need the following:
+ items:
 
 * The latest version of [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)
 * Android 2.3 or higher for Firebase Cloud Messaging
@@ -71,12 +71,12 @@ Completing this tutorial is a prerequisite for doing all other Notification Hubs
 
 1. In the left pane, under **Settings,** select **Google (GCM/FCM)**. 
 2. Enter the **server key** for the FCM project that you saved earlier. 
-3. On the toolbar, select **Save** . 
+3. On the toolbar, select **Save**. 
 
     ![Azure Notification Hubs - Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 4. You see a message in alerts that the notification hubs have been successfully updated. The **Save** button is disabled. 
 
-Your notification hub is now configured to work with Firebase Cloud Messaging, and you have the connection strings to both register your app to receive and to send push notifications.
+Your notification hub is now configured to work with Firebase Cloud Messaging. You also have the connection strings to register your app to receive and to send push notifications.
 
 ## <a id="connecting-app"></a>Connect your app to the notification hub
 
@@ -145,7 +145,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
     ```
 
     > [!IMPORTANT]
-    > Replace the `<your package NAME>` placeholder with your actual package name shown at the top of the `AndroidManifest.xml` file.
+    > Replace the `<your package NAME>` placeholder with your actual package name, which is shown at the top of the `AndroidManifest.xml` file.
 3. Add the following necessary FCM-related permissions below the `</application>` tag.
 
     ```xml
@@ -397,7 +397,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
     android:id="@+id/text_hello"
     ```
 
-11. Next you add a subclass for your receiver you defined in the AndroidManifest.xml. Add another new class to your project named `MyHandler`.
+11. Next you add a subclass for the receiver that you defined in the AndroidManifest.xml. Add another new class to your project named `MyHandler`.
 
 12. Add the following import statements at the top of `MyHandler.java`:
 
@@ -512,9 +512,9 @@ You can send push notifications from the [Azure portal] by taking the following 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ### Run the mobile app on emulator
-If you want to test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you might get the **SERVICE\_NOT\_AVAILABLE** exception.
+Before you test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you might get the **SERVICE\_NOT\_AVAILABLE** exception.
 
-In addition, ensure that you have added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with FCM may result in the **AUTHENTICATION\_FAILED** exception.
+In addition, make sure that you've added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with FCM may result in the **AUTHENTICATION\_FAILED** exception.
 
 ## Next steps
 In this tutorial, you used Firebase Cloud Messaging to broadcast notifications to all Android devices that were registered with the service. To learn how to push notifications to specific devices, advance to the following tutorial:

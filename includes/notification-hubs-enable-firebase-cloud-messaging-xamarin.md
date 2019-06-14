@@ -27,8 +27,8 @@
 
     ![Download google-services.json](./media/notification-hubs-enable-firebase-cloud-messaging/download-google-service-button.png)
 
-6. Select **Next** . 
-7. Select **Skip this step** . 
+6. Select **Next**. 
+7. Select **Skip this step**. 
 
     ![Skip the last step](./media/notification-hubs-enable-firebase-cloud-messaging/skip-this-step.png)
 
