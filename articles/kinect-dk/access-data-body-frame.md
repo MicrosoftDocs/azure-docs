@@ -1,6 +1,6 @@
 ---
-title: Access Azure Kinect DK Data in Body Frame
-description: Describe the APIs to access the data stored in a Body Frame
+title: Access Azure Kinect DK data in a body frame
+description: Describe the APIs to access the data stored in a body frame
 author: qm13
 ms.author: yijwan, quentinm
 ms.prod: kinect-dk
@@ -26,7 +26,7 @@ The following functions are covered:
 
 Each body frame contains a collection of body structs, a 2D body index map, and the input capture that generated this result.
 
--![Body Frame Components](./media/how-to-guides/body-frame.png)
+![Body Frame Components](./media/how-to-guides/body-frame.png)
 
 ## Access the collection of body structs
 
