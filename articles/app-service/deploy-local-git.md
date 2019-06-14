@@ -41,7 +41,7 @@ To follow the steps in this how-to guide:
 
 ## Use Cloud Shell to deploy with Kudu build server
 
-The easiest way to enable local Git deployment for your app with the Kudu App Service build server is to use Azure Cloud Shell. Start a Cloud Shell session by using one of the methods in the preceding table. 
+The easiest way to enable local Git deployment for your app with the Kudu App Service build server is to use Azure Cloud Shell.  
 
 ### Configure a deployment user
 
@@ -87,14 +87,13 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-> [!NOTE]
-> To deploy with app-level credentials instead of deployment user credentials, get the credentials specific to your app by running the following command in the Cloud Shell. Replace \<app_name> and <group_name> with your app's name and Azure resource group name.
->
-> ```azurecli-interactive
-> az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
-> ```
->
-> Copy and save the URL that returns to use in the next step.
+To deploy with app-level credentials instead of deployment user credentials, get the credentials specific to your app by running the following command in the Cloud Shell. Replace \<app_name> and <group_name> with your app's name and Azure resource group name.
+
+```azurecli-interactive
+az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
+```
+
+Copy and save the URL that returns to use in the next step.
 
 ### Deploy the web app
 
@@ -173,7 +172,7 @@ The following error messages are common problems when you use Git to publish to 
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|You didn't specify a branch during `git push`, or you haven't set the `push.default` value in `.gitconfig`.|Run `git push` again, specifying the master branch: `git push azure master`.|
 |`src refspec [branchname] does not match any.`|You tried to push to a branch other than master on the 'azure' remote.|Run `git push` again, specifying the master branch: `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|This error can happen if you try to push a large git repository over HTTPS.|Change the git configuration on the local machine to make the `postBuffer` bigger. For example: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|You deployed a Node.js app with a _package.json_ file that specifies additional required modules.|Review the `npm ERR!` error messages before this error for more context on the failure. The following are the known causes of this error, and the corresponding `npm ERR!` messages:<br /><br />- **Malformed package.json file**: `npm ERR! Couldn't read dependencies.`<br /><br />- **Native module doesn't have a binary distribution for Windows**:<br /><br />  `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />  or <br />  `npm ERR! [modulename@version] preinstall: \make || gmake\`|
+|`Error - Changes committed to remote repository but your web app not updated.`|You deployed a Node.js app with a _package.json_ file that specifies additional required modules.|Review the `npm ERR!` error messages before this error for more context on the failure. The following are the known causes of this error, and the corresponding `npm ERR!` messages:<br /><br />**Malformed package.json file**: `npm ERR! Couldn't read dependencies.`<br /><br />**Native module doesn't have a binary distribution for Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\`|
 
 ## Additional resources
 

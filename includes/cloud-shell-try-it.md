@@ -18,7 +18,7 @@ To launch Azure Cloud Shell:
 | Go to [https://shell.azure.com](https://shell.azure.com) or select the **Launch Cloud Shell** button to open Cloud Shell in your browser. | <a href="https://shell.azure.com" title="Launch Azure Cloud Shell"><img src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" /></a> |
 | Select the **Cloud Shell** button on the top-right menu bar in the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](./media/cloud-shell-try-it/cloud-shell-menu.png) |
 
-To run any code in this article in Azure Cloud Shell:
+To run the code in this article in Azure Cloud Shell:
 
 1. Launch Cloud Shell.
 1. Select the **Copy** button on a code block to copy the code. 
