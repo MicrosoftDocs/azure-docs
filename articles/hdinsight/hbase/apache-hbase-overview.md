@@ -8,6 +8,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
+#Customer intent: As a developer new to Apache HBase and Apache HBase in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache HBase in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
 
 # What is Apache HBase in Azure HDInsight
@@ -15,8 +16,6 @@ ms.author: hrasheed
 [Apache HBase](https://hbase.apache.org/) is an open-source, NoSQL database that is built on [Apache Hadoop](https://hadoop.apache.org/) and modeled after [Google BigTable](https://cloud.google.com/bigtable/). HBase provides random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.
 
 From user perspective, HBase is similar to a database. Data is stored in the rows and columns of a table, and data within a row is grouped by column family. HBase is a schemaless database in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## How is Apache HBase implemented in Azure HDInsight?
 
