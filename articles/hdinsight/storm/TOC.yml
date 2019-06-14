@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create and monitor Apache Storm topology in HDInsight
+  - name: Create Apache Storm topology in HDInsight
     href: ./apache-storm-quickstart.md
 - name: Get started
   items:
