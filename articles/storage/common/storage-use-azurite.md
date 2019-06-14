@@ -13,7 +13,7 @@ ms.subservice: common
 
 # Use the Azurite open-source emulator for blob storage development and testing (preview)
 
-The Azurite open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications. When you're satisfied with how your application is working, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform experiences on Windows, Linux, and MacOS. Azurite version 3 supports most of the APIs implemented by the Azure Blob Storage service. <!-- Which APIs are NOT supported? -->
+The Azurite version 3 open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications. When you're satisfied with how your application is working, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform experiences on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ To get the Azurite emulator on your local system, clone the GitHub repository fo
 git clone https://github.com/Azure/Azurite.git
 ```
 
-After cloning the source code, build and install Azurite by using **npm**, which is the package management tool included with every Node.js installation. Execute following **npm** commands from the local root directory of the cloned repo.
+After cloning the source code, build and install Azurite by using **npm**. **npm** is the package management tool included with every Node.js installation. Execute the following **npm** commands from the local root directory of the cloned repo.
 
 ```console
 npm install
@@ -47,11 +47,11 @@ The **-l** switch is a shortcut for **--location**, **-s** is a shortcut for **-
 
 ### Supported command-line options
 
-This section details the command line switches available when launching Azurite v3. All command line switches are optional.
+This section details the command line switches available when launching Azurite. All command-line switches are optional.
 
 #### Listening host
 
-**Optional** By default, Azurite v3 will listen to 127.0.0.1 as the local server. Use the **--blobHost** switch to set the address to your requirements.
+**Optional** By default, Azurite will listen to 127.0.0.1 as the local server. Use the **--blobHost** switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -67,7 +67,7 @@ azurite --blobHost 0.0.0.0
 
 #### Listening port configuration
 
-**Optional** By default, Azurite v3 will listen for the Blob service on port 10000. You can customize the listening port for your own requirements.
+**Optional** By default, Azurite will listen for the Blob service on port 10000. Use the **--blobPort** switch to specify the listening port that you require.
 
 > [!WARNING]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -85,11 +85,11 @@ azurite --blobPort 0
 ```
 
 > [!NOTE]
-> The port in use is displayed on Azurite startup.
+> The port in use is displayed during Azurite startup.
 
 #### Workspace path
 
-**Optional** Azurite v3 needs to store metadata and binary data to the local disk during execution. You can provide a customized path as the workspace location. By default, the current process working directory will be used.
+**Optional** Azurite stores data to the local disk during execution. Use the **--location** switch to specify a path as the workspace location. By default, the current process working directory will be used.
 
 ```console
 azurite -l c:\azurite
@@ -101,7 +101,7 @@ azurite --location c:\azurite
 
 #### Access log
 
-**Optional** By default the access log is displayed in the console window. Disable it by using the **--silent** switch:
+**Optional** By default, the access log is displayed in the console window. Disable the display of the access log by using the **--silent** switch.
 
 ```console
 azurite -s
@@ -113,7 +113,7 @@ azurite --silent
 
 #### Debug log
 
-**Optional** The debug log includes detailed information on every request and exception stack traces. Enable the debug log by providing a valid local file path.
+**Optional** The debug log includes detailed information on every request and exception stack trace. Enable the debug log by providing a valid local file path to the **--debug** switch.
 
 ```console
 azurite -d path/debug.log
@@ -125,7 +125,7 @@ azurite --debug path/debug.log
 
 ## Run Azurite
 
-Start Azurite with the following command:
+Start Azurite by using the following command:
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
@@ -133,58 +133,60 @@ azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 
 This command tells Azurite to store all data in a particular directory, **c:\azurite**. If the **--location** option is omitted, it will use the current working directory.
 
-## Authentication
+## Authentication for tools and SDKs
 
-Azurite v3 supports SharedKey, account Shared Access Signature (SAS), Service SAS, and Public Container Access authentications. You may use any Azure Storage SDKs or tools like Storage Explorer to connect Azurite v3 with any authentication strategy. Authentication is required in Azurite v3.
+You may use any Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), to connect Azurite with any authentication strategy. Authentication is required. Azurite supports SharedKey, account Shared Access Signature (SAS), Service SAS, and Public Container Access authentications.
 
 ### Default Storage Account
 
-Azurite v3 provides support for a General Storage Account v2 and associated features by default.
+Azurite provides support for a General Storage Account v2 and associated features by default.
 
 * Account name: `devstoreaccount1`
 * Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 > [!NOTE]
-> In addition to SharedKey authentication, Azurite v3 supports account and service SAS authentication. Anonymous access is also available when a container is set to allow public access.
+> In addition to SharedKey authentication, Azurite supports account and service SAS authentication. Anonymous access is also available when a container is set to allow public access.
 
 ### Connection string
 
-Typically, you can pass following connection strings to SDKs or tools (like Azure CLI2.0 or Storage Explorer). Using the blob service as an example, the full connection string is:
+Typically, you can pass the following connection strings to SDKs or tools. Using the Blob service as an example, the full connection string is:
 
 ```
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
 ```
 
-Or if the SDK or tools support following short connection string:
+The easiest way to connect to Azurite from your application is to configure a connection string in your application's configuration file that references the shortcut *UseDevelopmentStorage=true*. Here's an example of a connection string in an *app.config* file:
 
-```
-UseDevelopmentStorage=true;
+```xml
+<appSettings>
+  <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
+</appSettings>
 ```
 
 ### Storage Explorer
 
-Connect to Azurite by clicking the **Add Account** icon, then select **Attach to a local emulator** and click **Connect**.
+In Azure Storage Explorer, connect to Azurite by clicking the **Add Account** icon, then select **Attach to a local emulator** and click **Connect**.
 
 ## Differences between Azurite and Azure Storage
 
-Because it runs as a local instance, there are functional differences between Azurite and an Azure storage account in the cloud.
+Because it runs as a local instance, there are functional differences between Azurite and an Azure Storage account in the cloud.
 
 ### Storage accounts
 
-Azurite v3 supports a default account as General Storage Account v2 and provides features.
+Azurite supports a default account as General Storage Account v2 and provides features.
 
 * Account name: `devstoreaccount1`
 * Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 ### Endpoint and connection URL
 
-The service endpoints for Azurite are different from the endpoints of an Azure storage account. The local computer doesn't do domain name resolution, requiring Azurite endpoints to be local addresses.
+The service endpoints for Azurite are different from the endpoints of an Azure Storage account. The local computer doesn't do domain name resolution, requiring Azurite endpoints to be local addresses.
 
-When you address a resource in an Azure storage account, use the following scheme. The account name is part of the URI host name. The resource being addressed is part of the URI path:
+When you address a resource in an Azure Storage account, use the following scheme. The account name is part of the URI host name. The resource being addressed is part of the URI path:
 
 `<http|https>://<account-name>.<service-name>.core.windows.net/<resource-path>`
 
-For example, the following URI is a valid address for a blob in an Azure storage account:
+As an example, the following URI is a valid address for a blob in an Azure Storage account:
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
@@ -192,45 +194,41 @@ Since the local computer doesn't do domain name resolution, the account name is 
 
 `http://<local-machine-address>:<port>/<account-name>/<resource-path>`
 
-For example, the following address might be used for accessing a blob in Azurite:
+The following address might be used for accessing a blob in Azurite:
 
 `http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt`
 
-The service endpoints for Azurite blob service:
-
-`http://127.0.0.1:10000/<account-name>/<resource-path>`
-
 ### Scaling and performance
 
-Azurite doesn't support many concurrent clients. There's no performance guarantee. Performance depends highly on the environment in which Azurite is deployed.
+Azurite doesn't scale to support many concurrent clients. There's no performance guarantee. Performance depends highly on the environment in which Azurite is deployed. Azurite is intended for development and testing purposes.
 
 ### Error handling
 
-We've tried to align Azurite with Azure Storage error handling logic, but there are differences. For example, error messages may be different, while error status code will align.
+We've tried to align Azurite with Azure Storage error handling logic, but there are differences. For example, error messages may be different, while error status codes will align.
 
 ### API version strategy
 
-We strive to make Azurite v3 compatible with Azure Storage APIs:
+We strive to make Azurite compatible with Azure Storage APIs:
 
-* An Azurite v3 instance has a baseline Azure Storage API version.
+* An Azurite instance has a baseline Azure Storage API version.
   * A Swagger definition with the same API version will be used to generate protocol layer APIs and interfaces.
-  * Azurite should implement all the possible features provided in this API service version.
+  * Azurite should implement all the possible features provided in this API version.
 * If an incoming request has the same API version Azurite provides, Azurite should handle the request with parity to Azure Storage.
 * If an incoming request has a higher API version than Azurite, Azurite will return a **VersionNotSupportedByEmulator** error (HTTP status code 400 - Bad Request).
 * If an incoming request has a lower API version header, the emulator attempts to handle the request with the Azurite baseline API version behavior.
-* Azurite will return API version in the response header as the baseline API version
+* Azurite will return the API version in the response header as the baseline API version
 
 ### RA-GRS
 
-Azurite supports read-access geo-redundant replication (RA-GRS). For storage resources, you can access the secondary location by appending -secondary to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in Azurite:
+Azurite supports read-access geo-redundant replication (RA-GRS). For storage resources, access the secondary location by appending **-secondary** to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in Azurite:
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
-## Azurite v3 is open-source
+## Azurite is open-source
 
-Contributions and suggestions for Azurite v3 are welcome. Go to the Azurite [GitHub project](https://github.com/Azure/Azurite/projects) page or [GitHub issues](https://github.com/Azure/Azurite/issues) for milestones and work items we are tracking for upcoming features and bug fixes. Detailed work items are also tracked in GitHub.
+Contributions and suggestions for Azurite are welcome. Go to the Azurite [GitHub project](https://github.com/Azure/Azurite/projects) page or [GitHub issues](https://github.com/Azure/Azurite/issues) for milestones and work items we're tracking for upcoming features and bug fixes. Detailed work items are also tracked in GitHub.
 
-See the [Contribution](https://github.com/Azure/Azurite/blob/master/CONTRIBUTION.md) file for ways to participate. You can also open GitHub issues voting for any missing features in Azurite v3.
+See the [Contribution](https://github.com/Azure/Azurite/blob/master/CONTRIBUTION.md) file for ways to participate. You can also open GitHub issues voting for any missing features in Azurite.
 
 Most contributions require you to agree to a Contributor License Agreement (CLA). A CLA declares that you have the right to, and actually do, grant us the rights to use your contribution. For details, see [Microsoft Contributor License Agreement](https://cla.microsoft.com).
 
