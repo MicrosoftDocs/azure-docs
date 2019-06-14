@@ -1446,8 +1446,6 @@
         href: servicenow-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
-      - name: smartsheet
-        href: smartsheet-provisioning-tutorials
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
