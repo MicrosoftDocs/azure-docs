@@ -27,8 +27,8 @@ This article provides information and sample code to help you get started using 
 To install the Custom Vision service SDK for Node.js, run the following command in PowerShell:
 
 ```powershell
-npm install azure-cognitiveservices-customvision-training
-npm install azure-cognitiveservices-customvision-prediction
+npm install @azure/cognitiveservices-customvision-training
+npm install @azure/cognitiveservices-customvision-prediction
 ```
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
