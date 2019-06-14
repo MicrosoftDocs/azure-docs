@@ -43,7 +43,7 @@
     items: 
     - name: Filter data with Azure Functions
       href: tutorial-deploy-function.md
-    - name: Find averages with ASA
+    - name: Find averages with Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
     - name: Score data with Azure Machine Learning service
       href: tutorial-deploy-machine-learning.md
@@ -51,7 +51,22 @@
       href: tutorial-deploy-custom-vision.md
     - name: Store data locally with SQL
       href: tutorial-store-data-sql-server.md
-
+  - name: 4. End-to-end example of machine learning at the edge
+    items:
+    - name: Introduction
+      href: tutorial-machine-learning-edge-01-intro.md
+    - name: Set up development machine and Azure services
+      href: tutorial-machine-learning-edge-02-prepare-environment.md
+    - name: Generate simulated device data
+      href: tutorial-machine-learning-edge-03-generate-data.md
+    - name: Train and deploy an Azure Machine Learning model
+      href: tutorial-machine-learning-edge-04-train-model.md
+    - name: Configure a transparent gateway
+      href: tutorial-machine-learning-edge-05-configure-edge-device.md
+    - name: Create and deploy IoT Edge modules
+      href: tutorial-machine-learning-edge-06-custom-modules.md
+    - name: Send data to IoT Hub via transparent gateway
+      href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Concepts
   items:
   - name: IoT Edge runtime
@@ -150,6 +165,8 @@
     items:
     - name: Configure a transparent gateway
       href: how-to-create-transparent-gateway.md
+    - name: Authenticate a downstream device
+      href: how-to-authenticate-downstream-device.md
     - name: Connect a downstream device
       href: how-to-connect-downstream-device.md
     - name: Modbus protocol gateway

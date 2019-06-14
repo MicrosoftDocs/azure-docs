@@ -1,6 +1,6 @@
 ---
-title: Create, view and manage log alerts Using Azure Monitor | Microsoft Docs
-description: Use the Azure Monitor to author, view and manage log alert rules in Azure.
+title: Create, view, and manage log alerts Using Azure Monitor | Microsoft Docs
+description: Use the Azure Monitor to author, view, and manage log alert rules in Azure.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -331,7 +331,7 @@ Azure Monitor - [Scheduled Query Rules API](https://docs.microsoft.com/rest/api/
 > [!NOTE]
 > Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
 
-Log alerts currently do not have dedicated CLI commands currently; but as illustrated below can be used via Azure Resource Manager CLI command for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the Resource Template section :
+Log alerts currently do not have dedicated CLI commands currently; but as illustrated below can be used via Azure Resource Manager CLI command for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the Resource Template section:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

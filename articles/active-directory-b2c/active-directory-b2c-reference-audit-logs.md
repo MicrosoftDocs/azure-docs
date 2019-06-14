@@ -2,14 +2,14 @@
 title: Audit logs samples and definitions in Azure Active Directory B2C | Microsoft Docs
 description: Guide and samples on accessing the Azure AD B2C Audit logs.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 

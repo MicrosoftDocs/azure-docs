@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2019
+ms.date: 6/03/2019
 ms.author: monhaber
 
 ---
@@ -55,7 +55,7 @@ The following Linux operating systems are supported:
 * Oracle Linux 6 and 7
 * Red Hat Enterprise Linux Server 6 and 7
 * Debian GNU/Linux 8 and 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+* Ubuntu Linux 14.04 LTS, 16.04 LTS, and 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
 32-bit
@@ -63,7 +63,7 @@ The following Linux operating systems are supported:
 * Oracle Linux 6
 * Red Hat Enterprise Linux Server 6
 * Debian GNU/Linux 8 and 9
-* Ubuntu Linux 14.04 LTS and 16.04 LTS
+* Ubuntu Linux 14.04 LTS, and 16.04 LTS
 
 ## VMs and Cloud Services
 VMs that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
@@ -89,7 +89,7 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
 |Third-party deployment|✔|X|X|✔|X|X|Free|
-|NSGs assessment|✔|✔|X|✔|✔|X|Free|
+|NSG assessment|✔|✔|X|✔|✔|X|Free|
 |Fileless threat detection|✔|✔|✔|X|X|X|Standard|
 |Network map|✔|✔|X|✔|✔|X|Standard|
 |Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
@@ -125,7 +125,7 @@ For information about when recommendations are generated for each of these prote
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Azure Blob storage accounts*|✔| ✔|
+|Azure Blob storage accounts|✔| ✔|
 |App services|✔| ✔|
 |Cloud Services|✔| X|
 |VNets|✔| NA|
@@ -133,7 +133,6 @@ For information about when recommendations are generated for each of these prote
 |NICs|✔| NA|
 |NSGs|✔| NA|
 |Subscription|✔ **| ✔|
-|App service|✔| NA|
 |Batch|✔| NA|
 |Service fabric|✔| NA|
 |Automation account|✔| NA|
@@ -143,14 +142,9 @@ For information about when recommendations are generated for each of these prote
 |Stream analytics|✔| NA|
 |Event hub|✔| NA|
 |Logic apps|✔| NA|
-|Subnet|✔| NA|
-|Vnet|✔| NA|
 |Storage account|✔| NA|
 |Redis|✔| NA|
-|SQL|✔| NA|
 |Data lake analytics|✔| NA|
-|Storage account|✔| NA|
-|Subscription|✔| NA|
 |Key vault|✔| NA|
 
 

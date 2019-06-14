@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
 ---
 
@@ -28,7 +28,7 @@ There's no charge for encrypting VM disks with Azure Disk Encryption but there a
 
 ## Which virtual machine tiers does Azure Disk Encryption support?
 
-Azure Disk Encryption is available on standard tier VMs including [A, D, DS, G, GS, and F](https://azure.microsoft.com/pricing/details/virtual-machines/) series IaaS VMs. It's also available for VMs with premium storage. It isn't available on basic tier VMs.
+Azure Disk Encryption is available on standard tier VMs including [A, D, DS, E, G, GS, and F](https://azure.microsoft.com/pricing/details/virtual-machines/) series IaaS VMs. It's also available for VMs with premium storage. It isn't available on basic tier VMs.
 
 ## <a name="bkmk_LinuxOSSupport"></a> What Linux distributions does Azure Disk Encryption support?
 
@@ -78,6 +78,9 @@ No, Azure Disk Encryption only encrypts mounted volumes.
 
 To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
 
+>[!WARNING]
+> - If you have previously used [Azure Disk Encryption with Azure AD app](azure-security-disk-encryption-prerequisites-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet.
+
 ## How do I add or remove a key encryption key if I didn't originally use one?
 
 To add a key encryption key, call the enable command again passing the key encryption key parameter. To remove a key encryption key, call the enable command again without the key encryption key parameter.
@@ -113,7 +116,9 @@ Yes. Disk encryption using an Azure AD app is still supported. However, when enc
 Use the latest version of the Azure PowerShell SDK to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk Encryption is *not* supported by Azure SDK version 1.1.0.
 
 > [!NOTE]
-> The Linux Azure disk encryption preview extension is deprecated. For details, see [Deprecating Azure disk encryption preview extension for Linux IaaS VMs](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/).
+> The Linux Azure disk encryption preview extension "Microsoft.OSTCExtension.AzureDiskEncryptionForLinux" is deprecated. This extension was published for Azure disk encryption preview release. You should not use the preview version of the extension in your testing or production deployment.
+
+> For deployment scenarios like Azure Resource Manager (ARM), where you have a need to deploy Azure disk encryption extension for Linux VM to enable encryption on your Linux IaaS VM, you must use the Azure disk encryption production supported extension "Microsoft.Azure.Security.AzureDiskEncryptionForLinux".
 
 ## Can I apply Azure Disk Encryption on my custom Linux image?
 

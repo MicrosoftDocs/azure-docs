@@ -64,10 +64,10 @@ namespace MyNamespace
         private readonly IMyService _service;
         private readonly HttpClient _client;
 
-        public HttpTrigger(IMyService service, HttpClient client)
+        public HttpTrigger(IMyService service, IHttpClientFactory httpClientFactory)
         {
             _service = service;
-            _client = client;
+            _client = httpClientFactory.CreateClient();;
         }
 
         [FunctionName("GetPosts")]

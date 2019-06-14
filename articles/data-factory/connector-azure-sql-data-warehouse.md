@@ -528,7 +528,7 @@ Alternatively, for data with such wide columns, you can use non-PolyBase to load
 
 **Loading to Decimal column**
 
-If your source data is in text format and it contains empty value to be loaded into SQL Data Warehouse Decimal column, you may hit the following error:
+If your source data is in text format or other non-PolyBase compatible stores (using staged copy and PolyBase), and it contains empty value to be loaded into SQL Data Warehouse Decimal column, you may hit the following error:
 
 ```
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....

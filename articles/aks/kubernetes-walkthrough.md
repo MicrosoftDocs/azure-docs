@@ -236,7 +236,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 When the AKS cluster was created, Azure Monitor for containers was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
 
-To see current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
+To see the current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
 
 1. Open a web browser to the Azure portal [https://portal.azure.com][azure-portal].
 1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*.
@@ -249,11 +249,11 @@ The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown 
 
 ![View the health of running containers in AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-To see logs for the `azure-vote-front` pod, choose the option to **View in analytics**, then select **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
+To see logs for the `azure-vote-back` pod, choose the option to **View in analytics**, then click the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
 
 ![View the containers logs in AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## Delete cluster
+## Delete the cluster
 
 When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 

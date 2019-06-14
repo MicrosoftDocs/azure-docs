@@ -2,7 +2,7 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 3/26/2019
+ms.date: 6/5/2019
 ms.author: victorh
 ---
 | Resource | Default/maximum limit | Note |
@@ -31,5 +31,6 @@ ms.author: victorh
 | Maximum file upload size, Standard |2 GB | |
 | Maximum file upload size WAF |Medium WAF gateways, 100 MB<br>Large WAF gateways, 500 MB| |
 | WAF body size limit, without files|128 KB||
+|Maximum WAF custom rules|100||
 
 <sup>1</sup> In case of WAF-enabled SKUs, we recommend that you limit the number of resources to 40 for optimal performance.

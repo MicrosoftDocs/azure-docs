@@ -135,7 +135,7 @@ instances might take some time before they completely stop.
 
 ## Integration accounts
 
-Consumption pricing applies to [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) 
+The fixed pricing model applies to [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) 
 where you can explore, develop, and test the 
 [B2B and EDI](logic-apps-enterprise-integration-b2b.md) 
 and [XML processing](logic-apps-enterprise-integration-xml.md) 
