@@ -70,4 +70,4 @@ While you estimate the number of RUs per second to provision, consider the follo
 * Learn how to [optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md).
 * Learn how to [optimize reads and writes cost in Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Learn how to [optimize query cost in Azure Cosmos DB](optimize-cost-queries.md).
-* Learn how to [use metrics to monitor consumed throughput](use-metrics.md).
+* Learn how to [use metrics to monitor throughput](use-metrics.md).
