@@ -19,7 +19,7 @@ abstract:
       src: https://go.microsoft.com/fwlink/?linkid=2095604
       width: 250  
     title: Working with Azure Bastion (1:03)
-    href: https://www.microsoft.com/videoplayer/embed/RE39WT5
+    href: https://go.microsoft.com/fwlink/?linkid=2095517
     width: 250
 sections:
 - title: Create and manage Azure Bastion (Preview)
