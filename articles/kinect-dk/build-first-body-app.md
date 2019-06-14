@@ -118,7 +118,7 @@ if (pop_frame_result == K4A_WAIT_RESULT_SUCCEEDED)
 
 The body tracking results for each sensor capture are stored in a body frame [k4abt_frame_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html). Each body frame contains three key components: a collection of body structs, a 2D body index map, and the input capture.
 
-Your first body tracking application only accesses the number of detected bodies. Refer to [access data in body frame](access-data-in-body-frame.md) for detailed explanation of data in a body frame.
+Your first body tracking application only accesses the number of detected bodies. Refer to [access data in body frame](access-data-body-frame.md) for detailed explanation of data in a body frame.
 
 ```C
 size_t num_bodies = k4abt_frame_get_num_bodies(body_frame);

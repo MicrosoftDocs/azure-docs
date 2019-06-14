@@ -124,4 +124,4 @@ k4abt_frame_release(body_frame); // Remember to release the body frame once you 
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Access data in body frame](access-data-in-body-frame.md)
+>[Access data in body frame](access-data-body-frame.md)

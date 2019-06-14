@@ -54,7 +54,7 @@
        - name: Get body tracking results
          href: get-body-tracking-results.md
        - name: Access data in body frame
-         href: access-data-in-body-frame.md  
+         href: access-data-body-frame.md  
    - name: Add Azure Kinect library to a project
      href: add-library-to-project.md
    - name: Update Azure Kinect firmware
