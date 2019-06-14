@@ -1,6 +1,6 @@
 ---
-title: Stream live with Azure Media Services v3 using .NET | Microsoft Docs
-description: This tutorial walks you through the steps of streaming live with Media Services v3 using .NET Core.
+title: Stream live with Azure Media Services v3 | Microsoft Docs
+description: This tutorial walks you through the steps of streaming live with Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -18,7 +18,10 @@ ms.author: juliako
 
 ---
 
-# Tutorial: Stream live with Media Services v3 using .NET
+# Tutorial: Stream live with Media Services
+
+> [!NOTE]
+> Even though the tutorial uses .NET SDK examples, the general steps are the same for [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
 In Azure Media Services, [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Live Events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
 
@@ -31,11 +34,6 @@ The tutorial shows you how to:
 > * Clean up resources
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-> [!NOTE]
-> Even though the tutorial uses .NET SDK examples, the general steps are the same for [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or other supported [SDKs](media-services-apis-overview.md#sdks).
->
-> Currently, you cannot use the Azure portal to manage v3 resources.
 
 ## Prerequisites
 
