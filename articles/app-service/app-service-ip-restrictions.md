@@ -94,7 +94,7 @@ In addition to being able to control access to your app, you can also restrict a
 
 ## Programmatic manipulation of access restriction rules ##
 
-There currently is no CLI or PowerShell for the new Access Restrictions capability but the values can be set manually with an [Azure REST API](https://docs.microsoft.com/en-us/rest/api/azure/) PUT operation on the app configuration in Resource Manager. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
+There currently is no CLI or PowerShell for the new Access Restrictions capability but the values can be set manually with an [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT operation on the app configuration in Resource Manager. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
 
 The location for this information in Resource Manager is:
 
