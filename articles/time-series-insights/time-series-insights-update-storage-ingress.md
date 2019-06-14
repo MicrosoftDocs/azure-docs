@@ -39,7 +39,7 @@ Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azur
 The Time Series Insights Preview indexes data by using a blob-size optimization strategy. Data becomes available to query after it’s indexed, which is based on how much data is coming in and at what velocity.
 
 > [!IMPORTANT]
-> * The Time Series Insights general availability (GA) release will make data available within 60 seconds of arriving at an event source.
+> * The Time Series Insights general availability (GA) release will make data available within 60 seconds after arriving at an event source.
 > * During the preview, expect a longer period before the data is made available.
 > * If you experience any significant latency, be sure to contact us.
 
@@ -98,7 +98,7 @@ Time Series Insights events are mapped to Parquet file contents as follows:
 * All other properties that are mapped to columns end with `_string` (string), `_bool` (Boolean), `_datetime` (datetime), and `_double` (double), depending on property type.
 * That's the mapping scheme for the first version of the file format, which we refer to as **V=1**. As this feature evolves, the name will be incremented to **V=2**, **V=3**, and so on.
 
-## Azure storage
+## Azure Storage
 
 This section describes Azure Storage details relevant to Azure Time Series Insights.
 
@@ -145,7 +145,7 @@ Don't delete blobs. Not only are they useful for auditing and maintaining a reco
 
 ## Partitions
 
-Each Time Series Insights Preview environment must have a **Time Series ID** property and a **Timestamp** property that uniquely identify it. Your Time Series ID acts as a logical partition for your data and gives the Time Series Insights Preview environment a natural boundary for distributing data across physical partitions. Physical partition management is managed by Time Series Insights Preview in an Azure storage account.
+Each Time Series Insights Preview environment must have a **Time Series ID** property and a **Timestamp** property that uniquely identify it. Your Time Series ID acts as a logical partition for your data and gives the Time Series Insights Preview environment a natural boundary for distributing data across physical partitions. Physical partitions are managed by Time Series Insights Preview in an Azure Storage account.
 
 Time Series Insights uses dynamic partitioning to optimize storage and query performance by dropping and re-creating partitions. The Time Series Insights Preview dynamic partitioning algorithm tries to prevent a single physical partition from having data for multiple, distinct, logical partitions. In other words, the partitioning algorithm keeps all data specific to a single Time Series ID exclusively present in Parquet files without being interleaved with other Time Series IDs. The dynamic partitioning algorithm also tries to preserve the original order of events within a single Time Series ID.
 
