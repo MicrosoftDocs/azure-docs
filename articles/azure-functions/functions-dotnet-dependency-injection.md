@@ -31,7 +31,7 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 To register services, you can create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
 
-To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
+To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup. Also code is referencing a prerelease of [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) on Nuget.
 
 ```csharp
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
