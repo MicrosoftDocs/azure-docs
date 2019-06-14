@@ -95,7 +95,7 @@ You can either use non-vanity URLs or vanity URLs.
 
     Use the following APIs to enable the Vanity URL and set the access token to a valid GUID (for example `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
     
-    |Language|Enable Vanity URL|Set access token|
+    |Language|Enable vanity URL|Set access token|
     |---|---|---|
     |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
