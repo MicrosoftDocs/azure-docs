@@ -43,6 +43,7 @@ You can choose to scale between the following pairs of sizes:
 ### A-Series
 
 | Initial size | Scale up size | 
+| --- | --- |
 | Basic_A0 | Basic_A1 |
 | Basic_A1 | Basic_A2 |
 | Basic_A2 | Basic_A3 |
@@ -64,6 +65,7 @@ You can choose to scale between the following pairs of sizes:
 ### B-Series
 
 | Initial size | Scale up size | 
+| --- | --- |
 | Standard_B1s | Standard_B2s |
 | Standard_B1ms | Standard_B2ms |
 | Standard_B2ms | Standard_B4ms |
@@ -72,6 +74,7 @@ You can choose to scale between the following pairs of sizes:
 ### D-Series
 
 | Initial size | Scale up size | 
+| --- | --- |
 | Standard_D1 | Standard_D2 |
 | Standard_D2 | Standard_D3 |
 | Standard_D3 | Standard_D4 |
@@ -113,6 +116,7 @@ You can choose to scale between the following pairs of sizes:
 ### E-Series
 
 | Initial size | Scale up size | 
+| --- | --- |
 | Standard_E2_v3 | Standard_E4_v3 |
 | Standard_E4_v3 | Standard_E8_v3 |
 | Standard_E8_v3 | Standard_E16_v3 |
@@ -129,6 +133,7 @@ You can choose to scale between the following pairs of sizes:
 ### F-Series
 
 | Initial size | Scale up size | 
+| --- | --- |
 | Standard_F1 | Standard_F2 |
 | Standard_F2 | Standard_F4 |
 | Standard_F4 | Standard_F8 |
@@ -147,6 +152,7 @@ You can choose to scale between the following pairs of sizes:
 ### G-Series
 
 | Initial size | Scale up size | 
+| --- | --- |
 | Standard_G1 | Standard_G2 |
 | Standard_G2 | Standard_G3 |
 | Standard_G3 | Standard_G4 |
@@ -159,12 +165,14 @@ You can choose to scale between the following pairs of sizes:
 ### H-Series
 
 | Initial size | Scale up size | 
+| --- | --- |
 | Standard_H8 | Standard_H16 |
 | Standard_H8m | Standard_H16m |
 
 ### L-Series
 
 | Initial size | Scale up size | 
+| --- | --- |
 | Standard_L4s | Standard_L8s |
 | Standard_L8s | Standard_L16s |
 | Standard_L16s | Standard_L32s |
@@ -176,6 +184,7 @@ You can choose to scale between the following pairs of sizes:
 ### M-Series
 
 | Initial size | Scale up size | 
+| --- | --- |
 | Standard_M8ms | Standard_M16ms |
 | Standard_M16ms | Standard_M32ms |
 | Standard_M32ms | Standard_M64ms |
@@ -188,6 +197,7 @@ You can choose to scale between the following pairs of sizes:
 ### N-Series
 
 | Initial size | Scale up size | 
+| --- | --- |
 | Standard_NC6 | Standard_NC12 |
 | Standard_NC12 | Standard_NC24 |
 | Standard_NC6s_v2 | Standard_NC12s_v2 |
