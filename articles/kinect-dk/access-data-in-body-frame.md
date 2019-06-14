@@ -25,7 +25,7 @@ The following functions are covered:
 
 Each body frame contains a collection of body structs, a 2D body index map, and the input capture that generated this result.
 
--![Body Frame Components](./media/how-to-guides/depth-camera.png)
+-![Body Frame Components](./media/how-to-guides/body-frame.png)
 
 ## Accessing the collection of body structs
 
