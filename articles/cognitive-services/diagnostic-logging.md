@@ -63,6 +63,8 @@ Follow these instructions to explore log analytics data for your resource.
 
 ### Sample queries
 
+Here are a few basic Kusto queries you can use to explore your log data.
+
 Run this query for all diagnostic logs from Azure Cognitive Services for a specified time period:
 
 ```kusto
@@ -84,6 +86,24 @@ Run this query to group operations by **Resource**:
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES" |
 summarize count() by Resource
+```
+Run this query to find the average time it takes to perform an operation:
+
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
+| summarize avg(DurationMs)
+by OperationName
+```
+
+Run this query to view the volume of operations over time split by OperationName with counts binned for every 10s.
+
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
+| summarize count()
+by bin(TimeGenerated, 10s), OperationName
+| render areachart kind=unstacked
 ```
 
 ## Next steps
