@@ -31,27 +31,27 @@ This document explains what you need for building a secure workstation, often kn
 
 The rapid adoption of cloud services and the ability to work from anywhere has created a new exploitation method. By exploiting weak security controls on devices where administrators work, attackers can gain access to privileged resources.
 
-Privileged misuse and supply chain attacks are among the top five methods that attackers use to breach organizations. The [Verizon Threat report](https://enterprise.verizon.com/resources/reports/dbir/), and [Security Intelligence Report](https://aka.ms/sir) They are also the second most commonly detected tactics in incidents reported in 2018.
+Privileged misuse and supply chain attacks are among the top five methods that attackers use to breach organizations. They are also the second most commonly detected tactics in incidents reported in 2018 according to the [Verizon Threat report](https://enterprise.verizon.com/resources/reports/dbir/), and [Security Intelligence Report](https://aka.ms/sir).
 
-Most attackers follow the path below:
+Most attackers follow these steps:
 
-* Start with reconnaissance, often specific to an industry, to find a way in
-* Analyze collected information to identify the best means to gain access (Infiltration) of a perceived low value workstation
-* Persistence and look at means to move [laterally](https://en.wikipedia.org/wiki/Network_Lateral_Movement)
-* Exfiltrate confidential and sensitive data
+1. Reconnaissance to find a way in, often specific to an industry.
+1. Analysis to collect information and identify the best way to infiltrate a workstation that is perceived as low value.
+1. Persistence to look for a means to move [laterally](https://en.wikipedia.org/wiki/Network_Lateral_Movement).
+1. Exfiltration of confidential and sensitive data.
 
-Attackers frequently infiltrate devices that seem low risk or undervalued for reconnaissance. These vulnerable devices are then used to locate an opportunity for lateral movement, find administrative users, and devices and identify high valued data, to  successfully exfiltrate information once they gain these privileged user roles.
+During reconnaissance, attackers frequently infiltrate devices that seem low risk or undervalued. They use these vulnerable devices to locate an opportunity for lateral movement and to find administrative users and devices. After they gain access to privileged user roles, attackers identify high value data and successfully exfiltrate that data.
 
 ![Typical compromise pattern](./media/concept-azure-managed-workstation/typical-timeline.png)
 
-This document provides a solution to help protect your computing devices by isolating management and services to help protect against lateral movement or attacks from less valuable productivity devices. The design helps reduce the ability to successfully execute a breach by breaking the chain prior to infiltration of the device used to manage or access sensitive cloud resources. The solution described will utilize native Azure services that are part of the Microsoft 365 Enterprise stack including:
+This document describes a solution that can  help protect your computing devices from such lateral attacks. The solution accomplishes this by isolating management and services from less valuable productivity devices, breaking the chain prior to infiltration of the device used to manage or access sensitive cloud resources. The solution uses native Azure services that are part of the Microsoft 365 Enterprise stack:
 
-* Intune for device management, including application and URL whitelisting
-* Autopilot for device setup and deployment and refresh 
-* Azure AD for user management, Conditional Access, and multi-factor authentication
+* Intune for device management and a safe list of applications and URLs
+* Autopilot for device setup, deployment, and refresh
+* Azure AD for user management, conditional access, and multi-factor authentication
 * Windows 10 (current version) for device health attestation and user experience
-* Microsoft Defender Advanced Threat Protection (ATP) for endpoint protection, detection, and response with cloud management
-* Azure AD PIM for managing authorization, including Just In Time (JIT) privileged access to resources
+* Microsoft Defender Advanced Threat Protection (ATP) for cloud-managed endpoint protection, detection, and response
+* Azure AD PIM for managing authorization and just-in-time (JIT) privileged access to resources
 
 ## Who benefits from using a secure workstation?
 
