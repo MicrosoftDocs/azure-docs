@@ -105,8 +105,8 @@ This operation adds new nodes from a nodearray to a cluster. It accepts multiple
 #### Request body
 ```json
 {
-  "sets" : [ "object" ],
-  "requestId" : "string"
+  "requestId" : "string",
+  "sets" : [ "object" ]
 }
 ```
 
@@ -159,9 +159,9 @@ This operation deallocates nodes in a cluster. The nodes can be identified in se
 #### Request body
 ```json
 {
-  "names" : [ "name1", "name2" ],
-  "ids" : [ "id1", "id2" ],
   "filter" : "State === \"Started\"",
+  "ids" : [ "id1", "id2" ],
+  "names" : [ "name1", "name2" ],
   "requestId" : "string"
 }
 ```
@@ -172,8 +172,8 @@ This operation deallocates nodes in a cluster. The nodes can be identified in se
 #### Response 202
 ```json
 {
-  "operationId" : "00000000-0000-0000-0000-000000000000",
-  "nodes" : [ "object" ]
+  "nodes" : [ "object" ],
+  "operationId" : "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -218,9 +218,9 @@ This operation removes nodes in a cluster. The nodes can be identified in severa
 #### Request body
 ```json
 {
-  "names" : [ "name1", "name2" ],
-  "ids" : [ "id1", "id2" ],
   "filter" : "State === \"Started\"",
+  "ids" : [ "id1", "id2" ],
+  "names" : [ "name1", "name2" ],
   "requestId" : "string"
 }
 ```
@@ -231,8 +231,8 @@ This operation removes nodes in a cluster. The nodes can be identified in severa
 #### Response 202
 ```json
 {
-  "operationId" : "00000000-0000-0000-0000-000000000000",
-  "nodes" : [ "object" ]
+  "nodes" : [ "object" ],
+  "operationId" : "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -277,9 +277,9 @@ This operation terminates or deallocates nodes in a cluster, depending on whethe
 #### Request body
 ```json
 {
-  "names" : [ "name1", "name2" ],
-  "ids" : [ "id1", "id2" ],
   "filter" : "State === \"Started\"",
+  "ids" : [ "id1", "id2" ],
+  "names" : [ "name1", "name2" ],
   "requestId" : "string"
 }
 ```
@@ -290,8 +290,8 @@ This operation terminates or deallocates nodes in a cluster, depending on whethe
 #### Response 202
 ```json
 {
-  "operationId" : "00000000-0000-0000-0000-000000000000",
-  "nodes" : [ "object" ]
+  "nodes" : [ "object" ],
+  "operationId" : "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -336,9 +336,9 @@ This operation starts nodes in a cluster. The nodes can be identified in several
 #### Request body
 ```json
 {
-  "names" : [ "name1", "name2" ],
-  "ids" : [ "id1", "id2" ],
   "filter" : "State === \"Started\"",
+  "ids" : [ "id1", "id2" ],
+  "names" : [ "name1", "name2" ],
   "requestId" : "string"
 }
 ```
@@ -349,8 +349,8 @@ This operation starts nodes in a cluster. The nodes can be identified in several
 #### Response 202
 ```json
 {
-  "operationId" : "00000000-0000-0000-0000-000000000000",
-  "nodes" : [ "object" ]
+  "nodes" : [ "object" ],
+  "operationId" : "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -395,9 +395,9 @@ This operation terminates nodes in a cluster. The nodes can be identified in sev
 #### Request body
 ```json
 {
-  "names" : [ "name1", "name2" ],
-  "ids" : [ "id1", "id2" ],
   "filter" : "State === \"Started\"",
+  "ids" : [ "id1", "id2" ],
+  "names" : [ "name1", "name2" ],
   "requestId" : "string"
 }
 ```
@@ -408,8 +408,8 @@ This operation terminates nodes in a cluster. The nodes can be identified in sev
 #### Response 202
 ```json
 {
-  "operationId" : "00000000-0000-0000-0000-000000000000",
-  "nodes" : [ "object" ]
+  "nodes" : [ "object" ],
+  "operationId" : "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -455,12 +455,12 @@ This operation contains information for the nodes and nodearrays in a given clus
 #### Response 200
 ```json
 {
+  "maxCoreCount" : 0,
+  "maxCount" : 0,
+  "nodearrays" : [ "object" ],
   "nodes" : [ { } ],
   "state" : "string",
-  "targetState" : "string",
-  "maxCount" : 0,
-  "maxCoreCount" : 0,
-  "nodearrays" : [ "object" ]
+  "targetState" : "string"
 }
 ```
 
