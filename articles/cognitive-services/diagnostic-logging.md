@@ -37,14 +37,14 @@ Let's start by enabling diagnostic logging using the Azure portal.
 3. If there is a previously created resource that you'd like to use, you can select it now. Otherwise, select **+ Add diagnostic setting**.
 4. Enter a name for the setting. Then select **Archive to a storage account** and **Send to log Analytics**.
 5. When prompted to configure, select the storage account and OMS workspace that you'd like to use to store you diagnostic logs. **Note**: If you don't have a storage account or OMS workspace, follow the prompts to create one.
-6. Select **Audit**, **RequestResponse**, and **AllMetrics**. Then set the desired retention period for your diagnostic log data. If a retention policy is set to zero, events for that log category are stored indefinitely.
+6. Select **Audit**, **RequestResponse**, and **AllMetrics**. Then set the retention period for your diagnostic log data. If a retention policy is set to zero, events for that log category are stored indefinitely.
 7. Click **Save**.
 
 It can take up to two hours before logging data is available to query and analyze. So don't worry if you don't see anything right away.
 
 ## View and export diagnostic data from Azure Storage
 
-Azure Storage is a robust object storage solution that is optimized for storing large amounts of unstructured data. In this section, you'll learn to query your storage account for total transactions over a 30 day timeframe and export the data to excel.
+Azure Storage is a robust object storage solution that is optimized for storing large amounts of unstructured data. In this section, you'll learn to query your storage account for total transactions over a 30-day timeframe and export the data to excel.
 
 1. From the Azure portal, locate the Azure Storage resource that you created in the last section.
 2. From the left-hand navigation menu, locate **Monitoring** and select **Metrics**.
@@ -57,13 +57,13 @@ Learn more about what you can do with diagnostic data in [Azure Storage](https:/
 
 Follow these instructions to explore log analytics data for your resource.
 
-1. From the Azure Portal, locate and select **Log Analytics** from the left-hand navigation menu.
+1. From the Azure portal, locate and select **Log Analytics** from the left-hand navigation menu.
 2. Locate and select the resource you created when enabling diagnostics.
 3. Under **General**, locate and select **Logs**. From this page, you can run queries against your logs.
 
 ### Sample queries
 
-Run this query for all diagnostic logs from Azure Cognitivie Services for a specified time period:
+Run this query for all diagnostic logs from Azure Cognitive Services for a specified time period:
 
 ```kusto
 AzureDiagnostics
