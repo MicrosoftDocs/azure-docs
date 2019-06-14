@@ -18,17 +18,7 @@ This page contains known issues and troubleshooting tips when using Sensor SDK w
   - Some cases using Microsoft USB driver can unblock
   - Many PCs have also alternative host controllers and changing the USB3 port may help
 
-- External Sync: Subordinate device outputs two frames before master starts to output frames
-  - Recording needs post-processing to get number of frames to match, use timestamps with [offset](record-playback-api.md) to align frames in your tool.
-
-- External Sync: Master is one frame faster than subordinates
-  - Use higher framerate to minimize impact, under investigation.
-
-- Compute shader produces incorrect results on AMD graphics card
-  - Known to happen with latest AMD graphics drivers and when using NFOV 2x2 binned mode
-  - Work around to use driver 18.12.1.1 or older OR avoid using NFOV 2x2 binned mode with latest driver
-
-More more issues check [GitHub Issues](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/issues)
+For more Sensor SDK related issues, check [GitHub Issues](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/issues)
 
 ## Collecting logs
 
