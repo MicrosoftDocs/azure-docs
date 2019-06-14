@@ -25,7 +25,7 @@ ms.author: jowargo
 
 This tutorial shows you how to use Azure Notification Hubs and Firebase Cloud Messaging (FCM) to push notifications to an Android application. In this tutorial, you create a blank Android app that receives push notifications by using Firebase Cloud Messaging (FCM).
 
-The completed code for this tutorial can be downloaded [from GitHub](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp).
+The completed code for this tutorial can be downloaded [from GitHub.](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp)
 
 In this tutorial, you take the following steps:
 
@@ -38,14 +38,14 @@ In this tutorial, you take the following steps:
 
 ## Prerequisites
 
-To complete this tutorial, you must need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For more information, see [Azure Free Trial](https://azure.microsoft.com/free/).
+To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For more information, see [Azure free account](https://azure.microsoft.com/free/). In addition to an active Azure account, you also need the following:
 
-* In addition to an active Azure account, you also need the latest version of [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
-* Android 2.3 or higher for Firebase Cloud Messaging.
-* Google Repository revision 27 or higher for Firebase Cloud Messaging.
-* Google Play Services 9.0.2 or higher for Firebase Cloud Messaging.
+* The latest version of [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)
+* Android 2.3 or higher for Firebase Cloud Messaging
+* Google Repository revision 27 or higher for Firebase Cloud Messaging
+* Google Play Services 9.0.2 or higher for Firebase Cloud Messaging
 
-Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Android apps.
+Completing this tutorial is a prerequisite for doing all other Notification Hubs tutorials for Android apps.
 
 ## Create an Android Studio Project
 
@@ -53,8 +53,8 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 2. Select **File**, point to **New**, and then select **New Project**. 
 2. On the **Choose your project** page, select **Empty Activity**, and then select **Next**. 
 3. On the **Configure your project** page, take the following steps: 
-    1. Enter a **name** for the application.
-    2. Specify a location in which to save the project files. 
+    1. Enter a name for the application.
+    2. Specify a location to which to save the project files. 
     3. Select **Finish**. 
 
         ![Configure your project)](./media/notification-hubs-android-push-notification-google-fcm-get-started/configure-project.png)
@@ -221,8 +221,8 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
                 TimeUnit.SECONDS.sleep(1);
 
                 // Storing the registration ID that indicates whether the generated token has been
-                // sent to your server. If it is not stored, send the token to your server,
-                // otherwise your server should have already received the token.
+                // sent to your server. If it is not stored, send the token to your server.
+                // Otherwise, your server should have already received the token.
                 if (((regID=sharedPreferences.getString("registrationID", null)) == null)){
 
                     NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
@@ -418,7 +418,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
 
 13. Add the following code for the `MyHandler` class, making it a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler`.
 
-    This code overrides the `OnReceive` method, so the handler reports notifications that are received. The handler also sends the push notification to the Android notification manager by using the `sendNotification()` method. The `sendNotification()` method should be executed when the app is not running and a notification is received.
+    This code overrides the `OnReceive` method, so the handler reports notifications that are received. The handler also sends the push notification to the Android notification manager by using the `sendNotification()` method. Run the `sendNotification()` method when the app is not running and a notification is received.
 
     ```java
     public class MyHandler extends NotificationsHandler {
@@ -496,11 +496,11 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
 
 ## Test send notification from the notification hub
 
-You can send push notifications from the [Azure portal] by doing the following actions:
+You can send push notifications from the [Azure portal] by taking the following steps:
 
 1. In the Azure portal, on the **Notification Hub** page for your notification hub, select **Test Send** in the **Troubleshooting** section.
 3. For **Platforms**, select **Android**.
-4. Select **Send**.  You do not see a notification on the Android device yet because you haven't run the mobile app on it. After you run the mobile app, select the **Send** button again to see the notification message.
+4. Select **Send**.  You won't see a notification on the Android device yet because you haven't run the mobile app on it. After you run the mobile app, select the **Send** button again to see the notification message.
 5. See the **result** of the operation in the list at the bottom.
 
     ![Azure Notification Hubs - Test Send](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
@@ -512,7 +512,7 @@ You can send push notifications from the [Azure portal] by doing the following a
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ### Run the mobile app on emulator
-If you want to test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you may get the **SERVICE\_NOT\_AVAILABLE** exception.
+If you want to test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you might get the **SERVICE\_NOT\_AVAILABLE** exception.
 
 In addition, ensure that you have added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with FCM may result in the **AUTHENTICATION\_FAILED** exception.
 
