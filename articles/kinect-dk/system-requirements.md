@@ -24,9 +24,9 @@ The Sensor SDK is available for the Windows API (Win32) for native C/C++ Windows
 
 To contribute to sensor SDK development, visit [GitHub](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK).
 
-## General host PC hardware requirements
+## Minimum host PC hardware requirements
 
-The general PC host hardware requirement is dependent on application/algorithm/sensor frame rate/resolution executed on host PC. Recommended minimum Sensor SDK configuration for Windows is:
+The PC host hardware requirement is dependent on application/algorithm/sensor frame rate/resolution executed on host PC. Recommended minimum Sensor SDK configuration for Windows is:
 
 - Seventh Gen Intel® CoreTM i3 Processor (Dual Core 2.4 GHz with HD620 GPU or faster)
 - 4 GB Memory
@@ -38,7 +38,7 @@ Performance differs also between Windows/Linux operating systems and graphics dr
 
 ## Body tracking host PC hardware requirements
 
-The body tacking PC host requirement is more stringent than the general PC host requirement. Recommended minimum Body Tracking SDK configuration for Windows is:
+The body tracking PC host requirement is more stringent than the general PC host requirement. Recommended minimum Body Tracking SDK configuration for Windows is:
 
 - Seventh Gen Intel® CoreTM i5 Processor (Quad Core 2.4 GHz or faster)
 - 4 GB Memory
