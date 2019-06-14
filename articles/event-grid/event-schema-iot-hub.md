@@ -31,7 +31,7 @@ Azure IoT Hub emits the following event types:
 | Microsoft.Devices.DeviceDisconnected | Published when a device is disconnected from an IoT hub. | 
 | Microsoft.Devices.DeviceTelemetry | Published when a telemetry message is sent to an IoT hub. |
 
-All device events except device telemetry events are generally available in all regions supported by Event Grid. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+All device events except device telemetry events are generally available in all regions supported by Event Grid. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## Example event
 

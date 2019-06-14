@@ -81,12 +81,12 @@ For cluster running Service Fabric version 6.5 or higher:
 For Service Fabric cluster on Azure, after the seed node goes down, Service Fabric will try to change it to a non-seed node automatically. To make this happen, make sure the number of non-seed nodes in the primary node type is greater or equal to the number of Down seed nodes. If necessary, add more nodes to the primary node type to achieve this.
 Depending on the cluster status, it may take some time to fix the issue. Once this is done, the warning report is automatically cleared.
 
-For Service Fabric standalone cluster, to clear the warning report, all the seed nodes need to become healthy. Depending on why seed nodes are unhealthy, different actions need to be taken: if the seed node is Down, users need to bring that seed node up; if the seed node is Removed or Unknown, this seed node [needs to be removed from the cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+For Service Fabric standalone cluster, to clear the warning report, all the seed nodes need to become healthy. Depending on why seed nodes are unhealthy, different actions need to be taken: if the seed node is Down, users need to bring that seed node up; if the seed node is Removed or Unknown, this seed node [needs to be removed from the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
 The warning report is automatically cleared when all seed nodes become healthy.
 
 For cluster running Service Fabric version older than 6.5:
 In this case, the warning report needs to be cleared manually. **Users should make sure all the seed nodes become healthy before clearing the report**: if the seed node is Down, users need to bring that seed node up;if the seed node is Removed or Unknown, that seed node needs to be removed from the cluster.
-After all the seed nodes become healthy, use following command from Powershell to [clear the warning report](https://docs.microsoft.com/en-us/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+After all the seed nodes become healthy, use following command from Powershell to [clear the warning report](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK

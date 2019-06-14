@@ -73,6 +73,8 @@ There will be 2 types of RHEL 7 image SKUs in this naming convention: SKUs that 
 ## Extended Update Support (EUS)
 As of April 2019, RHEL images are available that are attached to the Extended Update Support (EUS) repositories by default. More details on RHEL EUS are available in [Red Hat's documentation](https://access.redhat.com/articles/rhel-eus).
 
+Instructions on how to switch your VM to EUS and more details about EUS support end-of-life dates are available [here](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+
 >[!NOTE]
 > EUS is not supported on RHEL Extras. This means that if you are installing a package that is usually available from the RHEL Extras channel, you will not be able to do so while on EUS. The Red Hat Extras Product Life Cycle is detailed [here](https://access.redhat.com/support/policy/updates/extras/).
 

@@ -28,7 +28,7 @@ There's no charge for encrypting VM disks with Azure Disk Encryption but there a
 
 ## Which virtual machine tiers does Azure Disk Encryption support?
 
-Azure Disk Encryption is available on standard tier VMs including [A, D, DS, G, GS, and F](https://azure.microsoft.com/pricing/details/virtual-machines/) series IaaS VMs. It's also available for VMs with premium storage. It isn't available on basic tier VMs.
+Azure Disk Encryption is available on standard tier VMs including [A, D, DS, E, G, GS, and F](https://azure.microsoft.com/pricing/details/virtual-machines/) series IaaS VMs. It's also available for VMs with premium storage. It isn't available on basic tier VMs.
 
 ## <a name="bkmk_LinuxOSSupport"></a> What Linux distributions does Azure Disk Encryption support?
 

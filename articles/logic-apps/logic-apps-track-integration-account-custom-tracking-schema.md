@@ -54,7 +54,7 @@ This article provides custom code that you can use in the layers outside of your
 | Property | Type | Description |
 | --- | --- | --- |
 | sourceType |   | Type of the run source. Allowed values are **Microsoft.Logic/workflows** and **custom**. (Mandatory) |
-| Source |   | If the source type is **Microsoft.Logic/workflows**, the source information needs to follow this schema. If the source type is **custom**, the schema is a JToken. (Mandatory) |
+| source |   | If the source type is **Microsoft.Logic/workflows**, the source information needs to follow this schema. If the source type is **custom**, the schema is a JToken. (Mandatory) |
 | systemId | String | Logic app system ID. (Mandatory) |
 | runId | String | Logic app run ID. (Mandatory) |
 | operationName | String | Name of the operation (for example, action or trigger). (Mandatory) |
