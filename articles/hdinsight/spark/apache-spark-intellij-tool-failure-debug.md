@@ -12,31 +12,30 @@ ms.date: 11/25/2017
 ---
 # Run Spark Failure Debug Apache Spark applications locally with Azure Toolkit for IntelliJ through SSH
 
-This article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) to run **Spark Failure Debug** applications locally. 
+This article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) to run **Spark Failure Debug** applications. 
 
 **Prerequisites**
-* **HDInsight Tools in Azure Toolkit for IntelliJ**. This tool is part of Azure Toolkit for IntelliJ. For more information, see [Install Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). And **Azure Toolkit for IntelliJ**. Use this toolkit to create Apache Spark applications for an HDInsight cluster. For more information, follow the instructions in [Use Azure Toolkit for IntelliJ to create Apache Spark applications for an HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
+* **[Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)**. This tutorial uses Java version 8.0.202.
+  
+* **IntelliJ IDEA**. This article uses [IntelliJ IDEA Community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
+  
+* **Azure Toolkit for IntelliJ**. See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+  
+* **An Apache Spark cluster on cosmos**. [Sign in and Provision spark cluster](https://microsoft.sharepoint.com/teams/Cosmos/vNext/SitePages/IntelliJ-Toolkit-for-Spark-on-Cosmos.aspx).
+  
+* **WINUTILS.EXE**. [See Problems running Hadoop on Windows](https://wiki.apache.org/hadoop/WindowsProblems).
 
-* **HDInsight SSH service with username and password management**. For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and [Use SSH tunneling to access Ambari web UI, JobHistory, NameNode, Apache Oozie, and other web UIs](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **Connect to your HDInsight cluster**. See [Connect to your HDInsight cluster](apache-spark-intellij-tool-plugin.md).
 
-## Learn how to perform local run and local debug
+* **Microsoft Azure Storage Explorer**. See [Download Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/).
+
 ### Scenario 1: Create a Spark Scala application 
 
 1. Start IntelliJ IDEA, and then create a project. In the **New Project** dialog box, do the following:
 
    a. Select **Azure Spark/HDInsight**. 
 
-   b. Select a Java or Scala template based on your preference. Select between the following options:
-
-   - **Spark Project (Java)**
-
-   - **Spark Project (Scala)**
-
-   - **Spark Project with Samples (Scala)**
-
-   - **Spark Project with Failure Task Debugging Samples (Preview) (Scala)**
-
-     This example uses a **Spark Project with Failure Task Debugging Samples (Preview) (Scala)** template.
+   b. Select **Spark Project with Failure Task Debugging Sample(Preview)(Scala)**.
 
      ![Create a debug project](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png)
 
@@ -44,13 +43,13 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
  
 2. In the next **New Project** window, do the following:
 
-   ![Select the Spark SDK](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug-01.png)
+   ![Select the Spark SDK](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
 
    a. Enter a project name and project location.
 
-   b. In the **Project SDK** drop-down list, select **Java 1.8** for **Spark 2.x** cluster or select **Java 1.7** for **Spark 1.x** cluster.
+   b. In the **Project SDK** drop-down list, select **Java 1.8** for **Spark 2.3.2** cluster.
 
-   c. In the **Spark Version** drop-down list, the Scala project creation wizard integrates the correct version for Spark SDK and Scala SDK. If the spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark 2.x.** This example uses **Spark 2.0.2 (Scala 2.11.8)**.
+   c. In the **Spark Version** drop-down list, select **Spark 2.3.2(Scala 2.11.8)**.
 
    d. Select **Finish**.
 
@@ -61,67 +60,42 @@ While you're running the local Spark Scala application on a Windows computer, yo
 
 To resolve this error, [download the executable](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location such as **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME**, and set the value of the variable to **C:\WinUtils**.
 
-### Scenario 2: Perform local run
-1. Open the **AgeMean_Div()** script, right-click the script editor, choose **Default Spark application Type** as **Spark on Cosmos**, and then select the option **Run '[Spark Job]XXX'** to perform local run.
-2. Once local run completed, you can see the output file save to your current project explorer **data** > **__default__**.
+### Scenario 2: Perform remote run
 
-    ![Local run result](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-project-01.png)
-3. Our tools have set the default local run configuration automatically when you perform the local run and local debug. Open the configuration **[Spark on Cosmos] XXX** on the upper right corner, you can see the **[Spark on Cosmos]XXX** already created under **Apache Spark on Cosmos**. Switch to **Locally Run** tab.
+1. Click **Add Configuration** to open **Run/Debug Configurations** window.
 
-    ![Local run configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-project-2.png)
-    - [Environment variables](#prerequisite-for-windows): If you already set the system environment variable **HADOOP_HOME** to **C:\WinUtils**, it can auto detect that no need to manually add.
-    - [WinUtils.exe Location](#prerequisite-for-windows): If you have not set the system environment variable, you can find the location by clicking its button.
-    - Just choose either of two options and, they are not needed on MacOS and Linux.
-4. You can also set the configuration manually before performing local run and local debug. In the preceding screenshot, select the plus sign (**+**). Then select the **Apache Spark on Cosmos** option. Enter information for **Name**, **Main class name** to save, then click the local run button.
+   ![Edit configurations](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png) 
 
-### Scenario 3: Perform local debug
-1. Open the **AgeMean_Div()** script, set breakpoints.
-1. Right-click the script editor, and then select the option **Debug '[Spark on Cosmos]XXX'** to perform local debugging.   
+2. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Apache Spark on HDInsight** option.
 
+   ![Add new configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
+3. Switch to **Remotely Run in Cluster** tab. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then Click **Advanced configuration (Remote Debugging)**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5, and you'd better not set higher than 3. To reduce the run time, you can add **spark.yarn.maxAppAttempts** into **job Configurations** and set the value to 1. Click **OK** button to save the configuration.
 
+   ![Run debug configurations](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 
-## Learn how to perform local run Spark Failure debug application
-### Scenario 1: Perform remote run
+4. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations**. 
 
-1. Open **Azure Explorer**. expand **Apache Spark on Cosmos**, right click account node, and then select **Provision Spark Cluster** to provision a cluster.
+5. After you complete the configurations settings, you can run the project against the remote cluster.
    
-      ![Provision cluster](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-provision-cluster.png) 
+   ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png)
 
-2. To access the **Edit Configurations** menu, select the icon in the upper-right corner. From this menu, you can create or edit the configurations for remote debugging.
-
-   ![Edit configurations](./media/apache-spark-intellij-tool-failure-debug/hdinsight-choose-configuration-file-01.png) 
-
-3. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Apache Spark on Cosmos** option.
-
-   ![Add new configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuration.png)
-4. Switch to **Remotely Run in Cluster** tab. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then Click **Advanced configuration (Remote Debugging)**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5, and you'd better not set higher than 3. To reduce the run time, you can add **spark.yarn.maxAppAttempts** into **job Configurations** and set the value to 1. Click **OK** button to save the configuration.
-
-   ![Run debug configurations](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuration-02.png)
-
-5. The configuration is now saved with the name you provided. To view the configuration details, select the configuration name. To make changes, select **Edit Configurations**. 
-
-6. After you complete the configurations settings, you can run the project against the remote cluster.
+6. You can check the application ID from the output window.
    
-   ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remote-run-project.png)
+   ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)   
 
-7. If the submission is successful, **Spark Master UI** will be opened automatically. You can check the application ID from here.
-   
-   ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/hdinsight-master-UI-application-Id.png)
+### Scenario 3: Download spark failure file
 
-
-### Scenario 2: Download spark failure file
-
-**Microsoft Azure Storage Explorer** can help you quickly find the  spark failure file and download it. You can download **Microsoft Azure Storage Explorer** from [Download Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/).
+**Microsoft Azure Storage Explorer** can help you quickly find the  spark failure file and download it.
 
 1.  Start **Microsoft Azure Storage Explorer**, then sign in with Microsoft account.
 
-2. Find the subscription which the cluster belongs to. The cluster is what you submitted to before. Find the spark failure file from spak-events/spark-failures/application ID, click **Download**, then select the folder. The **activities** window will show the download progress.
+2. Find the subscription which the cluster belongs to. The cluster is what you submitted to before. Find the spark failure file from hdp/spark2-events/.spark-failures/application Id, click **Download**, then select the folder. The **activities** window will show the download progress.
 
-   ![download failure file](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-download-file-1.png)
+   ![download failure file](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file.png)
 
    ![download failure file](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)   
 
-### Scenario 3: local run Spark Failure Debug configuration
+### Scenario 4: local run Spark Failure Debug configuration
 
 1. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Spark Failure Debug** option.
 
@@ -143,9 +117,10 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
    
    ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
 
- 
+6. Set breakpoint as the log indicates, then click local debug button to perform debugging.
+
 ## <a name="seealso"></a>Next steps
-* [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
+* [Overview: Debug Apache Spark applications](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 
 ### Demo
 * Create Scala project (video): [Create Apache Spark Scala Applications](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
