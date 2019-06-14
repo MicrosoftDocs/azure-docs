@@ -423,7 +423,7 @@ This variable is a string, which holds "next" if the next page of results should
             {
                 return 3;
             }
-        }        
+        }
     }
 ```
 
@@ -431,7 +431,7 @@ This variable is a string, which holds "next" if the next page of results should
 
 1. Locate the section of the index.cshtml file that displays the results (it starts with the **@if (Model != null)**).
 
-1. Replace the section with the code below. The new **&lt;div&gt;** section is around the area that should be scrollable and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()" (or any name you want to give it), like so.
+1. Replace the section with the code below. The new **&lt;div&gt;** section is around the area that should be scrollable, and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()", like so.
 
 ```cs
         @if (Model != null)
@@ -454,7 +454,7 @@ This variable is a string, which holds "next" if the next page of results should
         }
 ```
 
-3. Directly underneath the loop, after the &lt;/div&gt; tag, add the scroll function.
+3. Directly underneath the loop, after the &lt;/div&gt; tag, add the **scrolled** function.
 
 ```cs
         <script>

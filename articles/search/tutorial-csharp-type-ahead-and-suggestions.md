@@ -59,7 +59,7 @@ We have connected this script to the search box via the same id. Also, a minimum
 
 The autocomplete function called in the script above is not something we have to write ourselves as it is available in the jquery library. 
 
-1. To access the jquery library, add the following lines to the top of the &lt;head&gt; section of the view file, so the beginning of this section looks similar to the following code.
+1. To access the jquery library, change the &lt;head&gt; section of the view file to the following code.
 
 ```cs
 <head>
@@ -69,6 +69,8 @@ The autocomplete function called in the script above is not something we have to
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="~/css/hotels.css" />
+</head>
 ```
 
 2. We also need to remove, or comment out, a line referencing jquery in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. This avoids clashing references to jquery.
@@ -90,15 +92,10 @@ Now we can use the predefined autocomplete jquery functions.
 ```cs
         public async Task<ActionResult> Suggest(bool highlights, bool fuzzy, string term)
         {
-            // Use static variables to set up the configuration and Azure service and index clients, for efficiency.
-            _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            _configuration = _builder.Build();
-
-            _serviceClient = CreateSearchServiceClient(_configuration);
-            _indexClient = _serviceClient.Indexes.GetClient("hotels");
+            InitSearch();
 
             // Setup the suggest parameters.
-            SuggestParameters sp = new SuggestParameters()
+            var parameters = new SuggestParameters()
             {
                 UseFuzzyMatching = fuzzy,
                 Top = 8,
@@ -106,17 +103,19 @@ Now we can use the predefined autocomplete jquery functions.
 
             if (highlights)
             {
-                sp.HighlightPreTag = "<b>";
-                sp.HighlightPostTag = "</b>";
+                parameters.HighlightPreTag = "<b>";
+                parameters.HighlightPostTag = "</b>";
             }
 
             // Only one suggester can be specified per index. The name of the suggester is set when the suggester is specified by other API calls.
             // The suggester for the hotel database is called "sg" and simply searches the hotel name.
-            DocumentSuggestResult<Hotel> suggestResult = await _indexClient.Documents.SuggestAsync<Hotel>(term, "sg", sp);
+            DocumentSuggestResult<Hotel> suggestResult = await _indexClient.Documents.SuggestAsync<Hotel>(term, "sg", parameters);
 
             // Convert the suggest query results to a list that can be displayed in the client.
             List<string> suggestions = suggestResult.Results.Select(x => x.Text).ToList();
-            return new JsonResult((object)suggestions);
+
+            // Return the list of suggestions.
+            return new JsonResult(suggestions);
         }
 ```
 
@@ -147,7 +146,7 @@ If you are interested, the [Lucene query syntax in Azure Search](https://docs.mi
 
 We can improve the appearance of the suggestions to the user a bit, by setting the **highlights** parameter to true. However, first we need to add some code to the view to display the bolded text.
 
-1. In the view (index.cshtml), add the following script (no need to delete the **azureautosuggest** script, as we are using different ids) after the script you entered above.
+1. In the view (index.cshtml), add the following script after the **azureautosuggest** script you entered above.
 
 ```cs
 <script>
@@ -184,16 +183,15 @@ We can improve the appearance of the suggestions to the user a bit, by setting t
 
 3. Run the app again, and you should see your entered text bolded in the suggestions. Say, try typing "pa".
  
+ ![Typing "pa" with highlighting](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
 
 4. The logic used in the highlighting script above is not foolproof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want. Try typing "mo".
-
- ![Typing "mo" with highlighting](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
 
 One of the questions a developer needs to answer is when is a script working "well enough" and when should its quirks be addressed. We will not be taking highlighting any further in this tutorial, but finding a precise algorithm is something to consider if taking highlighting further.
 
 ## Add autocompletion
 
-Another variation that is slightly different from suggestions is autocompletion (sometimes called "type-ahead"). Again we will start with the simplest implementation before moving onto improving the user experience.
+Another variation that is slightly different from suggestions is autocompletion (sometimes called "type-ahead"). Again, we will start with the simplest implementation before moving onto improving the user experience.
 
 1. Enter the following script into the view, following your previous scripts.
 
@@ -219,17 +217,12 @@ Another variation that is slightly different from suggestions is autocompletion 
 3. In the home controller we need to enter the **Autocomplete** action, say, below the **Suggest** action.
 
 ```cs
-public async Task<ActionResult> AutoComplete(string term)
+        public async Task<ActionResult> AutoComplete(string term)
         {
-            // Use static variables to set up the configuration and Azure service and index clients, for efficiency.
-            _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            _configuration = _builder.Build();
-
-            _serviceClient = CreateSearchServiceClient(_configuration);
-            _indexClient = _serviceClient.Indexes.GetClient("hotels");
+            InitSearch();
 
             // Setup the autocomplete parameters.
-            AutocompleteParameters ap = new AutocompleteParameters()
+            var ap = new AutocompleteParameters()
             {
                 AutocompleteMode = AutocompleteMode.OneTermWithContext,
                 Top = 6
@@ -264,15 +257,10 @@ There are libraries that offer this functionality - often called "inline autocom
 ```cs
         public async Task<ActionResult> AutocompleteAndSuggest(string term)
         {
-            // Use static variables to set up the configuration and Azure service and index clients, for efficiency.
-            _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            _configuration = _builder.Build();
-
-            _serviceClient = CreateSearchServiceClient(_configuration);
-            _indexClient = _serviceClient.Indexes.GetClient("hotels");
+            InitSearch();
 
             // Setup the type-ahead search parameters.
-            AutocompleteParameters ap = new AutocompleteParameters()
+            var ap = new AutocompleteParameters()
             {
                 AutocompleteMode = AutocompleteMode.OneTermWithContext,
                 Top = 1,
@@ -280,7 +268,7 @@ There are libraries that offer this functionality - often called "inline autocom
             AutocompleteResult autocompleteResult = await _indexClient.Documents.AutocompleteAsync(term, "sg", ap);
 
             // Setup the suggest search parameters.
-            SuggestParameters sp = new SuggestParameters()
+            var sp = new SuggestParameters()
             {
                 Top = 8,
             };
@@ -289,21 +277,26 @@ There are libraries that offer this functionality - often called "inline autocom
             // The suggester for the hotel database is called "sg" and simply searches the hotel name.
             DocumentSuggestResult<Hotel> suggestResult = await _indexClient.Documents.SuggestAsync<Hotel>(term, "sg", sp);
 
-            List<string> results = new List<string>();
+            // Create an empty list.
+            var results = new List<string>();
+
             if (autocompleteResult.Results.Count > 0)
             {
                 // Add the top result for type-ahead.
                 results.Add(autocompleteResult.Results[0].Text);
-            } else
+            }
+            else
             {
                 // There were no type-ahead suggestions, so add an empty string.
                 results.Add("");
             }
-            for (int n=0; n<suggestResult.Results.Count; n++)
+            for (int n = 0; n < suggestResult.Results.Count; n++)
             {
-                // Now add up to eight suggestions.
+                // Now add the suggestions.
                 results.Add(suggestResult.Results[n].Text);
             }
+
+            // Return the list.
             return new JsonResult(results);
         }
 ```
@@ -321,10 +314,12 @@ One autocompletion option is returned at the top of the **results** list, follow
     </div>
 ```
 
+Note we are changing the id again, to **azureautocomplete** in this case.
+
 3. Also in the view, enter the following script, after all the scripts you have entered so far. There is quite a lot to it.
 
 ```cs
-<script>
+    <script>
         $('#azureautocomplete').autocomplete({
             delay: 500,
             minLength: 2,
@@ -435,7 +430,7 @@ Notice the clever use of the **interval** function to both clear the underlying 
 Read through the comments in the script to get a fuller understanding.
 
 
-4. Finally, we need to make a minor adjustment to the HTML style **searchBox** to make it transparent. Add the following line to this style.
+4. Finally, we need to make a minor adjustments to two HTML class to make them transparent. Add the following line to the **searchBoxForm**, and **searchBox**, classes in the hotels.css file.
 
 ```cs
             background: rgba(0,0,0,0);
@@ -460,7 +455,7 @@ Consider the following takeaways from this project:
 
 ## Next steps
 
-One of the issues with autocompletion and suggestions is that they involve repeated calls to the server (one on every key stroke after the minimum number of characters typed is reached). If this results in slower than expected responses then the user experience diminishes. Facets are an interesting alternative to avoid these repeated calls, which we will look at next.
+One of the issues with autocompletion and suggestions is that they involve repeated calls to the server (one on every key stroke after the minimum number of characters typed is reached). If this results in slower than expected responses, then the user experience diminishes. Using facets provides an interesting alternative to avoid these repeated calls, which we will look at next.
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Use facets to improve network efficiency - Azure Search](tutorial-csharp-facets.md)
