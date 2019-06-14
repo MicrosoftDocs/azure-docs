@@ -58,6 +58,8 @@ In this tutorial, you create/update code to do the following tasks:
 
     ![App Sevices tab](./media/notification-hubs-kindle-get-started/app-services-tab.png)
 1. On the **App Services** tab, scroll down, and select **View Mobile Ads** in the **Mobile Ads** section. You see the **Mobile Ads** page in a new tab in the web browser. 
+
+    ![Mobile Ads section - View Mobile Ads link](./media/notification-hubs-kindle-get-started/view-mobile-ads-link.png)
 1. On the **Mobile Ads** page, do the following steps: 
     1. Specify whether your app is directed primarily at kids under 13. For this tutorial, select **No**.
     1. Select **Submit**. 
@@ -67,11 +69,19 @@ In this tutorial, you create/update code to do the following tasks:
 
         ![Application key](./media/notification-hubs-kindle-get-started/application-key.png)
 3.  Now, switch to the web browser's tab that has the **App Services** tab open, and do the following steps:
-    1. Select **Select existing security profile or create new** in the **Device Messaging** section, and then select **Create Security Profile**. 
-    2. Enter a **name** for your security profile. 
-    3. Enter **description** for your security profile. 
-    4. Select **Save**. 
-    5. Select **View Security Profile** on the result page. 
+    1. Scroll to the **Device Messaging** section.     
+    1. Select **Select existing security profile or create new**, and then select **Create Security Profile**. 
+
+        ![Create security profile button](./media/notification-hubs-kindle-get-started/create-security-profile-button.png)
+    1. Enter a **name** for your security profile. 
+    2. Enter **description** for your security profile. 
+    3. Select **Save**. 
+
+        ![Save the security profile](./media/notification-hubs-kindle-get-started/save-security-profile.png)
+    1. Select **Enable Device Messaging** to enable device messaging on this security profile. 
+
+        ![Enable Device Messaging](./media/notification-hubs-kindle-get-started/enable-device-messaging.png)
+    1. Then, select **View Security Profile** on the result page. 
 1. Now, on the **Security Profile** page, do the following steps: 
     1. Switch to the **Web Settings** tab, and copy the **Client ID** and **Client Secret** value for later use. 
 
