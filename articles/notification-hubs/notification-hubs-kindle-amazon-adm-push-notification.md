@@ -70,7 +70,7 @@ In this tutorial, you create/update code to do the following tasks:
         ![Application key](./media/notification-hubs-kindle-get-started/application-key.png)
 3.  Now, switch to the web browser's tab that has the **App Services** tab open, and do the following steps:
     1. Scroll to the **Device Messaging** section.     
-    1. Select **Select existing security profile or create new**, and then select **Create Security Profile**. 
+    1. Expand **Select existing security profile or create new**, and then select **Create Security Profile**. 
 
         ![Create security profile button](./media/notification-hubs-kindle-get-started/create-security-profile-button.png)
     1. Enter a **name** for your security profile. 
