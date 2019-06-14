@@ -83,7 +83,7 @@ git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-na
 >
 > Then use the command output to run `git remote add azure <url>` like above.
 
-Push to the Azure remote to deploy your app with the following command. When prompted for a password, make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to log in to the Azure portal.
+Push to the Azure remote to deploy your app with the following command. When prompted for a password, make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to sign in to the Azure portal.
 
 ```bash
 git push azure master
@@ -206,7 +206,7 @@ git config --global http.postBuffer 524288000
       OR
   * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
-## Additional Resources
+## Additional resources
 
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
 * [Continuous Deployment to Azure App Service](deploy-continuous-deployment.md)
