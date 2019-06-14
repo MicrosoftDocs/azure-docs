@@ -119,7 +119,7 @@ Use the table below as a reference to help you understand the available Identity
 |Subscription|15|External accounts with read permissions should be removed  from your subscription|Remove external accounts with read privileges from your subscription in order to prevent unmonitored access.| 
 
 > [!NOTE]
-> If you created a conditional access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
+> If you created a Conditional Access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
 
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following:

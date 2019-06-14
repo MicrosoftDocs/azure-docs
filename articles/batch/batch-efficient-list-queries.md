@@ -85,7 +85,7 @@ The expand string reduces the number of API calls that are required to obtain ce
 * This example expand string specifies that statistics information should be returned for each item in the list: `stats`.
 
 > [!NOTE]
-> When constructing any of the three query string types (filter, select, and expand), you must ensure that the property names and case match that of their REST API element counterparts. For example, when working with the .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#Microsoft_Azure_Batch_CloudTask) class, you must specify **state** instead of **State**, even though the .NET property is [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). See the tables below for property mappings between the .NET and REST APIs.
+> When constructing any of the three query string types (filter, select, and expand), you must ensure that the property names and case match that of their REST API element counterparts. For example, when working with the .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) class, you must specify **state** instead of **State**, even though the .NET property is [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). See the tables below for property mappings between the .NET and REST APIs.
 > 
 > 
 
