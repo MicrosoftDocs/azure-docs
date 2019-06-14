@@ -393,9 +393,9 @@ r = requests.put(endpoint + "/indexers/" + indexer_name, data=json.dumps(indexer
 print(r.status_code)
 ```
 
-The request should return a status code of 201 confirming success. However, the indexer may still be running, and this step can take several minutes to complete. Although the data set is small, analytical skills, such as image analysis, are computationally intensive and take time.
+The request should quickly return a status code of 201, however, the processing can take several minutes to complete. Although the data set is small, analytical skills, such as image analysis, are computationally intensive and take time.
 
-Use the [Check indexer status](#check-indexer-status) script in the next section to determine when the indexer creation process is complete.
+Use the [Check indexer status](#check-indexer-status) script in the next section to determine when the indexer process is complete.
 
 > [!TIP]
 > Creating an indexer invokes the pipeline. If there is a problem accessing the data, mapping inputs and outputs, or with the order of operations, it will appear at this stage. To re-run the pipeline with code or script changes, you may need to delete objects first. For more information, see [Reset and re-run](#reset).
@@ -412,7 +412,7 @@ When content is extracted, you can set ```imageAction``` to extract text from im
 
 ## Check indexer status
 
-Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer create has completed, run the following script.
+Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer  processing is complete, run the following script.
 
 ```python
 #Get indexer status
@@ -420,9 +420,7 @@ r = requests.get(endpoint + "/indexers/" + indexer_name + "/status", headers=hea
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-In the response, monitor the "lastResult" for its "status" and "endTime" values. When the indexer creation has completed, the status will be set to "success" and an "endTime" will be specified. 
-
-Periodically run the script to check for completion. The process may take a few minutes. When the indexer is done, the status response will also include any errors and warnings that occurred during enrichment.
+In the response, monitor the "lastResult" for its "status" and "endTime" values. Periodically run the script to check the status. When the indexer has completed, the status will be set to "success", an "endTime" will be specified, and the response will include any errors and warnings that occurred during enrichment.
 
  ![Indexer is created](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "Indexer is created")
 
