@@ -16,9 +16,9 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/azure/bastion/media/index/video.png
+      src: https://go.microsoft.com/fwlink/?linkid=2095604
       width: 250  
-    title: Working with Azure Bastion. (1:03)
+    title: Working with Azure Bastion (1:03)
     href: https://www.microsoft.com/videoplayer/embed/RE39WT5
     width: 250
 sections:
