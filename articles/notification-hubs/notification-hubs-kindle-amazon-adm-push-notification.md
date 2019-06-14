@@ -54,24 +54,25 @@ In this tutorial, you create/update code to do the following tasks:
     5. Select **Save**.
 
         ![New App Submission page](./media/notification-hubs-kindle-get-started/new-app-submission-page.png) 
-2.  At the top, switch to the **Mobile Ads** tab, and do the following steps: 
+2.  At the top, switch to the **App Services** tab.
+
+    ![App Sevices tab](./media/notification-hubs-kindle-get-started/app-services-tab.png)
+1. On the **App Services** tab, scroll down, and select **View Mobile Ads** in the **Mobile Ads** section. You see the **Mobile Ads** page in a new tab in the web browser. 
+1. On the **Mobile Ads** page, do the following steps: 
     1. Specify whether your app is directed primarily at kids under 13. For this tutorial, select **No**.
-    2. Select **Submit**. 
+    1. Select **Submit**. 
 
         ![Mobile Ads page](./media/notification-hubs-kindle-get-started/mobile-ads-page.png)
     3. Copy the **application key** from the **Mobile Ads** page. 
 
         ![Application key](./media/notification-hubs-kindle-get-started/application-key.png)
-3.  Select **Apps & Services** menu at the top, and select your application in the list. 
-
-    ![Select your app from list](./media/notification-hubs-kindle-get-started/all-apps-select.png)
-4. Switch to the **Device Messaging** tab, and follow these steps: 
-    1. Select **Create a New Security Profile**.
+3.  Now, switch to the web browser's tab that has the **App Services** tab open, and do the following steps:
+    1. Select **Select existing security profile or create new** in the **Device Messaging** section, and then select **Create Security Profile**. 
     2. Enter a **name** for your security profile. 
     3. Enter **description** for your security profile. 
     4. Select **Save**. 
     5. Select **View Security Profile** on the result page. 
-5. Now, on the **Security Profile** page, do the following steps: 
+1. Now, on the **Security Profile** page, do the following steps: 
     1. Switch to the **Web Settings** tab, and copy the **Client ID** and **Client Secret** value for later use. 
 
         ![Get client ID and secret](./media/notification-hubs-kindle-get-started/client-id-secret.png) 
