@@ -46,9 +46,18 @@ xxxx
 
 1. Open the SearchData.cs model file.
 
-2. First add some global variables (following **ResultsPerPage**). **MaxPageRange** determines the number of visible page numbers on the view. **PageRangeDelta** determines how many pages left or right the page range should be shifted when the left-most or right-most page number is selected. Typically this latter number is around half of **MaxPageRange**.
+2. First add some global variables. In MVC global variables are declared in their own static class. **ResultsPerPage** sets the number of results per page. **MaxPageRange** determines the number of visible page numbers on the view. **PageRangeDelta** determines how many pages left or right the page range should be shifted, when the left-most or right-most page number is selected. Typically this latter number is around half of **MaxPageRange**. Add the following code into the namespace.
 
 ```cs
+    public static class GlobalVariables
+    {
+        public static int ResultsPerPage
+        {
+            get
+            {
+                return 3;
+            }
+        }
         public static int MaxPageRange
         {
             get
@@ -64,15 +73,22 @@ xxxx
                 return 2;
             }
         }
+    }
 ```
 
-3. Add three more paging fields to the **SearchData** class, say, after the **pageCount** field.
+3. Add paging properties to the **SearchData** class, say, after the **searchText** property.
 
 ```cs
+        // The current page being displayed.
+        public int currentPage { get; set; }
+
+        // The total number of pages of results.
+        public int pageCount { get; set; }
+
         // The left-most page number to display.
         public int leftMostPage { get; set; }
 
-        // The number of pages to display - which can be less than MaxPageRange towards the end of the results.
+        // The number of page numbers to display - which can be less than MaxPageRange towards the end of the results.
         public int pageRange { get; set; }
 
         // Used when page numbers, or next or prev buttons, have been selected.
@@ -81,7 +97,7 @@ xxxx
 
 ### Add a table of paging options to the view
 
-1. Delete the existing paging options (starting with **@if (Model != null && Model.pageCount &gt; 1)** and ending with **}** before the final &lt;/body&gt; tag), and replace it with the following code. This new code presents a table of paging options: first, previous, 1, 2, 3, 4, 5, next, last.
+1. Open the index.cshtml file, and add the following code right before the closing &lt;/body&gt; tag. This new code presents a table of paging options: first, previous, 1, 2, 3, 4, 5, next, last.
 
 ```cs
 @if (Model != null && Model.pageCount > 1)
@@ -162,16 +178,30 @@ xxxx
 }
 ```
 
-Note the use of an HTML table to align things neatly. However all the action comes from the @Html.ActionLink statements, each calling the controller with a **new** model created with different entries to the **paging** field we added earlier.
+We use an HTML table to align things neatly. However all the action comes from the **@Html.ActionLink** statements, each calling the controller with a **new** model created with different entries to the **paging** property we added earlier.
 
 The first and last page options do not send strings such as "first" and "last", but instead send the correct page numbers.
 
-2. Add the **pageSelected** class to the list of HTML styles (perhaps after **pageButton**). This class is there to identify the page the user is currently viewing (by turning the number bold) in the list of page numbers.
+2. Add some paging classes to the list of HTML styles in the hotels.css file. The **pageSelected** class is there to identify the page the user is currently viewing (by turning the number bold) in the list of page numbers.
 
 ```cs
-    .pageSelected {
+        .pageButton {
+            border: none;
+            color: darkblue;
+            font-weight: normal;
+            width: 50px;
+        }
+
+        .pageSelected {
             border: none;
             color: black;
+            font-weight: bold;
+            width: 50px;
+        }
+
+        .pageButtonDisabled {
+            border: none;
+            color: lightgray;
             font-weight: bold;
             width: 50px;
         }
@@ -179,9 +209,7 @@ The first and last page options do not send strings such as "first" and "last", 
 
 ### Add a Page action to the controller
 
-1. Open the HomeController.cs file and delete the old page actions **Next** and **Prev**.
-
-2. In their place, add the **Page** action. This action responds to any of the page options selected.
+1. Open the HomeController.cs file, and add the **Page** action. This action responds to any of the page options selected.
 
 ```cs
         public async Task<ActionResult> Page(SearchData model)
@@ -229,7 +257,10 @@ The first and last page options do not send strings such as "first" and "last", 
 
 The **RunQueryAsync** method will now show a syntax error, because of the third parameter, which we will come to in a bit.
 
-3. The **Index(model)** action needs updated to store the **leftMostPage** temporary variable, and to add the left-most page parameter to the **RunQueryAsync** call.
+> [!Note]
+> The **TempData** calls store a value (an **object**) in temporary storage, though this storage persists for _only_ one call. If we store something in temporary data, it will be available for the next call to a controller action, but will most definitely be gone by the call after that! Because of this short lifespan, we store the search text and paging properties back in temporary storage each and every call to **Page**.
+
+2. The **Index(model)** action needs updated to store the temporary variables, and to add the left-most page parameter to the **RunQueryAsync** call.
 
 ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -259,99 +290,76 @@ The **RunQueryAsync** method will now show a syntax error, because of the third 
         }
 ```
 
-4. The **RunQueryAsync** method needs updated to calculate the page variables. To make things easy, replace the entire method with the following code.
+3. The **RunQueryAsync** method needs updated significantly. We use the **Skip**, **Top**, and **IncludeTotalResultCount** fields of the **SearchParameters** class to request only one page worth of results, starting at the **Skip** setting. We also need to calculate the paging variables for our view. Replace the entire method with the following code.
 
 ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
         {
-            // Use static variables to set up the configuration and Azure service and index clients, for efficiency.
-            _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            _configuration = _builder.Build();
+            InitSearch();
 
-            _serviceClient = CreateSearchServiceClient(_configuration);
-            _indexClient = _serviceClient.Indexes.GetClient("hotels");
-
-            SearchParameters parameters;
-            DocumentSearchResult<Hotel> results;
-
-            parameters =
-               new SearchParameters()
-               {
+            var parameters = new SearchParameters
+            {
                    // Enter Hotel property names into this list so only these values will be returned.
                    // If Select is empty, all values will be returned, which can be inefficient.
-                   Select = new[] { "HotelName", "Description", "Tags", "Rooms" }
+                   Select = new[] { "HotelName", "Description" },
+                   SearchMode = SearchMode.All,
+
+                   // Skip past results that have already been returned.
+                   Skip = page * GlobalVariables.ResultsPerPage,
+
+                   // Take only the next page worth of results.
+                   Top = GlobalVariables.ResultsPerPage,
+
+                   // Include the total number of results.
+                   IncludeTotalResultCount = true,
                };
 
-            // For efficiency, the search call should ideally be asynchronous, so we use the
-            // SearchAsync call rather than the Search call.
-            results = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
+            // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
+            model.resultList = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
 
-            if (results.Results == null)
+            // This variable communicates the total number of pages to the view.
+            model.pageCount = ( (int)model.resultList.Count + GlobalVariables.ResultsPerPage - 1) / GlobalVariables.ResultsPerPage;
+
+            // This variable communicates the page number being displayed to the view.
+            model.currentPage = page;
+
+            // Calculate the range of page numbers to display.
+            if (page == 0)
             {
-                model.resultCount = 0;
+                leftMostPage = 0;
             }
             else
+               if (page <= leftMostPage)
             {
-                // Record the total number of results.
-                model.resultCount = (int)results.Results.Count;
-
-                // Calculate the range of current page results.
-                int start = page * GlobalVariables.ResultsPerPage;
-                int end = Math.Min(model.resultCount, (page + 1) * GlobalVariables.ResultsPerPage);
-
-                for (int i = start; i < end; i++)
-                {
-                    // Check for hotels with no room data provided.
-                    if (results.Results[i].Document.Rooms.Length > 0)
-                    {
-                        // Add a hotel with sample room data (an example of a "complex type").
-                        model.AddHotel(results.Results[i].Document.HotelName,
-                             results.Results[i].Document.Description,
-                             (double)results.Results[i].Document.Rooms[0].BaseRate,
-                             results.Results[i].Document.Rooms[0].BedOptions,
-                             results.Results[i].Document.Tags);
-                    }
-                    else
-                    {
-                        // Add a hotel with no sample room data.
-                        model.AddHotel(results.Results[i].Document.HotelName,
-                            results.Results[i].Document.Description,
-                            0d,
-                            "No room data provided",
-                            results.Results[i].Document.Tags);
-                    }
-                }
-
-                // Calculate the page count.
-                model.pageCount = (model.resultCount + GlobalVariables.ResultsPerPage - 1) / GlobalVariables.ResultsPerPage;
-
-                // Calculate the range of page numbers to display.
-                model.currentPage = page;
-
-                if (page == 0)
-                {
-                    leftMostPage = 0;
-                }
-                else
-                   if (page <= leftMostPage)
-                {
-                    // Trigger a switch to a lower page range.
-                    leftMostPage = Math.Max(page - GlobalVariables.PageRangeDelta, 0);
-                }
-                else
-                if (page >= leftMostPage + GlobalVariables.MaxPageRange - 1)
-                {
-                    // Trigger a switch to a higher page range.
-                    leftMostPage = Math.Min(leftMostPage + GlobalVariables.PageRangeDelta, model.pageCount - GlobalVariables.MaxPageRange);
-                }
-                model.leftMostPage = leftMostPage;
-
-                // Calculate the number of page numbers to display.
-                model.pageRange = Math.Min(model.pageCount - leftMostPage, GlobalVariables.MaxPageRange);
+                // Trigger a switch to a lower page range.
+                leftMostPage = Math.Max(page - GlobalVariables.PageRangeDelta, 0);
             }
+            else
+            if (page >= leftMostPage + GlobalVariables.MaxPageRange - 1)
+            {
+                // Trigger a switch to a higher page range.
+                leftMostPage = Math.Min(leftMostPage + GlobalVariables.PageRangeDelta, model.pageCount - GlobalVariables.MaxPageRange);
+            }
+            model.leftMostPage = leftMostPage;
+
+            // Calculate the number of page numbers to display.
+            model.pageRange = Math.Min(model.pageCount - leftMostPage, GlobalVariables.MaxPageRange);
+
             return View("Index", model);
         }
 ```
+
+4. Finally, we need to make a small change to the view. The variable **resultsList.Results.Count** will now contain the number of results returned in one page (3 in our example), not the total number. Because we set the **IncludeTotalResultCount** to true, the variable **resultsList.Count** now contains the total number of results. So locate where the number of results is displayed in the view, and change it to the following code.
+
+```cs
+            // Show the result count.
+            <p class="sampleText">
+                @Html.DisplayFor(m => m.resultList.Count) Results
+            </p>
+```
+
+> [!Note]
+> There is a performance hit, though not usually much of one, by setting **IncludeTotalResultCount** to true, as this total needs to be calculated by Azure Search. With complex data sets there is a warning that the value returned is an _approximation_. For our hotel data, it will be accurate.
 
 ### Compile and run the app
 
@@ -378,7 +386,7 @@ Now save off this project and let's try an alternative to this form of paging.
 
 ## Extend your app with infinite scrolling
 
-Infinite scrolling is triggered when a user scrolls a vertical scroll bar to the last of the results being displayed. In this event, a call to the server is made for the next page of results. If there are no more results, nothing is returned and the vertical scroll bar does not change. If there are more results, they are appended to the current pag, and the scroll bar changes to show that more results are available.
+Infinite scrolling is triggered when a user scrolls a vertical scroll bar to the last of the results being displayed. In this event, a call to the server is made for the next page of results. If there are no more results, nothing is returned and the vertical scroll bar does not change. If there are more results, they are appended to the current page, and the scroll bar changes to show that more results are available.
 
 The important point here is that the page being displayed is not replaced, but appended to with the new results. A user can always scroll back up to the first results of the search.
 
@@ -590,6 +598,7 @@ Consider the following takeaways from this project:
 * Numbered paging allows for some better navigation. For example, a user can remember that an interesting result was on page 6, whereas no such easy reference exists in infinite scrolling.
 * Infinite scrolling has an easy appeal, scrolling up and down with no fussy page numbers to click on.
 * A key feature of infinite scrolling is that results are appended to an existing page, not replacing that page, which is efficient.
+* Temporary storage persists for only one call, and needs to be reset to survive additional calls.
 
 
 ## Next steps

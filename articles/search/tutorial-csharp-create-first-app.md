@@ -251,7 +251,6 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
 
 ```cs
 @model FirstAzureSearchApp.Models.SearchData
-
 ```
 
 3. It is standard practice to enter a title for the view, so the next lines should be:
@@ -260,7 +259,6 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
 @{
     ViewData["Title"] = "Home Page";
 }
-
 ```
 
 4. Following the title, enter a reference to an HTML stylesheet, which we will create shortly.
@@ -269,7 +267,6 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
 <head>
     <link rel="stylesheet" href="~/css/hotels.css" />
 </head>
-
 ```
 
 5. Now to the meat of the view. A key thing to remember is that the view has to handle two situations. Firstly, it must handle the display when the app is first launched, and the user has not yet entered any search text. Secondly, it must handle the display of results, in addition to the search text box, for repeated use by the user. To handle these two situations, we need to check whether the model provided to the view is null or not. A null model indicates we are in the first of the two situations (the initial running of the app). Add the following to the Index.cshtml file and read through the comments.
