@@ -57,4 +57,4 @@ Now you know about camera calibrations, you may also learn how to
 
 Also you can review
 
-[Coordinate systems](azure-kinect-dk-coordinate-systems.md)
+[Coordinate systems](coordinate-systems.md)

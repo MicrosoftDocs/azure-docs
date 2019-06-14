@@ -48,7 +48,7 @@ If there's more than one device attached, you can specify which device you want 
 
 The most common use of this tool is to update device firmware. Do the update by calling the tool using the `-u` option. A firmware update can take few minutes, depending on which firmware files must be updated.
 
-For step-by-step firmware update instruction, see [Azure Kinect firmware update](azure-kinect-dk-update-device-firmware.md).  
+For step-by-step firmware update instruction, see [Azure Kinect firmware update](update-device-firmware.md).  
 
 `AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin`
 
@@ -112,4 +112,4 @@ Examples:
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Step-by-step instructions to update device firmware](azure-kinect-dk-update-device-firmware.md)
+>[Step-by-step instructions to update device firmware](update-device-firmware.md)

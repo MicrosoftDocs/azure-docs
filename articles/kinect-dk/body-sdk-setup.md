@@ -74,3 +74,4 @@ If everything is set up correctly, a window with a 3D point cloud and tracked bo
 
 > [!div class="nextstepaction"]
 >[Build your first body tracking application](build-first-body-app.md)
+

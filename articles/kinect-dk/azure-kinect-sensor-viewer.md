@@ -17,13 +17,13 @@ The Azure Kinect Viewer, found under the installed tools directory as `k4aviewer
 * Help positioning the device.
 * Experiment with camera settings.
 * Read device configuration.
-* Playback recordings made with [Azure Kinect Recorder](azure-kinect-dk-recorder.md).
+* Playback recordings made with [Azure Kinect Recorder](recorder.md).
 
 Azure Kinect Viewer is [open source](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/tools/k4aviewer) and can be used as an example for how to use the APIs.
 
 ## Use viewer
 
-The viewer can operate in two modes: with live data from the sensor or from recorded data ([Azure Kinect Recorder](azure-kinect-dk-recorder.md)).
+The viewer can operate in two modes: with live data from the sensor or from recorded data ([Azure Kinect Recorder](recorder.md)).
 
 ### Start application
 

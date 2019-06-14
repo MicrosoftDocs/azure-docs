@@ -11,7 +11,7 @@ keywords: Kinect, sensor, viewer, external sync, phase delay, depth, RGB, camera
 
 # Use Azure Kinect DK recorder with external synchronized units
 
-This article provides guidance on how the [Azure Kinect Recorder](azure-kinect-dk-recorder.md) can record data external synchronization configured devices.
+This article provides guidance on how the [Azure Kinect Recorder](recorder.md) can record data external synchronization configured devices.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ This article provides guidance on how the [Azure Kinect Recorder](azure-kinect-d
 - Master device can't have SYNC IN cable connected.
 - Master device must stream RGB camera to enable synchronization.
 - All units must use the same camera configuration (framerate and resolution).
-- All units must run the same device firmware ([update firmware](azure-kinect-dk-update-device-firmware.md) instructions).
+- All units must run the same device firmware ([update firmware](update-device-firmware.md) instructions).
 - All subordinate devices must be started before the master device.
 - The same exposure value should be set on all devices.
 - Each subordinate's *Delay off master* setting is relative to the master device.
@@ -114,10 +114,10 @@ For any issues see [Troubleshooting](https://aka.ms/AzureKinectAPIDocs/troublesh
 
 Learn how to synchronize multiple Azure Kinect DK devices
 > [!div class="nextstepaction"]
->[Setup external sync](https://support.microsoft.com/en-us/help/4494429/sync-multiple-azure-kinect-dk-devices)
+>[Setup external sync](https://support.microsoft.com/en-us/help/4494429/sync-multiple-devices)
 
 ## See also
 
-- [Azure Kinect Recorder](azure-kinect-dk-recorder.md) for recorder settings and additional information.
+- [Azure Kinect Recorder](recorder.md) for recorder settings and additional information.
 - [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) for playing recordings or setting RGB camera properties not available through recorder.
 - [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md) for updating device firmware.
