@@ -321,6 +321,36 @@ In this tutorial, you create/update code to do the following tasks:
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
     ```
+## Update MainActivity class to create an ADM object
+1 In the `MainActivity.java` file, add the following import statements:
+
+    ```java
+    import android.os.AsyncTask;
+    import android.util.Log;
+    import com.amazon.device.messaging.ADM;
+    ```
+8. Add the following code at the end of the `OnCreate` method:
+
+    ```java
+    final ADM adm = new ADM(this);
+    if (adm.getRegistrationId() == null)
+    {
+        adm.startRegister();
+    } else {
+        new AsyncTask() {
+                @Override
+                protected Object doInBackground(Object... params) {
+                    try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                    } catch (Exception e) {
+                        Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
+                        return e;
+                    }
+                    return null;
+                }
+            }.execute(null, null, null);
+    }
+    ```
+
 
 ## Add your API key to your app
 1. Follow these steps to add an assets folder to the project. 
