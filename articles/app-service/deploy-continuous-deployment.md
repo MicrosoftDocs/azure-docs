@@ -27,7 +27,7 @@ To manually configure continuous deployment from a cloud repository that the por
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-## Authorize Azure App Service to access your respository
+## Authorize Azure App Service 
 
 You only need to authorize with a source control service once. To authorize Azure App Service to connect to your GitHub, Bitbucket, or Azure Repos repository:
 
@@ -42,7 +42,7 @@ You only need to authorize with a source control service once. To authorize Azur
 > [!NOTE]
 > To use Azure Repos, you need to link your Azure DevOps organization to your Azure subscription. For more information, see [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
 
-## Select and configure a build provider
+## Configure continuous deployment 
 
 After you authorize a source control service, you can configure your app for continuous deployment through the built-in Kudu App Service build server or through Azure Pipelines (Preview). 
 
@@ -52,9 +52,11 @@ You can use the built-in Kudu App Service build server to continuously deploy fr
 
 1. Navigate to your Azure App Service app page in the [Azure portal](https://portal.azure.com), and select **Deployment Center** in the left menu.
    
+1. If necessary, authorize your source control provider by following the instructions at [Authorize Azure App Service to access your respository](#authorize-azure-app-service-to-access-your-respository).
+   
 1. Select your authorized source control provider on the **Deployment Center** page, and select **Continue**. For GitHub or Bitbucket, you can also select **Change account** to change the authorized account. 
    
-1. For GitHub or Azure Repos, on the **Build provider** page, select **App Service build service**, and then select **Continue**. Bitbucket only uses App Service build service.
+1. For GitHub or Azure Repos, on the **Build provider** page, select **App Service build service**, and then select **Continue**. Bitbucket always uses App Service build service.
    
    ![Select App Service build service, then select Continue.](media/app-service-continuous-deployment/choose-kudu.png)
    
@@ -81,7 +83,7 @@ After configuration completes, new commits in the selected repository and branch
 
 ![](media/app-service-continuous-deployment/github-finished.png)
 
-### Configure Azure Pipelines (Preview) builds
+### Configure Azure Pipelines (Preview) 
 
 If your Azure account has the necessary permissions, you can set up Azure Pipelines (Preview) to continuously deploy from GitHub or Azure Repos repositories. 
 
@@ -93,7 +95,12 @@ To configure Azure Pipelines (Preview):
 
 1. Navigate to your Azure App Service app page in the [Azure portal](https://portal.azure.com), and select **Deployment Center** in the left menu.
    
-1. Select your authorized source control provider on the **Deployment Center** page, either **GitHub** or **Azure Repos**, and select **Continue**. For GitHub, you can also select **Change account** to change the authorized account. 
+1. If necessary, authorize Github by following the instructions at [Authorize Azure App Service to access your respository](#authorize-azure-app-service-to-access-your-respository).
+   
+   > [!NOTE]
+   > To use Azure Repos, you need to link your Azure DevOps organization to your Azure subscription. For more information, see [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
+     
+1. On the **Deployment Center** page, select either **GitHub** or **Azure Repos**, and select **Continue**. For GitHub, you can also select **Change account** to change the authorized account. 
    
 1. On the **Build provider** page, select **Azure Pipelines (Preview)**, and then select **Continue**. 
    
@@ -110,7 +117,7 @@ To configure Azure Pipelines (Preview):
      
 1. Select **Continue**.
    
-1. On the **Configure** page, in the **Build** section, specify the language framework that Azure Pipelines should use, and then select **Continue**.
+1. For Azure Repos, in the **Build** section, specify the language framework that Azure Pipelines should use to run build tasks, and then select **Continue**.
    
 1. On the **Test** page, choose whether to enable load tests, and then select **Continue**.
    
@@ -125,7 +132,7 @@ After configuration completes, new commits in the selected repository deploy con
 
 ## Disable continuous deployment
 
-To disable continuous deployment, select **Disconnect** at the top of the **Deployment Center** page.
+To disable continuous deployment, select **Disconnect** at the top of your app's **Deployment Center** page.
 
 ![Disable continuous deployment](media/app-service-continuous-deployment/disable.png)
 

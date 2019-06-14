@@ -39,7 +39,7 @@ To follow the steps in this how-to guide:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Use Cloud Shell to deploy with Kudu build server
+## Deploy with Kudu build server
 
 The easiest way to enable local Git deployment for your app with the Kudu App Service build server is to use Azure Cloud Shell.  
 
@@ -47,53 +47,33 @@ The easiest way to enable local Git deployment for your app with the Kudu App Se
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### Enable local Git with Kudu build server
+>
+> [!NOTE]
+> Instead of using the account-level deployment user, you can deploy with app-level credentials, which Azure App Service automatically generates for each app. 
 
-To enable local Git deployment for an existing app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in the Cloud Shell. Replace \<app_name> and \<group_name> with the names of your app and its Azure resource group.
+### Enable local Git 
+
+To enable local Git deployment for an existing app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in the Cloud Shell. Replace \<app-name> and \<group-name> with the names of your app and its Azure resource group.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
 
-The `az webapp deployment source config-local-git` command should return the following code. Copy and save the URL to use in the next step.
-
-```json
-{
-  "url": "<username>@<app_name>.scm.azurewebsites.net/<app_name>.git"
-}
-```
-
-Or, to create and enable local Git deployment for a new app, run [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in the Cloud Shell with the `--deployment-local-git` parameter. Replace \<app_name>, \<group_name>, and \<plan_name> with the names of your Git app, its Azure resource group, and its Azure App Service plan.
+Or, to create a new Git-enabled app, run [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in the Cloud Shell with the `--deployment-local-git` parameter. Replace \<app-name>, \<group-name>, and \<plan-name> with the names for your new Git app, its Azure resource group, and its Azure App Service plan.
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
+az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
-The `az webapp create` command should return something like the following output. Copy and save the URL in the first line to use in the next step.
+The command should return a URL like: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. You can use this URL to deploy your app in the next step.
 
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
-
-To deploy with app-level credentials instead of deployment user credentials, get the credentials specific to your app by running the following command in the Cloud Shell. Replace \<app_name> and <group_name> with your app's name and Azure resource group name.
+To deploy with app-level credentials instead of deployment user credentials, get the app-specific credentials by running the following command in the Cloud Shell. Replace \<app-name> and <group-name> with your app's name and Azure resource group name.
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
 ```
 
-Copy and save the URL that returns to use in the next step.
+Use the URL that returns to deploy in the next step.
 
 ### Deploy the web app
 
@@ -129,7 +109,6 @@ To enable local Git deployment for your app with Azure Pipelines (Preview):
    
 1. On the **Build provider** page, select **Azure Pipelines (Preview)**, and then select **Continue**. 
    
-   
    ![Select Azure Pipelines (Preview), and then select Continue.](media/app-service-deploy-local-git/pipeline-builds.png)
 
 1. On the **Configure** page, configure a new Azure DevOps organization, or specify an existing organization, and then select **Continue**.
@@ -141,11 +120,11 @@ To enable local Git deployment for your app with Azure Pipelines (Preview):
    
 1. On the **Summary** page, review the settings, and then select **Finish**.
    
-1. When the Azure DevOps organization is ready, copy the Git repository URL from the **Deployment Center** page to use in the next step. 
+1. When the Azure Pipeline is ready, copy the Git repository URL from the **Deployment Center** page to use in the next step. 
    
    ![Copy the Git repository URL](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
-1. In your local terminal window, add an Azure remote to your local Git repository. In the command, replace \<url> with the URL of the Git remote that you got from the previous step.
+1. In your local terminal window, add an Azure remote to your local Git repository. In the command, replace \<url> with the URL of the Git repository that you got from the previous step.
    
    ```bash
    git remote add azure <url>
@@ -155,9 +134,9 @@ To enable local Git deployment for your app with Azure Pipelines (Preview):
    
 1. On the **Git Credential Manager** page, sign in with your visualstudio.com username. For other authentication methods, see [Azure DevOps Services authentication overview](/vsts/git/auth-overview?view=vsts).
    
-1. Once deployment is finished, view the build progress at `https://<azure_devops_account>.visualstudio.com/<project_name>/_build` and the deployment progress at `https://<azure_devops_account>.visualstudio.com/<project_name>/_release`.
+1. Once deployment is finished, view the build progress at `https://<azure_devops_account>.visualstudio.com/<project_name>/_build`, and the deployment progress at `https://<azure_devops_account>.visualstudio.com/<project_name>/_release`.
    
-1. Browse to your app to verify that the content is deployed.
+1. Browse to your app in the Azure portal to verify that the content is deployed.
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
