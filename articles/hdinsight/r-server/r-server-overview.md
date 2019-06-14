@@ -8,6 +8,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
+#Customer intent: As a developer I want to have a basic understanding of Microsoft's implementation of machine learning in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
 
 # What is ML Services in Azure HDInsight
