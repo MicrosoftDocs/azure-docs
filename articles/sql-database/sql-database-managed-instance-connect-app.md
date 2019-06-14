@@ -39,9 +39,6 @@ There are two options for connecting VNets:
 
 The peering option is the preferable one because peering uses the Microsoft backbone network so, from the connectivity perspective, there is no noticeable difference in latency between virtual machines in peered VNet and in the same VNet. VNet peering is limited to the networks in the same region.  
 
-> [!IMPORTANT]
-> VNet peering scenario for Managed Instance is limited to the networks in the same region due to [constraints of the Global Virtual Network peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
-
 ## Connect an on-premises application
 
 Managed Instance can only be accessed through a private IP address. In order to access it from on-premises, you need to make a Site-to-Site connection between the application and the Managed Instance VNet.
