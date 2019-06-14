@@ -30,7 +30,7 @@ IoT Plug and Play enables solution developers to integrate devices with their so
 
 You can reuse interfaces across device capability models to make collaboration easier and to speed up development.
 
-To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), the IoT Plug and Play schema is defined using the Digital Twin Definition Language (DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling. Additionally, there's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md), and other Azure services remain the same.
+To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), the IoT Plug and Play schema is defined using the [Digital Twin Definition Language (DTDL)](https://aka.ms/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling. Additionally, there's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md), and other Azure services remain the same.
 
 Solutions built on IoT Hub or IoT Central can benefit IoT Plug and Play.
 
@@ -43,7 +43,7 @@ This article outlines:
 
 ## User roles
 
-The IoT Plug and Play documentation refers to two roles who use or develop IoT Plug and Play:
+IoT Plug and Play will be useful for two types of developers:
 
 - A _solution developer_ is responsible for developing an IoT solution using Azure IoT and other Azure resources and for identifying IoT devices to integrate.
 - A _device developer_ creates the code that runs on a device connected to your solution.
