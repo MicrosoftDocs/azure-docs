@@ -67,17 +67,17 @@ az webapp create --name <app-name> --resource-group <group-name> --plan <plan-na
 
 The command should return a URL like: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. You can use this URL to deploy your app in the next step.
 
-### Deploy the web app
-
-To deploy with app-specific credentials instead of the deployment user credentials, get the app credentials by running the following command in the Cloud Shell. Replace \<app-name> and \<group-name> with your app's name and Azure resource group name.
+To use app-specific credentials instead of deployment user credentials in the next step, get the app credentials by running the following command in the Cloud Shell. Replace \<app-name> and \<group-name> with your app's name and Azure resource group name.
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
 ```
 
-Use the URL that returns to deploy in the next step.
+Use the URL that returns to deploy your app in the next step.
 
-1. Open a local terminal window to your local Git repository, and add an Azure remote. In the command, replace \<url> with the deployment user- or app-specific URL that you got from the previous step.
+### Deploy the web app
+
+1. Open a local terminal window to your local Git repository, and add an Azure remote. In the command, replace \<url> with the deployment user or app-specific URL that you got from the previous step.
    
    ```bash
    git remote add azure <url>
