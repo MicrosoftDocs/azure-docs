@@ -47,7 +47,7 @@ The **-l** switch is a shortcut for **--location**, **-s** is a shortcut for **-
 
 ### Supported command-line options
 
-This section details the command line switches available when launching Azurite v3.
+This section details the command line switches available when launching Azurite v3. All command line switches are optional.
 
 #### Listening host
 
@@ -67,12 +67,12 @@ azurite --blobHost 0.0.0.0
 
 #### Listening port configuration
 
-**Optional** By default, Azurite v3 will listen for the blob service on port 10000. You can customize the listening port for your own requirements.
+**Optional** By default, Azurite v3 will listen for the Blob service on port 10000. You can customize the listening port for your own requirements.
 
 > [!WARNING]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
 
-Customize the Blob Service listening port:
+Customize the Blob service listening port:
 
 ```console
 azurite --blobPort 8888
@@ -113,7 +113,7 @@ azurite --silent
 
 #### Debug log
 
-**Optional** Debug log includes detailed information on every request and exception stack traces. Enable the debug log by providing a valid local file path.
+**Optional** The debug log includes detailed information on every request and exception stack traces. Enable the debug log by providing a valid local file path.
 
 ```console
 azurite -d path/debug.log
