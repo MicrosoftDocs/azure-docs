@@ -27,6 +27,8 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 - [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 or later
 
+- Optional: [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) Only required for registering HttpClient at startup
+
 ## Register services
 
 To register services, you can create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
