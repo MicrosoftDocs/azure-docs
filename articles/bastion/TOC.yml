@@ -14,13 +14,13 @@
       href: bastion-connect-vm-ssh.md
     - name: RDP (Windows)
       href: bastion-connect-vm-rdp.md
-  - name: Manage a virtual machine session experience
+  - name: Work with a virtual machine session
     items:
     - name: Copy and paste
       href: bastion-vm-copy-paste.md
     - name: Full screen view
       href: bastion-vm-full-screen.md
-  - name: Working with NSGs
+  - name: Work with NSGs
     href: bastion-nsg.md
 - name: Reference
   items:
