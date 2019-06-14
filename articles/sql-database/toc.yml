@@ -83,22 +83,26 @@
       href: sql-database-design-first-database.md
     - name: Design database using .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Migrate to SQL Database
+  - name: Singleton Database
     items:
     - name: Migrate to a single/pooled database using DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-    - name: Migrate to a managed instance using DMS
+    - name: Implement a geo-distributed database
+      href: sql-database-implement-geo-distributed-database.md 
+    - name: Set up Azure SQL Data Sync
+      href: sql-database-get-started-sql-data-sync.md
+  - name: Managed Instance
+    items:
+    - name: Migrate online using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+    - name: Configure transactional replication
+      href: replication-with-sql-database-managed-instance.md
   - name: Security in SQL Database
     items:
     - name: Single and pooled database security
       href: sql-database-security-tutorial.md
     - name: Managed instance security
       href: sql-database-managed-instance-aad-security-tutorial.md
-  - name: Implement a geo-distributed database
-    href: sql-database-implement-geo-distributed-database.md 
-  - name: Set up Azure SQL Data Sync
-    href: sql-database-get-started-sql-data-sync.md
   - name: Machine Learning Services
     items:
     - name: Build a predictive model in R
@@ -500,8 +504,6 @@
       href: sql-database-managed-instance-find-management-endpoint-ip-address.md
     - name: Verify built-in firewall protection
       href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
-    - name: Transactional replication
-      href: replication-with-sql-database-managed-instance.md
     - name: Configure threat detection
       href: sql-database-managed-instance-threat-detection.md
     - name: Connect applications
