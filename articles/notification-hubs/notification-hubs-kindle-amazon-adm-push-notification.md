@@ -321,7 +321,7 @@ In this tutorial, you create/update code to do the following tasks:
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
     ```
-## Update MainActivity class to create an ADM object
+## Update MainActivity class
 1 In the `MainActivity.java` file, add the following import statements:
 
     ```java
@@ -329,7 +329,7 @@ In this tutorial, you create/update code to do the following tasks:
     import android.util.Log;
     import com.amazon.device.messaging.ADM;
     ```
-8. Add the following code at the end of the `OnCreate` method:
+2. Add the following code at the end of the `OnCreate` method:
 
     ```java
     final ADM adm = new ADM(this);
