@@ -55,9 +55,9 @@ This is known as "N-3" - (N (Latest release) - 3 (minor versions)).
 
 For example, if AKS introduces *1.13.x* today, support is provided for the following versions:
 
-New minor version        Supported Version List
------------------        ----------------------
-1.13.x                   1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
+New minor version    |    Supported Version List
+-----------------    |    ----------------------
+1.13.x               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
 
 Where "x" and ".a" and ".b" are representative patch versions.
 
