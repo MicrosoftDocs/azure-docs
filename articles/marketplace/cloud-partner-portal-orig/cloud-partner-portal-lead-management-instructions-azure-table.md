@@ -92,7 +92,7 @@ In next set of steps, you’ll connect to your Azure table, and set up the proce
 
      ![Pick a custom value for Azure table name](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Filter query** – Click this field and the **Get past time** icon is displayed in a popup window. Select **Past time** to use this as timestamp to filter the query. Alternatively, you can paste the following function into the field: CreatedTime `gt datetime'@{body('Get_past_time')}'` 
+   - **Filter query** – Click this field and the **Get past time** icon is displayed in a popup window. Select **Past time** to use this as timestamp to filter the query. Alternatively, you can paste the following function into the field: CreatedTime `Timestamp gt datetime'@{body('Get_past_time')}'` 
 
      ![Set up filter query function](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
