@@ -188,7 +188,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Check Point CloudGuard Dome9 Arc test user
 
-To enable Azure AD users to log in to Check Point CloudGuard Dome9 Arc, they must be provisioned into application. Check Point CloudGuard Dome9 Arc supports just-in-time provisioning but for that to work properly, user have to select particular **Role** and assign the same to the user.
+To enable Azure AD users to sign in to Check Point CloudGuard Dome9 Arc, they must be provisioned into application. Check Point CloudGuard Dome9 Arc supports just-in-time provisioning but for that to work properly, user have to select particular **Role** and assign the same to the user.
 
    >[!Note]
    >For **Role** creation and other details contact [Check Point CloudGuard Dome9 Arc Client support team](mailto:Dome9@checkpoint.com).
