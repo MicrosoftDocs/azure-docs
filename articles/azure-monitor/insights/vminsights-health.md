@@ -147,7 +147,7 @@ The **VM distribution by operating system** list shows VMs listed by Windows edi
 
 Select any column including **VM count**, **Critical**, **Warning**, **Healthy**, or **Unknown**. View the list of filtered results in the **Virtual Machines** page that match the column selected.
 
-For example, to review all VMs that run Red Hat Enterprise Linux release 7.5, select the **VM count** value for that OS, and it'll list the VMs matching that filter and their current health state.
+For example, to review all VMs that run Red Hat Enterprise Linux release 7.5, select the **VM count** value for that OS, and it will list the VMs matching that filter and their current health state.
 
 ![Example rollup of Red Hat Linux VMs](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
 
@@ -238,7 +238,7 @@ The **Unit** health criteria type can have its configuration modified by selecti
 
 In the configuration pane for the selected health criteria, if you use the example **Average Disk Seconds Per Write**, the threshold can be configured with a different numeric value. It's a two-state monitor, meaning it can change only from **Healthy** to **Warning**.
 
-Other health criterion sometimes use three states, where you can configure the value for warning and critical health-state thresholds. You can also modify a threshold by using Azure Monitor REST API [monitor configuration](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
+Other health criteria sometimes use three states, where you can configure the value for warning and critical health-state thresholds. You can also modify a threshold by using Azure Monitor REST API [monitor configuration](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update).
 
 >[!NOTE]
 >Applying health criteria configuration changes to one instance applies them to all monitored instances. For example, if you select **Disk -1 D:** and then modify the **Average Disk Seconds Per Write** threshold, the change applies to all instances discovered and monitored on the VM.
@@ -274,7 +274,7 @@ Azure Monitor for VMs health integrates with [Azure Alerts](../../azure-monitor/
 
 Alerts aren't associated with an action group to notify you when the alert has been triggered. The subscription owner must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
 
-The total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the **Alerts**section. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.
+The total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the **Alerts section. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.
 
 For example, if you select the row corresponding to **Sev level 1**, you'll see the following view:
 
