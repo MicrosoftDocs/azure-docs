@@ -93,23 +93,23 @@ After you choose a technology, you need to consider the operational or life cycl
 
 ### Allows code and state to be independently versioned, deployed, and scaled
 
-No matter how you write your microservices, the code, and optionally the state, should independently deploy, upgrade, and scale. This is one of the harder problems to solve because it comes down to your choice of technologies. For scaling, understanding how to partition (or shard) both the code and state is challenging. When the code and state use separate technologies, which is common today, the deployment scripts for your microservice need to be able to scale them both. This is also about agility and flexibility, so you can upgrade some of the microservices without having to upgrade all of them at once.
+No matter how you write your microservices, the code, and optionally the state, should independently deploy, upgrade, and scale. This is one of the harder problems to solve because it comes down to your choice of technologies. For scaling, understanding how to partition (or shard) both the code and the state is challenging. When the code and state use different technologies, which is common today, the deployment scripts for your microservice need to be able to scale them both. This separation is also about agility and flexibility, so you can upgrade some of the microservices without having to upgrade all of them at once.
 
-Returning to the monolithic versus microservice approach for a moment, the following diagram shows the differences in the approach to storing state.
+Let's return to our comparison of the monolithic and microservices approaches for a moment. This diagram shows the differences in the approaches to storing state:
 
-#### State storage between application styles
+#### State storage for the two approaches
 
 ![Service Fabric platform state storage][Image2]
 
-***The monolithic approach on the left has a single database and tiers of specific technologies.***
+***The monolithic approach, on the left, has a single database and tiers of specific technologies.***
 
-***The microservices approach on the right has a graph of interconnected microservices where state is typically scoped to the microservice and various technologies are used.***
+***The microservices approach, on the right, has a graph of interconnected microservices where state is typically scoped to the microservice and various technologies are used.***
 
-In a monolithic approach, the application typically uses a single database. The advantage is that it is a single location, which makes it easy to deploy. Each component can have a single table to store its state. Teams need to strictly separate state, which is a challenge. Inevitably there are temptations to add a new column to an existing customer table, do a join between tables, and create dependencies at the storage layer. After this happens, you can't scale individual components.
+In a monolithic approach, the application typically uses a single database. The advantage to using one database is that it's in a single location, which makes it easy to deploy. Each component can have a single table to store its state. Teams need to strictly separate state, which is a challenge. Inevitably, someone will be tempted to add a new column to an existing customer table, do a join between tables, and create dependencies at the storage layer. After this happens, you can't scale individual components.
 
-In the microservices approach, each service manages and stores its own state. Each service is responsible for scaling both code and state together to meet the demands of the service. A downside is that when there is a need to create views, or queries, of your application’s data, you need to query across multiple state stores. Typically, this is solved by having a separate microservice that builds a view across a collection of microservices. If you need to perform multiple impromptu queries on the data, each microservice should consider writing its data to a data warehousing service for offline analytics.
+In the microservices approach, each service manages and stores its own state. Each service is responsible for scaling both code and state together to meet the demands of the service. A downside is that when you need to create views, or queries, of your application’s data, you need to query across multiple state stores. This is typically solved by a separate microservice that builds a view across a collection of microservices. If you need to perform multiple impromptu queries on the data, you should consider writing each microservice’s data to a data warehousing service for offline analytics.
 
-Microservices are versioned and it is possible that different versions of a microservice may be running side-by-side. A newer version of a microservice may fail during upgrade and need to be rolled back to an earlier version. Versioning is also helpful for A/B-style testing, where different users experience different versions of the service. For example, it is common to upgrade a microservice for a specific set of customers to test new functionality before rolling it out more widely.
+Microservices are versioned. It's possible for different versions of a microservice to run side-by-side. A newer version of a microservice may fail during upgrade and need to be rolled back to an earlier version. Versioning is also helpful for A/B-style testing, where different users experience different versions of the service. For example, it is common to upgrade a microservice for a specific set of customers to test new functionality before rolling it out more widely.
 
 ### Interacts with other microservices over well-defined interfaces and protocols
 
