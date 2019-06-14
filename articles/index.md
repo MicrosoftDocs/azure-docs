@@ -372,7 +372,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/blockchain/service/">
                                                 <img src="media/index/blockchain-service.svg" alt="" />
-                                                <p>LAzure Blockchain Service</p>
+                                                <p>Azure Blockchain Service</p>
                                             </a>
                                         </li>
                                         <li>
