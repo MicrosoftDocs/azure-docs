@@ -97,7 +97,7 @@ If you belong to more than one organization, include the tenant ID of the organi
 azcopy login --tenant-id=<tenant-id>
 ```
 
-Replace the `<tenant-id> placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
+Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
 
 This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
 
@@ -131,7 +131,7 @@ To find example commands, see any of these articles.
 
 ## Use AzCopy in a script
 
-Over time, the AzCopy [download link](#download-and-install-azcopy) will point new versions of AzCopy. If your script downloads AzCopy, the scrip might stop working if a newer version of AzCopy modifies features that your script depends upon. 
+Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon. 
 
 To avoid these issues, obtain a static (un-changing) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
 
@@ -145,7 +145,7 @@ To obtain the link, run this command:
 > [!NOTE]
 > For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
 
-The Url appears in the output of this command. Your script can then download AzCopy by using that URL.
+The URL appears in the output of this command. Your script can then download AzCopy by using that URL.
 
 | Operating system  | Command |
 |--------|-----------|
@@ -154,7 +154,7 @@ The Url appears in the output of this command. Your script can then download AzC
 
 ## Use AzCopy in Storage Explorer
 
-If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer. Storage Explorer uses your account key to perform operations, so after you sign into Storage Explorer, you won't need to provide additional authorization credentials.
+If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer. 
 
 In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
 
@@ -162,6 +162,8 @@ In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload a
 
 > [!NOTE]
 > You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
+
+Storage Explorer uses your account key to perform operations, so after you sign into Storage Explorer, you won't need to provide additional authorization credentials.
 
 <a id="previous-version" />
 
