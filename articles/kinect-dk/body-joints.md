@@ -9,7 +9,7 @@ ms.topic: conceptual
 keywords: kinect, porting, body, tracking, joint, hierarchy, bone, connection
 ---
 
-# Body tracking joints
+# Azure Kinect body tracking joints
 
 Azure Kinect body tracking can track multiple human bodies at the same time. Each body includes an ID for temporal correlation between frames and the kinematic skeleton. The number of bodies detected in each frame can be acquired using `k4abt_frame_get_num_bodies()`.
 
@@ -61,4 +61,4 @@ The following table enumerates the standard joint connections.
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Coordinate systems](body-index-map.md)
+>[Body tracking index map](body-index-map.md)
