@@ -37,7 +37,7 @@ npm run build
 npm install -g azurite
 ```
 
-### Command-line syntax
+## Command-line syntax
 
 ```console
 azurite [--blobHost <IP address>] [--blobPort <port address>] [-l | --location <workspace path>] [-s | --silent] [-d | --debug <log file path>]
@@ -47,17 +47,9 @@ The **-l** switch is a shortcut for **--location**, **-s** is a shortcut for **-
 
 ### Supported command-line options
 
-This section details the command line switches available when launching Azurite v3. All switches are optional.
+This section details the command line switches available when launching Azurite v3.
 
-| Name           | Switch   | Examples                         | Default                                | Notes                                                                                                              |
-|----------------|----------|----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| Listening host | blobHost | `azurite --blobHost 127.0.0.1`   | 127.0.0.1                              | Use an address of 0.0.0.0 to allow remote requests. This may be unsafe.                                            |
-| Listening port | blobPort | `azurite --blobPort 8888`        | 10000                                  | Use a value of 0 to let the system auto select an available port. The port in use is displayed on Azurite startup. |
-| Workspace path | location | `azurite --location c:\azurite`  | Current process working directory      | You can provide a customized path as the workspace location.                                                       |
-| Access log     | silent   | `azurite --silent`               | Log is displayed in the console window | Disable displaying the log by using this switch.                                                                   |
-| Debug log      | debug    | `azurite --debug path/debug.log` | No debug log                           | Enable the debug log by providing a valid local file path.                                                         |
-
-<!-- ### Listening host configuration
+#### Listening host
 
 **Optional** By default, Azurite v3 will listen to 127.0.0.1 as the local server. Use the **--blobHost** switch to set the address to your requirements.
 
@@ -73,7 +65,7 @@ Allow remote requests (may be unsafe):
 azurite --blobHost 0.0.0.0
 ```
 
-### Listening port configuration
+#### Listening port configuration
 
 **Optional** By default, Azurite v3 will listen for the blob service on port 10000. You can customize the listening port for your own requirements.
 
@@ -95,7 +87,7 @@ azurite --blobPort 0
 > [!NOTE]
 > The port in use is displayed on Azurite startup.
 
-### Workspace path configuration
+#### Workspace path
 
 **Optional** Azurite v3 needs to store metadata and binary data to the local disk during execution. You can provide a customized path as the workspace location. By default, the current process working directory will be used.
 
@@ -107,7 +99,7 @@ azurite -l c:\azurite
 azurite --location c:\azurite
 ```
 
-### Access log configuration
+#### Access log
 
 **Optional** By default the access log is displayed in the console window. Disable it by using the **--silent** switch:
 
@@ -119,7 +111,7 @@ azurite -s
 azurite --silent
 ```
 
-### Debug log configuration
+#### Debug log
 
 **Optional** Debug log includes detailed information on every request and exception stack traces. Enable the debug log by providing a valid local file path.
 
@@ -130,11 +122,6 @@ azurite -d path/debug.log
 ```console
 azurite --debug path/debug.log
 ```
- -->
-
-### Authentication
-
-Azurite v3 supports SharedKey, account Shared Access Signature (SAS), Service SAS, and Public Container Access authentications. You may use any Azure Storage SDKs or tools like Storage Explorer to connect Azurite v3 with any authentication strategy. Authentication is required in Azurite v3.
 
 ## Run Azurite
 
@@ -146,9 +133,9 @@ azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 
 This command tells Azurite to store all data in a particular directory, **c:\azurite**. If the **--location** option is omitted, it will use the current working directory.
 
-<!-- !!! -->
+## Authentication
 
-## Usage with Azure Storage SDKs and tools
+Azurite v3 supports SharedKey, account Shared Access Signature (SAS), Service SAS, and Public Container Access authentications. You may use any Azure Storage SDKs or tools like Storage Explorer to connect Azurite v3 with any authentication strategy. Authentication is required in Azurite v3.
 
 ### Default Storage Account
 
@@ -223,14 +210,14 @@ We've tried to align Azurite with Azure Storage error handling logic, but there 
 
 ### API version strategy
 
-Azurite v3 follows a **Try best to serve** compatible strategy with Azure Storage API versions:
+We strive to make Azurite v3 compatible with Azure Storage APIs:
 
 * An Azurite v3 instance has a baseline Azure Storage API version.
-  * A Swagger definition (OpenAPI doc) with the same API version will be used to generate protocol layer APIs and interfaces.
+  * A Swagger definition with the same API version will be used to generate protocol layer APIs and interfaces.
   * Azurite should implement all the possible features provided in this API service version.
-* If an incoming request has **the same API version** Azurite provides, Azurite should handle the request with parity to Azure Storage.
-* If an incoming request has a **higher API version** than Azurite, Azurite will return a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request).
-* If an incoming request has a **lower API version** header, the emulator attempts to handle the request with Azurite’s baseline API version behavior.
+* If an incoming request has the same API version Azurite provides, Azurite should handle the request with parity to Azure Storage.
+* If an incoming request has a higher API version than Azurite, Azurite will return a **VersionNotSupportedByEmulator** error (HTTP status code 400 - Bad Request).
+* If an incoming request has a lower API version header, the emulator attempts to handle the request with the Azurite baseline API version behavior.
 * Azurite will return API version in the response header as the baseline API version
 
 ### RA-GRS
@@ -239,42 +226,17 @@ Azurite supports read-access geo-redundant replication (RA-GRS). For storage res
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
-## Differences between Azurite v3 and Azurite v2
+## Azurite v3 is open-source
 
-Both Azurite v3 and Azurite v2 aim to provide a convenient emulation for customers to quickly try out Azure Storage services locally. There are lots of differences between Azurite v3 and legacy Azurite v2.
+Contributions and suggestions for Azurite v3 are welcome. Go to the Azurite [GitHub project](https://github.com/Azure/Azurite/projects) page or [GitHub issues](https://github.com/Azure/Azurite/issues) for milestones and work items we are tracking for upcoming features and bug fixes. Detailed work items are also tracked in GitHub.
 
-### Architecture
-
-The Azurite v3 architecture has been refactored. It's now more flexible and robust. Azurite v3 provides the flexibility to support following scenarios in the future:
-
-* Use other HTTP frameworks instead of express.js
-* A customized new handler layer implementation, such as redirecting requests to Azure Storage services
-* Implement and inject a new persistency layer implementation, such as one based on a different database service
-* Provide support for multiple azure storage accounts and authentication
-* Detailed debug logging for easy issue investigation and request tracking
-* Create an HTTPS server
-
-### Server code generator
-
-Azurite v3 uses a TypeScript server code generator based on Azure Storage REST API swagger specifications. The generator reduces manual efforts and ensures alignment with the API implementation.
-
-### Features scope
-
-Legacy Azurite v2 supports Azure Storage Blob, Queue, and Table services. Azurite v3 currently supports the Azure Storage Blob Service, with Queue support scheduled to follow. Azure Table Service support is currently under review.
-
-## We welcome contributions
-
-> Go to the Azurite [GitHub project](https://github.com/Azure/Azurite/projects) page or [GitHub issues](https://github.com/Azure/Azurite/issues) for milestones and work items we are tracking for upcoming features and bug fixes. Detailed work items are also tracked in GitHub.
-
-Contributions and suggestions for Azurite v3 are welcome. See the [Contribution](https://github.com/Azure/Azurite/blob/master/CONTRIBUTION.md) file for ways to participate. You can also open GitHub issues voting for any missing features in Azurite v3.
+See the [Contribution](https://github.com/Azure/Azurite/blob/master/CONTRIBUTION.md) file for ways to participate. You can also open GitHub issues voting for any missing features in Azurite v3.
 
 Most contributions require you to agree to a Contributor License Agreement (CLA). A CLA declares that you have the right to, and actually do, grant us the rights to use your contribution. For details, see [Microsoft Contributor License Agreement](https://cla.microsoft.com).
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA. The bot will add a label or comment to the pull request. Follow the instructions provided by the bot. You'll only need to provide a CLA once across all our repos.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with additional questions or comments.
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with additional questions or comments.
 
 ## Next steps
 
