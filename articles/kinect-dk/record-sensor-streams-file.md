@@ -14,7 +14,7 @@ keywords: azure, kinect, record, play back, reader, matroska, mkv, streams, dept
 
 # Quickstart: Record sensor streams to file
 
-This quickstart provides information about how you can use the `k4arecorder` command prompt tool to record data streams from the Sensor SDK to a file.
+This quickstart provides information about how you can use the [Azure Kinect Recorder](azure-kinect-dk-recorder.md) tool to record data streams from the Sensor SDK to a file.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -27,16 +27,16 @@ This quickstart assumes:
 
 ## Create recording
 
-1. Open a command prompt, and provide the path to the recorder.exe. For example: `C:\Program Files\Azure Kinect SDK\tools\k4arecorder.exe`.
+1. Open a command prompt, and provide the path to the [Azure Kinect Recorder](azure-kinect-dk-recorder.md), located in the installed tools directory as `k4arecorder.exe`. For example: `C:\Program Files\Azure Kinect SDK\tools\k4arecorder.exe`.
 2. Record 5 seconds.
 
     `k4arecorder.exe -l 5 %TEMP%\output.mkv`
 
-3. By default, the recorder uses the NFOV Unbinned depth mode and outputs 1080p RGB at 30 fps including IMU data. For a complete overview of recording options and tips, refer to [Azure Kinect recorder](azure-kinect-dk-recorder.md).
+3. By default, the recorder uses the NFOV Unbinned depth mode and outputs 1080p RGB at 30 fps including IMU data. For a complete overview of recording options and tips, refer to [Azure Kinect Recorder](azure-kinect-dk-recorder.md).
 
 ## Play back recording
 
-You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play back a recording.
+You can use the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) to play back a recording.
 
 1. Launch [`k4aviewer.exe`](azure-kinect-sensor-viewer.md)
 2. Unfold the **Open Recording** tab and open your recording.
