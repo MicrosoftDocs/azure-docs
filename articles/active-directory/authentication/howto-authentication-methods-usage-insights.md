@@ -17,16 +17,16 @@ ms.collection: M365-identity-device-management
 ---
 # Authentication methods usage & insights (preview)
 
-Usage & insights enables you to understand how authentication methods for features like Azure Multi-Factor Authenticaion and self-service password reset are working in your organization. The insights and reports give you information both about authentication method registration and self-service password reset usage in your organization.
+Usage & insights enables you to understand how authentication methods for features like Azure Multi-Factor Authenticaion and self-service password reset are working in your organization. This reporting capability provides your organization with the means to understand what methods are being registered and how they are being used.
 
 ## Prerequisites
 
-- You must have SSPR enabled in your tenant
-- Recommended to enable the combined registration experience
+- Self-service password reset (SSPR) enabled for your directory
+- Enable the combined registration experience (Recommended)
 
 ## Permissions and licenses
 
-The following roles can access SSPR Usage and Insights:
+The following roles can access usage and insights:
 
 - Global Administrator
 - Security Reader
