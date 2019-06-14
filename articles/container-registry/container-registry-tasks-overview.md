@@ -21,7 +21,7 @@ Containers provide new levels of virtualization, isolating application and devel
 Build and test container images with ACR Tasks in four ways:
 
 * [Quick task](#quick-task): Build and push container images on-demand, in Azure, without needing a local Docker Engine installation. Think `docker build`, `docker push` in the cloud. Build from local source code or a Git repository.
-* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is committed to a Git repository or a pull request is made.
+* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is committed to a Git repository.
 * [Build on base image update](#automate-os-and-framework-patching): Trigger a container image build  when that image's base image has been updated.
 * [Multi-step tasks](#multi-step-tasks): Define multi-step tasks that build images, run containers as commands, and push images to a registry. This feature of ACR Tasks supports on-demand task execution and parallel image build, test, and push operations.
 
@@ -42,8 +42,7 @@ The following table shows a few examples of supported context locations for ACR 
 | Local filesystem | Files within a directory on the local filesystem. | `/home/user/projects/myapp` |
 | GitHub master branch | Files within the master (or other default) branch of a GitHub repository.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub branch | Specific branch of a GitHub repo.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub PR | Pull request in a GitHub repo. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
-| GitHub subfolder | Files within a subfolder in a GitHub repo. Example shows combination of PR and subfolder specification. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| GitHub subfolder | Files within a subfolder in a GitHub repo. Example shows combination of a branch and subfolder specification. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Remote tarball | Files in a compressed archive on a remote webserver. | `http://remoteserver/myapp.tar.gz` |
 
 ACR Tasks is designed as a container lifecycle primitive. For example, integrate ACR Tasks into your CI/CD solution. By executing [az login][az-login] with a [service principal][az-login-service-principal], your CI/CD solution could then issue [az acr build][az-acr-build] commands to kick off image builds.
