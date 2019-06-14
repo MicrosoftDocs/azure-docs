@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: "it-pro, seodec18"
@@ -17,20 +17,17 @@ ms.collection: M365-identity-device-management
 ---
 
 # Manage app and resource access using Azure Active Directory groups
-
 Azure Active Directory (Azure AD) helps you to manage your cloud-based apps, on-premises apps, and your resources using your organization's groups. Your resources can be part of the directory, such as permissions to manage objects through roles in the directory, or external to the directory, such as for Software as a Service (SaaS) apps, Azure services, SharePoint sites, and on-premises resources.
 
 >[!NOTE]
 >To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 ## How does access management in Azure AD work?
-
 Azure AD helps you give access to your organization's resources by providing access rights to a single user or to an entire Azure AD group. Using groups lets the resource owner (or Azure AD directory owner), assign a set of access permissions to all the members of the group, instead of having to provide the rights one-by-one. The resource or directory owner can also give management rights for the member list to someone else, such as a department manager or a Helpdesk administrator, letting that person add and remove members, as needed. For more information about how to manage group owners, see [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 
 ![Azure Active Directory access management diagram](./media/active-directory-manage-groups/active-directory-access-management-works.png)
 
 ## Ways to assign access rights
-
 There are four ways to assign resource access rights to your users:
 
 - **Direct assignment.** The resource owner directly assigns the user to the resource.
@@ -48,23 +45,11 @@ There are four ways to assign resource access rights to your users:
    ![Overview of access management diagram](./media/active-directory-manage-groups/access-management-overview.png)
 
 ## Can users join groups without being assigned?
-
 The group owner can let users find their own groups to join, instead of assigning them. The owner can also set up the group to automatically accept all users that join or to require approval.
 
-After a user requests to join a group, the request is forwarded to the group owner. If required, the owner can approve the request and the user is notified of the group membership. If you have multiple owners and one of them disapproves, the user is notified, but isn't added to the group. For more information and instructions about how to let your users request to join groups, see [Set up Azure AD so users can request to join groups](../users-groups-roles/groups-self-service-management.md)
-
-## Group writeback to on-premises (preview)
-
-Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premise, Office 365 groups writeback feature for Azure AD is now available for preview.
-
-Office 365 groups are created and managed in the cloud. The writeback capability allows you to write back Office 365 groups as distribution groups to an Active Directory forest with Exchange installed. Users with on-premises Exchange mailboxes can then send and receive emails from these groups. The group writeback feature doesn't support Azure AD security groups or distribution groups.
-
-For more details, please refer to documentation for the [Azure AD Connect sync service](../hybrid/how-to-connect-syncservice-features.md).
-
-Office 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For some legal information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+After a user requests to join a group, the request is forwarded to the group owner. If it's required, the owner can approve the request and the user is notified of the group membership. However, if you have multiple owners and one of them disapproves, the user is notified, but isn't added to the group. For more information and instructions about how to let your users request to join groups, see [Set up Azure AD so users can request to join groups](../users-groups-roles/groups-self-service-management.md)
 
 ## Next steps
-
 Now that you have a bit of an introduction to access management using groups, you start to manage your resources and apps.
 
 - [Create a new group using Azure Active Directory](active-directory-groups-create-azure-portal.md) or [Create and manage a new group using PowerShell cmdlets](../users-groups-roles/groups-settings-v2-cmdlets.md)
