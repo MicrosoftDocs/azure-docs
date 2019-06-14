@@ -13,9 +13,9 @@ ms.topic: conceptual
 ms.custom: seodec2018
 ---
 
-# Field mappings in Azure Search indexers
+# Field mappings and transformations using Azure Search indexers
 
-When using Azure Search indexers, you sometimes find that your input data doesn't quite match the schema of your target index. In those cases, you can use **field mappings** to reshape your data during the indexing process.
+When using Azure Search indexers, you sometimes find that the input data doesn't quite match the schema of your target index. In those cases, you can use **field mappings** to reshape your data during the indexing process.
 
 Some situations where field mappings are useful:
 
@@ -42,7 +42,7 @@ Field mappings are added to the `fieldMappings` array of the indexer definition.
 
 ## Map fields using the REST API
 
-You can add field mappings when creating a new indexer using the [Create Indexer](https://msdn.microsoft.com/library/azure/dn946899.aspx) API request. You can manage the field mappings of an existing indexer using the [Update Indexer](https://msdn.microsoft.com/library/azure/dn946892.aspx) API request.
+You can add field mappings when creating a new indexer using the [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-Indexer) API request. You can manage the field mappings of an existing indexer using the [Update Indexer](https://docs.microsoft.com/rest/api/searchservice/update-indexer) API request.
 
 For example, here's how to map a source field to a target field with a different name:
 
@@ -81,7 +81,7 @@ You can specify field mappings when constructing the indexer, or later by direct
 
 The following C# example sets the field mappings when constructing an indexer.
 
-```C#
+```csharp
   List<FieldMapping> map = new List<FieldMapping> {
     // removes a leading underscore from a field name
     new FieldMapping("_custId", "custId"),
@@ -103,7 +103,7 @@ The following C# example sets the field mappings when constructing an indexer.
 
 ## Field mapping functions
 
-A field mapping function transforms the contents of a field before it is stored in the index. The following mapping functions are currently supported:
+A field mapping function transforms the contents of a field before it's stored in the index. The following mapping functions are currently supported:
 
 * [base64Encode](#base64EncodeFunction)
 * [base64Decode](#base64DecodeFunction)
@@ -137,7 +137,7 @@ When you retrieve the encoded key at search time, you can then use the `base64De
 
 If you don't include a parameters property for your mapping function, it defaults to the value `{"useHttpServerUtilityUrlTokenEncode" : true}`.
 
-Azure Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more details, see [base64 encoding options](#base64details) to decide which parameters to use.
+Azure Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more information, see [base64 encoding options](#base64details) to decide which parameters to use.
 
 <a name="base64DecodeFunction"></a>
 
@@ -147,7 +147,7 @@ Performs Base64 decoding of the input string. The input is assumed to be a *URL-
 
 #### Example - decode blob metadata or URLs
 
-Your source data might contain contains Base64-encoded strings, such as blob metadata strings or web URLs, that you want to make searchable as plain text. You can use the `base64Decode` function to turn the encoded data back into regular strings when populating your search index.
+Your source data might contain Base64-encoded strings, such as blob metadata strings or web URLs, that you want to make searchable as plain text. You can use the `base64Decode` function to turn the encoded data back into regular strings when populating your search index.
 
 ```JSON
 
@@ -170,11 +170,11 @@ Azure Search supports two different Base64 encodings. You should use the same pa
 
 #### base64 encoding options
 
-Azure Search supports two different Base64 encodings: **HttpServerUtility URL token**, and **URL-safe Base64 encoding without padding**. You must use the same encoding as the mapping functions to encode a document key for lookup, encode a value that will be decoded by the indexer, or decode a field that was encoded by the indexer.
+Azure Search supports two different Base64 encodings: **HttpServerUtility URL token**, and **URL-safe Base64 encoding without padding**. A string that is base64-encoded during indexing should later be decoded with the same encoding options, or else the result won't match the original.
 
 If the `useHttpServerUtilityUrlTokenEncode` or `useHttpServerUtilityUrlTokenDecode` parameters for encoding and decoding respectively are set to `true`, then `base64Encode` behaves like [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) and `base64Decode` behaves like [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-If you are not using the full .NET Framework (that is, you are using .NET Core or other programming environment) to produce the key values to emulate Azure Search behavior, then you should set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `false`. Depending on the library you use, the base64 encode and decode utility functions might differ from the ones used by Azure Search.
+If you are not using the full .NET Framework (that is, you are using .NET Core or another framework) to produce the key values to emulate Azure Search behavior, then you should set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `false`. Depending on the library you use, the base64 encoding and decoding functions might differ from the ones used by Azure Search.
 
 The following table compares different base64 encodings of the string `00>00?00`. To determine the required additional processing (if any) for your base64 functions, apply your library encode function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
 
