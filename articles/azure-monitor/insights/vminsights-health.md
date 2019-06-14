@@ -130,7 +130,7 @@ To view the health collection for all your VMs in a resource group, select **Azu
 
 ![VM Insights monitoring view from Azure Monitor](./media/vminsights-health/vminsights-aggregate-health.png)
 
-In the **Subscription** and **Resource Group** dropdown lists, select the appropriate resource group that includes the VMs related to the group, to view their reported health state. Your selection only applies to the health feature and doesn't carry over to **Performance** or **Map** tabs.
+In the **Subscription** and **Resource Group** drop-down lists, select the appropriate resource group that includes the VMs related to the group, to view their reported health state. Your selection only applies to the health feature and doesn't carry over to **Performance** or **Map** tabs.
 
 The **Health** tab provides the following information:
 
@@ -151,7 +151,7 @@ For example, to review all VMs that run Red Hat Enterprise Linux release 7.5, se
 
 ![Example rollup of Red Hat Linux VMs](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
 
-In the **Virtual Machines** page, if you select the name of a VM under the column **VM Name**, you're directed to the **VM instance** page. This page provides more details of the alerts and health criteria issues that are affecting the selected VM. Filter the health state details by selecting **Health State** icon in the upper leftmost corner of the page to see which components are unhealthy. You can also view VM Health alerts raised by an unhealthy component categorized by alert severity.
+In the **Virtual Machines** page, if you select the name of a VM under the column **VM Name**, you're directed to the **VM instance** page. This page provides more details of the alerts and health criteria issues that are affecting the selected VM. Filter the health state details by selecting **Health State** icon in the upper-left corner of the page to see which components are unhealthy. You can also view VM Health alerts raised by an unhealthy component categorized by alert severity.
 
 From the **VM list** view, select the name of a VM to open the **Health** page for that VM, similarly as if you selected **Insights (preview)** from the VM directly.
 
@@ -232,7 +232,7 @@ The health-rollup policy is part of the configuration of aggregate health criter
 
 You can also use Azure Monitor REST API [monitor instances list by resource](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource) for all health criteria and configuration details running against the Azure VM resource.
 
-The **Unit** health criteria type can have its configuration modified by selecting the ellipses link to the rightmost side, and then by selecting **Show Details** to open the configuration pane.
+The **Unit** health criteria type can have its configuration modified by selecting the ellipses link to the right side, and then by selecting **Show Details** to open the configuration pane.
 
 ![Configuring a health criteria example](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
@@ -252,7 +252,7 @@ To review all the knowledge articles included with Azure Monitor for VMs health,
 
 ### State changes
 
-The rightmost column of the **Health Diagnostics** page is **State Changes**. This column lists all the state changes associated with the health criteria selected in the **Health Criteria** section, or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table.
+The far-right column of the **Health Diagnostics** page is **State Changes**. This column lists all the state changes associated with the health criteria selected in the **Health Criteria** section, or the state change of the VM if a VM was selected from the **Component Model** or **Health Criteria** column of the table.
 
 ![Example state changes presented in Health diagnostics](./media/vminsights-health/health-diagnostics-page-statechanges.png)
 
@@ -270,7 +270,7 @@ To see an updated health state, you can refresh the Health Diagnostics page by s
 
 ## Alerts
 
-Azure Monitor for VMs health integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state, when the condition is detected. Alerts are categorized by severity, from Sev 0 through Sev 4, with Sev 0 representing the highest level.
+Azure Monitor for VMs health integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md). It raises an alert when predefined criteria, when detected, change from a healthy state to an unhealthy state. Alerts are categorized by severity, from Sev 0 through Sev 4, with Sev 0 as the highest level.
 
 Alerts aren't associated with an action group to notify you when the alert has been triggered. The subscription owner must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
 
@@ -284,7 +284,7 @@ The **All Alerts** page isn't scoped to show only alerts matching your selection
 
 Alerts from other resource types or services are not intended to be included in this view. These alerts include log alerts, which are based on log queries or metric alerts that you'd normally view from the default Azure Monitor [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page.
 
-You can filter this view by selecting values in the dropdown menus at the top of the page.
+You can filter this view by selecting values in the drop-down menus at the top of the page.
 
 |Column |Description |
 |-------|------------|
@@ -308,7 +308,7 @@ To learn more about managing alerts, see [Create, view, and manage alerts using 
 
 ![Alert details pane for a selected alert](./media/vminsights-health/alert-details-pane-01.png)
 
-An alert state can also be changed for one or multiple alerts by selecting them and then selecting **Change state** from the **All Alerts** page in the upper-leftmost corner. Select one of the states on the **Change alert state** pane, add a description of the change in the **Comment** field, and then select **Ok** to commit your changes. When the information is verified and the changes are applied, track the progress under **Notifications** in the menu.
+An alert state can also be changed for one or multiple alerts by selecting them and then selecting **Change state** from the **All Alerts** page in the upper-left corner. Select one of the states on the **Change alert state** pane, add a description of the change in the **Comment** field, and then select **Ok** to commit your changes. When the information is verified and the changes are applied, track the progress under **Notifications** in the menu.
 
 ### Configure alerts
 Certain alert-management tasks can't be managed from the Azure portal, and must be performed by using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Specifically:
