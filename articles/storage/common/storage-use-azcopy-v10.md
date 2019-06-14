@@ -63,10 +63,6 @@ Use this table as a guide:
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
-#### Authorization to download files
-
-#### Authorization to upload files
-
 If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your identity.
 
 If you want to upload files, then verify that one of these roles has been assigned to your identity:
@@ -98,7 +94,7 @@ azcopy login
 If you belong to more than one organization, include the tenant ID of the organization to which the storage account belongs.
 
 ```azcopy
-azcopy login --tenant-id = <tenant-id>
+azcopy login --tenant-id=<tenant-id>
 ```
 
 Replace the `<tenant-id> placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
@@ -135,7 +131,7 @@ To find example commands, see any of these articles.
 
 ## Use AzCopy in a script
 
-Over time, the links presented in the [download section](#download-and-install-azcopy) of this article will point new versions of AzCopy. Scripts that download AzCopy by using these links might encounter issues if new versions of AzCopy remove or change features that your script depends upon. 
+Over time, the AzCopy [download link](#download-and-install-azcopy) will point new versions of AzCopy. If your script downloads AzCopy, the scrip might stop working if a newer version of AzCopy modifies features that your script depends upon. 
 
 To avoid these issues, obtain a static (un-changing) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
 
@@ -158,7 +154,7 @@ The Url appears in the output of this command. Your script can then download AzC
 
 ## Use AzCopy in Storage Explorer
 
-If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer. Storage Explorer uses your account key to perform operations so you won't need to provide additional authorization credentials beyond logging into Storage Explorer.
+If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer. Storage Explorer uses your account key to perform operations, so after you sign into Storage Explorer, you won't need to provide additional authorization credentials.
 
 In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
 
