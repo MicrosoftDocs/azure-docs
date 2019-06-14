@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 06/13/2019
 ms.custom: seodec18
 ---
 
@@ -39,7 +39,7 @@ Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azur
 The Time Series Insights Preview indexes data by using a blob-size optimization strategy. Data becomes available to query after it’s indexed, which is based on how much data is coming in and at what velocity.
 
 > [!IMPORTANT]
-> * The Time Series Insights general availability (GA) release will make data available within 60 seconds of hitting an event source. 
+> * The Time Series Insights general availability (GA) release will make data available within 60 seconds of arriving at an event source.
 > * During the preview, expect a longer period before the data is made available.
 > * If you experience any significant latency, be sure to contact us.
 
