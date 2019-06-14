@@ -102,7 +102,7 @@ experiment = Experiment(ws, name=experiment_name)
 
 You will need a [compute target](concept-compute-target.md) for training your model. In this tutorial, you will use Azure ML managed compute (AmlCompute) for your remote training compute resource.
 
-**Creation of AmlCompute takes approximately 5 minutes**. If the AmlCompute with that name is already in your workspace, this code will skip the creation process.  If you created your workspaces after SOMEDATE,  a default gpu cluster with the name **gpu-cluster** has been created for you.
+**Creation of AmlCompute takes approximately 5 minutes**. If the AmlCompute with that name is already in your workspace, this code will skip the creation process.  
 
 ```Python
 from azureml.core.compute import ComputeTarget, AmlCompute
