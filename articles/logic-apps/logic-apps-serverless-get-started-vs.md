@@ -123,7 +123,7 @@ From the results, select the **101-logic-app-and-function-app** template.
 
    Visual Studio creates and opens a solution for your resource group project. 
    The Azure quickstart template that you selected creates a deployment template 
-   named `azuredeploy.json` inside your resource group project. This deployment 
+   named azuredeploy.json inside your resource group project. This deployment 
    template includes the definition for a simple logic app that is triggered by an 
    HTTP request, and then calls an Azure function and returns the result as an HTTP response.
 
@@ -166,10 +166,10 @@ Now that your solution is deployed to your resource group,
 open your logic app in the Logic App Designer so that you 
 can edit and change it.
 
-1. In Solution Explorer, from the shortcut menu of the `azuredeploy.json` file, 
+1. In Solution Explorer, from the shortcut menu of the azuredeploy.json file, 
 select **Open With Logic App Designer**.
 
-   ![Open "azuredeploy.json" in Logic App Designer](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
+   ![Open azuredeploy.json in Logic App Designer](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
 1. After the **Logic App Properties** box appears, 
 under **Subscription**, select your Azure subscription if it's not already selected. 
@@ -196,7 +196,7 @@ use a C# class library by following the steps in
 ## Deploy functions from Visual Studio
 
 Your deployment template deploys any Azure functions that you have in your solution 
-from the Git repo that's specified by variables in the `azuredeploy.json` file. 
+from the Git repo that's specified by variables in the azuredeploy.json file. 
 If you create and author your Functions project in your solution, you can check 
 that project into Git source control (for example, GitHub or Azure DevOps) 
 and then update the `repo` variable so that the template deploys your Azure function.
