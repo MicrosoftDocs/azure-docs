@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This can either be your own version, or install it from TBD-Paging-Numbers
+Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This can either be your own version, that you completed in the previous tutorial, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## Add suggestions
 

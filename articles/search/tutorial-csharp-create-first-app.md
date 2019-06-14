@@ -46,9 +46,9 @@ To complete this tutorial, you need to:
 
 ### Install and run the project from GitHub
 
-1. Locate the sample app at TBD-First-app.
+1. Locate the sample on GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Select **Clone or download** and make your private local copy of the project.
-1. Using Visual Studio open the solution and select **Start without debugging** (or press F5).
+1. Using Visual Studio, navigate to, and open the solution for the basic search page, and select **Start without debugging** (or press F5).
 1. Type in some words (for example "wifi", "view", "bar", "parking"), and examine the results!
 
  ![Searching for "wifi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)

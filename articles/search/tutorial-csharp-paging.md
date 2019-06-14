@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) project up and running. This project can either be your own version, or install it from TBD-First-app
+Have the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) project up and running. This project can either be your own version, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## Extend your app with numbered paging
 
@@ -34,15 +34,9 @@ The system will be flexible enough to allow the number of visible page numbers t
 
 The system will treat the left-most and right-most page number buttons as special, meaning they will trigger changing the range of page numbers displayed. For example, if page numbers 8, 9, 10, 11 and 12 are displayed, and the user clicks on 8, then the range of page numbers displayed changes to 6, 7, 8, 9, and 10. And there is a similar shift to the right if they selected 12.
 
-
-### Start with your first search app
-
-1. If you created it yourself and have the project handy, start from there. Alternatively download the first app from here.
-xxxx
-
-2. Run the project to make sure it works.
-
 ### Add paging fields to the model
+
+Have the basic search page solution open.
 
 1. Open the SearchData.cs model file.
 
@@ -381,8 +375,6 @@ Now select **Start Without Debugging** (or press the F5 key).
 
  ![Searching for "town"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
 
-
-
 Now save off this project and let's try an alternative to this form of paging.
 
 ## Extend your app with infinite scrolling
@@ -391,15 +383,7 @@ Infinite scrolling is triggered when a user scrolls a vertical scroll bar to the
 
 The important point here is that the page being displayed is not replaced, but appended to with the new results. A user can always scroll back up to the first results of the search.
 
-To implement infinite scrolling, let's start with the project before adding any of the page number scrolling elements.
-
-### Start with your first search app
-
-1. If you created it yourself and have the project handy, start from there. Alternatively download the first app from here.
-
-TBD
-
-2. Run the project to make sure it still works.
+To implement infinite scrolling, let's start with the project before any of the page number scrolling elements were added. So, if you need to, make another copy of the basic search page from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ### Add paging fields to the model
 
