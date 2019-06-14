@@ -127,7 +127,7 @@ This API endpoint should be secured behind some form of authentication (for exam
             };
 
             // Third, launch the Immersive Reader
-            ImmersiveReader.launchAsync(token, content);
+            ImmersiveReader.launchAsync(token, null, content);
           }});
         }
     ```
@@ -171,7 +171,7 @@ By default, the language of the Immersive Reader interface matches the browser's
     const options = {
         uiLang: 'fr',
     }
-    ImmersiveReader.launchAsync(token, content, options);
+    ImmersiveReader.launchAsync(token, null, content, options);
     ```
 
 2. Navigate to _http://localhost:3000_. When you launch the Immersive Reader, the interface will be shown in French.

@@ -132,7 +132,7 @@ Now, we'll add some sample content to this web app. Open _Views\Home\Index.cshtm
         };
 
         const token = await getImmersiveReaderTokenAsync();
-        ImmersiveReader.launchAsync(token, content, { uiZIndex: 1000000 });
+        ImmersiveReader.launchAsync(token, null, content, { uiZIndex: 1000000 });
     }
 </script>
 }
