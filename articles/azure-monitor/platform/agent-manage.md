@@ -296,4 +296,5 @@ Perform the following steps to configure the Log Analytics agent for Linux to re
 ## Next steps
 
 - Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the Linux agent.
+
 - Review [Troubleshooting the Windows agent](agent-windows-troubleshoot.md) if you encounter issues while installing or managing the Windows agent.
