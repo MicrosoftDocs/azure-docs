@@ -22,7 +22,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 
 ## <a name="windows"></a>Windows clients
 
-1. Download and install the OpenVPN client (Version 2.4+ is required) from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
+1. Download and install the OpenVPN client (Version 2.4 or higher is required) from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
 2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or 'New-AzVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
 4. [Export](vpn-gateway-certificates-point-to-site.md#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway.
