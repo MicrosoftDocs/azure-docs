@@ -17,7 +17,7 @@ This article shows how to use [Visual Studio 2019 or later with the Azure develo
 
 In this section, you create an Azure Resource Group project with a **Web app** template.
 
-1. In Visual Studio, choose **File**, **New** and **Project**. Select the **Azure Resource Group** project template and **Next**.
+1. In Visual Studio, choose **File**, **New**, and **Project**. Select the **Azure Resource Group** project template and **Next**.
 
     ![Create project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 
@@ -47,13 +47,13 @@ In this section, you create an Azure Resource Group project with a **Web app** t
 
     All resource group deployment projects have these basic files. Other projects may have additional files to support other functionality.
 
-By default, the PowerShell script in the project uses the AzureRM module. If you still have the AzureRM module installed and want to continue using it, you can use this default script. However, if you have migrated to the new [Az module](/powershell/azure/new-azureps-module-az), you need to add a new script to your project.
+By default, the PowerShell script in the project uses the AzureRM module. If you still have the AzureRM module installed and want to continue using it, you can use this default script. However, if you've migrated to the new [Az module](/powershell/azure/new-azureps-module-az), you need to add a new script to your project.
 
 To add a script that uses the Az module, copy the [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) script and add it to your project. To use this script for deployment, you must run it from a PowerShell console, rather than using Visual Studio's deployment interface. Both approaches are shown in this article.
 
 ## Customize Resource Manager template
 
-You can customize a deployment project by modifying the Resource Manager template that describe the resources you want to deploy. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+You can customize a deployment project by modifying the Resource Manager template that describes the resources you want to deploy. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 
 1. To work on your template, open **WebSite.json**.
 
@@ -161,55 +161,85 @@ For both deployment options, check the results.
 
 ## Deploy code with infrastructure
 
-At this point, you've deployed the infrastructure for your app, but there's no actual code deployed with the project. This article shows how to deploy a web app and SQL Database tables during deployment. If you're deploying a Virtual Machine instead of a web app, you want to run some code on the machine as part of deployment. The process for deploying code for a web app or for setting up a Virtual Machine is almost the same.
+At this point, you've deployed the infrastructure for your app, but there's no actual code deployed with the project.
 
 1. Add a project to your Visual Studio solution. Right-click the solution, and select **Add** > **New Project**.
-   
-    ![add project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
-2. Add an **ASP.NET Web Application**. 
-   
-    ![add web app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
-3. Select **MVC**.
-   
-    ![select MVC](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
-4. After Visual Studio creates your web app, you see both projects in the solution.
-   
-    ![show projects](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
-5. Now, you need to make sure your resource group project is aware of the new project. Go back to your resource group project (AzureResourceGroup1). Right-click **References** and select **Add Reference**.
-   
-    ![add reference](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
-6. Select the web app project that you created.
-   
-    ![add reference](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
-   
-    By adding a reference, you link the web app project to the resource group project, and automatically set three key properties. You see these properties in the **Properties** window for the reference.
-   
-      ![see reference](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
-   
-    The properties are:
-   
-   * The **Additional Properties** has the web deployment package staging location that is pushed to the Azure Storage. Note the folder (ExampleApp) and file (package.zip). You need to know these values because you provide them as parameters when deploying the app. 
-   * The **Include File Path** has the path where the package is created. The **Include Targets** has the command that deployment executes. 
-   * The default value of **Build;Package** enables the deployment to build and create a web deployment package (package.zip).  
-     
-     You don't need a publish profile as the deployment gets the necessary information from the properties to create the package.
-7. Go back to WebSiteSQLDatabase.json and add a resource to the template.
-   
-    ![add resource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
-8. This time select **Web Deploy for Web Apps**. 
-   
-    ![add web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
-9. Redeploy your resource group project to the resource group. This time there are some new parameters. You don't need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because Visual Studio automatically generates those values. However, you have to set the folder and file name to the path that contains the deployment package (shown as **ExampleAppPackageFolder** and **ExampleAppPackageFileName** in the following image). Provide the values you saw earlier in the reference properties (**ExampleApp** and **package.zip**).
-   
-    ![add web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
-   
-    For the **Artifact storage account**, select the one deployed with this resource group.
-10. After the deployment has finished, select your web app in the portal. Select the URL to browse to the site.
-    
-     ![browse site](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
-11. Notice that you've successfully deployed the default ASP.NET app.
-    
-     ![show deployed app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+
+    ![Add project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Add an **ASP.NET Core Web Application**.
+
+    ![Add web app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
+
+1. Give your web app a name, and select **Create**.
+
+    ![Name web app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/name-web-app.png)
+
+1. Select **Web Application** and **Create**.
+
+    ![Select Web application](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-project-type.png)
+
+1. After Visual Studio creates your web app, you see both projects in the solution.
+
+    ![Show projects](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. Now, you need to make sure your resource group project is aware of the new project. Go back to your resource group project (ExampleAppDeploy). Right-click **References** and select **Add Reference**.
+
+    ![Add reference](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Select the web app project that you created.
+
+   ![Add reference](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
+
+   By adding a reference, you link the web app project to the resource group project, and automatically sets some properties. You see these properties in the **Properties** window for the reference. The **Include File Path** has the path where the package is created. Note the folder (ExampleApp) and file (package.zip). You need to know these values because you provide them as parameters when deploying the app.
+
+   ![See reference](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
+
+1. Go back to your template (WebSite.json) and add a resource to the template.
+
+    ![Add resource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. This time select **Web Deploy for Web Apps**. 
+
+    ![Add web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
+
+   Save your template.
+
+1. There are some new parameters in your template. They were added in the previous step. You don't need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because those values are automatically generated. However, you have to set the folder and file name to the path that contains the deployment package. These parameters are named **ExampleAppPackageFolder** and **ExampleAppPackageFileName**. Open **Website.parameters.json** and those parameters to the values you saw in the reference properties (**ExampleApp** and **package.zip**).
+
+   ```json
+   {
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "hostingPlanName": {
+         "value": "demoHostPlan"
+       },
+       "ExampleAppPackageFolder": {
+         "value": "ExampleApp"
+       },
+       "ExampleAppPackageFileName": {
+         "value": "package.zip"
+       }
+     }
+   }
+   ```
+
+1. Redeploy your resource group project to the resource group.
+
+   If you are using the AzureRM module script (Deploy-AzureResourceGroup.ps1), select the storage account you deployed with this resource group for the **Artifact storage account**.
+
+   ![Redeploy web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy-web-app.png)
+
+   If you are using the Az module script (Deploy-AzTemplate.ps1)
+
+1. After the deployment has finished, select your web app in the portal. Select the URL to browse to the site.
+
+   ![Browse site](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Notice that you've successfully deployed the default ASP.NET app.
+
+   ![Show deployed app](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Add operations dashboard
 
