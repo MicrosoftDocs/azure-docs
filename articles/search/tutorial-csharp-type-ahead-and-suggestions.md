@@ -232,7 +232,7 @@ Another variation that is slightly different from suggestions is autocompletion 
             // Convert the autocompleteResult results to a list that can be displayed in the client.
             List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
 
-            return new JsonResult((object)autocomplete);
+            return new JsonResult(autocomplete);
         }
 ```
 
@@ -430,7 +430,7 @@ Notice the clever use of the **interval** function to both clear the underlying 
 Read through the comments in the script to get a fuller understanding.
 
 
-4. Finally, we need to make a minor adjustments to two HTML class to make them transparent. Add the following line to the **searchBoxForm**, and **searchBox**, classes in the hotels.css file.
+4. Finally, we need to make a minor adjustments to two HTML class to make them transparent. Add the following line to the **searchBoxForm** and **searchBox** classes, in the hotels.css file.
 
 ```cs
             background: rgba(0,0,0,0);
@@ -458,4 +458,4 @@ Consider the following takeaways from this project:
 One of the issues with autocompletion and suggestions is that they involve repeated calls to the server (one on every key stroke after the minimum number of characters typed is reached). If this results in slower than expected responses, then the user experience diminishes. Using facets provides an interesting alternative to avoid these repeated calls, which we will look at next.
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Use facets to improve network efficiency - Azure Search](tutorial-csharp-facets.md)
+> [C# Tutorial: Use facets for navigation and network efficiency - Azure Search](tutorial-csharp-facets.md)

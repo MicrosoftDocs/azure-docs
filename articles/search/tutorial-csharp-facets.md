@@ -1,6 +1,6 @@
 ---
-title: C# Tutorial on the use of facets to improve network efficiency - Azure Search
-description: This tutorial builds on the "Search results pagination - Azure Search" project, to add facet searches. Learn that facets are used in autocompletion, and only need to be retrieved once when a page is loaded, rather than on each key event.
+title: C# Tutorial on using facets for navigation and network efficiency - Azure Search
+description: This tutorial builds on the "Search results pagination - Azure Search" project, to add facet searches. Learn that facets can be used in both navigation and autocompletion. Facets only need to be retrieved once when a page is loaded, rather than on each key event.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -9,7 +9,7 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Use facets to improve network efficiency - Azure Search
+# C# Tutorial: Use facets for navigation and network efficiency - Azure Search
 
 Learn how to improve network efficiency by implementing a facet search. Facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. Facets are attributes of the data (such as a pool, wifi, free parking, view, and so on, in our hotels data), and stay relevant for the lifespan of a page. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
 
