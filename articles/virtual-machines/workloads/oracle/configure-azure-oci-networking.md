@@ -70,7 +70,7 @@ The following image shows a high-level overview of the interconnection:
 ## Connect virtual network to ExpressRoute
 
 1. Create a virtual network and virtual network bateway, if you haven't already. For details, see the [step-by-step guide](../../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
-1. Set up the connection between the virtual network gateway and your ExpressRoute circuit by executing the [Terraform script](https://github.com/microsoft/azure-oracle/tree/master/InterConnect-2) or by executing the PowerShell command to [Configure ExpressRoute FastPath](../../../expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath.md).
+1. Set up the connection between the virtual network gateway and your ExpressRoute circuit by executing the [Terraform script](https://github.com/microsoft/azure-oracle/tree/master/InterConnect-2) or by executing the PowerShell command to [Configure ExpressRoute FastPath](../../../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
 
 Once you have completed the network configuration, you can verify the validity of your configuration by clicking on **Get ARP Records** and **Get route table** under the ExpressRoute Private peering blade in the Azure portal.
 
@@ -92,7 +92,9 @@ To delete the interconnect, the following steps must be followed, in the specifi
 1. Delete the Oracle FastConnect from the Oracle Cloud Console.
 1. Once the Oracle FastConnect circuit has been deleted, you can delete the Azure ExpressRoute circuit.
 
-At this point, the delete and deprovisioning process is complete.
+At this point, the 
+
+delete and deprovisioning process is complete.
 
 ## Next steps
 
