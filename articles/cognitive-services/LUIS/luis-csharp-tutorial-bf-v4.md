@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 06/17/2019
 ms.author: diberry
 ---
 
@@ -48,22 +48,27 @@ Using C#, you can build a chat bot integrated with language understanding (LUIS)
     |App name|The name is used as the subdomain when your bot is deployed to the cloud (for example, humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, for example, `luis-csharp-bot-johnsmith`|
     |Bot template|Bot framework settings - see next table|
     |LUIS App location|Must be the same as the LUIS resource region|`westus`|
+    |App service plan/Location|Do not change from provided default value.|
+    |Application Insights|Do not change from provided default value.|
+    |Microsoft App ID and password|Do not change from provided default value.|
 
-1. In the **Bot template settings**, select the following, then choose the **Select** button under these settings:
+1. In the **Bot template**, select the following, then choose the **Select** button under these settings:
 
     |Setting|Purpose|Selection|
     |--|--|--|
     |SDK version|Bot framework version|**SDK v4**|
     |SDK language|Programming language of bot|**C#**|
-    |Echo/Basic bot|Type of bot|**Basic bot**|
+    |Bot|Type of bot|**Basic bot**|
     
 1. Select **Create**. This creates and deploys the bot service to Azure. Part of this process creates a LUIS app named `luis-csharp-bot-XXXX`. This name is based on the /Azure Bot Service app name.
 
     [![Create web app bot](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
+    Wait until the bot service is created before continuing.
+
 ## The bot's LUIS model
 
-Part of the bot service deployment creates a new LUIS app with intents and example utterances. The bot provides intent mapping to the new LUIS app for the following intents: 
+The bot service creation process also creates a new LUIS app with intents and example utterances. The bot provides intent mapping to the new LUIS app for the following intents: 
 
 |Basic bot LUIS intents|example utterance|
 |--|--|
@@ -76,6 +81,8 @@ Part of the bot service deployment creates a new LUIS app with intents and examp
 1. While still in the Azure portal for the new bot, select **Test in Web Chat**. 
 1. In the **Type your message** textbox, enter the text `hello`. The bot responds with information about the bot framework, as well as example queries for the specific LUIS model such as booking a flight to Paris. 
 
+    ![Screenshot of Azure portal, enter the text `hello`.](./media/bfv4-csharp/ask-bot-question-in-portal-test-in-web-chat.png)
+
     You can use the test functionality for quickly testing your bot. For more complete testing, including debugging, download the bot code and use Visual Studio. 
 
 ## Download the web app bot 
@@ -86,6 +93,8 @@ In order to develop the web app bot code, download the code and use on your loca
 1. Select **Download Bot source code**. 
 
     [![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+
+1. When the pop-up dialog asks **Include app settings in the downloaded zip file?**, select **Yes**.
 
 1. When the source code is zipped, a message will provide a link to download the code. Select the link. 
 
@@ -296,8 +305,11 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
 
 ## Start the emulator
 
-1. Begin the Bot Emulator.
-1. Create a new bot configuration and copy the `appId` and `appPassword` from the **appsettings.json** file in the Visual Studio project for the bot. The name of the bot configuration file should be the same as the bot name. 
+1. Begin the Bot Emulator and select **Open Bot**.
+1. In the **Open a bot** pop-up dialog, enter your bot URL, such as `http://localhost:3978/api/messages`. The `/api/messages` route is the web address for the bot.
+1. Enter the **Microsoft App ID** and **Microsoft App password**, found in the **appsettings.json** file in the root of the bot code you downloaded.
+
+    Optionally, you can create a new bot configuration and copy the `appId` and `appPassword` from the **appsettings.json** file in the Visual Studio project for the bot. The name of the bot configuration file should be the same as the bot name. 
 
     ```json
     {
@@ -320,7 +332,7 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
     }
     ```
 
-1. In the bot emulator, enter `Hello` and get the proper response for the basic bot.
+1. In the bot emulator, enter `Hello` and get the same response for the basic bot as you received in the **Test in Web Chat**.
 
     [![Basic bot response in emulator](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
