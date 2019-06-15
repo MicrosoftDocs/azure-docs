@@ -298,7 +298,6 @@ In order to develop the web app bot code, download the code and use on your loca
 
 
 ## Start the bot code in Visual Studio
-Before changing any code or settings, verify the bot works. 
 
 In Visual Studio, start the bot. A browser window opens with the web app bot's web site at `http://localhost:3978/`. A home page displays with information about your bot.
 
