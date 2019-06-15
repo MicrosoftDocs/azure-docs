@@ -47,7 +47,7 @@ The activity details panel contains the following relevant information:
 
 |Section|Field|Description|
 |-------|-----|-----------|
-| Activity | Name | Which activity took place, e.g. "Issue an id_token to the application" (which concludes the actual user sign-in) |
+| Activity | Name | Which activity took place. For example, "Issue an id_token to the application" (which concludes the actual user sign-in). |
 | Initiated By (Actor) | ObjectId | The **Object ID** of the B2C application that the user is signing in to (this identifier is not visible in the Azure Portal but it's accessible via the Graph API for example) |
 | Initiated By (Actor) | Spn | The **Application ID** of the B2C application that the user is signing in to |
 | Target(s) | ObjectId | The **Object ID** of the user that is signing in |
