@@ -143,17 +143,6 @@ Refer to the following list to configure managed identity for Azure Container In
 - [Azure Resource Manager template](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
-### Azure Container Registry
-
-Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
-| --- | --- | --- | --- | --- |
-| System assigned | Available | Not available | Not available | Not available |
-| User assigned | Preview | Not available | Not available | Not available |
-
-Refer to the following list to configure managed identity for Azure Container Registry (in regions where available):
-
-- [Azure CLI](~/articles/container-registry/container-registry-authentication-managed-identity.md)
-
 ### Azure Container Registry Tasks
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -247,3 +236,12 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | Available |
 | Azure Germany | `https://*.asazure.cloudapi.de` | Available |
 | Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | Available |
+
+### Azure Container Registry
+
+| Cloud | Resource ID | Status |
+|--------|------------|--------|
+| Azure Global | `https://*.azurecr.io` | Available |
+| Azure Government | `https://*.azurecr.us` | ? |
+| Azure Germany | ? | ? |
+| Azure China 21Vianet | ? | ? |
