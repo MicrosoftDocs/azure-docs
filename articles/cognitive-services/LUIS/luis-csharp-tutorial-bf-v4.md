@@ -103,18 +103,22 @@ In order to develop the web app bot code, download the code and use on your loca
 
 ## Review code to send utterance to LUIS and get response
 
-1. Open the **LuiHelper.cs** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the method as a **BookDetails** object. When you create your own bot, you should also create your own object to return the details from LUIS. 
+1. Open the **LuisHelper.cs** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the method as a **BookDetails** object. When you create your own bot, you should also create your own object to return the details from LUIS. 
 
    [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
 
-   [!code-csharp[Open the LuisHelper.js file. This is where the user utterance entered into the bot is sent to LUIS.](~/samples-luis/documentation-samples/tutorial-web-app-bot/v4/luis-csharp-bot-johnsmith-src/LuisHelper.cs)]
+   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/tutorial-web-app-bot/v4/luis-csharp-bot-johnsmith-src/LuisHelper.cs)]
 
-1. Open  **BookingDetails.cs** to view how the object abstracts the LUIS information. 
+1. Open **BookingDetails.cs** to view how the object abstracts the LUIS information. 
+
+   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
 
    [!code-csharp[Open the BookingDetails.cs file to view how the object abstracts the LUIS information.](~/samples-luis/documentation-samples/tutorial-web-app-bot/v4/luis-csharp-bot-johnsmith-src/BookingDetails.cs "Open the BookingDetails.cs file to view how the object abstracts the LUIS information.")]
     ```
 
 1. Open **Dialogs -> BookingDialog.cs** to understand how the BookingDetails object is used to manage the conversation flow. Travel details are asked in steps, then the entire booking is confirmed and finally repeated back to the user. 
+
+   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
 
    [!code-csharp[Open the Dialogs folder, then the BookingDialog.cs file to understand how the BookingDetails object is used to manage the conversation flow.](~/samples-luis/documentation-samples/tutorial-web-app-bot/v4/luis-csharp-bot-johnsmith-src/Dialogs/BookingDialog.cs "Open the Dialogs folder, then the BookingDialog.cs file to understand how the BookingDetails object is used to manage the conversation flow.")]
     ```
