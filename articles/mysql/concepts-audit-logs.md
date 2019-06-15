@@ -31,7 +31,7 @@ Other parameters you can adjust include:
 | `DML_NONSELECT` | INSERT/DELETE/UPDATE queries |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
 | `DDL` | Queries like "DROP DATABASE" |
-| `DCL` | Queries like "GRANT PERMISSION" |s
+| `DCL` | Queries like "GRANT PERMISSION" |
 | `ADMIN` | Queries like "SHOW STATUS" |
 | `GENERAL` | All in DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and ADMIN |
 | `TABLE_ACCESS` | - Only available for MySQL 5.7 <br> - Table read statements, such as SELECT or INSERT INTO ... SELECT <br> - Table delete statements, such as DELETE or TRUNCATE TABLE <br> - Table insert statements, such as INSERT or REPLACE <br> - Table update statements, such as UPDATE |
