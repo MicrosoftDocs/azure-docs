@@ -103,7 +103,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
 ## Review code to send utterance to LUIS and get response
 
-1. Open the **dialogs -> luiHelper.js** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the method as a **bookDetails** JSON object. When you create your own bot, you should also create your own object to return the details from LUIS. 
+1. Open the **dialogs -> luisHelper.js** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the method as a **bookDetails** JSON object. When you create your own bot, you should also create your own object to return the details from LUIS. 
 
     ```nodejs
     // Copyright (c) Microsoft Corporation. All rights reserved.
