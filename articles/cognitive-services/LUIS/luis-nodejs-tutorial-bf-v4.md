@@ -105,11 +105,11 @@ In order to develop the web app bot code, download the code and use on your loca
 
 1. Open the **dialogs -> luiHelper.js** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the method as a **bookDetails** JSON object. When you create your own bot, you should also create your own object to return the details from LUIS. 
 
-   [!code-javascript[Open the dialogs folder, then luiHelper.js file. This is where the user utterance entered into the bot is sent to LUIS.](~/samples-luis/documentation-samples/tutorial-web-app-bot/v4/luis-nodejs-bot-johnsmith-src/dialogs/luisHelper.js "Open the dialogs folder, then luiHelper.js file. This is where the user utterance entered into the bot is sent to LUIS.")]
+   [!code-javascript[This is where the user utterance entered into the bot is sent to LUIS.](~/samples-luis/documentation-samples/tutorial-web-app-bot/v4/luis-nodejs-bot-johnsmith-src/dialogs/luisHelper.js)]
 
 1. Open **dialogs -> bookingDialog.js** to understand how the BookingDetails object is used to manage the conversation flow. Travel details are asked in steps, then the entire booking is confirmed and finally repeated back to the user. 
 
-   [!code-javascript[Open dialogs folder, then bookingDialog.js file to understand how the BookingDetails object is used to manage the conversation flow.](~/samples-luis/documentation-samples/tutorial-web-app-bot/v4/luis-nodejs-bot-johnsmith-src/dialogs/bookingDialog.js "Open dialogs folder, then bookingDialog.js file to understand how the BookingDetails object is used to manage the conversation flow.")]
+   [!code-javascript[Understand how the BookingDetails object is used to manage the conversation flow.](~/samples-luis/documentation-samples/tutorial-web-app-bot/v4/luis-nodejs-bot-johnsmith-src/dialogs/bookingDialog.js)]
 
 
 ## Install dependencies and start the bot code in Visual Studio
