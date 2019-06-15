@@ -30,7 +30,7 @@ Azure Media Services enables you to deliver live events to your customers on the
 
 ## Live Event types
 
-A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through and live encoding. The types are set during creation using these properties:
+A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through and live encoding. The types are set during creation using [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType.None** - An on-premises live encoder sends a multiple bitrate stream. The ingested streams passes through the Live Event without any further processing. 
 * **LiveEventEncodingType.Standard** - An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. If the contribution feed is of 720p or higher resolution, the **Default720p** preset will encode a set of 6 resolution/bitrates pairs.
