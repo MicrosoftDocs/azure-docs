@@ -113,7 +113,7 @@ The following parameters set a default value:
 4. You are ready to deploy this template. Use the following commands from the folder containing the template:
 
     ```azurecli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json --parameters workspaceName=<my-workspace-name> location=<my-workspace-location> sku=<my-workspace-sku>
     ```
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
