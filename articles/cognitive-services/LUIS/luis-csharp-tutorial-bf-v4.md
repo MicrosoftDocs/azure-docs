@@ -1,7 +1,7 @@
 ---
-title: Bot - C# - v4 
+title: LUIS Bot C# v4 
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Using C#, build a chat bot integrated with language understanding (LUIS). This chat bot uses the Human Resources app to quickly implement a bot solution. The bot is built with the Bot Framework version 4 and the Azure Web app bot.
+description: Using C#, build a chat bot integrated with language understanding (LUIS). The bot is built with the Bot Framework version 4 and the Azure Web app bot service.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Tutorial: Use a Web App Bot enabled with Language Understanding in C#
 
-Using C#, you can build a chat bot integrated with language understanding (LUIS). This bot uses the HomeAutomation app to implement a bot solution. The bot is built the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) with [Bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) v4.
+Use C# to build a chat bot integrated with language understanding (LUIS). The bot is built with the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) resource and [Bot Framework version](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
 **In this tutorial, you learn how to:**
 
@@ -31,7 +31,7 @@ Using C#, you can build a chat bot integrated with language understanding (LUIS)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
 
-## Create web app bot
+## Create a web app bot resource
 
 1. In the [Azure portal](https://portal.azure.com), select **Create new resource**.
 
@@ -67,7 +67,7 @@ Using C#, you can build a chat bot integrated with language understanding (LUIS)
 
     Wait until the bot service is created before continuing.
 
-## The bot's LUIS model
+## The bot has a Language Understanding model
 
 The bot service creation process also creates a new LUIS app with intents and example utterances. The bot provides intent mapping to the new LUIS app for the following intents: 
 
@@ -77,7 +77,7 @@ The bot service creation process also creates a new LUIS app with intents and ex
 |Cancel|`bye`|
 |None|Anything outside the domain of the app.|
 
-## Test the bot
+## Test the bot in Web Chat
 
 1. While still in the Azure portal for the new bot, select **Test in Web Chat**. 
 1. In the **Type your message** textbox, enter the text `hello`. The bot responds with information about the bot framework, as well as example queries for the specific LUIS model such as booking a flight to Paris. 
@@ -86,7 +86,7 @@ The bot service creation process also creates a new LUIS app with intents and ex
 
     You can use the test functionality for quickly testing your bot. For more complete testing, including debugging, download the bot code and use Visual Studio. 
 
-## Download the web app bot 
+## Download the web app bot source code
 In order to develop the web app bot code, download the code and use on your local computer. 
 
 1. In the Azure portal, select **Build** from the **Bot management** section. 
@@ -101,7 +101,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
 1. Save the zip file to your local computer and extract the files. Open the project with Visual Studio. 
 
-## Send utterance to LUIS and get response
+## Review code to send utterance to LUIS and get response
 
 1. Open the **LuiHelper.cs** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the method as a **BookDetails** object. When you create your own bot, you should also create your own object to return the details from LUIS. 
 
@@ -297,14 +297,14 @@ In order to develop the web app bot code, download the code and use on your loca
     ```
 
 
-## Start the bot
+## Start the bot code in Visual Studio
 Before changing any code or settings, verify the bot works. 
 
 In Visual Studio, start the bot. A browser window opens with the web app bot's web site at `http://localhost:3978/`. A home page displays with information about your bot.
 
 ![A home page displays with information about your bot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
-## Start the emulator
+## Use the bot emulator to test the bot
 
 1. Begin the Bot Emulator and select **Open Bot**.
 1. In the **Open a bot** pop-up dialog, enter your bot URL, such as `http://localhost:3978/api/messages`. The `/api/messages` route is the web address for the bot.
@@ -338,7 +338,7 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
     [![Basic bot response in emulator](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-csharp/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 
-## Ask question for Book Flight intent
+## Ask bot a question for the Book Flight intent
 
 1. In the bot emulator, book a flight by entering the following utterance: 
 
@@ -353,7 +353,7 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
 
     [![Basic bot response in emulator](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
-## Learn more about Bot Framework
+## Learn more about the Web App Bot and framework
 
 Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot framework:
 
@@ -367,4 +367,4 @@ Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot f
 See more [samples](https://github.com/microsoft/botframework-solutions) with conversational bots. 
 
 > [!div class="nextstepaction"]
-> [Build a custom domain in LUIS](luis-quickstart-intents-only.md)
+> [Build a Language Understanding app with a custom subject domain](luis-quickstart-intents-only.md)
