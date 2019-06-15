@@ -48,12 +48,12 @@ The activity details panel contains the following relevant information:
 |Section|Field|Description|
 |-------|-----|-----------|
 | Activity | Name | Which activity took place. For example, "Issue an id_token to the application" (which concludes the actual user sign-in). |
-| Initiated By (Actor) | ObjectId | The **Object ID** of the B2C application that the user is signing in to (this identifier is not visible in the Azure Portal but it's accessible via the Graph API for example) |
-| Initiated By (Actor) | Spn | The **Application ID** of the B2C application that the user is signing in to |
-| Target(s) | ObjectId | The **Object ID** of the user that is signing in |
-| Additional Details | TenantId | The **Tenant ID** of the Azure AD B2C tenant |
-| Additional Details | PolicyId | The **Policy ID** of the user flow (policy) being used to sign the user in |
-| Additional Details | ApplicationId | The **Application ID** of the B2C application that the user is signing in to |
+| Initiated By (Actor) | ObjectId | The **Object ID** of the B2C application that the user is signing in to (this identifier is not visible in the Azure Portal but it's accessible via the Graph API for example). |
+| Initiated By (Actor) | Spn | The **Application ID** of the B2C application that the user is signing in to. |
+| Target(s) | ObjectId | The **Object ID** of the user that is signing in. |
+| Additional Details | TenantId | The **Tenant ID** of the Azure AD B2C tenant. |
+| Additional Details | PolicyId | The **Policy ID** of the user flow (policy) being used to sign the user in. |
+| Additional Details | ApplicationId | The **Application ID** of the B2C application that the user is signing in to. |
 
 ## Accessing audit logs through the Azure Portal
 1. Go to the [Azure portal](https://portal.azure.com). Make sure you are in your B2C directory.
@@ -77,7 +77,7 @@ You will see a list of activities logged over the last seven days.
 - Click on **Download** to download the activities as a csv file
 
 > [!NOTE]
-> You can also see the audit logs by navigating to the **Azure AD B2C** blade. Under **Activities**, click on **Audit logs**, where you will find the same logs with similar filtering capabilities.
+> You can also see the audit logs by navigating to **Azure AD B2C** rather than **Azure Active Directory** in the favorites bar on the left. Under **Activities**, click on **Audit logs**, where you will find the same logs with similar filtering capabilities.
 
 ## Accessing audit logs through the Azure AD reporting API
 Audit logs are published to the same pipeline as other activities for Azure Active Directory, so they can be accessed through the [Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).
