@@ -107,7 +107,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
    [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
 
-   [!code-csharp[Open the LuisHelper.js file. This is where the user utterance entered into the bot is sent to LUIS.](~/samples-luis/documentation-samples/tutorial-web-app-bot/v4/luis-csharp-bot-johnsmith-src/LuisHelper.cs "Open the LuisHelper.js file. This is where the user utterance entered into the bot is sent to LUIS.")]
+   [!code-csharp[Open the LuisHelper.js file. This is where the user utterance entered into the bot is sent to LUIS.](~/samples-luis/documentation-samples/tutorial-web-app-bot/v4/luis-csharp-bot-johnsmith-src/LuisHelper.cs)]
 
 1. Open  **BookingDetails.cs** to view how the object abstracts the LUIS information. 
 
