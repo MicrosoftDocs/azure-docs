@@ -103,226 +103,205 @@ In order to develop the web app bot code, download the code and use on your loca
 
 ## Review code to send utterance to LUIS and get response
 
-1. Open the **dialogs** folder and then the **LuiHelper.cs** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the method as a **bookDetails** JSON object. When you create your own bot, you should also create your own object to return the details from LUIS. 
-
-    ```nodejs
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-const { LuisRecognizer } = require('botbuilder-ai');
-
-class LuisHelper {
-    /**
-     * Returns an object with preformatted LUIS results for the bot's dialogs to consume.
-     * @param {*} logger
-     * @param {TurnContext} context
-     */
-    static async executeLuisQuery(logger, context) {
-        const bookingDetails = {};
-
-        try {
-            const recognizer = new LuisRecognizer({
-                applicationId: process.env.LuisAppId,
-                endpointKey: process.env.LuisAPIKey,
-                endpoint: `https://${ process.env.LuisAPIHostName }`
-            }, {}, true);
-
-            const recognizerResult = await recognizer.recognize(context);
-
-            const intent = LuisRecognizer.topIntent(recognizerResult);
-
-            bookingDetails.intent = intent;
-
-            if (intent === 'Book_flight') {
-                // We need to get the result from the LUIS JSON which at every level returns an array
-
-                bookingDetails.destination = LuisHelper.parseCompositeEntity(recognizerResult, 'To', 'Airport');
-                bookingDetails.origin = LuisHelper.parseCompositeEntity(recognizerResult, 'From', 'Airport');
-
-                // This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
-                // TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
-                bookingDetails.travelDate = LuisHelper.parseDatetimeEntity(recognizerResult);
-            }
-        } catch (err) {
-            logger.warn(`LUIS Exception: ${ err } Check your LUIS configuration`);
-        }
-        return bookingDetails;
-    }
-
-    static parseCompositeEntity(result, compositeName, entityName) {
-        const compositeEntity = result.entities[compositeName];
-        if (!compositeEntity || !compositeEntity[0]) return undefined;
-
-        const entity = compositeEntity[0][entityName];
-        if (!entity || !entity[0]) return undefined;
-
-        const entityValue = entity[0][0];
-        return entityValue;
-    }
-
-    static parseDatetimeEntity(result) {
-        const datetimeEntity = result.entities['datetime'];
-        if (!datetimeEntity || !datetimeEntity[0]) return undefined;
-
-        const timex = datetimeEntity[0]['timex'];
-        if (!timex || !timex[0]) return undefined;
-
-        const datetime = timex[0].split('T')[0];
-        return datetime;
-    }
-}
-
-module.exports.LuisHelper = LuisHelper;
-    ```
-
-1. Open  **BookingDetails.cs** to view how the object abstracts the LUIS information. 
+1. Open the **dialogs -> luiHelper.js** file. This is where the user utterance entered into the bot is sent to LUIS. The response from LUIS is returned from the method as a **bookDetails** JSON object. When you create your own bot, you should also create your own object to return the details from LUIS. 
 
     ```nodejs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License.
     
-    namespace Microsoft.BotBuilderSamples
-    {
-        public class BookingDetails
-        {
-            public string Destination { get; set; }
+    const { LuisRecognizer } = require('botbuilder-ai');
     
-            public string Origin { get; set; }
+    class LuisHelper {
+        /**
+         * Returns an object with preformatted LUIS results for the bot's dialogs to consume.
+         * @param {*} logger
+         * @param {TurnContext} context
+         */
+        static async executeLuisQuery(logger, context) {
+            const bookingDetails = {};
     
-            public string TravelDate { get; set; }
+            try {
+                const recognizer = new LuisRecognizer({
+                    applicationId: process.env.LuisAppId,
+                    endpointKey: process.env.LuisAPIKey,
+                    endpoint: `https://${ process.env.LuisAPIHostName }`
+                }, {}, true);
+    
+                const recognizerResult = await recognizer.recognize(context);
+    
+                const intent = LuisRecognizer.topIntent(recognizerResult);
+    
+                bookingDetails.intent = intent;
+    
+                if (intent === 'Book_flight') {
+                    // We need to get the result from the LUIS JSON which at every level returns an array
+    
+                    bookingDetails.destination = LuisHelper.parseCompositeEntity(recognizerResult, 'To', 'Airport');
+                    bookingDetails.origin = LuisHelper.parseCompositeEntity(recognizerResult, 'From', 'Airport');
+    
+                    // This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
+                    // TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
+                    bookingDetails.travelDate = LuisHelper.parseDatetimeEntity(recognizerResult);
+                }
+            } catch (err) {
+                logger.warn(`LUIS Exception: ${ err } Check your LUIS configuration`);
+            }
+            return bookingDetails;
+        }
+    
+        static parseCompositeEntity(result, compositeName, entityName) {
+            const compositeEntity = result.entities[compositeName];
+            if (!compositeEntity || !compositeEntity[0]) return undefined;
+    
+            const entity = compositeEntity[0][entityName];
+            if (!entity || !entity[0]) return undefined;
+    
+            const entityValue = entity[0][0];
+            return entityValue;
+        }
+    
+        static parseDatetimeEntity(result) {
+            const datetimeEntity = result.entities['datetime'];
+            if (!datetimeEntity || !datetimeEntity[0]) return undefined;
+    
+            const timex = datetimeEntity[0]['timex'];
+            if (!timex || !timex[0]) return undefined;
+    
+            const datetime = timex[0].split('T')[0];
+            return datetime;
         }
     }
+    
+    module.exports.LuisHelper = LuisHelper;
     ```
 
-1. Open **Dialogs -> BookingDialog.cs** to understand how the BookingDetails object is used to manage the conversation flow. Travel details are asked in steps, then the entire booking is confirmed and finally repeated back to the user. 
+1. Open **dialogs -> bookingDialog.js** to understand how the BookingDetails object is used to manage the conversation flow. Travel details are asked in steps, then the entire booking is confirmed and finally repeated back to the user. 
 
     ```nodejs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License.
     
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Microsoft.Bot.Builder;
-    using Microsoft.Bot.Builder.Dialogs;
-    using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
+    const { TimexProperty } = require('@microsoft/recognizers-text-data-types-timex-expression');
+    const { ConfirmPrompt, TextPrompt, WaterfallDialog } = require('botbuilder-dialogs');
+    const { CancelAndHelpDialog } = require('./cancelAndHelpDialog');
+    const { DateResolverDialog } = require('./dateResolverDialog');
     
-    namespace Microsoft.BotBuilderSamples.Dialogs
-    {
-        public class BookingDialog : CancelAndHelpDialog
-        {
-            public BookingDialog()
-                : base(nameof(BookingDialog))
-            {
-                AddDialog(new TextPrompt(nameof(TextPrompt)));
-                AddDialog(new ConfirmPrompt(nameof(ConfirmPrompt)));
-                AddDialog(new DateResolverDialog());
-                AddDialog(new WaterfallDialog(nameof(WaterfallDialog), new WaterfallStep[]
-                {
-                    DestinationStepAsync,
-                    OriginStepAsync,
-                    TravelDateStepAsync,
-                    ConfirmStepAsync,
-                    FinalStepAsync,
-                }));
+    const CONFIRM_PROMPT = 'confirmPrompt';
+    const DATE_RESOLVER_DIALOG = 'dateResolverDialog';
+    const TEXT_PROMPT = 'textPrompt';
+    const WATERFALL_DIALOG = 'waterfallDialog';
     
-                // The initial child Dialog to run.
-                InitialDialogId = nameof(WaterfallDialog);
-            }
+    class BookingDialog extends CancelAndHelpDialog {
+        constructor(id) {
+            super(id || 'bookingDialog');
     
-            private async Task<DialogTurnResult> DestinationStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-            {
-                var bookingDetails = (BookingDetails)stepContext.Options;
+            this.addDialog(new TextPrompt(TEXT_PROMPT))
+                .addDialog(new ConfirmPrompt(CONFIRM_PROMPT))
+                .addDialog(new DateResolverDialog(DATE_RESOLVER_DIALOG))
+                .addDialog(new WaterfallDialog(WATERFALL_DIALOG, [
+                    this.destinationStep.bind(this),
+                    this.originStep.bind(this),
+                    this.travelDateStep.bind(this),
+                    this.confirmStep.bind(this),
+                    this.finalStep.bind(this)
+                ]));
     
-                if (bookingDetails.Destination == null)
-                {
-                    return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = MessageFactory.Text("Where would you like to travel to?") }, cancellationToken);
-                }
-                else
-                {
-                    return await stepContext.NextAsync(bookingDetails.Destination, cancellationToken);
-                }
-            }
+            this.initialDialogId = WATERFALL_DIALOG;
+        }
     
-            private async Task<DialogTurnResult> OriginStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-            {
-                var bookingDetails = (BookingDetails)stepContext.Options;
+        /**
+         * If a destination city has not been provided, prompt for one.
+         */
+        async destinationStep(stepContext) {
+            const bookingDetails = stepContext.options;
     
-                bookingDetails.Destination = (string)stepContext.Result;
-    
-                if (bookingDetails.Origin == null)
-                {
-                    return await stepContext.PromptAsync(nameof(TextPrompt), new PromptOptions { Prompt = MessageFactory.Text("Where are you traveling from?") }, cancellationToken);
-                }
-                else
-                {
-                    return await stepContext.NextAsync(bookingDetails.Origin, cancellationToken);
-                }
-            }
-            private async Task<DialogTurnResult> TravelDateStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-            {
-                var bookingDetails = (BookingDetails)stepContext.Options;
-    
-                bookingDetails.Origin = (string)stepContext.Result;
-    
-                if (bookingDetails.TravelDate == null || IsAmbiguous(bookingDetails.TravelDate))
-                {
-                    return await stepContext.BeginDialogAsync(nameof(DateResolverDialog), bookingDetails.TravelDate, cancellationToken);
-                }
-                else
-                {
-                    return await stepContext.NextAsync(bookingDetails.TravelDate, cancellationToken);
-                }
-            }
-    
-            private async Task<DialogTurnResult> ConfirmStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-            {
-                var bookingDetails = (BookingDetails)stepContext.Options;
-    
-                bookingDetails.TravelDate = (string)stepContext.Result;
-    
-                var msg = $"Please confirm, I have you traveling to: {bookingDetails.Destination} from: {bookingDetails.Origin} on: {bookingDetails.TravelDate}";
-    
-                return await stepContext.PromptAsync(nameof(ConfirmPrompt), new PromptOptions { Prompt = MessageFactory.Text(msg) }, cancellationToken);
-            }
-    
-            private async Task<DialogTurnResult> FinalStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-            {
-                if ((bool)stepContext.Result)
-                {
-                    var bookingDetails = (BookingDetails)stepContext.Options;
-    
-                    return await stepContext.EndDialogAsync(bookingDetails, cancellationToken);
-                }
-                else
-                {
-                    return await stepContext.EndDialogAsync(null, cancellationToken);
-                }
-            }
-    
-            private static bool IsAmbiguous(string timex)
-            {
-                var timexProperty = new TimexProperty(timex);
-                return !timexProperty.Types.Contains(Constants.TimexTypes.Definite);
+            if (!bookingDetails.destination) {
+                return await stepContext.prompt(TEXT_PROMPT, { prompt: 'To what city would you like to travel?' });
+            } else {
+                return await stepContext.next(bookingDetails.destination);
             }
         }
+    
+        /**
+         * If an origin city has not been provided, prompt for one.
+         */
+        async originStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            // Capture the response to the previous step's prompt
+            bookingDetails.destination = stepContext.result;
+            if (!bookingDetails.origin) {
+                return await stepContext.prompt(TEXT_PROMPT, { prompt: 'From what city will you be travelling?' });
+            } else {
+                return await stepContext.next(bookingDetails.origin);
+            }
+        }
+    
+        /**
+         * If a travel date has not been provided, prompt for one.
+         * This will use the DATE_RESOLVER_DIALOG.
+         */
+        async travelDateStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            // Capture the results of the previous step
+            bookingDetails.origin = stepContext.result;
+            if (!bookingDetails.travelDate || this.isAmbiguous(bookingDetails.travelDate)) {
+                return await stepContext.beginDialog(DATE_RESOLVER_DIALOG, { date: bookingDetails.travelDate });
+            } else {
+                return await stepContext.next(bookingDetails.travelDate);
+            }
+        }
+    
+        /**
+         * Confirm the information the user has provided.
+         */
+        async confirmStep(stepContext) {
+            const bookingDetails = stepContext.options;
+    
+            // Capture the results of the previous step
+            bookingDetails.travelDate = stepContext.result;
+            const msg = `Please confirm, I have you traveling to: ${ bookingDetails.destination } from: ${ bookingDetails.origin } on: ${ bookingDetails.travelDate }.`;
+    
+            // Offer a YES/NO prompt.
+            return await stepContext.prompt(CONFIRM_PROMPT, { prompt: msg });
+        }
+    
+        /**
+         * Complete the interaction and end the dialog.
+         */
+        async finalStep(stepContext) {
+            if (stepContext.result === true) {
+                const bookingDetails = stepContext.options;
+    
+                return await stepContext.endDialog(bookingDetails);
+            } else {
+                return await stepContext.endDialog();
+            }
+        }
+    
+        isAmbiguous(timex) {
+            const timexPropery = new TimexProperty(timex);
+            return !timexPropery.types.has('definite');
+        }
     }
-    ```
+    
+    module.exports.BookingDialog = BookingDialog;
+        ```
 
+## Install dependencies and start the bot code in Visual Studio
 
-## Start the bot code in Visual Studio
-Before changing any code or settings, verify the bot works. 
+1. In VSCode, from the integrated terminal, install dependencies with the command `npm install`.
+1. Also from the integrated terminal, start the bot with the command `npm start`. 
 
-In Visual Studio, start the bot. A browser window opens with the web app bot's web site at `http://localhost:3978/`. A home page displays with information about your bot.
-
-![A home page displays with information about your bot.](./media/bfv4-nodejs/running-bot-web-home-page-success.png)
 
 ## Use the bot emulator to test the bot
 
 1. Begin the Bot Emulator and select **Open Bot**.
 1. In the **Open a bot** pop-up dialog, enter your bot URL, such as `http://localhost:3978/api/messages`. The `/api/messages` route is the web address for the bot.
-1. Enter the **Microsoft App ID** and **Microsoft App password**, found in the **appsettings.json** file in the root of the bot code you downloaded.
+1. Enter the **Microsoft App ID** and **Microsoft App password**, found in the **.env** file in the root of the bot code you downloaded.
 
-    Optionally, you can create a new bot configuration and copy the `appId` and `appPassword` from the **appsettings.json** file in the Visual Studio project for the bot. The name of the bot configuration file should be the same as the bot name. 
+    Optionally, you can create a new bot configuration and copy the `MicrosoftAppId` and `MicrosoftAppPassword` from the **.env** file in the Visual Studio project for the bot. The name of the bot configuration file should be the same as the bot name. 
 
     ```json
     {
@@ -331,8 +310,8 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
         "services": [
             {
                 "type": "endpoint",
-                "appId": "<appId from appsettings.json>",
-                "appPassword": "<appPassword from appsettings.json>",
+                "appId": "<appId from .env>",
+                "appPassword": "<appPassword from .env>",
                 "endpoint": "http://localhost:3978/api/messages",
                 "id": "<don't change this value>",
                 "name": "http://localhost:3978/api/messages"
@@ -371,7 +350,7 @@ Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot f
 
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 documentation
 * [Bot Builder Samples](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder C# SDK](https://github.com/Microsoft/botbuilder-dotnet)
+* [Bot Builder Node.js SDK](https://github.com/Microsoft/botbuilder-js)
 * [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools):
 
 ## Next steps
