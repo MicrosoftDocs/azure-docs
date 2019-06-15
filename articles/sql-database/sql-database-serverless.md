@@ -19,7 +19,7 @@ Azure SQL Database serverless (preview) is a compute tier for single databases t
 
 ## Serverless compute tier
 
-The serverless compute tier for a single database is parameterized by a compute scaling range and an autopause delay.  The configuration of these parameters shape the database performance experience and compute cost.
+The serverless compute tier for a single database is parameterized by a compute autoscaling range and an autopause delay.  The configuration of these parameters shape the database performance experience and compute cost.
 
 ![serverless billing](./media/sql-database-serverless/serverless-billing.png)
 
@@ -31,9 +31,9 @@ The serverless compute tier for a single database is parameterized by a compute 
 ### Cost
 
 - The cost for a serverless database is the summation of the compute cost and storage cost.
-- When compute usage is between the min and max compute limits configured, the compute cost is based on vCore and memory usage.
-- When compute usage is below the min compute limits configured, the compute cost is based on the min vCores and min memory configured.
-- When the database is paused, compute costs are zero and only storage is billed.
+- When compute usage is between the min and max limits configured, the compute cost is based on vCore and memory used.
+- When compute usage is below the min limits configured, the compute cost is based on the min vCores and min memory configured.
+- When the database is paused, the compute cost is zero and only storage costs are incurred.
 - The storage cost is determined in the same way as in the provisioned compute tier.
 
 For more cost details, see [Billing](sql-database-serverless.md#billing).
