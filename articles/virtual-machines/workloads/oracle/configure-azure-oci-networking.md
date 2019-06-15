@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/13/2019
+ms.date: 06/15/2019
 ms.author: rogirdh
 ---
 
@@ -22,7 +22,7 @@ ms.author: rogirdh
 To create an [integrated multi-cloud experience](oracle-oci-overview.md) (preview), Microsoft and Oracle offer direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) through [ExpressRoute](../../../expressroute/expressroute-introduction.md) and [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Through the ExpressRoute and FastConnect interconnection, customers can experience low latency, high throughput, private direct connectivity between the two clouds.
 
 > [!IMPORTANT]
-> The connection between Microsoft Azure and OCI has been optimized for low latency. To enable low latency connectivity between Azure and OCI, the flag for **express_route_gateway_bypass** must be set to `true`. This feature is currently in preview. The Azure subscription must be whitelisted for this feature before being able to setup the low latency connectivity.
+> The connection between Microsoft Azure and OCI is in the preview stage. To enable low latency connectivity between Azure and OCI, the Azure subscription and OCI tenancy must first be whitelisted for this capability.
 
 The following image shows a high-level overview of the interconnection:
 
@@ -34,7 +34,7 @@ The following image shows a high-level overview of the interconnection:
 
 * Connectivity is only possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. See [preview limitations](oracle-oci-overview.md#preview-limitations).
 
-* For optimal performance, your Azure subscription must be whitelisted for Express Route Gateway Bypass feature. Contact your Microsoft representative to enable this feature on your subscription.
+* Your Azure subscription must be whitelisted for this preview capability. Contact your Microsoft representative to enable this feature on your subscription.
 
 * Your OCI tenancy must be whitelisted for this preview capability. Contact your Oracle representative for details.
 
@@ -46,6 +46,10 @@ The following image shows a high-level overview of the interconnection:
         ![Create ExpressRoute circuit](media/configure-azure-oci-networking/exr_create_new.png)
 1. Note down your ExpressRoute **Service key**. You need to provide the key while configuring your FastConnect circuit.
     ![ExpressRoute Service key](media/configure-azure-oci-networking/exr_service_key.png)
+
+    > [!IMPORTANT]
+    > You will be billed for ExpressRoute charges as soon as the ExpressRoute circuit is provisioned (even if the **Provider Status** is **Not Provisioned**).
+
 1. Carve out two private IP address spaces of /30 each that do not overlap with your Azure virtual network or OCI virtual cloud network IP Address space. We will refer to the first IP address space as primary address space and the second IP address space as secondary address space. Note down the addresses, which you need when configuring your FastConnect circuit.
 1. Create a Dynamic Routing Gateway (DRG). You will need this when creating your FastConnect circuit. For more information, see the [Dynamic Routing Gateway](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) documentation.
 1. Create a FastConnect circuit under your Oracle tenant. For more information, see the [Oracle documentation](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
@@ -56,19 +60,19 @@ The following image shows a high-level overview of the interconnection:
     * In **Provider Service Key**, paste the ExpressRoute service key.
     * Use the first /30 private IP address space carved out in a previous step for the **Primary BGP IP Address** and the second /30 private IP address space for the **Secondary BGP IP** Address.
         * Assign the first useable address of the two ranges for the Oracle BGP IP Address (Primary and Secondary) and the second address to the customer BGP IP Address (from a FastConnect perspective). The first useable IP address is the second IP address in the /30 address space (the first IP address is reserved by Microsoft).
-    * Click `Create`.
+    * Click **Create**.
 1. Complete linking the FastConnect to virtual cloud network under your Oracle tenant via Dynamic Routing Gateway, using Route Table.
-1. Navigate to Azure and ensure that the **Provider Status** for your ExpressRoute circuit has changed to **Provisioned**. This is a pre-requisite for the following steps.
+1. Navigate to Azure and ensure that the **Provider Status** for your ExpressRoute circuit has changed to **Provisioned** and that a peering of type **Azure private** has been provisioned. This is a pre-requisite for the following steps.
     ![ExpressRoute provider status](media/configure-azure-oci-networking/exr_provider_status.png)
-1. Configure private peering under your ExpressRoute circuit. You will need the two /30 IP address spaces configured while setting up the FastConnect circuit. To configure peering, see the [step-by-step guide](../../../expressroute/expressroute-howto-routing-portal-resource-manager.md).
-    * The `Peer ASN` must be set to **31898**.
-    * The primary /30 IP address space should be entered in the **Primary subnet**.
-    * The secondary /30 IP address space should be entered in the **Secondary subnet**.
-    * Set a valid **VLAN ID** to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both primary and secondary links you must use the same VLAN ID.
+1. Click on the **Azure private** peering. You will see the peering details have automatically been configured based on the information you entered when setting up your FastConnect circuit.
     ![](media/configure-azure-oci-networking/exr_private_peering.png)
-1. Complete connecting the private peering to the virtual gateway of your VNet, following the [step-by-step guide](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
-Once you have completed the network configuration, you can verify the validity of your configuration by checking the ARP table and Route table under the ExpressRoute private peering blade in the Azure portal.
+## Connect virtual network to ExpressRoute
+
+1. Create a virtual network and virtual network bateway, if you haven't already. For details, see the [step-by-step guide](../../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
+1. Set up the connection between the virtual network gateway and your ExpressRoute circuit by executing the [Terraform script](https://github.com/microsoft/azure-oracle/tree/master/InterConnect-2) or by executing the PowerShell command to [Configure ExpressRoute FastPath](../../../expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath.md).
+
+Once you have completed the network configuration, you can verify the validity of your configuration by clicking on **Get ARP Records** and **Get route table** under the ExpressRoute Private peering blade in the Azure portal.
 
 ## Automation
 
@@ -78,7 +82,17 @@ The Terraform scripts and related documentation to deploy the inter-connect can 
 
 ## Monitoring
 
-Installing agents on both the clouds, you can leverage Azure [Network Performance Monitor (NPM)](../../../expressroute/how-to-npm.md) to monitor the performance of the end-to-end network. NPM helps you to readily identify network issue, and help eliminating them.
+Installing agents on both the clouds, you can leverage Azure [Network Performance Monitor (NPM)](../../../expressroute/how-to-npm.md) to monitor the performance of the end-to-end network. NPM helps you to readily identify network issues, and helps eliminate them.
+
+## Delete the interconnect link
+
+To delete the interconnect, the following steps must be followed, in the specific order given. Failure to do so will result in a "failed state" ExpressRoute circuit.
+
+1. Delete the virtual network gateway and ExpressRoute connection. Delete the connection by clicking the **Delete** icon on the page for your connection. For more information, see the [ExpressRoute documentation](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
+1. Delete the Oracle FastConnect from the Oracle Cloud Console.
+1. Once the Oracle FastConnect circuit has been deleted, you can delete the Azure ExpressRoute circuit.
+
+At this point, the delete and deprovisioning process is complete.
 
 ## Next steps
 
