@@ -88,9 +88,9 @@ __When to use it:__ Use this option when you need more control over the Linux en
 
 ### Web deploy (MSDeploy)
 
-__What it does:__ Packages and deploys your Windows applications to any IIS server - including your Azure function apps running on Windows.
+__What it does:__ Packages and deploys your Windows applications to any IIS server, including your function apps running on Windows in Azure.
 
-__How to use it:__ Use the [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md), and don't tick the `Run from package file (recommended)` check box.
+__How to use it:__ Use the [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md), and don't check the `Run from package file (recommended)` box.
 
 Alternatively, call `MSDeploy.exe` directly after downloading [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
 

@@ -233,7 +233,7 @@ When publishing from Visual Studio Code, one of two deployment methods are used:
 * [Zip Deploy with Run-From-Package enabled](functions-deployment-technologies.md#zip-deploy): used for most Azure Functions deployments.
 * [External package URL](functions-deployment-technologies.md#external-package-url): used for deployment to Linux apps on a [Consumption plan](functions-scale.md#consumption-plan).
 
-By default, Visual Studio automatically generates values for the Azure resources needed by your function app. These values are based on the function app name you choose. For an example of using defaults to publishing your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+By default, Visual Studio Code automatically generates values for the Azure resources needed by your function app. These values are based on the function app name you choose. For an example of using defaults to publishing your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
 
 If you want to provide explicit names for the created resources, you must enable publishing using advanced options.
 
