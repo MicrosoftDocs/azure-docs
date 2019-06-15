@@ -27,7 +27,7 @@ To complete this quickstart, you must have:
 
 ## Create a Form Recognizer resource
 
-!INCLUDE [create resource](../includes/create-resource.md)]
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## Analyze a receipt
 
@@ -58,8 +58,7 @@ After you've called the **Analyze Receipt** API, you call the **Get Receipt Resu
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/operations/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-You'll receice a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is complete, the `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of a receipt.
-
+You'll receice a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is complete, the `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the
 See the following receipt image and its corresponding JSON output. The output has been shortened for scanability.
 
 ![A receipt from Serafina restaurant](../media/serafina-receipt.jpg)
@@ -105,135 +104,6 @@ See the following receipt image and its corresponding JSON output. The output ha
             }
           ]
         },
-        {
-          "boundingBox": [
-            704,
-            634,
-            962,
-            636,
-            961,
-            677,
-            704,
-            676
-          ],
-          "text": "osteria & enoteca",
-          "words": [
-            {
-              "boundingBox": [
-                722,
-                636,
-                823,
-                640,
-                823,
-                674,
-                721,
-                677
-              ],
-              "text": "osteria",
-              "confidenceScore": 0.219,
-              "confidence": "Low"
-            },
-            {
-              "boundingBox": [
-                831,
-                640,
-                848,
-                640,
-                847,
-                674,
-                831,
-                674
-              ],
-              "text": "&",
-              "confidenceScore": 0.998
-            },
-            {
-              "boundingBox": [
-                856,
-                641,
-                960,
-                642,
-                960,
-                673,
-                856,
-                674
-              ],
-              "text": "enoteca",
-              "confidenceScore": 0.708
-            }
-          ]
-        },
-        {
-          "boundingBox": [
-            571,
-            731,
-            935,
-            730,
-            935,
-            762,
-            572,
-            763
-          ],
-          "text": "Serafina Osteria & Enoteca",
-          "words": [
-            {
-              "boundingBox": [
-                574,
-                732,
-                691,
-                734,
-                692,
-                763,
-                575,
-                763
-              ],
-              "text": "Serafina",
-              "confidenceScore": 0.952
-            },
-            {
-              "boundingBox": [
-                697,
-                734,
-                803,
-                734,
-                803,
-                763,
-                698,
-                763
-              ],
-              "text": "Osteria",
-              "confidenceScore": 0.934
-            },
-            {
-              "boundingBox": [
-                809,
-                733,
-                831,
-                733,
-                831,
-                763,
-                809,
-                763
-              ],
-              "text": "&",
-              "confidenceScore": 0.998
-            },
-            {
-              "boundingBox": [
-                839,
-                733,
-                934,
-                730,
-                934,
-                762,
-                839,
-                763
-              ],
-              "text": "Enoteca",
-              "confidenceScore": 0.987
-            }
-          ]
-        }
         ...
       ]
     }
