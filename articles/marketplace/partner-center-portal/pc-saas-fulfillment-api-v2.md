@@ -11,11 +11,11 @@ ms.author: evansma
 
 # SaaS fulfillment APIs, version 2 
 
-This article details the API that enables independent software vendors (ISVs) to sell their SaaS applications in the AppSource and Azure Marketplace. This API is a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
+This article details the APIs that enable partners to sell their SaaS applications in the AppSource marketplace and the Azure Marketplace. These APIs are a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
 
 ## Managing the SaaS subscription life cycle
 
-Azure SaaS manages the entire life cycle of a SaaS subscription purchase. It uses the fulfillment API as a mechanism to drive the actual fulfillment, changes to plans, and deletion of the subscription with the ISV. The customer's bill is based on the state of the SaaS subscription that Microsoft maintains. The following diagram depicts the states and the operations that drive the changes between states.
+Azure SaaS manages the entire life cycle of a SaaS subscription purchase. It uses the fulfillment APIs as a mechanism to drive the actual fulfillment, changes to plans, and deletion of the subscription with the partner. The customer's bill is based on the state of the SaaS subscription that Microsoft maintains. The following diagram depicts the states and the operations that drive the changes between states.
 
 ![SaaS subscription life cycle states](./media/saas-subscription-lifecycle-api-v2.png)
 
@@ -26,7 +26,7 @@ The following table lists the provisioning states for a SaaS subscription, inclu
 
 #### Provisioning
 
-When a customer initiates a purchase, the ISV receives this information in an authorization code on a customer-interactive web page that uses a URL parameter. An example is `https://contoso.com/signup?token=..`, whereas the landing page URL in Partner Center is `https://contoso.com/signup`. The authorization code can be validated and exchanged for the details of the provisioning service by calling the Resolve API.  When Azure SaaS finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed. The following diagram shows the sequence of API calls for a provisioning scenario.  
+When a customer initiates a purchase, the partner receives this information in an authorization code on a customer-interactive web page that uses a URL parameter. An example is `https://contoso.com/signup?token=..`, whereas the landing page URL in Partner Center is `https://contoso.com/signup`. The authorization code can be validated and exchanged for the details of the provisioning service by calling the Resolve API.  When SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed. The following diagram shows the sequence of API calls for a provisioning scenario.  
 
 ![API calls for provisioning a SaaS.](./media/saas-post-provisioning-api-v2-calls.png)
 
@@ -34,9 +34,9 @@ When a customer initiates a purchase, the ISV receives this information in an au
 
 This state is the steady state of a provisioned service.
 
-#### Provisioning for update 
+##### Provisioning for update 
 
-This state signifies that an update to an existing service is pending. Such an update can be initiated by the customer, either from the marketplace or on the SaaS (only for direct-to-customer transactions).
+This state signifies that an update to an existing service is pending. Such an update can be initiated by the customer, either from the marketplace or on the SaaS service (only for direct-to-customer transactions).
 
 ##### Provisioning for update (when it's initiated from the marketplace)
 
@@ -44,9 +44,9 @@ The following diagram shows the sequence of actions when an update is initiated 
 
 ![API calls when the update is initiated from the marketplace.](./media/saas-update-api-v2-calls-from-marketplace-a.png)
 
-##### Provisioning for update (when it's initiated from the SaaS)
+##### Provisioning for update (when it's initiated from the SaaS service)
 
-The following diagram shows the actions when an update is initiated from the SaaS. (The webhook call is replaced by an update to the subscription initiated by the SaaS.) 
+The following diagram shows the actions when an update is initiated from the SaaS service. (The webhook call is replaced by an update to the subscription initiated by the SaaS service.) 
 
 ![API calls when the update is initiated from the SaaS.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
@@ -54,13 +54,13 @@ The following diagram shows the actions when an update is initiated from the Saa
 
 This state indicates that a customer’s payment hasn't  been received. By policy, we'll provide the customer a grace period before canceling the subscription. When a subscription is in this state: 
 
-- As an ISV, you may choose to degrade or block the user’s access to the service.
+- As a partner, you may choose to degrade or block the user’s access to the service.
 - The subscription must be kept in a recoverable state that can restore full functionality without any loss of data or settings. 
-- Expect to get a reinstate request for this subscription via the fulfillment API or a de-provisioning request at the end of the grace period. 
+- Expect to get a reinstate request for this subscription via the fulfillment APIs or a de-provisioning request at the end of the grace period. 
 
 #### Unsubscribed 
 
-Subscriptions reach this state in response to either an explicit customer request or nonpayment of dues. The expectation from the ISV is that the customer’s data is retained for recovery on request for a certain number of days and then deleted. 
+Subscriptions reach this state in response to either an explicit customer request or nonpayment of dues. The expectation from the partner is that the customer’s data is retained for recovery on request for a certain number of days and then deleted. 
 
 
 ## API reference
@@ -87,7 +87,7 @@ Globally unique identifiers ([GUIDs](https://en.wikipedia.org/wiki/Universally_u
 
 #### Resolve a subscription 
 
-The resolve endpoint enables the publisher to resolve a marketplace token to a persistent resource ID. The resource ID is the unique identifier for a SaaS subscription. When a user is redirected to an ISV’s website, the URL contains a token in the query parameters. The ISV is expected to use this token and make a request to resolve it. The response contains the unique SaaS subscription ID, name, offer ID, and plan for the resource. This token is valid for one hour only. 
+The resolve endpoint enables the publisher to resolve a marketplace token to a persistent resource ID. The resource ID is the unique identifier for a SaaS subscription. When a user is redirected to an partner’s website, the URL contains a token in the query parameters. The partner is expected to use this token and make a request to resolve it. The response contains the unique SaaS subscription ID, name, offer ID, and plan for the resource. This token is valid for one hour only. 
 
 ##### Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
@@ -105,7 +105,7 @@ The resolve endpoint enables the publisher to resolve a marketplace token to a p
 |  x-ms-requestid    |  A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
 |  authorization     |  [Get JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
-|  x-ms-marketplace-token  |  The token query parameter in the URL when the user is redirected to the SaaS ISV’s website from Azure (for example: `https://contoso.com/signup?token=..`). *Note:* The URL decodes the token value from the browser before using it.  |
+|  x-ms-marketplace-token  |  The token query parameter in the URL when the user is redirected to the SaaS partner’s website from Azure (for example: `https://contoso.com/signup?token=..`). *Note:* The URL decodes the token value from the browser before using it.  |
 
 *Response codes:*
 
@@ -433,7 +433,7 @@ Request Body:
 *Response codes:*
 
 Code: 202<br>
-The request to change plan has been accepted. The ISV is expected to poll the Operation-Location to determine a success or failure. <br>
+The request to change plan has been accepted. The partner is expected to poll the Operation-Location to determine a success or failure. <br>
 
 Code: 400<br>
 Bad request: validation failures.
@@ -499,7 +499,7 @@ Request Body:
 *Response codes:*
 
 Code: 202<br>
-The request to change quantity has been accepted. The ISV is expected to poll the Operation-Location to determine a success or failure. <br>
+The request to change quantity has been accepted. The partner is expected to poll the Operation-Location to determine a success or failure. <br>
 
 Code: 400<br>
 Bad request: validation failures.
@@ -551,7 +551,7 @@ Unsubscribe and delete the specified subscription.
 *Response codes:*
 
 Code: 202<br>
-The ISV initiated a call to unsubscribe a SaaS subscription.<br>
+The partner initiated a call to unsubscribe a SaaS subscription.<br>
 
 Code: 400<br>
 Delete on a subscription with **Delete** not in `allowedCustomerOperations`.
@@ -745,7 +745,7 @@ Update the status of an operation to indicate success or failure with the provid
 *Response codes:*
 
 Code: 200<br> 
-A call to inform of completion of an operation on the ISV side. For example, this response could signal the change of seats or plans.
+A call to inform of completion of an operation on the partner side. For example, this response could signal the change of seats or plans.
 
 Code: 400<br>
 Bad request: validation failures.
@@ -772,9 +772,9 @@ Internal server error.
 
 ```
 
-## Implementing a webhook on the SaaS
+## Implementing a webhook on the SaaS service
 
-The publisher must implement a webhook in this SaaS to proactively notify users of changes in its service. The API is expected to be unauthenticated and will be called by the SaaS. The SaaS is expected to call the operations API to validate and authorize before taking an action on the webhook notification.
+The publisher must implement a webhook in this SaaS service to proactively notify users of changes in its service. The SaaS service is expected to call the operations API to validate and authorize before taking an action on the webhook notification.
 
 ```json
 {
