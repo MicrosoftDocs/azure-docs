@@ -53,30 +53,32 @@ This document describes a solution that can  help protect your computing devices
 * Microsoft Defender Advanced Threat Protection (ATP) for cloud-managed endpoint protection, detection, and response
 * Azure AD PIM for managing authorization and just-in-time (JIT) privileged access to resources
 
-## Who benefits from using a secure workstation?
+## Who benefits from a secure workstation?
 
-All users, and operators benefit from using a secure workstation. An attacker who compromises a PC or device can do several things including impersonate all cached accounts, and use credentials, and tokens used on that device while they are logged on. This risk makes securing the devices used for any privileged role including administrative rights so important as devices where a privileged account is used are targets for lateral movement and privilege escalation attacks. These accounts may be used for a variety of assets such as:
+All users and operators benefit when using a secure workstation. An attacker who compromises a PC or device can impersonate all cached accounts. When logged in to the device, they can also use credentials and tokens. This risk makes it very important to secure devices that are used for privileged roles, including administrative rights. Devices with privileged accounts are targets for lateral movement and privilege escalation attacks. These accounts can be used for a variety of assets such as:
 
-* Administrators of on-premises and cloud-based systems
-* Developer workstations for critical systems
-* Social media accounts administrator with high exposure
-* Highly sensitive workstations like SWIFT payment terminals
-* Workstations handling trade secrets
+* Administrator of on-premises or cloud-based systems
+* Developer workstation for critical systems
+* Social media account administrator with high exposure
+* Highly sensitive workstation, such as a SWIFT payment terminal
+* Workstation handling trade secrets
 
-Microsoft recommends implementing elevated security controls for privileged workstations where these accounts are used to reduce risk. Additional guidance can be found in the [Azure Active Directory feature deployment guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365 roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
+To reduce risk, you should implement elevated security controls for privileged workstations that make use of these accounts. For additional guidance, see the [Azure Active Directory feature deployment guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365 roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
 
 ## Why use dedicated workstations?
 
-While it is possible to add security to an existing device, it is better to start with a secure foundation. Starting with a known good device and a set of known security controls puts your organization in the best position to maintain that increased level of security. With the ever growing number of attack vectors allowed by casual email and web browsing, it is increasingly hard to ensure a device can be trusted. This guide works under the assumption a dedicated workstation separated from standard productivity, browsing, and email tasks are completed. Removal of productivity, web browsing, and email from a device can have a negative impact on productivity, but this safeguard is typically acceptable for scenarios where the job tasks don’t explicitly require it and risk of a security incident is high.
+While it is possible to add security to an existing device, it is better to start with a secure foundation. To put your organization in the best position to maintain a high security level, start with a device you know is secure and implement a set of known security controls.
+
+A growing number of attack vectors through email and web browsing makes increasingly hard to be sure that a device can be trusted. This guides assumes that a dedicated workstation is isolated from standard productivity, browsing, and email. Removal of productivity, web browsing, and email from a device can have a negative impact on productivity. However, this safeguard is typically acceptable for scenarios where the job tasks don’t explicitly require it and risk of a security incident is high.
 
 > [!NOTE]
-> Web browsing here refers to general access to arbitrary websites, which is a high risk distinctly different from using a web browser to access a small number of well-known administrative websites for services like Azure, Office 365, other cloud providers, and SaaS applications.
+> Web browsing here refers to general access to arbitrary websites which can be a high risk activity. Such browsing is distinctly different from using a web browser to access a small number of well-known administrative websites for services like Azure, Office 365, other cloud providers, and SaaS applications.
 
-Containment strategies provide increased security assurances by increasing the number and type of controls an adversary has to overcome in order to access sensitive assets. The model developed here provides containment of administrative privileges to specific devices using a tiered privilege model.
+Containment strategies provide increased security by increasing the number and type of controls that an attacker must overcome to access sensitive assets. The model described in this article uses a tiered privilege design and restricts administrative privileges to specific devices.
 
 ## Supply chain management
 
-Essential to a secured workstation is a supply chain solution where the workstation you use is trusted, a 'root of trust'. This solution will address the root of trust using the [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) technology. For a secured workstation Microsoft Autopilot provides the ability to leverage Microsoft OEM-optimized Windows 10 devices that provide a known good state from the manufacturer. Instead of reimaging a device that may not be trusted, Microsoft Autopilot can transform a Windows device into a “business-ready” state, applying settings and policies, installing apps, and even changing the edition of Windows 10 being used (for example, from Windows 10 Pro to Windows 10 Enterprise, to support advanced features).
+Essential to a secured workstation is a supply chain solution where you use a trusted workstation called the 'root of trust'. For this solution, the root of trust uses [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) technology. To secure a workstation, Microsoft Autopilot lets you  leverage Microsoft OEM-optimized Windows 10 devices. These devices come in a known good state from the manufacturer. Instead of re-imaging a potentially insecure device, Microsoft Autopilot can transform a Windows device into a “business-ready” state. It applies settings and policies, installs apps, and even changes the edition of Windows 10. For example, Autopilot can switch devices from Windows 10 Pro to Windows 10 Enterprise to support advanced features.
 
 ![Secure workstation Levels](./media/concept-azure-managed-workstation/supplychain.png)
 
