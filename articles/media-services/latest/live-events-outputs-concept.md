@@ -111,7 +111,7 @@ You can either use non-vanity URLs or vanity URLs.
 * *stream name* - Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use.
 
 > [!TIP]
-> Some live encoders ask you to go get the “Stream Key/ID” from the service. In the case of Media Services, you would prove the value of the access token.
+> Some live encoders ask you to provide the “Stream Key/ID” from the service. In case of Media Services, you would set the value of the access token.
 
 #### Non-vanity URL
 
