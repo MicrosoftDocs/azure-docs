@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/15/2019
 ms.author: edjez
 ---
 # Personalizer Troubleshooting
