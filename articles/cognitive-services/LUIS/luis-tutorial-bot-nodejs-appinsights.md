@@ -55,13 +55,14 @@ In order to capture the LUIS information, the web app bot needs the **[Applicati
     ```javascript
     const appInsights = require('applicationinsights');
     const _ = require("underscore");
-    appInsights.setup("<appInsightsInstrumentationKeyValue>").start();
-    const appInsightsClient = appInsights.defaultClient;
     
     // Log LUIS results to Application Insights
     // must flatten as name/value pairs
     var appInsightsLog = (botContext,luisResponse) => {
-        
+
+        appInsights.setup(process.env.MicrosoftApplicationInsightsInstrumentationKey).start();
+        const appInsightsClient = appInsights.defaultClient;
+
         // put bot context and LUIS results into single object
         var data = Object.assign({}, {'botContext': botContext._activity}, {'luisResponse': luisResponse});
     
@@ -175,8 +176,8 @@ In order to add data to application insights, you need the instrumentation key.
 
 1. In a browser, in the Azure portal, find your bot's **Application Insights** resource. It will have a name most of the bot's name, then random characters at the end of the name. 
 1. On the Application Insights resource, on the **Overview** page, copy the **Instrumentation Key**.
-1. In VSCode, open the **appInsightsLog.js** file at the root of the bot project. 
-1. Replace `<appInsightsInstrumentationKeyValue>` toward the top of the file with the instrumentation key.
+1. In VSCode, open the **.env** file at the root of the bot project. This file holds all your environment variables.  
+1. Add a new variable, `MicrosoftApplicationInsightsInstrumentationKey` with the value of your instrumentation key. Do no put the key value in quotes. 
 
 ## Start the bot
 
