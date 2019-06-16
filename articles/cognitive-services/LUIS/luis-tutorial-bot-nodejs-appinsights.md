@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: diberry
 ---
@@ -24,16 +24,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* A downloaded and running LUIS web app bot from the previous bot **[tutorial](luis-nodejs-tutorial-bf-v4)** with Application Insights enabled. 
+* A downloaded and running LUIS web app bot from the previous bot **[tutorial](luis-nodejs-tutorial-bf-v4.md)** with Application Insights enabled. 
 * [Bot emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
-> [!Tip]
-> If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
-
 All of the code in this tutorial is available on the [Azure-Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-nodejs-bot-johnsmith-src-telemetry). 
 
-## Add Application Insights library to web app bot
+## Add Application Insights to web app bot project
 Currently, the Application Insights service, used in this web app bot, collects general state telemetry for the bot. It does not collect LUIS information. 
 
 In order to capture the LUIS information, the web app bot needs the **[Application Insights](https://www.npmjs.com/package/applicationinsights)** NPM package installed and configured.  
