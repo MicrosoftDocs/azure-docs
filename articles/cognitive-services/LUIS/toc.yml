@@ -85,7 +85,7 @@
       displayName: roles
     - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
-  - name: Use V4 bot framework
+  - name: Use with bot
     items:
     - name: With C# 
       items:
