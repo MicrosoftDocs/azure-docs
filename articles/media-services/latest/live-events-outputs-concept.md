@@ -106,7 +106,6 @@ You can either use non-vanity URLs or vanity URLs.
 ### Live ingest URL naming rules
 
 * The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).
-* *auto-generated access token* - If do not need to use the vanity mode, let Media Services to auto-generate the token. 
 * *your access token* - The valid GUID string you set when using the vanity mode. For example, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *stream name* - Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use.
 
