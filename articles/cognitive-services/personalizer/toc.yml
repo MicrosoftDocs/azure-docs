@@ -68,6 +68,8 @@
       href: https://go.microsoft.com/fwlink/?linkid=2092272
 - name: Resources
   items:
+  - name: Troubleshooting
+    href: troubleshooting.md
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
