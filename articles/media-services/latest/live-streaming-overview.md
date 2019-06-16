@@ -63,9 +63,9 @@ When using live encoding with Media Services, you would configure your on-premis
 
 To understand the live streaming workflow in Media Services v3, you have to first review and understand the following concepts: 
 
-- [Streaming Endpoints API](streaming-endpoint-concept.md)
-- [Live Events and Live Outputs API](live-events-outputs-concept.md)
-- [Streaming Locators API](streaming-locators-concept.md)
+- [Streaming Endpoints](streaming-endpoint-concept.md)
+- [Live Events and Live Outputs](live-events-outputs-concept.md)
+- [Streaming Locators](streaming-locators-concept.md)
 
 ### General steps
 
