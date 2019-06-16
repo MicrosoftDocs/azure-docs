@@ -455,7 +455,7 @@ This variable is a string, which holds "next" if the next page of results should
                         });
                     }
                 }
-         </script>
+        </script>
 ```
 
 The **if** statement in the script above tests to see if the user has scrolled to the bottom of the vertical scroll bar. If they have, a call to the **Home** controller is made to an action called **Next**. No other information is needed by the controller, it will return the next page of data. This data is then formatted using identical HTML styles as the original page. If no results are returned, nothing is appended and things stay as they are.
