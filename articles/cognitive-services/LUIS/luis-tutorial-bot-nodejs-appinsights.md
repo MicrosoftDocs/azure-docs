@@ -1,7 +1,7 @@
 ---
 title: Application Insights, Node.js 
 titleSuffix: Azure Cognitive Services
-description: Build a bot integrated with a LUIS application and Application Insights using Node.js.
+description: This tutorial adds bot and Language Understanding information to Application Insights telemetry data storage.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 06/16/2019
 ms.author: diberry
 ---
 
-# Add LUIS results to Application Insights with a Bot in Node.js
-This tutorial adds LUIS request and response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or Power BI to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
+# Add bot telemetry to Application Insights with Node.js
+This tutorial adds bot and Language Understanding information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or Power BI to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
 The bot is built with the Bot Framework 4.x and the Azure Web app bot. A [Bot Framework 4.x with LUIS tutorial](luis-nodejs-tutorial-bf-v4.md) is also available.
 
