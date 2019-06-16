@@ -24,11 +24,11 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This can either be your own version, that you completed in the previous tutorial, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This project can either be your own version, that you completed in the previous tutorial, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## Add suggestions
 
-Let's start with the simplest case of offering up alternatives to the user: simply a drop-down list of suggestions.
+Let's start with the simplest case of offering up alternatives to the user: a drop-down list of suggestions.
 
 1. In the index.cshtml file, change the **TextBoxFor** statement to the following.
 
@@ -73,7 +73,7 @@ The autocomplete function called in the script above is not something we have to
 </head>
 ```
 
-2. We also need to remove, or comment out, a line referencing jquery in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. This avoids clashing references to jquery.
+2. We also need to remove, or comment out, a line referencing jquery in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. This change avoids clashing references to jquery.
 
 ```cs
     <environment include="Development">
@@ -119,7 +119,7 @@ Now we can use the predefined autocomplete jquery functions.
         }
 ```
 
-The **Top** parameter specifies how many results to return (if unspecified, the default is 5). A _suggester_ is specified on the Azure index, which is done when the data is set up, and not by a client app such as this tutorial. In this case, the suggester is called "sg" and it simply searches the **HotelName** field - nothing else. 
+The **Top** parameter specifies how many results to return (if unspecified, the default is 5). A _suggester_ is specified on the Azure index, which is done when the data is set up, and not by a client app such as this tutorial. In this case, the suggester is called "sg", and it searches the **HotelName** field - nothing else. 
 
 Fuzzy matching allows "near misses" to be included in the output. If the **highlights** parameter is set to true, then bold HTML tags are added to the output. We will set these two parameters to true in the next section.
 
@@ -134,7 +134,7 @@ using System.Linq;
 
  ![Typing "po" reveals two suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
 
-Notice that the letters you enter _must_ start a word, not simply be included within the word.
+Notice that the letters you enter _must_ start a word, and not simply be included within the word.
 
 4. In the view script, set **&fuzzy** to true, and run the app again. Now enter "po". Notice that the search assumes you got one letter wrong!
  
@@ -275,7 +275,7 @@ There are libraries that offer this functionality - often called "inline autocom
             };
 
             // Only one suggester can be specified per index. The name of the suggester is set when the suggester is specified by other API calls.
-            // The suggester for the hotel database is called "sg" and simply searches the hotel name.
+            // The suggester for the hotel database is called "sg", and it searches only the hotel name.
             DocumentSuggestResult<Hotel> suggestResult = await _indexClient.Documents.SuggestAsync<Hotel>(term, "sg", sp);
 
             // Create an empty list.
@@ -430,7 +430,7 @@ Notice the clever use of the **interval** function to both clear the underlying 
 
 Read through the comments in the script to get a fuller understanding.
 
-4. Finally, we need to make a minor adjustments to two HTML class to make them transparent. Add the following line to the **searchBoxForm** and **searchBox** classes, in the hotels.css file.
+4. Finally, we need to make a minor adjustment to two HTML class to make them transparent. Add the following line to the **searchBoxForm** and **searchBox** classes, in the hotels.css file.
 
 ```cs
         background: rgba(0,0,0,0);
@@ -442,7 +442,7 @@ Read through the comments in the script to get a fuller understanding.
 
 6. Try tabbing to accept the autocomplete suggestion, and try selecting suggestions using the arrow keys and tab key, and try again using the mouse and a single click. Verify that the script handles all these situations neatly.
 
-Of course, you may decide that it is simpler to load in a library that offers this feature for you, but now you know at least one way of how to get it to work!
+You may decide that it is simpler to load in a library that offers this feature for you, but now you know at least one way to get inline autocompletion to work!
 
 ## Takeaways
 
@@ -455,7 +455,7 @@ Consider the following takeaways from this project:
 
 ## Next steps
 
-One of the issues with autocompletion and suggestions is that they involve repeated calls to the server (one on every key stroke after the minimum number of characters typed is reached). If this results in slower than expected responses, then the user experience diminishes. Using facets provides an interesting alternative to avoid these repeated calls, which we will look at next.
+One of the issues with autocompletion and suggestions is that they involve repeated calls to the server (one on every key stroke after the minimum number of characters typed is reached). If these repeated calls results in slower than expected responses, then the user experience diminishes. Using facets provides an interesting alternative to avoid these repeated calls, which we will look at next.
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Use facets for navigation and network efficiency - Azure Search](tutorial-csharp-facets.md)
