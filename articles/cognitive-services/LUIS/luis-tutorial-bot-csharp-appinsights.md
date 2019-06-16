@@ -145,7 +145,7 @@ In order to capture the LUIS information, the web app bot needs the **[Microsoft
 
 In order to add data to application insights, you need the instrumentation key.
 
-1. In a browser, in the [Azure portal](https://portal.azure.com), find your bot's **Application Insights** resource. Its name will have most of the bot's name, then random characters at the end of the name, such as `luis-nodejs-bot-johnsmithxqowom`. 
+1. In a browser, in the [Azure portal](https://portal.azure.com), find your bot's **Application Insights** resource. Its name will have most of the bot's name, then random characters at the end of the name, such as `luis-csharp-bot-johnsmithxqowom`. 
 1. On the Application Insights resource, on the **Overview** page, copy the **Instrumentation Key**.
 1. In Visual Studio, open the **appsettings.json** file at the root of the bot project. This file holds all your environment variables.
 1. Add a new variable, `BotDevAppInsightsKey` with the value of your instrumentation key. The value in should be in quotes. 
@@ -156,6 +156,7 @@ In order to add data to application insights, you need the instrumentation key.
 1. Start the bot emulator and open the bot. This [step](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) is provided in the previous tutorial.
 
 1. Ask the bot a question. This [step](luis-csharp-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent) is provided in the previous tutorial.
+1. 
 ## View LUIS entries in Application Insights
 
 Open Application Insights to see the LUIS entries. It can take a few minutes for the data to appear in Application Insights.
@@ -164,18 +165,18 @@ Open Application Insights to see the LUIS entries. It can take a few minutes for
 1. When the resource opens, select **Search** and search for all data in the last **30 minutes** with the event type of **Trace**. Select the trace named **LUIS**. 
 1. The bot and LUIS information is available under **Custom Properties**. 
 
-    ![Review LUIS custom properties stored in Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties.png)
+    ![Review LUIS custom properties stored in Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties_csharp.png)
 
 ## Query Application Insights for intent, score, and utterance
 Application Insights gives you the power to query the data with the [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) language, as well as export it to [Power BI](https://powerbi.microsoft.com). 
 
-1. Select **Log Analytics**. A new window opens with a query window at the top and a data table window below that. If you have used databases before, this arrangement is familiar. The query represents your previous filtered data. The **CustomDimensions** column has the bot and LUIS information.
+1. Select **Log (Analytics)**. A new window opens with a query window at the top and a data table window below that. If you have used databases before, this arrangement is familiar. The query represents your previous filtered data. The **CustomDimensions** column has the bot and LUIS information.
 1. To pull out the top intent, score, and utterance, add the following just above the last line (the `|top...` line) in the query window:
 
     ```kusto
-    | extend topIntent = tostring(customDimensions.LUIS_luisResponse_luisResult_topScoringIntent_intent)
-    | extend score = todouble(customDimensions.LUIS_luisResponse_luisResult_topScoringIntent_score)
-    | extend utterance = tostring(customDimensions.LUIS_luisResponse_text)
+    | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent_Name)
+    | extend score = todouble(customDimensions.LUIS_topScoringIntentScore)
+    | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
 1. Run the query. The new columns of topIntent, score, and utterance are available. Select topIntent column to sort.
