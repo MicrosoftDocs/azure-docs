@@ -1,6 +1,6 @@
 ---
 title: C# Tutorial on search results pagination - Azure Search
-description: This tutorial builds on the "Create your first app - Azure Search" project, with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to it's lower limit.
+description: This tutorial builds on the "Create your first app - Azure Search" project, with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to its lower limit.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -40,7 +40,7 @@ Have the basic search page solution open.
 
 1. Open the SearchData.cs model file.
 
-2. First add some global variables. In MVC global variables are declared in their own static class. **ResultsPerPage** sets the number of results per page. **MaxPageRange** determines the number of visible page numbers on the view. **PageRangeDelta** determines how many pages left or right the page range should be shifted, when the left-most or right-most page number is selected. Typically this latter number is around half of **MaxPageRange**. Add the following code into the namespace.
+2. First add some global variables. In MVC, global variables are declared in their own static class. **ResultsPerPage** sets the number of results per page. **MaxPageRange** determines the number of visible page numbers on the view. **PageRangeDelta** determines how many pages left or right the page range should be shifted, when the left-most or right-most page number is selected. Typically this latter number is around half of **MaxPageRange**. Add the following code into the namespace.
 
 ```cs
     public static class GlobalVariables
@@ -367,7 +367,7 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 3. Are the "first" and "last" options useful? Some popular web searches use these options, and others do not.
 
-4. Go to the the last page of results. The last page is the only page that may contain less than **ResultsPerPage** results.
+4. Go to the last page of results. The last page is the only page that may contain less than **ResultsPerPage** results.
 
  ![Examining last page of "wifi"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
 
@@ -396,7 +396,7 @@ To implement infinite scrolling, let's start with the project before any of the 
 
 This variable is a string, which holds "next" if the next page of results should be sent, or be null for the first page of a search.
 
-2. In the same file, and within the namespace, add a global variable class with one property. In MVC global variables are declared in their own static class. **ResultsPerPage** sets the number of results per page. 
+2. In the same file, and within the namespace, add a global variable class with one property. In MVC, global variables are declared in their own static class. **ResultsPerPage** sets the number of results per page. 
 
 ```cs
     public static class GlobalVariables
@@ -589,7 +589,7 @@ Consider the following takeaways from this project:
 
 ## Next steps
 
-Paging is fundamental to internet searches. With that well covered, the next step is to improve the user experience further, by adding type-ahead searches.
+Paging is fundamental to internet searches. With paging well covered, the next step is to improve the user experience further, by adding type-ahead searches.
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Add autocompletion and suggestions - Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)

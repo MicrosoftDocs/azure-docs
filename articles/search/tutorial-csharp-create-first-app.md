@@ -235,7 +235,7 @@ namespace FirstAzureSearchApp.Models
 }
 ```
 
-This class contains the user's input (**searchText**), and the search's output (**resultList**). The type of the output is critical, **DocumentSearchResult&lt;Hotel&gt;**, as this type exactly matches the results from the search, and we need to pass this through to the view.
+This class contains the user's input (**searchText**), and the search's output (**resultList**). The type of the output is critical, **DocumentSearchResult&lt;Hotel&gt;**, as this type exactly matches the results from the search, and we need to pass this reference through to the view.
 
 
 
@@ -303,7 +303,7 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
 </body>
 ```
 
-6. Finally, we add the stylesheet. In Visual Studio, in the **File** menu select **New/File** then **Style Sheet** (with **General** highlighted). Replace the default code with the following. We will not be going into this file in any more detail, the styles are just standard HTML.
+6. Finally, we add the stylesheet. In Visual Studio, in the **File** menu select **New/File** then **Style Sheet** (with **General** highlighted). Replace the default code with the following. We will not be going into this file in any more detail, the styles are standard HTML.
 
 ```cs
    textarea.box1 {
@@ -523,7 +523,7 @@ It is important to verify that our error handling features work as they should, 
 
 1. In the **Index** method, after the **try {** call, enter the line **Throw new Exception()**. This exception will force an error when we search on text.
 
-2. Run the app, enter "bar" as search text, and click the search icon. This should result in the error view.
+2. Run the app, enter "bar" as search text, and click the search icon. The exception should result in the error view.
 
  ![Force an error](./media/tutorial-csharp-create-first-app/azure-search-error.png)
 
