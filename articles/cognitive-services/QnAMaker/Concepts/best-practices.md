@@ -8,18 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 06/16/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
 
 # Best practices of a QnA Maker knowledge base
-The [knowledge base development lifecycle](../Concepts/development-lifecycle-knowledge-base.md) guides you on how to manage your KB from beginning to end. Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
+
+The [knowledge base development lifecycle](../Concepts/development-lifecycle-knowledge-base.md) guides you on how to manage your KB from beginning to end. Use these best practices to improve your knowledge base and provide better results to your client application or chat bot's end users.
 
 ## Extraction
+
 The QnA Maker service is continually improving the algorithms that extract QnAs from content and expanding the list of supported file and HTML formats. Follow the [guidelines](../Concepts/data-sources-supported.md) for data extraction based on your document type. 
 
 In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page. 
+
+### Configuring multi-turn
+
+Create your knowledge base with multi-turn extraction enabled if your document's hierarchy mostly or completely matches the hierarchical structure you want for you knowledge base. 
 
 ## Creating good questions and answers
 
