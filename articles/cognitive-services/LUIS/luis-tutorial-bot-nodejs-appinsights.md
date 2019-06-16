@@ -19,29 +19,30 @@ This tutorial adds bot and Language Understanding information to [Application In
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add Application Insights library to a web app bot
-> * Query Application Insights for top intent, score, and utterance
+> * Capture bot and Language understanding data in Application Insights
+> * Query Application Insights for Language Understanding data
 
 ## Prerequisites
 
-* A downloaded and running LUIS web app bot from the previous bot **[tutorial](luis-nodejs-tutorial-bf-v4.md)** with Application Insights enabled. 
+* An Azure bot service bot, created with Application Insights enabled.
+* Downloaded bot code from the previous bot **[tutorial](luis-nodejs-tutorial-bf-v4.md)**. 
 * [Bot emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
-All of the code in this tutorial is available on the [Azure-Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-nodejs-bot-johnsmith-src-telemetry). 
+All of the code in this tutorial is available on the [Azure-Samples Language Understanding GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-nodejs-bot-johnsmith-src-telemetry). 
 
 ## Add Application Insights to web app bot project
 Currently, the Application Insights service, used in this web app bot, collects general state telemetry for the bot. It does not collect LUIS information. 
 
 In order to capture the LUIS information, the web app bot needs the **[Application Insights](https://www.npmjs.com/package/applicationinsights)** NPM package installed and configured.  
 
-1. In the VSCode integrated terminal, at the root for the bot project, add the following NPM packages. 
+1. In the VSCode integrated terminal, at the root for the bot project, add the following NPM packages using the command shown: 
 
     ```console
     npm install applicationinsights && npm install underscore
     ```
     
-    The **underscore** package is used to flatten the JSON structure so it is easier to see and use in Application Insights.
+    The **underscore** package is used to flatten the LUIS JSON structure so it is easier to see and use in Application Insights.
     
 
 
@@ -88,7 +89,7 @@ In order to capture the LUIS information, the web app bot needs the **[Applicati
     module.exports.appInsightsLog = appInsightsLog;
     ```
 
-    This file takes the bot context and the luis response, flattens both objects and inserts them into an **Event** in application insights. The event's name is **LUIS-results**.
+    This file takes the bot context and the luis response, flattens both objects and inserts them into a **Trace** event in application insights. The event's name is **LUIS**. 
 
 1. Open the **dialogs** folder, then the **luisHelper.js** file. Include the new **appInsightsLog.js** as a required file and capture the bot context and LUIS response. The complete code for this file is: 
 
@@ -171,14 +172,14 @@ In order to capture the LUIS information, the web app bot needs the **[Applicati
 
 In order to add data to application insights, you need the instrumentation key.
 
-1. In a browser, in the Azure portal, find your bot's **Application Insights** resource. It will have a name most of the bot's name, then random characters at the end of the name. 
+1. In a browser, in the [Azure portal](https://portal.azure.com), find your bot's **Application Insights** resource. Its name will have most of the bot's name, then random characters at the end of the name, such as `luis-nodejs-bot-johnsmithxqowom`. 
 1. On the Application Insights resource, on the **Overview** page, copy the **Instrumentation Key**.
 1. In VSCode, open the **.env** file at the root of the bot project. This file holds all your environment variables.  
-1. Add a new variable, `MicrosoftApplicationInsightsInstrumentationKey` with the value of your instrumentation key. Do no put the key value in quotes. 
+1. Add a new variable, `MicrosoftApplicationInsightsInstrumentationKey` with the value of your instrumentation key. Do no put the value in quotes. 
 
 ## Start the bot
 
-1. From the VSCode terminal, start the bot:
+1. From the VSCode integrated terminal, start the bot:
     
     ```console
     npm start
@@ -196,8 +197,7 @@ Open Application Insights to see the LUIS entries. It can take a few minutes for
 1. When the resource opens, select **Search** and search for all data in the last **30 minutes** with the event type of **Trace**. Select the trace named **LUIS**. 
 1. The bot and LUIS information is available under **Custom Properties**. 
 
-> [!Tip]
-> If you want to save the dependency list and return to it later, click on **...More** and click **Save favorite**.
+    ![Review LUIS custom properties stored in Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties.png)
 
 ## Query Application Insights for intent, score, and utterance
 Application Insights gives you the power to query the data with the [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) language, as well as export it to [Power BI](https://powerbi.microsoft.com). 

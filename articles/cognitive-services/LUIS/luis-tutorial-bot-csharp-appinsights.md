@@ -20,16 +20,17 @@ This tutorial adds bot and Language Understanding information to [Application In
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add Application Insights library to a web app bot
-> * Query Application Insights for top intent, score, and utterance
+> * Capture bot and Language understanding data in Application Insights
+> * Query Application Insights for Language Understanding data
 
 ## Prerequisites
 
-* A downloaded and running LUIS web app bot from the previous bot **[tutorial](luis-csharp-tutorial-bf-v4.md)** with Application Insights enabled. 
+* An Azure bot service bot, created with Application Insights enabled.
+* Downloaded bot code from the previous bot **[tutorial](luis-csharp-tutorial-bf-v4.md)**. 
 * [Bot emulator](https://aka.ms/abs/build/emulatordownload)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
 
-All of the code in this tutorial is available on the [Azure-Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-csharp-bot-johnsmith-src-telemetry). 
+All of the code in this tutorial is available on the [Azure-Samples Language Understanding GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-csharp-bot-johnsmith-src-telemetry). 
 
 ## Add Application Insights to web app bot project
 
