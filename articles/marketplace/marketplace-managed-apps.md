@@ -60,8 +60,8 @@ The following resource types are eligible for publisher charging:
 * Kubernetes
 * Kusto
 * Network
-* PowerBI
-* Postgre SQL
+* Power BI
+* PostgreSQL
 * Redis cache
 * Search
 * SoftwareLoadBalancer
@@ -80,4 +80,4 @@ If you haven't already done so,
 
 If you're registered and are creating a new offer or working on an existing one,
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
+- [Sign in to the Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
