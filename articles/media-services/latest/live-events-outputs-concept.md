@@ -86,16 +86,16 @@ You can either use non-vanity URLs or vanity URLs.
 
     Non-vanity URL is the default mode in Media Services v3. You potentially get the Live Event quickly but ingest URL is known only when the live event is started. The URL will change if you do stop/start the Live Event. <br/>Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest URL is not a problem.
     
-    If a client application doesn’t need to pre-generate an ingest URL before the Live Event is created, just let Media Services auto-generate the Access Token for the live event.
+    If a client application doesn’t need to pre-generate an ingest URL before the Live Event is created, just let Media Services to auto-generate the Access Token for the live event.
 * Vanity URL
 
     Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to re-configure their encoders when they start the Live Event. They want a predictive ingest URL, which does not change over time.
     
-    To specify this mode, you set `vanityUrl` to `true` at creation time (default is `false`). You also need to pass your own access token (`LiveEventInput.accessToken`) at creation time. You specify the token value to avoid a random token in the URL. The access token has to be a valid GUID string (with or without the dashes). Once the mode is set it cannot be updated.
+    To specify this mode, you set `vanityUrl` to `true` at creation time (default is `false`). You also need to pass your own access token (`LiveEventInput.accessToken`) at creation time. You specify the token value to avoid a random token in the URL. The access token has to be a valid GUID string (with or without the hyphens). Once the mode is set it cannot be updated.
 
     The access token needs to be unique in your data center. If your application needs to use a vanity URL, it is recommended to always create a new GUID instance for your access token (instead of reusing any existing GUID). 
 
-    Use the following APIs to enable the Vanity URL and set the access token to a valid GUID (for example `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`). The GUID string and can contain hyphens.
+    Use the following APIs to enable the Vanity URL and set the access token to a valid GUID (for example `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
     
     |Language|Enable vanity URL|Set access token|
     |---|---|---|
@@ -106,9 +106,9 @@ You can either use non-vanity URLs or vanity URLs.
 ### Live ingest URL naming rules
 
 * The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).
-* *auto-generated access token* - When not using the vanity mode.
-* *your access token* - Your valid GUID string. For example, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
-* The *stream name* indicates the stream name for a specific connection. The stream name value is usually added by the live encoder that you use.
+* *auto-generated access token* - If do not need to use the vanity mode, let Media Services to auto-generate the token. 
+* *your access token* - The valid GUID string you set when using the vanity mode. For example, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *stream name* - Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use.
 
 > [!TIP]
 > Some live encoders ask you to go get the “Stream Key/ID” from the service. In the case of Media Services, you would prove the value of the access token.
