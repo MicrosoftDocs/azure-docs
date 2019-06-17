@@ -37,7 +37,7 @@ Speaking style changes can be applied at the sentence level. The styles vary by 
 | `en-US-JessaNeural` | type=`cheerful` | Expresses an emotion that is positive and happy |
 | | type=`empathy` | Expresses a sense of caring and understanding |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
-| | type=`sentiment ` | Conveys a touching message or a story |
+| | type=`sentiment` | Conveys a touching message or a story |
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
