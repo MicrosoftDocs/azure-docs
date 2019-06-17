@@ -119,33 +119,34 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 |Requests/dependencies |Details|
 |---------------|-------|
 |Requests | Incoming web requests to your application. |
-|Http or https | Calls made with `HttpClient`. |
+|HTTP or HTTPS | Calls made with `HttpClient`. |
 |SQL | Calls made with `SqlClient`. |
-|[Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) | Calls made with Azure Storage Client. |
-|[EventHubs client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 and above. |
-|[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above. |
-|Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
+|[Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) | Calls made with the Azure Storage client. |
+|[EventHubs client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 and later. |
+|[ServiceBus client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and later. |
+|Azure Cosmos DB | Tracked automatically only if HTTP/HTTPS is used. TCP mode isn't captured by Application Insights. |
 
 ### Performance counters
 
-Support for [performance counters](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) in ASP.NET Core is limited to the following
+Support for [performance counters](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) in ASP.NET Core is limited:
 
-   * SDK version 2.4.1 and above collects performance counters if the application is running in Azure Web App (Windows)
-   * SDK version 2.7.0-beta3 and above collects performance counters if the application is running in Windows, and targeting `NETSTANDARD2.0` or higher.
-   * For applications targeting the .NET Framework, performance counters are supported in all versions of SDK.
-   * This article will be updated when performance counter support in Linux is added.
+   * SDK versions 2.4.1 and later collect performance counters if the application is running in Azure Web App (Windows).
+   * SDK versions 2.7.0-beta3 and later collect performance counters if the application is running in Windows and is targeting `NETSTANDARD2.0` or later.
+   * For applications targeting the .NET Framework, all versions of the SDK support performance counters.
+ 
+This article will be updated when performance counter support in Linux is added.
 
 ### ILogger logs
 
-[ILogger logs](https://docs.microsoft.com/azure/azure-monitor/app/ilogger) of severity `Warning` or  above are automatically captured from SDK version 2.7.0-beta3 or higher.
+[ILogger logs](https://docs.microsoft.com/azure/azure-monitor/app/ilogger) of severity `Warning` or greater  are automatically captured in SDK versions 2.7.0-beta3 and later.
 
 ### Live Metrics
 
-It may take a few minutes for telemetry to start appearing in the portal. To quickly check if everything is working, it is best to use [Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream), while making requests to the running application.
+It might take a few minutes before telemetry starts appearing in the portal. To quickly make sure everything is working, it's best to use [Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) when you make requests to the running application.
 
 ## Enable client-side telemetry for web apps
 
-The steps above are sufficient to start collecting server-side telemetry. If your application has client-side components, then follow steps below to start collecting [usage telemetry](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview) from there.
+The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview).
 
 1. In `_ViewImports.cshtml`, add injection:
 
@@ -153,21 +154,23 @@ The steps above are sufficient to start collecting server-side telemetry. If you
         @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
     ```
 
-2. In `_Layout.cshtml`, insert HtmlHelper to the end of `<head>` section but before any other script. Any custom JavaScript telemetry you want to report from the page should be injected after this snippet:
+2. In `_Layout.cshtml`, insert `HtmlHelper` at the end of the `<head>` section but before any other script. Any custom JavaScript telemetry you want to report from the page should be injected after this snippet:
 
     ```cshtml
         @Html.Raw(JavaScriptSnippet.FullScript)
         </head>
     ```
 
-The `.cshtml` file names referenced above are from a default MVC application template. Ultimately, to properly enable client-side monitoring for your application you need the JavaScript snippet to be present in the `<head>` section of each page of your application that you want to monitor. For this application template adding the Javascript snippet to `_Layout.cshtml` will effectively accomplish this goal. If your project does not have this specific file you can still add [client-side monitoring](https://docs.microsoft.com/azure/azure-monitor/app/website-monitoring). You would just need to either add the JavaScript to an equivalent file that controls the `<head>` of all pages within your app, or alternatively you could add the snippet to multiple individual pages though this would be difficult to maintain and is generally not recommended.
+The `.cshtml` file names referenced earlier are from a default MVC application template. Ultimately, if you want to properly enable client-side monitoring for your application, the JavaScript snippet must appear in the `<head>` section of each page of your application that you want to monitor. You can accomplish this goal for this application template by adding the Javascript snippet to `_Layout.cshtml`. 
+
+If your project doesn't include `_Layout.cshtml`, you can still add [client-side monitoring](https://docs.microsoft.com/azure/azure-monitor/app/website-monitoring). You can do this by adding the JavaScript snippet to an equivalent file that controls the `<head>` of all pages within your app. Or you can add the snippet to multiple pages, but this solution is difficult to maintain and is generally not recommended.
 
 ## Configure the Application Insights SDK
 
-Application Insights SDK for ASP.NET Core can be customized to alter the default configuration. Users of Application Insights ASP.NET SDK might be familiar with configuration using `ApplicationInsights.config`, or by modifying `TelemetryConfiguration.Active`. For ASP.NET Core, configuration is done differently. The ASP.NET Core SDK is added to the application and configured by using ASP.NET Core's built-in [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Almost all the configuration changes are done in the `ConfigureServices()` method of your `Startup.cs` class, unless stated otherwise. Follow the sections below to learn more.
+You can customize the Application Insights SDK for ASP.NET Core to change the default configuration. Users of the Application Insights ASP.NET SDK might be familiar with changing configuration by using `ApplicationInsights.config` or by modifying `TelemetryConfiguration.Active`. You change configuration differently for ASP.NET Core. Add the ASP.NET Core SDK to the application and configure it by using ASP.NET Core built-in [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Make almost all the configuration changes in the `ConfigureServices()` method of your `Startup.cs` class, unless you're directed otherwise. The following sections offer more information.
 
 > [!NOTE]
->  Changing configuration by modifying `TelemetryConfiguration.Active` is not recommended in ASP.NET Core applications.
+> In ASP.NET Core applications, changing configuration by modifying `TelemetryConfiguration.Active` is not recommended.
 
 ### Use ApplicationInsightsServiceOptions to configure
 
@@ -187,17 +190,19 @@ You can modify a few common settings by passing `ApplicationInsightsServiceOptio
     }
 ```
 
-The exact list of configurable settings in `ApplicationInsightsServiceOptions` can be found [here](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs).
+For more information, see the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs).
 
 ### Sample
 
-Application Insights SDK for ASP.NET Core supports both FixedRate and Adaptive sampling. Adaptive sampling is enabled by default. Follow our [guidance on adaptive sampling](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications), to learn how to configure sampling for ASP.NET Core applications.
+The Application Insights SDK for ASP.NET Core supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. 
 
-### Add TelemetryInitializers
+For more information, see [Configure adaptive sampling for ASP.NET Core applications](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
-[Telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) are used when you want to define global properties that are sent with all telemetry.
+### Add a telemetry initializer
 
-To add a new `TelemetryInitializer`, add it into the DependencyInjection Container as shown below. `TelemetryInitializer`s added to DependencyInjection container will be picked up by the SDK automatically.
+Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) when you want to define global properties that are sent with all telemetry.
+
+Add any new `TelemetryInitializer` to the `DependencyInjection` container as shown in the following code. The SDK automatically picks up any `TelemetryInitializer` that's added to the `DependencyInjection` container.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -206,16 +211,16 @@ To add a new `TelemetryInitializer`, add it into the DependencyInjection Contain
     }
 ```
 
-### Remove TelemetryInitializers
+### Remove a telemetry initializer
 
-To remove all or specific TelemetryInitializers, which are present by default, use the following sample code **after** calling `AddApplicationInsightsTelemetry()`.
+Telemetry initializers are present by default. To remove all or specific telemetry initializers, use the following sample code *after* you call `AddApplicationInsightsTelemetry()`.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddApplicationInsightsTelemetry();
 
-        // Remove a specific built-in TelemetryInitializer
+        // Remove a specific built-in telemetry initializer
         var tiToRemove = services.FirstOrDefault<ServiceDescriptor>
                          (t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
         if (tiToRemove != null)
@@ -224,14 +229,14 @@ To remove all or specific TelemetryInitializers, which are present by default, u
         }
 
         // Remove all initializers
-        // This requires importing namespace using Microsoft.Extensions.DependencyInjection.Extensions;
+        // This requires importing namespace by using Microsoft.Extensions.DependencyInjection.Extensions;
         services.RemoveAll(typeof(ITelemetryInitializer));
     }
 ```
 
-### Add TelemetryProcessors
+### Add telemetry processors
 
-Custom telemetry processors can be added to the `TelemetryConfiguration` by using the extension method `AddApplicationInsightsTelemetryProcessor` on `IServiceCollection`. Telemetry processors are used in [advanced filtering scenarios](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) to allow for more direct control over what is included or excluded from the telemetry you send to the Application Insights service. Use the following example.
+You can add custom telemetry processors to `TelemetryConfiguration` by using the extension method `AddApplicationInsightsTelemetryProcessor` on `IServiceCollection`. You use telemetry processors in [advanced filtering scenarios](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) to allow for more direct control over what's included or excluded from the telemetry you send to the Application Insights service. Use the following example.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -245,11 +250,11 @@ Custom telemetry processors can be added to the `TelemetryConfiguration` by usin
     }
 ```
 
-### Configure or remove default TelemetryModules
+### Configure or remove default telemetry modules
 
-Application Insights uses telemetry modules as a way of [auto-collecting useful information](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies) about specific workloads without requiring additional config.
+Application Insights uses telemetry modules to [automatically collect useful information](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies) about specific workloads without requiring additional configuration.
 
-The following auto collection modules are enabled by default, and are responsible for automatically collecting telemetry. They can be disabled and configured to alter default behavior.
+The following automatic-collection modules are enabled by default. These modules are responsible for automatically collecting telemetry. You can disable or configure them to alter their default behavior.
 
 * `RequestTrackingTelemetryModule`
 * `DependencyTrackingTelemetryModule`
@@ -258,7 +263,7 @@ The following auto collection modules are enabled by default, and are responsibl
 * `AppServicesHeartbeatTelemetryModule`
 * `AzureInstanceMetadataTelemetryModule`
 
-To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection` as shown in the example below.
+To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example.
 
 ```csharp
 using Microsoft.ApplicationInsights.DependencyCollector;
@@ -285,17 +290,17 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
     }
 ```
 
-### Configure Telemetry Channel
+### Configure a telemetry channel
 
-The default channel used is the `ServerTelemetryChannel`. It can be overridden by following example below.
+The default channel is `ServerTelemetryChannel`. You can override it as the following example shows.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
 
     public void ConfigureServices(IServiceCollection services)
     {
-        // use the following to replace the default channel with InMemoryChannel.
-        // this can also be applied to ServerTelemetryChannel as well.
+        // Use the following to replace the default channel with InMemoryChannel.
+        // This can also be applied to ServerTelemetryChannel.
         services.AddSingleton(typeof(ITelemetryChannel), new InMemoryChannel() {MaxTelemetryBufferCapacity = 19898 });
 
         services.AddApplicationInsightsTelemetry();
