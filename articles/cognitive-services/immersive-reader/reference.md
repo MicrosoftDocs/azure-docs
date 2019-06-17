@@ -25,7 +25,7 @@ The SDK exposes a single function, `ImmersiveReader.launchAsync(token, data, opt
 Launches the Immersive Reader within an `iframe` in your web application.
 
 ```typescript
-launchAsync(token: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, resourceName:string content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
 #### Parameters
@@ -33,6 +33,7 @@ launchAsync(token: string, content: Content, options?: Options): Promise<HTMLDiv
 | Name | Type | Description |
 | ---- | ---- |------------ |
 | `token` | string | The access token acquired from the call to the `issueToken` endpoint. |
+| `resourceName` | string | Reserved. Must be set to `null`. |
 | `content` | [Content](#content) | An object containing the content to be shown in the Immersive Reader. |
 | `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
 
@@ -91,6 +92,7 @@ Contains information about the error.
 | ---- | ----------- |
 | BadArgument | Supplied argument is invalid, see `message` for details. |
 | Timeout | The Immersive Reader failed to load within the specified timeout. |
+| TokenExpired| The supplied token is expired. |
 
 ## Launching the Immersive Reader
 
