@@ -70,6 +70,9 @@ Have the basic search page solution open.
     }
 ```
 
+>[!Tip]
+>If you are running this project on a device with a smaller screen, such as a laptop, then consider changing **ResultsPerPage** to 2.
+
 3. Add paging properties to the **SearchData** class, say, after the **searchText** property.
 
 ```cs
@@ -410,9 +413,6 @@ This variable is a string, which holds "next" if the next page of results should
         }
     }
 ```
-
->[!Tip]
->If you are running this app on a laptop, rather than a desktop, consider setting the value to 2, rather than 3.
 
 ### Add a vertical scroll bar to the view
 

@@ -455,7 +455,6 @@ Consider the following takeaways from this project:
 
 ## Next steps
 
-One of the issues with autocompletion and suggestions is that they involve repeated calls to the server (one on every key stroke after the minimum number of characters typed is reached). If these repeated calls results in slower than expected responses, then the user experience diminishes. Using facets provides an interesting alternative to avoid these repeated calls, which we will look at next.
+You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Search APIs.
 
-> [!div class="nextstepaction"]
-> [C# Tutorial: Use facets for navigation and network efficiency - Azure Search](tutorial-csharp-facets.md)
+For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/en-us/learn/browse/?products=azure), or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/en-us/azure/search/).
