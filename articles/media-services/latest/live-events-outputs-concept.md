@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/13/2019
 ms.author: juliako
 
 ---
@@ -30,13 +30,17 @@ Azure Media Services enables you to deliver live events to your customers on the
 
 ## Live Event types
 
-A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through and live encoding. 
+A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through and live encoding. The types are set during creation using [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+
+* **LiveEventEncodingType.None** - An on-premises live encoder sends a multiple bitrate stream. The ingested streams passes through the Live Event without any further processing. 
+* **LiveEventEncodingType.Standard** - An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. If the contribution feed is of 720p or higher resolution, the **Default720p** preset will encode a set of 6 resolution/bitrates pairs.
+* **LiveEventEncodingType.Premium1080p** - An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. The Default1080p preset specifies the output set of resolution/bitrates pairs. 
 
 ### Pass-through
 
 ![pass-through](./media/live-streaming/pass-through.svg)
 
-When using the pass-through **Live Event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 protocol). The Live Event then carries through the incoming video streams without any further processing. Such a pass-through LiveEvent is optimized for long-running live events or 24x365 linear live streaming. When creating this type of Live Event, specify None (LiveEventEncodingType.None).
+When using the pass-through **Live Event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 protocol). The Live Event then carries through the incoming video streams without any further processing. Such a pass-through Live Event is optimized for long-running live events or 24x365 linear live streaming. When creating this type of Live Event, specify None (LiveEventEncodingType.None).
 
 You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec.  See the [Live Event types comparison](live-event-types-comparison.md) article for more details.
 
@@ -91,7 +95,7 @@ You can either use non-vanity URLs or vanity URLs.
 
     Use the following APIs to enable the Vanity URL and set the access token to a valid GUID (for example `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
     
-    |Language|Enable Vanity URL|Set access token|
+    |Language|Enable vanity URL|Set access token|
     |---|---|---|
     |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
@@ -133,7 +137,7 @@ The *stream name* indicates the stream name for a specific connection. The strea
 
 ## Live Event preview URL
 
-Once the **Live Event** starts receiving the contribution feed, you can use its preview endpoint to preview and validate that you are receiving the live stream before further publishing. After you have checked that the preview stream is good, you can use the LiveEvent to make the live stream available for delivery through one or more (pre-created) **Streaming Endpoints**. To accomplish this, you create a new [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) on the **Live Event**. 
+Once the **Live Event** starts receiving the contribution feed, you can use its preview endpoint to preview and validate that you are receiving the live stream before further publishing. After you have checked that the preview stream is good, you can use the Live Event to make the live stream available for delivery through one or more (pre-created) **Streaming Endpoints**. To accomplish this, you create a new [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) on the **Live Event**. 
 
 > [!IMPORTANT]
 > Make sure that the video is flowing to the preview URL before continuing!
