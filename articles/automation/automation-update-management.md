@@ -615,15 +615,17 @@ In Red Hat Enterprise Linux, the package name to exclude is redhat-release-serve
 
 ![Packages to exclude for Linux](./media/automation-update-management/linuxpatches.png)
 
-### Critical / security patches aren't applied
+### Critical / security patches aren't applied to a CentOS machine
 
-When you deploy updates to a Linux machine, you can select update classifications. This filters the updates that are applied to the machine that meet the specified criteria. This filter is applied locally on the machine when the update is deployed.
+For Linux, Update Management can distinguish between critical and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available out of the box.
 
-Because Update Management performs update enrichment in the cloud, some updates can be flagged in Update Management as having security impact, even though the local machine doesn't have that information. As a result, if you apply critical updates to a Linux machine, there might be updates that aren't marked as having security impact on that machine and the updates aren't applied.
+If an update deployment job is set to deploy just 'Critical and security updates' then as CentOS does not have this classification information they will not be installed and Update Management will still report that machine as being non-compliant.
 
-However, Update Management might still report that machine as being non-compliant because it has additional information about the relevant update.
+To properly deploy updates for CentOS, select all classifications to ensure updates are applied. 
 
-Deploying updates by update classification doesn't work on CentOS out of the box. To properly deploy updates for CentOS, select all classifications to ensure updates are applied. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you may be required to rerun the update deployment. To verify, check the update log.
+### Security patches are applied to a SUSE machine even though only 'Other updates' was selected
+
+For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you may be required to rerun the update deployment. To verify, check the update log.
 
 ## Remove a VM from Update Management
 
