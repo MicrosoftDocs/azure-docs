@@ -47,6 +47,10 @@ Sign in to NVIDIA Developer site with your Developer Program membership and down
 
 CUDA 10.0 installs an older version of the NVIDIA graphics driver. Download and install the latest NVIDIA driver for your graphics card.
 
+### [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
+
+Download and install Visual C++ Redistributable for Visual Studio 2015. 
+
 ## Set up hardware
 
 ### [Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
