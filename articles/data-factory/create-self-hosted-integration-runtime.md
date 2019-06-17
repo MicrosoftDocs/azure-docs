@@ -80,6 +80,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine does not hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Back up the credentials associated with the self-hosted integration runtime regularly.
+- For automating self-hosted IR setup operations, please refer below section.  
 
 ## Install and register self-hosted IR from the Download Center
 
@@ -103,6 +104,39 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 	b. Optionally, select **Show authentication key** to see the key text.
 
 	c. Select **Register**.
+
+## Automation support for self-hosted IR function
+
+You can use command line for setting up or managing an existing self-hosted IR. This can be used especially for automating installation, registration of self-hosted IR nodes. 
+
+**Dmgcmd.exe** is included in the self-hosted installation, typically located: C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ folder. This supports various parameters and can be invoked via command prompt using batch scripts for automation. 
+
+*Usage:* 
+
+        **dmgcmd** [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+
+*Details (parameters / property):* 
+
+| Property                                                | Description                                                  | Required |
+| ------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| RegisterNewNode "<AuthenticationKey>"                   | Register Integration Runtime (Self-hosted) node with the specified Authentication Key | No       |
+| EnableRemoteAccess "<port>" ["<thumbprint>"]            | Enable remote access on the current node for setting up a High Availability Cluster and/or enabling setting of credentials directly against the self-hosted IR (without going through ADF service) using **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in same network. | No       |
+| EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] | Enable remote access to current node when the node is running in Container | No       |
+| DisableRemoteAccess                                     | Disable remote access to current node. Remote access is needed for multi-node setup. The New-**AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet still works even when remote access is disabled as long as it is executed on the same machine as the self-hosted IR node. | No       |
+| Key "<AuthenticationKey>"                               | Overwrite/ update the previous Authentication Key. Please be careful as this can result in your previous self-hosted IR node going offline, if the key is of a new integration runtime. | No       |
+| GenerateBackupFile "<filePath>" "<password>"            | Generate backup file for current node, the backup file includes the node key and data store credentials | No       |
+| ImportBackupFile "<filePath>" "<password>"              | Restore the node from a backup file                          | No       |
+| Restart                                                 | Restart the Integration Runtime (Self-hosted) Host Service   | No       |
+| Start                                                   | Start the Integration Runtime (Self-hosted) Host Service     | No       |
+| Stop                                                    | Stop Integration Runtime (Self-hosted) update service        | No       |
+| StartUpgradeService                                     | Start Integration Runtime (Self-hosted) update service       | No       |
+| StopUpgradeService                                      | Stop Integration Runtime (Self-hosted) update service        | No       |
+| TurnOnAutoUpdate                                        | Turn on Integration Runtime (Self-hosted) auto update        | No       |
+| TurnOffAutoUpdate                                       | Turn off Integration Runtime (Self-hosted) auto update       | No       |
+| SwitchServiceAccount "<domain\user>" ["password"]       | Set DIAHostService to run as a new account. Use empty password ("") for system account or virtual account | No       |
+| Loglevel <logLevel>                                     | Set ETW log level (Off, Error, Verbose or All). Generally used by Microsoft support while debugging. | No       |
+
+   
 
 
 ## High availability and scalability
@@ -337,7 +371,7 @@ If you're using a third-party firewall, you can manually open port 8060 (or the 
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-``` 
+```
 
 If you choose not to open port 8060 on the self-hosted integration runtime machine, use mechanisms other than the Setting Credentials application to configure data store credentials. For example, you can use the **New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
 
