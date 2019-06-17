@@ -18,6 +18,7 @@ Each request to an Azure Cognitive Service must include an authentication header
 * [Authenticate with a single-service subscription key](#authenticate-with-a-single-service-subscription-key)
 * [Authenticate with a multi-service subscription key](#authenticate-with-a-multi-service-subscription-key)
 * [Authenticate with a token](#authenticate-with-an-authentication-token)
+* [Authenticate with AAD](#authenticate-with-azure-active-directory)
 
 ## Prerequisites
 
