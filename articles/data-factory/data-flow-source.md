@@ -60,13 +60,13 @@ You can later change the column names in a select transformation. Use a derived-
 
 On the **Optimize** tab for the source transformation, you might see a **Source** partition type. This option is available only when your source is Azure SQL Database. This is because Data Factory tries to make connections parallel to run large queries against your SQL Database source.
 
-![Source partition settings](media/data-flow/sourcepart2.png "partitioning")
+![Source partition settings](media/data-flow/sourcepart3.png "partitioning")
 
 You don't have to partition data on your SQL Database source, but partitions are useful for large queries. You can base your partition on a column or a query.
 
 ### Use a column to partition data
 
-From your source table, select a column to partition on. Also set the maximum number of connections.
+From your source table, select a column to partition on. Also set the number of partitions.
 
 ### Use a query to partition data
 
@@ -79,9 +79,39 @@ Choose settings to manage files in your source.
 ![New source settings](media/data-flow/source2.png "New settings")
 
 * **Wildcard path**: From your source folder, choose a series of files that match a pattern. This setting overrides any file in your dataset definition.
+
+Wildcard examples:
+
+* ```*``` Represents any set of characters
+* ```**``` Represents recursive directory nesting
+* ```?``` Replaces one character
+* ```[]``` Matches one of more characters in the brackets
+
+* ```/data/sales/**/*.csv``` Gets all csv files under /data/sales
+* ```/data/sales/20??/**``` Gets all files in the 20th century
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Gets all csv files in 2004 in December starting with X or Y prefixed by a 2-digit number
+
+Container has to be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
+
 * **List of files**: This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.
 * **Column to store file name**: Store the name of the source file in a column in your data. Enter a new name here to store the file name string.
 * **After completion**: Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative.
+
+To move source files to another location post-processing, first select "Move" for file operation. Then, set the "from" directory. If you are not using any wildcards for your path, then the "from" setting will be the same folder as your source folder.
+
+If you have a wildcarded source path, ex:
+
+```/data/sales/20??/**/*.csv```
+
+You can specify "from" as
+
+```/data/sales```
+
+And "to" as
+
+```/backup/priorSales```
+
+In this case, all subdirectories under /data/sales which were sourced are moved relative to /backup/priorSales.
 
 ### SQL datasets
 
