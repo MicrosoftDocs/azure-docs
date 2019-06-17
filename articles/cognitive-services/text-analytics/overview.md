@@ -85,7 +85,15 @@ All of the Text Analytics API endpoints accept raw text data. The current limit 
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
-The rate limit is 100 requests per second and 1000 requests per minute. You can submit a large quantity of documents in a single call (up to 1000 documents).
+Your rate limit will vary on your pricing tier.
+
+| Tier  | Transactions per second | Transactions per minute |
+|-------|-------------------------|-------------------------|
+| S0/F0 | 100                     | 300                     |
+| S1    | 200                     | 300                     |
+| S2    | 300                     | 300                     |
+| S3    | 500                     | 500                     |
+| S4    | 1000                    | 1000                    |
 
 ## Unicode encoding
 
