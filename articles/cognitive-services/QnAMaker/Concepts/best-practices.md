@@ -85,12 +85,12 @@ GenerateAnswer API uses the rank process to search answers to find the appropria
 
 In the [GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-request-configuration) API, use the **RankerType** of **QuestionOnly** if you don't want to search answers. An example of this is when the knowledge base is a catalog of acronyms as questions with their full form as the answer. The question-only ranker limits the search surface to just the text of the questions and excludes the answer text because it is not relevant.
 
-
 ## Ranking/Scoring
 Make sure you are making the best use of the ranking features QnA Maker supports. Doing so will improve the likelihood that a given user query is answered with an appropriate response.
 
 ### Choosing a threshold
-The default confidence score that is used as a threshold is 50, however you can change it for your KB based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB. Read more about the [confidence score](../Concepts/confidence-score.md). 
+
+The default [confidence score](confidence-score.md#) that is used as a threshold is 50, however you can [change the threshold](confidence-score.md#set-threshold) for your KB based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB. 
 
 ### Choosing Ranker type
 By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
