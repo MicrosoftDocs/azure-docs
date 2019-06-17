@@ -34,7 +34,7 @@ Follow these steps to connect client machines to your Azure FXT Edge Filer clust
 
 To help balance client requests among all the nodes in the cluster, you should mount clients to the full range of client-facing IP addresses. There are several ways to automate this task.
 
-To learn about round-robin DNS load balancing for the cluster, read [Configure DNS for the FXT Edge Filer cluster](fxt-configure-network.md#configure-dns-for-load-balancing). To use this method you must maintain a DNS server, which is not explained in these articles.
+To learn about round-robin DNS load balancing for the cluster, read [Configure DNS for the Azure FXT Edge Filer cluster](fxt-configure-network.md#configure-dns-for-load-balancing). To use this method you must maintain a DNS server, which is not explained in these articles.
 
 A simpler method for small installations is to use a script to assign IP addresses throughout the range at client mount time. 
 
@@ -42,7 +42,7 @@ Other load-balancing methods might be appropriate for large or complicated syste
 
 ## Create the mount command 
 
-From your client, the ``mount`` command maps the virtual server (vserver) on the FXT Edge Filer cluster to a path on the local filesystem. 
+From your client, the ``mount`` command maps the virtual server (vserver) on the Azure FXT Edge Filer cluster to a path on the local filesystem. 
 
 The format is ``mount <FXT cluster path> <local path> {options}``
 
@@ -105,6 +105,6 @@ To ensure a seamless client mount, pass these settings and arguments in your mou
 
 After you have mounted clients, you can test your workflow and get started with your cluster.
 
-If you need to move data to a new cloud core filer, take advantage of the cache structure by using parallel data ingest. Some strategies are described in [Moving data to a vFXT cluster](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest). (Avere vFXT for Azure is a cloud-based product that uses caching technology very similar to the FXT Edge Filer.)
+If you need to move data to a new cloud core filer, take advantage of the cache structure by using parallel data ingest. Some strategies are described in [Moving data to a vFXT cluster](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest). (Avere vFXT for Azure is a cloud-based product that uses caching technology very similar to the Azure FXT Edge Filer.)
 
-Read [Monitor FXT Edge Filer hardware status](fxt-monitor.md) if you need to troubleshoot any hardware issues. 
+Read [Monitor Azure FXT Edge Filer hardware status](fxt-monitor.md) if you need to troubleshoot any hardware issues. 
