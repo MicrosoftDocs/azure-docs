@@ -61,10 +61,10 @@ $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
  
 ## Add geo-filtering match condition to a rule with Action and Priority
 
-Create a CustomRule object `nonUSBlockRule` based on the match condition, an Action, and a Priority using [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  A CustomRule can have multiple MatchCondition.  In this example, Action is set to Block and Priority to 1, the highest priority.
+Create a CustomRule object `nonUSBlockRule` based on the match condition, an Action, and a Priority using [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  A CustomRule can have multiple MatchCondition.  In this example, Action is set to Block and Priority to 1, the highest priority.
 
 ```
-$nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
+$nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 -Name "geoFilterRule" `
 -RuleType MatchRule `
 -MatchCondition $nonUSGeoMatchCondition `
@@ -106,6 +106,5 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > You only need to set WebApplicationFirewallPolicyLink property once to link a WAF policy to a Front Door frontend host. Subsequent policy updates are automatically applied to the frontend host.
 
 ## Next steps
-
-- Learn about [application layer security with Front Door](front-door-application-security.md).
+- Learn about [Azure web application firewall](waf-overview.md).
 - Learn how to [create a Front Door](quickstart-create-front-door.md).

@@ -16,6 +16,8 @@
     href: cognitive-services-apis-create-account.md
   - name: Authentication
     href: authentication.md
+  - name: Diagnostic logging
+    href: diagnostic-logging.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -24,8 +26,12 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/cognitive-services/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Provide Product Feedback

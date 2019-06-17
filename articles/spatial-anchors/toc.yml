@@ -28,6 +28,8 @@
     href: tutorials/tutorial-share-anchors-across-devices.md
   - name: Sharing in Unity with Azure Cosmos DB
     href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+  - name: Starting a new Unity HoloLens app
+    href: tutorials/tutorial-new-unity-hololens-app.md
   - name: Starting a new Android app
     href: tutorials/tutorial-new-android-app.md
 - name: How-to
@@ -53,6 +55,8 @@
     href: https://github.com/Azure/azure-spatial-anchors-samples
 - name: Concepts
   items:
+  - name: Authentication
+    href: concepts/authentication.md
   - name: Anchor relationships
     href: concepts/anchor-relationships-way-finding.md
   - name: Experience guidelines

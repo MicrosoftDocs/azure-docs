@@ -103,7 +103,7 @@ To create a DSVM instance:
 
 After the VM is created and provisioned, you can remote desktop into it by using the admin account credentials that you configured in the preceding **Basics** section. You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through start menu tiles and desktop icons.
 
-You can also attach a Data Science VM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+You can also attach a Data Science VM to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## Tools installed on the Microsoft Data Science Virtual Machine
 

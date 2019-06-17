@@ -49,8 +49,8 @@ With Azure Resource Graph, you can:
 
 When an Azure resource is updated, Resource Graph is notified by Resource Manager of the change.
 Resource Graph then updates its database. Resource Graph also does a regular _full scan_. This scan
-ensures that Resource Graph data is current in the event of missed notifications or when a resource
-is updated outside of Resource Manager.
+ensures that Resource Graph data is current if there are missed notifications or when a resource is
+updated outside of Resource Manager.
 
 ## The query language
 
@@ -79,14 +79,19 @@ group, results won't be returned.
 
 As a free service, queries to Resource Graph are throttled to provide the best experience and
 response time for all customers. If your organization wants to use the Resource Graph API for
-large-scale and frequent queries, use portal 'Feedback' from the Resource Graph page. Be sure to
-provide your business case and select the 'Microsoft can email you about your feedback' checkbox in
+large-scale and frequent queries, use portal 'Feedback' from the
+[Resource Graph portal page](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Provide your business case and select the 'Microsoft can email you about your feedback' checkbox in
 order for the team to contact you.
 
-Resource Graph throttles at the tenant level. The service overrides and sets the
-`x-ms-ratelimit-remaining-tenant-reads` response header to indicate remaining queries available by
-user within the tenant. Resource Graph resets the quota every 5 seconds instead of every hour. For
-more information, see
+Resource Graph throttles queries at the user level. The service response contains the following HTTP
+headers:
+
+- `x-ms-user-quota-remaining` (int): The remaining resource quota for the user. This value maps to
+  query count.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is reset
+
+For more information, see
 [Throttling Resource Manager requests](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## Running your first query

@@ -86,7 +86,7 @@ To nest the template within the main template, use the **template** property and
 > [!NOTE]
 > For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
 >
-> For two resources defined inside a nest template and one resource depends on the other, the value of the dependency is simply the name of the depended resource:
+> For two resources defined inside a nested template and one resource depends on the other, the value of the dependency is simply the name of the dependent resource:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"

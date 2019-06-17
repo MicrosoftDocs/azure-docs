@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 05/22/2019
 ---
 
 # Troubleshoot common Azure Database Migration Service issues and errors
@@ -23,7 +23,7 @@ When you create new activities in an Azure Database Migration Service project, t
 
 | Cause         | Resolution |
 | ------------- | ------------- |
-| This issue happens when the Azure Database Migration Service instance has reached maximum capacity for ongoing tasks that concurrently run. Any new activity is queued until the capacity becomes available. | Validate the Data Migration Service instance has running activities across projects. You can continue to create new activities that automatically get added to the queue for execution. As soon as any of the existing running activities complete, the next queued activity starts running and the status changes to running state automatically. You don't need to take any additional action to start migration of queued activity.<br> |
+| This issue happens when the Azure Database Migration Service instance has reached maximum capacity for ongoing tasks that concurrently run. Any new activity is queued until the capacity becomes available. | Validate the Data Migration Service instance has running activities across projects. You can continue to create new activities that automatically get added to the queue for execution. As soon as any of the existing running activities complete, the next queued activity starts running and the status changes to running state automatically. You don't need to take any additional action to start migration of queued activity.<br><br> |
 
 ## Max number of databases selected for migration
 
@@ -43,7 +43,7 @@ When you migrate from MySQL to Azure Database for MySQL using Azure Database Mig
 
 | Cause         | Resolution |
 | ------------- | ------------- |
-| This error may occur when the user performing the  migration is missing ReplicationAdmin role and/or privileges of REPLICATION CLIENT, REPLICATION REPLICA, and SUPER (versions earlier than MySQL 5.6.6).<br> <br><br><br> <br> <br> <br> <br> <br> <br> | Make sure the [pre-requisite privileges](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) for the user account are configured accurately on the Azure Database for MySQL instance. For example, the following steps can be followed to create a user named 'migrateuser' with required privileges:<br>1. CREATE USER migrateuser@'%' IDENTIFIED BY 'secret'; <br>2. Grant all privileges on db_name.* to 'migrateuser'@'%' identified by 'secret'; // repeat this step to grant access on more databases <br>3. Grant replication slave on *.* to 'migrateuser'@'%' identified by 'secret';<br>4. Grant replication client on *.* to 'migrateuser'@'%' identified by 'secret';<br>5. Flush privileges; |
+| This error may occur when the user doing the  migration is missing ReplicationAdmin role and/or privileges of REPLICATION CLIENT, REPLICATION REPLICA, and SUPER (versions earlier than MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Make sure the [pre-requisite privileges](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) for the user account are configured accurately on the Azure Database for MySQL instance. For example, the following steps can be followed to create a user named 'migrateuser' with required privileges:<br>1. CREATE USER migrateuser@'%' IDENTIFIED BY 'secret'; <br>2. Grant all privileges on db_name.* to 'migrateuser'@'%' identified by 'secret'; // repeat this step to grant access on more databases <br>3. Grant replication slave on *.* to 'migrateuser'@'%' identified by 'secret';<br>4. Grant replication client on *.* to 'migrateuser'@'%' identified by 'secret';<br>5. Flush privileges; |
 
 ## Error when attempting to stop Azure Database Migration Service
 
@@ -63,7 +63,7 @@ When you perform an online migration from SQL Server to an Azure SQL Database ma
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
-| This error indicates the application principal being used for online migration from SQL Server to an Azure SQL Database managed instance doesn't have contribute permission on the subscription. Certain API calls with Managed Instance at present require this permission on subscription for the restore operation. <br><br><br><br><br><br><br><br><br><br> | Use the `Get-AzureADServicePrincipal` PowerShell cmdlet with `-ObjectId` available from the error message to list the display name of the application ID being used.<br><br> Validate the permissions to this application and ensure it has the [contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) at the subscription level. <br><br> The Azure Database Migration Service Engineering Team is working to restrict the required access from current contribute role on subscription. If you have a business requirement that doesn't allow use of contribute role, contact Azure support for additional help. |
+| This error indicates the application principal being used for online migration from SQL Server to an Azure SQL Database managed instance doesn't have contribute permission on the subscription. Certain API calls with Managed Instance at present require this permission on subscription for the restore operation. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Use the `Get-AzureADServicePrincipal` PowerShell cmdlet with `-ObjectId` available from the error message to list the display name of the application ID being used.<br><br> Validate the permissions to this application and ensure it has the [contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) at the subscription level. <br><br> The Azure Database Migration Service Engineering Team is working to restrict the required access from current contribute role on subscription. If you have a business requirement that doesn't allow use of contribute role, contact Azure support for additional help. |
 
 ## Error when deleting NIC associated with Azure Database Migration Service
 
@@ -73,7 +73,7 @@ When you try to delete a Network Interface Card associated with Azure Database M
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
-| This issue happens when the Azure Database Migration Service instance may still be present and consuming the NIC. <br><br><br><br><br><br> | To delete this NIC, delete the DMS service instance that automatically deletes the NIC used by the service.<br><br> **Important**: Make sure the Azure Database Migration Service instance being deleted has no running activities.<br><br> After all the projects and activities associated to the Azure Database Migration Service instance are deleted, you can delete the service instance. The NIC used by the service instance is automatically cleaned as part of service deletion. |
+| This issue happens when the Azure Database Migration Service instance may still be present and consuming the NIC. <br><br><br><br><br><br><br><br> | To delete this NIC, delete the DMS service instance that automatically deletes the NIC used by the service.<br><br> **Important**: Make sure the Azure Database Migration Service instance being deleted has no running activities.<br><br> After all the projects and activities associated to the Azure Database Migration Service instance are deleted, you can delete the service instance. The NIC used by the service instance is automatically cleaned as part of service deletion. |
 
 ## Connection error when using ExpressRoute
 
@@ -81,7 +81,7 @@ When you try to connect to source in the Azure Database Migration service projec
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
-| When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Cosmos DB endpoint)<br><br><br><br> | [Enable](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
+| When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Cosmos DB endpoint)<br><br><br><br><br> | [Enable](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
 ## Timeout error when migrating a MySQL database to Azure MySQL
 
@@ -91,7 +91,17 @@ When you migrate a MySQL database to an Azure Database for MySQL instance via Az
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
-| This error occurs when migration fails because of  the lock wait timeout during migration.<br><br> | Consider increasing the value of server parameter **'innodb_lock_wait_timeout'**. The highest allowed value is 1073741824. |
+| This error occurs when migration fails because of  the lock wait timeout during migration. | Consider increasing the value of server parameter **'innodb_lock_wait_timeout'**. The highest allowed value is 1073741824. |
+
+## Error connecting to source SQL Server when using dynamic port or named instance
+
+When you try to connect Azure Database Migration Service to SQL Server source that runs on either named instance or a dynamic port, the connection fails with this error:
+
+* **Error**: -1 - SQL connection failed. A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+
+| Cause         | Resolution    |
+| ------------- | ------------- |
+| This issue happens when the source SQL Server instance that Azure Database Migration Service tries to connect to either has a dynamic port or is using a named instance. The SQL Server Browser service listens to UDP port 1434 for incoming connections to a named instance or when using a dynamic port. The dynamic port may change each time SQL Server service restarts. You can check the dynamic port assigned to an instance via network configuration in SQL Server Configuration Manager.<br><br><br> |Verify that Azure Database Migration Service can connect to the source SQL Server Browser service on UDP port 1434 and the SQL Server instance through the dynamically assigned TCP port as applicable. |
 
 ## Additional known issues
 

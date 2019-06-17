@@ -25,6 +25,7 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 
 ## Languages - community-supported
 * [F#](https://safe-stack.github.io/docs/template-azure-ai/)
+* [Go](https://github.com/Microsoft/ApplicationInsights-go)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)

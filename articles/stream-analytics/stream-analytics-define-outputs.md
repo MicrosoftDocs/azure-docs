@@ -7,11 +7,11 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/25/2019
-ms.custom: seodec18
+ms.date: 05/31/2019
 ---
 
 # Understand outputs from Azure Stream Analytics
+
 This article describes the types of outputs available for an Azure Stream Analytics job. Outputs let you store and save the results of the Stream Analytics job. By using the output data, you can do further business analytics and data warehousing of your data.
 
 When you design your Stream Analytics query, refer to the name of the output by using the [INTO clause](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job (if you need them) by providing multiple INTO clauses in the query.
@@ -21,28 +21,18 @@ To create, edit, and test Stream Analytics job outputs, you can use the [Azure p
 Some outputs types support [partitioning](#partitioning). [Output batch sizes](#output-batch-size) vary to optimize throughput.
 
 
-## Azure Data Lake Store
-Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide, hyperscale repository for big data analytic workloads. You can use Data Lake Store to store data of any size, type, and ingestion speed for operational and exploratory analytics. Stream Analytics has to be authorized to access Data Lake Store.
+## Azure Data Lake Storage Gen 1
 
-Azure Data Lake Store output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.
+Stream Analytics supports [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md). Azure Data Lake Storage is an enterprise-wide, hyperscale repository for big data analytic workloads. You can use Data Lake Storage to store data of any size, type, and ingestion speed for operational and exploratory analytics. Stream Analytics needs to be authorized to access Data Lake Storage.
 
-### Authorize an Azure Data Lake Store account
+Azure Data Lake Storage output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.
 
-1. When you select Data Lake Store as an output in the Azure portal, you're prompted to authorize a connection to an existing Data Lake Store instance.
-
-   ![Authorize a connection to Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
-
-2. If you already have access to Data Lake Store, select **Authorize Now**. A page pops up and indicates **Redirecting to authorization**. After authorization succeeds, you're presented with the page that allows you to configure the Data Lake Store output.
-
-3. After you have the Data Lake Store account authenticated, you can configure the properties for your Data Lake Store output.
-
-   ![Define Data Lake Store as Stream Analytics output](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
-
-The following table lists property names and their descriptions to configure your Data Lake Store output.   
+The following table lists property names and their descriptions to configure your Data Lake Storage Gen 1 output.   
 
 | Property name | Description |
 | --- | --- |
 | Output alias | A friendly name used in queries to direct the query output to Data Lake Store. |
+| Subscription | The subscription that contains your Azure Data Lake Storage account. |
 | Account name | The name of the Data Lake Store account where you're sending your output. You're presented with a drop-down list of Data Lake Store accounts that are available in your subscription. |
 | Path prefix pattern | The file path that's used to write your files within the specified Data Lake Store account. You can specify one or more instances of the {date} and {time} variables:<br /><ul><li>Example 1: folder1/logs/{date}/{time}</li><li>Example 2: folder1/logs/{date}</li></ul><br />The time stamp of the created folder structure follows UTC and not local time.<br /><br />If the file path pattern doesn't contain a trailing slash (/), the last pattern in the file path is treated as a file name prefix. <br /><br />New files are created in these circumstances:<ul><li>Change in output schema</li><li>External or internal restart of a job</li></ul> |
 | Date format | Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
@@ -51,24 +41,10 @@ The following table lists property names and their descriptions to configure you
 | Encoding | If you're using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.|
 | Delimiter | Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar.|
 | Format | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON, because it doesn't require any special handling while the output file is still being written to.|
-
-### Renew Data Lake Store authorization
-You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job does not produce output results and shows an error that indicates the need for reauthorization in the Operation Logs. 
-
-Currently, the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. You can overcome this limitation by [authenticating through managed identities (preview)](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
-
-To renew authorization:
-
-1. Select **Stop** to stop your job.
-1. Go to your Data Lake Store output and select the **Renew authorization** link.
-
-   For a brief time, a pop-up page indicates **Redirecting to authorization**. If authorization is successful, the page indicates **Authorization has been successfully renewed** and then closes automatically. 
-   
-1. Select **Save** at the bottom of the page. You can then restart your job from the **Last Stopped Time** to avoid data loss.
-
-![Renew Data Lake Store authorization in output](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
+| Authentication mode | You can authorize access to your Data Lake Storage account using [Managed Identity](stream-analytics-managed-identities-adls.md) or User token. Once you grant access, you can revoke access by changing the user account password, deleting the Data Lake Storage output for this job, or deleting the Stream Analytics job. |
 
 ## SQL Database
+
 You can use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) as an output for data that's relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in SQL Database. The table schema must exactly match the fields and their types in your job's output. You can also specify [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) as an output via the SQL Database output option. To learn about ways to improve write throughput, see the [Stream Analytics with Azure SQL Database as output](stream-analytics-sql-output-perf.md) article. 
 
 The following table lists the property names and their description for creating a SQL Database output.
@@ -85,11 +61,11 @@ The following table lists the property names and their description for creating 
 |Match batch count| The recommended limit on the number of records sent with every bulk insert transaction.|
 
 > [!NOTE]
-> Currently the Azure SQL Database offering is supported for a job output in Stream Analytics. An Azure virtual machine running SQL Server with a database attached is not supported. This is subject to change in future releases.
->
+> The Azure SQL Database offering is supported for a job output in Stream Analytics, but an Azure virtual machine running SQL Server with a database attached is not supported.
 
 ## Blob storage
-Azure Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud. For an introduction on Blob storage and its usage, see [How to use blobs](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+
+Azure Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud. For an introduction on Blob storage and its usage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 The following table lists the property names and their descriptions for creating a blob output.
 
@@ -119,6 +95,7 @@ When you're using Blob storage as output, a new file is created in the blob in t
 * If the output is partitioned by a custom field where the partition key cardinality exceeds 8,000, and a new blob is created per partition key.
 
 ## Event Hubs
+
 The [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an event hub as output is when the output of a Stream Analytics job becomes the input of another streaming job.
 
 You need a few parameters to configure data streams from event hubs as an output.
@@ -138,23 +115,12 @@ You need a few parameters to configure data streams from event hubs as an output
 | Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More info about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
 
 ## Power BI
+
 You can use [Power BI](https://powerbi.microsoft.com/) as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. You can use this capability for operational dashboards, report generation, and metric-driven reporting.
 
 Power BI output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.
 
-### Authorize a Power BI account
-1. When Power BI is selected as an output in the Azure portal, you're prompted to authorize an existing Power BI user or to create a new Power BI account.
-   
-   ![Authorize a Power BI user to configure output](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
-
-2. Create a new account if you don’t yet have one, and then select **Authorize Now**. The following page appears:
-   
-   ![Authenticate to Power BI from Azure account](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)
-
-3. Provide the work or school account for authorizing the Power BI output. If you're not already signed up for Power BI, select **Sign up now**. The work or school account that you use for Power BI might be different from the Azure subscription account that you're now signed in with.
-
-### Configure the Power BI output properties
-After you have the Power BI account authenticated, you can configure the properties for your Power BI output. The following table lists property names and their descriptions to configure your Power BI output.
+The following table lists property names and their descriptions to configure your Power BI output.
 
 | Property name | Description |
 | --- | --- |
@@ -162,8 +128,9 @@ After you have the Power BI account authenticated, you can configure the propert
 | Group workspace |To enable sharing data with other Power BI users, you can select groups inside your Power BI account or choose **My Workspace** if you don't want to write to a group. Updating an existing group requires renewing the Power BI authentication. |
 | Dataset name |Provide a dataset name that you want the Power BI output to use. |
 | Table name |Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can have only one table in a dataset. |
+| Authorize connection | You need to authorize with Power BI to configure your output settings. Once you grant this output access to your Power BI dashboard, you can revoke access by changing the user account password, deleting the job output, or deleting the Stream Analytics job. | 
 
-For a walkthrough of configuring a Power BI output and dashboard, see the [Azure Stream Analytics and Power BI](stream-analytics-power-bi-dashboard.md) article.
+For a walkthrough of configuring a Power BI output and dashboard, see the [Azure Stream Analytics and Power BI](stream-analytics-power-bi-dashboard.md) tutorial.
 
 > [!NOTE]
 > Don't explicitly create the dataset and table in the Power BI dashboard. The dataset and table are automatically populated when the job is started and the job starts pumping output into Power BI. If the job query doesn’t generate any results, the dataset and table aren't created. If Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data is overwritten.
@@ -200,17 +167,8 @@ Double | Double | String | String | Double
 String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
-
-### Renew Power BI Authorization
-If your Power BI account password changes after your Stream Analytics job was created or last authenticated, you need to reauthenticate Stream Analytics. If Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
-
-  ![Power BI authenticate user error](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
-
-To resolve this issue, stop your running job and go to your Power BI output. Select the **Renew authorization** link, and restart your job from the **Last Stopped Time** to avoid data loss.
-
-  ![Renew Power BI authorization for output](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)
-
 ## Table storage
+
 [Azure Table storage](../storage/common/storage-introduction.md) offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store, which you can use for structured data with fewer constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 
 The following table lists the property names and their descriptions for creating a table output.
@@ -226,7 +184,8 @@ The following table lists the property names and their descriptions for creating
 | Batch size |The number of records for a batch operation. The default (100) is sufficient for most jobs. See the [Table Batch Operation spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) for more details on modifying this setting. |
 
 ## Service Bus queues
-[Service Bus queues](https://msdn.microsoft.com/library/azure/hh367516.aspx) offer a FIFO message delivery to one or more competing consumers. Typically, messages are received and processed by the receivers in the temporal order in which they were added to the queue. Each message is received and processed by only one message consumer.
+
+[Service Bus queues](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) offer a FIFO message delivery to one or more competing consumers. Typically, messages are received and processed by the receivers in the temporal order in which they were added to the queue. Each message is received and processed by only one message consumer.
 
 The following table lists the property names and their descriptions for creating a queue output.
 

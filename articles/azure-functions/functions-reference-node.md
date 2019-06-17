@@ -461,23 +461,16 @@ There are two ways to install packages on your Function App:
 
 ## Environment variables
 
-In Functions, [app settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings using `process.env`, as shown here in the `GetEnvironmentVariable` function:
+In Functions, [app settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings using `process.env`, as shown here in the second and third calls to `context.log()` where we log the `AzureWebJobsStorage` and `WEBSITE_SITE_NAME` environment variables:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     context.log('Node.js timer trigger function ran!', timeStamp);
-    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
-    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-
-    context.done();
+    context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
+    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
-
-function GetEnvironmentVariable(name)
-{
-    return name + ": " + process.env[name];
-}
 ```
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
@@ -500,7 +493,7 @@ FunctionApp
  | - myNodeFunction
  | | - function.json
  | - lib
- | | - nodeFunction.js
+ | | - sayHello.js
  | - node_modules
  | | - ... packages ...
  | - package.json
@@ -510,7 +503,7 @@ The `function.json` for `myNodeFunction` should include a `scriptFile` property 
 
 ```json
 {
-  "scriptFile": "../lib/nodeFunction.js",
+  "scriptFile": "../lib/sayHello.js",
   "bindings": [
     ...
   ]
@@ -540,7 +533,7 @@ class MyObj {
         this.foo = 1;
     };
 
-    function logFoo(context) { 
+    logFoo(context) { 
         context.log("Foo is " + this.foo); 
         context.done(); 
     }

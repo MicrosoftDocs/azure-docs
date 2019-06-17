@@ -49,4 +49,4 @@ Customize settings on the different alerts to work with your environment and sec
 
 ## Next steps
 
-- [Configure security alerts for Azure resource roles in PIM](pim-resource-roles-configure-alerts.md)
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)

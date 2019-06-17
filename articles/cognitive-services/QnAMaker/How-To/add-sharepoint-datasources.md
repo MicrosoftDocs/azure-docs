@@ -48,7 +48,7 @@ The request begins with a pop-up to authenticate to an Active Directory account.
 
 ![Authenticate User Account](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Once the QnA Maker manager selects the account, the Active Directory administrator will receive a notice that he needs to allow the QnA Maker app (not the QnA Maker manager) access to the Sharepoint resource. The Active Directory manager will need to do this for every Sharepoint resource, but not every document in that resource. 
+Once the QnA Maker manager selects the account, the Active Directory administrator will receive a notice that they need to allow the QnA Maker app (not the QnA Maker manager) access to the Sharepoint resource. The Active Directory manager will need to do this for every Sharepoint resource, but not every document in that resource. 
 
 ### Active directory manager: grant file read access to QnA Maker
 

@@ -11,7 +11,7 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 05/29/2019
 ms.author: apimpm
 ---
 
@@ -33,8 +33,6 @@ To perform the steps described in this article, you must have:
 + An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 + A custom domain name that is owned by you. The custom domain name you want to use, must be procured separately and hosted on a DNS server. This topic does not give instructions on how to host a custom domain name.
 + You must have a valid certificate with a public and private key (.PFX). Subject or subject alternative name (SAN) has to match the domain name (this enables APIM to securely expose URLs over SSL).
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Use the Azure portal to set a custom domain name
 

@@ -92,8 +92,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 ```
 
 > [!TIP]
-> If you run these commands at a Windows command prompt or Powershell prompt, see the [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
-) page for information about how to quote JSON strings.
+> If you run these commands at a Windows command prompt or Powershell prompt, see the [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips) page for information about how to quote JSON strings.
 
 ## Start the firmware update
 

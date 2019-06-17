@@ -4,7 +4,7 @@ description: Use this Power BI tutorial to import JSON, create insightful report
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 05/21/2019
 ms.author: sngun
 ---
 

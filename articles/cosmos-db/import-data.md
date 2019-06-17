@@ -4,7 +4,7 @@ description: Learn how to use the open-source Azure Cosmos DB data migration too
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 05/20/2019
 ms.author: dech
 
 ---

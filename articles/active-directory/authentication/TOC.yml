@@ -43,8 +43,6 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
-    - name: What version is right?
-      href: concept-mfa-whichversion.md
     - name: License your users
       href: concept-mfa-licensing.md
     - name: Manage an Auth Provider
@@ -144,10 +142,6 @@
         href: active-directory-certificate-based-authentication-android.md
       - name: CBA on iOS Devices
         href: active-directory-certificate-based-authentication-ios.md
-  - name: Develop
-    items:
-    - name: Build MFA into custom apps
-      href: howto-mfa-sdk.md
   - name: Reporting
     items:
     - name: SSPR Reports

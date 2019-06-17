@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # How to page through news search results
 
-When you call the News Search API, Bing returns a list of results that are relevant to your query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) field.  
+When you call the News Search API, Bing returns a list of results that are relevant to your query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) field.  
   
 The following example shows the `totalEstimatedMatches` field that a News answer includes.  
 
@@ -28,7 +28,7 @@ The following example shows the `totalEstimatedMatches` field that a News answer
 }  
 ```  
   
-To page through the available articles, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) query parameters.  
+To page through the available articles, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) query parameters.  
  
 
 |Parameter  |Description  |

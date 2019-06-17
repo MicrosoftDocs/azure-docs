@@ -2,12 +2,12 @@
 title: Preview - Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
-author: zr-msft
+author: tylermsft
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.author: zarhoads
+ms.date: 06/06/2019
+ms.author: twhitney
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
@@ -33,9 +33,10 @@ If you choose to install and use the CLI locally, this article requires that you
 You must add an additional node pool after you create your cluster that can run Windows Server containers. Adding an additional node pool is covered in a later step, but you first need to enable a few preview features.
 
 > [!IMPORTANT]
-> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
 >
-> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
+> * [AKS Support Policies][aks-support-policies]
+> * [Azure Support FAQ][aks-faq]
 
 ### Install aks-preview CLI extension
 	
@@ -48,7 +49,7 @@ az extension add --name aks-preview
 > [!NOTE]
 > If you've previously installed the *aks-preview* extension, install any available updates using the `az extension update --name aks-preview` command.
 
-### Register multiple node pool feature provider
+### Register Windows preview feature
 
 To create an AKS cluster that can use multiple node pools and run Windows Server containers, first enable the *WindowsPreview* feature flags on your subscription. The *WindowsPreview* feature also uses multi-node pool clusters and virtual machine scale set to manage the deployment and configuration of the Kubernetes nodes. Register the  *WindowsPreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
@@ -83,7 +84,6 @@ While this feature is in preview, the following additional limitations apply:
 * The AKS cluster can have a maximum of eight node pools.
 * The AKS cluster can have a maximum of 400 nodes across those eight node pools.
 * The Windows Server node pool name has a limit of 6 characters.
-* Windows Server node pools are not available in Canada regions at this time.
 
 ## Create a resource group
 
@@ -125,7 +125,8 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 1 \
-    --kubernetes-version 1.13.5 \
+    --enable-addons monitoring \
+    --kubernetes-version 1.14.0 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -146,7 +147,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.13.5
+    --kubernetes-version 1.14.0
 ```
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3*. If you choose to set the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is *Standard_D2s_v3*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
@@ -175,8 +176,8 @@ The following example output shows the single node created in the previous steps
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.13.5
-aksnpwin987654                      Ready    agent   108s   v1.13.5
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.0
+aksnpwin987654                      Ready    agent   108s   v1.14.0
 ```
 
 ## Run the application
@@ -299,7 +300,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
-[aks-github]: https://github.com/azure/aks/issues
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 
 <!-- LINKS - internal -->
@@ -325,3 +325,5 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [use-advanced-networking]: configure-advanced-networking.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md
