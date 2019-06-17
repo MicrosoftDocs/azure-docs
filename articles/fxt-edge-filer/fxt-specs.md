@@ -4,7 +4,7 @@ description: Physical and environmental specifications for Azure FXT Edge Filer 
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell
 ---
 

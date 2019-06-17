@@ -4,7 +4,7 @@ description: Describes Azure FXT Edge Filer hybrid storage cache, an active arch
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 

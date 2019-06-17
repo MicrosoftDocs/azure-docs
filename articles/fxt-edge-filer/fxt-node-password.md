@@ -4,7 +4,7 @@ description: How to set an initial password on Azure FXT Edge Filer nodes
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 
@@ -77,7 +77,7 @@ The password you enter is used for two things:
 
   This password will change when you create a cluster using this node, or when you add this node to the cluster. The cluster management password (associated with the user ``admin``) is also the root password for all nodes in a cluster.
 
-* It is the permanent password for the iDRAC/IPMI hardware management port.
+* It is the long-term password for the iDRAC/IPMI hardware management port.
 
   Make sure you remember the password in case you need to sign in on the IPMI port later to troubleshoot a hardware problem.
 

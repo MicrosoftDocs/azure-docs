@@ -4,7 +4,7 @@ description: How to attach power cables and procedures for startup and safe shut
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell
 ---
 

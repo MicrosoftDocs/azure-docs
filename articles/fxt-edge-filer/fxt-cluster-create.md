@@ -4,7 +4,7 @@ description: How to create a hybrid storage cache cluster with the Azure FXT Edg
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 
@@ -50,7 +50,7 @@ You need the following information to create the Azure FXT Edge Filer cluster:
 
   * The IP address of a DNS server for the cluster
   * The name of the DNS domain for the cluster
-  * The name or IP address for the cluster NTP servers (either one server or at least three) 
+  * The name or IP address for the cluster NTP servers (either one server or three or more) 
   * Whether you want to enable IEEE 802.1AX-2008 link aggregation on the cluster’s interfaces
   * If you enable link aggregation, whether or not to use IEEE 802.3ad (LACP) dynamic aggregation
 
@@ -169,7 +169,7 @@ In the top section, fill in basic information for the new cluster.
 
 * **Admin password** - Set the password for the default administrative user, `admin`.
   
-  You should set up individual user accounts for each person who administers the cluster, but you cannot remove the user `admin`. Log in as `admin` if you need to create additional users.
+  You should set up individual user accounts for each person who administers the cluster, but you cannot remove the user `admin`. Sign in as `admin` if you need to create additional users.
  
   You can change the password for `admin` in the **Administration** > **Users** settings page in the cluster Control Panel. For details, read the **Users** documentation in the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
 

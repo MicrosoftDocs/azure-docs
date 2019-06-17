@@ -4,7 +4,7 @@ description: How to configure back-end storage and the client-facing pseudonames
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 04/30/2019
+ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 
@@ -54,7 +54,7 @@ Define a core filer by clicking the **Create** button on the **Core Filer** > **
 
 ![Clicking the create button above the list of core filers on the Manage Core Filers page](media/fxt-cluster-config/create-core-filer-button.png)
 
-The **Add New Core Filer** wizard walks you through the process of creating a core filer that links to your backend storage. The Cluster Configuration Guide has step by step descriptions of the process, which is different for NFS/NAS storage and for cloud storage (links are above). 
+The **Add New Core Filer** wizard walks you through the process of creating a core filer that links to your backend storage. The Cluster Configuration Guide has step-by-step descriptions of the process, which is different for NFS/NAS storage and for cloud storage (links are above). 
 
 Subtasks include:
 

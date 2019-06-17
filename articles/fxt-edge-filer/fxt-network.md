@@ -4,7 +4,7 @@ description: How to cable the network ports in Azure FXT Edge Filer hardware
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell
 ---
 
@@ -25,7 +25,7 @@ Before starting this tutorial, the Edge Filer should be installed in a standard 
 
 ## Identify ports
 
-Identify the various ports on the back of your FXT Edge Filer. 
+Identify the various ports on the back of your Azure FXT Edge Filer. 
  
 ![Back of a cabled device](media/fxt-back-annotated.png)
 
@@ -73,7 +73,7 @@ The type of connections to use for your system depends on your data center envir
 
 ### IPMI port  
 
-The port labeled iDRAC is a 1Gb connection used for emergency hardware management. FXT software uses the Intelligent Platform Management Interface (IPMI) through this port for hardware troubleshooting and recovery. 
+The port labeled iDRAC is a 1Gb connection used for hardware management and monitoring. FXT software uses the Intelligent Platform Management Interface (IPMI) through this port for hardware troubleshooting and recovery. 
 
 > [!Note]
 > The IPMI port can bypass the operating system and interact directly with hardware on the node. 

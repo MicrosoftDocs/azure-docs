@@ -4,7 +4,7 @@ description: Learn how to set up a hybrid storage cache cluster with the Azure F
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 
@@ -70,7 +70,9 @@ You must take these steps to create a fully functional cluster.
 
 * [Set up support monitoring](#enable-support)
 
-  Customize the upload settings in case a system memory file needs to be sent to Microsoft Customer Service and Support for debugging. You also can configure what statistics are monitored, and enable a proactive support and remote troubleshooting.
+  You must accept the privacy policy for the configuration tool, and you should configure your support upload settings at the same time.
+
+  The cluster can automatically upload troubleshooting data about your cluster, including statistics and debugging files. These uploads let Microsoft Customer Service and Support provide the best possible service. You can customize what is monitored, and optionally enable the proactive support and remote troubleshooting service.  
 
 ### Optional configuration
 
@@ -78,7 +80,7 @@ These steps are not required for all clusters. They are needed for some types of
 
 * Customize node settings
 
-  You can set node names and configure node IPMI ports on a cluster-wide level, or individually. If you configure this before adding nodes to the cluster, the new nodes can pick up the settings automatically when they join. The options are described in the legacy cluster creation document section [Customizing Node Settings](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
+  You can set node names and configure node IPMI ports on a cluster-wide level, or individually. If you configure these settings before adding nodes to the cluster, the new nodes can pick up the settings automatically when they join. The options are described in the legacy cluster creation document section [Customizing Node Settings](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
 
 * Configure SMB
 

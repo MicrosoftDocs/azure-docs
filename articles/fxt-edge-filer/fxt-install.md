@@ -5,13 +5,13 @@ services:
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell
 ---
 
 # Tutorial: Install Azure FXT Edge Filer 
 
-This tutorial describes how to install a hardware node for the Azure FXT Edge Filer hybrid storage cache. Multiple hardware devices are needed to create an Azure FXT Edge Filer cluster.
+This tutorial describes how to install a hardware node for the Azure FXT Edge Filer hybrid storage cache. You need to install at least three hardware nodes to create an Azure FXT Edge Filer cluster.
 
 The installation procedure involves unpacking and rack mounting the device, and attaching the cable management arm (CMA) and front bezel. Separate tutorials explain attaching network cables and connecting power. 
 
@@ -29,14 +29,14 @@ This tutorial includes these setup steps:
 Before you begin, make sure that the data center and rack you will use has these features:
 
 * An available 1U slot on the rack where you intend to mount the device.
-* AC power supply and cooling systems that meet the needs of the Edge Filer. 
+* AC power supply and cooling systems that meet the needs of the Azure FXT Edge Filer. 
 
   For help planning and sizing the installation, read [Power and thermal specifications](fxt-specs.md#power-and-thermal-specifications) to learn about nameplate ratings and thermal output under common conditions.  
 
   > [!NOTE] 
   > To take full advantage of the two redundant power supply units (PSUs), use power distribution units on two different branch circuits when attaching AC power. Read [Connect power to the Azure FXT Edge Filer](fxt-power.md) for details.  
 
-## Unpack the Edge Filer
+## Unpack the hardware node 
 
 Each Azure FXT Edge Filer node is shipped in a single box. Complete these steps to unpack a device.
 
@@ -56,7 +56,7 @@ Each Azure FXT Edge Filer node is shipped in a single box. Complete these steps 
 
 If you didn't receive all of the items listed, contact the device vendor for support. 
 
-Allow enough time for the device to reach the same temperature as the room before installing it or powering it on. If you notice condensation on any part of the device, wait at least 24 hours before installing.
+Make sure the device has had enough time to reach the same temperature as the room before installing it or powering it on. If you notice condensation on any part of the device, wait at least 24 hours before installing.
 
 The next step is to rack mount your device.
 
@@ -64,7 +64,7 @@ The next step is to rack mount your device.
 
 The Azure FXT Edge Filer device must be installed in a standard 19-inch rack. 
 
-The Azure FXT Edge Filer hybrid storage cache is made up of three or more Edge Filer devices. Repeat the rack installation steps for each device that is part of your system. 
+The Azure FXT Edge Filer hybrid storage cache is made up of three or more Azure FXT Edge Filer devices. Repeat the rack installation steps for each device that is part of your system. 
 
 ### Rack install prerequisites
 
@@ -186,7 +186,7 @@ An optional cable management arm (CMA) is provided with the FXT Edge Filer. Prin
    ![Illustration of CMA bracket installation](media/fxt-install/cma-brackets-scan-400.png)
 
    1. Select the appropriate CMA attachment bracket for the side where you want to mount the CMA (side B or side A).
-   1. Install the CMA attachment bracket with the corresponding side A or side B marking at the back of the slide rail. 
+   1. Install the CMA attachment bracket with the corresponding side A or side B marking at the back of the slide rail.
    1. Align the holes on the bracket with the pins on the slide rail. Push the bracket down until it locks into place. 
 
 4. Install the CMA.
@@ -222,7 +222,7 @@ To remove the front bezel:
 
 ## Next steps
 
-After you have unpacked and racked the device continue setup by attaching network cables and connecting AC power and learning to boot and shut down the Edge Filer.
+After you have unpacked and racked the device, continue setup by attaching network cables and connecting AC power and learning to boot and shut down the Azure FXT Edge Filer.
 
 * [Make network connections to the Azure FXT Edge Filer node](fxt-network.md)
 * [Connect power to the Azure FXT Edge Filer](fxt-power.md)

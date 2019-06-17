@@ -4,7 +4,7 @@ description: How to add nodes to the Azure FXT Edge Filer storage cache
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 
