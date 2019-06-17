@@ -19,6 +19,8 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 
 Azure Functions builds on top of the ASP.NET Core Dependency Injection features. Being aware of services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using DI features in an Azure Functions app is recommended.
 
+Support for dependency injection begins with Azure Functions 2.x.
+
 ## Prerequisites
 
 Before you can use dependency injection, you must install the following NuGet packages:
