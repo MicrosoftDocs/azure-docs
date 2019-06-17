@@ -47,7 +47,7 @@ Multi-Factor Authentication comes as part of the following offerings:
 Since most users are accustomed to using only passwords to authenticate, it is important that your organization communicates to all users regarding this process. Awareness can reduce the likelihood that users call your help desk for minor issues related to MFA. However, there are some scenarios where temporarily disabling MFA is necessary. Use the following guidelines to understand how to handle those scenarios:
 
 * Train your support staff to handle scenarios where the user can't sign in because they do not have access to their authentication methods or they are not working correctly.
-   * Using conditional access policies for Azure MFA Service, your support staff can add a user to a group that is excluded from a policy requiring MFA.
+   * Using Conditional Access policies for Azure MFA Service, your support staff can add a user to a group that is excluded from a policy requiring MFA.
 * Consider using Conditional Access named locations as a way to minimize two-step verification prompts. With this functionality, administrators can bypass two-step verification for users that are signing in from a secure trusted network location such as a network segment used for new user onboarding.
 * Deploy [Azure AD Identity Protection](../active-directory-identityprotection.md) and trigger two-step verification based on risk events.
 
