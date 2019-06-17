@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Single-page sign in using the OAuth 2.0 implicit flow in Azure Active Directory B2C
 
-Many modern applications have a single-page app front end that primarily is written in JavaScript. Often, the app is written by using a framework like AngularJS, Ember.js, or Durandal. Single-page apps and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
+Many modern applications have a single-page app front end that primarily is written in JavaScript. Often, the app is written by using a framework like React, Angular or Vue.js. Single-page apps and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
 
 - The security characteristics of these apps are different from traditional server-based web applications.
 - Many authorization servers and identity providers do not support cross-origin resource sharing (CORS) requests.
