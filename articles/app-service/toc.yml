@@ -73,7 +73,7 @@
     items:
     - name: Recommendations
       href: security-recommendations.md
-      name: Authentication and authorization
+    - name: Authentication and authorization
       href: overview-authentication-authorization.md
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
