@@ -15,9 +15,9 @@ tags: connectors
 
 # Exchange RosettaNet messages for B2B enterprise integration in Azure Logic Apps 
 
-RosettaNet is a non-profit consortium that has established standard process for sharing business information. These standards are widespread in semiconductor, electronics and logistics industry and commonly used for supply chain processes. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs) to provide common business-process definitions for all RosettaNet message exchanges. <a href=https://resources.gs1us.org> RosettaNet </a> is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for interaction between companies.
+RosettaNet is a non-profit consortium that has established standard process for sharing business information. These standards are widespread in semiconductor, electronics, and logistics industry and commonly used for supply chain processes. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs) to provide common business-process definitions for all RosettaNet message exchanges. <a href=https://resources.gs1us.org> RosettaNet </a> is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for interaction between companies.
 
-Logic Apps RosettaNet connector enables RosettaNet standard based integration solutions. The connector is based on (RNIF) version 2.0.01. RNIF is an open network application framework that enables business partners to collaboratively run RosettaNet Partner Interface Processes (PIPs). The framework defines message structure, the need for acknowledgements, Multipurpose Internet Mail Extensions (MIME) encoding, and the digital signature.
+Logic Apps RosettaNet connector enables RosettaNet standard based integration solutions. The connector is based on (RNIF) version 2.0.01. RNIF is an open network application framework that enables business partners to collaboratively run RosettaNet Partner Interface Processes (PIPs). The framework defines message structure, the need for acknowledgments, Multipurpose Internet Mail Extensions (MIME) encoding, and the digital signature.
 
 Specifically, the connector provides following capabilities
 -	Encode or Receive RosettaNet messages
@@ -27,7 +27,7 @@ Specifically, the connector provides following capabilities
 For the above capabilities, the connector supports all PIPs defined by RNIF 2.0.01. The communication with the partner can be synchronous or asynchronous.
 
 ## RosettaNet concepts
-Before you start, here are some concepts and terminologies unique to RosettaNet specficiation and are important when doing RosettaNet based integrations
+Before you start, here are some concepts and terminologies unique to RosettaNet specification and are important when doing RosettaNet based integrations
 
 - PIP
 The RosettaNet organization creates and maintains Partner Interface Processes (PIPs) to provide common business-process definitions for all RosettaNet message exchanges. Each PIP specification provides a document type definition (DTD) file and a message guideline document. The DTD file defines the service-content message structure. The message-guideline document, which is a human-readable HTML file, specifies element-level constraints. Together, they provide a complete definition of the business process. PIPs are categorized by a high-level business function (cluster) and a subfunction (segment). For examples, 3A4 is the PIP for Purchase Order, where 3 is Order Management function, and 3A is Quote & Order Entry subfunction. You can find more details on RosettaNet <a href=https://resources.gs1us.org> site </a>.
@@ -36,10 +36,10 @@ The RosettaNet organization creates and maintains Partner Interface Processes (P
 These messages, part of a PIP, are business messages exchanged between partners. 
 
 - Signal
-These messages, also part of a PIP, are acknowledgements sent in response to the Action messages
+These messages, also part of a PIP, are acknowledgments sent in response to the Action messages.
 
 - Single and Double action
-If the Partner Interface Process (PIP) is single-action, the only response is an acknowledgement signal message. If the PIP is double-action, the initiator will receive a response message, and reply with an acknowledgement, in addition to the single-action message flow.
+If the Partner Interface Process (PIP) is single-action, the only response is an acknowledgment signal message. If the PIP is double-action, the initiator will receive a response message, and reply with an acknowledgment, in addition to the single-action message flow.
 
 
 
@@ -66,7 +66,7 @@ To create a PIP with a partner, you must first create a process configuration in
   ![Select RosettaNet tile ](media/logic-apps-enterprise-integration-rosettanet/select-rn-tile.png)
 
 
-  Select **Add** and enter the details about PIP. Provide the Name of the PIP, three digit PIP Code and version of the PIP. You can find more details about PIP at RosettaNet <a href=https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg> website </a>. Click OK to save your selection and create the PIP configuration.
+  Select **Add** and enter the details about PIP. Provide the Name of the PIP, three-digit PIP code, and version of the PIP. You can find more details about PIP at RosettaNet <a href=https://resources.gs1us.org/RosettaNet-Standards/Standards-Library/PIP-Directory#1043208-pipsreg> website </a>. Click OK to save your selection and create the PIP configuration.
 
   ![Add RosettaNet PIP config ](media/logic-apps-enterprise-integration-rosettanet/add-rn-pip.png)
 
@@ -74,7 +74,7 @@ To create a PIP with a partner, you must first create a process configuration in
 
   ![Edit RosettaNet PIP config ](media/logic-apps-enterprise-integration-rosettanet/edit-rn-pip.png)
 
-  All process configuration settings come from the PIP specifications, and we populate most of the settings with default values that are the most typically used values for the fields. You must verify that the settings correspond to the values in the appropriate PIP specification and meets your business needs. If required, you can also update the values in JSON and save the changes by selecting OK.
+  All process configuration settings come from the PIP specifications, and we populate most of the settings with default values that are the most typically used values for the fields. You must verify that the settings correspond to the values in the appropriate PIP specification and meets your business needs. If necessary, you can also update the values in JSON and save the changes by selecting OK.
 
 5. Create RosettaNet agreement
 
@@ -114,10 +114,10 @@ To create a PIP with a partner, you must first create a process configuration in
 	| --- | --- |
 	| Enable message signing | If selected, messages sent will be signed with the certificate using the selected Signing Algorithm  |
 	| Enable message encryption | If selected, messages sent will be signed with the certificate using the selected Signing Algorithm  |
-	| Action URL | URL to send action messages. This is a required field for both synchronous and asynchronous messages. |
-	| Acknowledgement URL | URL to send acknowledgement messages. This is a required field for asynchrnous messages. |
+	| Action URL | URL to send action messages. The URL is a required field for both synchronous and asynchronous messages. |
+	| Acknowledgment URL | URL to send acknowledgment messages. The URL is a required field for asynchronous messages. |
 	
-* All RosettaNet messages require PIP configurations.To configure the RosettaNet PIP references for the partners, select **RosettaNet PIP References**.
+* All RosettaNet messages require PIP configurations. To configure the RosettaNet PIP references for the partners, select **RosettaNet PIP References**.
 
   ![PIP references](media/logic-apps-enterprise-integration-rosettanet/add-agreement-pip-details.png)
 
@@ -127,7 +127,7 @@ After these provisioning steps, you are ready to send or receive RosettaNet mess
 
 # RosettaNet templates
 
-To acclerate development and recommend integration patterns, we have also published logic app templates to Decode and Encode RosettaNet messages. These templates are published in <a href="https://github.com/Azure/logicapps"> Logic Apps repo> </a>. To consume them, open a newly created logic app and select them from the template gallery in the designer.
+To accelerate development and recommend integration patterns, we have also published logic app templates to Decode and Encode RosettaNet messages. These templates are published in <a href="https://github.com/Azure/logicapps"> Logic Apps repo> </a>. To consume them, open a newly created logic app and select them from the template gallery in the designer.
 
  ![RosettaNet templates ](media/logic-apps-enterprise-integration-rosettanet/rn-template.png)
 
@@ -182,22 +182,22 @@ In the Logic App Designer, add a trigger, and then add a new step by clicking on
   | Property | Description |
 	| --- | --- |
 	| Message | RosettaNet message to encode  |
-	| Host partner | HTTP headers providing version and response type values. Version is RNIF version and Response type indicates the communication between the partners, which can be synchronous or asynchronous  |
-	| Guest partner | URL to send action messages. This is a required field for both synchronous and asynchronous messages. |
-  | PIP code | RosettaNet message to decode  |
-	| PIP version | HTTP headers providing version and response type values. Version is RNIF version and Response type indicates the communication between the partners, which can be synchronous or asynchronous  |
-	| PIP Identity | URL to send action messages. This is a required field for both synchronous and asynchronous messages. |
+	| Host partner | Host partner name |
+	| Guest partner | Guest partner name |
+  | PIP code | PIP code  |
+	| PIP version | PIP version  |
+	| PIP Identity | Unique identifier for this PIP message |
 	| Message type | RosettaNet message to decode  |
-	| Role | HTTP headers providing version and response type values. Version is RNIF version and Response type indicates the communication between the partners, which can be synchronous or asynchronous  |
-	| Tracking id | URL to send action messages. This is a required field for both synchronous and asynchronous messages. |
+	| Role | Role of the host partner   |
+	| Tracking id | Tracking ID for the message |
 
   
-5. The encoded message from the previous step is now ready to sent to the partner. For this, we are going to **HTTP** connector.
+5. The encoded message from the previous step is now ready to be sent to the partner. For this, we are going to **HTTP** connector.
 
   ![RosettaNet http action ](media/logic-apps-enterprise-integration-rosettanet/rn-send-to-partner.png)
 
 6. As per the RosettaNet standards, business transactions are considered complete only when all the steps defined by the PIP are complete. After sending the encoded message to partner,
-the host waits for the signal and acknowledgement. This is accomplished by using **RosettaNet wait for response action.
+the host waits for the signal and acknowledgment. This is accomplished by using **RosettaNet wait for response action.
 
   ![RosettaNet wait for response ](media/logic-apps-enterprise-integration-rosettanet/rn-waitforresponse-action.png)
 
