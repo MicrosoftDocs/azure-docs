@@ -15,7 +15,7 @@ This article shows you how to take advantage of parallelization in Azure Stream 
 As a prerequisite, you may want to be familiar with the notion of Streaming Unit described in [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md).
 
 ## What are the parts of a Stream Analytics job?
-A Stream Analytics job definition includes inputs, a query, and output. Inputs are where the job reads the data stream from. The query is used to transform the data input stream, and the output is where the job sends the job results to.  
+A Stream Analytics job definition includes inputs, a query, and output. Inputs are where the job reads the data stream from. The query is used to transform the data input stream, and the output is where the job sends the job results to.
 
 A job requires at least one input source for data streaming. The data stream input source can be stored in an Azure event hub or in Azure blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md) and [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md).
 
@@ -225,15 +225,20 @@ This query can be scaled to 24 SUs.
 ## Achieving higher throughputs at scale
 An [*embarrassingly parallel*](#embarrassingly-parallel-jobs) job is necessary but not sufficient to sustain a higher throughput at scale. Every storage system and its corresponding stream analytics output has variations on how to achieve the best possible write throughput. As with any at-scale scenarios there are some challenges, which can be solved just by using the right configurations. Here we discuss those configurations for few common outputs and provide reproducible samples on how to sustain a given ingestion rates of 1K, 5K and 10K events per second. 
 
-The *Streaming At Scale* azure samples being discussed are located [here](https://github.com/Azure-Samples/streaming-at-scale). All stream analytics samples are using Event Hub as input, that gets fed by load simulating test clients. Each input event is a 1KB json document, that helps translate configured ingestion rates to throughput rates (1MB/s, 5MB/s and 10MB/s) easily. Events simulate an IoT device sending the following JSON data (for upto 1K devices):
+The following observations are done using a stream analytics job with stateless (passthrough) query, a basic javascript UDF which writes to one of the following sinks:
+
+* [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) - This is the most efficient and performant way to analyze and stream data out of Stream Analytics. This solution scales out quite linearly in terms of streaming units and throughput. With maximum size of stream analytics jobs scale upto 192 Streaming Units, this roughly translates to processing of upto 12 million events per minute or 13 GB per minute (19 trillion events per day) on a single job while delivering milliseconds latency. The 3 ingestion rates (1, 5 and 10k events/s) need linearly increasing ASA resources (1, 6, 12 SUs). The detailed solution configurations can be seen [here](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/create-solution.sh#L68).
+
+* [Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) - SQL output in Azure Stream Analytics supports writing in parallel as an option (Inherit Partitioning) that is not enabled by default. Enabling this option along with a fully parallel query still may not be sufficient to achieve higher throughputs, as SQL write throughputs depends significantly on your SQL Azure database configuration and table schema. [This](./stream-analytics-sql-output-perf.md) article discusses in more detail about the parameters that can maximize your write performance. The 3 ingestion rates (1, 5 and 10k events/s) required SQL Azure SKUs S3, P4, P6 respectively to comfortably sustain the write throughputs. As [noted here](./stream-analytics-sql-output-perf.md#azure-stream-analytics), this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL Output(see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with log backups overhead happening every few minutes. 
+
+* [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) - Cosmos DB output from Stream Analytics has been updated to use native integration under [compatibility level 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12), which is not the current default. Compat level 1.2 enables significantly higher throughput and reduces RU consumption compared to 1.1. The solution uses CosmosDB collections partitioned on `/deviceId` and rest of solution is identically configured. The 3 ingestion rates (1, 5 and 10k events/s) required RUs 20K, 60K, 120K respectively to comfortably sustain the write throughputs.
+
+The *Streaming At Scale* azure samples being discussed are located [here](https://github.com/Azure-Samples/streaming-at-scale). All stream analytics samples are using Event Hub as input, that gets fed by load simulating test clients. Each input event is a 1KB json document, that helps translate configured ingestion rates to throughput rates (1MB/s, 5MB/s and 10MB/s) easily. Events simulate an IoT device sending the following JSON data (in a shortened form) for upto 1K devices:
 ```
 {
     "eventId": "b81d241f-5187-40b0-ab2a-940faf9757c0",
     "complexData": {
         "moreData0": 51.3068118685458,
-         .
-         .
-         .
         "moreData22": 45.34076957651598
     },
     "value": 49.02278128887753,
@@ -242,13 +247,6 @@ The *Streaming At Scale* azure samples being discussed are located [here](https:
     "createdAt": "2019-05-16T17:16:40.000003Z"
 }
 ```
-The solution creates a stream analytics job with stateless (passthrough) query, a basic javascript UDF and then writes to one of the following sinks:
-
-* [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) - This is the most efficient and performant way to analyze and stream data out of Stream Analytics. This solution scales out quite linearly in terms of streaming units and throughput. With maximum size of stream analytics jobs scale upto 192 Streaming Units, this roughly translates to processing of upto 12 million events per minute or 13 GB per minute (19 trillion events per day) on a single job while delivering milliseconds latency (below 100ms). The detailed solution configurations can be seen [here](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/create-solution.sh#L68).
-
-* [Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) - SQL output in Azure Stream Analytics supports writing in parallel as an option (Inherit Partitioning) that is not enabled by default. Enabling this option along with a fully parallel query still may not be sufficient to achieve higher throughputs, as SQL write throughputs depends significantly on your SQL Azure database configuration and table schema. [This](./stream-analytics-sql-output-perf.md) article discusses in more detail about the parameters that can maximize your write performance. The 3 ingestion rates (1, 5 and 10k events/s) required SQL Azure SKUs S3, P2, P4 respectively to comfortably sustain the write throughputs. As [noted here](./stream-analytics-sql-output-perf.md#azure-stream-analytics), this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL Output(see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with log backups overhead happening every 10mins. 
-
-* [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) - Cosmos DB output from Stream Analytics has been updated to use native integration under [compatibility level 1.2](./stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12), which is not the current default. Compat level 1.2 enables significantly higher throughput and reduces RU consumption compared to 1.1. The solution uses CosmosDB collections partitioned on `/deviceId` and rest of solution is identically configured. The 3 ingestion rates (1, 5 and 10k events/s) required RUs 20K, 60K, 120K respectively to comfortably sustain the write throughputs.
 
 > [!Note]
 > Please note the configurations mentioned may be outdated despite our regular efforts. Recommend deploying the solutions, customizing and verifying your scenario to come up with more accurate estimates of resources required.
