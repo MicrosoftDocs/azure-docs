@@ -65,10 +65,10 @@ If you have existing Azure Storage, you can register it as a datastore on your w
 We recommend blob storage and blob datastores. Both standard and premium storage are available for blobs. If cost isn't an issue, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, if you train against a large data set.
 
 >[!NOTE]
-> There may be scenarios where you may want to use AzurePostgreSqlDatastore or AzureSqlDatabaseDatastore. For example, if you  have relational data in a database that you want to train against.
+> Azure Machine Learning service supports other types of datastores, which may be useful for specific scenarios. For example, if you need to train using data stored in a database, you might use the AzureSQLDatabaseDatastore or AzurePostgreSqlDatastore. For more information on available datastores, see [this table](#matrix).
 
 #### Register your datastore
-All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. 
+All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*.
 
 The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
 
@@ -187,6 +187,7 @@ ds.path('./bar').as_download()
 > [!NOTE]
 > Any `ds` or `ds.path` object resolves to an environment variable name of the format `"$AZUREML_DATAREFERENCE_XXXX"` whose value represents the mount/download path on the target compute. The datastore path on the target compute might not be the same as the execution path for the training script.
 
+<a name="matrix"></a>
 ### Training compute and datastore matrix
 
 The following matrix displays the available data access functionalities for the different training compute targets and datastore scenarios. Learn more about the [training compute targets for Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
