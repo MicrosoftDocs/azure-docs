@@ -41,9 +41,6 @@ Follow the steps below to enable the resource provider for CloudSimple service.
 
 ## Create the service
 
->[!NOTE]
-> CloudSimple service must be enabled on your subscription. If your subscription not enabled, you'll receive an error when you try to create the service.  Follow the steps in [Enable CloudSimple service](https://docs.azure.cloudsimple.com/enable-cloudsimple-service) article to enable the service.
-
 1. Select **All services**.
 2. Search for **CloudSimple Service**.
 
