@@ -111,7 +111,7 @@ To complete this tutorial, you need to:
     	WHERE
     	  KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
     	  AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-      AND KCU.REFERENCED_TABLE_SCHEMA = ['SchemaName') Queries
+      AND KCU.REFERENCED_TABLE_SCHEMA = ('SchemaName') Queries
       GROUP BY SchemaName;
     ```
 

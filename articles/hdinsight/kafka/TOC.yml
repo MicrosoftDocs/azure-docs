@@ -7,11 +7,11 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an Apache Kafka cluster - Portal
+  - name: Create Apache Kafka cluster - Portal
     href: apache-kafka-get-started.md
-  - name: Create an Apache Kafka cluster - PowerShell
+  - name: Create Apache Kafka cluster - PowerShell
     href: apache-kafka-quickstart-powershell.md
-  - name: Create an Apache Kafka cluster - Resource Manager Template
+  - name: Create Apache Kafka cluster - Template
     displayName: resource manager template, arm template, resource manager group
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutorials

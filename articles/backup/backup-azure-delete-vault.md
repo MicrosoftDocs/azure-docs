@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 06/13/2019
 ms.author: raynew
 ---
 # Delete a Recovery Services vault
@@ -18,8 +18,8 @@ This article describes how to delete an [Azure Backup](backup-overview.md) Recov
 
 Before you start, it's important to understand that you can't delete a Recovery Services vault that has servers registered in it, or that holds backup data.
 
-- To delete a vault gracefully, you unregister servers in it, remove vault data, and then delete the vault.
-- If you try to delete a vault that still has dependencies, an error message is issued. and you need to manually remove the vault dependencies, including:
+- To gracefully delete a vault, unregister servers it contains, remove vault data, and then delete the vault.
+- If you try to delete a vault that still has dependencies, an error message is issued, and you will need to manually remove the vault dependencies, including:
     - Backed up items
     - Protected servers
     - Backup management servers (Azure Backup Server, DPM)
@@ -35,7 +35,7 @@ Before you start, it's important to understand that you can't delete a Recovery 
 
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-If you receive an error, remove [backup items](#remove-backup-items), [infrastructure servers](#remove-backup-infrastructure-servers), and [recovery points](#remove-azure-backup-agent-recovery-points), and then delete the vault.
+If you receive an error, remove [backup items](#remove-backup-items), [infrastructure servers](#remove-backup-management-servers), and [recovery points](#remove-azure-backup-agent-recovery-points), and then delete the vault.
 
 ![delete vault error](./media/backup-azure-delete-vault/error.png)
 
@@ -73,7 +73,7 @@ For more information on ARMClient command, refer this [document](https://github.
 
 ## Remove vault items and delete the vault
 
-These procedure provide some examples for removing backup data and infrastructure servers. After everything's removed from a vault, you can delete it.
+These procedures provide some examples for removing backup data and infrastructure servers. After everything's removed from a vault, you can delete it.
 
 ### Remove backup items
 
@@ -96,7 +96,7 @@ This procedure provides an example that shows you how to remove backup data from
 
      ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. Optionally provide a reason why you're deleting the data, and add comments.
+5. Optionally, provide a reason why you're deleting the data, and add comments.
 6. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
 7. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
 8. After deleting an item in the list, on the **Backup Items** menu, click **Refresh** to see the items in the vault.
@@ -104,7 +104,7 @@ This procedure provides an example that shows you how to remove backup data from
       ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
 
 
-### Remove backup infrastructure servers
+### Remove Backup Management Servers
 
 1. In the vault dashboard menu, click **Backup Infrastructure**.
 2. Click **Backup Management Servers** to view servers.
@@ -112,15 +112,25 @@ This procedure provides an example that shows you how to remove backup data from
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Right-click the item > **Delete**.
-4. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
-5. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
-6. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
+4. On the **Delete** menu, type the name of the server, and click **Delete**.
+
+     ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+5.  Optionally, provide a reason why you're deleting the data, and add comments.
+
+> [!NOTE]
+> Backup items associated with a Backup Management Server or Azure Backup Agent server must be deleted before those server’s registrations are deleted. To remove Backup items, navigate to the SC DPM, MABS or the MARS management console on the server as applicable, and select the relevant options to stop protection and delete backups. If any backup items are still associated, you will see the following error:
+> 
+>![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
+
+6. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
+7. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
+8. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
 
 
 ### Remove Azure Backup agent recovery points
 
 1. In the vault dashboard menu, click **Backup Infrastructure**.
-2. Click **Backup Management Servers** to view the infrastructure servers.
+2. Click **Protected Servers** to view the infrastructure servers.
 
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
@@ -136,13 +146,20 @@ This procedure provides an example that shows you how to remove backup data from
 
     ![delete the selected server](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-6. On the **Delete** menu, type the name of the item, and click **Delete**.
+6. On the **Delete** menu, type the name of the server, and click **Delete**.
 
      ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
-7. Optionally provide a reason why you're deleting the data, and add comments.
-8. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
-9. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
+7. Optionally, provide a reason why you're deleting the data, and add comments.
+
+> [!NOTE]
+> Backup items associated with a Backup Management Server or Azure Backup Agent server must be deleted before those server’s registrations are deleted. To remove Backup items, navigate to the SC DPM, MABS or the MARS management console on the server as applicable, and select the relevant options to stop protection and delete backups. If any backup items are still associated, you will see the following error:
+> 
+> 
+>![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
+
+1. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
+1. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
 
 ### Delete the vault after removing dependencies
 
