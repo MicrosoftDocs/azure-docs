@@ -17,25 +17,43 @@ This page has the download links for each version of the Azure Kinect Sensor SDK
 
 * Headers and libraries to build an application using the Azure Kinect DK.
 * Redistributable DLLs needed by applications using the Azure Kinect DK.
-* The [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) tool.
-* The [k4arecorder](record-sensor-streams-file.md) tool.
+* The [Azure Kinect Viewer](azure-kinect-sensor-viewer.md).
+* The [Azure Kinect Recorder](record-sensor-streams-file.md).
 * The [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md).
 
-## Windows download links
+## Windows download link
 
-Version       | Download | Source
---------------|----------|--------
- 1.1.0 | [Microsoft installer](http://download.microsoft.com/download/E/B/D/EBDBB3C1-ED3F-4236-96D6-2BCB352F3710/Azure%20Kinect%20SDK%201.1.0.msi) | [GitHub source code](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/releases/tag/v1.1.0)
- 1.0.2 | [Microsoft installer](http://download.microsoft.com/download/B/4/D/B4D26442-DDA5-40C2-9913-3B23AE84A806/Azure%20Kinect%20SDK%201.0.2.msi) | [GitHub source code](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/releases/tag/v1.0.2)
+[Microsoft installer](http://download.microsoft.com/download/E/B/D/EBDBB3C1-ED3F-4236-96D6-2BCB352F3710/Azure%20Kinect%20SDK%201.1.0.msi) | [GitHub source code](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/releases/tag/v1.1.0)
 
 > [!NOTE]
 > When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect SDK 1.0.2". You will find the tools referenced in articles in this path.
 
-## Change log
+## Linux installation instructions
 
-Make sure you install the latest version referenced in the change log.
+Currently, the only supported distribution is Ubuntu 18.04. To request support for other distributions, please file an [issue](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/new?assignees=&labels=Enhancement&template=feature-request--enhancement-.md&title=).
 
-* The initial release is **v1.0.2**.
+First, you will need to configure [Microsoft's Package Repository](https://packages.microsoft.com/), following the instructions [here](https://docs.microsoft.com/en-us/windows-server/administration/linux-package-repository-for-microsoft-software).
+
+You should now be able to install the necessary packages via `apt`.
+
+ The `k4a-tools` package includes the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md), the [Azure Kinect Recorder](record-sensor-streams-file.md), and the [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md). To install it, run
+
+ `sudo apt install k4a-tools`
+
+ The `libk4a<major>.<minor>-dev` package contains the headers and cmake files to build against `libk4a`.
+ The `libk4a<major>.<minor>` package contains the shared objects needed to run executables that depend on `libk4a`.
+
+ The basic tutorials require the `libk4a<major>.<minor>-dev` package. To install it, run
+
+ `sudo apt install libk4a1.1-dev`.
+
+The SDK should now be installed and ready for use.
+
+## Change log and Older Versions
+
+You can find the change log for the Azure Kinect Sensor SDK [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/master/CHANGELOG.md).
+
+If you need an older version of the Azure Kinect Sensor SDK, find it [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/master/docs/usage.md)
 
 ## Next steps
 
