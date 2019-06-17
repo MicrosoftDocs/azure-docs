@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/16/2019
 ms.author: juliako
 
 ---
@@ -63,9 +63,9 @@ When using live encoding with Media Services, you would configure your on-premis
 
 To understand the live streaming workflow in Media Services v3, you have to first review and understand the following concepts: 
 
-- [Streaming Endpoints API](streaming-endpoint-concept.md)
-- [Live Events and Live Outputs API](live-events-outputs-concept.md)
-- [Streaming Locators API](streaming-locators-concept.md)
+- [Streaming Endpoints](streaming-endpoint-concept.md)
+- [Live Events and Live Outputs](live-events-outputs-concept.md)
+- [Streaming Locators](streaming-locators-concept.md)
 
 ### General steps
 
@@ -75,7 +75,7 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 5. Create a new **Asset** object.
 6. Create a **Live Output** and use the asset name that you created.<br/>The **Live Output** will archive the stream into the **Asset**.
-7. Create a **Streaming Locator** with the built-in **Streaming Policy** types.<br/>If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
+7. Create a **Streaming Locator** with the [built-in Streaming Policy types](streaming-policy-concept.md)
 8. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
 9. Get the hostname for the **Streaming Endpoint** (Origin) you wish to stream from.
 10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
