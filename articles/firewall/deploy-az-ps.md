@@ -31,7 +31,9 @@ The following Azure PowerShell example shows how you can deploy an Azure Firewal
 
 This example creates a firewall in zones 1, 2, and 3.
 
-When the standard public IP address is created, no specific zone is specified. This creates a zone-redundant IP address by default. It's important to know, because you cant' have a firewall in zone 1 and an IP address in zone 2. But you can have a firewall in zone 1 and IP in all zones.
+When the standard public IP address is created, no specific zone is specified. This creates a zone-redundant IP address by default. Standard public IP addresses can be configured either in all zones, or a single zone.
+
+It's important to know, because you can't have a firewall in zone 1 and an IP address in zone 2. But you can have a firewall in zone 1 and IP address in all zones, or a firewall and an IP address in the same single zone for proximity purposes.
 
 ```azurepowershell
 $rgName = "resourceGroupName"
