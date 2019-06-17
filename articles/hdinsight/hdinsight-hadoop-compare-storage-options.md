@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/17/2019
 ---
 # Compare storage options for use with Azure HDInsight clusters
 
