@@ -30,30 +30,28 @@ This page has the download links for each version of the Azure Kinect Sensor SDK
 
 ## Linux installation instructions
 
-Currently, the only supported distribution is Ubuntu 18.04. To request support for other distributions, please file an [issue](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/new?assignees=&labels=Enhancement&template=feature-request--enhancement-.md&title=).
+Currently, the only supported distribution is Ubuntu 18.04. To request support for other distributions, see [this page](https://aka.ms/azurekinectfeedback).
 
-First, you will need to configure [Microsoft's Package Repository](https://packages.microsoft.com/), following the instructions [here](https://docs.microsoft.com/en-us/windows-server/administration/linux-package-repository-for-microsoft-software).
+First, you'll need to configure [Microsoft's Package Repository](https://packages.microsoft.com/), following the instructions [here](https://docs.microsoft.com/en-us/windows-server/administration/linux-package-repository-for-microsoft-software).
 
-You should now be able to install the necessary packages via `apt`.
-
- The `k4a-tools` package includes the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md), the [Azure Kinect Recorder](record-sensor-streams-file.md), and the [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md). To install it, run
+Now, you can install the necessary packages. The `k4a-tools` package includes the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md), the [Azure Kinect Recorder](record-sensor-streams-file.md), and the [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md). To install it, run
 
  `sudo apt install k4a-tools`
 
- The `libk4a<major>.<minor>-dev` package contains the headers and cmake files to build against `libk4a`.
+ The `libk4a<major>.<minor>-dev` package contains the headers and CMake files to build against `libk4a`.
  The `libk4a<major>.<minor>` package contains the shared objects needed to run executables that depend on `libk4a`.
 
  The basic tutorials require the `libk4a<major>.<minor>-dev` package. To install it, run
 
  `sudo apt install libk4a1.1-dev`.
 
-The SDK should now be installed and ready for use.
+If the command succeeds, the SDK is ready for use.
 
-## Change log and Older Versions
+## Change log and older versions
 
-You can find the change log for the Azure Kinect Sensor SDK [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/master/CHANGELOG.md).
+You can find the change log for the Azure Kinect Sensor SDK [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/CHANGELOG.md).
 
-If you need an older version of the Azure Kinect Sensor SDK, find it [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/master/docs/usage.md)
+If you need an older version of the Azure Kinect Sensor SDK, find it [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/master/docs/usage.md).
 
 ## Next steps
 
