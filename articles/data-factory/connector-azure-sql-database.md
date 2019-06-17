@@ -493,7 +493,7 @@ BEGIN
 END
 ```
 
-**Option 2:** You also can choose to [invoke a stored procedure within the copy activity](#invoking-stored-procedure-for-sql-sink). This approach runs each row in the source table instead of using bulk insert as the default approach in the copy activity, which isn't appropriate for large-scale upsert.
+**Option 2:** You also can choose to [invoke a stored procedure within the copy activity](#invoke-a-stored-procedure-from-a-sql-sink). This approach runs each row in the source table instead of using bulk insert as the default approach in the copy activity, which isn't appropriate for large-scale upsert.
 
 ### Overwrite the entire table
 

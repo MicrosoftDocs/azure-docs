@@ -314,7 +314,7 @@ For Microsoft data stores, refer to [monitoring and tuning topics](#performance-
 
 ### Relational data stores
 
-* **Copy behavior and performance implication**: There are different ways to write data into SQL sink, learn more from [Best practice for loading data into Azure SQL Database](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database).
+* **Copy behavior and performance implication**: There are different ways to write data into SQL sink, learn more from [Best practices for loading data into Azure SQL Database](connector-azure-sql-database.md#best-practices-for-loading-data-into-azure-sql-database).
 
 * **Data pattern and batch size**:
   * Your table schema affects copy throughput. To copy the same amount of data, a large row size gives you better performance than a small row size because the database can more efficiently commit fewer batches of data.
