@@ -1,20 +1,22 @@
 ---
 
-title: Quickstart to add a guest user with PowerShell for Azure Active Directory B2B collaboration | Microsoft Docs
+title: Quickstart Add a guest user with PowerShell - Azure Active Directory | Microsoft Docs
 description: In this quickstart, you learn how to use PowerShell to send an invitation to an external Azure AD B2B collaboration user.
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 08/28/2018
 
 ms.author: mimart
 author: msmimart
+manager: celestedg
 ms.reviewer: mal
-
+ms.custom: "it-pro, seo-update-azuread-jan"
 #customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user through PowerShell.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add a guest user with PowerShell
@@ -30,29 +32,29 @@ Make sure that you install the latest version of the Azure AD PowerShell for Gra
 
 First, check which modules you have installed. Open Windows PowerShell as an elevated user (Run as administrator), and run the following command:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 If the AzureADPreview module displays with no message indicating there’s a later version, you’re set. Otherwise, based on the output, do one of the following:
 
 - If no results are returned, run the following command to install the AzureADPreview module:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - If only the AzureAD module shows up in the results, run the following commands to install the AzureADPreview module: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - If only the AzureADPreview module shows up in the results, but you receive a message that indicates there's a later version, run the following commands to update the module: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 You might receive a prompt that you're installing the module from an untrusted repository. This occurs if you haven't previously set the PSGallery repository as a trusted repository. Press **Y** to install the module.
 
@@ -73,7 +75,7 @@ When prompted, enter your credentials.
 
 ## Send an invitation
 
-1. To send an invitation to your test email account, run the following PowerShell command (replace **"Sanda"** and **sanda@fabrikam.com** with your test email account name and email address): 
+1. To send an invitation to your test email account, run the following PowerShell command (replace **"Sanda"** and **sanda\@fabrikam.com** with your test email account name and email address): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
@@ -89,7 +91,7 @@ When prompted, enter your credentials.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Check the output to make sure the user you invited is listed, with a user principal name (UPN) in the format *emailaddress*#EXT#@*domain*. For example, *sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
+3. Check the output to make sure the user you invited is listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
    ![PowerShell output showing guest user added](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

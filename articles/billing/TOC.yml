@@ -5,26 +5,46 @@
   items:
   - name: Understand your bill
     href: billing-understand-your-bill.md
-  - name: Get invoice and usage data
-    href: billing-download-azure-invoice-daily-usage-date.md
+  - name: Understand your EA bill
+    href: billing-understand-your-bill-ea.md
+  - name: Understand your bill - Microsoft Customer Agreement only
+    href: billing-mca-understand-your-bill.md
+  - name: View and download your Microsoft Azure invoice
+    href: billing-download-azure-invoice.md
+  - name: View and download your Microsoft Azure usage and charges
+    href: billing-download-azure-daily-usage.md
+  - name: View and download tax documents for your Microsoft Customer Agreement
+    href: billing-mca-download-tax-document.md
   - name: Third-party service charges
     href: billing-understand-your-azure-marketplace-charges.md
   - name: Usage terms explained
     href: billing-understand-your-usage.md
+  - name: Usage terms explained - Microsoft Customer Agreement only
+    href: billing-mca-understand-your-usage.md
   - name: Invoice terms explained
     href: billing-understand-your-invoice.md
+  - name: Invoice terms explained - Microsoft Customer Agreement only
+    href: billing-mca-understand-your-invoice.md
+  - name: Billing accounts for Microsoft Customer Agreement
+    href: billing-mca-overview.md
 - name: Manage costs
   items:
   - name: Prevent unexpected costs
     href: billing-getting-started.md
+  - name: View and download your organization's pricing
+    href: billing-ea-pricing.md
+  - name: Pricesheet terms explained - Microsoft Customer Agreement only
+    href: billing-mca-understand-pricesheet.md
   - name: Use resource tags
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
-  - name: Start analyzing costs - EA only
+  - name: Start analyzing costs
     href: ../cost-management/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json
-  - name: Create and manage budgets - EA only
+  - name: Create and manage budgets
     href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
-  - name: Optimize recommendations - EA only
+  - name: Optimize recommendations
     href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Track credits for Microsoft Customer Agreement
+    href: billing-mca-check-azure-credits-balance.md
   - name: Calculate pricing
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Understand spending limit
@@ -35,23 +55,27 @@
       href: billing-save-compute-costs-reservations.md
     - name: Buy a reservation
       items:
+      - name: SQL Data Warehouse
+        href: billing-prepay-sql-data-warehouse-charges-with-reserved-capacity.md
+      - name: Virtual machine
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
       - name: Cosmos DB
         href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
-      - name: SUSE Linux software
+      - name: Azure software plans
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
-      - name: Virtual machine
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
     - name: How discount is applied
       items:
       - name: Reserved VM Instances
         href: billing-understand-vm-reservation-charges.md
-      - name: SQL Database reserved capacity
-        href: billing-understand-reservation-charges.md
       - name: Cosmos DB reserved capacity
         href: billing-understand-cosmosdb-reservation-charges.md
-      - name: SUSE Linux software plans
+      - name: SQL Database reserved capacity
+        href: billing-understand-reservation-charges.md
+      - name: SQL Data Warehouse
+        href: billing-how-reservation-discount-is-applied-to-azure-sql-dw.md
+      - name: Azure software plans
         href: billing-understand-suse-reservation-charges.md
     - name: Software costs not included
       href: billing-reserved-instance-windows-software-costs.md
@@ -59,10 +83,14 @@
       href: billing-understand-reserved-instance-usage.md
     - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
+    - name: Reservation exchanges and refunds
+      href: billing-azure-reservations-self-service-exchange-and-refund.md
     - name: Manage Reservations
       href: billing-manage-reserved-vm-instance.md
     - name: View Reservations
-      href: billing-view-reservations.md  
+      href: billing-view-reservations.md
+    - name: Reservation APIs
+      href: billing-reservation-apis.md
 - name: Manage account
   items:
   - name: Free account
@@ -81,12 +109,22 @@
     href: billing-how-to-change-azure-account-profile.md
   - name: Grant access to billing
     href: billing-manage-access.md
+  - name: EA roles in Azure
+    href: billing-understand-ea-roles.md
+  - name: Microsoft Customer Agreements roles in Azure
+    href: billing-understand-mca-roles.md
   - name: Link partner ID
     href: billing-partner-admin-link-started.md
   - name: View billing accounts
     href: billing-view-all-accounts.md
+  - name: Organize costs with invoice sections
+    href: billing-mca-section-invoice.md
+  - name: EA tasks in Microsoft Customer Agreement
+    href: billing-mca-enterprise-operations.md
   - name: Resolve past due balance
     href: billing-azure-subscription-past-due-balance.md
+  - name: Set up billing account for Microsoft Customer Agreement
+    href: billing-mca-setup-account.md
   - name: Sign up with Office 365 account
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Sign up for Office 365 with Azure account
@@ -97,6 +135,8 @@
     href: billing-subscription-become-disable.md
   - name: Transfer ownership
     href: billing-subscription-transfer.md
+  - name: Request ownership - Microsoft Customer Agreement
+    href: billing-mca-request-billing-ownership.md
   - name: Cancel subscription
     href: billing-how-to-cancel-azure-subscription.md
   - name: Change credit card
@@ -111,7 +151,11 @@
     href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
   - name: Move Azure resources
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
-  - name: Create Enterprise subscriptions
+  - name: Create additional subscription
+    href: billing-create-subscription.md
+  - name: Create additional subscription - Microsoft Customer Agreement
+    href: billing-mca-create-subscription.md
+  - name: Programmatically create Enterprise subscriptions
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Export subscription information
     href: billing-export-subscriptions.md
@@ -163,8 +207,6 @@
     items:
     - name: Azure Billing REST API
       href: https://docs.microsoft.com/rest/api/billing
-    - name: Partner solution – Cloud Cruiser
-      href: billing-usage-rate-card-partner-solution-cloudcruiser.md
   - name: Azure Consumption API overview
     href: billing-consumption-api-overview.md
     items:

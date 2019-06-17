@@ -3,11 +3,11 @@ title: This quickstart shows you how to enroll X.509 devices to the Azure Device
 description: This quickstart uses group enrollments. In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using Python
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/25/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
+manager: philmea
 ms.devlang: python
 ms.custom: mvc
 ---
@@ -43,13 +43,13 @@ To use this test tooling to generate certificates, perform the following steps:
  
 1. Open a command prompt or Git Bash shell, and change to a working folder on your machine. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
-  ```cmd/sh
-  git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-  ```
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-  The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+   You should expect this operation to take several minutes to complete.
 
-  The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
+   The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
 
 2. Follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
 

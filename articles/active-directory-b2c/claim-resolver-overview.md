@@ -2,15 +2,15 @@
 title: About claim resolvers in Azure Active Directory B2C custom policies | Microsoft Docs
 description: Learn about how claims resolvers are used in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/08/2018
-ms.author: davidmu
-ms.component: B2C
+ms.date: 01/25/2019
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # About claim resolvers in Azure Active Directory B2C custom policies
@@ -93,6 +93,11 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {OAUTH-KV:loyalty_number} | A query string parameter. | 1234 |
 | {OAUTH-KV:any custom query string} | A query string parameter. | N/A |
 
+### OAuth2
+
+| Claim | Description | Example |
+| ----- | ----------------------- | --------|
+| {oauth2:access_token} | The access token. | N/A |
 
 ## How to use claim resolvers
 
@@ -127,7 +132,7 @@ Using claim resolvers, you can prepopulate the sign-in name or direct sign-in to
 
 ### Dynamic UI customization
 
-Azue AD B2C enables you to pass query string parameters to your HTML content definition endpoints so that you can dynamically render the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
+Azure AD B2C enables you to pass query string parameters to your HTML content definition endpoints so that you can dynamically render the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page based on a custom parameter that you pass from your web or mobile application. For more information, see [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). You can also localize your HTML page based on a language parameter, or you can change the content based on the client ID.
 
 The following example passes in the query string a parameter named **campaignId** with a value of `hawaii`, a **language** code of `en-US`, and **app** representing the client ID:
 

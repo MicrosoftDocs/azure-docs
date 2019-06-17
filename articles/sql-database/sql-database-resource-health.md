@@ -3,15 +3,15 @@ title: Use Azure Resource Health to monitor SQL Database health | Microsoft Docs
 description: Use Azure Resource Health to monitor SQL Database health, helps you diagnose and get support when an Azure issue impacts your SQL resources.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 11/14/2018
+ms.date: 02/26/2019
 
 ---
 # Use Resource Health to troubleshoot connectivity for Azure SQL Database
@@ -48,9 +48,9 @@ A status of **Unavailable** means that Resource Health has detected consistent l
 
 ### Unknown
 
-The health status of **Unknown** indicates that Resource Health hasn't received information about this resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it is an important data point in the troubleshooting process.
-If the resource is running as expected, the status of the resource will change to Available after a few minutes.
-If you're experiencing problems with the resource, the Unknown health status might suggest that an event in the platform is affecting the resource.
+The health status of **Unknown** indicates that Resource Health hasn't received information about this resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it is an important data point in the troubleshooting process. If the resource is running as expected, the status of the resource will change to Available after a few minutes. If you're experiencing problems with the resource, the Unknown health status might suggest that an event in the platform is affecting the resource.
+
+![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## Historical information
 
@@ -62,16 +62,16 @@ When your SQL Database experiences downtime, analysis is performed to determine 
 
 #### Planned maintenance
 
-The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and retry logic helps reduce the impact. If you continue to experience login errors, please contact support.
+The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and [retry logic](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) helps reduce the impact. If you continue to experience login errors, please contact support.
 
 #### Reconfiguration
 
-Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database service should implement a robust connection retry logic with backoff logic, as it would help mitigate these situations and should generally make the errors transparent to the end user.
+Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database should implement a robust connection [retry logic](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Next steps
 
 - Learn more about [retry logic for transient errors](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [Troubleshoot, diagnose, and prevent SQL connection errors](./sql-database-connectivity-issues.md)
-- Learn more about [configuring Resource Health alerts](/articles/service-health/resource-health-alert-arm-template-guide.md)
-- Get an overview of [Resource Health](/articles/service-health/resource-health-overview.md)
-- [Resource Health FAQ](/articles/service-health/resource-health-faq.md)
+- Learn more about [configuring Resource Health alerts](../service-health/resource-health-alert-arm-template-guide.md)
+- Get an overview of [Resource Health](../service-health/resource-health-overview.md)
+- [Resource Health FAQ](../service-health/resource-health-faq.md)

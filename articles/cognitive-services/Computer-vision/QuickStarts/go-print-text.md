@@ -1,16 +1,17 @@
 ---
-title: "Quickstart: Extract printed text (OCR) - REST, Go - Computer Vision"
+title: "Quickstart: Extract printed text - REST, Go"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using the Computer Vision API with Go.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Extract printed text (OCR) using the REST API and Go in Computer Vision
 
@@ -21,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - You must have [Go](https://golang.org/dl/) installed.
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 ## Create and run the sample
 
@@ -214,10 +215,6 @@ A successful response is returned in JSON. The sample application parses and dis
   "textAngle": 0
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the compiled package and the file from which the package was compiled, then close the command prompt window and the text editor.
 
 ## Next steps
 

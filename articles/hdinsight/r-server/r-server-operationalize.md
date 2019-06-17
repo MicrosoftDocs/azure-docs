@@ -1,7 +1,6 @@
 ---
 title: Operationalize ML Services on HDInsight - Azure 
 description: Learn how to operationalize ML Services in Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -22,7 +21,7 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
 ## Operationalize ML Services cluster with one-box configuration
 
-> [!NOTE]
+> [!NOTE]  
 > The steps below are applicable to R Server 9.0 and ML Server 9.1. For ML Server 9.3, refer to [Use the administration tool to manage the operationalization configuration](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH into the edge node.
@@ -73,9 +72,9 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
     d. From the menu options presented, enter **E** to return to the main menu and then enter **8** to exit the admin utility.
 
-### Long delays when consuming web service on Spark
+### Long delays when consuming web service on Apache Spark
 
-If you encounter long delays when trying to consume a web service created with mrsdeploy functions in a Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service using mrsdeploy functions. To work around this issue:
+If you encounter long delays when trying to consume a web service created with mrsdeploy functions in an Apache Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service using mrsdeploy functions. To work around this issue:
 
 	# Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -133,7 +132,7 @@ To scale the compute nodes, you first decommission the worker nodes and then con
 
 ### Step 1: Decommission the worker nodes
 
-ML Services cluster is not managed through YARN. If the worker nodes are not decommissioned, the YARN Resource Manager does not work as expected because it is not aware of the resources being taken up by the server. In order to avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
+ML Services cluster is not managed through [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). If the worker nodes are not decommissioned, the YARN Resource Manager does not work as expected because it is not aware of the resources being taken up by the server. In order to avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
 
 Follow these steps to decommission worker nodes:
 

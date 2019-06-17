@@ -1,22 +1,21 @@
 ---
-title: How-to configure password writeback for Azure AD SSPR
+title: How-to configure password writeback for Azure AD SSPR - Azure Active Directory
 description: Use Azure AD and Azure AD Connect to writeback passwords to an on-premises directory
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # How-to: Configure password writeback
-
-We recommend that you use the auto-update feature of [Azure AD Connect](../hybrid/how-to-connect-install-express.md) when using password writeback.
 
 The following steps assume you have already configured Azure AD Connect in your environment by using the [Express](../hybrid/how-to-connect-install-express.md) or [Custom](../hybrid/how-to-connect-install-custom.md) settings.
 
@@ -36,6 +35,25 @@ For common troubleshooting tasks related to password writeback, see the section 
 > Password writeback will stop working for customers who are using Azure AD Connect versions 1.0.8641.0 and older when the [Azure Access Control service (ACS) is retired on November 7th, 2018](../develop/active-directory-acs-migration.md). Azure AD Connect versions 1.0.8641.0 and older will no longer allow password writeback at that time because they depend on ACS for that functionality.
 >
 > To avoid a disruption in service, upgrade from a previous version of Azure AD Connect to a newer version, see the article [Azure AD Connect: Upgrade from a previous version to the latest](../hybrid/how-to-upgrade-previous-version.md)
+>
+
+## Licensing requirements for password writeback
+
+**Self-Service Password Reset/Change/Unlock with on-premises writeback is a premium feature of Azure AD**. For more information about licensing, see the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+
+To use password writeback, you must have one of the following licenses assigned on your tenant:
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 or A3
+* Enterprise Mobility + Security E5 or A5
+* Microsoft 365 E3 or A3
+* Microsoft 365 E5 or A5
+* Microsoft 365 F1
+* Microsoft 365 Business
+
+> [!WARNING]
+> Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.
 >
 
 ## Active Directory permissions

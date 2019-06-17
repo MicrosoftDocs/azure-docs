@@ -33,7 +33,7 @@ The Azure Diagnostics Extension requires that the target virtual machine is conn
 
 ## Extension schema
 
-[The Azure Diagnostics Extension schema and property values are described in this document.](../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
+[The Azure Diagnostics Extension schema and property values are described in this document.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## Template deployment
 
@@ -55,13 +55,17 @@ az vm extension set \
 
 ## PowerShell deployment
 
-The `Set-AzureRmVMDiagnosticsExtension` command can be used to add the Azure Diagnostics extension to an existing virtual machine. See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](ps-extensions-diagnostics.md).
+The `Set-AzVMDiagnosticsExtension` command can be used to add the Azure Diagnostics extension to an existing virtual machine. See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](ps-extensions-diagnostics.md).
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
+
 ```powershell
 $vm_resourcegroup = "myvmresourcegroup"
 $vm_name = "myvm"
 $diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
 
-Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
+Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
   -VMName $vm_name `
   -DiagnosticsConfigurationPath $diagnosticsconfig_path
 ```
@@ -76,12 +80,12 @@ Data about the state of extension deployments can be retrieved from the Azure po
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-[See this article](../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md) for a more comprehensive troubleshooting guide for the Azure Diagnostics extension.
+[See this article](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md) for a more comprehensive troubleshooting guide for the Azure Diagnostics extension.
 
 ### Support
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## Next Steps
-* [Learn more about the Azure Diagnostics Extension](../../monitoring-and-diagnostics/azure-diagnostics.md)
-* [Review the extension schema and versions](../../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+* [Learn more about the Azure Diagnostics Extension](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [Review the extension schema and versions](../../azure-monitor/platform/diagnostics-extension-schema.md)

@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure blob storage - Azure Logic Apps | Microsoft Docs
+title: Connect to Azure blob storage - Azure Logic Apps
 description: Create and manage blobs in Azure storage with Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -23,16 +23,16 @@ get, update, and delete files in your storage account.
 Suppose that you have a tool that gets updated on an Azure website. 
 which acts as the trigger for your logic app. When this event happens, 
 you can have your logic app update some file in your blob storage container, 
-which is an action in your logic app. 
+which is an action in your logic app.
 
 > [!NOTE]
 > Logic Apps doesn't support directly connecting to Azure storage 
 > accounts through firewalls. To access these storage accounts, 
-> use either option here: 
+> use either option here:
 >
 > * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> which can connect to resources in an Azure virtual network. 
-> 
+> which can connect to resources in an Azure virtual network.
+>
 > * If you already use API Management, you can use 
 > this service for this scenario. For more info, see 
 > [Simple enterprise integration architecture](https://aka.ms/aisarch).
@@ -46,13 +46,13 @@ For connector-specific technical information, see the
 ## Prerequisites
 
 * If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
 * An [Azure storage account and storage container](../storage/blobs/storage-quickstart-blobs-portal.md)
 
 * The logic app where you need access to your Azure blob storage account. 
 To start your logic app with an Azure Blob Storage trigger, you need a 
-[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-trigger"></a>
 
@@ -91,7 +91,7 @@ provide the necessary information for the trigger.
    1. In the **Container** box, select the folder icon.
 
    2. In the folder list, choose the right-angle bracket ( **>** ), 
-   and then browse until you find and select the folder you want. 
+   and then browse until you find and select the folder you want.
 
       ![Select folder](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -137,7 +137,7 @@ From the actions list, select the action you want.
 4. If you're prompted for connection details, 
 [create your Azure Blob Storage connection now](#create-connection). 
 Or, if your connection already exists, 
-provide the necessary information for the action. 
+provide the necessary information for the action.
 
    For this example, select the file you want.
 
@@ -165,8 +165,8 @@ For example, add a OneDrive action that creates a file based on the blob content
 ## Connector reference
 
 For technical details, such as triggers, actions, and limits, 
-as described by the connector's Swagger file, 
-see the [connector's reference page](/connectors/azureblobconnector/). 
+as described by the connector's Open API (formerly Swagger) file, 
+see the [connector's reference page](/connectors/azureblobconnector/).
 
 ## Get support
 

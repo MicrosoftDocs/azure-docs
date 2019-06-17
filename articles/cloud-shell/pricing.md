@@ -3,7 +3,7 @@ title: Azure Cloud Shell pricing | Microsoft Docs
 description: Overview of pricing of Azure Cloud Shell
 services: 
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: juluk
+ms.author: damaerte
 ---
 
 # Pricing

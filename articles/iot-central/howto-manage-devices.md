@@ -3,7 +3,7 @@ title: Manage the devices in your Azure IoT Central application | Microsoft Docs
 description: As an operator, learn how to manage devices in your Azure IoT Central application.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 11/02/2018
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -25,11 +25,11 @@ To view an individual device:
 
 1. Choose **Device Explorer** on the left navigation menu. Here you see a list of your [device templates](howto-set-up-template.md).
 
-1. Choose a device template under Templates in the left-hand pane.
+1. Choose a device template in the **Templates** list.
 
-1. In the right-hand pane of the Device Explorer page, you see a list of devices created from that device template as shown below. Choose an individual device to see the device details page for that device:
+1. In the right-hand pane of the **Device Explorer** page, you see a list of devices created from that device template. Choose an individual device to see the device details page for that device:
 
-    [![Device Details Page](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
+    ![Device Details Page](./media/howto-manage-devices/devicelist.png)
 
 ## Add a device
 
@@ -41,15 +41,14 @@ To add a device to your Azure IoT Central application:
 
 1. Choose + **New**.
 
-1. Choose **Real** or **Simulated**. A real device is for a physical device that you connect to your Azure IoT Central application. A simulated device has sample data generated for you by Azure IoT Central. This example uses a real device. Choose **Real** to navigate to the **Device Details** page for your new device.
-
+1. Choose **Real** or **Simulated**. A real device is for a physical device that you connect to your Azure IoT Central application. A simulated device has sample data generated for you by Azure IoT Central.
 
 ## Import devices
 
-To connect large number of devices to your application, Azure IoT Central offers bulk importing devices via a CSV file. The CSV file should have the following columns (and headers)
-1.  IOTC_DeviceID **<span style="color:Red">(should be lower case)</span>**
-1.  IOTC_DeviceName (Optional)
+To connect large number of devices to your application, you can bulk import devices from a CSV file. The CSV file should have the following columns and headers:
 
+* **IOTC_DeviceID** - the device ID should be all lowercase.
+* **IOTC_DeviceName** - this column is optional.
 
 To bulk-register devices in your application:
 
@@ -57,12 +56,12 @@ To bulk-register devices in your application:
 
 1. On the left panel, choose the device template for which you want to bulk create the devices.
 
- >   [!NOTE] 
-    If you don’t have a device template yet then you can import devices under **Unassociated devices** and register them without any template. Once devices have been imported, you can then associate them with a template as a subsequent step.
+    > [!NOTE]
+    > If you don’t have a device template yet then you can import devices under **Unassociated devices** and register them without a template. After devices have been imported, you can then associate them with a template.
 
-1. Click **Import**.
+1. Select **Import**.
 
-    [![Import Action](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+    ![Import Action](./media/howto-manage-devices/bulkimport1a.png)
 
 1. Select the CSV file that has the list of Device IDs to be imported.
 
@@ -70,54 +69,65 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown on the device grid.
 
-    [![Import Success](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    ![Import Success](./media/howto-manage-devices/bulkimport3a.png)
 
-If the device import operation fails, you will see an error message on the Device grid. A log file capturing all the errors is generated and can be downloaded by clicking the error message.
-
+If the device import operation fails, you see an error message on the device grid. A log file capturing all the errors is generated that you can download.
 
 **Associating devices with a template**
 
-If you register devices by starting the import under **Unassociated devices**, then the devices are created without any device template association. Device must be associated with a template to explore the data and other details about the device. Follow these steps to associate devices with a template:
-1. Choose **Device Explorer** on the left navigation menu.
-1. On the left panel, choose **Unassociated devices**.
-    [![Unassociated Devices](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
-1. Select the devices you want to associate with a template.
-1. Click **Associate** option.
-    [![Associate Devices](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
-1. Choose the template from the list of available templates and click **Associate** button.
-1. The selected devices will be moved under the respective device template.
+If you register devices by starting the import under **Unassociated devices**, then the devices are created without any device template association. Devices must be associated with a template to explore the data and other details about the device. Follow these steps to associate devices with a template:
 
- >   [!NOTE] 
-    Once a device has been associated with a template it cannot be unassociated or associated with a different template.
+1. Choose **Device Explorer** on the left navigation menu.
+
+1. On the left panel, choose **Unassociated devices**:
+
+    ![Unassociated Devices](./media/howto-manage-devices/unassociateddevices1a.png)
+
+1. Select the devices you want to associate with a template:
+
+1. Select **Associate**:
+
+    ![Associate Devices](./media/howto-manage-devices/unassociateddevices2a.png)
+
+1. Choose the template from the list of available templates and select **Associate**.
+
+1. The selected devices are associated with the device template you chose.
+
+> [!NOTE]
+> After a device has been associated with a template it cannot be unassociated or associated with a different template.
 
 ## Export devices
 
-To provision devices to connect to IoT Central, you will need the connection string of the device that is generated by IoT Central. You can use the Export feature to get the connection strings and other properties of the devices in bulk from your application. Export creates a CSV file with the Device Identity, Device Name, and Primary Connection String for all the selected devices.
+To connect a real device to IoT Central, you need its connection string. You can export device details in bulk to get the information you need to create device connection strings. The export process creates a CSV file with the device identity, device name, and keys for all the selected devices.
 
 To bulk export devices from your application:
+
 1. Choose **Device Explorer** on the left navigation menu.
 
-1. On the left panel, choose the device template for which you want to export the devices.
+1. On the left panel, choose the device template from which you want to export the devices.
 
-1. Select the devices that you want to export and then click the **Export** action.
+1. Select the devices that you want to export and then select the **Export** action.
 
-    [![Export](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+    ![Export](./media/howto-manage-devices/export1a.png)
 
-1. Export process will start and you can track the status at the top of the grid. 
+1. The export process starts. You can track the status at the top of the grid.
 
-1. Once the export completes, a success message is shown along with a link to download the generated file.
+1. When the export completes, a success message is shown along with a link to download the generated file.
 
-1. Click on the **success message** to download the file to a local folder on the disk.
+1. Select the **success message** to download the file to a local folder on the disk.
 
-    [![Export Success](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+    ![Export Success](./media/howto-manage-devices/export2a.png)
 
-1. The exported CSV file will have the following columns information: **Device Id, Device Name, Device Priamry/Secondary Keys and Primary/Secondary certificate thumbrpints**
-    *   IOTC_DEVICEID
-    *   IOTC_DEVICENAME
-    *   IOTC_SASKEY_PRIMARY
-    *   IOTC_SASKEY_SECONDARY
-    *   IOTC_X509THUMBPRINT_PRIMARY	
-    *   IOTC_X509THUMBPRINT_SECONDARY
+1. The exported CSV file contains the following columns: device ID, device name, device keys, and X509 certificate thumbprints:
+
+    * IOTC_DEVICEID
+    * IOTC_DEVICENAME
+    * IOTC_SASKEY_PRIMARY
+    * IOTC_SASKEY_SECONDARY
+    * IOTC_X509THUMBPRINT_PRIMARY
+    * IOTC_X509THUMBPRINT_SECONDARY
+
+See [Device connectivity in Azure IoT Central](concepts-connectivity.md), for more information about connection strings and connecting real devices to your IoT Central application.
 
 ## Delete a device
 
@@ -141,9 +151,9 @@ Settings control the behavior of a device. In other words, they enable you to pr
 
 1. Choose the **Settings** tab. Here you see all the settings your device has and their current values. For each setting, you can see if the device is still syncing.
 
-1. Modify the settings to your desired values. You can modify multiple settings at once and update them all at the same time.
+1. Modify the settings to the values you need. You can modify multiple settings at a time and update them all at the same time.
 
-1. Choose **Update**. The values are sent to your device. When the device acknowledges the setting change, the status of the setting goes back to **synced**.
+1. Choose **Update**. The values are sent to your device. When the device confirms the setting change, the status of the setting goes back to **synced**.
 
 ## Change a property
 
@@ -155,14 +165,14 @@ Properties are the device metadata associated with the device, such as city and 
 
 1. Choose the **Properties** tab, where you see all the properties.
 
-1. Modify the application properties to your desired values. You can modify multiple properties at once and update them all at the same time. Choose **Update**.
+1. Modify the application properties to the values you need. You can modify multiple properties at once and update them all at the same time. Choose **Update**.
 
 > [!NOTE]
 > You cannot change the value of _device properties_. Device properties are set by the device and are read-only within the Azure IoT Central application.
 
 ## Next steps
 
-Now that you have learned how to manage devices in your Azure IoT Central application, here is the suggested next step:
+Now that you've learned how to manage devices in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
 > [How to use device sets](howto-use-device-sets.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Example: Create a custom skill in cognitive search pipeline (Azure Search) | Microsoft Docs'
+title: 'Example: Create a custom skill in cognitive search pipeline - Azure Search'
 description: Demonstrates using the Text Translate API in custom skill mapped to a cognitive search indexing pipeline in Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -7,25 +7,26 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 05/02/2019
 ms.author: luisca
+ms.custom: seodec2018
 ---
 
 # Example: Create a custom skill using the Text Translate API
 
-In this example, learn how to create a web API custom skill that accepts text in any language and translates it to English. The example uses an [Azure Function](https://azure.microsoft.com/services/functions/) to wrap the [Translate Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) so that it implements the custom skill interface.
+In this example, learn how to create a web API custom skill. This skill will accept text in any language and translates it to English. The example uses an [Azure Function](https://azure.microsoft.com/services/functions/) to wrap the [Translate Text API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) so that it implements the custom skill interface.
 
 ## Prerequisites
 
-+ Read about [custom skill interface](cognitive-search-custom-skill-interface.md) article if you are not familiar with the input/output interface that a custom skill should implement.
++ Read about [custom skill interface](cognitive-search-custom-skill-interface.md) article if you aren't familiar with the input/output interface that a custom skill should implement.
 
 + [Sign up for the Translator Text API](../cognitive-services/translator/translator-text-how-to-signup.md), and get an API key to consume it.
 
-+ Install [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) or later, including the Azure development workload.
++ Install [Visual Studio 2019](https://www.visualstudio.com/vs/) or later, including the Azure development workload.
 
 ## Create an Azure Function
 
-Although this example uses an Azure Function to host a web API, it is not required.  As long as you meet the [interface requirements for a cognitive skill](cognitive-search-custom-skill-interface.md), the approach you take is immaterial. Azure Functions, however, make it easy to create a custom skill.
+Although this example uses an Azure Function to host a web API, it isn't required.  As long as you meet the [interface requirements for a cognitive skill](cognitive-search-custom-skill-interface.md), the approach you take is immaterial. Azure Functions, however, make it easy to create a custom skill.
 
 ### Create a function app
 
@@ -33,7 +34,7 @@ Although this example uses an Azure Function to host a web API, it is not requir
 
 1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
-1. Select **Azure Functions v2 (.Net Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
+1. Select **Azure Functions v2 (.NET Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
 
 1. Select the type to be **HTTP Trigger**
 
@@ -148,7 +149,7 @@ namespace TranslateFunction
 
 
         /// <summary>
-        /// Use Cognitive Service to translate text from one language to antoher.
+        /// Use Cognitive Service to translate text from one language to another.
         /// </summary>
         /// <param name="originalText">The text to translate.</param>
         /// <param name="toLanguage">The language you want to translate to.</param>
@@ -189,7 +190,7 @@ This example is a simple enricher that only works on one record at a time. This 
 
 ## Test the function from Visual Studio
 
-Press **F5** to run the program and test function behaviors. In this case we'll use the function below to translate a text in Spanish to English. Use Postman or Fiddler to issue a call like the one shown below:
+Press **F5** to run the program and test function behaviors. In this case, we'll use the function below to translate a text in Spanish to English. Use Postman or Fiddler to issue a call like the one shown below:
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -229,15 +230,15 @@ You should see a response similar to the following example:
 
 ## Publish the function to Azure
 
-When you are satisfied with the function behavior, you can publish it.
+When you're satisfied with the function behavior, you can publish it.
 
 1. In **Solution Explorer**, right-click the project and select **Publish**. Choose **Create New** > **Publish**.
 
 1. If you haven't already connected Visual Studio to your Azure account, select **Add an account....**
 
-1. Follow the on-screen prompts. You are asked to specify the Azure account, the resource group, the hosting plan, and the storage account you want to use. You can create a new resource group, a new hosting plan, and a storage account if you don't already have these. When finished, select **Create**
+1. Follow the on-screen prompts. You're asked to specify the Azure account, the resource group, the hosting plan, and the storage account you want to use. You can create a new resource group, a new hosting plan, and a storage account if you don't already have these. When finished, select **Create**
 
-1. After the deployment is complete, note the Site URL. It is the address of your function app in Azure. 
+1. After the deployment is complete, notice the Site URL. It is the address of your function app in Azure. 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
 
@@ -264,7 +265,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 }
 ```
 
-This should produce a similar result to the one you saw previously when running the function in the local environment.
+This example should produce a similar result to the one you saw previously when running the function in the local environment.
 
 ## Connect to your pipeline
 Now that you have a new custom skill, you can add it to your skillset. The example below shows you how to call the skill. Because the skill doesn't handle batches, add an instruction for maximum batch size to be just ```1``` to send documents one at a time.
@@ -276,7 +277,7 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new translator custom skill",
-        "uri": "http://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "uri": "https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [
@@ -300,8 +301,8 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
 }
 ```
 
-## Next Steps
-Congratulations! You have created your first custom enricher. Now you can follow the same pattern to add your own custom functionality. 
+## Next steps
+Congratulations! You've created your first custom enricher. Now you can follow the same pattern to add your own custom functionality. 
 
 + [Add a custom skill to a cognitive search pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

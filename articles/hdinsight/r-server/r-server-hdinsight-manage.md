@@ -1,7 +1,6 @@
 ---
 title: Manage ML Services cluster on HDInsight - Azure 
 description: Learn how to manage an ML Services cluster in Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -12,7 +11,7 @@ ms.date: 11/06/2018
 ---
 # Manage ML Services cluster on Azure HDInsight
 
-In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding mulitiple concurrent users, connecting remotely to an ML Services cluster, changing compute context, etc.
+In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding multiple concurrent users, connecting remotely to an ML Services cluster, changing compute context, etc.
 
 ## Prerequisites
 
@@ -27,7 +26,7 @@ You can enable multiple concurrent users for ML Services cluster on HDInsight by
 
 ![Concurrent user 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
-- **Cluster login username**: an HTTP user for authentication through the HDInsight gateway that is used to protect the HDInsight clusters you created. This HTTP user is used to access the Ambari UI, YARN UI, as well as other UI components.
+- **Cluster login username**: an HTTP user for authentication through the HDInsight gateway that is used to protect the HDInsight clusters you created. This HTTP user is used to access the Apache Ambari UI, Apache Hadoop YARN UI, as well as other UI components.
 - **Secure Shell (SSH) username**: an SSH user to access the cluster through secure shell. This user is a user in the Linux system for all the head nodes, worker nodes, and edge nodes. So you can use secure shell to access any of the nodes in a remote cluster.
 
 The R Studio Server Community version used in the ML Services cluster on HDInsight accepts only Linux username and password as a sign in mechanism. It does not support passing tokens. So, when you try to access R Studio for the first time on an ML Services cluster, you need to sign in twice.
@@ -46,7 +45,7 @@ Because RStudio runs on the cluster’s edge node, there are several steps here:
 
 ### Step 1: Use the created SSH user to sign in to the edge node
 
-Follow the instructions at [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) to access the edge node. The edge node address for ML Services cluster on HDInsight is `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
+Follow the instructions at [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) to access the edge node. The edge node address for ML Services cluster on HDInsight is `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### Step 2: Add more Linux users in edge node
 
@@ -98,7 +97,7 @@ You can set up access to the HDInsight Spark compute context from a remote insta
       consoleOutput= TRUE
     )
 
-For more information, see the "Using Microsoft Machine Learning Server as a Hadoop Client" section in [How to use RevoScaleR in a Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
+For more information, see the "Using Microsoft Machine Learning Server as an Apache Hadoop Client" section in [How to use RevoScaleR in an Apache Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
 ## Use a compute context
 
@@ -244,7 +243,7 @@ If you are still using the Spark context, this  command returns the nodename val
         nodename
     "wn3-mymlser"
 
-## Access data in Hive and Parquet
+## Access data in Apache Hive and Parquet
 
 HDInsight ML Services allows direct access to data in Hive and Parquet for use by ScaleR functions in the Spark compute context. These capabilities are available through new ScaleR data source functions called RxHiveData and RxParquetData that work through use of Spark SQL to load data directly into a Spark DataFrame for analysis by ScaleR.
 
@@ -293,10 +292,8 @@ If you want to install additional R packages on the edge node, you can use `inst
 
 To install R packages on the worker nodes of the cluster, you must use a Script Action. Script Actions are Bash scripts that are used to make configuration changes to the HDInsight cluster or to install additional software, such as additional R packages. 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Using Script Actions to install additional R packages can only be used after the cluster has been created. Do not use this procedure during cluster creation, as the script relies on ML Services being completely configured.
->
->
 
 1. Follow the steps at [Customize clusters using Script Action](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -306,7 +303,7 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
 
    * For **Name**, provide a name for the script action.
 
-    * For **Bash script URI**, enter  `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. This is the script that installs additional R packages on the worker node
+     * For **Bash script URI**, enter  `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. This is the script that installs additional R packages on the worker node
 
    * Select the check box only for **Worker**.
 

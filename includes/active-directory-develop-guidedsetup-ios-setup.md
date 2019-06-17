@@ -3,9 +3,8 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
-editor: ''
+author: danieldobalian
+manager: CelesteDG
 
 ms.service: active-directory
 ms.devlang: na
@@ -13,7 +12,8 @@ ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: andret
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: include file 
 
 ---
@@ -58,7 +58,7 @@ Copy and paste the below. This command fetches dependencies into a Carthage/Chec
 carthage update
 ```
 
-> The process above is used to download and build the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user tokens used to access APIs protected by the Azure Active Directory v2.0.
+> The process above is used to download and build the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user tokens used to access APIs protected by Microsoft identity platform.
 
 ## Add the MSAL framework to your application
 

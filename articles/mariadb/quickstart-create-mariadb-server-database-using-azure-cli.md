@@ -3,12 +3,10 @@ title: 'Quickstart: Create an Azure Database for MariaDB server - Azure CLI'
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 01/09/2019
 ms.custom: mvc
 ---
 
@@ -56,10 +54,10 @@ version | **10.2** | The MariaDB major engine version.
 admin-user | **myadmin** | The user name for the administrator login. The **admin-user** parameter can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *your password* | The password of the administrator user. Your password must contain between 8 and 128 characters. It must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
-The **sku-name** parameter value follows the convention *pricing tier*\_*compute generation*\_*vCores* as shown in the following examples:
-+ `--sku-name B_Gen5_4` maps to the Basic pricing tier, the Gen 5 compute generation, and 4 vCores.
-+ `--sku-name GP_Gen5_32` maps to the General Purpose pricing tier, the Gen 5 compute generation, and 32 vCores.
-+ `--sku-name MO_Gen5_2` maps to the Memory Optimized pricing tier, the Gen 5 compute generation, and 2 vCores.
+The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
++ `--sku-name B_Gen5_1` maps to Basic, Gen 5, and 1 vCore. This option is the smallest SKU available.
++ `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
++ `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
 For information about valid values by region and for tiers, see [Pricing tiers](./concepts-pricing-tiers.md).
 
@@ -68,6 +66,10 @@ The following example creates a server named **mydemoserver** in the West US reg
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
 ```
+
+> [!NOTE]
+> Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mariadb/) for more information.
+> 
 
 ## Configure a firewall rule
 
@@ -140,78 +142,78 @@ To connect to the server by using the mysql command-line tool:
 
 1. Connect to the server:
 
-  ```azurecli-interactive
-  mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-  ```
+   ```azurecli-interactive
+   mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. View the server status at the `mysql>` prompt:
 
-  ```sql
-  status
-  ```
-  You should see something similar to the following text:
+   ```sql
+   status
+   ```
+   You should see something similar to the following text:
 
-  ```bash
-  C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-  Enter password: ***********
-  Welcome to the MySQL monitor.  Commands end with ; or \g.
-  Your MySQL connection id is 65512
-  Server version: 5.6.39.0 MariaDB Server
+   ```bash
+   C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+   Enter password: ***********
+   Welcome to the MySQL monitor.  Commands end with ; or \g.
+   Your MySQL connection id is 65512
+   Server version: 5.6.39.0 MariaDB Server
 
-  Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+   Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
 
-  Oracle is a registered trademark of Oracle Corporation and/or its
-  affiliates. Other names may be trademarks of their respective
-  owners.
+   Oracle is a registered trademark of Oracle Corporation and/or its
+   affiliates. Other names may be trademarks of their respective
+   owners.
 
-  Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+   Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-  mysql> status
-  --------------
-  mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
+   mysql> status
+   --------------
+   mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
 
-  Connection id:          64681
-  Current database:
-  Current user:           myadmin@40.118.201.21
-  SSL:                    Cipher in use is AES256-SHA
-  Current pager:          stdout
-  Using outfile:          ''
-  Using delimiter:        ;
-  Server version:         5.6.39.0 MariaDB Server
-  Protocol version:       10
-  Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
-  Server characterset:    latin1
-  Db     characterset:    latin1
-  Client characterset:    utf8
-  Conn.  characterset:    utf8
-  TCP port:               3306
-  Uptime:                 1 day 3 hours 28 min 50 sec
+   Connection id:          64681
+   Current database:
+   Current user:           myadmin@40.118.201.21
+   SSL:                    Cipher in use is AES256-SHA
+   Current pager:          stdout
+   Using outfile:          ''
+   Using delimiter:        ;
+   Server version:         5.6.39.0 MariaDB Server
+   Protocol version:       10
+   Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
+   Server characterset:    latin1
+   Db     characterset:    latin1
+   Client characterset:    utf8
+   Conn.  characterset:    utf8
+   TCP port:               3306
+   Uptime:                 1 day 3 hours 28 min 50 sec
 
-  Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
-  --------------
+   Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
+   --------------
 
-  mysql>
-  ```
+   mysql>
+   ```
 
 > [!TIP]
 > For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 ## Connect to the server by using MySQL Workbench
 
-1.	Open MySQL Workbench on your client computer. If it's not already installed, [download](https://dev.mysql.com/downloads/workbench/) and install the application.
+1. Open MySQL Workbench on your client computer. If it's not already installed, [download](https://dev.mysql.com/downloads/workbench/) and install the application.
 
-2.	In the **Setup New Connection** dialog box, on the **Parameters** tab, enter the following information:
+2. In the **Setup New Connection** dialog box, on the **Parameters** tab, enter the following information:
 
- ![Set up a new connection](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
+   ![Set up a new connection](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
-  | Setting | Suggested value | Description |
-  |---|---|---|
-  |	Connection Name | **Demo connection** | Enter a label for this connection (the connection name can be anything) |
-  | Connection Method | **Standard (TCP/IP)** | Use the TCP/IP protocol to connect to Azure Database for MariaDB |
-  | Hostname | **mydemoserver.mariadb.database.azure.com** | The server name that you noted earlier. |
-  | Port | **3306** | The default port for Azure Database for MariaDB. |
-  | Username | **myadmin@mydemoserver** | The server admin login that you noted earlier. |
-  | Password | *your password* | Use the admin account password that you set up earlier. |
+   | Setting | Suggested value | Description |
+   |---|---|---|
+   | Connection Name | **Demo connection** | Enter a label for this connection (the connection name can be anything) |
+   | Connection Method | **Standard (TCP/IP)** | Use the TCP/IP protocol to connect to Azure Database for MariaDB |
+   | Hostname | **mydemoserver.mariadb.database.azure.com** | The server name that you noted earlier. |
+   | Port | **3306** | The default port for Azure Database for MariaDB. |
+   | Username | **myadmin\@mydemoserver** | The server admin login that you noted earlier. |
+   | Password | *your password* | Use the admin account password that you set up earlier. |
 
 3. To check whether all parameters are configured correctly, select **Test Connection**.
 

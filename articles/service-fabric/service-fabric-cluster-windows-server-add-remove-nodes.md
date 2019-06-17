@@ -4,7 +4,7 @@ description: Learn how to add or remove nodes to an Azure Service Fabric cluster
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
@@ -34,7 +34,7 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 	```
 	Once the script finishes running, you can check if the new node has been added by running the [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet.
 
-7. To ensure consistency across different nodes in the cluster, you must initiate a configuration upgrade. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) to get the latest configuration file and add the newly added node to "Nodes" section. It is also recommended to always have the latest cluster configuration available in the case that you need to redploy a cluster with the same configuration.
+7. To ensure consistency across different nodes in the cluster, you must initiate a configuration upgrade. Run [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) to get the latest configuration file and add the newly added node to "Nodes" section. It is also recommended to always have the latest cluster configuration available in the case that you need to redeploy a cluster with the same configuration.
 
 	```
 		{

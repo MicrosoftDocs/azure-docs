@@ -4,7 +4,7 @@ description: Description and contents of the Azure Service Fabric Standalone pac
 services: service-fabric
 documentationcenter: .net
 author: maburlik
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.service: service-fabric
@@ -37,6 +37,7 @@ In the [downloaded](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabr
 | Tools\ServiceFabricUpdateService.zip |A tool used to enable auto code upgrade for clusters which don't have internet access. More details can be found [here](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Templates** 
+
 | **File name** | **Short description** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |A cluster configuration sample file that contains the settings for an unsecured, three-node, single-machine (or virtual machine) development cluster, including the information for each node in the cluster. |

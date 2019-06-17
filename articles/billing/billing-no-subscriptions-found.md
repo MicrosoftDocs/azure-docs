@@ -1,10 +1,10 @@
 ---
-title: No subscriptions found error when try to sign in to Azure portal or Azure account center | Microsoft Docs
+title: No subscriptions found error - Azure portal sign in | Microsoft Docs
 description: Provides the solution for a problem in which No subscriptions found error occurs when sign in to Azure portal or Azure account center.
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
-ms.author: cwatson
+ms.author: banders
+ms.custom: seodec18
 ---
 
-# No subscriptions found error in Azure portal or Azure account center
+# No subscriptions found sign in error for Azure portal or Azure account center
 
 You might receive a "No subscriptions found" error message when you try to sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Account Center](https://account.windowsazure.com/Subscriptions). This article provides a solution for this problem.
 
@@ -49,6 +50,6 @@ Check whether the account that you used is the Account Administrator. To verify 
 1. Select the subscription you want to check, and then look under **Settings**.
 1. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.  
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still need help, [contact support](https://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly. 
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

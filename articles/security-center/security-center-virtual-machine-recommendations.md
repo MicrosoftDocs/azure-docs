@@ -4,7 +4,7 @@ description: This document explains the Azure Security Center recommendations fo
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: f5ce7f62-7b12-4bc0-b418-4a2f9ec49ca1
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2018
+ms.date: 12/12/2018
 ms.author: rkarlin
 
 ---
@@ -39,7 +39,7 @@ Use the tables below as a reference to help you understand the available Compute
 | [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md) |Recommends that you install a vulnerability assessment solution on your VM. |
 | [Remediate vulnerabilities](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
 
-### App services
+### App services <a name="app-services"></a>
 | Recommendation | Description |
 | --- | --- |
 | App Service should only be accessible over HTTPS | Recommends that you limit access of App Service over HTTPS only. |
@@ -72,7 +72,7 @@ To learn more about recommendations that apply to other Azure resource types, se
 To learn more about Security Center, see the following:
 
 * [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
 

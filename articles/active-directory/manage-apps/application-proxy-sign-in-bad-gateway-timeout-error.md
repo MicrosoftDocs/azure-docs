@@ -3,20 +3,21 @@ title: "Can't Access this Corporate Application error when using an Application 
 description: How to resolve common access issues with Azure AD Application Proxy applications.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
-ms.author: barbkess
+ms.date: 05/21/2019
+ms.author: mimart
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # "Can't Access this Corporate Application" error when using an Application Proxy application
@@ -59,35 +60,35 @@ A bad gateway error indicates that the connector is unable to reach the backend 
 
 If you see a forbidden error, the user has not been assigned to the application. This error could be either in Azure Active Directory or on the backend application.
 
-To learn how to assign users to the application in Azure, see the [configuration documentation](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
+To learn how to assign users to the application in Azure, see the [configuration documentation](application-proxy-add-on-premises-application.md#test-the-application).
 
 If you confirm the user is assigned to the application in Azure, check the user configuration in the backend application. If you are using Kerberos Constrained Delegation/Integrated Windows Authentication, see the KCD Troubleshoot page for guidelines.
 
 ## Check the application's internal URL
 
-As a first quick step, double check and fix the internal URL by opening the application through **Enterprise Applications**, then selecting the **Application Proxy** menu. Verify the internal URL is the one used from your on-prem network to access the application.
+As a first quick step, double check and fix the internal URL by opening the application through **Enterprise Applications**, then selecting the **Application Proxy** menu. Verify the internal URL is the one used from your on premises network to access the application.
 
 ## Check the application is assigned to a working Connector Group
 
 To verify the application is assigned to a working Connector Group:
 
-1.  Open the application in the portal by going to **Azure Active Directory**, clicking on **Enterprise Applications**, then **All Applications.** Open the application, then select **Application Proxy** from the left menu.
+1. Open the application in the portal by going to **Azure Active Directory**, clicking on **Enterprise Applications**, then **All Applications.** Open the application, then select **Application Proxy** from the left menu.
 
-2.  Look at the Connector Group field. If there are no active connectors in the group, you see a warning. If you don’t see any warnings, move on to “verify all required ports are whitelisted”.
+2. Look at the Connector Group field. If there are no active connectors in the group, you see a warning. If you don’t see any warnings, move on to verify all required ports are allowed.
 
-3.  If the wrong Connector Group is showing, use the drop-down to select the correct group, and confirm you no longer see any warnings. If the intended Connector Group is showing, click the warning message to open the page with Connector management.
+3. If the wrong Connector Group is showing, use the drop-down to select the correct group, and confirm you no longer see any warnings. If the intended Connector Group is showing, click the warning message to open the page with Connector management.
 
-4.  From here, there are a few ways to drill in further:
+4. From here, there are a few ways to drill in further:
 
-  * Move an active Connector into the group: If you have an active Connector that should belong to this group and has line of sight to the target backend application, you can move the Connector into the assigned group. To do so, click the Connector. In the “Connector Group” field, use the drop-down to select the correct group, and click save.
+   * Move an active Connector into the group: If you have an active Connector that should belong to this group and has line of sight to the target backend application, you can move the Connector into the assigned group. To do so, click the Connector. In the “Connector Group” field, use the drop-down to select the correct group, and click save.
 
-  * Download a new Connector for that group: From this page, you can get the link to [download a new Connector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Install the Connector on a machine with direct line of sight to the backend application. Typicall, the Connector is installed on the same server as the application. Use the download Connector link to download a connector onto the target machine. Next, click the Connector, and use the “Connector Group” drop-down to make sure it belongs to the right group.
+   * Download a new Connector for that group: From this page, you can get the link to [download a new Connector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Install the Connector on a machine with direct line of sight to the backend application. Typically, the Connector is installed on the same server as the application. Use the download Connector link to download a connector onto the target machine. Next, click the Connector, and use the “Connector Group” drop-down to make sure it belongs to the right group.
 
-  * Investigate an inactive Connector: If a connector shows as inactive, it is unable to reach the service. This error is typically due to some required ports being blocked. To solve this issue, move on to “verify all required ports are whitelisted.”
+   * Investigate an inactive Connector: If a connector shows as inactive, it is unable to reach the service. This error is typically due to some required ports being blocked. To solve this issue, move on to verify all required ports are allowed.
 
 After using these steps to ensure the application is assigned to a group with working Connectors, test the application again. If it is still not working, continue to the next section.
 
-## Check all required ports are whitelisted
+## Check all required ports are open
 
 To verify that all required ports are open, see the documentation on opening ports. If all the required ports are open, move to the next section.
 

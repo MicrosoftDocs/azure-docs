@@ -1,20 +1,21 @@
-﻿---
+---
 title: How to use a Windows VM system-assigned managed identity to access Azure Data Lake Store
 description: A tutorial that shows you how to use a Windows VM system-assigned managed identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2018
-ms.author: daveba
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Data Lake Store
@@ -63,7 +64,7 @@ In this tutorial, you authenticate to the Data Lake Store filesystem REST API us
 1. In the portal, navigate to **Virtual Machines**, go to your Windows VM, and in the **Overview** click **Connect**.
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
 3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open **PowerShell** in the remote session. 
-4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Data Lake Store.  The resource identifier for Data Lake Store is "https://datalake.azure.net/".  Data Lake does an exact match on the resource identifier and the trailing slash is important.
+4. Using PowerShell’s `Invoke-WebRequest`, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Data Lake Store.  The resource identifier for Data Lake Store is `https://datalake.azure.net/`.  Data Lake does an exact match on the resource identifier and the trailing slash is important.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

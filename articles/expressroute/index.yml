@@ -51,6 +51,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">Azure CLI</a></p>
     - title: REST
       html: <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Reference</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">Classic REST API Reference</a></p>

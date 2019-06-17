@@ -2,12 +2,12 @@
 title: How to deploy Azure Files | Microsoft Docs
 description: Learn how to deploy Azure Files from start to finish.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: wgries
-ms.component: files
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # How to deploy Azure Files
@@ -72,7 +72,7 @@ The following steps will import data from an on-premises location to your Azure 
     
     See [Prepare the driveset CSV file](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) for more information.
 
-6. Use the [WAImportExport Tool](https://www.microsoft.com/en-us/download/details.aspx?id=55280) to copy your data to one or more hard drives.
+6. Use the [WAImportExport Tool](https://www.microsoft.com/download/details.aspx?id=55280) to copy your data to one or more hard drives.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
@@ -103,7 +103,7 @@ Robocopy is a well known copy tool that ships with Windows and Windows Server. R
 ### AzCopy
 AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance. Using AzCopy is easy:
 
-1. Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy) or [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
+1. Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy) or [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
 2. Use `azcopy` at the command line to move data to the Azure file share. The syntax on Windows is as follows: 
 
     ```
@@ -127,7 +127,7 @@ To replace an on-premises file share, it is helpful to pre-mount the shares on t
 ### Windows
 PowerShell can be used run the mount command on multiple PCs. In the following example, `$computers` is manually populated, but you can generate the list of computers to mount automatically. For example, you can populate this variable with results from Active Directory.
 
-```PowerShell
+```powershell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
 $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name> /PERSISTENT:YES } }
 ```

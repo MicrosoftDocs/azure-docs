@@ -105,7 +105,7 @@ You can automate this task by using a startup script (batch/cmd/PowerShell) and 
 
 ### What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?
 
-This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out this advisory[https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
+This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out [this advisory](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 For more information, see the following articles:
 - [How to configure and run startup tasks for a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
@@ -139,7 +139,7 @@ For more information, see the following documents:
 ### How do I enable WAD logging for Cloud Services?
 You can enable Windows Azure Diagnostics (WAD) logging through following options:
 1. [Enable from Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Enable through .Net code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Enable through .NET code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Enable through Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 In order to get the current WAD settings of your Cloud Service, you can use [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd or you can view it through portal from “Cloud Services --> Extensions” blade.
@@ -204,7 +204,7 @@ These steps could be automated via a startup task, so that whenever a new PaaS i
 Once this has been done, you can verify whether the HTTP/2 has been enabled or not by using one of the following methods:
 
 - Enable Protocol version in IIS logs and look into the IIS logs. It will show HTTP/2 in the logs. 
-- Enable F12 Developer Tool in Internet Explorer/Edge and switch to the Network tab to verify the protocol. 
+- Enable F12 Developer Tool in Internet Explorer/Microsoft Edge and switch to the Network tab to verify the protocol. 
 
 For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 
@@ -238,9 +238,9 @@ Auto-scale based on Memory metrics for a Cloud Services is not currently support
 
 To work around this problem, you can use Application Insights. Auto-Scale supports Application Insights as a Metrics Source and can scale the role instance count based on guest metric like "Memory".  You have to configure Application Insights in your Cloud Service project package file (*.cspkg) and enable Azure Diagnostics extension on the service to implement this feat.
 
-For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 
-For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 

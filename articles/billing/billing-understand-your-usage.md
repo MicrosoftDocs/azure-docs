@@ -1,100 +1,131 @@
 ---
-title: Understand your Azure detailed usage | Microsoft Docs
-description: Learn how to read and understand the sections of your detailed usage CSV for your Azure subscription
-services: ''
-documentationcenter: ''
-author: tonguyen10
-manager: tonguyen
-editor: ''
+title: Understand your detailed usage and charges | Microsoft Docs
+description: Learn how to read and understand your detailed usage and charges
+author: bandersmsft
+manager: micflan
 tags: billing
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
-ms.author: cwatson
+ms.date: 04/24/2019
+ms.author: banders
 
 ---
-# Understand terms on your Microsoft Azure detailed usage charges 
+# Understand the terms in your Azure usage and charges file
 
-The detailed usage charges CSV file contains daily and meter level usage charges for the current billing period. 
+The detailed usage and charges file contains daily rated usage based on negotiated rates,
+purchases (for example, reservations, Marketplace fees), and refunds for the specified period.
+Fees don't include credits, taxes, or other charges or discounts.
+The following table covers which charges are included for each account type.
 
-To get your detailed usage file,
-see [How to get your Azure billing invoice and daily usage
-data](billing-download-azure-invoice-daily-usage-date.md).
-It’s available in a comma-separated values (.csv) file format that you
-can open in a spreadsheet application. If you see two versions
-available, download version 2. That's the most current file format.
+Account type | Azure usage | Marketplace usage | Purchases | Refunds
+--- | --- | --- | --- | ---
+Enterprise Agreement (EA) | Yes | Yes | Yes | No
+Microsoft Customer Agreement (MCA) | Yes | Yes | Yes | Yes
+Pay-as-you-go (PAYG) | Yes | No | No | No
 
-Usage charges are the total **monthly** charges on a subscription. The
-usage charges don’t take into account any credits or discounts.
+To learn more about Marketplace orders (also known as external services), see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
->[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
+See [How to get your Azure billing invoice and daily usage
+data](billing-download-azure-invoice-daily-usage-date.md)
+for download instructions.
+The usage and charges file is available in a comma-separated values (.csv) file format,
+which you can open in a spreadsheet application.
 
-## Detailed terms and descriptions of your detailed usage file
+## List of terms and descriptions
 
-The following sections describe the important terms shown in version 2
-of the detailed usage file.
+The following table describes the important terms used in the latest version of the Azure usage and charges file.
+The list covers pay-as-you-go (PAYG), Enterprise Agreement (EA), and Microsoft Customer Agreement (MCA) accounts.
 
-### Statement
+Term | Account type | Description
+--- | --- | ---
+AccountName | EA | Display name of the enrollment account.
+AccountOwnerId | EA | Unique identifier for the enrollment account.
+AdditionalInfo | All | Service-specific metadata. For example, an image type for a virtual machine.
+BillingAccountId | EA, MCA | Unique identifier for the root billing account.
+BillingAccountName | EA, MCA | Name of the billing account.
+BillingCurrency | EA, MCA | Currency associated with the billing account.
+BillingPeriod | EA | The billing period of the charge.
+BillingPeriodEndDate | EA, MCA | The end date of the billing period.
+BillingPeriodStartDate | EA, MCA | The start date of the billing period.
+BillingProfileId | EA, MCA | Unique identifier of the EA enrollment or MCA billing profile.
+BillingProfileName | EA, MCA | Name of the EA enrollment or MCA billing profile.
+ChargeType | EA, MCA | Indicates whether the charge represents usage (**Usage**), a purchase (**Purchase**), or a refund (**Refund**).
+ConsumedQuantity | PAYG | See Quantity.
+ConsumedService | All | Name of the service the charge is associated with.
+Cost | EA | See CostInBillingCurrency.
+CostCenter | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).
+CostInBillingCurrency | MCA | Cost of the charge in the billing currency before credits or taxes.
+CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before credits or taxes.
+Currency | PAYG | See BillingCurrency.
+Date | EA, MCA | The usage or purchase date of the charge.
+ExchangeRateDate | MCA | Date the exchange rate was established.
+ExchangeRatePricingToBilling | MCA | Exchange rate used to convert the cost in the pricing currency to the billing currency.
+Frequency | EA, MCA | Indicates whether a charge is expected to repeat. Charges can either happen once (**OneTime**), repeat on a monthly or yearly basis (**Recurring**), or be based on usage (**UsageBased**).
+IncludedQuantity | PAYG | The amount of the meter that is included at no charge in your current billing period.
+InstanceId | PAGY | See ResourceId.
+InvoiceId | EA, MCA | The unique document ID listed on the invoice PDF.
+InvoiceSection | MCA | See InvoiceSectionName.
+InvoiceSectionId | EA, MCA | Unique identifier for the EA department or MCA invoice section.
+InvoiceSectionName | EA, MCA | Name of the EA department or MCA invoice section.
+IsAzureCreditEligible | EA, MCA | Indicates if the charge is eligible to be paid for using Azure credits (Values: True, False).
+Location | EA, MCA | Datacenter location where the resource is running.
+MeterCategory | All | Name of the classification category for the meter. For example, *Cloud services* and *Networking*.
+MeterId | All | The unique identifier for the meter.
+MeterName | All | The name of the meter.
+MeterRegion | All | Name of the datacenter location for services priced based on location. See Location.
+MeterSubCategory | All | Name of the meter subclassification category.
+OfferId | EA, MCA | Name of the offer purchased.
+PartNumber | EA | Identifier used to get specific meter pricing.
+PlanName | EA | Marketplace plan name.
+PreviousInvoiceId | MCA | Reference to an original invoice if this line item is a refund.
+PricingCurrency | MCA | Currency used when rating based on negotiated prices.
+Product | MCA | See ProductName.
+ProductId | EA, MCA | Unique identifier for the product.
+ProductName | EA | Name of the product.
+ProductOrderId | EA, MCA | Unique identifier for the product order.
+ProductOrderName | EA, MCA | Unique name for the product order.
+PublisherName | EA, MCA | Publisher for Marketplace services.
+PublisherType | EA, MCA | Type of publisher (Values: firstParty, thirdPartyReseller, thirdPartyAgency).
+Quantity | EA, MCA | The number of units purchased or consumed.
+Rate | PAYG | See UnitPrice.
+ReservationId | EA, MCA | Unique identifier for the purchased reservation instance.
+ReservationName | EA, MCA | Name of the purchased reservation instance.
+ResourceGroupId | EA, MCA | Unique identifier for the [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) the resource is in.
+ResourceGroupName | EA, MCA | Name of the [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) the resource is in.
+ResourceId | EA, MCA | Unique identifier of the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) resource.
+ResourceLocation | EA, MCA | Datacenter location where the resource is running. See Location.
+ResourceName | EA | Name of the resource.
+ResourceType | MCA | Type of resource instance.
+ServiceFamily | EA, MCA | Service family that the service belongs to.
+ServiceInfo1 | All | Service-specific metadata.
+ServiceInfo2 | All | Legacy field with optional service-specific metadata.
+ServicePeriodEndDate | MCA | The end date of the rating period that defined and locked pricing for the consumed or purchased service.
+ServicePeriodStartDate | MCA | The start date of the rating period that defined and locked pricing for the consumed or purchased service.
+SubscriptionId | All | Unique identifier for the subscription.
+SubscriptionName | All | Name of the subscription.
+Tags | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
+Unit | PAYG | See UnitOfMeasure.
+UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour.
+UnitPrice | EA | The price per unit for the charge.
+UsageDate | PAYG | See Date.
 
-The top section of the detailed usage CSV file shows the services that
-you used during the month's billing period. The following table lists
-the terms and descriptions shown in this section.
+Note some fields may differ in casing and spacing between account types.
+Older versions of pay-as-you-go usage files have separate sections for the statement and daily usage.
 
-| Term | Description |
-| --- | --- |
-|Billing Period |The billing period when the meters were used |
-|Meter Category |Identifies the top-level service for the usage |
-|Meter Sub-Category |Defines the type of Azure service that can affect the rate |
-|Meter Name |Identifies the unit of measure for the meter being consumed |
-|Meter Region |Identifies the location of the datacenter for certain services that are priced based on datacenter location |
-|SKU |Identifies the unique system identifier for each Azure meter |
-|Unit |Identifies the Unit that the service is charged in. For example, GB, hours, 10,000 s. |
-|Consumed Quantity |The amount of the meter used during the billing period |
-|Included Quantity |The amount of the meter that is included at no charge in your current billing period |
-|Overage Quantity |Shows the difference between the Consumed Quantity and the Included Quantity. You're billed for this amount. For Pay-As-You-Go offers with no Included Quantity with the offer, this total is the same as the Consumed Quantity. |
-|Within Commitment |Shows the meter charges that are subtracted from your commitment amount associated with your 6 or 12-month offer. Meter charges are subtracted in chronological order. |
-|Currency |The currency used in your current billing period |
-|Overage |Shows the meter charges that exceed your commitment amount associated with your 6 or 12-month offer |
-|Commitment Rate |Shows the commitment rate based on the total commitment amount associated with your 6 or 12-month offer |
-|Rate |The rate you're charged per billable unit |
-|Value |Shows the result of multiplying the Overage Quantity column by the Rate column. If the Consumed Quantity doesn't exceed the Included Quantity, there is no charge in this column. |
+## Ensure that your charges are correct
 
-### Daily usage
+To learn more about detailed usage and charges, read about how to understand your
+[pay-as-you-go](./billing-understand-your-bill.md)
+or [Microsoft Customer Agreement](billing-mca-understand-your-bill.md) invoice.
 
-The Daily usage section of the CSV file shows usage details that affect
-the billing rates. The following table lists the terms and descriptions
-shown in this section.
+## Need help? Contact us.
 
-| Term | Description |
-| --- | --- |
-|Usage Date |The date when the meter was used |
-|Meter Category |Identifies the top-level service for which this usage belongs |
-|Meter ID |The billed meter identifier that's used to price billing usage |
-|Meter Sub-Category |Defines the Azure service type that can affect the rate |
-|Meter Name |Identifies the unit of measure for the meter being consumed |
-|Meter Region |Identifies the location of the datacenter for certain services that are priced based on datacenter location |
-|Unit |Identifies the unit that the meter is charged in. For example, GB, hours, 10,000 s. |
-|Consumed Quantity |The amount of the meter that has been consumed for that day |
-|Resource Location |Identifies the datacenter where the meter is running |
-|Consumed Service |The Azure platform service that you used |
-|Resource Group |The resource group in which the deployed meter is running in. <br/><br/>For more information, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-|Instance ID | The identifier for the meter. <br/><br/> The identifier contains the name you specify for the meter when it was created. It's either the name of the resource or the fully qualified Resource ID. For more information, see [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). |
-|Tags | Tag you assign to the meter. Use tags to group billing records.<br/><br/>For example, you can use tags to distribute costs by the department that uses the meter. Services that support emitting tags are virtual machines, storage, and networking services provisioned by using the [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
-|Additional Info |Service-specific metadata. For example, an image type for a virtual machine. |
-|Service Info 1 |The project name that the service belongs to on your subscription |
-|Service Info 2 |Legacy field that captures optional service-specific metadata |
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## How do I make sure that the charges in my detailed usage file are correct?
-If there is a charge on your detailed usage file that you would like
-more details on, see [Understand your bill for Microsoft Azure.](./billing-understand-your-bill.md)
+## Next steps
 
-## <a name="external"></a>What about external service charges?
-External services (also known as Marketplace orders) are provided by independent service vendors and are billed separately. The charges don't show up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
-
-## Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?) to
-get your issue resolved quickly.
+- [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md)
+- [View and download your Microsoft Azure usage and charges](billing-download-azure-daily-usage.md)

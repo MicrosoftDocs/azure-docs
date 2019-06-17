@@ -2,19 +2,12 @@
 title: Update the Azure Backup central reporting content pack 
 description: Information about updates to the Azure Backup content pack in Power BI
 services: backup
-documentationcenter: ''
-author: adigan
-manager: shivamg
-editor: ''
-
-ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
+author: kasinh
+manager: vvithal
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/24/2018
-ms.author: adigan;
+ms.topic: conceptual
+ms.date: 01/30/2019
+ms.author: kasinh
 
 ---
 # Update the Azure Backup central reporting content pack 
@@ -38,30 +31,30 @@ The preconfigured reports that come with the Azure Backup content pack are chang
 
 ### Summary
    
-![Summary](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Summary.png)
+![Summary](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
 ### Billing
 
-![Billing](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Billing.png)
+![Billing](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
 
 ### Compliance
 
-![Compliance](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Compliance.png)
+![Compliance](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
 ### Storage
 
-![Storage](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
+![Storage](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### Backup items
-![Backup items](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+![Backup items](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
 
 ### Alerts
 
-![Alerts](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Alerts.png)
+![Alerts](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
 ### Jobs
 
-![Jobs](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
+![Jobs](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## Next steps

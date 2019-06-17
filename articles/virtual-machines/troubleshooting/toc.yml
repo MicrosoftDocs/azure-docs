@@ -7,6 +7,7 @@
   - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
 - name: RDP
+  href: rdp.md
   items:
   - name: Reset RDP
     href: reset-rdp.md
@@ -16,6 +17,8 @@
     href: detailed-troubleshoot-rdp.md
   - name: Troubleshoot RDP error because the DHCP is disabled
     href: troubleshoot-rdp-dhcp-disabled.md
+  - name: Troubleshoot RDP error because of the NSG setting
+    href: troubleshoot-rdp-nsg-problem.md
   - name: Troubleshoot specific errors
     href: troubleshoot-specific-rdp-errors.md
   - name: Troubleshoot no license server errors
@@ -36,12 +39,28 @@
     href: troubleshoot-rdp-static-ip.md
   - name: Troubleshoot RDP error in VM because the NIC is disabled
     href: troubleshoot-rdp-nic-disabled.md
-  - name: Troubleshoot RDP errors becauses of Safe Mode
+  - name: Troubleshoot RDP error caused by Safe Mode
     href: troubleshoot-rdp-safe-mode.md
+  - name: Disable the guest OS Firewall in Azure VM
+    href: disable-guest-os-firewall-windows.md
+  - name: Enable or disable a firewall rule on a guest OS
+    href: enable-disable-firewall-rule-guest-os.md
+  - name: Guest OS firewall is blocking inbound traffic
+    href: guest-os-firewall-blocking-inbound-traffic.md
+  - name: Guest OS firewall is misconfigured
+    href: guest-os-firewall-misconfigured.md 
+  - name: Troubleshoot RDP error caused by netvsc.sys
+    href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:
   - name: SSH troubleshooting
     href: troubleshoot-ssh-connection.md
+  - name: Troubleshoot file system errors
+    href: https://support.microsoft.com/help/3213321
+  - name: Troubleshoot kernel-related boot problems
+    href: https://support.microsoft.com/help/4091524
+  - name: Troubleshoot fstab errors
+    href: https://support.microsoft.com/help/3206699
   - name: Detailed SSH troubleshooting
     href: detailed-troubleshoot-ssh-connection.md
 - name: Common error messages
@@ -87,10 +106,14 @@
       href: serial-console-cmd-ps-commands.md
 - name: Errors when deleting storage resources
   href: storage-resource-deletion-errors.md
+- name: Errors when deleting classic storage resources
+  href: storage-classic-cannot-delete-storage-account-container-vhd.md
 - name: Unexpected reboots of VMs with attached VHDs
   href: unexpected-reboots-attached-vhds.md
 - name: Windows activation problems
   href: troubleshoot-activation-problems.md
+- name: Activation problem with forced tunneling
+  href: custom-routes-enable-kms-activation.md
 - name: Application access issues
   href: troubleshoot-app-connection.md
 - name: New VM deployments

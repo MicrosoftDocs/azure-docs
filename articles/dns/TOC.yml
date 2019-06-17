@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DNS?
     href: dns-overview.md
+  - name: What is Azure Private DNS?
+    href: private-dns-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -20,7 +22,7 @@
   - name: Create custom DNS records for a web app
     href: dns-web-sites-custom-domain.md
   - name: Create private DNS zone and record
-    href: private-dns-getstarted-powershell.md
+    href: private-dns-portal.md
   - name: Alias records for Traffic Manager
     href: tutorial-alias-tm.md
   - name: Alias records for Public IP addresses
@@ -33,18 +35,20 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: DNS zones and records
+  - name: Private DNS
+    items:
+    - name: FAQ - Private DNS
+      href: dns-faq-private.md
+    - name: Private DNS scenarios
+      href: private-dns-scenarios.md
+  - name: Zones and records
     href: dns-zones-records.md
-  - name: DNS alias records
+  - name: Alias records
     href: dns-alias.md
-  - name: DNS delegation with Azure DNS
+  - name: Delegation with Azure DNS
     href: dns-domain-delegation.md
-  - name: DNS FAQ
+  - name: FAQ
     href: dns-faq.md
-  - name: Using private DNS zones
-    href: private-dns-overview.md
-  - name: Private DNS scenarios
-    href: private-dns-scenarios.md
   - name: DNS metrics and alerts
     href: dns-alerts-metrics.md
   - name: Reverse DNS
@@ -53,8 +57,12 @@
     href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: How to
   items:
-  - name: Create private DNS zone and record - Azure CLI
-    href: private-dns-getstarted-cli.md
+  - name: Private DNS
+    items:
+    - name: Create private zone - CLI
+      href: private-dns-getstarted-cli.md
+    - name: Create private zone - PowerShell
+      href: private-dns-getstarted-powershell.md
   - name: Alias records for load balanced web apps
     href: dns-alias-appservice.md
   - name: Manage DNS zones
@@ -81,6 +89,10 @@
       href: dns-reverse-dns-for-azure-services.md
   - name: Import and export a DNS zone file
     href: dns-import-export.md
+  - name: Delegate a subdomain
+    href: delegate-subdomain.md
+  - name: Delegate a subdomain using PowerShell
+    href: delegate-subdomain-ps.md
   - name: Integrate with other Azure services
     href: dns-for-azure-services.md
   - name: Protect DNS zones and records
@@ -98,7 +110,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=dns
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.dns
+    href: /powershell/module/az.dns
   - name: Azure CLI
     href: /cli/azure/network/dns
   - name: .NET
@@ -106,13 +118,15 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.dns
   - name: Node.js
-    href: http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/
+    href: https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/
   - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
+    href: https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
   - name: Python
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html
   - name: REST
     href: /rest/api/dns/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/dns-allversions
 - name: Related
   items:
   - name: Application Gateway
@@ -136,7 +150,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork
   - name: Networking blog
-    href: http://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/topics/networking
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/dns/
   - name: Pricing calculator

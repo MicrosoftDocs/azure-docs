@@ -5,7 +5,7 @@ description: This article provides an overview of the Azure database security fe
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
@@ -48,7 +48,7 @@ SQL Database helps secure your data by providing encryption:
 For other ways to encrypt your data, consider:
 
 -	[Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
--	[Azure Key Vault with SQL Server in an Azure VM](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx), if you need a hardware security module or central management of your encryption key hierarchy.
+-	[Azure Key Vault with SQL Server in an Azure VM](https://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx), if you need a hardware security module or central management of your encryption key hierarchy.
 
 ### Encryption in motion
 
@@ -197,7 +197,7 @@ SQL Advanced Threat Protection (ATP) provides a set of advanced SQL security cap
 - Access from a potentially harmful application 
 - Brute force Azure database for PostgreSQL credentials 
 
-[Azure Database for MySQL Advanced Threat Protection](/mysql/concepts-data-access-and-security-threat-protection.md) provides protection similar to PostgreSQL Advanced Protection.  
+[Azure Database for MySQL Advanced Threat Protection](../mysql/concepts-data-access-and-security-threat-protection.md) provides protection similar to PostgreSQL Advanced Protection.  
 
 ## Centralized security management
 
@@ -218,7 +218,7 @@ Security Center supports role-based access.
 
 In addition, it calculates the result set sensitivity of SQL queries, so that queries that extract sensitive data can be explicitly audited, and the data can be protected. For more details on SQL Information Protection, see Azure SQL Database Data Discovery and Classification.
 
-You can configure [SQL Information Protection policies](/security-center/security-center-info-protection-policy.md) in Azure Security Center.
+You can configure [SQL Information Protection policies](../security-center/security-center-info-protection-policy.md) in Azure Security Center.
 
 ## Azure Marketplace
 

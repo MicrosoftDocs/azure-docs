@@ -6,10 +6,11 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Troubleshooting Bing Speech
 
@@ -46,7 +47,7 @@ You can run the following command for verification. Note to replace *YOUR_SUBSCR
 > [!NOTE]
 > Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
-# [Powershell](#tab/Powershell)
+# [Powershell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -82,7 +83,7 @@ This step is only needed, if you use authorization token for authentication. Run
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file, and `YOUR_ACCESS_TOKEN` with the authorization token returned in the previous step.
 
-# [Powershell](#tab/Powershell)
+# [Powershell](#tab/azure-powershell)
 
 ```Powershell
 

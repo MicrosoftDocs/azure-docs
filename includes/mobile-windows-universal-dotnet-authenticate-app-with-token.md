@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+---
 
 1. In the MainPage.xaml.cs project file, add the following **using** statements:
    
@@ -38,7 +45,7 @@
                 App.MobileService.CurrentUser = user;
    
                 // Consider adding a check to determine if the token is 
-                // expired, as shown in this post: http://aka.ms/jww5vp.
+                // expired, as shown in this post: https://aka.ms/jww5vp.
    
                 success = true;
                 message = string.Format("Cached credentials for user - {0}", user.UserId);

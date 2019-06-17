@@ -1,17 +1,25 @@
 ---
 title: Review the cost estimation report in the Azure Site Recovery Deployment Planner | Microsoft Docs
 description: This articles describes how to review the cost estimation report in the Azure Site Recovery Deployment Planner for VMware to Azure disaster recovery.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.author: nisoneji
+ms.date: 3/14/2019
+ms.author: mayg
 
 ---
 # Review the cost estimation report in the Site Recovery Deployment Planner for VMware disaster recovery to Azure
 
 The deployment planner report provides the cost estimation summary in [Recommendations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) sheets and detailed cost analysis in Cost Estimation sheet. It has the detailed cost analysis per VM. 
+
+>[!Note]
+>The current version of Deployment planner tool does not provide cost estimation for VMs replicating to Managed Disks.
+>* DR Drill cost estimates are the same for storage accounts and managed disks, when 'Use Managed Disks' parameter is set to "Yes" on "Compute and Network" blade.
+>* To get an approximate yearly cost estimate for replication, make the following temporary settings on **Cost Estimation** sheet:
+>    * Set the "Cost duration" parameter in **Settings** table to "Year"
+>    * In **Detailed cost analysis** table, set the "Number of DR-Drills in a year" column to 12 and "Each DR-Drill duration (Days)" to 30 
+>    * The replication cost will be similar to the cost populated in column 'R' i.e. DR-Drill storage cost per year in **DR-Drill cost per year** sub-section.
 
 ### Cost estimation summary 
 The graph shows the summary view of the estimated total disaster recovery (DR) cost to Azure of your chosen target region and the currency that you have specified for report generation.
@@ -108,9 +116,9 @@ To manually add VMs:
 * Data redundancy 
 * Azure Hybrid Benefit
 
-3.	You can apply the same value to all VMs in the table by clicking the 'Apply to all' button for Number of DR-Drills in a year, Each DR-Drill duration (Days), Data redundancy, and Azure Hybrid Use Benefit.
+1. You can apply the same value to all VMs in the table by clicking the 'Apply to all' button for Number of DR-Drills in a year, Each DR-Drill duration (Days), Data redundancy, and Azure Hybrid Use Benefit.
 
-4.	Click 'Re-calculate cost' to update cost.
+1. Click 'Re-calculate cost' to update cost.
 
 **VM Name**: The name of the VM.
 

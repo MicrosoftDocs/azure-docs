@@ -3,19 +3,20 @@ title: Network topology considerations when using Azure Active Directory Applica
 description: Covers network topology considerations when using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2017
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Network topology considerations when using Azure Active Directory Application Proxy
@@ -34,9 +35,9 @@ When an application is published through Azure AD Application Proxy, traffic fro
 
 ## Tenant location and Application Proxy service
 
-When you sign up for an Azure AD tenant, the region of your tenant is determined by the country you specify. When you enable Application Proxy, the Application Proxy service instances for your tenant are chosen or created in the same region as your Azure AD tenant, or the closest region to it.
+When you sign up for an Azure AD tenant, the region of your tenant is determined by the country/region you specify. When you enable Application Proxy, the Application Proxy service instances for your tenant are chosen or created in the same region as your Azure AD tenant, or the closest region to it.
 
-For example, if your Azure AD tenant’s region is the European Union (EU), all your Application Proxy connectors use service instances in Azure datacenters in the EU. When your users access published applications, their traffic goes through the Application Proxy service instances in this location.
+For example, if your Azure AD tenant’s country or region is the United Kingdom, all your Application Proxy connectors use service instances in EU data centers. When your users access published applications, their traffic goes through the Application Proxy service instances in this location.
 
 ## Considerations for reducing latency
 
@@ -73,7 +74,7 @@ If you have a dedicated VPN or ExpressRoute link between Azure and your corporat
 
 ## Focus your optimization strategy
 
-There's little that you can do to control the connection between your users and the Application Proxy service. Users may access your apps from a home network, a coffee shop, or a different country. Instead, you can optimize the connections from the Application Proxy service to the Application Proxy connectors to the apps. Consider incorporating the following patterns in your environment.
+There's little that you can do to control the connection between your users and the Application Proxy service. Users may access your apps from a home network, a coffee shop, or a different country/region. Instead, you can optimize the connections from the Application Proxy service to the Application Proxy connectors to the apps. Consider incorporating the following patterns in your environment.
 
 ### Pattern 1: Put the connector close to the application
 
@@ -81,9 +82,9 @@ Place the connector close to the target application in the customer network. Thi
 
 If your connector needs a line of sight to the domain controller, then this pattern is advantageous. Most of our customers use this pattern, because it works well for most scenarios. This pattern can also be combined with pattern 2 to optimize traffic between the service and the connector.
 
-### Pattern 2: Take advantage of ExpressRoute with public peering
+### Pattern 2: Take advantage of ExpressRoute with Microsoft peering
 
-If you have ExpressRoute set up with public peering, you can use the faster ExpressRoute connection for traffic between Application Proxy and the connector. The connector is still on your network, close to the app.
+If you have ExpressRoute set up with Microsoft peering, you can use the faster ExpressRoute connection for traffic between Application Proxy and the connector. The connector is still on your network, close to the app.
 
 ### Pattern 3: Take advantage of ExpressRoute with private peering
 
@@ -97,7 +98,7 @@ Latency is not compromised because traffic is flowing over a dedicated connectio
 
 Although the focus of this article is connector placement, you can also change the placement of the application to get better latency characteristics.
 
-Increasingly, organizations are moving their networks into hosted environments. This enables them to place their apps in a hosted environment that is also part of their corporate network, and still be within the domain. In this case, the patterns discussed in the preceding sections can be applied to the new application location. If you're considering this option, see [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
+Increasingly, organizations are moving their networks into hosted environments. This enables them to place their apps in a hosted environment that is also part of their corporate network, and still be within the domain. In this case, the patterns discussed in the preceding sections can be applied to the new application location. If you're considering this option, see [Azure AD Domain Services](../../active-directory-domain-services/overview.md).
 
 Additionally, consider organizing your connectors using [connector groups](application-proxy-connector-groups.md) to target apps that are in different locations and networks. 
 
@@ -133,13 +134,13 @@ Again, the common pattern is to optimize hop 3, where you place the connector ne
 
 ### Use case 3
 
-**Scenario:** The app is in an organization's network in the US. ExpressRoute with public peering exists between Azure and the corporate network.
+**Scenario:** The app is in an organization's network in the US. ExpressRoute with Microsoft peering exists between Azure and the corporate network.
 
 **Recommendation:** Follow patterns 1 and 2, explained in the previous section.
 
 First, place the connector as close as possible to the app. Then, the system automatically uses ExpressRoute for hop 2. 
 
-If the ExpressRoute link is using public peering, the traffic between the proxy and the connector flows over that link. Hop 2 has optimized latency.
+If the ExpressRoute link is using Microsoft peering, the traffic between the proxy and the connector flows over that link. Hop 2 has optimized latency.
 
 ![Diagram showing ExpressRoute between the proxy and connector](./media/application-proxy-network-topology/application-proxy-pattern3.png)
 
@@ -169,7 +170,7 @@ You can also consider using one other variant in this situation. If most users i
 
 ## Next steps
 
-- [Enable Application Proxy](application-proxy-enable.md)
+- [Enable Application Proxy](application-proxy-add-on-premises-application.md)
 - [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Enable conditional access](application-proxy-integrate-with-sharepoint-server.md)
+- [Enable Conditional Access](application-proxy-integrate-with-sharepoint-server.md)
 - [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)

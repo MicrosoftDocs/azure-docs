@@ -3,18 +3,19 @@ title: Publish Remote Desktop with Azure AD App Proxy | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.author: barbkess
+ms.date: 05/23/2019
+ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
+ms.collection: M365-identity-device-management
 ---
 
 # Publish Remote Desktop with Azure AD Application Proxy
@@ -23,7 +24,7 @@ Remote Desktop Service and Azure AD Application Proxy work together to improve t
 
 The intended audience for this article is:
 - Current Application Proxy customers who want to offer more applications to their end users by publishing on-premises applications through Remote Desktop Services.
-- Current Remote Desktop Services customers who want to reduce the attack surface of their deployment by using Azure AD Application Proxy. This scenario gives a limited set of two-step verification and conditional access controls to RDS.
+- Current Remote Desktop Services customers who want to reduce the attack surface of their deployment by using Azure AD Application Proxy. This scenario gives a limited set of two-step verification and Conditional Access controls to RDS.
 
 ## How Application Proxy fits in the standard RDS deployment
 
@@ -44,7 +45,7 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 
 - Both the RD Web and RD Gateway endpoints must be located on the same machine, and with a common root. RD Web and RD Gateway are published as a single application with Application Proxy so that you can have a single sign-on experience between the two applications.
 
-- You should already have [deployed RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](application-proxy-enable.md).
+- You should already have [deployed RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](application-proxy-add-on-premises-application.md).
 
 - This scenario assumes that your end users go through Internet Explorer on Windows 7 or Windows 10 desktops that connect through the RD Web page. If you need to support other operating systems, see [Support for other client configurations](#support-for-other-client-configurations).
 
@@ -52,21 +53,24 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 
 - On Internet Explorer, enable the RDS ActiveX add-on.
 
+- For the Azure AD pre-authentication flow, users can only connect to resources published to them in the **RemoteApp and Desktops** pane. Users can't connect to a desktop using the **Connect to a remote PC** pane.
+
 ## Deploy the joint RDS and Application Proxy scenario
 
 After setting up RDS and Azure AD Application Proxy for your environment, follow the steps to combine the two solutions. These steps walk through publishing the two web-facing RDS endpoints (RD Web and RD Gateway) as applications, and then directing traffic on your RDS to go through Application Proxy.
 
 ### Publish the RD host endpoint
 
-1. [Publish a new Application Proxy application](application-proxy-publish-azure-portal.md) with the following values:
+1. [Publish a new Application Proxy application](application-proxy-add-on-premises-application.md) with the following values:
    - Internal URL: `https://\<rdhost\>.com/`, where `\<rdhost\>` is the common root that RD Web and RD Gateway share.
    - External URL: This field is automatically populated based on the name of the application, but you can modify it. Your users will go to this URL when they access RDS.
    - Preauthentication method: Azure Active Directory
    - Translate URL headers: No
 2. Assign users to the published RD application. Make sure they all have access to RDS, too.
 3. Leave the single sign-on method for the application as **Azure AD single sign-on disabled**. Your users are asked to authenticate once to Azure AD and once to RD Web, but have single sign-on to RD Gateway.
-4. Go to **Azure Active Directory** > **App Registrations** > *Your application* > **Settings**.
-5. Select **Properties** and update the **Home-page URL** field to point to your RD Web endpoint (like `https://\<rdhost\>.com/RDWeb`).
+4. Select **Azure Active Directory**, and then **App Registrations**. Choose your app from the list.
+5. Under **Manage**, select **Branding**.
+6. Update the **Home page URL** field to point to your RD Web endpoint (like `https://\<rdhost\>.com/RDWeb`).
 
 ### Direct RDS traffic to Application Proxy
 
@@ -80,7 +84,7 @@ Connect to the RDS deployment as an administrator and change the RD Gateway serv
 6. In the RD Gateway tab, change the **Server name** field to the External URL that you set for the RD host endpoint in Application Proxy.
 7. Change the **Logon method** field to **Password Authentication**.
 
-  ![Deployment Properties screen on RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Deployment Properties screen on RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. Run this command for each collection. Replace *\<yourcollectionname\>* and *\<proxyfrontendurl\>* with your own information. This command enables single sign-on between RD Web and RD Gateway, and optimizes performance:
 
@@ -92,8 +96,8 @@ Connect to the RDS deployment as an administrator and change the RD Gateway serv
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->The above command uses a backtick in "`nrequire".
+   >[!NOTE]
+   >The above command uses a backtick in "`nrequire".
 
 9. To verify the modification of the custom RDP properties as well as view the RDP file contents that will be downloaded from RDWeb for this collection, run the following command:
     ```
@@ -120,7 +124,7 @@ The configuration outlined in this article is for users on Windows 7 or 10, with
 | Pre-authentication    | Windows 7/10 using Internet Explorer + RDS ActiveX add-on |
 | Passthrough | Any other operating system that supports the Microsoft Remote Desktop application |
 
-The pre-authentication flow offers more security benefits than the passthrough flow. With pre-authentication you can use Azure AD authentication features like single sign-on, conditional access, and two-step verification for your on-premises resources. You also ensure that only authenticated traffic reaches your network.
+The pre-authentication flow offers more security benefits than the passthrough flow. With pre-authentication you can use Azure AD authentication features like single sign-on, Conditional Access, and two-step verification for your on-premises resources. You also ensure that only authenticated traffic reaches your network.
 
 To use passthrough authentication, there are just two modifications to the steps listed in this article:
 1. In [Publish the RD host endpoint](#publish-the-rd-host-endpoint) step 1, set the Preauthentication method to **Passthrough**.

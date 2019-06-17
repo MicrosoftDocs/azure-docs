@@ -5,12 +5,12 @@ services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 10/23/2018
 ms.author: diberry
---- 
+---
 
 ## Roles versus hierarchical entities
 

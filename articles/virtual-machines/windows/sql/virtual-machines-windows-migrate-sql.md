@@ -3,7 +3,7 @@ title: Migrate a SQL Server database to SQL Server on a VM | Microsoft Docs
 description: Learn about how to migrate an on-premises user database to SQL Server in an Azure virtual machine.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
-ms.author: jroth
-
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Migrate a SQL Server database to SQL Server in an Azure VM
 
 There are a number of methods to migrate an on-premises SQL Server user database to SQL Server in an Azure VM. This article will briefly discuss various methods and recommend the best method for various scenarios.
 
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+
+  > [!NOTE]
+  > SQL Server 2008 and SQL Server 2008 R2 are approaching the [end of their support life cycle](https://www.microsoft.com/sql-server/sql-server-2008) for on-premises instances. To extend support, you can either migrate your SQL Server instance to an Azure VM, or buy Extended Security Updates to keep it on-premises. For more information, see [Extend support for SQL Server 2008 and 2008 R2 with Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## What are the primary migration methods?
 The primary migration methods are:
@@ -31,7 +35,7 @@ The primary migration methods are:
 * Detach and then copy the data and log files to Azure blob storage and then attach to SQL Server in Azure VM from URL
 * Convert on-premises physical machine to Hyper-V VHD, upload to Azure Blob storage, and then deploy as new VM using uploaded VHD
 * Ship hard drive using Windows Import/Export Service
-* If you have an AlwaysOn deployment on-premises, use the [Add Azure Replica Wizard](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) to create a replica in Azure and then failover, pointing users to the Azure database instance
+* If you have an AlwaysOn Availability Group deployment on-premises, use the [Add Azure Replica Wizard](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) to create a replica in Azure and then failover, pointing users to the Azure database instance
 * Use SQL Server [transactional replication](https://msdn.microsoft.com/library/ms151176.aspx) to configure the Azure SQL Server instance as a subscriber and then disable replication, pointing users to the Azure database instance
 
 > [!TIP]
@@ -90,7 +94,7 @@ Use this method to migrate all system and user databases in an on-premises SQL S
 ## Ship hard drive
 Use the [Windows Import/Export Service method](../../../storage/common/storage-import-export-service.md) to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. With this service, you send one or more hard drives containing that data to an Azure data center, where your data will be uploaded to your storage account.
 
-## Next Steps
+## Next steps
 For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
 
 > [!TIP]

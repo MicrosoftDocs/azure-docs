@@ -2,16 +2,16 @@
 title: Comparing AppSource and the Azure Marketplace | Azure
 description: This article describes the storefronts in Microsoft AppSource and the Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
+
 author: jm-aditi-ms
 manager: pabutler
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
@@ -23,6 +23,10 @@ Storefronts in the [Azure Marketplace](https://azuremarketplace.microsoft.com) a
 
 ## Understanding the differences between storefronts
 To choose a storefront, begin by identifying the target audience for your offer. If you're targeting audiences in multiple storefronts, you can publish once to sell in multiple storefronts.
+
+| Azure Marketplace | AppSource |
+|:--- |:--- |
+| IT Professionals and Developers | Business Users and Business Decision Makers |
  
 The following table describes the benefits of using a storefront:
 

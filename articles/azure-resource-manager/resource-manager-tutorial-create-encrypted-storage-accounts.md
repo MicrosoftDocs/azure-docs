@@ -1,6 +1,6 @@
 ﻿---
-title: Create an Azure Resource Manager template for deploying an encrypted storage account | Microsoft Docs
-description: Use Visual Studio Code to create a template for deploying an encrypted storage account.
+title: Utilize the Azure Resource Manager template reference | Microsoft Docs
+description: Utilize the Azure Resource Manager template reference to create a template for deploying an encrypted storage account.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -11,17 +11,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-
+ms.custom: seodec18
 ---
 
-# Tutorial: Deploy an encrypted Azure Storage account with Resource Manager template
+# Tutorial: Utilize the Azure Resource Manager template reference
 
 Learn how to find the template schema information, and use the information to create Azure Resource Manager templates.
 
 In this tutorial, you use a base template from Azure Quickstart templates. Using template reference documentation, you customize the template to create an encrypted Storage account.
+
+![Resource Manager template reference deploy encrypted storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 This tutorial covers the following tasks:
 
@@ -72,11 +74,13 @@ To complete this article, you need:
 
 ## Find the template reference
 
-1. Browse to [Azure Templates](https://docs.microsoft.com/azure/templates/).
-2. In **Filter by title**, enter **storage accounts**.
-3. Select **Reference/Template reference/Storage/Storage Accounts** as shown in the following screenshot:
+1. Browse to [Azure Template reference](https://docs.microsoft.com/azure/templates/).
+2. In the **Filter by title** box, enter **storage accounts**.
+3. Select **Reference/Template reference/Storage/&lt;Version>/Storage Accounts** as shown in the following screenshot:
 
     ![Resource Manager template reference storage account](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    If you don't know which version to choose, use the latest version.
 
 4. Find the encryption-related definition information.  
 

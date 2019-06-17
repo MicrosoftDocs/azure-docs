@@ -38,15 +38,15 @@ Next, you create a function in the new function app.
 
 ## Create a timer triggered function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **Custom function**. This displays the complete set of function templates.
+1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step three.
 
-    ![Functions quickstart page in the Azure portal](./media/functions-create-scheduled-function/add-first-function.png)
+   ![Functions quickstart page in the Azure portal](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
-2. In the search field, type `timer` and then choose your desired language for the timer trigger template. 
+2. Choose **More templates** then **Finish and view templates**.
 
-    ![Choose the timer triggered function template.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Functions quickstart choose more templates](./media/functions-create-scheduled-function/add-first-function.png)
 
-3. Configure the new trigger with the settings as specified in the table below the image.
+3. In the search field, type `timer` and configure the new trigger with the settings as specified in the table below the image.
 
     ![Create a timer triggered function in the Azure portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
@@ -55,13 +55,13 @@ Next, you create a function in the new function app.
     | **Name** | Default | Defines the name of your timer triggered function. |
     | **Schedule** | 0 \*/1 \* \* \* \* | A six field [CRON expression](functions-bindings-timer.md#cron-expressions) that schedules your function to run every minute. |
 
-2. Click **Create**. A function is created in your chosen language that runs every minute.
+4. Click **Create**. A function is created in your chosen language that runs every minute.
 
-3. Verify execution by viewing trace information written to the logs.
+5. Verify execution by viewing trace information written to the logs.
 
     ![Functions log viewer in the Azure portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Now, you change the function's schedule so that it runs once every hour instead of every minute. 
+Now, you change the function's schedule so that it runs once every hour instead of every minute.
 
 ## Update the timer schedule
 
@@ -79,8 +79,6 @@ You now have a function that runs once every hour.
 
 ## Next steps
 
-You have created a function that runs based on a schedule.
+You have created a function that runs based on a schedule. For more information about timer triggers, see [Schedule code execution with Azure Functions](functions-bindings-timer.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-For more information timer triggers, see [Schedule code execution with Azure Functions](functions-bindings-timer.md).

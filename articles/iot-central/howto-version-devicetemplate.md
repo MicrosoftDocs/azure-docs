@@ -3,7 +3,7 @@ title: Understanding device template versioning for your Azure IoT Central apps 
 description: Iterate over your device templates by creating new versions and without impacting your live connected devices
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 01/19/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -51,12 +51,12 @@ What happens to rules and device dashboards when there is a version change?
 
 You can create multiple versions of the device template. Over time, you will have multiple connected devices using these device templates. You can migrate devices from one version of your device template to another. The following steps describe how to migrate a device:
 
-1. Go to the **Explorer** page.
+1. Go to the **Device Explorer** page.
 1. Select the device you need to migrate to another version.
 1. Choose **Migrate Device**.
 1. Select the version number you want to migrate the device to and choose **Migrate**.
 
-![How to migrate a device](media\howto-version-devicetemplate\pick-version.png)
+![How to migrate a device](media/howto-version-devicetemplate/pick-version.png)
 
 ## Next steps
 

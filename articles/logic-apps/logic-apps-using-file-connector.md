@@ -8,7 +8,7 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 01/13/2019
 ---
 
 # Connect to on-premises file systems with Azure Logic Apps
@@ -18,7 +18,7 @@ you can create automated tasks and workflows that
 create and manage files on an on-premises file share, 
 for example:  
 
-- Create, get, append, update, and delete files
+- Create, get, append, update, and delete files.
 - List files in folders or root folders.
 - Get file content and metadata.
 
@@ -31,19 +31,32 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 
 ## Prerequisites
 
+To follow the example, you need these items:
+
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 * Before you can connect logic apps to on-premises 
 systems such as your file system server, you need to 
 [install and set up an on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
-That way, you can specify to use your gateway installation when 
-you create the file system connection from your logic app.
+That way, you can specify to use your gateway installation 
+when you create the file system connection from your logic app.
 
-* A [Drobox account](https://www.dropbox.com/) and your user credentials
+* A [Dropbox account](https://www.dropbox.com/), 
+which you can sign up for free. Your account credentials 
+are necessary for creating a connection between your 
+logic app and your Dropbox account. 
 
-  Your credentials authorize your logic app to create 
-  a connection and access your Drobox account. 
+* Access to the computer that has the file system 
+you want to use. For example, if you install the 
+data gateway on the same computer as your file system, 
+you need the account credentials for that computer. 
+
+* An email account from a provider that's supported by Logic Apps, 
+such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, 
+[review the connectors list here](https://docs.microsoft.com/connectors/). 
+This logic app uses an Office 365 Outlook account. If you use another email account, 
+the overall steps are the same, but your UI might slightly differ. 
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 For this example, you need a blank logic app.
@@ -57,7 +70,7 @@ and open your logic app in Logic App Designer, if not open already.
 
 1. In the search box, enter "dropbox" as your filter. 
 From the triggers list, select this trigger: 
-**When a file is created** 
+**When a file is created**
 
    ![Select Dropbox trigger](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -85,14 +98,14 @@ you're prompted to create a connection.
    | Property | Required | Value | Description | 
    | -------- | -------- | ----- | ----------- | 
    | **Connection Name** | Yes | <*connection-name*> | The name you want for your connection | 
-   | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, such as a local folder on the computer where the on-premises data gateway is installed, or the folder for a network share that the computer can access. <p>For example: `\\PublicShare\\DropboxFiles` <p>The root folder is the main parent folder, which is used for relative paths for all file-related actions. | 
+   | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, for example, if you installed your on-premises data gateway  such as a local folder on the computer where the on-premises data gateway is installed, or the folder for a network share that the computer can access. <p>For example: `\\PublicShare\\DropboxFiles` <p>The root folder is the main parent folder, which is used for relative paths for all file-related actions. | 
    | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system uses, for example, **Windows** | 
-   | **Username** | Yes | <*domain*>\\<*username*> | The username for your previously installed data gateway | 
-   | **Password** | Yes | <*your-password*> | The password for your previously installed data gateway | 
+   | **Username** | Yes | <*domain*>\\<*username*> | The username for the computer where you have your file system | 
+   | **Password** | Yes | <*your-password*> | The password for the computer where you have your file system | 
    | **gateway** | Yes | <*installed-gateway-name*> | The name for your previously installed gateway | 
    ||| 
 
-1. When you're done, choose **Create**. 
+1. When you're done, choose **Create**.
 
    Logic Apps configures and tests your connection, 
    making sure that the connection works properly. 

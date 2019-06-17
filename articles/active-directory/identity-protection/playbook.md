@@ -4,27 +4,28 @@ description: Learn how Azure AD Identity Protection enables you to limit the abi
 services: active-directory
 keywords: azure active directory identity protection, cloud discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection playbook
 
 This playbook helps you to:
 
 * Populate data in the Identity Protection environment by simulating risk events and vulnerabilities
-* Set up risk-based conditional access policies and test the impact of these policies
+* Set up risk-based Conditional Access policies and test the impact of these policies
 
 
 ## Simulating Risk Events
@@ -130,7 +131,7 @@ For more information, see [How to configure the user risk policy](howto-user-ris
 6. Elevate the user risk of a test account by, for example, simulating one of the risk events a few times.
 7. Wait a few minutes, and then verify that user level for your user is Medium. If not, simulate more risk events for the user.
 8. As **Enforce Policy**, select **On**.
-9. You can now test user risk-based conditional access by signing in using a user with an elevated risk level.
+9. You can now test user risk-based Conditional Access by signing in using a user with an elevated risk level.
     
     
 
@@ -143,7 +144,7 @@ For more information, see [How to configure the sign-in risk policy](howto-sign-
 
 **To test a sign in risk policy, perform the following steps:**
 
-1. Sign-in to [https://portal.azure.com ](https://portal.azure.com) with global administrator credentials for your tenant.
+1. Sign-in to [https://portal.azure.com](https://portal.azure.com) with global administrator credentials for your tenant.
 
 2. Navigate to **Azure AD Identity Protection**.
 
@@ -160,7 +161,7 @@ For more information, see [How to configure the sign-in risk policy](howto-sign-
 
 7. Click **Save**.
 
-8. You can now test Sign-in Risk-based conditional access by signing in using a risky session (for example, by using the Tor browser). 
+8. You can now test Sign-in Risk-based Conditional Access by signing in using a risky session (for example, by using the Tor browser). 
 
  
 

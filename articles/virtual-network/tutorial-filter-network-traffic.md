@@ -1,26 +1,23 @@
 ---
-title: Filter network traffic - tutorial - Azure Portal | Microsoft Docs
-description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group, using the Azure Portal.
+title: Filter network traffic - tutorial - Azure Portal
+titlesuffix: Azure Virtual Network
+description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group, using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
-editor: ''
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: 
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 06/20/2018
-ms.author: jdial
-ms.custom: 
+ms.date: 12/13/2018
+ms.author: kumud
+
 ---
 
-# Tutorial: Filter network traffic with a network security group using the Azure Portal
+# Tutorial: Filter network traffic with a network security group using the Azure portal
 
 You can filter network traffic inbound to and outbound from a virtual network subnet with a network security group. Network security groups contain security rules that filter network traffic by IP address, port, and protocol. Security rules are applied to resources deployed in a subnet. In this tutorial, you learn how to:
 
@@ -34,9 +31,9 @@ If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-fil
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at https://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a virtual network
 

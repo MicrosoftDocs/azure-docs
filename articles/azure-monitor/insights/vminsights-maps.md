@@ -1,26 +1,24 @@
 ---
-title: How to view app dependencies with Azure Monitor for VMs (Preview) | Microsoft Docs
+title: How to view app dependencies with Azure Monitor for VMs (preview) | Microsoft Docs
 description: Map is a feature of the Azure Monitor for VMs that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 05/09/2019
 ms.author: magoedte
 ---
 
-# Using Azure Monitor for VMs (Preview) Map to understand application components
-Viewing the discovered application components on Windows and Linux virtual machines running in Azure your environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly or across groups of VMs from Azure Monitor. 
+# Using Azure Monitor for VMs (preview) Map to understand application components
+Viewing the discovered application components on Windows and Linux virtual machines running in Azure your environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly, or across groups of VMs from Azure Monitor. 
 
-This article will help you understand the experience between the two perspectives and how to use the Map feature. For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-onboard.md).
+This article will help you understand the experience between the two perspectives and how to use the Map feature. For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -36,11 +34,11 @@ When you click on the virtual machine, the **Properties** pane is expanded on th
 
 ![System properties of the computer](./media/vminsights-maps/properties-pane-01.png)
 
-On the right-side of the pane, click on the **Log Events** icon to switch focus of the pane to show a list of tables that collected data from the VM has sent to Log Analytics and is available for querying.  Clicking on any one of the record types listed will open the **Logs** page to view the results for that type with a pre-configured query filtered against the specific virtual machine.  
+On the right-side of the pane, click on the **Log Events** icon to switch focus of the pane to show a list of tables that collected data from the VM has sent to Azure Monitor and is available for querying.  Clicking on any one of the record types listed will open the **Logs** page to view the results for that type with a pre-configured query filtered against the specific virtual machine.  
 
 ![Log search list in Properties pane](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Close *Logs** and return to the **Properties** pane and select **Alerts** to view alerts that alerts raised for the VM from health criteria. Map integrates with Azure Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the Machine Alerts pane lists the alerts. 
+Close **Logs** and return to the **Properties** pane and select **Alerts** to view alerts that alerts raised for the VM from health criteria. Map integrates with Azure Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the Machine Alerts pane lists the alerts. 
 
 ![Machine alerts in Properties pane](./media/vminsights-maps/properties-pane-alerts-01.png)
 
@@ -48,7 +46,7 @@ To enable the Map feature to display relevant alerts, create an alert rule that 
 - Include a clause to group by computer (for example, **by Computer interval 1 minute**).
 - Choose to alert based on metric measurement.
 
-For more information about Azure Alerts and creating alert rules, see [Unified Alerts in Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+For more information about Azure Alerts and creating alert rules, see [Unified Alerts in Azure Monitor](../../azure-monitor/platform/alerts-overview.md)
 
 The **Legend** option in the upper right-hand corner describes the symbols and roles on a map.  To zoom in for a closer look at your map and move the it around, the Zoom controls at the bottom right-hand side of the page sets the zoom level and fit the page to the size of the current page.  
 
@@ -94,6 +92,21 @@ Map visualizes the VMs dependencies, that is running process groups and processe
 
 ![Direct VM map overview](./media/vminsights-maps/map-direct-vm-01.png)
 
+## View Map directly from a virtual machine scale set
+
+To access Azure Monitor for VMs directly from a virtual machine scale set, perform the following.
+
+1. In the Azure portal, select **Virtual machine scale sets**.
+2. From the list, choose a VM and in the **Monitoring** section choose **Insights (preview)**.  
+3. Select the **Map** tab.
+
+Map visualizes all of the instances in the scale set as a group node along with the group's dependencies. The expanded node lists the instances in the scale set, which you can scroll through ten at a time. To load a map for a specific instance, select that instance on the map, and then click on the ellipsis to it's right and choose **Load Server Map**. This will load the map for that instance, allowing you to see process groups and processes with active network connections over a specified time range. By default, the map shows the last 30 minutes. Using the **TimeRange** selector you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).  
+
+![Direct VM map overview](./media/vminsights-maps/map-direct-vmss-01.png)
+
+>[!NOTE]
+>You can also access a map for a specific instance from the Instances view for your virtual machine scale set. Navigate to **Instances** under the **Settings** section, and then choose **Insights (preview)**.
+
 ## View Map from Azure Monitor
 From Azure Monitor, the Map feature provides a global view of your virtual machines and their dependencies.  To access the Map feature from Azure Monitor, perform the following. 
 
@@ -103,7 +116,7 @@ From Azure Monitor, the Map feature provides a global view of your virtual machi
 
 ![Azure Monitor multi-VM map overview](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the workspace that is enabled with the solution and has virtual machines reporting to it. The **Group** selector will return subscriptions, resource groups, [computer groups](../../log-analytics/log-analytics-computer-groups.md), and VM scale sets of computers related to the selected workspace. Your selection only applies to the Map feature and does not carry over to Performance or Map.
+From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the workspace that is enabled with the solution and has virtual machines reporting to it. The **Group** selector will return subscriptions, resource groups, [computer groups](../../azure-monitor/platform/computer-groups.md), and virtual machine scale sets of computers related to the selected workspace. Your selection only applies to the Map feature and does not carry over to Performance or Map.
 
 By default, the map shows the last 30 minutes. Using the **TimeRange** selector, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).   
 

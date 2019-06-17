@@ -3,19 +3,20 @@ title: How to remove a user's access to an application | Microsoft Docs
 description: Understand how to remove a user's access to an application
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid:
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
-ms.author: barbkess
+ms.author: mimart
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to remove a user's access to an application
@@ -34,25 +35,25 @@ To disable all user sign-ins to an application, follow the steps listed in the [
 
 To **delete an application**, follow these instructions:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  Click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. Click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  Click **All Applications** to view a list of all your applications.
+5. Click **All Applications** to view a list of all your applications.
 
    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to delete.
+6. Select the application you want to delete.
 
-7.  Once the application loads, click **Delete** icon from the top application’s **Overview** pane.
+7. Once the application loads, click **Delete** icon from the top application’s **Overview** pane.
 
 ## I want to disable all future user consent operations to any application
 
-Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalves. For more information about application consent, and why you may or may not wish to do this, read [Understanding user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). See also, [Permissions and consent](../develop/v2-permissions-and-consent.md).
+Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalf. For more information about application consent, and why you may or may not wish to do this, read [Understanding user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). See also, [Permissions and consent](../develop/v2-permissions-and-consent.md).
 
 To **disable all future user consent operations in your entire directory**, follow these instructions:
 
@@ -67,5 +68,6 @@ To **disable all future user consent operations in your entire directory**, foll
 6.  Set the **Users can allow apps to access company data on their behalf** toggle to **No** and click the Save button.
 
 
-# Next steps
+## Next steps
+
 [Managing access to apps](what-is-access-management.md)

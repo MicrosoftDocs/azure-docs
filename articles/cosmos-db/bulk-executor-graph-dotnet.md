@@ -1,20 +1,13 @@
 ---
 title: Using the graph BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
 description: Learn how to use the BulkExecutor library to massively import graph data into an Azure Cosmos DB Gremlin API container.
-services: cosmos-db
-keywords: graph, gremlin, bulk, bulkexecutor, migration, data, cosmosdb, cosmos, database, import
 author: luisbosquez
-manager: kfile
-editor: cgronlun
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.devlang: na
+ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 05/28/2019
 ms.author: lbosq
-ms.custom: mvc
-
+ms.reviewer: sngun
 ---
 
 # Using the graph BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
@@ -116,7 +109,7 @@ e.AddProperty("customProperty", "value");
 ## Sample application
 
 ### Prerequisites
-* Visual Studio 2017 with the Azure development workload. You can get started with the [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com/downloads/) for free.
+* Visual Studio 2019 with the Azure development workload. You can get started with the [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) for free.
 * An Azure subscription. You can create [a free Azure account here](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Alternatively, you can create a Cosmos DB database account with [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
 * An Azure Cosmos DB Gremlin API database with an **unlimited collection**. This guide shows how to get started with [Azure Cosmos DB Gremlin API in .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).
 * Git. For more information check out the [Git Downloads page](https://git-scm.com/downloads).
@@ -157,6 +150,6 @@ Setting|Description
 3. Evaluate the results by querying the graph database. If the `ShouldCleanupOnFinish` option is set to true, then the database will automatically be deleted.
 
 ## Next steps
-* To learn about Nuget package details and release notes of bulk executor .Net library, see [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
+* To learn about Nuget package details and release notes of bulk executor .NET library, see [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
 * Check out the [Performance Tips](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) to further optimize the usage of BulkExecutor.
 * Review the [BulkExecutor.Graph Reference article](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) for more details about the classes and methods defined in this namespace.

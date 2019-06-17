@@ -3,8 +3,8 @@ title: Azure Service Fabric Docker Compose Deployment Preview
 description: Azure Service Fabric accepts Docker Compose format to make it easier to orchestrate existing containers using Service Fabric. This support is currently in preview.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
+ms.author: aljo, subramar
 ---
 # Docker Compose deployment support in Azure Service Fabric (Preview)
 
@@ -59,6 +59,12 @@ To start a Compose deployment upgrade through PowerShell, use the following comm
 Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
 ```
 
+To rollback the Compose deployment upgrade through PowerShell, use the following command:
+
+```powershell
+Start-ServiceFabricComposeDeploymentRollback -DeploymentName TestContainerApp
+```
+
 After upgrade is accepted, the upgrade progress could be tracked using the following command:
 
 ```powershell
@@ -79,7 +85,7 @@ After you've created the deployment, you can check its status by using the follo
 sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
-To delete the compose deployment, use the following command:
+To delete the Compose deployment, use the following command:
 
 ```azurecli
 sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
@@ -89,6 +95,12 @@ To start a Compose deployment upgrade, use the following command:
 
 ```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
+```
+
+To rollback the Compose deployment upgrade, use the following command:
+
+```azurecli
+sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
 After upgrade is accepted, the upgrade progress could be tracked using the following command:

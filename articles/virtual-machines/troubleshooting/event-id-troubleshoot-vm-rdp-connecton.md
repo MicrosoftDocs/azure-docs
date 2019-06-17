@@ -34,7 +34,7 @@ To troubleshoot this issue, review the event logs on the VM, and then refer to t
 
 ### Create a backup snapshot
 
-To create a backup snapshot, follow the steps in [Snapshot a disk](..\windows\snapshot-copy-managed-disk.md).
+To create a backup snapshot, follow the steps in [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
 ### Connect to the VM remotely
 

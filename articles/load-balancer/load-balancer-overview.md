@@ -1,5 +1,6 @@
 ---
-title: Azure Load Balancer overview | Microsoft Docs
+title: What is Azure Load Balancer?
+titlesuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
@@ -8,9 +9,10 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for. 
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
 
 ---
@@ -62,7 +64,7 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
 * **Port forwarding**
 
-    With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. This is also accomplished by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside the Azure Virtual Network. You can map multiple internal endpoints to the various ports on the same frontend IP address. You can use the fronend IP addresses to remotely administer your VMs over the internet without the need for an additional jump box.
+    With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. This is also accomplished by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside the Azure Virtual Network. You can map multiple internal endpoints to the various ports on the same frontend IP address. You can use the frontend IP addresses to remotely administer your VMs over the internet without the need for an additional jump box.
 
 * **Application agnostic and transparent**
 
@@ -88,8 +90,8 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
     All outbound flows from private IP addresses inside your virtual network to public IP addresses on the internet can be translated to a frontend IP address of the Load Balancer. When a public front end is tied to a backend VM by way of a load balancing rule, Azure programs outbound connections to be automatically translated to the public frontend IP address.
 
-    * Enable easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service.
-    * Easier access control list (ACL) management to. ACLs expressed in terms of frontend IPs do not change as services scale up or down or get redeployed.  Translating outbound connections to a smaller number of IP addresses than machines can reduce the burden of whitelisting.
+  * Enable easy upgrade and disaster recovery of services, because the front end can be dynamically mapped to another instance of the service.
+  * Easier access control list (ACL) management to. ACLs expressed in terms of frontend IPs do not change as services scale up or down or get redeployed.  Translating outbound connections to a smaller number of IP addresses than machines can reduce the burden of whitelisting.
 
     For more information, see [outbound connections](load-balancer-outbound-connections.md).
 
@@ -133,7 +135,7 @@ By default, Azure Load Balancer distributes network traffic equally among multip
 
 ### <a name = "internalloadbalancer"></a> Internal Load Balancer
 
-An internal Load Balancer directs traffic only to resources that are inside a virtual network or that use a VPN to access Azure infrastructure. In this respect, an internal Load Balancer differs from a public Load Balancer. Azure infrastructure restricts access to the load-balanced frontend IP addresses of a virtual network. frontend IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
+An internal Load Balancer directs traffic only to resources that are inside a virtual network or that use a VPN to access Azure infrastructure. In this respect, an internal Load Balancer differs from a public Load Balancer. Azure infrastructure restricts access to the load-balanced frontend IP addresses of a virtual network. Frontend IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
 
 An internal Load Balancer enables the following types of load balancing:
 
@@ -147,7 +149,13 @@ An internal Load Balancer enables the following types of load balancing:
 *Figure: Load balancing multi-tier applications by using both public and internal Load Balancer*
 
 ## Pricing
-Standard Load Balancer usage is charged based on the number of configured load-balancing rules and the amount of processed inbound and outbound data. For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
+
+Standard Load Balancer usage is charged.
+
+- Number of configured load-balancing and outbound rules (inbound NAT rules do not count against the total number of rules)
+- Amount of data processed inbound and outbound irrespective of rule. 
+
+For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
 
 Basic Load Balancer is offered at no charge.
 

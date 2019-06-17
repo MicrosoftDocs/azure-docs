@@ -4,7 +4,7 @@ description: Generate and use Service Fabric Java client APIs using Service Fabr
 services: service-fabric
 documentationcenter: java
 author: rapatchi
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -67,7 +67,7 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 	autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
 	```
    
-   The following command takes ``servicefabric.json`` specification file as input and generates java client code in ``java-rest-api-	 code`` folder and encloses the code in  ``servicefabricrest`` namespace. After this step you would find two folders ``models``, ``implemenation`` and two files ``ServiceFabricClientAPIs.java`` and ``package-info.java`` generated in the ``java-rest-api-code`` folder.
+   The following command takes ``servicefabric.json`` specification file as input and generates java client code in ``java-rest-api-	 code`` folder and encloses the code in  ``servicefabricrest`` namespace. After this step you would find two folders ``models``, ``implementation`` and two files ``ServiceFabricClientAPIs.java`` and ``package-info.java`` generated in the ``java-rest-api-code`` folder.
 
 
 ## Include and use the generated client in your project
@@ -122,11 +122,11 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 For every API you will find four overloads of implementation. If there are optional parameters then you would find four more variations including those optional parameters. For example consider the API ``removeReplica``.
  1. **public void removeReplica(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout)**
 	* This is the synchronous variant of the removeReplica API call
- 2. **public ServiceFuture<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback<Void> serviceCallback)**
+ 2. **public ServiceFuture\<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId, Boolean forceRemove, Long timeout, final ServiceCallback\<Void> serviceCallback)**
 	* This variant of API call can be used if you want to use future based asynchronous programming and use callbacks
- 3. **public Observable<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)**
+ 3. **public Observable\<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)**
 	* This variant of API call can be used if you want to use reactive asynchronous programming
- 4. **public Observable<ServiceResponse<Void>> removeReplicaWithServiceResponseAsync(String nodeName, UUID partitionId, String replicaId)**
+ 4. **public Observable\<ServiceResponse\<Void>> removeReplicaWithServiceResponseAsync(String nodeName, UUID partitionId, String replicaId)**
 	* This variant of API call can be used if you want to use reactive asynchronous programming and deal with RAW rest response
 
 ## Next steps

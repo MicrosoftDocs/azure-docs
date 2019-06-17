@@ -1,4 +1,9 @@
-Your IaaS virtual machines (VMs) and PaaS role instances in a virtual network automatically receive a private IP address from a range that you specify, based on the subnet they are connected to. That address is retained by the VMs and role instances, until they are decommissioned. You decommission a VM or role instance by stopping it from PowerShell, the Azure CLI, or the Azure portal. In those cases, once the VM or role instance starts again, it will receive an available IP address from the Azure infrastructure, which might not be the same it previously had. If you shut down the VM or role instance from the guest operating system, it retains the IP address it had.  
-
-In certain cases, you want a VM or role instance to have a static IP address, for example, if your VM is going to run DNS or will be a domain controller. You can do so by setting a static private IP address.
+---
+author: genlin
+ms.service: virtual-network
+ms.topic: include
+ms.date: 02/27/2019	
+ms.author: genli
+---
+A virtual machine (VM) is automatically assigned a private IP address from a range that you specify, based on the subnet it is deployed in. The address is retained by a VM until the VM is deleted. Azure dynamically assigns the next available private IP address from the subnet you create a VM in. Assign a static IP address if you want a specific IP address from the subnet assigned to the VM.
 

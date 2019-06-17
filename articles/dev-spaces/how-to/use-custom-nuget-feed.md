@@ -1,13 +1,12 @@
 ---
-title: "How to use a custom NuGet feed in Azure Dev Spaces | Microsoft Docs"
+title: "How to use a custom NuGet feed in Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
 author: "johnsta"
 ms.author: "johnsta"
 ms.date: "05/11/2018"
-ms.topic: "article"
+ms.topic: "conceptual"
 description: "Use a custom NuGet feed to access and use NuGet packages in an Azure Dev Space."
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 manager: "ghogen"
