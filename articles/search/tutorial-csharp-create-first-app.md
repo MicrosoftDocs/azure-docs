@@ -51,7 +51,7 @@ To complete this tutorial, you need to:
 1. Using Visual Studio, navigate to, and open the solution for the basic search page, and select **Start without debugging** (or press F5).
 1. Type in some words (for example "wifi", "view", "bar", "parking"), and examine the results!
 
- ![Searching for "wifi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
+    ![Searching for "wifi"](./media/tutorial-csharp-create-first-app/azure-search-wifi.png)
 
 Hopefully this project will run smoothly, and you have Azure app running. Many of the essential components for more sophisticated searches are included in this one app, so it is a good idea to go through it, and recreate it step by step.
 
@@ -60,15 +60,15 @@ To create this project from scratch, and hence help reinforce the components of 
 ## Set up a development environment
 
 1. In Visual Studio 2017, or later, select **New/Project** then **ASP.NET Core Web Application**. Give the project a name such as "FirstAzureSearchApp".
-![Creating a cloud project](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
+    ![Creating a cloud project](./media/tutorial-csharp-create-first-app/azure-search-project1.png)
 
 2. After you have clicked **OK** for this project type, you will be given a second set of options that apply to this project. Select **Web Application (Model-View-Controller)**.
 
-![Creating an MVC project](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
+    ![Creating an MVC project](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
 
 3. Next, in the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. There is one package we need to install. Select the **Browse** tab then type "Azure Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list (version 9.0.1, or later). You will have to click through a few additional dialogs to complete the installation.
 
-![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+    ![Using NuGet to add Azure libraries](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
 ### Initialize Azure Search
 
@@ -85,7 +85,7 @@ For this sample, we are using publicly available hotel data. This data is an arb
 
 2. We are not done with this file yet, select the properties for this file, and change the **Copy to Output Directory** setting to **Copy if newer**.
 
-![Copying the app settings to the output](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
+    ![Copying the app settings to the output](./media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png)
 
 ## Model data structures
 
@@ -505,11 +505,11 @@ Now, let's check the app runs correctly.
 
 1. Select **Debug/Start Without Debugging** or press the F5 key. If you have coded things correctly, you will get the initial Index view.
 
- ![Opening the app](./media/tutorial-csharp-create-first-app/azure-search-index.png)
+     ![Opening the app](./media/tutorial-csharp-create-first-app/azure-search-index.png)
 
 2. Enter text such as "beach" (or any text that comes to mind), and click the search icon. You should get some results.
 
- ![Searching for "beach"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
+     ![Searching for "beach"](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
 
 3. Try entering "five star". Note how you get no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. The use of synonyms is available in Azure Search, though we will not be covering it in the first tutorials.
  
@@ -525,7 +525,7 @@ It is important to verify that our error handling features work as they should, 
 
 2. Run the app, enter "bar" as search text, and click the search icon. The exception should result in the error view.
 
- ![Force an error](./media/tutorial-csharp-create-first-app/azure-search-error.png)
+     ![Force an error](./media/tutorial-csharp-create-first-app/azure-search-error.png)
 
 > [!Important]
 > It is considered a security risk to return internal error numbers in error pages. If your app is intended for general use, do some investigation into secure and best practices of what to return when an error occurs.

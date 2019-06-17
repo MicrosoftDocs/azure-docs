@@ -36,7 +36,7 @@ Let's start with the simplest case of offering up alternatives to the user: a dr
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
 ```
 
-The key here is that we have set the **id** of the search box to **azureautosuggest**.
+The key here is that we have set the ID of the search box to **azureautosuggest**.
 
 2. Following this statement, after the closing **&lt;/div&gt;**, enter this script.
 
@@ -53,7 +53,7 @@ The key here is that we have set the **id** of the search box to **azureautosugg
     </script>
 ```
 
-We have connected this script to the search box via the same id. Also, a minimum of two characters is needed to trigger the search, and we call the **Suggest** action in the home controller with two query parameters: **highlights** and **fuzzy**, both set to false in this instance.
+We have connected this script to the search box via the same ID. Also, a minimum of two characters is needed to trigger the search, and we call the **Suggest** action in the home controller with two query parameters: **highlights** and **fuzzy**, both set to false in this instance.
 
 ### Add references to jquery scripts to the view
 
@@ -132,15 +132,15 @@ using System.Linq;
 
 3. Run the app. Do you get a range of options when you enter "po", for example? Now try "pa".
 
- ![Typing "po" reveals two suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
+    ![Typing "po" reveals two suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
 
 Notice that the letters you enter _must_ start a word, and not simply be included within the word.
 
 4. In the view script, set **&fuzzy** to true, and run the app again. Now enter "po". Notice that the search assumes you got one letter wrong!
  
- ![Typing "pa" with fuzzy set to true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
+    ![Typing "pa" with fuzzy set to true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-If you are interested, the [Lucene query syntax in Azure Search](https://docs.microsoft.com/en-us/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in detail.
+If you are interested, the [Lucene query syntax in Azure Search](https://docs.microsoft.com/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in detail.
 
 ## Add highlighting to the suggestions
 
@@ -175,7 +175,7 @@ We can improve the appearance of the suggestions to the user a bit, by setting t
     </script>
 ```
 
-2. Now change the id of the text box so it reads as follows.
+2. Now change the ID of the text box so it reads as follows.
 
 ```cs
 @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azuresuggesthighlights" }) <input value="" class="searchBoxSubmit" type="submit">
@@ -183,7 +183,7 @@ We can improve the appearance of the suggestions to the user a bit, by setting t
 
 3. Run the app again, and you should see your entered text bolded in the suggestions. Say, try typing "pa".
  
- ![Typing "pa" with highlighting](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
+    ![Typing "pa" with highlighting](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
 
 4. The logic used in the highlighting script above is not foolproof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want. Try typing "mo".
 
@@ -208,7 +208,7 @@ Another variation, that is slightly different from suggestions, is autocompletio
     </script>
 ```
 
-2. Now change the **id** of the text box, so it reads as follows.
+2. Now change the ID of the text box, so it reads as follows.
 
 ```cs
 @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautocompletebasic" }) <input value="" class="searchBoxSubmit" type="submit">
@@ -239,11 +239,11 @@ Another variation, that is slightly different from suggestions, is autocompletio
 
 Notice that we are using the same *suggester* function, called "sg", in the autocomplete search as we did for suggestions (so we are only trying to autocomplete the hotel names).
 
-There are a range of **AutocompleteMode** settings, and we are using **OneTermWithContext**. Refer to [Azure Autocomplete](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) for a description of the range of options here.
+There are a range of **AutocompleteMode** settings, and we are using **OneTermWithContext**. Refer to [Azure Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) for a description of the range of options here.
 
 4. Run the app. Notice how the range of options displayed in the drop-down list are single words. Try typing words starting with "re". Notice how the number of options reduces as more letters are typed.
 
- ![Typing with basic autocompletion](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
+    ![Typing with basic autocompletion](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
 
 As it stands, the suggestions script you ran earlier is probably more helpful than this autocompletion script. To make autocompletion more user-friendly, it is best added to the suggestion search.
 
@@ -315,7 +315,7 @@ One autocompletion option is returned at the top of the **results** list, follow
     </div>
 ```
 
-Note we are changing the **id** again, to **azureautocomplete** in this case.
+Note we are changing the ID again, to **azureautocomplete** in this case.
 
 3. Also in the view, enter the following script, after all the scripts you have entered so far. There is quite a lot to it.
 
@@ -438,7 +438,7 @@ Read through the comments in the script to get a fuller understanding.
 
 5. Now run the app. Enter "pa" into the search box. Do you get "palace" as the autocomplete suggestion, along with two hotels that contain "pa"?
 
-![Typing with inline autocomplete and suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
+    ![Typing with inline autocomplete and suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
 
 6. Try tabbing to accept the autocomplete suggestion, and try selecting suggestions using the arrow keys and tab key, and try again using the mouse and a single click. Verify that the script handles all these situations neatly.
 
@@ -457,4 +457,4 @@ Consider the following takeaways from this project:
 
 You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Search APIs.
 
-For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/en-us/learn/browse/?products=azure), or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/en-us/azure/search/).
+For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure), or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/azure/search/).

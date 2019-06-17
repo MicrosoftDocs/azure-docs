@@ -364,7 +364,7 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 1. Search on some text that will give plenty of results (such as "wifi"). Can you page neatly through the results?
 
-![Numbered paging through "pool" results](./media/tutorial-csharp-create-first-app/azure-search-numbered-paging.png)
+    ![Numbered paging through "pool" results](./media/tutorial-csharp-create-first-app/azure-search-numbered-paging.png)
 
 2. Try clicking on the right-most, and later, left-most page numbers. Do the page numbers adjust appropriately to center the page you are on?
 
@@ -372,11 +372,11 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 4. Go to the last page of results. The last page is the only page that may contain less than **ResultsPerPage** results.
 
- ![Examining last page of "wifi"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
+    ![Examining last page of "wifi"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
 
 5. Type in "town", and click search. No paging options are displayed if there are less than one page worth of results.
 
- ![Searching for "town"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
+    ![Searching for "town"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
 
 Now save off this project and let's try an alternative to this form of paging.
 
@@ -569,7 +569,7 @@ Now select **Start Without Debugging** (or press the F5 key).
 
 1. Enter a term that will give plenty of results (such as "pool") and then test the vertical scroll bar. Does it trigger a new page of results?
 
-![Infinite scrolling through "pool" results](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
+    ![Infinite scrolling through "pool" results](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
 > [!Tip]
 > To ensure that a scroll bar appears on the first page, the first page of results must slightly exceed the height of the area they are being displayed in. In our example **.box1** has a height of 30 pixels, **.box2** has a height of 100 pixels _and_ a bottom margin of 24 pixels. So each entry uses 154 pixels. Three entries will take up 3 x 154 = 462 pixels. To ensure that a vertical scroll bar appears, a height to the display area must be set that is smaller than 462 pixels, even 461 works. This issue only occurs on the first page, after that a scroll bar is sure to appear. The line to update is: **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;**.
