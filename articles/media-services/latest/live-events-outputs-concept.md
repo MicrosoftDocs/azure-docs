@@ -107,10 +107,7 @@ You can either use non-vanity URLs or vanity URLs.
 
 * The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).
 * *your access token* - The valid GUID string you set when using the vanity mode. For example, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
-* *stream name* - Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use.
-
-> [!TIP]
-> Some live encoders ask you to provide the “Stream Key/ID” from the service. In case of Media Services, you would set the value of the access token.
+* *stream name* - Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use. The encoder can choose whatever name to describe the connection, for example: “video1_audio1”, “video2_audio1”, “stream”.
 
 #### Non-vanity URL
 
