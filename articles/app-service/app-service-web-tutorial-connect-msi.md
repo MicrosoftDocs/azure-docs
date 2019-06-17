@@ -83,7 +83,7 @@ The managed identity now has access to your Azure SQL Database server.
 > [!IMPORTANT]
 > For simplicity, this step configures the Azure AD managed identity as the SQL Database administrator. The method has the following limitations:
 >
-> - The administrative access doesn't follow security best practices.
+> - The app's administrative access doesn't follow security best practices.
 > - Since the managed identity is app specific, you can't use the same managed identity to connect to SQL Database from another app.
 > - The managed identity can't sign in to the SQL Database interactively, so it's impossible to grant access to managed identities of additional apps. 
 >
