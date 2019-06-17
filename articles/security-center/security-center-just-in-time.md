@@ -58,7 +58,12 @@ There are 3 ways to configure a JIT policy on a VM:
 - [Using JIT access in an Azure VM blade](#jit-vm)
 - [Configuring a JIT policy on a VM programmatically](#jit-program)
 
-### Configuring JIT access on a VM in Azure Security Center <a name="jit-asc"></a>
+## Configure JIT in ASC
+
+From ASC, you can configure a JIT policy and request access to a VM using a JIT policy
+
+
+### Configure JIT access on a VM in  ASC <a name="jit-asc"></a>
 
 1. Open the **Security Center** dashboard.
 
@@ -102,7 +107,7 @@ There are 3 ways to configure a JIT policy on a VM:
 >When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated with it. If other rules had been created for the selected ports, then the existing rules take priority over the new “deny all inbound traffic”  rules. If there are no existing rules on the selected ports, then the new “deny all inbound traffic” rules take top priority in the Network Security Groups.
 
 
-### Request JIT access to a VM via ASC
+### Request JIT access via ASC
 
 To request access to a VM via ASC:
 
@@ -142,7 +147,8 @@ To edit an existing just-in-time policy of a VM:
 
 For your convenience, you can connect to a VM using JIT directly from within the VM blade in Azure.
 
-### Configure a just-in-time access policy via the Azure VM blade
+### Configure JIT access on a VM via the Azure VM blade
+
 To make it easy to roll out just-in-time access across your VMs, you can set a VM to allow only just-in-time access directly from within the VM.
 
 1. In the Azure portal, select **Virtual machines**.
@@ -170,6 +176,11 @@ If a VM already has just-in-time enabled, when you go to its configuration page 
 In the Azure portal, when you try to connect to a VM, Azure checks to see if you have a just-in-time access policy configured on that VM.
 
 - If you do have a JIT policy configured on the VM, you can click **Request access** to enable you to have access in accordance with the JIT policy set for the VM. 
+- 
+- 
+- 
+  >![jit request](./media/security-center-just-in-time/jit-request.png)
+
   >![jit request access](./media/security-center-just-in-time/jit-request-access.png)
 
   The access is requested with the following default parameters:
