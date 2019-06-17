@@ -111,7 +111,7 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
 >When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated with it. If other rules had been created for the selected ports, then the existing rules take priority over the new “deny all inbound traffic”  rules. If there are no existing rules on the selected ports, then the new “deny all inbound traffic” rules take top priority in the Network Security Groups.
 
 
-### Request JIT access via ASC
+## Request JIT access via ASC
 
 To request access to a VM via ASC:
 
@@ -137,14 +137,15 @@ To request access to a VM via ASC:
 > If a JIT access request is approved for a VM behind a firewall, then Security Center automatically configures the Azure Firewall policy rules (in addition to the NSGs). For the amount of time that was specified, the firewall allows inbound traffic to the selected ports and requested source IP addresses or ranges. After the time has expired, Security Center restores the firewall to its previous states.
 
 
-### Edit a JIT access policy via ASC
+## Edit a JIT access policy via ASC
 
 You can change a VM's existing just-in-time policy by adding and configuring a new port to protect for that VM, or by changing any other setting related to an already protected port.
 
 To edit an existing just-in-time policy of a VM:
 1. In the **Configured** tab, under **VMs**, select a VM to which to add a port by clicking on the three dots within the row for that VM. 
-2. Select **Edit**.
-3. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port or add a new custom port. 
+
+1. Select **Edit**.
+1. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port or add a new custom port. 
   ![jit vm access](./media/security-center-just-in-time/edit-policy.png)
 
 ## Audit JIT access activity in ASC
