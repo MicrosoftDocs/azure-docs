@@ -73,7 +73,7 @@ There are 3 ways to configure a JIT policy on a VM:
     **Just-in-time VM access** provides information on the state of your VMs:
 
     - **Configured** - VMs that have been configured to support just-in-time VM access. The data presented is for the last week and includes for each VM the number of approved requests, last access date and time, and last user.
-    - **Recommended** - VMs that can support just-in-time VM access but have not been configured to. We recommend that you enable just-in-time VM access control for these VMs. See [Configuring a just-in-time access policy](#jit-config).
+    - **Recommended** - VMs that can support just-in-time VM access but have not been configured to. We recommend that you enable just-in-time VM access control for these VMs. 
     - **No recommendation** - Reasons that can cause a VM not to be recommended are:
       - Missing NSG - The just-in-time solution requires an NSG to be in place.
       - Classic VM - Security Center just-in-time VM access currently supports only VMs deployed through Azure Resource Manager. A classic deployment is not supported by the just-in-time solution. 
@@ -124,6 +124,10 @@ To request access to a VM via ASC:
 > [!NOTE]
 > If a user who is requesting access is behind a proxy, the option **My IP** may not work. You may need to define the full IP address range of the organization.
 
+> [!NOTE]
+> If a JIT access request is approved for a VM behind a firewall, then Security Center automatically configures the Azure Firewall policy rules (in addition to the NSGs). For the amount of time that was specified, the firewall allows inbound traffic to the selected ports and requested source IP addresses or ranges. After the time has expired, Security Center restores the firewall to its previous states.
+
+
 ### Edit a JIT access policy via ASC
 
 You can change a VM's existing just-in-time policy by adding and configuring a new port to protect for that VM, or by changing any other setting related to an already protected port.
@@ -131,7 +135,7 @@ You can change a VM's existing just-in-time policy by adding and configuring a n
 To edit an existing just-in-time policy of a VM:
 1. In the **Configured** tab, under **VMs**, select a VM to which to add a port by clicking on the three dots within the row for that VM. 
 2. Select **Edit**.
-3. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port or add a new custom port. For more information, see [Configuring a just-in-time access policy](#jit-config). 
+3. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port or add a new custom port. 
   ![jit vm access](./media/security-center-just-in-time/edit-policy.png)
 
 ## Use JIT access in an Azure VM blade <a name="jit-vm"></a>
@@ -165,17 +169,23 @@ If a VM already has just-in-time enabled, when you go to its configuration page 
 
 In the Azure portal, when you try to connect to a VM, Azure checks to see if you have a just-in-time access policy configured on that VM.
 
+- If you do have a JIT policy configured on the VM, you can click **Request access** to enable you to have access in accordance with the JIT policy set for the VM. 
+  >![jit request access](./media/security-center-just-in-time/jit-request-access.png)
+
+  The access is requested with the following default parameters:
+
+  - **source IP**: ‘Any’ (*) (cannot be changed)
+  - **time range**: 3 hours (cannot be changed)  <!--Isn't this set in the policy-->
+  - **port number** RDP port 3389 for Windows / port 22 for Linux (can be changed)
+
+    > [!NOTE]
+    > If a JIT access request is approved for a VM behind a firewall, then Security Center automatically configures the Azure Firewall policy rules (in addition to the NSGs). For the amount of time that was specified, the firewall allows inbound traffic to the selected ports and requested source IP addresses or ranges. After the time has expired, Security Center restores the firewall to its previous states.
+
+
 - If you do not have JIT configured on a VM, you will be prompted to configure a JIT policy it.
 
   ![jit prompt](./media/security-center-just-in-time/jit-prompt.png)
 
-- If you do have a JIT policy configured on the VM, you can click **Request access** to enable you to have access in accordance with the JIT policy set for the VM. The access is requested with the following default parameters:
-    - **source IP**: ‘Any’ (*) (cannot be changed)
-    - **time range**: 3 hours (cannot be changed)
-    - **port number** RDP port 3389 for Windows / port 22 for Linux (You can change the port number in the **Connect to virtual machine** dialog box.)
-
-
-  >![jit request access](./media/security-center-just-in-time/jit-request-access.png)
 ## Just-In-Time (JIT) access for Azure Firewall
 Just like JIT on Network Security Groups (NSG), when using Just-In-Time on an Azure Firewall, Security Center allows inbound traffic to your Azure VMs only per confirmed request, by creating an Azure Firewall rule (if needed – in addition to NSG rules).
 
