@@ -58,4 +58,4 @@ This article contains security recommendations for Azure App Service. Implementi
 
 ## Next steps
 
-For more information on developing secure applications, see [Secure Development Documentation](../security/abstract-develop-secure-apps.md).
+Check with your application provider to see if there are additional security requirements. For more information on developing secure applications, see [Secure Development Documentation](../security/abstract-develop-secure-apps.md).
