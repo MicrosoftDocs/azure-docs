@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 In this scenario, Azure Active Directory (Azure AD) signs the user in. But the application displays an error message and doesn't let the user finish the sign-in flow. The problem is that the app didn't accept the response that Azure AD issued.
 
-There can be several reasons why the app didn't accept the response from Azure AD. If the error message doesn't clearly identify what's missing from the response, try the following:
+There are several possible reasons why the app didn't accept the response from Azure AD. If the error message doesn't clearly identify what's missing from the response, try the following:
 
 -   If the app is the Azure AD gallery, verify that you followed the steps in [How to debug SAML-based single sign-on to applications in Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
