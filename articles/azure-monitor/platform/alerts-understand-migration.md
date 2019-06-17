@@ -70,39 +70,103 @@ These are classic alert rules on metrics which were supported for a while before
 | Microsoft.Web/hostingEnvironments/multirolepools | averagememoryworkingset |
 | Microsoft.Web/hostingEnvironments/workerpools | bytesreceived, httpqueuelength |
 
+## How are equivalent new alert rules and action groups created?
+
+For most classic alert rules, equivalent new alert rules are on the same metric with the same properties such as `windowSize` and `aggregationType`. However, there are some classic alert rules are on metrics that have a different, equivalent metric in the new system. The following principles apply to the migration of classic alerts unless specified in the section below:
+
+- **Frequency**: Defines how often a classic or new alert rule checks for the condition. The `frequency` in classic alert rules was not configurable by the user and was always 5 mins for all resource types except Application Insights components for which it was 1 min. So frequency of equivalent rules is also set to 5 min and 1 min respectively. 
+- **Aggregation Type**: Defines how the metric is aggregated over the window of interest. The `aggregationType` is also the same between classic alerts and new alerts for most metrics. In some cases, since the metric is different between classic alerts and new alerts, equivalent `aggregationType` or the `primary Aggregation Type` defined for the metric is used.
+- **Units**: Property of the metric on which alert is created. Some equivalent metrics have different units. The threshold is adjusted appropriately as needed. For example, if the original metric has seconds as units but equivalent new metric has milliSeconds as units, the original threshold is multiplied by 1000 to ensure same behavior.
+- **Window Size**: Defines the window over which metric data is aggregated to compare against the threshold. For standard `windowSize` values like 5mins, 15mins, 30mins, 1hour, 3hours, 6 hours, 12 hours, 1 day, there is no change made for equivalent new alert rule. For other values, the closest `windowSize` is chosen to be used. For most customers, there is no impact with this change. For a small percentage of customers, there might be a need to tweak the threshold to get exact same behavior.
+
+In the following sections, we detail the metrics that have an equivalent metric in the new system.
+
+### Microsoft.StorageAccounts/services
+
+For Storage account services like blob, table, file and queue, the following metrics are mapped to equivalent metrics as shown below
+
+| Metric in classic alerts | Equivalent metric in new alerts | Comments|
+|--------------------------|---------------------------------|---------|
+| AnonymousAuthorizationError| Transactions metric with dimensions "ResponseType"="AuthorizationError" and "Authentication" = "Anonymous"| |
+| AnonymousClientOtherError | Transactions metric with dimensions "ResponseType"="ClientOtherError" and "Authentication" = "Anonymous" | |
+| AnonymousClientTimeOutError| Transactions metric with dimensions "ResponseType"="ClientTimeOutError" and "Authentication" = "Anonymous" | |
+| AnonymousNetworkError | Transactions metric with dimensions "ResponseType"="NetworkError" and "Authentication" = "Anonymous" | |
+| AnonymousServerOtherError | Transactions metric with dimensions "ResponseType"="ServerOtherError" and "Authentication" = "Anonymous" | |
+| AnonymousServerTimeOutError | Transactions metric with dimensions "ResponseType"="ServerTimeOutError" and "Authentication" = "Anonymous" | |
+| AnonymousSuccess | Transactions metric with dimensions "ResponseType"="Success" and "Authentication" = "Anonymous" | |
+| AuthorizationError | Transactions metric with dimensions "ResponseType"="AuthorizationError" | |
+| AverageE2ELatency | SuccessE2ELatency | |
+| AverageServerLatency | SuccessServerLatency | |
+| Capacity | BlobCapacity | Use `aggregationType` 'average' instead of 'last'. Metric only applies to Blob services |
+| ClientOtherError | Transactions metric with dimensions "ResponseType"="ClientOtherError"  | |
+| ClientTimeoutError | Transactions metric with dimensions "ResponseType"="ClientTimeOutError" | |
+| ContainerCount | ContainerCount | Use `aggregationType` 'average' instead of 'last'. Metric only applies to Blob services |
+| NetworkError | Transactions metric with dimensions "ResponseType"="NetworkError" | |
+| ObjectCount | BlobCount| Use `aggregationType` 'average' instead of 'last'. Metric only applies to Blob services |
+| SASAuthorizationError | Transactions metric with dimensions "ResponseType"="AuthorizationError" and "Authentication" = "SAS" | |
+| SASClientOtherError | Transactions metric with dimensions "ResponseType"="ClientOtherError" and "Authentication" = "SAS" | |
+| SASClientTimeOutError | Transactions metric with dimensions "ResponseType"="ClientTimeOutError" and "Authentication" = "SAS" | |
+| SASNetworkError | Transactions metric with dimensions "ResponseType"="NetworkError" and "Authentication" = "SAS" | |
+| SASServerOtherError | Transactions metric with dimensions "ResponseType"="ServerOtherError" and "Authentication" = "SAS" | |
+| SASServerTimeOutError | Transactions metric with dimensions "ResponseType"="ServerTimeOutError" and "Authentication" = "SAS" | |
+| SASSuccess | Transactions metric with dimensions "ResponseType"="Success" and "Authentication" = "SAS" | |
+| ServerOtherError | Transactions metric with dimensions "ResponseType"="ServerOtherError" | |
+| ServerTimeOutError | Transactions metric with dimensions "ResponseType"="ServerTimeOutError"  | |
+| Success | Transactions metric with dimensions "ResponseType"="Success" | |
+| TotalBillableRequests| Transactions | |
+| TotalEgress | Egress | |
+| TotalIngress | Ingress | |
+| TotalRequests | Transactions | |
+
+### Microsoft.insights/components
+
+For Application Insights, equivalent metrics are as shown below:
+
+| Metric in classic alerts | Equivalent metric in new alerts | Comments|
+|--------------------------|---------------------------------|---------|
+| availability.availabilityMetric.value | availabilityResults/availabilityPercentage|   |
+| availability.durationMetric.value | availabilityResults/duration| Multiply original threshold by 1000 as units for classic metric are in seconds and for new one are in milliSeconds.  |
+| basicExceptionBrowser.count | exceptions/browser|  Use `aggregationType` 'count' instead of 'sum'. |
+| basicExceptionServer.count | exceptions/server| Use `aggregationType` 'count' instead of 'sum'.  |
+| clientPerformance.clientProcess.value | browserTimings/processingDuration| Multiply original threshold by 1000 as units for classic metric are in seconds and for new one are in milliSeconds.  |
+| clientPerformance.networkConnection.value | browserTimings/networkDuration|  Multiply original threshold by 1000 as units for classic metric are in seconds and for new one are in milliSeconds. |
+| clientPerformance.receiveRequest.value | browserTimings/receiveDuration| Multiply original threshold by 1000 as units for classic metric are in seconds and for new one are in milliSeconds.  |
+| clientPerformance.sendRequest.value | browserTimings/sendDuration| Multiply original threshold by 1000 as units for classic metric are in seconds and for new one are in milliSeconds.  |
+| clientPerformance.total.value | browserTimings/totalDuration| Multiply original threshold by 1000 as units for classic metric are in seconds and for new one are in milliSeconds.  |
+| performanceCounter.available_bytes.value | performanceCounters/memoryAvailableBytes|   |
+| performanceCounter.io_data_bytes_per_sec.value | performanceCounters/processIOBytesPerSecond|   |
+| performanceCounter.number_of_exceps_thrown_per_sec.value | performanceCounters/exceptionsPerSecond|   |
+| performanceCounter.percentage_processor_time_normalized.value | performanceCounters/processCpuPercentage|   |
+| performanceCounter.percentage_processor_time.value | performanceCounters/processCpuPercentage| Threshold will need to be appropriately modified as original metric was across all cores and new metric is normalized to one core. Migration tool doesn't change thresholds  |
+| performanceCounter.percentage_processor_total.value | performanceCounters/processorCpuPercentage|   |
+| performanceCounter.process_private_bytes.value | performanceCounters/processPrivateBytes|   |
+| performanceCounter.request_execution_time.value | performanceCounters/requestExecutionTime|   |
+| performanceCounter.requests_in_application_queue.value | performanceCounters/requestsInQueue|   |
+| performanceCounter.requests_per_sec.value | performanceCounters/requestsPerSecond|   |
+| request.duration | requests/duration| Multiply original threshold by 1000 as units for classic metric are in seconds and for new one are in milliSeconds.  |
+| request.rate | requests/rate|   |
+| requestFailed.count | requests/failed| Use `aggregationType` 'count' instead of 'sum'.   |
+| view.count | pageViews/count| Use `aggregationType` 'count' instead of 'sum'.   |
+
+
+## How are equivalent action groups created
+
+Classic alert rules had email, webhook, logic app and runbook actions tied to the alert rule itself. New alert rules use action groups which can be reused across multiple alert rules. The migration tool creates single action group for same actions irrespective of how many alert rules are using the action. Action groups created by the migration tool use the naming format 'Migrated_AG_*'
+
 
 ## Rollout phases
 
 The migration tool is rolling out in phases to customers that use classic alert rules. Subscription owners will receive an email when the subscription is ready to be migrated by using the tool.
 
 > [!NOTE]
-> Because the tool is being rolled out in phases, you might see that most of your subscriptions are not yet ready to be migrated during the early phases.
+> Because the tool is being rolled out in phases, you might see that some of your subscriptions are not yet ready to be migrated during the early phases.
 
-Currently a subset of subscriptions is marked as ready for migration. The subset includes those subscriptions that have classic alert rules only on the following resource types. Support for more resource types will be added in upcoming phases.
+Most of the subscriptions are currently marked as ready for migration. Only subscriptions that have classic alerts on following resource types are still not ready for migration.
 
-- Microsoft.apimanagement/service
-- Microsoft.batch/batchaccounts
-- Microsoft.cache/redis
-- Microsoft.datafactory/datafactories
-- Microsoft.dbformysql/servers
-- Microsoft.dbforpostgresql/servers
-- Microsoft.eventhub/namespaces
-- Microsoft.logic/workflows
-- Microsoft.network/applicationgateways
-- Microsoft.network/dnszones
-- Microsoft.network/expressroutecircuits
-- Microsoft.network/loadbalancers
-- Microsoft.network/networkwatchers/connectionmonitors
-- Microsoft.network/publicipaddresses
-- Microsoft.network/trafficmanagerprofiles
-- Microsoft.network/virtualnetworkgateways
-- Microsoft.search/searchservices
-- Microsoft.servicebus/namespaces
-- Microsoft.streamanalytics/streamingjobs
-- Microsoft.timeseriesinsights/environments
-- Microsoft.web/hostingenvironments/workerpools
-- Microsoft.web/serverfarms
-- Microsoft.web/sites
+- Microsoft.classicCompute/domainNames/slots/roles
+- Microsoft.documentDB/databases
+- Microsoft.insights/components
+
 
 ## Who can trigger the migration?
 
