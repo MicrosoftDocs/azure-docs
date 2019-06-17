@@ -11,18 +11,17 @@ ms.author: bwren
 ---
 
 # Log query scope and time range in Azure Monitor Log Analytics
-When you run a [log query](log-query-overview.md) in [Log Analytics in the Azure portal](get-started-portal.md), the set of data evaluated by the query depends on the scope and the time range that you select. This article describes the scope and time range and how you can set each depending on your requirements.
+When you run a [log query](log-query-overview.md) in [Log Analytics in the Azure portal](get-started-portal.md), the set of data evaluated by the query depends on the scope and the time range that you select. This article describes the scope and time range and how you can set each depending on your requirements. It also describes the behavior of different types of scopes.
 
 
 ## Query scope
-The query scope defines the records that are evaluated by the query. This may include all records in a single Log Analytics workspace or Application Insights application, or it may include records created by particular Azure resources across multiple workspaces. The scope is always displayed at the top left of the Log Analytics window. An icon indicates whether the scope is a Log Analytics workspace or an Application Insights application. No icon indicates another Azure resource.
+The query scope defines the records that are evaluated by the query. This will usually include all records in a single Log Analytics workspace or Application Insights application. Log Analytics also allows you to set a scope for a particular monitored Azure resource. This allows a resource owner to focus only on their data, even if that resource writes to multiple workspaces.
+
+The scope is always displayed at the top left of the Log Analytics window. An icon indicates whether the scope is a Log Analytics workspace or an Application Insights application. No icon indicates another Azure resource.
 
 ![Scope](media/scope/scope.png)
 
-
-The scope is defined by a single Azure resource and functions differently depending on the resource type. The scope is determined by the method you use to start Log Analytics, and in some cases you can change the scope by clicking on it.
-
-The following table lists the different resource types used for the query scope and different details for each.
+The scope is determined by the method you use to start Log Analytics, and in some cases you can change the scope by clicking on it. The following table lists the different types of scope used and different details for each.
 
 | Query scope | Records in scope | How to select | Changing Scope |
 |:---|:---|:---|:---|
@@ -32,16 +31,14 @@ The following table lists the different resource types used for the query scope 
 | Subscription | Records created by all resources in the subsciption. May include data from multiple Log Analytics workspaces. | Select **Logs** from the subscription menu.   | Cannot change scope. |
 | Other Azure resources | Records created by the resource. May include data from multiple Log Analytics workspaces.  | Select **Logs** from the resource menu.<br>OR<br>Select **Logs** from the **Azure Monitor** menu and then select a new scope. | Can only change scope to same resource type. |
 
+When the query scope is a Log Analytics workspace or an Application Insights application, all options in the portal and all query commands are available. When scoped to a resource though, the following options in the portal not available:
 
-## Scope limitations
-When the query scope is a Log Analytics workspace or an Application Insights application, all options in the portal and all query commands are available. The following limitations though apply when another resource type is used for the scope.
-
-The following options in the portal not available:
 - Save
 - New alert rule
 - Query explorer
 
-The following commands cannot be used in the query:
+In this case, you also cannot use the following commands in a query since the query scope will already include any workspaces with data for that resource or set of resources:
+
 - [app](app-expression.md)
 - [workspace](workspace-expression.md)
  
@@ -49,10 +46,14 @@ The following commands cannot be used in the query:
 
 
 ## Query limits
-When the query scope is a resource group or Azure subscription, it may
-include multiple Log Analytics workspaces, and it can significantly affect performance if those workspaces are spread across multiple Azure regions. In this case, your query may receive a warning or be blocked from running.
+You may have business requirements for an Azure resource to write data to multiple Log Analytics workspaces. The workspace doesn't need to be in the same region as the resource, and a single workspace might gather data from resources in a variety of regions.  
 
-Your query will receive a warning if the scope includes workspaces in 7 or more regions, it will still run but may take excessive time to complete.
+Setting the scope to a resource or set of resources is a particularly powerful feature of Log Analytics since it allows you to automatically consolidate distributed data in a single query. It can significantly affect performance though if data needs to be retrieved from workspaces across multiple Azure regions.
+
+Log Analytics helps protect against excessive overhead from queries that span workspaces in multiple regions by issuing a warning or error when a certain number of regions are being used.
+
+
+Your query will receive a warning if the scope includes workspaces in 5 or more regions. it will still run, but it may take excessive time to complete.
 
 ![Query warning](media/scope/query-warning.png)
 

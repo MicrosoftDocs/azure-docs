@@ -5,17 +5,17 @@ services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 06/16/2019
 ms.author: bwren
 ---
 
 # Structure of Azure Monitor Logs
-When you write a [log query](log-query-overview.md) in Azure Monitor, you need to know where the data you want is located and have at least a basic understanding of how that data is structured. This article describes the structure of log data stored in Azure Monitor Logs for the purposes of writing log queries to retrieve and analyze data.
+The ability to quickly gain insights into your data using a [log query](log-query-overview.md) is a powerful feature of Azure Monitor. To create efficient and useful queries, you should understand some basic concepts such as where the data you want is located and how it's structured. This article provides the basic concepts you need to get started in analyzing your data using log queries.
 
 ## Overview
-Data in Azure Monitor Logs is stored in either a Log Analytics workspace or an Application Insights application. Both are based on [Azure Data Explorer](/azure/data-explorer/) meaning that they leverage this powerful data engine and query language.
+Data in Azure Monitor Logs is stored in either a Log Analytics workspace or an Application Insights application. Both are power by [Azure Data Explorer](/azure/data-explorer/) meaning that they leverage this powerful data engine and query language.
 
-Data in both workspaces and applications are organized into tables, each of which stores different kinds of data and has its own unique set of properties. Most [data sources](../platform/data-sources.md) will write to their own tables in a Log Analytics workspace, while Application Insights will write to a predefined set of tables in an Application Insights application. You can use a cross-resource query to combine data from tables in multiple workspaces or to write queries that combine workspace and application data.
+Data in both workspaces and applications is organized into tables, each of which stores different kinds of data and has its own unique set of properties. Most [data sources](../platform/data-sources.md) will write to their own tables in a Log Analytics workspace, while Application Insights will write to a predefined set of tables in an Application Insights application. Log queries are very flexible allowing you to easily combine data from multiple tables and even use a cross-resource query to combine data from tables in multiple workspaces or to write queries that combine workspace and application data.
 
 The following image shows examples of data sources that write to different tables that are used in sample queries.
 
