@@ -165,7 +165,7 @@ Open Application Insights to see the LUIS entries. It can take a few minutes for
 1. When the resource opens, select **Search** and search for all data in the last **30 minutes** with the event type of **Trace**. Select the trace named **LUIS**. 
 1. The bot and LUIS information is available under **Custom Properties**. 
 
-    ![Review LUIS custom properties stored in Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties_csharp.png)
+    ![Review LUIS custom properties stored in Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
 
 ## Query Application Insights for intent, score, and utterance
 Application Insights gives you the power to query the data with the [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) language, as well as export it to [Power BI](https://powerbi.microsoft.com). 
