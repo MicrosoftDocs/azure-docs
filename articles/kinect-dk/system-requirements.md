@@ -49,7 +49,7 @@ Lower end or older CPUs and NVIDIA GPUs may also work depending on your use-case
 
 ## USB3
 
-There are known compatibility issues with USB Host controllers. Consult [Supported USB3 host controllers](https://support.microsoft.com).
+There are known compatibility issues with USB Host controllers. Consult [Supported USB3 host controllers](http://aka.ms/kinectsupport).
 
 ## Next steps
 
