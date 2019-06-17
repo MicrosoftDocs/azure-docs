@@ -16,7 +16,7 @@ ms.author: rosh
 
 The Visual Search SDK enables you to find images online from previous searches that return an `ImageInsightsToken`. This application gets an `ImageInsightsToken` and uses the token in a subsequent search. It then sends the `ImageInsightsToken` to Bing and returns results that include Bing Search URLs and URLs of similar images found online.
 
-The full source code for this tutorial can be found with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInisghtsTokens.cs).
+The full source code for this tutorial can be found with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchInsightsTokens.cs).
 
 ## Prerequisites
 
