@@ -1354,6 +1354,7 @@
         href: zohoone-tutorial.md
         name: Zoom
         href: zoom-tutorial.md
+      - name: Zscaler
         href: zscaler-tutorial.md
       - name: Zscaler Beta
         href: zscaler-beta-tutorial.md
@@ -1421,7 +1422,9 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
-        name: Jive
+      - name: Envoy
+        href: envoy-provisioning-tutorial.md
+      - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
