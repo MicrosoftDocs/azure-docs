@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/16/2019
+ms.date: 6/21/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -34,6 +34,9 @@ Azure Firewall can be configured during deployment to span multiple Availability
 You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA.
 
 There's no additional cost for a firewall deployed in an Availability Zone. However, there are additional costs for inbound and outbound data transfers associated with Availability Zones. For more information see, [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+> [!NOTE]
+> Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones.
 
 For more information about Availability Zones, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md)
 
