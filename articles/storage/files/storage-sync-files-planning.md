@@ -251,18 +251,15 @@ Azure File Sync is available only in the following regions:
 | Southeast Asia | Singapore |
 | UK South | London |
 | UK West | Cardiff |
-| US Gov Arizona (preview) | Arizona |
-| US Gov Texas (preview) | Texas |
-| US Gov Virginia (preview) | Virginia |
+| US Gov Arizona | Arizona |
+| US Gov Texas | Texas |
+| US Gov Virginia | Virginia |
 | West Europe | Netherlands |
 | West Central US | Wyoming |
 | West US | California |
 | West US 2 | Washington |
 
 Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
-
-> [!Note]  
-> Azure File Sync is currently only available in private preview for the government regions. See our [release notes](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) for instructions on enrolling in the preview program.
 
 ### Azure disaster recovery
 To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will failover storage to the paired region. 
@@ -297,7 +294,7 @@ To support the failover integration between geo-redundant storage and Azure File
 | UK West             | UK South           |
 | US Gov Arizona      | US Gov Texas       |
 | US Gov Iowa         | US Gov Virginia    |
-| US Gov Virgini      | US Gov Texas       |
+| US Gov Virginia      | US Gov Texas       |
 | West Europe         | North Europe       |
 | West Central US     | West US 2          |
 | West US             | East US            |
