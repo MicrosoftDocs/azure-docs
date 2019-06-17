@@ -58,4 +58,4 @@ This article contains security recommendations for Azure App Service. Implementi
 
 ## Next steps
 
-- Develop secure cloud applications on Azure [Secure Development Documentation](../security/abstract-develop-secure-apps.md).
+For more information on developing secure applications, see [Secure Development Documentation](../security/abstract-develop-secure-apps.md).
