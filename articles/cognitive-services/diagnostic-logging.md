@@ -1,6 +1,6 @@
 ---
-title: Diagnostic Logging for Azure Cognitive Services
-titleSuffix: Cognitive Services - Azure
+title: Diagnostic logging
+titleSuffix: Azure Cognitive Services
 description: This guide provides step-by-step instructions to enable diagnostic logging for an Azure Cognitive Service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging.
 services: cognitive-services
 author: erhopf
@@ -11,7 +11,7 @@ ms.date: 06/14/2019
 ms.author: erhopf
 ---
 
-# Enable diagnostic Logging for Azure Cognitive Services
+# Enable diagnostic logging for Azure Cognitive Services
 
 This guide provides step-by-step instructions to enable diagnostic logging for an Azure Cognitive Service. These logs provide rich, frequent data about the operation of a resource that are used for issue identification and debugging. Before you continue, you must have an Azure account with a subscription to at least one Cognitive Service, such as [Bing Web Search](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview), [Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview), or [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).
 
@@ -40,7 +40,7 @@ Let's start by enabling diagnostic logging using the Azure portal.
 6. Select **Audit**, **RequestResponse**, and **AllMetrics**. Then set the retention period for your diagnostic log data. If a retention policy is set to zero, events for that log category are stored indefinitely.
 7. Click **Save**.
 
-It can take up to two hours before logging data is available to query and analyze. So don't worry if you don't see anything right away.
+It can take up to two hours before logging data is available to query and analyze. So don't worry if you don't see anything right away.
 
 ## View and export diagnostic data from Azure Storage
 
