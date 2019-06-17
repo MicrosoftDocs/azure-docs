@@ -20,6 +20,24 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-24-10
+
+### Azure Machine Learning SDK for Python v1.0.44
+
++ **New features**
+  + [Insert new features below. Reference articles and/or doc pages]
+  
+  + **Preview features**
+    + Scoring explainers can now optionally save conda and pip information for more reliable serialization and deserialization.
+    + Bug Fix for Auto Feature Selector.
+    + Updated mlflow.azureml.build_image to the new api, patched bugs exposed by the new implementation.
+
++ **Breaking changes**
+  + [Reference upcoming breaking changes and old API support drop date]
+
++ **Bug fixes and improvements**
+  + [Insert fixes and improvements below. Link github issues resolved with this release]
+
 ## 2019-06-10
 
 ### Azure Machine Learning SDK for Python v1.0.43
