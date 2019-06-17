@@ -156,7 +156,7 @@ In order to add data to application insights, you need the instrumentation key.
 1. Start the bot emulator and open the bot. This [step](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) is provided in the previous tutorial.
 
 1. Ask the bot a question. This [step](luis-csharp-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent) is provided in the previous tutorial.
-1. 
+
 ## View LUIS entries in Application Insights
 
 Open Application Insights to see the LUIS entries. It can take a few minutes for the data to appear in Application Insights.
