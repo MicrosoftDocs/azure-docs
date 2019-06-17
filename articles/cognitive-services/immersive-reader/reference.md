@@ -25,7 +25,7 @@ The SDK exposes a single function, `ImmersiveReader.launchAsync(token, data, opt
 Launches the Immersive Reader within an `iframe` in your web application.
 
 ```typescript
-launchAsync(token: string, resourceName:string content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, resourceName: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
 #### Parameters
@@ -57,10 +57,17 @@ Contains the content to be shown in the Immersive Reader.
     chunks: [ {          // Array of chunks
         content: string; // Plain text string
         lang?: string;   // Language of the text, e.g. en, es-ES (optional). Language will be detected automatically if not specified.
-        mimeType?: string; // MIME type of the content (optional). Only 'text/plain' and 'application/mathml+xml' are supported. Defaults to 'text/plain' if not specified.
+        mimeType?: string; // MIME type of the content (optional). Defaults to 'text/plain' if not specified.
     } ];
 }
 ```
+
+#### Supported MIME types
+
+| MIME Type | Description |
+| --------- | ----------- |
+| text/plain | Plain text. |
+| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](https://developer.mozilla.org/en-US/docs/Web/MathML).
 
 ### Options
 
