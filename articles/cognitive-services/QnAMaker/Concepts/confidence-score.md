@@ -51,9 +51,11 @@ When choosing your threshold, keep in mind the balance between Accuracy and Cove
 > [!NOTE]
 > Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/troubleshooting-runtime.md).
 
-## Set threshold in GenerateAnswer API JSON body
+## Set threshold 
 
-Set the threshold score as a property of the [GenerateAnswer API JSON body](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). This means you can set it for each call to GenerateAnswer. 
+Set the threshold score as a property of the [GenerateAnswer API JSON body](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). This means you set it for each call to GenerateAnswer. 
+
+From the bot framework, set the score as part of the options object with [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) or [Node.js](metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## Improve confidence scores
 To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response. You can also use case-insensitive [word alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords in your KB.
