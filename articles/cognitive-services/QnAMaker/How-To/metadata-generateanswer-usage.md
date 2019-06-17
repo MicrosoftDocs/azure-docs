@@ -160,7 +160,7 @@ The Support bot has [an example](https://github.com/microsoft/BotBuilder-Samples
 
 The bot framework provides access to the QnA Maker's properties:
 
-```csharp
+```javascript
 const { QnAMaker } = require('botbuilder-ai');
 this.qnaMaker = new QnAMaker(endpoint);
 
