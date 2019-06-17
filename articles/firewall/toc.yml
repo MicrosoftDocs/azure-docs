@@ -45,6 +45,8 @@
       href: deploy-template.md
     - name: Deploy with multiple public IP
       href: deploy-multi-pip-ps.md
+    - name: Deploy with Availability Zones
+      href: deploy-az-ps.md
     - name: Integrate with load balancer
       href: integrate-lb.md
 - name: Reference
