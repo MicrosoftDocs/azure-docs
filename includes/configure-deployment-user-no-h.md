@@ -10,7 +10,7 @@ ms.author: cephalin
 ms.custom: "include file"
 ---
 
-FTP and local Git can deploy to an Azure web app by using a *deployment user*. Once you configure your deployment user, you can use it for all your Azure deployments. Your deployment username and password are account-level, and are different from your Azure subscription credentials. 
+FTP and local Git can deploy to an Azure web app by using a *deployment user*. Once you configure your deployment user, you can use it for all your Azure deployments. Your account-level deployment username and password are different from your Azure subscription credentials. 
 
 To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) command in Azure Cloud Shell. Replace \<username> and \<password> with a deployment user username and password. 
 

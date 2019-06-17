@@ -41,11 +41,11 @@ For Bitbucket or GitHub, authorize Azure App Service to connect to your reposito
    
 To use Azure Repos, make sure your Azure DevOps organization is linked to your Azure subscription. For more information and instructions, see [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
 
-## Configure continuous deployment 
+## Enable continuous deployment 
 
 After you authorize a source control service, configure your app for continuous deployment through the built-in Kudu App Service build server, or through Azure Pipelines. 
 
-### Option 1: Use App Service build server
+### Option 1: Configure deployment with App Service build server
 
 You can use the built-in Kudu App Service build server to continuously deploy from GitHub, Bitbucket, or Azure Repos. 
 
@@ -75,7 +75,13 @@ You can use the built-in Kudu App Service build server to continuously deploy fr
    
    ![Fill in repository information, then select Continue.](media/app-service-continuous-deployment/configure-kudu.png)
    
-### Option 2: Use Azure Pipelines 
+1. After you configure the build provider, review the settings on the **Summary** page, and then select **Finish**.
+   
+   New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Deployment Center** page.
+   
+   ![Track commits and deployments in Deployment Center](media/app-service-continuous-deployment/github-finished.png)
+
+### Option 2: Configure deployment with Azure Pipelines 
 
 If your Azure account has the necessary permissions, you can set up Azure Pipelines to continuously deploy from GitHub or Azure Repos repositories. 
 
@@ -114,13 +120,11 @@ To configure Azure Pipelines:
    > [!NOTE]
    > Azure Pipelines doesn't allow continuous delivery to the production slot. This restriction prevents accidental deployments to production. Set up continuous delivery to a staging slot, verify the changes there, and then swap the slots when you are ready.
    
-## Deploy continuously 
-
-After configuring the build provider, review the settings on the **Summary** page, and then select **Finish**.
-
-New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Deployment Center** page.
-
-![Track commits and deployments in Deployment Center](media/app-service-continuous-deployment/github-finished.png)
+1. After you configure the build provider, review the settings on the **Summary** page, and then select **Finish**.
+   
+   New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Deployment Center** page.
+   
+   ![Track commits and deployments in Deployment Center](media/app-service-continuous-deployment/github-finished.png)
 
 ## Disable continuous deployment
 
