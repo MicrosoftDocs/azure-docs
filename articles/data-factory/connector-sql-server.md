@@ -34,7 +34,8 @@ Specifically, this SQL Server connector supports:
 - As source, retrieving data using SQL query or stored procedure.
 - As sink, appending data to destination table or invoking a stored procedure with custom logic during copy.
 
-SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) is not supported now.
+>[!NOTE]
+>SQL Server **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)** is not supported by this connector now. To woraround, you can use [generic ODBC connector](connector-odbc.md) and SQL Server ODBC driver. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) with ODBC driver download and connection string configurations.
 
 ## Prerequisites
 
