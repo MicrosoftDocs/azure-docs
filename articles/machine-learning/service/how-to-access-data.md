@@ -65,7 +65,7 @@ If you have existing Azure Storage, you can register it as a datastore on your w
 We recommend blob storage and blob datastores. Both standard and premium storage are available for blobs. If cost isn't an issue, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, if you train against a large data set.
 
 >[!NOTE]
-> Azure Machine Learning service supports other types of datastores, listed in [this table](#matrix),  which may be useful for specific scenarios. For example, if you need to train using data stored in a database, you might use the AzureSQLDatabaseDatastore or AzurePostgreSqlDatastore.
+> Azure Machine Learning service supports other types of datastores,   which may be useful for specific scenarios. For example, if you need to train using data stored in a database, you might use the AzureSQLDatabaseDatastore or AzurePostgreSqlDatastore. See [this table](#matrix) for the available datastore types.
 
 #### Register your datastore
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*.
