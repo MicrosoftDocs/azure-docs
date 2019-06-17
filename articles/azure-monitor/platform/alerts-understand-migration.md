@@ -17,7 +17,7 @@ This article explains how the voluntary migration tool works. It also describes 
 > [!NOTE]
 > Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been [extended to August 31st, 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) from the originally announced date of June 30th, 2019.
 
-## Which classic alert rules can be migrated?
+## Which classic alert rules cannot be migrated?
 
 Although the tool can migrate almost all classic alert rules, there are some exceptions. The following alert rules won't be migrated by using the tool (or during the automatic migration in September 2019):
 
@@ -27,7 +27,7 @@ Although the tool can migrate almost all classic alert rules, there are some exc
 
 If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. However, no new classic alerts can be created after August 2019.
 
-Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on deprecated metrics ([list below](deprecated-metrics)) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens. 
+Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic- alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens. 
 
 ### Guest metrics on virtual machines
 
@@ -61,14 +61,14 @@ Classic alert rules on AnonymousThrottlingError, SASThrottlingError and Throttli
 
 These are classic alert rules on metrics which were supported for a while before they were eventually deprecated. A small percentage of customer might have invalid classic alert rules on such metrics. Since these alert rules are invalid, they won't be migrated. 
 
+| Resource type| Deprecated metric(s) |
 |-------------|----------------- |
-| Resource type| Deprecated metric |
 | Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
 | Microsoft.Network/publicIPAddresses | defaultddostriggerrate |
-| Microsoft.SQL/servers/databases | service_level_objective;storage_limit;storage_used;throttling;dtu_consumption_percent;storage_used |
+| Microsoft.SQL/servers/databases | service_level_objective, storage_limit, storage_used, throttling, dtu_consumption_percent, storage_used |
 | Microsoft.Web/hostingEnvironments/multirolepools | averagememoryworkingset |
-| Microsoft.Web/hostingEnvironments/workerpools | bytesreceived; httpqueuelength |
+| Microsoft.Web/hostingEnvironments/workerpools | bytesreceived, httpqueuelength |
 
 
 ## Rollout phases
