@@ -55,6 +55,12 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Setting a query can allow you to filter rows right at the source before they even arrive for Data Flow for processing, which can make the initial data acquisition faster.
 * If you use a query, you can add optional query hints for your Azure SQL DB, i.e. READ UNCOMMITTED
 
+### Set isolation level on Source transformation settings for SQL datasets
+
+* Read uncommitted will provide faster query results on Source transformation
+
+![Isolation level](media/data-flow/isolationlevel.png "Isolation Level")
+
 ### Set sink batch size
 
 ![Sink](media/data-flow/sink4.png "Sink")
