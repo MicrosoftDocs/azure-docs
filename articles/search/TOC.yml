@@ -31,6 +31,14 @@
     href: search-get-started-python.md
 - name: Tutorials
   items:
+  - name: Create your first app
+    items:
+    - name: 1 - Basic search page
+      href: tutorial-csharp-create-first-app.md
+    - name: 2 - Add results paging
+      href: tutorial-csharp-paging.md
+    - name: 3 - Add type-ahead
+      href: tutorial-csharp-type-ahead-and-suggestions.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
   - name: Index Azure JSON blobs
@@ -40,7 +48,7 @@
     - name: REST
       href: cognitive-search-tutorial-blob.md
     - name: C#
-      href: cognitive-search-tutorial-blob-dotnet.md
+      href: cognitive-search-tutorial-blob-dotnet.md 
 - name: Samples
   items:
   - name: Azure code samples

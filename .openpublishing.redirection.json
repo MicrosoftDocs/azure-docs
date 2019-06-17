@@ -3836,6 +3836,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/vs-azure-tools-resource-groups-ci-in-vsts.md",
+      "redirect_url": "/azure/azure-resource-manager/vs-resource-groups-project-devops-pipelines",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/vs-azure-tools-connected-services-add-active-directory.md",
       "redirect_url": "/azure/active-directory/develop/vs-active-directory-add-connected-service",
       "redirect_document_id": false
