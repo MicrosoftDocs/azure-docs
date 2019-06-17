@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ: Debug Spark applications remotely through SSH '
+title: 'Azure Toolkit for IntelliJ: Debug Spark applications remotely '
 description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters through SSH
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
 ms.service: hdinsight
@@ -10,7 +10,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
 ---
-# Run Spark Failure Debug Apache Spark applications locally with Azure Toolkit for IntelliJ through SSH
+# Run Spark Failure Debug Apache Spark applications locally with Azure Toolkit for IntelliJ
 
 This article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) to run **Spark Failure Debug** applications. 
 
@@ -21,15 +21,13 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
   
 * **Azure Toolkit for IntelliJ**. See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
   
-* **An Apache Spark cluster on cosmos**. [Sign in and Provision spark cluster](https://microsoft.sharepoint.com/teams/Cosmos/vNext/SitePages/IntelliJ-Toolkit-for-Spark-on-Cosmos.aspx).
-  
 * **WINUTILS.EXE**. [See Problems running Hadoop on Windows](https://wiki.apache.org/hadoop/WindowsProblems).
 
 * **Connect to your HDInsight cluster**. See [Connect to your HDInsight cluster](apache-spark-intellij-tool-plugin.md).
 
 * **Microsoft Azure Storage Explorer**. See [Download Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/).
 
-### Scenario 1: Create a Spark Scala application 
+## Scenario 1: Create a Spark Scala application 
 
 1. Start IntelliJ IDEA, and then create a project. In the **New Project** dialog box, do the following:
 
@@ -55,12 +53,7 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 
 3. Select **src** > **main** > **scala** to open your code in the project. This example uses the **AgeMean_Div()** script.
 
-### Prerequisite for Windows
-While you're running the local Spark Scala application on a Windows computer, you might get an exception, as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). The exception occurs because WinUtils.exe is missing on Windows. 
-
-To resolve this error, [download the executable](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location such as **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME**, and set the value of the variable to **C:\WinUtils**.
-
-### Scenario 2: Perform remote run
+## Scenario 2: Perform remote run
 
 1. Click **Add Configuration** to open **Run/Debug Configurations** window.
 
@@ -69,7 +62,7 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
 2. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Apache Spark on HDInsight** option.
 
    ![Add new configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
-3. Switch to **Remotely Run in Cluster** tab. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then Click **Advanced configuration (Remote Debugging)**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5, and you'd better not set higher than 3. To reduce the run time, you can add **spark.yarn.maxAppAttempts** into **job Configurations** and set the value to 1. Click **OK** button to save the configuration.
+3. Switch to **Remotely Run in Cluster** tab. Enter information for **Name**, **Spark cluster**, and **Main class name**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5, and you'd better not set higher than 3. To reduce the run time, you can add **spark.yarn.maxAppAttempts** into **job Configurations** and set the value to 1. Click **OK** button to save the configuration.
 
    ![Run debug configurations](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 
@@ -83,19 +76,19 @@ To resolve this error, [download the executable](https://public-repo-1.hortonwor
    
    ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)   
 
-### Scenario 3: Download spark failure file
+## Scenario 3: Download spark failure file
 
 **Microsoft Azure Storage Explorer** can help you quickly find the  spark failure file and download it.
 
 1.  Start **Microsoft Azure Storage Explorer**, then sign in with Microsoft account.
 
-2. Find the subscription which the cluster belongs to. The cluster is what you submitted to before. Find the spark failure file from hdp/spark2-events/.spark-failures/application Id, click **Download**, then select the folder. The **activities** window will show the download progress.
+2. Find the subscription which the cluster belongs to. The cluster is what you submitted to before. Find the spark failure file from hdp/spark2-events/.spark-failures/application Id, then click **Download**. The **activities** window will show the download progress.
 
-   ![download failure file](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file.png)
+   ![download failure file](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
    ![download failure file](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)   
 
-### Scenario 4: local run Spark Failure Debug configuration
+## Scenario 4: local run Spark Failure Debug configuration
 
 1. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Spark Failure Debug** option.
 
