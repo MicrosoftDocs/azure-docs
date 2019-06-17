@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 05/02/2019
+ms.date: 06/16/2019
 ms.topic: hub-page
 ---
 
