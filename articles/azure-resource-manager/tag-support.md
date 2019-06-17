@@ -4,7 +4,7 @@ description: Shows which Azure resource types support tags. Provides details for
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/10/2019
+ms.date: 06/07/2019
 ms.author: tomfitz
 ---
 
@@ -1226,7 +1226,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | customApis | Yes | Yes |
 | deletedSites | No |  No |
 | functions | No |  No |
-| hostingEnvironments | Yes | No |
+| hostingEnvironments | Yes | Yes |
 | hostingEnvironments/multiRolePools | No |  No |
 | hostingEnvironments/multiRolePools/instances | No |  No |
 | hostingEnvironments/workerPools | No |  No |

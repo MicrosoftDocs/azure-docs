@@ -22,7 +22,7 @@ If you're encountering recognition issues with your model, using human-labeled t
 
 | Use case | Data type | Data quantity |
 |----------|-----------|---------------|
-| Proper names are misrecognized | Relate text (sentences/utterances) | 10 MB to 500 MB |
+| Proper names are misrecognized | Related text (sentences/utterances) | 10 MB to 500 MB |
 | Words are misrecognized because of an accent | Related text (pronunciation) | Provide the misrecognized words |
 | Common words are deleted or misrecognized | Audio + human-labeled transcripts | 10 to 1,000 transcription hours |
 

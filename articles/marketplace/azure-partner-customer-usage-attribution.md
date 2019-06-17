@@ -262,11 +262,13 @@ When you deploy \<PARTNER> software, Microsoft is able to identify the installat
 
 ## Get support
 
-If you encounter any issues with report or sign in to Partner Center, create a support request with the Partner Center support team here: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+There are two support channels depending on the issues you are facing.
+
+If you encounter any issues in the Partner Center, such as seeing the customer usage attribution report or signing in, create a support request with the Partner Center support team here: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
-If you need assistance for Marketplace Onboarding and/or customer usage attribution, follow these steps.
+If you need assistance for Marketplace Onboarding and/or customer usage attribution in general, such as how to set up the customer usage attribution, follow the steps below:
 
 1. Go to the [support page](https://go.microsoft.com/fwlink/?linkid=844975).
 
