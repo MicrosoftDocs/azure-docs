@@ -20,7 +20,7 @@ Blob containers support system properties and user-defined metadata, in addition
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.
 
-Retrieving property and metadata values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributes** or **FetchAttributesAsync** method. The exception is if you are calling the **Exists** or **ExistsAsync** method on a resource. When you call one of these methods, Azure Storage calls the appropriate **FetchAttributes** method under the covers as part of the call to the **Exists** method.
+Retrieving property and metadata values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributes** or **FetchAttributesAsync** method. The exception to this rule is that the **Exists** and **ExistsAsync** methods call the appropriate **FetchAttributes** method under the covers. When you call one of these methods, you do not need to also call **FetchAttributes**.
 
 > [!IMPORTANT]
 > If you find that property or metadata values for a storage resource have not been populated, then check that your code calls the **FetchAttributes** or **FetchAttributesAsync** method.
@@ -29,7 +29,11 @@ Retrieving property and metadata values for a Blob storage resource is a two-ste
 
 ## Retrieving container properties
 
-To retrieve system properties for a container, call the **FetchAttributesAsync** method on the container to populate the properties, then read the values. Container properties are read-only.
+Container properties are read-only. To retrieve container properties, call one of the following methods:
+
+> [!div class="checklist"]
+> - [FetchAttributes](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.fetchattributes)
+> - [FetchAttributesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.fetchattributesasync)
 
 The following code example fetches a container's system properties and writes some property values to a console window:
 
@@ -57,12 +61,13 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 
 ## Setting and retrieving metadata
 
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource, then call the **SetMetadata** or **SetMetadataAsync** method to save the values to the service.
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource, then call one of the following methods to write the values:
 
-> [!NOTE]
-> The name of your metadata must conform to the naming conventions for C# identifiers.
->
->
+> [!div class="checklist"]
+> - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadata)
+> - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadataasync)
+
+The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, Blob storage returns HTTP error code 400 (Bad Request).
 
 The following code example sets metadata on a container. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax. Both are valid.
 

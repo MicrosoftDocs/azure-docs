@@ -29,7 +29,7 @@ The URI for a container is in this format:
 
 ## Create a container
 
-To create a container in .NET, use one of the following methods:
+To create a container, call one of the following methods:
 
 > [!div class="checklist"]
 > - [Create](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
