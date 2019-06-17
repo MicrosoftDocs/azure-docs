@@ -57,7 +57,7 @@ Classic alert rules on Percent metrics must be migrated based on [the mapping be
 
 Classic alert rules on AnonymousThrottlingError, SASThrottlingError and ThrottlingError must be split into two new alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
 
-## Classic alert rules on deprecated metrics
+### Classic alert rules on deprecated metrics
 
 These are classic alert rules on metrics which were supported for a while before they were eventually deprecated. A small percentage of customer might have invalid classic alert rules on such metrics. Since these alert rules are invalid, they won't be migrated. 
 
