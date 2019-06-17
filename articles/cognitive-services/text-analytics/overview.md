@@ -89,11 +89,14 @@ Your rate limit will vary on your pricing tier.
 
 | Tier  | Transactions per second | Transactions per minute |
 |-------|-------------------------|-------------------------|
+| S     | 1000                    | 1000                    | 
 | S0/F0 | 100                     | 300                     |
 | S1    | 200                     | 300                     |
 | S2    | 300                     | 300                     |
 | S3    | 500                     | 500                     |
 | S4    | 1000                    | 1000                    |
+
+Transactions are measured for each Text Analytics feature separately. For example, you can send the maximum number of requests for your pricing tier to each feature, at the same time.      
 
 ## Unicode encoding
 
