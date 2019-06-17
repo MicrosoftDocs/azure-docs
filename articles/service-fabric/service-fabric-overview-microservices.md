@@ -160,7 +160,7 @@ Service Fabric allows you to reuse existing code and modernize it with new micro
 2) Migrate. Use containers or guest executables to host existing code in Service Fabric.  
 3) Modernize. Add new microservices alongside existing containerized code.  
 4) Innovate. Break the monolithic application into microservices based on need.  
-5) Transform into microservices. Transform existing monolithic applications or build new greenfield applications.
+5) Transform applications into microservices. Transform existing monolithic applications or build new greenfield applications.
 
 ![Migration to microservices][Image3]
 
@@ -180,16 +180,16 @@ Many organizations stop here. They already have the benefits of containers, and 
 Modernization is the addition of new services alongside existing containerized code. If you're going to write new code, it's best to decide to take small steps down the microservices path. This could mean adding a new REST API endpoint or new business logic. In this way, you start on the journey of building new microservices and practice developing and deploying them.
 
 **Innovate**  
-A microservices approach accommodates changing business needs. At this stage the decision is whether you need to start splitting the monolithic app into services, or innovating. A classic example here is when a database being used as a workflow queue becomes a processing bottleneck. As the number of workflow requests increases, the work needs to be distributed for scale. For that particular piece of the application that is not scaling, or that needs to be updated more frequently, split this out into a microservice and innovate.
+A microservices approach accommodates changing business needs. At this stage, you need to decide whether to start splitting the monolithic app into services, or innovating. A classic example here is when a database that you're using as a workflow queue becomes a processing bottleneck. As the number of workflow requests increases, the work needs to be distributed for scale. Take that particular piece of the application that's not scaling, or that needs to be updated more frequently, and split it out as a microservice and innovate.
 
-**Transformed into microservices**  
-This is where your application is fully composed of (or split into) microservices. To reach here, you have made the microservices journey. You can start here, but to do this without a microservices platform to help you is a significant investment.
+**Transform applications into microservices**  
+At this stage, your application is fully composed of (or split into) microservices. To reach this point, you have made the microservices journey. You can start here, but to do so without a microservices platform to help you requires a significant investment.
 
 ### Are microservices right for my application?
 
-Maybe. What we experienced was that as more and more teams in Microsoft began to build for the cloud for business reasons, many of them realized the benefits of taking a microservice-like approach. Bing, for example, has been developing using microservices for years. For other teams, the microservices approach was new. Teams found that there were hard problems to solve outside of their core areas of strength. This is why Service Fabric gained traction as the technology of choice for building services.
+Maybe. At Microsoft, as more teams began to build for the cloud for business reasons, many of them realized the benefits of taking a microservice-like approach. Bing, for example, has been using microservices for years. For other teams, the microservices approach was new. Teams found that there were hard problems to solve outside of their core areas of strength. This is why Service Fabric gained traction as the technology of choice for building services.
 
-The objective of Service Fabric is to reduce the complexities of building microservice applications so that you do not have to go through as many costly redesigns. Start small, scale when needed, deprecate services, add new ones, and evolve with customer usage. We also know that there are many other problems yet to be solved to make microservices more approachable for most developers. Containers and the actor programming model are examples of small steps in that direction, and we are sure that more innovations will emerge to make this easier.
+The objective of Service Fabric is to reduce the complexities of building microservice applications so that you don't have to go through as many costly redesigns. Start small, scale when needed, deprecate services, add new ones, and evolve with customer usage. We also know that there are many other problems yet to be solved to make microservices more approachable for most developers. Containers and the actor programming model are examples of small steps in that direction, and we're sure that more innovations will emerge to make a microservices approach easier.
 
 
 ## Next steps
