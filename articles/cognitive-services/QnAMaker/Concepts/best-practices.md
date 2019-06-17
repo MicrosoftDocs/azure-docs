@@ -37,11 +37,8 @@ The best questions are simple. Consider the key word or phrase for each question
 
 Add as many alternate questions as you need but keep the alterations simple. Adding more words or phrasings that are not part of the main goal of the question does not help QnA Maker find a match. 
 
-## Searching questions only when answer is not relevant
 
-In the [GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-request-configuration) API, use the **RankerType** of **QuestionOnly** if you don't want to search answers. An example of this is when the knowledge base is a catalog of acronyms as questions with their full form as the answer. The question-only ranker limits the search surface to just the text of the questions and excludes the answer text because it is not relevant.
-
-## Add relevant alternative questions
+### Add relevant alternative questions
 
 Your user may enter questions with either a conversational style of text, `How do I add a toner cartridge to my printer?` or a keyword search such as `toner cartridge`. The knowledge base should have both styles of questions in order to correctly return the best answer. If you aren't sure what keywords a customer is entering, use Application Insights data to analyze queries.
 
@@ -79,6 +76,15 @@ We recommend making the following chit-chat QnAs more specific:
 ### Adding custom chit-chat with the `editorial:chitchat` metadata
 
 If you add your own chit-chat QnA pairs, make sure the add metadata so these answers are returned. The metadata name/value pair is `editorial:chitchat`.
+
+## Searching for answers
+
+GenerateAnswer API uses the rank process to search answers to find the appropriate responses to a user's query.
+
+### Searching questions only when answer is not relevant
+
+In the [GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-request-configuration) API, use the **RankerType** of **QuestionOnly** if you don't want to search answers. An example of this is when the knowledge base is a catalog of acronyms as questions with their full form as the answer. The question-only ranker limits the search surface to just the text of the questions and excludes the answer text because it is not relevant.
+
 
 ## Ranking/Scoring
 Make sure you are making the best use of the ranking features QnA Maker supports. Doing so will improve the likelihood that a given user query is answered with an appropriate response.
