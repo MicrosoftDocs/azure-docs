@@ -107,7 +107,7 @@ To configure Azure AD single sign-on with SurveyMonkey Enterprise, perform the f
     ![SurveyMonkey Enterprise Domain and URLs single sign-on information](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL:
-    ` https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
+    `https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -193,4 +193,4 @@ When you click the SurveyMonkey Enterprise tile in the Access Panel, you should 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
