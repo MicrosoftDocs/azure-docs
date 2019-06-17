@@ -29,16 +29,16 @@ For the above capabilities, the connector supports all PIPs defined by RNIF 2.0.
 ## RosettaNet concepts
 Before you start, here are some concepts and terminologies unique to RosettaNet specification and are important when doing RosettaNet based integrations
 
-- PIP
+- **PIP** 
 The RosettaNet organization creates and maintains Partner Interface Processes (PIPs) to provide common business-process definitions for all RosettaNet message exchanges. Each PIP specification provides a document type definition (DTD) file and a message guideline document. The DTD file defines the service-content message structure. The message-guideline document, which is a human-readable HTML file, specifies element-level constraints. Together, they provide a complete definition of the business process. PIPs are categorized by a high-level business function (cluster) and a subfunction (segment). For examples, 3A4 is the PIP for Purchase Order, where 3 is Order Management function, and 3A is Quote & Order Entry subfunction. You can find more details on RosettaNet <a href=https://resources.gs1us.org> site </a>.
 
-- Action
+- **Action**
 These messages, part of a PIP, are business messages exchanged between partners. 
 
-- Signal
+- **Signal**
 These messages, also part of a PIP, are acknowledgments sent in response to the Action messages.
 
-- Single and Double action
+- **Single and Double action**
 If the Partner Interface Process (PIP) is single-action, the only response is an acknowledgment signal message. If the PIP is double-action, the initiator will receive a response message, and reply with an acknowledgment, in addition to the single-action message flow.
 
 
@@ -53,13 +53,13 @@ that's already defined and associated with your Azure subscription.
 
 
 2. At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) 
-that are defined in your integration account and configured with the qualifier DUNS **Business Identities**
+that are defined in your integration account and configured with the qualifier **DUNS** under Business Identities.
 
 3. [Certificates](./logic-apps-enterprise-integration-certificates.md) for encryption or decryption or signing of the messages uploaded in the integration account. 
 This step is optional and is required only if you are using signing or encryption
 
-4. Add PIP or Process Configurations
-To create a PIP with a partner, you must first create a process configuration in Integration Account. The process configuration stores all configuration characteristics of the PIP. You can then reference this configuration to create an agreement with the partner. Here are the steps to add a PIP configuration in Integration Account:
+4. Add PIP or Process Configurations 
+To send or receive RosettaNet messages, you must first create a process configuration in Integration Account. The process configuration stores all configuration characteristics of the PIP. You can then reference this configuration to create an agreement with the partner. Here are the steps to add a PIP configuration in Integration Account:
 
 * Select and open your integration account. Select the tile for RosettaNet PIP configurations.
 
@@ -93,14 +93,14 @@ To create a PIP with a partner, you must first create a process configuration in
 	| Property | Description |
 	| --- | --- |
 	| Name |Name of the agreement |
-	| Agreement Type | Should be X12 |
+	| Agreement Type | Should be RosettaNet |
 	| Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
 	| Host Identity |An identifier for the host partner |
 	| Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
 	| Guest Identity |An identifier for the guest partner |
-	| Receive Settings |These properties apply to all messages received by an agreement. |
-	| Send Settings |These properties apply to all messages sent by an agreement. |  
-
+	| Receive Settings |These properties apply to all messages received by the host partner |
+	| Send Settings |These properties apply to all messages sent by the host partner |  
+  | RosettaNet PIP references |In this section, provide all the PIP references for the agreement |
   
 * To configure the agreement for Receive i.e Decode, select **Receive Settings**. To enable signing or encryption for the messages received from the guest partner, choose the Certificate from the drop-down. The drop-down lists the [certificates](./logic-apps-enterprise-integration-certificates.md) configured in the integration account.
 
@@ -125,13 +125,13 @@ To create a PIP with a partner, you must first create a process configuration in
 
 After these provisioning steps, you are ready to send or receive RosettaNet messages.
 
-# RosettaNet templates
+## RosettaNet templates
 
 To accelerate development and recommend integration patterns, we have also published logic app templates to Decode and Encode RosettaNet messages. These templates are published in <a href="https://github.com/Azure/logicapps"> Logic Apps repo> </a>. To consume them, open a newly created logic app and select them from the template gallery in the designer.
 
  ![RosettaNet templates ](media/logic-apps-enterprise-integration-rosettanet/rn-template.png)
 
-# Receive or Decode RosettaNet messages
+## Receive or Decode RosettaNet messages
 
 1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
@@ -161,7 +161,7 @@ In the Logic App Designer, add a trigger, and then add a new step by clicking on
 > or take any other action on it. 
 
 
-# Send or Encode RosettaNet messages
+## Send or Encode RosettaNet messages
 
 1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
@@ -188,8 +188,8 @@ In the Logic App Designer, add a trigger, and then add a new step by clicking on
 	| PIP version | PIP version  |
 	| PIP Identity | Unique identifier for this PIP message |
 	| Message type | RosettaNet message to decode  |
-	| Role | Role of the host partner   |
-	| Tracking id | Tracking ID for the message |
+	| Role | HTTP headers providing version and response type values. Version is RNIF version and Response type indicates the communication between the partners, which can be synchronous or asynchronous  |
+	
 
   
 5. The encoded message from the previous step is now ready to be sent to the partner. For this, we are going to **HTTP** connector.
