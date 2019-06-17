@@ -27,9 +27,13 @@ There are two ways that you can create a Bastion host resource:
 
 ## Before you begin
 
-You do not need to onboard in order to participate in the public preview. Use these steps to create a new Azure Bastion resource. The public preview is limited to the following Azure public regions:
+The public preview is limited to the following Azure public regions:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
+
+To participate in this preview, you need to register: Use these steps to register for the preview:
+
+[!INCLUDE [register](../../includes/bastion-preview-register-include.md)]
 
 ## <a name="createhost"></a>Create a bastion host
 
