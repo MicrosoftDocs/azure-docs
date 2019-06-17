@@ -74,4 +74,4 @@ As a device developer, you can submit IoT hardware products for certification. Y
 
 ## Next steps
 
-Now that you have an overview of IoT Plug and Play, the suggested next step is to try out the [IoT Plug and Play quickstart](quickstart-use-a-device-capability-model-to-create-a-device.md).
+Now that you have an overview of IoT Plug and Play, the suggested next step is to try out the [IoT Plug and Play quickstart](https://docs.microsoft.com/azure/iot-pnp/).
