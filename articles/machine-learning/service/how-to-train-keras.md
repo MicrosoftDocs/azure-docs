@@ -22,12 +22,20 @@ Whether you're developing a Keras model from the ground-up or you're bringing an
 
 ## Prerequisites
 
-- An Azure subscription. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
-- [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
-- [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
-- [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` and `utils.py`
+Run this code on either of these environments:
 
-You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+ - Azure Machine Learning Notebook VM - no downloads or installation necessary
+
+     - Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-keras** folder. 
+ 
+ - Your own Jupyter Notebook server
+
+     - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
+    - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
+    - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` and `utils.py`
+     
+    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
 
@@ -100,12 +108,24 @@ The [datastore](how-to-access-data.md) is a place where data can be stored and a
     shutil.copy('./utils.py', script_folder)
     ```
 
-## Get the default compute target
+## Create a compute target
 
-Each workspace comes with two, default compute targets: a gpu-based compute target and a cpu-based compute target. The default compute targets have autoscale set to 0, which means they are not allocated until you use it. WIn this example, use the default GPU compute target.
+Create a compute target for your TensorFlow job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
 
 ```Python
-compute_target = ws.get_default_compute_target(type="GPU")
+cluster_name = "gpucluster"
+
+try:
+    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
+    print('Found existing compute target')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+                                                           max_nodes=4)
+
+    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
