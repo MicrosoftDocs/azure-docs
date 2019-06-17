@@ -32,7 +32,7 @@ There can be several reasons why the app didn't accept the response from Azure A
 
 -   Send the SAML response to the app vendor and ask them what's missing.
 
-## Missing attributes in the SAML response
+## Attributes are missing from the SAML response
 
 To add an attribute in the Azure AD configuration that will be sent in the Azure AD response, follow these steps:
 
@@ -71,7 +71,7 @@ Signing in to the app fails because the SAML response is missing an attribute su
 
 If you're using [Azure AD automated user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) to create, maintain, and remove users in the app, verify that the user has been provisioned to the SaaS app. For more information, see [No users are being provisioned to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
 
-## How to add an attribute to the Azure AD app configuration
+## Add an attribute to the Azure AD app configuration
 
 To change the User Identifier value, follow these steps:
 
@@ -92,9 +92,9 @@ To change the User Identifier value, follow these steps:
 
 7. After the app loads, select **Single sign-on** in the navigation pane.
 
-8. Under **User attributes**, select the unique identifier for the users from the **User Identifier** drop-down list.
+8. Under **User attributes**, select the unique identifier for the user from the **User Identifier** drop-down list.
 
-## Change NameID (User Identifier) format
+## Change the NameID format
 
 If the application expects another format for the **NameID** (User Identifier) attribute, see [Editing nameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization.md#editing-nameid) to change the NameID format.
 

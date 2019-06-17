@@ -19,9 +19,11 @@ ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ---
 
-# Sign in problems with an Azure AD gallery app configured for SSO
+# Sign-in problems with an Azure AD gallery app configured for SSO
 
-Access Panel is a web-based portal. It enables users who have Azure Active Directory (Azure AD) work or school accounts to access cloud-based apps that they have permissions for. Users who have Azure AD editions can also use self-service group and app-management capabilities through Access Panel. Access Panel is separate from the Azure portal. Users don't need an Azure subscription to use Access Panel.
+Access Panel is a web-based portal. It enables users who have Azure Active Directory (Azure AD) work or school accounts to access cloud-based apps that they have permissions for. Users who have Azure AD editions can also use self-service group and app-management capabilities through Access Panel.
+
+Access Panel is separate from the Azure portal. Users don't need an Azure subscription to use Access Panel.
 
 To use password-based single sign-on (SSO) in Access Panel, the Access Panel extension must be installed in your browser. The extension downloads automatically when you select an app that's configured for password-based SSO.
 
@@ -40,23 +42,23 @@ The following browsers support password-based SSO:
 >[!NOTE]
 >The password-based SSO extension become available for Microsoft Edge in Windows 10 when Microsoft Edge began to support browser extensions.
 
-## How to install the Access Panel Browser extension
+## Install the Access Panel Browser extension
 
 Follow these steps:
 
 1. Open [Access Panel](https://myapps.microsoft.com) in a supported browser, and sign in as a user in Azure AD.
 
-2. Select a password-SSO app in Access Panel.
+2. Select a password-SSO-enabled app in Access Panel.
 
 3. When you're prompted, select **Install Now**.
 
 4. You'll be directed to a download link based on your browser. Select **Add** to install the browser extension.
 
-5. If you're prompted, select to **Enable** or **Allow** the extension.
+5. If you're prompted, select **Enable** or **Allow**.
 
 6. After the installation, restart your browser.
 
-7.  Sign to  Access Panel and see if you can start your password-SSO apps.
+7.  Sign in to  Access Panel and see if you can start your password-SSO-enabled apps.
 
 You can also directly download the extensions for Chrome and Firefox through these links:
 
@@ -80,7 +82,7 @@ To configure the group policy and deploy it to users, see [How to deploy the Acc
 
 To access a diagnostics tool and instructions to configure the extension, see [Troubleshoot the Access Panel extension for Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-## How to configure password SSO for an Azure AD gallery app
+## Configure password SSO for an Azure AD gallery app
 
 To configure an app from the Azure AD gallery, you need to do these things:
 
@@ -178,8 +180,8 @@ To assign users to an app directly, follow these steps:
 
     After a brief delay, the users will be able to access those apps from Access Panel.
 
-## If you get an error when you set up SSO and assign users 
-Open a support ticket. Include as much of the following information as possible:
+## Request support 
+If you get an error message when you set up SSO and assign users, open a support ticket. Include as much of the following information as possible:
 
 -   Correlation error ID
 -   UPN (user email address)
