@@ -5,7 +5,7 @@ metadata:
   title: Azure Time Series Insights Documentation - Quickstarts, Tutorials, API Reference | Microsoft Docs
   description: Learn how to run Azure IoT analytics in the cloud with fully managed event processing. Analyze data from applications, sensors, devices, and more in real time.
   services: time-series-insights
-  author: deepak.palled
+  author: deepakpalled
   manager: cshankar
   ms.service: time-series-insights
   ms.tgt_pltfrm: na
