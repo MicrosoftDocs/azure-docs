@@ -85,7 +85,7 @@ All of the Text Analytics API endpoints accept raw text data. The current limit 
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
-Your rate limit will vary on your pricing tier.
+Your rate limit will vary with your pricing tier.
 
 | Tier  | Transactions per second | Transactions per minute |
 |-------|-------------------------|-------------------------|
