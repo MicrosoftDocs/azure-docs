@@ -87,7 +87,7 @@ The cmdlets that control Storage Metrics use the following parameters:
 
 For example, the following command switches on minute metrics for the blob service in your storage account with the retention period set to five days: 
 
-[!NOTE]
+> [!NOTE]
 > This command assumes that you've signed into your Azure subscription by using the `Connect-AzAccount` command.
 
 ```  
