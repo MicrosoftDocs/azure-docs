@@ -147,23 +147,23 @@ This applies only to local development. When your solution is deployed to Azure,
 
 ## Running the application using managed identity or user-assigned identity 
 
-When you run your code on an Azure App Service or an Azure VM with a managed identity enabled, the library automatically uses the managed identity. No code changes are required, but the managed identity must be granted *get* permissions to the key vault. You can set this up under the key vaults *Access Policies*. 
-
 When you run your code on an Azure App Service or an Azure VM with a managed identity enabled, the library automatically uses the managed identity. 
 
-Alternatively, you may authenticate with a user-assigned identity. For more information on user-assigned identities, see [About Managed Identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). To authenticate with a user-assigned identity, you need to specify the ClientId of the user-assigned identity in the connection string. The connection string is specified in the [Connection String Support](#connection-string-support) section below.
+Alternatively, you may authenticate with a user-assigned identity. For more information on user-assigned identities, see [About Managed Identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). To authenticate with a user-assigned identity, you need to specify the Client Id of the user-assigned identity in the connection string. The connection string is specified in the [Connection String Support](#connection-string-support) section below.
 
 ## Running the application using a Service Principal 
 
 It may be necessary to create an Azure AD Client credential to authenticate. Common examples include:
 
-1. Your code runs on a local development environment, but not under the developer's identity.  Service Fabric, for example, uses the [NetworkService account](../service-fabric/service-fabric-application-secret-management.md) for local development.
+- Your code runs on a local development environment, but not under the developer's identity.  Service Fabric, for example, uses the [NetworkService account](../service-fabric/service-fabric-application-secret-management.md) for local development.
  
-2. Your code runs on a local development environment and you authenticate to a custom service, so you can't use your developer identity. 
+- Your code runs on a local development environment and you authenticate to a custom service, so you can't use your developer identity. 
  
-3. Your code is running on an Azure compute resource that does not yet support managed identities for Azure resources, such as Azure Batch.
+- Your code is running on an Azure compute resource that does not yet support managed identities for Azure resources, such as Azure Batch.
 
-To use a certificate to sign into Azure AD:
+Thee are three primary methods of using a Service Principal to run your application.
+
+### Use a certificate to sign into Azure AD:
 
 1. Create a [service principal certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md). 
 
@@ -180,7 +180,7 @@ To use a certificate to sign into Azure AD:
 
 4. Run the application. 
 
-To sign in using an Azure AD shared secret credential:
+### Sign in using an Azure AD shared secret credential
 
 1. Create a [service principal with a password](../azure-resource-manager/resource-group-authenticate-service-principal.md) and grant it access to the Key Vault. 
 
@@ -196,34 +196,26 @@ To sign in using an Azure AD shared secret credential:
 
 Once everything's set up correctly, no further code changes are necessary.  `AzureServiceTokenProvider` uses the environment variable and the certificate to authenticate to Azure AD. 
 
-### Running the application using custom services authentication
+### Run the application using custom services authentication
 
 This option allows you to store a service principal's client certificate in Key Vault and use it for service principal authentication. You may use this for the following scenarios:
 
 * Local authentication, where you want to authenticate using an explicit service principal, and want to keep the service principal credential securely in a Key vault. Developer account must have access to key vault. 
-* Authentication from Azure where you want to use explicit credential (e.g. for cross-tenant scenarios), and want to seep the service principal credential securely in a key vault. Managed identity must have access to key vault. 
+* Authentication from Azure where you want to use explicit credential (e.g. for cross-tenant scenarios), and want to keep the service principal credential securely in a key vault. Managed identity must have access to key vault. 
 
 Managed Identity or your developer identity must have permission to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal.
 
-To use custom services authentication, replace `{KeyVaultCertificateSecretIdentifier}` in this connection string with the certificate's secret identifier:
+To use a client certificate for service principal authentication:
+
+1. In Azure Key Vault, [create a certificate](./certificate-scenarios.md). The certificate identifier will be a URL of the format `https://<keyvaultname>.vault.azure.net/secrets/<secretname>`:
+
+1. Replace `{KeyVaultCertificateSecretIdentifier}` in this connection string with the certificate identifier:
 
 ```
 RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
 ```
 
-To find the certificate's secret identifier, follow these steps.
-
-1. In the portal, click on the name of your Key Vault.
-
-1. In the left-hand sidebar, click on "Certificates".
-
-1. Click on the certificate you wish to use for custom services authentication and then, on the next page, click on the current version.
-
-    ![Finding the custom certificate to use](./media/service-to-service-authentication/customcert1.png)
-
-1. Scroll to the bottom of the certificate page and note the "Secret Identifier" in the last field.
-
-    ![Finding the custom certificate "Secret Identifier"](./media/service-to-service-authentication/customcert2.png)
+If, for instance your key vault was called "myKeyVault" and you created a  certificate called 'myCert', the certificate identifier would be `https://myKeyVault.vault.azure.net/secrets/myCert`, and the connection string would be `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`.
 
 ## Connection String Support
 
