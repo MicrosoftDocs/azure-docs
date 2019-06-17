@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 06/11/2019
+ms.date: 06/17/2019
 ms.topic: hub-page
 ---
 
@@ -103,7 +103,7 @@ ms.topic: hub-page
 </ul>
 </div>
 
-
+<h2>Getting started</h2>
 <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
         <li>
             <a href="/azure/cognitive-services/welcome/">
