@@ -20,12 +20,13 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2019-24-10
+## 2019-06-24
 
 ### Azure Machine Learning SDK for Python v1.0.44
 
 + **New features**
   + [Insert new features below. Reference articles and/or doc pages]
+  + Add decision tree surrogate model to mimic explainer in azureml-explain-model package
   
   + **Preview features**
     + Scoring explainers can now optionally save conda and pip information for more reliable serialization and deserialization.
@@ -37,6 +38,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **Bug fixes and improvements**
   + [Insert fixes and improvements below. Link github issues resolved with this release]
+  + In mimic explainer with binary classifier, fix the order of probabilities when teacher probability is used for scaling shap values
 
 ## 2019-06-10
 
