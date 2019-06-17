@@ -12,7 +12,7 @@
 
 ### <a name="preview"></a>How do I participate in the public preview?
 
-You do not need to onboard in order to participate in the public preview. Use the steps in [this article](../articles/bastion/bastion-create-host-portal.md) to create a new Azure Bastion resource. Currently, when accessing and using this service, you must use the [Azure portal - preview](https://aka.ms/BastionHost) instead of the regular Azure portal.
+You do not need onboard in order to participate in the public preview. Use the steps in [this article](../articles/bastion/bastion-create-host-portal.md) to create a new Azure Bastion resource. Currently, when accessing and using this service, you must use the [Azure portal - preview](https://aka.ms/BastionHost) instead of the regular Azure portal.
 
 ### <a name="regions"></a>Which regions are available during preview?
 

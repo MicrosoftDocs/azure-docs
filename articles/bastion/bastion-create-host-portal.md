@@ -31,7 +31,7 @@ The public preview is limited to the following Azure public regions:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-To participate in this preview, you need to register: Use these steps to register for the preview:
+To participate in this preview, you need to register. Use these steps to register for the preview:
 
 [!INCLUDE [register](../../includes/bastion-preview-register-include.md)]
 
