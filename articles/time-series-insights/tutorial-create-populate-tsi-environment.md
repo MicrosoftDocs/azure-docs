@@ -5,7 +5,7 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 04/26/2019
+ms.date: 06/17/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
@@ -98,7 +98,7 @@ Next, create the device simulation solution, which generates test data to popula
 
    [![Device simulation solution provisioning complete](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
 
-1. Now go back to the Azure portal, and inspect the newly created resources in your subscription. In the portal **Resource groups** page, notice that a new resource group was created by using the **Solution name** provided in the last step. Also notice all of the resources that were created to support the device simulation solution.
+1. Now go back to the Azure portal, and inspect the newly created resources in your subscription. In the portal **Resource groups** page, notice that a new resource group was created by using the **Solution name** provided in the last step. Make note of the resources that were created for the device simulation.
 
    [![Device simulation solution resources](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
 
