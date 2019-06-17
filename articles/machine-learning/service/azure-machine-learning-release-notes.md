@@ -37,6 +37,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **Bug fixes and improvements**
   + [Insert fixes and improvements below. Link github issues resolved with this release]
+  + Removed paramiko dependency from azureml-core. Added deprecation warnings for legacy compute target attach methods.
 
 ## 2019-06-10
 
