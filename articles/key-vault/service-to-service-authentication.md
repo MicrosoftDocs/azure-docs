@@ -161,9 +161,9 @@ It may be necessary to create an Azure AD Client credential to authenticate. Com
  
 - Your code is running on an Azure compute resource that does not yet support managed identities for Azure resources, such as Azure Batch.
 
-Thee are three primary methods of using a Service Principal to run your application.
+There are three primary methods of using a Service Principal to run your application.
 
-### Use a certificate to sign into Azure AD:
+### Use a cerificate to sign into Azure AD
 
 1. Create a [service principal certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md). 
 
@@ -205,9 +205,9 @@ This option allows you to store a service principal's client certificate in Key 
 
 Managed Identity or your developer identity must have permission to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal.
 
-To use a client certificate for service principal authentication:
+To use a client certificate for service principal authentication
 
-1. In Azure Key Vault, [create a certificate](./certificate-scenarios.md). The certificate identifier will be a URL of the format `https://<keyvaultname>.vault.azure.net/secrets/<secretname>`:
+1. In Azure Key Vault, [create a certificate](./certificate-scenarios.md). The certificate identifier will be a URL in the format `https://<keyvaultname>.vault.azure.net/secrets/<secretname>`.
 
 1. Replace `{KeyVaultCertificateSecretIdentifier}` in this connection string with the certificate identifier:
 
