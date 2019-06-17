@@ -411,6 +411,9 @@ This variable is a string, which holds "next" if the next page of results should
     }
 ```
 
+>[!Tip]
+>If you are running this app on a laptop, rather than a desktop, consider setting the value to 2, rather than 3.
+
 ### Add a vertical scroll bar to the view
 
 1. Locate the section of the index.cshtml file that displays the results (it starts with the **@if (Model != null)**).
