@@ -69,10 +69,11 @@
     href: overview-hosting-plans.md
   - name: OS functionality
     href: operating-system-functionality.md
-  - name: Security recommendations
-    href: security-recommendations.md
+  - name: Security
     items:
-    - name: Authentication and authorization
+    - name: Recommendations
+      href: security-recommendations.md
+      name: Authentication and authorization
       href: overview-authentication-authorization.md
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
