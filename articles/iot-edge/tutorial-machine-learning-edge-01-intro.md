@@ -27,7 +27,7 @@ In either case, to help orient the reader(s), each article in this tutorial indi
 * Cloud development (including a cloud developer working in a DevOps capacity)
 * Data analytics
 
-## Use case: predictive maintenance
+## Use case: Predictive maintenance
 
 We based this scenario on a use case presented at the Conference on Prognostics and Health Management (PHM08) in 2008. The goal is to predict remaining useful life (RUL) of a set of turbofan airplane engines. This data was generated using C-MAPSS, the commercial version of MAPSS (Modular Aero-Propulsion System Simulation) software. This software provides a flexible turbofan engine simulation environment to conveniently simulate the health, control, and engine parameters.
 

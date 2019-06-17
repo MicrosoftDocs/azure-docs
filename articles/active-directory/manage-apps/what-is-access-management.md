@@ -47,8 +47,8 @@ With Azure AD, applications like Salesforce can be pre-configured for single sig
 
 In this case, all assigned users would be automatically provisioned to Salesforce, as they are added to different groups their role assignment would be updated in Salesforce. Users would be able to discover and access Salesforce through the Microsoft application access panel, Office web clients, or even by navigating to their organizational Salesforce login page. Administrators would be able to easily view usage and assignment status using Azure AD reporting.
 
-Administrators can employ [Azure AD conditional access](../active-directory-conditional-access-azure-portal.md) to set access policies for specific roles. These policies can include whether access is permitted outside the corporate environment and even Multi-Factor Authentication or device requirements to achieve access in various cases.
+Administrators can employ [Azure AD Conditional Access](../active-directory-conditional-access-azure-portal.md) to set access policies for specific roles. These policies can include whether access is permitted outside the corporate environment and even Multi-Factor Authentication or device requirements to achieve access in various cases.
 
 ## Next steps
-* [Protecting apps with conditional access](../active-directory-conditional-access-azure-portal.md)
+* [Protecting apps with Conditional Access](../active-directory-conditional-access-azure-portal.md)
 * [Self-service group management/SSAA](../users-groups-roles/groups-self-service-management.md)
