@@ -140,13 +140,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	 ![monday.com configuration](./media/mondaycom-tutorial/configuration01.png)
 
-3. Select **Security** and make sure to click on **open** next to SAML.
+3. Select **Security** and make sure to click on **Open** next to SAML.
 
     ![monday.com configuration](./media/mondaycom-tutorial/configuration02.png)
 
 4. Fill in the details below from your IDP.
 
     ![monday.com configuration](./media/mondaycom-tutorial/configuration03.png)
+
+	>[!NOTE]
+	>For more details refer [this](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) article
 
 ### Create an Azure AD test user
 
