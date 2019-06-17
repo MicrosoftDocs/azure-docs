@@ -153,7 +153,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-[!INCLUDE [](../../../includes/cognitive-services-aad-authentication.md)]
+[!INCLUDE [](../../includes/cognitive-services-aad-authentication.md)]
 
 ## See also
 
