@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/11/2019
+ms.date: 06/17/2019
 ms.author: jaredr80
 ---
 # ExpressRoute partners and peering locations
@@ -80,14 +80,14 @@ The following table shows connectivity locations and the service providers for e
 | **Cape Town** | Teraco | South Africa West | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | South India | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | South India | Airtel |
-| **Chicago** | Equinix | North Central US | Aryaka Networks, AT&T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
+| **Chicago** | Equinix | North Central US | Aryaka Networks, AT&T NetBond, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
 | **Dallas** | Equinix | n/a | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | CoreSite | West Central US | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat UAE | UAE North | Etisalat UAE |
 | **Dubai2** | du datamena | UAE North | du datamena, Orixcom |
 | **Dublin** | Equinix | North Europe | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | n/a | DE-CIX, Interxion |
-| **Hong Kong SAR** | Equinix | East Asia | Aryaka Networks, British Telecom, Chief Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **Hong Kong SAR** | Equinix | East Asia | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Johannesburg** | Teraco | South Africa North | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | n/a | TIME dotCom |
 | **Las Vegas** | Switch | n/a | CenturyLink Cloud Connect, Megaport |
@@ -118,7 +118,7 @@ The following table shows connectivity locations and the service providers for e
 | **Taipei** | Chief Telecom | n/a | Chief Telecom, FarEasTone |
 | **Tokyo** | Equinix | Japan East | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | Cologix | Canada Central | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
-| **Washington DC** | Equinix | East US, East US 2 | Aryaka Networks, AT&T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
+| **Washington DC** | Equinix | East US, East US 2 | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | Coresite | East US, East US 2 |Coresite | 
 | **Zurich** | Interxion | n/a | Interxion |
 
