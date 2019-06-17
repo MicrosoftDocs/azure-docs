@@ -13,7 +13,7 @@ ms.date: 06/16/2019
 ms.author: diberry
 ---
 
-# Add bot telemetry to Application Insights with Node.js
+# Add LUIS results to Application Insights from a Bot in Node.js
 This tutorial adds bot and Language Understanding information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or Power BI to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
 In this tutorial, you learn how to:
