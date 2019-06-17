@@ -142,42 +142,42 @@ Visit the Azure architecture center for guidance on [designing and building micr
 
 Azure Service Fabric emerged when Microsoft transitioned from delivering boxed products, which were typically monolithic, to delivering services. The experience of building and operating large services, like Azure SQL Database and Azure Cosmos DB, shaped Service Fabric. The platform evolved over time as more and more services adopted it. Service Fabric had to run not only in Azure but also in standalone Windows Server deployments.
 
-***The aim of Service Fabric is to solve the hard problems of building and running a service and utilize infrastructure resources efficiently, so that teams can solve business problems using a microservices approach.***
+***The aim of Service Fabric is to solve the hard problems of building and running a service and to use infrastructure resources efficiently, so teams can solve business problems by using a microservices approach.***
 
 Service Fabric helps you build applications that use a microservices approach by providing:
 
 * A platform that provides system services to deploy, upgrade, detect, and restart failed services, discover services, route messages, manage state, and monitor health.
-* Ability to deploy applications either running in containers or as processes. Service Fabric is a container and process orchestrator.
-* Productive programming APIs, to help you build applications as microservices: [ASP.NET Core, Reliable Actors, and Reliable Services](service-fabric-choose-framework.md). For example, you can get health and diagnostics information, or you can take advantage of built-in high availability.
+* The ability to deploy applications either running in containers or as processes. Service Fabric is a container and process orchestrator.
+* Productive programming APIs to help you build applications as microservices: [ASP.NET Core, Reliable Actors, and Reliable Services](service-fabric-choose-framework.md). For example, you can get health and diagnostics information, or you can take advantage of built-in high availability.
 
-***Service Fabric is agnostic on how you build your service, and you can use any technology. However, it does provide built-in programming APIs that make it easier to build microservices.***
+***Service Fabric is agnostic about how you build your service, and you can use any technology. But it does provide built-in programming APIs that make it easier to build microservices.***
 
 ### Migrating existing applications to Service Fabric
 
-Service Fabric allows you to reuse existing code, which can then be modernized with new microservices. There are five stages to application modernization, and you can start and stop at any of the stages. These are:
+Service Fabric allows you to reuse existing code and modernize it with new microservices. There are five stages to application modernization, and you can start and stop at any stage. The stages are:
 
 1) Start with a traditional monolithic application.  
-2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.  
-3) Modernization - New microservices added alongside existing containerized code.  
-4) Innovate - Break the monolithic into microservices purely based on need.  
-5) Transformed into microservices - the transformation of existing monolithic applications or building new greenfield applications.
+2) Migrate. Use containers or guest executables to host existing code in Service Fabric.  
+3) Modernize. Add new microservices alongside existing containerized code.  
+4) Innovate. Break the monolithic application into microservices based on need.  
+5) Transform into microservices. Transform existing monolithic applications or build new greenfield applications.
 
-![Migration to Microservices][Image3]
+![Migration to microservices][Image3]
 
-It is important to emphasize again that you can **start and stop at any of these stages**. You are not compelled to progress to the next stage. Let's now look at examples for each of these stages.
+Remember, you can *start and stop at any of these stages*. You don't have to progress to the next stage. Let's look at examples for each of these stages.
 
-**Lift and Shift**  
-Large numbers of companies are lifting and shifting existing monolithic applications into containers for two reasons:
+**Migrate**  
+For two reasons, many companies are migrating existing monolithic applications into containers:
 
-* Cost reduction either due to consolidation and removal of existing hardware or running applications at higher density.
-* Consistent deployment contract between development and operations.
+* Cost reduction, either due to consolidation and removal of existing hardware or due to running applications at higher density.
+* A consistent deployment contract between development and operations.
 
-Cost reductions are understandable, and within Microsoft, large numbers of existing applications are being containerized simply to save millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It means that developers can still be free to choose the technology that suits them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
+Cost reductions are straightforward. At Microsoft, many existing applications are being containerized, leading to millions of dollars in savings. Consistent deployment is harder to evaluate but equally important. It means that developers can choose the technologies that suit them, but operations will accept only a single method for deploying and managing the applications. It alleviates operations from having to deal with the complexity of many different technologies without forcing developers to choose only certain ones. Essentially, every application is containerized into self-contained deployment images.
 
-Many organizations stop here. They already have the benefits of containers and Service Fabric provides the complete management experience from deployment, upgrades, versioning, rollbacks, health monitoring etc.
+Many organizations stop here. They already have the benefits of containers, and Service Fabric provides the complete management experience, including deployment, upgrades, versioning, rollbacks, and health monitoring.
 
-**Modernization**  
-The addition of new services alongside existing containerized code. If you are going to write new code, it is best to decide to take small steps down the microservices path. This could be adding a new REST API endpoint, or new business logic. This way, you start on the journey of building new microservices and practice developing and deploying them.
+**Modernize**  
+Modernization is the addition of new services alongside existing containerized code. If you're going to write new code, it's best to decide to take small steps down the microservices path. This could mean adding a new REST API endpoint or new business logic. In this way, you start on the journey of building new microservices and practice developing and deploying them.
 
 **Innovate**  
 A microservices approach accommodates changing business needs. At this stage the decision is whether you need to start splitting the monolithic app into services, or innovating. A classic example here is when a database being used as a workflow queue becomes a processing bottleneck. As the number of workflow requests increases, the work needs to be distributed for scale. For that particular piece of the application that is not scaling, or that needs to be updated more frequently, split this out into a microservice and innovate.
