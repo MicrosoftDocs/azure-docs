@@ -23,7 +23,6 @@ Azure Media Services enables you to deliver live events to your customers on the
 > [!TIP]
 > For customers migrating from Media Services v2 APIs, the **Live Event** entity replaces **Channel** in v2 and **Live Output** replaces **Program**.
 
-
 ## Live Events
 
 [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. When you create a Live Event, an input endpoint is created that you can use to send a live signal from a remote encoder. The remote live encoder sends the contribution feed to that input endpoint using either the [RTMP](https://www.adobe.com/devnet/rtmp.html) or [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmented-MP4) protocol. For the Smooth Streaming ingest protocol, the supported URL schemes are `http://` or `https://`. For the RTMP ingest protocol, the supported URL schemes are `rtmp://` or `rtmps://`. 
@@ -107,7 +106,7 @@ You can either use non-vanity URLs or vanity URLs.
 
 * The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).
 * *your access token* - The valid GUID string you set when using the vanity mode. For example, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
-* *stream name* - Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use. The encoder can choose whatever name to describe the connection, for example: “video1_audio1”, “video2_audio1”, “stream”.
+* *stream name* - Indicates the stream name for a specific connection. The stream name value is usually added by the live encoder you use. You can configure the live encoder to use any name to describe the connection, for example: “video1_audio1”, “video2_audio1”, “stream”.
 
 #### Non-vanity URL
 
