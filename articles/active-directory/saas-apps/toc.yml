@@ -303,6 +303,8 @@
         href: cornerstone-ondemand-tutorial.md
       - name: CorpTax
         href: corptax-tutorial.md
+      - name: Costpoint
+        href: costpoint-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
       - name: CS Stars
@@ -481,6 +483,8 @@
         href: github-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: GlobalOne
+        href: globalone-tutorial.md
       - name: GoodPractice Toolkit
         href: goodpractice-toolkit-tutorial.md
       - name: GoToMeeting
@@ -893,6 +897,8 @@
         href: peoplecart-tutorial.md
       - name: Perception United States (Non-UltiPro)
         href: perceptionunitedstates-tutorial.md
+      - name: Perceptyx
+        href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
       - name: PerformanceCentre

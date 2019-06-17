@@ -30,7 +30,7 @@ In this section, we create the self-signed certificates using a Docker image tha
 2. Open a command-line prompt and run the following command to create a directory on the VM.
 
     ```cmd
-    mkdir C:\edgecertificates
+    mkdir c:\edgeCertificates
     ```
 
 3. Start **Docker for Windows** from the Windows Start menu.
@@ -51,22 +51,20 @@ In this section, we create the self-signed certificates using a Docker image tha
 9. In the Visual Studio Code terminal window, run the createcertificates container.
 
     ```cmd
-    docker run --name createcertificates --rm -v
-    C:\edgeCertificates:/edgeCertificates createcertificates
-    /edgeCertificates
+    docker run --name createcertificates --rm -v c:\edgeCertificates:/edgeCertificates createcertificates /edgeCertificates
     ```
 
-10. Docker will prompt for access to the **C:\\** drive. Select **Share it**.
+10. Docker will prompt for access to the **c:\\** drive. Select **Share it**.
 
 11. Provide your credentials when prompted.
 
-12. Once the container finishes running, check for the following files in **c:\\edgecertificates**:
+12. Once the container finishes running, check for the following files in **c:\\edgeCertificates**:
 
-    * C:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
-    * C:\\edgeCertificates\\private\\new-edge-device.key.pem
+    * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
+    * c:\\edgeCertificates\\private\\new-edge-device.key.pem
 
 ## Upload certificates to Azure Key Vault
 
@@ -81,8 +79,7 @@ To store our certificates securely and to make them accessible from multiple dev
 3. On your development machine, upload the certificates to Key Vault. Replace **\<subscriptionId\>** and **\<keyvaultname\>** with your resource information.
 
     ```powershell
-    C:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1
-    -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
+    c:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1 -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
     ```
 
 4. If prompted, sign in to Azure.
@@ -140,7 +137,7 @@ Next, run the script to create the virtual machine for your IoT Edge device.
 1. Open a PowerShell window and navigate to the **EdgeVM** directory.
 
     ```powershell
-    cd C:\source\IoTEdgeAndMlSample\EdgeVM”
+    cd c:\source\IoTEdgeAndMlSample\EdgeVM
     ```
 
 2. Run the script to create the virtual machine.
@@ -205,7 +202,7 @@ Earlier in this article, we uploaded certificates to Key Vault to make them avai
 1. ASet the Azure subscription that you want to use for Azure CLI commands.
 
     ```bash
-    az account set --subscription <subscription id>
+    az account set --subscription <subscriptionId>
     ```
 
 1. Create a directory on the VM for the certificates.
