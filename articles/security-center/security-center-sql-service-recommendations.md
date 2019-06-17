@@ -18,18 +18,23 @@ ms.author: monhaber
 
 ---
 # Protecting Azure SQL service and data in Azure Security Center
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL and data, and applications.
+Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL and data, and applications.a
+<!-- This paragraph should only be about storage-->
 
 
 ### Monitor data security
 
-When you click **Data security** in the **Prevention** section, the **Data Resources** opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+To view data security information, in the **Resource security hygiene** section, click *Data and storage resources.
 
-![Data Resources](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
+The **Data security** page opens with recommendations for SQL and storage accounts. 
+<!--are all tabs included under storage accounts?-->
+ It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
-Under **SQL Recommendations**, You can click any recommendation and get more details about further action to resolve an issue. The following example shows the expansion of the **Database Auditing & Threat detection on SQL databases** recommendation.
+![Data Resources](./media/security-center-monitoring/sql-overview.png)
 
-![Details about a SQL recommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
+From any of the tabs, you can click a recommendation and get more details about further action to resolve an issue. The following example shows the expansion of the **Database Auditing & Threat detection on SQL databases** recommendation.
+
+![Details about a SQL recommendation](./media/security-center-monitoring/sql-recommendations.png)
 
 The **Enable Auditing & Threat detection on SQL databases** has the following information:
 
@@ -41,15 +46,18 @@ The **Enable Auditing & Threat detection on SQL databases** has the following in
 
 When you click the database to address this recommendation, the **Auditing & Threat detection** opens as shown in the following screen.
 
-![Auditing & Threat detection](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+![Auditing & Threat detection](./media/security-center-monitoring/sql-remediate1.png)
 
 To enable auditing, select **ON** under the **Auditing** option.
+
+![Enable recommendation](./media/security-center-monitoring/sql-recommend-enable.png)
+
 
 ## Data and storage recommendations
 
 |Resource type|Secure score|Recommendation|Description|
 |----|----|----|----|
-|Storage account|20|Secure transfer to storage accounts should be enabled|Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
+|Storage account|20|Secure transfer to storage accounts should be enabled|Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
 |Redis|20|Only secure connections to your Redis Cache should be enabled|Enable only connections via SSL to Azure Cache for Redis. Use of secure connections ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
 |SQL|15|Transparent Data Encryption on SQL databases should be enabled|Enable transparent data encryption to protect data-at-rest and meet compliance requirements.|
 |SQL|15|SQL server auditing should be enabled|Enable auditing  for Azure SQL servers. (Azure SQL service only. Doesn't include SQL running on your virtual machines.)|
