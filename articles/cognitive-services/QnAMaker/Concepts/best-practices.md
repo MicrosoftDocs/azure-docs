@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/16/2019
+ms.date: 06/19/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -25,7 +25,7 @@ In general, FAQ pages should be stand-alone and not combined with other informat
 
 ### Configuring multi-turn
 
-Create your knowledge base with multi-turn extraction enabled if your document's hierarchy mostly or completely matches the hierarchical structure you want for you knowledge base. 
+Create your knowledge base with multi-turn extraction enabled. If your knowledge base does or should support question hierarchy, this heirarchy can be extracted from the document or created after the document is extracted. 
 
 <!--is this a global setting that can only be configured at kb creation time? -->
 
@@ -44,7 +44,7 @@ Your user may enter questions with either a conversational style of text, `How d
 
 ### Good answers
 
-The best answers are simple answers but not too simple such as yes and no answers. If your answer should link to other sources or provide a rich experience with media and links, use [tagging](../how-to/metadata-generateanswer-usage.md) to distinguish which type of answer you expect, then submit that tag with the query to get the correct answer version.
+The best answers are simple answers but not too simple. Do not use answers such as `yes` and `no`. If your answer should link to other sources or provide a rich experience with media and links, use [metadata tagging](../how-to/knowledge-base.md#key-knowledge-base-concepts) to distinguish between answers, then [submit the query](../how-to/metadata-generateanswer-usage#generateanswer-request-configuration) with metadata tags in the `strictFilters` property to get the correct answer version.
 
 ## Chit-Chat
 Add chit-chat to your bot, to make your bot more conversational and engaging, with low effort. You can easily add chit-chat data sets from pre-defined personalities when creating your KB, and change them at any time. Learn how to [add chit-chat to your KB](../How-To/chit-chat-knowledge-base.md). 
@@ -73,17 +73,19 @@ We recommend making the following chit-chat QnAs more specific:
 * Who created you?
 * Hello
    
-### Adding custom chit-chat with the `editorial:chitchat` metadata
+### Adding custom chit-chat with a metadata tag
 
-If you add your own chit-chat QnA pairs, make sure the add metadata so these answers are returned. The metadata name/value pair is `editorial:chitchat`.
+If you add your own chit-chat QnA pairs, make sure to add metadata so these answers are returned. The metadata name/value pair is `editorial:chitchat`.
 
 ## Searching for answers
 
-GenerateAnswer API uses the rank process to search answers to find the appropriate responses to a user's query.
+GenerateAnswer API uses both questions and answer to search for best answers to a user's query.
 
 ### Searching questions only when answer is not relevant
 
-In the [GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-request-configuration) API, use the **RankerType** of **QuestionOnly** if you don't want to search answers. An example of this is when the knowledge base is a catalog of acronyms as questions with their full form as the answer. The question-only ranker limits the search surface to just the text of the questions and excludes the answer text because it is not relevant.
+Use the [`RankerType=QuestionOnly`](#choosing-ranker-type) if you don't want to search answers. 
+
+An example of this is when the knowledge base is a catalog of acronyms as questions with their full form as the answer. The value of the answer will not help to search for the appropriate answer.
 
 ## Ranking/Scoring
 Make sure you are making the best use of the ranking features QnA Maker supports. Doing so will improve the likelihood that a given user query is answered with an appropriate response.
@@ -107,10 +109,10 @@ By default, QnA Maker searches through questions and answers. If you want to sea
 
 ### Use metadata tags to filter questions and answers
 
-[Metadata](../How-To/edit-knowledge-base.md) adds the ability to narrow down the results of a user query based on metadata tags. The knowledge base answer can differ based on the metadata tag, even if the query is the same. For example, *"where is parking located"* can have a different answer if the location of the restaurant branch is different - that is, the metadata is *Location: Seattle* versus *Location: Redmond*.
+[Metadata](../How-To/edit-knowledge-base.md) adds the ability for a client application to know it should not take all answers but instead to narrow down the results of a user query based on metadata tags. The knowledge base answer can differ based on the metadata tag, even if the query is the same. For example, *"where is parking located"* can have a different answer if the location of the restaurant branch is different - that is, the metadata is *Location: Seattle* versus *Location: Redmond*.
 
 ### Use synonyms
-While there is some support for synonyms in the English language, use case-insensitive [word alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different form. Synonyms should be added at the QnA Maker service-level and shared by all knowledge bases in the service.
+While there is some support for synonyms in the English language, use case-insensitive word alterations via the [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) to add synonyms to keywords that take different form. Synonyms are added at the QnA Maker service-level and shared by all knowledge bases in the service.
 
 |Original word|Synonyms|
 |--|--|
