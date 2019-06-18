@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data to and from SQL Server by using Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Current version](connector-sql-server.md)
 
@@ -377,7 +377,7 @@ See the respective sections for how to configure in Azure Data Factory and best 
 
 ### Append data
 
-Appending data is the default behavior of this SQL Server sink connector. Azure Data Factory does a bulk insert to write to your table efficiently. You can simply configure the source and sink accordingly in the copy activity.
+Appending data is the default behavior of this SQL Server sink connector. Azure Data Factory does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
 
 ### Upsert data
 
@@ -554,7 +554,7 @@ When you copy data from and to SQL Server, the following mappings are used from 
 
 3. In the same window, double-click **TCP/IP** to launch the **TCP/IP Properties** window.
 4. Switch to the **IP Addresses** tab. Scroll down to see the **IPAll** section. Write down the **TCP Port**. The default is **1433**.
-5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.  
+5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port. 
 6. **Verify connection**: To connect to SQL Server by using a fully qualified name, use SQL Server Management Studio from a different machine. An example is `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 ## Next steps
