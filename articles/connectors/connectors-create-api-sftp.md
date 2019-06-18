@@ -10,7 +10,7 @@ ms.reviewer: divswa, klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 10/26/2018
+ms.date: 06/18/2019
 ---
 
 # Monitor, create, and manage SFTP files by using Azure Logic Apps
@@ -40,11 +40,7 @@ If you're new to logic apps, review
 
 ## Limits
 
-* SFTP actions can read or write files that are *50 MB or smaller*.
-
-* For files *up to 1 GB*, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md).
-
-For other differences between the SFTP connector and the SFTP-SSH connector, review [Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) in the SFTP-SSH article.
+SFTP actions can read or write files that are *50 MB or smaller*. For larger files, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). For other differences between the SFTP connector and the SFTP-SSH connector, review [Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) in the SFTP-SSH article.
 
 ## Prerequisites
 
