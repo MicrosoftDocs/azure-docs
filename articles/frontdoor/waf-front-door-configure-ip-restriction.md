@@ -58,7 +58,7 @@ az network waf-policy custom-rule create \
   --name IPAllowListRule \
   --priority 1 \
   --rule-type MatchRule \
-  --match-condition RemoteAddr IPMatch ["<ip-address-range-1>","<ip-address-range-2>"] \
+  --match-condition RemoteAddr IPMatch ("<ip-address-range-1>","<ip-address-range-2>") \
   --action Allow \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI
@@ -134,7 +134,7 @@ In the following example, replace *ip-address-range-1*, *ip-address-range-2* wit
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
 -OperatorProperty IPMatch `
--MatchValue ["ip-address-range-1", "ip-address-range-2"]
+-MatchValue "ip-address-range-1", "ip-address-range-2"
 ```
 Create an IP *match all condition* rule by using the following command:
 ```powershell

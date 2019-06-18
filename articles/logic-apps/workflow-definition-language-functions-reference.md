@@ -792,7 +792,7 @@ This example adds one day to the specified timestamp:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 ```
 
-And returns this result: `"2018-01-02T00:00:00:0000000Z"`
+And returns this result: `"2018-01-02T00:00:00.0000000Z"`
 
 *Example 2*
 
@@ -4478,7 +4478,7 @@ character (\\) as an escape character for the double quotation mark (").
 
 * *Expression 2*
 
-  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
 Here are the arguments:
 
@@ -4492,9 +4492,9 @@ Here are the arguments:
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
-  * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
+  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-Here is the result node that matches the `<location></location` node:
+Here is the result node that matches the `<location></location>` node:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>

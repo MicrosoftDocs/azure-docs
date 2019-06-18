@@ -4,7 +4,7 @@ description: Learn about SAP solutions that run on virtual machines (VMs) in Mic
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 

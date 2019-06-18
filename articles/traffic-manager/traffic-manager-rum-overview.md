@@ -3,14 +3,14 @@ title: Real User Measurements in Azure Traffic Manager
 description: Introduction to Real User Measurements in Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article 
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: 
 ---
 

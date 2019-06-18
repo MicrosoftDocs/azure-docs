@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -53,7 +53,7 @@ Perform the following steps to prepare the drives.
 6.	To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
     A journal file is created in the same folder where you ran the tool. Two other files are also created - an *.xml* file (folder where you run the tool) and a *drive-manifest.xml* file (folder where data resides).
     
@@ -69,7 +69,7 @@ Perform the following steps to prepare the drives.
     |/dstdir:     |The name of the destination container in Azure Storage.         |
     |/blobtype:     |This option specifies the type of blobs you want to import the data to. For block blobs, this is `BlockBlob` and for page blobs, it is `PagaBlob`.         |
     |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
-    |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed during the upload of block blobs to Azure.          |
+    |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
 7. Repeat the previous step for each disk that needs to be shipped. A journal file with the provided name is created for every run of the command line.
     
     > [!IMPORTANT]

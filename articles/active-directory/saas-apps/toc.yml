@@ -15,7 +15,7 @@
         href: 23video-tutorial.md
       - name: 360 Online
         href: 360online-tutorial.md
-      - name: 4me
+        name: 4me
         href: 4me-tutorial.md
       - name: 8x8 Virtual Office
         href: 8x8virtualoffice-tutorial.md
@@ -303,10 +303,14 @@
         href: cornerstone-ondemand-tutorial.md
       - name: CorpTax
         href: corptax-tutorial.md
+      - name: Costpoint
+        href: costpoint-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
+      - name: CyberArk SAML Authentication
+        href: cyberark-saml-authentication-tutorial.md
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
     - name: D - E
@@ -314,6 +318,9 @@
       - name: DATABASICS
         href: databasics-tutorial.md
       - name: Datahug
+        href: datahug-tutorial.md
+        name: Dailpad
+        href: dailpad-provisioning-tutorial.md
         href: datahug-tutorial.md
       - name: Dealpath
         href: dealpath-tutorial.md
@@ -477,6 +484,8 @@
         href: github-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: GlobalOne
+        href: globalone-tutorial.md
       - name: GoodPractice Toolkit
         href: goodpractice-toolkit-tutorial.md
       - name: GoToMeeting
@@ -837,6 +846,8 @@
         href: opsgenie-tutorial.md
       - name: Optimizely
         href: optimizely-tutorial.md
+      - name: Oracle Cloud Infrastructure Console
+        href: oracle-cloud-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-tutorial.md
       - name: OrgChart Now
@@ -865,6 +876,8 @@
         href: paloaltonetworks-captiveportal-tutorial.md
       - name: Palo Alto Networks - GlobalProtect
         href: paloaltoglobalprotect-tutorial.md
+      - name: PandaDoc
+        href: pandadoc-tutorial.md
       - name: Panopto
         href: panopto-tutorial.md
       - name: Panorama9
@@ -875,8 +888,6 @@
         href: patentsquare-tutorial.md
       - name: Pavaso Digital Close
         href: pavaso-digital-close-tutorial.md
-      - name: Peakon
-        href: peakon-tutorial.md
       - name: Pega Systems
         href: pegasystems-tutorial.md
       - name: People
@@ -885,6 +896,8 @@
         href: peoplecart-tutorial.md
       - name: Perception United States (Non-UltiPro)
         href: perceptionunitedstates-tutorial.md
+      - name: Perceptyx
+        href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
       - name: PerformanceCentre
@@ -1339,6 +1352,8 @@
         href: zoho-mail-tutorial.md
       - name: Zoho One
         href: zohoone-tutorial.md
+      - name: Zoom
+        href: zoom-tutorial.md
       - name: Zscaler
         href: zscaler-tutorial.md
       - name: Zscaler Beta
@@ -1359,6 +1374,13 @@
         href: zscaler-zscloud-tutorial.md
       - name: Zwayam
         href: zwayam-tutorial.md
+  - name: User provisioning tutorials
+    expanded: true
+    items:
+    - name: 0 - 9
+      items:
+      - name: 4me
+        href: 4me-provisioning-tutorial.md
   - name: User provisioning tutorials
     expanded: true
     items:
@@ -1400,6 +1422,8 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Envoy
+        href: envoy-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
@@ -1454,4 +1478,5 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
-
+      - name: Zoom
+        href: zoom-provisioning-tutorial.md

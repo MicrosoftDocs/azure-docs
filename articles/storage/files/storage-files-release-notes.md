@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 6/13/2019
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,7 +20,8 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| May 2019 update rollup - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | May 7, 2019 | Supported (recommended version) |
+| June 2019 update rollup - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | June 13, 2019 | Supported (recommended version) |
+| May 2019 update rollup - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | May 7, 2019 | Supported |
 | V6 Release - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | April 21, 2019 | Supported |
 | April 2019 update rollup - [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | April 4, 2019 | Supported |
 | March 2019 update rollup - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | March 7, 2019 | Supported |
@@ -36,6 +37,14 @@ The following versions are supported for the Azure File Sync agent:
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 6.2.0.0
+The following release notes are for version 6.2.0.0 of the Azure File Sync agent released June 13, 2019. These notes are in addition to the release notes listed for version 6.0.0.0.
+
+List of issues fixed in this release:  
+- After creating a server endpoint, High CPU usage may occur when background recall is downloading files to the server
+- Sync and cloud tiering operations may fail with error ECS_E_SERVER_CREDENTIAL_NEEDED due to token expiration
+- Recalling a file may fail if the URL to download the file contains reserved characters 
 
 ## Agent version 6.1.0.0
 The following release notes are for version 6.1.0.0 of the Azure File Sync agent released May 6, 2019. These notes are in addition to the release notes listed for version 6.0.0.0.

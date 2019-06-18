@@ -50,13 +50,13 @@ Selecting the right Azure AD capabilities for cloud governed management depends 
 
 ## Cloud governed management for AD-integrated applications
 
-Azure AD improves the management for an organization's on-premises Active Directory-integrated applications through secure remote access and conditional access to those applications. In addition, Azure AD also provides account lifecycle management and credential management for the user's existing AD accounts, including:
+Azure AD improves the management for an organization's on-premises Active Directory-integrated applications through secure remote access and Conditional Access to those applications. In addition, Azure AD also provides account lifecycle management and credential management for the user's existing AD accounts, including:
 
-* **Secure remote access and conditional access for on-premises applications**
+* **Secure remote access and Conditional Access for on-premises applications**
 
 For many organizations, the first step in managing access from the cloud for on-premises AD-integrated web and remote desktop-based applications is to deploy the [application proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) in front of those applications to provide secure remote access.
 
-After a single sign-on to Azure AD, users can access both cloud and on-premises applications through an external URL or an internal application portal. For example, Application Proxy  provides remote access and single sign-on to Remote Desktop, SharePoint, as well as apps such as Tableau and Qlik, and line of business (LOB) applications. Furthermore, conditional access policies can include displaying the [terms of use](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) and [ensuring the user has agreed to them](https://docs.microsoft.com/azure/active-directory/conditional-access/require-tou) before being able to access an application.
+After a single sign-on to Azure AD, users can access both cloud and on-premises applications through an external URL or an internal application portal. For example, Application Proxy  provides remote access and single sign-on to Remote Desktop, SharePoint, as well as apps such as Tableau and Qlik, and line of business (LOB) applications. Furthermore, Conditional Access policies can include displaying the [terms of use](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) and [ensuring the user has agreed to them](https://docs.microsoft.com/azure/active-directory/conditional-access/require-tou) before being able to access an application.
 
 ![App Proxy architecture](media/cloud-governed-management-for-on-premises/image2.png)
 
@@ -64,7 +64,7 @@ After a single sign-on to Azure AD, users can access both cloud and on-premises 
 
 Identity governance helps organizations achieve a balance between *productivity* --- how quickly can a person have access to the resources they need, such as when they join the organization? --- and *security* --- how should their access change over time, such as when that person's employment status changes? Identity lifecycle management is the foundation for identity governance, and effective governance at scale requires modernizing the identity lifecycle management infrastructure for applications.
 
-For many organizations, identity lifecycle for employees is tied to the representation of that user in a human capital management (HCM) system. For organizations using Workday as their HCM system, Azure AD can ensure user accounts in AD are [automatically provisioned and deprovisioned for workers in Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial). Doing so leads to improved user productivity through automation of birthright accounts and manages risk by ensuring application access is automatically updated when a user changes roles or leaves the organization. The Workday-driven user provisioning deployment plan (<https://aka.ms/WorkdayDeploymentPlan>) is a step-by-step guide that walks organizations through the best practices implementation of Workday to Active Directory User Provisioning solution in a five-step process.
+For many organizations, identity lifecycle for employees is tied to the representation of that user in a human capital management (HCM) system. For organizations using Workday as their HCM system, Azure AD can ensure user accounts in AD are [automatically provisioned and deprovisioned for workers in Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial). Doing so leads to improved user productivity through automation of birthright accounts and manages risk by ensuring application access is automatically updated when a user changes roles or leaves the organization. The Workday-driven user provisioning [deployment plan](https://aka.ms/WorkdayDeploymentPlan) is a step-by-step guide that walks organizations through the best practices implementation of Workday to Active Directory User Provisioning solution in a five-step process.
 
 Azure AD Premium also includes Microsoft Identity Manager, which can import records from other on-premises HCM systems, including SAP, Oracle eBusiness, and Oracle PeopleSoft.
 
@@ -73,7 +73,7 @@ Business-to-business collaboration increasingly requires granting access to peop
 Azure AD can [automatically create accounts in AD for guest users](https://docs.microsoft.com/azure/active-directory/b2b/hybrid-cloud-to-on-premises) as needed, enabling business guests to access on-premises AD-integrated applications without needing another password. Organizations can set up [multi-factor authentication (MFA) policies for guest user](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)s so MFA checks are done during application proxy authentication. Also, any [access reviews](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) that are done on cloud B2B users apply to on-premises users. For example, if the cloud user is deleted through lifecycle management policies, the on-premises user is also deleted.
 
 **Credential management for Active Directory accounts**
-Azure AD's self-service password reset allows users who have forgotten their passwords to be reauthenticated and reset their passwords, with the changed passwords [written to on-premises Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback). The password reset process can also use the on-premises Active Directory password policies: When a user resets their password, it's checked to ensure it meets the on-premises Active Directory policy before committing it to that directory. The self-service password reset deployment plan at <https://aka.ms/deploymentplans/sspr> outlines best practices to roll out self-service password reset to users via web and Windows-integrated experiences.
+Azure AD's self-service password reset allows users who have forgotten their passwords to be reauthenticated and reset their passwords, with the changed passwords [written to on-premises Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback). The password reset process can also use the on-premises Active Directory password policies: When a user resets their password, it's checked to ensure it meets the on-premises Active Directory policy before committing it to that directory. The self-service password reset [deployment plan](https://aka.ms/deploymentplans/sspr) outlines best practices to roll out self-service password reset to users via web and Windows-integrated experiences.
 
 ![Azure AD SSPR architecture](media/cloud-governed-management-for-on-premises/image3.png)
 
@@ -83,13 +83,13 @@ When an organization is ready to move an AD-integrated application to the cloud 
 
 ![Azure AD Domain Services](media/cloud-governed-management-for-on-premises/image4.png)
 
-## [Cloud governed management for on-premises federation-based applications]{.underline}
+## Cloud governed management for on-premises federation-based applications
 
-For an organization that already uses an on-premises identity provider, moving applications to Azure AD enables more secure access and an easier administrative experience for federation management. Azure AD enables configuring granular per-application access controls, including Azure Multi-Factor Authentication, by using Azure AD conditional access. Azure AD supports more capabilities, including application-specific token signing certificates and configurable certificate expiration dates. These capabilities, tools, and guidance enable organizations to retire their on-premises identity providers. Microsoft's own IT, for one example, has moved 17,987 applications from Microsoft's internal Active Directory Federation Services (AD FS) to Azure AD.
+For an organization that already uses an on-premises identity provider, moving applications to Azure AD enables more secure access and an easier administrative experience for federation management. Azure AD enables configuring granular per-application access controls, including Azure Multi-Factor Authentication, by using Azure AD Conditional Access. Azure AD supports more capabilities, including application-specific token signing certificates and configurable certificate expiration dates. These capabilities, tools, and guidance enable organizations to retire their on-premises identity providers. Microsoft's own IT, for one example, has moved 17,987 applications from Microsoft's internal Active Directory Federation Services (AD FS) to Azure AD.
 
 ![Azure AD evolution](media/cloud-governed-management-for-on-premises/image5.png)
 
-To begin migrating federated applications to Azure AD as the identity provider, refer to,  that, includes links to:
+To begin migrating federated applications to Azure AD as the identity provider, refer to https://aka.ms/migrateapps that includes links to:
 
 * The white paper [Migrating Your Applications to Azure Active Directory](https://aka.ms/migrateapps/whitepaper), which presents the benefits of migration and describes how to plan for migration in four clearly-outlined phases: discovery, classification, migration, and ongoing management. You'll be guided through how to think about the process and break down your project into easy-to-consume pieces. Throughout the document are links to important resources that will help you along the way.
 
@@ -107,7 +107,7 @@ Organizations can automate the access lifecycle process through technologies suc
 
 ## Future directions
 
-In hybrid environments, Microsoft's strategy is to enable deployments where the cloud is the control plane for identity**,** and on-premises directories and other identity systems, such as Active Directory and other on-premises applications, are the target for provisioning users with access. This strategy will continue to ensure the rights, identities, and access in those applications and workloads that rely upon them. At this end state, organizations will be able to drive end-user productivity entirely from the cloud.
+In hybrid environments, Microsoft's strategy is to enable deployments where the **cloud is the control plane for identity**, and on-premises directories and other identity systems, such as Active Directory and other on-premises applications, are the target for provisioning users with access. This strategy will continue to ensure the rights, identities, and access in those applications and workloads that rely upon them. At this end state, organizations will be able to drive end-user productivity entirely from the cloud.
 
 ![Azure AD architecture](media/cloud-governed-management-for-on-premises/image6.png)
 
