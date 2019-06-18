@@ -86,7 +86,7 @@ The `voice` element is required. It is used to specify the voice that is used fo
 
 ## Use multiple voices
 
-Within the `speak` element, you can specify multiple voices for text-to-speech output. For each voice, the text must be wrapped in a `voice` element.
+Within the `speak` element, you can specify multiple voices for text-to-speech output. These voices can be in different languages. For each voice, the text must be wrapped in a `voice` element.
 
 **Attributes**
 
