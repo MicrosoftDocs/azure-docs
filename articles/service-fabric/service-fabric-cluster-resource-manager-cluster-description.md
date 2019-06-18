@@ -212,7 +212,7 @@ Because both approaches have strengths and weaknesses, we've introduced an adapt
 > Cluster Resource Manager should use the “quorum based” logic for a service both of these conditions are true:
 >
 > * **TargetReplicaSetSize** for the service is evenly divisible by the number of fault domains and the number of upgrade domains.
-> * The number of nodes is less than or equal to the number of fault domains multiplied by the number of upgrade domains
+> * The number of nodes is less than or equal to the number of fault domains multiplied by the number of upgrade domains.
 >
 > Bear in mind that Cluster Resource Manager will use this approach for both stateless and stateful services, even though quorum loss isn't relevant for stateless services.
 
