@@ -27,8 +27,6 @@
         items:
         - name: .NET
           href: sql-api-get-started.md
-        - name: .NET Core
-          href: sql-api-dotnetcore-get-started.md
         - name: Java
           href: sql-api-java-get-started.md
         - name: Async Java

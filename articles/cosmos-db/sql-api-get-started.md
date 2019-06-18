@@ -55,6 +55,10 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 1. On the **File** menu, select **New**, and then choose **Project**.
 1. In the **New Project** dialog, select **Visual C#** / **Console App (.NET Framework)**, name your project, and then click **OK**.
     ![Screenshot of the New Project window](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
+
+> [!NOTE]
+> For .NET core target, in the **New Project** dialog, select **Visual C#** / **Console App (.NET Core)**, name your project, and then click **OK**
+
 1. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
 
     ![Screenshot of the Right Clicked Menu for the Project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)

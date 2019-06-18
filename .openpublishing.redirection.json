@@ -1556,18 +1556,18 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cosmos-db/sql-api-dotnet-application-preview.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
+      "source_path": "articles/cosmos-db/sql-api-dotnet-get-started-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started.md",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/search/search-fiddler.md",
-      "redirect_url": "/azure/search/search-get-started-postman",
+      "source_path": "articles/cosmos-db/sql-api-dotnet-core-get-started-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started.md",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/search/search-create-index-rest-api.md",
-      "redirect_url": "/azure/search/search-get-started-powershell",
+      "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started.md",
       "redirect_document_id": false
     },
     {
