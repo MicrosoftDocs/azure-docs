@@ -123,27 +123,27 @@ You might observe the following behaviors when manual detection isn't working:
 
 - The manual capture process appeared to work, but the captured fields aren't correct.
 
-- The correct fields don’t get highlighted when the capture process happens.
+- The correct fields don’t get highlighted when the capture process runs.
 
 - The capture process takes you to the app’s sign-in page as expected, but nothing happens.
 
 - Manual capture appears to work, but SSO doesn’t happen when users navigate to the app from Access Panel.
 
-If you experience any of these behaviors, do the following things:
+If you experience any of these problems, do the following things:
 
-- Make sure that you have the latest version of the Access Panel browser extension *installed* and *enabled*. See [Install the Access Panel Browser extension](#install-the-access-panel-browser-extension) section of this article.
+- Make sure that you have the latest version of the Access Panel browser extension *installed and enabled*. See [Install the Access Panel Browser extension](#install-the-access-panel-browser-extension) section of this article.
 
-- Make sure that your browser isn't in *incognito*, *inPrivate*, or *Private* during the capture process. The Access Panel extension isn't supported in these modes.
+- Make sure that your browser isn't in *incognito*, *inPrivate*, or *Private* mode during the capture process. The Access Panel extension isn't supported in these modes.
 
-- Make sure that your users aren't trying to sign in to the app from Access Panel while in *incognito*, *inPrivate*, or *Private mode*. The Access Panel extension isn't supported in these modes.
+- Make sure that your users aren't trying to sign in to the app from Access Panel while in *incognito*, *inPrivate*, or *Private mode*.
 
-- Try the manual capture process again, and make sure that the red markers are over the correct fields.
+- Try the manual capture process again. Make sure that the red markers are over the correct fields.
 
-- If the manual capture process seems to stop responding or the sign-in page doesn’t do anything (case 3 above), try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Then, open the **console**. Type **window.location="*the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that have been captured.
+- If the manual capture process seems to stop responding or the sign-in page doesn’t do anything (case 3 above), try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Then, open the **console**. Type **window.location="*the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that were captured.
 
 ### Contact support
 
-If you still have problems, open a Microsoft Support case. Describe what you tried, as well as the details that are listed in the [View portal notification details](#view-portal-notification-details) and [send-notification-details-to-a-support-engineer-to-get-help](#get-help-by-sending-notification-details-to-a-support-engineer) sections (if applicable).
+If you still have problems, open a case with Microsoft Support. Describe what you tried, and include details that are listed in the [View portal notification details](#view-portal-notification-details) and [Send notification details to a support engineer to get help](#send-notification-details-to-a-support-engineer-to-get-help) sections of this article (if applicable).
 
 ## Install the Access Panel browser extension
 
@@ -155,15 +155,15 @@ Follow these steps:
 
 3. When you're prompted to install the software, select **Install Now**.
 
-4. You'll be directed to a download link that's based on your browser. **Add** the extension to your browser.
+4. You'll be directed to a download page that's based on your browser. **Add** the extension to your browser.
 
 5. If you're prompted, select **Enable** or **Allow**.
 
-6. After the installation, *restart* your browser.
+6. After the installation, restart your browser.
 
 7. Sign in to Access Panel. See if you can open your password-SSO-enabled apps.
 
-You can also directly download the extension for Chrome and Firefox through these links:
+You can also directly download the browser extension for Chrome and Firefox through these links:
 
 -   [Chrome Access Panel extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
@@ -182,73 +182,71 @@ To see the details of any portal notification, follow these steps:
 
 3. The **Notification Details** pane opens. Read the information to learn about the problem.
 
-5. If you still need help, you can share the information with a support engineer or the product group.
+5. If you still need help, share the information with a support engineer or the product group. Select the **copy** icon to the right of the **Copy error** box to copy the notification details to share.
 
-Select the **copy** icon to the right of the **Copy error** box to copy the notification details to share.
+## Send notification details to a support engineer to get help
 
-## Sending notification details to a support engineer to get help
-
-It's important that you share *all* the details that are listed in this section with support, so that they can help you quickly. You can also take a screenshot or select **Copy error**.
+It's important that you share *all* the details that are listed in this section with support so that they can help you quickly. To record it, you can also a screenshot or select **Copy error**.
 
 The following information explains what each notification item means and gives example.
 
 ### Essential notification items
 
-- **Title**: the descriptive title of the notification
+- **Title**: the descriptive title of the notification.
 
    Example: *Application proxy settings*
 
-- **Description**: what occurred as a result of the operation
+- **Description**: what occurred as a result of the operation.
 
    Example: *Internal URL entered is already being used by another application.*
 
-- **Notification ID**: the unique ID of the notification
+- **Notification ID**: the unique ID of the notification.
 
     Example: *clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068*
 
-- **Client Request ID**: the specific request ID that your browser made
+- **Client Request ID**: the specific request ID that your browser made.
 
     Example: *302fd775-3329-4670-a9f3-bea37004f0bc*
 
-- **Time Stamp UTC**: the timestamp of when the notification occurred, in UTC
+- **Time Stamp UTC**: the timestamp of when the notification occurred, in UTC.
 
     Example: *2017-03-23T19:50:43.7583681Z*
 
-- **Internal Transaction ID**: the internal ID that's used to look up the error in our systems
+- **Internal Transaction ID**: the internal ID that's used to look up the error in our systems.
 
     Example: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
-- **UPN**: The user who ran the operation
+- **UPN**: The user who ran the operation.
 
     Example: *tperkins\@f128.info*
 
-- **Tenant ID**: the unique ID of the tenant that the user who did the operation is a member of
+- **Tenant ID**: the unique ID of the tenant that the user who ran the operation is a member of.
 
     Example: *7918d4b5-0442-4a97-be2d-36f9f9962ece*
 
-- **User object ID**: The unique ID of the user who ran the operation
+- **User object ID**: The unique ID of the user who ran the operation.
 
     Example: *17f84be4-51f8-483a-b533-383791227a99*
 
 ### Detailed notification items
 
-- **Display Name**: (can be empty) a more detailed display name for the error
+- **Display Name**: (can be empty) a more-detailed display name for the error.
 
     Example: *Application proxy settings*
 
-- **Status**: the specific status of the notification
+- **Status**: the specific status of the notification.
 
     Example: *Failed*
 
-- **Object ID**: (can be empty) the object ID against which the operation was run
+- **Object ID**: (can be empty) the object ID against which the operation was run.
 
     -   Example: *8e08161d-f2fd-40ad-a34a-a9632d6bb599*
 
-- **Details**: the detailed description of what occurred as a result of the operation
+- **Details**: the detailed description of what occurred as a result of the operation.
 
     Example: *Internal url '<https://bing.com/>' is invalid since it is already in use.*
 
-- **Copy error**: Enables you to select the **copy icon** to the right of the **Copy error** textbox to copy the notification details to help with support
+- **Copy error**: Enables you to select the **copy icon** to the right of the **Copy error** textbox to copy the notification details to help with support.
 
     Example: 
     ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
