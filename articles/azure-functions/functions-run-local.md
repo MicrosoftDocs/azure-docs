@@ -65,6 +65,8 @@ The following steps use npm to install Core Tools on Windows. You can also use [
     npm install -g azure-functions-core-tools
     ```
 
+   It may take a few minutes for npm to download and install the Core Tools package.
+
 1. If you do not plan to use [extension bundles], install the [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS with Homebrew
