@@ -131,7 +131,7 @@ Copy-Only Full |  Secondary
 
 If you didn't create the SQL Server VM in the Azure Marketplace or if you are on SQL 2008 and 2008 R2, you might receive a **UserErrorSQLNoSysadminMembership** error.
 
-For giving permissions in case of **SQL 2008** and **2008 R2** running on Windows 2008 R2, refer here.
+For giving permissions in case of **SQL 2008** and **2008 R2** running on Windows 2008 R2, refer [here](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 
 For all other versions, fix permissions with the following steps:
 
