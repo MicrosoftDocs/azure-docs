@@ -1,5 +1,5 @@
 ---
-title: 'Create and monitor Apache Storm topology in Azure HDInsight'
+title: 'Quickstart: Create and monitor Apache Storm topology in Azure HDInsight'
 description: In the quickstart, learn how to create and monitor an Apache Storm topology in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -33,7 +33,7 @@ In this quickstart, you use an example from the Apache [storm-starter](https://g
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. The **WordCount** example is included on your HDInisght cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`. The topology generates random sentences and counts how many times words occur. Use the following command to start the **wordcount** topology on the cluster:
+2. The **WordCount** example is included on your HDInsight cluster at `/usr/hdp/current/storm-client/contrib/storm-starter/`. The topology generates random sentences and counts how many times words occur. Use the following command to start the **wordcount** topology on the cluster:
 
     ```bash
     storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
