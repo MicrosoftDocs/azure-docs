@@ -243,76 +243,80 @@ To review changes made by the scripts, you can export the profiles. This way you
 
 Run the Intune data export script `DeviceConfiguration_Export.ps1` from the [DeviceConfiguration GiuHub repository](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) to export all current Intune profiles.
 
-\***
-
 ## Additional configurations and hardening to consider
 
-The guidance provided has enabled a secured workstation, additional controls should also be considered, such as alternate browsers access, outbound HTTP allowed and blocked websites, and the ability to run custom PowerShell script.
+By following the guidance here, you've deployed a secure workstation. However, you also should consider additional controls. For example:
+
+* access to alternate browsers
+* allowed outbound HTTP
+* blocked websites
+* permissions for running custom PowerShell scripts
 
 ### Restrictive inbound, and outbound rules in firewall configuration service provider (CSP)
 
-Additional management of both inbound, and outbound rules can be updated to reflect your permitted and blocked endpoints. As we continue to harden the secure workstation, we move the restriction to a deny all inbound and outbound as default, and add permitted sites for the outbound to reflect common and trusted web sites. The additional configuration information for the Firewall configuration service provider can be found in the article [Firewall CSP](https://docs.microsoft.com/Windows/client-management/mdm/firewall-csp).
+You can make additional changes to the management of both inbound and outbound rules as needed for your permitted and blocked endpoints. As you continue to harden the secure workstation, you can loosen the restriction that denies all inbound and outbound traffic. You might add permitted outbound sites to include common and trusted websites. For more information, see [Firewall configuration service](https://docs.microsoft.com/Windows/client-management/mdm/firewall-csp).
 
 Default restricted recommendations are:
 
 * Deny All inbound
 * Deny All outbound
 
-The Spamhaus Project maintains a good list that organizations can use as a starting point for blocking sites known as [The Domain Block List (DBL)](https://www.spamhaus.org/dbl/).
+The Spamhaus Project maintains [the Domain Block List (DBL)](https://www.spamhaus.org/dbl/): a good resource to use as a starting point for blocking sites.
 
 ### Managing local applications
 
-Removing local applications, including the removal of productivity applications will move the secure workstation to a truly hardened state. In our example, we will add Chrome as the default browser and restrict the ability to modify the browser including plug-ins using Intune.
+The secure workstation moves to a truly hardened state when local applications are remove, including productivity applications. Here, you add Chrome as the default browser and use Intune to limit a user's ability to modify the browser and its plug-ins.
 
 #### Deploy applications using Intune
 
-In some situations, applications like the Google Chrome browser are required on the secured workstation. The following example provides instructions to install Chrome to devices in the security group **Secure Workstations** created earlier.
+In some situations, applications like the Google Chrome browser are required on the secured workstation. The following example provides instructions to install Chrome to devices in the security group **Secure Workstations**.
 
-1. Download the offline installer [Chrome bundle for Windows 64‑bit](https://cloud.google.com/chrome-enterprise/browser/download/)
-1. Extract the files and make note of the location of the `GoogleChromeStandaloneEnterprise64.msi` to install using Intune
-1. In the **Azure portal** browse to **Microsoft Intune** > **Client apps** > **Apps** > **Add**
-1. Under **App type**, choose **Line-of-business**
-1. Under **App package file**, select the `GoogleChromeStandaloneEnterprise64.msi` from the extracted location and click **OK**
-1. Under **App information**, provide a description and publisher and choose **OK**
-1. Click **Add**
-1. On the **Assignments** select **Available for enrolled devices** under **Assignment type**
-1. Under **Included Groups**, add the **Secure Workstations** group created earlier
-1. Click **OK** then **Save**
+1. Download the offline installer [Chrome bundle for Windows 64‑bit](https://cloud.google.com/chrome-enterprise/browser/download/).
+1. Extract the files and make note of the location of the `GoogleChromeStandaloneEnterprise64.msi` file.
+1. In the **Azure portal** browse to **Microsoft Intune** > **Client apps** > **Apps** > **Add**.
+1. Under **App type**, choose **Line-of-business**.
+1. Under **App package file**, select the `GoogleChromeStandaloneEnterprise64.msi` file from the extracted location and select **OK**.
+1. Under **App information**, provide a description and a publisher. Select **OK**.
+1. Select **Add**.
+1. On the **Assignments** select **Available for enrolled devices** under **Assignment type**.
+1. Under **Included Groups**, add the **Secure Workstations** group.
+1. Select **OK**, and then select **Save**.
 
-Additional guidance on configuring Chrome settings can be found in their support article [Manage Chrome Browser with Microsoft Intune](https://support.google.com/chrome/a/answer/9102677).
+For more guidance on configuring Chrome settings, see [Manage Chrome Browser with Microsoft Intune](https://support.google.com/chrome/a/answer/9102677).
 
 #### Configuring the company portal for custom apps
 
-In a secured mode, installing applications will be restricted to the Intune company portal. However, installing the portal requires access to Microsoft Store. In our secured solution, we will make the portal available to all devices using an offline mode of the company portal.
+In a secured mode, application installation is restricted to the Intune company portal. However, installing the portal requires access to Microsoft Store. In your secured solution, you can make the company portal available to all devices through an offline mode.
 
-Installing an Intune managed copy of the [Company Portal](https://docs.microsoft.com/Intune/store-apps-company-portal-app) will permit the ability to push down additional tools on demand to users of the secured workstations.
+An Intune-managed copy of the [Company Portal](https://docs.microsoft.com/Intune/store-apps-company-portal-app) gives you on-demand access to additional tools that you can push down to users of the secured workstations.
 
-Some organizations may be required to install Windows 32-bit apps or apps that require other preparations to deploy. For these applications, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) will provide a ready to use `.intunewin` format file for installation.
+You might need to install Windows 32-bit apps or other apps whose deployment require special preparations. In such cases, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) can provide a ready-to-use `.intunewin` format file for installation.
 
 ### Setting up custom settings using PowerShell
 
-We will also use an example of using PowerShell to provide extensibility in managing the host. The script will set up a default background on the host. This capability is also available in profiles, and is only used to illustrate the capability.
+You can also use PowerShell to extend host management capabilities. This example script sets up a default background on the host. It's a capability that's also available through the Azure portal and profiles. The example script serves only to illustrate the PowerShell functionality.
 
-In the solution there may be a need to set up some custom controls, and settings on secure workstations. In our example, we will change the background of the workstation using Powershell to be able to easily identify the device as a secure workstation ready for use. While our example will use PowerShell to complete this task, it can also be completed in the Azure portal.
+You might need to set up some custom controls and settings on your secure workstations. This example changes the background of the workstation by using Powershell's ability to easily identify the device as a ready-to-use, secure workstation.
 
-Our example will use the following [free generic background image](https://i.imgur.com/OAJ28zO.png) and the [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcenter/Set-Desktop-Image-using-5430c9fb/) from the Microsoft Scripting Center to allow Windows to load the background on start.
+The [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcenter/Set-Desktop-Image-using-5430c9fb/) script from the Microsoft Scripting Center allows Windows to load this [free generic background image](https://i.imgur.com/OAJ28zO.png) on start up.
 
-1. Download the script to a local device
-1. Update the customerXXXX, and the download location of the background you are looking to use in the script to reflect the background file, and folder that you would like the deployment to use. In our example, we replace customerXXXX to backgrounds.  
-1. Browse to the **Azure portal** > **Microsoft Intune** > **Device configuration** > **PowerShell scripts** > **Add**
-1. Provide a **Name** for the script and specify the **Script location** where you downloaded it to
-1. Select **Configure**
-   1. Set **Run this script using the logged on credentials**, to **Yes**
-   1. Click **OK**
-1. Click **Create**
-1. Select **Assignments** > **Select groups**
-   1. Add the security group **Secure Workstations** created earlier and click **Save**
+1. Download the script to a local device.
+1. Update the customerXXXX and the download location of the background image and folder. In our example, we replace customerXXXX to backgrounds.  
+1. Browse to the **Azure portal** > **Microsoft Intune** > **Device configuration** > **PowerShell scripts** > **Add**.
+1. Provide a **Name** for the script and specify the **Script location**.
+1. Select **Configure**.
+   1. Set **Run this script using the logged on credentials** to **Yes**.
+   1. Select **OK**.
+1. Select **Create**.
+1. Select **Assignments** > **Select groups**.
+   1. Add the security group **Secure Workstations**.
+   1. Select **Save**.
 
 ### Using the preview: MDM Security Baseline for October 2018
 
-Microsoft Intune has introduced security baseline management feature providing administrators a simple way to enforce a common baseline security posture. The baseline provides a similar means to achieve a locked down Enhanced profile workstation.
+Intune features security baseline management that lets administrators enforce a common, baseline security posture. The baseline describes a unified approach for achieving locked-down, Enhanced profile workstations.
 
-For the secure workstation, implementation this baseline is not used as it will conflict with the secure configuration deployment.
+For your secure workstation in this article, you won't implement this baseline. It conflicts with the secure configuration deployment.
 
 |   |   |   |
 | :---: | :---: | :---: |
@@ -328,34 +332,37 @@ For the secure workstation, implementation this baseline is not used as it will 
 | Data Protection | MSS Legacy | Windows Ink Workspace |
 | Device Guard | Power | Windows PowerShell |
 
-More information about this preview feature can be found in the article [Windows security baseline settings for Intune](https://docs.microsoft.com/Intune/security-baseline-settings-windows).
+For more information about this preview feature, see [Windows security baseline settings for Intune](https://docs.microsoft.com/Intune/security-baseline-settings-windows).
 
 ## Enroll and validate your first device
 
 1. To enroll your device, you need the following information:
-   * **Serial number** - found on the device chassis
+   * **Serial number** - found on the device chassis.
    * **Windows Product ID** - found under **System** > **About** from the Windows Settings menu.
-   * Running [Get-WindowsAutoPilotInfo](https://aka.ms/Autopilotshell) will provide a CSV hash file for device enrollment with all of the required information. 
-      * Run `Get-WindowsAutoPilotInfo – outputfile device1.csv` to output the information as a CSV file that can be imported in to Intune.
+   * You can run [Get-WindowsAutoPilotInfo](https://aka.ms/Autopilotshell) to get a CSV hash file  with all of the required information for device enrollment.
+   
+     Run `Get-WindowsAutoPilotInfo – outputfile device1.csv` to output the information as a CSV file that you can import in to Intune.
 
-   > [!NOTE]
-   > The script will require elevated rights and run as remote signed. You can use the following command to allow the script to run correctly. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
+     > [!NOTE]
+     > The script requires elevated rights. It runs as remote signed. The `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned` command allows the script to run correctly.
 
-   *  You can gather this information by signing in to a Windows 10 version 1809 or higher device to gather the information, or your hardware reseller can provide this information when ordering new devices.
-1. Gather the required information and return to the **Azure portal**. Navigate to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Devices - Manage Windows Autopilot devices**, select **Import**, and choose the CSV file you created or were provided.
-1. Add the now enrolled device to the security group **Secure Workstations** created earlier.
-1. From the Windows 10 device you wish to configure, browse to **Windows Settings** > **Update & Security** > **Recovery**. Choose **Get started** under **Reset this PC** and follow the prompts to reset and reconfigure the device using the profile and compliance policies configured.
+   * You can gather this information by signing in to a Windows 10 version 1809 or higher device. Your hardware reseller can also provide this information.
+1. In the **Azure portal**, go to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Devices - Manage Windows Autopilot devices**, select **Import**, and choose your CSV file.
+1. Add the device to the **Secure Workstations** security group.
+1. On the Windows 10 device you wish to configure, go to **Windows Settings** > **Update & Security** > **Recovery**.
+   1. Choose **Get started** under **Reset this PC**.
+   1. Follow the prompts to reset and reconfigure the device with the profile and compliance policies configured.
 
-After the device has been configured, complete a review and check the configuration. Confirm the first device is configured correctly before continuing your deployment.
+After you have configured the device, complete a review and check the configuration. Confirm that the first device is configured correctly before continuing your deployment.
 
 ## Assignment and monitoring
 
-Assigning device and users will require the mapping of the [selected profiles](https://docs.microsoft.com/intune/device-profile-assign) to your security group and all new users that will be given permission to the service will be required to be added to the security group as well.
+To assign devices and users, you need to map the [selected profiles](https://docs.microsoft.com/intune/device-profile-assign) to your security group. All new users who require permissions to the service must be added to the security group as well.
 
-Monitoring the profiles to can be done using the monitoring [Microsoft Intune profiles](https://docs.microsoft.com/intune/device-profile-monitor).
+You can monitor profiles with [Intune profile monitoring](https://docs.microsoft.com/intune/device-profile-monitor).
 
 ## Next steps
 
-[Microsoft Intune](https://docs.microsoft.com/intune/index) documentation
+Learn more about [Microsoft Intune](https://docs.microsoft.com/intune/index).
 
-[Azure AD](https://docs.microsoft.com/azure/active-directory/index) documentation
+Understand [Azure AD](https://docs.microsoft.com/azure/active-directory/index).
