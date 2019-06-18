@@ -213,7 +213,7 @@ More more snippets and end to end samples, see [Jupyter](https://github.com/Azur
 
 ## <a name="bk_working_with_connector"></a> Working with the connector
 
-You can build the connector from source in Github, or download the uber jars from Maven in the links below.
+You can build the connector from source in GitHub, or download the uber jars from Maven in the links below.
 
 | Spark | Scala | Latest version |
 |---|---|---|
