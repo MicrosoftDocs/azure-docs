@@ -151,9 +151,9 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
 
 ## Fix HTTP status code 403 and 429
 
-YOu get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier.
+You get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier.
 
-## When you receive an HTTP 403 error status code
+### When you receive an HTTP 403 error status code
 
 When you use all those free 1000 endpoint queries or you exceed your pricing tier's monthly transactions quota, you receive an HTTP 403 error status code. 
 
@@ -164,7 +164,7 @@ Solutions for this error include:
 * In the [Azure portal](https://portal.azure.com), on your Language Understanding resource, on the **Resource Management -> Pricing tier**, change your pricing tier to a higher TPS tier. You don't need to do anything in the Language Understanding portal if your resource is already assigned to your Language Understanding app.
 *  If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
 
-## When you receive an HTTP 429 error status code
+### When you receive an HTTP 429 error status code
 
 This status code is returned when your transactions per second exceeds your pricing tier.  
 
