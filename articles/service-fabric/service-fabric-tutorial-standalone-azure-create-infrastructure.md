@@ -111,7 +111,7 @@ Launch two more **Virtual Machines**, being sure to maintain the same settings o
    ping 172.31.20.163
    ```
 
-If your output looks like `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repeated four times then your connection between the instances is working.
+   If your output looks like `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repeated four times then your connection between the instances is working.
 
 3. Now validate that your SMB sharing works with the following command:
 
@@ -119,10 +119,10 @@ If your output looks like `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` 
    net use * \\172.31.20.163\c$
    ```
 
-It should return `Drive Z: is now connected to \\172.31.20.163\c$.` as the output.
+   It should return `Drive Z: is now connected to \\172.31.20.163\c$.` as the output.
 
 
-Now your instances are properly prepared for Service Fabric.
+   Now your instances are properly prepared for Service Fabric.
 
 ## Next steps
 
