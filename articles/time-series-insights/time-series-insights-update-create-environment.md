@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Set up an Azure Time Series Insights Preview environment | Microsoft Docs'
 description: Learn how to set up your environment in Azure Time Series Insights Preview.
 author: ashannon7
@@ -42,7 +42,7 @@ In this section, you create three simulated devices that send data to an Azure I
     | Parameter | Action |
     | --- | --- |
     | **Deployment name** | Enter a unique value for a new resource group. The listed Azure resources are created and assigned to the resource group. |
-    | **Azure subcription** | Select the subscription that you used to create your Time Series Insights environment. |
+    | **Azure subscription** | Select the subscription that you used to create your Time Series Insights environment. |
     | **Azure location** | Select the region that you used to create your Time Series Insights environment. |
     | **Deployment options** | Select **Provision new IoT Hub**. |
  
