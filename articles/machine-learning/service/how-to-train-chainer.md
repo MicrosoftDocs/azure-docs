@@ -15,7 +15,7 @@ ms.date: 06/15/2019
 
 This article shows you how to train and register a Chainer model using Azure Machine Learning service. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network (DNN) built using the [Chainer Python library](https://Chainer.org) running on top of [numpy](https://www.numpy.org/).
 
-Chainer is a high-level neural network API capable of running top of other popular DNN frameworks to simplify development. With Azure Machine Learning service, you can rapidly scale out training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
+Chainer is a high-level neural network API capable of running on top of other popular DNN frameworks to simplify development. With Azure Machine Learning service, you can rapidly scale out training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
 Whether you're developing a Chainer model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
 
@@ -34,7 +34,7 @@ Run this code on either of these environments:
 
     - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
     - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
-    - Download the sample script file [mnist-chainer.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
+    - Download the sample script file [chainer_mnist.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
      - You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) of this guide on GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
