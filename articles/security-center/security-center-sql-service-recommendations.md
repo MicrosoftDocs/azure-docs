@@ -27,17 +27,18 @@ This topic shows you how to view and implement security recommendations for data
 
    ![Data & storage resources](./media/security-center-monitoring/click-data.png)
 
-    The **Data security** page opens with recommendations and their severity for SQL and storage resources.
+    The **Data security** page opens with recommendations for data resources.
 
      ![Data Resources](./media/security-center-monitoring/sql-overview.png)
-
-    > [!NOTE]
-    > For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
 From this page, you can:
 
 * Click the **Overview** tab lists all the data resources recommendations to be remediated. 
 * Click each tab, and view the recommendations by resource type.
+
+    > [!NOTE]
+    > For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+
 
 ## Remediate a recommendation on a data resource
 
