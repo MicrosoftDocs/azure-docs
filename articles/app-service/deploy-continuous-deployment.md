@@ -45,7 +45,7 @@ For Bitbucket or GitHub, authorize Azure App Service to connect to your reposito
 
 ## Enable continuous deployment 
 
-After you authorize a source control service, configure your app for continuous deployment through the built-in [Kudu App Service build server](#option-1-use-app-service-build-service), or through [Azure Pipelines](#option-2-use-azure-pipelines). 
+After you authorize a source control service, configure your app for continuous deployment through the built-in [Kudu App Service build server](#option-1-use-the-app-service-build-service), or through [Azure Pipelines](#option-2-use-azure-pipelines). 
 
 ### Option 1: Use the App Service build service
 

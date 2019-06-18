@@ -43,9 +43,7 @@ To follow the steps in this how-to guide:
 
 The easiest way to enable local Git deployment for your app with the Kudu App Service build server is to use Azure Cloud Shell. 
 
-You can [configure a deployment user](#option-1-configure-a-deployment-user) to use for deploying all your apps, or you can [deploy with app-level credentials](#option-2-use-app-level-credentials).  
-
-### Option 1: Configure a deployment user
+### Configure a deployment user
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
@@ -61,11 +59,9 @@ Or, to create a new Git-enabled app, run [`az webapp create`](/cli/azure/webapp?
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
-Either command should return a URL like: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Use this URL to deploy your app in the next step.
+Either command returns a URL like: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Use this URL to deploy your app in the next step.
 
-### Option 2: Use app-level credentials
-
-You can enable local Git deployment by using app-level credentials, which Azure App Service automatically generates for every app. 
+Instead of using this account-level URL, you can also enable local Git by using app-level credentials. Azure App Service automatically generates these credentials for every app. 
 
 Get the app credentials by running the following command in the Cloud Shell. Replace \<app-name> and \<group-name> with your app's name and Azure resource group name.
 
@@ -77,7 +73,7 @@ Use the URL that returns to deploy your app in the next step.
 
 ### Deploy the web app
 
-1. Open a local terminal window to your local Git repository, and add an Azure remote. In the command, replace \<url> with the deployment user or app-specific URL that you got from the previous step.
+1. Open a local terminal window to your local Git repository, and add an Azure remote. In the following command, replace \<url> with the deployment user or app-specific URL that you got from the previous step.
    
    ```bash
    git remote add azure <url>
