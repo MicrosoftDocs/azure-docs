@@ -35026,7 +35026,7 @@
     {
       "source_path": "articles/azure-monitor/log-query/portals.md",
       "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/log-analytics-log-search-takeaction.md",
