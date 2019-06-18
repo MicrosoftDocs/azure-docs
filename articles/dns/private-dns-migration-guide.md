@@ -23,7 +23,7 @@ Make sure that you've Az.PrivateDns module for the Azure PowerShell installed. T
 Install-Module -Name Az.PrivateDns -AllowPrerelease
 ```
 
->[!NOTE]
+>[!IMPORTANT]
 >The migration process is fully automated and isn't expected to cause any downtime. However, if you're using Azure DNS private zones (preview) in a critical production environment you should execute below migration process during a planned maintenance time window. Make sure that you don't modify the configuration or record-sets of a private DNS zones while you're running the migration script.
 
 ## Installing the script
@@ -80,7 +80,7 @@ If you find that DNS queries aren't resolving, wait for a few minutes and retry 
 
 ![Confirm Name Resolution](./media/private-dns-migration-guide/confirmresolution-migration-script.png)
 
->[!NOTE]
+>[!IMPORTANT]
 >If because of any reason DNS resolution against the migrated zones isn't working as expected, enter ‘N’ in above step and script will switch the DNS resolution back to legacy zones. Create a support ticket and we can help you with migration of your DNS zones.
 
 ## Cleanup
