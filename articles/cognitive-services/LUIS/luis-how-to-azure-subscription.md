@@ -149,6 +149,10 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
 1. Remember to [assign this endpoint key](#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
 
+## Fix HTTP status code 403 and 429
+
+YOu get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier.
+
 ## When you receive an HTTP 403 error status code
 
 When you use all those free 1000 endpoint queries or you exceed your pricing tier's monthly transactions quota, you receive an HTTP 403 error status code. 
