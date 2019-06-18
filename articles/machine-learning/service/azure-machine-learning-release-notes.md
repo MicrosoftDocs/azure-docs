@@ -38,6 +38,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **Bug fixes and improvements**
   + [Insert fixes and improvements below. Link github issues resolved with this release]
+  + Improve performance of run.create_children
   + In mimic explainer with binary classifier, fix the order of probabilities when teacher probability is used for scaling shap values
 
 ## 2019-06-10
