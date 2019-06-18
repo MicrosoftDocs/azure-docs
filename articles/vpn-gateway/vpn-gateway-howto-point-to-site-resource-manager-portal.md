@@ -7,7 +7,7 @@ tags: azure-resource-manager
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 6/18/2019
 ms.author: cherylmc
 
 ---
@@ -94,7 +94,7 @@ The client address pool is a range of private IP addresses that you specify. The
 2. Click **Configure now** to open the configuration page.
 
    ![Configure now](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. On the **Point-to-site** configuration page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. Click **Save** to validate and save the setting.
+3. On the **Point-to-site** configuration page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration. Click **Save** to validate and save the setting.
 
    ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
