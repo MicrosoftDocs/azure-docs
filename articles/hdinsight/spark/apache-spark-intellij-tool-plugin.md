@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: maxluk
 ---
