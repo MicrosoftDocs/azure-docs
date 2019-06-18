@@ -20,8 +20,6 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 * **IntelliJ IDEA**. This article uses [IntelliJ IDEA Community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
 * **Azure Toolkit for IntelliJ**. See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
-  
-* **WINUTILS.EXE**. [See Problems running Hadoop on Windows](https://wiki.apache.org/hadoop/WindowsProblems).
 
 * **Connect to your HDInsight cluster**. See [Connect to your HDInsight cluster](apache-spark-intellij-tool-plugin.md).
 
