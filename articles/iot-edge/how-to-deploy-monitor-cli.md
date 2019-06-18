@@ -54,6 +54,7 @@ Here's a basic deployment manifest with one module as an example:
                   "address": ""
                 }
               }
+            }
           },
           "systemModules": {
             "edgeAgent": {
@@ -91,7 +92,7 @@ Here's a basic deployment manifest with one module as an example:
         "properties.desired": {
           "schemaVersion": "1.0",
           "routes": {
-              "route": "FROM /* INTO $upstream"
+            "route": "FROM /* INTO $upstream"
           },
           "storeAndForwardConfiguration": {
             "timeToLiveSecs": 7200
