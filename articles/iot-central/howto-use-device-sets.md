@@ -3,7 +3,7 @@ title: Use device sets in your Azure IoT Central application | Microsoft Docs
 description: As an operator, how to use device sets in your Azure IoT Central application.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 02/05/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
