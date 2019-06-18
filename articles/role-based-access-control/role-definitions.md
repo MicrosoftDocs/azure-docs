@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -47,7 +47,8 @@ The `{action}` portion of an operation string specifies the type of operations y
 | ------------------- | ------------------- |
 | `*` | The wildcard character grants access to all operations that match the string. |
 | `read` | Enables read operations (GET). |
-| `write` | Enables write operations (PUT, POST, and PATCH). |
+| `write` | Enables write operations (PUT or POST). |
+| `action` | Typically enables update operations (PATCH). |
 | `delete` | Enables delete operations (DELETE). |
 
 Here's the [Contributor](built-in-roles.md#contributor) role definition in JSON format. The wildcard (`*`) operation under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The operations under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also assign access to resources.
