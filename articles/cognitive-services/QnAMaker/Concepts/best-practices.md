@@ -44,7 +44,7 @@ Your user may enter questions with either a conversational style of text, `How d
 
 ### Good answers
 
-The best answers are simple answers but not too simple. Do not use answers such as `yes` and `no`. If your answer should link to other sources or provide a rich experience with media and links, use [metadata tagging](../how-to/knowledge-base.md#key-knowledge-base-concepts) to distinguish between answers, then [submit the query](../how-to/metadata-generateanswer-usage#generateanswer-request-configuration) with metadata tags in the `strictFilters` property to get the correct answer version.
+The best answers are simple answers but not too simple. Do not use answers such as `yes` and `no`. If your answer should link to other sources or provide a rich experience with media and links, use [metadata tagging](./knowledge-base.md#key-knowledge-base-concepts) to distinguish between answers, then [submit the query](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) with metadata tags in the `strictFilters` property to get the correct answer version.
 
 ## Chit-Chat
 Add chit-chat to your bot, to make your bot more conversational and engaging, with low effort. You can easily add chit-chat data sets from pre-defined personalities when creating your KB, and change them at any time. Learn how to [add chit-chat to your KB](../How-To/chit-chat-knowledge-base.md). 
