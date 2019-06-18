@@ -27,6 +27,9 @@ Alternatively, you could run a completed application. To download a copy, go to 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!NOTE]
+> The code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. We recommend using the asynchronous methods in your own applications to keep them scalable and responsive. For example, you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
+
 ## Prerequisites
 
 The following services, tools, and data are used in this quickstart. 
@@ -91,32 +94,15 @@ For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package an
 {
   "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
   "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
-  "SearchServiceQueryApiKey": "<YOUR-QUERY-API-KEY>",
   "SearchIndexName": "hotels-quickstart"
 }
 ```
 
-## Add namespaces
-
-This tutorial uses types from various namespaces. Add the following namespaces to Program.cs and all other .cs files created for this project.
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Spatial;
-using Newtonsoft.Json;
-```
-
-
 ## 1 - Create index
 
-The hotels index consists of simple and complex fields, where a simple field is "hotel_name" or "description", and complex fields are an address with subfields, or a collection of rooms. When an index includes compex types, isolate the complex field definitions in separate classes.
+The hotels index consists of simple and complex fields, where a simple field is "HotelName" or "Description", and complex fields are an address with subfields, or a collection of rooms. When an index includes complex types, isolate the complex field definitions in separate classes.
 
-1. Add three empty class definitions to your project: address.cs, room.cs, hotel.cs
+1. Add two empty class definitions to your project: address.cs, hotel.cs
 
 1. In address.cs, overwrite the default contents with the following code:
 
@@ -126,7 +112,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
     using Microsoft.Azure.Search.Models;
     using Newtonsoft.Json;
 
-    namespace AzureSearch.hotels_quickstart
+    namespace azure_search_getstarted_dotnet
     {
         public partial class Address
         {
@@ -148,337 +134,170 @@ The hotels index consists of simple and complex fields, where a simple field is 
     }
     ```
 
-1. In room.cs, use the following code for the room class:
+1. In hotel.cs, the class defines the overall structure of the index, including references to the address class.
 
     ```csharp
-    using System;
-    using Microsoft.Azure.Search;
-    using Microsoft.Azure.Search.Models;
-    using Newtonsoft.Json;
-
-    namespace AzureSearch.hotels-quickstart
-    {
-        public partial class Room
+        namespace azure_search_getstarted_dotnet
         {
-            [IsSearchable]
-            [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
-            public string Description { get; set; }
+            using System;
+            using Microsoft.Azure.Search;
+            using Microsoft.Azure.Search.Models;
+            using Newtonsoft.Json;
 
-            [IsSearchable]
-            [Analyzer(AnalyzerName.AsString.FrMicrosoft)]
-            [JsonProperty("Description_fr")]
-            public string DescriptionFr { get; set; }
+            public partial class Hotel
+            {
+                [System.ComponentModel.DataAnnotations.Key]
+                [IsFilterable]
+                public string HotelId { get; set; }
 
-            [IsSearchable, IsFilterable, IsFacetable]
-            public string Type { get; set; }
+                [IsSearchable, IsSortable]
+                public string HotelName { get; set; }
 
-            [IsFilterable, IsFacetable]
-            public double? BaseRate { get; set; }
+                [IsSearchable]
+                [Analyzer(AnalyzerName.AsString.EnLucene)]
+                public string Description { get; set; }
 
-            [IsSearchable, IsFilterable, IsFacetable]
-            public string BedOptions { get; set; }
+                [IsSearchable]
+                [Analyzer(AnalyzerName.AsString.FrLucene)]
+                [JsonProperty("Description_fr")]
+                public string DescriptionFr { get; set; }
 
-            [IsFilterable, IsFacetable]
-            public int SleepsCount { get; set; }
+                [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+                public string Category { get; set; }
 
-            [IsFilterable, IsFacetable]
-            public bool? SmokingAllowed { get; set; }
+                [IsSearchable, IsFilterable, IsFacetable]
+                public string[] Tags { get; set; }
 
-            [IsSearchable, IsFilterable, IsFacetable]
-            public string[] Tags { get; set; }
+                [IsFilterable, IsSortable, IsFacetable]
+                public bool? ParkingIncluded { get; set; }
+
+                [IsFilterable, IsSortable, IsFacetable]
+                public DateTimeOffset? LastRenovationDate { get; set; }
+
+                [IsFilterable, IsSortable, IsFacetable]
+                public double? Rating { get; set; }
+
+                public Address Address { get; set; }
+            }
         }
-    }
     ```
 
-1. In hotel.cs, the class defines the overall structure of the index, including references to the address and rooms classes
+    Attributes on the field determine how it is used in an application. For example, the `IsSearchable` attribute is assigned to every field that should be included in a full text search. In the .NET SDK, the default is to disable field behaviors that are not explicitly enabled.
+
+    Exactly one field in your index of type `string` must be the designated as a *key* field that uniquely identifies each document. In this schema, the key is `HotelId`.
+
+    The index definition above uses a language analyzer for the `description_fr` field because it is intended to store French text. For more information, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
+
+
+### Create a client
+
+Create an instance of the `SearchServiceClient` class. This class has an `Indexes` property, providing all the methods you need to create, list, update, or delete Azure Search indexes.
+
+A `SearchServiceClient` class manages service connections. Share a single instance of `SearchServiceClient` in your application if possible to avoid opening too many connections. Class methods are thread-safe to enable such sharing.
+
+1. In Program.cs, create an instance of the `SearchServiceClient` class using values that are stored in the application's config file (appsettings.json). 
+
+   This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
     ```csharp
-    namespace AzureSearch.hotels-quickstart
+    namespace azure_search_getstarted_dotnet
+
     {
         using System;
         using Microsoft.Azure.Search;
         using Microsoft.Azure.Search.Models;
-        using Microsoft.Spatial;
-        using Newtonsoft.Json;
+        using Microsoft.Extensions.Configuration;
 
-        public partial class Hotel
+        class Program { 
+
+        // This example shows how to delete and create an index
+        static void Main(string[] args)
         {
-            [System.ComponentModel.DataAnnotations.Key]
-            [IsFilterable]
-            public string HotelId { get; set; }
+            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+            IConfigurationRoot configuration = builder.Build();
 
-            [IsSearchable, IsSortable]
-            public string HotelName { get; set; }
+            SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 
-            [IsSearchable]
-            [Analyzer(AnalyzerName.AsString.EnLucene)]
-            public string Description { get; set; }
+            string indexName = configuration["SearchIndexName"];
 
-            [IsSearchable]
-            [Analyzer(AnalyzerName.AsString.FrLucene)]
-            [JsonProperty("Description_fr")]
-            public string DescriptionFr { get; set; }
+            Console.WriteLine("{0}", "Deleting index...\n");
+            DeleteIndexIfExists(indexName, serviceClient);
 
-            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-            public string Category { get; set; }
+            Console.WriteLine("{0}", "Creating index...\n");
+            CreateIndex(indexName, serviceClient);
 
-            [IsSearchable, IsFilterable, IsFacetable]
-            public string[] Tags { get; set; }
+            Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
+            Console.ReadKey();
+            }
 
-            [IsFilterable, IsSortable, IsFacetable]
-            public bool? ParkingIncluded { get; set; }
+        // Create the search service client
+        private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+        {
+            string searchServiceName = configuration["SearchServiceName"];
+            string adminApiKey = configuration["SearchServiceAdminApiKey"];
 
-            // SmokingAllowed reflects whether any room in the hotel allows smoking.
-            // The JsonIgnore attribute indicates that a field should not be created 
-            // in the index for this property and it will only be used by code in the client.
-            [JsonIgnore]
-            public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
+            SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+            return serviceClient;
+        }
 
-            [IsFilterable, IsSortable, IsFacetable]
-            public DateTimeOffset? LastRenovationDate { get; set; }
+        // Delete an existing index to reuse the index name.
+        // Index names must be unique within the service. 
+        private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
+        {
+            if (serviceClient.Indexes.Exists(indexName))
+            {
+                serviceClient.Indexes.Delete(indexName);
+            }
+        }
 
-            [IsFilterable, IsSortable, IsFacetable]
-            public double? Rating { get; set; }
+        // Create a new index. A single call to "Indexes.Create" creates an index. 
+        // This method takes as a parameter an Index object that defines an Azure Search index.
+        // 
+        // Set the Fields property of the Index object to an array of Field objects.
+        // 
+        private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
+        {
+            var definition = new Index()
+            {
+                Name = indexName,
+                Fields = FieldBuilder.BuildForType<Hotel>()
+            };
 
-            public Address Address { get; set; }
-
-            [IsFilterable, IsSortable]
-            public GeographyPoint Location { get; set; }
-
-            public Room[] Rooms { get; set; }
+            serviceClient.Indexes.Create(definition);
         }
     }
+    }    
     ```
 
-1. In Program.cs, create an instance of the `SearchServiceClient` class. This class has an `Indexes` property, providing all the methods you need to create, list, update, or delete Azure Search indexes.
-
-```csharp
-namespace AzureSearch.hotels-quickstart
-
-{
-    using System;
-    using System.Linq;
-    using System.Threading;
-    using Microsoft.Azure.Search;
-    using Microsoft.Azure.Search.Models;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Spatial;
-
-    class Program { 
-
-    // This sample shows how to delete, create, upload documents and query an index
-    static void Main(string[] args)
-    {
-        IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-        IConfigurationRoot configuration = builder.Build();
-
-        SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
-
-        string indexName = configuration["SearchIndexName"];
-
-        Console.WriteLine("{0}", "Deleting index...\n");
-        DeleteIndexIfExists(indexName, serviceClient);
-
-        Console.WriteLine("{0}", "Creating index...\n");
-        CreateIndex(indexName, serviceClient);
-
-        ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
-
-            //Console.WriteLine("{0}", "Uploading documents...\n");
-            //UploadDocuments(indexClient);
-
-        ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(indexName, configuration);
-
-            //RunQueries(indexClientForQueries);
-
-         Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
-         Console.ReadKey();
-        }
-
-        private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
-    {
-        string searchServiceName = configuration["SearchServiceName"];
-        string adminApiKey = configuration["SearchServiceAdminApiKey"];
-
-        SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
-        return serviceClient;
-    }
-
-    private static SearchIndexClient CreateSearchIndexClient(string indexName, IConfigurationRoot configuration)
-    {
-        string searchServiceName = configuration["SearchServiceName"];
-        string queryApiKey = configuration["SearchServiceQueryApiKey"];
-
-        SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, indexName, new SearchCredentials(queryApiKey));
-        return indexClient;
-    }
-
-    private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
-    {
-        if (serviceClient.Indexes.Exists(indexName))
-        {
-            serviceClient.Indexes.Delete(indexName);
-        }
-    }
-
-    private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
-    {
-        var definition = new Index()
-        {
-            Name = indexName,
-            Fields = FieldBuilder.BuildForType<Hotel>()
-        };
-
-        serviceClient.Indexes.Create(definition);
-    }
-  }
-}    
-```
-
-
-## Create a client
-
-Create an instance of the `SearchServiceClient` class. This class has an `Indexes` property, providing all the methods you need to create, list, update, or delete Azure Search indexes.
-
-```csharp
-IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-IConfigurationRoot configuration = builder.Build();
-SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
-```
-
-`CreateSearchServiceClient` creates a new `SearchServiceClient` using values that are stored in the application's config file (appsettings.json). This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
-
-```csharp
-private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
-{
-   string searchServiceName = configuration["SearchServiceName"];
-   string adminApiKey = configuration["SearchServiceAdminApiKey"];
-
-   SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
-   return serviceClient;
-}
-```
-
-The example code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. We recommend that you use the asynchronous methods in your own applications to keep them scalable and responsive. For example, in the examples above you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
-
-> [!NOTE]
-> The `SearchServiceClient` class manages connections to your search service. In order to avoid opening too many connections, you should try to share a single instance of `SearchServiceClient` in your application if possible. Its methods are thread-safe to enable such sharing.
-> 
-> 
-
-## 1 - Create an index
-
-A single call to the `Indexes.Create` method creates an index. This method takes as a parameter an `Index` object that defines an Azure Search index. Create an `Index` object and initialize it as follows:
-
-1. Set the `Name` property of the `Index` object to the name of your index.
-
-1. Set the `Fields` property of the `Index` object to an array of `Field` objects. The easiest way to create the `Field` objects is by calling the `FieldBuilder.BuildForType` method, passing a model class for the type parameter. A model class has properties that map to the fields of your index. This mapping allows you to bind documents from your search index to instances of your model class.
+The easiest way to create the `Field` objects is by calling the `FieldBuilder.BuildForType` method, passing a model class for the type parameter. A model class has properties that map to the fields of your index. This mapping allows you to bind documents from your search index to instances of your model class.
 
 > [!NOTE]
 > If you don't plan to use a model class, you can still define your index by creating `Field` objects directly. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, to name a few.
 >
->
 
-It is important that you keep your search user experience and business needs in mind when designing your index. Each field must be assigned the [attributes](https://docs.microsoft.com/rest/api/searchservice/Create-Index) that control which search features (filtering, faceting, sorting, and so forth) apply to which fields. For any property you do not explicitly set, the `Field` class defaults to disabling the corresponding search feature unless you specifically enable it.
 
-### Define the index schema
+## HEIDI
 
-In this example, the index name is "hotels-csharp" and fields are defined using a model class. Each property of the model class has attributes that determine the search-related behaviors of the corresponding index field. The model class is defined as follows:
+There are several ways to work with an index. You can reference SearchServiceClient + Indexes.GetClient, using the Indexes property off the client.  The following example gets the hotels-quickstart index, which you would do if you were loading documents.
 
-```csharp
-using System;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Microsoft.Spatial;
-using Newtonsoft.Json;
-
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public partial class Hotel
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsFilterable]
-    public string HotelId { get; set; }
-
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
-
-    [IsSearchable]
-    public string Description { get; set; }
-
-    [IsSearchable]
-    [Analyzer(AnalyzerName.AsString.FrLucene)]
-    [JsonProperty("description_fr")]
-    public string DescriptionFr { get; set; }
-
-    [IsSearchable, IsFilterable, IsSortable]
-    public string HotelName { get; set; }
-
-    [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-    public string Category { get; set; }
-
-    [IsSearchable, IsFilterable, IsFacetable]
-    public string[] Tags { get; set; }
-
-    [IsFilterable, IsFacetable]
-    public bool? ParkingIncluded { get; set; }
-
-    [IsFilterable, IsFacetable]
-    public bool? SmokingAllowed { get; set; }
-
-    [IsFilterable, IsSortable, IsFacetable]
-    public DateTimeOffset? LastRenovationDate { get; set; }
-
-    [IsFilterable, IsSortable, IsFacetable]
-    public int? Rating { get; set; }
-
-    [IsFilterable, IsSortable]
-    public GeographyPoint Location { get; set; }
-}
-```
-
-We have carefully chosen the attributes for each property based on how we think they will be used in an application. For example, it's likely that people searching for hotels will be interested in keyword matches on the `description` field, so we enable full-text search for that field by adding the `IsSearchable` attribute to the `Description` property.
-
-Exactly one field in your index of type `string` must be the designated as the *key* field by adding the `Key` attribute (see `HotelId` in the above example).
-
-The index definition above uses a language analyzer for the `description_fr` field because it is intended to store French text. For more information, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
-
-> [!NOTE]
-> By default, the name of each property in your model class corresponds to the field name in the index. If you want to map all property names to camel-case field names, mark the class with the `SerializePropertyNamesAsCamelCase` attribute. If you want to map to a different name, you can use the `JsonProperty` attribute like the `DescriptionFr` property above. The `JsonProperty` attribute takes precedence over the `SerializePropertyNamesAsCamelCase` attribute.
-> 
-> 
-
-### Create the index definition
-
-Now that we've defined a model class, we can create an index definition easily:
+Use the `SearchServiceClient` instance and call its `Indexes.GetClient` method. This snippet obtains a `SearchIndexClient` for the index named "hotels-quickstart" from a `SearchServiceClient` named `serviceClient`.
 
 ```csharp
-var definition = new Index()
-{
-    Name = "hotels-csharp",
-    Fields = FieldBuilder.BuildForType<Hotel>()
-};
+ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels-quickstart");
 ```
 
-### Call Indexes.Create
-Now that you have an initialized `Index` object, create the index by calling `Indexes.Create` on your `SearchServiceClient` object:
+Another approach, which is documented in howto-dotnet-sdk, is to create a class for the index (a SearchIndexClient class). This approach is useful if you need different instances of the class -- such as one for admin operations (create, edit, delete) and one for query operations (one takes an admin key, the second takes a query key). Look in that article for the principle of least privilege NOTE to see why the index class approach is more typical.
 
-```csharp
-serviceClient.Indexes.Create(definition);
-```
 
-For a successful request, the method will return normally. If there is a problem with the request such as an invalid parameter, the method will throw `CloudException`.
 
 ## 2 - Load documents
 
-To import data, you need an instance of the `SearchIndexClient` class. There are several approaches for creating this class, including using the `SearchServiceClient` instance that is already created. 
+There are several methodologies for loading documents into an index. This example uses the `SearchServiceClient` instance that is already created, calling the `Indexes.GetClient` method. T
 
-As the following example illustrates, you can use the `SearchServiceClient` instance and call its `Indexes.GetClient` method. This snippet obtains a `SearchIndexClient` for the index named "hotels" from a `SearchServiceClient` named `serviceClient`.
+This snippet obtains a `SearchIndexClient` for the index named "hotels-quickstart" from a `SearchServiceClient` named `serviceClient`.
 
 ```csharp
-ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels-quickstart");
 ```
 
 `SearchIndexClient` has a `Documents` property. This property provides all the methods you need to add, modify, delete, or query documents in your index.

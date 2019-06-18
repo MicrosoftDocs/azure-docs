@@ -154,6 +154,13 @@ As you define your schema, you must specify the name, type, and attributes of ea
 You can find more detailed information about Azure Search's [supported data types here](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### Index attributes
+
+Exactly one field in your index must be the designated as a *key* field that uniquely identifies each document.
+
+Other attributes determine how a field is used in an application. For example, the Searchable attribute is assigned to every field that should be included in a full text search. 
+
+The APIs you use to build an index have varying default behaviors. For the [REST APIs](https://docs.microsoft.com/rest/api/searchservice/Create-Index), most attributes are enabled by default (for example, Searchable and Retrievable are true for string fields) and you often only need to set them if you want to turn them off. For the .NET SDK, the opposite it true. On any property you do not explicitly set, the default is to disable the corresponding search behavior unless you specifically enable it.
+
 | Attribute | Description |
 | --- | --- |
 | *Key* |A string that provides the unique ID of each document, used for document lookup. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String. |
@@ -163,7 +170,6 @@ You can find more detailed information about Azure Search's [supported data type
 | *Facetable* |Allows a field to be used in a [faceted navigation](search-faceted-navigation.md) structure for user self-directed filtering. Typically fields containing repetitive values that you can use to group multiple documents together (for example, multiple documents that fall under a single brand or service category) work best as facets. |
 | *Searchable* |Marks the field as full-text searchable. |
 
-You can find more detailed information about Azure Search's [index attributes here](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## Storage implications
 
