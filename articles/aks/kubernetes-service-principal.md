@@ -100,9 +100,10 @@ You may use advanced networking where the virtual network and subnet or public I
 - Create a [custom role][rbac-custom-role] and define the following role permissions:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-  - *Microsoft.Network/publicIPAddresses/join/action*
 - Or, assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network
 
 ### Storage

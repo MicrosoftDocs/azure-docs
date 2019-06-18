@@ -519,7 +519,7 @@ is applied, and are specified in [ISO/IEC 23001-7] or [ISO/IEC 14496-12]:
 
 6.  Sample to Group Box (‘sbgp’)
 
------------------------
+---
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

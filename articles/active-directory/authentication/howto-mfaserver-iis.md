@@ -19,6 +19,9 @@ ms.collection: M365-identity-device-management
 
 Use the IIS Authentication section of the Azure Multi-Factor Authentication (MFA) Server to enable and configure IIS authentication for integration with Microsoft IIS web applications. The Azure MFA Server installs a plug-in that can filter requests being made to the IIS web server to add Azure Multi-Factor Authentication. The IIS plug-in provides support for Form-Based Authentication and Integrated Windows HTTP Authentication. Trusted IPs can also be configured to exempt internal IP addresses from two-factor authentication.
 
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+
 ![IIS Authentication in MFA Server](./media/howto-mfaserver-iis/iis.png)
 
 ## Using Form-Based IIS Authentication with Azure Multi-Factor Authentication Server

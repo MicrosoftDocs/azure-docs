@@ -1,0 +1,82 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Machine Learning
+    tocHref: /azure/storage/
+    topicHref: /azure/machine-learning/index
+    items:
+    - name: Team Data Science Process
+      tocHref: /azure/storage/
+      topicHref: /azure/machine-learning/team-data-science-process/index
+      items:
+      - name: Storage
+        tocHref: /azure/storage/blobs/
+        topicHref: /azure/storage/index
+        items:
+        - name: Blobs
+          tocHref: /azure/storage/blobs/
+          topicHref: /azure/storage/blobs/index
+      - name: Storage
+        tocHref: /azure/storage/common/
+        topicHref: /azure/storage/index
+        items:
+        - name: Blobs
+          tocHref: /azure/storage/common/
+          topicHref: /azure/storage/blobs/index
+
+- name: Azure
+  tocHref: /studio/
+  topicHref: /azure/index
+  items:
+  - name: Machine Learning
+    tocHref: /azure/machine-learning/
+    topicHref: /azure/machine-learning/index
+    items:
+    - name: Team Data Science Process
+      tocHref: /azure/machine-learning/
+      topicHref: /azure/machine-learning/team-data-science-process/index
+      items:
+      - name: Studio
+        tocHref: /azure/machine-learning/studio/
+        topicHref: /azure/machine-learning/studio/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Machine Learning
+    tocHref: /azure/hdinsight/
+    topicHref: /azure/machine-learning/index
+    items:
+    - name: Team Data Science Process
+      tocHref: /azure/hdinsight/spark/
+      topicHref: /azure/machine-learning/team-data-science-process/index
+      items:
+      - name: HDInsight
+        tocHref: /azure/hdinsight/spark/
+        topicHref: /azure/hdinsight/index
+        items:
+        - name: Spark
+          tocHref: /azure/hdinsight/spark/
+          topicHref: /azure/hdinsight/spark/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Machine Learning
+    tocHref: /azure/hdinsight/
+    topicHref: /azure/machine-learning/index
+    items:
+    - name: Team Data Science Process
+      tocHref: /azure/hdinsight/spark/
+      topicHref: /azure/machine-learning/team-data-science-process/index
+      items:
+      - name: HDInsight
+        tocHref: /azure/hdinsight/spark/
+        topicHref: /azure/hdinsight/index
+        items:
+        - name: ML Services
+          tocHref: /azure/hdinsight/r-server/
+          topicHref: /azure/hdinsight/r-server/index

@@ -196,7 +196,7 @@ The risky sign-ins report has a default view that shows:
 
 - Risk level (real-time)
 
-- Conditional access
+- Conditional Access
 
 - MFA required  
  
@@ -225,7 +225,7 @@ The details view shows:
 
 - MFA info
 
-- Conditional access
+- Conditional Access
 
 
 
@@ -254,7 +254,7 @@ To narrow down the reported data to a level that works for you, you can filter t
 - Risk state
 - Risk level (aggregate)
 - Risk level (real-time)
-- Conditional access
+- Conditional Access
 - Date
 - Risk level type
 
@@ -295,7 +295,7 @@ The **Risk level (real-time)** filter enables you to select:
 - Low
 
 
-The **Conditional access** filter enables you to select:
+The **Conditional Access** filter enables you to select:
 
 - All
 - Not applied
