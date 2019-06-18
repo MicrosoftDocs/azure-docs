@@ -1,13 +1,13 @@
 ---
-title: Azure Database for PostgreSQL Server vnet services endpoint overview
-description: Learn how VNET service endpoints work for your Azure Database for PostgreSQL server.
+title: Virtual Network (VNet) services endpoint overview in Azure Database for PostgreSQL - Single Server
+description: Learn how Virtual Network (VNet) service endpoints work for Azure Database for PostgreSQL - Single Server.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 5/6/2019
 ---
-# Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
+# Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL - Single Server
 
 *Virtual network rules* are one firewall security feature that controls whether your Azure Database for PostgreSQL server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure Database for PostgreSQL server.
 

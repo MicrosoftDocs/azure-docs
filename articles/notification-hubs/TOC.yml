@@ -4,6 +4,8 @@
   items:
   - name: About Notification Hubs
     href: notification-hubs-push-notification-overview.md
+  - name: Integration with App Service Mobile Apps
+    href: notification-hubs-app-service.md
 - name: Quickstarts
   items:
   - name: Create a notification hub - Azure portal
@@ -14,28 +16,36 @@
   items:
   - name: Android 
     items:
-    - name: Push notifications using Firebase Cloud Messaging
-      href: notification-hubs-android-push-notification-google-fcm-get-started.md
-    - name: Push notifications using Google Cloud Messaging 
-      href: notification-hubs-android-push-notification-google-gcm-get-started.md      
-    - name: Push notifications to specific devices
-      href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-    - name: Push notification to specific users
-      href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-    - name: Push notifications to Xamarin Android apps 
-      href: xamarin-notification-hubs-push-notifications-android-gcm.md
+    - name: Firebase Cloud Messaging
+      items:
+      - name: Push notifications to all registrations
+        href: notification-hubs-android-push-notification-google-fcm-get-started.md
+      - name: Push notifications to specific devices
+        href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
+      - name: Push notifications to specific users
+        href: push-notifications-android-specific-users-firebase-cloud-messaging.md
+      - name: Push notifications to Xamarin Android apps 
+        href: xamarin-notification-hubs-push-notifications-android-gcm.md
+    - name: Google Cloud Message (deprecated)
+      items:      
+      - name: Push notifications to all registrations
+        href: notification-hubs-android-push-notification-google-gcm-get-started.md      
+      - name: Push notifications to specific devices
+        href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+      - name: Push notifications to specific users
+        href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
   - name: Baidu
     items:
     - name: Push notifications using Baidu cloud push
       href: notification-hubs-baidu-china-android-notifications-get-started.md
-  - name: Chrome
-    items:
-    - name: Push notifications to Chrome apps
-      href: notification-hubs-chrome-push-notifications-get-started.md
   - name: iOS
     items:
     - name: Push notifications to iOS apps
-      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+      items:
+      - name: Objective-c
+        href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+      - name: Swift
+        href: notification-hubs-ios-push-notifications-swift-apps-get-started.md
     - name: Push notifications to specific devices
       href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
     - name: Push notifications to specific users

@@ -1,16 +1,22 @@
 ---
-title: Supported versions in Azure Database for PostgreSQL
-description: Describes the supported versions in Azure Database for PostgreSQL.
+title: Supported versions in Azure Database for PostgreSQL - Single Server
+description: Describes the supported versions in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 06/11/2019
 ---
 # Supported PostgreSQL database versions
-Microsoft aims to support n-2 versions of the PostgreSQL engine in the Azure Database for PostgreSQL service. The versions would be the current major version on Azure (n) and the two prior major versions (-2).
+Microsoft aims to support n-2 versions of the PostgreSQL engine in Azure Database for PostgreSQL - Single Server. The versions would be the current major version on Azure (n) and the two prior major versions (-2).
 
 Azure Database for PostgreSQL currently supports the following versions:
+
+## PostgreSQL Version 11.2
+Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/11/static/release-11-2.html) to learn more about improvements and fixes in this minor version.
+
+>[!NOTE]
+> PostgreSQL version 11 is available in preview. Support for creation using the Azure portal is being rolled out and may not yet be available in your region. You can use the [Azure CLI](quickstart-create-server-database-azure-cli.md) to create a Postgres 11 server in any region. For example, `az postgres server create -g group -n server -u username -p password -l westeurope --sku-name GP_Gen5_2 --version 11`.
 
 ## PostgreSQL Version 10.7
 Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/10/static/release-10-7.html) to learn more about improvements and fixes in this minor version.

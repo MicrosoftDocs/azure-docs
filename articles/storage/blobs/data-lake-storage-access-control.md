@@ -22,9 +22,9 @@ Azure Data Lake Storage Gen2 implements an access control model that supports bo
 
 RBAC uses role assignments to effectively apply sets of permissions to *security principals*. A *security principal* is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD) that is requesting access to Azure resources.
 
-Typically, those Azure resources are constrained to top-level resources (For example: Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
+Typically, those Azure resources are constrained to top-level resources (For example: Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the container (file system) resource.
 
-To learn how to assign roles to security principals in the scope of your storage account, see [Authenticate access to Azure blobs and queues using Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn how to assign roles to security principals in the scope of your storage account, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### The impact of role assignments on file and directory level access control lists
 
@@ -33,7 +33,7 @@ While using RBAC role assignments is a powerful mechanism to control access perm
 When a security principal is granted RBAC data permissions through a [built-in role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the security principal's RBAC assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the security principal does not have an RBAC assignment, or the request's operation does not match the assigned permission, then ACL checks are performed to determine if the security principal is authorized to perform the requested operation.
 
 > [!NOTE]
-> If the security principal has been assigned the [Storage Blob Data]() Owner built-in role assignment, then the security principal is considered a *super-user* and is granted full access to all mutating operations, including setting the owner of a directory or file as well as ACLs for directories and files for which they are not the owner. Super-user access is the only authorized manner to change the owner of a resource.
+> If the security principal has been assigned the Storage Blob Data Owner built-in role assignment, then the security principal is considered a *super-user* and is granted full access to all mutating operations, including setting the owner of a directory or file as well as ACLs for directories and files for which they are not the owner. Super-user access is the only authorized manner to change the owner of a resource.
 
 ## Shared Key and Shared Access Signature (SAS) authentication
 
@@ -49,7 +49,7 @@ You can associate a security principal with an access level for files and direct
 
 If you assigned a role to a security principal at the storage account-level, you can use access control lists to grant that security principal elevated access to specific files and directories.
 
-You can't use access control lists to provide a level of access that is lower than a level granted by a role assignment. For example, if you assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) role to a security principal, then you can't use access control lists to prevent that security principal from writing to a directory.
+You can't use access control lists to provide a level of access that is lower than a level granted by a role assignment. For example, if you assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to a security principal, then you can't use access control lists to prevent that security principal from writing to a directory.
 
 ### Set file and directory level permissions by using access control lists
 
@@ -73,8 +73,6 @@ Default ACLs are templates of ACLs associated with a directory that determine th
 
 Both access ACLs and default ACLs have the same structure.
 
-Both access ACLs and default ACLs have the same structure.
-
 > [!NOTE]
 > Changing the default ACL on a parent does not affect the access ACL or default ACL of child items that already exist.
 
@@ -87,6 +85,9 @@ The permissions on a file system object are **Read**, **Write**, and **Execute**
 | **Read (R)** | Can read the contents of a file | Requires **Read** and **Execute** to list the contents of the directory |
 | **Write (W)** | Can write or append to a file | Requires **Write** and **Execute** to create child items in a directory |
 | **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen2 | Required to traverse the child items of a directory |
+
+> [!NOTE]
+> If you are granting permissions by using only ACLs (no RBAC), then to grant a service principal read or write access to a file, you'll need to give the service principal **Execute** permissions to the file system, and to each folder in the hierarchy of folders that lead to the file.
 
 #### Short forms for permissions
 
@@ -146,7 +147,7 @@ The user who created the item is automatically the owning user of the item. An o
 
 #### The owning group
 
-In the POSIX ACLs, every user is associated with a *primary group*. For example, user "Alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
+In the POSIX ACLs, every user is associated with a *primary group*. For example, user "Alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as their primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
 
 ##### Assigning the owning group for a new file or directory
 

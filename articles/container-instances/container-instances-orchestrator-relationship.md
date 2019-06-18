@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -52,7 +52,7 @@ Rather than scaling out the number of virtual machines in your cluster, then dep
 
 ## Sample implementation: virtual nodes for Azure Kubernetes Service (AKS)
 
-To rapidly scale application workloads in an [Azure Kubernetes Service](../aks/intro-kubernetes.md) (AKS) cluster, you can use *virtual nodes* created dynamically in Azure Container Instances. Currently in preview, virtual nodes enable network communication between pods that run in ACI and the AKS cluster. 
+To rapidly scale application workloads in an [Azure Kubernetes Service](../aks/intro-kubernetes.md) (AKS) cluster, you can use *virtual nodes* created dynamically in Azure Container Instances. Virtual nodes enable network communication between pods that run in ACI and the AKS cluster. 
 
 Virtual nodes currently support Linux container instances. Get started with virtual nodes using the [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) or [Azure portal](https://go.microsoft.com/fwlink/?linkid=2047545).
 

@@ -1,20 +1,20 @@
 ---
 title: How to configure multi-master in Azure Cosmos DB
-description: Learn how to configure multi-master in your applications in Azure Cosmos DB
-author: rimman
+description: Learn how to configure multi-master in your applications in Azure Cosmos DB.
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
-ms.author: rimman
+ms.date: 05/23/2019
+ms.author: mjbrown
 ---
 
-# How to configure multi-master in your applications that use Azure Cosmos DB
+# Configure multi-master in your applications that use Azure Cosmos DB
 
-To use multi-master feature in your application, you need to enable multi-region writes and configure the multi-homing capability in Azure Cosmos DB. Multi-homing is configured by setting the region where the application is deployed.
+To use the multi-master feature in your application, you must enable multi-region writes and configure the multi-homing capability in Azure Cosmos DB. To configure multi-homing, pass the name of the region where the application is deployed to the SetCurrentLocation property. Doing this automatically populates the PreferredLocations property based on the geo-proximity from location passed in. If a new region is later added to the account, the application does not have to be updated or redeployed, it will automatically detect the closer region and will auto-home on to it should a regional event occur.
 
 ## <a id="netv2"></a>.NET SDK v2
 
-To enable multi-master in your applications set `UseMultipleWriteLocations` to true, and configure `SetCurrentLocation` to the region in which the application is being deployed and Azure Cosmos DB is replicated.
+To enable multi-master in your application, set `UseMultipleWriteLocations` to `true`. Also, set `SetCurrentLocation` to the region in which the application is being deployed and where Azure Cosmos DB is replicated:
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -28,7 +28,7 @@ policy.SetCurrentLocation("West US 2");
 
 ## <a id="netv3"></a>.NET SDK v3 (preview)
 
-To enable multi-master in your applications configure `UseCurrentRegion` to the region in which the application is being deployed and Cosmos DB is replicated.
+To enable multi-master in your application, set `UseCurrentRegion` to the region in which the application is being deployed and where Cosmos DB is replicated:
 
 ```csharp
 CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
@@ -38,7 +38,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>Java Async SDK
 
-To enable multi-master in your applications set `policy.setUsingMultipleWriteLocations(true)` and configure `policy.setPreferredLocations` to the region in which the application is being deployed and Cosmos DB is replicated.
+To enable multi-master in your application, set `policy.setUsingMultipleWriteLocations(true)` and set `policy.setPreferredLocations` to the region in which the application is being deployed and where Cosmos DB is replicated:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -53,9 +53,9 @@ AsyncDocumentClient client =
         .withConnectionPolicy(policy).build();
 ```
 
-## <a id="javascript"></a>Node.js, JavaScript, TypeScript SDK
+## <a id="javascript"></a>Node.js, JavaScript, and TypeScript SDKs
 
-To enable multi-master in your applications set `connectionPolicy.UseMultipleWriteLocations` to true and configure `connectionPolicy.PreferredLocations` to the region in which the application is being deployed and Cosmos DB is replicated.
+To enable multi-master in your application, set `connectionPolicy.UseMultipleWriteLocations` to `true`. Also, set `connectionPolicy.PreferredLocations` to the region in which the application is being deployed and where Cosmos DB is replicated:
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -72,7 +72,7 @@ const client = new CosmosClient({
 
 ## <a id="python"></a>Python SDK
 
-To enable multi-master in your applications set `connection_policy.UseMultipleWriteLocations` to true and configure `connection_policy.PreferredLocations` to the region in which the application is being deployed and Cosmos DB is replicated.
+To enable multi-master in your application, set `connection_policy.UseMultipleWriteLocations` to `true`. Also, set `connection_policy.PreferredLocations` to the region in which the application is being deployed and where Cosmos DB is replicated.
 
 ```python
 connection_policy = documents.ConnectionPolicy()
@@ -84,14 +84,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## Next steps
 
-Next you can read the following articles:
+Read the following articles:
 
-* [Utilize session tokens for managing consistency in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
+* [Use session tokens to manage consistency in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
 * [Conflict types and resolution policies in Azure Cosmos DB](conflict-resolution-policies.md)
 * [High availability in Azure Cosmos DB](high-availability.md)
 * [Consistency levels in Azure Cosmos DB](consistency-levels.md)
-* [Choosing the right consistency level in Azure Cosmos DB](consistency-levels-choosing.md)
-* [Consistency, availability and performance tradeoffs in Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Choose the right consistency level in Azure Cosmos DB](consistency-levels-choosing.md)
+* [Consistency, availability, and performance tradeoffs in Azure Cosmos DB](consistency-levels-tradeoffs.md)
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
 * [Globally scaling provisioned throughput](scaling-throughput.md)
-* [Global distribution - under the hood](global-dist-under-the-hood.md)
+* [Global distribution: Under the hood](global-dist-under-the-hood.md)

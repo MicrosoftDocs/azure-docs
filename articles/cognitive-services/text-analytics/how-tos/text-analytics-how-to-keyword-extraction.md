@@ -7,8 +7,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/16/2019
-ms.author: aahi
+ms.date: 06/05/2019
+ms.author: raymondl
 ---
 
 # Example: How to extract key phrases using Text Analytics
@@ -17,7 +17,7 @@ The [Key Phrase Extraction API](https://westcentralus.dev.cognitive.microsoft.co
 
 This capability is useful if you need to quickly identify the main points in a collection of documents. For example, given input text "The food was delicious and there were wonderful staff", the service returns the main talking points: "food" and "wonderful staff".
 
-Currently, Key Phrase Extraction supports English, German, Spanish, and Japanese. Other languages are in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
+See the [Supported languages](../text-analytics-supported-languages.md) article for more information. 
 
 > [!TIP]
 > Text Analytics also provides a Linux-based Docker container image for key phrase extraction, so you can [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) close to your data.

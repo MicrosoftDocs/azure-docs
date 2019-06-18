@@ -31,7 +31,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 In addition:
 
-* If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you select the **Azure development** and **Python development** workloads during the Visual Studio setup.
+* If you don’t already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you select the **Azure development** and **Python development** workloads during the Visual Studio setup.
 * Also select the Python 2 option in the **Python development** workload, or download Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/).
 
 ## Create a database account

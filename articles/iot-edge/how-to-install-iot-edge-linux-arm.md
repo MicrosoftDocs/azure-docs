@@ -18,7 +18,7 @@ The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The r
 
 To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-This article lists the steps to install the Azure IoT Edge runtime on a Linux ARM32v7/armhf IoT Edge device. For example, these steps would work for Raspberry Pi devices. For a list of supported ARM32 operating systems, see [Azure IoT Edge support](support.md#operating-systems). 
+This article lists the steps to install the Azure IoT Edge runtime on a Linux ARM32v7/armhf IoT Edge device. For example, these steps would work for Raspberry Pi devices. For a list of supported ARM32 operating systems, see [Azure IoT Edge supported systems](support.md#operating-systems). 
 
 >[!NOTE]
 >Packages in the Linux software repositories are subject to the license terms located in each package (/usr/share/doc/*package-name*). Read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.

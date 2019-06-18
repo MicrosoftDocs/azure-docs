@@ -19,7 +19,7 @@ This section describes the types of operations available to create and manage ac
 Before using the Cloud Partner Portal, you should familiarize yourself with the following articles:
 
 - [Azure Marketplace policies and terms](../../policies-terms.md) lists the various legal and technical requirements and rules that apply to users of and publishers to the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [AppSource](https://appsource.microsoft.com).
-- [Become a Cloud Marketplace Publisher](../../become-publisher.md) provides an overview of all the steps required to become an official Microsoft cloud publisher.
+- [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher) provides an overview of all the steps required to become an official Microsoft cloud publisher.
 
 
 ## Account creation and management

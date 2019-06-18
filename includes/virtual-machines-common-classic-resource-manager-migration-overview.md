@@ -127,5 +127,4 @@ The following configurations are not currently supported.
 | Azure HDInsight |Virtual networks that contain HDInsight services |This is currently not supported. |
 | Microsoft Dynamics Lifecycle Services |Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services |This is currently not supported. |
 | Azure AD Domain Services |Virtual networks that contain Azure AD Domain services |This is currently not supported. |
-| Azure RemoteApp |Virtual networks that contain Azure RemoteApp deployments |This is currently not supported. |
 | Azure API Management |Virtual networks that contain Azure API Management deployments |This is currently not supported. To migrate the IaaS VNET, change the VNET of the API Management deployment, which is a no downtime operation. |

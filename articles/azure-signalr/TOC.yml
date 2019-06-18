@@ -11,6 +11,8 @@
   items:
   - name: ASP.NET Core - C#
     href: signalr-quickstart-dotnet-core.md
+  - name: ASP.NET - C#
+    href: signalr-quickstart-dotnet.md
   - name: Azure Functions - JavaScript
     href: signalr-quickstart-azure-functions-javascript.md
   - name: Azure Functions - C#

@@ -18,25 +18,44 @@ ms.date: 2/13/2019
 
 Azure allows you to deploy a virtual machine with an image of SQL Server built in. This article summarizes the new features and improvements in the recent releases of [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). The article also lists notable content updates that are not directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates)
 
-## March 2019
+## May 2019
 
 ### Service improvements
 
 | Service improvements | Details |
 | --- | --- |
-| **Custom image supportability** | You can now install the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md#installation) to custom OS and SQL images, which offers the limited functionality of [flexible licensing](virtual-machines-windows-sql-ahb.md). When registering your custom image with the SQL resource provider, specify the license type as 'AHUB' as otherwise the registration will fail.  | 
-| **Named instance supportability** | You can now utilize the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md#installation) with a named instance, if the default instance has been uninstalled properly. | 
-| **Portal enhancement** | The Azure portal experience for deploying a SQL Server VM has been revamped to improve usability. For more information, see the brief [Quickstart](quickstart-sql-vm-create-portal.md) and more thorough [How-to](virtual-machines-windows-portal-sql-server-provision.md) guide to deploying a SQL Server VM. |
+| **New SQL VM management in Azure portal** | There is now a new way to manage your SQL Server VM in the Azure portal. For more information, see [Manage SQL Server VM in the Azure portal](virtual-machines-windows-sql-manage-portal.md).  | 
 | &nbsp; | &nbsp; |
 
 ### Documentation improvements
 
-None
+| Documentation | Details |
+| --- | --- |
+| **New SQL VM portal management** | About a dozen articles were updated to the new SQL VM management portal experience. | 
+| &nbsp; | &nbsp; |
+
+
+## April 2019
+
+### Service improvements
+
+| Service improvements | Details |
+| --- | --- |
+| **Extend support for SQL Server 2008/2008R2** | [Extend support](virtual-machines-windows-sql-server-2008-eos-extend-support.md) for SQL Server 2008 and SQL Server 2008 R2 by migrating *as-is* to an Azure VM. | 
+| &nbsp; | &nbsp; |
+
+
+## March 2019
+
+| Service improvements | Details |
+| --- | --- |
+| **Custom image supportability** | You can now install the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md#installation) to custom OS and SQL images, which offers the limited functionality of [flexible licensing](virtual-machines-windows-sql-ahb.md). When registering your custom image with the SQL resource provider, specify the license type as 'AHUB' as otherwise the registration will fail.  | 
+| **Named instance supportability** | You can now utilize the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md#installation) with a named instance, if the default instance has been uninstalled properly. | 
+| **Portal enhancement** | The Azure portal experience for deploying a SQL Server VM has been revamped to improve usability. For more information, see the brief [Quickstart](quickstart-sql-vm-create-portal.md) and more thorough [How-to](virtual-machines-windows-portal-sql-server-provision.md) guide to deploying a SQL Server VM.|
+| &nbsp; | &nbsp; |
 
 
 ## February 2019
-
-### Service improvements
 
 | Service improvements | Details |
 | --- | --- |

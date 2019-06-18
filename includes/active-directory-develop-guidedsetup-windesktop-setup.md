@@ -72,7 +72,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
         // Below are the clientId (Application Id) of your app registration and the tenant information. 
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
-        // - Te content of Tenant by the information about the accounts allowed to sign-in in your application:
+        // - the content of Tenant by the information about the accounts allowed to sign-in in your application:
         //   - For Work or School account in your org, use your tenant ID, or domain
         //   - for any Work or School accounts, use `organizations`
         //   - for any Work or School accounts, or Microsoft personal account, use `common`

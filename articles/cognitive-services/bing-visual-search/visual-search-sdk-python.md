@@ -3,7 +3,7 @@ title: "Quickstart: Bing Visual Search SDK, Python"
 titleSuffix: Azure Cognitive Services
 description: Setup for Visual search SDK Python console application.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
@@ -46,6 +46,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
         Filters,
         KnowledgeRequest,
     )
+    from msrest.authentication import CognitiveServicesCredentials
     ```
 2. Create variables for your subscription key, Custom Configuration ID, and the image you want to upload. 
     
@@ -59,7 +60,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 3. Instantiate the client
 
     ```python
-    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
+    client = VisualSearchClient(endpoint="https://api.cognitive.microsoft.com", credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 ## Send the search request

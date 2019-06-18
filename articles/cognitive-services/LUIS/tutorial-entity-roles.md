@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
+#Customer intent: As a new user, I want to understand how and why to use roles on an entity. 
 ---
 
 # Tutorial: Extract contextually related data from an utterance
 
 In this tutorial, find related pieces of data based on context. For example, an origin and destination locations for a transfer from one city to another. Both pieces of data may be required and they are related to each other.  
 
-This tutorial was previously written using hierarchical entities. Entity roles replace the need for the hierarchical entity type. A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns. 
+A role can be used with any prebuilt or custom entity type, and used in both example utterances and patterns. 
 
 **In this tutorial, you learn how to:**
 
@@ -89,12 +89,8 @@ The prebuilt entity, geographyV2, extracts location information, including city 
     ![Add roles to prebuilt entity](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Select **Intents** from the left-side navigation, then select the **MoveEmployeeToCity** intent. Notice the city names are labeled with the prebuilt entity **geogrpahyV2**.
 1. In the first utterance of the list, select the origin location. A drop-down menu appears. Select **geographyV2** in the list, then follow the menu across to select **Origin**.
-
-    [![Screenshot of marking city as Origin location](media/tutorial-entity-roles/tag-origin-city-with-role.png "Screenshot of marking city as Origin location")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. Use the method from the previous step to mark all roles of locations in all the utterances. 
 
-    [![Screenshot of Locations entity labeled in utterances](media/tutorial-entity-roles/all-locations-marked-with-roles.png "Screenshot of Locations entity labeled in utterances")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## Add example utterances to the None intent 
 
@@ -113,7 +109,7 @@ The prebuilt entity, geographyV2, extracts location information, including city 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Go to the end of the URL in the address bar and enter `Please move Carl Chamerlin from Tampa to Portland`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with the hierarchical entity extracted.
+1. Go to the end of the URL in the address bar and enter `Please move Carl Chamerlin from Tampa to Portland`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with the entity extracted.
 
     ```json
     {

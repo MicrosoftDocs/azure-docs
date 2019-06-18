@@ -2,17 +2,17 @@
 title: How to enable cross-app SSO on iOS using ADAL | Microsoft Docs
 description: How to use the features of the ADAL SDK to enable Single Sign On across your applications.
 services: active-directory
-author: CelesteDG 
-manager: mtillman
+author: rwike77 
+manager: CelesteDG
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -160,7 +160,7 @@ For non-broker assisted SSO across applications, the SDKs manage much of the com
 
 To enable SSO across applications you own you need to do the following:
 
-1. Ensure all your applications user the same Client ID or Application ID.
+1. Ensure all your applications use the same Client ID or Application ID.
 2. Ensure that all of your applications share the same signing certificate from Apple so that you can share keychains.
 3. Request the same keychain entitlement for each of your applications.
 4. Tell the SDKs about the shared keychain you want us to use.

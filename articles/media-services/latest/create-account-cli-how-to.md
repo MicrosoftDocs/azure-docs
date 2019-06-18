@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 02/15/2019
+ms.date: 05/19/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -44,7 +44,9 @@ az account set --subscription mySubscriptionId
  
 ## Next steps
 
-[Stream a file](stream-files-dotnet-quickstart.md)
+* [Access v3 APIs](access-api-cli-how-to.md)
+* [Stream a file](stream-files-dotnet-quickstart.md)
+* [Attach a secondary storage to a Media Services account](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
 
 ## See also
 

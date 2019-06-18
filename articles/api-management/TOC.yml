@@ -121,6 +121,8 @@
               href: api-management-howto-manage-protocols-ciphers.md
       - name: Customize the developer experience
         items:
+            - name: Access and customize the new developer portal
+              href: api-management-howto-developer-portal.md
             - name: Modify page content and layout
               href: api-management-modify-content-layout.md
             - name: Customize system pages using templates

@@ -3,7 +3,7 @@ title: Administer an Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to administer your Azure IoT Central application
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -21,7 +21,10 @@ After you create an IoT Central application, you can go to the **Administration*
 - Convert your Trial to Pay-As-You-Go
 - Export data
 - Manage device connection
-- Use access tokens
+- Use access tokens for developer tools
+- Customize the UI of your application
+- Customize help links in the application
+- Manage IoT Central programmatically
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. The [Manage Users](#manage-users) section in this article explains more about how to assign the **Administrator** role to other users.
 
@@ -32,6 +35,8 @@ In the **Application Settings** page, you can change the name and URL of your ap
 
 ![Application settings page](media/howto-administer/image0-a.png)
 
+If your administrator creates a custom theme for your application, this page includes an option to hide the **Application Name** in the UI. This is useful if the application logo in the custom theme includes the application name. For more information, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
+
 > [!Note]
 > If you change your URL, your old URL can be taken by another Azure IoT Central customer. If that happens, it is no longer available for you to use. When you change your URL, the old URL no longer works, and you need to notify your users about the new URL to use.
 
@@ -41,23 +46,25 @@ To change the application image, see [Prepare and upload images to your Azure Io
 ### Copy an application
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application in this way.
 
-Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to proceed. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central.md) quickstart.
+Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to continue. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central.md) quickstart.
 
 ![Application settings page](media/howto-administer/appcopy2.png)
 
-After the app copy operation succeeds, you  can go to the new application that was created by copying your application using the link that appears.
+After the app copy operation succeeds, you can navigate to the new application using the link.
 
-![Application settings page](media/howto-administer/appCopy3.png)
+![Application settings page](media/howto-administer/appcopy3a.png)
 
-> [!Note]
-> Copying an application also copies the definition of rules and actions. But because users who have access to your original app aren't copied to the copied app, you have to manually add users to actions such as email for which users are a prerequisite. In general it is a good idea to check the rules and actions to make sure they are up to date in the new app.
+Copying an application also copies the definition of rules and actions. But because users who have access to your original app aren't copied to the copied app, you have to manually add users to actions such as email for which users are a prerequisite. In general it is a good idea to check the rules and actions to make sure they are up to date in the new app.
+
+> [!WARNING]
+> If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
 
 ### Delete an application
 
+Use the **Delete** button to permanently delete your IoT Central application. This action permanently deletes all data that's associated with the application.
+
 > [!Note]
 > To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
-
-Use the **Delete** button to permanently delete your IoT Central application. Doing this permanently deletes all data that's associated with that application.
 
 ## Manage users
 
@@ -100,11 +107,11 @@ The user who creates an application is automatically assigned to the **Administr
 
 ### Application Builder
 
-Users in the **Application Builder** role can do everything in an application except administer the application. This means builders can create, edit, and delete device templates and devices, manage device sets, and run analytics and jobs. Builders won't have access to the **Administration** section of the application.
+Users in the **Application Builder** role can do everything in an application except administer the application. Builders can create, edit, and delete device templates and devices, manage device sets, and run analytics and jobs. Builders won't have access to the **Administration** section of the application.
 
 ### Application Operator
 
-Users in the **Application Operator** role can't make changes to device templates and can't administer the application. This means operators can adding and deleting devices, manage device sets, and run analytics and jobs. Operators won't have access to the **Application Builder** and **Administration** pages.
+Users in the **Application Operator** role can't make changes to device templates and can't administer the application. Operators can add and delete devices, manage device sets, and run analytics and jobs. Operators won't have access to the **Application Builder** and **Administration** pages.
 
 ## View your bill
 
@@ -114,8 +121,8 @@ To view your bill, go to the **Billing** page in the **Administration** section.
 
 You can convert your Trial application to a Pay-As-You-Go application. Here are the differences between these types of applications.
 
-- **Trial** applications are free for 7 days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
-- **Pay-As-You-Go** applications are charged per device, with the first 5 devices free.
+- **Trial** applications are free for seven days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
+- **Pay-As-You-Go** applications are charged per device, with the first five devices free.
 
 Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
@@ -143,15 +150,23 @@ Connect devices at scale in your application using the keys and certificates her
 
 ## Use access tokens
 
-Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in properties and settings. Learn more about the [IoT Central explorer](howto-use-iotc-explorer.md).
+Generate access tokens to use them in developer tools. Currently the only developer tool available is the IoT Central explorer for monitoring device messages and changes in properties and settings. Learn more about the [IoT Central explorer](howto-use-iotc-explorer.md).
 
-## Use the Azure SDKs for control plane operations
+## Customize your application
 
-IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. These libraries support control plane operations for IoT Central, which enable you to create, list, update, or delete IoT Central applications. They also provide helpers for dealing with authentication and error handling that is specific to each language. 
+For more information about changing the colors and icons in your application, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
+
+## Customize help
+
+For more information about adding custom help links in your application, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
+
+## Manage programatically
+
+IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. You can use these packages to create, list, update, or delete IoT Central applications. The packages include helpers to manage authentication and error handling.
 
 You can find examples of how to use the Azure Resource Manager SDKs at [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples).
 
-To learn more, take a look at these packages on GitHub.
+To learn more, see the following GitHub repositories and packages:
 
 | Language | Repository | Package |
 | ---------| ---------- | ------- |

@@ -2,14 +2,14 @@
 title: Set up sign-in with a LinkedIn account using custom policies - Azure Active Directory B2C | Microsoft Docs
 description: Set up sign-in with a LinkedIn account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -356,8 +356,12 @@ As part of the LinkedIn migration from v1.0 to v2.0, an additional call to anoth
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->
-    <OrchestrationStep Order="4" Type="ClaimsExchange">
+    <OrchestrationStep Order="3" Type="ClaimsExchange">
       <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>identityProvider</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
         <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
           <Value>identityProvider</Value>
           <Value>linkedin.com</Value>

@@ -23,7 +23,7 @@ It's helpful to understand some key terms relating to Azure AD authentication ov
 
 -   **Azure AD Domain Services**  
     Azure AD Domain Services provides managed domain services such as domain join, group policies, LDAP, and Kerberos/NTLM authentication. These services are fully
-    compatible with Windows Server Active Directory. For more information, see [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
+    compatible with Windows Server Active Directory. For more information, see [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md).
 
 -   **Azure Role Based Access Control (RBAC)**  
     Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information on RBAC, see [What is role-based access control (RBAC) in Azure?](../../role-based-access-control/overview.md)
@@ -48,7 +48,7 @@ Azure AD over SMB for Azure Files offers several benefits over using Shared Key 
     You can use Azure Files to back up your existing on-premises file shares. Azure Files preserves your ACLs along with your data when you back up a file share to Azure Files over SMB.
 
 ## How it works
-Azure Files uses Azure AD Domain Services to support Kerberos authentication with Azure AD credentials from domain-joined VMs. Before you can use Azure AD with Azure Files, you must first enable Azure AD Domain Services and join the domain from the VMs from which you plan to access file data. Your domain-joined VM must reside in same virtual network (VNET) as Azure AD Domain Services. 
+Azure Files uses Azure AD Domain Services to support Kerberos authentication with Azure AD credentials from domain-joined VMs. Before you can use Azure AD with Azure Files, you must first enable Azure AD Domain Services and join the domain from the VMs from which you plan to access file data. Your domain-joined VM must reside in the same virtual network (VNET) as Azure AD Domain Services. 
 
 When an identity associated with an application running on a VM attempts to access data in Azure Files, the request is sent to Azure AD Domain Services to authenticate the identity. If authentication is successful, Azure AD Domain Services returns a Kerberos token. The application sends a request that includes the Kerberos token, and Azure Files uses that token to authorize the request. Azure Files receives the token only and does not persist Azure AD credentials.
 
@@ -57,7 +57,7 @@ When an identity associated with an application running on a VM attempts to acce
 ### Enable Azure AD authentication over SMB
 You can enable Azure AD authentication over SMB for Azure Files on your new and existing storage accounts created after September 24, 2018. 
 
-Before enabling Azure AD authentication over SMB, verify that Azure AD Domain Services has been deployed for the primary Azure AD tenant with which your storage account is associated. If you have not yet set up Azure AD Domain Services, follow the step-by-step guidance provided in [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+Before enabling Azure AD authentication over SMB, verify that Azure AD Domain Services has been deployed for the primary Azure AD tenant with which your storage account is associated. If you have not yet set up Azure AD Domain Services, follow the step-by-step guidance provided in [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/create-instance.md).
 
 Azure AD Domain Services deployment generally takes 10 to 15 minutes. After Azure AD Domain Services has been deployed, you can enable Azure AD authentication over SMB for Azure Files. For more information, see [Enable Azure Active Directory authentication over SMB for Azure Files (Preview)](storage-files-active-directory-enable.md). 
 

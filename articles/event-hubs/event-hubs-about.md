@@ -84,7 +84,8 @@ To get started using Event Hubs, see the **Send and receive events** tutorials:
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (reecive only)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
+
 
 To learn more about Event Hubs, see the following articles:
 

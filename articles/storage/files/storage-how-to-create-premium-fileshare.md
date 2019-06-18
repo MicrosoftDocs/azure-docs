@@ -1,25 +1,24 @@
 ---
-title: Create an Azure filestorage storage account
-description: In this article, you learn how to create a filestorage (preview) and a premium file share.
+title: Create a premium Azure file share
+description: In this article, you learn how to create a premium Azure file share.
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# How to create an Azure premium file share
-
-The filestorage (preview) storage account type represents a new tier for Azure Files, allowing you to create file shares with premium performance characteristics. These file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
+# How to create an premium Azure file share
+Premium file shares (preview) are offered on solid-state disk (SSD) storage media and are useful for IO-intensive workloads, including hosting databases and high-performance computing (HPC). Premium file shares are hosted in a special purpose storage account kind, called a FileStorage account. Premium file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
 
 This article shows you how to create this new account type using [Azure portal](https://portal.azure.com/), Azure PowerShell, and Azure CLI.
 
 ## Prerequisites
 
-To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To access Azure resources including premium Azure file shares, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a premium file share using the Azure portal
 
@@ -47,7 +46,7 @@ Every storage account must belong to an Azure resource group. A resource group i
 1. Select **Account kind** and choose **FileStorage (preview)**.
 1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)**.
 
-    ![How to create a premium files storage account](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
+    ![How to create a storage account for a premium file share](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
 
 1. Select **Review + Create** to review your storage account settings and create the account.
 1. Select **Create**.
@@ -77,9 +76,9 @@ First, install the latest version of the [PowerShellGet](https://docs.microsoft.
 
 Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 
-### Upgrade your powershell module
+### Upgrade your PowerShell module
 
-To interact with premium files with PowerShell, you'll need to install the latest Az.Storage module.
+To interact with a premium file share from with PowerShell, you'll need to install the latest Az.Storage module.
 
 Start by opening a PowerShell session with elevated permissions.
 
@@ -91,10 +90,10 @@ Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -
 
 ### Sign in to your Azure Subscription
 
-Use the `Login-AzAccount` command and follow the on-screen directions to authenticate.
+Use the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
 
 ```powershell
-Login-AzAccount
+Connect-AzAccount
 ```
 
 ### Create a resource group
@@ -109,7 +108,7 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### Create a filestorage (preview) storage account
+### Create a FileStorage (preview) storage account
 
 To create a filestorage (preview) storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
 
@@ -119,7 +118,7 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 ### Create a premium file share
 
-Now that you have a filestorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
+Now that you have a FileStorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
 
 > [!NOTE]
 > Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
@@ -148,11 +147,9 @@ If you want to log into your local installation of the CLI, run the login comman
 az login
 ```
 
-### Add the CLI extension for Azure premium files
+### Add the preview storage CLI extension
 
-To interact with premium files using the CLI, you'll have to add an extension to your shell.
-
-To do that, enter the following command by using either the Cloud Shell or a local shell: `az extension add --name storage-preview`
+Because premium file shares are a preview feature, you'll have to add the preview extension to your shell. To do that, enter the following command by using either the Cloud Shell or a local shell: `az extension add --name storage-preview`
 
 ### Create a resource group
 
@@ -164,9 +161,9 @@ az group create `
     --location westus2
 ```
 
-### Create a filestorage (preview) storage account
+### Create a FileStorage storage account
 
-To create a filestorage (preview) storage account from the Azure CLI, use the [az storage account create](/cli/azure/storage/account) command.
+To create a FileStorage storage account from the Azure CLI, use the [az storage account create](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
 az storage account create `
@@ -212,7 +209,7 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this article, you've created a premium files storage account. To learn about the performance this account offers, continue to the performance tier section of the planning guide.
+In this article, you've created a premium file share. To learn about the performance this account offers, continue to the performance tier section of the planning guide.
 
 > [!div class="nextstepaction"]
 > [File share performance tiers](storage-files-planning.md#file-share-performance-tiers)

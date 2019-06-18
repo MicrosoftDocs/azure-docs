@@ -82,7 +82,7 @@ Select an item in the list view to get more detailed information.
 ![Sign-in activity](./media/concept-sign-ins/03.png "Sign-in activity")
 
 > [!NOTE]
-> Customers can now troubleshoot conditional access policies through all sign-in reports. By clicking on the **Conditional access** tab for a sign-in record, customers can review the conditional access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
+> Customers can now troubleshoot Conditional Access policies through all sign-in reports. By clicking on the **Conditional Access** tab for a sign-in record, customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 > For more information, see the [Frequently asked questions about CA information in all sign-ins](reports-faq.md#conditional-access).
 
 ![Sign-in activity](./media/concept-sign-ins/ConditionalAccess.png "Sign-in activity")
@@ -127,21 +127,29 @@ Possible values are:
 
 When you select a custom timeframe, you can configure a start time and an end time.
 
-If you add additional fields to your sign-ins view, these fields are automatically added to the list of filters. For example, by adding **Client App** field to your list, you also get another filter option that enables you to set the following filters:
-
-- Browser      
-- Exchange ActiveSync (supported)               
-- Exchange ActiveSync (unsupported)
-- Other clients               
-    - IMAP
-    - MAPI
-    - Older Office clients
-    - POP
-    - SMTP
-
-
+If you add additional fields to your sign-ins view, these fields are automatically added to the list of filters. For example, by adding **Client App** field to your list, you also get another filter option that enables you to set the following filters:  
 ![Sign-in activity](./media/concept-sign-ins/12.png "Sign-in activity")
 
+- **Browser**  
+    This filter shows all events where sign-in attempts were performed using browser flows.
+- **Exchange ActiveSync (supported)**  
+    This filter shows all sign-in attempts where the Exchange ActiveSync (EAS) protocol has been attempted from supported platforms like iOS, Android and Windows Phone.
+- **Exchange ActiveSync (unSupported)**  
+    This filter shows all sign-in attempts where the EAS protocol has been attempted from unsupported platforms like, Linux distros.
+- **Mobile Apps and Desktop clients**
+        This filter shows all sign-in attempts that were not using browser flows. This can be mobile apps from any platform using any protocol or from Desktop client apps like Office on Windows or MacOS.
+  
+- **Other clients**
+    - **IMAP**  
+        A legacy mail client using IMAP to retrieve email.
+    - **MAPI**  
+        Office 2013, where ADAL is enabled and it is using MAPI.
+    - **Older Office clients**  
+        Office 2013 in its default configuration where ADAL is not enabled and it is using MAPI, or Office 2016 where ADAL has been disabled.
+    - **POP**  
+        A legacy mail client using POP3 to retrieve email.
+    - **SMTP**  
+        A legacy mail client using SMTP to send email.
 
 ## Download sign-in activities
 

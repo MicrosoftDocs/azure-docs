@@ -65,7 +65,7 @@ Using this method requires that you install an authenticator app on your phone o
    ![Box for entering a PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. After PIN entry is complete, select **Close**. At this point, your verification should be successful.
-9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
+9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country/region from the drop-down list, and enter your mobile phone number in the box next to the country/region name. Select **Next**.
 10. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
 11. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, [help with app passwords].
 12. Click **Done**.
@@ -83,7 +83,7 @@ If you want to add an account to the mobile app manually, instead of using the Q
 1. Select **Authentication Phone** from the drop-down list.  
 
     ![Setup](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Choose your country from the drop-down list, and enter your mobile phone number.
+2. Choose your country/region from the drop-down list, and enter your mobile phone number.
 3. Select the method you would prefer to use with your mobile phone - text or call.
 4. Select **Contact me** to verify your phone number. Depending on the mode you selected, we send you a text or call you. Follow the instructions provided on the screen, then select **Verify**.
 5. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.

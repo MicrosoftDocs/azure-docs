@@ -3,17 +3,17 @@ title: Parsing JSON and AVRO in Azure Stream Analytics
 description: This article describes how to operate on complex data types like arrays, JSON, CSV formatted data.
 services: stream-analytics
 ms.service: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 06/03/2019
 ---
 # Parse JSON and Avro data in Azure Stream Analytics
 
 Azure Stream Analytics supports processing events in CSV, JSON, and Avro data formats. Both JSON and Avro data can contain complex types such as nested objects (records) and arrays.
 
 ## Array data types
+
 Array data types are an ordered collection of values. Some typical operations on array values are detailed below. These examples assume the input events have a property named "arrayField" that is  an array datatype.
 
 These examples use the functions [GetArrayElement](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelement-azure-stream-analytics), [GetArrayElements](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelements-azure-stream-analytics), [GetArrayLength](https://msdn.microsoft.com/azure/stream-analytics/reference/getarraylength-azure-stream-analytics), and the [APPLY](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) operator.
@@ -67,7 +67,7 @@ Record data types are used to represent JSON and Avro arrays when corresponding 
 ```
 
 ## Examples
-Use dot notation (.) to access nested fields. For example, this query selects the Lat and Long coordinates under the Location property in the preceding JSON data:
+Use dot notation (.) to access nested fields. For example, this query selects the Latitude and Longitude coordinates under the Location property in the preceding JSON data:
 
 ```SQL
 SELECT
