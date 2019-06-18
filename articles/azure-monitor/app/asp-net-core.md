@@ -174,7 +174,7 @@ You can customize the Application Insights SDK for ASP.NET Core to change the de
 > [!NOTE]
 > In ASP.NET Core applications, changing configuration by modifying `TelemetryConfiguration.Active` isn't recommended.
 
-### Use ApplicationInsightsServiceOptions to configure
+### Using ApplicationInsightsServiceOptions to configure
 
 You can modify a few common settings by passing `ApplicationInsightsServiceOptions` to `AddApplicationInsightsTelemetry`, as in this example:
 
@@ -200,7 +200,7 @@ The Application Insights SDK for ASP.NET Core supports both fixed-rate and adapt
 
 For more information, see [Configure adaptive sampling for ASP.NET Core applications](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
-### Add a telemetry initializer
+### Adding TelemetryInitializers
 
 Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) when you want to define global properties that are sent with all telemetry.
 
@@ -213,7 +213,7 @@ Add any new `TelemetryInitializer` to the `DependencyInjection` container as sho
     }
 ```
 
-### Remove a telemetry initializer
+### Removing TelemetryInitializers
 
 Telemetry initializers are present by default. To remove all or specific telemetry initializers, use the following sample code *after* you call `AddApplicationInsightsTelemetry()`.
 
@@ -236,7 +236,7 @@ Telemetry initializers are present by default. To remove all or specific telemet
     }
 ```
 
-### Add telemetry processors
+### Adding telemetry processors
 
 You can add custom telemetry processors to `TelemetryConfiguration` by using the extension method `AddApplicationInsightsTelemetryProcessor` on `IServiceCollection`. You use telemetry processors in [advanced filtering scenarios](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) to allow for more direct control over what's included or excluded from the telemetry you send to the Application Insights service. Use the following example.
 
@@ -252,7 +252,7 @@ You can add custom telemetry processors to `TelemetryConfiguration` by using the
     }
 ```
 
-### Configure or remove default telemetry modules
+### Configuring or removing default TelemetryModules
 
 Application Insights uses telemetry modules to [automatically collect useful information](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies) about specific workloads without requiring additional configuration.
 
@@ -292,7 +292,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
     }
 ```
 
-### Configure a telemetry channel
+### Configuring a telemetry channel
 
 The default channel is `ServerTelemetryChannel`. You can override it as the following example shows.
 
