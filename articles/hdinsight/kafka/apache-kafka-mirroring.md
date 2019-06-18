@@ -44,7 +44,7 @@ If you need to mirror between Kafka clusters in different networks, there are th
 
     * **IP addresses**: If you configure your Kafka clusters to use IP address advertising, you can proceed with the mirroring setup using the IP addresses of the broker nodes and zookeeper nodes.
     
-    * **Domain names**: If you don't configure your Kafka clusters for IP address advertising, the clusters must be able to connect to each other by using hostnames. This may require a Domain Name System (DNS) server in each network that is configured to forward requests to the other networks. When creating an Azure Virtual Network, instead of using the automatic DNS provided with the network, you must specify a custom DNS server and the IP address for the server. After the Virtual Network has been created, you must then create an Azure Virtual Machine that uses that IP address, then install and configure DNS software on it.
+    * **Domain names**: If you don't configure your Kafka clusters for IP address advertising, the clusters must be able to connect to each other by using Fully Qualified Domain Names (FQDNs). This requires a Domain Name System (DNS) server in each network that is configured to forward requests to the other networks. When creating an Azure Virtual Network, instead of using the automatic DNS provided with the network, you must specify a custom DNS server and the IP address for the server. After the Virtual Network has been created, you must then create an Azure Virtual Machine that uses that IP address, then install and configure DNS software on it.
 
     > [!WARNING]  
     > Create and configure the custom DNS server before installing HDInsight into the Virtual Network. There is no additional configuration required for HDInsight to use the DNS server configured for the Virtual Network.
@@ -114,16 +114,14 @@ This architecture features two clusters in different resource groups and virtual
 
     For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use the following commands to find the Apache Zookeeper hosts for the primary cluster:
+2. Use the following command to create a variable with the Apache Zookeeper hosts for the primary cluster. The strings like `ZOOKEEPER_IP_ADDRESS1` must be replaced with the actual IP addresses recorded earlier, such as `10.23.0.11` and `10.23.0.7`. If you are using FQDN resolution with a custom DNS server, follow [these steps](apache-kafka-get-started.md#getkafkainfo) to get broker and zookeeper names.:
 
     ```bash
-    # Install jq if it is not installed
-    sudo apt -y install jq
     # get the zookeeper hosts for the primary cluster
-    export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export SOURCE_ZKHOSTS=`ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181`
     ```
 
-    Replace `$CLUSTERNAME` with the name of the primary cluster. When prompted, enter the password for the cluster login (admin) account.
+    When prompted, enter the password for the cluster login (admin) account.
 
 3. To create a topic named `testtopic`, use the following command:
 
@@ -147,7 +145,7 @@ This architecture features two clusters in different resource groups and virtual
 
     This returns information similar to the following text:
 
-    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
+    `10.23.0.11:2181,10.23.0.7:2181,10.23.0.9:2181`
 
     Save this information. It is used in the next section.
 
@@ -159,7 +157,7 @@ This architecture features two clusters in different resource groups and virtual
     ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
+    Replace **sshuser** with the SSH user name used when creating the cluster. Replace **SECONDARYCLUSTER** with the name used when creating the cluster.
 
     For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -176,27 +174,24 @@ This architecture features two clusters in different resource groups and virtual
     group.id=mirrorgroup
     ```
 
-    Replace **SOURCE_ZKHOSTS** with the Zookeeper hosts information from the **primary** cluster.
+    Replace **SOURCE_ZKHOSTS** with the Zookeeper IP Addresses from the **primary** cluster.
 
     This file describes the consumer information to use when reading from the primary Kafka cluster. For more information consumer configuration, see [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) at kafka.apache.org.
 
     To save the file, use **Ctrl + X**, **Y**, and then **Enter**.
 
-3. Before configuring the producer that communicates with the secondary cluster, you must find the broker hosts for the **secondary** cluster. Use the following commands to retrieve this information:
+3. Before configuring the producer that communicates with the secondary cluster, setup a variable for the broker IP addresses of the **secondary** cluster. Use the following commands to create this variable:
 
     ```bash
-    sudo apt -y install jq
-    DEST_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
-    echo $DEST_BROKERHOSTS
+    DEST_BROKERHOSTS=`BROKER_IP_ADDRESS1:2181,BROKER_IP_ADDRESS2:2181,BROKER_IP_ADDRESS2:2181`
+    
     ```
 
-    Replace `$CLUSTERNAME` with the name of the secondary cluster. When prompted, enter the password for the cluster login (admin) account.
+    The command `echo $DEST_BROKERHOSTS` should return information similar to the following text:
 
-    The `echo` command returns information similar to the following text:
+    `10.23.0.14:2181,10.23.0.4:2181,10.23.0.12:2181`
 
-        wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
-
-4. A `producer.properties` file is used to communicate the __secondary__ cluster. To create the file, use the following command:
+4. A `producer.properties` file is used to communicate the **secondary** cluster. To create the file, use the following command:
 
     ```bash
     nano producer.properties
@@ -209,20 +204,16 @@ This architecture features two clusters in different resource groups and virtual
     compression.type=none
     ```
 
-    Replace **DEST_BROKERS** with the broker information from the previous step.
+    Replace **DEST_BROKERS** with the broker IP addresses used in the previous step.
 
     For more information producer configuration, see [Producer Configs](https://kafka.apache.org/documentation#producerconfigs) at kafka.apache.org.
 
-5. Use the following commands to find the Zookeeper hosts for the secondary cluster:
+5. Use the following commands to create an environment variable with the IP addresses of the Zookeeper hosts for the secondary cluster:
 
     ```bash
-    # Install jq if it is not installed
-    sudo apt -y install jq
     # get the zookeeper hosts for the primary cluster
-    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export DEST_ZKHOSTS=`ZOOKEEPER_IP_ADDRESS1:2181,ZOOKEEPER_IP_ADDRESS2:2181,ZOOKEEPER_IP_ADDRESS3:2181`
     ```
-
-    Replace `$CLUSTERNAME` with the name of the secondary cluster. When prompted, enter the password for the cluster login (admin) account.
 
 7. The default configuration for Kafka on HDInsight does not allow the automatic creation of topics. You must use one of the following options before starting the Mirroring process:
 
@@ -277,11 +268,9 @@ This architecture features two clusters in different resource groups and virtual
 2. From the SSH connection to the **primary** cluster, use the following command to start a producer and send messages to the topic:
 
     ```bash
-    SOURCE_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    SOURCE_BROKERHOSTS=`BROKER_IP_ADDRESS1:2181,BROKER_IP_ADDRESS2:2181,BROKER_IP_ADDRESS2:2181`
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
-
-    Replace `$CLUSTERNAME` with the name of the primary cluster. When prompted, enter the password for the cluster login (admin) account.
 
      When you arrive at a blank line with a cursor, type in a few text messages. The messages are sent to the topic on the **primary** cluster. When done, use **Ctrl + C** to end the producer process.
 
@@ -290,8 +279,6 @@ This architecture features two clusters in different resource groups and virtual
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
-
-    Replace `$CLUSTERNAME` with the name of the secondary cluster. When prompted, enter the password for the cluster login (admin) account.
 
     The list of topics now includes `testtopic`, which is created when MirrorMaster mirrors the topic from the primary cluster to the secondary. The messages retrieved from the topic are the same as entered on the primary cluster.
 
