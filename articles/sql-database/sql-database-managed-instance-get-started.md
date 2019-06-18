@@ -67,7 +67,7 @@ The following steps show you how to create a managed instance.
 11. Select **Deployment in progress** to open the managed instance window to further monitor the deployment progress. 
 
 > [!IMPORTANT]
-> For the first instance in a subnet, deployment time is typically much longer than in subsequent instances. Don't cancel the deployment operation because it lasts longer than you expected. Creating the second managed instance in the subnet takes only a couple of minutes.
+> For the first instance in a subnet, deployment time is typically much longer than in subsequent instances. Don't cancel the deployment operation because it lasts longer than you expected.
 
 ## Review resources and retrieve your fully qualified server name
 
