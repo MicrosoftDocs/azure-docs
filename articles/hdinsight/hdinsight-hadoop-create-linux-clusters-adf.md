@@ -248,7 +248,7 @@ In this section, you author two linked services within your data factory.
 
     | Property | Value |
     | --- | --- |
-    | Name | Enter `HDinisghtLinkedService`.|
+    | Name | Enter `HDInsightLinkedService`.|
     | Type | Select **On-demand HDInsight**. |
     | Azure Storage Linked Service | Select `HDIStorageLinkedService`. |
     | Cluster type | Select **hadoop** |

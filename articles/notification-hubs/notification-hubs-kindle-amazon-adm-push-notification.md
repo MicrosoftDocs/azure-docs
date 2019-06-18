@@ -322,7 +322,7 @@ In this tutorial, you create/update code to do the following tasks:
     }
     ```
 ## Create an ADM object
-1 In the `MainActivity.java` file, add the following import statements:
+1. In the `MainActivity.java` file, add the following import statements:
 
     ```java
     import android.os.AsyncTask;
