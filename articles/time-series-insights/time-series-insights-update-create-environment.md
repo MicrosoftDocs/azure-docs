@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 06/18/2019
 ms.custom: seodec18
 ---
 
@@ -41,10 +41,10 @@ In this section, you create three simulated devices that send data to an Azure I
 
     | Parameter | Action |
     | --- | --- |
-    | **Solution name** | Enter a unique value for a new resource group. The listed Azure resources are created and assigned to the resource group. |
-    | **Subscription** | Select the subscription that you used to create your Time Series Insights environment. |
-    | **Region** | Select the region that you used to create your Time Series Insights environment. |
-    | **Deploy optional Azure Resources** | Leave the **IoT Hub** check box selected. The simulated devices use IoT Hub to connect and stream data. |
+    | **Deployment name** | Enter a unique value for a new resource group. The listed Azure resources are created and assigned to the resource group. |
+    | **Azure subcription** | Select the subscription that you used to create your Time Series Insights environment. |
+    | **Azure location** | Select the region that you used to create your Time Series Insights environment. |
+    | **Deployment options** | Select **Provision new IoT Hub**. |
  
     Select **Create solution**. It may take up to 20 minutes for the solution to finish deploying.
 
