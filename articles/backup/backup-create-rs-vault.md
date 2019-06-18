@@ -71,7 +71,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
    - Learn more about [geo](../storage/common/storage-redundancy-grs.md) and [local](../storage/common/storage-redundancy-lrs.md) redundancy.
 
 > [!NOTE]
-> Once you choose the **Storage replication type** from **Geo-redundant** to **Locally-redundant**, you cannot revert back.
+> Changing **Storage Replication type** (Locally-redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled and you cannot change the **Storage Replication type**. 
 
 ## Next steps
 

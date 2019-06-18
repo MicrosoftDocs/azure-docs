@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/04/2019
 ms.author: juliako
 ---
 
@@ -33,11 +33,18 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ## May 2019
 
-### HLS v4 and above support in Dynamic packaging 
+### Azure Monitor support for Media Services diagnostic logs and metrics
 
-Added HLS (version 4 or above) support in Dynamic Packaging for Assets that have multiple audio tracks with multiple codecs and languages.
+You can now use Azure Monitor to view telemetry data emmited by Media Services.
 
-For more information, see [Dynamic Packaging](dynamic-packaging-overview.md).
+* Use the Azure Monitor diagnostic logs to monitor requests sent by the Media Services Key Delivery endpoint. 
+* Monitor metrics emitted by Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
+
+For details, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
+
+### Multi audio tracks support in Dynamic Packaging 
+
+When streaming Assets that have multiple audio tracks with multiple codecs and languages, [Dynamic Packaging](dynamic-packaging-overview.md) now supports multi audio tracks for the HLS output (version 4 or above).
 
 ### Korea regional pair is open for Media Services 
 

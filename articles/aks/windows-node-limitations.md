@@ -6,7 +6,7 @@ author: tylermsft
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.author: twhitney
 
 #Customer intent: As a cluster operator, I want to understand the current limitations when running Windows node pools and application workloads.
@@ -26,7 +26,7 @@ This article outlines some of the limitations and OS concepts for Windows Server
 
 ## Limitations for Windows Server in Kubernetes
 
-Windows Server containers must run on a Windows-based container host. To run Windows Server containers in AKS, you can [create a node pool that runs Windows Server][windows-node-cli] as the guest OS. Window Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on this upstream support for Windows Server in Kubernetes, see [Windows Server containers in Kubernetes limitations][upstream-limitations].
+Windows Server containers must run on a Windows-based container host. To run Windows Server containers in AKS, you can [create a node pool that runs Windows Server][windows-node-cli] as the guest OS. Window Server node pool support includes some limitations that are part of the upstream Windows Server in Kubernetes project. These limitations are not specific to AKS. For more information on this upstream support for Windows Server in Kubernetes, see [Windows Server containers in Kubernetes limitations](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
 The following upstream limitations for Windows Server containers in Kubernetes are relevant to AKS:
 
@@ -43,6 +43,7 @@ The following upstream limitations for Windows Server containers in Kubernetes a
 The following additional limitations apply to Windows Server node pool support in AKS:
 
 - An AKS cluster always contains a Linux node pool as the first node pool. This first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
+- Currently, AKS only supports the basic load balancer, which only allows for one backend pool, the default Linux node pool. As a result, outbound traffic from Windows pods will always be [translated to an Azure-managed public IP address][azure-outbound-traffic]. Since this IP address is not configurable, it is not currently possible to whitelist traffic coming from Windows pods. 
 - AKS clusters must use the Azure CNI (advanced) networking model.
     - Kubenet (basic) networking is not supported. You can't create an AKS cluster that uses kubenet. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models].
     - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
@@ -85,3 +86,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat

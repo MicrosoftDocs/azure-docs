@@ -27,7 +27,7 @@ To configure the proxy settings for AzCopy, set the `https_proxy` environment va
 
 | Operating system | Command  |
 |--------|-----------|
-| **Windows** | `set https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | In a command prompt use: `set https_proxy=<proxy IP>:<proxy port>`<br> In PowerShell use: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
@@ -47,7 +47,7 @@ Use the `azcopy env` to check the current value of this variable.  If the value 
 
 ## Change the location of the log files
 
-By default, log files are located in the `%USERPROFILE\\.azcopy` folder on Windows, or in the `$HOME\\.azcopy` folder on Mac and Linux. You can change this location if you need to by using these commands.
+By default, log files are located in the `%USERPROFILE\\.azcopy` directory on Windows, or in the `$HOME\\.azcopy` directory on Mac and Linux. You can change this location if you need to by using these commands.
 
 | Operating system | Command  |
 |--------|-----------|
@@ -69,7 +69,7 @@ AzCopy creates log and plan files for every job. You can use the logs to investi
 
 The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `DOWNLOADFAILED`), the full path, and the reason of the failure.
 
-By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` folder on Windows or `$HOME\\.azcopy` folder on Mac and Linux.
+By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` directory on Windows or `$HOME\\.azcopy` directory on Mac and Linux.
 
 > [!IMPORTANT]
 > When submitting a request to Microsoft Support (or troubleshooting the issue involving any third party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.

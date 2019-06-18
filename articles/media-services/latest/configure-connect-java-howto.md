@@ -70,7 +70,7 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
      <artifactId>azure-client-authentication</artifactId>
      <version>1.6.6</version>
    </dependency>
-```
+    ```
 
 ## Connect to the Java client
 

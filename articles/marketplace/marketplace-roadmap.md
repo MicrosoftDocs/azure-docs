@@ -2,16 +2,9 @@
 title: Azure Marketplace and AppSource Roadmap | Azure
 description: A roadmap to what's happening in the Marketplace
 services: Azure, Marketplace, Compute
-
 author: qianw211
 manager: MaggiePucciEvans
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: BrianLevenson
@@ -24,12 +17,15 @@ This document provides a view into what's next for Azure Marketplace, AppSource,
 
 We welcome your suggestions! Join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/) to get the latest updates on new capabilities, programs, and events.
 
+
 ## Roadmap
 ![](./media/marketplace-publishers-guide/roadmap.png)
+
 
 ## Recent Releases
 
 Once a capability is live, it will be removed from the roadmap. Functionality that has been added to the Marketplace includes the following.
+
 
 ### For March 2019
 
@@ -37,12 +33,11 @@ Once a capability is live, it will be removed from the roadmap. Functionality th
 * [Publish offerings into CSP channel (ISV)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)
 * [Resell Marketplace offerings (CSP)](https://docs.microsoft.com/partner-center/sell-marketplace-products)
 * [Standard Contract](https://docs.microsoft.com/azure/marketplace/standard-contract)
-* [SaaS Fulfillment API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis)
+* [SaaS Fulfillment API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-apis)
 * [Marketplace Geos and Currencies](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
 * [Seller Insights](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+
 
 ## Next steps
 
 Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) page.
-
----

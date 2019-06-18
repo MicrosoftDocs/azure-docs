@@ -252,6 +252,8 @@
       href: troubleshoot-azure-files.md
     - name: SQL Server
       href: backup-sql-server-azure-troubleshoot.md
+    - name: System State
+      href: backup-azure-system-state-troubleshoot.md
   - name: Monitor Azure Backup workloads
     items:
     - name: Using the Azure portal

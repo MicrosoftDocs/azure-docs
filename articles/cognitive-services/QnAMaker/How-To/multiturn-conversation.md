@@ -7,8 +7,9 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: article 
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: diberry
 #
 ---
@@ -385,7 +386,11 @@ You have added prompts in your knowledge base and tested the flow in the test pa
 
 The [display text and display order](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
+<!--
+
 FIX - Need to go to parent, then answer column, then edit answer. 
+
+-->
 
 ## Next steps
 
