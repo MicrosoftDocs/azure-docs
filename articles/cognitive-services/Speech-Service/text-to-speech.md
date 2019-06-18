@@ -51,7 +51,7 @@ When using the text-to-speech service, you are billed for each character that is
 * Letters, punctuation, spaces, tabs, markup, and all white-space characters
 * Every code point defined in Unicode
 
-For detailed information, see [Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
+For detailed information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
 > Each Chinese, Japanese, and Korean language character is counted as two characters for billing.
