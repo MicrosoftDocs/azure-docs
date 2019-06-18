@@ -168,6 +168,8 @@
       href: event-schema-azure-maps.md
     - name: App Configuration
       href: event-schema-app-configuration.md
+    - name: Azure SignalR
+      href: event-schema-azure-signalr.md
   - name: Template resources
     items:
     - name: Event subscriptions
