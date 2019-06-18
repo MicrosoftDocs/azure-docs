@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2019
+ms.date: 06/18/2019
 ms.author: atsenthi
 
 ---
-# Why use a microservices approach to building apps?
+# Why use a microservices approach to building applications?
 
 For software developers, factoring an application into component parts is nothing new. Typically, a tiered approach is used, with a back-end store, middle-tier business logic, and a front-end user interface (UI). What *has* changed over the last few years is that developers are building distributed applications for the cloud.
 
@@ -33,9 +33,9 @@ For more information about the Azure approach to microservices, see [Microservic
 
 ## Monolithic vs. microservices design approach
 
-Applications evolve over time. Successful applications evolve by being useful to people. Unsuccessful applications don't evolve and are eventually deprecated. Here's the question: how much do you know about your requirements today and what they'll be in the future? For example, let's say you're building a reporting app for a department in your company. You're sure the app applies only within the scope of your company and that the reports won't be kept long. Your approach will be different from that of, say, building a service that delivers video content to tens of millions of customers.
+Applications evolve over time. Successful applications evolve by being useful to people. Unsuccessful applications don't evolve and are eventually deprecated. Here's the question: how much do you know about your requirements today and what they'll be in the future? For example, let's say you're building a reporting application for a department in your company. You're sure the application applies only within the scope of your company and that the reports won't be kept long. Your approach will be different from that of, say, building a service that delivers video content to tens of millions of customers.
 
-Sometimes, getting something out the door as a proof of concept is the driving factor. You know the app can be redesigned later. There's little point in over-engineering something that never gets used. On the other hand, when companies build for the cloud, the expectation is growth and usage. Growth and scale are unpredictable. We want to prototype quickly while also knowing that we're on a path that can handle future success. This is the lean startup approach: build, measure, learn, and iterate.
+Sometimes, getting something out the door as a proof of concept is the driving factor. You know the application can be redesigned later. There's little point in over-engineering something that never gets used. On the other hand, when companies build for the cloud, the expectation is growth and usage. Growth and scale are unpredictable. We want to prototype quickly while also knowing that we're on a path that can handle future success. This is the lean startup approach: build, measure, learn, and iterate.
 
 During the client/server era, we tended to focus on building tiered applications by using specific technologies in each tier. The term *monolithic* application has emerged to describe these approaches. The interfaces tended to be between the tiers, and a more tightly coupled design was used between components within each tier. Developers designed and factored classes that were compiled into libraries and linked together into a few executable files and DLLs.
 
@@ -43,7 +43,7 @@ There are benefits to a monolithic design approach. Monolithic applications are 
 
 Microservices address these downsides and more closely align with the preceding business requirements. But they also have both benefits and liabilities. The benefits of microservices are that each one typically encapsulates simpler business functionality, which you can scale up or down, test, deploy, and manage independently. One important benefit of a microservices approach is that teams are driven more by business scenarios than by technology. Smaller teams develop a microservice based on a customer scenario and use any technologies that they want to use.
 
-In other words, the organization doesn’t need to standardize tech to maintain microservice applications. Individual teams that own services can do what makes sense for them based on team expertise or what’s most appropriate to solve the problem. In practice, a set of recommended technologies, like a particular NoSQL store or web app framework, is preferable.
+In other words, the organization doesn’t need to standardize tech to maintain microservice applications. Individual teams that own services can do what makes sense for them based on team expertise or what’s most appropriate to solve the problem. In practice, a set of recommended technologies, like a particular NoSQL store or web application framework, is preferable.
 
 The downside of microservices is that you have to manage more separate entities and deal with more complex deployments and versioning. Network traffic between the microservices increases, as do the corresponding network latencies. Lots of chatty, granular services can cause a performance nightmare. Without tools to help you view these dependencies, it's hard to see the whole system.
 
@@ -51,15 +51,15 @@ Standards make the microservices approach work by specifying how to communicate 
 
 ***At its simplest, the microservices design approach is about a decoupled federation of services, with independent changes to each and agreed-upon standards for communication.***
 
-As more cloud apps are produced, people have discovered that this decomposition of the overall app into independent, scenario-focused services is a better long-term approach.
+As more cloud applications are produced, people have discovered that this decomposition of the overall application into independent, scenario-focused services is a better long-term approach.
 
-## Comparison between app development approaches
+## Comparison between application development approaches
 
-![Service Fabric platform app development][Image1]
+![Service Fabric platform application development][Image1]
 
-1) A monolithic app contains domain-specific functionality and is normally divided into functional layers like web, business, and data.
+1) A monolithic application contains domain-specific functionality and is normally divided into functional layers like web, business, and data.
 
-2) You scale a monolithic app by cloning it on multiple servers/virtual machines/containers.
+2) You scale a monolithic application by cloning it on multiple servers/virtual machines/containers.
 
 3) A microservice application separates functionality into separate smaller services.
 
@@ -171,7 +171,7 @@ Let's look at examples for each of these stages.
 **Migrate**  
 For two reasons, many companies are migrating existing monolithic applications into containers:
 
-* Cost reduction, either due to consolidation and removal of existing hardware or due to running apps at higher density.
+* Cost reduction, either due to consolidation and removal of existing hardware or due to running applications at higher density.
 * A consistent deployment contract between development and operations.
 
 Cost reductions are straightforward. At Microsoft, many existing applications are being containerized, leading to millions of dollars in savings. Consistent deployment is harder to evaluate but equally important. It means that developers can choose the technologies that suit them, but operations will accept only a single method for deploying and managing the applications. It alleviates operations from having to deal with the complexity of supporting different technologies without forcing developers to choose only certain ones. Essentially, every application is containerized into self-contained deployment images.
@@ -182,7 +182,7 @@ Many organizations stop here. They already have the benefits of containers, and 
 Modernization is the addition of new services alongside existing containerized code. If you're going to write new code, it's best to take small steps down the microservices path. This could mean adding a new REST API endpoint or new business logic. In this way, you start the process of building new microservices and practice developing and deploying them.
 
 **Innovate**  
-A microservices approach accommodates changing business needs. At this stage, you need to decide whether to start splitting the monolithic app into services, or innovating. A classic example here is when a database that you're using as a workflow queue becomes a processing bottleneck. As the number of workflow requests increases, the work needs to be distributed for scale. Take that particular piece of the application that's not scaling, or that needs to be updated more frequently, and split it out as a microservice and innovate.
+A microservices approach accommodates changing business needs. At this stage, you need to decide whether to start splitting the monolithic application into services, or innovating. A classic example here is when a database that you're using as a workflow queue becomes a processing bottleneck. As the number of workflow requests increases, the work needs to be distributed for scale. Take that particular piece of the application that's not scaling, or that needs to be updated more frequently, and split it out as a microservice and innovate.
 
 **Transform applications into microservices**  
 At this stage, your application is fully composed of (or split into) microservices. To reach this point, you've made the microservices journey. You can start here, but to do so without a microservices platform to help you requires a significant investment.
