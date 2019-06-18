@@ -198,7 +198,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 To see a full list of all parameters, see [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
-----
+---
 
 ## Limitations of Azure Enterprise subscription creation API
 
