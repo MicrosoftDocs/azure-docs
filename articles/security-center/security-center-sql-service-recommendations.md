@@ -18,40 +18,45 @@ ms.author: monhaber
 
 ---
 # Protecting Azure SQL service and data in Azure Security Center
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL and data, and applications.a
+Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL and data, and applications.
 <!-- This paragraph should only be about storage-->
 
 
-### Monitor data security
+## Monitor data security
 
-To view data security information, in the **Resource security hygiene** section, click *Data and storage resources.
+To view data security information:
 
-The **Data security** page opens with recommendations for SQL and storage accounts. 
-<!--are all tabs included under storage accounts?-->
- It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+1. In the **Resource security hygiene** section, click **Data and storage resources**.
 
-![Data Resources](./media/security-center-monitoring/sql-overview.png)
+   ![Data & storage resources](./media/security-center-monitoring/click-data.png)
 
-From any of the tabs, you can click a recommendation and get more details about further action to resolve an issue. The following example shows the expansion of the **Database Auditing & Threat detection on SQL databases** recommendation.
+    The **Data security** page opens with recommendations and their severity for SQL and storage resources.
 
-![Details about a SQL recommendation](./media/security-center-monitoring/sql-recommendations.png)
+     ![Data Resources](./media/security-center-monitoring/sql-overview.png)
 
-The **Enable Auditing & Threat detection on SQL databases** has the following information:
+    > [!NOTE]
+    > For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
-* A list of SQL databases
-* The server on which they are located
-* Information about whether this setting was inherited from the server or if it is unique in this database
-* The current state
-* The severity of the issue
+    
+From this page, you can:
+* Click the **Overview** tab lists all of the data resources recommendations to be remediated. 
+* Click each tab, and view the the recommendations listed in the **Overview** tab for each resource type.
 
-When you click the database to address this recommendation, the **Auditing & Threat detection** opens as shown in the following screen.
+## Remediate a recommendation
 
-![Auditing & Threat detection](./media/security-center-monitoring/sql-remediate1.png)
+1. From any of the resource tabs, click a resource. The Recommendation page opens listing the recommendations to be remediated for this resource.
 
-To enable auditing, select **ON** under the **Auditing** option.
+    ![Details about a SQL recommendation](./media/security-center-monitoring/sql-recommendations.png)
 
-![Enable recommendation](./media/security-center-monitoring/sql-recommend-enable.png)
+2 Click a recommendation. The Recommendation page opens and displays the **Remediation steps** to do to implement the recommendation.
 
+    ![Auditing & Threat detection](./media/security-center-monitoring/remediate1.png)
+
+3. Click **Take action**. The resource settings page appears.
+
+    ![Enable recommendation](./media/security-center-monitoring/remediate2.png)
+
+4. Follow the **Remediation steps** and click **Save**.
 
 ## Data and storage recommendations
 
