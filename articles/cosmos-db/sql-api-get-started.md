@@ -97,10 +97,10 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
         private CosmosClient cosmosClient;
 
         // The database we will create
-        private CosmosDatabase database;
+        private Database database;
 
         // The container we will create.
-        private CosmosContainer container;
+        private Container container;
 
         // The name of the database and container we will create
         private string databaseId = "FamilyDatabase";
@@ -172,7 +172,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 Congratulations! You have successfully connected to an Azure Cosmos DB account. 
 
 ## Step 4: Create a database
-A database can be created by using either the [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) or [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) function of the ``CosmosClient`` class. A database is the logical container of items partitioned across containers.
+A database can be created by using either the [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) or [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) function of the ``CosmosClient`` class. A database is the logical container of items partitioned across containers.
 
 1. Copy and paste the **CreateDatabaseAsync** method below your **GetStartedDemoAsync** method. **CreateDatabaseAsync**  will create a new database with id ``FamilyDatabase`` if it does not already exist, with the id specified from the ``databaseId`` field. 
 
@@ -207,9 +207,9 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
     using System;
     using System.Threading.Tasks;
     using System.Configuration;
-    using Microsoft.Azure.Cosmos;
     using System.Collections.Generic;
     using System.Net;
+    using Microsoft.Azure.Cosmos;
 
     namespace CosmosGettingStarted
     {
@@ -224,10 +224,10 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
             private CosmosClient cosmosClient;
 
             // The database we will create
-            private CosmosDatabase database;
+            private Database database;
 
             // The container we will create.
-            private CosmosContainer container;
+            private Container container;
 
             // The name of the database and container we will create
             private string databaseId = "FamilyDatabase";
@@ -290,7 +290,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 >
 >
 
-A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) or [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) function in the **CosmosDatabase** class. A container consists of items (JSON documents if SQL API) and associated server-side application logic in JavaScript, for example, stored procedures, user-defined functions, and triggers.
+A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) or [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) function in the **CosmosDatabase** class. A container consists of items (JSON documents if SQL API) and associated server-side application logic in JavaScript, for example, stored procedures, user-defined functions, and triggers.
 
 1. Copy and paste the **CreateContainerAsync** method below your **CreateDatabaseAsync** method. **CreateContainerAsync**  will create a new container with id ``FamilyContainer`` if it does not already exist, with the id specified from the ``containerId`` field partitioned by ``LastName`` property.
 
@@ -326,7 +326,7 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
 Congratulations! You have successfully created an Azure Cosmos DB container.  
 
 ## <a id="CreateDoc"></a>Step 6: Add items to the container
-An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosContainer** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainer) function of the **CosmosContainer** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
 
 First, let's create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note item must have an **Id** property serialized as **id** in JSON.
 
@@ -429,7 +429,7 @@ The code checks to make sure an item with the same id does not already exist bef
             // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
             andersenFamilyResponse = await this.container.CreateItemAsync<Family>(andersenFamily, new PartitionKey(andersenFamily.LastName));
 
-            // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+            // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
             Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
         }
         else
@@ -481,7 +481,7 @@ The code checks to make sure an item with the same id does not already exist bef
             // Create an item in the container representing the Wakefield family. Note we provide the value of the partition key for this item, which is "Wakefield"
             wakefieldFamilyResponse = await this.container.CreateItemAsync<Family>(wakefieldFamily, new PartitionKey(wakefieldFamily.LastName));
 
-            // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+            // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
             Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", wakefieldFamilyResponse.Resource.Id, wakefieldFamilyResponse.RequestCharge);
         }
         else
