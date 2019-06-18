@@ -40,10 +40,10 @@ The Time Series Insights environment is where device data is collected and store
 
 Azure IoT Hub is the event source that's used by all devices (simulated or physical) in the tutorial to securely connect and transmit data to your Azure cloud.
 
-This tutorial also uses an [IoT solution accelerator](/azure/iot-accelerators/) to generate and stream sample telemetry data to IoT Hub.
+This tutorial also uses an [IoT solution accelerator](https://www.azureiotsolutions.com) to generate and stream sample telemetry data to IoT Hub.
 
 >[!TIP]
-> IoT solution accelerators provide enterprise-grade preconfigured solutions that you can use to accelerate the development of custom IoT solutions.
+> [IoT solution accelerators](https://www.azureiotsolutions.com) provide enterprise-grade preconfigured solutions that you can use to accelerate the development of custom IoT solutions.
 
 ## Create a device simulation
 
