@@ -17,7 +17,7 @@ This article details the APIs that enable partners to sell their SaaS applicatio
 
 Azure SaaS manages the entire life cycle of a SaaS subscription purchase. It uses the fulfillment APIs as a mechanism to drive the actual fulfillment, changes to plans, and deletion of the subscription with the partner. The customer's bill is based on the state of the SaaS subscription that Microsoft maintains. The following diagram depicts the states and the operations that drive the changes between states.
 
-![SaaS subscription life cycle states](./media/saas-subscription-lifecycle-api-v2.png)
+![SaaS subscription life-cycle states](./media/saas-subscription-lifecycle-api-v2.png)
 
 
 ### States of a SaaS subscription
@@ -26,9 +26,11 @@ The following table lists the provisioning states for a SaaS subscription, inclu
 
 #### Provisioning
 
-When a customer initiates a purchase, the partner receives this information in an authorization code on a customer-interactive web page that uses a URL parameter. An example is `https://contoso.com/signup?token=..`, whereas the landing page URL in Partner Center is `https://contoso.com/signup`. The authorization code can be validated and exchanged for the details of the provisioning service by calling the Resolve API.  When SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed. The following diagram shows the sequence of API calls for a provisioning scenario.  
+When a customer initiates a purchase, the partner receives this information in an authorization code on a customer-interactive web page that uses a URL parameter. An example is `https://contoso.com/signup?token=..`, whereas the landing page URL in Partner Center is `https://contoso.com/signup`. The authorization code can be validated and exchanged for the details of the provisioning service by calling the Resolve API.  When a SaaS service finishes provisioning, it sends an activate call to signal that the fulfillment is complete and the customer can be billed. 
 
-![API calls for provisioning a SaaS.](./media/saas-post-provisioning-api-v2-calls.png)
+The following diagram shows the sequence of API calls for a provisioning scenario.  
+
+![API calls for provisioning a SaaS service](./media/saas-post-provisioning-api-v2-calls.png)
 
 #### Provisioned
 
@@ -42,13 +44,13 @@ This state signifies that an update to an existing service is pending. Such an u
 
 The following diagram shows the sequence of actions when an update is initiated from the marketplace.
 
-![API calls when the update is initiated from the marketplace.](./media/saas-update-api-v2-calls-from-marketplace-a.png)
+![API calls when the update is initiated from the marketplace](./media/saas-update-api-v2-calls-from-marketplace-a.png)
 
 ##### Provisioning for update (when it's initiated from the SaaS service)
 
 The following diagram shows the actions when an update is initiated from the SaaS service. (The webhook call is replaced by an update to the subscription initiated by the SaaS service.) 
 
-![API calls when the update is initiated from the SaaS.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
+![API calls when the update is initiated from the SaaS service](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
 #### Suspended
 
@@ -75,19 +77,19 @@ The following table lists the definitions for common parameters and entities use
 |     Entity/Parameter     |     Definition                         |
 |     ----------------     |     ----------                         |
 | `subscriptionId`         | The GUID identifier for a SaaS resource.  |
-| `name`                   |  A friendly name provided for this resource by the customer |
-| `publisherId`            | A unique string identifier for each publisher (for example: "contoso") |
-| `offerId`                | A unique string identifier for each offer (for example: "offer1")  |
-| `planId`                 | A unique string identifier for each plan/SKU (for example: "silver") |
+| `name`                   | A friendly name provided for this resource by the customer. |
+| `publisherId`            | A unique string identifier for each publisher (for example: "contoso"). |
+| `offerId`                | A unique string identifier for each offer (for example: "offer1").  |
+| `planId`                 | A unique string identifier for each plan/SKU (for example: "silver"). |
 | `operationId`            | The GUID identifier for a particular operation.  |
-|  `action`                | The action being performed on a resource, either `subscribe`, `unsubscribe`, `suspend`,  `reinstate`, or `changePlan`, `changeQuantity`, `transfer`  |
+|  `action`                | The action being performed on a resource, either `subscribe`, `unsubscribe`, `suspend`,  `reinstate`, or `changePlan`, `changeQuantity`, `transfer`.  |
 |   |   |
 
 Globally unique identifiers ([GUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier)) are 128-bit (32-hexadecimal) numbers that are typically automatically generated. 
 
 #### Resolve a subscription 
 
-The resolve endpoint enables the publisher to resolve a marketplace token to a persistent resource ID. The resource ID is the unique identifier for a SaaS subscription. When a user is redirected to an partner’s website, the URL contains a token in the query parameters. The partner is expected to use this token and make a request to resolve it. The response contains the unique SaaS subscription ID, name, offer ID, and plan for the resource. This token is valid for one hour only. 
+The resolve endpoint enables the publisher to resolve a marketplace token to a persistent resource ID. The resource ID is the unique identifier for a SaaS subscription. When a user is redirected to a partner’s website, the URL contains a token in the query parameters. The partner is expected to use this token and make a request to resolve it. The response contains the unique SaaS subscription ID, name, offer ID, and plan for the resource. This token is valid for one hour only. 
 
 ##### Post<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
@@ -104,7 +106,7 @@ The resolve endpoint enables the publisher to resolve a marketplace token to a p
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |  A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers. |
 |  x-ms-correlationid |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
-|  authorization     |  [Get JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  authorization     |  [Get JSON web token (JWT) bearer token](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
 |  x-ms-marketplace-token  |  The token query parameter in the URL when the user is redirected to the SaaS partner’s website from Azure (for example: `https://contoso.com/signup?token=..`). *Note:* The URL decodes the token value from the browser before using it.  |
 
 *Response codes:*
