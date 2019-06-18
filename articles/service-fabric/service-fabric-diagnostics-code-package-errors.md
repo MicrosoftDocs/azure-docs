@@ -57,3 +57,10 @@ Exit Code | Hex Value | Short Description | Root Cause | Potential Fix
 --------- | --------- | ----------------- | ---------- | -------------
 3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | This error can potentially mean that the machine has run out of desktop heap space. This cause is especially likely if you have a large number of processes belonging to your application running on the node. | If your program wasn't built to respond to Ctrl+C signals, you can enable the "EnableActivateNoWindow" setting in the Cluster Manifest. Enabling this setting would mean your code package would run without a GUI window and would not receive Ctrl+C signals, but would reduce the amount of desktop heap space each process consumes. If your code package needs to receive Ctrl+C signals, then you can increase the size of your node's desktop heap.
 3762504530 | 0xe0434352 | N/A | This value is the error code for an unhandled exception from managed code (that is, .NET). | If you're seeing this exit code, it implies that your application raised an exception that remained unhandled and terminated the process. Debugging your application's logs and dumps should be the first step to determining what caused the error.
+
+## Next steps
+
+* Learn more about [diagnosing other common scenarios](service-fabric-diagnostics-common-scenarios.md)
+* Get a more detailed overview of Azure Monitor logs and what it offers by reading [What is Azure Monitor logs?](../operations-management-suite/operations-management-suite-overview.md)
+* Learn more about Azure Monitor logs [alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics.
+* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs
