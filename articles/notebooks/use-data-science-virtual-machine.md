@@ -69,5 +69,6 @@ If multiple users share a DSVM, you can avoid blocking each other by creating an
 1. Connect to your DSVM via SSH. You can get the IP address from Azure Portal if necessary.
 1. Run this command: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"`
 1. Look at the number listed for "version".
-## Next Steps
+
+## Next steps
 Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).
