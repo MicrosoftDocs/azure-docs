@@ -698,6 +698,7 @@
     - name: Logs
       items:
       - name: Overview
+        displayname: log query, log queries, query, queries
         href: log-query/log-query-overview.md
       - name: Tutorials
         items:
