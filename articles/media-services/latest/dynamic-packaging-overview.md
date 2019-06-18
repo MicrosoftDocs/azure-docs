@@ -23,7 +23,7 @@ In Azure Media Services, a [streaming endpoint](streaming-endpoint-concept.md) r
 
 You can use Media Services to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies, such as iOS and Xbox. Different clients understand different protocols. For example, iOS requires an HTTP Live Streaming (HLS) format and Xbox require Smooth Streaming. 
 
-If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG DASH, or Smooth Streaming, you can take advantage of *dynamic packaging* in Media Services. 
+If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG-DASH, or Smooth Streaming, you can take advantage of *dynamic packaging* in Media Services. 
 
 A streaming endpoint uses one of the common streaming media protocols (HLS or DASH). Dynamic packaging is a feature that comes standard on all streaming endpoints in Azure Media Services (Standard or Premium).
 
@@ -36,8 +36,8 @@ These are the delivery protocols you can deliver your content in by using Media 
 |HLS V4	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
 |HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
 Dynamic packaging is agnostic to the video resolution and SD, HD, and UHD-4K are supported.
@@ -144,11 +144,11 @@ You can use *dynamic encryption* to dynamically encrypt your live or on-demand c
 
 ## Manifests 
  
-In Media Services dynamic packaging, the streaming client manifests for HLS, MPEG DASH, and Smooth Streaming are dynamically generated based on the format selector in the URL. For more information, see [delivery protocols](#delivery-protocols). 
+In Media Services dynamic packaging, the streaming client manifests for HLS, MPEG-DASH, and Smooth Streaming are dynamically generated based on the format selector in the URL. For more information, see [delivery protocols](#delivery-protocols). 
 
 A manifest file includes streaming metadata such as track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), and video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments that are available and their location. Fragments (or segments) are the actual "chunks" of video content.
 
-The next sections show example manifests for the HLS, MPEG DASH, and Smooth Steaming protocols.
+The next sections show example manifests for the HLS, MPEG-DASH, and Smooth Steaming protocols.
 
 ### HLS manifest
 
