@@ -15,4 +15,4 @@
 - name: ML Services
   href: ./r-server/r-server-overview.md
 - name: Enterprise readiness
-  href: ./domain-joined/apache-domain-joined-introduction.md
+  href: ./domain-joined/apache-domain-joined-run-hbase.md
