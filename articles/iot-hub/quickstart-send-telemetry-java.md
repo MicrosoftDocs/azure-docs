@@ -84,7 +84,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     You use this value later in the quickstart.
 
-3. You also need the _Event Hubs-compatible endpoint_, _Event Hubs-compatible path_, and _iothubowner primary key_ from your IoT hub to enable the back-end application to connect to your IoT hub and retrieve the messages. The following commands retrieve these values for your IoT hub:
+3. You also need the _Event Hubs-compatible endpoint_, _Event Hubs-compatible path_, and _service primary key_ from your IoT hub to enable the back-end application to connect to your IoT hub and retrieve the messages. The following commands retrieve these values for your IoT hub:
 
      **YourIoTHubName: Replace this placeholder below with the name you choose for your IoT hub.
 
@@ -93,7 +93,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
     ```
 
     Make a note of these three values, which you use later in the quickstart.
@@ -136,8 +136,7 @@ The back-end application connects to the service-side **Events** endpoint on you
     | -------- | ----------- |
     | `eventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of previously. |
     | `eventHubsCompatiblePath`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of previously. |
-    | `iotHubSasKey`                | Replace the value of the variable with the iothubowner primary key you made a note of previously. |
-
+    | `iotHubSasKey`                | Replace the value of the variable with the service primary key you made a note of previously. |
 
 3. In the local terminal window, run the following commands to install the required libraries and build the back-end application:
 
