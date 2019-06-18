@@ -25,7 +25,7 @@ In general, FAQ pages should be stand-alone and not combined with other informat
 
 ### Configuring multi-turn
 
-Create your knowledge base with multi-turn extraction enabled. If your knowledge base does or should support question hierarchy, this heirarchy can be extracted from the document or created after the document is extracted. 
+Create your knowledge base with multi-turn extraction enabled. If your knowledge base does or should support question hierarchy, this hierarchy can be extracted from the document or created after the document is extracted. 
 
 <!--is this a global setting that can only be configured at kb creation time? -->
 
@@ -79,7 +79,7 @@ If you add your own chit-chat QnA pairs, make sure to add metadata so these answ
 
 ## Searching for answers
 
-GenerateAnswer API uses both questions and answer to search for best answers to a user's query.
+GenerateAnswer API uses both questions and the answer to search for best answers to a user's query.
 
 ### Searching questions only when answer is not relevant
 
