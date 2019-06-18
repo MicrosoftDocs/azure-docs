@@ -57,7 +57,7 @@ The Azure Data Lake Storage Gen2 connector supports the following authentication
 - [Managed identities for Azure resources authentication](#managed-identity)
 
 >[!NOTE]
->When using PolyBase to load data into SQL Data Warehouse, if your source Data Lake Storage Gen2 is configured with Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. See the managed identity authentication section with more configuration prerequisites.
+>When using PolyBase to load data into SQL Data Warehouse, if your source Data Lake Storage Gen2 is configured with Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
 
 ### Account key authentication
 

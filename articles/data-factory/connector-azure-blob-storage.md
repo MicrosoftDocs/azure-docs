@@ -56,7 +56,7 @@ Azure Blob connector support the following authentication types, refer to the co
 - [Managed identities for Azure resources authentication](#managed-identity)
 
 >[!NOTE]
->When using PolyBase to load data into SQL Data Warehouse, if your source or staging Blob storage is configured with Virtual Network endpoint, you must use managed identity authentication as required by PolyBase, and use Self-hosted Integration Runtime with version 3.18 or above. See the managed identity authentication section with more configuration prerequisites.
+>When using PolyBase to load data into SQL Data Warehouse, if your source or staging Blob storage is configured with Virtual Network endpoint, you must use managed identity authentication as required by PolyBase, and use Self-hosted Integration Runtime with version 3.18 or above. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
 
 >[!NOTE]
 >HDInsights and Azure Machine Learning activities only support Azure Blob storage account key authentication.
