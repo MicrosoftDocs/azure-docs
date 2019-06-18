@@ -145,16 +145,25 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the scale set model definition.
 
-The following example adds the Application Health extension to the scale set model of a Windows-based scale set.
+The following example adds the Application Health extension to the scale set model of a Linux-based scale set.
 
 ```azurecli-interactive
 az vmss extension set \
-  --name ApplicationHealthWindows \
+  --name ApplicationHealthLinux \
   --publisher Microsoft.ManagedServices \
   --version 1.0 \
   --resource-group <myVMScaleSetResourceGroup> \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
+```
+The extension.json file content.
+
+```json
+{
+  "protocol": "<protocol>",
+  "port": "<port>",
+  "requestPath": "</requestPath>"
+}
 ```
 
 
