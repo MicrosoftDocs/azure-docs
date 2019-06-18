@@ -22,14 +22,15 @@ If you are not familiar with Unity, it is recommended to study the [Unity User M
 
 > [!NOTE]
 > The Speech SDK for Unity is currently in beta.
-> It supports Windows x86 and x64 (stand-alone desktop application or Universal Windows Platform), and Android (ARM32/64, x86).
+> It supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), and Android (x86, ARM32/64).
 
 ## Prerequisites
 
 To complete this project, you'll need:
 
-* [Unity 2018.3 or later](https://store.unity.com/)
+* [Unity 2018.3 or later](https://store.unity.com/) with [Unity 2019.1 adding support for UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+     * For ARM64 support, install the [optional build tools for ARM64, and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * A subscription key for the Speech Service. [Get one for free](get-started.md).
 * Access to your computer's microphone.
 

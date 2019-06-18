@@ -1,20 +1,12 @@
 ---
-title: Virtual machine Support tab in the Cloud Partner Portal for the Azure Marketplace | Microsoft Docs
+title: Virtual machine Support tab in the Cloud Partner Portal for the Azure Marketplace 
 description: Describes the Support tab used in creating an Azure Marketplace VM offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Virtual machine Support tab

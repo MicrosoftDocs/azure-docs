@@ -16,7 +16,7 @@ ms.author: bwren
 # Metrics in Azure Monitor
 
 > [!NOTE]
-> The Azure Monitor data platform  is based on two fundamental data types: Metrics and Logs. This article describes Metrics. Refer to [Logs in Azure Monitor](data-platform-logs.md) for a detailed description of logs and to [Azure Monitor data platforn](data-platform.md) for a comparison of the two.
+> The Azure Monitor data platform  is based on two fundamental data types: Metrics and Logs. This article describes Metrics. Refer to [Logs in Azure Monitor](data-platform-logs.md) for a detailed description of logs and to [Azure Monitor data platform](data-platform.md) for a comparison of the two.
 
 Metrics in Azure Monitor are lightweight and capable of supporting near real-time scenarios making them particularly useful for alerting and fast detection of issues. This article describes how metrics are structured, what you can do with them, and identifies different data sources that store data in metrics.
 

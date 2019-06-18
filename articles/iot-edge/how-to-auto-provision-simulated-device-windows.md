@@ -77,15 +77,9 @@ Get-Service iotedge
 
 Examine service logs from the last 5 minutes.
 
-```powershell
-# Displays logs from last 5 min, newest at the bottom.
 
-Get-WinEvent -ea SilentlyContinue `
-  -FilterHashtable @{ProviderName= "iotedged";
-    LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
-  select TimeCreated, Message |
-  sort-object @{Expression="TimeCreated";Descending=$false} |
-  format-table -autosize -wrap
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 List running modules.

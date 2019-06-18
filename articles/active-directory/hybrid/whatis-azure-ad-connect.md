@@ -60,6 +60,11 @@ Rich [usage metrics](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|To
 |Great user experience|Dashboard fashion from Azure portal</br>[Alerts through emails](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 
 
+## License requirements for using Azure AD Connect
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
+
+
 
 
 ## Next steps

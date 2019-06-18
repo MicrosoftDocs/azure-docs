@@ -9,12 +9,16 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/18/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
 
 This article contains answers to frequently asked questions about Language Understanding (LUIS).
+
+## What's new
+
+[Learn more](whats-new.md) about what's new in Language Understanding.
 
 <a name="luis-authoring"></a>
 
@@ -40,7 +44,7 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7.
 
 ### How do I edit my LUIS app programmatically?
-To edit your LUIS app programmatically, use the [Authoring API](https://aka.ms/luis-authoring-apis). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-concept-keys.md#authoring-key) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-concept-keys.md).
+To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-concept-keys.md#authoring-key) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-concept-keys.md).
 
 ### Where is the Pattern feature that provided regular expression matching?
 The previous **Pattern feature** is currently deprecated, replaced by **[Patterns](luis-concept-patterns.md)**.
@@ -179,11 +183,11 @@ See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md)
 
 ### I got an error about being out of quota. How do I fix it? 
 
-See, [How to fix out-of-quota errors when the key exceeds pricing tier usage](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) to learn more.
+See, [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) to learn more.
 
 ### I need to handle more endpoint queries. How do I do that? 
 
-See, [How to fix out-of-quota errors when the key exceeds pricing tier usage](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) to learn more.
+See, [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) to learn more.
 
 
 
@@ -276,27 +280,25 @@ Use the LUIS sample to [find region](https://github.com/Azure-Samples/cognitive-
 
 Yes, you can use the LUIS [container](luis-container-howto.md) for these scenarios if you have the necessary connectivity to meter usage. 
 
-### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called?
+## Migrating to the next version
 
-The following features were released at the Build 2018 Conference:
+### How do I migrate to preview V3 API? 
 
-|Name|Content|
-|--|--|
-|Enhancements|[Regular expression](luis-concept-data-extraction.md##regular-expression-entity-data) entity and [Key phrase](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entity
-|Patterns|Patterns [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entity concept including [Explicit list](luis-concept-patterns.md#explicit-lists) for exceptions<br>[Roles](luis-concept-roles.md) concept|
-|Integrations|[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integration of [sentiment analysis](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech) integration of speech priming in conjunction with [Speech SDK](https://aka.ms/SpeechSDK)|
-|Dispatch tool|Part of [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch command line [tool](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) to combine multiple LUIS and QnA Maker apps into single LUIS app for better intent recognition in a Bot
+See [API v2 to v3 Migration guide for LUIS apps](luis-migration-api-v3.md)
 
-Additional authoring [API routes](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) were included.
+## Build 2019 Conference announcements
+
+The following features were released at the Build 2019 Conference:
+
+* [Preview of V3 API migration guide](luis-migration-api-v3.md)
+* [Improved analytics dashboard](luis-how-to-use-dashboard.md)
+* [Improved prebuilt domains](luis-reference-prebuilt-domains.md) 
+* [Dynamic list entities](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [External entities](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Videos:
-* [Azure Friday At Build 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
-Projects:
-* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on GitHub
+* [How to use Azure Conversational AI to scale your business for the next generation](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## Next steps
 

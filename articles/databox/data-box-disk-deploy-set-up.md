@@ -1,5 +1,5 @@
 ---
-title: Set up Microsoft Azure Data Box Disk| Microsoft Docs
+title: Tutorial to unpack, connect to, unlock Azure Data Box Disk| Microsoft Docs
 description: Use this tutorial to learn how to set up your Azure Data Box Disk
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -118,7 +118,9 @@ Perform the following steps to connect and unlock your disks.
     ```  
 8. Once the disk is unlocked, you can view the contents of the disk.    
 
-    ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+    ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md). 
 
 ## Unlock disks on Linux client
 
@@ -203,12 +205,12 @@ Perform the following steps to connect and unlock your disks.
 
     Type the following command.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’          
 
     The sample output is shown below. 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’  
     
     START: Mon Aug 13 14:25:49 2018 
     Volumes: /dev/sdbl 
@@ -248,6 +250,9 @@ Perform the following steps to connect and unlock your disks.
 8. Once the disk is unlocked, you can go to the mount point and view the contents of the disk. You are now ready to copy the data to *BlockBlob* or *PageBlob* folders. 
 
     ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+
+
+If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md). 
 
 ## Next steps
 

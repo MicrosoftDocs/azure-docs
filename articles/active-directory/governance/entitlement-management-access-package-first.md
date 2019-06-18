@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 04/26/2019
+ms.date: 04/27/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -164,6 +164,8 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 1. In the Select users and groups pane, select the **Requestor1** user you created earlier and then click **Select**.
 
+1. In the **Request** section, set **Require approval** to **Yes**.
+
 1. In the **Select approvers** section, click **Add approvers**.
 
 1. In the Select approvers pane, select the **Admin1** you created earlier and then click **Select**.
@@ -190,7 +192,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 ## Step 4: Request access
 
-In this step, you perform the steps as the **internal requestor** and request access to the access package. Requestors submit their requests using a site called the My Access portal. The My Access portal enables requestors to submit request for access packages, see the access packages they already have access to, and view their request history.
+In this step, you perform the steps as the **internal requestor** and request access to the access package. Requestors submit their requests using a site called the My Access portal. The My Access portal enables requestors to submit requests for access packages, see the access packages they already have access to, and view their request history.
 
 **Prerequisite role:** Internal requestor
 
@@ -220,7 +222,7 @@ In this step, you perform the steps as the **internal requestor** and request ac
 
 1. Click **Submit**.
 
-1. In the left menu, click **Request history** to verify that your request was submitted or delivered.
+1. In the left menu, click **Request history** to verify that your request was submitted.
 
 ## Step 5: Approve access request
 
@@ -251,6 +253,8 @@ In this step, you sign in as the **approver** user and approve the access reques
     You should see a message that it was successfully approved.
 
 ## Step 6: Validate that access has been assigned
+
+Now that you have approved the access request, in this step, you confirm that the **internal requestor** was assigned the access package and that they are now a member of the **Engineering Group** group.
 
 **Prerequisite role:** Global administrator or User administrator
 
@@ -284,6 +288,8 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 ## Step 7: Clean up resources
 
+In this step, you remove the changes you made and delete the **Web project access package** access package.
+
 **Prerequisite role:**  Global administrator or User administrator
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
@@ -293,6 +299,8 @@ In this step, you sign in as the **approver** user and approve the access reques
 1. Click **Assignments**.
 
 1. For **Requestor1**, click the ellipsis (**...**) and then click **Remove access**.
+
+    The status will change from Delivered to Expired.
 
 1. Click **Policies**.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
-ms.author: monhaber
+ms.date: 10/06/2019
+ms.author: v-mohabe
 
 ---
 # Data collection in Azure Security Center
-Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user. The Microsoft Monitoring Agent agent also copies crash dump files to your workspace.
+Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user. The Microsoft Monitoring Agent agent also copies crash dump files to your workspace.
 
 Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection enablement, and health and threat detections. 
 
@@ -27,12 +27,11 @@ This article provides guidance on how to install a Microsoft Monitoring Agent an
 > [!NOTE]
 > - Data collection is only needed for Compute resources (VMs, virtual machine scale sets, IaaS containers, and non-Azure computers). You can benefit from Azure Security Center even if you don’t provision agents; however, you will have limited security and the capabilities listed above are not supported.  
 > - For the list of supported platforms, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
-> - Data collection for Virtual machine scale set is not currently supported.
-> - Storing data in Log Analytics, whether you use a new or existing workspace, might incur additional charges for data storage, see the pricing page for more details.
+> - Storing data in Log Analytics, whether you use a new or existing workspace, might incur additional charges for data storage. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Enable automatic provisioning of Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
 
-To collect the data from the machines you should have the Microsoft Monitoring Agent installed.  Installation of the agent can be automatically (recommended) or you may choose to install the agent manually.  
+To collect the data from the machines, you should have the Microsoft Monitoring Agent installed.  Installation of the agent can be done automatically (recommended) or you can install the agent manually.  
 
 >[!NOTE]
 > Automatic provisioning is off by default. To set Security Center to install automatic provisioning by default, set it to **On**.
@@ -85,9 +84,7 @@ To select a workspace created by Security Center:
 
 > [!NOTE]
 > The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
-> Storing data in Log Analytics might incur additional charges for data storage, see the pricing page for more details.
-
-For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+> Storing data in Log Analytics might incur additional charges for data storage. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 For more information about existing log analytics accounts, see [Existing log analytics customers](security-center-faq.md#existingloganalyticscust).
 
@@ -99,7 +96,7 @@ To use your existing Log Analytics workspace, you must have read and write permi
 
 > [!NOTE]
 > Solutions enabled on the existing workspace will be applied to Azure VMs that are connected to it. For paid solutions, this could result in additional charges. For data privacy considerations, make sure your selected workspace is in the right geographic region.
-> Storing data in log analytics might incur additional charges for data storage, see the pricing page for more details.
+> Storing data in log analytics might incur additional charges for data storage. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 To select an existing Log Analytics workspace:
 
@@ -148,7 +145,7 @@ When you select a workspace in which to store your data, all the workspaces acro
 ## Data collection tier
 Selecting a data collection tier in Azure Security Center will only affect the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Azure Security Center’s threat detections, regardless of which tier of security events you choose to store in your Log Analytics workspace (if any). Choosing to store security events in your workspace will enable investigation, search, and auditing of those events in your workspace. 
 > [!NOTE]
-> Storing data in log analytics might incur additional charges for data storage, see the pricing page for more details.
+> Storing data in log analytics might incur additional charges for data storage. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 > 
 > You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be stored in your workspace: 
 
@@ -203,8 +200,10 @@ The following use cases specify how automatic provision works in cases when ther
 
 - Microsoft Monitoring Agent is installed on the machine, but not as an extension (Direct agent)<br>
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will install the Microsoft Monitoring Agent extension, and may upgrade the Microsoft Monitoring agent to the latest version.
-The agent installed will continue to report to its already configured workspace(s), and additionally will report to the workspace configured in Security Center (Multi-homing is supported).
+The agent installed will continue to report to its already configured workspace(s), and additionally will report to the workspace configured in Security Center (Multi-homing is supported on Windows machines).
 If the configured workspace is a user workspace (not Security Center's default workspace), then you will need to install the "security/"securityFree" solution on it for Security Center to start processing events from VMs and computers reporting to that workspace.<br>
+<br>
+For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
 <br>
 For existing machines on subscriptions onboarded to Security Center before 2019-03-17, when an existing agent will be detected, the Microsoft Monitoring Agent extension will not be installed and the machine will not be affected. For these machines, see to the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines.
 

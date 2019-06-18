@@ -181,8 +181,6 @@ The next Resource Manager template example creates a subscription for a blob sto
 
 For more flexibility in filtering, you can use operators and data properties to filter events.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ### Subscribe with advanced filters
 
 To learn about the operators and keys that you can use for advanced filtering, see [Advanced filtering](event-filtering.md#advanced-filtering).

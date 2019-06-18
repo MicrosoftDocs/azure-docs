@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 06/16/2019
 ms.author: juliako
 
 ---
@@ -27,13 +27,13 @@ Azure Media Services enables you to deliver live events to your customers on the
 - Components in Media Services, which enable you to ingest, preview, package, record, encrypt, and broadcast the live event to your customers, or to a CDN for further distribution.
 
 This article gives an overview and guidance of live streaming with Media Services and links to other relevant articles.
-
+ 
 > [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Dynamic Packaging
 
-With Media Services, you can take advantage of Dynamic Packaging](dynamic-packaging-overview.md), which allows you to preview and broadcast your live streams in [MPEG DASH, HLS, and Smooth Streaming formats](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) from the contribution feed that you send to the service. Your viewers can play back the live stream with any HLS, DASH, or Smooth Streaming compatible players. You can use [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) in your web or mobile applications to deliver your stream in any of these protocols.
+With Media Services, you can take advantage of [Dynamic Packaging](dynamic-packaging-overview.md), which allows you to preview and broadcast your live streams in [MPEG DASH, HLS, and Smooth Streaming formats](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) from the contribution feed that is being sent to the service. Your viewers can play back the live stream with any HLS, DASH, or Smooth Streaming compatible players. You can use [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) in your web or mobile applications to deliver your stream in any of these protocols.
 
 ## Dynamic Encryption
 
@@ -45,7 +45,7 @@ Dynamic filtering is used to control the number of tracks, formats, bitrates, an
 
 ## Live Event types
 
-A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live Events and Live Outputs](live-events-outputs-concept.md).
+[Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live Events and Live Outputs](live-events-outputs-concept.md).
 
 ### Pass-through
 
@@ -69,15 +69,15 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 
 ### General steps
 
-1. In your Media Services account, make sure the **Streaming Endpoint**/Origin is running. 
+1. In your Media Services account, make sure the **Streaming Endpoint** (Origin) is running. 
 2. Create a [Live Event](live-events-outputs-concept.md). <br/>When creating the event, you can specify to autostart it. Alternatively, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. For more information, see [Live Event states and billing](live-event-states-billing.md).
 3. Get the ingest URL(s) and configure your on-premises encoder to use the URL to send the contribution feed.<br/>See [recommended live encoders](recommended-on-premises-live-encoders.md).
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 5. Create a new **Asset** object.
 6. Create a **Live Output** and use the asset name that you created.<br/>The **Live Output** will archive the stream into the **Asset**.
-7. Create a **Streaming Locator** with the built-in **Streaming Policy** types.<br/>If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
+7. Create a **Streaming Locator** with the [built-in Streaming Policy types](streaming-policy-concept.md)
 8. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
-9. Get the hostname for the **Streaming Endpoint**/Origin you wish to stream from.
+9. Get the hostname for the **Streaming Endpoint** (Origin) you wish to stream from.
 10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
 11. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event and delete the **Streaming Locator**.
 
@@ -89,7 +89,7 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 - [States and billing](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

@@ -504,7 +504,7 @@ The same events are available on Adaptive Source manger level as well, which can
    ```
 
    > [!NOTE]
-   > CoreDispatcher is used to make changes to the UI thread from non UI Thread. In case of bottleneck on dispatcher thread, developer can choose to use dispatcher provided by UI-element he/she intends to update.  For example:
+   > CoreDispatcher is used to make changes to the UI thread from non UI Thread. In case of bottleneck on dispatcher thread, developer can choose to use dispatcher provided by UI-element they intend to update.  For example:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -844,7 +844,7 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
          </ListBox>
          </StackPanel>
    ```
-3. Press **CTRL+S** to save he changes
+3. Press **CTRL+S** to save the changes
 
 ### To modify the code behind file
 

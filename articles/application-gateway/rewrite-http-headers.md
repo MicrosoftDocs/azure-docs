@@ -2,10 +2,10 @@
 title: Rewrite HTTP headers with Azure Application Gateway | Microsoft Docs
 description: This article provides an overview of rewriting HTTP headers in Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/29/2019
 ms.author: absha
 ---
 
@@ -20,7 +20,8 @@ Application Gateway allows you to add, remove, or update HTTP request and respon
 Application Gateway also supports several [server variables](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) that help you store additional information about requests and responses. This makes it easier for you to create powerful rewrite rules.
 
 > [!NOTE]
-> HTTP header rewrite is available only in the [new SKU Standard_v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+>
+> The HTTP header rewrite support is only available for the [Standard_V2 and WAF_v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
 ![Rewriting headers](media/rewrite-http-headers/rewrite-headers.png)
 
@@ -36,7 +37,7 @@ You can use rewrite conditions to evaluate the content of HTTP(S) requests and r
 - HTTP headers in the response.
 - Application Gateway server variables.
 
-You can use a condition to evaluate whether a specified variable is present, whether a specified variable matches a specific value, or whether a specified variable matches a specific pattern. You use the [Perl Compatible Regular Expressions (PCRE) library](https://www.pcre.org/) to set up regular expression pattern matching in the conditions. To learn about regular expression syntax, see the [Perl regular expressions main page](http://perldoc.perl.org/perlre.html).
+You can use a condition to evaluate whether a specified variable is present, whether a specified variable matches a specific value, or whether a specified variable matches a specific pattern. You use the [Perl Compatible Regular Expressions (PCRE) library](https://www.pcre.org/) to set up regular expression pattern matching in the conditions. To learn about regular expression syntax, see the [Perl regular expressions main page](https://perldoc.perl.org/perlre.html).
 
 ## Rewrite actions
 
@@ -147,17 +148,15 @@ You can evaluate an HTTP request or response header for the presence of a header
 
 ## Limitations
 
+- If a response has more than one headers with the same name, then rewriting the value of one of those headers will result in dropping the other headers in the response. This can usually happen with Set-Cookie header since you can have more than one Set-Cookie header in a response. One such scenario is when you are using an app service with an application gateway and have configured cookie-based session affinity on the application gateway. In this case the response will contain 2 Set-Cookie headers: one used by the app service, i.e., `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` and another for application gateway affinity, i.e., `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Rewriting one of the Set-Cookie headers in this scenario can result in removing the other Set-Cookie header from the response.
+
 - Rewriting the Connection, Upgrade, and Host headers isn't currently supported.
 
 - Header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). We don't currently support the underscore (\_) special character in Header names.
-
-## Need help?
-
-Contact us at [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@microsoft.com) if you need any help with this feature.
 
 ## Next steps
 
 To learn how to rewrite HTTP headers, see:
 
--  [Rewrite HTTP headers using Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
--  [Rewrite HTTP headers using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
+- [Rewrite HTTP headers using Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Rewrite HTTP headers using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

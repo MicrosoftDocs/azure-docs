@@ -28,7 +28,7 @@ Follow steps to [install and configure Azure Powershell](https://docs.microsoft.
 
 ## Utilities you can run in a browser
 The following utilities have a web UI that runs in a browser:
-* **[Azure Cloud Shell ](https://docs.microsoft.com/azure/cloud-shell/overview)** is an interactive, command-line shell that runs in your browser and from within the Azure portal.
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** is an interactive, command-line shell that runs in your browser and from within the Azure portal.
 * **[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** is a management and monitoring utility available in the Azure portal that can be used to manage different kinds of jobs, such as:
     * [Use Apache Ambari with the REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Hive View in Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -79,7 +79,7 @@ If you encounter a situation where you must use a tool or technology that is onl
 
 ## Cross-platform tools
 
-The Azure command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources.  For more information, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest).
+The Azure command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources.  For more information, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## Next steps
 If you're new to working in Linux-based clusters, see the follow articles:

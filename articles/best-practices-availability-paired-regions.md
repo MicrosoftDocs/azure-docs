@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 04/28/2019
 ms.author: raynew
 ---
 
@@ -30,10 +30,9 @@ Figure 1 – Azure regional pairs
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
 | China |China North 2 |China East 2|
-| Europe |North Europe |West Europe |
+| Europe |North Europe (Ireland) |West Europe (Netherlands) |
 | France |France Central|France South|
 | Germany |Germany Central |Germany Northeast |
-| Germany |Germany North | Germany West Central
 | India |Central India |South India |
 | India |West India |South India |
 | Japan |Japan East |Japan West |
@@ -42,14 +41,9 @@ Figure 1 – Azure regional pairs
 | North America |East US 2 |Central US |
 | North America |North Central US |South Central US |
 | North America |West US 2 |West Central US 
-| North America |West US 3 |East US
-| Norway |Norway East |Norway West
 | South Africa | South Africa North | South Africa West
-| Sweden |Sweden Central |Sweden South
-| Switzerland | Switzerland North | Switzerland West
 | UK |UK West |UK South |
-| UK |UK North |UK South 2
-| United Arab Emirates | UAE North | UAE Center
+| United Arab Emirates | UAE North | UAE Central
 | US Department of Defense |US DoD East |US DoD Central |
 | US Government |US Gov Arizona |US Gov Texas |
 | US Government |US Gov Iowa |US Gov Virginia |

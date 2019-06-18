@@ -16,7 +16,7 @@ ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 # Machine Learning Anomaly Detection API
 
 > [!NOTE]
-> This item is under maintenance. We encourage you to use the [Anomaly Detector API service](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/) powered by a gallery of Machine Learning algorithms under Azure Cognitive Services to detect anomalies from business, operational, and IoT metrics.
+> This item is under maintenance. We encourage you to use the [Anomaly Detector API service](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) powered by a gallery of Machine Learning algorithms under Azure Cognitive Services to detect anomalies from business, operational, and IoT metrics.
 
 ## Overview
 [Anomaly Detection API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.

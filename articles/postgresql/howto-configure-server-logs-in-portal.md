@@ -1,16 +1,16 @@
 ---
-title: Configure and access server logs for PostgreSQL in Azure Portal
-description: This article describes how to configure and access the server logs in Azure Database for PostgreSQL from the Azure Portal.
+title: Configure and access server logs for Azure Database for PostgreSQL - Single Server in Azure Portal
+description: This article describes how to configure and access the server logs in Azure Database for PostgreSQL - Single Server from the Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 5/6/2019
 ---
 
-# Configure and access server logs in the Azure portal
+# Configure and access Azure Database for PostgreSQL - Single Server logs in the Azure portal
 
-You can configure, list, and download the [Azure Database for PostgreSQL server logs](concepts-server-logs.md) from the Azure portal.
+You can configure, list, and download the [Azure Database for PostgreSQL logs](concepts-server-logs.md) from the Azure portal.
 
 ## Prerequisites
 To step through this how-to guide, you need:

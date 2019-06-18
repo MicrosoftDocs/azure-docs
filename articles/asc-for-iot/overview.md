@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
 
 ---
@@ -31,7 +31,7 @@ Unify security management and enable end to end threat analysis and protection a
 
 ## Protect IoT and hybrid cloud workloads against evolving cyber-attacks
 
-The Internet of Things is quickly transforming our world. With the ability to uncovering insights from your connected devices and back-end systems, you can now transform those insights into powerful applications and services to help your organization achieve unprecedented levels of operational and business performance. However, as billions of new devices are connected to the internet, and integrated into our daily lives and our businesses; your security operations teams need to ensure that their security strategies evolve quickly enough to cover these new attack surfaces. Like any other system, securing your IoT solution needs protection at every stage of your implementation. 
+The Internet of Things is quickly transforming our world. With the ability to uncover insights from your connected devices and back-end systems, you can now transform those insights into powerful applications and services to help your organization achieve unprecedented levels of operational and business performance. However, as billions of new devices are connected to the internet, and integrated into our daily lives and our businesses; your security operations teams need to ensure that their security strategies evolve quickly enough to cover these new attack surfaces. Like any other system, securing your IoT solution needs protection at every stage of your implementation. 
 
 Azure Security Center (ASC) for IoT simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. 
 

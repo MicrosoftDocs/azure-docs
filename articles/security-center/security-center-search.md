@@ -18,6 +18,10 @@ ms.author: rkarlin
 
 ---
 # Azure Security Center search
+
+> [!NOTE]
+> Security Center's Search dashboard will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_search).
+
 Azure Security Center uses [Azure Monitor logs search](../log-analytics/log-analytics-log-searches.md) to retrieve and analyze your security data. Azure Monitor logs includes a query language to quickly retrieve and consolidate data. From Security Center, you can leverage Azure Monitor logs search to construct queries and analyze collected data.
 
 Search is available in both the Free tier and Standard tier of Security Center.  The data available in your log searches is dependent on the tier level applied to your workspace.  See the Security Center [pricing page](../security-center/security-center-pricing.md) for more information.
@@ -41,7 +45,7 @@ Search is available in both the Free tier and Standard tier of Security Center. 
 
    SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
 
-   Result shows all accounts that failed to logon (event 4625).
+   Result shows all accounts that failed to sign in (event 4625).
 
    ![Search results][3]
 

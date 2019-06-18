@@ -1,6 +1,6 @@
 ---
-title: Complete an access review for Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
-description: Learn how to complete an access review for Azure AD roles in Azure AD Privileged Identity Management (PIM) and view the results
+title: Complete an access review of Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+description: Learn how to complete an access review of Azure AD roles in Azure AD Privileged Identity Management (PIM) and view the results
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
-# Complete an access review for Azure AD roles in PIM
+# Complete an access review of Azure AD roles in PIM
 Privileged role administrators can review privileged access once an [access review has been started](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) will automatically send an email prompting users to review their access. If a user did not get an email, you can send them the instructions in [how to perform an access review](pim-how-to-perform-security-review.md).
 
 After the access review period is over, or all the users have finished their self-review, follow the steps in this article to manage the review and see the results.
@@ -28,7 +28,7 @@ After the access review period is over, or all the users have finished their sel
 
 On the access review's detail blade, there are a number options for managing that review.
 
-![PIM access review buttons - screenshot](./media/pim-how-to-complete-review/PIM_review_buttons.png)
+![PIM access review buttons - screenshot](./media/pim-how-to-complete-review/review-buttons.png)
 
 ### Remind
 If an access review is set up so that the users review themselves, the **Remind** button sends out a notification. 

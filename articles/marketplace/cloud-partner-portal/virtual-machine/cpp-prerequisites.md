@@ -1,20 +1,12 @@
 ---
-title: Virtual machine prerequisites for Microsoft Azure| Microsoft Docs
+title: Virtual machine prerequisites for Microsoft Azure | Azure Marketplace
 description: List of prerequisites required to publish a VM offer to the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 03/13/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Virtual machine prerequisites
@@ -39,7 +31,7 @@ The business requirements include procedural, contractual, and legal obligations
 <!-- TD: Aren't most of these business requirements common to all AMP offerings?  If yes, then move to higher level, perhaps to the AMP section "Become a Cloud Marketplace Publisher" -->
 <!-- TD: Need references for remaining docs/business reqs!-->
 
-- You must be a registered Cloud Marketplace Publisher.  If you are not registered yet, follow the steps in the article [Become a Cloud Marketplace Publisher](../../become-publisher.md).
+- You must be a registered Cloud Marketplace Publisher.  If you are not registered yet, follow the steps in the article [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE]
     > You should use the same Microsoft Developer Center registration account to sign onto the [Cloud Partner Portal](https://cloudpartner.azure.com).

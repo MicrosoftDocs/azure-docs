@@ -2,21 +2,13 @@
 title: Lead management for cloud marketplace | Azure Marketplace and AppSource
 description: An overview of various topics related to publishing offers and technical artifacts to the Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
 author: yijenj
-manager: nunoc
-editor:
-
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-
 ---
+
 # Lead management for cloud marketplace
 
 

@@ -12,4 +12,4 @@ ms.custom: include file
 ---
 
 > [!IMPORTANT]
-> The Azure Functions Runtime preview 2 supports only version 1.x of the Azure Functions runtime. This preview feature is not being updated to support version 2.x of the runtime, and no future updates are planned. If you need to host the Azure Functions runtime outside of Azure, consider [using a customer Linux container](../articles/azure-functions/functions-create-function-linux-custom-image.md).
+> The Azure Functions Runtime preview 2 supports only version 1.x of the Azure Functions runtime. This preview feature is not being updated to support version 2.x of the runtime, and no future updates are planned. If you need to host the Azure Functions runtime outside of Azure, consider [using Azure Functions on Kubernetes with KEDA](../articles/azure-functions/functions-kubernetes-keda.md)

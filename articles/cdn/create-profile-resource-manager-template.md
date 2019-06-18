@@ -47,7 +47,7 @@ az group create --name cdn --location eastus
 
 In this step, you create a template file that deploys the resources.
 
-While this example walks through a General Website Acceleration scenario, there are many other settings that can be configured. These settings are available in the Azure Resource Manager template reference. Please see references for [CDN Profile](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) and [CDN Profile Endpoint](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+While this example walks through a General Website Acceleration scenario, there are many other settings that can be configured. These settings are available in the Azure Resource Manager template reference. Please see references for [CDN Profile](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) and [CDN Profile Endpoint](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
 Note that Microsoft CDN doesn't support modifying the content type list.
 
@@ -220,8 +220,8 @@ az group delete --name cdn
 
 ## References
 
-* CDN Profile - [Azure Resource Manager Template Reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* CDN Endpoint - [Azure Resource Manager Template Reference Documentation](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* CDN Profile - [Azure Resource Manager Template Reference](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* CDN Endpoint - [Azure Resource Manager Template Reference Documentation](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## Next steps
 

@@ -14,11 +14,11 @@ ms.custom: include file
 
 It is recommended to use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) to execute CLI commands. **Cloud Shell** is a free, interactive shell that you can use to run the steps in this article. Common Azure tools are preinstalled and configured in Cloud Shell for you to use with your account. It provides the flexibility of choosing the shell experience that best suits the way you work. Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+You can also install the CLI locally. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for instructions for your platform.
 
-### Login
+### Sign in
 
-To start using the CLI shell (in the cloud or locally), run `az login` to create a connection with Azure.
+Using a local install of the CLI requires signing in to Azure. This step is not required for Azure Cloud Shell. Sign in with the `az login` command.
 
 If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser page and follow the instructions on the command line to enter an authorization code after navigating to https://aka.ms/devicelogin in your browser.
 

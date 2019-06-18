@@ -35,7 +35,7 @@ This documentation is for enterprise IT planners, architects, and managers who a
 
 ## Enterprise customers
 
-Many current DevTest Labs enterprise customers successfully use DevTest Labs for development and for testing workloads in their organizations. [Learn more](https://azure.microsoft.com/en-us/case-studies/?term=DevTest+labs).
+Many current DevTest Labs enterprise customers successfully use DevTest Labs for development and for testing workloads in their organizations. [Learn more](https://azure.microsoft.com/case-studies/?term=DevTest+labs).
 
 ## Next steps
 - [Reference architecture for an enterprise](devtest-lab-reference-architecture.md)

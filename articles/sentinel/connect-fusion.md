@@ -4,7 +4,7 @@ description: Learn how to enable fusion in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 82becf50-6628-47e4-b3d7-18d7d72d505f

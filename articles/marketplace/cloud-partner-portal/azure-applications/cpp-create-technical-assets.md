@@ -1,20 +1,12 @@
 ---
-title: Create Azure application technical assets | Microsoft Docs
+title: Create Azure application technical assets  | Azure Marketplace
 description: Create the technical assets for an Azure application offer.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Prepare your Azure application technical assets

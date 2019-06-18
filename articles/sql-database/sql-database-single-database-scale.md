@@ -15,7 +15,7 @@ ms.date: 04/26/2019
 ---
 # Scale single database resources in Azure SQL Database
 
-This article describes how to scale the compute and storage resources available for a single database in the provisioned compute tier. 
+This article describes how to scale the compute and storage resources available for a single database in the provisioned compute tier. Alternatively, the [serverless (preview) compute tier](sql-database-serverless.md) provides compute auto-scaling and bills per second for compute used.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -50,7 +50,7 @@ Changing the service tier or compute size of a single database mainly involves t
 
 ### Latency of changing service tier or rescaling compute size
 
-The latency to change the service tier or rescale the compute size of a single database or elastic pool is parameterized as follows:
+The estimated latency to change the service tier or rescale the compute size of a single database or elastic pool is parameterized as follows:
 
 |Service tier|Basic single database,</br>Standard (S0-S1)|Basic elastic pool,</br>Standard (S2-S12), </br>Hyperscale, </br>General Purpose single database or elastic pool|Premium or Business Critical single database or elastic pool|
 |:---|:---|:---|:---|

@@ -42,7 +42,7 @@ When a user selects a suggestion from the drop-down list, you can use it to begi
 
 To get started quickly with your first request, see [Making Your First Query](quickstarts/csharp.md).
 
-Familiarize yourself with the [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request suggested query terms, and the definitions of the response objects.
+Familiarize yourself with the [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request suggested query terms, and the definitions of the response objects.
 
 Learn how to search the web by using the [Bing Web Search API](../bing-web-search/search-the-web.md).
 

@@ -3,7 +3,7 @@ title: Working with security policies | Microsoft Docs
 description: This article describes how to working with security policies in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
-ms.author: monhaber
+ms.date: 5/05/2019
+ms.author: v-mohabe
 ---
 
 # Working with security policies
@@ -106,6 +106,9 @@ For further information about recommendations, see [Managing security recommenda
    ![policy management](./media/tutorial-security-policy/policy-management.png)
 
 2. Click the subscription or management group for which you want to disable the recommendation.
+
+   > [!Note]
+   > Remember that a management group applies its policies to its subscriptions. Therefore, if you disable a subscription's policy, and the subscription belongs to a management group that still uses the same policy, then you will continue to receive the policy recommendations. The policy will still be applied from the management level and the recommendations will still be generated.
 
 1. Click the assigned policy.
 

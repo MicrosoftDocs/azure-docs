@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2019
+ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -142,9 +142,9 @@ Storage Blob Data Contributor
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Since Alice has a wildcard (`*`) action at a subscription scope, her permissions inherit down to enable her to perform all management actions. Alice can read, write, and delete containers. However, Alice cannot perform data operations without taking additional steps. For example, by default, Alice cannot read the blobs inside a container. To read the blobs, Alice would have to retrieve the storage access keys and use them to access the blobs.
+Since Alice has a wildcard (`*`) action at a subscription scope, their permissions inherit down to enable them to perform all management actions. Alice can read, write, and delete containers. However, Alice cannot perform data operations without taking additional steps. For example, by default, Alice cannot read the blobs inside a container. To read the blobs, Alice would have to retrieve the storage access keys and use them to access the blobs.
 
-Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and he can also read, write, and delete the blobs.
+Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and can also read, write, and delete the blobs.
 
 For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/common/storage-security-guide.md).
 
@@ -211,7 +211,7 @@ The `NotDataActions` permission specifies the data operations that are excluded 
 
 ## AssignableScopes
 
-The `AssignableScopes` property specifies the scopes (subscriptions, resource groups, or resources) that the role is available for assignment. You can make the role available for assignment in only the subscriptions or resource groups that require it, and not the clutter user experience for the rest of the subscriptions or resource groups. You must use at least one subscription, resource group, or resource ID.
+The `AssignableScopes` property specifies the scopes (subscriptions, resource groups, or resources) that have this role definition available. You can make the role available for assignment in only the subscriptions or resource groups that require it, and not clutter the user experience for the rest of the subscriptions or resource groups. You must use at least one subscription, resource group, or resource ID.
 
 Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes. Examples of valid assignable scopes include:
 
@@ -220,7 +220,7 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 | Role is available for assignment in a single subscription | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
 | Role is available for assignment in two subscriptions | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
 | Role is available for assignment only in the Network resource group | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| Role is available for assignment in all scopes | `"/"` |
+| Role is available for assignment in all scopes (applies only to built-in roles) | `"/"` |
 
 For information about `AssignableScopes` for custom roles, see [Custom roles for Azure resources](custom-roles.md).
 

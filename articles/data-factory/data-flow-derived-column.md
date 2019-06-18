@@ -30,4 +30,4 @@ If your column names are variable from your sources, you may wish to build trans
 
 ## Next steps
 
-Learn more about the [Data Factory expression language for transformations](http://aka.ms/dataflowexpressions) and the [Expression Builder](concepts-data-flow-expression-builder.md)
+Learn more about the [Data Factory expression language for transformations](https://aka.ms/dataflowexpressions) and the [Expression Builder](concepts-data-flow-expression-builder.md)

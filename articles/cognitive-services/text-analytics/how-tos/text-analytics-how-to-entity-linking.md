@@ -27,7 +27,7 @@ Entity linking is the ability to identify and disambiguate the identity of an en
 ### Named Entity Recognition (NER)
 Named entity recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes. The supported classes of entities are listed below.
 
-In Text Analytics [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), both entity linking and named entity recognition (NER) are available.
+In Text Analytics [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), both entity linking and named entity recognition (NER) are available for several languages. See the [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) article for more information. 
 
 ### Language support
 
@@ -59,7 +59,7 @@ Using entity linking in various languages requires using a corresponding knowled
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 
-\* Depending on the input and extracted entities, certain entities may omit the `SubType`.
+\* Depending on the input and extracted entities, certain entities may omit the `SubType`.  All the supported entity types listed are available only for the English, Chinese-Simplified, French, German and Spanish languages.
 
 
 
