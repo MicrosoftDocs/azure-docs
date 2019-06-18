@@ -33,6 +33,32 @@ When you ingest rich content into a knowledge base, QnA Maker attempts to conver
 
 Metadata fields consist of key-value pairs separated by a colon **(Product:Shredder)**. Both key and value must be text-only. The metadata key must not contain any spaces. Metadata supports only one value per key.
 
+## How QnA Maker processes a user query to select the best answer
+
+The trained and [published](/quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api). The following diagram illustrates the process when the user query is received.
+
+![The ranking process for a user query](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+
+The process is explained in the following table:
+
+|Step|Purpose|
+|--|--|
+|1|The client application sends the user query to the [GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api).|
+|2|Qna Maker preprocessing the user query with language detection, spellers, and word breakers.|
+|3|This preprocessing is taken to alter user query for best search results.|
+|4|This altered query is sent to Azure Search Index, receiving the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slighly. Generally a value of 10 for `top` works in 90% of queries.|
+|5|The search results returned from Azure Search Index have features applied.|
+|6|The features scores are used to determine best ranking of the results from Azure Search Index.|
+|7|The new results are returned to the client application in ranked order.|
+|||
+
+### WordNet features
+
+### RF-IDF features
+
+### DSSM features
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
