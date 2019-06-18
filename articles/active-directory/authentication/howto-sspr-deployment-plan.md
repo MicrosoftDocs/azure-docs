@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/18/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,7 +23,7 @@ Self-service password reset (SSPR) is an Azure Active Directory feature that ena
 
 SSPR enables employees to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, they reduce non-productive time and support costs for most password issues, one of the most common and expensive help desk tasks.
 
-Help users get registered quickly by deploying SSPR alongside another application or service in your organization. This will generate a large volume of sign ins and will drive up registration.
+Help users get registered quickly by deploying SSPR alongside another application or service in your organization. This will generate a large volume of sign-ins and will drive up registration.
 
 Before deploying SSPR, you may want to determine how many password reset related help desk calls happen per week/month and the average cost of each call. You can use this data post deployment to show the value SSPR is bringing to your organization.  
 
@@ -51,7 +51,7 @@ More information about licensing can be found on the [Azure Active Directory pri
 
 Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
 
-![Combined security information registraion](./media/howto-sspr-deployment-plan/combined-security-info.png)
+![Combined security information registration](./media/howto-sspr-deployment-plan/combined-security-info.png)
 
 The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication to use. The combined registration experience provides organizations a better user experience compared to the traditional individual components. More information about combined registration, and how to enable, can be found in the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md)
 
@@ -62,7 +62,7 @@ The following settings are required to enable SSPR along with recommended values
 | Area | Setting | Value |
 | --- | --- | --- |
 | SSPR Properties | Self-service password reset enabled | **Selected** group for pilot / **All** for production |
-| Authentication methods | Authentication methods required to register | Minimum 3, always 1 more than required for reset |
+| Authentication methods | Authentication methods required to register | Always 1 more than required for reset |
 |   | Authentication methods required to reset | One or two |
 | Registration | Require users to register when signing in | Yes |
 |   | Number of days before users are asked to re-confirm their authentication information | 90 – 180 days |
@@ -81,48 +81,46 @@ When you plan to launch the service more broadly, we recommend using the All opt
 
 #### Authentication methods recommendations
 
-Set Authentication methods required to register to three, or at least one more than the number required to reset. Setting multiple gives users flexibility when they need to reset.
+Set Authentication methods required to register to at least one more than the number required to reset. Allowing multiple gives users flexibility when they need to reset.
 
-Set Authentication methods required to reset to a level appropriate to your organization. One requires the least friction, while two may increase your security posture.
+Set **Number of methods required to reset** to a level appropriate to your organization. One requires the least friction, while two may increase your security posture.
 
-See What are authentication methods for detailed information on which authentication methods are available for SSPR, pre-defined security questions, and how to create customized security questions.
+See [What are authentication methods](concept-authentication-methods.md) for detailed information on which authentication methods are available for SSPR, pre-defined security questions, and how to create customized security questions.
 
 #### Registration settings recommendations
 
-Set Require users to register when signing in to yes. This means that the users will be forced to register when signing in, ensuring that all users are protected.
+Set **Require users to register when signing in** to **Yes**. This means that the users will be forced to register when signing in, ensuring that all users are protected.
 
-Set Number of days before users are asked to re-confirm their authentication information to between 90 and 180 days, unless your organization has a business need to reset I a shorter time frame.
+Set **Number of days before users are asked to re-confirm their authentication information** to between **90** and **180** days, unless your organization has a business need for a shorter time frame.
 
 #### Notifications settings recommendations
 
-Configure both the Notify users on password resets and the Notify all admins when other admins reset their password to Yes. Selecting Yes on both increases security by ensuring that users are aware when their password has been reset, and that all admins are aware when an admin changes a password. If users or admins receive such a notification and they have not initiated the change, they can immediately report a potential security breach.
+Configure both the **Notify users on password resets** and the **Notify all admins when other admins reset their password** to **Yes**. Selecting **Yes** on both increases security by ensuring that users are aware when their password has been reset, and that all admins are aware when an admin changes a password. If users or admins receive such a notification and they have not initiated the change, they can immediately report a potential security breach.
 
 #### Customization recommendations
 
-It’s very important to customize the help desk link and the help desk email or URL to ensure users who experience problems can quickly get help.  
+It’s critical to customize the **helpdesk email or URL** to ensure users who experience problems can quickly get help. Set this to a common helpdesk email address or web page that your users will be familiar with.
 
 #### On-premises integration recommendations
 
-If you have a hybrid environment, ensure that the Write back passwords to on-premises AD is set to Yes. Also set the Allow users to unlock account without resetting password to Yes, as it gives them more flexibility.
+If you have a hybrid environment, ensure that **Write back passwords to on-premises AD** is set to **Yes**. Also set the Allow users to unlock account without resetting password to Yes, as it gives them more flexibility.
 
 #### Changing/Resetting passwords of administrators
 
-Administrator accounts are special accounts with elevated permissions. To secure them, the following applies to changing passwords of administrators: 
-On-premises enterprise administrators or domain administrators cannot reset their password through SSPR. They can only do this in their on-premises environment. Thus, we recommend not syncing on-prem AD admin accounts to Azure AD.
+Administrator accounts are special accounts with elevated permissions. To secure them, the following restrictions apply to changing passwords of administrators:
 
-An administrator cannot reset the password of other administrators or a global administrator.
-
-An administrator cannot use secret Questions & Answers as a method to reset password. They must use phone/SMS only.
+* On-premises enterprise administrators or domain administrators cannot reset their password through SSPR. They can only do this in their on-premises environment. Thus, we recommend not syncing on-prem AD admin accounts to Azure AD.
+* An administrator cannot use secret Questions & Answers as a method to reset password.
 
 #### Important considerations for lock screen capabilities
 
-To use SSPR on a Windows 10 computer the computer must be Azure Active Directory joined or hybrid Azure Active Directory joined (device must not be domain joined). See our documentation on Azure AD password reset from the login screen to learn how to enable this feature. This feature requires the Windows 10 Fall Creators Update (1709) or a newer Windows 10 version. The ‘Reset Password’ button can be enabled on the Windows 10 devices through Intune device configuration or a registry key (to be used for testing only). Note that password reset is not supported from a remote desktop.
+To use SSPR on a Windows 10 computer the computer must be Azure Active Directory joined or hybrid Azure Active Directory joined. See the article [Azure AD password reset from the login screen](tutorial-sspr-windows.md), to learn how to enable this feature. This feature requires the Windows 10 Fall Creators Update (1709) or a newer Windows 10 version. The ‘Reset Password’ button can be enabled on the Windows 10 devices through Intune device configuration or a registry key. Password reset is not supported from a remote desktop.
 
 ## Plan deployment and support for SSPR
 
 ### Engage the right stakeholders
 
-When technology projects fail, thy typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, ensure that you are engaging the right stakeholders, and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, ensure that you are engaging the right stakeholders, and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountability.
 
 ### Plan communications
 
@@ -146,10 +144,11 @@ To ensure that your deployment works as expected, you should plan out the set of
 
 ### Plan support
 
-While SSPR does not typically create user issues, it is important to have support staff prepared to deal with issues that may arise. 
-While an administrator can change or reset the password for end users through the users & groups blade in Azure AD portal, it is generally better to help resolve the issue via a support process.
+While SSPR does not typically create user issues, it is important to have support staff prepared to deal with issues that may arise.
 
-In the operational guide section of this document, create a list of support cases and their likely causes, and create a guide for resolution. 
+While an administrator can change or reset the password for end users through the Azure AD portal, it is better to help resolve the issue via a self-service support process.
+
+In the operational guide section of this document, create a list of support cases and their likely causes, and create a guide for resolution.
 
 ### Plan reporting
 
@@ -189,7 +188,7 @@ Reference the Planning password authentication methods section and ensure the gr
 
 #### Apply Licenses
 
-The groups you are going to implement must have the Azure AD premium license assigned to them. You can assign them directly to the group, or you can use existing license policies (such as PowerShell or Group Based Licensing feature.) 
+The groups you are going to implement must have the Azure AD premium license assigned to them. You can assign licenses directly to the group, or you can use existing license policies such as through PowerShell or Group-Based Licensing.
 
 #### Assigning licenses to groups (link to Doc)
 
@@ -270,7 +269,7 @@ Reference your planning from the Planning Password Authentication Methods sectio
 
 Required Roles
 
-| Business role/persona | Azure AD Role (if required) |
+| Business role/persona | Azure AD Role (if necessary) |
 | Level 1 Helpdesk | Password administrator |
 | Level 2 Helpdesk | User administrator |
 | SSPR Administrator | Global administrator |
@@ -281,7 +280,7 @@ To enable your support team success, you can create an FAQ based on questions yo
 
 | Scenarios | Description |
 | --- | --- |
-| User does not have any registered authentication methods available | A user is trying to reset their password but does not have any of the authentication methods that they registered available (i.e. they left their cell phone at home and can’t access email) |
+| User does not have any registered authentication methods available | A user is trying to reset their password but does not have any of the authentication methods that they registered available (Example: they left their cell phone at home and can’t access email) |
 | User is not receiving a text or call on their office or mobile phone | A user is trying to verify their identity via text or call but is not receiving a text/call. |
 | User cannot access the password reset portal | A user wants to reset their password but is not enabled for password reset and therefore cannot access the page to update passwords. |
 | User cannot set a new password | A user completes verification during the password reset flow but cannot set a new password. |
