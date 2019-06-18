@@ -27,6 +27,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **New features**
   + [Insert new features below. Reference articles and/or doc pages]
   + Add decision tree surrogate model to mimic explainer in azureml-explain-model package
+  + Ability to specify a CUDA version to be installed on Inferencing images. Support for CUDA 9.0, 9.1, and 10.0.
   
   + **Preview features**
     + Scoring explainers can now optionally save conda and pip information for more reliable serialization and deserialization.
