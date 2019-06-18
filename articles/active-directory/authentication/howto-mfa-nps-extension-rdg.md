@@ -245,6 +245,9 @@ By default, when you configure the RD Gateway to use a central policy store for 
 
 The NPS server where the NPS extension is installed needs to be able to exchange RADIUS messages with the NPS server on the Remote Desktop Gateway. To enable this message exchange, you need to configure the NPS components on the server where the NPS extension service is installed.
 
+> [!NOTE]
+> The NPS server on the Remote Desktop Gateway also needs to be registered in Active Directory.
+
 ### Register Server in Active Directory
 
 To function properly in this scenario, the NPS server needs to be registered in Active Directory.
