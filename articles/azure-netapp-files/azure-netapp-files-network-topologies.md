@@ -104,7 +104,7 @@ In the diagram above, although VM 3 can connect to Volume 1, VM 4 cannot connect
 
 The following diagram illustrates a hybrid environment: 
 
-![Hybrid networking environment](../media/azure-netapp-files/azure-netapp-files-networ-hybrid-environment.png)
+![Hybrid networking environment](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
 In the hybrid scenario, applications from on-premises data centers need access to the resources in Azure.  This is the case whether you want to extend your data center to Azure, or you want to use Azure native services or for disaster recovery. See [VPN Gateway planning options](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) about how to connect multiple resources on-premises to resources in Azure through a site-to-site VPN or an ExpressRoute.
 
