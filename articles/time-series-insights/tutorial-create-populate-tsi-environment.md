@@ -5,7 +5,7 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 06/18/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
@@ -94,9 +94,9 @@ Second, create a Time Series Insights environment in your Azure subscription.
    **Environment name** | Choose a unique name for the Time Series Insights environment. The names are used by the Time Series Insights explorer and the Query APIs.
    **Subscription** | Subscriptions are containers for Azure resources. Choose a subscription to create the Time Series Insights environment.
    **Resource group** | A resource group is a container for Azure resources. Choose an existing resource group or create a new one for the Time Series Insights environment resource.
-   **Location** | Choose a data center region for your Time Series Insights environment. To avoid added bandwidth costs and latency, keep the Time Series Insights environment in the same region as other IoT resources.
-   **Tier** | Choose the throughput needed. For lowest cost and starter capacity, select `S1`.
-   **Capacity** | Capacity is the multiplier applied to the ingress rate, storage capacity, and cost associated with the selected SKU. You can change the capacity after creation. For the lowest cost, select a capacity of 1.
+   **Location** | Choose a data center region for your Time Series Insights environment. To avoid additional latency, create the Time Series Insights environment in the same region as other IoT resources.
+   **Tier** | Choose the throughput needed. Select `S1`.
+   **Capacity** | Capacity is the multiplier applied to the ingress rate and storage capacity associated with the selected SKU. You can change the capacity after creation. Select a capacity of 1.
 
    When finished, select **Review + create** to proceed to the next step.
 
@@ -168,7 +168,7 @@ In this final section, you verify that the telemetry data was generated and stor
 
 ## Clean up resources
 
-This tutorial creates several running Azure services to support the Time Series Insights environment and device simulation solution. If you want to abandon or postpone your work on this tutorial series, delete all resources to avoid incurring unnecessary costs.
+This tutorial creates several running Azure services to support the Time Series Insights environment and device simulation solution. To remove them, navigate back to the Azure portal.
 
 From the menu on the left in the Azure portal:
 
