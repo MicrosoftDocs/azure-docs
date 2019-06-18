@@ -695,6 +695,8 @@
     items:
     - name: Diagnose common scenarios
       href: service-fabric-diagnostics-common-scenarios.md
+    - name: Diagnose code package errors
+      href: service-fabric-diagnostics-code-package-errors.md
     - name: Monitor applications
       items:
       - name: Add logging to your application
