@@ -118,6 +118,22 @@ You can create or import your own custom group policy objects. You can also link
 
     ![Customize new GPO](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
+## Task 6 - Use custom Group Definitions (GPO)
+You can import your own custom group policy definitions and use that within Group Policy's.
+
+> [!NOTE]
+> You need to be a member of the 'AAD DC Administrators' group, to administer Group Policy on the managed domain.
+>
+>
+
+1. Navigate to the **sysvol** folder from the domaincontroller. Use a file explorer of your own choice and navigate to \\<yourdomeinname>\sysvol, for example; \\contoso.com\sysvol .
+
+2. Browse to the Policies folder and notice that there is by default no folder called **PolicyDefinitions**. Create a new folder and name it "PolicyDefinitions".
+
+3. Open your new created folder and copy here the requested .admx files. If you have language files please create a new folder for the destinated language (For example en-US for english) and copy the .adml files to the language folder.
+
+4. Re-open the **Group Policy Managent** console the and you can now use your custom PolicyDefinitions.
+
 
 More information about using [Group Policy Management Console](https://technet.microsoft.com/library/cc753298.aspx) is available on Technet.
 
