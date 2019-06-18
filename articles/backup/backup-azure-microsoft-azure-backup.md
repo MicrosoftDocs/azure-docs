@@ -136,7 +136,7 @@ To edit the storage replication setting:
 After you've downloaded all the files, click **MicrosoftAzureBackupInstaller.exe**. This will start the **Microsoft Azure Backup Setup Wizard** to extract the setup files to a location specified by you. Continue through the wizard and click on the **Extract** button to begin the extraction process.
 
 > [!WARNING]
-> At least 8GB of free space is required to extract the setup files.
+> At least 4 GB of free space is required to extract the setup files.
 >
 >
 
