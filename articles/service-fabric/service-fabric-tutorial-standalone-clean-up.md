@@ -31,18 +31,18 @@ In part four of the series, you learn how to:
 
 ## Clean up Service Fabric cluster
 
-1. RDP into the VM that you used to installed Service Fabric
-2. Open PowerShell
+1. RDP into the VM that you used to installed Service Fabric.
+2. Open PowerShell.
 3. Change the directory to the extracted folder from the second tutorial.
 4. Run the following command to remove the Service Fabric cluster:
 
-```powershell
+  ```powershell
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
 5. Enter `Y` when prompted, if it was successful your output will look like the following, with your own IP addresses substituted in:
 
-```powershell
+  ```powershell
 Best Practices Analyzer completed successfully.
 Removing configuration from machine 172.31.21.141
 Removing configuration from machine 172.31.27.1
@@ -55,17 +55,17 @@ The cluster is successfully removed.
 
 ## Clean up AWS resources
 
-1. Sign in to your AWS Account
+1. Sign in to your AWS Account.
 2. Go to the EC2 Console.
 3. Select the three nodes that you created in part one of the tutorial.
-4. Click on **Actions** > **Instance State** > **Terminate**
+4. Click on **Actions** > **Instance State** > **Terminate**.
 
 ## Clean up Azure resources
 
-1. Sign in to the Azure portal
+1. Sign in to the Azure portal.
 2. Go to the **Virtual Machines** section.
 3. Select check boxes for the three nodes that you created in part one of the tutorial.
-4. Click on **Delete.**
+4. Click on **Delete**.
 
 ## Next steps
 
