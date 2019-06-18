@@ -39,7 +39,7 @@ To complete this tutorial, you need an Azure subscription.  If you don't already
 
 1. Sign in to the Azure portal and select **Virtual machines** (not Virtual Machines (classic)).
 
-![Azure portal VM][az-console]
+   ![Azure portal VM][az-console]
 
 2. Select the **Add** button, which will open up the **Create a virtual machine** form.
 
@@ -55,19 +55,19 @@ To complete this tutorial, you need an Azure subscription.  If you don't already
 
 8. Next, set the **NIC network security group** to **Advanced**. Create a new security group, noting its name, and create the following rules to allow TCP traffic from any source:
 
-![sf-inbound][sf-inbound]
+   ![sf-inbound][sf-inbound]
 
-* Port `3389`, for RDP and ICMP (basic connectivity).
-* Ports `19000-19003`, for Service Fabric.
-* Ports `19080-19081`, for Service Fabric.
-* Port `8080`, for web browser requests.
+   * Port `3389`, for RDP and ICMP (basic connectivity).
+   * Ports `19000-19003`, for Service Fabric.
+   * Ports `19080-19081`, for Service Fabric.
+   * Port `8080`, for web browser requests.
 
-> [!TIP]
-> To connect your virtual machines together in Service Fabric, the VMs that are hosting your infrastructure need to have the same credentials.  There are two common ways to get consistent credentials: join them all to the same domain, or set the same administrator password on each VM. Fortunately, Azure allows all virtual machines on the same **Virtual network** to easily connect, so we will be sure to have all our instances on the same network.
+   > [!TIP]
+   > To connect your virtual machines together in Service Fabric, the VMs that are hosting your infrastructure need to have the same credentials.  There are two common ways to get consistent credentials: join them all to the same domain, or set the same administrator password on each VM. Fortunately, Azure allows all virtual machines on the same **Virtual network** to easily connect, so we will be sure to have all our instances on the same network.
 
 9. Add another rule. Set the source to be **Service Tag** and set the source service tag to **VirtualNetwork**. Service Fabric requires the following ports to be open for communication within the cluster: 135,137-139,445,20001-20031,20606-20861.
 
-![vnet-inbound][vnet-inbound]
+   ![vnet-inbound][vnet-inbound]
 
 10. The rest of the options are acceptable in their default state. Review them if you like, and then launch your virtual machine.
 
@@ -87,17 +87,17 @@ Launch two more **Virtual Machines**, being sure to maintain the same settings o
 
 5. Once you are connected to an instance, you need to validate that remote registry was running, enable SMB, and open the requisite ports for SMB and remote registry.
 
-To enable SMB, this is the PowerShell command:
+   To enable SMB, this is the PowerShell command:
 
-```powershell
-netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
-```
+   ```powershell
+   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+   ```
 
 6. To open the ports in the firewall here is the PowerShell command:
 
-```powershell
-New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
-```
+   ```powershell
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
+   ```
 
 7. Repeat this process for your other instances, again noting the private IP addresses.
 
@@ -107,17 +107,17 @@ New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Acti
 
 2. Open up the **Command Prompt** from within that VM, then, use the ping command to connect from one VM to another, replacing the below IP address with one of the private IP addresses you noted earlier (not the IP of the VM you're connected to already).
 
-```
-ping 172.31.20.163
-```
+   ```
+   ping 172.31.20.163
+   ```
 
 If your output looks like `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repeated four times then your connection between the instances is working.
 
 3. Now validate that your SMB sharing works with the following command:
 
-```
-net use * \\172.31.20.163\c$
-```
+   ```
+   net use * \\172.31.20.163\c$
+   ```
 
 It should return `Drive Z: is now connected to \\172.31.20.163\c$.` as the output.
 
