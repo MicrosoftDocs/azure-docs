@@ -54,7 +54,7 @@ When using the text-to-speech service, you are billed for each character that is
 For detailed information, see [Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
-> Chinese, Japanese, and Korean language characters are counted as two characters for billing.
+> Each Chinese, Japanese, and Korean language character is counted as two characters for billing.
 
 ## Core features
 
