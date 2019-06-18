@@ -20,10 +20,6 @@
   items:
     - name: Run queries on an Apache Spark cluster
       href: apache-spark-load-data-run-query.md
-    - name: Use VSCode to run Apache Spark queries
-      href: ../hdinsight-for-vscode.md
-    - name: Use IntelliJ to run Apache Spark queries
-      href: apache-spark-intellij-tool-plugin.md
     - name: Analyze data using BI tools
       href: apache-spark-use-bi-tools.md
     - name: Run a streaming job
@@ -44,6 +40,10 @@
     href: ../hdinsight-sdk-python-samples.md
 - name: Concepts
   items: 
+    - name: Use VSCode to run Apache Spark queries
+      href: ../hdinsight-for-vscode.md
+    - name: Use IntelliJ to run Apache Spark queries
+      href: apache-spark-intellij-tool-plugin.md
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
   - name: HDInsight 4.0
