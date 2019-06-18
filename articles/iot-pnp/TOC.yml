@@ -2,5 +2,5 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure IoT Plug and Play?
-    href: concepts-plug-play.md
+  - name: What is IoT Plug and Play?
+    href: overview-iot-plug-play.md
