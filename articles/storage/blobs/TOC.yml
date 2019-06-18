@@ -33,7 +33,9 @@
         href: storage-quickstart-blobs-nodejs-v10.md
       - name: Python
         href: storage-quickstart-blobs-python.md
-      - name: JS/HTML
+      - name: JS/HTML using v10 SDK
+        href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+      - name: JS/HTML using v2 SDK
         href: storage-quickstart-blobs-javascript-client-libraries.md
       - name: Go
         href: storage-quickstart-blobs-go.md
@@ -61,7 +63,7 @@
           href: storage-blob-scalable-app-create-vm.md
         - name: 2 - Upload large data to an Azure storage account
           href: storage-blob-scalable-app-upload-files.md
-        - name: 3- Download large data from a Azure storage account
+        - name: 3- Download large data from an Azure storage account
           href: storage-blob-scalable-app-download-files.md
         - name: 4 - Verify throughput and latency metrics
           href: storage-blob-scalable-app-verify-metrics.md
@@ -275,6 +277,8 @@
       href: storage-blob-event-overview.md
     - name: Page blob features
       href: storage-blob-pageblob-overview.md
+    - name: Static websites
+      href: storage-blob-static-website.md
   - name: How to
     items:
     - name: Create and manage storage accounts
@@ -353,7 +357,7 @@
     - name: Set and retrieve properties and metadata
       href: storage-properties-metadata.md
     - name: Host a static website
-      href: storage-blob-static-website.md
+      href: storage-blob-static-website-how-to.md
     - name: Map Azure CDN to a custom domain for access over HTTPS
       href: storage-https-custom-domain-cdn.md
     - name: Configure a custom domain
@@ -364,13 +368,17 @@
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Transfer data
       items:
-      - name: AzCopy (v10)
-        href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: AzCopy on Windows (v8)
-        href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: AzCopy on Linux (v8)
-        href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Using Azure Data Factory
+      - name: AzCopy
+        items:
+        - name: Get started
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Use with Blobs
+          href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Use with Amazon S3 buckets
+          href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Configure, optimize, troubleshoot
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Mount Blob storage as a file system on Linux
         href: storage-how-to-mount-container-linux.md
@@ -413,7 +421,7 @@
       - name: Blobs, Queues, Tables, and Files
         href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
       - name: Data movement
-        href: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement
+        href: /dotnet/api/microsoft.azure.storage.datamovement
       - name: Resource Manager
         href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
     - name: Java
@@ -475,21 +483,23 @@
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: NuGet packages
       items:
-      - name: Azure Storage Client Library for .NET
-        href: https://www.nuget.org/packages/WindowsAzure.Storage/
+      - name: Azure Storage common client library
+        href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
+      - name: Azure Blob storage client library
+        href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/
       - name: Azure Storage Data Movement Library
         href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
       - name: Azure Configuration Manager
-        href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
+        href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
     - name: Source code
       items:
       - name: .NET
         items:
-        - name: Blobs, Queues, Tables, and Files
-          href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
-        - name: Data movement
-          href: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement
-        - name: Resource Manager
+        - name: Blobs, Queues, and Files
+          href: https://github.com/Azure/azure-storage-net
+        - name: Data Movement
+          href: /dotnet/api/microsoft.azure.storage.datamovement
+        - name: Storage Resource Provider
           href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
       - name: Java
         items:
@@ -569,10 +579,18 @@
     items:
     - name: Ingest data
       items:
-        - name: Use Distcp
-          href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Use Azure Data Factory
-          href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: AzCopy
+        items:
+        - name: Get started
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Use with Data Lake Storage Gen2
+          href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Configure, optimize, troubleshoot
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use Distcp
+        href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use Azure Data Factory
+        href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Secure data
       items:
         - name: Configure firewalls and virtual networks

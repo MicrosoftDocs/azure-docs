@@ -131,7 +131,7 @@ Before you deploy and use the NPS extension, users that are required to perform 
 Use these steps to get a test account started:
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account. 
 2. Follow the prompts to set up a verification method.
-3. Either create a conditional access policy or [change the user state](howto-mfa-userstates.md) to require two-step verification for the test account. 
+3. Either create a Conditional Access policy or [change the user state](howto-mfa-userstates.md) to require two-step verification for the test account. 
 
 Your users also need to follow these steps to enroll before they can authenticate with the NPS extension.
 

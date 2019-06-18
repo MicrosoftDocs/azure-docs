@@ -64,7 +64,7 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
 
 1. Create a training script in a local Jupyter notebook. 
 
-   ``` python
+   ```python
    # load diabetes dataset, a well-known small dataset that comes with scikit-learn
    from sklearn.datasets import load_diabetes
    from sklearn.linear_model import Ridge

@@ -205,15 +205,15 @@ To configure Azure AD single sign-on with AirWatch, perform the following steps:
 
     a. In the **Object Identifier** textbox, type `http://schemas.microsoft.com/identity/claims/objectidentifier`.
 
-    b. In the **Username** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    b. In the **Username** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    c. In the **Display Name** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    c. In the **Display Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    d. In the **First Name** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. In the **First Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. In the **Last Name** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. In the **Last Name** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. In the **Email** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     g. Click **Save**.
 
@@ -307,4 +307,4 @@ When you click the AirWatch tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,5 +1,5 @@
 ---
-title: Anomaly detection in Azure Stream Analytics (Preview)
+title: Anomaly detection in Azure Stream Analytics
 description: This article describes how to use Azure Stream Analytics and Azure Machine Learning together to detect anomalies.
 services: stream-analytics
 author: mamccrea
@@ -7,8 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
-ms.custom: seodec18
+ms.date: 06/03/2019
 ---
 
 # Anomaly detection in Azure Stream Analytics
@@ -98,6 +97,12 @@ INTO output
 FROM AnomalyDetectionStep
 
 ```
+
+## Anomaly detection using machine learning in Azure Stream Analytics
+
+The following video demonstrates how to detect an anomaly in real time using machine learning functions in Azure Stream Analytics. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Anomaly-detection-using-machine-learning-in-Azure-Stream-Analytics/player]
 
 ## Next steps
 

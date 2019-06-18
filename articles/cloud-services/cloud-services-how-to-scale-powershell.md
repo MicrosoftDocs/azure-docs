@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
-ms.author: mmccrory
+ms.author: memccror
 
 ---
 # How to scale a cloud service in PowerShell

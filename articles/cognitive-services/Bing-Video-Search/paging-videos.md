@@ -22,7 +22,7 @@ The Bing Video Search API returns a subset of all search results it found for yo
 
 ## Total estimated matches
 
-To get the estimated number of found search results, use the [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) field in the JSON response.   
+To get the estimated number of found search results, use the [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-totalestimatedmatches) field in the JSON response.   
   
 ```json  
 {
@@ -35,7 +35,7 @@ To get the estimated number of found search results, use the [totalEstimatedMatc
   
 ## Paging through videos
 
-To page through the available videos, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) query parameters when sending your request.  
+To page through the available videos, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) query parameters when sending your request.  
   
 
 |Parameter  |Description  |
@@ -53,7 +53,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
 
-If you use the default value for the [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count), you only need to specify the `offset` query parameter, as in the following example.  
+If you use the default value for the [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count), you only need to specify the `offset` query parameter, as in the following example.  
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
@@ -63,7 +63,7 @@ Host: api.cognitive.microsoft.com
 
 If you page through 35 videos at a time, you would set the `offset` query parameter to 0 on your first request, and then increment `offset` by 35 on each subsequent request. However, some results in the next response may contain duplicate video results from the previous response. For example, the first two videos in a response may be the same as the last two videos from the previous response.
 
-To eliminate duplicate results, use the [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-nextoffset) field of the `Videos` object.
+To eliminate duplicate results, use the [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-nextoffset) field of the `Videos` object.
 
 For example, if you want to page 30 videos at a time, you can set `count` to 30 and `offset` to 0 in your first request. In your next request, you would set the `offset` query parameter to the `nextOffset` value.
 

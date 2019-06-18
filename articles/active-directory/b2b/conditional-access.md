@@ -1,5 +1,5 @@
 ---
-title: Conditional access for B2B collaboration users - Azure Active Directory | Microsoft Docs
+title: Conditional Access for B2B collaboration users - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration supports multi-factor authentication (MFA) for selective access to your corporate applications
 
 services: active-directory
@@ -10,13 +10,13 @@ ms.date: 09/11/2017
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisolMS
 
 ms.collection: M365-identity-device-management
 ---
 
-# Conditional access for B2B collaboration users
+# Conditional Access for B2B collaboration users
 
 ## Multi-factor authentication for B2B users
 With Azure AD B2B collaboration, organizations can enforce multi-factor authentication (MFA) policies for B2B users. These policies can be enforced at the tenant, app, or individual user level, the same way that they are enabled for full-time employees and members of the organization. MFA policies are enforced at the resource organization.
@@ -85,17 +85,17 @@ Finally, resource tenant MFA also works for MSAs and social IDs and for partner 
 
 Therefore, the recommendation for MFA for B2B users is to always require MFA in the inviting tenant. This requirement could lead to double MFA in some cases, but whenever accessing the inviting tenant, the end-users experience is predictable: Sally must register for MFA with the inviting tenant.
 
-### Device-based, location-based, and risk-based conditional access for B2B users
+### Device-based, location-based, and risk-based Conditional Access for B2B users
 
-When Contoso enables device-based conditional access policies for their corporate data, access is prevented from devices that are not managed by Contoso and not compliant with the Contoso device policies.
+When Contoso enables device-based Conditional Access policies for their corporate data, access is prevented from devices that are not managed by Contoso and not compliant with the Contoso device policies.
 
-If the B2B user’s device isn't managed by Contoso, access of B2B users from the partner organizations is blocked in whatever context these policies are enforced. However, Contoso can create exclusion lists containing specific partner users to exclude them from the device-based conditional access policy.
+If the B2B user’s device isn't managed by Contoso, access of B2B users from the partner organizations is blocked in whatever context these policies are enforced. However, Contoso can create exclusion lists containing specific partner users to exclude them from the device-based Conditional Access policy.
 
-#### Location-based conditional access for B2B
+#### Location-based Conditional Access for B2B
 
-Location-based conditional access policies can be enforced for B2B users if the inviting organization is able to create a trusted IP address range that defines their partner organizations.
+Location-based Conditional Access policies can be enforced for B2B users if the inviting organization is able to create a trusted IP address range that defines their partner organizations.
 
-#### Risk-based conditional access for B2B
+#### Risk-based Conditional Access for B2B
 
 Currently, risk-based sign-in policies cannot be applied to B2B users because the risk evaluation is performed at the B2B user’s home organization.
 

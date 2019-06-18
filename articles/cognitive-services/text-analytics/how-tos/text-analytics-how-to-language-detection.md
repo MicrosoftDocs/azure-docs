@@ -13,9 +13,13 @@ ms.author: aahi
 
 # Example: How to detect language with Text Analytics
 
-The [Language Detection API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) evaluates text input and for each document and returns language identifiers with a score indicating the strength of the analysis. Text Analytics recognizes up to 120 languages.
+The [Language Detection](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) feature of the API evaluates text input and for each document and returns language identifiers with a score indicating the strength of the analysis.
 
 This capability is useful for content stores that collect arbitrary text, where language is unknown. You can parse the results of this analysis to determine which language is used in the input document. The response also returns a score which reflects the confidence of the model (a value between 0 and 1).
+
+We don't publish the exact list of languages for this feature, but it can detect a wide range of languages, variants, dialects, and some regional/cultural languages. 
+
+If you have content expressed in a less frequently used language, you can try Language Detection to see if it returns a code. The response for languages that cannot be detected is `unknown`.
 
 > [!TIP]
 > Text Analytics also provides a Linux-based Docker container image for language detection, so you can [install and run the Text Analytics container](text-analytics-how-to-install-containers.md) close to your data.
@@ -201,7 +205,7 @@ Resulting output consists of the predominant language, with a score of less than
 
 In this article, you learned concepts and workflow for language detection using Text Analytics in Cognitive Services. The following are a quick reminder of the main points previously explained and demonstrated:
 
-+ [Language detection API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) is available for 120 languages.
++ [Language detection](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) is available for a wide range of languages, variants, dialects, and some regional/cultural languages.
 + JSON documents in the request body include an ID and text.
 + POST request is to a `/languages` endpoint, using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that is valid for your subscription.
 + Response output, which consists of language identifiers for each document ID, can be streamed to any app that accepts JSON, including Excel and Power BI, to name a few.

@@ -4,7 +4,7 @@ description: Learn how to set up Azure Cosmos DB global distribution using the S
 author: rimman
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 05/10/2019
 ms.author: rimman
 ms.reviewer: sngun
 

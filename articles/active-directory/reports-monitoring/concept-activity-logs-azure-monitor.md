@@ -105,6 +105,23 @@ The following table contains estimated costs per month for a basic event hub in 
 
 ### Azure Monitor logs cost considerations
 
+
+
+| Log category       | Number of users | Events per day | Events per month (30 days) | Cost per month in USD (est.) |
+| :--                | ---             | ---            | ---                        | --:                          |
+| Audit and Sign-ins | 100,000	       | 16,500,000     | 495,000,000	             |  $1093.00                       |
+| Audit	             | 100,000         | 1,500,000      | 45,000,000                 |  $246.66                     |
+| Sign-ins           | 100,000         | 15,000,000     | 450,000,000                |	$847.28                     |
+
+
+
+
+
+
+
+
+
+
 To review costs related to managing the Azure Monitor logs, see [Manage cost by controlling data volume and retention in Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## Frequently asked questions
