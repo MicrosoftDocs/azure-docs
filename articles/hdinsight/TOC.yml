@@ -11,7 +11,7 @@
 - name: Apache Kafka
   href: ./kafka/apache-kafka-get-started.md
 - name: Apache Storm
-  href: ./storm/apache-storm-overview.md
+  href: ./apache-storm-quickstart.md
 - name: ML Services
   href: ./r-server/r-server-overview.md
 - name: Enterprise readiness
