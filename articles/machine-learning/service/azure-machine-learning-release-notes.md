@@ -20,7 +20,7 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2019-24-10
+## 2019-06-24
 
 ### Azure Machine Learning SDK for Python v1.0.44
 
@@ -37,6 +37,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **Bug fixes and improvements**
   + [Insert fixes and improvements below. Link github issues resolved with this release]
+  + Improve performance of run.create_children
 
 ## 2019-06-10
 
