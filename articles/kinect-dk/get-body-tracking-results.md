@@ -11,7 +11,7 @@ keywords: kinect, azure, sensor, sdk, body, tracking, joint
 
 # Get body tracking results
 
-Body Tracking SDK uses a body tracker object to process an Azure Kinect DK captures and generates body tracking results. It also maintains global status of the tracker, processing queues and the output queue. There are three steps in using the body tracker:
+Body Tracking SDK uses a body tracker object to process Azure Kinect DK captures and generates body tracking results. It also maintains global status of the tracker, processing queues and the output queue. There are three steps in using the body tracker:
 
 - Create a tracker
 - Capture depth and IR images using Azure Kinect DK

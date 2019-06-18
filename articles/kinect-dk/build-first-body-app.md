@@ -16,8 +16,6 @@ keywords: kinect, azure, sensor, sdk, body, tracking, joint, application, first
 
 Getting started with the Body Tracking SDK? This quickstart will get you up and running with body tracking!
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
 
 - [Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
