@@ -534,12 +534,12 @@ If your source data is in text format or other non-PolyBase compatible stores (u
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-The solution is to unselect "**Use type default**" option (as false) in copy activity sink -> PolyBase setings. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+The solution is to unselect "**Use type default**" option (as false) in copy activity sink -> PolyBase settings. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )" is a PolyBase native configuration which specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file. 
 
 **Others**
 
-For more knonw PolyBase issues, refer to [Troubleshooting Azure SQL Data Warehouse PolyBase load](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
+For more known PolyBase issues, refer to [Troubleshooting Azure SQL Data Warehouse PolyBase load](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### SQL Data Warehouse resource class
 
