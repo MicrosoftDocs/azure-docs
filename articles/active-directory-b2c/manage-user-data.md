@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 
 # Manage user data in Azure Active Directory B2C
@@ -21,7 +22,7 @@ ms.subservice: B2C
 
 ## Delete user data
 
-User data is stored in the Azure AD B2C directory and in the audit logs. All user audit data is retained for 30 days in Azure AD B2C. If you want to delete user data within that 30-day period, you can use the [Delete a user](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) operation. A DELETE operation is required for each of the Azure AD B2C tenants where data might reside. 
+User data is stored in the Azure AD B2C directory and in the audit logs. All user audit data is retained for 7 days in Azure AD B2C. If you want to delete user data within that 7-day period, you can use the [Delete a user](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) operation. A DELETE operation is required for each of the Azure AD B2C tenants where data might reside. 
 
 Every user in Azure AD B2C is assigned an object ID. The object ID provides an unambiguous identifier for you to use to delete user data in Azure AD B2C. Depending on your architecture, the object ID can be a useful correlation identifier across other services, such as financial, marketing, and customer relationship management databases. 
 
