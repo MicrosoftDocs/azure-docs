@@ -23,7 +23,7 @@ sections:
       className: cardsM
       columns: 3
       items:
-        - href: what-is-azure-kinect-dk.md
+        - href: about-azure-kinect-dk.md
           html: <p>Learn about the Azure Kinect DK.</p>
           image:
             src: https://docs.microsoft.com/media/common/i_overview.svg

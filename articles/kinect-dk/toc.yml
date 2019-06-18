@@ -3,7 +3,7 @@
 - name: Overview
   items: 
   - name: About Azure Kinect DK
-    href: what-is-azure-kinect-dk.md
+    href: about-azure-kinect-dk.md
 - name: Quickstarts
   expanded: true
   items:

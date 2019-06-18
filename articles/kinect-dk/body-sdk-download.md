@@ -41,7 +41,7 @@ Make sure you install the latest version referenced in the change log.
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Azure Kinect DK overview](what-is-azure-kinect-dk.md)
+>[Azure Kinect DK overview](about-azure-kinect-dk.md)
 
 > [!div class="nextstepaction"]
 >[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
