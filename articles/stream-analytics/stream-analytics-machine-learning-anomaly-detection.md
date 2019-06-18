@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/18/2019
 ---
 
 # Anomaly detection in Azure Stream Analytics
@@ -97,6 +97,51 @@ INTO output
 FROM AnomalyDetectionStep
 
 ```
+
+## Performance characteristics
+
+The performance of these models is a function of the history size, window duration, event load, and whether function level partitioning is used. Here we discuss these configurations and provide reproducible samples on how to sustain a given ingestion rates of 1K, 5K and 10K events per second.
+
+* History size: These models perform linearly with history size. Thus, longer the history size, longer the models take to score a new event. This is because the models compare the new event with each of the past events in the history buffer.
+* Window duration: The window duration should reflect how long it takes to receive as many events as specified by the history size. Without that many events in the window, ASA would impute missing values. Hence, ultimately CPU consumption is a function of the history size.
+* Event load: Greater the event load, the more work is performed by the models. Clearly, this would impact the CPU consumption. The job can be scaled out by making it embarrassingly parallel, assuming it makes sense for business logic to use more input partitions.
+* Function level partitioning: This is about using ```partition by``` within the anomaly detection function. This type of partitioning adds an overhead, as state needs to be maintained for multiple models at the same time. This is used in scenarios like device level partitioning.
+
+### Relationship
+The history size, window duration, and total event load are related in the following way:
+
+windowDuration (in ms) = 1000 * historySize / (Total Input Events Per Sec / Input Partition Count)
+
+When partitioning the function by deviceId, you would also add “partition by deviceId” to the anomaly detection function call.
+
+### Observations
+These were our throughput observations for a single node (6 SU) for the non-partitioned case:
+
+| History Size (events)	| Window Duration (ms) | Total Input Events Per Sec |
+| --------------------- | -------------------- | -------------------------- |
+| 60 | 55 | 2,200 |
+| 600 | 728 | 1,650 |
+| 6,000 | 10,910 | 1,100 |
+
+These were our throughput observations for a single node (6 SU) for the partitioned case:
+
+| History Size (events) | Window Duration (ms) | Total Input Events Per Sec | Device Count |
+| --------------------- | -------------------- | -------------------------- | ------------ |
+| 60 | 1,091 | 1,100 | 10 |
+| 600 | 10,910 | 1,100 | 10 |
+| 6,000 | 218,182 | <550 | 10 |
+| 60 | 21,819 | 550 | 100 |
+| 600 | 218,182 | 550 | 100 |
+| 6,000 | 2,181,819 | <550 | 100 |
+
+Sample code to run the non-partitioned configurations above is located in the Streaming At Scale repo of Azure Samples [here](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh). The code creates a stream analytics job with no function level partitioning, which uses Event Hub as input and output. The input load is generated using test clients. Each input event is a 1KB json document. Events simulate an IoT device sending JSON data (for up to 1K devices). The history size, window duration, and total event load are varied over 2 input partitions.
+
+> [!Note]
+> Please note the configurations mentioned may be outdated despite our regular efforts. Recommend deploying the solutions, customizing and verifying your scenario to come up with more accurate estimates of resources required.
+
+### Identifying bottlenecks
+To identify where bottleneck exists in your pipeline, following metrics are critical to monitor. Please use Metrics pane in Stream Analytics , see "Input/Output Events" for throughput and "Watermark Delay" or "Backlogged Events" metrics to see if the job is keeping up with the input rate. For Event Hub Metrics check if there are any "Throttled Requests" and adjust the Threshold Units accordingly.
+
 
 ## Anomaly detection using machine learning in Azure Stream Analytics
 
