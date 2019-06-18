@@ -33,10 +33,9 @@ The following are the settings that can be configured to control data collection
 |`config-version` |String |Supports ability to keep track of this config file's version in your source control system/repository. Maximum allowed characters are 10, and all other characters are truncated. |
 |`[log_collection_settings.stdout]` | | |
 |`[log_collection_settings.stdout] enabled =` |Boolean | true or false | This controls if stdout container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection (`log_collection_settings.stdout.exclude_namespaces` setting below), stdout logs will be collected from all containers across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|String, comma-separated array | `exclude_namespaces` |Array of kubernetes namespaces for which stdout logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMaps, the default value is `exclude_namespaces = ["kube-system"]`.|
-|`[log_collection_settings.stderr]` | | |
+|`[log_collection_settings.stdout] exclude_namespaces =`|String | comma-separated array |Array of kubernetes namespaces for which stdout logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMaps, the default value is `exclude_namespaces = ["kube-system"]`.|
 |`[log_collection_settings.stderr] enabled =` |Boolean | true or false |This controls if stderr container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection (`log_collection_settings.stderr.exclude_namespaces` setting), stderr logs will be collected from all containers across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |String, comma-separated array |Array of kubernetes namespaces for which stderr logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMaps, the default value is `exclude_namespaces = ["kube-system"]`. |
+|`[log_collection_settings.stderr] exclude_namespaces =` |String |Comma-separated array |Array of kubernetes namespaces for which stderr logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMaps, the default value is `exclude_namespaces = ["kube-system"]`. |
 | `log_collection_settings.env_var` |Boolean | `enabled=true or false` | This controls if environment variable collection is enabled. When set to `false`, no environment variables are collected for any container running across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
 
 ### Configure and deploy ConfigMaps
@@ -47,7 +46,7 @@ Perform the following steps to configure and deploy your ConfigMaps configuratio
 1. Edit the ConfigMaps yaml file with your customizations. 
 
     - To exclude specific namespaces for stdout log collection, you configure the key/value using the following example: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
-    - To disable environment variable collection for specific containers, set the key/value `[log_collection_settings.env_var] enabled - true` and then follow the steps [here](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container).
+    - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally, and then follow the steps [here](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container).
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
 
 1. Create ConfigMaps by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
