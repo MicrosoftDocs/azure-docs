@@ -358,6 +358,9 @@
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
+  - name: Bastion
+    tocHref: /azure/bastion/
+    topicHref: /azure/bastion/
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
