@@ -195,11 +195,7 @@ Are you sure you want to continue? (y/n): y
 
 The `acr-helloworld:v2` image is deleted from the registry, as is any layer data unique to that image. If a manifest is associated with multiple tags, all associated tags are also deleted.
 
-<<<<<<< HEAD
-### Delete digests by timestamp
-=======
-### List digests by timestamp
->>>>>>> upstream/master
+## Delete digests by timestamp
 
 To maintain the size of a repository or registry, you might need to periodically delete manifest digests older than a certain date.
 
@@ -210,11 +206,6 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
 ```
 
-<<<<<<< HEAD
-=======
-### Delete digests by timestamp
-
->>>>>>> upstream/master
 After identifying stale manifest digests, you can run the following Bash script to delete manifest digests older than a specified timestamp. It requires the Azure CLI and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
 
 > [!WARNING]
@@ -295,15 +286,13 @@ As mentioned in the [Manifest digest](#manifest-digest) section, pushing a modif
 
 As you can see in the output of the last step in the sequence, there is now an orphaned manifest whose `"tags"` property is an empty list. This manifest still exists within the registry, along with any unique layer data that it references. **To delete such orphaned images and their layer data, you must delete by manifest digest**.
 
-### List untagged images
+## Delete all untagged images
 
 You can list all untagged images in your repository using the following Azure CLI command. Replace `<acrName>` and `<repositoryName>` with values appropriate for your environment.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
-
-### Delete all untagged images
 
 > [!WARNING]
 > Use the following sample scripts with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting untagged images will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice][tagging-best-practices].
