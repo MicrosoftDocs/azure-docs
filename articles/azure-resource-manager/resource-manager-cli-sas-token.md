@@ -1,18 +1,9 @@
 ---
 title: Deploy Azure template with SAS token and Azure CLI | Microsoft Docs
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure from a template that is protected with SAS token.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: azurecli
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
 
