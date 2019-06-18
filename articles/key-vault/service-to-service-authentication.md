@@ -7,7 +7,7 @@ manager: barbkess
 services: key-vault
 
 ms.author: mbaldwin
-ms.date: 03/05/2019
+ms.date: 06/2019
 ms.topic: conceptual
 ms.service: key-vault
 
@@ -15,15 +15,11 @@ ms.service: key-vault
 
 # Service-to-service authentication to Azure Key Vault using .NET
 
-To authenticate to Azure Key Vault, you need an Azure Active Directory (AD) credential, either a shared secret or a certificate. Managing such credentials can be difficult and it's tempting to bundle credentials into an app by including them in source or configuration files.
+To authenticate to Azure Key Vault you need an Azure Active Directory (AD) credential, either a shared secret or a certificate. 
 
-The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies this problem. It uses the developer's credentials to authenticate during local development. When the solution is later deployed to Azure, the library automatically switches to application credentials.  
+Managing such credentials can be difficult and it's tempting to bundle credentials into an app by including them in source or configuration files.  The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies this problem. It uses the developer's credentials to authenticate during local development. When the solution is later deployed to Azure, the library automatically switches to application credentials.    Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers.
 
-Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers.
-
-The `Microsoft.Azure.Services.AppAuthentication` library manages authentication automatically, which in turn allows you to focus on your solution, rather than your credentials.
-
-The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to an Azure resource that supports a managed identity, the library automatically uses [managed identities for Azure resources](../active-directory/msi-overview.md). No code or configuration changes are required. The library also supports direct use of Azure AD [client credentials](../azure-resource-manager/resource-group-authenticate-service-principal.md) when a managed identity is not available, or when the developer's security context cannot be determined during local development.
+The `Microsoft.Azure.Services.AppAuthentication` library manages authentication automatically, which in turn allows you to focus on your solution, rather than your credentials.  It supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to an Azure resource that supports a managed identity, the library automatically uses [managed identities for Azure resources](../active-directory/msi-overview.md). No code or configuration changes are required. The library also supports direct use of Azure AD [client credentials](../azure-resource-manager/resource-group-authenticate-service-principal.md) when a managed identity is not available, or when the developer's security context cannot be determined during local development.
 
 ## Using the library
 
@@ -50,22 +46,9 @@ The `AzureServiceTokenProvider` class caches the token in memory and retrieves i
 
 The `GetAccessTokenAsync` method requires a resource identifier. To learn more, see [which Azure services support managed identities for Azure resources](../active-directory/msi-overview.md).
 
-## Samples
-
-The following samples show the `Microsoft.Azure.Services.AppAuthentication` library in action:
-
-1. [Use a managed identity to retrieve a secret from Azure Key Vault at runtime](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
-
-2. [Programmatically deploy an Azure Resource Manager template from an Azure VM with a managed identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
-
-3. [Use .NET Core sample and a managed identity to call Azure services from an Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
-
 ## Local development authentication
 
-For local development, there are two primary authentication scenarios:
-
-- [Authenticating to Azure services](#authenticating-to-azure-services)
-- [Authenticating to custom services](#authenticating-to-custom-services)
+For local development, there are two primary authentication scenarios: [authenticating to Azure services](#authenticating-to-azure-services), and [authenticating to custom services](#authenticating-to-custom-services).
 
 ### Authenticating to Azure Services
 
@@ -161,11 +144,11 @@ It may be necessary to create an Azure AD Client credential to authenticate. Com
  
 - Your code is running on an Azure compute resource that does not yet support managed identities for Azure resources, such as Azure Batch.
 
-There are three primary methods of using a Service Principal to run your application.
+There are three primary methods of using a Service Principal to run your application. To use any of them, you must first [create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
 
-### Use a cerificate to sign into Azure AD
+### Use a certificate to sign into Azure AD
 
-1. Create a [service principal certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md). 
+1. Create a service principal certificate using [az ad sp create-for-rbac --create-cert](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The .pem file (private key) will be stored in your home directory. 
 
 2. Deploy the certificate to either the *LocalMachine* or *CurrentUser* store. 
 
@@ -182,7 +165,7 @@ There are three primary methods of using a Service Principal to run your applica
 
 ### Sign in using an Azure AD shared secret credential
 
-1. Create a [service principal with a password](../azure-resource-manager/resource-group-authenticate-service-principal.md) and grant it access to the Key Vault. 
+1. Create a service principal certificate with a password using [az ad sp create-for-rbac --create-cert --password](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The .pem file (private key) will be stored in your home directory. 
 
 2. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
@@ -207,7 +190,7 @@ Managed Identity or your developer identity must have permission to retrieve the
 
 To use a client certificate for service principal authentication
 
-1. In Azure Key Vault, [create a certificate](./certificate-scenarios.md). The certificate identifier will be a URL in the format `https://<keyvaultname>.vault.azure.net/secrets/<secretname>`.
+1. Create a service principal certificate and automatically store it in your keyvault using  [az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The certificate identifier will be a URL in the format `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
 
 1. Replace `{KeyVaultCertificateSecretIdentifier}` in this connection string with the certificate identifier:
 
@@ -215,7 +198,7 @@ To use a client certificate for service principal authentication
 RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
 ```
 
-If, for instance your key vault was called "myKeyVault" and you created a  certificate called 'myCert', the certificate identifier would be `https://myKeyVault.vault.azure.net/secrets/myCert`, and the connection string would be `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`.
+If, for instance your key vault was called "myKeyVault" and you created a certificate called 'myCert', the certificate identifier would be `https://myKeyVault.vault.azure.net/secrets/myCert`, and the connection string would be `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`.
 
 ## Connection String Support
 
@@ -237,6 +220,15 @@ The following options are supported:
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service principal |`AzureServiceTokenProvider` uses secret to get token from Azure AD. |
 
+## Samples
+
+To see the `Microsoft.Azure.Services.AppAuthentication` library in action, please refer to the following code samples.
+
+1. [Use a managed identity to retrieve a secret from Azure Key Vault at runtime](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
+
+2. [Programmatically deploy an Azure Resource Manager template from an Azure VM with a managed identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
+
+3. [Use .NET Core sample and a managed identity to call Azure services from an Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
 ## Next steps
 
