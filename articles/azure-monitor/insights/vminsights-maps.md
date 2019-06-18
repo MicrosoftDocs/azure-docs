@@ -16,7 +16,7 @@ ms.author: magoedte
 ---
 
 # Use the Map feature of Azure Monitor for VMs (preview) to understand application components
-In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in your Azure environment. You can observe the VMs in two ways. View a map directly from a VM. Or view the map from Azure Monitor to see the components across VM groups. This article will help you understand these two viewing methods and how to use the Map feature. 
+In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. You can observe the VMs in two ways. View a map directly from a VM or view a map from Azure Monitor to see the components across groups of VMs. This article will help you understand these two viewing methods and how to use the Map feature. 
 
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
 
@@ -24,7 +24,7 @@ For information about configuring Azure Monitor for VMs, see [Enable Azure Monit
 Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Introduction to the Map experience
-Before diving into the viewing methods, you should understand how Map presents and visualizes information. Whether you select the Map feature directly from a VM or from Monitor, the Map feature presents a consistent experience.  The only difference is that from Azure Monitor, one map shows all the members of a multiple-tier application or cluster.
+Before diving into the Map experience, you should understand how it presents and visualizes information. Whether you select the Map feature directly from a VM or from Azure Monitor, the Map feature presents a consistent experience. The only difference is that from Azure Monitor, one map shows all the members of a multiple-tier application or cluster.
 
 The Map feature visualizes the VM dependencies by discovering running processes that have: 
 
