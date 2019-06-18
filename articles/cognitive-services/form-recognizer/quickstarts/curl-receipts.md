@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [cURL](https://curl.haxx.se/windows/) installed.
-- A URL to an image of a receipt. You can use a [sample image](tbd) for this quickstart.
+- A URL for an image of a receipt. You can use a [sample image](tbd) for this quickstart.
 
 ## Create a Form Recognizer resource
 
@@ -49,7 +49,7 @@ https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of that operation. 
+After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of that operation.
 
 1. Replace `<operationId>` with the operation ID from the previous step.
 1. Replace `<subscription key>` with your subscription key.
