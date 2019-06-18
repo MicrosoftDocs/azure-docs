@@ -16,9 +16,9 @@ ms.date: 06/18/2019
 ms.author: pepogors
 ---
 
-# Azure Service Fabric app and cluster best practices
+# Azure Service Fabric application and cluster best practices
 
-This article provides links to best practices for managing Azure Service Fabric apps and clusters. We highly recommend that you implement these practices to optimize the reliability of your production environment. Use one of the [Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates) to begin designing your production solution, or update your existing template to incorporate these practices.
+This article provides links to best practices for managing Azure Service Fabric applications and clusters. We highly recommend that you implement these practices to optimize the reliability of your production environment. Use one of the [Service Fabric cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates) to begin designing your production solution, or update your existing template to incorporate these practices.
 
 ## Security
 
@@ -41,7 +41,7 @@ This article provides links to best practices for managing Azure Service Fabric 
 
 * [Best practices for cluster monitoring and diagnostics](service-fabric-best-practices-monitoring.md)
 
-## App design
+## Application design
 
 * [Best practices for application design](service-fabric-best-practices-applications.md)
 
