@@ -50,7 +50,7 @@ To configure password-based SSO by using automatic sign-in field capture, follow
 5. Select **All Applications** to view a list of your apps.
 
    > [!NOTE]
-   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to "All Applications."
+   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications** list. Set the **Show** option to "All Applications."
 
 6. Select the app that you want to configure for SSO.
 
@@ -64,7 +64,7 @@ To configure password-based SSO by using automatic sign-in field capture, follow
 
     The page is automatically scraped for the user name and password input boxes. You can now use Azure AD to securely transmit passwords to that app by using the Access Panel browser extension.
 
-## Manually capture sign-in fields for an app
+### Manually capture sign-in fields for an app
 
 To manually capture sign-in fields, you must have the Access Panel browser extension installed. Also, your browser can't be running in *inPrivate*, *incognito*, or *private* mode.
 
@@ -83,13 +83,13 @@ To configure password-based SSO for an app by using **manual sign-in field captu
 5. Select **All Applications** to view a list of your apps.
 
    > [!NOTE] 
-   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications List**. Set the **Show** option to "All Applications."
+   > If you don't see the app that you want, use the **Filter** control at the top of the **All Applications** list. Set the **Show** option to "All Applications."
 
 6. Select the app that you want to configure for SSO.
 
 7. After the app loads, select **Single sign-on** in the navigation pane on the left side.
 
-8. Select **Password-based Sign-on** mode
+8. Select **Password-based Sign-on** mode.
 
 9. Enter the **Sign-on URL**, which is the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
 
@@ -131,7 +131,7 @@ You might observe the following behaviors when manual detection isn't working:
 
 If you experience any of these problems, do the following things:
 
-- Make sure that you have the latest version of the Access Panel browser extension *installed and enabled*. See [Install the Access Panel Browser extension](#install-the-access-panel-browser-extension) section of this article.
+- Make sure that you have the latest version of the Access Panel browser extension *installed and enabled*. See [Install the Access Panel browser extension](#install-the-access-panel-browser-extension) section of this article.
 
 - Make sure that your browser isn't in *incognito*, *inPrivate*, or *Private* mode during the capture process. The Access Panel extension isn't supported in these modes.
 
@@ -143,7 +143,7 @@ If you experience any of these problems, do the following things:
 
 ### Contact support
 
-If you still have problems, open a case with Microsoft Support. Describe what you tried, and include details that are listed in the [View portal notification details](#view-portal-notification-details) and [Send notification details to a support engineer to get help](#send-notification-details-to-a-support-engineer-to-get-help) sections of this article (if applicable).
+If you still have problems, open a case with Microsoft Support. Describe what you tried, and include the details that are described in the [View portal notification details](#view-portal-notification-details) and [Send notification details to a support engineer to get help](#send-notification-details-to-a-support-engineer-to-get-help) sections of this article (if applicable).
 
 ## Install the Access Panel browser extension
 
@@ -186,9 +186,9 @@ To see the details of any portal notification, follow these steps:
 
 ## Send notification details to a support engineer to get help
 
-It's important that you share *all* the details that are listed in this section with support so that they can help you quickly. To record it, you can also a screenshot or select **Copy error**.
+It's important that you share *all* the details that are listed in this section with support so that they can help you quickly. To record it, you can also take a screenshot or select **Copy error**.
 
-The following information explains what each notification item means and gives example.
+The following information explains what each notification item means and provides examples.
 
 ### Essential notification items
 
@@ -240,7 +240,7 @@ The following information explains what each notification item means and gives e
 
 - **Object ID**: (can be empty) the object ID against which the operation was run.
 
-    -   Example: *8e08161d-f2fd-40ad-a34a-a9632d6bb599*
+   Example: *8e08161d-f2fd-40ad-a34a-a9632d6bb599*
 
 - **Details**: the detailed description of what occurred as a result of the operation.
 
