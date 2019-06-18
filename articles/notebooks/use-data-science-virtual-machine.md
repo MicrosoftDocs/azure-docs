@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 06/13/2019
 ms.author: getroyer
 ---
 
@@ -56,20 +56,25 @@ When a project is run on a VM, the files are mounted on the root directory of th
 
 ![Shutdown button in Azure Notebooks](media/shutdown.png)
 
-If multiple users will share a DSVM you can avoid blocking each other by creating and using a DSVM user for each notebook user.
+## Create new DSVM users
 
-### How to check the version of your DSVM
+If multiple users share a DSVM, you can avoid blocking each other by creating and using a DSVM user for each notebook user:
+
+1. On the [Azure Portal](https://portal.azure.com), navigate to your virtual machine.
+1. Under **Support + troubleshooting** in the left margin, select **Reset password**.
+1. Enter a new username and password and select **Update**. (Existing usernames are not affected.)
+1. Repeat the previous step for any additional users.
+
+## How to check the version of your DSVM
 1. Connect to your DSVM via SSH. You can get the IP address from Azure Portal if necessary.
-2. Run this command: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"`
-3. Look at the number listed for "version".
+1. Run this command: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"`
+1. Look at the number listed for "version".
 
-### How to create new DSVM users
+## How to Create new DSVM users
 1. Go to [Azure Portal](https://ms.portal.azure.com).
 2. Navigate to your virtual machine.
 3. Click 'Reset password' under 'Support + troubleshooting' in the left margin.
 4. Enter a new username and password and click 'Update' (Your old usernames should still continue to work).
-
 ## Next steps
 
 Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).
-
