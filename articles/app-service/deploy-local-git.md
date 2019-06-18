@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 06/18/2019
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 
@@ -41,19 +41,15 @@ To follow the steps in this how-to guide:
 
 ## Deploy with Kudu build server
 
-The easiest way to enable local Git deployment for your app with the Kudu App Service build server is to use Azure Cloud Shell.  
+The easiest way to enable local Git deployment for your app with the Kudu App Service build server is to use Azure Cloud Shell. 
 
-### Configure a deployment user
+You can [configure a deployment user](#option-1-configure-a-deployment-user) to use for deploying all your apps, or you can [deploy with app-level credentials](#option-2-use-app-level-credentials).  
+
+### Option 1: Configure a deployment user
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
->
-> [!NOTE]
-> Instead of using the account-level deployment user, you can deploy with app-level credentials, which Azure App Service automatically generates for each app. 
-
-### Enable local Git 
-
-To enable local Git deployment for an existing app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in the Cloud Shell. Replace \<app-name> and \<group-name> with the names of your app and its Azure resource group.
+To get the URL to enable local Git deployment for an existing app, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in the Cloud Shell. Replace \<app-name> and \<group-name> with the names of your app and its Azure resource group.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -65,9 +61,13 @@ Or, to create a new Git-enabled app, run [`az webapp create`](/cli/azure/webapp?
 az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
-The command should return a URL like: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. You can use this URL to deploy your app in the next step.
+Either command should return a URL like: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Use this URL to deploy your app in the next step.
 
-To use app-specific credentials instead of deployment user credentials in the next step, get the app credentials by running the following command in the Cloud Shell. Replace \<app-name> and \<group-name> with your app's name and Azure resource group name.
+### Option 2: Use app-level credentials
+
+You can enable local Git deployment by using app-level credentials, which Azure App Service automatically generates for every app. 
+
+Get the app credentials by running the following command in the Cloud Shell. Replace \<app-name> and \<group-name> with your app's name and Azure resource group name.
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
@@ -93,11 +93,13 @@ Use the URL that returns to deploy your app in the next step.
 
 ## Deploy with Azure Pipelines builds
 
-If your Azure account has the necessary permissions, you can set up Azure Pipelines (Preview) to enable local Git deployment for your app. 
+If your account has the necessary permissions, you can set up Azure Pipelines (Preview) to enable local Git deployment for your app. 
 
-- To use Azure Pipelines continuous delivery, your Azure account must have permissions to write to Azure Active Directory and create a service. 
+- Your Azure account must have permissions to write to Azure Active Directory and create a service. 
   
-- For Azure App Service to create the necessary Azure Pipelines in your Azure DevOps organization, your Azure account must have the **Owner** role in your Azure subscription.
+- Your Azure account must have the **Owner** role in your Azure subscription.
+
+- You must be an administrator in the Azure DevOps project you want to use.
 
 To enable local Git deployment for your app with Azure Pipelines (Preview):
 
@@ -114,7 +116,7 @@ To enable local Git deployment for your app with Azure Pipelines (Preview):
 1. On the **Configure** page, configure a new Azure DevOps organization, or specify an existing organization, and then select **Continue**.
    
    > [!NOTE]
-   > If your existing Azure DevOps organization doesn't appear in the list, you need to link it to your Azure subscription. For more information, see [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
+   > If your existing Azure DevOps organization isn't listed, you may need to link it to your Azure subscription. For more information, see [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
    
 1. Depending on your App Service plan [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/), you may see a **Deploy to staging** page. Choose whether to [enable deployment slots](deploy-staging-slots.md), and then select **Continue**.
    
@@ -142,7 +144,7 @@ To enable local Git deployment for your app with Azure Pipelines (Preview):
 
 ## Troubleshoot deployment
 
-The following error messages are common problems when you use Git to publish to an App Service app in Azure:
+You may see the following common error messages when you use Git to publish to an App Service app in Azure:
 
 |Message|Cause|Resolution
 ---|---|---|
