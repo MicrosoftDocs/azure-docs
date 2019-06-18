@@ -65,7 +65,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 \* Language support is in preview
 
-\*\* [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking#named-entity-recognition-ner) and [Entity linking](how-tos/text-analytics-how-to-entity-linking#entity-linking.md) are both available for this language.    
+\*\* [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) and [Entity linking](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) are both available for this language.    
 
 ## See also
 
