@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: jingwang
 ---
 
@@ -74,7 +74,7 @@ The following properties are supported for Azure Search linked service:
 
 For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Azure Search dataset.
 
-To copy data into Azure Search, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data into Azure Search, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

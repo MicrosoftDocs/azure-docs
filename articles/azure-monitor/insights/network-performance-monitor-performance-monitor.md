@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: abshamsft
+ms.author: absha
 ---
 
 # Network Performance Monitor solution: Performance monitoring

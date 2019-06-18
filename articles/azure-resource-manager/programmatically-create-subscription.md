@@ -3,15 +3,9 @@ title: Programmatically create Azure Enterprise subscriptions| Microsoft Docs
 description: Learn how to create additional Azure Enterprise or Enterprise Dev/Test subscriptions programmatically.
 services: azure-resource-manager
 author: jureid
-manager: jureid
-editor: ''
 
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/10/2019
 ms.author: jureid
 ---
@@ -198,7 +192,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 To see a full list of all parameters, see [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
-----
+---
 
 ## Limitations of Azure Enterprise subscription creation API
 

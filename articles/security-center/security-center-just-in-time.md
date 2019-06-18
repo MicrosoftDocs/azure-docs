@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/28/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Manage virtual machine access using just-in-time

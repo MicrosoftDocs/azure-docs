@@ -36,7 +36,7 @@ For Windows 10 or Windows Server 2016, see [Troubleshooting hybrid Azure Active 
 
 This article assumes that you have [configured hybrid Azure Active Directory joined devices](hybrid-azuread-join-plan.md) to support the following scenarios:
 
-- Device-based conditional access
+- Device-based Conditional Access
 
 
 This article provides you with troubleshooting guidance on how to resolve potential issues.  
@@ -85,7 +85,7 @@ If the device was not hybrid Azure AD joined, you can attempt to do hybrid Azure
     
   - Autoworkplace.exe is unable to silently authenticate with Azure AD or AD FS. This could be caused by missing or misconfigured AD FS (for federated domains) or missing or misconfigured Azure AD Seamless Single Sign-On (for managed domains) or network issues. 
     
-    - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMUTLIAUTHN is not configured at the AD FS server. 
+    - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMULTIAUTHN is not configured at the AD FS server. 
      
     - Another possibility is that home realm discovery (HRD) page is waiting for user interaction, which prevents **autoworkplace.exe** from silently requesting a token.
      

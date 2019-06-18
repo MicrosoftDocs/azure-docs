@@ -4,7 +4,7 @@ description: Learn how to provision throughput at the container level in Azure C
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: rimman
 ---
 

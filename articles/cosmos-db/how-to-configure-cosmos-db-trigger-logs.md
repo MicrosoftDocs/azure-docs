@@ -4,7 +4,7 @@ description: Learn how to expose the Azure Cosmos DB Trigger logs to your Azure 
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 5/2/2019
+ms.date: 05/23/2019
 ms.author: maquaran
 ---
 

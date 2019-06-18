@@ -348,4 +348,4 @@ In this how-to guide, you learned how to:
 * Create a Stream Analytics query that detects when a device has stopped sending data.
 * Send an email notification using the Azure Functions and SendGrid services.
 
-Now that you know how to create custom rules and notifications, the suggested next step is to learn how to[Visualize and analyze your Azure IoT Central data in a Power BI dashboard](howto-connect-powerbi.md).
+Now that you know how to create custom rules and notifications, the suggested next step is to learn how to [Extend Azure IoT Central with custom analytics](howto-create-custom-analytics.md).

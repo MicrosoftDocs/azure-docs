@@ -38,14 +38,14 @@
     items:
     - name: Push notifications using Baidu cloud push
       href: notification-hubs-baidu-china-android-notifications-get-started.md
-  - name: Chrome
-    items:
-    - name: Push notifications to Chrome apps
-      href: notification-hubs-chrome-push-notifications-get-started.md
   - name: iOS
     items:
     - name: Push notifications to iOS apps
-      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+      items:
+      - name: Objective-c
+        href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+      - name: Swift
+        href: notification-hubs-ios-push-notifications-swift-apps-get-started.md
     - name: Push notifications to specific devices
       href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
     - name: Push notifications to specific users

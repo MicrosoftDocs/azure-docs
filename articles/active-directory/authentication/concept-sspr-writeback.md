@@ -38,9 +38,8 @@ Password writeback provides:
 * **Supports password writeback when an admin resets them from the Azure portal**: Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
 * **Doesn’t require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
 
-> [!Note]
+> [!NOTE]
 > User accounts that exist within protected groups in on-premises Active Directory cannot be used with password writeback. Administrator accounts that exist within protected groups in on-premises AD can be used with password writeback. For more information about protected groups, see [Protected accounts and groups in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
->
 
 ## Licensing requirements for password writeback
 
@@ -59,7 +58,6 @@ To use password writeback, you must have one of the following licenses assigned 
 
 > [!WARNING]
 > Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.
->
 
 ## How password writeback works
 
@@ -86,7 +84,6 @@ When a federated or password hash synchronized user attempts to reset or change 
 1. If the password set operation is successful, the user is told their password has been changed.
    > [!NOTE]
    > If the user's password hash is synchronized to Azure AD by using password hash synchronization, there is a chance that the on-premises password policy is weaker than the cloud password policy. In this case, the on-premises policy is enforced. This policy ensures that your on-premises policy is enforced in the cloud, no matter if you use password hash synchronization or federation to provide single sign-on.
-   >
 
 1. If the password set operation fails, an error prompts the user to try again. The operation might fail because:
     * The service was down.
@@ -159,11 +156,11 @@ Passwords are *not* written back in any of the following situations:
 * **Unsupported end-user operations**
    * Any end user resetting their own password by using PowerShell version 1, version 2, or the Azure AD Graph API
 * **Unsupported administrator operations**
-   * Any administrator-initiated end-user password reset from the [Office management portal](https://portal.office.com)
    * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Azure AD Graph API
+   * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com)
 
 > [!WARNING]
-> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is not supported. When changing a password on-premises do not check this option. 
+> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is not supported. When changing a password on-premises do not check this option.
 
 ## Next steps
 

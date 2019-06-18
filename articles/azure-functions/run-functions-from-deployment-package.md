@@ -67,7 +67,7 @@ The following shows a function app configured to run from a .zip file hosted in 
 - Run From Package makes `wwwroot` read-only, so you will receive an error when writing files to this directory.
 - Tar and gzip formats are not supported.
 - This feature does not compose with local cache.
-- For improved cold-start performance, use the local Zip option (`WEBSITE_RUN_FROM_PACKGE`=1).
+- For improved cold-start performance, use the local Zip option (`WEBSITE_RUN_FROM_PACKAGE`=1).
 
 ## Next steps
 
