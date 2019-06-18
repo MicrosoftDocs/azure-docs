@@ -106,7 +106,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 3. If you want to setup Jamf Pro manually, open a new web browser window and sign into your Jamf Pro company site as an administrator and perform the following steps:
 
-4. Click on the **Settings icon** from the top right corner of the page.
+4. Click on the **Settings icon** from the top-right corner of the page.
 
 	![Jamf Pro Configuration](./media/jamfprosamlconnector-tutorial/configure1.png)
 
@@ -114,13 +114,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Jamf Pro Configuration](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-6. On the **Single Sign-On** page perform the following steps:
+6. On the **Single Sign-On** page, perform the following steps:
 
 	![Jamf Pro single](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
 
 	a. Select **Jamf Pro Server** to enable Single Sign-On access.
 
-	b. By selecting **Allow bypass for all users** users will not be redirected to the Identity Provider login page for authentication, but can log in to Jamf Pro directly instead. When a user tries to access Jamf Pro via the Identity Provider, IdP-initiated SSO authentication and authorization occurs.
+	b. By selecting **Allow bypass for all users**, users will not be redirected to the Identity Provider sign in page for authentication, but can sign in to Jamf Pro directly instead. When a user tries to access Jamf Pro via the Identity Provider, IdP-initiated SSO authentication and authorization occurs.
 
 	c. Select the **NameID** option for **USER MAPPING: SAML**. By default, this setting is set to **NameID** but you may define a custom attribute.
 
@@ -136,7 +136,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	b. In the **OTHER PROVIDER** textbox, enter **Azure AD**.
 
-	c. Select **Metadata URL** as an option from the **IDENTITY PROVIDER METADATA SOURCE** dropdown and in the following textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal.
+	c. Select **Metadata URL** as an option from the **IDENTITY PROVIDER METADATA SOURCE** dropdown and in the following textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
 
 	d. Copy the **Entity ID** value and paste it into the **Identifier (Entity ID)** textbox in **Basic SAML Configuration** section on Azure portal.
 
@@ -199,7 +199,7 @@ To enable Azure AD users to sign in to Jamf Pro, they must be provisioned into J
 
 	![Add Employee](./media/jamfprosamlconnector-tutorial/user3.png)
 
-6. On the **New Account** dailog, perform the following steps:
+6. On the **New Account** dialog, perform the following steps:
 
 	![Add Employee](./media/jamfprosamlconnector-tutorial/user4.png)
 
