@@ -33,7 +33,7 @@ The following diagram shows a conceptual view of the behavior and data flow with
 
 Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant.
 
-Once a CVE is released, it takes 2-3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12-15 hours for the patch to show up for assessment after it has been released.
+Once a package is released, it takes 2-3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12-15 hours for the patch to show up for assessment after it has been released.
 
 After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows computer, the compliance scan is run every 12 hours by default.
 
