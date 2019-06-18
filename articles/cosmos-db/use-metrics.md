@@ -106,5 +106,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 You've now learned how to monitor and debug issues using the metrics provided in the Azure portal. You may want to learn more about improving database performance by reading the following articles:
 
+* To learn about how to view metrics from Azure monitor, see the [Get metrics from Azure Monitor](cosmos-db-azure-monitor-metrics.md) article. 
 * [Performance and scale testing with Azure Cosmos DB](performance-testing.md)
 * [Performance tips for Azure Cosmos DB](performance-tips.md)
