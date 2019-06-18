@@ -47,6 +47,8 @@ The easiest way to enable local Git deployment for your app with the Kudu App Se
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
+### Get the deployment URL
+
 To get the URL to enable local Git deployment for an existing app, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in the Cloud Shell. Replace \<app-name> and \<group-name> with the names of your app and its Azure resource group.
 
 ```azurecli-interactive
@@ -73,7 +75,7 @@ Use the URL that returns to deploy your app in the next step.
 
 ### Deploy the web app
 
-1. Open a local terminal window to your local Git repository, and add an Azure remote. In the following command, replace \<url> with the deployment user or app-specific URL that you got from the previous step.
+1. Open a local terminal window to your local Git repository, and add an Azure remote. In the following command, replace \<url> with the deployment user-specific URL or app-specific URL you got from the previous step.
    
    ```bash
    git remote add azure <url>
