@@ -37,21 +37,21 @@ In part four of the series, you learn how to:
 4. Run the following command to remove the Service Fabric cluster:
 
   ```powershell
-.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
-```
+  .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
+  ```
 
 5. Enter `Y` when prompted, if it was successful your output will look like the following, with your own IP addresses substituted in:
 
   ```powershell
-Best Practices Analyzer completed successfully.
-Removing configuration from machine 172.31.21.141
-Removing configuration from machine 172.31.27.1
-Removing configuration from machine 172.31.20.163
-Configuration removed from machine 172.31.21.141
-Configuration removed from machine 172.31.27.1
-Configuration removed from machine 172.31.20.163
-The cluster is successfully removed.
-```
+  Best Practices Analyzer completed successfully.
+  Removing configuration from machine 172.31.21.141
+  Removing configuration from machine 172.31.27.1
+  Removing configuration from machine 172.31.20.163
+  Configuration removed from machine 172.31.21.141
+  Configuration removed from machine 172.31.27.1
+  Configuration removed from machine 172.31.20.163
+  The cluster is successfully removed.
+  ```
 
 ## Clean up AWS resources
 
