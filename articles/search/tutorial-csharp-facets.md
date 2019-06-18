@@ -11,15 +11,15 @@ ms.date: 05/01/2019
 
 # C# Tutorial: Use facets for navigation and network efficiency - Azure Search
 
-Facets have two distinct uses in Azure Search. Facets can be used to aid navigation, by providing the user with a set of check boxes to use to focus their search. Also, they can be used to improve network efficiency when used in autocompletion. Facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. 
+Facets have two distinct uses in Azure Search. Facets can be used to aid navigation, by providing the user with a set of check boxes to use to focus their search. Also, they can be used to improve network efficiency, when used in autocompletion. Facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. 
 
-Facets are attributes of the data (such as the category of a hotel in our sample data), and stay relevant for the lifespan of a search. 
+Facets are attributes of the data (such as the category of a hotel in our sample data), and stay relevant for the lifespan of a search.
 
 This tutorial builds two projects, one for facet navigation and the other for facet autocompletion. Both projects build onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Set fields as _IsFacetable_
+> * Set model properties as _IsFacetable_
 > * Add facet navigation
 > * Add facet autocompletion
 > * Decide when to use facet autocompletion
@@ -32,7 +32,7 @@ Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp
 
 ## Set model fields as IsFacetable
 
-In order for a field to be located in a facet search (either navigation or autocompletion), it must be tagged with **IsFacetable**.
+In order for a model property to be located in a facet search (either navigation or autocompletion), it must be tagged with **IsFacetable**.
 
 1. Examine the **Hotel** class. **Category** and **Tags**, for example, are tagged as **IsFacetable**, but **HotelName** and **Description** are not. 
 
@@ -85,26 +85,24 @@ public partial class Hotel
 
 ## Add facet navigation
 
-For this example, we are going to enable the user to select one or more categories of hotel in a list shown to the left of the search bar and results. In order to do this, we need to know the list of categories when the app is first run, and to pass this list to the view to be displayed before the first screen is rendered. As each page is rendered, we need to make sure we have maintained both the list of facets, and the current user selections, to be passed along to subsequent pages. Again we use temporary storage as the mechanism for preserving data.
+For this example, we are going to enable the user to select one or more categories of hotel, in a list shown to the left of the results. In order to do this, we need to know the list of categories when the app is first run, and to pass this list to the view to be displayed before the first screen is rendered. As each page is rendered, we need to make sure we have maintained both the list of facets, and the current user selections, to be passed along to subsequent pages. Again, we use temporary storage as the mechanism for preserving data.
 
 ### Modify the SearchData model
 
-1. Open the SearchData.cs file, and add this additional **using** statement.
+1. Open the SearchData.cs file, and add this additional **using** statement. We need to enable the **List&lt;string&gt;** construct.
 
 ```cs
 using System.Collections.Generic;
 ```
 
-2. In the same file, modify the first lines of the **SearchData** class to include the following. Do not delete any of the existing class properties. just add the following constructor methods and arrays of properties.
+2. In the same file, add the following lines to the **SearchData** class. Do not delete any of the existing class properties, but add the following constructor methods and arrays of properties.
 
 ```cs
-public class SearchData
-    {
-        // Facets: add constructor that initializes facet text. Using statement, and two properties.
         public SearchData()
         {
         }
 
+        // Constructor to initialize the list of facets sent from the controller.
         public SearchData(List<string> facets)
         {
             facetText = new string[facets.Count];
@@ -114,14 +112,18 @@ public class SearchData
                 facetText[i] = facets[i];
             }
         }
+
+        // Array to hold the text for each facet.
         public string[] facetText { get; set; }
+
+        // Array to hold the check box setting.
         public bool[] facetOn { get; set; }
 ```
 
 
 ### Search for facets on the first Index call
 
-The home controller needs a significant change. The first call to **Index()** no longer returns a view with no other processing. We want to provide the view with a full list of facets, so the first call is used for that purpose.
+The home controller needs a significant change. The first call to **Index()** no longer returns a view with no other processing. We want to provide the view with a full list of facets, and the first call is the right one for that purpose.
 
 1. Open the home controller file, and add two **using** statements.
 
@@ -130,18 +132,17 @@ using System.Collections.Generic;
 using System.Linq;
 ```
 
-2. Now replace the few line of the current **Index()** method with a method that carries out a facet search for hotel categories.
+2. Now replace the few line of the current **Index()** method with a method that carries out a facet search for hotel categories. As the search should be carried out asynchronously, we must declare the **Index** method as **async**.
 
 ```cs
-public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index()
         {
-            // Facets
             InitSearch();
 
             // Set up the facets call in the search parameters.
             SearchParameters sp = new SearchParameters()
             {
-                // Search all for up to 20 categories.
+                // Search for up to 20 categories.
                 // Field names specified here must be marked as "IsFacetable" in the model, or the search call will throw an exception.
                 Facets = new List<string> { "Category,count:20" },
             };
@@ -151,21 +152,23 @@ public async Task<ActionResult> Index()
             // Convert the results to a list that can be displayed in the client.
             List<string> categories = searchResult.Facets["Category"].Select(x => x.Value.ToString()).ToList();
 
-            // Initiate a model with a Set of facets for the first view.
+            // Initiate a model with a list of facets for the first view.
             SearchData model = new SearchData(categories);
 
             // Save the facet text for the next view.
             SaveFacets(model);
+
+            // Render the view including the facets.
             return View(model);
         }
 ```
 
-A few points to note here. The **Index()** call is now asynchronous, we convert the results of the search call to a list of strings, the facet strings are added to the **SearchData** model for communication to the view, and we save those strings to temporary storage before finally rendering the view.
+A few points to note here. We convert the results of the search call to a list of strings, then these facet strings are added to a **SearchData** model for communication to the view. Also we save those strings to temporary storage before finally rendering the view. This saving is done so that this list is available to the next call to a controller action.
 
-3. Let's add the two private methods to save and restore facets from the model to temporary storage, and back.
+3. Let's add the two private methods to save and restore facets to the model, and to temporary storage.
 
 ```cs
-        // Facets: save/restore
+        // Save the facet text to temporary storage, optionally saving the state of the check boxes.
         private void SaveFacets(SearchData model, bool saveChecks = false)
         {
             for (int i = 0; i < model.facetText.Length; i++)
@@ -179,8 +182,10 @@ A few points to note here. The **Index()** call is now asynchronous, we convert 
             TempData["facetcount"] = model.facetText.Length;
         }
 
+        // Recover the facet text to a model, optionally recoving the state of the check boxes.
         private void RecoverFacets(SearchData model, bool recoverChecks = false)
         {
+            // Create arrays of the appropriate length.
             model.facetText = new string[(int)TempData["facetcount"]];
             if (recoverChecks)
             {
@@ -200,10 +205,10 @@ A few points to note here. The **Index()** call is now asynchronous, we convert 
 
 ### Save and restore facet text on all calls
 
-1. The two other actions of the home controller, **Index(SearchData model)** and **Page**, both need to recover the facets before the search call, and save them again after the search call. Change the **Index(SearchData model)** to make these two calls.
+1. The two other actions of the home controller, **Index(SearchData model)** and **Page(SearchData model)**, both need to recover the facets before the search call, and save them again after the search call. Change the **Index(SearchData model)** to make these two calls.
 
 ```cs
-public async Task<ActionResult> Index(SearchData model)
+        public async Task<ActionResult> Index(SearchData model)
         {
             try
             {
@@ -236,10 +241,10 @@ public async Task<ActionResult> Index(SearchData model)
         }
 ```
 
-2. Now do the same for the **Page** method. We have only listed the relevant code below. Add the **RecoverFacets** and **SaveFacets** calls as shown below.
+2. Now do the same for the **Page(SearchData model)** method. We have only listed the relevant code below. Add the **RecoverFacets** and **SaveFacets** calls as shown below.
 
 ```cs
-// Recover facet text and check marks.
+                // Recover facet text and check marks.
                 RecoverFacets(model, true);
 
                 await RunQueryAsync(model, page, leftMostPage);
@@ -255,12 +260,12 @@ public async Task<ActionResult> Index(SearchData model)
 
 ### Setup a search filter
 
-When a user selects certain facets, for example, say they click on **Budget** and **Resort and Spa** categories, then only hotels that are specified as one of these two categories should be returned. To do this, we need to set up a _filter_.
+When a user selects certain facets, for example, say they click on the **Budget** and **Resort and Spa** categories, then only hotels that are specified as one of these two categories should be returned in the results. To do this, we need to set up a _filter_.
 
 1. In the **RunQueryAsync** method, add the code to loop through the given model's facet settings, to create a filter string. And add the filter to the **SearchParameters**, as shown in the following code.
 
 ```cs
-// Create a filter for selected facets.
+            // Create a filter for selected facets.
             string selectedFacets = "";
 
             for (int f = 0; f < model.facetText.Length; f++)
@@ -269,6 +274,7 @@ When a user selects certain facets, for example, say they click on **Budget** an
                 {
                     if (selectedFacets.Length > 0)
                     {
+                        // If there is more than one selected facet, logically OR them together.
                         selectedFacets += " or ";
                     }
                     selectedFacets += "(Category eq \'" + model.facetText[f] + "\')";
@@ -282,7 +288,6 @@ When a user selects certain facets, for example, say they click on **Budget** an
 
                 // Enter Hotel property names into this list so only these values will be returned.
                 // If Select is empty, all values will be returned, which can be inefficient.
-                // Facets : add caterogy so we can show facets are working.
                 Select = new[] { "HotelName", "Description", "Category" },
                 SearchMode = SearchMode.All,
 
@@ -297,9 +302,7 @@ When a user selects certain facets, for example, say they click on **Budget** an
             };
 ```
 
-Note too that we have added the **Category** property to the list of **Select** items to return. In this way we can verify that we are filtering correctly.
-
-2. Save off the home controller file.
+Note that we have added the **Category** property to the list of **Select** items to return. This is not a requirement, but in this way we can verify that we are filtering correctly.
 
 ### Define a few additional HTML styles
 
@@ -323,7 +326,7 @@ The view is going to require some significant changes.
 
 ### Add a list of facet checkboxes to the view
 
-For the view, we organize the output into a table, to align the facets on the left and the results on the right neatly.
+For the view, we organize the output into a table, to neatly align the facets on the left, and the results on the right.
 
 1. Replace the entire contents of the index.cshtml file with the following code.
 
@@ -336,7 +339,7 @@ For the view, we organize the output into a table, to align the facets on the le
    <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
 </head>
 
-<body>    
+<body>
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
@@ -475,23 +478,23 @@ For the view, we organize the output into a table, to align the facets on the le
                 </td>
             </tr>
         </table>
-    }    
+    }
 </body>
 ```
 
-Notice the use of the **CheckBoxFor** call to populate the facet list with the user selections. Also, we have added the category of hotel to the end of the hotel description. This text is simply to confirm that our search is working correctly. Not much else has changed from earlier tutorials, except that we have organized the output into a table.
+Notice the use of the **CheckBoxFor** call to populate the **facetOn** array with the user selections. Also, we have added the category of hotel to the end of the hotel description. This text is simply to confirm that our search is working correctly. Not much else has changed from earlier tutorials, except that we have organized the output into a table.
 
 ### Run and test the app
 
 1. Run the app, and verify that the list of facets appears neatly to the left.
 
-2. Try selecting one, two, three check boxes, and verify the results.
+2. Try selecting one, two, three, or more check boxes, and verify the results.
 
-3. There is a slight complication with facet navigation. What should happen if a user changes the facet selection (selecting or de-selecting the check boxes), but then clicks one of the paging options, and not the search bar? In effect, changing the selection could initiate a new search, as the current pages will no longer be correct. Alternatively, the user changes could be ignored and the next page of results given, based on the original facet selections. We have chosen the latter solution in this example, but perhaps consider how you might implement the former solution. Perhaps trigger a new search if the latest selection of chosen facets does not exactly match the selection in temporary storage?
+3. There is a slight complication with facet navigation. What should happen if a user changes the facet selection (selecting or de-selecting the check boxes), but then clicks one of the paging options, and not the search bar? In effect, changing the selection should initiate a new search, as the current pages will no longer be correct. Alternatively, the user changes could be ignored, and the next page of results given, based on the original facet selections. We have chosen the latter solution in this example, but perhaps consider how you might implement the former solution. Perhaps trigger a new search if the latest selection of chosen facets does not exactly match the selection in temporary storage?
 
 That completes our example of facet navigation. But perhaps you could also consider how this might be extended. The facet list could be expanded to include other facet-able fields (say **Tags**), so that a user could select a range of options such as a pool, wifi, bar, free parking, and so on. 
 
-The advantage of facet navigation to the user is that they do not have to keep entering the same text, their facet choices are preserved for the lifespan of the current session with the app. They can select categories and other attribues with a single click, then search on specific text.
+The advantage of facet navigation to the user is that they do not have to keep entering the same text, their facet choices are preserved for the lifespan of the current session with the app. They can select categories, and potentially other attributes, with a single click, then search on other specific text.
 
 Now let's examine a quite different use of facets.
 
@@ -499,15 +502,13 @@ Now let's examine a quite different use of facets.
 
 We will use the numbered paging app you might have completed in the second tutorial as a basis for this sample.
 
-To implement facets, we do not need to change any of the models (the data classes). We do need to add some script to the view, and an action to the controller.
-
-
+To implement facet autocompletion, we do not need to change any of the models (the data classes). We do need to add some script to the view, and an action to the controller.
 
 ### Add an autocomplete script to the view
 
 In order to initiate a facet search, we need to send a query. The following JavaScript added to the index.cshtml file provides the query logic and presentation we need.
 
-1. Locate the **@Html.TextBoxFor(m => m.searchText, ...)** statement and add a unique **id**, similar to the following.
+1. Locate the **@Html.TextBoxFor(m => m.searchText, ...)** statement and add a unique ID, similar to the following.
 
 ```cs
     <div class="searchBoxForm">
@@ -515,7 +516,7 @@ In order to initiate a facet search, we need to send a query. The following Java
     </div>
 ```
 
-2. Now add the following JavaScript (after the closing **&lt;/div&gt;** shown above works fine).
+2. Now, add the following JavaScript (after the closing **&lt;/div&gt;** shown above works fine).
 
 ```cs
      <script>
@@ -541,7 +542,7 @@ Notice that the script calls the **Facets** action in the home controller, witho
 
 The autocomplete function called in the script above is not something we have to write ourselves as it is available in the jquery library. 
 
-1. To access the jquery library, add the following lines to the top of the &lt;head&gt; section of the view file, so the beginning of this section looks similar to the following code.
+1. To access the jquery library, add the following lines to the top of the &lt;head&gt; section of the view file, so the beginning of this section looks like the following code.
 
 ```cs
 <head>
@@ -567,17 +568,19 @@ Now we can use the predefined autocomplete jquery functions.
 
 ### Add a facet action to the controller
 
-1. The JavaScript in the view triggers the **Facets** action in the controller, so let's add that action to the home controller (say, below the **Page** action).
+1. First, add the following two **using** statements to the head of the file.
+
+```cs
+using System.Collections.Generic;
+using System.Linq;
+```
+
+2. The JavaScript in the view triggers the **Facets** action in the controller, so let's add that action to the home controller (say, below the **Page** action).
 
 ```cs
         public async Task<ActionResult> Facets()
         {
-            // Use static variables to set up the configuration and Azure service and index clients, for efficiency.
-            _builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            _configuration = _builder.Build();
-
-            _serviceClient = CreateSearchServiceClient(_configuration);
-            _indexClient = _serviceClient.Indexes.GetClient("hotels");
+            InitSearch();
 
             // Set up the facets call in the search parameters.
             SearchParameters sp = new SearchParameters()
@@ -599,19 +602,12 @@ Now we can use the predefined autocomplete jquery functions.
         }
 ```
 
-Notice that we are requesting up to 100 facets from the **Tags** fields and up to 20 from the **Category** fields. The **count** entries are optional, if no count is set the default is 10.
+Notice that we are requesting up to 100 facets from the **Tags** fields, and up to 20 from the **Category** fields. The **count** entries are optional, if no count is set the default is 10.
+
+We need two lists, that are then combined into one, because we asked for two fields to be searched (**Tags** and **Category**). If we had asked for three fields to be searched, we would have to combine three lists into one, and so on.
 
 > [!NOTE]
 > It is possible to set one or more of the following parameters for each field in a facet search: **count**, **sort**, **interval**, and **values**. Refer to [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation) for more details.
-
-2. If you get syntax errors with the **List&lt;string&gt;** declarations, or **Select** calls, make sure to add the following **using** statements to the top of the file.
-
-```cs
-using System.Collections.Generic;
-using System.Linq;
-```
-
-Note how we need two lists, that are then combined into one, because we asked for two fields to be searched (**Tags** and **Category**). If we had asked for three fields to be searched, we would have to combine three lists into one, and so on.
 
 ### Compile and run your project
 
@@ -625,29 +621,29 @@ Now test the program.
 
 3. Type other combinations of two letters and see what appears. Notice that when you type the server is *not* being called. The facets are cached locally when the app is started, and now a call is only made to the server when the user requests a search.
 
-## Decide when to use a facet search
+## Decide when to use a facet autocompletion search
 
-The clear difference between facet searches and other searches such as suggestions and autocompletion, is that the facet search is _designed_ to be only carried out once when a page is loaded, and the other searches are _designed_ to be called as characters are typed, which potentially saves many calls to the server. However, when should this search be used?
+The clear difference between facet searches, and other searches such as suggestions and autocompletion, is that the facet search is _designed_ to be only carried out once when a page is loaded, and the other searches are _designed_ to be called as characters are typed, which potentially saves many calls to the server. However, when should this search be used?
 
-Facet searches are best used when:
+Facet autocompletion is best used when:
 * The performance of other searches that call the server each keystroke is an issue.
 * The facets returned provide the user with a list of options of reasonable length when they type in a few characters.
 * The facets returned provide a quick way to access most, or ideally all, of the data available.
 * The maximum counts allow most facets to be included. In our code, we set a maximum of 100 facets for **Tags** and 20 facets for **Category**. The maximums set must work well with the size of the data set. If too many potential facets are being cut, then perhaps the search is not as helpful as it should be.
 
 > [!NOTE]
-> Although facet searches are designed to be called once per page load, they can of course be called much more often, it depends on your JavaScript. Equally true is that autocompletion/suggestion searches can be carried out less often than once per keystroke. Again this is determined by your JavaScript, not Azure Search. However, facet search is designed to be called only once per page as facets are constructed by Azure Search from the searched documents with this in mind. It is good practice to consider facet searches as a slightly less flexible but more network-efficient form of user-assistance.
+> Although facet searches are designed to be called once per page load, they can of course be called much more often, it depends on your JavaScript. Equally true is that autocompletion/suggestion searches can be carried out less often than once per keystroke. Again this is determined by your JavaScript, not Azure Search. However, facet search is designed to be called only once per page as facets are constructed by Azure Search from the searched documents with this in mind. It is good practice to consider facet autocompletion searches as a slightly less flexible but more network-efficient form of user-assistance.
 
 
 ## Takeaways
 
 Consider the following takeaways from this project:
 
-* Facets are an efficient way of getting a helpful user experience without the repeated server calls.
-* Facets work well if a manageable (to the user) number of results are displayed when they are typing.
-* Facets do not work as well if too many need to be displayed (or end up being hidden or cut).
+* Facet navigation provides a user with an easy way of narrowing a search of a lot of data.
+* Facet navigation is best divided into sections (categories of hotel, features of a hotel, etc.), each section with an appropriate heading.
+* Facet autocompletion is an efficient way of getting a helpful user experience without the repeated server calls of other autocompletion searches.
 * It is imperative to mark each field as **IsFacetable** if they are to be included in a facet search.
-* Facets are an alternative to autocomplete/suggestions, not an addition.
+* Facet autocompletion is an _alternative_ to autocomplete/suggestions, not an addition.
 
 ## Next steps
 
