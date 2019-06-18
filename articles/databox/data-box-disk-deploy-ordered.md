@@ -44,7 +44,7 @@ Before you begin, make sure that:
 
 ## Order Data Box Disk
 
-Sign in:
+Sign in to:
 
 - The Azure portal at this URL: https://portal.azure.com to order Data Box Disk.
 - Or, the Azure Government portal at this URL: https://portal.azure.us. For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
