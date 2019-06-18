@@ -59,7 +59,7 @@ First, create the device simulation solution, which generates test data to popul
    ---|---
    **Deployment name** | This unique value is used to create a new resource group. The listed Azure resources are created and assigned to the resource group.
    **Azure subscription** | Specify the same subscription that was used to create your Time Series Insights environment in the previous section.
-   **Deployment options** | Select `Provisions new IoT Hub` to create a new IoT hub specific to this tutorial.
+   **Deployment options** | Select **Provision new IoT Hub** to create a new IoT hub specific to this tutorial.
    **Azure location** | Specify the same region that was used to create your Time Series Insights environment in the previous section.
 
    When you're finished, select **Create solution** to provision the solution's Azure resources. It may take up to 20 minutes to complete this process.
@@ -91,12 +91,12 @@ Second, create a Time Series Insights environment in your Azure subscription.
 
    Parameter|Description
    ---|---
-   **Environment name** | Choose a unique name for the Time Series Insights environment. The names are used by the Time Series Insights explorer and the Query APIs.
+   **Environment name** | Choose a unique name for the Time Series Insights environment. The names are used by the Time Series Insights explorer and the [Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
    **Subscription** | Subscriptions are containers for Azure resources. Choose a subscription to create the Time Series Insights environment.
    **Resource group** | A resource group is a container for Azure resources. Choose an existing resource group or create a new one for the Time Series Insights environment resource.
    **Location** | Choose a data center region for your Time Series Insights environment. To avoid additional latency, create the Time Series Insights environment in the same region as other IoT resources.
-   **Tier** | Choose the throughput needed. Select `S1`.
-   **Capacity** | Capacity is the multiplier applied to the ingress rate and storage capacity associated with the selected SKU. You can change the capacity after creation. Select a capacity of 1.
+   **Tier** | Choose the throughput needed. Select **S1**.
+   **Capacity** | Capacity is the multiplier applied to the ingress rate and storage capacity associated with the selected SKU. You can change the capacity after creation. Select a capacity of **1**.
 
    When finished, select **Review + create** to proceed to the next step.
 
