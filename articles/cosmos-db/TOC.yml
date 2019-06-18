@@ -629,7 +629,7 @@
       - name: View metrics from Cosmos DB account 
         href: use-metrics.md
       - name: View Metrics from Azure Monitor
-        href: use-metrics.md
+        href: cosmos-db-azure-monitor-metrics.md
       - name: Monitor SLAs
         href: monitor-accounts.md
     - name: Develop locally
