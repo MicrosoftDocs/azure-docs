@@ -70,7 +70,7 @@ To enable this policy and protect your administrators:
 1. Click **Save**.
 
 > [!WARNING]
-> There was an option **Automatically enable policy in the future** when this policy was in preview. We removed this option to minimize sudden user impact. If you selected this option when it was available, **Do not use policy** is automatically now selected. If they want to use this baseline policy, see steps above to enalbe it.
+> There was an option **Automatically enable policy in the future** when this policy was in preview. We removed this option to minimize sudden user impact. If you selected this option when it was available, **Do not use policy** is automatically now selected. If they want to use this baseline policy, see steps above to enable it.
 
 ## Next steps
 
