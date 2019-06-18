@@ -109,7 +109,7 @@ To configure password-based SSO for an app by using **manual sign-in field captu
 
 ### I get a “We couldn’t find any sign-in fields at that URL” error
 
-You get this error message when automatic detection of sign-in fields fails. To resolve the issue, try manual sign-in field detection. See the [Manually capture sign-in fields for an application](#how-to-manually-capture-sign-in-fields-for-an-app) section of this article.
+You get this error message when automatic detection of sign-in fields fails. To resolve the issue, try manual sign-in field detection. See the [Manually capture sign-in fields for an application](#manually-capture-sign-in-fields-for-an-app) section of this article.
 
 ### I get an “Unable to save single sign-on configuration” error
 
