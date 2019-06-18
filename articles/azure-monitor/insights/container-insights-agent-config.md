@@ -54,15 +54,13 @@ Perform the following steps to configure and deploy your ConfigMaps configuratio
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
-    The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. When it's finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`
+    The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`
 
-To verify the configuration was successfully applied, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. If there are configuration errors from the osmagent pod, the output will show errors similar to the following:
+To verify the configuration was successfully applied, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. If there are configuration errors from the osmagent pods, the output will show errors similar to the following:
 
 ``` 
 ***************Start Config Processing******************** 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-If there are errors with your ConfigMaps file preventing omsagent from parsing it, omsagent restarts uses the default configuration. After you correct the error(s) in ConfigMaps, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`. 
-
-
+Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the error(s) in ConfigMaps, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`.
