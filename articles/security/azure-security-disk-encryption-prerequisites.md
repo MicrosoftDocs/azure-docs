@@ -25,9 +25,10 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 ## Supported VM sizes
 
 Azure Disk Encryption is available on virtual machines that meet these minimum memory requirements:
-• 2 GB for Windows VMs.
-• 2 GB for Linux VMs when only encrypting data volumes.
-• 8 GB for Linux VMs when encrypting both data and OS volumes. Linux OS disk encryption is not available for [Virtual Machine Scale Sets](./virtual-machine-scale-sets/index.yml).
+
+- 2 GB for Windows VMs.
+- 2 GB for Linux VMs when only encrypting data volumes.
+- 8 GB for Linux VMs when encrypting both data and OS volumes. Linux OS disk encryption is not available for [Virtual Machine Scale Sets](./virtual-machine-scale-sets/index.md).
  
 Azure Disk Encryption is also available for VMs with premium storage. 
 
@@ -44,34 +45,34 @@ For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before yo
 
 Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux distributions](../virtual-machines/linux/endorsed-distros.md), which is itself a subset of all Linux server possible distributions.
 
-    ![Venn Diagram of Linux server distributions that support Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+![Venn Diagram of Linux server distributions that support Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-    Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption and, of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
+Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption and, of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
 
-    | Linux distribution | Version | Volume type supported for encryption|
-    | --- | --- |--- |
-    | Ubuntu | 18.04| OS and data disk |
-    | Ubuntu | 16.04| OS and data disk |
-    | Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
-    | RHEL | 7.6 | OS and data disk (see note below) |
-    | RHEL | 7.5 | OS and data disk (see note below) |
-    | RHEL | 7.4 | OS and data disk (see note below) |
-    | RHEL | 7.3 | OS and data disk (see note below) |
-    | RHEL | 7.2 | OS and data disk (see note below) |
-    | RHEL | 6.8 | Data disk (see note below) |
-    | RHEL | 6.7 | Data disk (see note below) |
-    | CentOS | 7.6 | OS and data disk |
-    | CentOS | 7.5 | OS and data disk |
-    | CentOS | 7.4 | OS and data disk |
-    | CentOS | 7.3 | OS and data disk |
-    | CentOS | 7.2n | OS and data disk |
-    | CentOS | 6.8 | Data disk |
-    | openSUSE | 42.3 | Data disk |
-    | SLES | 12-SP4 | Data disk |
-    | SLES | 12-SP3 | Data disk |
+| Linux distribution | Version | Volume type supported for encryption|
+| --- | --- |--- |
+| Ubuntu | 18.04| OS and data disk |
+| Ubuntu | 16.04| OS and data disk |
+| Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
+| RHEL | 7.6 | OS and data disk (see note below) |
+| RHEL | 7.5 | OS and data disk (see note below) |
+| RHEL | 7.4 | OS and data disk (see note below) |
+| RHEL | 7.3 | OS and data disk (see note below) |
+| RHEL | 7.2 | OS and data disk (see note below) |
+| RHEL | 6.8 | Data disk (see note below) |
+| RHEL | 6.7 | Data disk (see note below) |
+| CentOS | 7.6 | OS and data disk |
+| CentOS | 7.5 | OS and data disk |
+| CentOS | 7.4 | OS and data disk |
+| CentOS | 7.3 | OS and data disk |
+| CentOS | 7.2n | OS and data disk |
+| CentOS | 6.8 | Data disk |
+| openSUSE | 42.3 | Data disk |
+| SLES | 12-SP4 | Data disk |
+| SLES | 12-SP3 | Data disk |
 
-    > [!NOTE]
-    > The new ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. See [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) for more information.
+> [!NOTE]
+> The new ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. See [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) for more information.
 
 - Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription. Configuring the resources in separate regions causes a failure in enabling the Azure Disk Encryption feature.
 
