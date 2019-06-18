@@ -85,9 +85,415 @@ public partial class Hotel
 
 ## Add facet navigation
 
+For this example, we are going to enable the user to select one or more categories of hotel in a list shown to the left of the search bar and results. In order to do this, we need to know the list of categories when the app is first run, and to pass this list to the view to be displayed before the first screen is rendered. As each page is rendered, we need to make sure we have maintained both the list of facets, and the current user selections, to be passed along to subsequent pages. Again we use temporary storage as the mechanism for preserving data.
+
+### Modify the SearchData model
+
+1. Open the SearchData.cs file, and add this additional **using** statement.
+
+```cs
+using System.Collections.Generic;
+```
+
+2. In the same file, modify the first lines of the **SearchData** class to include the following. Do not delete any of the existing class properties. just add the following constructor methods and arrays of properties.
+
+```cs
+public class SearchData
+    {
+        // Facets: add constructor that initializes facet text. Using statement, and two properties.
+        public SearchData()
+        {
+        }
+
+        public SearchData(List<string> facets)
+        {
+            facetText = new string[facets.Count];
+
+            for (int i = 0; i < facets.Count; i++)
+            {
+                facetText[i] = facets[i];
+            }
+        }
+        public string[] facetText { get; set; }
+        public bool[] facetOn { get; set; }
+```
 
 
+### Search for facets on the first Index call
 
+The home controller needs a significant change. The first call to **Index()** no longer returns a view with no other processing. We want to provide the view with a full list of facets, so the first call is used for that purpose.
+
+1. Open the home controller file, and add two **using** statements.
+
+```cs
+using System.Collections.Generic;
+using System.Linq;
+```
+
+2. Now replace the few line of the current **Index()** method with a method that carries out a facet search for hotel categories.
+
+```cs
+public async Task<ActionResult> Index()
+        {
+            // Facets
+            InitSearch();
+
+            // Set up the facets call in the search parameters.
+            SearchParameters sp = new SearchParameters()
+            {
+                // Search all for up to 20 categories.
+                // Field names specified here must be marked as "IsFacetable" in the model, or the search call will throw an exception.
+                Facets = new List<string> { "Category,count:20" },
+            };
+
+            DocumentSearchResult<Hotel> searchResult = await _indexClient.Documents.SearchAsync<Hotel>("*", sp);
+
+            // Convert the results to a list that can be displayed in the client.
+            List<string> categories = searchResult.Facets["Category"].Select(x => x.Value.ToString()).ToList();
+
+            // Initiate a model with a Set of facets for the first view.
+            SearchData model = new SearchData(categories);
+
+            // Save the facet text for the next view.
+            SaveFacets(model);
+            return View(model);
+        }
+```
+
+A few points to note here. The **Index()** call is now asynchronous, we convert the results of the search call to a list of strings, the facet strings are added to the **SearchData** model for communication to the view, and we save those strings to temporary storage before finally rendering the view.
+
+3. Let's add the two private methods to save and restore facets from the model to temporary storage, and back.
+
+```cs
+        // Facets: save/restore
+        private void SaveFacets(SearchData model, bool saveChecks = false)
+        {
+            for (int i = 0; i < model.facetText.Length; i++)
+            {
+                TempData["facet" + i.ToString()] = model.facetText[i];
+                if (saveChecks)
+                {
+                    TempData["faceton" + i.ToString()] = model.facetOn[i];
+                }
+            }
+            TempData["facetcount"] = model.facetText.Length;
+        }
+
+        private void RecoverFacets(SearchData model, bool recoverChecks = false)
+        {
+            model.facetText = new string[(int)TempData["facetcount"]];
+            if (recoverChecks)
+            {
+                model.facetOn = new bool[(int)TempData["facetcount"]];
+            }
+
+            for (int i = 0; i < (int)TempData["facetcount"]; i++)
+            {
+                model.facetText[i] = TempData["facet" + i.ToString()].ToString();
+                if (recoverChecks)
+                {
+                    model.facetOn[i] = (bool)TempData["faceton" + i.ToString()];
+                }
+            }
+        }
+```
+
+### Save and restore facet text on all calls
+
+1. The two other actions of the home controller, **Index(SearchData model)** and **Page**, both need to recover the facets before the search call, and save them again after the search call. Change the **Index(SearchData model)** to make these two calls.
+
+```cs
+public async Task<ActionResult> Index(SearchData model)
+        {
+            try
+            {
+                // Ensure the search string is valid.
+                if (model.searchText == null)
+                {
+                    model.searchText = "";
+                }
+
+                // Recover the facet text.
+                RecoverFacets(model);
+
+                // Make the search call for the first page.
+                await RunQueryAsync(model, 0, 0);
+
+                // Ensure temporary data is stored for the next call.
+                TempData["page"] = 0;
+                TempData["leftMostPage"] = 0;
+                TempData["searchfor"] = model.searchText;
+
+                // Facets
+                SaveFacets(model, true);
+            }
+
+            catch
+            {
+                return View("Error", new ErrorViewModel { RequestId = "1" });
+            }
+            return View(model);
+        }
+```
+
+2. Now do the same for the **Page** method. We have only listed the relevant code below. Add the **RecoverFacets** and **SaveFacets** calls as shown below.
+
+```cs
+// Recover facet text and check marks.
+                RecoverFacets(model, true);
+
+                await RunQueryAsync(model, page, leftMostPage);
+
+                // Ensure Temp data is stored for next call, as TempData only stored for one call.
+                TempData["page"] = (object)page;
+                TempData["searchfor"] = model.searchText;
+                TempData["leftMostPage"] = model.leftMostPage;
+
+                // Save facets and check marks.
+                SaveFacets(model, true);
+```
+
+### Setup a search filter
+
+When a user selects certain facets, for example, say they click on **Budget** and **Resort and Spa** categories, then only hotels that are specified as one of these two categories should be returned. To do this, we need to set up a _filter_.
+
+1. In the **RunQueryAsync** method, add the code to loop through the given model's facet settings, to create a filter string. And add the filter to the **SearchParameters**, as shown in the following code.
+
+```cs
+// Create a filter for selected facets.
+            string selectedFacets = "";
+
+            for (int f = 0; f < model.facetText.Length; f++)
+            {
+                if (model.facetOn[f])
+                {
+                    if (selectedFacets.Length > 0)
+                    {
+                        selectedFacets += " or ";
+                    }
+                    selectedFacets += "(Category eq \'" + model.facetText[f] + "\')";
+                }
+            }
+
+            var parameters = new SearchParameters
+            {
+                // Facets: add the filter.
+                Filter = selectedFacets,
+
+                // Enter Hotel property names into this list so only these values will be returned.
+                // If Select is empty, all values will be returned, which can be inefficient.
+                // Facets : add caterogy so we can show facets are working.
+                Select = new[] { "HotelName", "Description", "Category" },
+                SearchMode = SearchMode.All,
+
+                // Skip past results that have already been returned.
+                Skip = page * GlobalVariables.ResultsPerPage,
+
+                // Take only the next page worth of results.
+                Top = GlobalVariables.ResultsPerPage,
+
+                // Include the total number of results.
+                IncludeTotalResultCount = true,
+            };
+```
+
+Note too that we have added the **Category** property to the list of **Select** items to return. In this way we can verify that we are filtering correctly.
+
+2. Save off the home controller file.
+
+### Define a few additional HTML styles
+
+The view is going to require some significant changes. 
+
+1. Start by opening the hotels.css file, and add the following classes.
+
+```cs
+.facetlist {
+    list-style: none;
+}
+
+.facetchecks {
+    width: 200px;
+    background-color: lightgoldenrodyellow;
+    display: normal;
+    color: #666;
+    margin: 10px;
+}
+```
+
+### Add a list of facet checkboxes to the view
+
+For the view, we organize the output into a table, to align the facets on the left and the results on the right neatly.
+
+1. Replace the entire contents of the index.cshtml file with the following code.
+
+```cs
+@model FirstAzureSearchApp_FacetNavigation.Models.SearchData
+@{
+    ViewData["Title"] = "Home Page";
+}
+<head>
+   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
+</head>
+
+<body>    
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td></td>
+                <td>
+                    <h1 class="sampleTitle">
+                        <img src="~/images/azure-logo.png" width="80" />
+                        Hotels Search - Facet Navigation
+                    </h1>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <!-- Display the search text box, with the search icon to the right of it.-->
+                    <div class="searchBoxForm">
+                        @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox" }) <input value="" class="searchBoxSubmit" type="submit">
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td valign="top">
+                    <div id="facetplace" class="facetchecks">
+                        <h5>Filter by Category:</h5>
+                        <ul class="facetlist">
+                            @for (var i = 0; i < Model.facetText.Length; i++)
+                            {
+                                <li> @Html.CheckBoxFor(m => m.facetOn[i], new { @id = "check" + i.ToString() }) @Model.facetText[i] </li>
+                            }
+                        </ul>
+                    </div>
+                </td>
+                <td valign="top">
+                    <div id="resultsplace">
+                        @if (Model != null && Model.resultList != null)
+                        {
+                            // Show the result count.
+                            <p class="sampleText">
+                                @Html.DisplayFor(m => m.resultList.Count) Results
+                            </p>
+
+                            @for (var i = 0; i < Model.resultList.Results.Count; i++)
+                            {
+                                // Display the hotel name and description.
+                                @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
+                                @Html.TextArea("desc", Model.resultList.Results[i].Document.Description + "\nCategory:  " +  Model.resultList.Results[i].Document.Category, new { @class = "box2" })
+                            }
+                        }
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td valign="top">
+                    @if (Model != null && Model.pageCount > 1)
+                    {
+                        // If there is more than one page of results, show the paging buttons.
+                        <table>
+                            <tr>
+                                <td class="tdPage">
+                                    @if (Model.currentPage > 0)
+                                    {
+                                        <p class="pageButton">
+                                            @Html.ActionLink("|<", "Page", "Home", new { paging = "0" }, null)
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p class="pageButtonDisabled">|&lt;</p>
+                                    }
+                                </td>
+
+                                <td class="tdPage">
+                                    @if (Model.currentPage > 0)
+                                    {
+                                        <p class="pageButton">
+                                            @Html.ActionLink("<", "Page", "Home", new { paging = "prev" }, null)
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p class="pageButtonDisabled">&lt;</p>
+                                    }
+                                </td>
+
+                                @for (var pn = Model.leftMostPage; pn < Model.leftMostPage + Model.pageRange; pn++)
+                                {
+                                    <td class="tdPage">
+                                        @if (Model.currentPage == pn)
+                                        {
+                                            // Convert displayed page numbers to 1-based and not 0-based.
+                                            <p class="pageSelected">@(pn + 1)</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="pageButton">
+                                                @Html.ActionLink((pn + 1).ToString(), "Page", "Home", new { paging = @pn }, null)
+                                            </p>
+                                        }
+                                    </td>
+                                }
+
+                                <td class="tdPage">
+                                    @if (Model.currentPage < Model.pageCount - 1)
+                                    {
+                                        <p class="pageButton">
+                                            @Html.ActionLink(">", "Page", "Home", new { paging = "next" }, null)
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p class="pageButtonDisabled">&gt;</p>
+                                    }
+                                </td>
+
+                                <td class="tdPage">
+                                    @if (Model.currentPage < Model.pageCount - 1)
+                                    {
+                                        <p class="pageButton">
+                                            @Html.ActionLink(">|", "Page", "Home", new { paging = Model.pageCount - 1 }, null)
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p class="pageButtonDisabled">&gt;|</p>
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                </td>
+            </tr>
+        </table>
+    }    
+</body>
+```
+
+Notice the use of the **CheckBoxFor** call to populate the facet list with the user selections. Also, we have added the category of hotel to the end of the hotel description. This text is simply to confirm that our search is working correctly. Not much else has changed from earlier tutorials, except that we have organized the output into a table.
+
+### Run and test the app
+
+1. Run the app, and verify that the list of facets appears neatly to the left.
+
+2. Try selecting one, two, three check boxes, and verify the results.
+
+3. There is a slight complication with facet navigation. What should happen if a user changes the facet selection (selecting or de-selecting the check boxes), but then clicks one of the paging options, and not the search bar? In effect, changing the selection could initiate a new search, as the current pages will no longer be correct. Alternatively, the user changes could be ignored and the next page of results given, based on the original facet selections. We have chosen the latter solution in this example, but perhaps consider how you might implement the former solution. Perhaps trigger a new search if the latest selection of chosen facets does not exactly match the selection in temporary storage?
+
+That completes our example of facet navigation. But perhaps you could also consider how this might be extended. The facet list could be expanded to include other facet-able fields (say **Tags**), so that a user could select a range of options such as a pool, wifi, bar, free parking, and so on. 
+
+The advantage of facet navigation to the user is that they do not have to keep entering the same text, their facet choices are preserved for the lifespan of the current session with the app. They can select categories and other attribues with a single click, then search on specific text.
+
+Now let's examine a quite different use of facets.
 
 ## Add facet autocompletion
 
