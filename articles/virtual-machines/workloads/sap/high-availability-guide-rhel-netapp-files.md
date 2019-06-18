@@ -619,16 +619,16 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>SAP NetWeaver application server preparation
 
-Some databases require that the database instance installation is executed on an application server. Prepare the application server virtual machines to be able to use them in these cases.
+   Some databases require that the database instance installation is executed on an application server. Prepare the application server virtual machines to be able to use them in these cases.
 
-The steps bellow assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) are not needed.
+   The steps bellow assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) are not needed.
 
-The following items are prefixed with either **[A]** - applicable to both PAS and AAS, **[P]** - only applicable to PAS or **[S]** - only applicable to AAS.
+   The following items are prefixed with either **[A]** - applicable to both PAS and AAS, **[P]** - only applicable to PAS or **[S]** - only applicable to AAS.
    
 1.  **[A]** Setup host name resolution
    
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
-   Replace the IP address and the hostname in the following commands
+   Replace the IP address and the hostname in the following commands:  
    
    <pre><code>sudo vi /etc/hosts
    </code></pre>
@@ -643,7 +643,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    <b>192.168.14.8 anftstsapa02</b>
    </code></pre>
    
-1.  **[A]** Create the sapmnt directory
+1.  **[A]** Create the sapmnt directory  
    
    <pre><code>sudo mkdir -p /sapmnt/<b>QAS</b>
    sudo mkdir -p /usr/sap/trans
@@ -657,7 +657,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    <pre><code>sudo yum -y install nfs-utils uuidd
    </code></pre>
 
-1. **[A]** Add mount entries
+1. **[A]** Add mount entries  
 
    <pre><code>sudo vi /etc/fstab
    
@@ -671,7 +671,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    <pre><code>sudo mount -a
    </code></pre>
 
-1. **[P]** Create and mount the PAS directory
+1. **[P]** Create and mount the PAS directory  
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>02</b>
@@ -685,7 +685,7 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    sudo mount -a
    </code></pre>
 
-1. **[S]** Create and mount the AAS directory
+1. **[S]** Create and mount the AAS directory  
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>03</b>
