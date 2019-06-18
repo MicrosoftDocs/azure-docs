@@ -19,7 +19,7 @@ ms.author: monhaber
 ---
 # Protecting Azure SQL service and data in Azure Security Center
 
-This topic shows you how to view and implement security recommendations for data and storage resources. These recommendations were found by Azure Security Center when analyzing the security state of your Azure resources.
+This topic shows you how to view and implement security recommendations for data and storage resources. Azure Security Center found these recommendations when analyzing the security state of your Azure resources.
 
 ## View your data security information
 
@@ -45,7 +45,7 @@ From this page, you can:
 
     ![Resource information](./media/security-center-monitoring/sql-recommendations.png)
 
-2. Click a recommendation. The Recommendation page opens and displays the **Remediation steps** to do to implement the recommendation.
+2. Click a recommendation. The Recommendation page opens and displays the **Remediation steps** to implement the recommendation.
 
    ![Remediation steps](./media/security-center-monitoring/remediate1.png)
 
