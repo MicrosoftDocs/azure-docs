@@ -11,7 +11,6 @@ ms.reviewer: arduppal
 manager: philmea
 
 ---
-This article provides instructions for deploying an Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
 # Deploy the Azure Blob Storage on IoT Edge module to your device
 
@@ -85,7 +84,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
      > [!IMPORTANT]
      > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
 
-1. Set [deviceToCloudUploadProperties](how-to-store-data-blob.md#deviceToCloudUploadProperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceAutoDeleteProperties) properties for your module by copying the following JSON and pasting it into the **Set module twin's desired properties** box. Configure each property with an appropriate value, save it, and continue with the deployment.
+1. Set [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) properties for your module by copying the following JSON and pasting it into the **Set module twin's desired properties** box. Configure each property with an appropriate value, save it, and continue with the deployment.
 
    ```json
    {
@@ -193,7 +192,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
       > [!IMPORTANT]
       > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
 
-1. Configure [deviceToCloudUploadProperties](how-to-store-data-blob.md#deviceToCloudUploadProperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceAutoDeleteProperties) for your module by adding the following JSON to the *deployment.template.json* file. Configure each property with an appropriate value and save the file.
+1. Configure [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) for your module by adding the following JSON to the *deployment.template.json* file. Configure each property with an appropriate value and save the file.
 
    ```json
    "<your azureblobstorageoniotedge module name>":{
@@ -220,7 +219,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
    ![set desired properties for azureblobstorageoniotedge - Visual Studio Code](./media/how-to-deploy-blob/deviceToCloud_deviceAutoDelete.png)
 
-   For information on configuring tiering and TTL after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about container create options, restart policy, and desired status, see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties).
+   For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about container create options, restart policy, and desired status, see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
 1. Save the *deployment.template.json* file.
 

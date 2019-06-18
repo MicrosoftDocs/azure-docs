@@ -40,7 +40,7 @@ If an unexpected process termination (like power failure) happens during a blob 
 
 - Turn ON/OFF the deviceAutoDelete feature
 - Specify the time in minutes (deleteAfterMinutes) after which the blobs will be automatically deleted
-- Choose the ability to not delete the blob while it is tiering when deleteAfterMinutes value expires
+- Choose the ability to retain the blob while it is uploading if deleteAfterMinutes value expires
 
 Scenarios where data like videos, images, finance data, hospital data, or any data that needs to be stored locally, later that could be processed locally or transferred to the cloud are good examples to use this module.
 
@@ -59,7 +59,7 @@ An Azure IoT Edge device:
   | Ubuntu Server 16.04 | AMD64 |
   | Ubuntu Server 18.04 | AMD64 |
   | Windows 10 IoT Core (October update) | AMD64 |
-  | Windows 10 IoT Enterprise (October update) | AMD64 |
+  | Windows 10 IoT Enterprise | AMD64 |
   | Windows Server 2019 | AMD64 |
   | Raspbian-stretch | ARM32 |
 
@@ -80,7 +80,8 @@ The name of this setting is `deviceToCloudUploadProperties`
 | uploadOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
 | uploadOrder | NewestFirst, OldestFirst | Allows you to choose the order in which the data is copied to Azure. By default it is set to `OldestFirst`. The order is determined by last modified time of Blob |
 | cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string that allows you to specify the Azure Storage account to which you want your data uploaded. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Add appropriate EndpointSuffix of Azure where data will be uploaded, it varies for Global Azure, Government Azure, and Microsoft Azure Stack. |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Allows you to Specify the container names you want to upload to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically assign the container name as `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. You can create template strings for target container name, check out the possible values column. <br>* %h -> IoT Hub Name (3-50 characters). <br>* %d -> IoT Edge Device ID (1 to 129 characters). <br>* %m -> Module Name (1 to 64 characters). <br>* %c -> Source Container Name (3 to 63 characters). <br><br>Maximum size of the container name is 63 characters, while automatically assigning the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) to 15 characters. | deleteAfterUpload | true, false | By default it is set to `false`. When it is set to `true` it will automatically delete the data when upload is done |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Allows you to Specify the container names you want to upload to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically assign the container name as `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. You can create template strings for target container name, check out the possible values column. <br>* %h -> IoT Hub Name (3-50 characters). <br>* %d -> IoT Edge Device ID (1 to 129 characters). <br>* %m -> Module Name (1 to 64 characters). <br>* %c -> Source Container Name (3 to 63 characters). <br><br>Maximum size of the container name is 63 characters, while automatically assigning the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) to 15 characters. |
+| deleteAfterUpload | true, false | By default it is set to `false`. When it is set to `true` it will automatically delete the data when upload is done |
 
 ### deviceAutoDeleteProperties
 
@@ -89,7 +90,8 @@ The name of this setting is `deviceAutoDeleteProperties`
 | Field | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | deleteOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
-| deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires | retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires even if upload for that blob is in progress |
+| deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires |
+| retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires even if upload for that blob is in progress |
 
 ## Configure log files
 
