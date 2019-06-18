@@ -105,7 +105,7 @@ We recommend using [database-level IP firewall rules](sql-database-firewall-conf
 
 ## Configuring compute size of the secondary database
 
-Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that secondary database is created with the same compute size (DTUs or vCores) as the primary. If the primary database is experiencuing a heavy write workload,  a secondary with lower compute size may not be able to keep up with it. It will cause the redo lag on the secondary, potential unavailability, and consequently at risk of substantial data loss after a failover. As a result, the published RPO = 5 sec cannot be guaranteed. It also may result in failures or stalling of other workloads on the primary. 
+Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that secondary database is created with the same compute size (DTUs or vCores) as the primary. If the primary database is experiencing a heavy write workload,  a secondary with lower compute size may not be able to keep up with it. It will cause the redo lag on the secondary, potential unavailability, and consequently at risk of substantial data loss after a failover. As a result, the published RPO = 5 sec cannot be guaranteed. It also may result in failures or stalling of other workloads on the primary. 
 
 The other consequence of an imbalanced secondary configuration is that after failover the application’s performance will suffer due to insufficient compute capacity of the new primary. It will be required to upgrade to a higher compute to the necessary level, which will not be possible until the outage is mitigated. 
 
@@ -137,7 +137,7 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 
 ## Monitoring geo-replication lag
 
-To monitor lag with respect to RPO, use *replication_lag_sec* column of [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) on the primary database. It shows lag in seconds between the transactions committed on the primary and persisted on the secondary. E.g. if the value of the lag is 1 second, it means if the primary is impacted by an outage at this moment and failover is intiated, 1 second of the most recent transtions will not be saved. 
+To monitor lag with respect to RPO, use *replication_lag_sec* column of [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) on the primary database. It shows lag in seconds between the transactions committed on the primary and persisted on the secondary. E.g. if the value of the lag is 1 second, it means if the primary is impacted by an outage at this moment and failover is initiated, 1 second of the most recent transitions will not be saved. 
 
 To measure lag with respect to changes on the primary database that have been applied on the secondary, i.e. available to read from the secondary,  compare *last_commit* time on the secondary database with the same value on the primary database.
 
