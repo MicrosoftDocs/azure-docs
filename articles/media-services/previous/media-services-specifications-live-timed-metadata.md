@@ -357,9 +357,10 @@ Normative definitions of carriage of [SCTE-35] cue messages are in [SCTE-214-1] 
 Events will be signaled in the MPD using the EventStream element, which appears
 within the Period element. The schemeId used is "urn:scte:scte35:2014:xml+bin". 
 
->[!NOTE] for brevity purposes [SCTE-35] allows use of the base64-encoded section in Signal.Binary element (rather than the 
->Signal.SpliceInfoSection element) as an alternative to
->carriage of a completely parsed cue message. 
+>[!NOTE] 
+> For brevity purposes [SCTE-35] allows use of the base64-encoded section in Signal.Binary element (rather than the 
+> Signal.SpliceInfoSection element) as an alternative to
+> carriage of a completely parsed cue message. 
 > Azure Media Services uses this 'xml+bin' approach to signaling in the MPD manifest.
 > This is also the recommended method used in the [DASH-IF-IOP] - see section titled ['Ad insertion event streams' of the DASH IF IOP guideline](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html#ads-insertion-event-streams)
 > 
