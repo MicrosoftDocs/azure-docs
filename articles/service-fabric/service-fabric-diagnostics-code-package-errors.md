@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Diagnose Code Package Errors | Microsoft Docs
+title: Azure Service Fabric diagnose code package errors | Microsoft Docs
 description: Learn how to troubleshoot common code package errors with Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
