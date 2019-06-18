@@ -290,7 +290,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 >
 >
 
-A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) or [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) function in the **CosmosDatabase** class. A container consists of items (which in the case of the SQL API is JSON documents) and associated server-side application logic in JavaScript, e.g. stored procedures, user-defined functions, and triggers.
+A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) or [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) function in the **CosmosDatabase** class. A container consists of items (JSON documents if SQL API) and associated server-side application logic in JavaScript, for example, stored procedures, user-defined functions, and triggers.
 
 1. Copy and paste the **CreateContainerAsync** method below your **CreateDatabaseAsync** method. **CreateContainerAsync**  will create a new container with id ``FamilyContainer`` if it does not already exist, with the id specified from the ``containerId`` field partitioned by ``LastName`` property.
 
@@ -328,9 +328,9 @@ Congratulations! You have successfully created an Azure Cosmos DB container.
 ## <a id="CreateDoc"></a>Step 6: Add items to the container
 An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosContainer** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
 
-First, let's create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that items must have an **Id** property serialized as **id** in JSON.
+First, let's create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note item must have an **Id** property serialized as **id** in JSON.
 
-1. Select **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project. 
+1. Select **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project.
 
     ![Screenshot of adding a new Family.cs class into the project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
 
