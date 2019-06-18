@@ -10,10 +10,10 @@ ms.author: bwren
 ---
 
 # Structure of Azure Monitor Logs
-The ability to quickly gain insights into your data using a [log query](log-query-overview.md) is a powerful feature of Azure Monitor. To create efficient and useful queries, you should understand some basic concepts such as where the data you want is located and how it's structured. This article provides the basic concepts you need to get started in analyzing your data using log queries.
+The ability to quickly gain insights into your data using a [log query](log-query-overview.md) is a powerful feature of Azure Monitor. To create efficient and useful queries, you should understand some basic concepts such as where the data you want is located and how it's structured. This article provides the basic concepts you need to get started.
 
 ## Overview
-Data in Azure Monitor Logs is stored in either a Log Analytics workspace or an Application Insights application. Both are power by [Azure Data Explorer](/azure/data-explorer/) meaning that they leverage this powerful data engine and query language.
+Data in Azure Monitor Logs is stored in either a Log Analytics workspace or an Application Insights application. Both are powered by [Azure Data Explorer](/azure/data-explorer/) meaning that they leverage its powerful data engine and query language.
 
 Data in both workspaces and applications is organized into tables, each of which stores different kinds of data and has its own unique set of properties. Most [data sources](../platform/data-sources.md) will write to their own tables in a Log Analytics workspace, while Application Insights will write to a predefined set of tables in an Application Insights application. Log queries are very flexible allowing you to easily combine data from multiple tables and even use a cross-resource query to combine data from tables in multiple workspaces or to write queries that combine workspace and application data.
 
@@ -44,7 +44,7 @@ See documentation for each data source for details of the tables they create. Ex
 See [Workspace permissions and scope](../platform/manage-access.md#workspace-permissions-and-scope) for details on providing access to the data in a workspace. In addition to granting access to the workspace itself, you can limit access to individual tables using [Table Level RBAC](../platform/manage-access.md#table-level-rbac).
 
 ## Application Insights application
-When you create an application in Application Insights, a corresponding application is automatically created in Azure Monitor Logs. No configuration is required to collect data, and the application will automatically write monitoring data such as page views, requests, and exceptions to Azure Monitor Logs.
+When you create an application in Application Insights, a corresponding application is automatically created in Azure Monitor Logs. No configuration is required to collect data, and the application will automatically write monitoring data such as page views, requests, and exceptions.
 
 Unlike a Log Analytics workspace, an Application Insights application has a fixed set of tables. You can't configure other data sources to write to the application so no additional tables can be created. 
 

@@ -15,7 +15,7 @@ ms.author: bwren
 ---
 
 # Standard properties in Azure Monitor Logs
-Data in Azure Monitor Logs is stored as a set of records in either a Log Analytics workspace or Application Insights application, each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
+Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../log-query/logs-structure.md), each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
 
 Some of these properties are still in the process of being implemented, so you may see them in some data types but not yet in others.
 

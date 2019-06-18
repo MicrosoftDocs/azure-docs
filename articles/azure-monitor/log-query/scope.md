@@ -44,23 +44,6 @@ In this case, you also cannot use the following commands in a query since the qu
  
 
 
-
-## Query limits
-You may have business requirements for an Azure resource to write data to multiple Log Analytics workspaces. The workspace doesn't need to be in the same region as the resource, and a single workspace might gather data from resources in a variety of regions.  
-
-Setting the scope to a resource or set of resources is a particularly powerful feature of Log Analytics since it allows you to automatically consolidate distributed data in a single query. It can significantly affect performance though if data needs to be retrieved from workspaces across multiple Azure regions.
-
-Log Analytics helps protect against excessive overhead from queries that span workspaces in multiple regions by issuing a warning or error when a certain number of regions are being used.
-
-
-Your query will receive a warning if the scope includes workspaces in 5 or more regions. it will still run, but it may take excessive time to complete.
-
-![Query warning](media/scope/query-warning.png)
-
-Your query will be blocked from running if the scope includes workspaces in 20 or more regions. In this case you will be prompted to reduce the number of workspace regions and attempt to run the query again. The dropdown will display all of the regions in the scope of the query, but you may only select up to 5 before attempting to run the query again.
-
-![Query failed](media/scope/query-failed.png)
-
 ## Time range
 The time range specifies the set of records that are evaluated for the query based on when the record was created. This is defined by a standard property on every record in the workspace or application as specified in the following table.
 
