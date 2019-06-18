@@ -27,7 +27,7 @@ Azure Media Services enables you to deliver live events to your customers on the
 - Components in Media Services, which enable you to ingest, preview, package, record, encrypt, and broadcast the live event to your customers, or to a CDN for further distribution.
 
 This article gives an overview and guidance of live streaming with Media Services and links to other relevant articles.
-
+ 
 > [!NOTE]
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
@@ -45,7 +45,7 @@ Dynamic filtering is used to control the number of tracks, formats, bitrates, an
 
 ## Live Event types
 
-A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live Events and Live Outputs](live-events-outputs-concept.md).
+[Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live Events and Live Outputs](live-events-outputs-concept.md).
 
 ### Pass-through
 
