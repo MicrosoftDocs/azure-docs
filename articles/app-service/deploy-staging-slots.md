@@ -71,26 +71,27 @@ The new deployment slot has no content, even if you clone the settings from a di
 
 ### Swap operation steps
 
-When you swap two slots (usually from a staging slot into the production slot), App Service does the following to ensure that the production slot doesn't experience downtime:
+When you swap two slots (usually from a staging slot into the production slot), App Service does the following to ensure that the target slot doesn't experience downtime:
 
 1. Apply the following settings from the target slot (e.g. production slot) to all instances of the source slot: 
-    - Slot-specific app settings and connection strings, if applicable.
-    - Continuous deployment settings, if enabled.
-    - App Service authentication settings, if enabled.
+    - [Slot-specific](#which-settings-are-swapped) app settings and connection strings, if applicable.
+    - [Continuous deployment](deploy-continuous-deployment.md) settings, if enabled.
+    - [App Service authentication](overview-authentication-authorization.md) settings, if enabled.
     Any of the above cases triggers all instances in the source slot to restart. During [Swap with preview](#Multi-Phase), this the end of the first phase, where the swap operation is paused and you can validate that the source slot works correctly with target slot's settings.
 
-1. Wait for every instance in the source slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the swap.
+1. Wait for every instance in the source slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and aborts the operation.
 
 1. If [local cache](overview-local-cache.md) is enabled, trigger local cache initialization by making an HTTP request to the application root ("/") on each instance of the source slot and wait until each instance returns any HTTP response. Local cache initialization causes another restart on each instance.
 
-1. If [auto swap](#Auto-Swap)) is enabled with [custom warm-up](#custom-warm-up), trigger [Application Initiation](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) by making an HTTP request to the application root ("/") on each instance of the source slot. If an instance returns any HTTP response, it's considered to be warmed up.
+1. If [auto swap](#Auto-Swap) is enabled with [custom warm-up](#custom-warm-up), trigger [Application Initiation](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) by making an HTTP request to the application root ("/") on each instance of the source slot. If an instance returns any HTTP response, it's considered to be warmed up.
+
     If no `applicationInitialization` is specified, trigger an HTTP request to the application root of the source slot on each instance. If an instance returns any HTTP response, it's considered to be warmed up.
 
-1. If all instances on the source slot are warmed up successfully, swap the two slots by switching the routing rules for the two slots. After this step, the target slot (e.g. production slot) has the fully warmed-up app from the source slot.
+1. If all instances on the source slot are warmed up successfully, swap the two slots by switching the routing rules for the two slots. After this step, the target slot (e.g. production slot) has the app that's previously warmed up in the source slot.
 
-1. Now that the source slot has the pre-swap app from the target slot, apply the same operation by applying all settings and restarting the instances.
+1. Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all settings and restarting the instances.
 
-At any point of the swap operation, all work of initializing the swapped apps are always done on the source slot, which means that the target slot doesn't experience any downtime in the operation, whether the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, your production isn't affected by the swap operation.
+At any point of the swap operation, all work of initializing the swapped apps are always done on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless where the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, your production app isn't affected by the swap operation.
 
 ### Which settings are swapped?
 When you clone configuration from another deployment slot, the cloned configuration is editable. Furthermore, some configuration elements follow the content across a swap (not slot specific) while other configuration elements stay in the same slot after a swap (slot specific). The following lists show the settings that change when you swap slots.
@@ -156,6 +157,8 @@ To swap deployment slots, follow these steps:
 
 3. When you're finished, close the dialog by clicking **Close**.
 
+If you run into any issues, see [Troubleshoot swaps](#troubleshoot-swaps).
+
 <a name="Multi-Phase"></a>
 
 ### Swap with preview (multi-phase swap)
@@ -187,6 +190,8 @@ To swap with preview, follow these steps.
 
 4. When you're finished, close the dialog by clicking **Close**.
 
+If you run into any issues, see [Troubleshoot swaps](#troubleshoot-swaps).
+
 To automate a multi-phase swap, see Automate with PowerShell.
 
 <a name="Rollback"></a>
@@ -217,6 +222,8 @@ To configure auto swap, follow these steps:
 
 3. Execute a code push to the source slot. Auto swap happens after a short time and the update is reflected at your target slot's URL.
 
+If you run into any issues, see [Troubleshoot swaps](#troubleshoot-swaps).
+
 <a name="Warm-up"></a>
 
 ## Custom warm-up
@@ -235,6 +242,8 @@ You can also customize the warm-up behavior with one or more of the following [a
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warmup your site. Add this app setting by specifying a custom path that begins with a slash as the value. For example, `/statuscheck`. The default value is `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. For example: `200,202` . If the returned status code is not in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
+
+If you run into any issues, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 ## Monitor swap
 
@@ -354,7 +363,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
-## Troubleshoot slot swaps
+## Troubleshoot swaps
 
 If any error occurs during a [slot swap](#what-happens-during-swap), it's logged in *D:\home\LogFiles\eventlog.xml*, as well as the application specific error log.
 
@@ -381,7 +390,7 @@ Here are some common swap errors:
       ...
     </conditions>
     ```
-- Some [IP restriction rules](app-service-ip-restrictions.md) may prevent the swap operation from connecting to your app. The IP address ranges starting with `10.` and `100.` are internal to your deployment, and should be allowed to connect to your app.
+- Some [IP restriction rules](app-service-ip-restrictions.md) may prevent the swap operation from sending HTTP requests to your app. IPv4 address ranges that start with `10.` and `100.` are internal to your deployment, and should be allowed to connect to your app.
 
 ## Next steps
 [Block access to non-production slots](app-service-ip-restrictions.md)
