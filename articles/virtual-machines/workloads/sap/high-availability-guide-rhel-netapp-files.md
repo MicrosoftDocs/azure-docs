@@ -520,69 +520,69 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>sudo pcs property set maintenance-mode=true
    
-   sudo pcs resource create rsc_sap_<b>QAS</b>_ASCS00 SAPInstance \
+    sudo pcs resource create rsc_sap_<b>QAS</b>_ASCS00 SAPInstance \
     InstanceName=<b>QAS</b>_ASCS00_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS00_<b>anftstsapvh</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 \
     --group g-<b>QAS</b>_ASCS
    
-   sudo pcs resource create rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    sudo pcs resource create rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
     InstanceName=<b>QAS</b>_ERS01_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS0q_<b>anftstsapers</b>" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     --group g-<b>QAS</b>_AERS
       
-   sudo pcs constraint colocation add g-<b>QAS</b>_AERS with g-<b>QAS</b>_ASCS -5000
-   sudo pcs constraint location rsc_sap_<b>QAS</b>_ASCS<b>00</b> rule score=2000 runs_ers_<b>QAS</b> eq 1
-   sudo pcs constraint order g-<b>QAS</b>_ASCS then g-<b>QAS</b>_AERS kind=Optional symmetrical=false
-   
-   sudo pcs node unstandby <b>anftstsapcl1</b>
-   sudo pcs property set maintenance-mode=false
-   </code></pre>
+    sudo pcs constraint colocation add g-<b>QAS</b>_AERS with g-<b>QAS</b>_ASCS -5000
+    sudo pcs constraint location rsc_sap_<b>QAS</b>_ASCS<b>00</b> rule score=2000 runs_ers_<b>QAS</b> eq 1
+    sudo pcs constraint order g-<b>QAS</b>_ASCS then g-<b>QAS</b>_AERS kind=Optional symmetrical=false
+    
+    sudo pcs node unstandby <b>anftstsapcl1</b>
+    sudo pcs property set maintenance-mode=false
+    </code></pre>
 
    SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
    If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as follows:
 
-<pre><code>sudo pcs property set maintenance-mode=true
-   
-   sudo pcs resource create rsc_sap_<b>QAS</b>_ASCS00 SAPInstance \
+    <pre><code>sudo pcs property set maintenance-mode=true
+    
+    sudo pcs resource create rsc_sap_<b>QAS</b>_ASCS00 SAPInstance \
     InstanceName=<b>QAS</b>_ASCS00_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS00_<b>anftstsapvh</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     --group g-<b>QAS</b>_ASCS
    
-   sudo pcs resource create rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    sudo pcs resource create rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
     InstanceName=<b>QAS</b>_ERS01_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS01_<b>anftstsapers</b>" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
     --group g-<b>QAS</b>_AERS
       
-   sudo pcs constraint colocation add g-<b>QAS</b>_AERS with g-<b>QAS</b>_ASCS -5000
-   sudo pcs constraint order g-<b>QAS</b>_ASCS then g-<b>QAS</b>_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-<b>QAS</b>_AERS with g-<b>QAS</b>_ASCS -5000
+    sudo pcs constraint order g-<b>QAS</b>_ASCS then g-<b>QAS</b>_AERS kind=Optional symmetrical=false
    
-   sudo pcs node unstandby <b> anftstsapcl1/b>
-   sudo pcs property set maintenance-mode=false
-   </code></pre>
+    sudo pcs node unstandby <b> anftstsapcl1/b>
+    sudo pcs property set maintenance-mode=false
+    </code></pre>
 
    If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   <pre><code>sudo pcs status
-   
-   # Online: [ <b>anftstsapcl1</b> <b>anftstsapcl2</b> ]
-   #
-   # Full list of resources:
-   #
-   # rsc_st_azure    (stonith:fence_azure_arm):      Started <b>anftstsapcl2</b>
-   #  Resource Group: g-<b>QAS</b>_ASCS
-   #      fs_<b>QAS</b>_ASCS        (ocf::heartbeat:Filesystem):    Started <b>anftstsapcl2</b>
-   #      nc_<b>QAS</b>_ASCS        (ocf::heartbeat:azure-lb):      Started <b>anftstsapcl2</b>
-   #      vip_<b>QAS</b>_ASCS       (ocf::heartbeat:IPaddr2):       Started <b>anftstsapcl2</b>
-   #      rsc_sap_<b>QAS</b>_ASCS00 (ocf::heartbeat:SAPInstance):   Started <b>anftstsapcl2</b>
-   #  Resource Group: g-<b>QAS</b>_AERS
-   #      fs_<b>QAS</b>_AERS        (ocf::heartbeat:Filesystem):    Started <b>anftstsapcl1</b>
-   #      nc_<b>QAS</b>_AERS        (ocf::heartbeat:azure-lb):      Started <b>anftstsapcl1</b>
-   #      vip_<b>QAS</b>_AERS       (ocf::heartbeat:IPaddr2):       Started <b>anftstsapcl1</b>
-   #      rsc_sap_<b>QAS</b>_ERS01  (ocf::heartbeat:SAPInstance):   Started <b>anftstsapcl1</b>
+    <pre><code>sudo pcs status
+    
+    # Online: [ <b>anftstsapcl1</b> <b>anftstsapcl2</b> ]
+    #
+    # Full list of resources:
+    #
+    # rsc_st_azure    (stonith:fence_azure_arm):      Started <b>anftstsapcl2</b>
+    #  Resource Group: g-<b>QAS</b>_ASCS
+    #      fs_<b>QAS</b>_ASCS        (ocf::heartbeat:Filesystem):    Started <b>anftstsapcl2</b>
+    #      nc_<b>QAS</b>_ASCS        (ocf::heartbeat:azure-lb):      Started <b>anftstsapcl2</b>
+    #      vip_<b>QAS</b>_ASCS       (ocf::heartbeat:IPaddr2):       Started <b>anftstsapcl2</b>
+    #      rsc_sap_<b>QAS</b>_ASCS00 (ocf::heartbeat:SAPInstance):   Started <b>anftstsapcl2</b>
+    #  Resource Group: g-<b>QAS</b>_AERS
+    #      fs_<b>QAS</b>_AERS        (ocf::heartbeat:Filesystem):    Started <b>anftstsapcl1</b>
+    #      nc_<b>QAS</b>_AERS        (ocf::heartbeat:azure-lb):      Started <b>anftstsapcl1</b>
+    #      vip_<b>QAS</b>_AERS       (ocf::heartbeat:IPaddr2):       Started <b>anftstsapcl1</b>
+    #      rsc_sap_<b>QAS</b>_ERS01  (ocf::heartbeat:SAPInstance):   Started <b>anftstsapcl1</b>
    </code></pre>
 
 1. **[A]** Add firewall rules for ASCS and ERS on both nodes
@@ -624,17 +624,17 @@ Some databases require that the database instance installation is executed on an
 The steps bellow assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) are not needed.
 
 The following items are prefixed with either **[A]** - applicable to both PAS and AAS, **[P]** - only applicable to PAS or **[S]** - only applicable to AAS.
-
+   
 1.  **[A]** Setup host name resolution
-
+   
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
-
+   
    <pre><code>sudo vi /etc/hosts
    </code></pre>
-
+   
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
-
+   
    <pre><code># IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
    <b>192.168.14.9 anftstsapvh</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
@@ -642,16 +642,16 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    <b>192.168.14.7 anftstsapa01</b>
    <b>192.168.14.8 anftstsapa02</b>
    </code></pre>
-
+   
 1.  **[A]** Create the sapmnt directory
-
+   
    <pre><code>sudo mkdir -p /sapmnt/<b>QAS</b>
    sudo mkdir -p /usr/sap/trans
 
    sudo chattr +i /sapmnt/<b>QAS</b>
    sudo chattr +i /usr/sap/trans
    </code></pre>
-
+   
 1.  **[A]** Install NFS client and other requirements
 
    <pre><code>sudo yum -y install nfs-utils uuidd
