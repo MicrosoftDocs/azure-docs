@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 04/18/2019
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 ---
