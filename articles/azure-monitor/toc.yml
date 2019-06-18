@@ -697,7 +697,7 @@
         href: platform/metrics-troubleshoot.md
     - name: Logs
       items:
-      - name: Overview
+      - name: Log query overview
         displayname: log query, log queries, query, queries
         href: log-query/log-query-overview.md
       - name: Tutorials
