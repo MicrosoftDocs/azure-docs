@@ -17,6 +17,8 @@ manager: philmea
 
 This tutorial shows you how, as a device developer, to use Visual Studio code to create a _device capability model_. You can use the model to generate code to run on a device that connects to an Azure IoT Hub instance in the cloud.
 
+The section in this tutorial that describes how to build the generated code assumes you are using Windows.
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -27,14 +29,23 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To work with the device capability model in this tutorial, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code is available for multiple platforms
 * [Azure IoT Workbench extension for VS Code](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
 
-<!-- TODO what's needed to compile the C code - we'll need to be platform specific? -->
+To build the generated C code on Windows in this tutorial, you need:
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
+* [Git](https://git-scm.com/download)
+* [CMake](https://cmake.org/download/)
+
+To test your device code in this tutorial, you need:
+
+* [Plug and Play Device Explorer](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/PnP-DeviceExplorer/README.md)
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Model your device
 
@@ -46,7 +57,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
 1. Create a folder on your machine called **EnvironmentalSensorDCM**.
 
-1. Start VS Code an open the **EnvironmentalSensorDCM** folder.
+1. Start VS Code and open the **EnvironmentalSensorDCM** folder.
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -141,7 +152,7 @@ To create an interface file that defines the capabilities of your IoT device in 
     }
     ```
 
-    This interface defines a number of device properties such as **Customer Name**, a number of telemetry types such as **Temperature**, and a number of commands such as **blink**.
+    This interface defines device properties such as **Customer Name**, telemetry types such as **Temperature**, and commands such as **blink**.
 
 1. Save the file.
 
@@ -174,41 +185,30 @@ To create a model file that specifies the interfaces your Plug and Play device i
 
 1. Save the file.
 
-### Add the files to the global model repository
+<!-- This step is probably not needed as it should be possible to build without repository access -->
+### Add the files to the public model repository
 
-Before you can generate code form the model, you must add the model files to the *global model repository*. The global model repository already contains the **DeviceInformation** interface.
+Before you can generate code from the model, you must add the model files to the *public model repository*. The public model repository already contains the **DeviceInformation** interface.
 
-To add the **EnvironmentalSensor.interface.json** file to the global model repository from VS Code:
-
-1. Use **Ctrl+Shift+P** to open the command palette.
-
-1. Enter **Plug and Play** and then select the **Submit file to Model Repository** command.
-
-<!-- TODO complete steps here. @Liya Do we need to sign in to the global model repository? -->
-
-To add the **EnvironmentalSensorModel.capabilitymodel.json** file to the global model repository from VS Code:
+To add the **EnvironmentalSensor.interface.json** and **EnvironmentalSensorModel.capabilitymodel.json** files to the public model repository from VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **Submit file to Model Repository** command.
+1. Enter **Plug and Play** and then select the **Submit files to Model Repository** command.
 
-<!-- TODO complete steps here. @Liya -  Do we need to sign in to the global model repository? -->
+1. Select the **EnvironmentalSensor.interface.json** and **EnvironmentalSensorModel.capabilitymodel.json** files, and then select **OK**.
 
 ## Generate code
 
 You can use the **Azure IoT Workbench extension for VS Code** to generate skeleton C code from your model. To generate the code in VS Code:
 
-1. Use the **Explorer** in VS Code to create a folder called **modelcode** in your workspace.
+1. Use the **Explorer** in VS Code to create a folder called **modelcode** in your workspace. You use this folder to save the C code generated from your model.
 
 1. Use **Ctrl+Shift+P** to open the command palette.
-
-1. Enter **Plug and Play** and then select the **Submit file to Model Repository** command.
 
 1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Generate Device Code Stub** command.
 
 1. Select your **EnvironmentalSensorModel.capabilitymodel.json** capability model file.
-
-<!-- @Liya Are we prompted for a connection string here? -->
 
 1. Choose **ANSI C** as the language.
 
@@ -228,13 +228,131 @@ To provide implementations for the stubbed code in VS Code:
 
 <!-- To do - complete this section -->
 
-### Build the code
+## Build the code
+
+Before you run the code to test your plug and play device with an Azure IoT hub, you need to compile the code. The following steps show you how to compile the code on Windows:
+
+<!-- Need to verify which repo and branch to use for public preview -->
+1. Clone the Azure IoT C SDK:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-c-pnp.git --recursive -b public-preview
+    ```
+
+    This command downloads the SDK to folder called **azure-iot-sdk-c-pnp** on your local machine.
+
+1. Copy the **modelcode** folder that contains the C files you generated in VS Code to the **azure-iot-sdk-c-pnp** folder.
+
+1. In the **azure-iot-sdk-c-pnp\modelcode** folder, create a file called **main.c**. Add the following C code to this file:
+
+    ```c
+    #ifdef WIN32
+    #include <windows.h>
+    #elif _POSIX_C_SOURCE >= 199309L
+    #include <time.h>   // for nanosleep
+    #else
+    #include <unistd.h> // for usleep
+    #endif
+
+    #include "application.h"
+
+    void sleep_ms(int milliseconds) // cross-platform sleep function
+    {
+    #ifdef WIN32
+        Sleep(milliseconds);
+    #elif _POSIX_C_SOURCE >= 199309L
+        struct timespec ts;
+        ts.tv_sec = milliseconds / 1000;
+        ts.tv_nsec = (milliseconds % 1000) * 1000000;
+        nanosleep(&ts, NULL);
+    #else
+        usleep(milliseconds * 1000);
+    #endif
+    }
+
+    int main(int argc, char *argv[])
+    {
+        if (argc != 2)
+        {
+            LogError("USAGE: pnp_app [IoTHub device connection string]");
+        }
+
+        application_initialize(argv[1], NULL);
+
+        while (1)
+        {
+            application_run();
+            sleep_ms(100);
+        }
+        return 0;
+    }
+    ```
+
+1. In the **azure-iot-sdk-c-pnp\modelcode** folder, create a file called **CMakeList.txt**. Add the following content to this file:
+
+    ```txt
+    #Copyright (c) Microsoft. All rights reserved.
+    #Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+    #this is CMakeLists.txt for pnp_app
+
+    compileAsC99()
+
+    cmake_minimum_required(VERSION 2.8)
+
+    file(GLOB pnp_app_src
+        "*.c"
+        "./utilities/*.c"
+    )
+
+    include_directories(.)
+    include_directories(./utilities)
+    include_directories(../deps/parson)
+    include_directories(${SHARED_UTIL_INC_FOLDER})
+    include_directories(${IOTHUB_CLIENT_INC_FOLDER})
+    include_directories(${PNP_CLIENT_INC_FOLDER})
+
+    add_executable(pnp_app ${pnp_app_src})
+
+    target_link_libraries(pnp_app parson iothub_client pnp_client)
+    ```
+
+1. Add the following line at the end of the **CMakeList.txt** file in the **azure-iot-sdk-c-pnp** folder:
+
+    ```txt
+    add_subdirectory(modelcode)
+    ```
+
+1. At the command prompt, navigate to the **azure-iot-sdk-c-pnp** folder. Then run the following commands to build the entire SDK folder:
+
+    ```cmd
+    mkdir cmake
+    cd cmake
+    cmake .. -G "Visual Studio 16 2019"
+    cmake --build . -- /m /p:Configuration=Release
+    ```
 
 ## Test the code
 
 When you run the code, it connects to IoT Hub and starts sending sample telemetry and property values. The device also responds to commands sent from IoT Hub. To verify this behavior:
 
 <!-- To do - complete this section -->
+
+1. To create an IoT hub:
+
+    ```azurecli-interactive
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
+    ```
+
+1. Add a device
+
+    ```azurecli-interactive
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
+    ```
+
+1. Get the device's connection-string
+1. Run the code.
+1. Use the Plug and Play Device Explorer to interact with the device
 
 ## Next steps
 
