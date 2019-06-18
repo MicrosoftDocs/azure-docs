@@ -61,7 +61,7 @@ The **Connections** pane displays standard metrics for the selected connection f
 ![Network connectivity charts on the Connections pane](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
 
 ### Failed connections
-The map shows failed connections for processes and computers. A dashed red line indicates a client system is failing to reach a process or port. For systems that use the dependency agent, the agent reports on failed connection attempts. The Map feature measures a process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or an unavailable remote service.
+The map shows failed connections for processes and computers. A dashed red line indicates a client system is failing to reach a process or port. For systems that use the Dependency agent, the agent reports on failed connection attempts. The Map feature monitors a process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or an unavailable remote service.
 
 ![A failed connection on the map](./media/vminsights-maps/map-group-failed-connection-01.png)
 
