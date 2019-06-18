@@ -50,49 +50,9 @@ In this section, you create three simulated devices that send data to an Azure I
 
     [![Create Device Simulation solution page](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-1. In your solution accelerator dashboard, select **Launch**:
-
-    [![Launch the device simulation solution](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
-
-1. You're redirected to the **Microsoft Azure IoT Device Simulation** page. In the upper-right corner of the page, select **New simulation**.
-
-    [![Azure IoT simulation page](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
-
-1. In the **Simulation setup** pane, set the following parameters:
-
-    | Parameter | Action |
-    | --- | --- |
-    | **Name** | Enter a unique name for a simulator. |
-    | **Description** | Enter a definition. |
-    | **Simulation duration** | Set to **Run indefinitely**. |
-    | **Device model** | **Name**: Enter **Chiller**. <br />**Amount**: Enter **3**. |
-    | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub**. |
-
-    [![Parameters to set](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
-
-    Select **Start simulation**.
-
-    In the device simulation dashboard, note the information shown for **Active devices** and **Messages per second**.
-
-    [![Azure IoT simulation dashboard](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
-
-## List device simulation properties
-
-Before you create an Azure Time Series Insights environment, you need the names of your IoT hub, your subscription, and the resource group.
-
-1. Go to the solution accelerator dashboard. Sign in by using the same Azure subscription account. Find the device simulation that you created in the preceding section.
-
-1. Select your device simulator, and then select **Launch**. In the device simulator solution accelerator pane on the right, select the **Azure Management Portal** option.
-
-    [![Simulator listings](media/v2-update-provision/device-six-listings.png)](media/v2-update-provision/device-six-listings.png#lightbox)
-
-1. Note the names of the IoT hub, subscription, and resource group.
-
-    [![Azure portal device simulator dashboard details](media/v2-update-provision/device-eight-portal.png)](media/v2-update-provision/device-eight-portal.png#lightbox)
-
 ## Create a Time Series Insights Preview PAYG environment
 
-This section describes how to create an Azure Time Series Insights Preview environment by using the [Azure portal](https://portal.azure.com/).
+This section describes how to create an Azure Time Series Insights Preview environment and connect it to the IoT hub created by the IoT Solution Accelerator using the [Azure portal](https://portal.azure.com/).
 
 1. Sign in to the Azure portal by using your subscription account.
 
@@ -157,6 +117,34 @@ This section describes how to create an Azure Time Series Insights Preview envir
       [![Listed credentials](media/v2-update-provision/payg-ten-verify.png)](media/v2-update-provision/payg-ten-verify.png#lightbox)
 
    If your credentials aren't listed, you must grant yourself permission to access the environment. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
+
+## Stream data into your environment
+
+1. Navigate back to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). Locate your solution in your solution accelerator dashboard. Then, select **Launch**:
+
+    [![Launch the device simulation solution](media/v2-update-provision/device-three-launch.png)](media/v2-update-provision/device-three-launch.png#lightbox)
+
+1. You're redirected to the **Microsoft Azure IoT Device Simulation** page. In the upper-right corner of the page, select **New simulation**.
+
+    [![Azure IoT simulation page](media/v2-update-provision/device-four-iot-sim-page.png)](media/v2-update-provision/device-four-iot-sim-page.png#lightbox)
+
+1. In the **Simulation setup** pane, set the following parameters:
+
+    | Parameter | Action |
+    | --- | --- |
+    | **Name** | Enter a unique name for a simulator. |
+    | **Description** | Enter a definition. |
+    | **Simulation duration** | Set to **Run indefinitely**. |
+    | **Device model** | **Name**: Enter **Chiller**. <br />**Amount**: Enter **3**. |
+    | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub**. |
+
+    [![Parameters to set](media/v2-update-provision/device-five-params.png)](media/v2-update-provision/device-five-params.png#lightbox)
+
+    Select **Start simulation**.
+
+    In the device simulation dashboard, note the information shown for **Active devices** and **Messages per second**.
+
+    [![Azure IoT simulation dashboard](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
 ## Analyze data in your environment
 
