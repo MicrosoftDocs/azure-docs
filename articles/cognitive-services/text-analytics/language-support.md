@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ---
 # Language and region support for the Text Analytics API
@@ -65,7 +65,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 \* Language support is in preview
 
-\*\* Named Entity Recognition and [Entity linking](how-tos/text-analytics-how-to-entity-linking.md) are both available for this language.    
+\*\* [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking#named-entity-recognition-ner) and [Entity linking](how-tos/text-analytics-how-to-entity-linking#entity-linking.md) are both available for this language.    
 
 ## See also
 
