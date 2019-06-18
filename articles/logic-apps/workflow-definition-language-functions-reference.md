@@ -4494,7 +4494,7 @@ Here are the arguments:
 
   * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-Here is the result node that matches the `<location></location` node:
+Here is the result node that matches the `<location></location>` node:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>
