@@ -17,7 +17,7 @@ This article explains how the voluntary migration tool works. It also describes 
 > [!NOTE]
 > Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been [extended to August 31st, 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) from the originally announced date of June 30th, 2019.
 
-## Which classic alert rules can be migrated?
+## Which classic alert rules cannot be migrated?
 
 Although the tool can migrate almost all classic alert rules, there are some exceptions. The following alert rules won't be migrated by using the tool (or during the automatic migration in September 2019):
 
@@ -26,6 +26,8 @@ Although the tool can migrate almost all classic alert rules, there are some exc
 - Classic alert rules on some storage account metrics. See [details](#storage-account-metrics) later in this article.
 
 If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. However, no new classic alerts can be created after August 2019.
+
+Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic- alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens. 
 
 ### Guest metrics on virtual machines
 
@@ -54,6 +56,20 @@ All classic alerts on storage accounts can be migrated except alerts on these me
 Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
 
 Classic alert rules on AnonymousThrottlingError, SASThrottlingError and ThrottlingError must be split into two new alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
+
+### Classic alert rules on deprecated metrics
+
+These are classic alert rules on metrics which were supported for a while before they were eventually deprecated. A small percentage of customer might have invalid classic alert rules on such metrics. Since these alert rules are invalid, they won't be migrated. 
+
+| Resource type| Deprecated metric(s) |
+|-------------|----------------- |
+| Microsoft.DBforMySQL/servers | compute_consumption_percent, compute_limit |
+| Microsoft.DBforPostgreSQL/servers | compute_consumption_percent, compute_limit |
+| Microsoft.Network/publicIPAddresses | defaultddostriggerrate |
+| Microsoft.SQL/servers/databases | service_level_objective, storage_limit, storage_used, throttling, dtu_consumption_percent, storage_used |
+| Microsoft.Web/hostingEnvironments/multirolepools | averagememoryworkingset |
+| Microsoft.Web/hostingEnvironments/workerpools | bytesreceived, httpqueuelength |
+
 
 ## Rollout phases
 

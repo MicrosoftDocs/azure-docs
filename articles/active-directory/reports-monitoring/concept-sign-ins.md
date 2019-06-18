@@ -82,7 +82,7 @@ Select an item in the list view to get more detailed information.
 ![Sign-in activity](./media/concept-sign-ins/03.png "Sign-in activity")
 
 > [!NOTE]
-> Customers can now troubleshoot conditional access policies through all sign-in reports. By clicking on the **Conditional access** tab for a sign-in record, customers can review the conditional access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
+> Customers can now troubleshoot Conditional Access policies through all sign-in reports. By clicking on the **Conditional Access** tab for a sign-in record, customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 > For more information, see the [Frequently asked questions about CA information in all sign-ins](reports-faq.md#conditional-access).
 
 ![Sign-in activity](./media/concept-sign-ins/ConditionalAccess.png "Sign-in activity")
