@@ -69,15 +69,24 @@ Now that you have a custom subdomain associated with your resource, you're going
 
 In this sample, a password is used to authenticate the service principal. The token provided is then used to call the Computer Vision API.
 
-```Powershell
-$authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47"
-$clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, $password
-$token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
-$token
+1. Get your **TenantId**:
+   ```Powershell
+   $context=Get-AzContext
+   $context.Tenant.Id
+   ```
 
-$url = $account.Endpoint+"vision/v1.0/models"
-$result = Invoke-RestMethod -Uri $url  -Method Get -Headers @{"Authorization"=$token.CreateAuthorizationHeader()} -Verbose
-$result | ConvertTo-Json
-```
+2. Get a token:
+   ```Powershell
+   $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
+   $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, $password
+   $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
+   $token
+   ```
+3. Call the Computer Vision API:
+   ```Powershell
+   $url = $account.Endpoint+"vision/v1.0/models"
+   $result = Invoke-RestMethod -Uri $url  -Method Get -Headers @{"Authorization"=$token.CreateAuthorizationHeader()} -Verbose
+   $result | ConvertTo-Json
+   ```
 
 Alternatively, the service principal can be authenticated with a certificate. Besides service principal, user principal is also supported by having permissions delegated through another AAD application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring token.
