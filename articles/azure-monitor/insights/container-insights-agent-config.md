@@ -30,20 +30,20 @@ The following are the settings that can be configured to control data collection
 |Key |Data type |Value |Description |
 |----|-----------|------|------------|
 |`schema-version` |String (case sensitive) |v1 |This is the schema version used by the agent when parsing this configmap. Currently supported schema-version is v1. Modifying this value is not supported and will be rejected when ConfigMaps is evaluated.|
-| `config-version` |String |Supports ability to keep track of this config file's version in your source control system/repository. Maximum allowed characters is 10, and all other characters are truncated. |
+| `config-version` |String |Supports ability to keep track of this config file's version in your source control system/repository. Maximum allowed characters are 10, and all other characters are truncated. |
 | [log_collection_settings.stdout] | | |
 | |Boolean | `enabled=true or false` | This controls if stdout container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection (`log_collection_settings.stdout.exclude_namespaces` setting below), stdout logs will be collected from all containers across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
-| |String, comma separated array | `exclude_namespaces` |Array of kubernetes namespaces for which stdout logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMaps, the default value is `exclude_namespaces = ["kube-system"]`.|
+| |String, comma-separated array | `exclude_namespaces` |Array of kubernetes namespaces for which stdout logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMaps, the default value is `exclude_namespaces = ["kube-system"]`.|
 | [log_collection_settings.stderr] | | |
 | |Boolean | `enabled=true or false` |This controls if stderr container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection (`log_collection_settings.stderr.exclude_namespaces` setting), stderr logs will be collected from all containers across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
-| |String, comma separated array |Array of kubernetes namespaces for which stderr logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMaps, the default value is `exclude_namespaces = ["kube-system"]`. |
+| |String, comma-separated array |Array of kubernetes namespaces for which stderr logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMaps, the default value is `exclude_namespaces = ["kube-system"]`. |
 | [log_collection_settings.env_var] |Boolean | `enabled=true or false` | This controls if environment variable collection is enabled. When set to `false`, no environment variables are collected for any container running across all pods/nodes in the cluster. If not specified in ConfigMaps, the default value is `enabled = true`. |
 
 ### Configure and deploy ConfigMaps
 
 Perform the following steps to configure and deploy your ConfigMaps configuration file to your cluster.
 
-1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the sample ConfigMaps yaml file and save it and save it as container-azm-ms-agentconfig.yaml.  
+1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the sample ConfigMaps yaml file and save it as container-azm-ms-agentconfig.yaml.  
 1. Edit the ConfigMaps yaml file with your customizations.  
 1. Create ConfigMaps by running the following kubectl command: `kubectl apply -f <configmap_yaml_file>`.
     
