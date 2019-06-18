@@ -47,7 +47,7 @@ To plan your Azure AD join implementation, you should familiarize yourself with:
 |![Check][1]|Understand considerations for applications and resources|
 |![Check][1]|Understand your provisioning options|
 |![Check][1]|Configure enterprise state roaming|
-|![Check][1]|Configure conditional access|
+|![Check][1]|Configure Conditional Access|
 
 
 
@@ -347,13 +347,13 @@ If you want to enable state roaming to Azure AD so that users can sync their set
 **Recommendation**: Enable this setting even for hybrid Azure AD joined devices.
 
 
-## Configure conditional access
+## Configure Conditional Access
 
 If you have an MDM provider configured for your Azure AD joined devices, the provider flags the device as compliant as soon as the device is under management. 
 
 ![Compliant device](./media/azureadjoin-plan/46.png)
 
-You can use this implementation to [require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md).
+You can use this implementation to [require managed devices for cloud app access with Conditional Access](../conditional-access/require-managed-devices.md).
 
 
 

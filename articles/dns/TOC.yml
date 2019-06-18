@@ -22,7 +22,7 @@
   - name: Create custom DNS records for a web app
     href: dns-web-sites-custom-domain.md
   - name: Create private DNS zone and record
-    href: private-dns-getstarted-powershell.md
+    href: private-dns-portal.md
   - name: Alias records for Traffic Manager
     href: tutorial-alias-tm.md
   - name: Alias records for Public IP addresses
@@ -35,6 +35,12 @@
     href: cli-samples.md
 - name: Concepts
   items:
+  - name: Private DNS
+    items:
+    - name: FAQ - Private DNS
+      href: dns-faq-private.md
+    - name: Private DNS scenarios
+      href: private-dns-scenarios.md
   - name: Zones and records
     href: dns-zones-records.md
   - name: Alias records
@@ -43,8 +49,6 @@
     href: dns-domain-delegation.md
   - name: FAQ
     href: dns-faq.md
-  - name: Private DNS scenarios
-    href: private-dns-scenarios.md
   - name: DNS metrics and alerts
     href: dns-alerts-metrics.md
   - name: Reverse DNS
@@ -53,8 +57,12 @@
     href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: How to
   items:
-  - name: Create private DNS zone and record - Azure CLI
-    href: private-dns-getstarted-cli.md
+  - name: Private DNS
+    items:
+    - name: Create private zone - CLI
+      href: private-dns-getstarted-cli.md
+    - name: Create private zone - PowerShell
+      href: private-dns-getstarted-powershell.md
   - name: Alias records for load balanced web apps
     href: dns-alias-appservice.md
   - name: Manage DNS zones

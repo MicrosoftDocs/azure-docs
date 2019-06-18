@@ -58,21 +58,24 @@ Azure DNS provides the following capabilities:
 
 ## Other considerations
 
+Azure DNS has the following limitations:
+
+* A specific virtual network can be linked to only one private zone as if automatic registration of VM DNS records is enabled. You can however link multiple virtual networks to a single DNS zone.
 * Reverse DNS works only for private IP space in the linked virtual network
 * Reverse DNS for a private IP for a linked virtual network returns "internal.cloudapp.net" as the default suffix for the virtual machine. For virtual networks that are linked to a private zone with autoregistration enabled, reverse DNS for a private IP returns 2 FQDNs, one with default the suffix *internal.cloudapp.net* and another with the private zone suffix.
-* Conditional forwarding isn't supported. For example, to enable resolution between Azure and on-premises networks. Learn how you can enable this scenario using other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
-For common questions and answers about private zones in Azure DNS, including specific DNS registration and resolution behavior you can expect for certain kinds of operations, see the  [FAQ](./dns-faq.md#private-dns).  
-
+* Conditional forwarding is not natively supported at the moment. To enable resolution between Azure and on-premises networks. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+ 
 ## Pricing
 
 For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
+
 ## Next steps
 
 * Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
 
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 
-* For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [FAQ](./dns-faq.md#private-dns). 
+* For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [Private DNS FAQ](./dns-faq-private.md).
 
 * Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
 
