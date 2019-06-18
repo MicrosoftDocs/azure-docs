@@ -301,7 +301,7 @@ artifact.
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroups('storageRG').location]",
+                     "location": "[resourceGroup().location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
