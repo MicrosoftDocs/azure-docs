@@ -18,7 +18,7 @@ This quickstart will guide you through the process of getting body tracking runn
 
 ## System requirements
 
-The Body Tracking SDK requires a NVIDIA GPU. The suggested minimum body tracking host PC requirement is described in [system requirements](system-requirements.md).
+The Body Tracking SDK requires a NVIDIA GPU installed in the host PC. The recommended body tracking host PC requirement is described in [system requirements](system-requirements.md) page.
 
 ## Install software
 

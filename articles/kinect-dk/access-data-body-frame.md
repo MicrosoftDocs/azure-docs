@@ -49,7 +49,7 @@ for (size_t i = 0; i < num_bodies; i++)
 
 ## Access the body index map
 
-You use the [k4abt_frame_get_body_index_map()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html) function to access the body index map. Refer to  [body index Map](body-index-map.md) for detailed explanation of the body index map. Release the body index map when no longer needed.
+You use the [k4abt_frame_get_body_index_map()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html) function to access the body index map. Refer to [body index map](body-index-map.md) for detailed explanation of the body index map. Make sure to release the body index map when it is no longer needed.
 
 ```C
 k4a_image_t body_index_map = k4abt_frame_get_body_index_map(body_frame);
