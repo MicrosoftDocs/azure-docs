@@ -16,7 +16,7 @@ This article describes different Azure Cosmos DB metrics you can view from Azure
 
 ## View metrics from Azure portal
 
-1. Sign into [Azure portal](https://portal.azure.com/)
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Select **Monitor** from the left-hand navigation bar, and select **Metrics**.
 
@@ -26,11 +26,11 @@ This article describes different Azure Cosmos DB metrics you can view from Azure
 
    ![Choose a Cosmos DB account to view metrics](./media/cosmos-db-azure-monitor-metrics/select-cosmosdb-account.png)
 
-1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detailed about all the available metrics in this list, see the [Metrics by category](#metrics-by-category) section of this article. In this example, let’s select **Request units** and **Avg** as the aggregation value. 
+1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](#metrics-by-category) section of this article. In this example, let’s select **Request units** and **Avg** as the aggregation value. 
 
-   In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chat is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
+   In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
 
-   ![Choose a metric from Azure portal](./media/cosmos-db-azure-monitor-metrics/metric-types.png)
+   ![Choose a metric from the Azure portal](./media/cosmos-db-azure-monitor-metrics/metric-types.png)
 
 ## Add filters to metrics
 
@@ -74,21 +74,21 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 ### Latency metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
-|---|---|---|---| ---| ---| ---|
+|---|---|---|---| ---| ---|
 | ReplicationLatency (Replication Latency)| MilliSeconds (Minimum, Maximum, Average) | P99 Replication Latency across source and target regions for geo-enabled account| SourceRegion, TargetRegion| All | Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
 
 
 ### Availability metrics
 
 |Metric (Metric Display Name) |Unit (Aggregation Type)|Description| Time granularities| Legacy metric mapping | Usage |
-|---|---|---|---| ---| ---| ---|
+|---|---|---|---| ---| ---|
 | ServiceAvailability (Service Availability)| Percent (Minimum, Maximum) | Account requests availability at one hour granularity| 1H | Service Availability | Represents the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
 
 
 ### Cassandra API metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
-|---|---|---|---| ---| ---| ---|
+|---|---|---|---| ---| ---|
 | CassandraRequests (Cassandra Requests) | Count (Count) | Number of Cassandra API requests made| DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType| All| Used to monitor Cassandra requests at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60.|
 | CassandraRequestCharges (Cassandra Request Charges) | Count (Sum, Min, Max, Avg) | Request Units consumed by Cassandra API requests| DatabaseName, CollectionName, Region, OperationType, ResourceType| All| Used to monitor RUs used per minute by a Cassandra API account.|
 | CassandraConnectionClosures (Cassandra Connection Closures) |Count (Count) |Number of Cassandra Connections closed| ClosureReason, Region| All | Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|
