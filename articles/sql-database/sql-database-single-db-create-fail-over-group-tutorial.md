@@ -51,11 +51,11 @@ In this step, you will create your Azure SQL Database single database.
        - **Password**: Type a complex password that meets password requirements.
        - **Location**: Choose a location from the drop-down, such as West US 2.
 
-   ![SQL Database database details](media/sql-database-single-db-create-fail-over-group-tutorial/sqldb-database-details.png)
+    ![SQL Database database details](media/sql-database-single-db-create-fail-over-group-tutorial/sqldb-database-details.png)
 
 
-  > [!IMPORTANT]
-  Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the SQL server page. To open the SQL server page, select the server name on the database Overview page after database creation.
+   > [!IMPORTANT]
+   > Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the SQL server page. To open the SQL server page, select the server name on the database Overview page after database creation.
 
    - **Want to use SQL elastic pool**: Select the **No** option. 
    - **Compute + storage**: Select **Configure database**. 
@@ -70,7 +70,7 @@ In this step, you will create your Azure SQL Database single database.
 1. Review the final settings and select **Create**. 
 1. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database. 
 
-        ![Add sample data to the SQL DB](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
+   ![Add sample data to the SQL DB](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
 ## 2 - Create the failover group
 
@@ -95,22 +95,25 @@ In this step, you will create your Azure SQL Database single database.
     
        ![Create a secondary server for the failover group](media/sql-database-single-db-create-fail-over-group-tutorial/create-secondary-failover-server.png)
 
-   - **Databases within the group**: Once a secondary server is selected, this option becomes available. Select it to **Select databases to add** and then choose the database you created in section 1. 
+   - **Databases within the group**: Once a secondary server is selected, this option becomes unlocked. Select it to **Select databases to add** and then choose the database you created in section 1. 
         
     ![Add SQL DB to failover group](media/sql-database-single-db-create-fail-over-group-tutorial/add-sqldb-to-failover-group.png)
         
 
-### 3 - Test failover
+## 3 - Test failover
 
 1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
-1. Select **Failover groups** under the **Settings**  pane and then choose the failover group you created in section 2. 
+1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2. 
   
-  ![Select the failover group from the portal](media/sql-database-single-db-create-fail-over-group-tutorial/select-failover-group.png)
+   ![Select the failover group from the portal](media/sql-database-single-db-create-fail-over-group-tutorial/select-failover-group.png)
 
 1. Select **Failover** from the task pane to failover your failover group containing your sample single database. 
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected. 
 
-  ![Failover your failover group containing your SQL database](media/sql-database-single-db-create-fail-over-group-tutorial/failover-sql-db.png)
+   ![Failover your failover group containing your SQL database](media/sql-database-single-db-create-fail-over-group-tutorial/failover-sql-db.png)
+
+## Clean up resources
+
 
 
 <!-- 
@@ -125,22 +128,10 @@ The following section is for the Powershell
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 To complete the tutorial, make sure you've installed the following items:
-
+- An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- An Azure SQL database. To create one use,
-  - [Portal](sql-database-single-database-get-started.md)
-  - [CLI](sql-database-cli-samples.md)
-  - [PowerShell](sql-database-powershell-samples.md)
 
-  > [!NOTE]
-  > The tutorial uses the *AdventureWorksLT* sample database.
-
-- Java and Maven, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), highlight **Java** and select your environment, then follow the steps.
-
-> [!IMPORTANT]
-> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary server.
->
-> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-server-level-firewall-rule.md).  
+## 1 - 
 
 ## Create a failover group
 
