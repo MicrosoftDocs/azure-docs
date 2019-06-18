@@ -625,7 +625,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    The following items are prefixed with either **[A]** - applicable to both PAS and AAS, **[P]** - only applicable to PAS or **[S]** - only applicable to AAS.  
    
-1.  **[A]** Setup host name resolution  
+1. **[A]** Setup host name resolution  
    
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands:  
@@ -643,7 +643,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <b>192.168.14.8 anftstsapa02</b>
    </code></pre>
    
-1.  **[A]** Create the sapmnt directory  
+1. **[A]** Create the sapmnt directory  
    
    <pre><code>sudo mkdir -p /sapmnt/<b>QAS</b>
    sudo mkdir -p /usr/sap/trans
@@ -652,7 +652,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo chattr +i /usr/sap/trans
    </code></pre>
    
-1.  **[A]** Install NFS client and other requirements  
+1. **[A]** Install NFS client and other requirements  
 
    <pre><code>sudo yum -y install nfs-utils uuidd
    </code></pre>
