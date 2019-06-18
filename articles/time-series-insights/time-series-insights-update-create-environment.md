@@ -24,9 +24,12 @@ In this tutorial, you learn how to:
 * Perform basic analysis on the data.
 * Define a Time Series Model type and hierarchy, and associate it with your instances.
 
+>[!TIP]
+> [IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) provide enterprise-grade preconfigured solutions that you can use to accelerate the development of custom IoT solutions.
+
 ## Create a device simulation
 
-In this section, you create three simulated devices that send data to an instance of Azure IoT Hub.
+In this section, you create three simulated devices that send data to an Azure IoT Hub instance.
 
 1. Go to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). The page displays several prebuilt examples. Sign in by using your Azure account. Then, select **Device Simulation**.
 
@@ -124,7 +127,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
    | **Subscription** | Select the subscription that you used for the device simulator. |
    | **IoT Hub name** | Select the IoT hub name you created for the device simulator. |
    | **IoT Hub access policy** | Select **iothubowner**. |
-   | **Iot Hub consumer group** | Select **New**, enter a unique name, and then select **Add**. The consumer group must be a unique value in Azure Time Series Insights Preview. |
+   | **IoT Hub consumer group** | Select **New**, enter a unique name, and then select **Add**. The consumer group must be a unique value in Azure Time Series Insights Preview. |
    | **Timestamp property** | This value is used to identify the **Timestamp** property in your incoming telemetry data. For this tutorial, leave this box empty. This simulator uses the incoming timestamp from IoT Hub, which Time Series Insights defaults to. |
 
    Select **Review + create**.
