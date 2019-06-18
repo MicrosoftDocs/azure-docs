@@ -8,7 +8,7 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 06/12/2019
 ms.author: gregman
 ---
 # Run Azure IoT Edge on Windows Server Virtual Machines
@@ -16,13 +16,10 @@ The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The r
 
 To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-This article lists the steps to run the Azure IoT Edge runtime on a Windows Server 2019 virtual machine using the [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) Azure Marketplace offer. Follow the instructions at [Install the Azure IoT Edge runtime](how-to-install-iot-edge-windows.md) on Windows for use with other versions.
-
-> [!NOTE]
-> The IoT Edge runtime on Windows Server is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article lists the steps to run the Azure IoT Edge runtime on a Windows Server 2019 virtual machine using the [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace offer. Follow the instructions at [Install the Azure IoT Edge runtime](how-to-install-iot-edge-windows.md) on Windows for use with other versions.
 
 ## Deploy from the Azure Marketplace
-1.	Navigate to the [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) Azure Marketplace offer or by searching “Windows Server” on [Azure Marketplace](https://azuremarketplace.microsoft.com/)
+1.	Navigate to the [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace offer or by searching “Windows Server” on [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 2.	Select **GET IT NOW** 
 3.  In **Software plan**, find "Windows Server 2019 Datacenter Server Core with Containers" and then select **Continue** on the next dialog.
     * You can also use these instructions for other versions of Windows Server with Containers
