@@ -17,7 +17,7 @@ ms.author: victorh
 | Back-end HTTP settings |100<sup>1</sup> | |
 | Instances per gateway |32 | |
 | SSL certificates |100<sup>1</sup> |1 per HTTP listeners |
-| Maximum SSL certificate size |V1 SKU - 10 KB<br>V2 SKU - 25 KB| |
+| Maximum SSL certificate size |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
 | Authentication certificates |100 | |
 | Trusted root certificates |100 | |
 | Request timeout minimum |1 second | |
