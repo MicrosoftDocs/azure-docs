@@ -51,9 +51,9 @@ To automate license provisioning, consider  [group-based licensing](https://docs
 
 ## Azure Active Directory configuration
 
-Azure Active Directory (Azure AD) directory manages  users, groups, and devices for your administrator workstations. You need to enable identity services and features with an [administrator account](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+Azure Active Directory (Azure AD) manages users, groups, and devices for your administrator workstations. You need to enable identity services and features with an [administrator account](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
-When you create the secured workstation administrator account, you expose the account to your current workstation. Make sure use a known safe device to do this initial configuration and all global configuration. To reduce the attack exposure for the first-time experience, consider the guidance to [prevent malware infections](https://docs.microsoft.com/windows/security/threat-protection/intelligence/prevent-malware-infection).
+When you create the secured workstation administrator account, you expose the account to your current workstation. Make sure you use a known safe device to do this initial configuration and all global configuration. To reduce the attack exposure for the first-time experience, consider following the [guidance to prevent malware infections](https://docs.microsoft.com/windows/security/threat-protection/intelligence/prevent-malware-infection).
 
 You should also require multi-factor authentication, at least for your administrators. See [Deploy cloud-based MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted) for implementation guidance.
 
@@ -122,7 +122,7 @@ These steps allow you to manage any device with Intune. For more information, se
 
 #### Azure AD Conditional Access
 
-Azure AD Conditional Access can help restrict privileged administrative tasks to compliant devices. Predefined members of the **Secure Workstation Users** group are required to perform multi-factor authentication when signing in to cloud applications. A best practice for this guidance advises you to exclude emergency access accounts from the policy. For more  information, see [Manage emergency access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access).
+Azure AD Conditional Access can help restrict privileged administrative tasks to compliant devices. Predefined members of the **Secure Workstation Users** group are required to perform multi-factor authentication when signing in to cloud applications. A best practice is to exclude emergency access accounts from the policy. For more  information, see [Manage emergency access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access).
 
 To configure Conditional Access from the Azure portal:
 
@@ -167,7 +167,7 @@ In Intune in the Azure portal:
    * Name - **Secure workstation deployment profile**.
    * Description - **Deployment of secure workstations**.
    * Set **Convert all targeted devices to Autopilot** to **Yes**. This setting makes sure that all devices in the list get registered with the Autopilot deployment service. Allow 48 hours for the registration to be processed.
-   * For **Deployment mode**, choose **Self-Deploying (Preview)**. Devices with this profile are associated with the user enrolling the device. User credentials are required to enroll the device.
+   * For **Deployment mode**, choose **Self-Deploying (Preview)**. Devices with this profile are associated with the user who enrolls the device. User credentials are required to enroll the device.
    * The **Join to Azure AD as** box should show **Azure AD joined** and be grayed out.
 1. Select **Out-of-box experience (OOBE)**, and choose **Standard** as the user account type. Leave others set to the default.
 1. Select **Ok**.
@@ -178,7 +178,7 @@ In Intune in the Azure portal:
 
 Keeping Windows 10 up to date is one of the most important things you can do. To maintain Windows in a secure state, you deploy an update ring to manage the pace that updates are applied to workstations. 
 
-This guidance recommends that you create a new update ring change the following settings:
+This guidance recommends that you create a new update ring and change the following default settings:
 
 In the Azure portal:
 
@@ -247,12 +247,12 @@ Run the Intune data export script `DeviceConfiguration_Export.ps1` from the [Dev
 
 By following the guidance here, you've deployed a secure workstation. However, you also should consider additional controls. For example:
 
-* access to alternate browsers
-* allowed outbound HTTP
-* blocked websites
-* permissions for running custom PowerShell scripts
+* limit access to alternate browsers
+* allow outbound HTTP
+* block select websites
+* set permissions for running custom PowerShell scripts
 
-### Restrictive inbound, and outbound rules in firewall configuration service provider (CSP)
+### Set rules in the firewall configuration service provider (CSP)
 
 You can make additional changes to the management of both inbound and outbound rules as needed for your permitted and blocked endpoints. As you continue to harden the secure workstation, you can loosen the restriction that denies all inbound and outbound traffic. You might add permitted outbound sites to include common and trusted websites. For more information, see [Firewall configuration service](https://docs.microsoft.com/Windows/client-management/mdm/firewall-csp).
 
@@ -263,9 +263,9 @@ Default restricted recommendations are:
 
 The Spamhaus Project maintains [the Domain Block List (DBL)](https://www.spamhaus.org/dbl/): a good resource to use as a starting point for blocking sites.
 
-### Managing local applications
+### Manage local applications
 
-The secure workstation moves to a truly hardened state when local applications are remove, including productivity applications. Here, you add Chrome as the default browser and use Intune to limit a user's ability to modify the browser and its plug-ins.
+The secure workstation moves to a truly hardened state when local applications are removed, including productivity applications. Here, you add Chrome as the default browser and use Intune to limit a user's ability to modify the browser and its plug-ins.
 
 #### Deploy applications using Intune
 
@@ -278,7 +278,7 @@ In some situations, applications like the Google Chrome browser are required on 
 1. Under **App package file**, select the `GoogleChromeStandaloneEnterprise64.msi` file from the extracted location and select **OK**.
 1. Under **App information**, provide a description and a publisher. Select **OK**.
 1. Select **Add**.
-1. On the **Assignments** select **Available for enrolled devices** under **Assignment type**.
+1. On the **Assignments** tab, select **Available for enrolled devices** under **Assignment type**.
 1. Under **Included Groups**, add the **Secure Workstations** group.
 1. Select **OK**, and then select **Save**.
 
@@ -292,16 +292,16 @@ An Intune-managed copy of the [Company Portal](https://docs.microsoft.com/Intune
 
 You might need to install Windows 32-bit apps or other apps whose deployment require special preparations. In such cases, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) can provide a ready-to-use `.intunewin` format file for installation.
 
-### Setting up custom settings using PowerShell
+### Use PowerShell to create custom settings
 
 You can also use PowerShell to extend host management capabilities. This example script sets up a default background on the host. It's a capability that's also available through the Azure portal and profiles. The example script serves only to illustrate the PowerShell functionality.
 
 You might need to set up some custom controls and settings on your secure workstations. This example changes the background of the workstation by using Powershell's ability to easily identify the device as a ready-to-use, secure workstation.
 
-The [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcenter/Set-Desktop-Image-using-5430c9fb/) script from the Microsoft Scripting Center allows Windows to load this [free generic background image](https://i.imgur.com/OAJ28zO.png) on start up.
+The [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcenter/Set-Desktop-Image-using-5430c9fb/) script from the Microsoft Scripting Center allows Windows to load this [free, generic background image](https://i.imgur.com/OAJ28zO.png) on start up.
 
 1. Download the script to a local device.
-1. Update the customerXXXX and the download location of the background image and folder. In our example, we replace customerXXXX to backgrounds.  
+1. Update the customerXXXX and the download location of the background image. In our example, we replace customerXXXX to backgrounds.  
 1. Browse to the **Azure portal** > **Microsoft Intune** > **Device configuration** > **PowerShell scripts** > **Add**.
 1. Provide a **Name** for the script and specify the **Script location**.
 1. Select **Configure**.
@@ -312,9 +312,9 @@ The [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcente
    1. Add the security group **Secure Workstations**.
    1. Select **Save**.
 
-### Using the preview: MDM Security Baseline for October 2018
+### Use the preview: MDM Security Baseline for October 2018
 
-Intune features security baseline management that lets administrators enforce a common, baseline security posture. The baseline describes a unified approach for achieving locked-down, Enhanced profile workstations.
+Intune features security baseline management that lets administrators enforce a common, baseline security posture. The baseline describes a unified approach for achieving locked-down, enhanced profile workstations.
 
 For your secure workstation in this article, you won't implement this baseline. It conflicts with the secure configuration deployment.
 
@@ -347,7 +347,8 @@ For more information about this preview feature, see [Windows security baseline 
      > The script requires elevated rights. It runs as remote signed. The `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned` command allows the script to run correctly.
 
    * You can gather this information by signing in to a Windows 10 version 1809 or higher device. Your hardware reseller can also provide this information.
-1. In the **Azure portal**, go to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Devices - Manage Windows Autopilot devices**, select **Import**, and choose your CSV file.
+1. In the **Azure portal**, go to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Devices - Manage Windows Autopilot devices**.
+1. Select **Import** and choose your CSV file.
 1. Add the device to the **Secure Workstations** security group.
 1. On the Windows 10 device you wish to configure, go to **Windows Settings** > **Update & Security** > **Recovery**.
    1. Choose **Get started** under **Reset this PC**.
@@ -355,7 +356,7 @@ For more information about this preview feature, see [Windows security baseline 
 
 After you have configured the device, complete a review and check the configuration. Confirm that the first device is configured correctly before continuing your deployment.
 
-## Assignment and monitoring
+## Assign and monitor
 
 To assign devices and users, you need to map the [selected profiles](https://docs.microsoft.com/intune/device-profile-assign) to your security group. All new users who require permissions to the service must be added to the security group as well.
 
@@ -363,6 +364,5 @@ You can monitor profiles with [Intune profile monitoring](https://docs.microsoft
 
 ## Next steps
 
-Learn more about [Microsoft Intune](https://docs.microsoft.com/intune/index).
-
-Understand [Azure AD](https://docs.microsoft.com/azure/active-directory/index).
+* Learn more about [Microsoft Intune](https://docs.microsoft.com/intune/index).
+* Understand [Azure AD](https://docs.microsoft.com/azure/active-directory/index).
