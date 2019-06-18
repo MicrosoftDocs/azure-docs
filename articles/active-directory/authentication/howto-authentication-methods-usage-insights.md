@@ -45,7 +45,7 @@ To access authentication method usage and insights:
 
 ![Usage & insights overview](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-To access usage & insights directly, go to [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). This link will bring you to the overview.
+To access usage & insights directly, go to [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade). This link will bring you to the registration overview.
 
 The Users registered, Users enabled, and Users capable tiles show the following registration data for your users:
 
@@ -53,7 +53,7 @@ The Users registered, Users enabled, and Users capable tiles show the following 
 - Enabled: A user is considered enabled if they are in scope for the SSPR policy. If SSPR is enabled for a group, then the user is considered enabled if they are in that group. If SSPR is enabled for all users, then all users in the tenant (excluding guests) are considered enabled.
 - Capable: A user is considered capable if they are both registered and enabled. This status means that they can perform SSPR at any time if needed.
 
-Clicking on any of these three tiles or the insights shown in them will bring you to a pre-filtered list of registration details.
+Clicking on any of these tiles or the insights shown in them will bring you to a pre-filtered list of registration details.
 
 The **Registrations** chart on the **Registration** tab shows the number of successful and failed authentication method registrations by authentication method. The **Resets** chart on the **Usage** tab shows the number of successful and failed authentications during the password reset flow by authentication method.
 
@@ -63,9 +63,9 @@ Using the control in the upper, right-hand corner, you can change the date range
 
 ### Registration details
 
-Clicking on the **Users registered**, **Users enabled**, or **Users capable** tiles or insights will bring you to the registration details:
+Clicking on the **Users registered**, **Users enabled**, or **Users capable** tiles or insights will bring you to the registration details.
 
-This report shows the following information for each user:
+The registration details report shows the following information for each user:
 
 - Name
 - User name
@@ -78,9 +78,10 @@ Using the controls at the top of the list, you can search for a user and filter 
 
 ### Reset details
 
-Clicking on the Registrations or Resets charts will bring you to the reset details:
+Clicking on the Registrations or Resets charts will bring you to the reset details.
 
-This report shows registration and reset events from the last 30 days including:
+The reset details report shows registration and reset events from the last 30 days including:
+
 - Name
 - User name
 - Feature (All, Registration, Reset)
@@ -93,7 +94,7 @@ Using the controls at the top of the list, you can search for a user and filter 
 
 - The data shown in these reports will be delayed by up to **x** hours. A “Last refreshed" field exists in the Azure portal to identify how recent your data is.
 
-## Common questions
+## Next steps
 
-* Can a customer use this capability in production?
-   * Yes, this feature should have no impact on end users and can be used in production.
+- [Choosing authentication methods for your organization](concept-authentication-methods.md)
+- [Combined registration experience](concept-registration-mfa-sspr-combined.md)
