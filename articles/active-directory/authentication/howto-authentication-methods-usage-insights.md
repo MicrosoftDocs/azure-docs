@@ -92,7 +92,7 @@ Using the controls at the top of the list, you can search for a user and filter 
 
 ## Limitations
 
-- The data shown in these reports will be delayed by up to **x** hours. A “Last refreshed" field exists in the Azure portal to identify how recent your data is.
+The data shown in these reports will be delayed by up to 30 minutes. A “Last refreshed" field exists in the Azure portal to identify how recent your data is.
 
 ## Next steps
 
