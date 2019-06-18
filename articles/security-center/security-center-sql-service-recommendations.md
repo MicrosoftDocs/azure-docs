@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2019
+ms.date: 06/18/2019
 ms.author: monhaber
 
 ---
 # Protecting Azure SQL service and data in Azure Security Center
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL and data, and applications.
-<!-- This paragraph should only be about storage-->
 
+This topic shows you how to view and implement security recommendations for data and storage resources. These recommendations were found by Azure Security Center when analyzing the security state of your Azure resources.
 
-## Monitor data security
-
-To view data security information:
+## View your data security information
 
 1. In the **Resource security hygiene** section, click **Data and storage resources**.
 
@@ -37,20 +34,20 @@ To view data security information:
     > [!NOTE]
     > For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
-    
 From this page, you can:
-* Click the **Overview** tab lists all of the data resources recommendations to be remediated. 
-* Click each tab, and view the the recommendations listed in the **Overview** tab for each resource type.
 
-## Remediate a recommendation
+* Click the **Overview** tab lists all the data resources recommendations to be remediated. 
+* Click each tab, and view the recommendations by resource type.
 
-1. From any of the resource tabs, click a resource. The Recommendation page opens listing the recommendations to be remediated for this resource.
+## Remediate a recommendation on a data resource
 
-    ![Details about a SQL recommendation](./media/security-center-monitoring/sql-recommendations.png)
+1. From any of the resource tabs, click a resource. The information page opens listing the recommendations to be remediated.
 
-2 Click a recommendation. The Recommendation page opens and displays the **Remediation steps** to do to implement the recommendation.
+    ![Resource information](./media/security-center-monitoring/sql-recommendations.png)
 
-    ![Auditing & Threat detection](./media/security-center-monitoring/remediate1.png)
+2. Click a recommendation. The Recommendation page opens and displays the **Remediation steps** to do to implement the recommendation.
+
+   ![Remediation steps](./media/security-center-monitoring/remediate1.png)
 
 3. Click **Take action**. The resource settings page appears.
 
