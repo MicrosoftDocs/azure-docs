@@ -82,7 +82,7 @@ In the dialogs that follow, make the following selections:
 ## Build and run the sample
 
 1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
-1. Build and run the example code by selecting **Product** -> **Run** from the menu or clicking the **Play** button.
+1. Build and run the example code by selecting **Product** > **Run** from the menu or clicking the **Play** button.
 1. After you click the button and say a few words, you should see the text you have spoken on the lower part of the screen. When you run the app for the first time, you should be prompted to give the app access to your computer's microphone.
 
 ## Next steps
