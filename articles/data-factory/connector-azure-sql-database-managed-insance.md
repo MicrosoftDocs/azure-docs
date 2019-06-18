@@ -56,6 +56,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your managed instance has public endpoint and allow ADF to access). If not specified, it uses the default Azure Integration Runtime. |Yes. |
 
 **Example 1: Use SQL authentication**
+Default port is 1433. If you are using SQL Managed Instance with public endpoint, explicitly specify port 3342.
 
 ```json
 {
@@ -65,7 +66,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -77,6 +78,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
 ```
 
 **Example 2: Use SQL authentication with password in Azure Key Vault**
+Default port is 1433. If you are using SQL Managed Instance with public endpoint, explicitly specify port 3342.
 
 ```json
 {
@@ -86,7 +88,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
             },
             "password": { 
                 "type": "AzureKeyVaultSecret", 
