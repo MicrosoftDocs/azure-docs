@@ -72,7 +72,6 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [Product Documentation for Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [SAP Netweaver in pacemaker cluster](https://access.redhat.com/articles/3150081)
 * General RHEL documentation
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -93,7 +92,7 @@ To achieve that on Red Hat Linux so far it was necessary to build separate highl
 
 Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using Azure NetApp Files for the shared storage eliminates the need for additional [GlusterFS cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs). Pacemaker is still needed for HA of the SAP Netweaver central services(ASCS/SCS).
 
-![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel/high-availability-guide-rhel.png)
+![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer with separate front IPs for (A)SCS and ERS.
 
@@ -208,7 +207,7 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
             * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
    1. Load-balancing rules
       1. 32**00** TCP for ASCS
-         1. Open the load balancer, select Load-balancing rules and click Add
+         1. Open the load balancer, select Load-balancing rules, and click Add
          1. Enter the name of the new load balancer rule (for example **lb.QAS.ASCS.3200**)
          1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.QAS.ASCS**)
          1. Keep protocol **TCP**, enter port **3200**
@@ -256,7 +255,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 1. **[1]** Create SAP directories in the Azure NetApp Files volume
    Mount temporarily the Azure NetApp Files volume on one of the VMs and create the SAP directories(file paths).  
 
-   <pre><code>#mount temporarily the volume
+   <pre><code>
+     # mount temporarily the volume
      sudo mkdir -p /saptmp
      sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 192.168.24.5:/sapQAS /saptmp
      # create the SAP directories
@@ -268,7 +268,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      sudo mkdir -p usrsapQAS</b>pas
      sudo mkdir -p usrsapQAS</b>aas
      
-     # unmount the volime and delete the temporary directory
+     # unmount the volume and delete the temporary directory
      sudo cd ..
      sudo umount /saptmp
      sudo rmdir /saptmp
@@ -516,7 +516,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create the SAP cluster resources
 
-  If using enqueue server 1 architecture (ENSA1), define the resources as follows:
+   If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
    <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -586,7 +586,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[A]** Add firewall rules for ASCS and ERS on both nodes
-
+   Add the firewall rules for ASCS and ERS on both nodes.
    <pre><code># Probe Port of ASCS
    sudo firewall-cmd --zone=public --add-port=620<b>00</b>/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=620<b>00</b>/tcp
@@ -909,7 +909,7 @@ Follow these steps to install an SAP application server.
    <pre><code>[root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
    </code></pre>
 
-   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+   If you only kill the message server once, it will be restarted by `sapstart`. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    <pre><code>[root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
@@ -995,7 +995,7 @@ Follow these steps to install an SAP application server.
    <pre><code>[root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   If you only run the command once, sapstart will restart the process. If you run it often enough, sapstart will not restart the process and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
+   If you only run the command once, `sapstart` will restart the process. If you run it often enough, `sapstart` will not restart the process and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
 
    <pre><code>[root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
    </code></pre>
