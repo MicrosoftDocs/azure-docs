@@ -32,7 +32,7 @@ sections:
     - html: <a href="/azure/bastion/bastion-create-host-portal">Create and modify an Azure Bastion host</a>
     - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Connect to a Windows virtual machine</a>
     - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Connect to a Linux virtual machine</a>
-    - html: <a href="/azure/bastion-faq">Read the Azure Bastion FAQ</a>
+    - html: <a href="/azure/bastion/bastion-faq">Read the Azure Bastion FAQ</a>
     
 - title: Reference
   items:
