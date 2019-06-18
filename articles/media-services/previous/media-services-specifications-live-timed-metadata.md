@@ -47,7 +47,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 | RTMP              | Real-Time Multimedia Protocol                                                                                                                                                                                                    |
 | uimsbf            | Unsigned integer, most significant bit first.                                                                                                                                                                                    |
 
------------------------
+---
 
 ## 2 Timed Metadata Ingest
 ## 2.1 RTMP Ingest
@@ -70,7 +70,7 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 | elapsed    | Number     | Optional | When the signal is being repeated in order to support tune in, this field shall be the amount of presentation time that has elapsed since the splice began. Units are fractional seconds. When using simple mode, this value should not exceed the original duration of the splice.                                                  |
 | time       | Number     | Required | Shall be the time of the splice, in presentation time. Units are fractional seconds.                                     |
 
----------------------------
+---
 
 ### SCTE-35 Mode
 
@@ -83,7 +83,7 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 | elapsed    | Number     | Optional | When the [SCTE-35] ad signal is being repeated in order to tune in, this field shall be the amount of presentation time that has elapsed since the splice began. Units are fractional seconds. In [SCTE-35] mode, this value may exceed the original specified duration of the splice or segment.                                                  |
 | time       | Number     | Required | The presentation time of the event or ad splice.  The presentation time and duration SHOULD align with Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. For HLS egress, time and duration SHOULD align with segment boundaries. The presentation time and duration of different event messages within the same event stream MUST not overlap. Units are fractional seconds.
 
----------------------------
+---
 
 #### 2.1.1 Cancellation and Updates
 
@@ -111,7 +111,7 @@ The sparse track MUST be declared in the Live Server Manifest box with a
 | trackName          | String         | Required      | MUST be the name of the sparse track. The trackName can be used to differentiate multiple event streams with the same scheme. Each unique event stream must have a unique track name.                                                                           |
 | timescale          | Number         | Optional      | MUST be the timescale of the parent track.                                                                                                                                                                                                                      |
 
--------------------------------------
+---
 
 ### 2.2.2 Movie Box
 
@@ -125,7 +125,7 @@ The ‘moov’ box SHOULD contain a **TrackHeaderBox (‘tkhd’)** box as defin
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
 | duration       | 64-bit unsigned integer | Required      | SHOULD be 0, since the track box has zero samples and the total duration of the samples in the track box is 0. |
 
--------------------------------------
+---
 
 The ‘moov’ box SHOULD contain a **HandlerBox (‘hdlr’)** as defined in
 [ISO-14496-12] with the following constraints:
@@ -134,7 +134,7 @@ The ‘moov’ box SHOULD contain a **HandlerBox (‘hdlr’)** as defined in
 |----------------|-------------------------|---------------|-------------------|
 | handler_type   | 32-bit unsigned integer | Required      | SHOULD be ‘meta’. |
 
--------------------------------------
+---
 
 The ‘stsd’ box SHOULD contain a MetaDataSampleEntry box with a coding name as defined in [ISO-14496-12].  For example, for SCTE-35 messages the coding name SHOULD be 'scte'.
 
@@ -152,7 +152,7 @@ following fields:
 | fragment_absolute_time | 64-bit unsigned integer | Required      | MUST be the arrival time of the event. This value aligns the message with the parent track.   |
 | fragment_duration      | 64-bit unsigned integer | Required      | MUST be the duration of the event. The duration can be zero to indicate that the duration is unknown. |
 
-------------------------------------
+---
 
 
 The MediaDataBox (‘mdat’) box MUST have the following format:
@@ -164,7 +164,7 @@ The MediaDataBox (‘mdat’) box MUST have the following format:
 | presentation_time_delta | 32-bit unsigned integer (uimsbf) | Required      | The sum of the fragment_absolute_time, specified in the TrackFragmentExtendedHeaderBox, and the presentation_time_delta MUST be the presentation time of the event. The presentation time and duration SHOULD align with Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. For HLS egress, time and duration SHOULD align with segment boundaries. The presentation time and duration of different event messages within the same event stream MUST not overlap. |
 | message                 | byte array                       | Required      | The event message. For [SCTE-35] messages, the message is the binary splice_info_section(), although [SCTE-67] recommends something else. For [SCTE-35] messages, this MUST be the splice_info_section() in order for messages to be sent to HLS, Smooth, and Dash clients in compliance with [SCTE-67]. For [SCTE-35] messages, the binary splice_info_section() is the payload of the ‘mdat’ box, and it is NOT base64 encoded.                                                            |
 
-------------------------------
+---
 
 
 ### 2.2.4 Cancellation and Updates
@@ -452,7 +452,7 @@ Edition 2012-07-15.
 
 **[RTMP]** [“Adobe’s Real-Time Messaging Protocol”, December 21, 2012](https://www.adobe.com/devnet/rtmp.html) 
 
-------------------------------------------
+---
 
 ## Next steps
 View Media Services learning paths.
