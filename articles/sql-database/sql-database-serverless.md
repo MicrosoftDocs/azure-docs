@@ -257,7 +257,7 @@ The user resource pool is the inner most resource management boundary for a data
 |User pool|log_IO_percent|Percentage of log MB/s used by user workload relative to max log MB/s allowed for user workload.|Percentage|
 |User pool|workers_percent|Percentage of workers used by user workload relative to max workers allowed for user workload.|Percentage|
 |User pool|sessions_percent|Percentage of sessions used by user workload relative to max sessions allowed for user workload.|Percentage|
-____
+---
 
 > [!NOTE]
 > Metrics in the Azure portal are available in the database pane for a single database under **Monitoring**.
