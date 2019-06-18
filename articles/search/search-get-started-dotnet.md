@@ -9,7 +9,7 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/03/2019
+ms.date: 06/20/2019
 
 ---
 # Quickstart: Create an Azure Search index in C#
@@ -21,7 +21,9 @@ ms.date: 06/03/2019
 > * [Postman](search-fiddler.md)
 >*
 
-Create a C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [.NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you could run a completed application. To download a copy, go to [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository on GitHub.
+Create a C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [Azure Search .NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. 
+
+Alternatively, you could run a completed application. To download a copy, go to [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository on GitHub.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,7 +33,7 @@ The following services, tools, and data are used in this quickstart.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-+ Sample documents that you'll index in this quickstart can be copied from 
++ Sample documents that you'll index in this quickstart are provided in this article.
 
 + [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
@@ -90,7 +92,7 @@ For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package an
   "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
   "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
   "SearchServiceQueryApiKey": "<YOUR-QUERY-API-KEY>",
-  "SearchIndexName": "hotels-csharp"
+  "SearchIndexName": "hotels-quickstart"
 }
 ```
 
@@ -124,7 +126,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
     using Microsoft.Azure.Search.Models;
     using Newtonsoft.Json;
 
-    namespace AzureSearch.Hotels_CSharpApp
+    namespace AzureSearch.hotels_quickstart
     {
         public partial class Address
         {
@@ -154,7 +156,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
     using Microsoft.Azure.Search.Models;
     using Newtonsoft.Json;
 
-    namespace AzureSearch.Hotels_CSharpApp
+    namespace AzureSearch.hotels-quickstart
     {
         public partial class Room
         {
@@ -191,7 +193,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 1. In hotel.cs, the class defines the overall structure of the index, including references to the address and rooms classes
 
     ```csharp
-    namespace AzureSearch.Hotels_CSharpApp
+    namespace AzureSearch.hotels-quickstart
     {
         using System;
         using Microsoft.Azure.Search;
@@ -251,7 +253,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 1. In Program.cs, create an instance of the `SearchServiceClient` class. This class has an `Indexes` property, providing all the methods you need to create, list, update, or delete Azure Search indexes.
 
 ```csharp
-namespace AzureSearch.Hotels_CSharpApp
+namespace AzureSearch.hotels-quickstart
 
 {
     using System;
@@ -492,7 +494,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 To import data using the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document (upload, merge, delete, and mergeOrUpload). For more information about indexing actions, see [Indexing actions: upload, merge, mergeOrUpload, delete](search-what-is-data-import.md#indexing-actions).
 
-Assuming you know which actions to perform on your documents, you are ready to construct the `IndexBatch`. The example below shows how to create a batch with a few different actions. The example uses a custom class called `Hotel` that maps to a document in the "hotels" index.
+Assuming you know which actions to perform on your documents, you are ready to construct the `IndexBatch`. The example below shows how to create a batch with a few different actions. The example uses a custom class called `Hotel` that maps to a document in the "hotels-quickstart" index.
 
 ```csharp
 var actions =
@@ -710,7 +712,7 @@ The sample code above uses the console to output search results. You will likewi
 
 ## Build the app
 
-Press F5 to build the solution and run the console app. Output is report on the screen, starting with creating objects, and concluding with running serveral queries and showing the results.
+Press F5 to build the solution and run the console app. Output is reported on the screen, starting with creating objects, and concluding with running serveral queries and showing the results.
 
 
 ## Clean up
