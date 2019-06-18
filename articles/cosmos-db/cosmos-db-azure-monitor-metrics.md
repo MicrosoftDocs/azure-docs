@@ -80,9 +80,10 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 
 ### Availability metrics
 
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
-|---|---|---|---|---|---| ---| ---| ---|
-| ServiceAvailability | Service Availability| Percent |Minimum, Maximum| Account requests availability at one hour granularity| | 1H | Service Availability | Represents the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
+> [!div class="mx-tdBreakAll"]
+> |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
+> |---|---|---|---|---|---| ---| ---| ---|
+> | ServiceAvailability | Service Availability| Percent |Minimum, Maximum| Account requests availability at one hour granularity|| 1H | Service Availability | Represents the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
 
 
 ### Cassandra API metrics
