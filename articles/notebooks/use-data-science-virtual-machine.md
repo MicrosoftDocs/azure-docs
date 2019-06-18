@@ -70,11 +70,4 @@ If multiple users share a DSVM, you can avoid blocking each other by creating an
 1. Run this command: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"`
 1. Look at the number listed for "version".
 
-## How to Create new DSVM users
-1. Go to [Azure Portal](https://ms.portal.azure.com).
-2. Navigate to your virtual machine.
-3. Click 'Reset password' under 'Support + troubleshooting' in the left margin.
-4. Enter a new username and password and click 'Update' (Your old usernames should still continue to work).
-## Next steps
-
 Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).
