@@ -40,7 +40,8 @@ To complete this quickstart:
     | Language | Requirement |
     | -------- | --------- |
     | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
-    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
+    <sup>*</sup>TLS-covered, even-numbered major versions starting with Node 8.0.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
