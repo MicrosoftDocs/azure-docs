@@ -91,5 +91,5 @@ In the dialogs that follow, make the following selections:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore Swift samples on GitHub](https://aka.ms/csspeech/samples)
+> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
 
