@@ -93,7 +93,7 @@ Aliasing is available for unsupported characters, but we recommend avoiding them
 2. Create the Registry Directory Path: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (you will need to create the 'Key' TestHook under WorkloadBackup which in turn needs to be created under Microsoft).
 3. Under the Registry Directory Path, create a new 'string value' with the string name **AzureBackupEnableWin2K8R2SP1** and value: **True**
 
-![RegEdit for SQL EOS backup](media/backup-azure-sql-database/RegEdit-for-SQLEOS-bkp.png)
+    ![RegEdit for enabling registration](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
 
 Alternatively, you can automate this step by running .reg file with the following command:
 

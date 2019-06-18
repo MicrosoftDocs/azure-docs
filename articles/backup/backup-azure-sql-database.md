@@ -171,25 +171,25 @@ Add **NT AUTHORITY\SYSTEM** and **NT Service\AzureWLBackupPluginSvc** logins to 
 2. Navigate to Security -> Logins
 3. Right click on the Logins and click *New Login…*
 
-![New Login using SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
+    ![New Login using SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
 4. Go to the General tab and enter **NT AUTHORITY\SYSTEM** as the Login Name.
 
-![login name for SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+    ![login name for SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
 5. Go to *Server Roles* and choose *public* and *sysadmin* roles.
 
-![choosing roles in SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+    ![choosing roles in SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
 
 6. Go to *Status*. *Grant* the Permission to connect to database engine and Login as *Enabled*.
 
-![Grant permissions in SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
+    ![Grant permissions in SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
 7. Click OK.
 8. Repeat the same sequence of steps (1-7 above) to add NT Service\AzureWLBackupPluginSvc login to the SQL Server instance. If the login already exists, make sure it has the sysadmin server role and under Status it has Grant the Permission to connect to database engine and Login as Enabled.
 9. After granting permission, **Re-discover DBs** in the portal: Vault **->** Backup Infrastructure **->** Workload in Azure VM:
 
-![Rediscover DBs in Azure Portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+    ![Rediscover DBs in Azure Portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
 Alternatively, you can automate giving the permissions by running the following PowerShell commands in admin mode. The instance name is set to MSSQLSERVER by default. Change the instance name argument in script if need be:
 
