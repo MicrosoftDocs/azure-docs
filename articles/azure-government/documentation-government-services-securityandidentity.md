@@ -120,7 +120,7 @@ The following information identifies the Azure Government boundary for Azure Key
 
 Azure Active Directory is generally available in Azure Government.
 
-For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md).
+For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.yml).
 
 ### Variations
 
@@ -133,7 +133,7 @@ The URLs for accessing Azure Active Directory in Azure Government are different:
 
 ## Azure Active Directory Premium P1 and P2
 
-Azure Active Directory Premium is available in Azure Government. For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.md).  
+Azure Active Directory Premium is available in Azure Government. For details on this service and how to use it, see the [Azure Active Directory Documentation](../active-directory/index.yml).  
 
 For a list of features in Azure Active Directory Premium P1, see [Azure Active Directory Features](https://www.microsoft.com/cloud-platform/azure-active-directory-features) for a list of all capabilities available. This same feature list applies to the US Government cloud instance.
 All features covered in the above list are available in the US Government cloud instance, with the following known limitations:

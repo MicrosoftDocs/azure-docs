@@ -36,9 +36,13 @@ Azure network connection allows you to:
 
 Private Clouds can be connected to your Azure resources using ExpressRoute.  You can use this connection to access different resources running in your Azure subscription from your Private Cloud.  This connection allows you to extend you Private Cloud network to your Azure virtual network.
 
+![Azure ExpressRoute Connection to virtual network](media/cloudsimple-azure-network-connection.png)
+
 ## ExpressRoute connection to on-premises network
 
 You can connect your existing Azure ExpressRoute circuit to your CloudSimple region. ExpressRoute Global Reach feature is used to connect the two circuits with each other.  A connection is established between the on-premises and CloudSimple ExpressRoute circuits.  This connection allows you to extend your on-premises networks to Private Cloud network.
+
+![On-premises ExpressRoute Connection - Global Reach](media/cloudsimple-global-reach-connection.png)
 
 ## Next steps
 

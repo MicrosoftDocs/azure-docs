@@ -36,7 +36,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ## Optimizing for Azure SQL Database and Azure SQL Data Warehouse
 
-![Source Part](media/data-flow/sourcepart2.png "Source Part")
+![Source Part](media/data-flow/sourcepart3.png "Source Part")
 
 ### Partition your source data
 
@@ -55,11 +55,17 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Setting a query can allow you to filter rows right at the source before they even arrive for Data Flow for processing, which can make the initial data acquisition faster.
 * If you use a query, you can add optional query hints for your Azure SQL DB, i.e. READ UNCOMMITTED
 
+### Set isolation level on Source transformation settings for SQL datasets
+
+* Read uncommitted will provide faster query results on Source transformation
+
+![Isolation level](media/data-flow/isolationlevel.png "Isolation Level")
+
 ### Set sink batch size
 
 ![Sink](media/data-flow/sink4.png "Sink")
 
-* In order to avoid row-by-row processing of your data floes, set the "Batch size" in the sink settings for Azure SQL DB. This will tell ADF to process database writes in batches based on the size provided.
+* In order to avoid row-by-row processing of your data flows, set the "Batch size" in the sink settings for Azure SQL DB. This will tell ADF to process database writes in batches based on the size provided.
 
 ### Set partitioning options on your sink
 
@@ -92,7 +98,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ### Use staging to load data in bulk via Polybase
 
-* In order to avoid row-by-row processing of your data floes, set the "Staging" option in the Sink settings so that ADF can leverage Polybase to avoid row-by-row inserts into DW. This will instruct ADF to use Polybase so that data can be loaded in bulk.
+* In order to avoid row-by-row processing of your data flows, set the "Staging" option in the Sink settings so that ADF can leverage Polybase to avoid row-by-row inserts into DW. This will instruct ADF to use Polybase so that data can be loaded in bulk.
 * When you execute your data flow activity from a pipeline, with Staging turned on, you will need to select the Blob store location of your staging data for bulk loading.
 
 ### Increase the size of your Azure SQL DW
@@ -117,8 +123,8 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * To avoid exhausting compute node resources, you can keep the default or explicit partitioning scheme in ADF, which optimizes for performance, and then add a subsequent Copy Activity in the pipeline that merges all of the PART files from the output folder to a new single file. Essentially, this technique separates the action of transformation from file merging and achieves the same result as setting "output to single file".
 
 ## Next steps
-See the other Data Flow articles:
+See the other Data Flow articles related to performance:
 
-- [Data Flow overview](concepts-data-flow-overview.md)
+- [Data Flow Optimize Tab](concepts-data-flow-optimize-tab.md)
 - [Data Flow activity](control-flow-execute-data-flow-activity.md)
 - [Monitor Data Flow performance](concepts-data-flow-monitoring.md)

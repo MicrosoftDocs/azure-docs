@@ -55,7 +55,7 @@
       items:
       - name: .NET Core console (daemon)
         href: quickstart-v2-netcore-daemon.md
-      - name: ASP.NET daemon Web app
+      - name: ASP.NET daemon web app
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
     items:
@@ -139,6 +139,8 @@
           href: scenario-protected-web-api-app-registration.md
         - name: Code configuration
           href: scenario-protected-web-api-app-configuration.md
+        - name: Verification of scopes or app roles
+          href: scenario-protected-web-api-verification-scope-app-roles.md
         - name: Move to production
           href: scenario-protected-web-api-production.md
       - name: Web API that calls web APIs
@@ -234,7 +236,9 @@
         - name: Single sign-on (JS)
           href: msal-js-sso.md
         - name: Prompt behavior (JS)
-          href: msal-js-prompt-behavior.md  
+          href: msal-js-prompt-behavior.md 
+        - name: ADFS support (.NET)
+          href: msal-net-adfs-support.md
         - name: Integrate with Azure AD B2C
           items:
           - name: JavaScript
@@ -529,7 +533,7 @@
         href: consent-framework.md
       - name: Application consent experiences
         href: application-consent-experience.md
-    - name: Conditional access
+    - name: Conditional Access
       href: conditional-access-dev-guide.md
     - name: National Clouds
       href: authentication-national-cloud.md

@@ -95,10 +95,6 @@
       href: platform/alerts-overview.md
     - name: Classic alerts 
       href: platform/alerts-classic.overview.md  
-    - name: Smart groups
-      href: platform/alerts-smartgroups-overview.md  
-    - name: Autoscale
-      href: platform/autoscale-overview.md
     - name: Metric alerts
       href: platform/alerts-metric-overview.md
     - name: Log alerts
@@ -109,18 +105,18 @@
       href: platform/alerts-common-schema.md
     - name: Action rules
       href: platform/alerts-action-rules.md
+    - name: Smart groups
+      href: platform/alerts-smartgroups-overview.md 
+    - name: Autoscale
+      href: platform/autoscale-overview.md
     - name: Change analysis
       href: app/change-analysis.md 
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
-  - name: OMS portal transition
-    items:
-    - name: Overview
-      href: platform/oms-portal-transition.md
-    - name: Common questions
-      href: platform/oms-portal-faq.md
+  - name: OMS portal deprecation
+    href: platform/oms-portal-transition.md
   - name: FAQ
     items:
     - name: Log Analytics
@@ -249,6 +245,8 @@
         items:
         - name: Log Analytics VM Extension
           href: platform/vmext-troubleshoot.md
+        - name: Log Analytics Windows agent
+          href: platform/agent-windows-troubleshoot.md
         - name: Log Analytics Linux agent
           href: platform/agent-linux-troubleshoot.md
     - name: Agent data sources
@@ -998,6 +996,8 @@
       href: app/nuget.md 
     - name: Platform support
       href: app/platforms.md
+    - name: Endpoint overrides
+      href: app/custom-endpoints.md
   - name: Application Insights data model
     items:
     - name: Overview

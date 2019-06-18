@@ -11,13 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: mbullwin
 ---
 # What is Application Insights?
 Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and Java EE, hosted on-premises, hybrid, or any public cloud. It integrates with your DevOps process, and has connection points to a variety of development tools. It can monitor and analyze telemetry from mobile apps by integrating with Visual Studio App Center.
-
-[Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
 ## How does Application Insights work?
 You install a small instrumentation package in your application, and set up an Application Insights resource in the Microsoft Azure portal. The instrumentation monitors your app and sends telemetry data to the portal. (The application can run anywhere - it doesn't have to be hosted in Azure.)
@@ -137,9 +135,9 @@ Get started at development time with:
 
 ## Videos
 
-[![Animated introduction](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
+- External video: [configuring Application Insights with an ASP.NET application](https://www.youtube.com/watch?v=blnGAVgMAfA).
+- External video: [configuring Application Insights with ASP.NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
+- External video: [configuring Application Insights with ASP.NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync).
 
 <!--Link references-->
 

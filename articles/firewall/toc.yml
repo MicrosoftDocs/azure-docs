@@ -39,6 +39,8 @@
   items:
     - name: Deploy using Azure PowerShell
       href: deploy-ps.md
+    - name: Deploy using Azure CLI
+      href: deploy-cli.md
     - name: Deploy using a template
       href: deploy-template.md
     - name: Integrate with load balancer

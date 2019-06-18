@@ -6,7 +6,7 @@ author: tylermsft
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/06/2019
 ms.author: twhitney
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
@@ -84,7 +84,6 @@ While this feature is in preview, the following additional limitations apply:
 * The AKS cluster can have a maximum of eight node pools.
 * The AKS cluster can have a maximum of 400 nodes across those eight node pools.
 * The Windows Server node pool name has a limit of 6 characters.
-* Windows Server node pools are not available in Canada regions at this time.
 
 ## Create a resource group
 
