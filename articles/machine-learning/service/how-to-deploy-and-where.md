@@ -247,6 +247,9 @@ inference_config = InferenceConfig(source_directory="C:/abc",
                                    conda_file="env/myenv.yml")
 ```
 
+### CLI example of InferenceConfig
+
+
 In this example, the configuration contains the following items:
 
 * A directory that contains assets needed to inference
