@@ -48,7 +48,7 @@ ms.author: radeltch
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system, using [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
-In the example configurations, installation commands etc. ASCS instance number 00, ERS instance number 01, the Primary Application instance (PAS) is 02 and the Application instance (AAS) is 03. SAP System ID QAS is used. 
+In the example configurations, installation commands etc. ASCS instance is number 00, the ERS instance is number 01, Primary Application instance (PAS) is 02 and the Application instance (AAS) is 03. SAP System ID QAS is used. 
 
 This article explains how to achieve high availability for SAP NetWeaver application with Azure NetApp Files. The database layer isn't covered in detail in this article.
 
@@ -148,7 +148,7 @@ The steps assume that you have already deployed [Azure Virtual Network](https://
 The SAP Netweaver architecture presented in this article uses single Azure NetApp Files capacity pool, Premium SKU. We recommend Azure NetApp Files Premium SKU for SAP Netweaver application workload on Azure.  
 4. Delegate a subnet to Azure NetApp files as described in the [instructions Delegate a subnet to Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
-5. Deploy Azure NetApp Files volumes, following the [instructions to create a volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Deploy the volumes in the designated Azure NetApp Files [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure Virtual Network or in peered Azure Virtual Networks. In this example we use two Azure NetApp Files volumes: sap<b>QAS</b> and transSAP. The file paths that are mounted to the corresponding mount points are /usrsap<b>qas</b>/sapmnt<b>QAS</b>, /usrsap<b>qas</b>/usrsap<b>QAS</b>sys, etc. are the filepaths for the Azure NetApp Files volumes.  
+5. Deploy Azure NetApp Files volumes, following the [instructions to create a volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes). Deploy the volumes in the designated Azure NetApp Files [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure Virtual Network or in peered Azure Virtual Networks. In this example we use two Azure NetApp Files volumes: sap<b>QAS</b> and transSAP. The file paths that are mounted to the corresponding mount points are /usrsap<b>qas</b>/sapmnt<b>QAS</b>, /usrsap<b>qas</b>/usrsap<b>QAS</b>sys, etc.  
 
    1. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/sapmnt<b>QAS</b>)
    2. volume sap<b>QAS</b> (nfs://192.168.24.5/usrsap<b>qas</b>/usrsap<b>QAS</b>ascs)
@@ -252,7 +252,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <b>192.168.14.10    anftstsapers</b>
    </code></pre>
 
-1. **[1]** Create SAP directories in the Azure NetApp Files volume
+1. **[1]** Create SAP directories in the Azure NetApp Files volume.  
    Mount temporarily the Azure NetApp Files volume on one of the VMs and create the SAP directories(file paths).  
 
    <pre><code>
@@ -262,11 +262,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      # create the SAP directories
      sudo cd /saptmp
      sudo mkdir -p sapmnt<b>QAS</b>
-     sudo mkdir -p usrsapQAS</b>ascs
-     sudo mkdir -p usrsapQAS</b>ers
-     sudo mkdir -p usrsapQAS</b>sys
-     sudo mkdir -p usrsapQAS</b>pas
-     sudo mkdir -p usrsapQAS</b>aas
+     sudo mkdir -p usrsap<b>QAS</b>ascs
+     sudo mkdir -p usrsap<b>QAS</b>ers
+     sudo mkdir -p usrsap<b>QAS</b>sys
+     sudo mkdir -p usrsap<b>QAS</b>pas
+     sudo mkdir -p usrsap<b>QAS</b>aas
      
      # unmount the volume and delete the temporary directory
      sudo cd ..
@@ -558,7 +558,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo pcs constraint colocation add g-<b>QAS</b>_AERS with g-<b>QAS</b>_ASCS -5000
     sudo pcs constraint order g-<b>QAS</b>_ASCS then g-<b>QAS</b>_AERS kind=Optional symmetrical=false
    
-    sudo pcs node unstandby <b> anftstsapcl1/b>
+    sudo pcs node unstandby <b>anftstsapcl1</b>
     sudo pcs property set maintenance-mode=false
     </code></pre>
 
