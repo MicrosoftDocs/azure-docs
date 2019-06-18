@@ -1,549 +1,749 @@
 ---
-title: Build a .NET console app to manage data in Azure Cosmos DB SQL API account
-description: A tutorial that creates an online database and C# console app using the SQL API.
-author: SnehaGunda
+title: 'Build a .NET console app to manage data in Azure Cosmos DB SQL API account'
+description: A tutorial that creates an online database and C# console application using the SQL API.
+author: kirankumarkolli
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/15/2019
-ms.author: sngun
+ms.date: 06/18/2019
+ms.author: kirankumarkolli
 
 ---
 # Build a .NET console app to manage data in Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-get-started.md)
 > * [.NET (Preview)](sql-api-dotnet-get-started-preview.md)
+> * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [.NET Core (Preview)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> 
+>
 
-Welcome to the Azure Cosmos DB SQL API get started tutorial. After you complete this tutorial, you'll have a console app that creates and queries Azure Cosmos DB resources.
+Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources. This tutorial uses [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK, which targets [.NET Standard 2.0.](https://docs.microsoft.com/dotnet/standard/net-standard)
 
-This tutorial shows you how to:
+This tutorial covers:
 
 > [!div class="checklist"]
->
-> - Create an Azure Cosmos DB account and connect to it
-> - Configure a Visual Studio solution
-> - Create a database
-> - Create a collection
-> - Create JSON documents
-> - Query the collection
-> - Update a JSON document
-> - Delete a document
-> - Delete the database
+> * Creating and connecting to an Azure Cosmos account
+> * Configuring your project in Visual Studio
+> * Creating a database and a container
+> * Adding items to the container
+> * Querying the container
+> * CRUD operations on the item
+> * Deleting the database
+
+Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started). Jump to the [Get the complete tutorial solution section](#GetSolution) for quick instructions.
+
+Now let's get started!
 
 ## Prerequisites
 
-Visual Studio 2017 with the Azure development workflow installed:
-- You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
+* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 
-An Azure subscription or free Cosmos DB trial account:
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-  
-- [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
-  
-- If you're using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator. Then start the tutorial at [Set up the Visual Studio solution](#SetupVS).
-  
-## Get the completed solution
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-If you don't have time to complete the tutorial, or just want the code samples, you can download the complete solution from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
-To run the downloaded complete solution: 
+## Step 1: Create an Azure Cosmos DB account
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio Solution](#SetupVS). If you are using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio project](#SetupVS).
 
-1. Make sure you have the [Prerequisites](#prerequisites) installed. 
-1. Open the downloaded *GetStarted.sln* solution file in Visual Studio.
-1. In **Solution Explorer**, right-click the **GetStarted** project, and select **Manage NuGet Packages**.
-1. On the **NuGet** tab, select **Restore** to restore the references to the Azure Cosmos DB .NET SDK.
-1. In the *App.config* file, update the `EndpointUrl` and `PrimaryKey` values as described in the [Connect to the Azure Cosmos DB account](#Connect) section.
-1. Select **Debug** > **Start Without Debugging** or press **Ctrl**+**F5** to build and run the app.
+[!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
 
-## Create an Azure Cosmos DB account
+## <a id="SetupVS"></a>Step 2: Setup your Visual Studio project
+1. Open **Visual Studio 2017** on your computer.
+1. On the **File** menu, select **New**, and then choose **Project**.
+1. In the **New Project** dialog, select **Visual C#** / **Console App (.NET Framework)**, name your project, and then click **OK**.
+    ![Screenshot of the New Project window](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
+1. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
 
-Follow these instructions to create an Azure Cosmos DB account in the Azure portal. If you already have an Azure Cosmos DB account to use, skip ahead to [Set up the Visual Studio solution](#SetupVS). 
+    ![Screenshot of the Right Clicked Menu for the Project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
+1. In the **NuGet** tab, click **Browse**, and type **Microsoft.Azure.Cosmos** in the search box. Be sure to check *Include prelease* to find the preview.
+1. Within the results, find **Microsoft.Azure.Cosmos** and click **Install**.
+   The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
+   ![Screenshot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
-[!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+    If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 
-## <a id="SetupVS"></a>Set up the Visual Studio solution
+Great! Now that we finished the setup, let's start writing some code. You can find a completed code project of this tutorial at [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started).
 
-1. In Visual Studio 2017, select **File** > **New** > **Project**.
-   
-1. In the **New Project** dialog, select **Visual C#** > **Console App (.NET Framework)**, name your project *AzureCosmosDBApp*, and then select **OK**.
-   
-   ![Screenshot of the New Project window](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
-   
-1. In **Solution Explorer**, right-click the **AzureCosmosDBApp** project and select **Manage NuGet Packages**.
-   
-   ![Project context menu](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-   
-1. On the **NuGet** tab, select **Browse**, and enter *azure documentdb* in the search box.
-   
-1. Find and select **Microsoft.Azure.DocumentDB**, and select **Install** if it's not already installed.
-   
-   The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
+1. First, replace the references at the beginning of your C# application, in the **Program.cs** file with these references:
 
-   > [!NOTE]
-   > If you are using .NET Core, please see [the .NET Core docs](./sql-api-dotnetcore-get-started.md).
-
-   ![Screenshot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
-   
-   If you get a message about previewing changes to the solution, select **OK**. If you get a message about license acceptance, select **I accept**.
-
-## <a id="Connect"></a>Connect to the Azure Cosmos DB account
-
-Now, get started writing some code. The complete *Project.cs* file for this tutorial is in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
-
-1. In **Solution Explorer**, select *Program.cs*, and in the code editor, add the following references to the beginning of the file:
-   
    ```csharp
+   using System;
+   using System.Threading.Tasks;
+   using System.Configuration;
+   using System.Collections.Generic;
    using System.Net;
-   using Microsoft.Azure.Documents;
-   using Microsoft.Azure.Documents.Client;
-   using Newtonsoft.Json;
-   ```
-   
-1. Next, add the following two constants and the `client` variable to `public class Program`.
-   
-   ```csharp
-   
-   public class Program
-   {
-      private const string EndpointUrl = "<your endpoint URL>";
-      private const string PrimaryKey = "<your primary key>";
-      private DocumentClient client;
-   ```
-   
-1. The endpoint URL and primary key allow your app to connect to your Azure Cosmos DB account, and the Azure Cosmos DB account to trust the connection. Copy the keys from the [Azure portal](https://portal.azure.com), and paste them into your code. 
-
-   
-   1. In your Azure Cosmos DB account left navigation, select **Keys**.
-      
-      ![View and copy access keys in the Azure portal](./media/sql-api-get-started/nosql-tutorial-keys.png)
-      
-   1. Under **Read-write Keys**, copy the **URI** value using the copy button at the right, and paste it into `<your endpoint URL>` in *Program.cs*. For example: 
-      
-      `private const string EndpointUrl = "https://mysqlapicosmosdb.documents.azure.com:443/";`
-      
-   1. Copy the **PRIMARY KEY** value and paste it into `<your primary key>` in *Program.cs*. For example: 
-      
-      `private const string PrimaryKey = "19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==";`
-   
-1. After the `Main` method, add a new asynchronous task called `GetStartedDemo`, which instantiates a new `DocumentClient` called `client`.
-   
-   ```csharp
-      private async Task GetStartedDemo()
-      {
-        client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
-      }
+   using Microsoft.Azure.Cosmos;
    ```
 
-   If you are using a proxy object to connect to Azure Cosmos DB, you should instead use the following code block to create the DocumentClient object. The sample in this document doesn't use a proxy object, so the example below is just for your reference:
+1. Now, add these constants and variables into your public class ``Program``.
 
-   ```csharp
-   HttpClientHandler handler = new HttpClientHandler()
-   {
-     Proxy = proxyObject
-     UseProxy = true,
-   };
+    ```csharp
+    public class Program
+    {
+        // ADD THIS PART TO YOUR CODE
 
-   //Pass handler to the constructor of DocumentClient.
-   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
-   
-   ```
-   
-1. Add the following code to the `Main` method to run the `GetStartedDemo` task. The `Main` method catches exceptions and writes them to the console.
-   
-   ```csharp
-      static void Main(string[] args)
-      {
+        // The Azure Cosmos DB endpoint for running this sample.
+        private static readonly string EndpointUri = "<your endpoint here>";
+        // The primary key for the Azure Cosmos account.
+        private static readonly string PrimaryKey = "<your primary key>";
+
+        // The Cosmos client instance
+        private CosmosClient cosmosClient;
+
+        // The database we will create
+        private CosmosDatabase database;
+
+        // The container we will create.
+        private CosmosContainer container;
+
+        // The name of the database and container we will create
+        private string databaseId = "FamilyDatabase";
+        private string containerId = "FamilyContainer";
+    }
+    ```
+
+    Note, if you are familiar with the previous version of the .NET SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports multiple API models, version 3.0+ of the .NET SDK uses the generic terms 'container' and 'item.' A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. [Learn more about databases, containers, and items.](databases-containers-items.md)
+
+1. Retrieve your endpoint URL and primary key from the [Azure portal](https://portal.azure.com).
+
+    In the Azure portal, navigate to your Azure Cosmos DB account, and then click **Keys**.
+
+    Copy the URI from the portal and paste it into `<your endpoint URL>` in the ```Program.cs``` file. Copy the PRIMARY KEY from the portal and paste it into `<your primary key>`.
+
+   ![Screenshot to get Azure Cosmos DB keys from Azure portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+
+1. Next, we'll create a new instance of ```CosmosClient``` and set up some scaffolding for our program.
+
+    Below the **Main** method, add a new asynchronous task called **GetStartedDemoAsync**, which will instantiate our new ```CosmosClient```. We will use **GetStartedDemoAsync** as the entry point that calls methods that operate on Azure Cosmos DB resources.
+
+    ```csharp
+    public static async Task Main(string[] args)
+    {
+    }
+
+    // ADD THIS PART TO YOUR CODE
+    /*
+        Entry point to call methods that operate on Azure Cosmos DB resources in this sample
+    */
+    public async Task GetStartedDemoAsync()
+    {
+        // Create a new instance of the Cosmos Client
+        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+    }
+    ```
+
+1. Add the following code to run the **GetStartedDemoAsync** asynchronous task from your **Main** method. The **Main** method will catch exceptions and write them to the console.
+
+    ```csharp
+    public static async Task Main(string[] args)
+    {
+        // ADD THIS PART TO YOUR CODE
         try
         {
-           Program p = new Program();
-           p.GetStartedDemo().Wait();
+            Console.WriteLine("Beginning operations...\n");
+            Program p = new Program();
+            await p.GetStartedDemoAsync();
         }
-        catch (DocumentClientException de)
+        catch (CosmosException de)
         {
-           Exception baseException = de.GetBaseException();
-           Console.WriteLine($"{de.StatusCode} error occurred: {de.Message}, Message: {baseException.Message}");
+            Exception baseException = de.GetBaseException();
+            Console.WriteLine("{0} error occurred: {1}\n", de.StatusCode, de);
         }
         catch (Exception e)
         {
-           Exception baseException = e.GetBaseException();
-           Console.WriteLine($"Error: {e.Message}, Message: {baseException.Message}");
+            Console.WriteLine("Error: {0}\n", e);
         }
         finally
         {
-           Console.WriteLine("End of demo, press any key to exit.");
-           Console.ReadKey();
+            Console.WriteLine("End of demo, press any key to exit.");
+            Console.ReadKey();
         }
-      }
-   ```
-   
-1. Press **F5** to run your app. 
-   
-1. When you see the message **End of demo, press any key to exit** in the console window, it means the connection was successful. Press any key to close the console window. 
+    }
+    ```
 
-You've successfully connected to your Azure Cosmos DB account. Now, work with some Azure Cosmos DB resources.  
+1. Select **F5** to run your application. The console window output displays the message `End of demo, press any key to exit.` confirming that the connection to Azure Cosmos DB was made. You can then close the console window.
 
-## Create a database
+Congratulations! You have successfully connected to an Azure Cosmos DB account. 
 
-An Azure Cosmos DB [database](databases-containers-items.md#azure-cosmos-databases) is the logical container of JSON document storage partitioned across collections. You create a database by using the [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync) method of the `DocumentClient` class. 
+## Step 4: Create a database
+A database can be created by using either the [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) or [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) function of the ``CosmosClient`` class. A database is the logical container of items partitioned across containers.
 
-1. Before you add the code for creating a database, add a helper method for writing to the console. Copy and paste the following `WriteToConsoleAndPromptToContinue` method after the `GetStartedDemo` method in your code.
-   
-   ```csharp
-   private void WriteToConsoleAndPromptToContinue(string format, params object[] args)
-   {
-      Console.WriteLine(format, args);
-      Console.WriteLine("Press any key to continue...");
-      Console.ReadKey();
-   }
-   ```
-   
-1. Copy and paste the following line to your `GetStartedDemo` method, after the `client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);` line. This code creates a database named `FamilyDB`.
-   
-   ```csharp
-      await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });
-   ```
-   
-1. Press **F5** to run your app.
+1. Copy and paste the **CreateDatabaseAsync** method below your **GetStartedDemoAsync** method. **CreateDatabaseAsync**  will create a new database with id ``FamilyDatabase`` if it does not already exist, with the id specified from the ``databaseId`` field. 
 
-You've successfully created an Azure Cosmos DB database. You can see the database in the [Azure portal](https://portal.azure.com) by selecting **Data Explorer** in your Azure Cosmos DB account left navigation. 
+    ```csharp
+    /*
+        Create the database if it does not exist
+    */
+    private async Task CreateDatabaseAsync()
+    {
+        // Create a new database
+        this.database = await this.cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
+        Console.WriteLine("Created Database: {0}\n", this.database.Id);
+    }
+    ```
 
-## <a id="CreateColl"></a>Create a collection
+1. Copy and paste the code below where you instantiated the CosmosClient to call the **CreateDatabaseAsync** method you just added.
 
-A collection is a container of JSON documents and associated JavaScript application logic. You create a collection by using the [CreateDocumentCollectionIfNotExistsAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync#overloads) method of the `DocumentClient` class. 
+    ```csharp
+    public async Task GetStartedDemoAsync()
+    {
+        // Create a new instance of the Cosmos Client
+        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
 
-> [!IMPORTANT]
-> **CreateDocumentCollectionIfNotExistsAsync** creates a new collection with reserved throughput, which has pricing implications. For more details, visit the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
-> 
+        //ADD THIS PART TO YOUR CODE
+        await this.CreateDatabaseAsync();
+    }
+    ```
 
-1. Copy and paste the following code to your `GetStartedDemo` method after the `await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });` line. This code creates a document collection named `FamilyCollection`.
-   
-   ```csharp
-      await client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB"), new DocumentCollection { Id = "FamilyCollection" });
-   ```
-   
-1. Press **F5** to run your app.
+    At this point, your code should now look like this, with your endpoint and primary key filled in.
 
-You've successfully created an Azure Cosmos DB document collection. You can see the collection under your **FamilyDB** database in **Data Explorer** in the Azure portal.  
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using System.Configuration;
+    using Microsoft.Azure.Cosmos;
+    using System.Collections.Generic;
+    using System.Net;
 
-## <a id="CreateDoc"></a>Create JSON documents
+    namespace CosmosGettingStarted
+    {
+        class Program
+        {
+            // The Azure Cosmos DB endpoint for running this sample.
+            private static readonly string EndpointUri = "<your endpoint here>";
+            // The primary key for the Azure Cosmos account.
+            private static readonly string PrimaryKey = "<your primary key>";
 
-Documents are user-defined, arbitrary JSON content. Documents must have an ID property serialized as `id` in JSON. You create documents by using the [CreateDocumentAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentasync#overloads) method of the `DocumentClient` class. 
+            // The Cosmos client instance
+            private CosmosClient cosmosClient;
 
-> [!TIP]
-> If you already have data you'd like to store in your database, you can use the Azure Cosmos DB [Data Migration tool](import-data.md) to import it.
+            // The database we will create
+            private CosmosDatabase database;
+
+            // The container we will create.
+            private CosmosContainer container;
+
+            // The name of the database and container we will create
+            private string databaseId = "FamilyDatabase";
+            private string containerId = "FamilyContainer";
+
+            public static async Task Main(string[] args)
+            {
+                try
+                {
+                    Console.WriteLine("Beginning operations...");
+                    Program p = new Program();
+                    await p.GetStartedDemoAsync();
+                }
+                catch (CosmosException de)
+                {
+                    Exception baseException = de.GetBaseException();
+                    Console.WriteLine("{0} error occurred: {1}\n", de.StatusCode, de);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: {0}\n", e);
+                }
+                finally
+                {
+                    Console.WriteLine("End of demo, press any key to exit.");
+                    Console.ReadKey();
+                }
+            }
+
+            /*
+                Entry point to call methods that operate on Azure Cosmos DB resources in this sample
+            */
+            public async Task GetStartedDemoAsync()
+            {
+                // Create a new instance of the Cosmos Client
+                this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+                await this.CreateDatabaseAsync();
+            }
+
+            /*
+                Create the database if it does not exist
+            */
+            private async Task CreateDatabaseAsync()
+            {
+                // Create a new database
+                this.database = await this.cosmosClient.CreateDatabaseIfNotExistsAsync(databaseId);
+                Console.WriteLine("Created Database: {0}\n", this.database.Id);
+            }
+        }
+    }
+    ```
+
+Select **F5** to run your application.
+
+Congratulations! You have successfully created an Azure Cosmos DB database.  
+
+## <a id="CreateColl"></a>Step 5: Create a container
+> [!WARNING]
+> Calling the method **CreateContainerIfNotExistsAsync** will create a new container, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
+>
 >
 
-The following code creates and inserts two documents into your database collection. First, you create a `Family` class, and `Parent`, `Child`, `Pet`, and `Address` subclasses to use within `Family`. Then, you create a `CreateFamilyDocumentIfNotExists` method, and then create and insert two documents. 
+A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) or [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) function in the **CosmosDatabase** class. A container consists of items (which in the case of the SQL API is JSON documents) and associated server-side application logic in JavaScript, e.g. stored procedures, user-defined functions, and triggers.
 
-1. Copy and paste the following `Family`, `Parent`, `Child`, `Pet`, and `Address` classes after the `WriteToConsoleAndPromptToContinue` method in your code.
-   
-   ```csharp
-    public class Family
+1. Copy and paste the **CreateContainerAsync** method below your **CreateDatabaseAsync** method. **CreateContainerAsync**  will create a new container with id ``FamilyContainer`` if it does not already exist, with the id specified from the ``containerId`` field partitioned by ``LastName`` property.
+
+    ```csharp
+    /*
+        Create the container if it does not exist.
+        Specify "/LastName" as the partition key since we're storing family information, to ensure good distribution of requests and storage.
+    */
+    private async Task CreateContainerAsync()
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
-        public string LastName { get; set; }
-        public Parent[] Parents { get; set; }
-        public Child[] Children { get; set; }
-        public Address Address { get; set; }
-        public bool IsRegistered { get; set; }
-        public override string ToString()
+        // Create a new container
+        this.container = await this.database.CreateContainerIfNotExistsAsync(containerId, "/LastName");
+        Console.WriteLine("Created Container: {0}\n", this.container.Id);
+    }
+    ```
+
+1. Copy and paste the code below where you instantiated the CosmosClient to call the **CreateContainer** method you just added.
+
+    ```csharp
+    public async Task GetStartedDemoAsync()
+    {
+        // Create a new instance of the Cosmos Client
+        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+        await this.CreateDatabaseAsync();
+
+        //ADD THIS PART TO YOUR CODE
+        await this.CreateContainerAsync();
+    }
+    ```
+
+   Select **F5** to run your application.
+
+Congratulations! You have successfully created an Azure Cosmos DB container.  
+
+## <a id="CreateDoc"></a>Step 6: Add items to the container
+An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosContainer** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+
+First, let's create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that items must have an **Id** property serialized as **id** in JSON.
+
+1. Select **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project. 
+
+    ![Screenshot of adding a new Family.cs class into the project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+
+1. Copy and paste the **Family**, **Parent**, **Child**, **Pet**, and **Address** class into **Family.cs**.
+
+    ```csharp
+    using Newtonsoft.Json;
+
+    namespace CosmosGettingStarted
+    {
+        public class Family
         {
-            return JsonConvert.SerializeObject(this);
-        }
-    }
-
-    public class Parent
-    {
-        public string FamilyName { get; set; }
-        public string FirstName { get; set; }
-    }
-
-    public class Child
-    {
-        public string FamilyName { get; set; }
-        public string FirstName { get; set; }
-        public string Gender { get; set; }
-        public int Grade { get; set; }
-        public Pet[] Pets { get; set; }
-    }
-
-    public class Pet
-    {
-        public string GivenName { get; set; }
-    }
-
-    public class Address
-    {
-        public string State { get; set; }
-        public string County { get; set; }
-        public string City { get; set; }
-    }
-   ```
-   
-1. Copy and paste the following `CreateFamilyDocumentIfNotExists` method after the `Address` class you just added.
-   
-   ```csharp
-    private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
-    {
-        try
-        {
-            await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, family.Id));
-            WriteToConsoleAndPromptToContinue($"Found {family.Id}");
-        }
-        catch (DocumentClientException de)
-        {
-            if (de.StatusCode == HttpStatusCode.NotFound)
+            [JsonProperty(PropertyName = "id")]
+            public string Id { get; set; }
+            public string LastName { get; set; }
+            public Parent[] Parents { get; set; }
+            public Child[] Children { get; set; }
+            public Address Address { get; set; }
+            public bool IsRegistered { get; set; }
+            public override string ToString()
             {
-                await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), family);
-                WriteToConsoleAndPromptToContinue($"Created Family {family.Id}");
-            }
-            else
-            {
-                throw;
+                return JsonConvert.SerializeObject(this);
             }
         }
+
+        public class Parent
+        {
+            public string FamilyName { get; set; }
+            public string FirstName { get; set; }
+        }
+
+        public class Child
+        {
+            public string FamilyName { get; set; }
+            public string FirstName { get; set; }
+            public string Gender { get; set; }
+            public int Grade { get; set; }
+            public Pet[] Pets { get; set; }
+        }
+
+        public class Pet
+        {
+            public string GivenName { get; set; }
+        }
+
+        public class Address
+        {
+            public string State { get; set; }
+            public string County { get; set; }
+            public string City { get; set; }
+        }
     }
-   ```
-   
-1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the `await client.CreateDocumentCollectionIfNotExistsAsync` line. This code creates and inserts two documents, one each for the Andersen and Wakefield families.
-   
-   ```csharp
-    Family andersenFamily = new Family
+    ```
+
+1. Navigate back to **Program.cs** and add the **AddItemsToContainerAsync** method under your **CreateContainerAsync** method.
+The code checks to make sure an item with the same id does not already exist before creating it. We will insert two items, one each for the Andersen Family and the Wakefield Family.
+
+    ```csharp
+    /*
+        Add Family items to the container
+    */
+    private async Task AddItemsToContainerAsync()
     {
-        Id = "AndersenFamily",
-        LastName = "Andersen",
-        Parents = new Parent[]
+        // Create a family object for the Andersen family
+        Family andersenFamily = new Family
         {
-            new Parent { FirstName = "Thomas" },
-            new Parent { FirstName = "Mary Kay" }
-        },
-        Children = new Child[]
-        {
-            new Child
+            Id = "Andersen.1",
+            LastName = "Andersen",
+            Parents = new Parent[]
             {
-                FirstName = "Henriette Thaulow",
-                Gender = "female",
-                Grade = 5,
-                Pets = new Pet[]
+                new Parent { FirstName = "Thomas" },
+                new Parent { FirstName = "Mary Kay" }
+            },
+            Children = new Child[]
+            {
+                new Child
                 {
-                    new Pet { GivenName = "Fluffy" }
-                }
-            }
-        },
-        Address = new Address { State = "WA", County = "King", City = "Seattle" },
-        IsRegistered = true
-    };
-
-    await CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
-
-    Family wakefieldFamily = new Family
-    {
-        Id = "WakefieldFamily",
-        LastName = "Wakefield",
-        Parents = new Parent[]
-        {
-            new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
-            new Parent { FamilyName = "Miller", FirstName = "Ben" }
-        },
-        Children = new Child[]
-        {
-            new Child
-            {
-                FamilyName = "Merriam",
-                FirstName = "Jesse",
-                Gender = "female",
-                Grade = 8,
-                Pets = new Pet[]
-                {
-                    new Pet { GivenName = "Goofy" },
-                    new Pet { GivenName = "Shadow" }
+                    FirstName = "Henriette Thaulow",
+                    Gender = "female",
+                    Grade = 5,
+                    Pets = new Pet[]
+                    {
+                        new Pet { GivenName = "Fluffy" }
+                    }
                 }
             },
-            new Child
+            Address = new Address { State = "WA", County = "King", City = "Seattle" },
+            IsRegistered = true
+        };
+
+        // Read the item to see if it exists. Note ReadItemAsync will not throw an exception if an item does not exist. Instead, we check he StatusCode property off the response object. 
+        ItemResponse<Family> andersenFamilyResponse = await this.container.ReadItemAsync<Family>(andersenFamily.Id, new PartitionKeyandersenFamily.LastName));
+
+        if (andersenFamilyResponse.StatusCode == HttpStatusCode.NotFound)
+        {
+            // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
+            andersenFamilyResponse = await this.container.CreateItemAsync<Family>(andersenFamily, new PartitionKey(andersenFamily.LastName));
+
+            // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+            Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
+        }
+        else
+        {
+            Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
+        }
+
+        // Create a family object for the Wakefield family
+        Family wakefieldFamily = new Family
+        {
+            Id = "Wakefield.7",
+            LastName = "Wakefield",
+            Parents = new Parent[]
             {
-                FamilyName = "Miller",
-                FirstName = "Lisa",
-                Gender = "female",
-                Grade = 1
+                new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
+                new Parent { FamilyName = "Miller", FirstName = "Ben" }
+            },
+            Children = new Child[]
+            {
+                new Child
+                {
+                    FamilyName = "Merriam",
+                    FirstName = "Jesse",
+                    Gender = "female",
+                    Grade = 8,
+                    Pets = new Pet[]
+                    {
+                        new Pet { GivenName = "Goofy" },
+                        new Pet { GivenName = "Shadow" }
+                    }
+                },
+                new Child
+                {
+                    FamilyName = "Miller",
+                    FirstName = "Lisa",
+                    Gender = "female",
+                    Grade = 1
+                }
+            },
+            Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+            IsRegistered = true
+        };
+
+        // Read the item to see if it exists
+        ItemResponse<Family> wakefieldFamilyResponse = await this.container.ReadItemAsync<Family>(wakefieldFamily.Id, new PartitionKeywakefieldFamily.LastName));
+
+        if (wakefieldFamilyResponse.StatusCode == HttpStatusCode.NotFound)
+        {
+            // Create an item in the container representing the Wakefield family. Note we provide the value of the partition key for this item, which is "Wakefield"
+            wakefieldFamilyResponse = await this.container.CreateItemAsync<Family>(wakefieldFamily, new PartitionKey(wakefieldFamily.LastName));
+
+            // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+            Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", wakefieldFamilyResponse.Resource.Id, wakefieldFamilyResponse.RequestCharge);
+        }
+        else
+        {
+            Console.WriteLine("Item in database with id: {0} already exists\n", wakefieldFamilyResponse.Resource.Id);
+        }
+    }
+    ```
+
+1. Add a call to ``AddItemsToContainerAsync`` in the ``GetStartedDemoAsync`` method.
+
+    ```csharp
+    public async Task GetStartedDemoAsync()
+    {
+        // Create a new instance of the Cosmos Client
+        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+        await this.CreateDatabaseAsync();
+        await this.CreateContainerAsync();
+
+        //ADD THIS PART TO YOUR CODE
+        await this.AddItemsToContainerAsync();
+    }
+    ```
+
+Select **F5** to run your application.
+
+Congratulations! You have successfully created two Azure Cosmos DB items.  
+
+## <a id="Query"></a>Step 7: Query Azure Cosmos DB resources
+Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows how to run a query against the items we inserted in the previous step.
+
+1. Copy and paste the **QueryItemsAsync** method below your **AddItemsToContainerAsync** method.
+
+    ```csharp
+    /*
+        Run a query (using Azure Cosmos DB SQL syntax) against the container
+    */
+    private async Task QueryItemsAsync()
+    {
+        var sqlQueryText = "SELECT * FROM c WHERE c.LastName = 'Andersen'";
+
+        Console.WriteLine("Running query: {0}\n", sqlQueryText);
+
+        QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);
+        FeedIterator<Family> queryResultSetIterator = this.container.GetItemQueryIterator<Family>(queryDefinition);
+
+        List<Family> families = new List<Family>();
+
+        while (queryResultSetIterator.HasMoreResults)
+        {
+            FeedResponse<Family> currentResultSet = await queryResultSetIterator.ReadNextAsync();
+            foreach (Family family in currentResultSet)
+            {
+                families.Add(family);
+                Console.WriteLine("\tRead {0}\n", family);
             }
-        },
-        Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-        IsRegistered = false
-    };
-
-    await CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
-   ```
-   
-1. Press **F5** to run your app.
-
-You've successfully created two Azure Cosmos DB documents. You can see the documents under your **FamilyDB** database and **FamilyCollection** collection in **Data Explorer** in the Azure portal.   
-
-![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents](./media/sql-api-get-started/nosql-tutorial-account-database.png)
-
-## <a id="Query"></a>Query Azure Cosmos DB resources
-
-Azure Cosmos DB supports rich [queries](how-to-sql-query.md) against JSON documents stored in collections. The following sample code uses LINQ and Azure Cosmos DB SQL syntax to run a query against the sample documents.
-
-1. Copy and paste the following `ExecuteSimpleQuery` method after the `CreateFamilyDocumentIfNotExists` method in your code.
-   
-   ```csharp
-    private void ExecuteSimpleQuery(string databaseName, string collectionName)
-    {
-        // Set some common query options.
-        FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
-
-        // Find the Andersen family by its LastName.
-        IQueryable<Family> familyQuery = client.CreateDocumentQuery<Family>(
-            UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), queryOptions)
-            .Where(f => f.LastName == "Andersen");
-
-        // Execute the query synchronously. 
-        // You could also execute it asynchronously using the IDocumentQuery<T> interface.
-        Console.WriteLine("Running LINQ query...");
-        foreach (Family family in familyQuery)
-        {
-            Console.WriteLine($"\tRead {family}");
         }
-
-        // Now execute the same query using direct SQL.
-        IQueryable<Family> familyQueryInSql = client.CreateDocumentQuery<Family>(
-            UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-            "SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
-            queryOptions);
-
-        Console.WriteLine("Running direct SQL query...");
-        foreach (Family family in familyQueryInSql)
-        {
-            Console.WriteLine($"\tRead {family}");
-        }
-
-        Console.WriteLine("Press any key to continue ...");
-        Console.ReadKey();
     }
-   ```
-   
-1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the `await CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);` line.
-   
-   ```csharp
-      ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
-   ```
-   
-1. Press **F5** to run your app.
+    ```
 
-The preceding query returns the complete item for the Andersen family. You've successfully queried against an Azure Cosmos DB collection.
+1. Add a call to ``QueryItemsAsync`` in the ``GetStartedDemoAsync`` method.
 
-The following diagram illustrates how the Azure Cosmos DB SQL query syntax calls against the collection. The same logic applies to the LINQ query.
-
-![Diagram illustrating the scope and meaning of the query used by the NoSQL tutorial to create a C# console application](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
-
-The [FROM](sql-query-from.md) keyword in the SQL query is optional, because Azure Cosmos DB queries are already scoped to a single collection. You can swap `FROM Families f` with `FROM root r`, or any other variable name you choose. Azure Cosmos DB will infer that `Families`, `root`, or the variable name you choose refers to the current collection.
-
-## <a id="ReplaceDocument"></a>Update a JSON document
-
-Azure Cosmos DB SQL API supports updating and replacing JSON documents.  
-
-1. Copy and paste the following `ReplaceFamilyDocument` method after the `ExecuteSimpleQuery` method in your code.
-   
-   ```csharp
-    private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
+    ```csharp
+    public async Task GetStartedDemoAsync()
     {
-       await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-       WriteToConsoleAndPromptToContinue($"Replaced Family {familyName}");
+        // Create a new instance of the Cosmos Client
+        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+        await this.CreateDatabaseAsync();
+        await this.CreateContainerAsync();
+        await this.AddItemsToContainerAsync();
+
+        //ADD THIS PART TO YOUR CODE
+        await this.QueryItemsAsync();
     }
-   ```
-   
-1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the `ExecuteSimpleQuery("FamilyDB", "FamilyCollection");` line. The code updates the data in one of the documents, and then runs the query again to show the changed document.
-   
-   ```csharp
-   // Update the Grade of the Andersen Family child
-   andersenFamily.Children[0].Grade = 6;
-   await ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "AndersenFamily", andersenFamily);
-   ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
-   ```
-   
-1. Press **F5** to run your app.
+    ```
 
-The query output shows that the `Grade` for the Andersen Family's child updated from `5` to `6`. You've successfully updated and replaced an Azure Cosmos DB document. 
+Select **F5** to run your application.
 
-## <a id="DeleteDocument"></a>Delete a JSON document
+Congratulations! You have successfully queried against an Azure Cosmos DB container.
 
-Azure Cosmos DB SQL API supports deleting JSON documents.  
+## <a id="ReplaceItem"></a>Step 8: Replace a JSON item
+Now, we will update an item in Azure Cosmos DB.
 
-1. Copy and paste the following `DeleteFamilyDocument` method after the `ReplaceFamilyDocument` method.
-   
-   ```csharp
-    private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
+1. Copy and paste the **ReplaceFamilyItemAsync** method below your **QueryItemsAsync** method. Note we are changing the ``IsRegistered`` property of the Family and the ``Grade`` of one of the children.
+
+    ```csharp
+    /*
+    Update an item in the container
+    */
+    private async Task ReplaceFamilyItemAsync()
     {
-        await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-        Console.WriteLine($"Deleted Family {documentName}");
+        ItemResponse<Family> wakefieldFamilyResponse = await this.container.ReadItemAsync<Family>("Wakefield.7", new PartitionKey("Wakefield"));
+        var itemBody = wakefieldFamilyResponse.Resource;
+
+        // update registration status from false to true
+        itemBody.IsRegistered = true;
+        // update grade of child
+        itemBody.Children[0].Grade = 6;
+
+        // replace the item with the updated content
+        wakefieldFamilyResponse = await this.container.ReplaceItemAsync<Family>(itemBody, itemBody.Id, new PartitionKey(itemBody.LastName));
+        Console.WriteLine("Updated Family [{0},{1}].\n \tBody is now: {2}\n", itemBody.LastName, itemBody.Id, wakefieldFamilyResponse.Resource);
     }
-   ```
-   
-1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the second `ExecuteSimpleQuery("FamilyDB", "FamilyCollection");` line.
-   
-   ```csharp
-   await DeleteFamilyDocument("FamilyDB", "FamilyCollection", "AndersenFamily");
-   ```
-   
-1. Press **F5** to run your app.
+    ```
 
-You've successfully deleted an Azure Cosmos DB document. 
+1. Add a call to ``ReplaceFamilyItemAsync`` in the ``GetStartedDemoAsync`` method.
 
-## <a id="DeleteDatabase"></a>Delete the database
+    ```csharp
+    public async Task GetStartedDemoAsync()
+    {
+        // Create a new instance of the Cosmos Client
+        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+        await this.CreateDatabaseAsync();
+        await this.CreateContainerAsync();
+        await this.AddItemsToContainerAsync();
+        await this.QueryItemsAsync();
 
-Delete the database you created to remove it and all its child resources, including the collection and documents. 
+        //ADD THIS PART TO YOUR CODE
+        await this.ReplaceFamilyItemAsync();
+    }
+    ```
 
-1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the `await DeleteFamilyDocument("FamilyDB", "FamilyCollection", "AndersenFamily");` line. 
-   
-   ```csharp
-   // Clean up - delete the database
-   await client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
-   ```
-   
-1. Press **F5** to run your app.
+   Select **F5** to run your application.
 
-You've successfully deleted the Azure Cosmos DB database. You can see in the **Data Explorer** for your Azure Cosmos DB account that the FamilyDB database is deleted. 
+Congratulations! You have successfully replaced an Azure Cosmos DB item.
 
-## <a id="Run"></a>Run the entire C# console app
+## <a id="DeleteDocument"></a>Step 9: Delete item
+Now, we will delete an item in Azure Cosmos DB.
 
-Press **F5** in Visual Studio to build and run the complete C# console app in debug mode. You should see the following output in the console window:
+1. Copy and paste the **DeleteFamilyItemAsync** method below your **ReplaceFamilyItemAsync** method.
 
-```bash
-Created Family AndersenFamily
-Press any key to continue ...
- Created Family WakefieldFamily
-Press any key to continue ...
- Running LINQ query...
-        Read {"id":"AndersenFamily","LastName":"Andersen","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
-Running direct SQL query...
-        Read {"id":"AndersenFamily","LastName":"Andersen","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
-Press any key to continue ...
- Replaced Family AndersenFamily
-Press any key to continue ...
- Running LINQ query...
-        Read {"id":"AndersenFamily","LastName":"Andersen","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":6,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
-Running direct SQL query...
-        Read {"id":"AndersenFamily","LastName":"Andersen","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":6,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
-Press any key to continue ...
- Deleted Family AndersenFamily
+    ```csharp
+    /*
+    Delete an item in the container
+    */
+    private async Task DeleteFamilyItemAsync()
+    {
+        var partitionKeyValue = "Wakefield";
+        var familyId = "Wakefield.7";
+
+        // Delete an item. Note we must provide the partition key value and id of the item to delete
+        ItemResponse<Family> wakefieldFamilyResponse = await this.container.DeleteItemAsync<Family>(familyId,new PartitionKey(partitionKeyValue));
+        Console.WriteLine("Deleted Family [{0},{1}]\n", partitionKeyValue, familyId);
+    }
+    ```
+
+1. Add a call to ``DeleteFamilyItemAsync`` in the ``GetStartedDemoAsync`` method.
+
+    ```csharp
+    public async Task GetStartedDemoAsync()
+    {
+        // Create a new instance of the Cosmos Client
+        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+        await this.CreateDatabaseAsync();
+        await this.CreateContainerAsync();
+        await this.AddItemsToContainerAsync();
+        await this.QueryItemsAsync();
+        await this.ReplaceFamilyItemAsync();
+
+        //ADD THIS PART TO YOUR CODE
+        await this.DeleteFamilyItemAsync();
+    }
+    ```
+
+Select **F5** to run your application.
+
+Congratulations! You have successfully deleted an Azure Cosmos DB item.
+
+## <a id="DeleteDatabase"></a>Step 10: Delete the database
+Now we will delete our database. Deleting the created database will remove the database and all children resources (containers, items, and any stored procedures, user-defined functions, and triggers). We will also dispose of the **CosmosClient** instance.
+
+1. Copy and paste the **DeleteDatabaseAndCleanupAsync** method below your **DeleteFamilyItemAsync** method.
+
+    ```csharp
+    /*
+    Delete the database and dispose of the Cosmos Client instance
+    */
+    private async Task DeleteDatabaseAndCleanupAsync()
+    {
+        DatabaseResponse databaseResourceResponse = await this.database.DeleteAsync();
+        // Also valid: await this.cosmosClient.Databases["FamilyDatabase"].DeleteAsync();
+
+        Console.WriteLine("Deleted Database: {0}\n", this.databaseId);
+
+        //Dispose of CosmosClient
+        this.cosmosClient.Dispose();
+    }
+    ```
+
+1. Add a call to ``DeleteDatabaseAndCleanupAsync`` in the ``GetStartedDemoAsync`` method.
+
+    ```csharp
+    public async Task GetStartedDemoAsync()
+    {
+        // Create a new instance of the Cosmos Client
+        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
+        await this.CreateDatabaseAsync();
+        await this.CreateContainerAsync();
+        await this.AddItemsToContainerAsync();
+        await this.QueryItemsAsync();
+        await this.ReplaceFamilyItemAsync();
+        await this.DeleteFamilyItemAsync();
+
+        //ADD THIS PART TO YOUR CODE
+        await this.DeleteDatabaseAndCleanupAsync();
+    }
+    ```
+
+Select **F5** to run your application.
+
+Congratulations! You have successfully deleted an Azure Cosmos DB database.
+
+## <a id="Run"></a>Step 11: Run your C# console application all together!
+Select F5 in Visual Studio to build and run the application in debug mode.
+
+You should see the output of your entire app in a console window. The output will show the results of the queries we added and should match the example text below.
+
+```
+Beginning operations...
+
+Created Database: FamilyDatabase
+
+Created Container: FamilyContainer
+
+Created item in database with id: Andersen.1 Operation consumed 11.43 RUs.
+
+Created item in database with id: Wakefield.7 Operation consumed 14.29 RUs.
+
+Running query: SELECT * FROM c WHERE c.LastName = 'Andersen'
+
+        Read {"id":"Andersen.1","LastName":"Andersen","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":false}
+
+Updated Family [Wakefield,Wakefield.7].
+        Body is now: {"id":"Wakefield.7","LastName":"Wakefield","Parents":[{"FamilyName":"Wakefield","FirstName":"Robin"},{"FamilyName":"Miller","FirstName":"Ben"}],"Children":[{"FamilyName":"Merriam","FirstName":"Jesse","Gender":"female","Grade":6,"Pets":[{"GivenName":"Goofy"},{"GivenName":"Shadow"}]},{"FamilyName":"Miller","FirstName":"Lisa","Gender":"female","Grade":1,"Pets":null}],"Address":{"State":"NY","County":"Manhattan","City":"NY"},"IsRegistered":true}
+
+Deleted Family [Wakefield,Wakefield.7]
+
+Deleted Database: FamilyDatabase
+
 End of demo, press any key to exit.
 ```
 
-Congratulations! You've completed the tutorial, and have a working C# console app that creates, queries, updates, and deletes Azure Cosmos DB resources.  
+Congratulations! You've completed the tutorial and have a working C# console application!
+
+## <a id="GetSolution"></a> Get the complete tutorial solution
+If you didn't have time to complete the steps in this tutorial, or just want to download the code samples, you can get it from [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started). 
+
+To build the GetStarted solution, you will need the following:
+
+* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
+* An [Azure Cosmos DB account][cosmos-db-create-account].
+* The [GetStarted](https://github.com/Azure-Samples/cosmos-dotnet-getting-started) solution available on GitHub.
+
+To restore the references to the Azure Cosmos DB .NET SDK in Visual Studio, right-click the **GetStarted** solution in Solution Explorer, and then click **Restore NuGet Packages**. Next, in the App.config file, update the EndPointUri and PrimaryKey values as described in [Connect to an Azure Cosmos DB account](#Connect).
+
+That's it, build it, and you're on your way!
 
 ## Next steps
-* To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](introduction.md).
-* For a more complex ASP.NET MVC tutorial, see [ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB](sql-api-dotnet-application.md).
-* To perform scale and performance testing with Azure Cosmos DB, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
-* To learn how to monitor Azure Cosmos DB requests, usage, and storage, see [Monitor accounts](monitor-accounts.md).
-* Run queries against a sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
+* Want a more complex ASP.NET MVC tutorial? See [ASP.NET MVC Tutorial: Web application development with Azure Cosmos DB](sql-api-dotnet-application-preview.md).
+* Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and scale testing with Azure Cosmos DB](performance-testing.md)
+* Learn how to [monitor Azure Cosmos DB requests, usage, and storage](monitor-accounts.md).
+* Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
+* To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
+[cosmos-db-create-account]: create-sql-api-dotnet-preview.md#create-account
