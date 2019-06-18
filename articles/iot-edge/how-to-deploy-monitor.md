@@ -60,12 +60,12 @@ To add a module from Azure Stream Analytics, follow these steps:
 1. In the **Deployment Modules** section of the page, click **Add**.
 1. Select **Azure Stream Analytics module**.
 1. Choose your **Subscription** from the drop-down menu.
-1. Choose your **Edge job** from the drop-down menu.
+1. Choose your IoT **Edge job** from the drop-down menu.
 1. Select **Save** to add your module to the deployment. 
 
 To add custom code as a module, or to manually add an Azure service module, follow these steps:
 
-1. In the **Container Registry Settings** section of the page, provide the names and credentials for any private container registries that contain the module images for this deployment. The Edge Agent will report error 500 if it can't find the container registry credential for a Docker image.
+1. In the **Container Registry Settings** section of the page, provide the names and credentials for any private container registries that contain the module images for this deployment. The IoT Edge Agent will report error 500 if it can't find the container registry credential for a Docker image.
 1. In the **Deployment Modules** section of the page, click **Add**.
 1. Select **IoT Edge Module**.
 1. Give your module a **Name**.
