@@ -24,7 +24,7 @@ When you create a Media Services account, a **default** Streaming Endpoint is cr
 > [!NOTE]
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video. 
 >  
-> You are only billed when your Streaming Endpoint is in running state.
+> You are only billed when your Streaming Endpoint is in the running state.
 
 ## Naming convention
 
