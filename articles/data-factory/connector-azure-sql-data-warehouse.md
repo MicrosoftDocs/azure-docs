@@ -423,7 +423,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication, managed identity authentication |
 
     >[!IMPORTANT]
-    >If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication. Refer to [Impact of using VNet Service Endpoints with Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2 - managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) section respectively.
 
 2. The **source data format** is of **Parquet**, **ORC**, or **Delimited text**, with the following configurations:
 
@@ -534,12 +534,12 @@ If your source data is in text format or other non-PolyBase compatible stores (u
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-The solution is to unselect "**Use type default**" option (as false) in copy activity sink -> PolyBase setings. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+The solution is to unselect "**Use type default**" option (as false) in copy activity sink -> PolyBase settings. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )" is a PolyBase native configuration which specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file. 
 
 **Others**
 
-For more knonw PolyBase issues, refer to [Troubleshooting Azure SQL Data Warehouse PolyBase load](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
+For more known PolyBase issues, refer to [Troubleshooting Azure SQL Data Warehouse PolyBase load](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### SQL Data Warehouse resource class
 

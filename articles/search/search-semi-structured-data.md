@@ -123,7 +123,7 @@ The response should look like:
 
 ## Create an index
     
-The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), creating an Azure Search index that stores all searchable data. An index specifies all the parameters and their attributes.
+The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-indexer), creating an Azure Search index that stores all searchable data. An index specifies all the parameters and their attributes.
 
 The URL for this call is `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Replace `[service name]` with the name of your search service.
 
