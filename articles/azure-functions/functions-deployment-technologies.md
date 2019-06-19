@@ -143,15 +143,15 @@ The following table shows the operating systems and languages for which portal e
 | | Windows Consumption | Windows Premium (Preview) | Windows Dedicated | Linux Consumption (Preview) | Linux Dedicated |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
 | C# | | | | | |
-| C# Script |✔|✔|✔| |✔<sup>1</sup>|
+| C# Script |✔|✔|✔| |✔<sup>*</sup>|
 | F# | | | | | |
 | Java | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>1</sup>|
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>*</sup>|
 | Python (Preview) | | | | | |
 | PowerShell (Preview) |✔|✔|✔| | |
 | TypeScript (Node.js) | | | | | |
 
-<sup>1</sup> Portal editing is enabled for only HTTP and Timer triggers for Functions on Linux using the Dedicated Plan.
+<sup>*</sup> Portal editing is enabled for only HTTP and Timer triggers for Functions on Linux using the Dedicated Plan.
 
 ## Deployment slots
 
@@ -174,9 +174,10 @@ There are two levels of support:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
-> [Continuous delivery using Azure DevOps](functions-how-to-azure-devops.md)
-> [Zip deployments for Azure Functions](deployment-zip-push.md)
-> [Run your Azure Functions from a package file](run-functions-from-deployment-package.md)
-> [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md)
+Learn more about deploying your function apps in the following articles: 
+
++ [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
++ [Continuous delivery using Azure DevOps](functions-how-to-azure-devops.md)
++ [Zip deployments for Azure Functions](deployment-zip-push.md)
++ [Run your Azure Functions from a package file](run-functions-from-deployment-package.md)
++ [Automate resource deployment for your function app in Azure Functions](functions-infrastructure-as-code.md)
