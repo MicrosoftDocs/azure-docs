@@ -15,7 +15,7 @@ Create your resource group and single database using the Azure Portal.
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Select **Databases** and then select **SQL Database** to open the **Create SQL Database** page.
 
-   ![Create single database](./media/sql-database-get-started-portal/create-database-1.png)
+   ![Create single database](../articles/sql-database/media/sql-database-get-started-portal/create-database-1.png)
 
 3. On the **Basics** tab, in the **Project Details** section, type or select the following values:
 
@@ -115,7 +115,7 @@ Create your resource group and single database using PowerShell.
       -SampleName "AdventureWorksLT" `
    ```
 
-# [AZ CLI](#tab/azcli))
+# [BashI](#tab/bash)
 Create your resource group and single database using AZ CLI. 
 
 

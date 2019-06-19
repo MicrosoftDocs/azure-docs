@@ -41,7 +41,7 @@ To complete the tutorial, make sure you have the following items:
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# [AZ CLI](#tab/azcli)
+# [BashI](#tab/bash)
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
@@ -134,7 +134,7 @@ To create a failover group, run the following PowerShell script:
       -FailoverGroupName $FailoverGroupName
    ```
 
-# [AZ CLI](#tab/azcli)
+# [BashI](#tab/bash)
 Create your failover group and add your single database to it using AZ CLI. 
 
    ```azurecli-interactive
@@ -236,7 +236,7 @@ Revert failover group back to the primary server:
       -FailoverGroupName $FailoverGroupName
    ```
 
-# [AZ CLI](#tab/azcli)
+# [Bash](#tab/bash)
 Test failover using the AZ CLI. 
 
 
@@ -310,7 +310,7 @@ Delete the resource group using PowerShell.
    Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
    ```
 
-# [AZ CLI](#tab/azcli)
+# [BashI](#tab/bash)
 Delete the resource group by using AZ CLI. 
 
 
@@ -426,7 +426,7 @@ Delete the resource group by using AZ CLI.
 
 ```
 
-# [AZ CLI](#tab/azcli)
+# [BashI](#tab/bash)
 
 ```azurecli-interactive
    #!/bin/bash
