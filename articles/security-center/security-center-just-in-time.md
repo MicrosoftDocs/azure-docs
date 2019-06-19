@@ -99,12 +99,17 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
       - 3389 - RDP
       - 5985 - WinRM 
       - 5986 - WinRM
-6. You can also configure custom ports. To do this, click **Add**. 
-   -. In **Add port configuration**, for each port you choose to configure, both default and custom, you can customize the following settings:
-      - **Protocol type**- The protocol that is allowed on this port when a request is approved.
-      - **Allowed source IP addresses**- The IP ranges that are allowed on this port when a request is approved.
-      - **Maximum request time**- The maximum time window during which a specific port can be opened.
-7. Select **Save**.
+6. You can also configure custom ports:
+      1. Click **Add**. The **Add port configuration** window opens.
+      2. For each port you choose to configure, both default and custom, you can customize the following settings:
+
+    - **Protocol type**- The protocol that is allowed on this port when a request is approved.
+    - **Allowed source IP addresses**- The IP ranges that are allowed on this port when a request is approved.
+    - **Maximum request time**- The maximum time window during which a specific port can be opened.
+
+     3. Click **OK**.
+
+1. Select **Save**.
 
 > [!NOTE]
 >When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated and Azure Firewall with it. If other rules had been created for the selected ports, then the existing rules take priority over the new “deny all inbound traffic”  rules. If there are no existing rules on the selected ports, then the new “deny all inbound traffic” rules take top priority in the Network Security Groups and Azure Firewall.
@@ -116,7 +121,7 @@ To request access to a VM via ASC:
 
 1. Under **Just in time VM access**, select the **Configured** tab.
 
-2. Under **Virtual Machines**, click the VMs that you want to request access for. This puts a checkmark next to the VM.
+2. Under **Virtual Machine**, click the VMs that you want to request access for. This puts a checkmark next to the VM.
 
 
     - The icon in the **Connection Details** column indicates whether JIT is enabled on the NSG or FW. If it’s enabled on both, only the Firewall icon appears.
