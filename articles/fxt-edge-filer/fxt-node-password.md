@@ -79,7 +79,7 @@ The password you enter is used for two things:
 
 * It is the long-term password for the iDRAC/IPMI hardware management port.
 
-  Make sure you remember the password in case you need to sign in on the IPMI port later to troubleshoot a hardware problem.
+  Make sure you remember the password in case you need to sign in with IPMI later to troubleshoot a hardware problem.
 
 Enter and confirm the password: 
 

@@ -35,9 +35,7 @@ Each drive carrier has two status LEDs: an activity indicator (1) and a status i
 | Off (unlit)                         | System has not finished startup *or* <br>Drive is ready to be removed |
 | Flashes green, amber, and off       | Drive failure is predicted   |
 | Flashes amber four times per second | Drive failed   |
-| Flashes green slowly                | Drive is rebuilding |
 | Solid green                         | Drive is online |
-| Flashes green for three seconds, amber for three seconds, and then turns off after six seconds | Rebuild is stopped | 
 
 The right side of the drive (3) is labeled with the drive's capacity and other information.
 

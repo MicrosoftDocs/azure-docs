@@ -16,12 +16,12 @@ In this tutorial, you will learn:
 
 > [!div class="checklist"]
 > * How to choose the type of network cable for your environment
-> * How to connect an FXT Edge Filer node to your datacenter network
+> * How to connect an Azure FXT Edge Filer node to your datacenter network
 > * How to route cables through the Cable Management Arm (CMA)
 
 ## Prerequisites
 
-Before starting this tutorial, the Edge Filer should be installed in a standard equipment rack. The CMA should be installed on the filer node. 
+Before starting this tutorial, the Azure FXT Edge Filer should be installed in a standard equipment rack. The CMA should be installed on the filer node. 
 
 ## Identify ports
 
@@ -32,7 +32,7 @@ Identify the various ports on the back of your Azure FXT Edge Filer.
 ## Cable the device
 
 * Connect the RJ-45 ports to your data center's network source as described in [Network ports](#network-ports).  
-* Securely connect the [iDRAC/IPMI port](#ipmi-port) to a separate network with a secure DHCP server. 
+* Securely connect the [iDRAC port](#idrac-port) to a separate network with a secure DHCP server. 
 * Use the USB ports and the VGA port to connect a keyboard and monitor to the node for initial setup. You must boot the node and [set an initial password](fxt-node-password.md) to activate the node's other ports. Read [Set initial passwords](fxt-node-password.md) for details. 
 
 Before booting the node you also must connect AC power, described in [Connect power to the Azure FXT Edge Filer](fxt-power.md).
@@ -50,41 +50,44 @@ Each Azure FXT Edge Filer node includes the following network ports:
 
 * Two 1GbE ports provided by the motherboard mezzanine network adapter 
 
-The high-speed data ports have standard RJ-45 connectors. To use optical cables, you must install SFP28 optical cable adapters (not provided).
+The high-speed 25GbE/10GbE data ports have standard SFP28-compatible cages. To use optical cables, you must install SFP28 optical transceiver modules (not provided).
 
-For a full list of supported cables, switches, and transceivers, consult the [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/). 
+The 1GbE ports have standard RJ-45 connectors.
 
-The type of connections to use for your system depends on your data center environment. 
+For a full list of supported cables, switches, and transceivers, consult the [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+
+The type of connections to use for your system depends on your data center environment.
 
 * If connecting to a 25GbE network, cable each of the high-speed data ports with one of the following cable types:
 
-  * Optical cable with SFP28 optical cable adapters
-  * 25GbE copper twinaxial cable 
+  * Optical cable and SFP28 optical transceiver with 25GbE or dual rate 25GbE/10GbE capability
+  * SFP28 type 25GbE-capable direct attach twinaxial cable
 
 * If connecting to a 10GbE network, cable each of the high-speed data ports with one of the following: 
 
-  * Optical cable with SFP28 optical cable adapters
-  * 25GbE copper twinaxial cable 
-  * 10GbE copper twinaxial cable
+  * Optical cable and SFP28 optical transceiver with 10GbE or dual rate 25GbE/10GbE capability.
+  * SFP28 type 25GbE-capable direct attach twinaxial cable
+  * SFP28 type 10GbE-capable direct attach twinaxial cable
 
-* The 1GbE network ports are used for cluster management traffic. Check the **Use 1Gb mgmt network** option when creating the cluster (described in [Configure the management network](fxt-cluster-create.md#configure-the-management-network)). Cable the ports with Cat3 or Cat5 cable as described in the supported cables list. 
+* The 1GbE network ports are used for cluster management traffic. Check the **Use 1Gb mgmt network** option when creating the cluster (described in [Configure the management network](fxt-cluster-create.md#configure-the-management-network)). Cable the ports with standard Cat5 or better cable as described in the supported cables list.
 
   You can leave the 1GbE ports uncabled if you plan to use the high-speed ports for all traffic. By default, the 1GbE network ports are not used if a higher speed data port is available.  
 
-### IPMI port  
+### iDRAC port  
 
-The port labeled iDRAC is a 1Gb connection used for hardware management and monitoring. FXT software uses the Intelligent Platform Management Interface (IPMI) through this port for hardware troubleshooting and recovery. 
+The port labeled iDRAC is a 1Gb connection used for hardware management and monitoring. FXT software uses the Intelligent Platform Management Interface (IPMI) through this port for hardware troubleshooting and recovery. You also can use the built-in [iDRAC interface](https://www.dell.com/support/manuals/idrac9-lifecycle-controller-v3.30.30.30/idrac_3.30.30.30_ug/) to monitor hardware. iDRAC and IPMI access are enabled by default. 
 
 > [!Note]
-> The IPMI port can bypass the operating system and interact directly with hardware on the node. 
+> The iDRAC port can bypass the operating system and interact directly with hardware on the node. 
 
-Use these security strategies when connecting and configuring the iDRAC/IPMI port:
+Use these security strategies when connecting and configuring the iDRAC port:
 
-* Only connect iDRAC/IPMI ports to a network that is physically separated from the data network used to access the cluster.
-* Change the default IPMI administrator password on each node when you install it. Use a web browser to navigate to the node’s IPMI port IP address and use the provided interface to modify the user configuration.
-* The default IPMI port configuration uses DHCP for IP address assignment. Make sure your DHCP environment is well protected and that connections are restricted between DHCP clients and the DHCP server. (You can change the nodes’ IPMI address configuration method from the Control Panel after creating the cluster.)
+* Only connect iDRAC ports to a network that is physically separated from the data network used to access the cluster.
+* Change the default iDRAC/IPMI administrator password on each node when you install it. Use a web browser to navigate to the node’s iDRAC port IP address and use the provided interface to modify the user configuration.
+* The default iDRAC port configuration uses DHCP and IPv4 for IP address assignment. Make sure your DHCP environment is well protected and that connections are restricted between DHCP clients and the DHCP server. (The cluster control panel includes settings to change the nodes’ address configuration method after you create the cluster.)
+* Leave the iDRAC port set to "dedicated mode" (the default), which restricts it to iDRAC/IPMI network connections only.
 
-The IPMI port does not require a high-speed network. A 100 Mbps or 1GbE connection is sufficient.  
+The iDRAC port does not require a high-speed network. A 100 Mbps or 1GbE connection is sufficient.  
   
 ### Serial port (only when necessary)
 
