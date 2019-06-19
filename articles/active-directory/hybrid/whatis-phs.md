@@ -42,7 +42,7 @@ For more information, see [What is hybrid identity?](whatis-hybrid-identity.md).
 
 ## Next Steps
 
-- [What is hybrid identity?](whatis-phs.md)
+- [What is hybrid identity?](whatis-hybrid-identity.md)
 - [What is Azure AD Connect and Connect Health?](whatis-azure-ad-connect.md)
 - [What is pass-through authentication (PTA)?](how-to-connect-pta.md)
 - [What is federation?](whatis-fed.md)

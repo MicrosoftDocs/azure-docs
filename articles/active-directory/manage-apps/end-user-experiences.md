@@ -2,14 +2,14 @@
 title: End-user experiences for applications - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/03/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ---
@@ -43,7 +43,7 @@ For more information about the Office 365 application launcher, see [Have your a
 ## Direct sign-on to federated apps
 Most federated applications that support SAML 2.0, WS-Federation, or OpenID connect also support the ability for users to start at the application, and then get signed in through Azure AD either by automatic redirection or by clicking on a link to sign in. This is known as service provider -initiated sign-on, and most federated applications in the Azure AD application gallery support this (see the documentation linked from the app’s single sign-on configuration wizard in the Azure portal for details).
 
-![](./media/end-user-experiences/workdaymobile.png)
+![Example of a mobile app sign in page](./media/end-user-experiences/workdaymobile.png)
 
 ## Direct sign-on links
 Azure AD also supports direct single sign-on links to individual applications that support password-based single sign-on, linked single sign-on, and any form of federated single sign-on.

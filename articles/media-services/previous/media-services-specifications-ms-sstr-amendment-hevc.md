@@ -51,13 +51,13 @@ The following terms are specific to this document:
 
 >  **composition time:** The time a sample is presented at the client,
 >   as defined in
->   [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC**: Common Encryption, as defined in [ISO/IEC 23001-7] Second Edition.
 > 
 >   **decode time:** The time a sample is required to be decoded on the client,
 >   as defined in
->   [[ISO/IEChttps://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **fragment:** An independently downloadable unit of **media** that comprises one
 or more **samples**.
@@ -73,16 +73,16 @@ or more **samples**.
 >   **presentation:** The set of all **streams** and related metadata needed to
 >   play a single movie. **request:** An HTTP message sent from the client to
 >   the server, as defined in
->   [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **response:** An
+>   [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **response:** An
 >   HTTP message sent from the server to the client, as defined in
->   [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
 >   **sample:** The smallest fundamental unit (such as a frame) in which
 >   **media** is stored and processed.
 > 
 >   **MAY, SHOULD, MUST, SHOULD NOT, MUST NOT:** These terms (in all caps) are
 >   used as described in
->   [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) All statements of
+>   [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) All statements of
 >   optional behavior use either MAY, SHOULD, or SHOULD NOT.
 
 ## 1.2 References
@@ -519,7 +519,7 @@ is applied, and are specified in [ISO/IEC 23001-7] or [ISO/IEC 14496-12]:
 
 6.  Sample to Group Box (‘sbgp’)
 
------------------------
+---
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

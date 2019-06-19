@@ -4,7 +4,7 @@ description: Azure Spatial Anchors is a managed cloud service and developer plat
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
@@ -53,7 +53,7 @@ To provide transparency, below is an image of an environment and the derived spa
 
 Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9), and the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![An environment and its derived sparse point cloud](./media/sparce-point-cloud.png)
+![An environment and its derived sparse point cloud](./media/sparse-point-cloud.png)
 *Figure 1: An environment and its derived sparse point cloud*
 
 

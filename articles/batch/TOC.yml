@@ -65,7 +65,7 @@
       href: batch-aad-auth.md
     - name: Azure AD with Batch Management
       href: batch-aad-auth-management.md
-  - name: Create application packages
+  - name: Using application packages
     href: batch-application-packages.md
   - name: Create and manage pools
     items:

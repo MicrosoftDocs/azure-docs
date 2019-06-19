@@ -3,8 +3,8 @@ title: Set up your Azure Red Hat OpenShift development environment | Microsoft D
 description: Here are the prerequisites for working with Microsoft Azure Red Hat OpenShift.
 services: openshift
 keywords:  red hat openshift setup set up
-author: TylerMSFT
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
@@ -18,20 +18,22 @@ To build and run Microsoft Azure Red Hat OpenShift applications, you'll need to:
 
 * Purchase Azure virtual machine reserved instances.
 * Install version 2.0.65 (or higher) of the Azure CLI (or use the Azure Cloud Shell).
-* Register for the `openshiftmanagedcluster` feature and associated resource providers.
+* Register for the `AROGA` feature and associated resource providers.
 * Create an Azure Active Directory (Azure AD) tenant.
 * Create an Azure AD application object.
 * Create an Azure AD user.
 
 The following instructions will walk you through all of these prerequisites.
 
-## Purchase Azure virtual machine reserved instances
+## Purchase Azure Red Hat OpenShift application nodes reserved instances
 
-Before you can use Azure Red Hat OpenShift, you'll need to purchase Azure virtual machine reserved instances.
+Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes, after which you'll be able to provision clusters.
 
-If you are an Azure customer, here's how to [purchase Azure virtual machine reserved instances](https://aka.ms/openshift/buy). A reservation reduces your spend by pre-paying for fully managed Azure services. Refer to [*What are Azure Reservations*](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) to learn more about reservations and how they save you money.
+If you are an Azure customer, [purchase Azure Red Hat OpenShift reserved instances](https://aka.ms/openshift/buy) through the Azure portal. After purchasing, your subscription will be activated within 24 hours.
 
 If you are not an Azure customer, [contact sales](https://aka.ms/openshift/contact-sales) and fill out the sales form at the bottom of the page to start the process.
+
+Refer to the [Azure Red Hat OpenShift pricing page](https://aka.ms/openshift/pricing) for more information.
 
 ## Install the Azure CLI
 
@@ -49,7 +51,7 @@ Alternately, you can use the [Azure Cloud Shell](https://docs.microsoft.com/azur
 
 ## Register providers and features
 
-The `Microsoft.ContainerService openshiftmanagedcluster` feature, `Microsoft.Solutions`, and `Microsoft.Network` providers must be registered to your subscription manually before deploying your first Azure Red Hat OpenShift cluster.
+The `Microsoft.ContainerService AROGA` feature, `Microsoft.Solutions`, `Microsoft.Compute`, `Microsoft.Storage`, `Microsoft.KeyVault` and `Microsoft.Network` providers must be registered to your subscription manually before deploying your first Azure Red Hat OpenShift cluster.
 
 To register these providers and features manually, use the following instructions from a Bash shell if you've installed the CLI, or from the Azure Cloud Shell (Bash) session in your Azure portal:
 
@@ -59,31 +61,43 @@ To register these providers and features manually, use the following instruction
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-2. Register the Microsoft.ContainerService openshiftmanagedcluster feature:
+1. Register the Microsoft.ContainerService AROGA feature:
 
     ```bash
-    az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
+    az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
-3. Register the Microsoft.Solutions provider:
+1. Register the Microsoft.Storage provider:
+
+    ```bash
+    az provider register -n Microsoft.Storage --wait
+    ```
+    
+1. Register the Microsoft.Compute provider:
+
+    ```bash
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Register the Microsoft.Solutions provider:
 
     ```bash
     az provider register -n Microsoft.Solutions --wait
     ```
 
-4. Register the Microsoft.Network provider:
+1. Register the Microsoft.Network provider:
 
     ```bash
     az provider register -n Microsoft.Network --wait
     ```
 
-5. Register the Microsoft.KeyVault provider:
+1. Register the Microsoft.KeyVault provider:
 
     ```bash
     az provider register -n Microsoft.KeyVault --wait
     ```
 
-6. Refresh the registration of the Microsoft.ContainerService resource provider:
+1. Refresh the registration of the Microsoft.ContainerService resource provider:
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait

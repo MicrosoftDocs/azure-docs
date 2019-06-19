@@ -48,6 +48,7 @@ Alternately, you can run this quickstart from the command line with the followin
 
 ```python
 import requests
+import json
 
 subscription_key = None
 assert subscription_key

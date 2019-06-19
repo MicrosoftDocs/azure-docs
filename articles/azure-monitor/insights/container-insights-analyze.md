@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 06/12/2019
 ms.author: magoedte
 ---
 
@@ -21,11 +21,6 @@ With Azure Monitor for containers, you can use the performance charts and health
 This article will help you understand the experience between the two perspectives, and how it helps you quickly assess, investigate, and resolve issues detected.
 
 For information about enabling Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
-
-> [!IMPORTANT]
-> Azure Monitor for containers support to monitor an AKS cluster running Windows Server 2019 is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  
 
@@ -61,7 +56,7 @@ The health statuses included are:
 * **Not found** - Either the workspace, the resource group, or subscription containing the workspace for this solution has been deleted.
 * **Unauthorized** - User doesn’t have required permissions to read the data in the workspace.
 * **Error** - Error occurred while attempting to read data from the workspace.
-* **Mis configured** - Azure Monitor for containers was not configured correctly in the specified workspace.
+* **Misconfigured** - Azure Monitor for containers was not configured correctly in the specified workspace.
 * **No data** - Data has not reported to the workspace in the last 30 minutes.
 
 Health state calculates overall cluster status as *worst of* the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
@@ -107,7 +102,7 @@ The performance chart displays four performance metrics:
 - **Node count**: A node count and status from Kubernetes. Statuses of the cluster nodes represented are *All*, *Ready*, and *Not Ready* and can be filtered individually or combined in the selector above the chart. 
 - **Activity pod count**: A pod count and status from Kubernetes. Statuses of the pods represented are *All*, *Pending*, *Running*, and *Unknown* and can be filtered individually or combined in the selector above the chart. 
 
-You can use the left/right arrow keys to cycle through each data point on the chart and the up/down arrow keys to cycle through the percentile lines.
+You can use the left/right arrow keys to cycle through each data point on the chart and the up/down arrow keys to cycle through the percentile lines. Clicking on the pin icon at the upper right-hand corner of any one of the charts will pin the selected chart to the last Azure dashboard you last viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard will redirect you to Azure Monitor for containers and load the correct scope and view.
 
 Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you can also use the criteria you have set to visualize your metrics as the basis of a [metric based alert rule](../platform/alerts-metric.md).  
 
@@ -270,6 +265,20 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Last reported running status icon](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|  
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
+
+## Disk capacity workbook
+Workbooks combine text, [log queries](../log-query/query-language.md), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+
+Azure Monitor for containers includes a workbook to get you started, **Disk capacity**.  This workbook presents interactive disk usage charts for each disk presented to the node within a container by the following perspectives:
+
+- Disk % usage for all disks
+- Free disk space for all disks
+- A table showing for each nodes disk, its % used space, trend of % used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, % used space and free disk space (GiB) is shown below 
+
+You access this workbook by selecting **Disk capacity** from the **View Workbooks** drop-down list.  
+
+![View Workbooks drop-down list](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+
 
 ## Next steps
 - Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures. 

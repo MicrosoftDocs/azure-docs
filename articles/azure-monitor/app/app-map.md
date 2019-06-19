@@ -90,7 +90,9 @@ To view active alerts and the underlying rules that cause the alerts to be trigg
 
 Application Map uses the **cloud role name** property to identify the components on the map. The Application Insights SDK automatically adds the cloud role name property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the cloud role name property. However, there are cases where you may want to override the default value. To override cloud role name and change what gets displayed on the Application Map:
 
-### .NET
+### .NET/.NET Core
+
+**Write custom TelemetryInitializer as below.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -113,9 +115,9 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Load your initializer**
+**Load initializer to the active TelemetryConfiguration**
 
-In ApplicationInsights.config:
+In ApplicationInsights.config :
 
 ```xml
     <ApplicationInsights>
@@ -127,7 +129,10 @@ In ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-An alternate method is to instantiate the initializer in code, for example in Global.aspx.cs:
+> [!NOTE]
+> Adding initializer using `ApplicationInsights.config` is not valid for ASP.NET Core applications.
+
+An alternate method for ASP.NET Web apps is to instantiate the initializer in code, for example in Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -137,6 +142,17 @@ An alternate method is to instantiate the initializer in code, for example in Gl
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
     }
 ```
 

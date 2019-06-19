@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 06/13/2019
 ms.author: getroyer
 ---
 
@@ -54,6 +54,17 @@ To preserve parity of file paths with the **Free Compute** tier, you are able to
 
 When a project is run on a VM, the files are mounted on the root directory of the Jupyter server (the directory shown in JupyterHub), replacing the default Azure Notebooks files. When you shut down the VM using the **Shutdown** button on the notebook UI, Azure Notebooks restores the default files.
 
+![Shutdown button in Azure Notebooks](media/shutdown.png)
+
+## Create new DSVM users
+
+If multiple users share a DSVM, you can avoid blocking each other by creating and using a DSVM user for each notebook user:
+
+1. On the [Azure Portal](https://portal.azure.com), navigate to your virtual machine.
+1. Under **Support + troubleshooting** in the left margin, select **Reset password**.
+1. Enter a new username and password and select **Update**. (Existing usernames are not affected.)
+1. Repeat the previous step for any additional users.
+
 ## Next steps
 
-Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/machine-learning/data-science-virtual-machine/overview).
+Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).

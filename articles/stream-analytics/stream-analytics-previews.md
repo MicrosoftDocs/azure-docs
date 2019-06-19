@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/29/2019
 ---
 
 # Azure Stream Analytics preview features
@@ -25,10 +25,6 @@ Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS C
 ### Anomaly Detection
 
 Azure Stream Analytics introduces new machine learning models with support for *spike* and *dips* detection in addition to bi-directional, slow positive, and slow negative trends detection. For more information, visit [Anomaly detection in Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
-
-### SQL Database reference data
-
-Azure Stream Analytics supports Azure SQL Database as a source of input for reference data. You can use SQL Database as reference data for your Stream Analytics job in the Azure portal and in Visual Studio with Stream Analytics tools. For more information, visit, [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md).
 
 ### Integration with Azure Machine Learning
 

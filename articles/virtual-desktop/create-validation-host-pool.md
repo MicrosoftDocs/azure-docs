@@ -15,7 +15,7 @@ Host pools are a collection of one or more identical virtual machines within Win
 
 To ensure your apps work with the latest updates, the validation host pool should be as similar to host pools in your production environment as possible. Users should connect as frequently to the validation host pool as they do to the production host pool. If you have automated testing on your host pool, you should include automated testing on the validation host pool.
 
-You can debug issues in the validation host pool with either the diagnostics service or the [Windows Virtual Desktop troubleshooting articles](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
+You can debug issues in the validation host pool with either [the diagnostics feature](diagnostics-role-service.md) or the [Windows Virtual Desktop troubleshooting articles](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
 
 >[!NOTE]
 > We recommend that you leave the validation host pool in place to test all future updates.
@@ -66,7 +66,7 @@ In preview, service updates occur on approximately a monthly cadence. If there a
 
 ## Next steps
 
-Now that you've created a validation host pool, you can optionally populate your validation host pool with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
+Now that you've created a validation host pool, you can learn how to deploy and connect to a management tool for managing Microsoft Virtual Desktop resources.
 
 > [!div class="nextstepaction"]
-> [Manage app groups tutorial](./manage-app-groups.md)
+> [Deploy a management tool tutorial](./manage-resources-using-ui.md)
