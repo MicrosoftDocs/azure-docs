@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/14/2019
+ms.date: 06/19/2019
 ms.author: cynthn
 ---
 
 # Co-location
 
-One of the largest contributors to latency between VMs is simply distance.
+When deploying your application in Azure, it is important to understand that spreading instances across regions or availability zones results in network latency, which may impact the overall performance of your application. 
 
 ## Preview: Proximity placement groups
 
