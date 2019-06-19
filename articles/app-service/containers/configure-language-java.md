@@ -59,9 +59,11 @@ The built-in Java images are based on the [Alpine Linux](https://alpine-linux.re
 
 ### Flight Recorder
 
+All Linux Java images on App Service have Zulu Flight Recorder installed so you can easily connect to the JVM and start a profiler recording or generate a heap dump.
+
 #### Timed Recording
 
-All Java images on Linux App Service have Zulu Flight Recorder installed so you can easily connect to the JVM and start a profiler recording or generate a heap dump. To get started, SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to jcmd itself, you should see your Java application running with a process ID number (pid).
+To get started, SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to jcmd itself, you should see your Java application running with a process ID number (pid).
 
 ```shell
 078990bbcd11:/home# jcmd
@@ -80,17 +82,17 @@ During the 30 second interval, you can validate the recording is taking place by
 
 #### Continuous Recording
 
-You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance ([source](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). To do so, create an App Setting with a name of JAVA_OPTS and the following value. The contents of JAVA_OPTS App Setting are passed to the `java` command when your app is started.
+You can use Zulu Flight Recorder to continuously profile your Java application with minimal impact on runtime performance ([source](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). To do so, run the following Azure CLI command to create an App Setting named JAVA_OPTS with the necessary configuration. The contents of JAVA_OPTS App Setting are passed to the `java` command when your app is started.
 
-```shell
--XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
+```azurecli
+az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
 ```
 
 For more information, please see the [Jcmd Command Reference](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
 
 ### Analyzing Recordings
 
-Use (S)FTP to download your JFR file to your local machine. For instructions on using FTP with App Service, please see [this document](https://docs.microsoft.com/en-us/azure/app-service/deploy-ftp). To analyze the JFR file, download and install [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). Please see the [Azul documentation](https://docs.azul.com/zmc/) for instructions on using Zulu Mission Control.
+Use [FTPS](../deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). For instructions on Zulu Mission Control, see [Azul documentation](https://docs.azul.com/zmc/).
 
 ## Customization and tuning
 
