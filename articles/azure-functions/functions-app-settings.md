@@ -71,14 +71,6 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
 
-## AzureWebJobsScriptRoot
-
-The path to the root directory where the *host.json* file and function folders are located. In a function app, the default is `%HOME%\site\wwwroot`.
-
-|Key|Sample value|
-|---|------------|
-|AzureWebJobsScriptRoot|%HOME%\site\wwwroot|
-
 ## AzureWebJobsSecretStorageType
 
 Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob storage ("Blob") and the local file system ("Files"). The default is blob in version 2 and file system in version 1.

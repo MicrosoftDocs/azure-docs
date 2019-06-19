@@ -12,7 +12,9 @@ ms.author: alzam
 ---
 # Set up alerts on diagnostic log events from VPN Gateway
 
-This article helps you set up alerts based on diagnostic log events from Azure VPN Gateway. The following logs are available.
+This article helps you set up alerts based on diagnostic log events from Azure VPN Gateway using Azure Log Analytics. 
+
+The following logs are available in Azure:
 
 |***Name*** | ***Description*** |
 |---		| ---				|
