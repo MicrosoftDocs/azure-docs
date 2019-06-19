@@ -30,6 +30,20 @@ This topic discusses currently available [Media Services Metrics](#media-service
 
 Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
 
+### Account
+
+You can monitor the following account metrics. For more information, see [account quotas and limiatations](limits-quotas-constraints.md).
+
+* Asset count
+* Asset quota
+* Asset quota used percentage
+* Content Key Policy quota
+* Content Key Policy quota used percentage
+* Streaming Policy count
+* Streaming Policy quota
+
+### Streaming Endpoint
+
 Currently, the following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are emitted by Azure:
 
 |Metric|Display name|Description|
