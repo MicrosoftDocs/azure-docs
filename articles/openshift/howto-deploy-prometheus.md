@@ -21,16 +21,16 @@ The target setup is as follows:
 You'll prepare some configuration files locally. Create a new folder to store them.
 The config files are stored in the cluster as secrets in case there are some secret tokens added inside them later.
 
-## Step 1: Log in
-Log in with your `oc` tool by going to the URL based on properties.publicHostname of the cluster:
+## Step 1: Sign in to the cluster
+Sign in with your `oc` tool by going to the URL based on properties.publicHostname of the cluster:
 
 https://openshift.random-id.region.azmosa.io
 
-and logging in,
+and signing in,
 then clicking your username in top right and selecting "Copy Login Command",
-and pasting it into the terminal you'll use
+and pasting it into the terminal you'll use.
 
-You can verify if you're logged in to the correct cluster with the `oc whoami -c` command.
+You can verify if you're signed in to the correct cluster with the `oc whoami -c` command.
 
 ## Step 2: Prepare the projects
 
@@ -67,7 +67,7 @@ scrape_configs:
           - app-project1
           - app-project2
 ```
-create a secret named "prom" with the configuration
+Create a secret named "prom" with the configuration.
 ```
 oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 ```
@@ -76,7 +76,7 @@ The file listed above is a basic Prometheus config file.
 It sets the intervals and configures auto discovery in three projects (prometheus-project, app-project1, app-project2).
 The auto discovered endpoints will be scraped over HTTP without authentication.
 For more information on scraping endpoints,
-see https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config
+see https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config.
 
 
 ## Step 4: Prepare Alertmanager config
@@ -180,7 +180,7 @@ If you'd like to also gather metrics from Prometheus, remember to add the permis
 > [!NOTE]
 > You can verify if the Role and RoleBinding were created correctly with the `oc get role` and `oc get rolebinding` commands respectively
 
-# Optional: Deploy example application
+## Optional: Deploy example application
 Everything is working, but there are no metrics sources. Go to the Prometheus URL, which can be found with
 ```
 oc get route prom -n prometheus-project
@@ -196,7 +196,9 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 The new applications will appear as valid targets on the Service Discovery page within 30s after deployment.
 
-# Recommended reading
+## Next steps
+
+Add more metrics to your applications.
 
 The Prometheus Client library, which simplifies preparing Prometheus metrics, is ready for different programming languages:
 
