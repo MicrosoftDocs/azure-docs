@@ -39,11 +39,17 @@ Office 365 Outlook connector or Outlook.com connector.
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
+For differences between the SFTP-SSH connector and the SFTP connector, review the [Compare SFTP-SSH versus SFTP](#comparison) section later in this topic.
+
 ## Limits
 
-By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle chunks larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). However, the Copy File action supports only 15 MB files because that action doesn't support message chunking. SFTP-SSH triggers don't support chunking.
+* SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). However, the Copy File action supports only 15 MB files because that action doesn't support message chunking.
 
-For differences between the SFTP-SSH connector and the SFTP connector, review [Compare SFTP-SSH versus SFTP](#comparison) later in the next section.
+* SFTP-SSH triggers don't support chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
+
+  * Use a trigger that returns file properties, such as **When a file is added or modified (properties only)**.
+
+  * Follow the trigger with an action that reads the complete file, such as **Get file content using path**, and set up that action to use [message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 <a name="comparison"></a>
 
@@ -66,7 +72,7 @@ which is an open-source Secure Shell (SSH) library that supports .NET.
   > AES-128-CBC, AES-192-CBC, and AES-256-CBC
   > * **Fingerprint**: MD5
 
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle chunks larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). However, the Copy File action supports only 15 MB files because that action doesn't support message chunking. SFTP-SSH triggers don't support chunking.
+* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). However, the Copy File action supports only 15 MB files because that action doesn't support message chunking. SFTP-SSH triggers don't support chunking.
 
 * Provides the **Create folder** action, which creates 
 a folder at the specified path on the SFTP server.
@@ -119,6 +125,18 @@ To start with an SFTP-SSH trigger,
 [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 To use an SFTP-SSH action, start your logic app with another trigger, 
 for example, the **Recurrence** trigger.
+
+## How SFTP-SSH triggers work
+
+SFTP-SSH triggers work by polling the SFTP file system and looking for any file that was changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. Here are some common settings:
+
+| SFTP client | Action | 
+|-------------|--------| 
+| Winscp | Go to **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** |
+| FileZilla | Go to **Transfer** > **Preserve timestamps of transferred files** > **Disable** | 
+||| 
+
+When a trigger finds a new file, the trigger checks that the new file is complete, and not partially written. For example, a file might have changes in progress when the trigger checks the file server. To avoid returning a partially written file, the trigger notes the timestamp for the file that has recent changes, but doesn't immediately return that file. The trigger returns the file only when polling the server again. Sometimes, this behavior might cause a delay that is up to twice the trigger's polling interval. 
 
 ## Connect to SFTP with SSH
 
@@ -175,39 +193,6 @@ choose **Create**.
 
 1. Now provide the necessary details for your selected trigger 
 or action and continue building your logic app's workflow.
-
-## Trigger limits
-
-The SFTP-SSH triggers work by polling the SFTP file system 
-and looking for any file that was changed since the last poll. 
-Some tools let you preserve the timestamp when the files change. 
-In these cases, you have to disable this feature so your trigger 
-can work. Here are some common settings:
-
-| SFTP client | Action | 
-|-------------|--------| 
-| Winscp | Go to **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** |
-| FileZilla | Go to **Transfer** > **Preserve timestamps of transferred files** > **Disable** | 
-||| 
-
-When a trigger finds a new file, the trigger checks that the new file is complete, 
-and not partially written. For example, a file might have changes in progress when 
-the trigger checks the file server. To avoid returning a partially written file, 
-the trigger notes the timestamp for the file that has recent changes, but doesn't 
-immediately return that file. The trigger returns the file only when polling the 
-server again. Sometimes, this behavior might cause a delay that is up to twice 
-the trigger's polling interval. 
-
-When requesting file content, triggers don't get files 
-larger than 15 MB. To get files larger than 15 MB, 
-follow this pattern: 
-
-* Use a trigger that returns file properties, 
-such as **When a file is added or modified (properties only)**.
-
-* Follow the trigger with an action that reads the complete file, 
-such as **Get file content using path**, and have the action use 
-[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## Examples
 
