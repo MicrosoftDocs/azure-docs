@@ -55,25 +55,25 @@ The following settings are required to enable SSPR along with recommended values
 
 | Area | Setting | Value |
 | --- | --- | --- |
-| SSPR Properties | Self-service password reset enabled | **Selected** group for pilot / **All** for production |
-| Authentication methods | Authentication methods required to register | Always 1 more than required for reset |
+| **SSPR Properties** | Self-service password reset enabled | **Selected** group for pilot / **All** for production |
+| **Authentication methods** | Authentication methods required to register | Always 1 more than required for reset |
 |   | Authentication methods required to reset | One or two |
-| Registration | Require users to register when signing in | Yes |
+| **Registration** | Require users to register when signing in | Yes |
 |   | Number of days before users are asked to re-confirm their authentication information | 90 – 180 days |
-| Notifications | Notify users on password resets | Yes |
+| **Notifications** | Notify users on password resets | Yes |
 |   | Notify all admins when other admins reset their password | Yes |
-| Customization | Help desk link | Customize |
-|   | Help desk email or URL | Customize |
-| On-premises | Write back passwords to on-premises AD | Yes (hybrid environments) |
+| **Customization** | Customize helpdesk link | Yes |
+|   | Custom helpdesk email or URL | Support site or email address |
+| **On-premises integration** | Write back passwords to on-premises AD | Yes |
 |   | Allow users to unlock account without resetting password | Yes |
 
 ### SSPR properties recommendations
 
 When enabling Self-service password reset, choose a security group to be used during the pilot.
 
-When you plan to launch the service more broadly, we recommend using the All option to enforce SSPR for everyone in the organization. If you cannot set to all, select the appropriately Azure AD Security group or AD group synced to Azure AD.  
+When you plan to launch the service more broadly, we recommend using the All option to enforce SSPR for everyone in the organization. If you cannot set to all, select the appropriately Azure AD Security group or AD group synced to Azure AD.
 
-#### Authentication methods recommendations
+#### Authentication methods
 
 Set Authentication methods required to register to at least one more than the number required to reset. Allowing multiple gives users flexibility when they need to reset.
 
@@ -81,21 +81,21 @@ Set **Number of methods required to reset** to a level appropriate to your organ
 
 See [What are authentication methods](concept-authentication-methods.md) for detailed information on which authentication methods are available for SSPR, pre-defined security questions, and how to create customized security questions.
 
-#### Registration settings recommendations
+#### Registration settings
 
 Set **Require users to register when signing in** to **Yes**. This means that the users will be forced to register when signing in, ensuring that all users are protected.
 
 Set **Number of days before users are asked to re-confirm their authentication information** to between **90** and **180** days, unless your organization has a business need for a shorter time frame.
 
-#### Notifications settings recommendations
+#### Notifications settings
 
 Configure both the **Notify users on password resets** and the **Notify all admins when other admins reset their password** to **Yes**. Selecting **Yes** on both increases security by ensuring that users are aware when their password has been reset, and that all admins are aware when an admin changes a password. If users or admins receive such a notification and they have not initiated the change, they can immediately report a potential security breach.
 
-#### Customization recommendations
+#### Customization
 
 It’s critical to customize the **helpdesk email or URL** to ensure users who experience problems can quickly get help. Set this to a common helpdesk email address or web page that your users will be familiar with.
 
-#### On-premises integration recommendations
+#### On-premises integration
 
 If you have a hybrid environment, ensure that **Write back passwords to on-premises AD** is set to **Yes**. Also set the Allow users to unlock account without resetting password to Yes, as it gives them more flexibility.
 
