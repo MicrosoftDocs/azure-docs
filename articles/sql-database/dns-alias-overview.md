@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek, jrasnick
+ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 06/19/2019
 ---
 # DNS alias for Azure SQL Database
 
@@ -105,7 +105,7 @@ Presently, a DNS alias has the following limitations:
 - *Delay of up to 2 minutes:* It takes up to 2 minutes for a DNS alias to be updated or removed.
   - Regardless of any brief delay, the alias immediately stops referring client connections to the legacy server.
 - *DNS lookup:* For now, the only authoritative way to check what server a given DNS alias refers to is by performing a [DNS lookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Table auditing is not supported](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* You cannot use a DNS alias on an Azure SQL Database server that has *table auditing* enabled on a database.
+- _Table auditing is not supported:_ You cannot use a DNS alias on an Azure SQL Database server that has *table auditing* enabled on a database.
   - Table auditing is deprecated.
   - We recommend that you move to [Blob Auditing](sql-database-auditing.md).
 
