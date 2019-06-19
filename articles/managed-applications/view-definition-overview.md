@@ -29,10 +29,8 @@ The `viewDefinition.json` file has only one top level property `views` which is 
         {
             "kind": "*Required. The view kind from the supported list.",
             "properties": {
-                /* Additional properties specific for the view kind */
             }
-        },
-        ...
+        }
     ]
 }
 
@@ -54,8 +52,7 @@ The `viewDefinition.json` file has only one top level property `views` which is 
                 {
                     "displayName": "Test Action.",
                     "path": "testAction"
-                },
-                ...
+                }
             ]
         }
     }
@@ -133,9 +130,7 @@ The `viewDefinition.json` file has only one top level property `views` which is 
             "displayName": "This is my custom resource type.",
             "version": "1.0.0",
             "resourceType": "myCustomResource",
-            "createUIDefinition": {
-                /* create UI definition schema here */
-            },
+            "createUIDefinition": { },
             "commands": [
                 {
                     "displayName": "Custom Test Action",
@@ -145,9 +140,7 @@ The `viewDefinition.json` file has only one top level property `views` which is 
                     "displayName": "Custom Context Test Action",
                     "path": "myCustomResource/testContextAction",
                     "icon": "Stop",
-                    "createUIDefinition": {
-                        /* create UI definition schema here */
-                    },
+                    "createUIDefinition": { },
                 }
             ],
             "columns": [
@@ -173,17 +166,16 @@ The `viewDefinition.json` file has only one top level property `views` which is 
 Commands is an array of additional toolbar buttons that will be displayed on page. Each command represents POST action of your Azure Custom Provider defined in `mainTemplate.json`. Example JSON:
 
 ```json
-"commands": [
     {
-        "displayName": "Start Test Action.",
-        "path": "testAction",
-        "icon": "Start",
-        "createUIDefinition": {
-            /* create UI definition schema here */
-        }
-    },
-    ...
-]
+        "commands": [
+            {
+                "displayName": "Start Test Action.",
+                "path": "testAction",
+                "icon": "Start",
+                "createUIDefinition": { }
+            },
+        ]
+    }
 ```
 
 |Property|Required|Description|
