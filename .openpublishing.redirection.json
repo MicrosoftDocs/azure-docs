@@ -19901,12 +19901,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-mysql-install.md",
-      "redirect_url": "/azure/virtual-machines/linux/mysql-on-opensuse",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/linux/mysql-install.md",
-      "redirect_url": "/azure/virtual-machines/linux/mysql-on-opensuse",
+      "redirect_url": "/azure/virtual-machines/linux/mysql-install",
       "redirect_document_id": false
     },
     {

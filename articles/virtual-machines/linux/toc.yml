@@ -411,6 +411,8 @@
       href: freebsd-pf-nat.md
     - name: Databases
       items:
+      - name: MySQL
+        href: mysql-install.md
       - name: MySQL on SUSE
         href: mysql-on-opensuse.md
       - name: MongoDB
