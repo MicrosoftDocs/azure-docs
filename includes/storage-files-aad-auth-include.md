@@ -18,6 +18,6 @@ As part of the preview, Azure Files also supports preserving, inheriting, and en
 
 > [!NOTE]
 > - Azure AD Domain Service authentication for SMB access is not supported for Linux VMs. Only Windows VMs are supported.
-> - Azure AD Domain Service authentication for SMB access is not supported for Active Directory domain joined machine. In the interim, you can consider to leverage [Azure Files Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning) to start migrating your data to Azure Files and continue to enforce access control using AD credentails from your on-prem AD domain joined machines. 
+> - Azure AD Domain Service authentication for SMB access is not supported for Active Directory domain joined machine. In the interim, you can consider to leverage [Azure Files Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) to start migrating your data to Azure Files and continue to enforce access control using AD credentails from your on-prem AD domain joined machines. 
 > - Azure AD Domain Service authentication for SMB access is available only for storage accounts created after September 24, 2018.
 > - Azure AD Domain Service authentication for SMB access and NTFS DACL persistent is not supported on Azure file shares managed by Azure File Sync Service. 
