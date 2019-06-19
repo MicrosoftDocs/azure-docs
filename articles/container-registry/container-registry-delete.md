@@ -294,6 +294,8 @@ You can list all untagged images in your repository using the following Azure CL
 az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
 
+Using this command in a script, you can delete all untagged images in a repository.
+
 > [!WARNING]
 > Use the following sample scripts with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting untagged images will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice][tagging-best-practices].
 
@@ -348,7 +350,9 @@ if ($enableDelete) {
     az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
-    Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."
+    Write-Host "No data deleted."
+    Write-Host "Set `$enableDelete = `$TRUE to enable image deletion."
+    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null]" -o tsv
 }
 ```
 
