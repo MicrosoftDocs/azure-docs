@@ -1,15 +1,9 @@
 ---
 title: How to create Azure Resource Manager template
 description: Describes the process of authoring an Azure Resource Manager template. 
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
 ---
