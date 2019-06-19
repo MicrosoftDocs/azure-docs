@@ -111,7 +111,7 @@ Now let's add the models, the views, and the controllers to this MVC application
 
 1. Next replace the code in "Item" class with the following code:
 
-   [!code-csharp[Main](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app/blob/master/src/Models/Item.cs)]
+   [!code-csharp[Main](~/cosmos-dotnet-core-todo-app/src/Models/Item.cs)]
    
    The data stored in Azure Cosmos DB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET, you can use the **JsonProperty** attribute as demonstrated in the **Item** class you created. Not only can you control the format of the property name that goes into JSON, you can also rename your .NET properties like you did with the **Description** property. 
 
@@ -125,7 +125,7 @@ Now let's add the models, the views, and the controllers to this MVC application
 
 1. Name your new controller, **ItemController, and replace the code in that file with the following code:
 
-   [!code-csharp[Main](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app/blob/master/src/Controllers/ItemController.cs)]
+   [!code-csharp[Main](~/cosmos-dotnet-core-todo-app/src/Controllers/ItemController.cs)]
 
    The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views should work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, see [Preventing Cross-Site Request Forgery][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub] has the full implementation in place.
 
@@ -200,13 +200,13 @@ The first thing to do here is add a class that contains the logic to connect to 
 
 1. Add the following code to the **CosmosDBService** class and replace the code in that file with the following code:
 
-   [!code-csharp[Main](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app/blob/master/src/Services/CosmosDbService.cs)]
+   [!code-csharp[Main](~/cosmos-dotnet-core-todo-app/src/Services/CosmosDbService.cs)]
 
  1. Repeat the same steps, but this time, for a class named **ICosmosDBService**, and add the following code:
 
-   [!code-csharp[Main](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app/blob/master/src/Services/ICosmosDbService.cs)]
+   [!code-csharp[Main](~/cosmos-dotnet-core-todo-app/src/Services/ICosmosDbService.cs)]
  
-1. The previous code receives a `CosmosClient` as part of the constructor. Following ASP.NET Core pipeline, we need to go to the project's **Startup.cs** and initialize the client based on the configuration as a Singleton instance to be injected through [Dependency Injection](../aspnet/core/fundamentals/dependency-injection.md). In the **ConfigureServices** handler, we define:
+1. The previous code receives a `CosmosClient` as part of the constructor. Following ASP.NET Core pipeline, we need to go to the project's **Startup.cs** and initialize the client based on the configuration as a Singleton instance to be injected through [Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). In the **ConfigureServices** handler, we define:
 
     ```csharp
     services.AddSingleton<ICosmosDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
@@ -299,4 +299,4 @@ In this tutorial, you've learned how to build an ASP.NET Core MVC web applicatio
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
-[GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app
+[GitHub]: ~/cosmos-dotnet-core-todo-app
