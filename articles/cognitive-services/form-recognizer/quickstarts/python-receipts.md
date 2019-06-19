@@ -67,7 +67,7 @@ To start analyzing a receipt, you call the **Analyze Receipt** API using the cUR
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-receipts.py`.
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the operation and get the results. In the following example, the string after `operations/` is the operation ID.
+You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the operation and get the results. In the following example value, the string after `operations/` is the operation ID.
 
 ```console
 https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -75,7 +75,7 @@ https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of that operation.
+After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of that operation. Add the following code to the end of your Python script.
 
 ```python
 import http.client, urllib.request, urllib.parse, urllib.error, base64
@@ -100,7 +100,7 @@ except Exception as e:
 ```
 
 
-
+## From ComVis examples
 1. Replace `<operationId>` with the operation ID from the previous step.
 
     ```python
