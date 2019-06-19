@@ -75,7 +75,6 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 | Maximum number of unique keys per container|10 <sup>*</sup>|
 | Maximum number of paths per unique key constraint|16 <sup>*</sup>|
 
-
 <sup>*</sup> You can increase any of these per-container limits by contacting Azure Support or contacting us via [Ask Cosmos DB](mailto:askcosmosdb@microsoft.com).
 
 ## Per-item limits
