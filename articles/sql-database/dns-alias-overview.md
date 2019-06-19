@@ -43,7 +43,7 @@ Later when the new system goes live in production, you can update the properties
 
 ### Cross-region support
 
-A disaster recovery might shift your SQL Database server to a different geographic region. For a system than was using a DNS alias, the need to find and update all the connection strings for all clients can be avoided. Instead, you can update an alias to refer to the new SQL Database server that now hosts your database.
+A disaster recovery might shift your SQL Database server to a different geographic region. For a system that was using a DNS alias, the need to find and update all the connection strings for all clients can be avoided. Instead, you can update an alias to refer to the new SQL Database server that now hosts your database.
 
 ## Properties of a DNS alias
 
@@ -61,13 +61,6 @@ The following properties apply to each DNS alias for your SQL Database server:
 Both REST APIs and PowerShell cmdlets are available to enable you to programmatically manage your DNS aliases.
 
 ### REST APIs for managing your DNS aliases
-
-<!-- TODO
-??2 "soon" in the following live sentence, is not the best situation.
-TODO update this subsection very soon after REST API docu goes live.
-Dev = Magda Bojarska
-Comment as of:  2018-01-26
--->
 
 The documentation for the REST APIs is available near the following web location:
 
