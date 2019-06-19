@@ -1,10 +1,10 @@
 ---
-title: Protecting Azure SQL service and data in Azure Security Center  | Microsoft Docs
+title: Protect Azure data and storage services in Azure Security Center | Microsoft Docs
 description: This document addresses recommendations in Azure Security Center that help you protect your data and Azure SQL service and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/18/2019
+ms.date: 06/19/2019
 ms.author: monhaber
 
 ---
-# Protecting Azure SQL service and data in Azure Security Center
 
+# Protect Azure data and storage services in Azure Security Center
 This topic shows you how to view and implement security recommendations for data and storage resources. Azure Security Center found these recommendations when analyzing the security state of your Azure resources.
 
 ## View your data security information
