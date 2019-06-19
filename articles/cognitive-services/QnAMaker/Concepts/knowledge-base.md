@@ -52,12 +52,14 @@ The process is explained in the following table:
 |7|The new results are returned to the client application in ranked order.|
 |||
 
-### WordNet features
+The following featurizations are used to preprocess (step 2 above) the user query:
 
-### RF-IDF features
-
-### DSSM features
-
+|Feature|Purpose|
+|--|--|
+|WordNet|There are various features generated using WordNet matching with questions and answers. This takes care of the word level semantics.|
+|Term frequency-inverse document frequency (TF-IDF)|This weight is a statistical measure used to evaluate how important a word is to a document in a collection or corpus. The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus. |
+|CDSSM||
+|||
 
 ## Next steps
 
