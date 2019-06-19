@@ -15,9 +15,9 @@ ms.custom: seodec18
 
 # Train and register PyTorch models at scale with Azure Machine Learning service
 
-This article shows you how to train and register a PyTorch model using Azure Machine Learning service. It is based on  [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) that builds a deep neural network (DNN) classifier for images of ants and bees.
+This article shows you how to train and register a PyTorch model using Azure Machine Learning service. It's based on  [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) that builds a deep neural network (DNN) classifier for images of ants and bees.
 
-[PyTorch](https://pytorch.org/) is an open-source, scientific computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
+[PyTorch](https://pytorch.org/) is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
 Whether you're developing a PyTorch model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
 
@@ -82,7 +82,7 @@ experiment = Experiment(ws, name=experiment_name)
 
 ### Get the data
 
-The dataset we will use consists of about 120 training images each for ants and bees, with 75 validation images for each class. Hymenoptera is the order of insects that includes ants and bees. We will download and extract the dataset as part of our training script `pytorch_train.py`.
+The dataset consists of about 120 training images each for ants and bees, with 75 validation images for each class. Hymenoptera is the order of insects that includes ants and bees. Download and extract the dataset as part of our training script `pytorch_train.py`.
 
 ### Prepare training scripts
 
@@ -94,7 +94,7 @@ Upload the Pytorch training script, `pytorch_train.py`.
 shutil.copy('pytorch_train.py', project_folder)
 ```
 
-However, if you would like to use Azure Machine Learing service tracking and metrics capabilities, you will have to add a small amount code inside your training script. Examples of metrics tracking can be found in `pytorch_train.py`.
+However, if you would like to use Azure Machine Learning service tracking and metrics capabilities, you will have to add a small amount code inside your training script. Examples of metrics tracking can be found in `pytorch_train.py`.
 
 ## Create a compute target
 
@@ -203,7 +203,7 @@ estimator= PyTorch(source_directory=project_folder,
                       framework_version='1.13',
                       use_gpu=True)
 ```
-Horovod and its dependencies will be installed for you, so you can simply import it in your training script `train.py` as follows:
+Horovod and its dependencies will be installed for you, so you can import it in your training script `train.py` as follows:
 
 ```Python
 import torch
