@@ -11,7 +11,7 @@
     href: per-vm-quota-requests.md
   - name: Total regional vCPU limit increase
     href: regional-quota-requests.md
-  - name: Networking quota increase requests
+  - name: Networking limit increase
     href: networking-quota-requests.md
 - name: Troubleshooting region or SKU subscription issues
   href: sku-series-unavailable.md

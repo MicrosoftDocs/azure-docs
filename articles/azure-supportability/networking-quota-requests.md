@@ -1,6 +1,6 @@
 ---
-title: Azure Networking quota increase requests | Microsoft Docs
-description: Azure Networking quota increase requests 
+title: Networking limit increase | Microsoft Docs
+description: Networking limit increase
 author: anavinahar
 ms.author: anavin
 ms.date: 06/19/2019
@@ -10,7 +10,7 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 ---
 
-# Azure Networking limit increase
+# Networking limit increase
 
 To view your current Networking usage and quota, you can visit the **Usages + Quota** blade in the Azure portal. You can also use usage [CLI](https://docs.microsoft.com//cli/azure/network?view=azure-cli-latest#az-network-list-usages), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.13.0) or the [network usage API](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/listusage) to view your network usage and limits.
 
