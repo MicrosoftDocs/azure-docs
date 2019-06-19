@@ -82,8 +82,8 @@ There are other ways to specify the connection string, such as providing a share
 
 ## Create a Jupyter notebook
 
->[!Note]
->This article shows you how to build a data source, index, indexer and skillset using a series of Python scripts. To download the complete notebook example, go to the [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook).
+> [!Note]
+> This article shows you how to build a data source, index, indexer and skillset using a series of Python scripts. To download the complete notebook example, go to the [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook).
 
 Use Anaconda Navigator to launch Jupyter Notebook and create a new Python 3 notebook.
 
@@ -126,7 +126,7 @@ params = {
 
 Now that your services and source files are prepared, start assembling the components of your indexing pipeline. Begin with a data source object that tells Azure Search how to retrieve external source data.
 
-In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Then, run the script to create a data source named ```cogsrch-py-datasource```.
+In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-STRING with the connection string for the blob you created in the previous step. Then, run the script to create a data source named `cogsrch-py-datasource`.
 
 ```python
 #Create a data source
@@ -150,7 +150,7 @@ The request should return a status code of 201 confirming success.
 
 In the Azure portal, on the search service dashboard page, verify that the cogsrch-py-datasource appears in the **Data sources** list. Click **Refresh** to update the page.
 
-  ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Data sources tile in the portal")
+![Data sources tile in the portal](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Data sources tile in the portal")
 
 ## Create a skillset
 
@@ -165,7 +165,7 @@ In this step, you will define a set of enrichment steps to apply to your data. Y
 + [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases. 
 
 ### Python script
-Run the following script to create a skillset called ```cogsrch-py-skillset```.
+Run the following script to create a skillset called `cogsrch-py-skillset`.
 
 ```python
 #Create a skillset
@@ -252,9 +252,9 @@ print(r.status_code)
 
 The request should return a status code of 201 confirming success.
 
-The key phrase extraction skill is applied for each page. By setting the context to ```"document/pages/*"```, you run this enricher for each member of the document/pages array (for each page in the document).
+The key phrase extraction skill is applied for each page. By setting the context to `"document/pages/*"`, you run this enricher for each member of the document/pages array (for each page in the document).
 
-Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Text found in the source file is placed into a ```content``` field, one for each document. Therefore, set the input as ```"/document/content"```.
+Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Text found in the source file is placed into a `content` field, one for each document. Therefore, set the input as `"/document/content"`.
 
 A graphical representation of the skillset is shown below.
 
@@ -270,11 +270,11 @@ In this section, you define the index schema by specifying the fields to include
 
 This exercise uses the following fields and field types:
 
-| field-names: | `id`       | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | id         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
-Run this script to create the index named ```cogsrch-py-index```.
+Run this script to create the index named `cogsrch-py-index`.
 
 ```python
 #Create an index
@@ -341,7 +341,7 @@ So far, you have created a data source, a skillset, and an index. These three co
 
 Besides hooking up inputs to outputs, you can also use field mappings to flatten data structures. For more information, see [How to map enriched fields to a searchable index](cognitive-search-output-field-mapping.md).
 
-Run this script to create an indexer named ```cogsrch-py-indexer```.
+Run this script to create an indexer named `cogsrch-py-indexer`.
 
 ```python
 # Create an indexer
@@ -402,11 +402,11 @@ Use the [Check indexer status](#check-indexer-status) script in the next section
 
 #### Explore the request body
 
-The script sets ```"maxFailedItems"```  to -1, which instructs the indexing engine to ignore errors during data import. This is useful because there are so few documents in the demo data source. For a larger data source, you would set the value to greater than 0.
+The script sets `"maxFailedItems"`  to -1, which instructs the indexing engine to ignore errors during data import. This is useful because there are so few documents in the demo data source. For a larger data source, you would set the value to greater than 0.
 
-Also notice the ```"dataToExtract":"contentAndMetadata"``` statement in the configuration parameters. This statement tells the indexer to  extract the content from different file formats and the metadata related to each file.
+Also notice the `"dataToExtract":"contentAndMetadata"` statement in the configuration parameters. This statement tells the indexer to  extract the content from different file formats and the metadata related to each file.
 
-When content is extracted, you can set ```imageAction``` to extract text from images found in the data source. The ```"imageAction":"generateNormalizedImages"``` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF)and images found in the data source, for instance a JPG file.
+When content is extracted, you can set `imageAction` to extract text from images found in the data source. The `"imageAction":"generateNormalizedImages"` configuration, combined with the OCR Skill and Text Merge Skill, tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF)and images found in the data source, for instance a JPG file.
 
 <a name="check-indexer-status"></a>
 
@@ -422,9 +422,9 @@ pprint(json.dumps(r.json(), indent=1))
 
 In the response, monitor the "lastResult" for its "status" and "endTime" values. Periodically run the script to check the status. When the indexer has completed, the status will be set to "success", an "endTime" will be specified, and the response will include any errors and warnings that occurred during enrichment.
 
- ![Indexer is created](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "Indexer is created")
+![Indexer is created](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "Indexer is created")
 
- Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign. For example, one of the JPEG files that does not have text will show the warning in this screenshot.
+Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign. For example, one of the JPEG files that does not have text will show the warning in this screenshot.
 
 ![Example indexer warning](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Example indexer warning")
 
@@ -442,7 +442,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 The results should look similar to the following example. The screenshot only shows a part of the response.
 
- ![Query index for all fields](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Query the index for all fields")
+![Query index for all fields](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Query the index for all fields")
 
 The output is the index schema, with the name, type, and attributes of each field.
 
@@ -456,7 +456,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 The results should look similar to the following example. The screenshot only shows a part of the response.
 
- ![Query index for the contents of organizations](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Query the index to return the contents of organizations")
+![Query index for the contents of organizations](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Query the index to return the contents of organizations")
 
 Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
@@ -468,16 +468,16 @@ You can use GET or POST, depending on query string complexity and length. For mo
 
 Cognitive search allows you to see the structure of the enriched document. Enriched documents are temporary structures created during enrichment, and then deleted when the process is complete.
 
-To capture a snapshot of the enriched document created during indexing, add a field called ```enriched``` to your index. The indexer automatically dumps into the field a string representation of all the enrichments for that document.
+To capture a snapshot of the enriched document created during indexing, add a field called `enriched` to your index. The indexer automatically dumps into the field a string representation of all the enrichments for that document.
 
-The ```enriched``` field will contain a string that is a logical representation of the in-memory enriched document in JSON.  The field value is a valid JSON document, however. Quotes are escaped so you will need to replace `\"` with `"` to view the document as formatted JSON.  
+The `enriched` field will contain a string that is a logical representation of the in-memory enriched document in JSON.  The field value is a valid JSON document, however. Quotes are escaped so you will need to replace `\"` with `"` to view the document as formatted JSON.  
 
-The ```enriched``` field is intended for debugging purposes, only to help you understand the logical shape of the content that expressions are being evaluated against. It can be a useful tool to understand and debug your skillset.
+The `enriched` field is intended for debugging purposes, only to help you understand the logical shape of the content that expressions are being evaluated against. It can be a useful tool to understand and debug your skillset.
 
 To capture the contents of an enriched document, repeat the previous exercise, and include the `enriched` field when you build the index.
 
-[!Tip]
-Before you repeat these steps, you must delete the data source, index, indexer, and skillset that you just created. For more information, see [Reset and rerun](#reset).
+> [!Tip]
+> Before you repeat these steps, you must delete the data source, index, indexer, and skillset that you just created. For more information, see [Reset and rerun](#reset).
 
 ```python
 # Create index with enriched field
@@ -526,6 +526,7 @@ index_payload = {
    ]
 }
 ```
+
 <a name="reset"></a>
 
 ## Reset and rerun
@@ -540,7 +541,7 @@ To reindex your documents with the new definitions:
 
 You can use the portal to delete indexes, indexers, and skillsets. When you delete the indexer, you can optionally, selectively delete the index, skillset, and data source at the same time.
 
- ![Delete search objects](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Delete search objects in the portal")
+![Delete search objects](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Delete search objects in the portal")
 
 You can also delete them using a script. The following script will delete the skillset we created. You can easily modify the request to delete the index, indexer, and data source.
 
