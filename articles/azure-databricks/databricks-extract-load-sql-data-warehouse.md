@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
-> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
+> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Additional steps include: Remove the spending limit, see [Remove spending limit](https://docs.microsoft.com/en-us/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center) to allow quota increase. Next, request quota increase for vCPUs in the needed region, see [Request quota increase](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Finally, get trial for Databricks (free DBUs for limited time). 
      
 ## Prerequisites
 
