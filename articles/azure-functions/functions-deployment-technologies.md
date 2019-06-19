@@ -138,7 +138,7 @@ Using the portal-based editor allows you to directly edit files on your function
 >* [Get started using the Azure Functions Core Tools](functions-run-local.md)
 >* [Get started using Visual Studio](functions-create-your-first-function-visual-studio.md)
 
-Portal editing is supported in the following cases:
+The following table shows the operating systems and languages for which portal editing is supported:
 
 | | Windows Consumption | Windows Premium (Preview) | Windows Dedicated | Linux Consumption (Preview) | Linux Dedicated |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
