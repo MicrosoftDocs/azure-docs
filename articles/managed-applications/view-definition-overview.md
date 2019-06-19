@@ -21,7 +21,7 @@ The view definition artifact must be named **`viewDefinition.json`** and must be
 
 ## View definition Schema
 
-The `viewDefinition.json` file has only one top-level `views` property which is an array of views that will be shown in managed application user interface as a separate menu item in the Table of Contents. Each view should have `kind` property ([Overview](#Overview), [Metrics](#Metrics), [CustomResources](#Custom-Resources)). For more information, see current [JSON schema](TODO:) for `viewDefinition.json`.
+The `viewDefinition.json` file has only one top-level `views` property which is an array of views that will be shown in managed application user interface as a separate menu item in the Table of Contents. Each view should have `kind` property ([Overview](#overview), [Metrics](#metrics), [CustomResources](#custom-Resources)). For more information, see current [JSON schema](TODO:) for `viewDefinition.json`.
 
 The basic template for `viewDefinition.json`:
 
@@ -103,7 +103,7 @@ Metrics view allows to collect and aggregate data from your managed application 
 |version|No|The version of the platform used to render the view.|
 |charts|Yes|The array of charts of the metrics page.|
 
-### Charts
+### Chart
 
 |Property|Required|Description|
 |---------|---------|---------|
@@ -111,7 +111,7 @@ Metrics view allows to collect and aggregate data from your managed application 
 |chartType|No|The visualization to use for this chart. (Defaults to line chart). Supported chart types: `Bar, Line, Area, Scatter`.|
 |metrics|Yes|The array of metrics to plot on this chart. List of metrics supported in Azure portal is here [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md)|
 
-### Metrics
+### Metric
 
 |Property|Required|Description|
 |---------|---------|---------|
