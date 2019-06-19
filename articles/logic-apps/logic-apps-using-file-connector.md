@@ -23,9 +23,7 @@ This article shows how you can connect to an on-premises file system as describe
 
 ## Limits
 
-* By default, File System actions can read or write files that are *30 MB or smaller*. To handle files larger than 30 MB, File System actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
-
-* File System triggers don't support chunking. When requesting file content, triggers select only files that are 30 MB or smaller. To get files larger than 30 MB, follow this pattern:
+* By default, File System connector handles only files that are *30 MB or smaller*. To get files larger than 30 MB, follow this pattern:
 
   * Use a File System trigger that returns file properties, such as **When a file is added or modified (properties only)**.
 
