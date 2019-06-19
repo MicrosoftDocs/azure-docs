@@ -43,15 +43,16 @@ When just-in-time is enabled, Security Center locks down inbound traffic to your
 When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) permissions that permit them to successfully request access to a VM. If the request is approved, Security Center automatically configures the Network Security Groups (NSGs) and Azure Firewall to allow inbound traffic to the selected ports and requested source IP addresses or ranges, for the amount of time that was specified. After the time has expired, Security Center restores the NSGs to their previous states. Those connections that are already established are not being interrupted, however.
 
  > [!NOTE]
- > If a JIT access request is approved for a VM behind an Azure Firewall then Security Center automatically configures the firewall policy rules (in addition to the NSGs). For the amount of time that was specified, the firewall allows inbound traffic to the selected ports and requested source IP addresses or ranges. After the time has expired, Security Center restores the firewall to its previous states.
+ > If a JIT access request is approved for a VM behind an Azure Firewall, then Security Center automatically changes both the NSG and firewall policy rules. For the amount of time that was specified, the rules allow inbound traffic to the selected ports and requested source IP addresses or ranges. After the time is over, Security Center restores the firewall and NSG rules to their previous states.
 
 
 ## Permissions needed to configure and use JIT
 
 | To enable a user to: | Permissions to set|
 | --- | --- |
-| Configure or edit a JIT policy for a VM | Assign these *actions* to the role:\ On the scope of a subscription or Resource Group that is associated with the VM:  **Microsoft.Security/locations/jitNetworkAccessPolicies/write** \ * On the scope of a subscription or Resource Group or VM: **Microsoft.Compute/virtualMachines/write** | 
-|Request JIT access to a VM | Assign these *actions* to the user:\ * On the scope of a subscription or Resource Group that is associated with the VM:  **Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/initiate/action**\ On the scope of a Subscription or Resource Group or VM: **Microsoft.Compute/virtualMachines/read** |
+| Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  On the scope of a subscription or Resource Group that is associated with the VM: ```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` On the scope of a subscription or Resource Group or VM: ```Microsoft.Compute/virtualMachines/write``` | 
+| ||
+|Request JIT access to a VM | *Assign these actions to the user:*  On the scope of a subscription or Resource Group that is associated with the VM:  ```Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/initiate/action``` On the scope of a Subscription or Resource Group or VM: ```Microsoft.Compute/virtualMachines/read``` |
 
 
 ## Configuring JIT on a VM
