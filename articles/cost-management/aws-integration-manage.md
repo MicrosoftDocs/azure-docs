@@ -124,6 +124,8 @@ Use the following troubleshooting information to resolve common problems.
 
 ### No permission to AWS Linked accounts
 
+**Error code:** _Unauthorized_
+
 There are two ways to get permissions to access AWS linked accounts costs:
 
 - Get access to the management group that has the AWS Linked accounts.
@@ -131,7 +133,11 @@ There are two ways to get permissions to access AWS linked accounts costs:
 
 By default, the AWS connector creator is the owner of all the objects that the connector created. Including, the AWS consolidated account and the AWS linked account.
 
+In order to be able to Verify the connector settings you will need at least a contributer role, reader can not Verify connector settings
+
 ### Collection failed with AssumeRole
+
+**Error code:** _FailedToAssumeRole_
 
 This error means that Cost Management is unable to call the AWS AssumeRole API. This problem can happen because of an issue with the role definition. Verify that the following conditions are true:
 
@@ -142,9 +148,15 @@ This error means that Cost Management is unable to call the AWS AssumeRole API. 
 
 ### Collection failed with Access Denied
 
-This error message means that Cost Management is unable to access the CUR files stored in the Amazon S3 bucket. Make sure that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
+- **Error code:** _AccessDeniedReportDefinitions_ 
+- **Error code:** _AccessDeniedListReports_ 
+- **Error code:** _AccessDeniedDownloadReport_ 
+
+This error messages means that Cost Management is unable to access the CUR files stored in the Amazon S3 bucket. Make sure that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
 
 ### Connector error with FailedToFindReport
+
+**Error code:** _FailedToFindReport_
 
 This error means that Cost Management can't find the Cost and Usage report that was defined in the connector. Make sure it isn't deleted and that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
 
