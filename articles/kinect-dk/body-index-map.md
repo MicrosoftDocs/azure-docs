@@ -16,7 +16,7 @@ The body index map includes the instance segmentation map for each body in the d
 ![Body index map example](./media/concepts/body-index-map.png)
 
 >[!NOTE]
-> The body index is different than the body id. You can query the body id by first querying the `k4abt_body_t` struct for a given index and then access the body id in `k4abt_body_t.id`.
+> The body index is different than the body id. You can query the body id by first querying the `k4abt_body_t` structure for a given index and then access the body id in `k4abt_body_t.id`.
 
 ## Using body index map
 
