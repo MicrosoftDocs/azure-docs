@@ -33,7 +33,7 @@ Each App Service plan tier supports a different number of deployment slots, and 
 
 <a name="Add"></a>
 
-## Add slot
+## Add a slot
 The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
 
 1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
@@ -216,18 +216,18 @@ To configure auto swap:
 
 1. Go to your app's resource page. Select **Deployment slots** > *\<desired source slot>* > **Configuration** > **General settings**.
    
-2. In **Auto swap enabled**, select **On**. Then select the desired target slot in **Auto swap deployment slot**, and select **Save** in the command bar. 
+2. For **Auto swap enabled**, select **On**. Then select the desired target slot for **Auto swap deployment slot**, and select **Save** on the command bar. 
    
-    ![](./media/web-sites-staged-publishing/AutoSwap02.png)
+    ![Selections for configuring auto swap](./media/web-sites-staged-publishing/AutoSwap02.png)
 
-3. Execute a code push to the source slot. Auto swap happens after a short time and the update is reflected at your target slot's URL.
+3. Execute a code push to the source slot. Auto swap happens after a short time, and the update is reflected at your target slot's URL.
 
 If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 <a name="Warm-up"></a>
 
-## Custom warm-up
-When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions to be performed. The [swap operation](#what-happens-during-swap) waits for this custom warm-up to complete before swapping with the target slot. Here is a sample web.config fragment.
+## Specify a custom warm-up
+When you're using [auto swap](#Auto-Swap), some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#what-happens-during-swap) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
 
     <system.webServer>
         <applicationInitialization>
@@ -240,12 +240,12 @@ For more information on customizing the `applicationInitialization` element, see
 
 You can also customize the warm-up behavior with one or both of the following [app settings](configure-common.md):
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warmup your site. Add this app setting by specifying a custom path that begins with a slash as the value. For example, `/statuscheck`. The default value is `/`. 
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. For example: `200,202` . If the returned status code is not in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warm up your site. Add this app setting by specifying a custom path that begins with a slash as the value. An example is `/statuscheck`. The default value is `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. An example is `200,202` . If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
 
-If you run into any issues, see [Troubleshoot swaps](#troubleshoot-swaps).
+If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
-## Monitor swap
+## Monitor a swap
 
 If the [swap operation](#what-happens-during-swap) takes a long time to complete, you can get information on the swap operation in the [activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
@@ -265,7 +265,7 @@ To route production traffic automatically:
 
 2. In the **Traffic %** column of the slot you want to route to, specify a percentage (between 0 and 100) to represent the amount of total traffic you want to route. Select **Save**.
 
-    ![](./media/web-sites-staged-publishing/RouteTraffic.png)
+    ![Setting a traffic percentage](./media/web-sites-staged-publishing/RouteTraffic.png)
 
 After the setting is saved, the specified percentage of clients is randomly routed to the non-production slot. 
 
@@ -273,31 +273,31 @@ After a client is automatically routed to a specific slot, it's "pinned" to that
 
 ### Route production traffic manually
 
-In addition to automatic traffic routing, App Service can route requests to a specific slot. This is useful when you want your users to be able to opt-into or opt-out of your beta app. To route production traffic manually, you use the `x-ms-routing-name` query parameter.
+In addition to automatic traffic routing, App Service can route requests to a specific slot. This is useful when you want your users to be able to opt in to or opt out of your beta app. To route production traffic manually, you use the `x-ms-routing-name` query parameter.
 
-To let users opt out of your beta app, for example, you can put this link in your webpage:
+To let users opt out of your beta app, for example, you can put this link on your webpage:
 
 ```HTML
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
-The string `x-ms-routing-name=self` specifies the production slot. After the client browser accesses the link, not only is it redirected to the production slot, but every subsequent request has the `x-ms-routing-name=self` cookie that pins the session to the production slot.
+The string `x-ms-routing-name=self` specifies the production slot. After the client browser accesses the link, it's redirected to the production slot. Every subsequent request has the `x-ms-routing-name=self` cookie that pins the session to the production slot.
 
-To let users opt in to your beta app, set the same query parameter to the name of the non-production slot, for example:
+To let users opt in to your beta app, set the same query parameter to the name of the non-production slot. Here's an example:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
-By default, new slots are given a routing rule of `0%`, shown in grey. By explicitly setting this value to `0%` (shown in black text), your users can access the staging slot manually by using the `x-ms-routing-name` query parameter, but they will not be routed to the slot automatically since the routing percentage is set to 0. This is an advanced scenario where you can "hide" your staging slot from the public while allowing internal teams to test changes on the slot.
+By default, new slots are given a routing rule of `0%`, shown in grey. When you explicitly set this value to `0%` (shown in black text), your users can access the staging slot manually by using the `x-ms-routing-name` query parameter. But they won't be routed to the slot automatically because the routing percentage is set to 0. This is an advanced scenario where you can "hide" your staging slot from the public while allowing internal teams to test changes on the slot.
 
 <a name="Delete"></a>
 
-## Delete slot
+## Delete a slot
 
-Go to your app's resource page. Select **Deployment slots** > *\<slot to delete>* > **Overview**. Select **Delete** in the command bar.  
+Go to your app's resource page. Select **Deployment slots** > *\<slot to delete>* > **Overview**. Select **Delete** on the command bar.  
 
-![Delete a Deployment Slot](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
+![Delete a deployment slot](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
@@ -312,26 +312,26 @@ Azure PowerShell is a module that provides cmdlets to manage Azure through Windo
 For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 ---
-### Create web app
+### Create a web app
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 ---
-### Create slot
+### Create a slot
 ```powershell
 New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 ---
-### Initiate swap with preview (multi-phase swap) and apply destination slot configuration to source slot
+### Initiate a swap with a preview (multi-phase swap), and apply destination slot configuration to the source slot
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 ---
-### Cancel pending swap (swap with review) and restore source slot configuration
+### Cancel a pending swap (swap with review) and restore the source slot configuration
 ```powershell
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
@@ -349,7 +349,7 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 ```
 
 ---
-### Delete slot
+### Delete a slot
 ```powershell
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
@@ -359,21 +359,21 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 <a name="CLI"></a>
 
-## Automate with CLI
+## Automate with the CLI
 
 For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slots, see [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## Troubleshoot swaps
 
-If any error occurs during a [slot swap](#what-happens-during-swap), it's logged in *D:\home\LogFiles\eventlog.xml*, as well as the application-specific error log.
+If any error occurs during a [slot swap](#what-happens-during-swap), it's logged in *D:\home\LogFiles\eventlog.xml*. It's also logged in the application-specific error log.
 
 Here are some common swap errors:
 
 - An HTTP request to the application root is timed. The swap operation waits for 90 seconds for each HTTP request, and retries up to 5 times. If all retries are timed out, the swap operation is stopped.
 
-- Local cache initialization may fail when the app content exceeds the local disk quota specified for the local cache. For more information, see [Local cache overview](overview-local-cache.md).
+- Local cache initialization might fail when the app content exceeds the local disk quota specified for the local cache. For more information, see [Local cache overview](overview-local-cache.md).
 
-- During [custom warm-up](#custom-warm-up), the HTTP requests are made internally (without going through the external URL), and can fail with certain URL rewrite rules in *Web.config*. For example, rules for redirecting domain names or enforcing HTTPS can prevent warmup requests from reaching the app code at all. To work around this issue, modify your rewrite rules by adding the following two conditions:
+- During [custom warm-up](#custom-warm-up), the HTTP requests are made internally (without going through the external URL). They can fail with certain URL rewrite rules in *Web.config*. For example, rules for redirecting domain names or enforcing HTTPS can prevent warm-up requests from reaching the app code. To work around this issue, modify your rewrite rules by adding the following two conditions:
 
     ```xml
     <conditions>
@@ -382,7 +382,7 @@ Here are some common swap errors:
       ...
     </conditions>
     ```
-- Without custom warm-up, the HTTP requests can still be held up by URL rewrite rules. To work around this issue, modify your rewrite rules by adding the following condition:
+- Without a custom warm-up, the URL rewrite rules can still hold up the HTTP requests. To work around this issue, modify your rewrite rules by adding the following condition:
 
     ```xml
     <conditions>
@@ -390,7 +390,7 @@ Here are some common swap errors:
       ...
     </conditions>
     ```
-- Some [IP restriction rules](app-service-ip-restrictions.md) may prevent the swap operation from sending HTTP requests to your app. IPv4 address ranges that start with `10.` and `100.` are internal to your deployment, and should be allowed to connect to your app.
+- Some [IP restriction rules](app-service-ip-restrictions.md) might prevent the swap operation from sending HTTP requests to your app. IPv4 address ranges that start with `10.` and `100.` are internal to your deployment. You should allow them to connect to your app.
 
 ## Next steps
 [Block access to non-production slots](app-service-ip-restrictions.md)
