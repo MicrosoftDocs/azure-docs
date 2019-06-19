@@ -82,7 +82,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     
-       **For production environment** :
+       **For production environment**:
+
        | |
        |-|
        | `https://<SUBDOMAIN>.ungerboeck.com/prod` |
@@ -90,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
        | `https://<SUBDOMAIN>.ungerboeck.io/prod` |
        | |
 
-        **For test environment** :
+        **For test environment**:
 
        | |
        |-|
