@@ -7,13 +7,8 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
-<<<<<<< HEAD
-ms.topic: article
-ms.date: 06/12/2019
-=======
 ms.topic: conceptual
 ms.date: 06/19/2019
->>>>>>> ca32bdf8c5c79a95ead57a95ade8fb8a2a137ad6
 ms.author: dapine
 ---
 
