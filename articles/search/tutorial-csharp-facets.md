@@ -513,7 +513,7 @@ In order to initiate a facet search, we need to send a query. The following Java
 
 2. Now, add the following JavaScript (after the closing **&lt;/div&gt;** shown above works fine).
 
-    ```cs
+    ```JavaScript
      <script>
             $(function () {
                 $.getJSON("/Home/Facets", function (data) {
