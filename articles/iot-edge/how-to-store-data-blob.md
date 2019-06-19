@@ -104,7 +104,7 @@ You can use the account name and account key that you configured for your module
 Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured.
 
 - For modules that are deployed on the same device as where the Azure Blob Storage on IoT Edge module is running, the blob endpoint is: `http://<module name>:11002/<account name>`.
-- For modules that are deployed on a different device than where the Azure Blob Storage on IoT Edge module is running, then depending upon your setup the blob endpoint is one of:
+- For external modules or applications that are running on a different device than where the Azure Blob Storage on IoT Edge module is running, then depending upon your network setup, such that the data traffic from your external module or application can reach the device running the Azure Blob Storage on IoT Edge module, the blob endpoint is one of:
   - `http://<device IP >:11002/<account name>`
   - `http://<IoT Edge device hostname>:11002/<account name>`
   - `http://<fully qualified domain name>:11002/<account name>`
