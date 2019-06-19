@@ -7,31 +7,25 @@ ms.subservice: high-availability
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, carlrab
-manager: craigg
-ms.date: 03/12/2019
+author: MashaMSFT
+ms.author: mathoma
+ms.reviewer: sstein, carlrab
+manager: jroth
+ms.date: 06/19/2019
 ---
 # Tutorial: Add an Azure SQL Database single database to a failover group
 
-Configure a failover group for an Azure SQL Database single database and test failover.  In this tutorial, you will learn how to:
+Configure a failover group for an Azure SQL Database single database and test failover using either the Azure portal, PowerShell, or Azure CLI.  In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> - Create an Azure SQL Database single database 
-> - Create a [failover group](sql-database-auto-failover-group.md) for a single database
-> - Test failover
-
-Choose your method:
-
-<!-- 
-The following section is for the Azure Portal
--->
+> - Create an Azure SQL Database single database.
+> - Create a [failover group](sql-database-auto-failover-group.md) for a single database between two logical SQL servers.
+> - Test failover.
 
 ## Prerequisites
 
 # [Azure Portal](#tab/azure-portal)
-
+To complete this tutorial, make sure you have: 
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 
@@ -41,77 +35,315 @@ The following section is for the Azure Portal
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
-To complete the tutorial, make sure you've installed the following items:
+To complete the tutorial, make sure you have the following items:
+
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# [Bash](#tab/bash)
+# [AZ CLI](#tab/azcli)
+To complete the tutorial, make sure you have the following items:
+
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 - The latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
-
-
 
 ---
 
 ## 1 - Create a single database 
 
+[!INCLUDE [sql-database-create-single-database](../../includes/sql-database-create-single-database.md)]
+
+## 2 - Create the failover group 
+In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group. 
+
 # [Azure Portal](#tab/azure-portal)
-In this step, you will create your Azure SQL Database single database. 
-
-1. Sign into the [Azure portal](https://portal.azure.com). 
-1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
-1. Type `sql database` into the search box, and press enter. 
-1. Select the **SQL Database** option published by Microsoft. 
-1. Select **Create** to create your Azure SQL Database. 
-1. On the **Basics** tab, under **Project Details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type `myResourceGroup` for the name.  
-
-   ![Project details for a new SQL DB](media/sql-database-single-db-create-fail-over-group-tutorial/sqldb-project-details.png)
-
-1. Under **Database Details**, type or select the following values: 
-   - Database name: Enter `mySampleDatabase`
-   - Server: Select **Create new** and enter the following values, and then select **Select**. 
-       - **Server name**: Choose a unique server name for your logical server, such as `failover-sqlserver`. 
-       - **Server admin login**: Type `AzureAdmin`
-       - **Password**: Type a complex password that meets password requirements.
-       - **Location**: Choose a location from the drop-down, such as West US 2.
-
-    ![SQL Database database details](media/sql-database-single-db-create-fail-over-group-tutorial/sqldb-database-details.png)
+Create your failover group and add your single database to it using the Azure portal. 
 
 
-   > [!IMPORTANT]
-   > Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the SQL server page. To open the SQL server page, select the server name on the database Overview page after database creation.
+1. Select **All Services** on the upper-left hand corner of the [Azure portal](https://portal.azure.com). 
+1. Type `sql servers` in the search box. 
+1. (Optional) Select the star icon next to SQL Servers to favorite **SQL servers** and add it to your left-hand navigation pane. 
+    
+    ![Locate SQL Servers](media/sql-database-single-db-create-fail-over-group-tutorial/all-services-sql-servers.png)
 
-   - **Want to use SQL elastic pool**: Select the **No** option. 
-   - **Compute + storage**: Select **Configure database**. 
-       - Select **Looking for basic, standard, premium?**. 
-       - Select **Standard** and select **Apply**. 
+1. Select **SQL servers** and choose the server you created in section 1.
+1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
 
-    ![Configure SQL DB compute](media/sql-database-single-db-create-fail-over-group-tutorial/sqldb-configuredb.png)
+    ![Add new failover group](media/sql-database-single-db-create-fail-over-group-tutorial/sqldb-add-new-failover-group.png)
 
-1. Select the **Additional settings** tab. 
-1. In the **Data source** section, under **Use existing data**, select `Sample`. 
-1. Leave the rest of the values as default and select **Review + Create** at the bottom of the form. 
-1. Review the final settings and select **Create**. 
-1. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database. 
+1. On the **Failover Group** page, enter or select the following values, and then select **Create**:
+    - **Failover group name**: Type in a unique failover group name, such as `failovergrouptutorial`. 
+    - **Secondary server**: Select the option to *configure required settings* and then choose to **Create a new server**. Alternatively, you can choose an already-existing server as the secondary server. After entering the following values, select **Select**. 
+        - **Server name**: Type in a unique name for the secondary server, such as `secondary-failover`. 
+        - **Server admin login**: Type `AzureAdmin`
+        - **Password**: Type a complex password that meets password requirements.
+        - **Location**: Choose a location from the drop-down, such as East US 2. Per best practices, it is recommended to create the secondary server in a different geographic location than the primary server so that you can failover to a different location in the event of a disaster that affects the primary servers location. 
+    
+       ![Create a secondary server for the failover group](media/sql-database-single-db-create-fail-over-group-tutorial/create-secondary-failover-server.png)
 
-   ![Add sample data to the SQL DB](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
+   - **Databases within the group**: Once a secondary server is selected, this option becomes unlocked. Select it to **Select databases to add** and then choose the database you created in section 1. 
+        
+    ![Add SQL DB to failover group](media/sql-database-single-db-create-fail-over-group-tutorial/add-sqldb-to-failover-group.png)
+        
 
 # [PowerShell](#tab/powershell)
-Run the following PowerShell script to create your resource group and Azure SQL Database single database. 
+Create your failover group and add your single database to it using PowerShell. 
+
+
+> [!IMPORTANT]
+> [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
+
+To create a failover group, run the following PowerShell script:
 
    ```powershell-interactive
    # Set variables for your server and database
-   $SubscriptionId = '<Your Azure subscription ID>'
-   $ResourceGroupName = "myResourceGroup"
+   $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
    $Location = "westus2"
-   $AdminLogin = "AzureAdmin"
+   $AdminLogin = "azureuser"
    $Password = "ChangeYourAdminPassword1"
-   $ServerName = "failover-sqlserver"
+   $ServerName = "mysqlserver" # to randomize: "mysqlserver-$(Get-Random)"
    $DatabaseName = "mySampleDatabase"
+   $drLocation = "eastus2"
+   $drServerName = "secondaryFailover" # to randomize: "secondaryFailover-$(Get-Random)"
+   $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$(Get-Random)"
    
+   # Create a secondary server in the failover region
+   New-AzSqlServer -ResourceGroupName $ResourceGroupName `
+      -ServerName $drServerName `
+      -Location $drLocation `
+      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+         -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $Password -AsPlainText -Force))
    
-   # The ip address range that you want to allow to access your server
+   # Create a failover group between the servers
+   New-AzSqlDatabaseFailoverGroup `
+      –ResourceGroupName $ResourceGroupName `
+      -ServerName $ServerName `
+      -PartnerServerName $drServerName  `
+      –FailoverGroupName $FailoverGroupName `
+      –FailoverPolicy Automatic `
+      -GracePeriodWithDataLossHours 2
+   
+   # Add the database to the failover group
+   Get-AzSqlDatabase `
+      -ResourceGroupName $ResourceGroupName `
+      -ServerName $ServerName `
+      -DatabaseName $DatabaseName | `
+   Add-AzSqlDatabaseToFailoverGroup `
+      -ResourceGroupName $ResourceGroupName `
+      -ServerName $ServerName `
+      -FailoverGroupName $FailoverGroupName
+   ```
+
+# [AZ CLI](#tab/azcli)
+Create your failover group and add your single database to it using AZ CLI. 
+
+   ```azurecli-interactive
+   #!/bin/bash
+   # Set variables
+   export SubscriptionID=<Your Subscription ID>
+   export ResourceGroupName=myResourceGroup # to randomize: myResourceGroup-$RANDOM
+   export Location=WestUS2
+   export AdminLogin=azureuser
+   export Password=ChangeYourAdminPassword1
+   export ServerName="mysqlserver" # to randomize: mysqlserver-$RANDOM
+   export DatabaseName=mySampleDatabase
+   export drLocation=EastUS2
+   export drServerName="mysqlsecondary" # to randomize: mysqlsecondary-$RANDOM
+   export FailoverGroupName="failovergrouptutorial" # to randomize: failovergrouptutorial-$RANDOM
+
+   # Create a secondary server in the DR region
+   az sql server create \
+      --name $drServerName \
+      --resource-group $ResourceGroupName \
+      --location $drLocation  \
+      --admin-user $AdminLogin\
+      --admin-password $Password
+
+   # Create a failover group between the servers and add the database
+   az sql failover-group create \
+      --name $FailoverGroupName  \
+      --partner-server $drServerName \
+      --resource-group $ResourceGroupName \
+      --server $ServerName \
+      --failover-policy Automatic \
+   ```
+
+---
+
+## 3 - Test failover 
+In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
+
+# [Azure Portal](#tab/azure-portal)
+Test failover using the Azure portal. 
+
+1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
+1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2. 
+  
+   ![Select the failover group from the portal](media/sql-database-single-db-create-fail-over-group-tutorial/select-failover-group.png)
+
+1. Select **Failover** from the task pane to failover your failover group containing your sample single database. 
+1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected. 
+
+   ![Failover your failover group containing your SQL database](media/sql-database-single-db-create-fail-over-group-tutorial/failover-sql-db.png)
+
+# [PowerShell](#tab/powershell)
+Test failover using PowerShell. 
+
+
+Check the role of the secondary replica: 
+
+   ```powershell
+   # Set variables
+   $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
+   $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
+   $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$(Get-Random)"
+   
+   # Check role of secondary replica
+   (Get-AzSqlDatabaseFailoverGroup `
+      -FailoverGroupName $FailoverGroupName `
+      -ResourceGroupName $ResourceGroupName `
+      -ServerName $drServerName).ReplicationRole
+   ```
+
+
+Failover to the secondary server: 
+
+   ```powershell
+   # Set variables
+   $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
+   $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
+   $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$(Get-Random)"
+   
+   # Failover to secondary server
+   Switch-AzSqlDatabaseFailoverGroup `
+     -ResourceGroupName $ResourceGroupName `
+     -ServerName $drServerName `
+     -FailoverGroupName $FailoverGroupName
+   ```
+
+Revert failover group back to the primary server:
+
+   ```powershell
+   # Set variables
+   $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
+   $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
+   $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$
+   
+   # Revert failover to primary server
+   Switch-AzSqlDatabaseFailoverGroup `
+      -ResourceGroupName $ResourceGroupName `
+      -ServerName $ServerName `
+      -FailoverGroupName $FailoverGroupName
+   ```
+
+# [AZ CLI](#tab/azcli)
+Test failover using the AZ CLI. 
+
+
+Verify which server is the secondary:
+
+   
+   ```azurecli-interactive
+   # Set variables
+   export ResourceGroupName=myResourceGroup # to randomize: myResourceGroup-$RANDOM
+   export ServerName="mysqlserver" # to randomize: mysqlserver-$RANDOM
+   
+   # Verify which server is secondary
+   az sql failover-group list \
+      --server $ServerName \
+      --resource-group $ResourceGroupName \
+   ```
+
+Failover to the secondary server: 
+
+   ```azurecli-interactive
+      # Set variables
+      export ResourceGroupName=myResourceGroup # to randomize: myResourceGroup-$RANDOM
+      export drServerName="mysqlsecondary" # to randomize: mysqlsecondary-$RANDOM
+      export FailoverGroupName="failovergrouptutorial" # to randomize: failovergrouptutorial-$RANDOM
+
+   
+      # Failover to the secondary server
+      az sql failover-group set-primary \
+         --name $FailoverGroupName \
+         --resource-group $ResourceGroupName \
+         --server $drServerName \
+   ```
+
+Revert failover group back to the primary server:
+
+   ```azurecli-interactive
+      # Set variables
+      export ResourceGroupName=myResourceGroup # to randomize: myResourceGroup-$RANDOM
+      export ServerName="mysqlserver"
+      export FailoverGroupName="failovergrouptutorial" # to randomize: failovergrouptutorial-$RANDOM
+      
+   
+      # Revert failover group back to the primary server
+      az sql failover-group set-primary \
+         --name $FailoverGroupName \
+         --resource-group $ResourceGroupName \
+         --server $ServerName \
+   ```
+
+---
+
+## Clean up resources (#tab/azure-portal)
+Clean up resources by deleting the resource group. 
+
+# [Azure Portal](#tab/azure-portal)
+Delete the resource group using the Azure portal. 
+
+
+1. Navigate to your resource group in the [Azure portal](https://portal.azure.com).
+1. Select to **Delete resource group**. 
+
+# [PowerShell](#tab/powershell)
+Delete the resource group using PowerShell. 
+
+
+   ```powershell
+   # Set variables
+   $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
+
+   # Remove the resource group
+   Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
+   ```
+
+# [AZ CLI](#tab/azcli)
+Delete the resource group by using AZ CLI. 
+
+
+    ```azurecli-interactive
+    # Set variables    
+     export ResourceGroupName=myResourceGroup # to randomize: myResourceGroup-$RANDOM
+    
+    # Remove the resource group
+    az group delete \
+       --name $ResourceGroupName \
+
+    ```
+
+---
+
+
+## Full scripts
+
+# [PowerShell](#tab/powershell)
+
+```powershell-interactive
+   # Set variables for your server and database
+   $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
+   $Location = "westus2"
+   $AdminLogin = "azureuser"
+   $Password = "ChangeYourAdminPassword1"
+   $ServerName = "mysqlserver" # to randomize: "mysqlserver-$(Get-Random)"
+   $DatabaseName = "mySampleDatabase"
+   $drLocation = "eastus2"
+   $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
+   $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$(Get-Random)"
+  
+   # The ip address range that you want to allow to access your server (leaving at 0.0.0.0 will prevent outside-of-azure connections)
    $startIp = "0.0.0.0"
    $endIp = "0.0.0.0"
    
@@ -135,28 +367,82 @@ Run the following PowerShell script to create your resource group and Azure SQL 
       -ServerName $ServerName `
       -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
    
-   # Create a database with an S0 performance level
+   # Create General Purpose Gen4 database with 1 vCore
    $database = New-AzSqlDatabase  -ResourceGroupName $ResourceGroupName `
       -ServerName $ServerName `
       -DatabaseName $DatabaseName `
-      -RequestedServiceObjectiveName "S0" `
-      -SampleName "AdventureWorksLT"
-   ```
+      -Edition GeneralPurpose `
+      -VCore 1 `
+      -ComputeGeneration Gen4  `
+      -MinimumCapacity 1 `
+      -SampleName "AdventureWorksLT" `
 
-# [Bash](#tab/bash)
+   # Create a secondary server in the failover region
+   New-AzSqlServer -ResourceGroupName $ResourceGroupName `
+      -ServerName $drServerName `
+      -Location $drLocation `
+      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+         -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $Password -AsPlainText -Force))
+   
+   # Create a failover group between the servers
+   New-AzSqlDatabaseFailoverGroup `
+      –ResourceGroupName $ResourceGroupName `
+      -ServerName $ServerName `
+      -PartnerServerName $drServerName  `
+      –FailoverGroupName $FailoverGroupName `
+      –FailoverPolicy Automatic `
+      -GracePeriodWithDataLossHours 2
+   
+   # Add the database to the failover group
+   Get-AzSqlDatabase `
+      -ResourceGroupName $ResourceGroupName `
+      -ServerName $ServerName `
+      -DatabaseName $DatabaseName | `
+   Add-AzSqlDatabaseToFailoverGroup `
+      -ResourceGroupName $ResourceGroupName `
+      -ServerName $ServerName `
+      -FailoverGroupName $FailoverGroupName
 
-   ```azure-cli-interactive
+   # Check role of secondary replica
+   (Get-AzSqlDatabaseFailoverGroup `
+      -FailoverGroupName $FailoverGroupName `
+      -ResourceGroupName $ResourceGroupName `
+      -ServerName $drServerName).ReplicationRole
+
+   # Failover to secondary server
+   Switch-AzSqlDatabaseFailoverGroup `
+      -ResourceGroupName $ResourceGroupName `
+      -ServerName $drServerName `
+      -FailoverGroupName $FailoverGroupName
+
+   # Revert failover to primary server
+   Switch-AzSqlDatabaseFailoverGroup `
+      -ResourceGroupName $ResourceGroupName `
+      -ServerName $ServerName `
+      -FailoverGroupName $FailoverGroupName
+
+   # Clean up resources by removing the resource group
+   # Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
+
+```
+
+# [AZ CLI](#tab/azcli)
+
+```azurecli-interactive
    #!/bin/bash
    # Set variables
-   subscriptionID=<Your Subscription ID>
-   export ResourceGroupName=myResourceGroup
+   export SubscriptionID=<Your Subscription ID>
+   export ResourceGroupName=myResourceGroup # to randomize: myResourceGroup-$RANDOM
    export Location=WestUS2
-   export AdminLogin=AzureAdmin
+   export AdminLogin=azureuser
    export Password=ChangeYourAdminPassword1
-   export ServerName="failover-sqlserver"
+   export ServerName="mysqlserver" # to randomize: mysqlserver-$RANDOM
    export DatabaseName=mySampleDatabase
-   
-   # The ip address range that you want to allow to access your DB
+   export drLocation=EastUS2
+   export drServerName="mysqlsecondary" # to randomize: mysqlsecondary-$RANDOM
+   export FailoverGroupName="failovergrouptutorial" # to randomize: failovergrouptutorial-$RANDOM
+
+   # The ip address range that you want to allow to access your DB. Leaving at 0.0.0.0 will prevent outside-of-azure connections
    export startip=0.0.0.0
    export endip=0.0.0.0
   
@@ -193,106 +479,9 @@ Run the following PowerShell script to create your resource group and Azure SQL 
       --server $ServerName \
       --name $DatabaseName \
       --sample-name AdventureWorksLT \
-      --service-objective S0 \
-   ```
-
-
-
----
-
-## 2 - Create the failover group 
-
-# [Azure Portal](#tab/azure-portal)
-
-1. Select **All Services** on the upper-left hand corner of the [Azure portal](https://portal.azure.com). 
-1. Type `sql servers` in the search box. 
-1. (Optional) Select the star icon next to SQL Servers to favorite **SQL servers** and add it to your left-hand navigation pane. 
-    
-    ![Locate SQL Servers](media/sql-database-single-db-create-fail-over-group-tutorial/all-services-sql-servers.png)
-
-1. Select **SQL servers** and choose the server you created in section 1.
-1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
-
-    ![Add new failover group](media/sql-database-single-db-create-fail-over-group-tutorial/sqldb-add-new-failover-group.png)
-
-1. On the **Failover Group** page, enter or select the following values, and then select **Create**:
-    - **Failover group name**: Type in a unique failover group name, such as `failovergrouptutorial`. 
-    - **Secondary server**: Select the option to *configure required settings* and then choose to **Create a new server**. Alternatively, you can choose an already-existing server as the secondary server. After entering the following values, select **Select**. 
-        - **Server name**: Type in a unique name for the secondary server, such as `secondary-failover`. 
-        - **Server admin login**: Type `AzureAdmin`
-        - **Password**: Type a complex password that meets password requirements.
-        - **Location**: Choose a location from the drop-down, such as East US 2. Per best practices, it is recommended to create the secondary server in a different geographic location than the primary server so that you can failover to a different location in the event of a disaster that affects the primary servers location. 
-    
-       ![Create a secondary server for the failover group](media/sql-database-single-db-create-fail-over-group-tutorial/create-secondary-failover-server.png)
-
-   - **Databases within the group**: Once a secondary server is selected, this option becomes unlocked. Select it to **Select databases to add** and then choose the database you created in section 1. 
-        
-    ![Add SQL DB to failover group](media/sql-database-single-db-create-fail-over-group-tutorial/add-sqldb-to-failover-group.png)
-        
-
-# [PowerShell](#tab/powershell)
-Using Azure PowerShell, create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group.
-
-> [!IMPORTANT]
-> [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
-
-To create a failover group, run the following PowerShell script:
-
-   ```powershell-interactive
-   # Set variables for your server and database
-   $ResourceGroupName = "myResourceGroup"
-   $Location = "westus2"
-   $AdminLogin = "AzureAdmin"
-   $Password = "ChangeYourAdminPassword1"
-   $ServerName = "failover-sqlserver"
-   $DatabaseName = "mySampleDatabase"
-   $drLocation = "eastus2"
-   $drServerName = "secondaryFailover"
-   $FailoverGroupName = "failovergrouptutorial"
-   
-   # Create a secondary server in the failover region
-   New-AzSqlServer -ResourceGroupName $ResourceGroupName `
-      -ServerName $drServerName `
-      -Location $drLocation `
-      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-         -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $Password -AsPlainText -Force))
-   
-   # Create a failover group between the servers
-   New-AzSqlDatabaseFailoverGroup `
-      –ResourceGroupName $ResourceGroupName `
-      -ServerName $ServerName `
-      -PartnerServerName $drServerName  `
-      –FailoverGroupName $FailoverGroupName `
-      –FailoverPolicy Automatic `
-      -GracePeriodWithDataLossHours 2
-   
-   # Add the database to the failover group
-   Get-AzSqlDatabase `
-      -ResourceGroupName $ResourceGroupName `
-      -ServerName $ServerName `
-      -DatabaseName $DatabaseName | `
-   Add-AzSqlDatabaseToFailoverGroup `
-      -ResourceGroupName $ResourceGroupName `
-      -ServerName $ServerName `
-      -FailoverGroupName $FailoverGroupName
-   ```
-
-# [Bash](#tab/bash)
-
-
-   ```azure-cli
-   #!/bin/bash
-   # Set variables
-   export SubscriptionID=<Your Subscription ID>
-   export ResourceGroupName=myResourceGroup
-   export Location=WestUS2
-   export AdminLogin=AzureAdmin
-   export Password=ChangeYourAdminPassword1
-   export ServerName="failover-sqlserver"
-   export DatabaseName=mySampleDatabase
-   export drLocation=EastUS2
-   export drServerName="secondary-failover"
-   export FailoverGroupName="failovergrouptutorial"
+      --edition GeneralPurpose \
+      --family Gen4 \
+      --capacity 1 \
 
    # Create a secondary server in the DR region
    az sql server create \
@@ -309,152 +498,39 @@ To create a failover group, run the following PowerShell script:
       --resource-group $ResourceGroupName \
       --server $ServerName \
       --failover-policy Automatic \
-   ```
 
----
+   # Verify which server is secondary
+   az sql failover-group list \
+      --server $ServerName \
+      --resource-group $ResourceGroupName \
 
-## 3 - Test failover 
-
-# [Azure Portal](#tab/azure-portal)
-1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
-1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2. 
-  
-   ![Select the failover group from the portal](media/sql-database-single-db-create-fail-over-group-tutorial/select-failover-group.png)
-
-1. Select **Failover** from the task pane to failover your failover group containing your sample single database. 
-1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected. 
-
-   ![Failover your failover group containing your SQL database](media/sql-database-single-db-create-fail-over-group-tutorial/failover-sql-db.png)
-
-# [PowerShell](#tab/powershell)
-
-Check the role of the secondary replica: 
-
-   ```powershell
-   $ResourceGroupName = "myResourceGroup"
-   $drServerName = "secondary-failover"
-   $FailoverGroupName = "failovergrouptutorial"
-   
-   (Get-AzSqlDatabaseFailoverGroup `
-      -FailoverGroupName $FailoverGroupName `
-      -ResourceGroupName $ResourceGroupName `
-      -ServerName $drServerName).ReplicationRole
-   ```
-
-
-Failover to the secondary server: 
-
-   ```powershell
-   $ResourceGroupName = "myResourceGroup"
-   $drServerName = "secondary-failover"
-   $FailoverGroupName = "failovergrouptutorial"
-   
-   Switch-AzSqlDatabaseFailoverGroup `
-   -ResourceGroupName $ResourceGroupName `
-   -ServerName $drServerName `
-   -FailoverGroupName $FailoverGroupName
-   ```
-
-Revert failover group back to the primary server:
-
-   ```powershell
-   $ResourceGroupName = "myResourceGroup"
-   $drServerName = "secondary-failover"
-   $FailoverGroupName = "failovergrouptutorial"
-   
-   Switch-AzSqlDatabaseFailoverGroup `
-      -ResourceGroupName $ResourceGroupName `
-      -ServerName $ServerName `
-      -FailoverGroupName $FailoverGroupName
-   ```
-
-# [Bash](#tab/bash)
-
-Verify which server is the secondary:
-
-
-```azure-cli-interactive
-  # Set variables
-  export ResourceGroupName=myResourceGroup
-  export ServerName="failover-sqlserver"
-  
-
-  az sql failover-group list \
-     --server $ServerName \
-     --resource-group $ResourceGroupName \
-```
-
-Failover to the secondary server: 
-
-```azure-cli-interactive
-   # Set variables
-   export ResourceGroupName=myResourceGroup
-   export FailoverGroupName = "failovergrouptutorial"
-   export drServerName="secondary-failover"
-
+   # Failover to the secondary server
    az sql failover-group set-primary \
-       --name $FailoverGroupName \
-       --resource-group $ResourceGroupName \
-       --server $drServerName \
-```
+      --name $FailoverGroupName \
+      --resource-group $ResourceGroupName \
+      --server $drServerName \
 
-Revert failover group back to the primary server:
-
-```azure-cli-interactive
-   # Set variables
-   export ResourceGroupName=myResourceGroup
-   export FailoverGroupName = "failovergrouptutorial"
-   export ServerName="failover-sqlserver"
-
+   # Revert failover group back to the primary server
    az sql failover-group set-primary \
-       --name $FailoverGroupName \
-       --resource-group $ResourceGroupName \
-       --server $ServerName \
+      --name $FailoverGroupName \
+      --resource-group $ResourceGroupName \
+      --server $ServerName \
+
+    # Clean up resources by removing the resource group
+    # az group delete \
+    #   --name $ResourceGroupName \
 ```
-
----
-
-## Clean up resources (#tab/azure-portal)
-Clean up resources by deleting the resource group. 
-
-# [Azure Portal](#tab/azure-portal)
-
-1. Navigate to your resource group in the [Azure portal](https://portal.azure.com).
-1. Select to **Delete resource group**. 
-
-# [PowerShell](#tab/powershell)
-
-
-   ```powershell
-   # Set variables
-   $ResourceGroupName = "myResourceGroup"
-
-   # Remove the resource group
-   Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
-   ```
-
-# [Bash](#tab/bash)
-
-    ```azure-cli-interactive
-    # Set variables    
-     export ResourceGroupName=myResourceGroup
-    
-    # Remove the resource group
-    az group delete \
-       --name $ResourceGroupName \
-
-    ```
 
 ---
 
 ## Next steps
 
-In this tutorial, you added an Azure SQL Database single database to a failover group. You learned how to:
+In this tutorial, you added an Azure SQL Database single database to a failover group, and tested failover. You learned how to:
 
 > [!div class="checklist"]
-> - Create an Azure SQL Database single database 
-> - Create a [failover group](sql-database-auto-failover-group.md) for a single database
-> - Test failover
+> - Create an Azure SQL Database single database. 
+> - Create a [failover group](sql-database-auto-failover-group.md) for a single database for a single database between two logical SQL servers.
+> - Test failover.
 
 Advance to the next tutorial on how to migrate using DMS.
 

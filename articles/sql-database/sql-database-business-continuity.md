@@ -59,6 +59,22 @@ The following table compares the ERT and RPO for each service tier for the most 
 > [!NOTE]
 > *Manual database failover* refers to failover of a single database to its geo-replicated secondary using the [unplanned mode](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
 
+## Comparing geo-replication with failover groups
+
+The following table describes the differences between [geo-replication](sql-database-active-geo-replication.md) and [failover groups](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities).
+
+|                                              | Geo-replication | Failover groups  |
+|:---------------------------------------------| :-------------- | :----------------|
+| Automatic failover                           |     No          |      Yes         |
+| Fail over multiple databases simultaneously  |     No          |      Yes         |
+| Update connection string after failover      |     Yes         |      No          |
+| Managed instance supported                   |     No          |      Yes         |
+| Can be in same region as primary             |     Yes         |      No          |
+| Multiple replicas                            |     Yes         |      No          |
+| Supports read-scale                          |     Yes         |      Yes         |
+| &nbsp; | &nbsp; | &nbsp; |
+
+
 ## Recover a database to the existing server
 
 SQL Database automatically performs a combination of full database backups weekly, differential database backups generally taken every 12 hours, and transaction log backups every 5 - 10 minutes to protect your business from data loss. The backups are stored in RA-GRS storage for 35 days for all service tiers except Basic DTU service tiers where the backups are stored for 7 days. For more information, see [automatic database backups](sql-database-automated-backups.md). You can restore an existing database form the automated backups to an earlier point in time as a new database on the same SQL Database server using the Azure portal, PowerShell, or the REST API. For more information, see [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
