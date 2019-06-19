@@ -174,7 +174,7 @@ You can customize the Application Insights SDK for ASP.NET Core to change the de
 > [!NOTE]
 > In ASP.NET Core applications, changing configuration by modifying `TelemetryConfiguration.Active` isn't recommended.
 
-### Using ApplicationInsightsServiceOptions to configure
+### Using ApplicationInsightsServiceOptions
 
 You can modify a few common settings by passing `ApplicationInsightsServiceOptions` to `AddApplicationInsightsTelemetry`, as in this example:
 
@@ -194,7 +194,7 @@ You can modify a few common settings by passing `ApplicationInsightsServiceOptio
 
 For more information, see the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Microsoft.ApplicationInsights.AspNetCore/Extensions/ApplicationInsightsServiceOptions.cs).
 
-### Sample
+### Sampling
 
 The Application Insights SDK for ASP.NET Core supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. 
 
