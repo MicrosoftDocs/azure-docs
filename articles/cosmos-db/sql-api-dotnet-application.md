@@ -204,7 +204,7 @@ The first thing to do here is add a class that contains the logic to connect to 
 
  1. Repeat the same steps, but this time, for a class named **ICosmosDBService**, and add the following code:
 
-   [!code-csharp[Main](~/samples-cosmos-dotnet-core-todo-app/src/Services/ICosmosDbService.cs)]
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs)]
  
 1. The previous code receives a `CosmosClient` as part of the constructor. Following ASP.NET Core pipeline, we need to go to the project's **Startup.cs** and initialize the client based on the configuration as a Singleton instance to be injected through [Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). In the **ConfigureServices** handler, we define:
 
