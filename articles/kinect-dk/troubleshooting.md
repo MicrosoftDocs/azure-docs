@@ -8,11 +8,11 @@ ms.date: 06/13/2019
 ms.topic: article
 keywords: troubleshooting, update, bug, kinect, feedback, recovery, logging, tips
 ---
-# Known Issues and Troubleshooting
+# Azure Kinect known issues and troubleshooting
 
 This page contains known issues and troubleshooting tips when using Sensor SDK with Azure Kinect DK. See also [product support pages](http://aka.ms/kinectsupport) for product hardware- specific issues.
 
-## Known issues (v1.0.0)
+## Known issues
 
 - Compatibility issues with ASMedia USB host controllers (for example, ASM1142 chipset)
   - Some cases using Microsoft USB driver can unblock

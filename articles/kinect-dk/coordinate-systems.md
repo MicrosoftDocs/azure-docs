@@ -1,5 +1,5 @@
 ---
-title: Azure Kinect coordinate systems
+title: Azure Kinect DK coordinate systems
 description: Azure Kinect DK coordinate systems description associated with Azure DK sensors
 author: tesych
 ms.author: tesych
@@ -11,7 +11,7 @@ keywords: kinect, azure, sensor, sdk, depth camera, tof, principles, performance
 
 # Azure Kinect DK coordinate systems
 
-In this article, we describe conventions used for 2D and 3D coordinate systems.  There are separate coordinate systems associated with each sensor's device and the [calibration functions](use-azure-kinect-calibration-functions.md) allowed to transform points between them. The [transformation functions](use-image-transformation.md) transform entire images between coordinate systems.  
+In this article, we describe conventions used for 2D and 3D coordinate systems.  There are separate coordinate systems associated with each sensor's device and the [calibration functions](use-calibration-functions.md) allowed to transform points between them. The [transformation functions](use-image-transformation.md) transform entire images between coordinate systems.  
 
 ## 2D coordinate systems
 

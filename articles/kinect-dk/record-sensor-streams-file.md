@@ -12,7 +12,7 @@ keywords: azure, kinect, record, play back, reader, matroska, mkv, streams, dept
 
 ---
 
-# Quickstart: Record sensor streams to file
+# Quickstart: Record Azure Kinect sensor streams to a file
 
 This quickstart provides information about how you can use the [Azure Kinect Recorder](recorder.md) tool to record data streams from the Sensor SDK to a file.
 
@@ -46,4 +46,4 @@ You can use the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) to play bac
 Now that you've learned how to record sensor streams to a file, it's time to
 
 > [!div class="nextstepaction"]
-> [Build your first application](setup.md)
+> [Build your first Azure Kinect application](build-first-app.md)

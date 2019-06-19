@@ -1,6 +1,6 @@
 ---
-title: Azure Kinect hardware specification
-description: Azure Kinect specifications and capabilities
+title: Azure Kinect DK hardware specification
+description: Azure Kinect DK specifications and capabilities
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk

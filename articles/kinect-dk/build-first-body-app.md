@@ -16,24 +16,22 @@ keywords: kinect, azure, sensor, sdk, body, tracking, joint, application, first
 
 Getting started with the Body Tracking SDK? This quickstart will get you up and running with body tracking!
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
 
 - [Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
 - [Set up Body Tracking SDK](body-sdk-setup.md)
-- Walk through how to [build your first Azure Kinect application](setup.md) quickstart.
+- Walk through how to [build your first Azure Kinect application](build-first-app.md) quickstart.
 - Familiarize yourself with the following Sensor SDK functions:
   - [k4a_device_open()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)
   - [k4a_device_start_cameras()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4dc81cbeb54b07e4bbb7d639c448f6eb.html#ga4dc81cbeb54b07e4bbb7d639c448f6eb)
   - [k4a_device_stop_cameras()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4fa0e0a011a7105309ad97f081a5d6b8.html#ga4fa0e0a011a7105309ad97f081a5d6b8)
   - [k4a_device_close()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423)
 - Review the documentation on the following Body Tracking SDK functions:
-  - [k4abt_tracker_create()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
-  - [k4abt_tracker_enqueue_capture()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
-  - [k4abt_tracker_pop_result()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
-  - [k4abt_tracker_shutdown()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
-  - [k4abt_tracker_destroy()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html)
+  - [k4abt_tracker_create()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_gae395d73880395ffc6ffbdd5132aa9181.html#gae395d73880395ffc6ffbdd5132aa9181)
+  - [k4abt_tracker_enqueue_capture()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_ga093becd9bb4a63f5f4d56f58097a7b1e.html#ga093becd9bb4a63f5f4d56f58097a7b1e)
+  - [k4abt_tracker_pop_result()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_gaaf446fb1579cbbe0b6af824ee0a7458b.html#gaaf446fb1579cbbe0b6af824ee0a7458b)
+  - [k4abt_tracker_shutdown()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_ga94036969ef94cbc414c78b3f6d04bfa5.html#ga94036969ef94cbc414c78b3f6d04bfa5)
+  - [k4abt_tracker_destroy()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_gab2c9afca092130976cd66077c0557ed1.html#gab2c9afca092130976cd66077c0557ed1)
 
 ## Headers
 
@@ -48,13 +46,13 @@ Body tracking uses a single header, `k4abt.h`. Include this header in addition t
 
 Your first body tracking application assumes a single Azure Kinect device connected to the PC.
 
-Body tracking builds on the Sensor SDK. To use body tracking, you first need to open and configure the device. Use the [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) function to open the device and then configure it with a [`k4a_device_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) object. For best results set the depth mode to `K4A_DEPTH_MODE_NFOV_UNBINNED` or `K4A_DEPTH_MODE_WFOV_2X2BINNED`. The body tracker will not run if the depth mode is set to  `K4A_DEPTH_MODE_OFF` or `K4A_DEPTH_MODE_PASSIVE_IR`.
+Body tracking builds on the Sensor SDK. To use body tracking, you first need to open and configure the device. Use the [k4a_device_open()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) function to open the device and then configure it with a [k4a_device_configuration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__device__configuration__t.html) object. For best results set the depth mode to `K4A_DEPTH_MODE_NFOV_UNBINNED` or `K4A_DEPTH_MODE_WFOV_2X2BINNED`. The body tracker will not run if the depth mode is set to  `K4A_DEPTH_MODE_OFF` or `K4A_DEPTH_MODE_PASSIVE_IR`.
 
 You can find more information on finding and opening the device on [this page](find-then-open-device.md).
 
 You can find more information on Azure Kinect depth modes on these pages:
 [hardware specification](hardware-specification.md) 
-and [`k4a_depth_mode_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga3507ee60c1ffe1909096e2080dd2a05d.html#ga3507ee60c1ffe1909096e2080dd2a05d)
+and [k4a_depth_mode_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga3507ee60c1ffe1909096e2080dd2a05d.html#ga3507ee60c1ffe1909096e2080dd2a05d) enumerations.
 
 ```C
 k4a_device_t device = nullptr;
@@ -69,7 +67,7 @@ k4a_device_start_cameras(device, &deviceConfig);
 
 ## Create the tracker
 
-The first step in getting body tracking results is to create a body tracker. It needs the sensor calibration [`k4a_calibration_t`](https://docs.microsoft.com/azurekinect/api/k4a-calibration-t). The sensor calibration can be queried using the [`k4a_device_get_calibration()`](https://docs.microsoft.com/azurekinect/api/k4a-device-get-calibration) function.
+The first step in getting body tracking results is to create a body tracker. It needs the sensor calibration [k4a_calibration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__calibration__t.html) structure. The sensor calibration can be queried using the [k4a_device_get_calibration()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4e43940d8d8db48da266c7a7842c8d78.html#ga4e43940d8d8db48da266c7a7842c8d78) function.
 
 ```C
 k4a_calibration_t sensor_calibration;
@@ -116,7 +114,7 @@ if (pop_frame_result == K4A_WAIT_RESULT_SUCCEEDED)
 
 ## Access the body tracking result data
 
-The body tracking results for each sensor capture are stored in a body frame [`k4abt_frame_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html). Each body frame contains three key components: a collection of body structs, a 2D body index map, and the input capture.
+The body tracking results for each sensor capture are stored in a body frame [k4abt_frame_t](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/structk4abt__frame__t.html) structure. Each body frame contains three key components: a collection of body structs, a 2D body index map, and the input capture.
 
 Your first body tracking application only accesses the number of detected bodies. Refer to [access data in body frame](access-data-body-frame.md) for detailed explanation of data in a body frame.
 
