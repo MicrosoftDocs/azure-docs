@@ -1,7 +1,7 @@
 ---
 title: Store block blobs on devices - Azure IoT Edge | Microsoft Docs 
 description: Understand tiering and time-to-live features, see supported blob storage operations, and connect to your blob storage account.
-author: kgremban
+author: arduppal
 manager: philmea
 ms.author: arduppal
 ms.reviewer: arduppal
@@ -202,7 +202,7 @@ Unsupported:
 
 ## Release Notes
 
-You can find the release notes of this module [here](https://hub.docker.com/_/microsoft-azure-blob-storage)
+Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) for this module
 
 ## Feedback
 
