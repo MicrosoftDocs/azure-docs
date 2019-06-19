@@ -7,21 +7,23 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 06/20/2019
 ms.author: mhopkins
 ms.subservice: blobs
 ---
 
 # Quickstart: Azure Blob storage client library for .NET
 
-Get started with the Azure Blob Storage client library for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob Storage client library for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks.
 
-Use the Azure Blob Storage client library for .NET to:
+Blob storage is optimized for storing massive amounts of unstructured data. Use the Azure Blob Storage client library for .NET to:
 
 * Create a container
+* Set permissions on a container
 * Create a blob in Azure Storage
 * Download the blob to your local computer
 * List all of the blobs in a container
+* Delete a container
 
 [API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
@@ -138,7 +140,7 @@ After you have copied your connection string, write it to a new environment vari
 #### Windows
 
 ```cmd
-setx storageconnectionstring "<yourconnectionstring>"
+setx STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
 After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
@@ -146,17 +148,17 @@ After you add the environment variable, you may need to restart any running prog
 #### Linux
 
 ```bash
-export storageconnectionstring=<yourconnectionstring>
+export STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable.
 
 #### macOS
 
 Edit your .bash_profile, and add the environment variable:
 
 ```bash
-export storageconnectionstring=<yourconnectionstring>
+export STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
@@ -175,13 +177,14 @@ The following diagram shows the relationship between these resources.
 
 Use the following .NET classes to interact with these resources:
 
+* [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): Represents your Azure storage account. Use this class to authenticate using your storage connection string.
 * [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): Use this class to create a **CloudBlobContainer**.
 * [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): Use this class to perform actions with **CloudBlockBlob** objects.
 * [CloudBlockBlob](//dotnet/api/microsoft.azure.storage.blob.cloudblockblob): Represents blob objects which can be stored and retrieved from Azure Storage containers.
 
 ## Code examples
 
-You'll learn how to:
+These example code snippets show you how to perform the following with the Azure Blob storage client library for .NET:
 
    * [Authenticate the client](#authenticate-the-client)
    * [Create a container](#create-a-container)
@@ -189,7 +192,7 @@ You'll learn how to:
    * [Upload blobs to a container](#upload-blobs-to-a-container)
    * [List the blobs in a container](#list-the-blobs-in-a-container)
    * [Download blobs](#download-blobs)
-   * [Clean up resources](#clean-up-resources)
+   * [Delete a container](#delete-a-container)
 
 ### Authenticate the client
 
@@ -199,31 +202,32 @@ Add this code inside the **ProcessAsync** method:
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
-// in an environment variable on the machine running the application called storageconnectionstring.
+// in an environment variable on the machine running the application called STORAGE_CONNECTION_STRING.
 // If the environment variable is created after the application is launched in a console or with Visual
 // Studio, the shell or application needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
+string storageConnectionString = Environment.GetEnvironmentVariable("STORAGE_CONNECTION_STRING");
 
 // Check whether the connection string can be parsed.
 CloudStorageAccount storageAccount;
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with operations against Blob storage here.
-    ...
+    // ADD OTHER OPERATIONS HERE
 }
 else
 {
     // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add an environment variable named 'storageconnectionstring' with your storage " +
+        "Add an environment variable named 'STORAGE_CONNECTION_STRING' with your storage " +
         "connection string as a value.");
     Console.WriteLine("Press any key to exit the application.");
     Console.ReadLine();
 }
 ```
 
-All the rest of the code in this article replaces the ellipses (**...**) in the code above.
+> [!NOTE]
+> To perform the rest of the operations in this article, replace **// ADD OTHER OPERATIONS HERE** in the code above with the code snippets in the following sections.
 
 ### Create a container
 
@@ -312,7 +316,7 @@ Console.WriteLine("Downloading blob to {0}", destinationFile);
 await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);  
 ```
 
-### Clean up resources
+### Delete a container
 
 The following code cleans up the resources the app created by deleting the entire container using [Cloud​Blob​Container.​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
 
@@ -366,7 +370,7 @@ Press any key to delete the example files and example container.
 
 When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your **MyDocuments** folder for the two files. You can open them and observe that they are identical. Copy the blob's URL from the console window and paste it into a browser to view the contents of the blob.
 
-After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the example does, open the Program.cs file to look at the code.
+After you've verified the files, hit any key to finish the demo and delete the test files.
 
 ## Next steps
 
