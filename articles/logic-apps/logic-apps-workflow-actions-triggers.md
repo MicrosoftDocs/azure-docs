@@ -8,7 +8,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 06/19/2019
 ---
 
 # Reference for trigger and action types in Workflow Definition Language for Azure Logic Apps
@@ -2959,7 +2959,7 @@ the action's inputs.
 
 ### Run in high throughput mode
 
-For a single logic app run, the number of actions that execute every 5 minutes has a 
+For a single logic app definition, the number of actions that execute every 5 minutes has a 
 [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). 
 To raise this limit to the [maximum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) 
 possible, set the `operationOptions` property to `OptimizedForHighThroughput`. 
