@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure Database for MariaDB data-in replication | Microsoft Docs
+title: Configure Data-in Replication in Azure Database for MariaDB | Microsoft Docs
 description: This article describes how to set up data-in replication Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
@@ -8,28 +8,31 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Configure data-in replication Azure Database for MariaDB
+# Configure Data-in Replication in Azure Database for MariaDB
 
-In this article, you will learn how to set up data-in replication in the Azure Database for MariaDB service by configuring the master and replica servers. Data-in Replication allows you to synchronize data from a master MariaDB server running on-premises, in virtual machines, or database services hosted by other cloud providers into a replica in the Azure Database for MariaDB service. We recommanded you setup the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/) when your master server's version is 10.2 or above.
+This article describes how to set up Data-in Replication in Azure Database for MariaDB by configuring the master and replica servers.
 
-This article assumes that you have at least some prior experience with MariaDB servers and databases.
+By using Data-in Replication, you can synchronize data from a master MariaDB server running on-premises, in virtual machines (VMs), or through database services hosted by other cloud providers. into a replica in the Azure Database for MariaDB service.
+
+We recommend that you set up the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/) if your master server's version is 10.2 or newer.
+
+This article assumes that you have some prior experience with MariaDB servers and databases.
 
 ## Create a MariaDB server to be used as replica
 
 1. Create a new Azure Database for MariaDB server
 
-   Create a new MariaDB server (ex. "replica.mariadb.database.azure.com"). Refer to [Create an Azure Database for MariaDB server by using the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md) for server creation. This server is the "replica" server in Data-in Replication.
+   Create a new MariaDB server (for example, replica.mariadb.database.azure.com). See [Create an Azure Database for MariaDB server by using the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md) for server creation. This server is the "replica" server in Data-in Replication.
 
    > [!IMPORTANT]
    > The Azure Database for MariaDB server must be created in the General Purpose or Memory Optimized pricing tiers.
-   > 
 
 2. Create same user accounts and corresponding privileges
 
-   User accounts are not replicated from the master server to the replica server. If you plan on providing users with access to the replica server, you need to manually create all accounts and corresponding privileges on this newly created Azure Database for MariaDB server.
+   User accounts are not replicated from the master server to the replica server. If you plan to provide users with access to the replica server, you need to manually create all accounts and corresponding privileges on this newly created Azure Database for MariaDB server.
 
 ## Configure the master server
-The following steps prepare and configure the MariaDB server hosted on-premises, in a virtual machine, or database service hosted by other cloud providers for Data-in Replication. This server is the "master" in Data-in replication. 
+The following steps prepare and configure the MariaDB server hosted on-premises, in a virtual machine, or database service hosted by other cloud providers for Data-in Replication. This server is the "master" in Data-in replication.
 
 1. Turn on binary logging
 
@@ -241,4 +244,4 @@ CALL mysql.az_replication_skip_counter;
 ```
 
 ## Next steps
-- Learn more about [Data-in Replication](concepts-data-in-replication.md) for Azure Database for MariaDB.
+- Learn more about [Data-in Replication](concepts-data-in-replication.md) for Azure Database for MariaDB
