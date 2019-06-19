@@ -140,7 +140,7 @@ You also need to consider how adaptive streaming works. Each individual video fr
 
 After a Streaming Endpoint is provisioned with CDN enabled there is a defined wait time on Media Services before DNS update is done to map the Streaming Endpoint to CDN endpoint.
 
-If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, your can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period your streaming endpoint will be in **starting** state and you might observe degraded performance.
+If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, your can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period your streaming endpoint will be in the **starting** state and you might observe degraded performance.
 
 When the Standard streaming endpoint is created, it is configured by default with Standard Verizon. You can configure Premium Verizon or Standard Akamai providers using REST APIs. 
 
