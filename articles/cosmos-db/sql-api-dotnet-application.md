@@ -20,7 +20,7 @@ ms.author: dech
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial you use the .NET SDK V3. The following image shows the web page that you will build by using the sample in this article:
+This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial, you use the .NET SDK V3. The following image shows the web page that you will build by using the sample in this article:
  
 ![Screenshot of the todo list MVC web application created by this tutorial - ASP NET Core MVC tutorial step by step](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
@@ -67,7 +67,7 @@ In the next section, you create a new ASP.NET MVC application.
 
    ![Create new ASP.NET Core web application project](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
-3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, adjust the provided code samples to use whatever you named your application. 
+3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this name, then wherever this tutorial talks about the todo namespace, adjust the provided code samples to use whatever you named your application. 
 
 4. Select **Browse** to navigate to the folder where you would like to create the project. Select **Create**. 
 
@@ -212,7 +212,7 @@ The first thing to do here is add a class that contains the logic to connect to 
     services.AddSingleton<ICosmosDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
     ```
 
-1. Within the same file, we define our helper method **InitializeCosmosClientInstanceAsync** which will read the configuration and initialize the client.
+1. Within the same file, we define our helper method **InitializeCosmosClientInstanceAsync**, which will read the configuration and initialize the client.
 
     ```csharp
     private static async Task<CosmosDbService> InitializeCosmosClientInstanceAsync(IConfigurationSection configurationSection)
@@ -246,7 +246,7 @@ The first thing to do here is add a class that contains the logic to connect to 
  
 Now if you run the application, it calls into your **ItemController** that calls the GetItems methods from the TodoItemService class that you define in the next section. 
 
-If you build and run this project now, you should now see something that looks this.
+If you build and run this project now, you should now see something that looks like this:
 
 ![Screenshot of the todo list web application created by this database tutorial](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
