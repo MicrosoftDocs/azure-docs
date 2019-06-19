@@ -3,15 +3,9 @@ title: Programmatically create Azure Enterprise subscriptions| Microsoft Docs
 description: Learn how to create additional Azure Enterprise or Enterprise Dev/Test subscriptions programmatically.
 services: azure-resource-manager
 author: jureid
-manager: jureid
-editor: ''
 
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/10/2019
 ms.author: jureid
 ---
