@@ -154,7 +154,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
                 public string HotelName { get; set; }
 
                 [IsSearchable]
-                [Analyzer(AnalyzerName.AsString.EnLucene)]
+                [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
                 public string Description { get; set; }
 
                 [IsSearchable]
@@ -184,20 +184,13 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
     Attributes on the field determine how it is used in an application. For example, the `IsSearchable` attribute is assigned to every field that should be included in a full text search. In the .NET SDK, the default is to disable field behaviors that are not explicitly enabled.
 
-    Exactly one field in your index of type `string` must be the designated as a *key* field that uniquely identifies each document. In this schema, the key is `HotelId`.
+    Exactly one field in your index of type `string` must be the *key* field, uniquely identifing each document. In this schema, the key is `HotelId`.
 
-    The index definition above uses a language analyzer for the `description_fr` field because it is intended to store French text. For more information, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
+    In this index, the description fields use the optional analyzer property, specified when you want to override the default standard Lucene analyzer. The `description_fr` field is using the French Lucene analyzer ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet))because it stores French text. The `description` is using the optional Microsoft language analyzer ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
 
+1. In Program.cs, create an instance of the [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) class to connect to the service, using values that are stored in the application's config file (appsettings.json). 
 
-### Create a client
-
-Create an instance of the `SearchServiceClient` class. This class has an `Indexes` property, providing all the methods you need to create, list, update, or delete Azure Search indexes.
-
-A `SearchServiceClient` class manages service connections. Share a single instance of `SearchServiceClient` in your application if possible to avoid opening too many connections. Class methods are thread-safe to enable such sharing.
-
-1. In Program.cs, create an instance of the `SearchServiceClient` class using values that are stored in the application's config file (appsettings.json). 
-
-   This class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
+   `SearchServiceClient` has an [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) property, providing all the methods you need to create, list, update, or delete Azure Search indexes. 
 
     ```csharp
     namespace azure_search_getstarted_dotnet
@@ -210,7 +203,8 @@ A `SearchServiceClient` class manages service connections. Share a single instan
 
         class Program { 
 
-        // This example shows how to delete and create an index
+        // Demonstrates index delete, create, load, and query
+        // Commented-out code is uncommented in later steps
         static void Main(string[] args)
         {
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -226,6 +220,16 @@ A `SearchServiceClient` class manages service connections. Share a single instan
             Console.WriteLine("{0}", "Creating index...\n");
             CreateIndex(indexName, serviceClient);
 
+            SearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
+
+            // Uncomment next 2 lines in "2 - Load documents"
+            // Console.WriteLine("{0}", "Uploading documents...\n");
+            // UploadDocuments(indexClient);
+
+            // Uncomment next 2 lines in "3 - Run queries"
+            // Console.WriteLine("{0}", "Searching index...\n");
+            // UploadDocuments(indexClient);
+
             Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
             Console.ReadKey();
             }
@@ -240,8 +244,7 @@ A `SearchServiceClient` class manages service connections. Share a single instan
             return serviceClient;
         }
 
-        // Delete an existing index to reuse the index name.
-        // Index names must be unique within the service. 
+        // Delete an existing index to reuse its name
         private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
         {
             if (serviceClient.Indexes.Exists(indexName))
@@ -250,11 +253,11 @@ A `SearchServiceClient` class manages service connections. Share a single instan
             }
         }
 
-        // Create a new index. A single call to "Indexes.Create" creates an index. 
-        // This method takes as a parameter an Index object that defines an Azure Search index.
+        // Create an index with a single call to "Indexes.Create"
+        // This method takes as a parameter an Index object that defines an Azure Search index
         // 
         // Set the Fields property of the Index object to an array of Field objects.
-        // 
+        // The field array is defined in the Hotels class, which subsumes the Address class.
         private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
         {
             var definition = new Index()
@@ -269,137 +272,161 @@ A `SearchServiceClient` class manages service connections. Share a single instan
     }    
     ```
 
-The easiest way to create the `Field` objects is by calling the `FieldBuilder.BuildForType` method, passing a model class for the type parameter. A model class has properties that map to the fields of your index. This mapping allows you to bind documents from your search index to instances of your model class.
+    If possible, share a single instance of `SearchServiceClient` in your application to avoid opening too many connections. Class methods are thread-safe to enable such sharing.
 
-> [!NOTE]
-> If you don't plan to use a model class, you can still define your index by creating `Field` objects directly. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, to name a few.
->
+   The class has several constructors. The one you want takes your search service name and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
+    In the index definition, the easiest way to create the `Field` objects is by calling the `FieldBuilder.BuildForType` method, passing a model class for the type parameter. A model class has properties that map to the fields of your index. This mapping allows you to bind documents from your search index to instances of your model class.
 
-## HEIDI
+    > [!NOTE]
+    > If you don't plan to use a model class, you can still define your index by creating `Field` objects directly. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, to name a few.
+    >
 
-There are several ways to work with an index. You can reference SearchServiceClient + Indexes.GetClient, using the Indexes property off the client.  The following example gets the hotels-quickstart index, which you would do if you were loading documents.
+1. Optionally, as a verfication step, you can build the app at this point to create the index. 
 
-Use the `SearchServiceClient` instance and call its `Indexes.GetClient` method. This snippet obtains a `SearchIndexClient` for the index named "hotels-quickstart" from a `SearchServiceClient` named `serviceClient`.
-
-```csharp
-ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels-quickstart");
-```
-
-Another approach, which is documented in howto-dotnet-sdk, is to create a class for the index (a SearchIndexClient class). This approach is useful if you need different instances of the class -- such as one for admin operations (create, edit, delete) and one for query operations (one takes an admin key, the second takes a query key). Look in that article for the principle of least privilege NOTE to see why the index class approach is more typical.
-
-
+    If the project builds successfully, a console window opens, writing status messages to the screen for deleting and creating the index. In the Azure portal, in the search service **Overview** page, you should see an empty hotels-quickstart index.
 
 ## 2 - Load documents
 
-There are several methodologies for loading documents into an index. This example uses the `SearchServiceClient` instance that is already created, calling the `Indexes.GetClient` method. T
+Documents are the unit of data ingestion in Azure Search. As obtained from an external data source, documents might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding four hotel JSON documents in the code itself. 
 
-This snippet obtains a `SearchIndexClient` for the index named "hotels-quickstart" from a `SearchServiceClient` named `serviceClient`.
+When uploading documents, it's common to submit documents in batch mode using an [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) object. An `IndexBatch` encapsulates a collection of [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) objects, each of which contains a document and a property telling Azure Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
-```csharp
-ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels-quickstart");
-```
+1. In Program.cs, upload an array of documents and index actions, and then pass the array to `IndexBatch`. The documents below conform to the hotel-quickstart index, as defined by the hotel and address classes.
 
-`SearchIndexClient` has a `Documents` property. This property provides all the methods you need to add, modify, delete, or query documents in your index.
-
-> [!NOTE]
-> In a typical search application, querying and indexing are handled separately. While `Indexes.GetClient` is convenient because you can reuse objects like `SearchCredentials`, a more robust approach involves creating the `SearchIndexClient` directly so that you can pass in a query key instead of an admin key. This practice is consistent with the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and helps to make your application more secure. You'll construct a `SearchIndexClient` in the next exercise. For more information about keys, see [Create and manage api-keys for an Azure Search service](search-security-api-keys.md).
-> 
-> 
-
-<a name="construct-indexbatch"></a>
-
-### Construct IndexBatch
-
-To import data using the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document (upload, merge, delete, and mergeOrUpload). For more information about indexing actions, see [Indexing actions: upload, merge, mergeOrUpload, delete](search-what-is-data-import.md#indexing-actions).
-
-Assuming you know which actions to perform on your documents, you are ready to construct the `IndexBatch`. The example below shows how to create a batch with a few different actions. The example uses a custom class called `Hotel` that maps to a document in the "hotels-quickstart" index.
-
-```csharp
-var actions =
-    new IndexAction<Hotel>[]
+    ```csharp
+    // Upload documents as a batch
+    private static void UploadDocuments(ISearchIndexClient indexClient)
     {
-        IndexAction.Upload(
-            new Hotel()
-            {
-                HotelId = "1",
-                BaseRate = 199.0,
-                Description = "Best hotel in town",
-                DescriptionFr = "Meilleur hôtel en ville",
-                HotelName = "Fancy Stay",
-                Category = "Luxury",
-                Tags = new[] { "pool", "view", "wifi", "concierge" },
-                ParkingIncluded = false,
-                SmokingAllowed = false,
-                LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero),
-                Rating = 5,
-                Location = GeographyPoint.Create(47.678581, -122.131577)
-            }),
-        IndexAction.Upload(
-            new Hotel()
-            {
-                HotelId = "2",
-                BaseRate = 79.99,
-                Description = "Cheapest hotel in town",
-                DescriptionFr = "Hôtel le moins cher en ville",
-                HotelName = "Roach Motel",
-                Category = "Budget",
-                Tags = new[] { "motel", "budget" },
-                ParkingIncluded = true,
-                SmokingAllowed = true,
-                LastRenovationDate = new DateTimeOffset(1982, 4, 28, 0, 0, 0, TimeSpan.Zero),
-                Rating = 1,
-                Location = GeographyPoint.Create(49.678581, -122.131577)
-            }),
-        IndexAction.MergeOrUpload(
-            new Hotel()
-            {
-                HotelId = "3",
-                BaseRate = 129.99,
-                Description = "Close to town hall and the river"
-            }),
-        IndexAction.Delete(new Hotel() { HotelId = "6" })
-    };
+        var actions = new IndexAction<Hotel>[]
+        {
+            IndexAction.Upload(
+                new Hotel()
+                {
+                    HotelId = "1",
+                    HotelName = "Secret Point Motel",
+                    Description = "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+                    DescriptionFr = "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
+                    Category = "Boutique",
+                    Tags = new[] { "pool", "air conditioning", "concierge" },
+                    ParkingIncluded = false,
+                    LastRenovationDate = new DateTimeOffset(1970, 1, 18, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 3.6,
+                    Address = new Address()
+                    {
+                        StreetAddress = "677 5th Ave",
+                        City = "New York",
+                        StateProvince = "NY",
+                        PostalCode = "10022",
+                        Country = "USA"
+                    }
+                }
+            ),
+            IndexAction.Upload(
+                new Hotel()
+                {
+                    HotelId = "2",
+                    HotelName = "Twin Dome Motel",
+                    Description = "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+                    DescriptionFr = "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+                    Category = "Boutique",
+                    Tags = new[] { "pool", "free wifi", "concierge" },
+                    ParkingIncluded = false,
+                    LastRenovationDate =  new DateTimeOffset(1979, 2, 18, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 3.60,
+                    Address = new Address()
+                    {
+                        StreetAddress = "140 University Town Center Dr",
+                        City = "Sarasota",
+                        StateProvince = "FL",
+                        PostalCode = "34243",
+                        Country = "USA"
+                    }
+                }
+            ),
+            IndexAction.Upload(
+                new Hotel()
+                {
+                    HotelId = "3",
+                    HotelName = "Triple Landscape Hotel",
+                    Description = "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+                    DescriptionFr = "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+                    Category = "Resort and Spa",
+                    Tags = new[] { "air conditioning", "bar", "continental breakfast" },
+                    ParkingIncluded = true,
+                    LastRenovationDate = new DateTimeOffset(2015, 9, 20, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 4.80,
+                    Address = new Address()
+                    {
+                        StreetAddress = "3393 Peachtree Rd",
+                        City = "Atlanta",
+                        StateProvince = "GA",
+                        PostalCode = "30326",
+                        Country = "USA"
+                    }
+                }
+            ),
+            IndexAction.Upload(
+                new Hotel()
+                {
+                    HotelId = "4",
+                    HotelName = "Sublime Cliff Hotel",
+                    Description = "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+                    DescriptionFr = "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+                    Category = "Boutique",
+                    Tags = new[] { "concierge", "view", "24-hour front desk service" },
+                    ParkingIncluded = true,
+                    LastRenovationDate = new DateTimeOffset(1960, 2, 06, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 4.6,
+                    Address = new Address()
+                    {
+                        StreetAddress = "7400 San Pedro Ave",
+                        City = "San Antonio",
+                        StateProvince = "TX",
+                        PostalCode = "78216",
+                        Country = "USA"
+                    }
+                }
+            ),
+        };
 
-var batch = IndexBatch.New(actions);
-```
+        var batch = IndexBatch.New(actions);
 
-In this case, we are using `Upload`, `MergeOrUpload`, and `Delete` as our search actions, as specified by the methods called on the `IndexAction` class.
+        try
+        {
+            indexClient.Documents.Index(batch);
+        }
+        catch (IndexBatchException e)
+        {
+            // When a service is under load, indexing might fail for some documents in the batch. 
+            // Depending on your application, you can compensate by delaying and retrying. 
+            // For this simple demo, we just log the failed document keys and continue.
+            Console.WriteLine(
+                "Failed to index some of the documents: {0}",
+                String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
+        }
 
-Assume that this example "hotels" index is already populated with a number of documents. Note how we did not have to specify all the possible document fields when using `MergeOrUpload` and how we only specified the document key (`HotelId`) when using `Delete`.
+        \\ Wait 2 seconds before starting queries 
+        Console.WriteLine("Waiting for indexing...\n");
+        Thread.Sleep(2000);
+    }
+    ```
 
-Up to 1000 documents can be included in a single indexing request.
+    Once you initialize the`IndexBatch` object, you can send it to the index by calling [`Documents.Index`](https://docs.microsoft.com/eotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) on your `SearchIndexClient` object. `Documents` is a property of `SearchIndexClient` that provides methods for adding, modifying, deleting, or querying documents in your index.
 
-> [!NOTE]
-> In this example, we are applying different actions to different documents. If you wanted to perform the same actions across all documents in the batch, instead of calling `IndexBatch.New`, you could use the other static methods of `IndexBatch`. For example, you could create batches by calling `IndexBatch.Merge`, `IndexBatch.MergeOrUpload`, or `IndexBatch.Delete`. These methods take a collection of documents (objects of type `Hotel` in this example) instead of `IndexAction` objects.
-> 
-> 
+   [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) load documents into an index. There are other approaches that are better suited for production scenarios, but in this example, indexClient is initialized by calling the `Indexes.GetClient` method on the `SearchServiceClient` instance that is already created, passing in the indexName to use.
 
-### Call Documents.Index
-Now that you have an initialized `IndexBatch` object, you can send it to the index by calling `Documents.Index` on your `SearchIndexClient` object. The following example shows how to call `Index`, as well as some extra steps you will need to perform:
+    The `try`/`catch` surrounding the call to the `Index` method catches indexing failures, which might happen if your service is under heavy load. In production code, you could delay and then retry indexing the documents that failed, or log and continue like the sample does, or handle it in some other way that meets your application's data consistency requirements.
 
-```csharp
-try
-{
-    indexClient.Documents.Index(batch);
-}
-catch (IndexBatchException e)
-{
-    // Sometimes when your Search service is under load, indexing will fail for some of the documents in
-    // the batch. Depending on your application, you can take compensating actions like delaying and
-    // retrying. For this simple demo, we just log the failed document keys and continue.
-    Console.WriteLine(
-        "Failed to index some of the documents: {0}",
-        String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
-}
+    The 2-second delay compensates for indexing, which is asynchronous, so that all documents can be indexed before the queries are executed. Coding in a delay is typically only necessary in demos, tests, and sample applications.
 
-Console.WriteLine("Waiting for documents to be indexed...\n");
-Thread.Sleep(2000);
-```
+1. In Program.cs, in main, uncomment the lines for "2 - Load documents". 
 
-Note the `try`/`catch` surrounding the call to the `Index` method. The catch block handles an important error case for indexing. If your Azure Search service fails to index some of the documents in the batch, an `IndexBatchException` is thrown by `Documents.Index`. This can happen if you are indexing documents while your service is under heavy load. **We strongly recommend explicitly handling this case in your code.** You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements.
-
-Finally, the code in the example above delays for two seconds. Indexing happens asynchronously in your Azure Search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
+    ```csharp
+    // Uncomment next 2 lines in "2 - Load documents"
+    Console.WriteLine("{0}", "Uploading documents...\n");
+    UploadDocuments(indexClient);
+    ```
 
 For more information about document processing, see ["How the .NET SDK handles documents"](search-howto-dotnet-sdk.md#how-dotnet-handles-documents).
 
@@ -552,3 +579,23 @@ As a next step, take a closer look at the main tasks.
 
 > [!div class="nextstepaction"]
 > [Develop in .NET](search-howto-dotnet-sdk.md)
+
+
+
+
+## HEIDI
+
+Loading an index requires SearchIndexClient. There are several ways to instantiate this class.  Call it directly, or call SearchServiceClient + Indexes.GetClient, using the Indexes property off the client.  The following example gets the hotels-quickstart index, which you would do if you were loading documents.
+
+Use the `SearchServiceClient` instance and call its `Indexes.GetClient` method. This snippet obtains a `SearchIndexClient` for the index named "hotels-quickstart" from a `SearchServiceClient` named `serviceClient`.
+
+```csharp
+SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels-quickstart");
+```
+
+Another approach, which is documented in howto-dotnet-sdk, is to create a class for the index (a SearchIndexClient class). This approach is useful if you need different instances of the class -- such as one for admin operations (create, edit, delete) and one for query operations (one takes an admin key, the second takes a query key). Look in that article for the principle of least privilege NOTE to see why the index class approach is more typical.
+
+    > [!NOTE]
+    > In a typical search application, querying and indexing are handled separately. While `Indexes.GetClient` is convenient because you can reuse objects like `SearchCredentials`, a more robust approach involves creating the `SearchIndexClient` directly so that you can pass in a query key instead of an admin key. This practice is consistent with the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and helps to make your application more secure. You'll construct a `SearchIndexClient` in the next exercise. For more information about keys, see [Create and manage api-keys for an Azure Search service](search-security-api-keys.md).
+    > 
+    > 
