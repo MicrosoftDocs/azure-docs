@@ -18,7 +18,7 @@ ms.author: cynthn
 
 # Co-location
 
-When deploying your application in Azure, it is important to understand that spreading instances across regions or availability zones results in network latency, which may impact the overall performance of your application. 
+When deploying your application in Azure, spreading instances across regions or availability zones creates network latency, which may impact the overall performance of your application. 
 
 
 ## Preview: Proximity placement groups 
