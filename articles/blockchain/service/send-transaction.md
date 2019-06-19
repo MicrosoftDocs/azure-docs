@@ -2,14 +2,14 @@
 title: Send transactions using Azure Blockchain Service
 description: Tutorial on how to use Azure Blockchain Service to deploy a smart contract and send a transaction.
 services: azure-blockchain
-keywords: 
+
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/17/2019
+ms.date: 06/19/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
-manager: femila
+
 #Customer intent: As a developer, I want to use Azure Blockchain Service so that I can send a blockchain transaction to a consortium member.
 ---
 
@@ -34,13 +34,23 @@ You use Azure Blockchain Development Kit to:
 * [Azure Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
 * [Node.js (10.15.0)](https://nodejs.org)
 * [Git (2.10.0)](https://git-scm.com)
-* [Python (2.7.15)](https://www.python.org/downloads/release/python-2715/). Add python.exe to your path.
+* [Python (2.7.15)](https://www.python.org/downloads/release/python-2715/). Add python.exe to your path. Python in your path is required for Azure Blockchain Development Kit.
 * [Truffle (5.0.0)](https://github.com/trufflesuite/truffle)
 * [Ganache CLI (6.0.0)](https://github.com/trufflesuite/ganache-cli)
 
+### Verify Azure Blockchain Development Kit development environment
+
+Azure Blockchain Development Kit verifies your development environment prerequisites have been met. To verify your development environment:
+
+From the VS Code command palette, choose **Azure Blockchain: Show Welcome Page**.
+
+Azure Blockchain Development Kit runs a validation script that takes about a minute to run. If you are missing a required tool, a new tab named **Azure Blockchain Development Kit - Preview** lists the required apps to install and links to download the tools.
+
+![Dev kit required apps](./media/send-transaction/required-apps.png)
+
 ## Connect to consortium member
 
-You can connect to consortium members using the Azure Blockchain Development Kit for Ethereum extension.
+You can connect to consortium members using the Azure Blockchain Development Kit VS Code extension. Once connected to a consortium, you can compile, build, and deploy smart contracts to an Azure Blockchain Service consortium member.
 
 1. Complete the prerequisite [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md).
 1. In the Visual Studio Code (VS Code) explorer pane, expand the **Azure Blockchain** extension.
@@ -52,11 +62,15 @@ You can connect to consortium members using the Azure Blockchain Development Kit
 1. Select the subscription and resource group associated with your Azure Blockchain Service consortium member.
 1. Choose your consortium from the list.
 
+The consortium and blockchain members are listed in the Visual Studio explorer side bar.
+
+[screenshot]
+
 ## Create smart contract
 
-The Azure Blockchain Development Kit for Ethereum uses the Truffle Suite of tools to help scaffold, build, and deploy contracts.
+The Azure Blockchain Development Kit for Ethereum uses project templates and Truffle tools to help scaffold, build, and deploy contracts.
 
-1. From the VS Code command palette, choose **Azure Blockchain: new Solidity Project**.
+1. From the VS Code command palette, choose **Azure Blockchain: New Solidity Project**.
 1. Choose **Create basic project**.
 1. Create a new folder named `newcontract` and **Select new project path**.
 
@@ -64,7 +78,7 @@ The Azure Blockchain Development Kit for Ethereum uses the Truffle Suite of tool
 
 Your Solidity project includes a simple contract and all the necessary files to build and deploy a simple, working, contract to the Azure Blockchain Service.
 
-The project structure looks like the following:
+The project structure looks like the following example:
 
    ![Solidity project open in VS Code](./media/send-transaction/solidity-project.png)
 
@@ -77,7 +91,7 @@ Your smart contracts are located in the project's **contracts** directory. Smart
 
     [screenshot]
 
-Once compiled, your contract, contract metadata is stored in the **build** sub-directory.
+Once compiled, your contract and contract metadata is contained in the **build** sub-directory.
 
 ## Deploy smart contract
 
