@@ -1,5 +1,5 @@
 ---
-title: Quickstart- Build a new Azure Kinect application
+title: Quickstart- Build your first Azure Kinect application
 description: This quickstart guides the Azure Kinect DK user through the process of creating a new application.
 author: tesych
 ms.author: tesych
@@ -12,7 +12,7 @@ keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 
 ---
 
-# Quickstart: Build your first Azure Kinect DK application
+# Quickstart: Build your first Azure Kinect application
 
 Getting started with the Azure Kinect DK? This quickstart will get you up and running with the device!
 
