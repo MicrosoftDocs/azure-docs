@@ -27,17 +27,17 @@ This article describes the different authentication flows provided by Microsoft 
 
 | Flow | Description | Used in|  
 | ---- | ----------- | ------- | 
-| [Interactive](#interactive) | Gets the token through an interactive process that prompts the user for credentials through a browser or pop-up window. | [Desktop apps](scenario-desktop-overview.md), [Mobile apps](scenario-mobile-overview.md) |
+| [Interactive](#interactive) | Gets the token through an interactive process that prompts the user for credentials through a browser or pop-up window. | [Desktop apps](scenario-desktop-overview.md), [mobile apps](scenario-mobile-overview.md) |
 | [Implicit grant](#implicit-grant) | Allows the app to get tokens without performing a back-end server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs, all within the client JavaScript code.| [Single-page applications (SPA)](scenario-spa-overview.md) |
-| [Authorization code](#authorization-code) | Used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign in and API access to your mobile and desktop apps. | [Desktop apps](scenario-desktop-overview.md), [Mobile apps](scenario-mobile-overview.md), [Web Apps](scenario-web-app-call-api-overview.md) | 
+| [Authorization code](#authorization-code) | Used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign-in and API access to your mobile and desktop apps. | [Desktop apps](scenario-desktop-overview.md), [mobile apps](scenario-mobile-overview.md), [web apps](scenario-web-app-call-api-overview.md) | 
 | [On-behalf-of](#on-behalf-of) | An application invokes a service or web API, which in turn needs to call another service or web API. The idea is to propagate the delegated user identity and permissions through the request chain. | [Web APIs](scenario-web-api-call-api-overview.md) |
-| [Client credentials](#client-credentials) | Allows you to access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. | [daemon apps](scenario-daemon-overview.md) |
-| [Device code](#device-code) | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. | [Desktop/Mobile apps](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
-| [Integrated Windows Authentication](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Allows applications on domain or Azure Active Directory (Azure AD) joined computers to acquire a token silently (without any UI interaction from the user).| [Desktop/Mobile apps](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Client credentials](#client-credentials) | Allows you to access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. | [Daemon apps](scenario-daemon-overview.md) |
+| [Device code](#device-code) | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. | [Desktop/mobile apps](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
+| [Integrated Windows Authentication](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Allows applications on domain or Azure Active Directory (Azure AD) joined computers to acquire a token silently (without any UI interaction from the user).| [Desktop/mobile apps](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
 | [Username/password](scenario-desktop-acquire-token.md#username--password) | Allows an application to sign in the user by directly handling their password. This flow isn't recommended. | [Desktop/mobile apps](scenario-desktop-acquire-token.md#username--password) | 
 
 ## Interactive
-MSAL supports the ability to interactively prompt the user for their credentials to sign in, and obtain a token using those credentials.
+MSAL supports the ability to interactively prompt the user for their credentials to sign in, and obtain a token by using those credentials.
 
 ![Diagram of interactive flow](media/msal-authentication-flows/interactive.png)
 
@@ -61,11 +61,11 @@ This authentication flow doesn't include application scenarios that use cross-pl
 ## Authorization code
 MSAL supports the [OAuth 2 authorization code grant](v2-oauth2-auth-code-flow.md). This grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign-in and API access to your mobile and desktop apps. 
 
-When users sign in to web applications (websites), the web application receives an authorization code.  The authorization code is redeemed to acquire a token to call web APIs. In ASP.NET and ASP.NET core web apps, the only goal of `AcquireTokenByAuthorizationCode` is to add a token to the token cache. The token can then be used by the application (usually in the controllers, which just get a token for an API by using `AcquireTokenSilent`).
+When users sign in to web applications (websites), the web application receives an authorization code.  The authorization code is redeemed to acquire a token to call web APIs. In ASP.NET and ASP.NET Core web apps, the only goal of `AcquireTokenByAuthorizationCode` is to add a token to the token cache. The token can then be used by the application (usually in the controllers, which just get a token for an API by using `AcquireTokenSilent`).
 
 ![Diagram of authorization code flow](media/msal-authentication-flows/authorization-code.png)
 
-In the preceding diagram:
+In the preceding diagram, the application:
 
 1. Requests an authorization code, which is redeemed for an access token.
 2. Uses the access token to call a web API.
@@ -83,7 +83,7 @@ MSAL supports the [OAuth 2 on-behalf-of authentication flow](v2-oauth2-on-behalf
 
 ![Diagram of on-behalf-of flow](media/msal-authentication-flows/on-behalf-of.png)
 
-In the preceding diagram:
+In the preceding diagram, the application:
 
 1. Acquires an access token for the web API.
 2. A client (web, desktop, mobile, or single-page application) calls a protected web API, adding the access token as a bearer token in the authentication header of the HTTP request. The web API authenticates the user.
@@ -105,7 +105,7 @@ MSAL.NET supports two types of client credentials. These client credentials need
 
 ![Diagram of confidential client with password](media/msal-authentication-flows/confidential-client-password.png)
 
-In the preceding diagram:
+In the preceding diagram, the application:
 
 1. Acquires a token by using application secret or password credentials.
 2. Uses the token to make requests of the resource.
@@ -114,7 +114,7 @@ In the preceding diagram:
 
 ![Diagram of confidential client with cert](media/msal-authentication-flows/confidential-client-certificate.png)
 
-In the preceding diagram:
+In the preceding diagram, the application:
 
 1. Acquires a token by using certificate credentials.
 2. Uses the token to make requests of the resource.
@@ -150,7 +150,7 @@ MSAL supports Integrated Windows Authentication (IWA) for desktop or mobile appl
 
 ![Diagram of Integrated Windows Authentication](media/msal-authentication-flows/integrated-windows-authentication.png)
 
-In the preceding diagram:
+In the preceding diagram, the application:
 
 1. Acquires a token by using Integrated Windows Authentication.
 2. Uses the token to make requests of the resource.
@@ -188,7 +188,7 @@ MSAL supports the [OAuth 2 resource owner password credentials grant](v2-oauth-r
 
 ![Diagram of the username/password flow](media/msal-authentication-flows/username-password.png)
 
-In the preceding diagram:
+In the preceding diagram, the application:
 
 1. Acquires a token by sending the username and password to the identity provider.
 2. Calls a web API by using the token.
@@ -207,7 +207,7 @@ Although this is useful in some cases (DevOps scenarios), if you want to use use
 Apart from the [Integrated Windows Authentication constraints](#integrated-windows-authentication), the following constraints also apply:
 
 - The username/password flow isn't compatible with conditional access and multi-factor authentication. As a consequence, if your app runs in an Azure AD tenant where the tenant admin requires multi-factor authentication, you can't use this flow. Many organizations do that.
-- It works only for work and school accounts (not MSA).
+- It works only for work and school accounts (not Microsoft accounts).
 - The flow is available on .NET desktop and .NET Core, but not on Universal Windows Platform.
 
 ### Azure AD B2C specifics
