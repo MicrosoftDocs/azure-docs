@@ -6,17 +6,15 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/26/19
+ms.date: 06/18/19
 ---
-<!-- GMinchAQ, 06/11/19 -->
+<!-- GMinchAQ, 06/18/19 -->
 
 # Tutorial: Using the Azure Dev Spaces Plugin for Jenkins with Azure Kubenetes Service 
 
-Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. With the Azure Dev Spaces plugin for Jenkins, you can use dev spaces in your continuous integration and delivery (CI/CD) pipeline. That means you can check your code into a dev branch and deploy the update to a child dev space in AKS. Then you can run end to end integration tests against your code before merging into the main branch.
+Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. With the Azure Dev Spaces plugin for Jenkins, you can use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline. That means you can check your code into a development branch and deploy the update to a child dev space in AKS. Using Jenkins, you can then have end-to-end integration tests against your code before merging your changes into the main branch.
 
-The Azure Dev Spaces plugin helps to create a dev space in AKS. You can then use your integration test scripts to run end to end continuous integration on the proposed changes before merging code to the main branch.
-
-This tutorial also uses Azure Container Registry (ACR). ACR stores images, and an ACR Task builds docker and helm artifacts. That way, you do not need to install Docker daemon and software needed for build in your server.
+This tutorial also uses Azure Container Registry (ACR). ACR stores images, and an ACR Task builds Docker and Helm artifacts. Using ACR and ACR Task for artifact generation removes the need for you to install additional software, such as Docker, on your Jenkins server. 
 
 In this tutorial, you'll complete these tasks:
 
@@ -24,7 +22,9 @@ In this tutorial, you'll complete these tasks:
 > * Create an Azure Dev Spaces enabled AKS cluster
 > * Deploy a multi-service application to AKS
 > * Prepare your Jenkins server
-> * Use the Azure Dev Spaces plugin in a Jenkins pipeline
+> * Use the Azure Dev Spaces plugin in a Jenkins pipeline to preview code changes before merging them into the project
+
+This tutorial assumes intermediate knowledge of core Azure services, AKS, ACR, Azure Dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) and plugins, and GitHub. Basic familiarity with supporting tools such as kubectl and Helm is helpful.
 
 ## Prerequisites
 
@@ -34,18 +34,14 @@ In this tutorial, you'll complete these tasks:
 
 * [Visual Studio Code](https://code.visualstudio.com/download) with the [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) extension installed.
 
-* [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.43 or higher, with the Azure Dev Spaces CLI (`azds`) installed.
+* [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.43 or higher.
 
-* A Jenkins master server. If you don't already have a Jenkins master, deploy [Jenkins](https://aka.ms/jenkins-on-azure) on Azure by following the steps in this [quickstart](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). The Jenkins server must have the following plugins installed and enabled:
-  * Azure Container Registry Tasks.
-  * Azure Dev Spaces (to be installed in this tutorial).
-  * GitHub Integration.
+* A Jenkins master server. If you don't already have a Jenkins master, deploy [Jenkins](https://aka.ms/jenkins-on-azure) on Azure by following the steps in this [quickstart](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
 
 * The Jenkins server must have both Helm and kubectl installed and available to the Jenkins account, as explained later in this tutorial.
 
-* VS Code, the VS Code Terminal or WSL, and Bash. Other combinations will also work if all of the prerequisites are in place. Azure Cloud Shell doesn't currently support the Azure Dev Spaces extension (`azds`).
+* VS Code, the VS Code Terminal or WSL, and Bash. 
 
-* Intermediate knowledge of core Azure services, AKS, ACR, Azure Dev Spaces, Jenkins [pipelines](https://jenkins.io/doc/book/pipeline/) and plugins, and GitHub. Basic familiarity with supporting tools such as kubectl and Helm is helpful.
 
 ## Create Azure resources
 
@@ -84,13 +80,13 @@ In this section, you create Azure resources:
 
 In this section, you set up a dev space and deploy a sample application to the AKS cluster you created in the last section. The application consists of two parts, *webfrontend* and *mywebapi*. Both components are deployed in a dev space. Later in this tutorial, you'll submit a pull request against mywebapi to trigger the CI pipeline in Jenkins.
 
-This procedure is condensed from two tutorials, [Get started on Azure Dev Spaces with Java](https://docs.microsoft.com/en-us/azure/dev-spaces/get-started-java), and [Multi-service development with Azure Dev Spaces](https://docs.microsoft.com/en-us/azure/dev-spaces/multi-service-java). Those tutorials provide additional background information not included here.
+For more details on using Azure Dev Spaces and multi-service development with Azure Dev Spaces, see [Get started on Azure Dev Spaces with Java](https://docs.microsoft.com/en-us/azure/dev-spaces/get-started-java), and [Multi-service development with Azure Dev Spaces](https://docs.microsoft.com/en-us/azure/dev-spaces/multi-service-java). Those tutorials provide additional background information not included here.
 
 1. Download the https://github.com/Azure/dev-spaces repo from GitHub.
 
-2. Launch VS Code and open the `samples/java/getting-started/webfrontend` folder. (You can ignore any default prompts to add debug assets or restore the project.)
+2. Open the `samples/java/getting-started/webfrontend` folder in VS Code. (You can ignore any default prompts to add debug assets or restore the project.)
 
-3. In VS Code Explorer, navigate to `/src/main/java/com/ms/sample/webfrontend`, and then edit `Application.java` to look like the following:
+3. Update `/src/main/java/com/ms/sample/webfrontend/Application.java` to look like the following:
 
     ```java
     package com.ms.sample.webfrontend;
@@ -128,7 +124,7 @@ This procedure is condensed from two tutorials, [Get started on Azure Dev Spaces
     azds prep --public
     ```
 
-    The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with default settings. These files persist for the lifetime of the project, and they can be customized:
+    The Dev Spaces CLI's `azds prep` command generates Docker and Kubernetes assets with default settings. These files persist for the lifetime of the project, and they can be customized:
 
     * `./Dockerfile` and `./Dockerfile.develop` describe the app's container image, and how the source code is built and runs within the container.
     * A [Helm chart](https://helm.sh/docs/developing_charts/) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
@@ -156,7 +152,7 @@ This procedure is condensed from two tutorials, [Get started on Azure Dev Spaces
     2. Run
 
         ```bash
-        azds prep --public
+        azds prep
         ```
 
     3. Run
