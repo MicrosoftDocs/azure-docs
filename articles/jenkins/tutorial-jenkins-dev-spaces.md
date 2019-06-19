@@ -36,7 +36,7 @@ This tutorial assumes intermediate knowledge of core Azure services, AKS, ACR, A
 
 * [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.43 or higher.
 
-* A Jenkins master server. If you don't already have a Jenkins master, deploy [Jenkins](https://aka.ms/jenkins-on-azure) on Azure by following the steps in this [quickstart](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+* A Jenkins master server. If you don't already have a Jenkins master, deploy [Jenkins](https://aka.ms/jenkins-on-azure) on Azure by following the steps in this [quickstart](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * The Jenkins server must have both Helm and kubectl installed and available to the Jenkins account, as explained later in this tutorial.
 
@@ -48,8 +48,8 @@ This tutorial assumes intermediate knowledge of core Azure services, AKS, ACR, A
 In this section, you create Azure resources:
 
 * A resource group to contain all of the Auzre resources for this tutorial.
-* An [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/) (AKS) cluster.
-* An [Azure container registry](https://docs.microsoft.com/en-us/azure/container-registry/) (ACR) to build (using ACR Tasks) and store Docker images.
+* An [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS) cluster.
+* An [Azure container registry](https://docs.microsoft.com/azure/container-registry/) (ACR) to build (using ACR Tasks) and store Docker images.
 
 1. Create a resource group.
 
@@ -80,7 +80,7 @@ In this section, you create Azure resources:
 
 In this section, you set up a dev space and deploy a sample application to the AKS cluster you created in the last section. The application consists of two parts, *webfrontend* and *mywebapi*. Both components are deployed in a dev space. Later in this tutorial, you'll submit a pull request against mywebapi to trigger the CI pipeline in Jenkins.
 
-For more details on using Azure Dev Spaces and multi-service development with Azure Dev Spaces, see [Get started on Azure Dev Spaces with Java](https://docs.microsoft.com/en-us/azure/dev-spaces/get-started-java), and [Multi-service development with Azure Dev Spaces](https://docs.microsoft.com/en-us/azure/dev-spaces/multi-service-java). Those tutorials provide additional background information not included here.
+For more details on using Azure Dev Spaces and multi-service development with Azure Dev Spaces, see [Get started on Azure Dev Spaces with Java](https://docs.microsoft.com/azure/dev-spaces/get-started-java), and [Multi-service development with Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/multi-service-java). Those tutorials provide additional background information not included here.
 
 1. Download the https://github.com/Azure/dev-spaces repo from GitHub.
 
@@ -116,9 +116,9 @@ For more details on using Azure Dev Spaces and multi-service development with Az
     }
     ```
 
-4. Open the Integrated Terminal in VS Code (using the **View > Terminal** menu).
+4. Click **View** then **Terminal** to open the Integrated Terminal in VS Code.
 
-5. Run this command (make sure you are in the folder `dev-spaces/samples/java/getting-started/webfrontend`):
+5. Run the `azds prep` command to prepare your application to run in a dev space. This command must be run from `dev-spaces/samples/java/getting-started/webfrontend` to prepare your application correctly:
 
     ```bash
     azds prep --public
@@ -130,6 +130,7 @@ For more details on using Azure Dev Spaces and multi-service development with Az
     * A [Helm chart](https://helm.sh/docs/developing_charts/) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
     * `./azds.yaml` is the Azure Dev Spaces configuration file.
 
+    For more information, see [HOw Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
 6. Build and run the application in AKS by running this command from the `webfrontend` folder:
 
     ```bash
@@ -199,7 +200,7 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
 
 ### Add credentials to Jenkins
 
-1. Jenkins needs an Azure service principal for authenticating and accessing Azure resources. To create the service principal, Refer to the [Create service principal](https://docs.microsoft.com/en-us/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) section in the Deploy to Azure App Service tutorial. Be sure to save a copy of the output from `create-for-rbac` because you need that information to complete the next step. The output will look something like this:
+1. Jenkins needs an Azure service principal for authenticating and accessing Azure resources. To create the service principal, Refer to the [Create service principal](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) section in the Deploy to Azure App Service tutorial. Be sure to save a copy of the output from `create-for-rbac` because you need that information to complete the next step. The output will look something like this:
 
     ```json
     {
@@ -217,7 +218,7 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
 
     ![Add service principal credentials to Jenkins](media/tutorial-jenkins-dev-spaces/add-service-principal-credentials.png)
 
-    The **Description** is optional. For more detailed instructions, see [Add service principal to Jenkins](https://docs.microsoft.com/en-us/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) section in the Deploy to Azure App Service tutorial. 
+    The **Description** is optional. For more detailed instructions, see [Add service principal to Jenkins](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) section in the Deploy to Azure App Service tutorial. 
 
 
 
@@ -416,11 +417,11 @@ In this article, you learned how to use the Azure Dev Spaces plugin for Jenkins 
 The following list of resources provides more information on Azure Dev Spaces, ACR Tasks, and CI/CD with Jenkins.
 
 Azure Dev Spaces:
-* [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/en-us/azure/dev-spaces/how-dev-spaces-works)
+* [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works)
 
 ACR Tasks:
-* [Automate OS and framework patching with ACR Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview)
-* [Automatic build on code commit](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview)
+* [Automate OS and framework patching with ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
+* [Automatic build on code commit](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
 
 CI/CD with Jenkins on Azure:
-* [Jenkins continuous deployment](https://docs.microsoft.com/en-us/azure/aks/jenkins-continuous-deployment)
+* [Jenkins continuous deployment](https://docs.microsoft.com/azure/aks/jenkins-continuous-deployment)
