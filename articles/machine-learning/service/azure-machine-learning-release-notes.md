@@ -29,6 +29,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Add decision tree surrogate model to mimic explainer in azureml-explain-model package
   + Ability to specify a CUDA version to be installed on Inferencing images. Support for CUDA 9.0, 9.1, and 10.0.
   + Information about Azure ML training base images are now available at [Azure ML Contianers Github Repository](https://github.com/Azure/AzureML-Containers) and [DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + Added CLI feature for pipeline schedule.
   
   + **Preview features**
     + Scoring explainers can now optionally save conda and pip information for more reliable serialization and deserialization.
