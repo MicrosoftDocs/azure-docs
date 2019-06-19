@@ -17,15 +17,13 @@ ms.collection: M365-identity-device-management
 ---
 # Deploy Azure AD self-service password reset
 
-Self-service password reset (SSPR) is an Azure Active Directory feature that enables employees to reset their passwords without needing to contact a help desk or other support mechanism. Employees must register for or be registered for self-service password reset before using the service. During registration, the employee chooses one or more authentication methods enabled by their organization.
+Self-service password reset (SSPR) is an Azure Active Directory feature that enables employees to reset their passwords without needing to contact IT staff. Employees must register for or be registered for self-service password reset before using the service. During registration, the employee chooses one or more authentication methods enabled by their organization.
 
-## How SSPR benefits your organization
+SSPR enables employees to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
 
-SSPR enables employees to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, they reduce non-productive time and support costs for most password issues, one of the most common and expensive help desk tasks.
+Help users get registered quickly by deploying SSPR alongside another application or service in your organization. This action will generate a large volume of sign-ins and will drive registration.
 
-Help users get registered quickly by deploying SSPR alongside another application or service in your organization. This will generate a large volume of sign-ins and will drive up registration.
-
-Before deploying SSPR, you may want to determine how many password reset related help desk calls happen per week/month and the average cost of each call. You can use this data post deployment to show the value SSPR is bringing to your organization.  
+Before deploying SSPR, organizations may want to determine how many password reset related help desk calls happen over time and the average cost of each call. They can use this data post deployment to show the value SSPR is bringing to your organization.  
 
 ## How SSPR works
 
@@ -34,16 +32,12 @@ Before deploying SSPR, you may want to determine how many password reset related
    1. For cloud-only users, the new password is stored in Azure Active Directory. For more information, see the article [How SSPR works](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work).
    1. For hybrid users, the password is written back to the on-premises Active Directory via the Azure AD Connect service. For more information, see the article [What is password writeback](concept-sspr-writeback.md#how-password-writeback-works).
 
-### Environments with multiple identity management systems
-
-If there are multiple identity management systems within an environment such as on-premises identity managers like Oracle AM, SiteMinder, or other systems, then passwords written to Active Directory may need to be synchronized to the other systems using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
-
 ## Licensing considerations
 
 Azure Active Directory is license per-user meaning each user has to have an appropriate license for the features they utilize.
 
-* Self-service password reset for cloud-only users is available with Azure AD Basic or above.
-* Self-service password reset with on-premises writeback for hybrid environments requires Azure AD Premium P1 or above.
+- Self-service password reset for cloud-only users is available with Azure AD Basic or above.
+- Self-service password reset with on-premises writeback for hybrid environments requires Azure AD Premium P1 or above.
 
 More information about licensing can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/)
 
@@ -55,7 +49,7 @@ Microsoft recommends that organizations enable the combined registration experie
 
 The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication to use. The combined registration experience provides organizations a better user experience compared to the traditional individual components. More information about combined registration, and how to enable, can be found in the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md)
 
-### Plan the configuration
+## Plan the configuration
 
 The following settings are required to enable SSPR along with recommended values.
 
@@ -109,12 +103,12 @@ If you have a hybrid environment, ensure that **Write back passwords to on-premi
 
 Administrator accounts are special accounts with elevated permissions. To secure them, the following restrictions apply to changing passwords of administrators:
 
-* On-premises enterprise administrators or domain administrators cannot reset their password through SSPR. They can only do this in their on-premises environment. Thus, we recommend not syncing on-prem AD admin accounts to Azure AD.
-* An administrator cannot use secret Questions & Answers as a method to reset password.
+- On-premises enterprise administrators or domain administrators cannot reset their password through SSPR. They can only do this in their on-premises environment. Thus, we recommend not syncing on-prem AD admin accounts to Azure AD.
+- An administrator cannot use secret Questions & Answers as a method to reset password.
 
-#### Important considerations for lock screen capabilities
+### Environments with multiple identity management systems
 
-To use SSPR on a Windows 10 computer the computer must be Azure Active Directory joined or hybrid Azure Active Directory joined. See the article [Azure AD password reset from the login screen](tutorial-sspr-windows.md), to learn how to enable this feature. This feature requires the Windows 10 Fall Creators Update (1709) or a newer Windows 10 version. The ‘Reset Password’ button can be enabled on the Windows 10 devices through Intune device configuration or a registry key. Password reset is not supported from a remote desktop.
+If there are multiple identity management systems within an environment such as on-premises identity managers like Oracle AM, SiteMinder, or other systems, then passwords written to Active Directory may need to be synchronized to the other systems using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
 
 ## Plan deployment and support for SSPR
 
@@ -122,11 +116,11 @@ To use SSPR on a Windows 10 computer the computer must be Azure Active Directory
 
 When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, ensure that you are engaging the right stakeholders, and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountability.
 
-### Plan communications
+### Communications planning
 
-Communication is critical to the success of any new service. You should proactively communicate with your users how to use the service and what they can do to get help if something doesn’t work as expected. Review the Azure AD SSPR Planning Communication documentation for ideas on how to plan your end-user communication strategy. ADD LINK TO DOWNLOAD MATERIALS
+Communication is critical to the success of any new service. Proactively communicate with your users how to use the service and what they can do to get help if something doesn’t work as expected. Review the [Azure AD SSPR Planning Communication documentation on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
 
-### Plan testing
+### Testing plan
 
 To ensure that your deployment works as expected, you should plan out the set of test cases you will use to validate the implementation. Following are some useful test scenarios for which you can document your organizations expected results based on your policies.
 
@@ -142,7 +136,7 @@ To ensure that your deployment works as expected, you should plan out the set of
 | Reset user password from Windows 10 AADJ or H+AADJ device lock screen after user has registered | User can reset password |
 | SSPR registration and usage data is available to administrators in near real time | Is available via audit logs |
 
-### Plan support
+### Support plan
 
 While SSPR does not typically create user issues, it is important to have support staff prepared to deal with issues that may arise.
 
@@ -150,11 +144,11 @@ While an administrator can change or reset the password for end users through th
 
 In the operational guide section of this document, create a list of support cases and their likely causes, and create a guide for resolution.
 
-### Plan reporting
+### Auditing and reporting
 
-#### Auditing
+After deployment, many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Azure Active Directory (Azure AD) provides helps you answer questions by using prebuilt reports.
 
-Audit logs for registration and password reset are available for 30 days. Therefore, if security auditing within a corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as Splunk or ArcSight.
+Audit logs for registration and password reset are available for 30 days. Therefore, if security auditing within a corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as Azure Sentinel, Splunk, or ArcSight.
 
 In the table below, document the backup schedule, the system, and the responsible parties. You may not need separate auditing and reporting backups, but you should have a separate backup from which you can recover from an issue.
 
@@ -164,21 +158,17 @@ In the table below, document the backup schedule, the system, and the responsibl
 | Reporting backup |   |   |   |
 | Disaster recovery backup |   |   |   |
 
-## Implement SSPR
-
-Now that you have planned your solution, you are ready to implement it.
-
-### Solution components
+## Implementation
 
 Implementation occurs in three stages:
 
-- Configuring users and licenses
-- Configuring Azure AD Connect Server for password writeback
-- Configuring the Azure AD SSPR service for registration and self-service
+- Configure users and licenses
+- Configure Azure AD SSPR for registration and self-service
+- Configure Azure AD Connect for password writeback
 
-### Configuring Users and Licenses
+### Configure users and licenses
 
-#### Change Communications
+#### Communicate the change
 
 Begin implementation of the communications plan that you developed in the planning phase.
 
@@ -186,68 +176,15 @@ Begin implementation of the communications plan that you developed in the planni
 
 Reference the Planning password authentication methods section and ensure the group(s) for the pilot or production implementation are available, and all appropriate users are added to the groups.
 
-#### Apply Licenses
+#### Apply licenses
 
 The groups you are going to implement must have the Azure AD premium license assigned to them. You can assign licenses directly to the group, or you can use existing license policies such as through PowerShell or Group-Based Licensing.
 
-#### Assigning licenses to groups (link to Doc)
+Information about assigning licenses to groups of users can be found in the article, [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
-The groups that you have selected may already have licenses assigned.  
+### Configure the SSPR Service
 
-To check the assignment of licenses, perform the following steps:
-
-1. Access the Azure portal with an administrator account.
-1. Select All Services, and in the Filter box, type Azure Active Directory, and then select Azure Active Directory.
-1. Under Manage, select Groups, type the name of the group, and then select it.
-1. In the group properties, select Licenses, and then ensure that the group has one of the following licenses assigned:
-   - Azure AD Premium P1
-   - Azure AD Premium P2
-   - Enterprise Mobility + Security E3
-   - Enterprise Mobility + Security E5
-   - Microsoft 365 E3
-   - Microsoft 365 E5
-
-If one of those is assigned, you can move forward. If not, you will need to assign the license to the group(s).
-
-To assign licenses
-
-1. Access the Azure portal with an administrator account. 
-1. Select All Services, and in the Filter box, type Azure Active Directory, and then select Azure Active Directory. 
-1. Under Manage, select Licenses, and then All Products 
-   - All products available within your tenant are displayed. 
-1. Select one of the following licenses and then select Assign. 
-   - Azure AD Premium P1
-   - Azure AD Premium P2
-   - Enterprise Mobility + Security E3
-   - Enterprise Mobility + Security E5
-   - Microsoft 365 (Plan E3)
-   - Microsoft 365 (Plan E5)
-1. On the Assign License tab, select Users and Groups.
-1. In the search box, type the name of the first group to be assigned the license, select the group, and then click the Select button at the bottom of the screen.
-1. Repeat this process for each group
-
-#### Configure the Azure AD Connect Server (link to Doc)
-
-To configure password writeback:
-
-1. To configure and enable password writeback, sign in to your Azure AD Connect server and start the Azure AD Connect configuration wizard.
-1. On the Welcome page, select Configure.
-1. On the Additional tasks page, select Customize synchronization options, and then select Next.
-1. On the Connect to Azure AD page, enter a global administrator credential, and then select Next.
-1. On the Connect directories and Domain/OU filtering pages, select Next.
-1. On the Optional features page, select the box next to Password writeback and select Next.
-1. On the Ready to configure page, select Configure and wait for the process to finish.
-1. When you see the configuration finish, select Exit.
-
-The password-write back feature is now on and SSPR will now work from the portal or from the Windows lock screen.
-
-#### Enable SSPR in Windows
-
-Windows 10 devices: Users can use Windows 10 Azure AD joined devices to perform SSPR. No further SSPR configuration is required. Follow this article to ensure Windows 10 devices are Azure AD joined.
-
-#### Configure the SSPR Service
-
-##### Enable Groups for SSPR
+#### Enable Groups for SSPR
 
 1. Access the Azure portal with an administrator account.
 1. Select All Services, and in the Filter box, type Azure Active Directory, and then select Azure Active Directory.
@@ -256,20 +193,29 @@ Windows 10 devices: Users can use Windows 10 Azure AD joined devices to perform 
 1. In the Default password reset policy blade, type the name of the first group, select it, and then click Select at the bottom of the screen, and select Save at the top of the screen.
 1. Repeat this process for each group.
 
-##### Configure the Authentication methods
+#### Configure the Authentication methods
 
 Reference your planning from the Planning Password Authentication Methods section of this document.
 
-1. Select Registration, under Require user to register when signing in, select Yes, and then set the number of days before expiration, and then select Save. 
-1. Select Notification, and configure per your plan, and then select Save. 
-1. Select Customization, and configure per your plan, and then select Save. 
-1. Select On-premises integration, and configure per your plan, and then select Save. 
+1. Select Registration, under Require user to register when signing in, select Yes, and then set the number of days before expiration, and then select Save.
+1. Select Notification, and configure per your plan, and then select Save.
+1. Select Customization, and configure per your plan, and then select Save.
+1. Select On-premises integration, and configure per your plan, and then select Save.
+
+#### Enable SSPR in Windows
+
+Windows 10 devices running version 1803 or higher that are either Azure AD joined or hybrid Azure AD joined can reset their passwords at the Windows login screen. Information and steps to configure this capability can be found in the article [Azure AD password reset from the login screen](tutorial-sspr-windows.md)
+
+### Configure password writeback
+
+Steps to configure password writeback for your organization can be found in the article [How-to: Configure password writeback](howto-sspr-writeback.md).
 
 ## Manage SSPR
 
 Required Roles
 
 | Business role/persona | Azure AD Role (if necessary) |
+| :---: | :---: |
 | Level 1 Helpdesk | Password administrator |
 | Level 2 Helpdesk | User administrator |
 | SSPR Administrator | Global administrator |
@@ -294,14 +240,6 @@ You may want to create a cheat sheet of support steps specific to your organizat
 - troubleshooting steps for common scenarios.
 
 You can also refer to our online documentation on troubleshooting self-service password reset to understand general troubleshooting steps for the most common SSPR scenarios.
-
-### Expected SLA
-
-You can review Azure AD’s latest SLA information on the SLA for Azure AD page.
-
-#### Auditing
-
-After deployment, many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Azure Active Directory (Azure AD) provides helps you answer questions by using prebuilt reports.
 
 ## Next steps
 
