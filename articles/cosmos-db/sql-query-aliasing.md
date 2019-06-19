@@ -12,6 +12,8 @@ ms.author: mjbrown
 
 You can explicitly alias values in queries. If a query has two properties with the same name, use aliasing to rename one or both of the properties so they're disambiguated in the projected result.
 
+## Examples
+
 The AS keyword used for aliasing is optional, as shown in the following example when projecting the second value as `NameInfo`:
 
 ```sql

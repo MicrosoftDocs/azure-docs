@@ -22,7 +22,7 @@ ms.author: tisande
 |**Boolean**|Values: **false**, **true**.|  
 |**Number**|A double-precision floating-point number, IEEE 754 standard.|  
 |**String**|A sequence of zero or more Unicode characters. Strings must be enclosed in single or double quotes.|  
-|**Array**|A sequence of zero or more elements. Each element can be a value of any scalar data type, except Undefined.|  
+|**Array**|A sequence of zero or more elements. Each element can be a value of any scalar data type, except **Undefined**.|  
 |**Object**|An unordered set of zero or more name/value pairs. Name is a Unicode string, value can be of any scalar data type, except **Undefined**.|  
   
 ##  <a name="bk_syntax"></a> Syntax
@@ -57,7 +57,7 @@ ms.author: tisande
   
 ##  <a name="bk_arguments"></a> Arguments
   
-* `<undefined_constant>; undefined`  
+* `<undefined_constant>; Undefined`  
   
   Represents undefined value of type Undefined.  
   

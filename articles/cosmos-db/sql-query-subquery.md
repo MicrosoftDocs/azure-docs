@@ -12,7 +12,7 @@ ms.author: tisande
 
 A subquery is a query nested within another query. A subquery is also called an inner query or inner select. The statement that contains a subquery is typically called an outer query.
 
-This article describes SQL subqueries and their common use cases in Azure Cosmos DB.
+This article describes SQL subqueries and their common use cases in Azure Cosmos DB. All sample queries in this doc can be run against a nutrition dataset that is preloaded on the [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
 
 ## Types of subqueries
 
@@ -30,7 +30,6 @@ Subqueries can be further classified based on the number of rows and columns tha
 * **Scalar**: Returns a single row and a single column.
 
 SQL queries in Azure Cosmos DB always return a single column (either a simple value or a complex document). Therefore, only multi-value and scalar subqueries are applicable in Azure Cosmos DB. You can use a multi-value subquery only in the FROM clause as a relational expression. You can use a scalar subquery as a scalar expression in the SELECT or WHERE clause, or as a relational expression in the FROM clause.
-
 
 ## Multi-value subqueries
 

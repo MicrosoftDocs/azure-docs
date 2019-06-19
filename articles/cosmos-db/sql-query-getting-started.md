@@ -8,7 +8,7 @@ ms.date: 05/31/2019
 ms.author: tisande
 
 ---
-# SQL query examples for Azure Cosmos DB
+# Getting started with SQL queries
 
 Azure Cosmos DB SQL API accounts support querying items using Structured Query Language (SQL) as a JSON query language. The design goals of the Azure Cosmos DB query language are to:
 
@@ -150,6 +150,8 @@ The results are:
       { "givenName": "Lisa"}
     ]
 ```
+
+## Remarks
 
 The preceding examples show several aspects of the Cosmos DB query language:  
 

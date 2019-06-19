@@ -18,7 +18,6 @@ The optional ORDER BY clause specifies the sorting order for results returned by
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
 <sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
-  
 ```  
 
 ## Arguments
@@ -103,7 +102,7 @@ Additionally, you can order by multiple properties. A query that orders by multi
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-This query retrieves the family `id`  in ascending order of the city name. If multiple items have the same city name, the query will order by the `creationDate` in descending order.
+This query retrieves the family `id` in ascending order of the city name. If multiple items have the same city name, the query will order by the `creationDate` in descending order.
 
 ## Next steps
 
