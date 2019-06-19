@@ -93,7 +93,7 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
 
 4. Under **VIRTUAL MACHINE**, click the VMs that you want to enable. This puts a checkmark next to a VM.
 
-5. Select **Enable JIT on VMs**.
+5. Click **Enable JIT on VMs**.
    -. This blade displays the default ports recommended by Azure Security Center:
       - 22 - SSH
       - 3389 - RDP
@@ -137,7 +137,7 @@ To request access to a VM via ASC:
 
 4. Under **Request access**, for each VM, configure the ports that you want to open and the source IP addresses that the port is opened on and the time window for which the port will be open. It will only be possible to  request access to the ports that are configured in the just-in-time policy. Each port has a maximum allowed time derived from the just-in-time policy.
 
-5. Select **Open ports**.
+5. Click **Open ports**.
 
 > [!NOTE]
 > If a user who is requesting access is behind a proxy, the option **My IP** may not work. You may need to define the full IP address range of the organization.
