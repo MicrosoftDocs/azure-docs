@@ -26,10 +26,18 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 
 Azure Disk Encryption is available on virtual machines that meet these minimum memory requirements:
 
-- 2 GB for Windows VMs.
-- 2 GB for Linux VMs when only encrypting data volumes.
-- 8 GB for Linux VMs when encrypting both data and OS volumes. Linux OS disk encryption is not available for [Virtual Machine Scale Sets](./virtual-machine-scale-sets/index.md).
- 
+| Virtual Machine | Minimum memory requirement |
+|--|--|
+| Windows VMs | 2 GB |
+| Linux VMs when only encrypting data volumes| 2 GB |
+| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is 4GB or less | 8 GB |
+| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is greater than 4GB | The root file system usage * 2. For instance, a 16 GB of root file system usage requires at least 32GB of RAM |
+
+Once the OS disk encryption process is complete on Linux virtual machines, the VM can be configured to run with less memory. 
+
+> [!NOTE]
+> Linux OS disk encryption is not available for [Virtual Machine Scale Sets](./virtual-machine-scale-sets/index.md).
+
 Azure Disk Encryption is also available for VMs with premium storage. 
 
 ## Supported operating systems
@@ -78,7 +86,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 
 #### Additional prerequisites for Linux IaaS VMs 
 
-- Azure Disk Encryption for Linux requires 7 GB of RAM on the VM to enable OS disk encryption on [supported images](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Once the OS disk encryption process is complete, the VM can be configured to run with less memory.
 - Azure Disk Encryption requires the dm-crypt and vfat modules to be present on the system. Removing or disabling vfat from the default image will prevent the system from reading the key volume and obtaining the key needed to unlock the disks on subsequent reboots. System hardening steps that remove the vfat module from the system are not compatible with Azure Disk Encryption. 
 - Before enabling encryption, the data disks to be encrypted need to be properly listed in /etc/fstab. Use a persistent block device name for this entry, as device names in the "/dev/sdX" format can't be relied upon to be associated with the same disk across reboots, particularly after encryption is applied. For more detail on this behavior, see: [Troubleshoot Linux VM device name changes](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Make sure the /etc/fstab settings are configured properly for mounting. To configure these settings, run the mount -a command or reboot the VM and trigger the remount that way. Once that is complete, check the output of the lsblk command to verify that the drive is still mounted. 
