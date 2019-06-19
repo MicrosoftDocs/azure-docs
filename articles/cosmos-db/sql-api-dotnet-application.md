@@ -85,12 +85,12 @@ Now that we have most of the ASP.NET Core MVC framework code that we need for th
    
    ![Screenshot of the right-click options for the web application project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
-2. The **Manage NuGet Packages** dialog box appears. In the NuGet **Browse** box, type **Microsoft.Azure.Cosmos**. From the results, install the **Microsoft.Azure.Cosmos** 3.0.0 version. It downloads and installs the Azure Cosmos DB package and its dependencies. Select **I Accept** in the **License Acceptance** window to complete the installation.
+2. The **Manage NuGet Packages** dialog box appears. In the NuGet **Browse** box, type **Microsoft.Azure.Cosmos**. From the results, install the **Microsoft.Azure.Cosmos** package. It downloads and installs the Azure Cosmos DB package and its dependencies. Select **I Accept** in the **License Acceptance** window to complete the installation.
    
    Alternatively, you can use the Package Manager Console to install the NuGet package. To do so, on the **Tools** menu, select **NuGet Package Manager**, and then select **Package Manager Console**. At the prompt, type the following command:
    
    ```bash
-   Install-Package Microsoft.Azure.Cosmos -Version 3.0.0
+   Install-Package Microsoft.Azure.Cosmos
    ```        
 
 3. After the package is installed, your Visual Studio project should contain the library reference to Microsoft.Azure.Cosmos.
@@ -204,7 +204,7 @@ The first thing to do here is add a class that contains the logic to connect to 
 
  1. Repeat the same steps, but this time, for a class named **ICosmosDBService**, and add the following code:
 
-   [!code-csharp[Main](~/cosmos-dotnet-core-todo-app/src/Services/ICosmosDbService.cs)]
+   [!code-csharp[Main](~/samples-cosmos-dotnet-core-todo-app/src/Services/ICosmosDbService.cs)]
  
 1. The previous code receives a `CosmosClient` as part of the constructor. Following ASP.NET Core pipeline, we need to go to the project's **Startup.cs** and initialize the client based on the configuration as a Singleton instance to be injected through [Dependency Injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). In the **ConfigureServices** handler, we define:
 
