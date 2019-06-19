@@ -519,7 +519,6 @@ Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON docum
 
 [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=QueryItemsAsync_snippet&highlight=10-11,17-18)]
 
-
 1. Add a call to ``QueryItemsAsync`` in the ``GetStartedDemoAsync`` method.
 
     ```csharp
