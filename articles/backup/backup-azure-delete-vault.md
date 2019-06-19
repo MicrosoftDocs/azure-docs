@@ -35,7 +35,7 @@ Before you start, it's important to understand that you can't delete a Recovery 
 
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-If you receive an error, remove [backup items](#remove-backup-items), [infrastructure servers](#remove-backup-management-servers), and [recovery points](#remove-azure-backup-agent-recovery-points), and then delete the vault.
+If you receive an error, remove [backup items](#remove-backup-items), [infrastructure servers](#remove-azure-backup-management-servers), and [recovery points](#remove-azure-backup-agent-recovery-points), and then delete the vault.
 
 ![delete vault error](./media/backup-azure-delete-vault/error.png)
 
@@ -46,10 +46,10 @@ If you receive an error, remove [backup items](#remove-backup-items), [infrastru
 
 1. Install chocolatey from [here](https://chocolatey.org/) and to install ARMClient run the below command:
 
-   `choco install armclient --source=https://chocolatey.org/api/v2/`
-2. Login to Azure account, running the below command
+   ` choco install armclient --source=https://chocolatey.org/api/v2/ `
+2. Sign in to your Azure account, and run this command:
 
-    `ARMClient.exe login [environment name]`
+    ` ARMClient.exe login [environment name] `
 
 3. In the Azure portal, gather the subscription ID and resource group name for the vault you want to delete.
 
@@ -104,7 +104,7 @@ This procedure provides an example that shows you how to remove backup data from
       ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
 
 
-### Remove Backup Management Servers
+### Remove Azure Backup management servers
 
 1. In the vault dashboard menu, click **Backup Infrastructure**.
 2. Click **Backup Management Servers** to view servers.
@@ -118,7 +118,7 @@ This procedure provides an example that shows you how to remove backup data from
 5.  Optionally, provide a reason why you're deleting the data, and add comments.
 
 > [!NOTE]
-> Backup items associated with a Backup Management Server or Azure Backup Agent server must be deleted before those server’s registrations are deleted. To remove Backup items, navigate to the SC DPM, MABS or the MARS management console on the server as applicable, and select the relevant options to stop protection and delete backups. If any backup items are still associated, you will see the following error:
+> To remove items, in the management server console or in the MARS console on a protected server, stop protection and delete backups. If backup items remain, the following error will appear when you try to delete and unregister the server:
 > 
 >![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
 
