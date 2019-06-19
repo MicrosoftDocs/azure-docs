@@ -77,7 +77,7 @@ The function [k4a_transformation_depth_image_to_point_cloud()](https://microsoft
 Now you know how to use Azure Kinect sensor SDK image transformation functions, you also can learn about
 
 >[!div class="nextstepaction"]
->[Azure Kinect sensor SDK calibration functions](use-azure-kinect-calibration-functions.md)
+>[Azure Kinect sensor SDK calibration functions](use-calibration-functions.md)
 
 Also you can review
 

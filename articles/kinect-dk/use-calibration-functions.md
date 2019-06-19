@@ -9,7 +9,7 @@ ms.topic: article
 keywords: kinect, azure, sensor, sdk, coordinate system, calibration, functions, camera, intrinsic, extrinsic, project, unproject, transformation, rgb-d, point cloud
 ---
 
-# Use Camera Calibrations
+# Use Azure Kinect calibration functions
 
 The calibration functions allow for transforming points between the coordinate systems of each sensor on the Azure Kinect device. Applications requiring conversion of whole images may take advantage of the accelerated operations available in [transformation functions](use-image-transformation.md).
 

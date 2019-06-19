@@ -33,4 +33,4 @@ Once the package is added, add header file includes to the source code, such as:
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Now you are ready to build your first application](setup.md)
+>[Now you are ready to build your first application](build-first-app.md)

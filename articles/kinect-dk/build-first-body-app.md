@@ -20,7 +20,7 @@ Getting started with the Body Tracking SDK? This quickstart will get you up and 
 
 - [Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
 - [Set up Body Tracking SDK](body-sdk-setup.md)
-- Walk through how to [build your first Azure Kinect application](setup.md) quickstart.
+- Walk through how to [build your first Azure Kinect application](build-first-app.md) quickstart.
 - Familiarize yourself with the following Sensor SDK functions:
   - [k4a_device_open()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)
   - [k4a_device_start_cameras()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4dc81cbeb54b07e4bbb7d639c448f6eb.html#ga4dc81cbeb54b07e4bbb7d639c448f6eb)

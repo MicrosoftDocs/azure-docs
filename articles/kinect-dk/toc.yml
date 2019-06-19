@@ -12,7 +12,7 @@
   - name: Record sensor streams to a file
     href: record-sensor-streams-file.md
   - name: Build your first application
-    href: setup.md
+    href: build-first-app.md
   - name: Set up Body Tracking SDK
     href: body-sdk-setup.md
   - name: Build your first body tracking application
@@ -31,9 +31,9 @@
   items: 
    - name: Use Sensor SDK
      items:
-       - name: Overview
+       - name: Overview Sensor SDK
          href: overview-sensor-sdk.md
-       - name: Find and open device
+       - name: Find then open device
          href: find-then-open-device.md
        - name: Retrieve images
          href: retrieve-images.md
@@ -43,8 +43,8 @@
          href: access-mics.md
        - name: Use image transformations
          href: use-image-transformation.md
-       - name: Use camera calibrations
-         href: use-azure-kinect-calibration-functions.md
+       - name: Use calibration functions
+         href: use-calibration-functions.md
        - name: Capture device synchronization
          href: capture-device-synchronization.md
        - name: Record and playback

@@ -1,5 +1,5 @@
 ---
-title: Azure Kinect Sensor SDK
+title: Overview Azure Kinect Sensor SDK
 description: Azure Kinect Sensor SDK
 author: tesych
 ms.author: tesych
@@ -9,7 +9,7 @@ ms.topic: overview
 keywords: azure, kinect, rgb, IR, recording, sensor, sdk, access, depth, video, camera, imu, motion, sensor, audio, microphone, matroska, sensor sdk, download
 ---
 
-# What is Azure Kinect Sensor SDK?
+# Overview Azure Kinect Sensor SDK
 
 The Azure Kinect Sensor SDK provides low-level sensor access for Azure Kinect DK hardware sensors and device configuration.
 
