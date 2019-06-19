@@ -77,7 +77,7 @@ When you swap two slots (usually from a staging slot into the production slot), 
     - [Slot-specific](#which-settings-are-swapped) app settings and connection strings, if applicable.
     - [Continuous deployment](deploy-continuous-deployment.md) settings, if enabled.
     - [App Service authentication](overview-authentication-authorization.md) settings, if enabled.
-    Any of the above cases triggers all instances in the source slot to restart. During [Swap with preview](#Multi-Phase), this the end of the first phase, where the swap operation is paused and you can validate that the source slot works correctly with target slot's settings.
+    Any of the above cases triggers all instances in the source slot to restart. During [Swap with preview](#Multi-Phase), this marks the end of the first phase, where the swap operation is paused and you can validate that the source slot works correctly with target slot's settings.
 
 1. Wait for every instance in the source slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and aborts the operation.
 
@@ -91,7 +91,7 @@ When you swap two slots (usually from a staging slot into the production slot), 
 
 1. Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all settings and restarting the instances.
 
-At any point of the swap operation, all work of initializing the swapped apps are always done on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless where the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, your production app isn't affected by the swap operation.
+At any point of the swap operation, all work of initializing the swapped apps is done on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless where the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, your production app isn't affected by the swap operation.
 
 ### Which settings are swapped?
 When you clone configuration from another deployment slot, the cloned configuration is editable. Furthermore, some configuration elements follow the content across a swap (not slot specific) while other configuration elements stay in the same slot after a swap (slot specific). The following lists show the settings that change when you swap slots.
@@ -206,7 +206,7 @@ If any errors occur in the target slot (for example, the production slot) after 
 > [!NOTE]
 > Auto swap isn't supported in web apps on Linux.
 
-Auto swap streamlines DevOps scenarios where you want to deploy your app continuously with zero cold start and zero downtime for end customers of the app. When auto swaps is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically [swaps the app into production](#swap-operation-steps) after it's warmed up in the source slot.
+Auto swap streamlines DevOps scenarios where you want to deploy your app continuously with zero cold start and zero downtime for end customers of the app. When auto swap is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically [swaps the app into production](#swap-operation-steps) after it's warmed up in the source slot.
 
    > [!NOTE]
    > Before configuring auto swap for the production slot, consider testing auto swap on a non-production target slot first.
@@ -365,7 +365,7 @@ For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slot
 
 ## Troubleshoot swaps
 
-If any error occurs during a [slot swap](#what-happens-during-swap), it's logged in *D:\home\LogFiles\eventlog.xml*, as well as the application specific error log.
+If any error occurs during a [slot swap](#what-happens-during-swap), it's logged in *D:\home\LogFiles\eventlog.xml*, as well as the application-specific error log.
 
 Here are some common swap errors:
 
