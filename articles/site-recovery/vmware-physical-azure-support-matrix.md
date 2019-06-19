@@ -53,7 +53,7 @@ Group policies| - Prevent access to the command prompt. <br/> - Prevent access t
 IIS | Make sure you:<br/><br/> - Don't have a preexisting default website <br/> - Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>
 NIC type | VMXNET3 (when deployed as a VMware VM)
 IP address type | Static
-Ports | 443 used for control channel orchestration)<br/>9443 for data transport
+Ports | 443 used for control channel orchestration<br/>9443 for data transport
 
 ## Replicated machines
 
