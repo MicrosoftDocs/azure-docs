@@ -63,7 +63,7 @@ Site Recovery supports replication of any workload running on a supported machin
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](https://aka.ms/asr_workload).
-Windows | - Windows Server 2019 (supported from [Update Rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 of the Mobility service) onwards.<br/> - Windows Server 2016 (64-bit Server Core, Server with Desktop Experience)<br/> - Windows Server 2012 R2, Windows Server 2012<br/> - Windows Server 2008 R2 with at least SP1.<br/> - Windows Server 2008, 64 and 32-bit with at least SP2]. Supported for migration only. [Learn more](migrate-tutorial-windows-server-2008.md).<br/> - Windows 10, Windows 8.1, Windows 8, Windows 7 64-bit (supported from [Update Rollup 36](https://support.microsoft.com/help/4503156) (version 9.22 of the Mobility service) onwards). Windows 7 RTM isn't supported. 
+Windows | - Windows Server 2019 (supported from [Update Rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 of the Mobility service) onwards.<br/> - Windows Server 2016 (64-bit Server Core, Server with Desktop Experience)<br/> - Windows Server 2012 R2, Windows Server 2012<br/> - Windows Server 2008 R2 with at least SP1.<br/> - Windows Server 2008, 64 and 32-bit with at least SP2]. Supported for migration only. [Learn more](migrate-tutorial-windows-server-2008.md).<br/> - Windows 10, Windows 8.1, Windows 8, Windows 7 64-bit (supported from [Update Rollup 36](https://support.microsoft.com/help/4503156) (version 9.22 of the Mobility service onwards). Windows 7 RTM isn't supported. 
 Linux | Only 64-bit system is supported. 32-bit system isn't supported.<br/><br/> Site Recovery orchestrates failover to run Linux servers in Azure. However Linux vendors might limit support to only distribution versions that haven't reached end-of-life.<br/><br/> On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported.<br/><br/> Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.<br/><br/> [Learn more](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) about support for Linux and open-source technology in Azure.
 Linux Red Hat Enterprise | 5.2 to 5.11</b><br/> 6.1 to 6.10</b><br/> 7.0 to 7.6<br/> <br/> Servers running Red Hat Enterprise Linux 5.2-5.11 should have the [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) installed for the machines to boot in Azure.
 Linux: CentOS | 5.2 to 5.11</b><br/> 6.1 to 6.10</b><br/> 7.0 to 7.6<br/> <br/> Servers running  CentOS 5.2-5.11 should have the [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) installed for the machines to boot in Azure.
@@ -114,12 +114,12 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.22][9.22 UR] | SP1 3.12.49-11
 **Component** | **Supported**
 --- | ---
 File systems | ext3, ext4, XFS
-Volume manager | - LVM is supported.<br/> - /boot on LVM is supported from [update Rollup 31](https://support.microsoft.com/help/4478871/) (version 9.20 of the Mobility service) onwards. It isn't supported in earlier Mobility service versions.<br/> - Multiple OS disks aren't supported.
+Volume manager | - LVM is supported.<br/> - /boot on LVM is supported from [Update Rollup 31](https://support.microsoft.com/help/4478871/) (version 9.20 of the Mobility service) onwards. It isn't supported in earlier Mobility service versions.<br/> - Multiple OS disks aren't supported.
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Device/Mount point naming convention | Device name or mount point name should be unique.<br/> Ensure that no two devices/mount points have case-sensitive names. For example naming devices for the same VM as *device1* and *Device1* isn't supported.
-Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.<br/><br/> From version 9.20 onwards, these restrictions don't apply. 
+Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [Update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.<br/><br/> From version 9.20 onwards, these restrictions don't apply. 
 Boot directory | - Multiple boot disks are supported on a VM <br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
 Free space requirements| 2 GB on the /root partition <br/><br/> 250 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported (Mobility service version 9.10 onwards).<br/> Use the xfs_info utility to check the XFS superblock for the partition. If `ftype` is set to 1, then XFSv5 features are in use.
@@ -188,7 +188,7 @@ Guest/server - Storage Spaces | No
 Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
-Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.22 of the Mobility service) onwards. Previously four were supported.
+Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
 Guest/server EFI/UEFI boot | - Supported when you're running Mobility service version 9.13 or later.<br/> - Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/> - You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/> - Only NTFS is supported. <br/> - Disk sector size should be 512 bytes
 
 ## Replication channels
@@ -246,7 +246,8 @@ VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and
 
 The following table provides the Azure Site Recovery limits. 
 - These limits are based on our tests, but don't cover all possible app I/O combinations.
-- Actual results can vary based on your application I/O mix. - For best results, we strongly recommend that you run the [Deployment Planner tool](site-recovery-deployment-planner.md), and perform extensive application testing using test failovers to get the true performance picture for your app.
+- Actual results can vary based on your application I/O mix.
+- For best results, we strongly recommend that you run the [Deployment Planner tool](site-recovery-deployment-planner.md), and perform extensive application testing using test failovers to get the true performance picture for your app.
 
 **Replication target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
