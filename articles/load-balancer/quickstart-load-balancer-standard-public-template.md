@@ -12,41 +12,48 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2019
+ms.date: 06/19/2019
 ms.author: kumud
 ms.custom: mvc
 ---
 
 # Quickstart: Create a Standard Load Balancer to load balance VMs by using Azure Resource Manager template
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can deploy an Azure Resource Manager template to create a load balancer to load balance virtual machines (VMs). This quickstart shows you how to load balance VMs using a Standard Load Balancer.
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. This quickstart shows you how to deploy an Azure Resource Manager template to create a standard load balancer to load balance virtual machines (VMs).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a standard load balancer
 
-In this section, you create a Standard Load Balancer that helps load balance virtual machines. Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, and you must also create a new Standard Public IP address that is configured as the frontend (named as *LoadBalancerFrontend* by default) for the Standard Load Balancer. There are many methods that can be used to create a standard load balancer. In this quickstart, you use Azure PowerShell to deploy a [Resource Manager template](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager documentation](/azure/azure-resource-manager/). To find more Azure Load Balancer related template, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
+Standard Load Balancer only supports a Standard Public IP address. When you create a Standard Load Balancer, you must also create a new Standard Public IP address that is configured as the frontend for the Standard Load Balancer. There are many methods that can be used to create a standard load balancer. In this quickstart, you use Azure PowerShell to deploy a [Resource Manager template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager documentation](/azure/azure-resource-manager/). To find more Azure Load Balancer related template, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-To deploy the template, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**. For a list of regions that support availability zone for Azure virtual machines, see [here](../availability-zones/az-overview.md).
+1. Select **Try it** from the following code block to open the Azure Cloud shell, and then follow the instructions to sign in to Azure.
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
-$adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
+   ```azurepowershell-interactive
+   $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
+   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+   $adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
+   $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
-$resourceGroupName = "${projectName}rg"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json"
+   $resourceGroupName = "${projectName}rg"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
+   New-AzResourceGroup -Name $resourceGroupName -Location $location
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
 
-Write-Host "Press [ENTER] to continue."
+   Write-Host "Press [ENTER] to continue."
+   ```
 
-```
+   Wait until you see the prompt from the console.
+2. Select **Copy** from the previous code block to copy the PowerShell script.
+3. Right-click the shell console pane and then select **Paste**.
+4. Enter the values.
 
- >[!NOTE]
- >The resource group name is the project name with **rg** appended. You need the resource group name in the next section.  It takes a few minutes to create the resources.
+   The template deployment creates three availability zones.  Availability zones are only supported in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you are    not sure, enter **centralus**.
+
+   The resource group name is the project name with **rg** appended. You need the resource group name in the next section.
+
+It takes about 10 minutes to deploy the template.
 
 ## Test the Load Balancer
 
