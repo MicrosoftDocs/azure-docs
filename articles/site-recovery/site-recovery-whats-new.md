@@ -41,7 +41,7 @@ Features added this month are summarized in the table.
 
 ### Update rollup 36
 
-[Update rollup 36](https://support.microsoft.com/en-us/help/4503156) provides the following updates.
+[Update rollup 36](https://support.microsoft.com/help/4503156) provides the following updates.
 
 **Update** | **Details**
 --- | ---
