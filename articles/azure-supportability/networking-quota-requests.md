@@ -38,7 +38,7 @@ Follow the instructions below to create a support request via Azure's 'Help + Su
    
 5. Select **Networking** in **quota type** dropdown. 
 
-    ![Select quota type](./media/networking-quota-request/select-quota-type-network.png) 
+    ![Select quota type](./media/networking-quota-request/select-quota-type-network.png)
 
 6. In **Problem Details**, provide additional information to help process your request by clicking **Provide details**.
 
