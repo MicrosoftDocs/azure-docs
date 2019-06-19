@@ -21,14 +21,6 @@ With the File System connector and Azure Logic Apps, you can create automated ta
 
 This article shows how you can connect to an on-premises file system as described by this example scenario: copy a file that's uploaded to Dropbox to a file share, and then send an email. To securely connect and access on-premises systems, logic apps use the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md). For connector-specific technical information, see the [File System connector reference](/connectors/filesystem/).
 
-## Limits
-
-* By default, File System connector handles only files that are *30 MB or smaller*. To get files larger than 30 MB, follow this pattern:
-
-  * Use a File System trigger that returns file properties, such as **When a file is added or modified (properties only)**.
-
-  * Follow the trigger with the File System **Get file content** action, which reads the complete file and implicitly uses chunking.
-
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
@@ -62,8 +54,7 @@ This article shows how you can connect to an on-premises file system as describe
 
 ## Add actions
 
-1. Under the trigger, choose **Next step**. In the search box, enter "file system" as your filter. From the actions list, select this action: 
-**Create file - File System**
+1. Under the trigger, choose **Next step**. In the search box, enter "file system" as your filter. From the actions list, select this action: **Create file**
 
    ![Find File System connector](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -83,8 +74,7 @@ This article shows how you can connect to an on-premises file system as describe
 
 1. When you're done, choose **Create**.
 
-   Logic Apps configures and tests your connection, making sure that the connection works properly. If the connection is set up correctly, 
-   options appear for the action that you previously selected.
+   Logic Apps configures and tests your connection, making sure that the connection works properly. If the connection is set up correctly, options appear for the action that you previously selected.
 
 1. In the **Create file** action, provide the details for copying files from Dropbox to the root folder in your on-premises file share. To add outputs from previous steps, click inside the boxes, and select from available fields when the dynamic content list appears.
 
@@ -100,8 +90,7 @@ This article shows how you can connect to an on-premises file system as describe
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, 
-review the connector's [reference page](/connectors/fileconnector/).
+For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/connectors/fileconnector/).
 
 ## Next steps
 
