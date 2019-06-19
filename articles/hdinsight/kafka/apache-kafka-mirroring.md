@@ -26,7 +26,7 @@ Mirroring works by using the [MirrorMaker](https://cwiki.apache.org/confluence/p
 
 The following diagram illustrates the Mirroring process:
 
-![Diagram of the mirroring process](./media/apache-kafka-mirroring/kafka-mirroring.png)
+![Diagram of the mirroring process](./media/apache-kafka-mirroring/kafka-mirroring-vnets.png)
 
 Apache Kafka on HDInsight does not provide access to the Kafka service over the public internet. Kafka producers or consumers must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka primary and secondary clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
 
