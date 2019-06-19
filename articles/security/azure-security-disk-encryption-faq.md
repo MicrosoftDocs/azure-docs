@@ -50,6 +50,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | RHEL | 7.2 | OS and data disk (see note below) |
 | RHEL | 6.8 | Data disk (see note below) |
 | RHEL | 6.7 | Data disk (see note below) |
+| CentOS | 7.6 | OS and data disk |
 | CentOS | 7.5 | OS and data disk |
 | CentOS | 7.4 | OS and data disk |
 | CentOS | 7.3 | OS and data disk |

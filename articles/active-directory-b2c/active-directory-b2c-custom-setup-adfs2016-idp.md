@@ -98,6 +98,10 @@ By now, you have configured your policy so that Azure AD B2C knows how to commun
 2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
 3. Click **Upload**.
 
+> [!NOTE]
+> The Visual Studio code B2C extension uses "socialIdpUserId." A social policy is also required for ADFS.
+>
+
 ## Register the claims provider
 
 At this point, the identity provider has been set up, but it’s not available in any of the sign-up or sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the ADFS identity provider.
