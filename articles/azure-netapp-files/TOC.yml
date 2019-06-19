@@ -25,7 +25,7 @@
     items:
     - name: Performance benchmarks for Azure NetApp Files
       href: azure-netapp-files-performance-benchmarks.md
-     - name: Performance considerations for Azure NetApp Files
+    - name: Performance considerations for Azure NetApp Files
       href: azure-netapp-files-performance-considerations.md     
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
