@@ -15,7 +15,7 @@ We shipped a new API/resource model for Azure DNS private zones as part of the p
 
 ## Prerequisites
 
-Make sure you have installed latest version of Azure PowerShell. For more information on Azure PowerShell (Az) and how to install it visit https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az
+Make sure you have installed latest version of Azure PowerShell. For more information on Azure PowerShell (Az) and how to install it visit https://docs.microsoft.com/powershell/azure/new-azureps-module-az
 
 Make sure that you've Az.PrivateDns module for the Azure PowerShell installed. To install this module, open an elevated PowerShell window (Administrative mode) and enter following command
 
@@ -50,9 +50,9 @@ PrivateDnsMigrationScript.ps1
 
 ![Running the script](./media/private-dns-migration-guide/running-migration-script.png)
 
-### Enter the subscription id and sign-in to Azure
+### Enter the subscription ID and sign-in to Azure
 
-You’ll be prompted to enter subscription id containing the private DNS zones that you intend to migrate. You’ll be asked to sign-in to your Azure account. Complete the sign-in so that script can access the private DNS zone resources in the subscription.
+You’ll be prompted to enter subscription ID containing the private DNS zones that you intend to migrate. You’ll be asked to sign-in to your Azure account. Complete the sign-in so that script can access the private DNS zone resources in the subscription.
 
 ![Login to Azure](./media/private-dns-migration-guide/login-migration-script.png)
 
@@ -92,10 +92,10 @@ This step will delete the legacy DNS zones and should be executed only after you
 ## Update Your automation
 
 If you're using automation including templates, PowerShell scripts or custom code developed using SDK you must update your automation to use the new API and resource model for the private DNS zones. Below are the links to new private DNS CLI/PS/SDK documentation.
-* [Azure DNS private zones REST API](https://docs.microsoft.com/en-us/rest/api/dns/privatedns/privatezones)
-* [Azure DNS private zones CLI](https://docs.microsoft.com/en-us/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
-* [Azure DNS private zones PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.privatedns/?view=azps-2.3.2)
-* [Azure DNS private zones SDK](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [Azure DNS private zones REST API](https://docs.microsoft.com/rest/api/dns/privatedns/privatezones)
+* [Azure DNS private zones CLI](https://docs.microsoft.com/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
+* [Azure DNS private zones PowerShell](https://docs.microsoft.com/powershell/module/az.privatedns/?view=azps-2.3.2)
+* [Azure DNS private zones SDK](https://docs.microsoft.com/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 
 ## Need further help
 
