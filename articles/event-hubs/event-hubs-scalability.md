@@ -35,6 +35,15 @@ Beyond the capacity of the purchased throughput units, ingress is throttled and 
 
 Throughput units are pre-purchased and are billed per hour. Once purchased, throughput units are billed for a minimum of one hour. Up to 20 throughput units can be purchased for an Event Hubs namespace and are shared across all event hubs in that namespace.
 
+The **Auto-inflate** feature of Event Hubs automatically scales up by increasing the number of throughput units, to meet usage needs. Increasing throughput units prevents throttling scenarios, in which:
+
+- Data ingress rates exceed set throughput units.
+- Data egress request rates exceed set throughput units.
+
+The Event Hubs service increases the throughput when load increases beyond the minimum threshold, without any requests failing with ServerBusy errors. 
+
+For more information about the auto-inflate feature, see [Automatically scale throughput units](event-hubs-auto-inflate.md).
+
 ### Partitions
 
 Partitions let you scale for your downstream processing. Because of the partitioned consumer model that Event Hubs offers with partitions, you can scale-out while processing your events concurrently. An Event Hub can have up to 32 partitions.
@@ -48,5 +57,5 @@ For detailed Event Hubs pricing information, see [Event Hubs pricing](https://az
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs service overview](event-hubs-what-is-event-hubs.md)
-* [Create an event hub](event-hubs-create.md)
+- [Automatically scale throughput units](event-hubs-auto-inflate.md)
+- [Event Hubs service overview](event-hubs-what-is-event-hubs.md)
