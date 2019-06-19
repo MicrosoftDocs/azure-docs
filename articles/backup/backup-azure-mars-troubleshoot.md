@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Backup Agent
-description: Troubleshoot installation and registration of Azure Backup Agent
+title: Troubleshoot Azure Backup agent
+description: Troubleshoot installation and registration of Azure Backup agent
 services: backup
 author: saurabhsensharma
 manager: shivamg
@@ -10,87 +10,87 @@ ms.date: 05/21/2019
 ms.author: saurse
 ---
 
-# Troubleshoot Microsoft Azure Recovery Services (MARS) Agent
+# Troubleshoot Microsoft Azure Recovery Services (MARS) agent
 
-Here's how to resolve errors you might see during configuration, registration, backup, and restore.
+This article describes how to resolve errors you might see during configuration, registration, backup, and restore.
 
 ## Basic troubleshooting
 
-We recommend you perform the below validation, before you start troubleshooting Microsoft Azure Recovery Services (MARS) agent:
+We recommend that you check the following before you start troubleshooting Microsoft Azure Recovery Services (MARS) agent:
 
-- [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Ensure there is network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50)
-- Ensure Microsoft Azure Recovery Services is running (in Service console). If required restart and retry the operation
-- [Ensure 5-10% free volume space is available on scratch folder location](https://aka.ms/AB-AA4dwtt)
-- [Check if another process or antivirus software is interfering with Azure Backup](https://aka.ms/AB-AA4dwtk)
-- [Scheduled backup fails, but manual backup works](https://aka.ms/ScheduledBackupFailManualWorks)
-- Ensure your OS has the latest updates
-- [Ensure unsupported drives and files with unsupported attributes are excluded from backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
-- Ensure **System Clock** on the protected system is configured to correct time zone <br>
-- [Ensure that the server has at least .Net Framework version 4.5.2 and higher](https://www.microsoft.com/download/details.aspx?id=30653)<br>
-- If you are trying to **reregister your server** to a vault, then: <br>
-  - Ensure the agent is uninstalled on the server and it is deleted from portal <br>
-  - Use the same passphrase that was initially used for registering the server <br>
-- In case of offline backup ensure that Azure PowerShell version 3.7.0 is installed on both source and copy computer before you begin offline backup operation
-- [Consideration when Backup agent is running on an Azure virtual machine](https://aka.ms/AB-AA4dwtr)
+- [Ensure MARS agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
+- [Ensure you have network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50).
+- Ensure MARS is running (in Service console). If you need to, restart and retry the operation.
+- [Ensure 5% to 10% free volume space is available in the scratch folder location](https://aka.ms/AB-AA4dwtt).
+- [Check if another process or antivirus software is interfering with Azure Backup](https://aka.ms/AB-AA4dwtk).
+- If scheduled backup fails but manual backup works, see [Backups don't run according to schedule](https://aka.ms/ScheduledBackupFailManualWorks).
+- Ensure your OS has the latest updates.
+- [Ensure unsupported drives and files with unsupported attributes are excluded from backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup).
+- Ensure the clock on the protected system is configured to the correct time zone.
+- [Ensure .NET Framework 4.5.2 or higher is installed on the server](https://www.microsoft.com/download/details.aspx?id=30653).
+- If you're trying to reregister your server to a vault:
+  - Ensure the agent is uninstalled on the server and that it's deleted from the portal.
+  - Use the same passphrase that was initially used to register the server.
+- For offline backups, ensure Azure PowerShell 3.7.0 is installed on both the source and the copy computer before you start the backup.
+- If Backup agent is running on an Azure virtual machine, see [this article](https://aka.ms/AB-AA4dwtr).
 
 ## Invalid vault credentials provided
 
 **Error message**: Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service. (ID: 34513)
 
-| Cause | Recommended Action |
+| Cause | Recommended actions |
 | ---     | ---    |
-| **The vault credentials are invalid** <br/> <br/> Vault credential files might be corrupt or may have expired (i.e. downloaded more than 48 hours before the time of registration)| Download a new credential from Recovery Services vault from the Azure portal (see *Step 6* under [**Download the MARS agent**](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) section) and perform the below: <ul><li> If you have already installed and registered Microsoft Azure Backup Agent, then open the Microsoft Azure Backup Agent MMC console and choose **Register Server** from Action Pane to complete the registration with the newly downloaded credentials <br/> <li> If the new installation failed then try re-installing using the new credentials</ul> **Note**: If multiple vault credential files are downloaded previously, only the latest downloaded file is valid within 48 hours. Hence it is recommended to download fresh new vault credentials file.
-| **Proxy Server/firewall is blocking <br/>or <br/>No Internet connectivity** <br/><br/> If your machine or Proxy Server has limited Internet access then without listing the necessary URLs the registration will fail.| To resolve this issue, perform the below:<br/> <ul><li> Work with your IT team to ensure the system has Internet connectivity<li> If you do not have Proxy server, then ensure the proxy option is unselected when registering the agent, verify proxy settings steps listed [here](#verifying-proxy-settings-for-windows)<li> If you do have a firewall/proxy server then work with your networking team to ensure that below URLs and IP address have access<br/> <br> **URLs**<br> - *www.msftncsi.com* <br>- *.Microsoft.com* <br> - *.WindowsAzure.com* <br>- *.microsoftonline.com* <br>- *.windows.net* <br>**IP address**<br> - *20.190.128.0/18* <br> - *40.126.0.0/18* <br/></ul></ul>Try re-registering after you complete the above troubleshooting steps
-| **Anti-virus software is blocking** | If you have anti-virus software installed on the server, then add necessary exclusion rules for the following files from the anti-virus scan: <br/><ui> <li> *CBengine.exe* <li> *CSC.exe*<li> Scratch folder, the default location is *C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* <li> Bin folder at *C:\Program Files\Microsoft Azure Recovery Services Agent\Bin*
+| **Vault credentials aren't valid** <br/> <br/> Vault credential files might be corrupt or might have expired. (For example, they might have been downloaded more than 48 hours before the time of registration.)| Download new credentials from Recovery Services vault on the Azure portal. (See step 6 in the [Download the MARS agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) section.) Then take these steps, as appropriate: <ul><li> If you've already installed and registered MARS, open the Microsoft Azure Backup Agent MMC console and then select **Register Server** in the **Actions** pane to complete the registration with the new credentials. <br/> <li> If the new installation fails, try reinstalling with the new credentials.</ul> **Note**: If multiple vault credential files have been downloaded, only the latest file is valid for the next 48 hours. We recommend that you download a new vault credential file.
+| **Proxy server/firewall is blocking registration** <br/>or <br/>**No internet connectivity** <br/><br/> If your machine or proxy server has limited internet connectivity and you don't ensure access for the necessary URLs, the registration will fail.| Take these steps:<br/> <ul><li> Work with your IT team to ensure the system has internet connectivity.<li> If you don't have a proxy server, ensure the proxy option is not selected when you register the agent. [Check your proxy settings](#verifying-proxy-settings-for-windows).<li> If you do have a firewall/proxy server, work with your networking team to ensure these URLs and IP addresses have access:<br/> <br> **URLs**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP addresses**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Try registering again after you complete these troubleshooting steps
+| **Antivirus software is blocking registration** | If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders: <br/><ui> <li> CBengine.exe <li> CSC.exe<li> The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch <li> The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### Additional recommendations
-- Go to *C:/Windows/Temp* and check whether there are more than 60,000 or 65,000 files with the .tmp extension. If there are, delete these files
-- Ensure the machine’s date and time is matching with local time zone
-- Ensure the [following](backup-configure-vault.md#verify-internet-access) sites are added to IE trusted sites
+- Go to C:/Windows/Temp and check whether there are more than 60,000 or 65,000 files with the .tmp extension. If there are, delete these files.
+- Ensure the machine’s date and time match the local time zone.
+- Ensure [these sites](backup-configure-vault.md#verify-internet-access) are added to your trusted sites in Internet Explorer.
 
 ### Verifying proxy settings for Windows
 
-- Download **psexec** from [here](https://docs.microsoft.com/sysinternals/downloads/psexec)
-- Run this `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` command from elevated prompt:
-- This will launch *Internet Explorer* window
-- Go to *Tools* -> *Internet Options* -> *Connections* -> *LAN settings*
-- Verify proxy settings for *System* account
-- If no proxy is configured and proxy details are provided, then remove the details
--	If proxy is configured and proxy details are incorrect, then ensure *Proxy IP* and *port* details are accurate
-- Close *Internet Explorer*
+1. Download PsExec from the [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) page.
+1. Run `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` from an elevated command prompt.
+
+   This will open Internet Explorer.
+1. Go to **Tools** > **Internet options** > **Connections** > **LAN settings**.
+1. Check the proxy settings for the system account.
+1. If no proxy is configured and proxy details are provided, remove the details.
+1. If a proxy is configured and the proxy details are incorrect, ensure the **Proxy IP** and **Port** details are accurate.
+1. Close Internet Explorer.
 
 ## Unable to download vault credential file
 
-| Error details | Recommended actions |
+| Error   | Recommended actions |
 | ---     | ---    |
-|Failed to download the vault credential file. (ID: 403) | <ul><li> Try downloading vault credentials using different browser or perform the below steps: <ul><li> Launch IE, press F12. </li><li> Go to **Network** tab to clear IE cache and cookies </li> <li> Refresh the page<br>(OR)</li></ul> <li> Check if the subscription is disabled/expired<br>(OR)</li> <li> Check if any firewall rule is blocking vault credential file download <br>(OR)</li> <li> Ensure you have not exhausted the limit on the vault (50 machines per vault)<br>(OR)</li>  <li> Ensure user has required Azure Backup permission to download vault credential and register server with vault, see [article](backup-rbac-rs-vault.md)</li></ul> |
+|Failed to download the vault credential file. (ID: 403) | <ul><li> Try downloading the vault credentials by using a different browser, or take these steps: <ul><li> Start Internet Explorer. Select F12. </li><li> Go to the **Network** tab and clear the cache and cookies. </li> <li> Refresh the page.<br></li></ul> <li> Check if the subscription is disabled/expired.<br></li> <li> Check if any firewall rule is blocking the download. <br></li> <li> Ensure you haven't exhausted the limit on the vault (50 machines per vault).<br></li>  <li> Ensure the user has the Azure Backup permissions that are required to download vault credentials and register a server with the vault. See [Use Role-Based Access Control to manage Azure Backup recovery points](backup-rbac-rs-vault.md).</li></ul> |
 
 ## The Microsoft Azure Recovery Service Agent was unable to connect to Microsoft Azure Backup
 
-| Error details | Possible causes | Recommended actions |
+| Error  | Possible cause | Recommended actions |
 | ---     | ---     | ---    |
-| **Error** <br /><ol><li>*The Microsoft Azure Recovery Service Agent was unable to connect to Microsoft Azure Backup. (ID: 100050) Check your network settings and ensure that you are able to connect to internet*<li>*(407) Proxy Authentication Required* |Proxy blocking the connection. |  <ul><li>Launch **IE** > **Setting** > **Internet options** > **Security** > **Internet**. Then select **Custom Level** and scroll until you see the file download section. Select **Enable**.<li>You might also have to add these sites in IE [trusted sites](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Change the settings to use a proxy server. Then provide the proxy server details.<li> If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these [URLs](backup-configure-vault.md#verify-internet-access) and [IP address](backup-configure-vault.md#verify-internet-access). <li>If you have anti-virus software installed on the server, exclude the following files from the anti-virus scan. <ul><li>CBEngine.exe (instead of dpmra.exe).<li>CSC.exe (related to .NET Framework). There is a CSC.exe for every .NET version that's installed on the server. Exclude CSC.exe files that are tied to all versions of .NET framework on the affected server. <li>Scratch folder or cache location. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>The bin folder C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
-
+| <br /><ul><li>The Microsoft Azure Recovery Service Agent was unable to connect to Microsoft Azure Backup. (ID: 100050) Check your network settings and ensure that you are able to connect to the internet.<li>(407) Proxy Authentication Required. |Proxy blocking the connection. |  <ul><li>In Internet Explorer, go to **Tools** > **Internet options** > **Security** > **Internet**. Select **Custom Level** and scroll down to the **File download** section. Select **Enable**.<p>You might also have to add [these sites](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins) to your trusted sites in Internet Explorer.<li>Change the settings to use a proxy server. Then provide the proxy server details.<li> If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these [URLs and IP addresses](backup-configure-vault.md#verify-internet-access). <li>If you have antivirus software installed on the server, exclude these files from the antivirus scan: <ul><li>CBEngine.exe (instead of dpmra.exe).<li>CSC.exe (related to .NET Framework). There's a CSC.exe for every .NET Framework version installed on the server. Exclude CSC.exe files for all versions of .NET Framework on the affected server. <li>The scratch folder or cache location. <br>The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 
 ## Failed to set the encryption key for secure backups
 
-| Error details | Possible causes | Recommended actions |
+| Error | Possible causes | Recommended actions |
 | ---     | ---     | ---    |
-| **Error** <br />*Failed to set the encryption key for secure backups. Activation did not succeed completely but the encryption passphrase was saved to the following file*. |<li>The server is already registered with another vault.<li>During configuration, the passphrase was corrupted.| Unregister the server from the vault, and register again with a new passphrase.
+| <br />Failed to set the encryption key for secure backups. Activation did not succeed completely but the encryption passphrase was saved to the following file. |<li>The server is already registered with another vault.<li>During configuration, the passphrase was corrupted.| Unregister the server from the vault and register it again with a new passphrase.
 
 ## The activation did not complete successfully
 
-| Error details | Possible causes | Recommended actions |
+| Error  | Possible causes | Recommended actions |
 |---------|---------|---------|
-|**Error** <br />*The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Retry the operation after some time. If the issue persists, please contact Microsoft support*     | <li> The scratch folder is located on a volume that has insufficient space. <li> The scratch folder has been moved incorrectly to another location. <li> The OnlineBackup.KEK file is missing.         | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space equal to 5-10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Questions about the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Retry the operation after some time. If the issue persists, please contact Microsoft support.     | <li> The scratch folder is located on a volume that doesn't have enough space. <li> The scratch folder has been incorrectly moved. <li> The OnlineBackup.KEK file is missing.         | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS agent.<li>Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## Encryption passphrase not correctly configured
 
-| Error details | Possible causes | Recommended actions |
+| Error  | Possible causes | Recommended actions |
 |---------|---------|---------|
-|**Error** <br />*Error 34506. The encryption passphrase stored on this computer is not correctly configured*.    | <li> The scratch folder is located on a volume that has insufficient space. <li> The scratch folder has been moved incorrectly to another location. <li> The OnlineBackup.KEK file is missing.        | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space equivalent to 5-10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Questions about the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Error 34506. The encryption passphrase stored on this computer is not correctly configured.    | <li> The scratch folder is located on a volume that doesn't have enough space. <li> The scratch folder has been incorrectly moved. <li> The OnlineBackup.KEK file is missing.        | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 
 ## Backups don't run according to the schedule
