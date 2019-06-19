@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect Sensor SDK download
-description: Download links for the Sensor SDK
+description: Download links for the Sensor SDK and instructions how to install.
 author: Brent-A
 ms.author: brenta
 ms.prod: kinect-dk
@@ -9,7 +9,7 @@ ms.topic: conceptual
 keywords: azure, kinect,sdk, download update, latest, available, install
 ---
 
-# Download Azure Kinect Sensor SDK
+# Azure Kinect Sensor SDK download
 
 This page has the download links for each version of the Azure Kinect Sensor SDK. The installer provides all of the needed files to develop for the Azure Kinect.
 

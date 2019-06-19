@@ -1,5 +1,5 @@
 ---
-title: Azure Kinect coordinate systems
+title: Azure Kinect DK coordinate systems
 description: Azure Kinect DK coordinate systems description associated with Azure DK sensors
 author: tesych
 ms.author: tesych

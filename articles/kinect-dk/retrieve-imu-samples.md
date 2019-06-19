@@ -9,7 +9,7 @@ ms.topic: conceptual
 keywords: kinect, azure, configure, depth, color, RBG, camera, sensor, sdk, IMU, motion sensor, motion, gyroscope, gyro, accelerometer, FPS
 ---
 
-# Retrieve IMU samples
+# Retrieve Azure Kinect IMU samples
 
 The Azure Kinect device provides access to Inertial Motion Units (IMUs), including both the accelerometer and gyroscope types. To access IMUs samples, you must first open and configure your device, then capture IMU data. For more information, see [find and open device](find-then-open-device.md).
 

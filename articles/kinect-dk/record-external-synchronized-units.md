@@ -1,5 +1,5 @@
 ---
-title: Azure Kinect DK record external synchronized units
+title: Use Azure Kinect recorder with external synchronized units
 description: Using Azure Kinect recorder with external synchronized units
 author: joylital
 ms.author: jawirth, joylital
@@ -9,7 +9,7 @@ ms.topic: conceptual
 keywords: Kinect, sensor, viewer, external sync, phase delay, depth, RGB, camera, audio cable, recorder
 ---
 
-# Use Azure Kinect DK recorder with external synchronized units
+# Use Azure Kinect recorder with external synchronized units
 
 This article provides guidance on how the [Azure Kinect Recorder](recorder.md) can record data external synchronization configured devices.
 
