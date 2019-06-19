@@ -20,8 +20,6 @@
   items:
   - name: How to add a dataset to my data share 
     href: how-to-add-datasets.md
-  - name: How to add recipients to my data share
-    href: how-to-add-recipients.md 
   - name: How to monitor my data share
     href: how-to-monitor.md         
   - name: How to accept a data share invitation
