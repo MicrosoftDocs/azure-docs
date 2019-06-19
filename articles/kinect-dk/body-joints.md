@@ -60,6 +60,6 @@ The following table enumerates the standard joint connections.
 | 24   |EYE_RIGHT      | HEAD           |
 | 25   |EAR_RIGHT      | HEAD           |
 
-## Next Steps
+## Next steps
 
 [Body tracking index map](body-index-map.md)
