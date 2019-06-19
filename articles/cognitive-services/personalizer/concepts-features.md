@@ -58,6 +58,8 @@ You can name feature namespaces following your own conventions as long as they a
 
 In the following JSON, `user`, `state`, and `device` are feature namespaces.
 
+numerics in arrays only
+
 ```JSON
 {
     "contextFeatures": [
@@ -75,7 +77,11 @@ In the following JSON, `user`, `state`, and `device` are feature namespaces.
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "status": {
+                    x: y,
+                    y: [72, 83, 73]
+                }
             }
         }
     ]
