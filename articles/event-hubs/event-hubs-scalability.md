@@ -18,13 +18,13 @@ ms.author: shvija
 
 ---
 
-## Scaling with Event Hubs
+# Scaling with Event Hubs
 
 There are two factors which influence scaling with Event Hubs.
 *	Throughput units
 *	Partitions
 
-### Throughput units
+## Throughput units
 
 The throughput capacity of Event Hubs is controlled by *throughput units*. Throughput units are pre-purchased units of capacity. A single throughput lets you:
 
@@ -44,7 +44,7 @@ The Event Hubs service increases the throughput when load increases beyond the m
 
 For more information about the auto-inflate feature, see [Automatically scale throughput units](event-hubs-auto-inflate.md).
 
-### Partitions
+## Partitions
 
 Partitions let you scale for your downstream processing. Because of the partitioned consumer model that Event Hubs offers with partitions, you can scale-out while processing your events concurrently. An Event Hub can have up to 32 partitions.
 
