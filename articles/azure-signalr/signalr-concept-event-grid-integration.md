@@ -22,8 +22,8 @@ Azure SignalR Service events are reliably sent to the Event Grid service which p
 ## Serverless state
 Azure SignalR Service events are only active when client connections are in serverless state. Generally speaking, if a client doesn't route to a hub server, it goes into the serverless state. Classic mode work only when the hub, that client connections connect to, doesn't have a hub server. However, serverless mode is recommended to avoid some problem. To learn more details about service mode, see [How to choose Service Mode](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).
 
-## Available Azure Storage events
-Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Azure SignalR Service event subscriptions support two types of events:  
+## Available Azure SignalR Service events
+Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Azure SignalR Service event subscriptions support two types of events:  
 
 > |Event Name|Description|
 > |----------|-----------|
