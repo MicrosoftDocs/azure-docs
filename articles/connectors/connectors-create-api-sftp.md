@@ -25,7 +25,7 @@ You can use triggers that monitor events on your SFTP server and make output ava
 
 ## Limits
 
-The SFTP connector handles only files that are *50 MB or smaller*. For larger files, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). For differences between the SFTP connector and the SFTP-SSH connector, review [Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) in the SFTP-SSH article.
+The SFTP connector handles only files that are *50 MB or smaller* and doesn't support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). For larger files, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). For differences between the SFTP connector and the SFTP-SSH connector, review [Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) in the SFTP-SSH article.
 
 ## Prerequisites
 

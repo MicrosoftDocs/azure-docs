@@ -27,13 +27,13 @@ You can use triggers that get responses from your FTP server and make the output
 
 * The FTP connector supports only explicit FTP over SSL (FTPS) and isn't compatible with implicit FTPS.
 
-* FTP actions can read or write files that are *50 MB or smaller*.
+* By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
 
-* FTP triggers that request file content select only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
+* FTP triggers don't support chunking. When requesting file content, triggers select only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
 
   * Use an FTP trigger that returns file properties, such as **When a file is added or modified (properties only)**.
 
-  * Follow the trigger with an FTP action that reads the complete file, such as **Get file content**.
+  * Follow the trigger with the FTP **Get file content** action, which reads the complete file and implicitly uses chunking.
 
 ## How FTP triggers work
 
