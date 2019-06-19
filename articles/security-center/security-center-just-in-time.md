@@ -55,7 +55,7 @@ When a user requests access to a VM, Security Center checks that the user has [R
 |Request JIT access to a VM | *Assign these actions to the user:*  On the scope of a subscription or Resource Group that is associated with the VM:  ```Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/initiate/action``` On the scope of a Subscription or Resource Group or VM: ```Microsoft.Compute/virtualMachines/read``` |
 
 
-## Configuring JIT on a VM
+## Configure JIT on a VM
 
 There are 3 ways to configure a JIT policy on a VM:
 
