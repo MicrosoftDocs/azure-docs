@@ -299,4 +299,4 @@ In this tutorial, you've learned how to build an ASP.NET Core MVC web applicatio
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
-[GitHub]: ~/samples-cosmosdb-dotnet-core-web-app
+[GitHub]: https://github.com/azure/azure-cosmos-dotnet-v3
