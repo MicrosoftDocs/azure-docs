@@ -29,29 +29,29 @@ Standard Load Balancer only supports a Standard Public IP address. When you crea
 
 1. Select **Try it** from the following code block to open the Azure Cloud shell, and then follow the instructions to sign in to Azure.
 
-  ```azurepowershell-interactive
-  $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
-  $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-  $adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
-  $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
+   ```azurepowershell-interactive
+   $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
+   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+   $adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
+   $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
-  $resourceGroupName = "${projectName}rg"
-  $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json"
+   $resourceGroupName = "${projectName}rg"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json"
 
-  New-AzResourceGroup -Name $resourceGroupName -Location $location
-  New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
+   New-AzResourceGroup -Name $resourceGroupName -Location $location
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
 
-  Write-Host "Press [ENTER] to continue."
-  ```
+   Write-Host "Press [ENTER] to continue."
+   ```
 
-  Wait until you see the prompt from the console.
+   Wait until you see the prompt from the console.
 2. Select **Copy** from the previous code block to copy the PowerShell script.
 3. Right-click the shell console pane and then select **Paste**.
 4. Enter the values.
 
-  The template deployment creates three availability zones.  Availability zones are only supported in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you are    not sure, enter **centralus**.
+   The template deployment creates three availability zones.  Availability zones are only supported in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you are    not sure, enter **centralus**.
 
-  The resource group name is the project name with **rg** appended. You need the resource group name in the next section.
+   The resource group name is the project name with **rg** appended. You need the resource group name in the next section.
 
 It takes about 10 minutes to deploy the template.
 
