@@ -14,7 +14,7 @@ ms.author: bwren
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In this tutorial you will learn how to use Azure Monitor Log Analytics in the Azure portal to write Azure Monitor log queries. It will teach you how to:
+In this tutorial you will learn how to use Log Analytics in the Azure portal to write Azure Monitor log queries. It will teach you how to:
 
 - Use Log Analytics to write a simple query
 - Understand the schema of your data

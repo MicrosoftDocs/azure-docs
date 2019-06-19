@@ -35,9 +35,9 @@
   items:
   - name: Logs
     items: 
-    - name: Get started with Log Analytics
+    - name: Log Analytics
       href: log-query/get-started-portal.md
-    - name: Get started with log queries
+    - name: Log queries
       href: log-query/get-started-queries.md
     - name: Visualize log data
       href: learn/tutorial-logs-dashboards.md
