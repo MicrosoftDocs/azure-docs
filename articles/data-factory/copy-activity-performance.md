@@ -22,7 +22,7 @@ ms.author: jingwang
 > * [Current version](copy-activity-performance.md)
 
 
-The Azure Data Factory copy activity delivers a first-class secure, reliable, and high-performance data loading solution. It enables you to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Fast data-loading performance is key to ensure that you can focus on the core big data problem: building advanced analytics solutions and getting deep insights from all that data.
+The Azure Data Factory copy activity delivers a first-class secure, reliable, and high-performance data loading solution. You can use it to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Fast data-loading performance is key to ensure that you can focus on the core big data problem: building advanced analytics solutions and getting deep insights from all that data.
 
 Azure provides a set of enterprise-grade data storage and data warehouse solutions. The copy activity offers a highly optimized data loading experience that's easy to configure and set up. With a single copy activity, you can load data into:
 
