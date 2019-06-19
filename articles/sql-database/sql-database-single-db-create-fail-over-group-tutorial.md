@@ -41,7 +41,7 @@ To complete the tutorial, make sure you have the following items:
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# [Bash](#tab/bash)
+# [AZ CLI](#tab/bash)
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
@@ -134,7 +134,7 @@ To create a failover group, run the following PowerShell script:
       -FailoverGroupName $FailoverGroupName
    ```
 
-# [Bash](#tab/bash)
+# [AZ CLI](#tab/bash)
 Create your failover group and add your single database to it using AZ CLI. 
 
    ```azurecli-interactive
@@ -236,7 +236,7 @@ Revert failover group back to the primary server:
       -FailoverGroupName $FailoverGroupName
    ```
 
-# [Bash](#tab/bash)
+# [AZ CLI](#tab/bash)
 Test failover using the AZ CLI. 
 
 
@@ -310,7 +310,7 @@ Delete the resource group using PowerShell.
    Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
    ```
 
-# [Bash](#tab/bash)
+# [AZ CLI](#tab/bash)
 Delete the resource group by using AZ CLI. 
 
 
@@ -328,8 +328,6 @@ Delete the resource group by using AZ CLI.
 
 
 ## Full scripts
-
-# [Azure Portal](#tab/azure-portal)
 
 # [PowerShell](#tab/powershell)
 
@@ -428,7 +426,7 @@ Delete the resource group by using AZ CLI.
 
 ```
 
-# [Bash](#tab/bash)
+# [AZ CLI](#tab/bash)
 
 ```azurecli-interactive
    #!/bin/bash
@@ -522,6 +520,10 @@ Delete the resource group by using AZ CLI.
     # az group delete \
     #   --name $ResourceGroupName \
 ```
+
+# [Azure Portal](#tab/azure-portal)
+There are no scripts available for the Azure portal. 
+
 
 ---
 
