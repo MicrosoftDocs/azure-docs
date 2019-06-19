@@ -95,7 +95,7 @@ Details on decision questions:
 * **Considerations**. Currently, password hash synchronization doesn't immediately enforce changes in on-premises account states. In this situation, a user has access to cloud apps until the user account state is synchronized to Azure AD. Organizations might want to overcome this limitation by running a new synchronization cycle after administrators do bulk updates to on-premises user account states. An example is disabling accounts.
 
 > [!NOTE]
-> The password expired and account locked-out states aren't currently synced to Azure AD with Azure AD Connect. 
+> The password expired and account locked-out states aren't currently synced to Azure AD with Azure AD Connect. When you change a user's password and set the *user must change password at next logon* flag, the password hash will not be synced to Azure AD with Azure AD Connect, until the user change their password.
 
 Refer to [implementing password hash synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) for deployment steps.
 
