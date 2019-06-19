@@ -40,7 +40,7 @@ For technical support using Sensor SDK and Body Tracking SDK on-premises, open a
 ### Azure Kinect DK device
 
 Before contacting hardware support, make sure that you have set up and updated Azure Kinect DK. To test if the device is working, use the [Azure Kinect viewer tool](azure-kinect-sensor-viewer.md). Find out more on our [Azure Kinect DK help](https://support.microsoft.com/hub/4489611) page.
-You may also want to check out our [known issues and troubleshooting](https://docs.microsoft.com/azurekinect/troubleshooting).
+You may also want to check out our [known issues and troubleshooting](troubleshooting.md).
 
 [Get help](https://support.microsoft.com/supportforbusiness/productselection?sapId=f77b1b95-721e-43a0-2db8-b01e81a3f813) with a device or sensor functionality,  firmware updates, or purchasing options.
 
@@ -48,5 +48,4 @@ For more information on support offerings, learn more at [Microsoft support for 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Azure Kinect troubleshooting](troubleshooting.md)
+[Azure Kinect troubleshooting](troubleshooting.md)

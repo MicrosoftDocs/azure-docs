@@ -3,7 +3,7 @@ title: Using Azure Kinect Sensor SDK - Recording File Format
 description: Recording file format details
 author: xthexder
 ms.author: jawirth
-ms.prod: kinect-depth_track_enabled
+ms.prod: kinect-dk
 ms.date: 06/06/2019
 ms.topic: reference
 keywords: kinect, azure, sensor, sdk, depth, rgb, record, playback, matroska, mkv

@@ -194,8 +194,5 @@ To recover the device, see [instructions here](https://aka.ms/support).
 
 ## Next steps
 
-Now you're familiar with Azure Kinect hardware specification, you also can review
-
-> [!div class="nextstepaction"]
->[Host PC minimum requirement](system-requirements.md)
->[Set up hardware](set-up-azure-kinect-dk.md)
+- [Use Azure Kinect Sensor SDK](overview-sensor-sdk.md)
+- [Set up hardware](set-up-azure-kinect-dk.md)

@@ -43,7 +43,6 @@ The gyroscope's origin `[0,0,0]` is identical to the origin of the depth camera.
 
 ![IMU coordinate system](./media/concepts/concepts-coordinate-systems/coordinate-systems-gyroscope.png)
 
-## Next steps
+## Next Steps
 
-> [!div class="nextstepaction"]
->[Learn about Azure Kinect Sensor SDK](overview-sensor-sdk.md)
+[Learn about Azure Kinect Sensor SDK](overview-sensor-sdk.md)

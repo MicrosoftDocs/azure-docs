@@ -28,21 +28,25 @@ sections:
           image:
             src: https://docs.microsoft.com/media/common/i_overview.svg
           title: What is Azure Kinect DK?
+          alt:
         - href: hardware-specification.md
           html: <p>Review Azure Kinect DK Hardware Specification.</p>
           image:
             src: https://docs.microsoft.com/media/common/i_get-started.svg
           title: Azure Kinect DK Hardware Specification
+          alt:
         - href: sensor-sdk-download.md
           html: <p>Follow Instructions to download Azure Kinect Sensor SDK.</p>
           image:
             src: ./media/index/kinect-viewer.svg
           title: Download Sensor SDK
+          alt:
         - href: body-sdk-download.md
           html: <p>Follow Instructions to download Azure Kinect Body Tracking SDK.</p>
           image:
             src: ./media/index/body-tracking.svg
           title: Download Body Tracking SDK
+          alt:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -53,18 +57,22 @@ sections:
     - image: 
         src: https://docs.microsoft.com/media/common/i_guidelines.svg
       text: Set up Azure Kinect DK
+      alt:
       href: set-up-azure-kinect-dk.md
     - image: 
         src: https://docs.microsoft.com/media/common/i_tools.svg
       text: Record sensor streams to a file
+      alt:
       href: record-sensor-streams-file.md
     - image: 
         src: https://docs.microsoft.com/media/common/i_build.svg
       text: Build your first Azure Kinect application
+      alt:
       href: build-first-app.md
     - image: 
         src: https://docs.microsoft.com/media/common/i_setup.svg
       text: Set up Body Tracking SDK
+      alt:
       href: body-sdk-setup.md
 - title: Introduction
   items:

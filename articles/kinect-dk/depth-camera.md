@@ -103,5 +103,4 @@ Another common case of multipath is pixels that contain the mixed signal from fo
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Coordinate systems](coordinate-systems.md)
+[Coordinate systems](coordinate-systems.md)
