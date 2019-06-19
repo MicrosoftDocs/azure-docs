@@ -35,7 +35,7 @@ Specifically, this SQL Server connector supports:
 - As a sink, appending data to a destination table or invoking a stored procedure with custom logic during copy.
 
 >[!NOTE]
->SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) with the ODBC driver download and connection string configurations.
+>SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) with ODBC driver download and connection string configurations.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ The following properties are supported for the SQL Server linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SqlServer**. | Yes |
-| connectionString |Specify connectionString information that's needed to connect to the SQL Server database by using either SQL authentication or Windows authentication. Refer to the following samples.<br/>Mark this field as **SecureString** to store it securely in Azure Data Factory. You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| connectionString |Specify **connectionString** information that's needed to connect to the SQL Server database by using either SQL authentication or Windows authentication. Refer to the following samples.<br/>Mark this field as **SecureString** to store it securely in Azure Data Factory. You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | userName |Specify a user name if you use Windows authentication. An example is **domainname\\username**. |No |
 | password |Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely in Azure Data Factory. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or the Azure integration runtime if your data store is publicly accessible. If not specified, the default Azure integration runtime is used. |No |
@@ -146,8 +146,8 @@ To copy data from and to a SQL Server database, the following properties are sup
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to **SqlServerTable**. | Yes. |
-| tableName |This property is the name of the table or view in the SQL Server database instance that the linked service refers to. | No for source. Yes for sink. |
+| type | The type property of the dataset must be set to **SqlServerTable**. | Yes |
+| tableName |This property is the name of the table or view in the SQL Server database instance that the linked service refers to. | No for source, Yes for sink |
 
 **Example**
 
@@ -279,7 +279,7 @@ GO
 ### SQL Server as a sink
 
 > [!TIP]
-> Learn more about the supported write behaviors, configurations, and best practices from [Best practices for loading data into SQL Server](#best-practices-for-loading-data-into-sql-server).
+> Learn more about the supported write behaviors, configurations, and best practices from [Best practice for loading data into SQL Server](#best-practice-for-loading-data-into-sql-server).
 
 To copy data to SQL Server, set the sink type in the copy activity to **SqlSink**. The following properties are supported in the copy activity sink section:
 
@@ -287,7 +287,7 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **SqlSink**. | Yes |
 | writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size. |No |
-| writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for timespan. An example is “00:30:00” for 30 minutes. |No |
+| writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the timespan. An example is “00:30:00” for 30 minutes. |No |
 | preCopyScript |This property specifies a SQL query for the copy activity to run before writing data into SQL Server. It's invoked only once per copy run. You can use this property to clean up the preloaded data. |No |
 | sqlWriterStoredProcedureName |This name is for the stored procedure that defines how to apply source data into the target table.<br/>This stored procedure is *invoked per batch*. To do an operation that runs only once and has nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. |No |
 | storedProcedureParameters |These parameters are used for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of the parameters must match the names and casing of the stored procedure parameters. |No |
@@ -364,7 +364,7 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-st
 ]
 ```
 
-## Best practices for loading data into SQL Server
+## Best practice for loading data into SQL Server
 
 When you copy data into SQL Server, you might require different write behavior:
 
@@ -427,7 +427,7 @@ The steps to write data with custom logic are similar to those described in the 
 When you copy data into a SQL Server database, you also can configure and invoke a user-specified stored procedure with additional parameters.
 
 > [!TIP]
-> Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practices for loading data into SQL Server](#best-practices-for-loading-data-into-sql-server).
+> Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practice for loading data into SQL Server](#best-practice-for-loading-data-into-sql-server).
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert data into more than one table.
 

@@ -99,7 +99,7 @@ The following table shows the default regional limits for supported subscription
 
 \* When you plan your deployments, consider that a Business Critical (BC) vCore (due to added redundancy) consumes 4x more capacity than a General Purpose (GP) vCore. So, for your calculations, 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore units. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where managed instances are deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies to each subscription in a region. There is no limit per individual subnets except that the sum of all vCores deployed across multiple subnets must be lower or equal to **max number of vCore units**.
 
-** Larger subnet and vCore limits are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
+\*\* Larger subnet and vCore limits are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
 
 ## Obtaining a larger quota for SQL managed instance
 
