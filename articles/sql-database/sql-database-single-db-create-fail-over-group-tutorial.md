@@ -64,12 +64,12 @@ Create your failover group and add your single database to it using the Azure po
 1. Type `sql servers` in the search box. 
 1. (Optional) Select the star icon next to SQL Servers to favorite **SQL servers** and add it to your left-hand navigation pane. 
     
-    ![Locate SQL Servers](media/sql-database-single-db-create-fail-over-group-tutorial/all-services-sql-servers.png)
+    ![Locate SQL Servers](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
 
 1. Select **SQL servers** and choose the server you created in section 1.
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
 
-    ![Add new failover group](media/sql-database-single-db-create-fail-over-group-tutorial/sqldb-add-new-failover-group.png)
+    ![Add new failover group](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. On the **Failover Group** page, enter or select the following values, and then select **Create**:
     - **Failover group name**: Type in a unique failover group name, such as `failovergrouptutorial`. 
@@ -79,11 +79,11 @@ Create your failover group and add your single database to it using the Azure po
         - **Password**: Type a complex password that meets password requirements.
         - **Location**: Choose a location from the drop-down, such as East US 2. Per best practices, it is recommended to create the secondary server in a different geographic location than the primary server so that you can failover to a different location in the event of a disaster that affects the primary servers location. 
     
-       ![Create a secondary server for the failover group](media/sql-database-single-db-create-fail-over-group-tutorial/create-secondary-failover-server.png)
+       ![Create a secondary server for the failover group](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
    - **Databases within the group**: Once a secondary server is selected, this option becomes unlocked. Select it to **Select databases to add** and then choose the database you created in section 1. 
         
-    ![Add SQL DB to failover group](media/sql-database-single-db-create-fail-over-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Add SQL DB to failover group](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
 # [PowerShell](#tab/powershell)
@@ -179,12 +179,12 @@ Test failover using the Azure portal.
 1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2. 
   
-   ![Select the failover group from the portal](media/sql-database-single-db-create-fail-over-group-tutorial/select-failover-group.png)
+   ![Select the failover group from the portal](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
 
 1. Select **Failover** from the task pane to failover your failover group containing your sample single database. 
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected. 
 
-   ![Failover your failover group containing your SQL database](media/sql-database-single-db-create-fail-over-group-tutorial/failover-sql-db.png)
+   ![Failover your failover group containing your SQL database](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
 
 # [PowerShell](#tab/powershell)
 Test failover using PowerShell. 
@@ -288,7 +288,7 @@ Revert failover group back to the primary server:
 
 ---
 
-## Clean up resources (#tab/azure-portal)
+## Clean up resources 
 Clean up resources by deleting the resource group. 
 
 # [Azure Portal](#tab/azure-portal)
@@ -302,7 +302,7 @@ Delete the resource group using the Azure portal.
 Delete the resource group using PowerShell. 
 
 
-   ```powershell
+   ```powershell-interactive
    # Set variables
    $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
 
@@ -314,15 +314,14 @@ Delete the resource group using PowerShell.
 Delete the resource group by using AZ CLI. 
 
 
-    ```azurecli-interactive
-    # Set variables    
-     export ResourceGroupName=myResourceGroup # to randomize: myResourceGroup-$RANDOM
-    
-    # Remove the resource group
-    az group delete \
-       --name $ResourceGroupName \
-
-    ```
+   ```azurecli-interactive
+   # Set variables    
+   export ResourceGroupName=myResourceGroup # to randomize: myResourceGroup-$RANDOM
+   
+   # Remove the resource group
+   az group delete \
+      --name $ResourceGroupName \
+   ```
 
 ---
 

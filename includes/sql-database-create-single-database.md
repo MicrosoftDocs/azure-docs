@@ -115,7 +115,7 @@ Create your resource group and single database using PowerShell.
       -SampleName "AdventureWorksLT" `
    ```
 
-# [Bash](#tab/bash)
+# [AZ CLI](#tab/bash)
 Create your resource group and single database using AZ CLI. 
 
 

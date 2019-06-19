@@ -17,7 +17,7 @@
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
-    - name: Single database - portal
+    - name: Single database
       href: sql-database-single-database-get-started.md
     - name: Single database - template
       displayName: Azure Resource Manager template, ARM
@@ -88,7 +88,7 @@
     - name: Migrate to a single/pooled database using DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Create a failover group
-      href: sql-database-single-db-create-fail-over-group-tutorial.md
+      href: sql-database-single-database-create-failover-group-tutorial.md
     - name: Implement a geo-distributed database
       href: sql-database-implement-geo-distributed-database.md 
     - name: Set up Azure SQL Data Sync
