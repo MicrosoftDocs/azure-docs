@@ -17,14 +17,6 @@
       href: cognitive-search-quickstart-blob.md
   - name: C#
     href: search-get-started-dotnet.md
-  - name: OLD C#
-    items:
-    - name: 1 - Create an index
-      href: search-create-index-dotnet.md
-    - name: 2 - Load data
-      href: search-import-data-dotnet.md
-    - name: 3 - Search an index
-      href: search-query-dotnet.md
   - name: Postman
     href: search-fiddler.md
   - name: PowerShell

@@ -96,19 +96,16 @@ For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package an
 }
 ```
 
-### Copy the .StringBuilder files to your project
+### Add class ".Method" files to your project
 
 When printing results to the console window, individual fields from the Hotel object must be returned as strings. You can implement [ToString()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) to perform this task, copying the necessary code to two new files.
 
-1. Add two empty class definitions to your project: Address.StringBuilder.cs, HotelStringBuilder.cs
+1. Add two empty class definitions to your project: Address.Methods.cs, Hotel.Methods.cs
 
-1. In AddressStringBuilder.cs, overwrite the default contents with the following code: TO-DO-LINE-RANGE
+1. In Address.Methods.cs, overwrite the default contents with the following code, [lines 1-32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/azure-search-quickstart/azure-search-quickstart/Address.Methods.cs/#L1-L32).
 
-1. In HotelStringBuilder.cs, copy these lines: TO-DO-LINE-RANGE
+1. In Hotel.Methods.cs, copy [lines 1-66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/azure-search-quickstart/azure-search-quickstart/Hotel.Methods.cs/#L1-L66).
 
-when you are finished, your solution should look like this:
-
-TO-DO-IMAGE
 
 ## 1 - Create index
 
@@ -196,7 +193,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
     Attributes on the field determine how it is used in an application. For example, the `IsSearchable` attribute is assigned to every field that should be included in a full text search. In the .NET SDK, the default is to disable field behaviors that are not explicitly enabled.
 
-    Exactly one field in your index of type `string` must be the *key* field, uniquely identifing each document. In this schema, the key is `HotelId`.
+    Exactly one field in your index of type `string` must be the *key* field, uniquely identifying each document. In this schema, the key is `HotelId`.
 
     In this index, the description fields use the optional analyzer property, specified when you want to override the default standard Lucene analyzer. The `description_fr` field is using the French Lucene analyzer ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) because it stores French text. The `description` is using the optional Microsoft language analyzer ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
 
@@ -295,7 +292,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
     > If you don't plan to use a model class, you can still define your index by creating `Field` objects directly. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, to name a few.
     >
 
-1. Optionally, as a verfication step, press F5 to build the app at this point to create the index. 
+1. Optionally, as a verification step, press F5 to build the app at this point to create the index. 
 
     If the project builds successfully, a console window opens, writing status messages to the screen for deleting and creating the index. In the Azure portal, in the search service **Overview** page, you should see an empty hotels-quickstart index with 0 documents.
 
@@ -441,7 +438,7 @@ When uploading documents, it's common to submit documents in batch mode using an
     Console.WriteLine("{0}", "Uploading documents...\n");
     UploadDocuments(indexClient);
     ```
-1. Optionally, as a verfication step, press F5 to rebuild the app. 
+1. Optionally, as a verification step, press F5 to rebuild the app. 
 
     If the project builds successfully, a console window opens, writing status messages, this time with a message about uploading documents. In the Azure portal, in the search service **Overview** page, the hotels-quickstart index should now have 4 documents.
 
@@ -479,77 +476,59 @@ The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.az
         SearchParameters parameters;
         DocumentSearchResult<Hotel> results;
 
-        // Query 0
-        Console.WriteLine("Query 0: Run an unqualified search and return a count:\n");
-
+        // Query 1 
+        Console.WriteLine("Query 1: Search for term 'Atlanta' with no result trimming");
         parameters = new SearchParameters();
-        results = indexClient.Documents.Search<Hotel>("*", parameters);
+        results = indexClient.Documents.Search<Hotel>("Atlanta", parameters);
+        WriteDocuments(results);
 
-        //Console.WriteLine(result.Count);
-        //WriteDocuments(results);
 
-        Console.WriteLine(
-            "Total results: {0}",
-            String.Join(", ", result.Count));
-
-        // Query 1
-        Console.WriteLine("Query 1: Search for the terms 'hotel' and 'wifi', return only the HotelId and HotelName fields:\n");
-
+        // Query 2
+        Console.WriteLine("Query 2: Search on the term 'Atlanta', with trimming");
+        Console.WriteLine("Returning only these fields: HotelName, Tags, Address:\n");
         parameters =
             new SearchParameters()
             {
-                Select = new[] { "HotelId", "HotelName" }
+                Select = new[] { "HotelName", "Tags", "Address" },
             };
-
-        results = indexClient.Documents.Search<Hotel>("hotel" "wifi", parameters);
-
+        results = indexClient.Documents.Search<Hotel>("Atlanta", parameters);
         WriteDocuments(results);
 
-        // Query 2 -filtered query
-        Console.WriteLine("Query 2: Filter on ratings greater than 4");
-        Console.WriteLine("Returning only these fields: HotelId, HotelName, Description, Rating");
+        // Query 3
+        Console.WriteLine("Query 3: Search for the terms 'restaurant' and 'wifi'");
+        Console.WriteLine("Return only these fields: HotelName, Description, and Tags:\n");
+        parameters =
+            new SearchParameters()
+            {
+                Select = new[] { "HotelName", "Description", "Tags" }
+            };
+        results = indexClient.Documents.Search<Hotel>("restaurant, wifi", parameters);
+        WriteDocuments(results);
+
+        // Query 4 -filtered query
+        Console.WriteLine("Query 4: Filter on ratings greater than 4");
+        Console.WriteLine("Returning only these fields: HotelName, Rating:\n");
         parameters =
             new SearchParameters()
             {
                 Filter = "Rating gt 4",
-                Select = new[] { "HotelId", "HotelName", "Description", "Rating" }
+                Select = new[] { "HotelName", "Rating" }
             };
-
         results = indexClient.Documents.Search<Hotel>("*", parameters);
-
         WriteDocuments(results);
 
-        // Query 3 - top 2 results
-        Console.WriteLine("Query 3: Search on term 'boutique'");
+        // Query 5 - top 2 results
+        Console.WriteLine("Query 5: Search on term 'boutique'");
         Console.WriteLine("Sort by rating in descending order, taking the top two results");
-        Console.WriteLine("Returning only these fields: HotelId, HotelName, Description, Category");
-
+        Console.WriteLine("Returning only these fields: HotelId, HotelName, Category, Rating:\n");
         parameters =
-
             new SearchParameters()
             {
                 OrderBy = new[] { "Rating desc" },
-                Select = new[] { "HotelId", "HotelName", "Description", "Category" },
+                Select = new[] { "HotelId", "HotelName", "Category", "Rating" },
                 Top = 2
             };
-
         results = indexClient.Documents.Search<Hotel>("boutique", parameters);
-
-        WriteDocuments(results);
-
-        // Query 4
-        Console.WriteLine("Query 4: Search on the term 'pool'");
-        Console.WriteLine("Sort results by City in descending order a-z");
-        Console.WriteLine("Returning only these fields: HotelId, HotelName, City, StateProvince, Tags");
-
-            new SearchParameters()
-            {
-                OrderBy = new[] { "Address/City desc" },
-                Select = new[] { "HotelId", "HotelName", "Address/City", "Address/StateProvince", Tags },
-            };
-
-        results = indexClient.Documents.Search<Hotel>("pool", parameters);
-
         WriteDocuments(results);
     }
     ```
