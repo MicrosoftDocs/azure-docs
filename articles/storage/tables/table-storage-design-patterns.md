@@ -572,13 +572,13 @@ if (retrieveResult.Result != null)
 Notice how this example expects the entity it retrieves to be of type **EmployeeEntity**.  
 
 ### Retrieving multiple entities using LINQ
-You use LINQ to retrieve multiple entities from the Table service with Azure Cosmos Tables library. 
+You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos Table Standard Library. 
 
 ```cli
 dotnet add package Microsoft.Azure.Cosmos.Table
 ```
 
-To make the below example work you need to include namespaces:
+To make the below examples work you'll need to include namespaces:
 
 ```csharp
 using System.Linq;
@@ -586,7 +586,11 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-CloutTable API returns a TableQuery<ITableEntity> object which implements an IQueryable and allow using both LINQ Query Expressions and dot notation syntax. Retrieving multiple entities and be achieved by specifying a query with a **where** clause. To avoid a table scan, you should always include the **PartitionKey** value in the where clause, and if possible the **RowKey** value to avoid table and partition scans. The table service supports a limited set of comparison operators (greater than, greater than or equal, less than, less than or equal, equal, and not equal) to use in the where clause. The following C# code snippet finds all the employees whose last name starts with "B" (assuming that the **RowKey** stores the last name) in the sales department (assuming the **PartitionKey** stores the department name):  
+The employeeTable is a CloudTable object that implements a CreateQuery<ITableEntity>() method, which returns a TableQuery<ITableEntity>. Objects of this type implement an IQueryable and allow using both LINQ Query Expressions and dot notation syntax.
+
+Retrieving multiple entities and be achieved by specifying a query with a **where** clause. To avoid a table scan, you should always include the **PartitionKey** value in the where clause, and if possible the **RowKey** value to avoid table and partition scans. The table service supports a limited set of comparison operators (greater than, greater than or equal, less than, less than or equal, equal, and not equal) to use in the where clause. 
+
+The following C# code snippet finds all the employees whose last name starts with "B" (assuming that the **RowKey** stores the last name) in the sales department (assuming the **PartitionKey** stores the department name):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
