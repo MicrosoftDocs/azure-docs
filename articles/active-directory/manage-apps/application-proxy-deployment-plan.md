@@ -60,7 +60,7 @@ The following core requirements must be met in order to configure and implement 
 
 *  **Azure onboarding**: Before deploying application proxy, user identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
 
-* **Conditional access requirements**: We do not recommend using Application Proxy for intranet access because this adds latency that will impact users. We recommend using Application Proxy with pre-authentication and conditional access policies for remote access from the internet.  An  approach to provide conditional access for intranet use is to modernize applications so they can diretly authenticate with AAD. Refer to [Resources for migrating applications to AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) for more information. 
+* **Conditional Access requirements**: We do not recommend using Application Proxy for intranet access because this adds latency that will impact users. We recommend using Application Proxy with pre-authentication and Conditional Access policies for remote access from the internet.  An  approach to provide Conditional Access for intranet use is to modernize applications so they can diretly authenticate with AAD. Refer to [Resources for migrating applications to AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) for more information. 
 
 * **Service limits**: To protect against overconsumption of resources by individual tenants there are throttling limits set per application and tenant. To see these limits refer to [Azure AD service limits and restrictions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). These throttling limits are based on a benchmark far above typical usage volume and provides ample buffer for a majority of deployments.
 
@@ -78,7 +78,7 @@ The following core requirements must be met in order to configure and implement 
 
    * **Connector installation** requires local admin rights to the Windows server that it's being installed on. It also requires a minimum of an *Application Administrator* role to authenticate and register the connector instance to your Azure AD tenant. 
 
-   * **Application publishing and administration** require the *Application Administrator* role. Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage conditional access. The *Cloud Application Administrator* role has all the abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
+   * **Application publishing and administration** require the *Application Administrator* role. Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage Conditional Access. The *Cloud Application Administrator* role has all the abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
 
 * **Licensing**: Application Proxy is available through the Azure AD Basic subscription. Refer to the [Azure Active Directory Pricing page](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of licensing options and features.  
 
@@ -260,13 +260,13 @@ Application security requires an advanced set of security capabilities that can 
 
 The following capabilities can be used to support Azure AD Application Proxy:
 
-* User and location-based conditional access: Keep sensitive data protected by limiting user access based on geo-location or an IP address with [location-based conditional access policies](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+* User and location-based Conditional Access: Keep sensitive data protected by limiting user access based on geo-location or an IP address with [location-based Conditional Access policies](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
-* Device-based conditional access: Ensure only enrolled, approved, and compliant devices can access corporate data with [device-based conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
+* Device-based Conditional Access: Ensure only enrolled, approved, and compliant devices can access corporate data with [device-based Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications).
 
-* Application-based conditional access: Work doesn't have to stop when a user isn't on the corporate network. [Secure access to corporate cloud and on-premises apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) and maintain control with conditional access.
+* Application-based Conditional Access: Work doesn't have to stop when a user isn't on the corporate network. [Secure access to corporate cloud and on-premises apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) and maintain control with Conditional Access.
 
-* Risk-based conditional access: Protect your data from malicious hackers with a [risk-based conditional access policy](https://www.microsoft.com/cloud-platform/conditional-access) that can be applied to all apps and all users, whether on-premises or in the cloud.
+* Risk-based Conditional Access: Protect your data from malicious hackers with a [risk-based Conditional Access policy](https://www.microsoft.com/cloud-platform/conditional-access) that can be applied to all apps and all users, whether on-premises or in the cloud.
 
 * Azure AD Access Panel: With your Application Proxy service deployed, and applications securely published, offer your users a simple hub to discover and access all their applications. Increase productivity with self-service capabilities, such as the ability to request access to new apps and groups or manage access to these resources on behalf of others, through the [Access Panel](https://aka.ms/AccessPanelDPDownload).
 

@@ -80,6 +80,8 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Select **01.run-experiment.ipynb** to open the notebook.
 
+1. If you see a "Kernel not found" alert, select the kernel **Python 3.6 - AzureML** (approximately mid-way down the list) and set the kernel.
+
 1. Click into the first code cell and select **Run**.
 
     > [!NOTE]
