@@ -1,5 +1,5 @@
 ---
-title: Analyze videos with Media Services using .NET - Azure | Microsoft Docs
+title: Analyze videos with Azure Media Services | Microsoft Docs
 description: Follow the steps of this tutorial to analyze videos using Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 ---
 
-# Tutorial: Analyze videos with Media Services v3 using .NET
+# Tutorial: Analyze videos with Media Services v3
 
 > [!NOTE]
 > Even though the tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
