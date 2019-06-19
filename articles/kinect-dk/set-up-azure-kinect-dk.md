@@ -1,6 +1,6 @@
 ---
-title: Quickstart- Set up Azure Kinect
-description: this quickstart provides Instructions how to set up Azure Kinect DK hardware
+title: Quickstart- Set up Azure Kinect DK
+description: This quickstart provides Instructions how to set up Azure Kinect DK hardware
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
