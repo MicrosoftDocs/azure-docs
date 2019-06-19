@@ -40,17 +40,13 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new A
 
 ## Select a sample application and Azure service
 
-1. Select the .NET sample application. The .NET samples include a choice of either the open-source ASP.NET framework or the cross-platform .NET Core framework.
+1. Select the **.NET** sample application. The .NET samples include a choice of either the open-source ASP.NET framework or the cross-platform .NET Core framework.
 
    	![.NET framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-1. Select the .NET Core application framework.  
-	This sample is an ASP.NET Core MVC application.
+2. This sample is an ASP.NET Core MVC application. Select the **.NET Core** application framework, then select **Next**.	
 	
-2. Select **Next**.  
-	Web App on Windows is the default deployment target.  Optionally, you can choose Web App on Linux or Web App for Containers.  The application framework, which you chose previously, dictates the type of Azure service deployment target available here.  
-	
-3. Leave the default service, and then select **Next**.
+3. Select **Windows Web App** as a deployment target, then select **Next**. Optionally, you can choose other Azure services for your deployment. The application framework, which you chose previously, dictates the type of Azure service deployment target's available here.
 
 ## Configure Azure DevOps and an Azure subscription 
 
