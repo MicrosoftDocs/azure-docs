@@ -517,34 +517,7 @@ Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON docum
 
 1. Copy and paste the **QueryItemsAsync** method below your **AddItemsToContainerAsync** method.
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=QueryItemsAsync_snippet)]
-
-    ```csharp
-    /*
-        Run a query (using Azure Cosmos DB SQL syntax) against the container
-    */
-    private async Task QueryItemsAsync()
-    {
-        var sqlQueryText = "SELECT * FROM c WHERE c.LastName = 'Andersen'";
-
-        Console.WriteLine("Running query: {0}\n", sqlQueryText);
-
-        QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);
-        FeedIterator<Family> queryResultSetIterator = this.container.GetItemQueryIterator<Family>(queryDefinition);
-
-        List<Family> families = new List<Family>();
-
-        while (queryResultSetIterator.HasMoreResults)
-        {
-            FeedResponse<Family> currentResultSet = await queryResultSetIterator.ReadNextAsync();
-            foreach (Family family in currentResultSet)
-            {
-                families.Add(family);
-                Console.WriteLine("\tRead {0}\n", family);
-            }
-        }
-    }
-    ```
+[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=QueryItemsAsync_snippet&highlight=10-11,16-17)]
 
 1. Add a call to ``QueryItemsAsync`` in the ``GetStartedDemoAsync`` method.
 
