@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/18/2019
 ---
 
 # Troubleshoot common Azure Database Migration Service issues and errors
@@ -54,6 +54,16 @@ You receive following error when stopping the Azure Database Migration Service i
 | Cause         | Resolution |
 | ------------- | ------------- |
 | This error displays when the service instance you're attempting to stop includes activities that are still running or present in migration projects. <br><br><br><br><br><br> | Ensure that there are no activities running in the instance of Azure Database Migration Service you're trying to stop. You may also delete the activities or projects before attempting to stop the service. The following steps illustrate how to remove projects to clean up the migration service instance by deleting all running tasks:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
+
+## Error when attempting to start Azure Database Migration Service
+
+You receive following error when starting the Azure Database Migration Service instance:
+
+* **Error**: Service fails to Start. Error: {'errorDetail':'The service failed to start, please contact Microsoft support'}
+
+| Cause         | Resolution |
+| ------------- | ------------- |
+| This error displays when the previous instance failed internally. This error occurs rarely, and the engineering team is aware of it. <br> | Delete the instance of the service that you cannot start, and then provision new one to replace it. |
 
 ## Error restoring database while migrating SQL to Azure SQL DB managed instance
 
