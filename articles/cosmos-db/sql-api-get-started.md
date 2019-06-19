@@ -142,7 +142,7 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
 1. Add the following code to run the **GetStartedDemoAsync** asynchronous task from your **Main** method. The **Main** method will catch exceptions and write them to the console.
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
 
 1. Select **F5** to run your application. The console window output displays the message `End of demo, press any key to exit.` confirming that the connection to Azure Cosmos DB was made. You can then close the console window.
 
@@ -153,7 +153,7 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
 
 1. Copy and paste the **CreateDatabaseAsync** method below your **GetStartedDemoAsync** method. **CreateDatabaseAsync**  will create a new database with id ``FamilyDatabase`` if it does not already exist, with the id specified from the ``databaseId`` field. 
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateDatabaseAsync)]
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateDatabaseAsync)]
 
 1. Copy and paste the code below where you instantiated the CosmosClient to call the **CreateDatabaseAsync** method you just added.
 
