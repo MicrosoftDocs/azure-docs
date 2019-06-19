@@ -60,40 +60,59 @@ You'll receive a `200 (Success)` response with the following JSON output:
 
 ```json
 {
-  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
-  "trainingDocuments": [
-    {
-      "documentName": "Invoice_1.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_2.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_3.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_4.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_5.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
+  "parameters": {
+    "Endpoint": "{Endpoint}",
+    "Content-Type": "application/json",
+    "Ocp-Apim-Subscription-Key": "{API key}",
+    "body": {},
+    "trainRequest": {
+      "source": "/input/data",
+      "sourceFilter": {
+        "prefix": "",
+        "includeSubFolders": false
+      }
     }
-  ],
-  "errors": []
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "modelId": "ad1901b6-ddaa-4249-8938-3f03f65cc893",
+        "trainingDocuments": [
+          {
+            "documentName": "0.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "1.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "2.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "3.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "4.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          }
+        ],
+        "errors": []
+      }
+    }
+  }
 }
 ```
 
