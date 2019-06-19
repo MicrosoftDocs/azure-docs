@@ -71,7 +71,7 @@ The following settings are required to enable SSPR along with recommended values
 
 When enabling Self-service password reset, choose a security group to be used during the pilot.
 
-When you plan to launch the service more broadly, we recommend using the All option to enforce SSPR for everyone in the organization. If you cannot set to all, select the appropriately Azure AD Security group or AD group synced to Azure AD.
+When you plan to launch the service more broadly, we recommend using the All option to enforce SSPR for everyone in the organization. If you cannot set to all, select the appropriate Azure AD Security group or AD group synced to Azure AD.
 
 #### Authentication methods
 
@@ -83,7 +83,7 @@ See [What are authentication methods](concept-authentication-methods.md) for det
 
 #### Registration settings
 
-Set **Require users to register when signing in** to **Yes**. This means that the users will be forced to register when signing in, ensuring that all users are protected.
+Set **Require users to register when signing in** to **Yes**. This setting means that the users will be forced to register when signing in, ensuring that all users are protected.
 
 Set **Number of days before users are asked to re-confirm their authentication information** to between **90** and **180** days, unless your organization has a business need for a shorter time frame.
 
@@ -93,7 +93,7 @@ Configure both the **Notify users on password resets** and the **Notify all admi
 
 #### Customization
 
-It’s critical to customize the **helpdesk email or URL** to ensure users who experience problems can quickly get help. Set this to a common helpdesk email address or web page that your users will be familiar with.
+It’s critical to customize the **helpdesk email or URL** to ensure users who experience problems can quickly get help. Set this option to a common helpdesk email address or web page that your users will be familiar with.
 
 #### On-premises integration
 
@@ -103,7 +103,7 @@ If you have a hybrid environment, ensure that **Write back passwords to on-premi
 
 Administrator accounts are special accounts with elevated permissions. To secure them, the following restrictions apply to changing passwords of administrators:
 
-- On-premises enterprise administrators or domain administrators cannot reset their password through SSPR. They can only do this in their on-premises environment. Thus, we recommend not syncing on-prem AD admin accounts to Azure AD.
+- On-premises enterprise administrators or domain administrators cannot reset their password through SSPR. They can only change their password in their on-premises environment. Thus, we recommend not syncing on-prem AD admin accounts to Azure AD.
 - An administrator cannot use secret Questions & Answers as a method to reset password.
 
 ### Environments with multiple identity management systems
