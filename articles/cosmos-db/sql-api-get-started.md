@@ -224,9 +224,9 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
                 }
             }
 
-            /*
-                Entry point to call methods that operate on Azure Cosmos DB resources in this sample
-            */
+            /// <summary>
+            /// Entry point to call methods that operate on Azure Cosmos DB resources in this sample
+            /// </summary>
             public async Task GetStartedDemoAsync()
             {
                 // Create a new instance of the Cosmos Client
@@ -234,9 +234,9 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
                 await this.CreateDatabaseAsync();
             }
 
-            /*
-                Create the database if it does not exist
-            */
+            /// <summary>
+            /// Create the database if it does not exist
+            /// </summary>
             private async Task CreateDatabaseAsync()
             {
                 // Create a new database
@@ -261,7 +261,7 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
 
 1. Copy and paste the **CreateContainerAsync** method below your **CreateDatabaseAsync** method. **CreateContainerAsync**  will create a new container with id ``FamilyContainer`` if it does not already exist, with the id specified from the ``containerId`` field partitioned by ``LastName`` property.
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateContainerAsync)]
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateContainerAsync)]
 
 1. Copy and paste the code below where you instantiated the CosmosClient to call the **CreateContainer** method you just added.
 
@@ -292,12 +292,12 @@ First, let's create a **Family** class that will represent objects stored within
 
 1. Copy and paste the **Family**, **Parent**, **Child**, **Pet**, and **Address** class into **Family.cs**.
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
 
 1. Navigate back to **Program.cs** and add the **AddItemsToContainerAsync** method under your **CreateContainerAsync** method.
 The code checks to make sure an item with the same id does not already exist before creating it. We will insert two items, one each for the Andersen Family and the Wakefield Family.
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
 
 1. Add a call to ``AddItemsToContainerAsync`` in the ``GetStartedDemoAsync`` method.
 
@@ -323,7 +323,7 @@ Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON docum
 
 1. Copy and paste the **QueryItemsAsync** method below your **AddItemsToContainerAsync** method.
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=QueryItemsAsync_snippet&highlight=10-11,17-18)]
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=QueryItemsAsync&highlight=10-11,17-18)]
 
 1. Add a call to ``QueryItemsAsync`` in the ``GetStartedDemoAsync`` method.
 
@@ -350,7 +350,7 @@ Now, we will update an item in Azure Cosmos DB.
 
 1. Copy and paste the **ReplaceFamilyItemAsync** method below your **QueryItemsAsync** method. Note we are changing the ``IsRegistered`` property of the Family and the ``Grade`` of one of the children.
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=ReplaceFamilyItemAsync)]
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=ReplaceFamilyItemAsync)]
 
 1. Add a call to ``ReplaceFamilyItemAsync`` in the ``GetStartedDemoAsync`` method.
 
@@ -378,25 +378,11 @@ Now, we will delete an item in Azure Cosmos DB.
 
 1. Copy and paste the **DeleteFamilyItemAsync** method below your **ReplaceFamilyItemAsync** method.
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=DeleteFamilyItemAsync)]
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=DeleteFamilyItemAsync)]
 
 1. Add a call to ``DeleteFamilyItemAsync`` in the ``GetStartedDemoAsync`` method.
 
-    ```csharp
-    public async Task GetStartedDemoAsync()
-    {
-        // Create a new instance of the Cosmos Client
-        this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
-        await this.CreateDatabaseAsync();
-        await this.CreateContainerAsync();
-        await this.AddItemsToContainerAsync();
-        await this.QueryItemsAsync();
-        await this.ReplaceFamilyItemAsync();
-
-        //ADD THIS PART TO YOUR CODE
-        await this.DeleteFamilyItemAsync();
-    }
-    ```
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=GetStartedDemoAsync&highlight=14)]
 
 Select **F5** to run your application.
 
@@ -407,11 +393,11 @@ Now we will delete our database. Deleting the created database will remove the d
 
 1. Copy and paste the **DeleteDatabaseAndCleanupAsync** method below your **DeleteFamilyItemAsync** method.
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=DeleteDatabaseAndCleanupAsync)]
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=DeleteDatabaseAndCleanupAsync)]
 
 1. Add a call to ``DeleteDatabaseAndCleanupAsync`` in the ``GetStartedDemoAsync`` method.
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=GetStartedDemoAsync)]
+    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=GetStartedDemoAsync)]
 
 Select **F5** to run your application.
 
