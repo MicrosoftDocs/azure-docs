@@ -36,8 +36,8 @@ In order for a model property to be located in a facet search (either navigation
 
 1. Examine the **Hotel** class. **Category** and **Tags**, for example, are tagged as **IsFacetable**, but **HotelName** and **Description** are not. 
 
-```cs
-public partial class Hotel
+    ```cs
+    public partial class Hotel
     {
         [System.ComponentModel.DataAnnotations.Key]
         [IsFilterable]
@@ -78,7 +78,7 @@ public partial class Hotel
         public Room[] Rooms { get; set; }
 
     }
-```
+    ```
 
 2. We will not be changing any tags in this tutorial. A facet search will throw an error if a field requested in the search is not tagged appropriately.
 
@@ -93,13 +93,13 @@ For this example, we are going to enable the user to select one or more categori
 
 1. Open the SearchData.cs file, and add this additional **using** statement. We need to enable the **List&lt;string&gt;** construct.
 
-```cs
-using System.Collections.Generic;
-```
+    ```cs
+    using System.Collections.Generic;
+    ```
 
 2. In the same file, add the following lines to the **SearchData** class. Do not delete any of the existing class properties, but add the following constructor methods and arrays of properties.
 
-```cs
+    ```cs
         public SearchData()
         {
         }
@@ -120,7 +120,7 @@ using System.Collections.Generic;
 
         // Array to hold the check box setting.
         public bool[] facetOn { get; set; }
-```
+    ```
 
 
 ### Search for facets on the first Index call
@@ -129,14 +129,14 @@ The home controller needs a significant change. The first call to **Index()** no
 
 1. Open the home controller file, and add two **using** statements.
 
-```cs
-using System.Collections.Generic;
-using System.Linq;
-```
+    ```cs
+    using System.Collections.Generic;
+    using System.Linq;
+    ```
 
 2. Now replace the few lines of the current **Index()** method with a method that carries out a facet search for hotel categories. As the search should be carried out asynchronously, we must declare the **Index** method as **async**.
 
-```cs
+    ```cs
         public async Task<ActionResult> Index()
         {
             InitSearch();
@@ -163,13 +163,13 @@ using System.Linq;
             // Render the view including the facets.
             return View(model);
         }
-```
+    ```
 
 A few points to note here. We convert the results of the search call to a list of strings, then these facet strings are added to a **SearchData** model for communication to the view. Also we save those strings to temporary storage before finally rendering the view. This saving is done so that this list is available to the next call to a controller action.
 
 3. Let's add the two private methods to save and restore facets to the model, and to temporary storage.
 
-```cs
+    ```cs
         // Save the facet text to temporary storage, optionally saving the state of the check boxes.
         private void SaveFacets(SearchData model, bool saveChecks = false)
         {
@@ -203,13 +203,13 @@ A few points to note here. We convert the results of the search call to a list o
                 }
             }
         }
-```
+    ```
 
 ### Save and restore facet text on all calls
 
 1. The two other actions of the home controller, **Index(SearchData model)** and **Page(SearchData model)**, both need to recover the facets before the search call, and save them again after the search call. Change the **Index(SearchData model)** to make these two calls.
 
-```cs
+    ```cs
         public async Task<ActionResult> Index(SearchData model)
         {
             try
@@ -241,11 +241,11 @@ A few points to note here. We convert the results of the search call to a list o
             }
             return View(model);
         }
-```
+    ```
 
 2. Now do the same for the **Page(SearchData model)** method. We have only listed the relevant code below. Add the **RecoverFacets** and **SaveFacets** calls around the **RunQueryAsync** call.
 
-```cs
+    ```cs
                 // Recover facet text and check marks.
                 RecoverFacets(model, true);
 
@@ -253,7 +253,7 @@ A few points to note here. We convert the results of the search call to a list o
 
                 // Save facets and check marks.
                 SaveFacets(model, true);
-```
+    ```
 
 ### Set up a search filter
 
@@ -261,7 +261,7 @@ When a user selects certain facets, for example, say they click on the **Budget*
 
 1. In the **RunQueryAsync** method, add the code to loop through the given model's facet settings, to create a filter string. And add the filter to the **SearchParameters**, as shown in the following code.
 
-```cs
+    ```cs
             // Create a filter for selected facets.
             string selectedFacets = "";
 
@@ -297,7 +297,7 @@ When a user selects certain facets, for example, say they click on the **Budget*
                 // Include the total number of results.
                 IncludeTotalResultCount = true,
             };
-```
+    ```
 
 We have added the **Category** property to the list of **Select** items to return. Adding this property is not a requirement, but in this way we can verify that we are filtering correctly.
 
@@ -307,19 +307,19 @@ The view is going to require some significant changes.
 
 1. Start by opening the hotels.css file (in the wwwroot/css folder), and add the following classes.
 
-```cs
-.facetlist {
-    list-style: none;
-}
+    ```html
+    .facetlist {
+        list-style: none;
+    }
 
-.facetchecks {
-    width: 200px;
-    background-color: lightgoldenrodyellow;
-    display: normal;
-    color: #666;
-    margin: 10px;
-}
-```
+    .facetchecks {
+        width: 200px;
+        background-color: lightgoldenrodyellow;
+        display: normal;
+        color: #666;
+        margin: 10px;
+    }
+    ```
 
 ### Add a list of facet checkboxes to the view
 
@@ -327,9 +327,8 @@ For the view, we organize the output into a table, to neatly align the facets on
 
 1. Replace the entire contents of the HTML &lt;body&gt; tags, with the following code.
 
-```cs
-
-<body>
+    ```html
+    <body>
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
@@ -469,8 +468,8 @@ For the view, we organize the output into a table, to neatly align the facets on
             </tr>
         </table>
     }
-</body>
-```
+    </body>
+    ```
 
 Notice the use of the **CheckBoxFor** call to populate the **facetOn** array with the user selections. Also, we have added the category of hotel to the end of the hotel description. This text is simply to confirm that our search is working correctly. Not much else has changed from earlier tutorials, except that we have organized the output into a table.
 
@@ -506,15 +505,15 @@ In order to initiate a facet search, we need to send a query. The following Java
 
 1. Locate the **@Html.TextBoxFor(m => m.searchText, ...)** statement and add a unique ID, similar to the following.
 
-```cs
+    ```html
     <div class="searchBoxForm">
         @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azuresearchfacets" }) <input value="" class="searchBoxSubmit" type="submit">
     </div>
-```
+    ```
 
 2. Now, add the following JavaScript (after the closing **&lt;/div&gt;** shown above works fine).
 
-```cs
+    ```cs
      <script>
             $(function () {
                 $.getJSON("/Home/Facets", function (data) {
@@ -530,7 +529,7 @@ In order to initiate a facet search, we need to send a query. The following Java
                 });
             });
         </script>
-```
+    ```
 
 Notice that the script calls the **Facets** action in the home controller, without any other parameters, when a minimum length of two typed characters is reached.
 
@@ -540,28 +539,28 @@ The autocomplete function called in the script above is not something we have to
 
 1. To access the jquery library, replace the &lt;head&gt; section of the view file with the following code.
 
-```cs
-<head>
-    <meta charset="utf-8">
-    <title>Facets demo</title>
-    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-          rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    ```html
+    <head>
+        <meta charset="utf-8">
+        <title>Facets demo</title>
+        <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+              rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-    <link rel="stylesheet" href="~/css/hotels.css" />
-</head>
-```
+        <link rel="stylesheet" href="~/css/hotels.css" />
+    </head>
+    ```
 
 2. We also need to remove, or comment out, a line referencing jquery in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. By removing this line, we avoid ambiguous references to jquery.
 
-```cs
- <environment include="Development">
-        <!-- <script src="~/lib/jquery/dist/jquery.js"></script> -->
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
+    ```html
+     <environment include="Development">
+            <!-- <script src="~/lib/jquery/dist/jquery.js"></script> -->
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
-```
+    ```
 
 Now we can use the predefined autocomplete jquery functions.
 
@@ -569,10 +568,10 @@ Now we can use the predefined autocomplete jquery functions.
 
 1. Open the home controller, and add the following two **using** statements to the head of the file.
 
-```cs
-using System.Collections.Generic;
-using System.Linq;
-```
+    ```cs
+    using System.Collections.Generic;
+    using System.Linq;
+    ```
 
 2. The JavaScript in the view triggers the **Facets** action in the controller, so let's add that action to the home controller (say, below the **Page** action).
 
