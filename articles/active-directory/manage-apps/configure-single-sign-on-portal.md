@@ -14,7 +14,7 @@ ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ---
 
-# Configure SAML-based single sign-on for an app
+# How to configure SAML-based single sign-on
 
 This article describes how to configure SAML-based single sign-on for an app after you've added the app to your Azure Active Directory (Azure AD) Enterprise Applications.  
 
@@ -23,33 +23,24 @@ This article describes how to configure SAML-based single sign-on for an app aft
 
 ## Before you begin
 
-- [Choose a single sign-on method](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 - If the application hasn't been added to your Azure AD tenant, see [Add a gallery app](add-gallery-app.md) or [Add a non-gallery app](add-non-gallery-app.md).
 - Ask your application vendor for the information described in [Configure basic SAML options](#configure-basic-saml-options).
 
-## Select a single sign-on mode
-
-To open the single sign-on settings:
+### Open the app and select SAML-based single sign-on
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a cloud application admin, or an application admin for your Azure AD tenant.
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Azure Active Directory**. 
-
-2. Select **Enterprise applications**. A random sample of the applications in your Azure AD tenant appears. 
+1. Navigate to **Azure Active Directory** > **Enterprise applications**. A random sample of the applications in your Azure AD tenant appears. 
 
 3. In the **Application Type** menu, select **All applications**, and then select **Apply**.
 
-4. In the search box, enter the name of the application for which you want to configure single sign-on.  
-
-     ![Screenshot that shows the application search bar.](media/configure-single-sign-on-portal/azure-portal-application-search.png)
-
-5. Choose the application.
+4. Enter the name of the application in the search box, and then select the application from the results.
 
 6. Under the **Manage** section, select **Single sign-on**. 
 
 7. Select **SAML**. The **Set up Single Sign-On with SAML - Preview** page appears.
 
-## Edit the Basic SAML Configuration
+## Step 1. Edit the Basic SAML Configuration
 
 To configure the domain and URLs:
 
@@ -72,7 +63,7 @@ To configure the domain and URLs:
 
 4. At the top of the page, select **Save**.
 
-## Configure User attributes and claims 
+## Step 2. Configure User attributes and claims 
 
 You can control what information Azure AD sends to the application in the SAML token when a user signs in. You control this information by configuring user attributes. For example, you can configure Azure AD to send the user's name, email, and employee ID to the application when a user signs in. 
 
@@ -94,7 +85,7 @@ These attributes may be required or optional to make single sign-on work properl
 
 4. Select **Save**. The new claim appears in the table.
  
-## Generate a SAML signing certificate
+## Step 3. Generate a SAML signing certificate
 
 Azure AD uses a certificate to sign the SAML tokens that it sends to the application. 
 
@@ -112,7 +103,7 @@ Azure AD uses a certificate to sign the SAML tokens that it sends to the applica
 
 4. Select **Save** at the top of the **SAML Signing Certificate** section. 
 
-## Set up the application to use Azure AD
+## Step 4. Set up the application to use Azure AD
 
 As a final step, set up the application to use Azure AD as a SAML identity provider. 
 
@@ -120,7 +111,7 @@ As a final step, set up the application to use Azure AD as a SAML identity provi
 2. Copy the value from each row in this section. Then, paste each value into the appropriate row in the **Basic SAML Configuration** section. For example, copy the **Login URL** value from the **Set up GitHub-test** section and paste it into the **Sign On URL** field in the **Basic SAML Configuration** section, and so on.
 3. When you've pasted all the values into the appropriate fields, select **Save**.
 
-## Validate single sign-on
+## Step 5. Validate single sign-on
 
 You're ready to test your settings.  
 
@@ -142,9 +133,5 @@ If there's an error, an error message appears. Complete the following steps:
 4. Run the test again until it completes successfully.
 
 ## Next steps
-To roll out the application to more users in your organization, use automatic user provisioning.
 
-> [!div class="nextstepaction"]
-> [Learn how to assign users with automatic provisioning](configure-automatic-user-provisioning-portal.md)
-
-
+- [Configure automatic user account provisioning](configure-automatic-user-provisioning-portal.md)

@@ -15,14 +15,20 @@
       href: view-applications-portal.md
   - name: Tutorials
     items:
-    - name: SaaS application Tutorials
-      href: https://docs.microsoft.com/azure/active-directory/saas-apps/
-    - name: Configure single sign-on - portal
-      href: configure-single-sign-on-portal.md
+    - name: SaaS application tutorials
+      href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app - portal
-      href: application-proxy-add-on-premises-application.md    
+      href: application-proxy-add-on-premises-application.md
   - name: Concepts
     items: 
+    - name: Application types and capabilities 
+      href: choose-application-type.md
+    - name: Single sign-on
+      href: what-is-single-sign-on.md
+    - name: Provisioning users
+      href: user-provisioning.md
+    - name: End-user portals
+      href: end-user-experiences.md
     - name: Plan a cloud app integration
       items:
       - name: What happens when you add an app
@@ -33,8 +39,6 @@
       items:
       - name: Application Proxy
         href: application-proxy.md
-      - name: Plan an Application Proxy deployment
-        href: application-proxy-deployment-plan.md
       - name: Connectors
         href: application-proxy-connectors.md
       - name: Connector groups
@@ -45,59 +49,87 @@
         href: application-proxy-network-topology.md
       - name: Comparison of remote access solutions
         href: application-proxy-migration.md
-    - name: Provisioning users and groups
+    - name: Application security
       items:
+      - name: App access options
+        href: what-is-access-management.md
+      - name: Tenant restrictions
+        href: tenant-restrictions.md
+      - name: Configure SAML token encryption (Preview)
+        href: howto-saml-token-encryption.md
+  - name: How-to guides
+    items:
+    - name: Add an app
+      items:
+      - name: Add a gallery app
+        href: add-gallery-app.md
+      - name: Add a non-gallery app
+        href: add-non-gallery-app.md
+      - name: Change the app name or logo
+        href: change-name-or-logo-portal.md
+    - name: Configure sign-on
+      items:
+      - name: Configure SAML-based single sign-on
+        items:
+        - name: Configure SAML-based single sign-on
+          href: configure-single-sign-on-portal.md
+        - name: Advanced user attributes and claims options
+          items:
+          - name: Configure group claims
+            href: /azure/active-directory/hybrid/how-to-connect-fed-group-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
+          - name: Configure role claims
+            href: /azure/active-directory/develop/active-directory-enterprise-app-role-management?context=azure/active-directory/manage-apps/context/manage-apps-context
+          - name: Customize claims in the portal
+            href: /azure/active-directory/develop/active-directory-saml-claims-customization?context=azure/active-directory/manage-apps/context/manage-apps-context
+          - name: Customize claims with PowerShell
+            href: /azure/active-directory/develop/active-directory-claims-mapping?context=azure/active-directory/manage-apps/context/manage-apps-context
+          - name: Configure optional claims
+            href: /azure/active-directory/develop/active-directory-optional-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
+          - name: Configure token lifetimes
+            href: /azure/active-directory/develop/active-directory-configurable-token-lifetimes?context=azure/active-directory/manage-apps/context/manage-apps-context
+      - name: Configure password-based sign-on
+        href: configure-password-single-sign-on-gallery-applications.md
+      - name: Configure linked sign-on
+        href: configure-password-single-sign-on-gallery-applications.md
+    - name: Configure provisioning
+      items:
+      - name: User provisioning for gallery apps
+        href: application-provisioning-config-how-to.md
+      - name: Automatic provisioning for SCIM-enabled apps
+        href: use-scim-to-provision-users-and-groups.md
       - name: Automatic user provisioning
         href: configure-automatic-user-provisioning-portal.md
-      - name: SaaS apps
-        href: user-provisioning.md
-      - name: SCIM-enabled apps
-        href: use-scim-to-provision-users-and-groups.md
       - name: Customize application attributes
         href: Customize-application-attributes.md
       - name: Write expressions for attribute mappings
         href: functions-for-customizing-application-data.md
       - name: Scoping filters
         href: define-conditional-rules-for-provisioning-user-accounts.md
+      - name: Check provisioning status
+        href: application-provisioning-when-will-provisioning-finish-specific-user.md
       - name: Report on automatic user provisioning
         href: check-status-user-account-provisioning.md
-      - name: Troubleshoot user provisioning
-        href: application-provisioning-config-problem.md
-    - name: Application security
+    - name: Assign users and manage access
       items:
-      - name: App access options
-        href: what-is-access-management.md
-      - name: Certificate signing options
-        href: certificate-signing-options.md
-      - name: Manage certificates
-        href: manage-certificates-for-federated-single-sign-on.md
-      - name: Tenant restrictions
-        href: tenant-restrictions.md
-      - name: Configure SAML token encryption (Preview)
-        href: howto-saml-token-encryption.md
-    - name: Single sign-on
-      items: 
-      - name: What is single sign-on
-        href: what-is-single-sign-on.md
-      - name: Planning a single sign-on deployment
-        href: plan-sso-deployment.md
-    - name: End-user portals
-      href: end-user-experiences.md
-    - name: One Click SSO
-      items:
-      - name: What is One Click SSO
-        href: one-click-sso-tutorial.md
-  - name: How-to guides
-    items:
-    - name: Add a cloud app
-      items:
-      - name: Choose app type
-        href: choose-application-type.md
-      - name: Change name or logo
-        href: change-name-or-logo-portal.md
+      - name: Assign a user to an app
+        href: assign-user-or-group-access-portal.md
+      - name: Use self-service app access
+        href: access-panel-manage-self-service-access.md
+      - name: Configure user consent
+        href: configure-user-consent.md
+      - name: Remove user or group access
+        href: remove-user-or-group-access-portal.md
+      - name: Hide app from a user
+        href: hide-application-from-user-portal.md
+      - name: Disable user sign-on
+        href: disable-user-sign-in-portal.md
+      - name: Configure self-service app assignment
+        href: manage-self-service-access.md
+      - name: Home Realm Discovery
+        href: configure-authentication-for-federated-users-portal.md
     - name: Integrate an on-premises app
       items:
-      - name: Configure connectors
+      - name: Configure Application Proxy connectors
         href: application-proxy-configure-connectors-with-proxy-servers.md
       - name: Configure claims-aware apps
         href: application-proxy-configure-for-claims-aware-applications.md
@@ -119,6 +151,16 @@
         href: application-proxy-remove-personal-data.md
       - name: Configure custom domain
         href: application-proxy-configure-custom-domain.md
+      - name: Configure single sign-on for on-premises apps
+        items:
+        - name: Kerberos constrained Delegation (KCD)
+          href: application-proxy-configure-single-sign-on-with-kcd.md
+        - name: Password vaulting
+          href: application-proxy-configure-single-sign-on-password-vaulting.md
+        - name: Headers
+          href: application-proxy-configure-single-sign-on-with-ping-access.md
+        - name: SAML SSO
+          href: application-proxy-configure-single-sign-on-on-premises-apps.md
       - name: Publishing walkthroughs
         items:
         - name: Integrate with Cloud App Security
@@ -133,58 +175,6 @@
           href: application-proxy-integrate-with-tableau.md
         - name: Integrate with Qlik
           href: application-proxy-qlik.md
-    - name: Configure single sign-on
-      items:
-      - name: Configure non-gallery apps
-        href: configure-single-sign-on-non-gallery-applications.md
-      - name: Configure federated - gallery apps
-        href: configure-federated-single-sign-on-gallery-applications.md
-      - name: Configure federated - non-gallery apps
-        href: configure-federated-single-sign-on-non-gallery-applications.md
-      - name: Configure password - gallery apps
-        href: configure-password-single-sign-on-gallery-applications.md
-      - name: Configure password - non-gallery apps
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Single sign-on with Application Proxy
-        items:
-        - name: Kerberos constrained Delegation (KCD)
-          href: application-proxy-configure-single-sign-on-with-kcd.md
-        - name: Password vaulting
-          href: application-proxy-configure-single-sign-on-password-vaulting.md
-        - name: Headers
-          href: application-proxy-configure-single-sign-on-with-ping-access.md
-        - name: SAML SSO
-          href: application-proxy-configure-single-sign-on-on-premises-apps.md
-    - name: Configure user provisioning
-      items:
-      - name: How long provisioning takes
-        href: application-provisioning-when-will-provisioning-finish-specific-user.md
-      - name: Configure user provisioning - gallery app
-        href: application-provisioning-config-how-to.md
-      - name: Sync an attribute for mapping - gallery app
-        href: user-provisioning-sync-attributes-for-mapping.md
-    - name: Assign users and manage access to apps
-      items:
-      - name: Configure user consent
-        href: configure-user-consent.md
-      - name: Methods for assigning users and groups to an app
-        href: methods-for-assigning-users-and-groups.md
-      - name: Assign a user to an app
-        href: assign-user-or-group-access-portal.md
-      - name: Use self-service app access
-        href: access-panel-manage-self-service-access.md
-      - name: Methods for removing a user's access to an app
-        href: methods-for-removing-user-access.md
-      - name: Remove user or group access
-        href: remove-user-or-group-access-portal.md
-      - name: Hide app from a user
-        href: hide-application-from-user-portal.md
-      - name: Disable user sign-on
-        href: disable-user-sign-in-portal.md
-      - name: Configure self-service app assignment
-        href: manage-self-service-access.md
-      - name: Home Realm Discovery
-        href: configure-authentication-for-federated-users-portal.md
     - name: Migrate apps to Azure AD
       items:
       - name: Migration resources
@@ -325,4 +315,3 @@
       href: https://stackoverflow.com/questions/tagged/azure-active-directory
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-

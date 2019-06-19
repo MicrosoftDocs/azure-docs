@@ -19,8 +19,7 @@ ms.collection: M365-identity-device-management
 Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications that are enabled with Enterprise single sign-on. This article describes the general steps for adding an app from the gallery to your Azure AD organization.
 
 > [!IMPORTANT]
-> All applications in the Azure AD gallery have step-by-step tutorials for app setup. You can access the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) for step-by-step guidance tailored to your app. This article gives general steps for adding an app from the gallery.
-
+> First, check for your app in the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). You'll likely find step-by-step guidance for adding and configuring the gallery app you want to add.
 
 To add a gallery application to your Azure AD tenant:
 
@@ -36,19 +35,15 @@ To add a gallery application to your Azure AD tenant:
 
     ![New application](media/add-application-portal/new-application.png)
 
-1. Under **Add from the gallery**, enter the name of the application you want to add. 
+1. Under **Add from the gallery**, in the search box, enter the name of the application you want to add. 
 
     ![Search by name or category](media/add-application-portal/categories.png)
 
-1. Select the application from the results and select **Add**.
+1. Select the application from the results.
 
-    ![Add an application](media/add-application-portal/add-an-application.png)
+1. (Optional) In the application-specific form, you can edit the name of the application to match the needs of your organization.
 
-1. In the application-specific form, you can change property information. For example, you can edit the name of the application to match the needs of your organization. 
-
-1. When you've finished making changes to the properties, select **Add**.
-
-1. A getting started page appears with the options for configuring the application for your organization.
+1. Select **Add**. The application **Overview** page opens.
 
 1. Select **Properties** to open the properties pane for editing.
 
