@@ -115,12 +115,12 @@ You can apply tags to resource groups and resources to logically organize your a
 
 ## Export resource groups to templates
 
-After setting up your resource group successfully, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
+After setting up your resource group, you can view a Resource Manager template for the resource group. Exporting the template offers two benefits:
 
-- Automate future deployments of the solution because the template contains all the complete infrastructure.
+- Automate future deployments of the solution because the template contains the complete infrastructure.
 - Learn template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
-To export all resources in a resource group, use the [Export-AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) cmdlet.
+To export all resources in a resource group, use the [Export-AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) cmdlet and provide the resource group name.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -130,19 +130,26 @@ Export-AzResourceGroup -ResourceGroupName $resourceGroupName
 
 It saves the template as a local file.
 
-Instead of exporting all of the resources in the resource group, you can select which resources to export.
+Instead of exporting all resources in the resource group, you can select which resources to export.
 
 To export one resource, pass that resource ID.
 
 ```azurepowershell-interactive
-$resource = Get-AzResource -ResourceGroupName <resource-group-name> -ResourceName <resource-name> -ResourceType <resource-type>
-Export-AzResourceGroup -ResourceGroupName <resource-group-name> -Resource $resource.ResourceId
+$resource = Get-AzResource `
+  -ResourceGroupName <resource-group-name> `
+  -ResourceName <resource-name> `
+  -ResourceType <resource-type>
+Export-AzResourceGroup `
+  -ResourceGroupName <resource-group-name> `
+  -Resource $resource.ResourceId
 ```
 
 To export more than one resource, pass the resource IDs in an array.
 
 ```azurepowershell-interactive
-Export-AzResourceGroup -ResourceGroupName <resource-group-name> -Resource @($resource1.ResourceId, $resource2.ResourceId)
+Export-AzResourceGroup `
+  -ResourceGroupName <resource-group-name> `
+  -Resource @($resource1.ResourceId, $resource2.ResourceId)
 ```
 
 When exporting the template, you can specify whether parameters are used in the template. By default, parameters for resource names are included but they don't have a default value. You must pass that parameter value during deployment.
