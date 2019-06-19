@@ -25,6 +25,7 @@ After you create an Azure Cosmos account under your subscription, you can manage
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
+| Maximum Attachment Size per Account | 2 GB |
 
 > [!NOTE]
 > For best practices to manage workloads that have partition keys that need higher limits for storage or throughput, see [Designing for Hot Partition Keys](synthetic-partition-keys.md)
@@ -73,6 +74,7 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 | Maximum number of paths in indexing policy| 100 <sup>*</sup>|
 | Maximum number of unique keys per container|10 <sup>*</sup>|
 | Maximum number of paths per unique key constraint|16 <sup>*</sup>|
+
 
 <sup>*</sup> You can increase any of these per-container limits by contacting Azure Support or contacting us via [Ask Cosmos DB](mailto:askcosmosdb@microsoft.com).
 
