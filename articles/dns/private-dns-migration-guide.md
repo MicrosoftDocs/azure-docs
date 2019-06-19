@@ -89,9 +89,13 @@ This step will delete the legacy DNS zones and should be executed only after you
 
 ![Clean up](./media/private-dns-migration-guide/cleanup-migration-script.png)
 
-## Update Your automations
+## Update Your automation
 
-If you're using automations including templates, PowerShell scripts and SDKs you must update your automation to use the new API and resource model for the private DNS zones. Below are the links to new private DNS CLI/PS/SDK documentation.
+If you're using automation including templates, PowerShell scripts or custom code developed using SDK you must update your automation to use the new API and resource model for the private DNS zones. Below are the links to new private DNS CLI/PS/SDK documentation.
+[Azure DNS private zones REST API](https://docs.microsoft.com/en-us/rest/api/dns/privatedns/privatezones)
+[Azure DNS private zones CLI](https://docs.microsoft.com/en-us/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
+[Azure DNS private zones PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.privatedns/?view=azps-2.3.2)
+[Azure DNS private zones SDK](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 
 ## Need further help
 
