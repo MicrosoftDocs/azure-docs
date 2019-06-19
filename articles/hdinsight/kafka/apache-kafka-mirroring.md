@@ -28,7 +28,7 @@ The most useful mirroring setup for disaster recovery utilizes Kafka clusters in
 
 The following diagram illustrates the mirroring process and how the communication flows between clusters:
 
-![Diagram of the mirroring process](./media/apache-kafka-mirroring/kafka-mirroring-vnets.png)
+![Diagram of the mirroring process](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
 
 The primary and secondary clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirroring maintains the key value that is used for partitioning, so record order is preserved on a per-key basis.
 
@@ -70,7 +70,7 @@ This architecture features two clusters in different resource groups and virtual
 
 1. Configure IP advertising:
     1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
-    1. Click **Services** > **Kafka** > **Configs**.
+    1. Click **Services** > **Kafka**. Click the **Configs** tab.
     1. Add the following config lines to the bottom **kafka-env template** section. Click **Save**.
     
         ```
@@ -82,6 +82,7 @@ This architecture features two clusters in different resource groups and virtual
         ```
 
     1. Enter a note on the **Save Configuration** screen and click **Save**.
+    1. If you are prompted with configuration warning, click **Proceed Anyway**.
     1. Click **Ok** on the **Save Configuration Changes**.
     1. Click **Restart** > **Resart All Affected** in the **Restart Required** notification. Click **Confirm Restart All**.
 
@@ -116,21 +117,19 @@ This architecture features two clusters in different resource groups and virtual
 
     ```bash
     # get the zookeeper hosts for the primary cluster
-    export SOURCE_ZKHOSTS=`ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181`
+    export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
     ```
-
-    When prompted, enter the password for the cluster login (admin) account.
 
 3. To create a topic named `testtopic`, use the following command:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $PRIMARY_ZKHOSTS
     ```
 
 3. Use the following command to verify that the topic was created:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $SOURCE_ZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $PRIMARY_ZKHOSTS
     ```
 
     The response contains `testtopic`.
@@ -138,7 +137,7 @@ This architecture features two clusters in different resource groups and virtual
 4. Use the following to view the Zookeeper host information for this (the **primary**) cluster:
 
     ```bash
-    echo $SOURCE_ZKHOSTS
+    echo $PRIMARY_ZKHOSTS
     ```
 
     This returns information similar to the following text:
@@ -168,11 +167,11 @@ This architecture features two clusters in different resource groups and virtual
     Use the following text as the contents of the `consumer.properties` file:
 
     ```yaml
-    zookeeper.connect=SOURCE_ZKHOSTS
+    zookeeper.connect=PRIMARY_ZKHOSTS
     group.id=mirrorgroup
     ```
 
-    Replace **SOURCE_ZKHOSTS** with the Zookeeper IP Addresses from the **primary** cluster.
+    Replace **PRIMARY_ZKHOSTS** with the Zookeeper IP Addresses from the **primary** cluster.
 
     This file describes the consumer information to use when reading from the primary Kafka cluster. For more information consumer configuration, see [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) at kafka.apache.org.
 
@@ -181,11 +180,10 @@ This architecture features two clusters in different resource groups and virtual
 3. Before configuring the producer that communicates with the secondary cluster, setup a variable for the broker IP addresses of the **secondary** cluster. Use the following commands to create this variable:
 
     ```bash
-    DEST_BROKERHOSTS=`BROKER_IP_ADDRESS1:2181,BROKER_IP_ADDRESS2:2181,BROKER_IP_ADDRESS2:2181`
-    
+    export SECONDARY_BROKERHOSTS='BROKER_IP_ADDRESS1:2181,BROKER_IP_ADDRESS2:2181,BROKER_IP_ADDRESS2:2181'
     ```
 
-    The command `echo $DEST_BROKERHOSTS` should return information similar to the following text:
+    The command `echo $SECONDARY_BROKERHOSTS` should return information similar to the following text:
 
     `10.23.0.14:2181,10.23.0.4:2181,10.23.0.12:2181`
 
@@ -198,19 +196,19 @@ This architecture features two clusters in different resource groups and virtual
     Use the following text as the contents of the `producer.properties` file:
 
     ```yaml
-    bootstrap.servers=DEST_BROKERS
+    bootstrap.servers=SECONDARY_BROKERHOSTS
     compression.type=none
     ```
 
-    Replace **DEST_BROKERS** with the broker IP addresses used in the previous step.
+    Replace **SECONDARY_BROKERHOSTS** with the broker IP addresses used in the previous step.
 
     For more information producer configuration, see [Producer Configs](https://kafka.apache.org/documentation#producerconfigs) at kafka.apache.org.
 
 5. Use the following commands to create an environment variable with the IP addresses of the Zookeeper hosts for the secondary cluster:
 
     ```bash
-    # get the zookeeper hosts for the primary cluster
-    export DEST_ZKHOSTS=`ZOOKEEPER_IP_ADDRESS1:2181,ZOOKEEPER_IP_ADDRESS2:2181,ZOOKEEPER_IP_ADDRESS3:2181`
+    # get the zookeeper hosts for the secondary cluster
+    export SECONDARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181,ZOOKEEPER_IP_ADDRESS2:2181,ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
 7. The default configuration for Kafka on HDInsight does not allow the automatic creation of topics. You must use one of the following options before starting the Mirroring process:
@@ -220,7 +218,7 @@ This architecture features two clusters in different resource groups and virtual
         You can create topics ahead of time by using the following command:
 
         ```bash
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SECONDARY_ZKHOSTS
         ```
 
         Replace `testtopic` with the name of the topic to create.
@@ -229,10 +227,8 @@ This architecture features two clusters in different resource groups and virtual
 
         To configure the secondary cluster to automatically create topics, perform these steps:
 
-        1. From the [Azure portal](https://portal.azure.com), select the secondary Kafka cluster.
-        2. From the cluster overview, select __Cluster dashboard__. Then select __HDInsight cluster dashboard__. When prompted, authenticate using the login (admin) credentials for the cluster.
-        3. Select the __Kafka__ service from the list on the left of the page.
-        4. Select __Configs__ in the middle of the page.
+        1. Go to the Ambari dashboard for the secondary cluster: `https://SECONDARYCLUSTERNAME.azurehdinsight.net`.
+        1. Click **Services** > **Kafka**. Click the **Configs** tab.
         5. In the __Filter__ field, enter a value of `auto.create`. This filters the list of properties and displays the `auto.create.topics.enable` setting.
         6. Change the value of `auto.create.topics.enable` to true, and then select __Save__. Add a note, and then select __Save__ again.
         7. Select the __Kafka__ service, select __Restart__, and then select __Restart all affected__. When prompted, select __Confirm restart all__.
@@ -275,7 +271,7 @@ This architecture features two clusters in different resource groups and virtual
 3. From the SSH connection to the **secondary** cluster, use **Ctrl + C** to end the MirrorMaker process. It may take several seconds to end the process. To verify that the messages were replicated to the secondary, use the following command:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
     The list of topics now includes `testtopic`, which is created when MirrorMaster mirrors the topic from the primary cluster to the secondary. The messages retrieved from the topic are the same as entered on the primary cluster.
