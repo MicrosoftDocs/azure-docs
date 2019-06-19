@@ -131,6 +131,26 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
 
+To see the size of billable events ingested per subscription, use the following query:
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+```
+
+To see the size of billable events ingested per resource group, use the following query:
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+
+```
+
+
 To see the count of events ingested per computer, use the following query:
 
 ```Kusto
@@ -146,7 +166,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-If you want to see counts for billable data types are sending data to a specific computer, use the following query:
+To see the count of billable data types from a specific computer, use the following query:
 
 ```Kusto
 union withsource = tt *
@@ -154,7 +174,6 @@ union withsource = tt *
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last 
 ```
-
 
 ## Next steps
 
