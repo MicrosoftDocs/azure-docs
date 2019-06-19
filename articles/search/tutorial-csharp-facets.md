@@ -20,8 +20,8 @@ This tutorial builds two projects, one for facet navigation and the other for fa
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set model properties as _IsFacetable_
-> * Add facet navigation
-> * Add facet autocompletion
+> * Add facet navigation to your app
+> * Add facet autocompletion to your app
 > * Decide when to use facet autocompletion
 
 ## Prerequisites
@@ -83,7 +83,7 @@ public partial class Hotel
 2. We will not be changing any tags in this tutorial. A facet search will throw an error if a field requested in the search is not tagged appropriately.
 
 
-## Add facet navigation
+## Add facet navigation to your app
 
 For this example, we are going to enable the user to select one or more categories of hotel, in a list shown to the left of the results. We need the controller to know the list of categories when the app is first run, and to pass this list to the view to be displayed when the first screen is rendered. As each page is rendered, we need to make sure we have maintained both the list of facets, and the current user selections, to be passed along to subsequent pages. Again, we use temporary storage as the mechanism for preserving data.
 
@@ -241,18 +241,13 @@ A few points to note here. We convert the results of the search call to a list o
         }
 ```
 
-2. Now do the same for the **Page(SearchData model)** method. We have only listed the relevant code below. Add the **RecoverFacets** and **SaveFacets** calls as shown below.
+2. Now do the same for the **Page(SearchData model)** method. We have only listed the relevant code below. Add the **RecoverFacets** and **SaveFacets** calls around the **RunQueryAsync** call.
 
 ```cs
                 // Recover facet text and check marks.
                 RecoverFacets(model, true);
 
                 await RunQueryAsync(model, page, leftMostPage);
-
-                // Ensure Temp data is stored for next call, as TempData only stored for one call.
-                TempData["page"] = (object)page;
-                TempData["searchfor"] = model.searchText;
-                TempData["leftMostPage"] = model.leftMostPage;
 
                 // Save facets and check marks.
                 SaveFacets(model, true);
@@ -308,7 +303,7 @@ We have added the **Category** property to the list of **Select** items to retur
 
 The view is going to require some significant changes. 
 
-1. Start by opening the hotels.css file, and add the following classes.
+1. Start by opening the hotels.css file (in the wwwroot/css folder), and add the following classes.
 
 ```cs
 .facetlist {
@@ -326,18 +321,11 @@ The view is going to require some significant changes.
 
 ### Add a list of facet checkboxes to the view
 
-For the view, we organize the output into a table, to neatly align the facets on the left, and the results on the right.
+For the view, we organize the output into a table, to neatly align the facets on the left, and the results on the right. Open the index.cshtml file.
 
-1. Replace the entire contents of the index.cshtml file with the following code.
+1. Replace the entire contents of the HTML &lt;body&gt; tags, with the following code.
 
 ```cs
-@model FirstAzureSearchApp_FacetNavigation.Models.SearchData
-@{
-    ViewData["Title"] = "Home Page";
-}
-<head>
-   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
-</head>
 
 <body>
 
@@ -498,7 +486,7 @@ The advantage of facet navigation to the user is that they do not have to keep e
 
 Now let's examine a different use of facets.
 
-## Add facet autocompletion
+## Add facet autocompletion to your app
 
 We will use the numbered paging app you might have completed in the second tutorial as a basis for this sample.
 
@@ -542,7 +530,7 @@ Notice that the script calls the **Facets** action in the home controller, witho
 
 The autocomplete function called in the script above is not something we have to write ourselves as it is available in the jquery library. 
 
-1. To access the jquery library, add the following lines to the top of the &lt;head&gt; section of the view file, so the beginning of this section looks like the following code.
+1. To access the jquery library, replace the &lt;head&gt; section of the view file with the following code.
 
 ```cs
 <head>
@@ -552,6 +540,9 @@ The autocomplete function called in the script above is not something we have to
           rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="~/css/hotels.css" />
+</head>
 ```
 
 2. We also need to remove, or comment out, a line referencing jquery in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. By removing this line, we avoid ambiguous references to jquery.
@@ -568,7 +559,7 @@ Now we can use the predefined autocomplete jquery functions.
 
 ### Add a facet action to the controller
 
-1. First, add the following two **using** statements to the head of the file.
+1. Open the home controller, and add the following two **using** statements to the head of the file.
 
 ```cs
 using System.Collections.Generic;
@@ -623,10 +614,12 @@ Now test the program.
 
 ## Decide when to use a facet autocompletion search
 
-The clear difference between facet searches, and other searches such as suggestions and autocompletion, is that the facet search is _designed_ to be only carried out once when a page is loaded, and the other searches are _designed_ to be called as characters are typed, which potentially saves many calls to the server. However, when should this search be used?
+The clear difference between facet searches, and other searches such as suggestions and autocompletion, is that the facet search is _designed_ to be only carried out once when a page is loaded. The other autocompletion searches are _designed_ to be called after each character is typed. Using facets this way potentially saves many calls to the server. 
+
+However, when should facet autocompletion be used?
 
 Facet autocompletion is best used when:
-* The performance of other searches that call the server each keystroke is an issue.
+* The primary reason is that the performance of other searches that call the server each keystroke is an issue.
 * The facets returned provide the user with a list of options of reasonable length when they type in a few characters.
 * The facets returned provide a quick way to access most, or ideally all, of the data available.
 * The maximum counts allow most facets to be included. In our code, we set a maximum of 100 facets for **Tags** and 20 facets for **Category**. The maximums set must work well with the size of the data set. If too many potential facets are being cut, then perhaps the search is not as helpful as it should be.
@@ -639,10 +632,10 @@ Facet autocompletion is best used when:
 
 Consider the following takeaways from this project:
 
-* Facet navigation provides a user with an easy way of narrowing a search.
-* Facet navigation is best divided into sections (categories of hotel, features of a hotel, etc.), each section with an appropriate heading.
+* It is imperative to mark each field as **IsFacetable**, if they are to be included in facet navigation, or autocompletion.
+* Facet navigation provides a user with an easy, and intuitive, way of narrowing a search.
+* Facet navigation is best divided into sections (categories of hotel, features of a hotel, price ranges, etc.), each section with an appropriate heading.
 * Facet autocompletion is an efficient way of getting a helpful user experience without the repeated server calls of other autocompletion searches.
-* It is imperative to mark each field as **IsFacetable** if they are to be included in a facet search.
 * Facet autocompletion is an _alternative_ to autocomplete/suggestions, not an addition.
 
 ## Next steps
