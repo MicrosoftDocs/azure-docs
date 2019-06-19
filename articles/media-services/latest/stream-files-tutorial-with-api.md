@@ -1,6 +1,6 @@
 ---
-title: Upload, encode, and stream with Azure Media Services v3 using .NET | Microsoft Docs
-description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Media Services v3 using .NET.
+title: Upload, encode, and stream with Azure Media Services v3 | Microsoft Docs
+description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,7 +15,7 @@ ms.date: 03/22/2019
 ms.author: juliako
 ---
 
-# Tutorial: Upload, encode, and stream videos using .NET
+# Tutorial: Upload, encode, and stream videos
 
 > [!NOTE]
 > Even though the tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
