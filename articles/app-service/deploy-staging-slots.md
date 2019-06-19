@@ -79,13 +79,13 @@ When you swap two slots (usually from a staging slot into the production slot), 
     - [Continuous deployment](deploy-continuous-deployment.md) settings, if enabled.
     - [App Service authentication](overview-authentication-authorization.md) settings, if enabled.
     
-    Any of the these cases trigger all instances in the source slot to restart. During [swap with preview](#Multi-Phase), this marks the end of the first phase. The swap operation is paused, and you can validate that the source slot works correctly with the target slot's settings.
+    Any of these cases trigger all instances in the source slot to restart. During [swap with preview](#Multi-Phase), this marks the end of the first phase. The swap operation is paused, and you can validate that the source slot works correctly with the target slot's settings.
 
 1. Wait for every instance in the source slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 
 1. If [local cache](overview-local-cache.md) is enabled, trigger local cache initialization by making an HTTP request to the application root ("/") on each instance of the source slot. Wait until each instance returns any HTTP response. Local cache initialization causes another restart on each instance.
 
-1. If [auto swap](#Auto-Swap) is enabled with [custom warm-up](#custom-warm-up), trigger [Application Initiation](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) by making an HTTP request to the application root ("/") on each instance of the source slot.
+1. If [auto swap](#Auto-Swap) is enabled with [custom warm-up](#Warm-up), trigger [Application Initiation](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) by making an HTTP request to the application root ("/") on each instance of the source slot.
 
     If `applicationInitialization` isn't specified, trigger an HTTP request to the application root of the source slot on each instance. 
     
@@ -138,7 +138,7 @@ To configure an app setting or connection string to stick to a specific slot (no
 <a name="Swap"></a>
 
 ## Swap two slots 
-You can swap deployment slots on your app's **Deployment slots** page and the **Overview** page. For technical details on the slot swap, see [What happens during swap](#what-happens-during-swap).
+You can swap deployment slots on your app's **Deployment slots** page and the **Overview** page. For technical details on the slot swap, see [What happens during swap](#AboutConfiguration).
 
 > [!IMPORTANT]
 > Before you swap an app from a deployment slot into production, make sure that production is your target slot and that all settings in the source slot are configured exactly as you want to have them in production.
@@ -172,7 +172,7 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 Before you swap into production as the target slot, validate that the app runs with the swapped settings. The source slot is also warmed up before the swap completion, which is desirable for mission-critical applications.
 
-When you perform a swap with preview, App Service performs the same [swap operation](#what-happens-during-swap) but pauses after the first step. You can then verify the result on the staging slot before completing the swap. 
+When you perform a swap with preview, App Service performs the same [swap operation](#AboutConfiguration) but pauses after the first step. You can then verify the result on the staging slot before completing the swap. 
 
 If you cancel the swap, App Service reapplies configuration elements to the source slot.
 
@@ -231,7 +231,7 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 <a name="Warm-up"></a>
 
 ## Specify a custom warm-up
-When you're using [auto swap](#Auto-Swap), some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#what-happens-during-swap) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
+When you're using [auto swap](#Auto-Swap), some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
 
     <system.webServer>
         <applicationInitialization>
@@ -251,7 +251,7 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 ## Monitor a swap
 
-If the [swap operation](#what-happens-during-swap) takes a long time to complete, you can get information on the swap operation in the [activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+If the [swap operation](#AboutConfiguration) takes a long time to complete, you can get information on the swap operation in the [activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 On your app's resource page in the portal, in the left pane, select **Activity log**.
 
@@ -369,7 +369,7 @@ For [Azure CLI](https://github.com/Azure/azure-cli) commands for deployment slot
 
 ## Troubleshoot swaps
 
-If any error occurs during a [slot swap](#what-happens-during-swap), it's logged in *D:\home\LogFiles\eventlog.xml*. It's also logged in the application-specific error log.
+If any error occurs during a [slot swap](#AboutConfiguration), it's logged in *D:\home\LogFiles\eventlog.xml*. It's also logged in the application-specific error log.
 
 Here are some common swap errors:
 
@@ -377,7 +377,7 @@ Here are some common swap errors:
 
 - Local cache initialization might fail when the app content exceeds the local disk quota specified for the local cache. For more information, see [Local cache overview](overview-local-cache.md).
 
-- During [custom warm-up](#custom-warm-up), the HTTP requests are made internally (without going through the external URL). They can fail with certain URL rewrite rules in *Web.config*. For example, rules for redirecting domain names or enforcing HTTPS can prevent warm-up requests from reaching the app code. To work around this issue, modify your rewrite rules by adding the following two conditions:
+- During [custom warm-up](#Warm-up), the HTTP requests are made internally (without going through the external URL). They can fail with certain URL rewrite rules in *Web.config*. For example, rules for redirecting domain names or enforcing HTTPS can prevent warm-up requests from reaching the app code. To work around this issue, modify your rewrite rules by adding the following two conditions:
 
     ```xml
     <conditions>
