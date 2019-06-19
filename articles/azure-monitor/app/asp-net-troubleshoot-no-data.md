@@ -238,13 +238,13 @@ The Application Insights SDK log EventSource self-troubleshooting logs that can 
 
 To collect logs, download PerfView and run this command:
 ```cmd
-PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
 ```
 
-You can modify these parameters as needed.
-
+You can modify these parameters as needed:
 - **MaxCollectSec**. Set this parameter to prevent PerfView from running indefinitely and affecting the performance of your server.
-- **OnlyProviders**. Set this paramater to only collect logs from the SDK. You can customize this list based on your specific investigations. 
+- **OnlyProviders**. Set this parameter to only collect logs from the SDK. You can customize this list based on your specific investigations. 
+- **NoGui**. Set this parameter to collect logs without the Gui.
 
 
 For more information,

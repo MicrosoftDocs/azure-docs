@@ -56,7 +56,7 @@ The DevVM directory contains the files needed to create an Azure virtual machine
 1. Open Powershell as an administrator and navigate to the directory where you downloaded the code. We will refer to the root directory for your source as `<srcdir>`.
 
     ```powershell
-    cd \<srcdir\>\IoTEdgeAndMlSample\DevVM
+    cd <srcdir>\IoTEdgeAndMlSample\DevVM
     ```
 
 2. Run the following command to allow execution of scripts. Choose **Yes to All** when prompted.
@@ -137,7 +137,7 @@ Now that you have connected to the development machine, add some useful extensio
 3. Run the script.
 
     ```powershell
-    .\\Enable-CodeExtensions.ps1
+    .\Enable-CodeExtensions.ps1
     ```
 
 4. The script will run for a few minutes installing VS code extensions:

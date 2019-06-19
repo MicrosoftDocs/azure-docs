@@ -20,8 +20,6 @@
   items:
     - name: Run queries on an Apache Spark cluster
       href: apache-spark-load-data-run-query.md
-    - name: Use VSCode to run Apache Spark queries
-      href: ../hdinsight-for-vscode.md
     - name: Use IntelliJ to run Apache Spark queries
       href: apache-spark-intellij-tool-plugin.md
     - name: Analyze data using BI tools
@@ -32,6 +30,8 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: Create an Apache Spark app in IntelliJ
       href: apache-spark-create-standalone-application.md
+    - name: Use VSCode to run Apache Spark queries
+      href: ../hdinsight-for-vscode.md
     - name: Monitor cluster availability with Ambari and Azure Monitor logs
       href: ../hdinsight-cluster-availability.md    
 - name: Samples
