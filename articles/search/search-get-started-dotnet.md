@@ -21,14 +21,12 @@ ms.date: 06/20/2019
 > * [Postman](search-fiddler.md)
 >*
 
-Create a C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [Azure Search .NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. 
-
-Alternatively, you could run a completed application. To download a copy, go to [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository on GitHub.
+Create a .NET Core C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [Azure Search .NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/quickstart).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
-> The code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. We recommend using the asynchronous methods in your own applications to keep them scalable and responsive. For example, you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
+> The demo code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. However, for production scenarios, we recommend using the asynchronous methods in your own applications to keep them scalable and responsive. For example, you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
 
 ## Prerequisites
 
@@ -36,7 +34,7 @@ The following services, tools, and data are used in this quickstart.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-+ Sample documents that you'll index in this quickstart are provided in this article.
++ A sample index and documents are provided in this article, as well as in the [Visual Studio solution](https://github.com/Azure-Samples/azure-search-dotnet-samples/quickstart) for this quickstart.
 
 + [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
@@ -98,13 +96,27 @@ For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package an
 }
 ```
 
+### Copy the .StringBuilder files to your project
+
+When printing results to the console window, individual fields from the Hotel object must be returned as strings. You can implement [ToString()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) to perform this task, copying the necessary code to two new files.
+
+1. Add two empty class definitions to your project: Address.StringBuilder.cs, HotelStringBuilder.cs
+
+1. In AddressStringBuilder.cs, overwrite the default contents with the following code: TO-DO-LINE-RANGE
+
+1. In HotelStringBuilder.cs, copy these lines: TO-DO-LINE-RANGE
+
+when you are finished, your solution should look like this:
+
+TO-DO-IMAGE
+
 ## 1 - Create index
 
 The hotels index consists of simple and complex fields, where a simple field is "HotelName" or "Description", and complex fields are an address with subfields, or a collection of rooms. When an index includes complex types, isolate the complex field definitions in separate classes.
 
-1. Add two empty class definitions to your project: address.cs, hotel.cs
+1. Add two empty class definitions to your project: Address.cs, Hotel.cs
 
-1. In address.cs, overwrite the default contents with the following code:
+1. In Address.cs, overwrite the default contents with the following code:
 
     ```csharp
     using System;
@@ -112,7 +124,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
     using Microsoft.Azure.Search.Models;
     using Newtonsoft.Json;
 
-    namespace azure_search_getstarted_dotnet
+    namespace azure_search_quickstart
     {
         public partial class Address
         {
@@ -134,10 +146,10 @@ The hotels index consists of simple and complex fields, where a simple field is 
     }
     ```
 
-1. In hotel.cs, the class defines the overall structure of the index, including references to the address class.
+1. In Hotel.cs, the class defines the overall structure of the index, including references to the address class.
 
     ```csharp
-        namespace azure_search_getstarted_dotnet
+        namespace azure_search_quickstart
         {
             using System;
             using Microsoft.Azure.Search;
@@ -186,17 +198,19 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
     Exactly one field in your index of type `string` must be the *key* field, uniquely identifing each document. In this schema, the key is `HotelId`.
 
-    In this index, the description fields use the optional analyzer property, specified when you want to override the default standard Lucene analyzer. The `description_fr` field is using the French Lucene analyzer ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet))because it stores French text. The `description` is using the optional Microsoft language analyzer ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
+    In this index, the description fields use the optional analyzer property, specified when you want to override the default standard Lucene analyzer. The `description_fr` field is using the French Lucene analyzer ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) because it stores French text. The `description` is using the optional Microsoft language analyzer ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
 
 1. In Program.cs, create an instance of the [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) class to connect to the service, using values that are stored in the application's config file (appsettings.json). 
 
    `SearchServiceClient` has an [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) property, providing all the methods you need to create, list, update, or delete Azure Search indexes. 
 
     ```csharp
-    namespace azure_search_getstarted_dotnet
+    namespace azure_search_quickstart
 
     {
         using System;
+        using System.Linq;
+        using System.Threading;
         using Microsoft.Azure.Search;
         using Microsoft.Azure.Search.Models;
         using Microsoft.Extensions.Configuration;
@@ -220,15 +234,14 @@ The hotels index consists of simple and complex fields, where a simple field is 
             Console.WriteLine("{0}", "Creating index...\n");
             CreateIndex(indexName, serviceClient);
 
-            SearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
-
-            // Uncomment next 2 lines in "2 - Load documents"
+            // Uncomment next 3 lines in "2 - Load documents"
+            // ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
             // Console.WriteLine("{0}", "Uploading documents...\n");
             // UploadDocuments(indexClient);
 
-            // Uncomment next 2 lines in "3 - Run queries"
+            // Uncomment next 2 lines in "3 - Search an index"
             // Console.WriteLine("{0}", "Searching index...\n");
-            // UploadDocuments(indexClient);
+            // RunQueries(indexClient);
 
             Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
             Console.ReadKey();
@@ -282,9 +295,9 @@ The hotels index consists of simple and complex fields, where a simple field is 
     > If you don't plan to use a model class, you can still define your index by creating `Field` objects directly. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, to name a few.
     >
 
-1. Optionally, as a verfication step, you can build the app at this point to create the index. 
+1. Optionally, as a verfication step, press F5 to build the app at this point to create the index. 
 
-    If the project builds successfully, a console window opens, writing status messages to the screen for deleting and creating the index. In the Azure portal, in the search service **Overview** page, you should see an empty hotels-quickstart index.
+    If the project builds successfully, a console window opens, writing status messages to the screen for deleting and creating the index. In the Azure portal, in the search service **Overview** page, you should see an empty hotels-quickstart index with 0 documents.
 
 ## 2 - Load documents
 
@@ -406,7 +419,7 @@ When uploading documents, it's common to submit documents in batch mode using an
                 String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
         }
 
-        \\ Wait 2 seconds before starting queries 
+        // Wait 2 seconds before starting queries 
         Console.WriteLine("Waiting for indexing...\n");
         Thread.Sleep(2000);
     }
@@ -423,143 +436,138 @@ When uploading documents, it's common to submit documents in batch mode using an
 1. In Program.cs, in main, uncomment the lines for "2 - Load documents". 
 
     ```csharp
-    // Uncomment next 2 lines in "2 - Load documents"
+    // Uncomment next 3 lines in "2 - Load documents"
+    ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
     Console.WriteLine("{0}", "Uploading documents...\n");
     UploadDocuments(indexClient);
     ```
+1. Optionally, as a verfication step, press F5 to rebuild the app. 
+
+    If the project builds successfully, a console window opens, writing status messages, this time with a message about uploading documents. In the Azure portal, in the search service **Overview** page, the hotels-quickstart index should now have 4 documents.
 
 For more information about document processing, see ["How the .NET SDK handles documents"](search-howto-dotnet-sdk.md#how-dotnet-handles-documents).
 
 ## 3 - Search an index
 
-Create an instance of the `SearchIndexClient` class so that you can give it a query key for read-only access (as opposed to the write-access rights conferred upon the `SearchServiceClient` used in the previous lesson).
+You can run queries as soon as the first document is indexed, but actual testing should wait until after the index is fully built. Indexing progress can be monitored in the portal or through APIs that return a document count. 
 
-This class has several constructors. The one you want takes your search service name, index name, and a [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) object as parameters. `SearchCredentials` wraps your api-key.
+This section adds two pieces of functionality: query logic, and results. For queries, use the [`Search`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.search?view=azure-dotnet
+) method. This method takes strings as well as [parameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet). 
 
-The code below creates a new `SearchIndexClient` for the "hotels" index using values for the search service name and api-key that are stored in the application's config file (`appsettings.json` in the case of the [sample application](https://aka.ms/search-dotnet-howto)):
+The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1?view=azure-dotnet) class is used to shape results.
 
-```csharp
-private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
-{
-    string searchServiceName = configuration["SearchServiceName"];
-    string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
-    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
-    return indexClient;
-}
-```
+1. In Program.cs, add a WriteDocuments method that prints search results to the console.
 
-`SearchIndexClient` has a [`Documents`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient.documents?view=azure-dotnet) property. This property provides all the methods you need to query Azure Search indexes.
-
-### Construct SearchParameters
-Searching with the .NET SDK is as simple as calling the `Documents.Search` method on your `SearchIndexClient`. This method takes a few parameters, including the search text, along with a `SearchParameters` object that can be used to further refine the query.
-
-#### Types of Queries
-The two main [query types](search-query-overview.md#types-of-queries) you will use are `search` and `filter`. A `search` query searches for one or more terms in all *searchable* fields in your index. A `filter` query evaluates a boolean expression over all *filterable* fields in an index. You can use searches and filters together or separately.
-
-Both searches and filters are performed using the `Documents.Search` method. A search query can be passed in the `searchText` parameter, while a filter expression can be passed in the `Filter` property of the `SearchParameters` class. To filter without searching, just pass `"*"` for the `searchText` parameter. To search without filtering, just leave the `Filter` property unset, or do not pass in a `SearchParameters` instance at all.
-
-#### Example Queries
-The following sample code shows a few different ways to query the "hotels" index defined in [Create an Azure Search index in C#](search-create-index-dotnet.md#DefineIndex). The documents returned with the search results are instances of the `Hotel` class, which was defined in [Import data to an Azure Search index in C#](search-import-data-dotnet.md#construct-indexbatch). The sample code makes use of a `WriteDocuments` method to output the search results to the console. This method is described in the next section.
-
-```csharp
-SearchParameters parameters;
-DocumentSearchResult<Hotel> results;
-
-Console.WriteLine("Search the entire index for the term 'budget' and return only the hotelName field:\n");
-
-parameters =
-    new SearchParameters()
+    ```csharp
+    private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
     {
-        Select = new[] { "hotelName" }
-    };
+        foreach (SearchResult<Hotel> result in searchResults.Results)
+        {
+            Console.WriteLine(result.Document);
+        }
 
-results = indexClient.Documents.Search<Hotel>("budget", parameters);
-
-WriteDocuments(results);
-
-Console.Write("Apply a filter to the index to find hotels cheaper than $150 per night, ");
-Console.WriteLine("and return the hotelId and description:\n");
-
-parameters =
-    new SearchParameters()
-    {
-        Filter = "baseRate lt 150",
-        Select = new[] { "hotelId", "description" }
-    };
-
-results = indexClient.Documents.Search<Hotel>("*", parameters);
-
-WriteDocuments(results);
-
-Console.Write("Search the entire index, order by a specific field (lastRenovationDate) ");
-Console.Write("in descending order, take the top two results, and show only hotelName and ");
-Console.WriteLine("lastRenovationDate:\n");
-
-parameters =
-    new SearchParameters()
-    {
-        OrderBy = new[] { "lastRenovationDate desc" },
-        Select = new[] { "hotelName", "lastRenovationDate" },
-        Top = 2
-    };
-
-results = indexClient.Documents.Search<Hotel>("*", parameters);
-
-WriteDocuments(results);
-
-Console.WriteLine("Search the entire index for the term 'motel':\n");
-
-parameters = new SearchParameters();
-results = indexClient.Documents.Search<Hotel>("motel", parameters);
-
-WriteDocuments(results);
-```
-
-### Handle search results
-The `Documents.Search` method returns a `DocumentSearchResult` object that contains the results of the query. The example in the previous section used a method called `WriteDocuments` to output the search results to the console:
-
-```csharp
-private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
-{
-    foreach (SearchResult<Hotel> result in searchResults.Results)
-    {
-        Console.WriteLine(result.Document);
+        Console.WriteLine();
     }
+    ```
 
-    Console.WriteLine();
-}
-```
+1. Add a RunQueries method that provides the query. Results consist of parts of the Hotel object. During code execution, StringBuilder is used to articulate the individual fields in the results.
 
-Here is what the results look like for the queries in the previous section, assuming the "hotels" index is populated with the sample data:
+    ```csharp
+    private static void RunQueries(ISearchIndexClient indexClient)
+    {
+        SearchParameters parameters;
+        DocumentSearchResult<Hotel> results;
 
-```
-Search the entire index for the term 'budget' and return only the hotelName field:
+        // Query 0
+        Console.WriteLine("Query 0: Run an unqualified search and return a count:\n");
 
-Name: Roach Motel
+        parameters = new SearchParameters();
+        results = indexClient.Documents.Search<Hotel>("*", parameters);
 
-Apply a filter to the index to find hotels cheaper than $150 per night, and return the hotelId and description:
+        //Console.WriteLine(result.Count);
+        //WriteDocuments(results);
 
-ID: 2   Description: Cheapest hotel in town
-ID: 3   Description: Close to town hall and the river
+        Console.WriteLine(
+            "Total results: {0}",
+            String.Join(", ", result.Count));
 
-Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
+        // Query 1
+        Console.WriteLine("Query 1: Search for the terms 'hotel' and 'wifi', return only the HotelId and HotelName fields:\n");
 
-Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+        parameters =
+            new SearchParameters()
+            {
+                Select = new[] { "HotelId", "HotelName" }
+            };
 
-Search the entire index for the term 'motel':
+        results = indexClient.Documents.Search<Hotel>("hotel" "wifi", parameters);
 
-ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
-```
+        WriteDocuments(results);
 
-The sample code above uses the console to output search results. You will likewise need to display search results in your own application. For an example of how to render search results in an ASP.NET MVC-based web application, see the [DotNetSample project](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) on GitHub.
+        // Query 2 -filtered query
+        Console.WriteLine("Query 2: Filter on ratings greater than 4");
+        Console.WriteLine("Returning only these fields: HotelId, HotelName, Description, Rating");
+        parameters =
+            new SearchParameters()
+            {
+                Filter = "Rating gt 4",
+                Select = new[] { "HotelId", "HotelName", "Description", "Rating" }
+            };
 
+        results = indexClient.Documents.Search<Hotel>("*", parameters);
 
-## Build the app
+        WriteDocuments(results);
 
-Press F5 to build the solution and run the console app. Output is reported on the screen, starting with creating objects, and concluding with running serveral queries and showing the results.
+        // Query 3 - top 2 results
+        Console.WriteLine("Query 3: Search on term 'boutique'");
+        Console.WriteLine("Sort by rating in descending order, taking the top two results");
+        Console.WriteLine("Returning only these fields: HotelId, HotelName, Description, Category");
 
+        parameters =
+
+            new SearchParameters()
+            {
+                OrderBy = new[] { "Rating desc" },
+                Select = new[] { "HotelId", "HotelName", "Description", "Category" },
+                Top = 2
+            };
+
+        results = indexClient.Documents.Search<Hotel>("boutique", parameters);
+
+        WriteDocuments(results);
+
+        // Query 4
+        Console.WriteLine("Query 4: Search on the term 'pool'");
+        Console.WriteLine("Sort results by City in descending order a-z");
+        Console.WriteLine("Returning only these fields: HotelId, HotelName, City, StateProvince, Tags");
+
+            new SearchParameters()
+            {
+                OrderBy = new[] { "Address/City desc" },
+                Select = new[] { "HotelId", "HotelName", "Address/City", "Address/StateProvince", Tags },
+            };
+
+        results = indexClient.Documents.Search<Hotel>("pool", parameters);
+
+        WriteDocuments(results);
+    }
+    ```
+
+    The most commonly used [query types](search-query-overview.md#types-of-queries) are `search` and `filter`. A `search` query searches for one or more terms in all `IsSearchable` fields in your index. A `filter` query evaluates a boolean expression over all `IsFilterable` fields in an index. You can use searches and filters together or separately.
+
+    Both searches and filters are performed using the `Documents.Search` method. A search query can be passed in the `searchText` parameter, while a filter expression can be passed in the `Filter` property of the `SearchParameters` class. To filter without searching, just pass `"*"` for the `searchText` parameter. To search without filtering, just leave the `Filter` property unset, or do not pass in a `SearchParameters` instance at all.
+
+1. In Program.cs, in main, uncomment the lines for "3 - Search". 
+
+    ```csharp
+    // Uncomment next 2 lines in "3 - Search an index"
+    Console.WriteLine("{0}", "Searching documents...\n");
+    RunQueries(indexClient);
+    ```
+1. The solution is now finished. Press F5 to rebuild the app and run the program in its entirety. 
+
+    Output includes the same messages as before, with addition of query information and results.
 
 ## Clean up
 
@@ -573,29 +581,9 @@ If you are also finished with the search service, you can delete resources from 
 
 ## Next steps
 
-In this C# quickstart, you worked through multiple tasks to create an index, load it with documents, and run queries.
+In this C# quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. If you are comfortable with the basic concepts, we recommend the next article for an exploration of alternative approaches and concepts that will deepen your knowledge. 
 
-As a next step, take a closer look at the main tasks.
+The sample code and index are expanded versions of this one. The next sample adds a Rooms collection, uses different classes and actions, and takes a closer look at how processing works.
 
 > [!div class="nextstepaction"]
-> [Develop in .NET](search-howto-dotnet-sdk.md)
-
-
-
-
-## HEIDI
-
-Loading an index requires SearchIndexClient. There are several ways to instantiate this class.  Call it directly, or call SearchServiceClient + Indexes.GetClient, using the Indexes property off the client.  The following example gets the hotels-quickstart index, which you would do if you were loading documents.
-
-Use the `SearchServiceClient` instance and call its `Indexes.GetClient` method. This snippet obtains a `SearchIndexClient` for the index named "hotels-quickstart" from a `SearchServiceClient` named `serviceClient`.
-
-```csharp
-SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels-quickstart");
-```
-
-Another approach, which is documented in howto-dotnet-sdk, is to create a class for the index (a SearchIndexClient class). This approach is useful if you need different instances of the class -- such as one for admin operations (create, edit, delete) and one for query operations (one takes an admin key, the second takes a query key). Look in that article for the principle of least privilege NOTE to see why the index class approach is more typical.
-
-    > [!NOTE]
-    > In a typical search application, querying and indexing are handled separately. While `Indexes.GetClient` is convenient because you can reuse objects like `SearchCredentials`, a more robust approach involves creating the `SearchIndexClient` directly so that you can pass in a query key instead of an admin key. This practice is consistent with the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) and helps to make your application more secure. You'll construct a `SearchIndexClient` in the next exercise. For more information about keys, see [Create and manage api-keys for an Azure Search service](search-security-api-keys.md).
-    > 
-    > 
+> [How to develop in .NET](search-howto-dotnet-sdk.md)
