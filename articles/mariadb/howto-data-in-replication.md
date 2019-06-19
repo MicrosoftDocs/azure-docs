@@ -36,7 +36,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 1. Turn on binary logging
 
-   Enter the following command to check if binary logging has been enabled on the master:
+   To see if binary logging has been enabled on the master, enter the following command:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
@@ -174,7 +174,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    - master_log_pos: binary log position from running `show master status`
    - master_gtid_pos: GTID position from running `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca: CA certificate’s context. If not using SSL, pass in empty string.
-       - It is recommended to pass this parameter in as a variable. For more information, see the following examples.
+       - We recommend that you pass this parameter in as a variable. For more information, see the following examples.
 
    **Examples**
 
@@ -219,9 +219,9 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    If the state of `Slave_IO_Running` and `Slave_SQL_Running` are *yes* and the value of `Seconds_Behind_Master` is *0*, replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't *0*, then the replica is processing updates.
 
-4. Update correspond server variables to make data-in replication more safe (Only needed for replication without GTID)
+4. Update correspond server variables to make data-in replication safer (required only for replication without GTID).
 	
-	Because of MariaDB native replication limitation, you need to setup [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without GTID scenario. We recommand you check your slave server's `sync_master_info` and `sync_relay_log_info` variables and change them ot `1` if you want to make sure the data-in replication is stable.
+	Because of MariaDB native replication limitation, you must setup [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without GTID scenario. We recommand you check your slave server's `sync_master_info` and `sync_relay_log_info` variables and change them to `1` to make sure the data-in replication is stable.
 	
 ## Other stored procedures
 
