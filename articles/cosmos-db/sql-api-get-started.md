@@ -517,6 +517,8 @@ Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON docum
 
 1. Copy and paste the **QueryItemsAsync** method below your **AddItemsToContainerAsync** method.
 
+[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=QueryItemsAsync_snippet)]
+
     ```csharp
     /*
         Run a query (using Azure Cosmos DB SQL syntax) against the container
