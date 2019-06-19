@@ -170,6 +170,15 @@ Data Deduplication is supported on volumes with cloud tiering enabled on Windows
 **Windows Server 2012 R2 or older agent versions**  
 For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume.
 
+**Notes**
+- If Data Deduplication is installed prior to installing the Azure File Sync agent, a restart is required to support Data Deduplication and cloud tiering on the same volume.
+- If Data Deduplication is enabled on a volume after cloud tiering is enabled, the initial Deduplication optimization job will optimize files on the volume which are not already tiered and will have the following impact on cloud tiering:
+    - Free space policy will continue to tier files as per the free space on the volume by using the heatmap.
+    - Date policy will skip tiering of files that may have been otherwise eligible for tiering due to the Deduplication optimization job accessing the files.
+- For ongoing Deduplication optimization jobs, cloud tiering with date policy will get delayed by the Data Deduplication [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) setting, if the file is not already tiered. 
+    - Example: If the MinimumFileAgeDays setting is 7 days and cloud tiering date policy is 30 days, the date policy will tier files after 37 days.
+    - Note: Once a file is tiered by Azure File Sync, the Deduplication optimization job will skip the file.
+
 ### Distributed File System (DFS)
 Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R).
 
