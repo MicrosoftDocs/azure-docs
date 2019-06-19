@@ -130,26 +130,28 @@ Lets you directly transfer files to Azure Functions.
 
 Using the portal-based editor allows you to directly edit files on your function app (essentially deploying anytime you click **Save**).
 
->__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](functions-create-first-azure-function.md). Using any other deployment method makes your function read only and prevents continued portal editing, to preserve a single source of truth. To return to a state in which you can edit your files using the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like `WEBSITE_RUN_FROM_PACKAGE`). In-portal editing is supported in the following cases:
-
->| | Windows Consumption | Windows Premium (Preview) | Windows Dedicated | Linux Consumption (Preview) | Linux Dedicated |
->|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
->| C# | | | | | |
->| C# Script |✔|✔|✔| |✔<sup>1</sup>|
->| F# | | | | | |
->| Java | | | | | |
->| JavaScript (Node.js) |✔|✔|✔| |✔<sup>1</sup>|
->| Python (Preview) | | | | | |
->| PowerShell (Preview) |✔|✔|✔| | |
->| TypeScript (Node.js) | | | | | |
->
-><sup>1</sup> Portal editing is enabled for only HTTP and Timer triggers for Functions on Linux using the Dedicated Plan.
+>__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](functions-create-first-azure-function.md). Using any other deployment method makes your function read only and prevents continued portal editing, to preserve a single source of truth. To return to a state in which you can edit your files using the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like `WEBSITE_RUN_FROM_PACKAGE`). 
 
 >__When to use it:__ The portal is a great way to get started with Azure Functions, but for any more intense development work using the client tooling is recommended:
 >
 >* [Get started using VS Code](functions-create-first-function-vs-code.md)
 >* [Get started using the Azure Functions Core Tools](functions-run-local.md)
 >* [Get started using Visual Studio](functions-create-your-first-function-visual-studio.md)
+
+Portal editing is supported in the following cases:
+
+| | Windows Consumption | Windows Premium (Preview) | Windows Dedicated | Linux Consumption (Preview) | Linux Dedicated |
+|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
+| C# | | | | | |
+| C# Script |✔|✔|✔| |✔<sup>1</sup>|
+| F# | | | | | |
+| Java | | | | | |
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>1</sup>|
+| Python (Preview) | | | | | |
+| PowerShell (Preview) |✔|✔|✔| | |
+| TypeScript (Node.js) | | | | | |
+
+<sup>1</sup> Portal editing is enabled for only HTTP and Timer triggers for Functions on Linux using the Dedicated Plan.
 
 ## Deployment slots
 
