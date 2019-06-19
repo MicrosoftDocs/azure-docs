@@ -26,7 +26,6 @@ If you have a machine learning model that was trained outside the Azure Machine 
     > The examples in this article assume that the `ws` variable is set to your Azure Machine Learning service workspace.
 
 * The Azure Machine Learning SDK. For more information, see the Python SDK section of the [Create a workspace](setup-create-workspace.md#sdk) article.
-* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * A trained model. The model must be persisted to one or more files.
 
     > [!NOTE]
@@ -38,8 +37,6 @@ Registering a model allows you to store, version, and apply metadata to your tra
 
 > [!TIP]
 > Each time you register a model using the same name, the model version is automatically incremented. The first model registered with a specific name is version 1. The second registered with the same name is version 2, and so on. You can optionally add other metadata such as tags, properties, and descriptions.
-
-You can register a model using either the Azure Machine Learning SDK or the Azure Machine Learning extension for the Azure CLI.
 
 > [!IMPORTANT]
 > When registering a trained model, the model must be persisted to one or more files. These files are then used to register the model.
