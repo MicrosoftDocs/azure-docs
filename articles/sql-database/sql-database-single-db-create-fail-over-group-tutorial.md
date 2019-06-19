@@ -35,6 +35,8 @@ The following section is for the Azure Portal
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 
+
+
 # [PowerShell](#tab/powershell)
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -44,6 +46,7 @@ To complete the tutorial, make sure you've installed the following items:
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
+---
 
 ## 1 - Create a single database 
 
@@ -131,6 +134,7 @@ Run the following PowerShell script to create your resource group and Azure SQL 
         -SampleName "AdventureWorksLT"
     ```
 
+---
 
 ## 2 - Create the failover group 
 
@@ -207,6 +211,7 @@ To create a failover group, run the following script:
        -ServerName $ServerName `
        -FailoverGroupName $FailoverGroupName
     ```
+---
 
 ## 3 - Test failover 
 
@@ -262,10 +267,12 @@ Revert failover group back to the primary server:
        -ServerName $ServerName `
        -FailoverGroupName $FailoverGroupName
     ```
+---
 
 ## Clean up resources (#tab/azure-portal)
 
 # [Azure Portal](#tab/azure-portal)
+
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com).
 1. Select to **Delete resource group**. 
 
@@ -278,6 +285,7 @@ Clean up resources by removing the deleting the resource group.
     Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
     ```
 
+---
 
 ## Next steps
 
