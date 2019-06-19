@@ -11,6 +11,8 @@
     href: per-vm-quota-requests.md
   - name: Total regional vCPU limit increase
     href: regional-quota-requests.md
+  - name: Azure Netwokring quota increase requests
+    href: networking-quota-requests
 - name: Troubleshooting region or SKU subscription issues
   href: sku-series-unavailable.md
 - name: Reference
