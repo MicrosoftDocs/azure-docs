@@ -72,7 +72,7 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
 
 1. Open the **Security Center** dashboard.
 
-2. In the left pane, select **Just-in-time VM access**.
+2. In the left pane, select  **Just-in-time VM access**.
 
     ![Just-in-time VM access tile](./media/security-center-just-in-time/just-in-time.png)
 
@@ -91,7 +91,7 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
 
 3. Select the **Recommended** tab.
 
-4. Under **VIRTUAL MACHINE**, select the VMs that you want to enable. This puts a checkmark next to a VM.
+4. Under **VIRTUAL MACHINE**, click the VMs that you want to enable. This puts a checkmark next to a VM.
 
 5. Select **Enable JIT on VMs**.
    -. This blade displays the default ports recommended by Azure Security Center:
@@ -99,7 +99,7 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
       - 3389 - RDP
       - 5985 - WinRM 
       - 5986 - WinRM
-6. You can also configure custom ports. To do this, select **Add**. 
+6. You can also configure custom ports. To do this, click **Add**. 
    -. In **Add port configuration**, for each port you choose to configure, both default and custom, you can customize the following settings:
       - **Protocol type**- The protocol that is allowed on this port when a request is approved.
       - **Allowed source IP addresses**- The IP ranges that are allowed on this port when a request is approved.
@@ -114,13 +114,14 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
 
 To request access to a VM via ASC:
 
-1. Under **Just in time VM access**, select **Configured**.
+1. Under **Just in time VM access**, select the **Configured** tab.
 
-2. Under **VMs**, check the VMs that you want to enable just-in-time access for.
+2. Under **Virtual Machines**, click the VMs that you want to request access for. This puts a checkmark next to the VM.
 
-    - The icon in the ‘Connection Details’ column indicates whether JIT is enabled on the NSG or FW. If it’s enabled on both, only the Firewall icon appears.
 
-    - The ‘Connection Details’ column provides the correct information required to connect the VM, as well as indicates the opened ports.
+    - The icon in the **Connection Details** column indicates whether JIT is enabled on the NSG or FW. If it’s enabled on both, only the Firewall icon appears.
+
+    - The **Connection Details** column provides the correct information required to connect the VM, as well as indicates the opened ports.
 
       ![Request just-in-time access](./media/security-center-just-in-time/request-just-in-time-access.png)
 
@@ -159,7 +160,7 @@ You can gain insights into VM activities using log search. To view logs:
 
 You can download the log information by selecting **Click here to download all the items as CSV**.
 
-Modify the filters and select **Apply** to create a search and log.
+Modify the filters and click **Apply** to create a search and log.
 
 
 
