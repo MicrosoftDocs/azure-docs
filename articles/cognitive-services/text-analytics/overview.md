@@ -95,6 +95,7 @@ Your rate limit will vary with your pricing tier.
 | S2            | 300                 | 300                 |
 | S3            | 500                 | 500                 |
 | S4            | 1000                | 1000                |
+
 Requests are measured for each Text Analytics feature separately. For example, you can send the maximum number of requests for your pricing tier to each feature, at the same time.      
 
 ## Unicode encoding
