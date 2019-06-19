@@ -100,6 +100,7 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
       - 5985 - WinRM 
       - 5986 - WinRM
 6. You can also configure custom ports:
+
       1. Click **Add**. The **Add port configuration** window opens.
       2. For each port you choose to configure, both default and custom, you can customize the following settings:
 
@@ -109,7 +110,7 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
 
      3. Click **OK**.
 
-1. Select **Save**.
+1. Click **Save**.
 
 > [!NOTE]
 >When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated and Azure Firewall with it. If other rules had been created for the selected ports, then the existing rules take priority over the new “deny all inbound traffic”  rules. If there are no existing rules on the selected ports, then the new “deny all inbound traffic” rules take top priority in the Network Security Groups and Azure Firewall.
