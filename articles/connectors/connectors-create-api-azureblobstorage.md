@@ -34,7 +34,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
 ## Limits
 
-* By default, Azure Blob Storage actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB up to the 1024 MB, Azure Blob Storage actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get blob content** action implicitly uses chunking.
+* By default, Azure Blob Storage actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB but up to 1024 MB, Azure Blob Storage actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get blob content** action implicitly uses chunking.
 
 * Azure Blob Storage triggers don't support chunking. When requesting file content, triggers select only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
 
