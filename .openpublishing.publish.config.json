@@ -272,7 +272,7 @@
     {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
-      "branch": "users/kirankk/sniptest",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
