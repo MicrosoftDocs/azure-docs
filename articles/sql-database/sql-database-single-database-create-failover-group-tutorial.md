@@ -31,10 +31,6 @@ To complete this tutorial, make sure you have:
 
 
 # [PowerShell](#tab/powershell)
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
-
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
@@ -74,10 +70,10 @@ Create your failover group and add your single database to it using the Azure po
 1. On the **Failover Group** page, enter or select the following values, and then select **Create**:
     - **Failover group name**: Type in a unique failover group name, such as `failovergrouptutorial`. 
     - **Secondary server**: Select the option to *configure required settings* and then choose to **Create a new server**. Alternatively, you can choose an already-existing server as the secondary server. After entering the following values, select **Select**. 
-        - **Server name**: Type in a unique name for the secondary server, such as `secondary-failover`. 
-        - **Server admin login**: Type `AzureAdmin`
+        - **Server name**: Type in a unique name for the secondary server, such as `mysqlsecondary`. 
+        - **Server admin login**: Type `azureuser`
         - **Password**: Type a complex password that meets password requirements.
-        - **Location**: Choose a location from the drop-down, such as East US 2. Per best practices, it is recommended to create the secondary server in a different geographic location than the primary server so that you can failover to a different location in the event of a disaster that affects the primary servers location. 
+        - **Location**: Choose a location from the drop-down, such as East US 2. This location cannot be the same location as your primary server.
     
        ![Create a secondary server for the failover group](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
@@ -89,11 +85,6 @@ Create your failover group and add your single database to it using the Azure po
 # [PowerShell](#tab/powershell)
 Create your failover group and add your single database to it using PowerShell. 
 
-
-> [!IMPORTANT]
-> [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
-
-To create a failover group, run the following PowerShell script:
 
    ```powershell-interactive
    # Set variables for your server and database

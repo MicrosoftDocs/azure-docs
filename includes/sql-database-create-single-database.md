@@ -80,7 +80,8 @@ Create your resource group and single database using PowerShell.
    $DatabaseName = "mySampleDatabase"
    
    
-   # The ip address range that you want to allow to access your server (leaving at 0.0.0.0 will prevent outside-of-azure connections)
+   # The ip address range that you want to allow to access your server 
+   #(leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB)
    $startIp = "0.0.0.0"
    $endIp = "0.0.0.0"
    
@@ -122,7 +123,7 @@ Create your resource group and single database using AZ CLI.
    ```azurecli-interactive
    #!/bin/bash
    # Set variables
-   subscriptionID=<Your Subscription ID>
+   export subscriptionID=<Your Subscription ID>
    export ResourceGroupName=myResourceGroup # to randomize: myResourceGroup-$RANDOM
    export Location=WestUS2
    export AdminLogin=azureuser
@@ -130,7 +131,8 @@ Create your resource group and single database using AZ CLI.
    export ServerName="mysqlserver" # to randomize: mysqlserver-$RANDOM
    export DatabaseName=mySampleDatabase
    
-   # The ip address range that you want to allow to access your DB. Leaving at 0.0.0.0 will prevent outside-of-azure connections
+   # The ip address range that you want to allow to access your DB. 
+   # (leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB)
    export startip=0.0.0.0
    export endip=0.0.0.0
   
