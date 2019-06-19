@@ -154,11 +154,17 @@ This error means that Cost Management is unable to call the AWS AssumeRole API. 
 
 This error messages means that Cost Management is unable to access the CUR files stored in the Amazon S3 bucket. Make sure that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
 
-### Connector error with FailedToFindReport
+### Collection failed since we did not find the Cost and Usage Report
 
 **Error code:** _FailedToFindReport_
 
 This error means that Cost Management can't find the Cost and Usage report that was defined in the connector. Make sure it isn't deleted and that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
+
+### Unable to create or verify connector due to Cost and Usage Report definitions mismatch
+
+**Error code:** _ReportIsNotValid_
+
+This error relates to the definition of AWS Cost and Usage Report, we require specific settings for this report, see the requirements in [Create a Cost and Usage report in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
 
 ## Next steps
 
