@@ -24,10 +24,8 @@
       displayName: encode, encoding, job, transform
       href: stream-files-tutorial-with-api.md
   - name: Stream live 
-    items:
-    - name: With .NET
-      href: stream-live-tutorial-with-api.md
-      displayName: Live Events, Live Outputs, ingest 
+    href: stream-live-tutorial-with-api.md
+    displayName: Live Events, Live Outputs, ingest 
   - name: Analyze your video 
     items:
     - name: With .NET
