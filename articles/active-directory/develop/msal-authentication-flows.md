@@ -83,9 +83,9 @@ MSAL supports the [OAuth 2 on-behalf-of authentication flow](v2-oauth2-on-behalf
 
 ![Diagram of on-behalf-of flow](media/msal-authentication-flows/on-behalf-of.png)
 
-In the preceding diagram, the application:
+In the preceding diagram:
 
-1. Acquires an access token for the web API.
+1. The application acquires an access token for the web API.
 2. A client (web, desktop, mobile, or single-page application) calls a protected web API, adding the access token as a bearer token in the authentication header of the HTTP request. The web API authenticates the user.
 3. When the client calls the web API, the web API requests another token on-behalf-of the user.  
 4. The protected web API uses this token to call a downstream web API on-behalf-of the user.  The web API can also later request tokens for other downstream APIs (but still on behalf of the same user).
