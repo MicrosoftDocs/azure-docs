@@ -11207,7 +11207,7 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-r-scripts.md",
-      "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
+      "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
       "redirect_document_id": false
     },
     {
@@ -11272,7 +11272,7 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-r-scripts-linux.md",
-      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-r-server-get-started",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-r-server-overview",
       "redirect_document_id": false
     },
     {
@@ -25811,7 +25811,7 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-r-server-get-started.md",
-      "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
+      "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
       "redirect_document_id": true
     },
     {
@@ -26141,8 +26141,13 @@
     },
     {
       "source_path": "articles/hdinsight/r-server/r-server-install-r-studio.md",
-      "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
+      "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/r-server/r-server-get-started.md",
+      "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/hdinsight/spark/apache-spark-eventhub-structured-streaming.md",

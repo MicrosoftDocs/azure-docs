@@ -42,7 +42,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
 ## Execute local R methods
 
-1. Create your [HDInsight ML Services cluster](r-server-get-started.md).
+1. Create your HDInsight ML Services cluster.
 2. Install the [RTVS extension](https://docs.microsoft.com/visualstudio/rtvs/installation).
 3. Download the [samples zip file](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Open `examples/Examples.sln` to launch the solution in Visual Studio.

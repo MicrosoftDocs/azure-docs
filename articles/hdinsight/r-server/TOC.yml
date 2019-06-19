@@ -4,14 +4,13 @@
   items:
   - name: What is ML Services in HDInsight?
     href: r-server-overview.md
-- name: Get started
+- name: Quickstarts
+  expanded: true
   items:
-  - name: Start with ML Services
-    href: r-server-get-started.md
-  - name: Install HDInsight apps
-    href: ../hdinsight-apps-install-applications.md
-  - name: Cluster capacity planning
-    href: ../hdinsight-capacity-planning.md
+  - name: Sample job - RStudio Server
+    href: ./ml-services-quickstart-job-rstudio.md
+  - name: Sample job - R console
+    href: ./ml-services-quickstart-job-rconsole.md
 - name: Concepts
   items:
   - name: Apache Hadoop components on HDInsight
