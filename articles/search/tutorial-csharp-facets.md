@@ -165,7 +165,7 @@ The home controller needs a significant change. The first call to **Index()** no
         }
     ```
 
-A few points to note here. We convert the results of the search call to a list of strings, then these facet strings are added to a **SearchData** model for communication to the view. Also we save those strings to temporary storage before finally rendering the view. This saving is done so that this list is available to the next call to a controller action.
+    A few points to note here. We convert the results of the search call to a list of strings, then these facet strings are added to a **SearchData** model for communication to the view. Also we save those strings to temporary storage before finally rendering the view. This saving is done so that this list is available to the next call to a controller action.
 
 3. Let's add the two private methods to save and restore facets to the model, and to temporary storage.
 
@@ -299,7 +299,7 @@ When a user selects certain facets, for example, say they click on the **Budget*
             };
     ```
 
-We have added the **Category** property to the list of **Select** items to return. Adding this property is not a requirement, but in this way we can verify that we are filtering correctly.
+    We have added the **Category** property to the list of **Select** items to return. Adding this property is not a requirement, but in this way we can verify that we are filtering correctly.
 
 ### Define a few additional HTML styles
 
@@ -327,7 +327,7 @@ For the view, we organize the output into a table, to neatly align the facets on
 
 1. Replace the entire contents of the HTML &lt;body&gt; tags, with the following code.
 
-    ```html
+    ```cs
     <body>
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -471,7 +471,7 @@ For the view, we organize the output into a table, to neatly align the facets on
     </body>
     ```
 
-Notice the use of the **CheckBoxFor** call to populate the **facetOn** array with the user selections. Also, we have added the category of hotel to the end of the hotel description. This text is simply to confirm that our search is working correctly. Not much else has changed from earlier tutorials, except that we have organized the output into a table.
+    Notice the use of the **CheckBoxFor** call to populate the **facetOn** array with the user selections. Also, we have added the category of hotel to the end of the hotel description. This text is simply to confirm that our search is working correctly. Not much else has changed from earlier tutorials, except that we have organized the output into a table.
 
 ### Run and test the app
 
@@ -505,7 +505,7 @@ In order to initiate a facet search, we need to send a query. The following Java
 
 1. Locate the **@Html.TextBoxFor(m => m.searchText, ...)** statement and add a unique ID, similar to the following.
 
-    ```html
+    ```cs
     <div class="searchBoxForm">
         @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azuresearchfacets" }) <input value="" class="searchBoxSubmit" type="submit">
     </div>
@@ -531,7 +531,7 @@ In order to initiate a facet search, we need to send a query. The following Java
         </script>
     ```
 
-Notice that the script calls the **Facets** action in the home controller, without any other parameters, when a minimum length of two typed characters is reached.
+    Notice that the script calls the **Facets** action in the home controller, without any other parameters, when a minimum length of two typed characters is reached.
 
 ### Add references to jquery scripts to the view
 
@@ -539,7 +539,7 @@ The autocomplete function called in the script above is not something we have to
 
 1. To access the jquery library, replace the &lt;head&gt; section of the view file with the following code.
 
-    ```html
+    ```cs
     <head>
         <meta charset="utf-8">
         <title>Facets demo</title>
@@ -600,12 +600,12 @@ Now we can use the predefined autocomplete jquery functions.
         }
     ```
 
-Notice that we are requesting up to 100 facets from the **Tags** fields, and up to 20 from the **Category** fields. The **count** entries are optional, if no count is set the default is 10.
+    Notice that we are requesting up to 100 facets from the **Tags** fields, and up to 20 from the **Category** fields. The **count** entries are optional, if no count is set the default is 10.
 
-We need two lists, that are then combined into one, because we asked for two fields to be searched (**Tags** and **Category**). If we had asked for three fields to be searched, we would have to combine three lists into one, and so on.
+    We need two lists, that are then combined into one, because we asked for two fields to be searched (**Tags** and **Category**). If we had asked for three fields to be searched, we would have to combine three lists into one, and so on.
 
-> [!NOTE]
-> It is possible to set one or more of the following parameters for each field in a facet search: **count**, **sort**, **interval**, and **values**. For more information, see [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation).
+    > [!NOTE]
+    > It is possible to set one or more of the following parameters for each field in a facet search: **count**, **sort**, **interval**, and **values**. For more information, see [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation).
 
 ### Compile and run your project
 
