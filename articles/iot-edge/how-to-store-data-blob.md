@@ -58,7 +58,6 @@ An Azure IoT Edge device:
   | ---------------- | ----- | ----- |
   | Ubuntu Server 16.04 | AMD64 |
   | Ubuntu Server 18.04 | AMD64 |
-  | Windows 10 IoT Core (October update) | AMD64 |
   | Windows 10 IoT Enterprise | AMD64 |
   | Windows Server 2019 | AMD64 |
   | Raspbian-stretch | ARM32 |
@@ -91,7 +90,7 @@ The name of this setting is `deviceAutoDeleteProperties`
 | ----- | ----- | ---- |
 | deleteOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
 | deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires |
-| retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires|
+| retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires. Note: For this property to work uploadOn should be set to true|
 
 ## Configure log files
 
