@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 06/20/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -46,7 +46,7 @@ The process is explained in the following table:
 |1|The client application sends the user query to the [GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api).|
 |2|Qna Maker preprocessing the user query with language detection, spellers, and word breakers.|
 |3|This preprocessing is taken to alter user query for best search results.|
-|4|This altered query is sent to Azure Search Index, receiving the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slighly. Generally a value of 10 for `top` works in 90% of queries.|
+|4|This altered query is sent to Azure Search Index, receiving the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally a value of 10 for `top` works in 90% of queries.|
 |5|The search results returned from Azure Search Index have features applied.|
 |6|The features scores are used to determine best ranking of the results from Azure Search Index.|
 |7|The new results are returned to the client application in ranked order.|
@@ -56,9 +56,9 @@ The following featurizations are used to preprocess (step 2 above) the user quer
 
 |Feature|Purpose|
 |--|--|
-|WordNet|There are various features generated using WordNet matching with questions and answers. This takes care of the word level semantics.|
-|Term frequency-inverse document frequency (TF-IDF)|This weight is a statistical measure used to evaluate how important a word is to a document in a collection or corpus. The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus. |
-|CDSSM||
+|WordNet|Word-level semantic features generated using WordNet matching with questions and answers. |
+|Term frequency-inverse document frequency (TF-IDF)|A statistical measure used to evaluate how important a word is to a document in a collection or corpus. The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus. |
+| C (stands for what? ) Deep Structured Semantic Model or Deep Semantic Similarity Model (CDSSM)|A deep neural network (DNN) modeling technique for representing text strings (sentences, queries, predicates, entity mentions, etc.) in a continuous semantic space and modeling semantic similarity between two text strings.|
 |||
 
 ## Next steps
