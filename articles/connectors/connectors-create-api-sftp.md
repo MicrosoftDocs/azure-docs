@@ -40,7 +40,7 @@ If you're new to logic apps, review
 
 ## Limits
 
-SFTP actions can read or write files that are *50 MB or smaller*. For larger files, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). For other differences between the SFTP connector and the SFTP-SSH connector, review [Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) in the SFTP-SSH article.
+The SFTP connector can handle only files that are *50 MB or smaller*. For larger files, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). For differences between the SFTP connector and the SFTP-SSH connector, review [Compare SFTP-SSH versus SFTP](../connectors/connectors-sftp-ssh.md#comparison) in the SFTP-SSH article.
 
 ## Prerequisites
 
@@ -76,6 +76,19 @@ To start with an SFTP trigger,
 [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 To use an SFTP action, start your logic app with another trigger, 
 for example, the **Recurrence** trigger.
+
+## How SFTP triggers work
+
+SFTP triggers work by polling the SFTP file system and looking for any file that was changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. Here are some common settings:
+
+| SFTP client | Action |
+|-------------|--------|
+| Winscp | Go to **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** |
+| FileZilla | Go to **Transfer** > **Preserve timestamps of transferred files** > **Disable** |
+|||
+
+When a trigger finds a new file, the trigger checks that the new file is complete, and not partially written. For example, a file might have changes in progress when the trigger checks the file server. To avoid returning a partially written file, the trigger notes the timestamp for the file that has recent changes, but doesn't immediately return that file. The trigger returns the file only when polling the 
+server again. Sometimes, this behavior might cause a delay that is up to twice the trigger's polling interval.
 
 ## Connect to SFTP
 
@@ -132,39 +145,6 @@ choose **Create**.
 
 1. Provide the necessary details for your selected trigger 
 or action and continue building your logic app's workflow.
-
-## Trigger limits
-
-The SFTP triggers work by polling the SFTP file system 
-and looking for any file that was changed since the last poll. 
-Some tools let you preserve the timestamp when the files change. 
-In these cases, you have to disable this feature so your trigger 
-can work. Here are some common settings:
-
-| SFTP client | Action | 
-|-------------|--------| 
-| Winscp | Go to **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** |
-| FileZilla | Go to **Transfer** > **Preserve timestamps of transferred files** > **Disable** | 
-||| 
-
-When a trigger finds a new file, the trigger checks that the new file is complete, 
-and not partially written. For example, a file might have changes in progress when 
-the trigger checks the file server. To avoid returning a partially written file, 
-the trigger notes the timestamp for the file that has recent changes, but doesn't 
-immediately return that file. The trigger returns the file only when polling the 
-server again. Sometimes, this behavior might cause a delay that is up to twice 
-the trigger's polling interval. 
-
-When requesting file content, triggers don't get files 
-larger than 50 MB. To get files larger than 50 MB, 
-follow this pattern: 
-
-* Use a trigger that returns file properties, 
-such as **When a file is added or modified (properties only)**.
-
-* Follow the trigger with an action that reads the complete file, 
-such as **Get file content using path**, and have the action use 
-[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## Examples
 
