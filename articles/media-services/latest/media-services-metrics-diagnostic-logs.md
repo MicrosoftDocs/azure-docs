@@ -41,6 +41,7 @@ You can monitor the following account metrics. For more information, see [accoun
 * Content Key Policy quota used percentage
 * Streaming Policy count
 * Streaming Policy quota
+* Streaming Policy quota used percentage
 
 ### Streaming Endpoint
 
@@ -59,6 +60,20 @@ az monitor metrics list --resource \
    "/subscriptions/<subscription id>/resourcegroups/<resource group name>/providers/Microsoft.Media/mediaservices/<Media Services account name>/streamingendpoints/<streaming endpoint name>" \
    --metric "Egress"
 ```
+
+## Why would I want to use metrics? 
+
+Here are examples of how monitoring Media Services metrics can help you understand how your applications are performing. Some questions that can be addressed with Media Services metrics are:
+
+* How do I monitor my Standard Streaming Endpoint to know when I have exceeded the limits?
+* How do I know if I have enough Premium Streaming Endpoint scale units? 
+* How can I set an alert to know when to scale up my Streaming Endpoints?
+* How do I set an alert to know when the max egress configured on the account was reached?
+* How can I see the breakdown of requests failing and what is causing the failure?
+* How can I see how many HLS or DASH requests are being pulled from the packager?
+* How do I set an alert to know when the threshold value of # of failed requests was hit? 
+
+For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
 ## Media Services diagnostic logs
 
@@ -96,25 +111,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## Why would I want to use metrics and diagnostics logs? 
-
-Here are examples of how monitoring Media Services metrics and logs can help you understand how your applications are performing:
-
-### Metrics
-
-Some questions that can be addressed with Media Services metrics are:
-
-* How do I monitor my Standard Streaming Endpoint to know when I have exceeded the limits?
-* How do I know if I have enough Premium Streaming Endpoint scale units? 
-* How can I set an alert to know when to scale up my Streaming Endpoints?
-* How do I set an alert to know when the max egress configured on the account was reached?
-* How can I see the breakdown of requests failing and what is causing the failure?
-* How can I see how many HLS or DASH requests are being pulled from the packager?
-* How do I set an alert to know when the threshold value of # of failed requests was hit? 
-
-For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
-
-### Logs
+## Why would I want to use diagnostics logs? 
 
 Some things that you can examine with Key Delivery diagnostic logs are:
 
