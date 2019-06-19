@@ -19,7 +19,7 @@ It is necessary to retrieve the device calibration to perform coordinate system 
 
 ### OpenCV Compatibility
 
-The calibration parameters are compatible with [OpenCV](https://opencv.org/). For more details about the individual camera calibration parameters, see also [OpenCV documentation](https://docs.opencv.org/3.2.0/d9/d0c/group__calib3d.html#gga7041b2a9c8f9f8ee93a2796981bc5546a204766e24f2e413e7a7c9f8b9e93f16c). Also see [OpenCV compatibility example](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/opencv_compatibility) of the SDK that demonstrates conversion between the [k4a_calibration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__calibration__t.html#details) type and the corresponding OpenCV data structures.
+The calibration parameters are compatible with [OpenCV](https://opencv.org/). For more information about the individual camera calibration parameters, see also [OpenCV documentation](https://docs.opencv.org/3.2.0/d9/d0c/group__calib3d.html#gga7041b2a9c8f9f8ee93a2796981bc5546a204766e24f2e413e7a7c9f8b9e93f16c). Also see [OpenCV compatibility example](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/opencv_compatibility) of the SDK that demonstrates conversion between the [k4a_calibration_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__calibration__t.html#details) type and the corresponding OpenCV data structures.
 
 ## Coordinate Transformation Functions
 
