@@ -147,12 +147,12 @@ Verify that the location of your current IP address isn't in one of the unsuppor
 
 ## Next steps
 
-For more information on the new features of Azure Maps:
-
-> [!div class="nextstepaction"]
-> [Route Matrix, Isochrones, IP lookup, and more](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
-
 Try out a sample app showcasing the Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a web app](quick-demo-map-app.md)
+
+Stay up to date on Azure Maps: 
+
+> [!div class="nextstepaction"]
+> [Azure Maps blog](https://azure.microsoft.com/blog/topics/azure-maps/)

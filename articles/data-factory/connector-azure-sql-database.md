@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data to or from Azure SQL Database by using Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Current version](connector-azure-sql-database.md)
 
@@ -35,11 +35,11 @@ This Azure SQL Database connector is supported for the following activities:
 Specifically, this Azure SQL Database connector supports these functions:
 
 - Copying data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
-- As a source, retrieving data by using a SQL query or stored procedure.
+- As a source, retrieving data by using a SQL query or a stored procedure.
 - As a sink, appending data to a destination table or invoking a stored procedure with custom logic during the copy.
 
 >[!NOTE]
->Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) with the ODBC driver download and connection string configurations.
+>Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) with ODBC driver download and connection string configurations.
 
 > [!IMPORTANT]
 > If you copy data by using the Azure Data Factory integration runtime, configure an [Azure SQL Server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure services can access the server.
@@ -57,12 +57,12 @@ These properties are supported for an Azure SQL Database linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property must be set to **AzureSqlDatabase**. | Yes. |
-| connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. <br/>Mark this field as **SecureString** to store it securely in Azure Data Factory. You also can put a password or service principal key in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes. |
-| servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal. |
-| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Azure Data Factory or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal. |
-| tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal. |
-| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No. |
+| type | The **type** property must be set to **AzureSqlDatabase**. | Yes |
+| connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. <br/>Mark this field as **SecureString** to store it securely in Azure Data Factory. You also can put a password or service principal key in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal |
+| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Azure Data Factory or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal |
+| tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal |
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
@@ -183,7 +183,7 @@ To use a service principal-based Azure AD application token authentication, foll
 
 A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific data factory. You can use this managed identity for Azure SQL Database authentication. The designated factory can access and copy data from or to your database by using this identity.
 
-To use managed identity authentication, follow these steps:
+To use managed identity authentication, follow these steps.
 
 1. [Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) for your Azure SQL Server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or an Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator has full access to the database.
 
@@ -230,8 +230,8 @@ To copy data from or to Azure SQL Database, the following properties are support
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property of the dataset must be set to **AzureSqlTable**. | Yes. |
-| tableName | The name of the table or view in the Azure SQL Database instance that the linked service refers to. | No for source. Yes for sink. |
+| type | The **type** property of the dataset must be set to **AzureSqlTable**. | Yes |
+| tableName | The name of the table or view in the Azure SQL Database instance that the linked service refers to. | No for source, Yes for sink |
 
 #### Dataset properties example
 
@@ -268,7 +268,7 @@ To copy data from Azure SQL Database, set the **type** property in the copy acti
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 
-### Points to note
+**Points to note:**
 
 - If **sqlReaderQuery** is specified for **SqlSource**, the copy activity runs this query against the Azure SQL Database source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the "structure" section of the dataset JSON are used to construct a query. The query `select column1, column2 from mytable` runs against Azure SQL Database. If the dataset definition doesn't have "structure," all columns are selected from the table.
@@ -363,7 +363,7 @@ GO
 ### Azure SQL Database as the sink
 
 > [!TIP]
-> Learn more about the supported write behaviors, configurations, and best practices from [Best practices for loading data into Azure SQL Database](#best-practices-for-loading-data-into-azure-sql-database).
+> Learn more about the supported write behaviors, configurations, and best practices from [Best practice for loading data into Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
 
 To copy data to Azure SQL Database, set the **type** property in the copy activity sink to **SqlSink**. The following properties are supported in the copy activity **sink** section:
 
@@ -448,7 +448,7 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-st
 ]
 ```
 
-## Best practices for loading data into Azure SQL Database
+## Best practice for loading data into Azure SQL Database
 
 When you copy data into Azure SQL Database, you might require different write behavior:
 
@@ -511,7 +511,7 @@ The steps to write data with custom logic are similar to those described in the 
 When you copy data into Azure SQL Database, you also can configure and invoke a user-specified stored procedure with additional parameters.
 
 > [!TIP]
-> Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practices for loading data into Azure SQL Database](#best-practices-for-loading-data-into-azure-sql-database).
+> Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practice for loading data into Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert into more than one table.
 
