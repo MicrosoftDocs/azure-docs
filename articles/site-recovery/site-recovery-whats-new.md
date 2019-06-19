@@ -177,7 +177,7 @@ Features added this month are summarized in the table.
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-#### VMware VMs/physical servers replication 
+### VMware VMs/physical servers replication 
 Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
@@ -188,7 +188,7 @@ Features added this month are summarized in the table.
 **Failover** | Improved failover time for VMware VMs where storvsc and vsbus aren't boot drivers.
 **UEFI support** | Azure VMs don't support boot type UEFI. You can now migrate on-premises physical servers with UEFI to Azure with Site Recovery. Site Recovery migrates the server by converting the boot type to BIOS before migration. Site Recovery previously supported this conversion for VMs only. Support is available for physical servers running Windows Server 2012 or later.
 
-#### Azure VM disaster recovery
+### Azure VM disaster recovery
 Features added this month are summarized in the table.
 
 **Feature** | **Details**
@@ -220,7 +220,7 @@ Disaster Recovery of Azure VMs incurs VM licensing costs, and network and storag
 
 ## Updates (October 2018)
 
-## Update rollup 30 
+### Update rollup 30 
 
 [Update rollup 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) provides the following updates.
 
