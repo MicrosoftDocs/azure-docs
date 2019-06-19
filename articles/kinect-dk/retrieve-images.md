@@ -9,7 +9,7 @@ ms.topic: conceptual
 keywords: kinect, azure, retrieve, sensor, camera, sdk, depth, rgb, images, color, capture, resolution, buffer
 ---
 
-# Retrieve image data
+# Retrieve Azure Kinect image data
 
 This page provides details about how to retrieve images from the Azure Kinect. The article demonstrates how to capture and access images coordinated between the device's color and depth cameras.device. To access images, you must first open and configure the device, then you can capture images.
 Before you configure and capture an image, you must [Find and open device](find-then-open-device.md).

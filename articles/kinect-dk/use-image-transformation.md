@@ -1,6 +1,6 @@
 ---
-title: Use Azure Kinect image transformations
-description: Transform Between Coordinate Systems
+title: Use Azure Kinect Sensor SDK image transformations
+description: How to use Azure Kinect Sensor SDK image transformation functions.
 author: cdedmonds
 ms.author: cdedmonds
 ms.prod: kinect-dk
@@ -9,7 +9,7 @@ ms.date: 06/15/2019
 keywords: kinect, azure, sensor, sdk, coordinate system, calibration, project, unproject, transformation, rgb-d, point cloud
 ---
 
-# Use Image Transformations
+# Use Azure Kinect Sensor SDK image transformations
 
 Follow the specific functions to use and transform images between coordinated camera systems in your Azure Kinect DK.
 
