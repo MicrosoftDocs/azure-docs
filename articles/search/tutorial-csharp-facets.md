@@ -87,6 +87,8 @@ public partial class Hotel
 
 For this example, we are going to enable the user to select one or more categories of hotel, in a list shown to the left of the results. We need the controller to know the list of categories when the app is first run, and to pass this list to the view to be displayed when the first screen is rendered. As each page is rendered, we need to make sure we have maintained both the list of facets, and the current user selections, to be passed along to subsequent pages. Again, we use temporary storage as the mechanism for preserving data.
 
+![Using facet navigation to narrow a search of "pool"](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
+
 ### Modify the SearchData model
 
 1. Open the SearchData.cs file, and add this additional **using** statement. We need to enable the **List&lt;string&gt;** construct.
@@ -478,6 +480,8 @@ Notice the use of the **CheckBoxFor** call to populate the **facetOn** array wit
 
 2. Try selecting one, two, three, or more check boxes, and verify the results.
 
+    ![Using facet navigation to narrow a search of "wifi"](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
+
 3. There is a slight complication with facet navigation. What should happen if a user changes the facet selection (selecting or de-selecting the check boxes), but then clicks one of the paging options, and not the search bar? In effect, changing the selection should initiate a new search, as the current pages will no longer be correct. Alternatively, the user changes could be ignored, and the next page of results given, based on the original facet selections. We have chosen the latter solution in this example, but perhaps consider how you might implement the former solution. Perhaps trigger a new search if the latest selection of chosen facets does not exactly match the selection in temporary storage?
 
 That completes our example of facet navigation. But perhaps you could also consider how this app might be extended. The facet list could be expanded to include other facet-able fields (say **Tags**), so that a user could select a range of options such as a pool, wifi, bar, free parking, and so on. 
@@ -487,6 +491,10 @@ The advantage of facet navigation to the user is that they do not have to keep e
 Now let's examine a different use of facets.
 
 ## Add facet autocompletion to your app
+
+Facet autocompletion works by making an initial search when the app is first run. This search collects a list of facets to use as suggestions when the user is typing.
+
+![Typing "re" reveals three facets](./media/tutorial-csharp-create-first-app/azure-search-facet-type-re.png)
 
 We will use the numbered paging app you might have completed in the second tutorial as a basis for this sample.
 
@@ -568,7 +576,7 @@ using System.Linq;
 
 2. The JavaScript in the view triggers the **Facets** action in the controller, so let's add that action to the home controller (say, below the **Page** action).
 
-```cs
+    ```cs
         public async Task<ActionResult> Facets()
         {
             InitSearch();
@@ -591,7 +599,7 @@ using System.Linq;
             facets.AddRange(categories);
             return new JsonResult(facets);
         }
-```
+    ```
 
 Notice that we are requesting up to 100 facets from the **Tags** fields, and up to 20 from the **Category** fields. The **count** entries are optional, if no count is set the default is 10.
 
@@ -606,7 +614,7 @@ Now test the program.
 
 1. Try typing "fr" into the search box, which should show several results.
 
-    ![Typing "fr" reveals three facets](./media/tutorial-csharp-create-first-app/azure-search-facets-fr.png)
+    ![Typing "fr" reveals three facets](./media/tutorial-csharp-create-first-app/azure-search-facet-type-fr.png)
 
 2. Now add an "o" to make "fro" and notice the range of options is reduced to one.
 
@@ -626,7 +634,6 @@ Facet autocompletion is best used when:
 
 > [!NOTE]
 > Although facet searches are designed to be called once per page load, they can of course be called much more often, it depends on your JavaScript. Equally true is that autocompletion/suggestion searches can be carried out less often than once per keystroke. Again this is determined by your JavaScript, not Azure Search. However, facet search is designed to be called only once per page as facets are constructed by Azure Search from the searched documents with this in mind. It is good practice to consider facet autocompletion searches as a slightly less flexible but more network-efficient form of user-assistance.
-
 
 ## Takeaways
 
