@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 06/19/2019
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -92,7 +92,7 @@ Here are the limits for a single logic app run:
 
 ## Throughput limits
 
-Here are the limits for a single logic app run:
+Here are the limits for a single logic app definition:
 
 ### Multi-tenant Logic Apps service
 
