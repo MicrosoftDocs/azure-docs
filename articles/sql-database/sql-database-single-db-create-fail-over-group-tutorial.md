@@ -36,7 +36,6 @@ The following section is for the Azure Portal
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 
 
-
 # [PowerShell](#tab/powershell)
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -45,6 +44,13 @@ The following section is for the Azure Portal
 To complete the tutorial, make sure you've installed the following items:
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+
+
+# [Bash](#tab/bash)
+- An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
+- The latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+
+
 
 ---
 
@@ -94,7 +100,7 @@ In this step, you will create your Azure SQL Database single database.
 # [PowerShell](#tab/powershell)
 Run the following PowerShell script to create your resource group and Azure SQL Database single database. 
 
-   ```powershell
+   ```powershell-interactive
    # Set variables for your server and database
    $SubscriptionId = '<Your Azure subscription ID>'
    $ResourceGroupName = "myResourceGroup"
@@ -109,7 +115,10 @@ Run the following PowerShell script to create your resource group and Azure SQL 
    $startIp = "0.0.0.0"
    $endIp = "0.0.0.0"
    
-   # Set subscription 
+   # Connect to Azure
+   Connect-AzAccount
+
+   # Set subscription ID
    Set-AzContext -SubscriptionId $subscriptionId 
    
    # Create a resource group
@@ -134,11 +143,67 @@ Run the following PowerShell script to create your resource group and Azure SQL 
       -SampleName "AdventureWorksLT"
    ```
 
+# [Bash](#tab/bash)
+
+   ```azure-cli-interactive
+   #!/bin/bash
+   # Set variables
+   subscriptionID=<Your Subscription ID>
+   export ResourceGroupName=myResourceGroup
+   export Location=WestUS2
+   export AdminLogin=AzureAdmin
+   export Password=ChangeYourAdminPassword1
+   export ServerName="failover-sqlserver"
+   export DatabaseName=mySampleDatabase
+   
+   # The ip address range that you want to allow to access your DB
+   export startip=0.0.0.0
+   export endip=0.0.0.0
+  
+   # Connect to Azure
+   az login
+
+   $ Set subscription ID
+   az account set --subscription $SubscriptionID
+   
+   # Create a resource group
+   az group create \
+      --name $ResourceGroupName \
+      --location $Location
+   
+   # Create a logical server in the resource group
+   az sql server create \
+      --name $ServerName \
+      --resource-group $ResourceGroupName \
+      --location $Location  \
+      --admin-user $AdminLogin\
+      --admin-password $Password
+   
+   # Configure a firewall rule for the server
+   az sql server firewall-rule create \
+      --resource-group $ResourceGroupName \
+      --server $ServerName \
+      -n AllowYourIp \
+      --start-ip-address $startip \
+      --end-ip-address $endip
+   
+   # Create a database in the server 
+   az sql db create \
+      --resource-group $ResourceGroupName \
+      --server $ServerName \
+      --name $DatabaseName \
+      --sample-name AdventureWorksLT \
+      --service-objective S0 \
+   ```
+
+
+
 ---
 
 ## 2 - Create the failover group 
 
 # [Azure Portal](#tab/azure-portal)
+
 1. Select **All Services** on the upper-left hand corner of the [Azure portal](https://portal.azure.com). 
 1. Type `sql servers` in the search box. 
 1. (Optional) Select the star icon next to SQL Servers to favorite **SQL servers** and add it to your left-hand navigation pane. 
@@ -171,9 +236,9 @@ Using Azure PowerShell, create a [failover group](sql-database-auto-failover-gro
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
-To create a failover group, run the following script:
+To create a failover group, run the following PowerShell script:
 
-   ```powershell
+   ```powershell-interactive
    # Set variables for your server and database
    $ResourceGroupName = "myResourceGroup"
    $Location = "westus2"
@@ -182,10 +247,10 @@ To create a failover group, run the following script:
    $ServerName = "failover-sqlserver"
    $DatabaseName = "mySampleDatabase"
    $drLocation = "eastus2"
-   $drServerName = "secondary-failover"
+   $drServerName = "secondaryFailover"
    $FailoverGroupName = "failovergrouptutorial"
    
-   # Create a backup server in the failover region
+   # Create a secondary server in the failover region
    New-AzSqlServer -ResourceGroupName $ResourceGroupName `
       -ServerName $drServerName `
       -Location $drLocation `
@@ -211,6 +276,41 @@ To create a failover group, run the following script:
       -ServerName $ServerName `
       -FailoverGroupName $FailoverGroupName
    ```
+
+# [Bash](#tab/bash)
+
+
+   ```azure-cli
+   #!/bin/bash
+   # Set variables
+   export SubscriptionID=<Your Subscription ID>
+   export ResourceGroupName=myResourceGroup
+   export Location=WestUS2
+   export AdminLogin=AzureAdmin
+   export Password=ChangeYourAdminPassword1
+   export ServerName="failover-sqlserver"
+   export DatabaseName=mySampleDatabase
+   export drLocation=EastUS2
+   export drServerName="secondary-failover"
+   export FailoverGroupName="failovergrouptutorial"
+
+   # Create a secondary server in the DR region
+   az sql server create \
+      --name $drServerName \
+      --resource-group $ResourceGroupName \
+      --location $drLocation  \
+      --admin-user $AdminLogin\
+      --admin-password $Password
+
+   # Create a failover group between the servers and add the database
+   az sql failover-group create \
+      --name $FailoverGroupName  \
+      --partner-server $drServerName \
+      --resource-group $ResourceGroupName \
+      --server $ServerName \
+      --failover-policy Automatic \
+   ```
+
 ---
 
 ## 3 - Test failover 
@@ -267,9 +367,55 @@ Revert failover group back to the primary server:
       -ServerName $ServerName `
       -FailoverGroupName $FailoverGroupName
    ```
+
+# [Bash](#tab/bash)
+
+Verify which server is the secondary:
+
+
+```azure-cli-interactive
+  # Set variables
+  export ResourceGroupName=myResourceGroup
+  export ServerName="failover-sqlserver"
+  
+
+  az sql failover-group list \
+     --server $ServerName \
+     --resource-group $ResourceGroupName \
+```
+
+Failover to the secondary server: 
+
+```azure-cli-interactive
+   # Set variables
+   export ResourceGroupName=myResourceGroup
+   export FailoverGroupName = "failovergrouptutorial"
+   export drServerName="secondary-failover"
+
+   az sql failover-group set-primary \
+       --name $FailoverGroupName \
+       --resource-group $ResourceGroupName \
+       --server $drServerName \
+```
+
+Revert failover group back to the primary server:
+
+```azure-cli-interactive
+   # Set variables
+   export ResourceGroupName=myResourceGroup
+   export FailoverGroupName = "failovergrouptutorial"
+   export ServerName="failover-sqlserver"
+
+   az sql failover-group set-primary \
+       --name $FailoverGroupName \
+       --resource-group $ResourceGroupName \
+       --server $ServerName \
+```
+
 ---
 
 ## Clean up resources (#tab/azure-portal)
+Clean up resources by deleting the resource group. 
 
 # [Azure Portal](#tab/azure-portal)
 
@@ -277,13 +423,27 @@ Revert failover group back to the primary server:
 1. Select to **Delete resource group**. 
 
 # [PowerShell](#tab/powershell)
-Clean up resources by removing the deleting the resource group. 
+
 
    ```powershell
+   # Set variables
    $ResourceGroupName = "myResourceGroup"
-   # Clean up deployment 
+
+   # Remove the resource group
    Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
    ```
+
+# [Bash](#tab/bash)
+
+    ```azure-cli-interactive
+    # Set variables    
+     export ResourceGroupName=myResourceGroup
+    
+    # Remove the resource group
+    az group delete \
+       --name $ResourceGroupName \
+
+    ```
 
 ---
 
