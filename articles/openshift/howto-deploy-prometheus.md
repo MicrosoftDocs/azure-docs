@@ -22,7 +22,7 @@ You'll prepare some configuration files locally. Create a new folder to store th
 The config files are stored in the cluster as secrets in case there are some secret tokens added inside them later.
 
 ## Step 1: Log in
-Log in with your oc tool by going to the URL based on properties.publicHostname of the cluster:
+Log in with your `oc` tool by going to the URL based on properties.publicHostname of the cluster:
 
 https://openshift.random-id.region.azmosa.io
 
