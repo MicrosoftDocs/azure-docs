@@ -329,6 +329,8 @@ Delete the resource group by using AZ CLI.
 
 ## Full scripts
 
+# [Azure Portal](#tab/azure-portal)
+
 # [PowerShell](#tab/powershell)
 
 ```powershell-interactive
