@@ -32,7 +32,7 @@ Just-in-time  (JIT) virtual machine (VM) access can be used to lock down inbound
 
 Brute force attacks commonly target management ports as a means to gain access to a VM. If successful, an attacker can take control over the VM and establish a foothold into your environment.
 
-One way to reduce exposure to a brute force attack is to limit the amount of time that a port is open. Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just-in-time is enabled, Security Center uses [network security group](../virtual-network/security-overview.md#security-rules) (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
+One way to reduce exposure to a brute force attack is to limit the amount of time that a port is open. Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just-in-time is enabled, Security Center uses [network security group](../virtual-network/security-overview.md#security-rules) (NSG) and Azure Firewall rules, which restrict access to management ports so they cannot be targeted by attackers.
 
 ![Just-in-time scenario](./media/security-center-just-in-time/just-in-time-scenario.png)
 
@@ -40,10 +40,10 @@ One way to reduce exposure to a brute force attack is to limit the amount of tim
 
 When just-in-time is enabled, Security Center locks down inbound traffic to your Azure VMs by creating an NSG rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the just-in-time solution.
 
-When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) permissions that permit them to successfully request access to a VM. If the request is approved, Security Center automatically configures the Network Security Groups (NSGs) to allow inbound traffic to the selected ports and requested source IP addresses or ranges, for the amount of time that was specified. After the time has expired, Security Center restores the NSGs to their previous states. Those connections that are already established are not being interrupted, however.
+When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) permissions that permit them to successfully request access to a VM. If the request is approved, Security Center automatically configures the Network Security Groups (NSGs) and Azure Firewall to allow inbound traffic to the selected ports and requested source IP addresses or ranges, for the amount of time that was specified. After the time has expired, Security Center restores the NSGs to their previous states. Those connections that are already established are not being interrupted, however.
 
  > [!NOTE]
- > If a JIT access request is approved for a VM behind a firewall then Security Center automatically configures the Azure Firewall policy rules (in addition to the NSGs). For the amount of time that was specified, the firewall allows inbound traffic to the selected ports and requested source IP addresses or ranges. After the time has expired, Security Center restores the firewall to its previous states.
+ > If a JIT access request is approved for a VM behind an Azure Firewall then Security Center automatically configures the firewall policy rules (in addition to the NSGs). For the amount of time that was specified, the firewall allows inbound traffic to the selected ports and requested source IP addresses or ranges. After the time has expired, Security Center restores the firewall to its previous states.
 
 
 ## Permissions needed to configure and use JIT
@@ -108,7 +108,7 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
 7. Select **Save**.
 
 > [!NOTE]
->When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated with it. If other rules had been created for the selected ports, then the existing rules take priority over the new “deny all inbound traffic”  rules. If there are no existing rules on the selected ports, then the new “deny all inbound traffic” rules take top priority in the Network Security Groups.
+>When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated and Azure Firewall with it. If other rules had been created for the selected ports, then the existing rules take priority over the new “deny all inbound traffic”  rules. If there are no existing rules on the selected ports, then the new “deny all inbound traffic” rules take top priority in the Network Security Groups and Azure Firewall.
 
 
 ## Request JIT access via ASC
@@ -132,10 +132,6 @@ To request access to a VM via ASC:
 
 > [!NOTE]
 > If a user who is requesting access is behind a proxy, the option **My IP** may not work. You may need to define the full IP address range of the organization.
-
-> [!NOTE]
-> If a JIT access request is approved for a VM behind a firewall, then Security Center automatically configures the Azure Firewall policy rules (in addition to the NSGs). For the amount of time that was specified, the firewall allows inbound traffic to the selected ports and requested source IP addresses or ranges. After the time has expired, Security Center restores the firewall to its previous states.
-
 
 ## Edit a JIT access policy via ASC
 
