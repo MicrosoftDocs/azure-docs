@@ -21,5 +21,5 @@ You can launch Azure Cloud Shell with:
 | Option | Example/Link |
 |-----------------------------------------------|---|
 | Select **Try It** in the upper-right corner of a code block. This __doesn't__ automatically copy text to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
-| Open [Azure Cloud Shell](https://shell.azure.com) in your browser. | <a href="https://shell.azure.com" title="Launch Azure Cloud Shell"><img src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" /></a> |
+| Open [Azure Cloud Shell](https://shell.azure.com) in your browser. | <a href="https://shell.azure.com" title="Launch Azure Cloud Shell"><img name="launch-cloud-shell" src="https://docs.microsoft.com/azure/includes/media/cloud-shell-try-it/launchcloudshell.png" /></a> |
 | Select the **Cloud Shell** button on the menu in the upper-right corner of the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](./media/cloud-shell-try-it/cloud-shell-menu.png) |
