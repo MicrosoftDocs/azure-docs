@@ -22,11 +22,11 @@ This module comes with **deviceToCloudUpload** and **deviceAutoDelete** features
 
 **deviceToCloudUpload** is a configurable functionality, which allows you to automatically upload the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
 
-- Turn ON/OFF the deviceToCloudUpload feature
-- Choose the order in which the data is copied to Azure like NewestFirst or OldestFirst
+- Turn ON/OFF the deviceToCloudUpload feature.
+- Choose the order in which the data is copied to Azure like NewestFirst or OldestFirst.
 - Specify the Azure Storage account to which you want your data uploaded.
 - Specify the containers you want to upload to Azure. This module allows you to specify both source and target container names.
-- Choose the ability to delete the blobs immediately after upload is finished successfully
+- Choose the ability to delete the blobs immediately, after upload to cloud storage is finished
 - Do full blob upload (using `Put Blob` operation) and block level upload (using `Put Block` and `Put Block List` operations).
 
 This module uses block level upload, when your blob consists of blocks. Here are some of the common scenarios:
@@ -38,9 +38,9 @@ If an unexpected process termination (like power failure) happens during a blob 
 
 **deviceAutoDelete** is a configurable functionality where the module automatically deletes your blobs from the local storage when the specified duration (measured in minutes) expires. It allows you to:
 
-- Turn ON/OFF the deviceAutoDelete feature
-- Specify the time in minutes (deleteAfterMinutes) after which the blobs will be automatically deleted
-- Choose the ability to retain the blob while it is uploading if deleteAfterMinutes value expires
+- Turn ON/OFF the deviceAutoDelete feature.
+- Specify the time in minutes (deleteAfterMinutes) after which the blobs will be automatically deleted.
+- Choose the ability to retain the blob while it is uploading if deleteAfterMinutes value expires.
 
 Scenarios where data like videos, images, finance data, hospital data, or any data that needs to be stored locally, later that could be processed locally or transferred to the cloud are good examples to use this module.
 
@@ -81,7 +81,7 @@ The name of this setting is `deviceToCloudUploadProperties`
 | uploadOrder | NewestFirst, OldestFirst | Allows you to choose the order in which the data is copied to Azure. By default it is set to `OldestFirst`. The order is determined by last modified time of Blob |
 | cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string that allows you to specify the Azure Storage account to which you want your data uploaded. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Add appropriate EndpointSuffix of Azure where data will be uploaded, it varies for Global Azure, Government Azure, and Microsoft Azure Stack. |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Allows you to Specify the container names you want to upload to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically assign the container name as `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. You can create template strings for target container name, check out the possible values column. <br>* %h -> IoT Hub Name (3-50 characters). <br>* %d -> IoT Edge Device ID (1 to 129 characters). <br>* %m -> Module Name (1 to 64 characters). <br>* %c -> Source Container Name (3 to 63 characters). <br><br>Maximum size of the container name is 63 characters, while automatically assigning the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) to 15 characters. |
-| deleteAfterUpload | true, false | By default it is set to `false`. When it is set to `true` it will automatically delete the data when upload is done |
+| deleteAfterUpload | true, false | By default it is set to `false`. When it is set to `true`, it will automatically delete the data when upload to cloud storage is finished |
 
 ### deviceAutoDeleteProperties
 
@@ -91,7 +91,7 @@ The name of this setting is `deviceAutoDeleteProperties`
 | ----- | ----- | ---- |
 | deleteOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
 | deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires |
-| retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires even if upload for that blob is in progress |
+| retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires|
 
 ## Configure log files
 
@@ -122,7 +122,7 @@ The following quickstart samples use languages that are also supported by IoT Ed
 
 ## Connect to your local storage with Azure Storage Explorer
 
-You can use **Azure Storage Explorer** to connect to your local storage account. This is available only with [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account.
 
 1. Download and install Azure Storage Explorer
 
