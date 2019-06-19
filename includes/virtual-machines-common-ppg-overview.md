@@ -11,7 +11,7 @@
 ---
 
 
-Placing VMs in a single region reduces the physical distance between the instances. Placing them within a single availability zones is another step to bringing them physically closer together. However, as the Azure footprint grows, a single availability zone may span multiple physical data centers, which may result in a network latency impacting your application. 
+Placing VMs in a single region reduces the physical distance between the instances. Placing them within a single availability zone will also bring them physically closer together. However, as the Azure footprint grows, a single availability zone may span multiple physical data centers, which may result in a network latency impacting your application. 
 
 To get VMs as close as possible, achieving the lowest possible latency, you should deploy them within a proximity placement group.
 
@@ -26,8 +26,8 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 
 
 ## Best practices 
-- Deploy all VM sizes in a single template. In order to avoid landing on hardware that doesn't support all the VM SKUs and sizes you require, make sure to include all application tiers in a single ARM template so that they will all be deployed at the same time..
-- If you are scripting your deployment using PowerShell, CLI or the SDK, you may run run into an allocation error of type `OverconstrainedAllocationRequest`. In this case, you should stop/deallocate all the existing VMs, and change the sequence in the deployment script to begin with the VM SKU/sizes that failed. 
+- Deploy all VM sizes in a single resource manager template. In order to avoid landing on hardware that doesn't support all the VM SKUs and sizes you require, include all of the application tiers in a single template so that they will all be deployed at the same time.
+- If you are scripting your deployment using PowerShell, CLI or the SDK, you may get an allocation error `OverconstrainedAllocationRequest`. In this case, you should stop/deallocate all the existing VMs, and change the sequence in the deployment script to begin with the VM SKU/sizes that failed. 
 - Deploy largest and rarest VM types first. If a VM type is available in a limited number of regions, it is more rare. You can use [this page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) to check how many regions support the various sizes.  
-- When re-using an existing placement group from which VMs were deleted, wait for the deletion to fully complete before adding VMs to it.
+- When reusing an existing placement group from which VMs were deleted, wait for the deletion to fully complete before adding VMs to it.
 - Put VMs in a proximity placement group and the entire solution in an availability zone.
