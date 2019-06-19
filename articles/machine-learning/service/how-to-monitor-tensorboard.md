@@ -46,7 +46,9 @@ are now convertible into Tensorboard
   * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) with the `tensorboard` extra
   * Create a workspace and its configuration file (config.json)
 
-## Create experiment
+## Local experiment and export to run history
+### Create experiment
+You can create your own experiment and log those runs and export that run history to view in Tensorboard so you can monitor its performance and go back and tune and re-train your models.
 
 ```python
 from os import path, makedirs
@@ -59,9 +61,7 @@ if not path.exists(exp_dir):
 runs = []
 ```
 
-## Export runs to Tensorboard
-
-
+### Export runs to Tensorboard
 
 ```Python
 from azureml.tensorboard.export import export_to_tensorboard
@@ -103,7 +103,7 @@ run = exp.submit(tf_estimator)
 runs.append(run)
 ```
 
-## Start and stop TensorBoard 
+### Start and stop TensorBoard 
 
 ```python
 from azureml.tensorboard import Tensorboard
@@ -118,7 +118,9 @@ tb.start()
 tb.stop()
 ```
 
-## Export history from previous runs 
+## Export history from previous runs into TensorBoard
+
+existing use
 
 
 ## Next steps
