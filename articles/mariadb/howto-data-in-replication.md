@@ -18,7 +18,7 @@ We recommend that you set up the data-in replication with [Global Transaction ID
 
 This article assumes that you have some prior experience with MariaDB servers and databases.
 
-## Create a MariaDB server to be used as replica
+## Create a MariaDB server to use as replica
 
 1. Create a new Azure Database for MariaDB server
 
@@ -29,26 +29,26 @@ This article assumes that you have some prior experience with MariaDB servers an
 
 2. Create same user accounts and corresponding privileges
 
-   User accounts are not replicated from the master server to the replica server. If you plan to provide users with access to the replica server, you need to manually create all accounts and corresponding privileges on this newly created Azure Database for MariaDB server.
+   User accounts aren't replicated from the master server to the replica server. If you plan to provide users with access to the replica server, you must manually create all accounts and corresponding privileges on this newly created Azure Database for MariaDB server.
 
 ## Configure the master server
-The following steps prepare and configure the MariaDB server hosted on-premises, in a virtual machine, or database service hosted by other cloud providers for Data-in Replication. This server is the "master" in Data-in replication.
+The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or database service hosted by other cloud providers for Data-in Replication. This server is the master in Data-in replication.
 
 1. Turn on binary logging
 
-   Check to see if binary logging has been enabled on the master by running the following command: 
+   Enter the following command to check if binary logging has been enabled on the master:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   If the variable [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) is returned with the value “ON", binary logging is enabled on your server. 
+   If the variable [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) returns the value *ON*, binary logging is enabled on your server.
 
-   If `log_bin` is returned with the value “OFF”, turn on binary logging by editing your my.cnf file so that `log_bin=ON` and restart your server for the change to take effect.
+   If `log_bin` returns the value *OFF*, edit your **my.cnf** file so that `log_bin=ON` to turn on binary logging. Restart your server for the change to take effect.
 
 2. Master server settings
 
-   Data-in Replication requires parameter `lower_case_table_names` to be consistent between the master and replica servers. This parameter is 1 by default in Azure Database for MariaDB. 
+   Data-in Replication requires the parameter `lower_case_table_names` to be consistent between the master and replica servers. This parameter is 1 by default in Azure Database for MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -56,15 +56,19 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 3. Create a new replication role and set up permission
 
-   Create a user account on the master server that is configured with replication privileges. This can be done through SQL commands or a tool like MySQL Workbench. Consider whether you plan on replicating with SSL as this will need to be specified when creating the user. Refer to the MariaDB documentation to understand how to [add user accounts](https://mariadb.com/kb/en/library/create-user/) on your master server. 
+   Create a user account on the master server that is configured with replication privileges. This can be done through SQL commands or a tool like MySQL Workbench. Consider whether you plan on replicating with SSL, which must be specified when creating the user.
+   
+   Refer to the MariaDB documentation to understand how to [add user accounts](https://mariadb.com/kb/en/library/create-user/) on your master server.
 
-   In the commands below, the new replication role created is able to access the master from any machine, not just the machine that hosts the master itself. This is done by specifying "syncuser\@'%'" in the create user command. See the MariaDB documentation to learn more about [specifying account names](https://mariadb.com/kb/en/library/create-user/#account-names).
+   In the following commands, the new replication role created is able to access the master from any machine, not just the machine that hosts the master itself. This is done by specifying **syncuser\@'%'** in the create user command.
+   
+   To learn more about MariaDB documentation, see [specifying account names](https://mariadb.com/kb/en/library/create-user/#account-names).
 
    **SQL Command**
 
    *Replication with SSL*
 
-   To require SSL for all user connections, use the following command to create a user: 
+   To require SSL for all user connections, use the following command to create a user:
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
@@ -73,7 +77,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    *Replication without SSL*
 
-   If SSL is not required for all connections, use the following command to create a user:
+   If SSL isn't required for all connections, use the following command to create a user:
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
@@ -82,11 +86,11 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    **MySQL Workbench**
 
-   To create the replication role in MySQL Workbench, open the **Users and Privileges** panel from the **Management** panel. Then click on **Add Account**. 
+   To create the replication role in MySQL Workbench, open the **Users and Privileges** panel from the **Management** panel. Then click on **Add Account**.
  
    ![Users and Privileges](./media/howto-data-in-replication/users_privileges.png)
 
-   Type in the username into the **Login Name** field. 
+   Type in the username into the **Login Name** field.
 
    ![Sync user](./media/howto-data-in-replication/syncuser.png)
  
@@ -141,7 +145,9 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 3. Restore dump file to new server
 
-   Restore the dump file to the server created in the Azure Database for MariaDB service. Refer to [Dump & Restore](howto-migrate-dump-restore.md) for how to restore a dump file to a MariaDB server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MariaDB server from the virtual machine.
+   Restore the dump file to the server created in the Azure Database for MariaDB service. Refer to [Dump & Restore](howto-migrate-dump-restore.md) for how to restore a dump file to a MariaDB server.
+
+   If the dump file is large, upload it to a VM in Azure within the same region as your replica server. Restore it to the Azure Database for MariaDB server from the VM.
 
 ## Link master and replica servers to start Data-in Replication
 
