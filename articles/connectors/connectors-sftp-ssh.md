@@ -22,8 +22,7 @@ To automate tasks that monitor, create, send, and receive files on a [Secure Fil
 * Get file content and metadata.
 * Extract archives to folders.
 
-You can use triggers that monitor events on your SFTP server and make output available to other actions. You can use actions that perform various tasks on your SFTP server. You can also have other actions in your logic app use the output from SFTP actions. For example, if you regularly retrieve files from your SFTP server, you can send email alerts about those files and their content by using the Office 365 Outlook connector or Outlook.com connector.
-If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+You can use triggers that monitor events on your SFTP server and make output available to other actions. You can use actions that perform various tasks on your SFTP server. You can also have other actions in your logic app use the output from SFTP actions. For example, if you regularly retrieve files from your SFTP server, you can send email alerts about those files and their content by using the Office 365 Outlook connector or Outlook.com connector. If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 For differences between the SFTP-SSH connector and the SFTP connector, review the [Compare SFTP-SSH versus SFTP](#comparison) section later in this topic.
 
@@ -35,7 +34,7 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
   * Use an SFTP-SSH trigger that returns file properties, such as **When a file is added or modified (properties only)**.
 
-  * Follow the trigger with an SFTP-SSH action that reads the complete file, such as **Get file content**, and set up that action to use [message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+  * Follow the trigger with an SFTP-SSH action that reads the complete file, such as **Get file content**, which implicitly uses [message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 <a name="comparison"></a>
 
