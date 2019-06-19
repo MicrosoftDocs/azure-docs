@@ -29,9 +29,13 @@ If you have suggestions for Site Recovery features, we'd love to [hear your feed
 
 ### VMware/physical server disaster recovery
 
-Features added this month. 
+Features added this month are summarized in the table.
 
-From Update Rollup 37 onwards (Mobility service version 9.25.5241.1), up to five GPT partitions are supported in UEFI. Prior to this update, four were supported.
+**Feature** | **Details**
+--- | ---
+**GPT partitions** | From Update Rollup 37 onwards (Mobility service version 9.25.5241.1), up to five GPT partitions are supported in UEFI. Prior to this update, four were supported.
+
+
 
 ## Updates (May 2019)
 
@@ -46,7 +50,7 @@ From Update Rollup 37 onwards (Mobility service version 9.25.5241.1), up to five
 
 ### Azure VM disaster recovery
 
-Features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -56,7 +60,7 @@ Features added this month.
 
 ### VMware/physical server disaster recovery
 
-Features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -79,7 +83,7 @@ Features added this month.
 
 ### VMware/physical server disaster recovery
 
-New features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -110,7 +114,7 @@ New features added this month.
 
 
 ### Azure VM disaster recovery 
-New features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -120,7 +124,7 @@ New features added this month.
 
 
 ### VMware/physical server disaster recovery
-New features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -129,6 +133,7 @@ New features added this month.
 
 
 ## Updates (January 2019)
+
 
 ### Accelerated networking (Azure VMs)
 
@@ -147,7 +152,7 @@ Accelerated networking enable single root I/O virtualization (SR-IOV) to a VM, i
 
 ### Azure VM disaster recovery
 
-New features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -156,7 +161,7 @@ New features added this month.
 
 ### VMware VMs/physical servers disaster recovery
 
-Features added this month.
+Features added this month are summarized in the table.
  
 **Feature** | **Details**
 --- | ---
@@ -173,8 +178,7 @@ Features added this month.
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
 #### VMware VMs/physical servers replication 
-New features added in the update.
-
+Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
 **Linux support** | Support was added for Oracle Linux 6.8 and 6.9/7.0, and for the UEK5 kernel.
@@ -185,7 +189,7 @@ New features added in the update.
 **UEFI support** | Azure VMs don't support boot type UEFI. You can now migrate on-premises physical servers with UEFI to Azure with Site Recovery. Site Recovery migrates the server by converting the boot type to BIOS before migration. Site Recovery previously supported this conversion for VMs only. Support is available for physical servers running Windows Server 2012 or later.
 
 #### Azure VM disaster recovery
-New features added in the update.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -226,7 +230,7 @@ Disaster Recovery of Azure VMs incurs VM licensing costs, and network and storag
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
 ### Azure VM disaster recovery
-New features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -258,7 +262,7 @@ New features added this month.
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
 ### Azure VMs disaster recovery 
-New features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -267,7 +271,7 @@ New features added this month.
 **Cross-subscription disaster recovery** | Support for replicating Azure VMs in one region to another region in a different subscription, within the same Azure Active Directory tenant. [Learn more](https://aka.ms/cross-sub-blog).
 
 ### VMware VM/physical server disaster recovery 
-New features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -288,7 +292,7 @@ New features added this month.
 
 ### Azure VMs disaster recovery 
 
-New features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -296,7 +300,7 @@ New features added this month.
 
 ### VMware VM/physical server disaster recovery 
 
-New features added this month.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
