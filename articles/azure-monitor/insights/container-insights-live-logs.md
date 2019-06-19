@@ -74,7 +74,7 @@ AKS can be configured to use Azure Active Directory (AD) for user authentication
 >Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during initial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed.
   
 >[!IMPORTANT]
->If you reconfigured Azure AD for user authentication using the updated URI, clear your browser's cache to ensure the updated authentication token is downloaded and used.   
+>If you reconfigured Azure AD for user authentication using the updated URI, clear your browser's cache to ensure the updated authentication token is downloaded and applied.   
 
 ## View live logs and events
 
