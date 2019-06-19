@@ -96,7 +96,7 @@ $scope = Get-AzResourceGroup -Name 'YourResourceGroup'
 $policyparam = '{ "listOfAllowedLocations": { "value": [ "eastus2", "westus" ] } }'
 
 # Create the Policy Assignment
-$assignment = New-AzPolicyAssignment -Name 'allowed-locations-assignment' -DisplayName 'Allowed locations Assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
+$assignment = New-AzPolicyAssignment -Name "allowed-locations-assign" -DisplayName "Allowed locations Assignment" -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyparam
 ```
 
 ### Remove with Azure PowerShell
