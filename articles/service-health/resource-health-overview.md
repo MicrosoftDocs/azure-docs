@@ -12,15 +12,15 @@ ms.date: 05/10/2019
  
 Azure Resource Health helps you diagnose and get support when an Azure service problem affects your resources. It informs you about the current and past health of your resources. And it provides technical support to help you mitigate problems.
 
-Whereas [Azure Status](https://status.azure.com) informs you about service problems that affect a broad set of Azure customers, Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows you all the times your resources were unavailable in the past because of Azure service problems. It's then simple for you to understand if an SLA was violated. 
+[Azure Status](https://status.azure.com) informs you about service problems that affect a broad set of Azure customers. Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows all the times that your resources were unavailable because of Azure service problems. It's then simple for you to see if an SLA was violated.
 
 ## Resource definition and health assessment
 
-A resource is a specific instance of an Azure service: for example, a virtual machine, a web app, or a SQL database.
+A resource is a specific instance of an Azure service, such as a virtual machine, a web app, or a SQL database.
 
-Resource Health relies on signals emitted by the different Azure services to assess whether a resource is healthy or not. If a resource is unhealthy, Resource Health analyzes additional information to determine the source of the problem. It also identifies actions that Microsoft is taking to fix the problem or the actions that you can take to address the cause of the problem. 
+Resource Health relies on signals that are emitted by the different Azure services to assess whether a resource is healthy or not. If a resource is unhealthy, Resource Health analyzes additional information to determine the source of the problem. It also identifies actions that Microsoft is taking to fix the problem or things that you can take to address the problem.
 
-For additional details on how health is assessed, review the full list of resource types and health checks in [Azure Resource Health](resource-health-checks-resource-types.md).
+For additional details on how health is assessed, see the list of resource types and health checks at [Azure Resource Health](resource-health-checks-resource-types.md).
 
 ## Health status
 
@@ -28,19 +28,19 @@ The health of a resource is displayed as one of the following statuses.
 
 ### Available
 
-A status of **Available** means that the service hasn't detected any events that affect the health of the resource. In cases where the resource has recovered from unplanned downtime during the last 24 hours, you see the **Recently resolved** notification.
+**Available** status means that the service hasn't detected any events that affect the health of the resource. In cases where the resource has recovered from unplanned downtime during the last 24 hours, you'll see the **Recently resolved** notification.
 
 ![Status of "Available" for a virtual machine with a "Recently resolved" notification](./media/resource-health-overview/Available.png)
 
 ### Unavailable
 
-A status of **Unavailable** means that the service has detected an ongoing platform or non-platform event that affects the health of the resource.
+**Unavailable** status means that the service detected an ongoing platform or non-platform event that affects the health of the resource.
 
 #### Platform events
 
 Platform events are triggered by multiple components of the Azure infrastructure. They include both scheduled actions (for example, planned maintenance) and unexpected incidents (for example, an unplanned host reboot).
 
-Resource Health provides additional details on the event and the recovery process. It also enables you to contact support even if you don't have an active Microsoft support agreement.
+Resource Health provides additional details about the event and the recovery process. It also enables you to contact Support even if you don't have an active Microsoft Support agreement.
 
 ![Status of "Unavailable" for a virtual machine due to a platform event](./media/resource-health-overview/Unavailable.png)
 
