@@ -7,10 +7,11 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: concept
+ms.date: 06/20/2019
 ms.author: edjez
 ---
+
 # Features are information about actions and context
 
 The Personalizer service works by learning what your application should show to users in a given context.
