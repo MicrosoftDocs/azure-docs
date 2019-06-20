@@ -20,6 +20,9 @@ This module comes with **deviceToCloudUpload** and **deviceAutoDelete** features
 > [!NOTE]
 > Azure Blob Storage on IoT Edge is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+Watch the video for quick introduction
+> [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
+
 **deviceToCloudUpload** is a configurable functionality, which allows you to automatically upload the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
 
 - Turn ON/OFF the deviceToCloudUpload feature.
