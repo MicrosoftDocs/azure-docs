@@ -8,7 +8,6 @@ ms.date: 05/31/2019
 ms.author: tisande
 
 ---
-
 # SQL query execution
 
 Any language capable of making HTTP/HTTPS requests can call the Cosmos DB REST API. Cosmos DB also offers programming libraries for .NET, Node.js, JavaScript, and Python programming languages. The REST API and libraries all support querying through SQL, and the .NET SDK also supports [LINQ querying](sql-query-linq-to-sql.md).
@@ -245,7 +244,7 @@ For more .NET samples with queries, see the [Azure Cosmos DB .NET samples](https
 
 ## <a id="JavaScript-server-side-API"></a>JavaScript server-side API
 
-Azure Cosmos DB provides a programming model for executing JavaScript based application logic directly on containers, using stored procedures and triggers. The JavaScript logic registered at the container level can then issue database operations on the items of the given container, wrapped in ambient ACID transactions.
+Azure Cosmos DB provides a programming model for [executing JavaScript based application](stored-procedures-triggers-udfs.md) logic directly on containers, using stored procedures and triggers. The JavaScript logic registered at the container level can then issue database operations on the items of the given container, wrapped in ambient ACID transactions.
 
 The following example shows how to use `queryDocuments` in the JavaScript server API to make queries from inside stored procedures and triggers:
 

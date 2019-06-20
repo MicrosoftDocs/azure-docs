@@ -8,7 +8,7 @@ ms.date: 05/30/2019
 ms.author: tisande
 
 ---
-### LINQ to SQL translation
+# LINQ to SQL translation
 
 The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. The following description assumes a basic familiarity with LINQ.
 
@@ -49,7 +49,7 @@ The query provider supports the following scalar expressions:
     new int[] { 3, child.grade, 5 };
   ```
 
-### <a id="SupportedLinqOperators"></a>Supported LINQ operators
+## <a id="SupportedLinqOperators"></a>Supported LINQ operators
 
 The LINQ provider included with the SQL .NET SDK supports the following operators:
 
@@ -67,11 +67,11 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 - **User-Defined Function Extension function**: Supports translation from the stub method `UserDefinedFunctionProvider.Invoke` to the corresponding user-defined function.
 - **Miscellaneous**: Supports translation of `Coalesce` and conditional operators. Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or SQL IN, depending on context.
 
-### SQL query operators
+## Examples
 
 The following examples illustrate how some of the standard LINQ query operators translate to Cosmos DB queries.
 
-#### Select operator
+### Select operator
 
 The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression.
 
@@ -83,7 +83,7 @@ The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression.
       input.Select(family => family.parents[0].familyName);
   ```
   
-- **SQL** 
+- **SQL**
   
   ```sql
       SELECT VALUE f.parents[0].familyName
@@ -125,7 +125,7 @@ The syntax is `input.Select(x => f(x))`, where `f` is a scalar expression.
       FROM Families f
   ```
 
-#### SelectMany operator
+### SelectMany operator
 
 The syntax is `input.SelectMany(x => f(x))`, where `f` is a scalar expression that returns a container type.
 
@@ -142,7 +142,7 @@ The syntax is `input.SelectMany(x => f(x))`, where `f` is a scalar expression th
       FROM child IN Families.children
   ```
 
-#### Where operator
+### Where operator
 
 The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which returns a Boolean value.
 
@@ -181,11 +181,11 @@ The syntax is `input.Where(x => f(x))`, where `f` is a scalar expression, which 
       AND f.children[0].grade < 3
   ```
 
-### Composite SQL queries
+## Composite SQL queries
 
 You can compose the preceding operators to form more powerful queries. Since Cosmos DB supports nested containers, you can concatenate or nest the composition.
 
-#### Concatenation
+### Concatenation
 
 The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated query can start with an optional `SelectMany` query, followed by multiple `Select` or `Where` operators.
 
@@ -257,7 +257,7 @@ The syntax is `input(.|.SelectMany())(.Select()|.Where())*`. A concatenated quer
       WHERE p.familyName = "Wakefield"
   ```
 
-#### Nesting
+### Nesting
 
 The syntax is `input.SelectMany(x=>x.Q())` where `Q` is a `Select`, `SelectMany`, or `Where` operator.
 
