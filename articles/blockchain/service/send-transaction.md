@@ -56,7 +56,7 @@ Azure Blockchain Development Kit runs a validation script that takes about a min
 
 You can connect to consortium members using the Azure Blockchain Development Kit VS Code extension. Once connected to a consortium, you can compile, build, and deploy smart contracts to an Azure Blockchain Service consortium member.
 
-1. Complete the prerequisite [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md).
+If you don't have access to an Azure Blockchain Service consortium member, complete the prerequisite [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md).
 1. In the Visual Studio Code (VS Code) explorer pane, expand the **Azure Blockchain** extension.
 1. Select **Connect to Consortium**.
 
@@ -68,19 +68,17 @@ You can connect to consortium members using the Azure Blockchain Development Kit
 
 The consortium and blockchain members are listed in the Visual Studio explorer side bar.
 
-[screenshot]
+![Consortium displayed in explorer](./media/send-transaction/consortium-node.png)
 
-## Create smart contract
+## Create a smart contract
 
 The Azure Blockchain Development Kit for Ethereum uses project templates and Truffle tools to help scaffold, build, and deploy contracts.
 
 1. From the VS Code command palette, choose **Azure Blockchain: New Solidity Project**.
 1. Choose **Create basic project**.
-1. Create a new folder named `newcontract` and **Select new project path**.
+1. Create a new folder named `HelloBlockchain` and **Select new project path**.
 
-    The Azure Blockchain Development Kit uses Truffle to create and initialize the Solidity project. It may take several minutes for the project to be created.
-
-Your Solidity project includes a simple contract and all the necessary files to build and deploy a simple, working, contract to the Azure Blockchain Service.
+The Azure Blockchain Development Kit creates and initializes a new Solidity project for you. The basic project includes a sample **HelloBlockchain** smart contract and all the necessary files to build and deploy to your consortium member in Azure Blockchain Service. It may take several minutes for the project to be created. You can monitor the progress in VS Code's terminal panel by selecting the output for Azure Blockchain.
 
 The project structure looks like the following example:
 
@@ -88,14 +86,16 @@ The project structure looks like the following example:
 
 ## Build smart contract
 
-Your smart contracts are located in the project's **contracts** directory. Smart contracts need to be compiled before you deploy them to the blockchain. Use the **build** command to compile all the contracts in your project.
+Smart contracts are located in the project's **contracts** directory. Smart contracts are compiled before you deploy them to the blockchain. Use the **Build Contracts** command to compile all the smart contracts in your project.
 
 1. In VS Code, select **File > Open folder** and choose the **contracts** folder in your project.
 1. Right-click **HelloBlockchain.sol** and choose **Build Contracts** from the menu.
 
-    [screenshot]
+    ![Build contracts](./media/send-transaction/build-contracts.png)
 
-Once compiled, your contract and contract metadata is contained in the **build** sub-directory.
+Azure Blockchain Development kit uses Truffle to compile the smart contracts.
+
+![Compile output](./media/send-transaction/compile-output.png)
 
 ## Deploy smart contract
 
@@ -114,13 +114,13 @@ Truffle uses migration scripts to deploy your contracts to an Ethereum network. 
     var HelloBlockchain = artifacts.require("HelloBlockchain");
         
     module.exports = function(done) {
-      console.log("Getting deployed version of HelloBlockchain...")
+      console.log("Getting the deployed version of the HelloBlockchain smart contract")
       HelloBlockchain.deployed().then(function(instance) {
-        console.log("Sending request");
-        return instance.SendRequest("Hello");
+        console.log("Calling SendRequest function");
+        return instance.SendRequest("Hello, blockchain!");
       }).then(function(result) {
-        console.log("Transaction:", result.tx);
-        console.log("Finished!");
+        console.log("Transaction hash: ", result.tx);
+        console.log("Request complete");
         done();
       }).catch(function(e) {
         console.log(e);
