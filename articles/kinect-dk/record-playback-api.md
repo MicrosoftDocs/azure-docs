@@ -14,7 +14,7 @@ The sensor SDK provides an API for recording device data to a Matroska (.mkv) fi
 
 For more information about the recording API, see [`k4a_record_create()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gae14f4181e9688e710d1c80b215413831.html#gae14f4181e9688e710d1c80b215413831).
 
-For more information on the Matroska file format specifications, see the [Recording File Format](sdk-record-format.md) page.
+For more information on the Matroska file format specifications, see the [Recording File Format](record-file-format.md) page.
 
 ## Use the playback API
 
@@ -147,10 +147,10 @@ If a tag doesn't exist, it's assumed to have the default value.
 | `K4A_DEPTH_FIRMWARE_VERSION` | ""                 | N/A                                  | Device depth firmware version, for example "1.x.xx"                                                            |
 | `K4A_DEVICE_SERIAL_NUMBER`   | ""                 | N/A                                  | Recording device serial number                                                                                 |
 | `K4A_START_OFFSET_NS`        | "0"                | `start_timestamp_offset_usec`        | See [Timestamp Synchronization](record-playback-api.md#timestamp-synchronization) below.                       |
-| `K4A_COLOR_TRACK`            | None               | N/A                                  | See [Recording File Format - Identifying tracks](sdk-record-format.md#identifying-tracks).                     |
-| `K4A_DEPTH_TRACK`            | None               | N/A                                  | See [Recording File Format - Identifying tracks](sdk-record-format.md#identifying-tracks).                     |
-| `K4A_IR_TRACK`               | None               | N/A                                  | See [Recording File Format - Identifying tracks](sdk-record-format.md#identifying-tracks).                     |
-| `K4A_IMU_TRACK`              | None               | N/A                                  | See [Recording File Format - Identifying tracks](sdk-record-format.md#identifying-tracks).                     |
+| `K4A_COLOR_TRACK`            | None               | N/A                                  | See [Recording File Format - Identifying tracks](record-file-format.md#identifying-tracks).                     |
+| `K4A_DEPTH_TRACK`            | None               | N/A                                  | See [Recording File Format - Identifying tracks](record-file-format.md#identifying-tracks).                     |
+| `K4A_IR_TRACK`               | None               | N/A                                  | See [Recording File Format - Identifying tracks](record-file-format.md#identifying-tracks).                     |
+| `K4A_IMU_TRACK`              | None               | N/A                                  | See [Recording File Format - Identifying tracks](record-file-format.md#identifying-tracks).                     |
 
 ## Timestamp synchronization
 
