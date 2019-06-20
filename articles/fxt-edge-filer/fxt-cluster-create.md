@@ -275,4 +275,5 @@ Cluster creation takes a minute or more, but you can sign in to the Control Pane
 
 This tutorial creates only the basic cluster. Next, you need to add the rest of the cluster nodes, add backend storage, set up client access, and other tasks.
 
-Read [Configure the new cluster](fxt-cluster-config-overview.md) to get your newly created cluster ready for users.
+> [!div class="nextstepaction"]
+> Read [Configure the new cluster](fxt-cluster-config-overview.md) to get your newly created cluster ready for users.

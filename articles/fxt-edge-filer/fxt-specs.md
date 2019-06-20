@@ -77,7 +77,7 @@ This section gives power ratings and measurements for the Azure FXT Edge Filer.
 | 10A - 5A (X2)  |
 | 50/60Hz         |
 
-<!-- these numbers look funny but I was told to match the Dell regulatory label exactly -->
+<!-- matches the Dell regulatory label exactly -->
 
 ### Power and thermal measurements 
 

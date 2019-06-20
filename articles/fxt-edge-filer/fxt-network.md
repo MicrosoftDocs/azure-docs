@@ -133,12 +133,13 @@ Each node requires at least one IP address, but node addresses are assigned when
 
 The total number of IP addresses required depends on the number of nodes in that make up your cache. 
 
-Configure the IP address range by using the Control Panel software after the nodes have been installed. To learn more, read [Gather information for the cluster](fxt-cluster-create.md#gather-information-for-the-cluster). 
- 
+Configure the IP address range by using the Control Panel software after the nodes have been installed. To learn more, read [Gather information for the cluster](fxt-cluster-create.md#gather-information-for-the-cluster).  
+
 ## Next steps
 
-After you finish installing network cables, continue with one of these articles: 
+After you finish installing network cables, continue with one of these articles.
 
-* Read [Connect power to the Azure FXT Edge Filer](fxt-power.md) if you have not already attached power cables and learned how to power on the nodes.
-* [Set initial passwords](fxt-node-password.md) to activate the node.
-* If you have installed and activated at least three nodes in the data center, read [Create the FXT Edge Filer cluster](fxt-cluster-create.md) to learn how to configure them as a clustered cache system. 
+> [!div class="nextstepaction"]
+> Read [Connect power to the Azure FXT Edge Filer](fxt-power.md) if you have not already attached power cables and learned how to power on the nodes.
+> [Set initial passwords](fxt-node-password.md) to activate the node.
+> If you have installed and activated at least three nodes in the data center, read [Create the FXT Edge Filer cluster](fxt-cluster-create.md) to learn how to configure them as a clustered cache system. 

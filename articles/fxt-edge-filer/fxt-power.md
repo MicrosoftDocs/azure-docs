@@ -55,7 +55,8 @@ Follow these instructions to safely power off an Azure FXT Edge Filer node:
 
 ## Next steps
 
-After you finish installing power cables, continue setting up the nodes: 
+After you finish installing power cables, continue setting up the nodes.
 
-* Attach network cables and use the Cable Management Arm (CMA) as described in [Make network connections to the Azure FXT Edge Filer node](fxt-network.md).
-* Power on the nodes and initialize them by setting the root passwords. Read [Set initial passwords](fxt-node-password.md) for details. 
+> [!div class="nextstepaction"]
+> Attach network cables and use the Cable Management Arm (CMA) as described in [Make network connections to the Azure FXT Edge Filer node](fxt-network.md).
+> Power on the nodes and initialize them by setting the root passwords. Read [Set initial passwords](fxt-node-password.md) for details. 

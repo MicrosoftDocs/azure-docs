@@ -151,7 +151,7 @@ Optional hard-mount screws are provided to secure the system to the rack for shi
 
 An optional cable management arm (CMA) is provided with the FXT Edge Filer. Printed instructions for installing it are provided in the package. 
 
-<!-- [ xxx need current images in electronic form from Dell - these are scans xxx ] -->
+<!-- need current images in electronic form from Dell - these are scans -->
 
 1. Unpack and identify the components of the cable management arm kit:
    * CMA tray (1)
@@ -219,10 +219,10 @@ To remove the front bezel:
    
    ![Image showing the release button at the left of the bezel and how to remove it by pulling outward from the left side](media/fxt-install/remove-bezel-updated-600.png)
 
-
 ## Next steps
 
 After you have unpacked and racked the device, continue setup by attaching network cables and connecting AC power and learning to boot and shut down the Azure FXT Edge Filer.
 
-* [Make network connections to the Azure FXT Edge Filer node](fxt-network.md)
-* [Connect power to the Azure FXT Edge Filer](fxt-power.md)
+> [!div class="nextstepaction"]
+> [Make network connections to the Azure FXT Edge Filer node](fxt-network.md)
+> [Connect power to the Azure FXT Edge Filer](fxt-power.md)

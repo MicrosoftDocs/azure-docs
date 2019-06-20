@@ -155,4 +155,5 @@ Read the Cluster Configuration Guide article [Controlling Access to Core Filer E
 
 After adding storage and configuring the client-facing namespace, complete your cluster's initial setup: 
 
-* [Configure the cluster's network settings](fxt-configure-network.md)
+> [!div class="nextstepaction"]
+> [Configure the cluster's network settings](fxt-configure-network.md)

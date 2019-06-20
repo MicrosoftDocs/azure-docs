@@ -110,5 +110,6 @@ An alert appears on the **Dashboard** to confirm that HA is enabled.
 
 After adding all of the nodes in your cluster, continue the setup with these tasks: 
 
-* [Add back-end storage and set up the virtual namespace](fxt-add-storage.md)
-* [Configure the cluster's network settings](fxt-configure-network.md)
+> [!div class="nextstepaction"]
+> [Add back-end storage and set up the virtual namespace](fxt-add-storage.md)
+> [Configure the cluster's network settings](fxt-configure-network.md)

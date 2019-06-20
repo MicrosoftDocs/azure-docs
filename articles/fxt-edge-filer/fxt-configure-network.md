@@ -145,6 +145,7 @@ For more details, read [DNS Settings](<https://azure.github.io/Avere/legacy/ops_
 
 This is the last basic configuration step for the FXT Edge Filer cluster. 
 
-* Learn about the system's LEDs and other indicators in [Monitor the FXT Edge Filer](fxt-monitor.md).
-* Learn more about how clients should mount the FXT Edge Filer cluster in [Mount the cluster](fxt-mount-clients.md). 
-* For more information about operating and managing an FXT Edge Filer cluster, see the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html). 
+> [!div class="nextstepaction"]
+> Learn about the system's LEDs and other indicators in [Monitor the FXT Edge Filer](fxt-monitor.md).
+> Learn more about how clients should mount the FXT Edge Filer cluster in [Mount the cluster](fxt-mount-clients.md). 
+> For more information about operating and managing an FXT Edge Filer cluster, see the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html). 

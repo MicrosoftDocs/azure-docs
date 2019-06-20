@@ -106,5 +106,6 @@ After you sign in as root, the network ports are active and will contact the DHC
 
 The node is ready to be part of a cluster. 
 
-* You can use it to [Create the FXT Edge Filer cluster](fxt-cluster-create.md)
-* You can add it to an existing cluster: [Add cluster nodes](fxt-add-nodes.md)
+> [!div class="nextstepaction"]
+> You can use it to [Create the FXT Edge Filer cluster](fxt-cluster-create.md)
+> You can add it to an existing cluster: [Add cluster nodes](fxt-add-nodes.md)
