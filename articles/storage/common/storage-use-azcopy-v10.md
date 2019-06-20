@@ -114,9 +114,9 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 #### Authenticate a service principal
 
-You can sign into your account by using a client secret or certificate associated with your service principal.
+You can sign into your account by using a client secret or a certificate that is associated with your service principal.
 
-You can use AzCopy inside of a script that runs without any user interaction, but before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with your credentials.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to persist that sensitive information, and then provide it in calls to AzCopy. 
+You can use AzCopy inside of a script that runs without any user interaction, but before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with your credentials.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to persist that sensitive information.
 
 ##### Using a client secret
 
