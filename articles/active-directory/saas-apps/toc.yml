@@ -1079,8 +1079,6 @@
         href: servicechannel-tutorial.md
       - name: ServiceNow
         href: servicenow-tutorial.md
-      - name: ServiceNow Classic (Mobile)
-        href: servicenow-classic-tutorial.md
       - name: Settling music
         href: settlingmusic-tutorial.md
       - name: SharePoint on-premises
