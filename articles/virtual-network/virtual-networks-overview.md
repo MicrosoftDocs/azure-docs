@@ -3,8 +3,7 @@ title: Azure Virtual Network | Microsoft Docs
 description: Learn about Azure Virtual Network concepts and features.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: anavinahar
 tags: azure-resource-manager
 Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
@@ -12,29 +11,34 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2018
-ms.author: kumud
+ms.date: 06/19/2019
+ms.author: anavin
 ---
+
 # What is Azure Virtual Network?
 
-Azure Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. A virtual network is scoped to a single Azure region. An Azure [region](https://azure.microsoft.com/global-infrastructure/regions/) is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. 
+Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own data center, but brings with it additional benefits of Azure's insfrastructure such as scale, availability, and isolation.
 
-Virtual networks are made up of subnets. A subnet is a range of IP addresses within your virtual network. Subnets, like virtual networks, are scoped to a single Azure region. 
+## VNet Concepts
 
-Multiple virtual networks from different regions can be connected together using Virtual Network Peering.
+- **Address space:** When creating a VNet, you must specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources in a virtual network a private IP address from the address space that you assign. For example, if you deploy a VM in a VNet with address space, 10.0.0.0/16, the VM will be assined a private IP like 10.0.0.4.
+- **Subnets:** Subnets enable you to segment the virtual network into one or more sub-networks and allocate a portion of the virtual network's address space to each subnet. You can then deploy Azure resources in a specific subnet. Subnets allow customers to ????. You can secure resources within subnets using Network Security Groups. For more information, see ????
+- **Regions**: VNet is scoped to a single region/location; however, multiple virtual networks from different regions can be connected together using Virtual Network Peering.
+- **Subscription:** VNet is scoped to a subscription. You can implement multiple virtual networks within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region).
 
-Azure Virtual Network provides the following key capabilities:
 
-## Isolation and segmentation
+## General Best Practices
 
-You can implement multiple virtual networks within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region). Each virtual network is isolated from other virtual networks. For each virtual network you can:
-- Specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources in a virtual network a private IP address from the address space that you assign.
-- Segment the virtual network into one or more subnets and allocate a portion of the virtual network's address space to each subnet.
-- Use Azure-provided name resolution, or specify your own DNS server, for use by resources in a virtual network.
+As you build your network in Azure, it is important to keep in mind the following universal design principles:
+
+- Ensure non-overlapping address spaces. Make sure your VNet address space (CIDR block) does not overlap with your organisation's other network ranges.
+- Your subnets should not cover the entire address space of the VNet. Plan ahead and reserve some address space for the future.
+- It is reccomended you have fewer large VNets than multiple small VNets. This will prevent management overhead.
+- Secure your VNet using NSGs
 
 ## Communicate with the internet
 
-All resources in a virtual network can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use public IP or public Load Balancer to manage your outbound connections.  To learn more about outbound connections in Azure, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md), [Public IP addresses](virtual-network-public-ip-address.md), and [Load Balancer](../load-balancer/load-balancer-overview.md).
+All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use public IP or public Load Balancer to manage your outbound connections.  To learn more about outbound connections in Azure, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md), [Public IP addresses](virtual-network-public-ip-address.md), and [Load Balancer](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
 >When using only an internal [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md), outbound connectivity is not available until you define how you want [outbound connections](../load-balancer/load-balancer-outbound-connections.md) to work with an instance-level public IP or a public Load Balancer.
@@ -45,6 +49,7 @@ Azure resources communicate securely with each other in one of the following way
 
 - **Through a virtual network**: You can deploy VMs, and several other types of Azure resources to a virtual network, such as Azure App Service Environments, the Azure Kubernetes Service (AKS), and Azure Virtual Machine Scale Sets. To view a complete list of Azure resources that you can deploy into a virtual network, see [Virtual network service integration](virtual-network-for-azure-services.md). 
 - **Through a virtual network service endpoint**: Extend your virtual network private address space and the identity of your virtual network to Azure service resources, such as Azure Storage accounts and Azure SQL databases, over a direct connection. Service endpoints allow you to secure your critical Azure service resources to only a virtual network. To learn more, see [Virtual network service endpoints overview](virtual-network-service-endpoints-overview.md).
+- **Through VNet Peering**: You can connect virtual networks to each other, enabling resources in either virtual network to communicate with each other, using virtual network peering. The virtual networks you connect can be in the same, or different, Azure regions. To learn more, see [Virtual network peering](virtual-network-peering-overview.md).
  
 ## Communicate with on-premises resources
 
@@ -65,9 +70,6 @@ Azure routes traffic between subnets, connected virtual networks, on-premises ne
 - **Route tables:** You can create custom route tables with routes that control where traffic is routed to for each subnet. Learn more about [route tables](virtual-networks-udr-overview.md#user-defined).
 - **Border gateway protocol (BGP) routes:** If you connect your virtual network to your on-premises network using an Azure VPN Gateway or ExpressRoute connection, you can propagate your on-premises BGP routes to your virtual networks. Learn more about using BGP with [Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
 
-## Connect virtual networks
-
-You can connect virtual networks to each other, enabling resources in either virtual network to communicate with each other, using virtual network peering. The virtual networks you connect can be in the same, or different, Azure regions. To learn more, see [Virtual network peering](virtual-network-peering-overview.md).
 
 ## Next steps
 
