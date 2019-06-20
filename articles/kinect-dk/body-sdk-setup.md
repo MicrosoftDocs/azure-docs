@@ -5,7 +5,7 @@ author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
 ms.date: 06/10/2019
-ms.topic: quickstart
+ms.topic: quickstarts 
 keywords: kinect, azure, sensor, access, depth, sdk, body, tracking, joint, setup, cuda, nvidia
 
 #Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect body tracking.
@@ -32,7 +32,7 @@ Follow the on-screen prompts to install CUDA 10.0 and all patches.
 
 ![CUDA installation Image1](./media/quickstarts/install-cuda1.png)![CUDA installation Image2](./media/quickstarts/install-cuda2.png)
 
-### [cuDNN v7.5.x for CUDA 10.0](https://developer.nvidia.com/rdp/cudnn-download)
+### [cuDNN v7.5.x for CUDA 10.0](https://developer.nvidia.com/rdp/cudnn-archive)
 
 Sign in to NVIDIA Developer site with your Developer Program membership and download the `cudnn64_7.dll`. Ensure the dll path is added to the "Environment Variables - Path":
 1. Launch "Control Panel" -> Select "System and Security" -> Select "System" -> Select "Advanced system settings"
@@ -55,7 +55,7 @@ Download and install Visual C++ Redistributable for Visual Studio 2015.
 
 ### [Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
 
-Launch the [Azure Kinect Viewer](azure-kinect-viewer.md) to check that your Azure Kinect DK is set up correctly.
+Launch the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) to check that your Azure Kinect DK is set up correctly.
 
 ## Verify body tracking
 
