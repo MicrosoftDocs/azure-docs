@@ -4,7 +4,7 @@ description: Use Visual Studio to create an Azure resource group project and dep
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.date: 06/14/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
 ---
 # Creating and deploying Azure resource groups through Visual Studio
@@ -47,9 +47,13 @@ In this section, you create an Azure Resource Group project with a **Web app** t
 
     All resource group deployment projects have these basic files. Other projects may have additional files to support other functionality.
 
-By default, the PowerShell script in the project uses the AzureRM module. If you still have the AzureRM module installed and want to continue using it, you can use this default script. However, if you've migrated to the new [Az module](/powershell/azure/new-azureps-module-az), you need to add a new script to your project.
+## Choose script version
 
-To add a script that uses the Az module, copy the [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) script and add it to your project. To use this script for deployment, you must run it from a PowerShell console, rather than using Visual Studio's deployment interface. Both approaches are shown in this article.
+By default, the PowerShell script (Deploy-AzureResourceGroup.ps1) in the project uses the AzureRM module. If you still have the AzureRM module installed and want to continue using it, you can use this default script. With this script, you can use the Visual Studio interface to deploy your solution.
+
+However, if you've migrated to the new [Az module](/powershell/azure/new-azureps-module-az), you need to add a new script to your project. To add a script that uses the Az module, copy the [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) script and add it to your project. To use this script for deployment, you must run it from a PowerShell console, rather than using Visual Studio's deployment interface.
+
+Both approaches are shown in this article. The default script is referred to as the AzureRM module script. The new script is referred to as the Az module script.
 
 ## Customize Resource Manager template
 
@@ -123,15 +127,19 @@ You can customize a deployment project by modifying the Resource Manager templat
 
 You're now ready to deploy your project. When you deploy an Azure Resource Group project, you deploy it to a resource group. The resource group is a logical grouping of resources that share a common lifecycle. 
 
-The steps you take are different depending on whether you use the AzureRM module script (Deploy-AzureResourceGroup.ps1) or the Az module script (Deploy-AzTemplate.ps1).
+The steps you take are different depending on whether you use the AzureRM module script or the Az module script.
 
-For the Deploy-AzTemplate.ps1 script, open a PowerShell console and run:
+### Az module script
+
+For the Az module script, open a PowerShell console and run:
 
 ```powershell
 .\Deploy-AzTemplate -ArtifactStagingDirectory .\ -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json
 ```
 
-For the Deploy-AzureResourceGroup.ps1 script, use Visual Studio:
+### AzureRM module script
+
+For the AzureRM module script, use Visual Studio:
 
 1. On the shortcut menu of the deployment project node, choose **Deploy** > **New**.
 
@@ -151,15 +159,17 @@ For the Deploy-AzureResourceGroup.ps1 script, use Visual Studio:
 
     ![Redeploy project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
+## View deployed resources
+
 For both deployment options, check the results.
 
 1. In a browser, open the [Azure portal](https://portal.azure.com/) and sign in to your account. To see the resource group, select **Resource groups** and the resource group you deployed to.
 
-1. You see all the deployed resources. Notice that the name of the storage account isn't exactly what you specified when adding that resource. The storage account must be unique. The template automatically adds a string of characters to the name you provided to provide a unique name.
+1. You see all the deployed resources. Notice that the name of the storage account isn't exactly what you specified when adding that resource. The storage account must be unique. The template automatically adds a string of characters to the name you provided to create a unique name.
 
     ![Show resources](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 
-## Deploy code with infrastructure
+## Add code to project
 
 At this point, you've deployed the infrastructure for your app, but there's no actual code deployed with the project.
 
@@ -205,7 +215,9 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
    Save your template.
 
-1. There are some new parameters in your template. They were added in the previous step. You don't need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because those values are automatically generated. However, you have to set the folder and file name to the path that contains the deployment package. These parameters are named **ExampleAppPackageFolder** and **ExampleAppPackageFileName**. Open **Website.parameters.json** and those parameters to the values you saw in the reference properties (**ExampleApp** and **package.zip**).
+1. There are some new parameters in your template. They were added in the previous step. You don't need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because those values are automatically generated. However, you have to set the folder and file name to the path that contains the deployment package. These parameter names end with **PackageFolder** and **PackageFileName**. The first part of the name is the name of the Web Deploy resource you added. In this article, they are named **ExampleAppPackageFolder** and **ExampleAppPackageFileName**. 
+
+   Open **Website.parameters.json** and set those parameters to the values you saw in the reference properties. Set **ExampleAppPackageFolder** to the name of the folder. Set **ExampleAppPackageFileName** to the name of the zip file.
 
    ```json
    {
@@ -224,6 +236,8 @@ At this point, you've deployed the infrastructure for your app, but there's no a
      }
    }
    ```
+
+## Deploy code with infrastructure
 
 1. Redeploy your resource group project to the resource group.
 
