@@ -142,10 +142,18 @@ Switch to the service mode to `Serverless Mode` and setup a client connection to
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
 
-cd samples/Serverless
+cd samples/Management
 
+# Start the negotiation server
+# Negotiation server is responsible for generating access token for clients
+cd NegotitationServer
+dotnet user-secrets set Azure:SignalR:ConnectionString "<Connection String>"
+dotnet run
+
+# Use a seperate command line
 # Start a client
-dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
+cd SignalRClient
+dotnet run
 ```
 
 ## View registry events
