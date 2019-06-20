@@ -116,5 +116,4 @@ right-click the device in Device Manager and click "Uninstall Device". Select th
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[More support information](kinect-support.md)
+[More support information](kinect-support.md)
