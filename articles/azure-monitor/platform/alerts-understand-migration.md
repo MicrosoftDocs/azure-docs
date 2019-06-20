@@ -84,7 +84,7 @@ The migration tool converts your classic alert rules to equivalent new alert rul
 - **Units**: Property of the metric on which alert is created. Some equivalent metrics have different units. The threshold is adjusted appropriately as needed. For example, if the original metric has seconds as units but equivalent new metric has milliSeconds as units, the original threshold is multiplied by 1000 to ensure same behavior.
 - **Window Size**: Defines the window over which metric data is aggregated to compare against the threshold. For standard `windowSize` values like 5mins, 15mins, 30mins, 1hour, 3hours, 6 hours, 12 hours, 1 day, there is no change made for equivalent new alert rule. For other values, the closest `windowSize` is chosen to be used. For most customers, there is no impact with this change. For a small percentage of customers, there might be a need to tweak the threshold to get exact same behavior.
 
-In the following sections, we detail the metrics that have an different, equivalent metric in the new system. Any metric that remain same for classic and new alert rules are not listed. You can find a list of metrics supported in the new system [here](metrics_supported.md).
+In the following sections, we detail the metrics that have an different, equivalent metric in the new system. Any metric that remain same for classic and new alert rules are not listed. You can find a list of metrics supported in the new system [here](metrics-supported.md).
 
 ### Microsoft.StorageAccounts/services
 
