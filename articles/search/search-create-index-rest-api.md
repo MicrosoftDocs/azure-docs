@@ -401,21 +401,7 @@ Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
 
 ## Next steps
 
-Try adding French descriptions to the index. The following example includes French strings and demonstrates additional search actions. Use mergeOrUpload to create or add to existing fields. The following strings need to be UTF-8 encoded.
+In this quickstart, you used PowerShell to  step through the basic workflow for creating and accessing content in Azure Search. With the concepts in mind, we recommend moving on to more advanced scenarios, such as indexing from Azure data sources;
 
-```json
-{
-    "value": [
-        {
-            "@search.action": "mergeOrUpload",
-            "hotelId": "1",
-            "description_fr": "Meilleur hôtel en ville"
-        },
-        {
-            "@search.action": "merge",
-            "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville"
-        }
-    ]
-}
-```
+> [!div class="nextstepaction"]
+> [REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search](search-semi-structured-data.md)
