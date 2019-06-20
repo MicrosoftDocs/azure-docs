@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure FXT Edge Filer network connections 
-description: How to cable the network ports in Azure FXT Edge Filer hardware
+title: Microsoft Azure FXT Edge Filer network connections and power supply
+description: How to cable the network ports and attach power for Azure FXT Edge Filer hardware
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
@@ -8,7 +8,7 @@ ms.date: 06/20/2019
 ms.author: v-erkell
 ---
 
-# Tutorial: Make network connections to the Azure FXT Edge Filer node
+# Tutorial: Make network connections and supply power to the Azure FXT Edge Filer node
 
 This tutorial teaches you how to cable the network connections for an Azure FXT Edge Filer hardware node.
 
@@ -18,6 +18,7 @@ In this tutorial, you will learn:
 > * How to choose the type of network cable for your environment
 > * How to connect an Azure FXT Edge Filer node to your datacenter network
 > * How to route cables through the Cable Management Arm (CMA)
+> * How to connect power to the racked device and power it on
 
 ## Prerequisites
 
@@ -135,11 +136,28 @@ The total number of IP addresses required depends on the number of nodes in that
 
 Configure the IP address range by using the Control Panel software after the nodes have been installed. To learn more, read [Gather information for the cluster](fxt-cluster-create.md#gather-information-for-the-cluster).  
 
+## Connect power cables 
+
+Each Azure FXT Edge Filer node uses two power supply units (PSUs). 
+
+> [!TIP] 
+> To take advantage of the two redundant PSUs, attach each AC power cable to a power distribution unit (PDU) on an independent branch circuit.  
+> 
+> You can use a UPS to power the PDUs for extra protection. 
+
+1. Connect the included power cords to the PSUs in the chassis. Make sure that the cords and PSUs are fully seated. 
+1. Attach the power cords to the power distribution units on the equipment rack. If possible, use two separate power sources for the two cords. 
+ 
+### Power on an Azure FXT Edge Filer node
+
+To power up the node, press the power button on the front of the system. The button is on the right side control panel. 
+
+### Power off an Azure FXT Edge Filer node
+
+The power button can be used to shut down the system during testing and before adding it to a cluster. However, after an Azure FXT Edge Filer node is in use as part of a cluster, you should use the cluster control panel software to shut down the hardware. Read [How to safely power off Azure FXT Edge Filer hardware](fxt-power-off.md) for details. 
+
 ## Next steps
 
-After you finish installing network cables, continue with one of these articles.
-
+After you finish cabling the hardware, power on each of the nodes and initialize them by setting their root passwords. 
 > [!div class="nextstepaction"]
-> Read [Connect power to the Azure FXT Edge Filer](fxt-power.md) if you have not already attached power cables and learned how to power on the nodes.
-> [Set initial passwords](fxt-node-password.md) to activate the node.
-> If you have installed and activated at least three nodes in the data center, read [Create the FXT Edge Filer cluster](fxt-cluster-create.md) to learn how to configure them as a clustered cache system. 
+> [Set initial passwords](fxt-node-password.md)

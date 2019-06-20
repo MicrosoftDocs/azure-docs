@@ -104,8 +104,8 @@ After you sign in as root, the network ports are active and will contact the DHC
 
 ## Next steps
 
-The node is ready to be part of a cluster. 
+The node is ready to be part of a cluster. You can use it to create the Azure FXT Edge Filer cluster, or you can add it to an existing cluster. 
 
 > [!div class="nextstepaction"]
-> You can use it to [Create the FXT Edge Filer cluster](fxt-cluster-create.md)
-> You can add it to an existing cluster: [Add cluster nodes](fxt-add-nodes.md)
+> [Create a cluster](fxt-cluster-create.md)
+> [Add cluster nodes](fxt-add-nodes.md)

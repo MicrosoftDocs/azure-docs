@@ -221,8 +221,7 @@ To remove the front bezel:
 
 ## Next steps
 
-After you have unpacked and racked the device, continue setup by attaching network cables and connecting AC power and learning to boot and shut down the Azure FXT Edge Filer.
+After you have unpacked and racked the device, continue setup by attaching network cables and connecting AC power to the Azure FXT Edge Filer.
 
 > [!div class="nextstepaction"]
-> [Make network connections to the Azure FXT Edge Filer node](fxt-network.md)
-> [Connect power to the Azure FXT Edge Filer](fxt-power.md)
+> [Cable the network ports and supply power](fxt-network.md)
