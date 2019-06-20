@@ -27,7 +27,7 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 
 ## Create a project with debugging template 
 
-Create a spark232 project to proceed failure debug, take failure task​ debugging sample file in this document.
+Create a spark2.3.2 project to proceed failure debug, take failure task​ debugging sample file in this document.
 
 1. Open IntelliJ IDEA. Open the **New Project** window.
 
@@ -53,7 +53,7 @@ Create a spark232 project to proceed failure debug, take failure task​ debuggi
 
 3. Select **src** > **main** > **scala** to open your code in the project. This example uses the **AgeMean_Div()** script.
 
-## Run a Spark ​Scala/Java application on a Spark pool
+## Run a Spark ​Scala/Java application on an HDInsight cluster
 
 Create a spark Scala​/Java application, then run the application on a Spark cluster by doing the following:
 
@@ -81,9 +81,9 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 
 ## Download failed job profile
 
-​If the job submission fails, you could download the failed job profile to the local machine for further debugging. **Microsoft Azure Storage Explorer** can help you quickly find the  spark failure file and download it.
+​If the job submission fails, you could download the failed job profile to the local machine for further debugging.
 
-1. Open **Microsoft Azure Storage Explorer**, locate the hdinsight account of the cluster for the failed job, download the failed job resources from the corresponding location: **\hdp\spark2-events\.spark-failures\<application ID>**. The **activities** window will show the download progress.
+1. Open **Microsoft Azure Storage Explorer**, locate the hdinsight account of the cluster for the failed job, download the failed job resources from the corresponding location: **\hdp\spark2-events\\.spark-failures\\\<application ID>** to a local folder.​ The **activities** window will show the download progress.
 
    ![download failure file](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
@@ -91,27 +91,26 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 
 ## Configure local debugging environment and debug on failure​​
 
-1. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Spark Failure Debug** option.
+1. Open the original project​ or create a new project and associate it with the original source code​.​
+**Note**, only spark2.3.2 version is supported for failure debugging currently.
+
+2. In IntelliJ IDEA, create a Spark Failure Debug config file.
 
    ![Add new configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration.png)
 
-2. Click the icon, select the failed job, then click **OK** button to save the configuration.
-
-   ![Run debug configurations](./media/apache-spark-intellij-tool-failure-debug/spark-failure-configurartion-01.png)
-
-   ![Run debug configurations](./media/apache-spark-intellij-tool-failure-debug/spark-failure-configurartion-02.png)   
-
-3. After you complete the configurations settings, click the local run button in the toolbar to local run the **Spark Failure Debug** configuraion.
+3. In IntelliJ IDEA, create a Spark Failure Debug config file, select the FTD file from the previously downloaded failed job resources for the Spark Job Failure Context location field.
    
-   ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion.png)
+   ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
 
-4. The result will show in the output window.
+4. Click the local run button in the toolbar, the error will display in Run window.
    
+   ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
+
    ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
 
 5. Set break point as the log indicates, then click local debug button to perform local debugging just as your normal Scala / Java projects in IntelliJ.
 
-6. After debugging, ​if the project completes successfully​​​, ​you could resubmit the failed job to your spark on HDInsight cluster.
+5. After debugging, ​if the project completes successfully​​​, ​you could resubmit the failed job to your spark on HDInsight cluster.
 
 ## <a name="seealso"></a>Next steps
 * [Overview: Debug Apache Spark applications](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
