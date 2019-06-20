@@ -25,7 +25,7 @@ ms.custom: "include file"
 
 8. In the **Runtime stack**, you need to select a version under **ASP.NET** or **Node**. If you are building a .NET backend, select a version under ASP.NET. Otherwise if you are targeting a Node based application, select one of the version from Node.
 
-9. Select the right **Operting System**, either Linux or Windows. 
+9. Select the right **Operating System**, either Linux or Windows. 
 
 10. Select the **Region** where you would like this app to be deployed. 
 
@@ -35,7 +35,7 @@ ms.custom: "include file"
 
 13. Click **Create**. Wait a few minutes for the service to be deployed successfully before proceeding. Watch the Notifications (bell) icon in the portal header for status updates.
 
-14. Once the deploymnet is complete, click on the **Deployment details** section and then clicl on the Resource of Type **Microsoft.Web/sites**. It will navigate you to the App Service Web App that you just created. 
+14. Once the deployment is completed, click on the **Deployment details** section and then click on the Resource of Type **Microsoft.Web/sites**. It will navigate you to the App Service Web App that you just created. 
 
 15. Click on the **Configuration** blade under **Settings** and in the **Application settings**, click on the **New application setting** button.
 
