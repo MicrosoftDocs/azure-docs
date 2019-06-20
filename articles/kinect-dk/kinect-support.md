@@ -1,5 +1,5 @@
 ---
-title: Azure Kinect support
+title: Azure Kinect support options and resources
 description: Azure Kinect different support options and resources
 author: tesych
 ms.author: tesych
