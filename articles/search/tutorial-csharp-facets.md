@@ -646,6 +646,7 @@ Consider the following takeaways from this project:
 
 ## Next steps
 
-You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Search APIs.
+In the next tutorial, we look at ordering results. Up to this point, results are ordered simply in the order that they are located in the database.
 
-For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure), or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/azure/search/).
+> [!div class="nextstepaction"]
+> [C# tutorial: Order the results- Azure Search](tutorial-csharp-orders.md)
