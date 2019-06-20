@@ -55,7 +55,7 @@ Download and install Visual C++ Redistributable for Visual Studio 2015.
 
 ### [Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
 
-Launch the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) to check that your Azure Kinect DK is set up correctly.
+Launch the [Azure Kinect Viewer](azure-kinect-viewer.md) to check that your Azure Kinect DK is set up correctly.
 
 ## Verify body tracking
 
