@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 06/19/2019
 ms.author: dapine
 ---
 # Install and run Form Recognizer containers
