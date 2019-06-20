@@ -62,5 +62,4 @@ The following table enumerates the standard joint connections.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Body tracking index map](body-index-map.md)
+[Body tracking index map](body-index-map.md)

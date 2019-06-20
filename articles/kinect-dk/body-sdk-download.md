@@ -15,9 +15,9 @@ This document provides links to install each version of the Azure Kinect Body Tr
 
 ## Azure Kinect Body Tracking SDK contents
 
-* Headers and libraries to build a body tracking application using the Azure Kinect DK.
-* Redistributable DLLs needed by body tracking applications using the Azure Kinect DK.
-* Sample body tracking applications.
+- Headers and libraries to build a body tracking application using the Azure Kinect DK.
+- Redistributable DLLs needed by body tracking applications using the Azure Kinect DK.
+- Sample body tracking applications.
 
 ## Windows download links
 
@@ -31,6 +31,7 @@ Version       | Download
 ## Change log
 
 ### v0.9.0
+
 * [Breaking Change] Downgraded the SDK dependency to CUDA 10.0 (from CUDA 10.1). ONNX runtime officially only supports up to CUDA 10.0.
 * [Breaking Change] Switched to ONNX runtime instead of Tensorflow runtime. Reduces the first frame launching time and memory usage. It also reduces the SDK binary size.
 * [API Change] Renamed `k4abt_tracker_queue_capture()` to `k4abt_tracker_enqueue_capture()`
@@ -46,11 +47,8 @@ Version       | Download
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Azure Kinect DK overview](about-azure-kinect-dk.md)
+- [Azure Kinect DK overview](about-azure-kinect-dk.md)
 
-> [!div class="nextstepaction"]
->[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
+- [Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
 
-> [!div class="nextstepaction"]
->[Set up Azure Kinect body tracking](body-sdk-setup.md)
+- [Set up Azure Kinect body tracking](body-sdk-setup.md)

@@ -65,7 +65,7 @@ Azure Kinect DK doesn't update firmware automatically. You can use [Azure Kinect
 
 3. If you see the above output, your firmware is updated.
 
-4. After firmware update, you can run [K4A Viewer](azure-kinect-sensor-viewer.md) to verify all sensors are working as expected.
+4. After firmware update, you can run [Azure Kinect viewer](azure-kinect-viewer.md) to verify all sensors are working as expected.
 
 ## Troubleshooting
 

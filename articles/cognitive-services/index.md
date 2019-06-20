@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 06/17/2019
+ms.date: 06/20/2019
 ms.topic: hub-page
 ---
 
@@ -56,7 +56,7 @@ ms.topic: hub-page
                 <div class="card">
                     <div class="cardText">
                         <h3>Language API</h3>
-                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
+                        <p><a href="/azure/cognitive-services/immersive-reader"><span>Immersive Reader&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
                         <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">Text Analytics</a></p>
                         <p><a href="/azure/cognitive-services/translator/">Translator Text</a></p>

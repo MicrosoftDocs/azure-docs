@@ -15,11 +15,11 @@ This page has the download links for each version of the Azure Kinect Sensor SDK
 
 ## Azure Kinect Sensor SDK contents
 
-* Headers and libraries to build an application using the Azure Kinect DK.
-* Redistributable DLLs needed by applications using the Azure Kinect DK.
-* The [Azure Kinect Viewer](azure-kinect-sensor-viewer.md).
-* The [Azure Kinect Recorder](record-sensor-streams-file.md).
-* The [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md).
+- Headers and libraries to build an application using the Azure Kinect DK.
+- Redistributable DLLs needed by applications using the Azure Kinect DK.
+- The [Azure Kinect Viewer](azure-kinect-viewer.md).
+- The [Azure Kinect Recorder](azure-kinect-recorder.md).
+- The [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md).
 
 ## Windows download link
 
@@ -34,7 +34,7 @@ Currently, the only supported distribution is Ubuntu 18.04. To request support f
 
 First, you'll need to configure [Microsoft's Package Repository](https://packages.microsoft.com/), following the instructions [here](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software).
 
-Now, you can install the necessary packages. The `k4a-tools` package includes the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md), the [Azure Kinect Recorder](record-sensor-streams-file.md), and the [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md). To install it, run
+Now, you can install the necessary packages. The `k4a-tools` package includes the [Azure Kinect Viewer](azure-kinect-viewer.md), the [Azure Kinect Recorder](record-sensor-streams-file.md), and the [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md). To install it, run
 
  `sudo apt install k4a-tools`
 
@@ -55,5 +55,4 @@ If you need an older version of the Azure Kinect Sensor SDK, find it [here](http
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
+[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)

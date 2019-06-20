@@ -5,7 +5,7 @@ author: qm13
 ms.author: yijwan, quentinm
 ms.prod: kinect-dk
 ms.date: 06/12/2019
-ms.topic: quickstarts
+ms.topic: quickstart
 keywords: kinect, azure, sensor, sdk, body, tracking, joint, application, first
 
 #Customer intent: As an Azure Kinect DK developer, I want to create a new Azure Kinect DK application.

@@ -25,5 +25,4 @@ The body index map is stored as a `k4a_image_t` and has the same resolution as t
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Build your first body tracking app](build-first-body-app.md)
+[Build your first body tracking app](build-first-body-app.md)

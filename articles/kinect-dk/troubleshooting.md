@@ -101,12 +101,12 @@ If not then perform a [factory reset](https://support.microsoft.com/help/4494277
 
 ## Image quality issues
 
-- Start [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) and check positioning of the device for interference or if sensor is blocked or lens is dirty.
+- Start [Azure Kinect viewer](azure-kinect-viewer.md) and check positioning of the device for interference or if sensor is blocked or lens is dirty.
 - Try different operating modes to narrow down if issue is happening in specific mode.
 - For sharing image quality issues with the team you can:
 
-1) Take pause view on [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) and take a screenshot or
-2) Take recording using [Azure Kinect Recorder](azure-kinect-sensor-viewer.md), for example, `k4arecorder.exe -l 5 -r 5 output.mkv`
+1) Take pause view on [Azure Kinect viewer](azure-kinect-viewer.md) and take a screenshot or
+2) Take recording using [Azure Kinect recorder](azure-kinect-recorder.md), for example, `k4arecorder.exe -l 5 -r 5 output.mkv`
 
 ## USB3 host controller compatibility
 
@@ -116,5 +116,4 @@ right-click the device in Device Manager and click "Uninstall Device". Select th
 
 ## Next steps
 
->[!div class="nextstepaction"]
->[More support information](kinect-support.md)
+[More support information](support.md)

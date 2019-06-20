@@ -5,7 +5,7 @@ author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
 ms.date: 06/10/2019
-ms.topic: quickstarts 
+ms.topic: quickstart
 keywords: kinect, azure, sensor, access, depth, sdk, body, tracking, joint, setup, cuda, nvidia
 
 #Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect body tracking.
@@ -55,7 +55,7 @@ Download and install Visual C++ Redistributable for Visual Studio 2015.
 
 ### [Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
 
-Launch the [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) to check that your Azure Kinect DK is set up correctly.
+Launch the [Azure Kinect Viewer](azure-kinect-viewer.md) to check that your Azure Kinect DK is set up correctly.
 
 ## Verify body tracking
 
