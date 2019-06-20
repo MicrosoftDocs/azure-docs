@@ -39,7 +39,7 @@ ms.custom: "include file"
 
 15. Click on the **Configuration** blade under **Settings** and in the **Application settings**, click on the **New application setting** button.
 
-16. In the **Add/Edit application setting** page, enter **Name** as **** and Value as **** and hit OK.
+16. In the **Add/Edit application setting** page, enter **Name** as **MobileAppsManagement_EXTENSION_VERSION** and Value as **latest** and hit OK.
 
 You are all set to use this newly created App Service Web app as a Mobile app.
 
