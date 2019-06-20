@@ -45,10 +45,12 @@
     href: search-semi-structured-data.md
   - name: Enrich with AI (cognitive search)
     items:
+    - name: C#
+      href: cognitive-search-tutorial-blob-dotnet.md
     - name: REST
       href: cognitive-search-tutorial-blob.md
-    - name: C#
-      href: cognitive-search-tutorial-blob-dotnet.md 
+    - name: Python
+      href: cognitive-search-tutorial-blob-python.md
 - name: Samples
   items:
   - name: Azure code samples
