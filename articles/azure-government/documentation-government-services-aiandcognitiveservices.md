@@ -80,7 +80,7 @@ Variations in Azure Government:
   - Neural voices for Text-to-speech
 - Supported locales: 
   Locales for the following languages are supported. 
-  - Englihs (United States) - en-US
+  - English (United States) - en-us
 
 See details of supported locales by features in [Language and region support for the Speech Services](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support). 
 
