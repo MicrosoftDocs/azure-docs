@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 06/20/2019
 ms.custom: seodec18
 ---
 
@@ -26,13 +26,21 @@ Azure Time Series Insights data ingress policies determine where data can be sou
 
 The Time Series Insights Preview supports the same event sources and file types that Time Series Insights currently supports:
 
-- Azure IoT Hub
-- Azure Event Hubs
+- [Azure IoT Hub](../iot-hub/about-iot-hub)
+- [Azure Event Hubs](../event-hubs/event-hubs-about)
   
-> [!NOTE]
-> Azure Event Hub instances support Kafka.
-
 Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs. To optimize your IoT JSON data, learn [How to shape JSON](./time-series-insights-send-events.md#json).
+
+### Data storage
+
+When you create a Time Series Insights Preview pay-as-you-go SKU environment, you create two resources:
+
+* A Time Series Insights environment.
+* An Azure Storage general-purpose V1 account where the data will be stored.
+
+The Time Series Insights Preview uses Azure Blob storage with the Parquet file type. Time Series Insights manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure storage account. You create these blobs by using an Azure storage account.
+
+Like other Azure Storage blobs, Time Series Insights-created blobs let you read and write to them to support various integration scenarios.
 
 ### Data availability
 
@@ -46,17 +54,6 @@ The Time Series Insights Preview indexes data by using a blob-size optimization 
 ### Scale
 
 The Time Series Insights Preview supports an initial ingress scale of up to 1 Mega Byte per Second (Mbps) per environment. Enhanced scaling support is ongoing. We plan to update our documentation to reflect those improvements.
-
-## Data storage
-
-When you create a Time Series Insights Preview pay-as-you-go SKU environment, you're creating two resources:
-
-* A Time Series Insights environment.
-* An Azure Storage general-purpose V1 account where the data will be stored.
-
-The Time Series Insights Preview uses Azure Blob storage with the Parquet file type. Time Series Insights manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure storage account. You create these blobs by using an Azure storage account.
-
-Like other Azure Storage blobs, Time Series Insights-created blobs let you read and write to them to support various integration scenarios.
 
 ## Parquet file format
 
@@ -102,7 +99,7 @@ Time Series Insights events are mapped to Parquet file contents as follows:
 
 This section describes Azure Storage details relevant to Azure Time Series Insights.
 
-For a thorough Azure Blob storage service description, read the [Storage blobs introduction](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
+For a thorough Azure Blob storage service description, read the [Storage blobs introduction](../storage/blobs/storage-blobs-introduction).
 
 ### Your Storage account
 
@@ -133,11 +130,11 @@ You can access your data in three general ways:
 
 #### From an Azure storage account
 
-* You need read access to whatever account you're using to access your Time Series Insights data. For more information, see [Manage access to your storage account resources](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
-* For more information about direct ways to read data from Azure Blob storage, see [Moving data to and from your storage account](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+* You need read access to whatever account you're using to access your Time Series Insights data. For more information, see [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources).
+* For more information about direct ways to read data from Azure Blob storage, see [Choose an Azure solution for data transfer](../storage/common/storage-choose-data-transfer-solution).
 * To export data from an Azure storage account:
-    * First make sure that your account meets the necessary requirements for exporting data. For more information, see [Storage import and export requirements](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
-    * To learn about other ways to export data from your Azure storage account, see [Import and export data from blobs](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs).
+    * First make sure that your account meets the necessary requirements for exporting data. For more information, see [Storage import and export requirements](../storage/common/storage-import-export-requirements).
+    * To learn about other ways to export data from your Azure storage account, see [Import and export data from blobs](../storage/common/storage-import-export-data-from-blobs).
 
 ### Data deletion
 
