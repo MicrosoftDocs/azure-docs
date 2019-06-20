@@ -463,6 +463,15 @@ The second thing to notice is each property is decorated with attributes such as
 
 The third important thing about the `Hotel` class is the data types of the public properties. The .NET types of these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?` and `Edm.Boolean`, `DateTimeOffset?` and `Edm.DateTimeOffset`, etc. The specific rules for the type mapping are documented with the `Documents.Get` method in the [Azure Search .NET SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). The `FieldBuilder` class takes care of this mapping for you, but it can still be helpful to understand in case you need to troubleshoot any serialization issues.
 
+Did you happen to notice the 'SmokingAllowed' property?
+
+```csharp
+[JsonIgnore]
+public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
+```csharp
+
+The 'JsonIgnore' attribute on this property tells the 'FieldBuilder' to not serialize it to the index as a field.  This is a great way to create client-side calculated properties you can use as helpers in your application.  In this case, the 'SmokingAllowed' property reflects whether any 'Room' in the 'Rooms' allows smoking.  If all are false, it indicates that the entire 'Hotel' does not allow smoking.
+
 Some properties such as 'Address' and 'Rooms' are instances of .Net classes.  These properties represent more complex data structures and, as a result, require fields with a [complex data type](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) in the index.
 
 The 'Address' property represents a set of multiple values in the 'Address' class, defined below:
