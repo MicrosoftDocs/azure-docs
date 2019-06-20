@@ -4661,6 +4661,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-create-multisite-portal.md",
+      "redirect_url": "/azure/application-gateway/create-multiple-sites-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-introduction.md",
       "redirect_url": "/azure/application-gateway/overview",
       "redirect_document_id": false
