@@ -19,6 +19,8 @@
   - name: Develop applications
     expanded: true
     items:
+    - name: Use Draft
+      href: kubernetes-draft.md
     - name: Use Java (VS Code & CLI)
       href: ../dev-spaces/quickstart-java.md
       maintainContext: true
@@ -280,8 +282,6 @@
           maintainContext: true
     - name: Run applications with Helm
       href: kubernetes-helm.md
-    - name: Develop applications with Draft
-      href: kubernetes-draft.md
     - name: Use Open Service Broker for Azure
       href: integrate-azure.md
     - name: Use Cosmos DB API for MongoDB with OSBA
