@@ -73,15 +73,20 @@ These attributes may be required or optional to make single sign-on work properl
 
    The **Name Identifier Value** is set with the default value of *user.principalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
 
-2. To modify the **Name Identifier Value**, select the **Edit** icon (a pencil) for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. Save the changes when you're done. For more information about options for customizing claims, see the following articles:
-    - [Configure group claims](../hybrid/how-to-connect-fed-group-claims.md)
-    - [Configure role claims](../develop/active-directory-enterprise-app-role-management.md)
-    - [Customize claims in the portal](../develop/active-directory-saml-claims-customization.md)
-    - [Customize claims with PowerShell](../develop/active-directory-claims-mapping.md)
-    - [Configure optional claims](../develop/active-directory-optional-claims.md)
-    - [Configure token lifetimes](../develop/active-directory-configurable-token-lifetimes.md)
+1. To modify the **Name Identifier Value**, select the **Edit** icon (a pencil) for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. For details, see [Editing NameId](https://docs.microsoft.com/en-us/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid). Save the changes when you're done. 
+ 
+1. To configure group claims, select the **Edit** icon for the **Groups returned in claim** field.
 
-3. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use.
+3. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use. For details, see the following articles:
+
+   > [!NOTE]
+   > For details about configuring and customizing claims, refer to the following articles: 
+   >- [How to configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md) 
+   >- [How to customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization.md) 
+   >- [Customize claims - PowerShell](../develop/active-directory-claims-mapping.md)
+   >- [How to provide optional claims to your Azure AD app](../develop/active-directory-optional-claims.md)
+   >- [Configure group claims for applications with Azure Active Directory (Public Preview)](../hybrid/how-to-connect-fed-group-claims.md)
+   >- [Configurable token lifetimes in Azure Active Directory (Preview)](../develop/active-directory-configurable-token-lifetimes.md)
 
 4. Select **Save**. The new claim appears in the table.
  

@@ -139,7 +139,7 @@
         items:
         - name: Configure SAML-based single sign-on
           href: configure-single-sign-on-portal.md
-        - name: Advanced user attributes and claims options
+        - name: Customize user attributes and claims
           items:
           - name: Configure group claims
             href: /azure/active-directory/hybrid/how-to-connect-fed-group-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
