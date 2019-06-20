@@ -49,6 +49,7 @@ Objects in Blob storage can be accessed from anywhere in the world via HTTP or H
 For more information about Blob storage, see [Introduction to Blob storage](../blobs/storage-blobs-introduction.md).
 
 ## Azure Files
+
 [Azure Files](../files/storage-files-introduction.md) enables you to set up highly available network file shares that can be accessed by using the standard Server Message Block (SMB) protocol. That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries.
 
 One thing that distinguishes Azure Files from files on a corporate file share is that you can access the files from anywhere in the world using a URL that points to the file and includes a shared access signature (SAS) token. You can generate SAS tokens; they allow specific access to a private asset for a specific amount of time.
@@ -89,13 +90,13 @@ For more information about managed disks, see [Introduction to Azure managed dis
 
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-For more information about storage account types, see [Azure storage account overview](storage-account-overview.md). 
+For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
 ## Securing access to storage accounts
 
 Every request to Azure Storage must be authorized. Azure Storage supports the following authorization methods:
 
-- **Azure Active Directory (Azure AD) integration for blob and queue data.** Azure Storage supports authentication and authorization with Azure AD for the Blob and Queue services via role-based access control (RBAC). Authorizing requests with Azure AD is recommended for superior security and ease of use. For more information, see [Authenticate access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md).
+- **Azure Active Directory (Azure AD) integration for blob and queue data.** Azure Storage supports authentication and authorization with Azure AD for the Blob and Queue services via role-based access control (RBAC). Authorizing requests with Azure AD is recommended for superior security and ease of use. For more information, see [Authorize access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md).
 - **Azure AD authorization over SMB for Azure Files (preview).** Azure Files supports identity-based authorization over SMB (Server Message Block) through Azure Active Directory Domain Services. Your domain-joined Windows virtual machines (VMs) can access Azure file shares using Azure AD credentials. For more information, see [Overview of Azure Active Directory authorization over SMB for Azure Files (preview)](../files/storage-files-active-directory-overview.md).
 - **Authorization with Shared Key.** The Azure Storage Blob, Queue, and Table services and Azure Files support authorization with Shared Key.A client using Shared Key authorization passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
 - **Authorization using shared access signatures (SAS).** A shared access signature (SAS) is a string containing a security token that can be appended to the URI for a storage resource. The security token encapsulates constraints such as permissions and the interval of access. For more information, refer to [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
