@@ -413,6 +413,8 @@ For more information on the `cluster_purpose` parameter, see the [AksCompute.Clu
 
 > Also, AzureML SDK does not support scaling an AKS cluster. You can scale an existing AKS cluster through the Azure Portal. However, you will only be able to change the node count, not the vm_size. 
 
+> AzureML-managed cluster will be available with Managed Inferencing, which is currently under development.
+
 #### Attach an existing AKS cluster
 **Time estimate:** Approximately 5 minutes.
 
