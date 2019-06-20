@@ -17,7 +17,7 @@ ms.author: mbullwin
 # Performance testing
 
 > [!NOTE]
-> The cloud-based load testing service has been deprecated. More information about the deprecation, the service availability, and alternative services can be found [here](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+> The cloud-based load testing service has been deprecated. More information about the deprecation, the service availability, and alternative services can be found [here](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
 Application Insights allows you to generate load tests for your websites. Like [availability tests](monitor-web-app-availability.md), you can send either basic requests or [multi-step requests](availability-multistep.md) from Azure test agents around the world. Performance tests allow you to simulate up to 20,000 simultaneous users for up to 60 minutes.
 
@@ -37,7 +37,7 @@ Under **Configure**, go to **Performance Testing** and click **New** to create a
 
 To create a basic performance test, select a test type of **Manual Test** and fill out the desired settings for your test.
 
-|Setting| Max Value
+|Setting| Max value
 |----------|------------|
 | User Load | 20,000 |
 | Duration (Minutes)  | 60 |  
@@ -48,7 +48,7 @@ Once the test is complete, you will see results that look similar to the results
 
 ![Test Results](./media/performance-testing/test-results.png)
 
-## Configure Visual Studio Web test
+## Configure Visual Studio web test
 
 Application Insights advanced performance testing capabilities are built on top of Visual Studio performance and load test projects.
 

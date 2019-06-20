@@ -21,7 +21,7 @@ This article will help you to troubleshoot common issues that may occur when usi
 
 ## SSL/TLS errors
 
-|Symptom/Error Message| Possible causes|
+|Symptom/error message| Possible causes|
 |--------|------|
 |Could not create SSL/TLS Secure Channel  | SSL version. Only TLS 1.0, 1.1, and 1.2 are supported. **SSLv3 is not supported.**
 |TLSv1.2 Record Layer: Alert (Level: Fatal, Description: Bad Record MAC)| See StackExchange thread for [more information](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake).
@@ -33,15 +33,15 @@ This article will help you to troubleshoot common issues that may occur when usi
 
 ## Test fails only from certain locations
 
-|Symptom/Error Message| Possible causes|
+|Symptom/error message| Possible causes|
 |----|---------|
 |A connection attempt failed because the connected party did not properly respond after a period of time  | Test agents in certain locations are being blocked by a firewall.|
 |    |Rerouting of certain IP addresses is occurring via (Load Balancers, Geo traffic managers, Azure Express Route.) 
-|    |If using Azure ExpressRoute, there are scenarios where packets can be dropped in cases where [Asymmetric Routing occurs](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-asymmetric-routing).|
+|    |If using Azure ExpressRoute, there are scenarios where packets can be dropped in cases where [Asymmetric Routing occurs](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
 
 ## Intermittent test failure with a protocol violation error
 
-|Symptom/Error Message| Possible causes|
+|Symptom/error message| Possible causes|
 |----|---------|
 protocol violation CR must be followed by LF | This occurs when malformed headers are detected. Specifically, some headers might not be using CRLF to indicate end of line, which violates the HTTP specification and therefore will fail validation at the .NET WebRequest level.
  || This can also be caused by load balancers or CDNs.
@@ -130,7 +130,7 @@ This section only applies to classic alerts and will help you optimize your aler
 
 Use the new alert experience/near-realtime alerts if you need to notify users based on their roles. With [action groups](../platform/action-groups.md), you can configure email notifications to users with any of the contributor/owner/reader roles (not combined together as a single option).
 
-## Next Steps
+## Next steps
 
 * [Multi-step web testing](availability-multistep.md)
 * [URL ping tests](monitor-web-app-availability.md)

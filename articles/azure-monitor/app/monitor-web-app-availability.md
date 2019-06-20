@@ -128,7 +128,7 @@ In addition to the raw results, you can also view two key Availability metrics i
 
 ## Troubleshooting
 
-Dedicated [troubleshooting article](availability-troubleshooting.md).
+Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 ## Next steps
 

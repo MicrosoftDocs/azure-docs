@@ -34,7 +34,8 @@ Pricing for [Azure Application Insights][start] is based on data volume ingested
 * Your application's data volume charges are now reported on a new billing meter named **Data Ingestion** as of April 2018. This new meter is shared across monitoring technologies such as Applications Insights and Log Analytics and is currently under the service name **Log Analytics**. 
 * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data isn't counted for pricing purposes.
 
-For current prices in your currency and region, see [Application Insights pricing][pricing].
+> [!NOTE]
+> All prices displayed in screenshots in this article are for example purposes only. For current prices in your currency and region, see [Application Insights pricing][pricing].
 
 ### Multi-step web tests
 

@@ -46,7 +46,7 @@ Use Visual Studio Enterprise to record a web session.
 
 2. Open the `.webtest` file and start recording.
 
-    ![Visual Studio test recording UI](./media/availability-multistep/open-webtest.png)
+    ![Visual Studio test recording UI](./media/availability-multistep/open-web-test.png)
 
 3. Click through the steps you want your test to simulate as part of the recording.
 
@@ -98,7 +98,7 @@ Use Visual Studio Enterprise to record a web session.
 
 Suppose you're testing a tool that gets time-dependent data such as stocks from an external feed. When you record your web test, you have to use specific times, but you set them as parameters of the test, StartTime and EndTime.
 
-![My awesome stock app screenshot](./media/availability-multistep/appinsights-72webtest-parameters.png)
+![My awesome stock app screenshot](./media/availability-multistep/app-insights-72webtest-parameters.png)
 
 When you run the test, you'd like EndTime always to be the present time, and StartTime should be 15 minutes ago.
 
@@ -106,17 +106,17 @@ The Web Test Date Time Plugin provides the way to handle parameterize times.
 
 1. Add a web test plug-in for each variable parameter value you want. In the web test toolbar, choose **Add Web Test Plugin**.
     
-    ![Add Web Test Plug-in](./media/availability-multistep/appinsights-72webtest-plugin-name.png)
+    ![Add Web Test Plug-in](./media/availability-multistep/app-insights-72webtest-plugin-name.png)
     
     In this example, we use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now."
 
 2. Open the properties of each plug-in. Give it a name and set it to use the current time. For one of them, set Add Minutes = -15.
 
-    ![Context Parameters](./media/availability-multistep/appinsights-72webtest-plugin-parameters.png)
+    ![Context Parameters](./media/availability-multistep/app-insights-72webtest-plugin-parameters.png)
 
 3. In the web test parameters, use {{plug-in name}} to reference a plug-in name.
 
-    ![StartTime](./media/availability-multistep/appinsights-72webtest-plugins.png)
+    ![StartTime](./media/availability-multistep/app-insights-72webtest-plugins.png)
 
 Now, upload your test to the portal. It will use the dynamic values on every run of the test.
 
@@ -157,7 +157,7 @@ Parameterize the tokens, setting the parameter when the token is returned from t
 
 ## Troubleshooting
 
-Dedicated [troubleshooting article](availability-troubleshooting.md).
+Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 ## Next steps
 

@@ -444,10 +444,10 @@
             href: app/monitor-web-app-availability.md
           - name: Multi-step tests
             href: app/availability-multistep.md
-          - name: Availability Alerts
+          - name: Availability alerts
             href: app/availability-alerts.md
           - name: Troubleshooting
-            href: app/availability-troubleshooting.md
+            href: app/troubleshoot-availability.md
       - name: Performance testing
         href: app/performance-testing.md
       - name: Create a resource
