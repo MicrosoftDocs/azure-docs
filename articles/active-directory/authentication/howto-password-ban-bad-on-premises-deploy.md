@@ -216,7 +216,7 @@ There are two required installers for Azure AD password protection. They're avai
 
    In both cases, replace `http://yourhttpproxy.com:8080` with the address and port of your specific HTTP proxy server.
 
-   If your HTTP proxy is configured to us an authorization policy, you must grant access to the Active Directory computer account of the machine that hosts the proxy service for password protection.
+   If your HTTP proxy is configured to use an authorization policy, you must grant access to the Active Directory computer account of the machine that hosts the proxy service for password protection.
 
    We recommend that you stop and restart the proxy service after you create or update the *AzureADPasswordProtectionProxy.exe.config* file.
 
