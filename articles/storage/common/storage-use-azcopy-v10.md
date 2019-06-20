@@ -61,13 +61,14 @@ Use this table as a guide:
 
 ### Option 1: Use Azure AD
 
-By using Azure AD, you can authorize your user identity or service principal one time. That way, you can run AzCopy commands without having to append a SAS token. 
-
-User identities and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
+By using Azure AD, you can provide credentials once instead of having to append a SAS token to each command.  
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
-If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity or service principal.
+If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity or service principal. 
+
+> [!NOTE] 
+> User identities and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
 
 If you want to upload files, then verify that one of these roles has been assigned to your security principal:
 
