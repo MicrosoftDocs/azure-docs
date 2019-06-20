@@ -17,11 +17,11 @@ ms.author: pafarley
 
 When you use the Form Recognizer custom model, you provide your own training data so the model can train to your industry-specific forms. It's important to use a data set that's optimized for training. Use the following tips to ensure you get the best results from the [Train Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/TrainCustomModel) operation.
 
-1.  Use text PDF documents (if they're available) to train your model.
-1.	Use an empty txt PDF document and 2 filled-in forms if possible.??
-1.	Use form documents that are fully filled in.
-1.	Use forms with different values in each field, if possible.
-1.	If your form images are of lower quality, use a larger set (10-15 images, for example).
+1.  If possible, use text-based PDF documents instead of image-based documents.
+1.	Use one empty form and two filled-in forms if you have them available.
+1.	For filled-in forms, use examples that have all of their fields filled in.
+1.	If possible, use forms with different values in each field.
+1.	If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
 ## Next steps
 
