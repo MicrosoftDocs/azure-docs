@@ -187,10 +187,10 @@ public class HomeController : Controller
 
 ## Controller actions
 
-In MVC controllers, you use the `Feature` attribute to control whether a whole controller class or a specific action is enabled. The following `HomeController` controller requires `FeatureA` to be *on* before any action the controller class contains can be executed:
+In MVC controllers, you use the `FeatureGate` attribute to control whether a whole controller class or a specific action is enabled. The following `HomeController` controller requires `FeatureA` to be *on* before any action the controller class contains can be executed:
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
     ...
@@ -200,7 +200,7 @@ public class HomeController : Controller
 The following `Index` action requires `FeatureA` to be *on* before it can run:
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
     return View();
@@ -216,6 +216,25 @@ In MVC views, you can use a `<feature>` tag to render content based on whether a
 ```html
 <feature name="FeatureA">
     <p>This can only be seen if 'FeatureA' is enabled.</p>
+</feature>
+```
+
+To display alternate content when the requirements are not met the `negate` attribute can be used.
+
+```html
+<feature name="FeatureA" negate="true">
+    <p>This will be shown if 'FeatureA' is disabled.</p>
+</feature>
+```
+
+The feature `<feature>` tag can also be used to show content if any or all features in a list are enabled.
+
+```html
+<feature name="FeatureA, FeatureB" requirement="All">
+    <p>This can only be seen if 'FeatureA' and 'FeatureB' are enabled.</p>
+</feature>
+<feature name="FeatureA, FeatureB" requirement="Any">
+    <p>This can be seen if 'FeatureA', 'FeatureB', or both are enabled.</p>
 </feature>
 ```
 
