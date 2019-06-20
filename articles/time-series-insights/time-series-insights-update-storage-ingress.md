@@ -26,8 +26,8 @@ Azure Time Series Insights data ingress policies determine where data can be sou
 
 The Time Series Insights Preview supports the same event sources and file types that Time Series Insights currently supports:
 
-- [Azure IoT Hub](../iot-hub/about-iot-hub)
-- [Azure Event Hubs](../event-hubs/event-hubs-about)
+- [Azure IoT Hub](../iot-hub/about-iot-hub.md)
+- [Azure Event Hubs](../event-hubs/event-hubs-about.md)
   
 Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs. To optimize your IoT JSON data, learn [How to shape JSON](./time-series-insights-send-events.md#json).
 
@@ -99,7 +99,7 @@ Time Series Insights events are mapped to Parquet file contents as follows:
 
 This section describes Azure Storage details relevant to Azure Time Series Insights.
 
-For a thorough Azure Blob storage service description, read the [Storage blobs introduction](../storage/blobs/storage-blobs-introduction).
+For a thorough Azure Blob storage service description, read the [Storage blobs introduction](../storage/blobs/storage-blobs-introduction.md).
 
 ### Your Storage account
 
@@ -130,11 +130,11 @@ You can access your data in three general ways:
 
 #### From an Azure storage account
 
-* You need read access to whatever account you're using to access your Time Series Insights data. For more information, see [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources).
-* For more information about direct ways to read data from Azure Blob storage, see [Choose an Azure solution for data transfer](../storage/common/storage-choose-data-transfer-solution).
+* You need read access to whatever account you're using to access your Time Series Insights data. For more information, see [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
+* For more information about direct ways to read data from Azure Blob storage, see [Choose an Azure solution for data transfer](../storage/common/storage-choose-data-transfer-solution.md).
 * To export data from an Azure storage account:
-    * First make sure that your account meets the necessary requirements for exporting data. For more information, see [Storage import and export requirements](../storage/common/storage-import-export-requirements).
-    * To learn about other ways to export data from your Azure storage account, see [Import and export data from blobs](../storage/common/storage-import-export-data-from-blobs).
+    * First make sure that your account meets the necessary requirements for exporting data. For more information, see [Storage import and export requirements](../storage/common/storage-import-export-requirements.md).
+    * To learn about other ways to export data from your Azure storage account, see [Import and export data from blobs](../storage/common/storage-import-export-data-from-blobs.md).
 
 ### Data deletion
 
