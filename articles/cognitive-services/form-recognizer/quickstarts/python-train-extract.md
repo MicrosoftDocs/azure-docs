@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Train a model and extract form data by using the REST API with Python - Form Recognizer"
+title: "Quickstart: Train a model and extract form data using the REST API with Python - Form Recognizer"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll use the Form Recognizer REST API with Python to train a model and extract data from forms.
 author: PatrickFarley
