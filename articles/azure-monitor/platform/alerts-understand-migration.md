@@ -4,30 +4,35 @@ description: Understand how the alerts migration tool works and troubleshoot pro
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 06/19/2019
 ms.author: snmuvva
 ms.subservice: alerts
 ---
 # Understand how the migration tool works
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in September 2019 (was originally July 2019). A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves.
+As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired by August 31, 2019 (was originally June 30, 2019). A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves.
 
 This article explains how the voluntary migration tool works. It also describes remedies for some common problems.
 
 > [!NOTE]
 > Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been [extended to August 31st, 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) from the originally announced date of June 30th, 2019.
 
-## Which classic alert rules cannot be migrated?
+## Classic alert rules that will not be migrated
 
-Although the tool can migrate almost all classic alert rules, there are some exceptions. The following alert rules won't be migrated by using the tool (or during the automatic migration in September 2019):
+> [!IMPORTANT]
+> Activity log alerts (including Service health alerts) and Log alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)
+
+Although the tool can migrate almost all [classic alert rules](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform), there are some exceptions. The following alert rules won't be migrated by using the tool (or during the automatic migration starting September 2019):
 
 - Classic alert rules on virtual-machine guest metrics (both Windows and Linux). See the [guidance for recreating such alert rules in new metric alerts](#guest-metrics-on-virtual-machines) later in this article.
 - Classic alert rules on classic storage metrics. See the [guidance for monitoring your classic storage accounts](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
 - Classic alert rules on some storage account metrics. See [details](#storage-account-metrics) later in this article.
+- Classic alert rules on some Cosmos DB metrics. Details will be added in a future update.
 
 If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. However, no new classic alerts can be created after August 2019.
 
-Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic- alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens. 
+> [!NOTE]
+> Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic- alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens.
 
 ### Guest metrics on virtual machines
 
@@ -59,7 +64,7 @@ Classic alert rules on AnonymousThrottlingError, SASThrottlingError and Throttli
 
 ### Classic alert rules on deprecated metrics
 
-These are classic alert rules on metrics which were supported for a while before they were eventually deprecated. A small percentage of customer might have invalid classic alert rules on such metrics. Since these alert rules are invalid, they won't be migrated. 
+These are classic alert rules on metrics which were previously supported but were eventually deprecated. A small percentage of customer might have invalid classic alert rules on such metrics. Since these alert rules are invalid, they won't be migrated.
 
 | Resource type| Deprecated metric(s) |
 |-------------|----------------- |
@@ -70,16 +75,16 @@ These are classic alert rules on metrics which were supported for a while before
 | Microsoft.Web/hostingEnvironments/multirolepools | averagememoryworkingset |
 | Microsoft.Web/hostingEnvironments/workerpools | bytesreceived, httpqueuelength |
 
-## How are equivalent new alert rules and action groups created?
+## How equivalent new alert rules and action groups are created
 
-For most classic alert rules, equivalent new alert rules are on the same metric with the same properties such as `windowSize` and `aggregationType`. However, there are some classic alert rules are on metrics that have a different, equivalent metric in the new system. The following principles apply to the migration of classic alerts unless specified in the section below:
+The migration tool converts your classic alert rules to equivalent new alert rules and action groups. For most classic alert rules, equivalent new alert rules are on the same metric with the same properties such as `windowSize` and `aggregationType`. However, there are some classic alert rules are on metrics that have a different, equivalent metric in the new system. The following principles apply to the migration of classic alerts unless specified in the section below:
 
-- **Frequency**: Defines how often a classic or new alert rule checks for the condition. The `frequency` in classic alert rules was not configurable by the user and was always 5 mins for all resource types except Application Insights components for which it was 1 min. So frequency of equivalent rules is also set to 5 min and 1 min respectively. 
+- **Frequency**: Defines how often a classic or new alert rule checks for the condition. The `frequency` in classic alert rules was not configurable by the user and was always 5 mins for all resource types except Application Insights components for which it was 1 min. So frequency of equivalent rules is also set to 5 min and 1 min respectively.
 - **Aggregation Type**: Defines how the metric is aggregated over the window of interest. The `aggregationType` is also the same between classic alerts and new alerts for most metrics. In some cases, since the metric is different between classic alerts and new alerts, equivalent `aggregationType` or the `primary Aggregation Type` defined for the metric is used.
 - **Units**: Property of the metric on which alert is created. Some equivalent metrics have different units. The threshold is adjusted appropriately as needed. For example, if the original metric has seconds as units but equivalent new metric has milliSeconds as units, the original threshold is multiplied by 1000 to ensure same behavior.
 - **Window Size**: Defines the window over which metric data is aggregated to compare against the threshold. For standard `windowSize` values like 5mins, 15mins, 30mins, 1hour, 3hours, 6 hours, 12 hours, 1 day, there is no change made for equivalent new alert rule. For other values, the closest `windowSize` is chosen to be used. For most customers, there is no impact with this change. For a small percentage of customers, there might be a need to tweak the threshold to get exact same behavior.
 
-In the following sections, we detail the metrics that have an equivalent metric in the new system.
+In the following sections, we detail the metrics that have an different, equivalent metric in the new system. Any metric that remain same for classic and new alert rules are not listed. You can find a list of metrics supported in the new system [here](metrics_supported.md).
 
 ### Microsoft.StorageAccounts/services
 
@@ -148,11 +153,9 @@ For Application Insights, equivalent metrics are as shown below:
 | requestFailed.count | requests/failed| Use `aggregationType` 'count' instead of 'sum'.   |
 | view.count | pageViews/count| Use `aggregationType` 'count' instead of 'sum'.   |
 
+### How equivalent action groups are created
 
-## How are equivalent action groups created
-
-Classic alert rules had email, webhook, logic app and runbook actions tied to the alert rule itself. New alert rules use action groups which can be reused across multiple alert rules. The migration tool creates single action group for same actions irrespective of how many alert rules are using the action. Action groups created by the migration tool use the naming format 'Migrated_AG_*'
-
+Classic alert rules had email, webhook, logic app and runbook actions tied to the alert rule itself. New alert rules use action groups which can be reused across multiple alert rules. The migration tool creates single action group for same actions irrespective of how many alert rules are using the action. Action groups created by the migration tool use the naming format 'Migrated_AG*'
 
 ## Rollout phases
 
@@ -167,7 +170,6 @@ Most of the subscriptions are currently marked as ready for migration. Only subs
 - Microsoft.documentDB/databases
 - Microsoft.insights/components
 
-
 ## Who can trigger the migration?
 
 Any user who has the built-in role of Monitoring Contributor at the subscription level can trigger the migration. Users who have a custom role with the following permissions can also trigger the migration:
@@ -176,6 +178,9 @@ Any user who has the built-in role of Monitoring Contributor at the subscription
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*
+
+> [!NOTE]
+> In addition to having above permissions, your subscription should additionally be registered with Microsoft.AlertsManagement resource provider. This is required to successfully migrate Failure Anomaly alerts on Application Insights. 
 
 ## Common problems and remedies
 
