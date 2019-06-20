@@ -38,7 +38,7 @@ For current prices in your currency and region, see [Application Insights pricin
 
 ### Multi-step web tests
 
-[Multi-step web tests](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
+[Multi-step web tests](../../azure-monitor/app/availability-multistep.md) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
 
 There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
@@ -49,7 +49,7 @@ Application Insights makes it easy to understand what your costs are likely to b
 ![Choose pricing](./media/pricing/pricing-001.png)
 
 A. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](../../azure-monitor/app/sampling.md)) from your server and client apps, and from availability tests.  
-B. A separate charge is made for [multi-step web tests](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)  
+B. A separate charge is made for [multi-step web tests](../../azure-monitor/app/availability-multistep.md). (This doesn't include simple availability tests, which are included in the data volume charge.)  
 C. View data volume trends for the past month.  
 D. Enable data ingestion [sampling](../../azure-monitor/app/sampling.md).   
 E. Set the daily data volume cap.  
