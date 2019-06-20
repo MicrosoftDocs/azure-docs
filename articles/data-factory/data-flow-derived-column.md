@@ -16,9 +16,9 @@ Use the Derived Column transformation to generate new columns in your data flow 
 
 ![Derived column settings](media/data-flow/dc1.png "Derived column settings")
 
-If you wish to override an existing column, select it via the column dropdown. Otherwise, use the column selection field as a textbox and type in the new column's name. To build the derived column's expression, click on the 'Enter expression' box to open up the [Data Flow Expression Builder](concepts-data-flow-expression-builder.md).
+To override an existing column, select it via the column dropdown. Otherwise, use the column selection field as a textbox and type in the new column's name. To build the derived column's expression, click on the 'Enter expression' box to open up the [Data Flow Expression Builder](concepts-data-flow-expression-builder.md).
 
-To add additional derived columns, hover over an existing derived column an click '+'. Then, choose either 'Add column' or 'Add column pattern'. Column patterns may come in handy if your column names are variable from your sources. For more information, see [Column Patterns](concepts-data-flow-column-pattern).
+To add additional derived columns, hover over an existing derived column and click '+'. Then, choose either 'Add column' or 'Add column pattern'. Column patterns may come in handy if your column names are variable from your sources. For more information, see [Column Patterns](concepts-data-flow-column-pattern).
 
 ![New derived column selection](media/data-flow/columnpattern.png "New derived column selection")
 

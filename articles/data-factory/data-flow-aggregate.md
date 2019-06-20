@@ -13,10 +13,10 @@ ms.date: 02/01/2019
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-The Aggregate transformation is where you'll define aggregations of columns in your data streams. In the Expression Builder, you can define different types of aggregations (i.e. SUM, MIN, MAX, COUNT, etc.) and create a new field in your output that includes these aggregations with optional group by fields.
+The Aggregate transformation is where you'll define aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT which can be grouped by existing or computed columns.
 
 ## Group By
-Use either an existing column or create a new computed column to use as a group by clause for your aggregation. To use an existing column, select the desired column from the dropdown. To create a new computed column, hover over the clause and click 'Computed column'. This will open up the [Data Flow Expression Builder](concepts-data-flow-expression-builder). Once you create your computed column, enter the output column name under the 'Name as' field. If you wish to add an additional group by clause, hover over an existing clause and click '+'.
+Select an existing column or create a new computed column to use as a group by clause for your aggregation. To use an existing column, select the desired column from the dropdown. To create a new computed column, hover over the clause and click 'Computed column'. This will open up the [Data Flow Expression Builder](concepts-data-flow-expression-builder). Once you create your computed column, enter the output column name under the 'Name as' field. If you wish to add an additional group by clause, hover over an existing clause and click '+'.
 
 ![Aggregate transformation group by settings](media/data-flow/agg.png "Aggregate transformation group by settings")
 
