@@ -14,6 +14,8 @@ Azure Resource Graph is designed for working with and getting information about 
 Azure environment. Resource Graph makes getting this data fast, even when querying thousands of
 records. Resource Graph has several options for working with these large data sets.
 
+For guidance on working with queries at a high frequency, see [Guidance for throttled requests](./guidance-for-throttled-requests.md).
+
 ## Data set result size
 
 By default, Resource Graph limits any query to returning only **100** records. This control
@@ -110,6 +112,6 @@ in the REST API docs.
 
 ## Next steps
 
-- See the language in use in [Starter queries](../samples/starter.md)
-- See advanced uses in [Advanced queries](../samples/advanced.md)
-- Learn to [explore resources](explore-resources.md)
+- See the language in use in [Starter queries](../samples/starter.md).
+- See advanced uses in [Advanced queries](../samples/advanced.md).
+- Learn to [explore resources](explore-resources.md).
