@@ -31,9 +31,7 @@ In this section, you create an Azure Resource Group project with a **Web app** t
 
     The template you pick is just a starting point; you can add and remove resources to fulfill your scenario.
 
-    Visual Studio creates a resource group deployment project for the web app.
-
-1. To see what you created, look at the node in the deployment project.
+1. Visual Studio creates a resource group deployment project for the web app. To see the files for your project, look at the node in the deployment project.
 
     ![Show nodes](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
 
@@ -117,7 +115,7 @@ You can customize a deployment project by modifying the Resource Manager templat
 
 ## Deploy project to Azure
 
-You're now ready to deploy your project to a resource group. The resource group is a logical grouping of resources that share a common lifecycle.
+You're now ready to deploy your project to a resource group.
 
 By default, the PowerShell script (Deploy-AzureResourceGroup.ps1) in the project uses the AzureRM module. If you still have the AzureRM module installed and want to continue using it, you can use this default script. With this script, you can use the Visual Studio interface to deploy your solution.
 
@@ -235,7 +233,7 @@ Because you added code to the project, your deployment is a little different thi
 
 ### Az module script
 
-There is one small change you need to make to your template if you're using the Az module script. This script adds a slash to the artifacts location but your template doesn't expect that slash. Open WebSite.json and find the properties for the MSDeploy extension. There is a property named **packageUri**. Remove the slash between the artifacts location and the package folder.
+There's one small change you need to make to your template if you're using the Az module script. This script adds a slash to the artifacts location but your template doesn't expect that slash. Open WebSite.json and find the properties for the MSDeploy extension. It has a property named **packageUri**. Remove the slash between the artifacts location and the package folder.
 
 It should look like:
 
@@ -243,7 +241,7 @@ It should look like:
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-Notice in the preceding example there is not `'/',` between **parameters('_artifactsLocation')** and **parameters('ExampleAppPackageFolder')**.
+Notice in the preceding example there is no `'/',` between **parameters('_artifactsLocation')** and **parameters('ExampleAppPackageFolder')**.
 
 Rebuild the project. Building the project makes sure the files you need to deploy are added to the staging folder.
 
