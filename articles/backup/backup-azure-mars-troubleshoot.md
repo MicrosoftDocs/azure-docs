@@ -27,7 +27,7 @@ We recommend that you check the following before you start troubleshooting Micro
 - Ensure your OS has the latest updates.
 - [Ensure unsupported drives and files with unsupported attributes are excluded from backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup).
 - Ensure the clock on the protected system is configured to the correct time zone.
-- [Ensure .NET Framework 4.5.2 or higher is installed on the server](https://www.microsoft.com/download/details.aspx?id=30653).
+- [Ensure .NET Framework 4.5.2 or later is installed on the server](https://www.microsoft.com/download/details.aspx?id=30653).
 - If you're trying to reregister your server to a vault:
   - Ensure the agent is uninstalled on the server and that it's deleted from the portal.
   - Use the same passphrase that was initially used to register the server.
@@ -41,8 +41,8 @@ We recommend that you check the following before you start troubleshooting Micro
 | Cause | Recommended actions |
 | ---     | ---    |
 | **Vault credentials aren't valid** <br/> <br/> Vault credential files might be corrupt or might have expired. (For example, they might have been downloaded more than 48 hours before the time of registration.)| Download new credentials from Recovery Services vault on the Azure portal. (See step 6 in the [Download the MARS agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) section.) Then take these steps, as appropriate: <ul><li> If you've already installed and registered MARS, open the Microsoft Azure Backup Agent MMC console and then select **Register Server** in the **Actions** pane to complete the registration with the new credentials. <br/> <li> If the new installation fails, try reinstalling with the new credentials.</ul> **Note**: If multiple vault credential files have been downloaded, only the latest file is valid for the next 48 hours. We recommend that you download a new vault credential file.
-| **Proxy server/firewall is blocking registration** <br/>or <br/>**No internet connectivity** <br/><br/> If your machine or proxy server has limited internet connectivity and you don't ensure access for the necessary URLs, the registration will fail.| Take these steps:<br/> <ul><li> Work with your IT team to ensure the system has internet connectivity.<li> If you don't have a proxy server, ensure the proxy option is not selected when you register the agent. [Check your proxy settings](#verifying-proxy-settings-for-windows).<li> If you do have a firewall/proxy server, work with your networking team to ensure these URLs and IP addresses have access:<br/> <br> **URLs**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP addresses**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Try registering again after you complete these troubleshooting steps
-| **Antivirus software is blocking registration** | If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders: <br/><ui> <li> CBengine.exe <li> CSC.exe<li> The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch <li> The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+| **Proxy server/firewall is blocking registration** <br/>or <br/>**No internet connectivity** <br/><br/> If your machine or proxy server has limited internet connectivity and you don't ensure access for the necessary URLs, the registration will fail.| Take these steps:<br/> <ul><li> Work with your IT team to ensure the system has internet connectivity.<li> If you don't have a proxy server, ensure the proxy option isn't selected when you register the agent. [Check your proxy settings](#verifying-proxy-settings-for-windows).<li> If you do have a firewall/proxy server, work with your networking team to ensure these URLs and IP addresses have access:<br/> <br> **URLs**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP addresses**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Try registering again after you complete the preceding troubleshooting steps
+| **Antivirus software is blocking registration** | If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders: <br/><ui> <li> CBengine.exe <li> CSC.exe<li> The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### Additional recommendations
 - Go to C:/Windows/Temp and check whether there are more than 60,000 or 65,000 files with the .tmp extension. If there are, delete these files.
@@ -54,11 +54,11 @@ We recommend that you check the following before you start troubleshooting Micro
 1. Download PsExec from the [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/psexec) page.
 1. Run `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` from an elevated command prompt.
 
-   This will open Internet Explorer.
+   This command will open Internet Explorer.
 1. Go to **Tools** > **Internet options** > **Connections** > **LAN settings**.
 1. Check the proxy settings for the system account.
 1. If no proxy is configured and proxy details are provided, remove the details.
-1. If a proxy is configured and the proxy details are incorrect, ensure the **Proxy IP** and **Port** details are accurate.
+1. If a proxy is configured and the proxy details are incorrect, ensure the **Proxy IP** and **Port** details are correct.
 1. Close Internet Explorer.
 
 ## Unable to download vault credential file
@@ -71,7 +71,7 @@ We recommend that you check the following before you start troubleshooting Micro
 
 | Error  | Possible cause | Recommended actions |
 | ---     | ---     | ---    |
-| <br /><ul><li>The Microsoft Azure Recovery Service Agent was unable to connect to Microsoft Azure Backup. (ID: 100050) Check your network settings and ensure that you are able to connect to the internet.<li>(407) Proxy Authentication Required. |Proxy blocking the connection. |  <ul><li>In Internet Explorer, go to **Tools** > **Internet options** > **Security** > **Internet**. Select **Custom Level** and scroll down to the **File download** section. Select **Enable**.<p>You might also have to add [these sites](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins) to your trusted sites in Internet Explorer.<li>Change the settings to use a proxy server. Then provide the proxy server details.<li> If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these [URLs and IP addresses](backup-configure-vault.md#verify-internet-access). <li>If you have antivirus software installed on the server, exclude these files from the antivirus scan: <ul><li>CBEngine.exe (instead of dpmra.exe).<li>CSC.exe (related to .NET Framework). There's a CSC.exe for every .NET Framework version installed on the server. Exclude CSC.exe files for all versions of .NET Framework on the affected server. <li>The scratch folder or cache location. <br>The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+| <br /><ul><li>The Microsoft Azure Recovery Service Agent was unable to connect to Microsoft Azure Backup. (ID: 100050) Check your network settings and ensure that you are able to connect to the internet.<li>(407) Proxy Authentication Required. |A proxy is blocking the connection. |  <ul><li>In Internet Explorer, go to **Tools** > **Internet options** > **Security** > **Internet**. Select **Custom Level** and scroll down to the **File download** section. Select **Enable**.<p>You might also have to add [these sites](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins) to your trusted sites in Internet Explorer.<li>Change the settings to use a proxy server. Then provide the proxy server details.<li> If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these [URLs and IP addresses](backup-configure-vault.md#verify-internet-access). <li>If you have antivirus software installed on the server, exclude these files from the antivirus scan: <ul><li>CBEngine.exe (instead of dpmra.exe).<li>CSC.exe (related to .NET Framework). There's a CSC.exe for every .NET Framework version installed on the server. Exclude CSC.exe files for all versions of .NET Framework on the affected server. <li>The scratch folder or cache location. <br>The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 
 ## Failed to set the encryption key for secure backups
@@ -94,15 +94,15 @@ We recommend that you check the following before you start troubleshooting Micro
 
 
 ## Backups don't run according to schedule
-If scheduled backups don't get triggered automatically but manual backups work without issues, try the following actions:
+If scheduled backups don't get triggered automatically but manual backups work correctly, try the following actions:
 
 - Ensure the Windows Server backup schedule doesn't conflict with the Azure files and folders backup schedule.
 
 - Ensure the  online backup status is set to **Enable**. To verify the status, take these steps:
 
-  - In Task Scheduler, expand **Microsoft** and select **Online Backup**.
-  - Double-click **Microsoft-OnlineBackup** and go to the **Triggers** tab.
-  - Check if the status is set to **Enabled**. If it isn't, select **Edit**, select **Enabled**, and then select **OK**.
+  1. In Task Scheduler, expand **Microsoft** and select **Online Backup**.
+  1. Double-click **Microsoft-OnlineBackup** and go to the **Triggers** tab.
+  1. Check if the status is set to **Enabled**. If it isn't, select **Edit**, select **Enabled**, and then select **OK**.
 
 - Ensure the user account selected for running the task is either **SYSTEM** or **Local Administrators' group** on the server. To verify the user account, go to the **General** tab and check the **Security** options.
 
@@ -120,11 +120,12 @@ If scheduled backups don't get triggered automatically but manual backups work w
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
-- Ensure there are no missing or corrupted PowerShell module MSOnlineBackup files. If there are any missing or corrupt files, take these steps:
+- Ensure there are no missing or corrupt PowerShell module MSOnlineBackup files. If there are any missing or corrupt files, take these steps:
 
-  - From any machine that has a MARS agent that's working properly, copy the MSOnlineBackup folder from C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules.
-  - On the problematic machine, at the same folder location, paste the copied files.
-  - If there's already a MSOnlineBackup folder on the machine, paste the files into it or replace any existing files.
+  1. From any machine that has a MARS agent that's working properly, copy the MSOnlineBackup folder from C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules.
+  1. On the problematic machine, paste the copied files at the same folder location (C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules).
+
+     If there's already an MSOnlineBackup folder on the machine, paste the files into it or replace any existing files.
 
 
 > [!TIP]
