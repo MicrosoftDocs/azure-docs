@@ -5,7 +5,7 @@ services: application-insights
 author: mrbullwinkle
 ms.service: application-insights
 ms.topic: include
-ms.date: 06/21/2018
+ms.date: 06/20/2019
 ms.author: mbullwin
 ms.custom: include file
 ---

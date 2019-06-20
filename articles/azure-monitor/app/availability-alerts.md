@@ -64,7 +64,7 @@ Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-d
 
 ## Troubleshooting
 
-Dedicated [troubleshooting article](availability-troubleshooting.md).
+Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 ## Next steps
 

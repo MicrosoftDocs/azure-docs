@@ -134,5 +134,5 @@ Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 * [Availability Alerts](availability-alerts.md)
 * [Multi-step web tests](availability-multistep.md)
-* [Troubleshooting Availability Alerts](availability-troubleshooting.md)
+
 
