@@ -15,11 +15,11 @@ This page has the download links for each version of the Azure Kinect Sensor SDK
 
 ## Azure Kinect Sensor SDK contents
 
-* Headers and libraries to build an application using the Azure Kinect DK.
-* Redistributable DLLs needed by applications using the Azure Kinect DK.
-* The [Azure Kinect Viewer](azure-kinect-viewer.md).
-* The [Azure Kinect Recorder](azure-kinect-recorder.md).
-* The [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md).
+- Headers and libraries to build an application using the Azure Kinect DK.
+- Redistributable DLLs needed by applications using the Azure Kinect DK.
+- The [Azure Kinect Viewer](azure-kinect-viewer.md).
+- The [Azure Kinect Recorder](azure-kinect-recorder.md).
+- The [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md).
 
 ## Windows download link
 
@@ -55,5 +55,4 @@ If you need an older version of the Azure Kinect Sensor SDK, find it [here](http
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)
+[Set up Azure Kinect DK](set-up-azure-kinect-dk.md)

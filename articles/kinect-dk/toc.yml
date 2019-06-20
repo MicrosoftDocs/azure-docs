@@ -82,7 +82,7 @@
    - name: Compare to Kinect for Windows
      href: windows-comparison.md
    - name: Azure Kinect support
-     href: kinect-support.md
+     href: support.md
    - name: Azure Kinect troubleshooting
      href: troubleshooting.md
 - name: References
@@ -90,4 +90,4 @@
    - name: Sensor API
      href: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
    - name: Record file format
-     href: sdk-record-format.md
+     href: record-file-format.md
