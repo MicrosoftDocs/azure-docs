@@ -150,6 +150,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400075| The language pair and category combination is not valid.|
 | 400077| The maximum request size has been exceeded. View [request limits](../request-limits.md).|
 | 400079| The custom system requested for translation between from and to language does not exist.|
+| 400080| Transliteration is not supported for the language or script.|
 | 401000| The request is not authorized because credentials are missing or invalid.|
 | 401015| "The credentials provided are for the Speech API. This request requires credentials for the Text API. Please use a subscription to Translator Text API."|
 | 403000| The operation is not allowed.|

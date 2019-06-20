@@ -1,0 +1,27 @@
+- name: Immersive Reader Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Immersive Reader?
+    href: Overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Using C#
+    href: Quickstart.md
+- name: Tutorials
+  items:
+  - name: Launch the Immersive Reader (Node.js)
+    href: tutorial.md
+- name: Reference
+  items:
+  - name: SDK Reference
+    href: reference.md
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
+  - name: Language support
+    href: https://aka.ms/ltlangsupport
+  - name: Regional availability
+    href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services
