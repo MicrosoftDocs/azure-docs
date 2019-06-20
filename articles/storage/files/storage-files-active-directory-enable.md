@@ -141,11 +141,6 @@ The following custom role template provides share-level Change permissions, gran
   "Actions": [
    	"Microsoft.Storage/storageAccounts/fileServices/*"
   ],
-  "NotActions": [
-	"Microsoft.Authorization/*/Delete",
-        "Microsoft.Authorization/*/Write",
-        "Microsoft.Authorization/elevateAccess/Action"
-  ],
   "DataActions": [
    	"Microsoft.Storage/storageAccounts/fileServices/*"
   ],
