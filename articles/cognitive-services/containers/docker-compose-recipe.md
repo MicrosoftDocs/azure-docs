@@ -4,19 +4,21 @@ titleSuffix: Azure Cognitive Services
 description: 
 
 services: cognitive-services
-author: IEvan
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual 
 ms.date: 06/19/2019
-ms.author: diberry
+ms.author: dapine
 #As a potential customer, I want to know how to configure containers so I can reuse them.
 
 # SME: Brendan Walsh
 ---
 
 # Use multiple containers in a private network with Docker Compose
+
+Provide the appropriate _apikey_, _billing_, and _endpoint URI_ values.
 
 ```docker-compose
 version: '3.3'
@@ -25,10 +27,10 @@ services:
     image:  "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
     environment:
        eula: accept
-       billing: "https://westus2.api.cognitive.microsoft.com/"
-       apiKey: 0e17f5e4a83c43bb9d7756289f0c5cf4
-       FormRecognizer__ComputerVisionApiKey: 02a628714e9f4a6e970eb557fc780854
-       FormRecognizer__ComputerVisionEndpointUri: "https://westcentralus.api.cognitive.microsoft.com/"
+       billing: "< Your billing URL >"
+       apikey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+       FormRecognizer__ComputerVisionApiKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+       FormRecognizer__ComputerVisionEndpointUri: "< Your computer vision, form recognizer URI >"
     volumes:
        - type: bind
          source: e:\publicpreview\output
@@ -43,8 +45,8 @@ services:
     image: "containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text"
     environment:
       eula: accept
-      apikey: 02a628714e9f4a6e970eb557fc780854
-      billing: "https://westcentralus.api.cognitive.microsoft.com/"
+      apikey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      billing: "< Your billing URL >"
     ports:
       - "5021:5000"
 ```
