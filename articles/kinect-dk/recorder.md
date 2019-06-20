@@ -81,5 +81,4 @@ For any issues with recording, refer to [Troubleshooting](http://aka.ms/kinectsu
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Using recorder with external synchronized units](record-external-synchronized-units.md)
+[Using recorder with external synchronized units](record-external-synchronized-units.md)
