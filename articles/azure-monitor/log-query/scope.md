@@ -6,7 +6,7 @@ author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 06/19/2019
 ms.author: bwren
 ---
 
@@ -31,13 +31,15 @@ The scope is determined by the method you use to start Log Analytics, and in som
 | Subscription | Records created by all resources in the subsciption. May include data from multiple Log Analytics workspaces. | Select **Logs** from the subscription menu.   | Cannot change scope. |
 | Other Azure resources | Records created by the resource. May include data from multiple Log Analytics workspaces.  | Select **Logs** from the resource menu.<br>OR<br>Select **Logs** from the **Azure Monitor** menu and then select a new scope. | Can only change scope to same resource type. |
 
-When the query scope is a Log Analytics workspace or an Application Insights application, all options in the portal and all query commands are available. When scoped to a resource though, the following options in the portal not available:
+### Limitations when scoped to a resource
+
+When the query scope is a Log Analytics workspace or an Application Insights application, all options in the portal and all query commands are available. When scoped to a resource though, the following options in the portal not available since their associated with a single workspace or application:
 
 - Save
-- New alert rule
 - Query explorer
+- New alert rule
 
-In this case, you also cannot use the following commands in a query since the query scope will already include any workspaces with data for that resource or set of resources:
+You can't use the following commands in a query when scoped to a resource since the query scope will already include any workspaces with data for that resource or set of resources:
 
 - [app](app-expression.md)
 - [workspace](workspace-expression.md)
@@ -52,7 +54,7 @@ The time range specifies the set of records that are evaluated for the query bas
 | Log Analytics workspace          | TimeGenerated |
 | Application Insights application | timestamp     |
 
-Set the time range by selecting the time range from the time picker at the top of the Log Analytics window.  You can select a predefined period or select **Custom** to specify a specific time range.
+Set the time range by selecting it from the time picker at the top of the Log Analytics window.  You can select a predefined period or select **Custom** to specify a specific time range.
 
 ![Time picker](media/scope/time-picker.png)
 
@@ -72,4 +74,5 @@ If the query uses **app** to retrieve data from an Application Insights applicat
 
 ## Next steps
 
-- Learn more about [writing Azure Monitor log queries](get-started-queries.md).
+- Walk through a [tutorial on using Log Analytics in the Azure portal](get-started-portal.md).
+- Walk through a [tutorial on writing queries](get-started-queries.md).
