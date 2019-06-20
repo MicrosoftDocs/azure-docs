@@ -1,19 +1,13 @@
 ---
-title: Manage ‘Azure Marketplace’ and ‘AppSource’ publisher profile
-description: Managing ‘Azure Marketplace’ and ‘AppSource’ publisher profile
+title: Manage Azure Marketplace and AppSource publisher profile
+description: Managing Azure Marketplace and AppSource publisher profile
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: qianw211
 manager: pbutlerm  
-editor:
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Manage 'Azure Marketplace' and 'AppSource' publisher profile
@@ -61,7 +55,7 @@ your Dev Center account. Then your publisher profile page displays your Dev Cent
 >[!NOTE]
 >Dev Center Account registration is mandatory for publishing paid market place SKUs.
 
-If you don't have a [Developer Center Account](~/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md),
+If you don't have a [Developer Center Account](./cloud-partner-portal-dev-center-accounts-registration.md),
 you can create an account. Then add the registered email address as an
 owner on the Cloud Partner Portal for your offer. An owner can only add
 the registered email address to your publishing profile from the

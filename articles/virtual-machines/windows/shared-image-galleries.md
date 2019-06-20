@@ -1,5 +1,5 @@
 ---
-title: Share VM images with Shared Image Gallery in Azure | Microsoft Docs
+title: Azure Shared Image Gallery | Microsoft Docs
 description: Learn how to use shared image galleries to share VM images across your organization.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/21/2018
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: 
 
@@ -29,4 +29,4 @@ ms.custom:
 
 ## Next steps
 
-Learn how to [deploy shared images using Azure CLI](../linux/shared-images.md).
+Learn how to [deploy shared images using Azure PowerShell](shared-images.md).

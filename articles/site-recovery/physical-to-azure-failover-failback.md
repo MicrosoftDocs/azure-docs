@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 ---
 
@@ -32,7 +32,7 @@ Verify the server properties, and make sure that it complies with [Azure require
 
 2. In the **Replicated item** pane, there's a summary of machine information, health status, and the
    latest available recovery points. Click **Properties** to view more details.
-3. In **Compute and Network**, you can modify the Azure name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and [managed disk settings](#managed-disk-considerations)
+3. In **Compute and Network**, you can modify the Azure name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings
 4. You can view and modify network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it.
 5. In **Disks**, you can see information about the machine operating system and data disks.
 
@@ -74,7 +74,7 @@ low-latency network is required between the process server and the protected mac
 - For test purposes, if you have an Azure ExpressRoute connection, you can use the on-premises
   process server that's automatically installed on the configuration server.
 - If you have a VPN connection, or you're running failback in a production environment, you must
-  set up an Azure VM as a Azure-based process server for failback.
+  set up an Azure VM as an Azure-based process server for failback.
 - Follow the instructions in [this article](vmware-azure-set-up-process-server-azure.md) to set up a process server in Azure.
 
 ## Configure the master target server

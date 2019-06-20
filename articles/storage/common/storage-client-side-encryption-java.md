@@ -2,19 +2,22 @@
 title: Client-Side Encryption with Java for Microsoft Azure Storage | Microsoft Docs
 description: The Azure Storage Client Library for Java supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
 services: storage
-author: lakasa
+author: tamram
+
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
-ms.component: common
+ms.author: tamram
+ms.reviewer: cbrooks
+ms.subservice: common
 ---
+
 # Client-Side Encryption and Azure Key Vault with Java for Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Overview
-The [Azure Storage Client Library for Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
+The [Azure Storage Client Library for Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
 ## Encryption and decryption via the envelope technique
 The processes of encryption and decryption follow the envelope technique.  
@@ -37,7 +40,7 @@ Decryption via the envelope technique works in the following way:
 4. The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
 ## Encryption Mechanism
-The storage client library uses [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
+The storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
 
 ### Blobs
 The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use the **upload*** methods or the **openOutputStream** method. For downloads, both complete and range downloads are supported.  
@@ -49,9 +52,9 @@ During encryption, the client library will generate a random Initialization Vect
 > 
 > 
 
-Downloading an encrypted blob involves retrieving the content of the entire blob using the **download*/openInputStream** convenience methods. The wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
+Downloading an encrypted blob involves retrieving the content of the entire blob using the **download**/**openInputStream** convenience methods. The wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
 
-Downloading an arbitrary range (**downloadRange*** methods) in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.  
+Downloading an arbitrary range (**downloadRange** methods) in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.  
 
 All blob types (block blobs, page blobs, and append blobs) can be encrypted/decrypted using this scheme.
 
@@ -92,8 +95,8 @@ In batch operations, the same KEK will be used across all the rows in that batch
 > [!NOTE]
 > Because the entities are encrypted, you cannot run queries that filter on an encrypted property.  If you try, results will be incorrect, because the service would be trying to compare encrypted data with unencrypted data.
 > 
->
-To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (_ClientEncryptionMetadata1 and _ClientEncryptionMetadata2) by default to the selected columns.
+> 
+> To perform query operations, you must specify a key resolver that is able to resolve all the keys in the result set. If an entity contained in the query result cannot be resolved to a provider, the client library will throw an error. For any query that performs server side projections, the client library will add the special encryption metadata properties (_ClientEncryptionMetadata1 and _ClientEncryptionMetadata2) by default to the selected columns.
 
 ## Azure Key Vault
 Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, users can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For more information, see [What is Azure Key Vault?](../../key-vault/key-vault-whatis.md).
@@ -112,7 +115,7 @@ There are three Key Vault packages:
 1. Create a secret offline and upload it to Key Vault.  
 2. Use the secret's base identifier as a parameter to resolve the current version of the secret for encryption and cache this information locally. Use CachingKeyResolver for caching; users are not expected to implement their own caching logic.  
 3. Use the caching resolver as an input while creating the encryption policy.
-   More information regarding Key Vault usage can be found in the encryption code samples. <fix URL>  
+   More information regarding Key Vault usage can be found in the encryption code samples.
 
 ## Best practices
 Encryption support is available only in the storage client library for Java.
@@ -136,7 +139,7 @@ While creating an EncryptionPolicy object, users can provide only a Key (impleme
   * The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.  
   * If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.  
     
-    The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
+    The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
 
 ### RequireEncryption mode
 Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **requireEncryption** flag of the request options object controls this behavior. If your application will encrypt all objects stored in Azure Storage, then you can set the **requireEncryption** property on the default request options for the service client object.   
@@ -242,9 +245,9 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional meta-data must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
 ## Next steps
-* Download the [Azure Storage Client Library for Java Maven package](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* Download the [Azure Storage Client Library for Java Maven package](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Download the [Azure Storage Client Library for Java Source Code from GitHub](https://github.com/Azure/azure-storage-java)   
 * Download the Azure Key Vault Maven Library for Java Maven packages:
-  * [Core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) package
-  * [Client](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) package
+  * [Core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) package
+  * [Client](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) package
 * Visit the [Azure Key Vault Documentation](../../key-vault/key-vault-whatis.md)

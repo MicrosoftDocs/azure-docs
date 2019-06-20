@@ -33,7 +33,7 @@ For this tutorial, you create a two peered VNets:
 
 ## Create a resource group
 
-1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. On the Azure portal home page, click **Resource groups**, then click **Add**.
 3. For **Resource group name**, type **RG-DNAT-Test**.
 4. For **Subscription**, select your subscription.

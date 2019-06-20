@@ -3,11 +3,12 @@ title: Deciding when to use Azure Blobs, Azure Files, or Azure Disks
 description: Learn about the different ways to store and access data in Azure to help you decide which technology to use.
 services: storage
 author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Deciding when to use Azure Blobs, Azure Files, or Azure Disks
@@ -46,9 +47,9 @@ The following table compares Azure Files with Azure Blobs.
 ## Comparison: Files and Disks
 
 Azure Files complement Azure Disks. A disk can only be attached to one Azure Virtual Machine at a time. Disks are fixed-format VHDs stored as page blobs in Azure Storage, and are used by the virtual machine to store durable data. File shares in Azure Files can be accessed in the same way as the local disk is accessed (by using native file system APIs), and can be shared across many virtual machines.  
- 
+
 The following table compares Azure Files with Azure Disks.  
- 
+
 ||||  
 |-|-|-|  
 |**Attribute**|**Azure Disks**|**Azure Files**|  
@@ -56,11 +57,10 @@ The following table compares Azure Files with Azure Disks.
 |Snapshots and Copy|Yes|Yes|  
 |Configuration|Connected at startup of the virtual machine|Connected after the virtual machine has started|  
 |Authentication|Built-in|Set up with net use|  
-|Cleanup|Automatic|Manual|  
 |Access using REST|Files within the VHD cannot be accessed|Files stored in a share can be accessed|  
-|Max Size|4 TiB disk|5 TiB File Share and 1 TiB file within share|  
-|Max IOps|500 IOps|1000 IOps|  
-|Throughput|Up to 60 MiB/s per Disk|Target is 60 MiB/s per File Share (can get higher for higher IO sizes)|  
+|Max Size|32 TiB disk|5 TiB File Share and 1 TiB file within share|  
+|Max IOps|20,000 IOps|1000 IOps|  
+|Throughput|Up to 900 MiB/s per Disk|Target is 60 MiB/s per File Share (can get higher for higher IO sizes)|  
 
 ## Next steps
 
@@ -68,4 +68,4 @@ When making decisions about how your data is stored and accessed, you should als
   
 Some SMB features are not applicable to the cloud. For more information, see [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-For more information about disks, see [Managing disks and images](../../virtual-machines/windows/about-disks-and-vhds.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../../virtual-machines/windows/attach-managed-disk-portal.md).
+For more information about disks, see our [Introduction to managed disks](../../virtual-machines/windows/managed-disks-overview.md) and [How to Attach a Data Disk to a Windows Virtual Machine](../../virtual-machines/windows/attach-managed-disk-portal.md).

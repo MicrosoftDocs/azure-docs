@@ -3,17 +3,15 @@ title: Overview of the Azure Database for MariaDB relational database service
 description: Overview of the Azure Database for MariaDB relational database service.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 12/03/2018
+ms.date: 03/20/2019
 ---
 
 # What is Azure Database for MariaDB?
 
-Azure Database for MariaDB is a relational database service in the Microsoft cloud. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) database engine, version 10.2.
+Azure Database for MariaDB is a relational database service in the Microsoft cloud. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) (available under the GPLv2 license) database engine, version 10.2.
 
 Azure Database for MariaDB delivers:
 
@@ -42,7 +40,7 @@ The Azure Database for MariaDB service offers several service tiers: Basic, Gene
 
 ## Monitoring and alerting
 
-How do you decide when to scale up or down? You can use the built-in performance monitoring and alerting features of Azure Database for MariaDB, combined with the performance ratings based on vCores. By using these tools, you can quickly assess the effect of scaling vCores up or down based on your current or projected performance needs. <!--See [Alerts](howto-alert-on-metric.md) for details.-->
+How do you decide when to scale up or down? You can use the built-in performance monitoring and alerting features of Azure Database for MariaDB, combined with the performance ratings based on vCores. By using these tools, you can quickly assess the effect of scaling vCores up or down based on your current or projected performance needs. See [Alerts](howto-alert-metric.md) for details.
 
 ## Keep your app and business running
 
@@ -52,7 +50,7 @@ Azure's industry-leading 99.99% availability SLA is powered by a global network 
 
 Azure database services have a tradition of data security that Azure Database for MariaDB upholds. Azure Database for MariaDB offers features that limit access, protect data at rest and in motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/en-us/trustcenter/security) for information about Azure's platform security.
 
-The Azure Database for MariaDB service uses storage encryption for data at rest. Data, including backup data, is encrypted on disk. (Temporary files that are created by the engine when it runs queries are not encrypted on disk.) The service uses AES 256-bit cipher, which is included in Azure Storage encryption. The keys are system managed. Storage encryption is always on and can't be disabled.
+The Azure Database for MariaDB service uses storage encryption for data at-rest and is FIPS 140-2 compliant. Data, including backup data, is encrypted on disk. (Temporary files that are created by the engine when it runs queries are not encrypted on disk.) The service uses AES 256-bit cipher, which is included in Azure Storage encryption. The keys are system managed. Storage encryption is always on and can't be disabled.
 
 By default, the Azure Database for MariaDB service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in motion across the network. Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. Optionally, you can disable the SSL requirement for connecting to your database service if your client application doesn't support SSL connectivity.
 

@@ -3,9 +3,9 @@ title: Managed identities for Azure resources with Azure Service Bus preview | M
 description: Use managed identities for Azure resources with Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid:
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 
@@ -26,7 +26,23 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 ## Service Bus roles and permissions
 
-You can only add a managed identity to the "Owner" or "Contributor" roles of a Service Bus namespace. It grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager. It is not through the native Service Bus REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object within a managed identity.
+You can add a managed identity to the "Service Bus Data Owner" role of a Service Bus namespace. It grants the identity, full control (for management and data operations) on all entities in the namespace.
+
+>[!IMPORTANT]
+> We earlier supported adding managed identity to the **"Owner"** or **"Contributor"** role.
+>
+> However, data access privileges for **"Owner"** and **"Contributor"** role will no longer be honored. If you were using the **"Owner"** or **"Contributor"** role, then those will need to be adapted to utilize the **"Service Bus Data Owner"** role.
+
+To use the new built-in role, please complete the below steps -
+
+1. proceed to the [Azure portal](https://portal.azure.com)
+2. Navigate to the Service Bus namespace where you have currently setup the "Owner" or "Contributor" role.
+3. Click on "Access Control(IAM)" from the left pane menu.
+4. Proceed to add a new role assignment as below
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. Hit "Save" to save the new role assignment.
 
 ## Use Service Bus with managed identities for Azure resources
 
@@ -48,7 +64,7 @@ Once you've enabled the feature, a new service identity is created in your Azure
 
 ### Create a new Service Bus Messaging namespace
 
-Next, [create a Service Bus Messaging namespace](service-bus-create-namespace-portal.md) in one of the Azure regions that have preview support for RBAC: **US East**, **US East 2**, or **West Europe**. 
+Next, [create a Service Bus Messaging namespace](service-bus-create-namespace-portal.md). 
 
 Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add role assignment** to add the managed identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
 

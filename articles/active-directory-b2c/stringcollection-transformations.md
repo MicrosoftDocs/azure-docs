@@ -2,15 +2,15 @@
 title: StringCollection claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
 description: StringCollection claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # StringCollection claims transformations
@@ -48,10 +48,10 @@ The following claims transformation adds the **email** ClaimType to **otherMails
 ### Example
 
 - Input claims:
-    - **collection**: ["someone@outlook.com"]
-    - **item**: "admin@contoso.com"
+  - **collection**: ["someone@outlook.com"]
+  - **item**: "admin@contoso.com"
 - Output claims: 
-    - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## AddParameterToStringCollection
 
@@ -82,11 +82,11 @@ Use this claims transformation to add a string value to a new or existing string
 ### Example
 
 - Input claims:
-    - **collection**: ["someone@outlook.com"]
+  - **collection**: ["someone@outlook.com"]
 - Input parameters 
-    - **item**: "admin@contoso.com"
+  - **item**: "admin@contoso.com"
 - Output claims:
-    - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## GetSingleItemFromStringCollection
 
@@ -113,7 +113,7 @@ The following example reads the **otherMails** claim and return the first item i
 ### Example
 
 - Input claims:
-    - **collection**: ["someone@outlook.com", "someone@contoso.com"]
+  - **collection**: ["someone@outlook.com", "someone@contoso.com"]
 - Output claims: 
-    - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**: "someone@outlook.com"
 

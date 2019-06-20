@@ -6,17 +6,17 @@ metadata:
   title: Azure Active Directory Identity Protection Documentation - Quickstarts, concepts, references | Microsoft Docs
   description: Learn how to configure and test Azure Active Directory Identity Protection.
   services: active-directory
-  ms.component: identity-protection
-  author: MarkusVi
-  manager: mtillman
+  ms.subservice: identity-protection
+  author: MicrosoftGuyJFlo
+  manager: daveba
   ms.service: active-directory
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/14/2018
-  ms.author: markvi
+  ms.author: joflore
 abstract:
-  description: "Learn how the detection of potentially compromised identities works and how to implement automated responses to address them. Azure Active Directory Identity Protection is a feature of the Azure AD Premium P2 edition that enables you to:<ul><li>Detect potential vulnerabilities affecting your organization's identities</li><li>Configure conditional access policies to automatically respond to suspicious actions that are related to your organization's identities</li><li>Investigate suspicious incidents and take appropriate action to resolve them</li></ul><br>
+  description: "Learn how the detection of potentially compromised identities works and how to implement automated responses to address them. Azure Active Directory Identity Protection is a feature of the Azure AD Premium P2 edition that enables you to:<ul><li>Detect potential vulnerabilities affecting your organization's identities</li><li>Configure Conditional Access policies to automatically respond to suspicious actions that are related to your organization's identities</li><li>Investigate suspicious incidents and take appropriate action to resolve them</li></ul><br>
 The following resources help you to quickly get started."
   aside:
     image:
@@ -31,7 +31,7 @@ sections:
 - title: 5-minute quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to configure a sign-in risk conditional access policies for common access scenarios.'
+    text: 'Learn how to configure a sign-in risk Conditional Access policies for common access scenarios.'
   - type: list
     style: icon48
     items: 

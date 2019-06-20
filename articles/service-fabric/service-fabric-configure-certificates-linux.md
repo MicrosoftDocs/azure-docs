@@ -4,7 +4,7 @@ description: Configure certificates for your app with the Service Fabric runtime
 services: service-fabric
 documentationcenter: NA
 author: JimacoMS2
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -39,7 +39,7 @@ For some services, you can configure X.509 certificates in the [ConfigPackage](.
 
 ### Using X509 SecurityCredentialsType
 
-WIth the .NET or Java SDKs, you can specify **X509** for the **SecurityCredentialsType**. This corresponds to the `X509Credentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric._x509_credentials)) type of `SecurityCredentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric._security_credentials)).
+WIth the .NET or Java SDKs, you can specify **X509** for the **SecurityCredentialsType**. This corresponds to the `X509Credentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.x509credentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials)) type of `SecurityCredentials` ([.NET](https://msdn.microsoft.com/library/system.fabric.securitycredentials.aspx)/[Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)).
 
 The **X509** reference locates the certificate in a certificate store. The following XML shows the parameters used to specify the location of the certificate:
 
@@ -70,7 +70,7 @@ The following XML shows a **TransportSettings** section based on this style:
 
 ### Using X509_2 SecurityCredentialsType
 
-With the Java SDK, you can specify **X509_2** for the **SecurityCredentialsType**. This corresponds to the `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric._x509_credentials2)) type of `SecurityCredentials` ([Java](https://docs.microsoft.com/java/api/system.fabric._security_credentials)). 
+With the Java SDK, you can specify **X509_2** for the **SecurityCredentialsType**. This corresponds to the `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) type of `SecurityCredentials` ([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
 
 With an **X509_2** reference, you specify a path parameter, so you can locate the certificate in a directory other than */var/lib/sfcerts*.  The following XML shows the parameters used to specify the location of the certificate: 
 

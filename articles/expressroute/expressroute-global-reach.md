@@ -6,14 +6,14 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 05/06/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
 ---
 
 
-# ExpressRoute Global Reach (Preview)
+# ExpressRoute Global Reach
 ExpressRoute is a private and resilient way to connect your on-premises networks to Microsoft Cloud. You can access many Microsoft cloud services such as Azure, Office 365, and Dynamics 365 from your private data center or your corporate network. For example, you may have a branch office in San Francisco with an ExpressRoute circuit in Silicon Valley and another branch office in London with an ExpressRoute circuit in the same city. Both branch offices can have high speed connectivity to Azure resources in US West and UK South. However, the branch offices cannot exchange data directly with each other. In other words, 10.0.1.0/24 can send data to 10.0.3.0/24 and 10.0.4.0/24, but NOT to 10.0.2.0/24.
 
 ![without][1]
@@ -31,12 +31,17 @@ ExpressRoute Global Reach is designed to complement your service provider’s WA
 ExpressRoute Global Reach currently is supported in the following places.
 
 * Australia
+* Canada
 * France
-* Hong Kong
+* Germany
+* Hong Kong SAR
 * Ireland
 * Japan
+* Korea
 * Netherlands
-* United Kindom
+* Singapore
+* Switzerland
+* United Kingdom
 * United States
 
 Your ExpressRoute circuits must be created at the [ExpressRoute peering locations](expressroute-locations.md) in the above countries or region. To enable ExpressRoute Global Reach between [different geopolitical regions](expressroute-locations.md), your circuits must be Premium SKU.

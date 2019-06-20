@@ -1,7 +1,6 @@
 ---
 title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - storage best practices
 description: Learn storage best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -44,7 +43,7 @@ Azure Storage offers [soft delete for blob objects](../../storage/blobs/storage-
 You can create [blob snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). A snapshot is a read-only version of a blob that's taken at a point in time and it provides a way to back up a blob. Once a snapshot has been created, it can be read, copied, or deleted, but not modified.
 
 > [!Note]
-> For older version of on-premises on-premises Hadoop Distributions that does not have the "wasbs" certificate, it needs to be imported to the Java trust store.
+> For older versions of on-premises Hadoop Distributions that don't have the "wasbs" certificate, they need to be imported to the Java trust store.
 
 The following methods can be used to import certificates into the Java trust store:
 
@@ -83,9 +82,9 @@ For more information, see the following articles:
 - [Create HDInsight clusters with Data Lake Storage by using the Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Use Data Lake Storage with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-store.md)
 
-### Azure Data Lake Storage Gen2 (preview)
+### Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 is the latest storage offering and is in Preview at the time of writing of this paper. It unifies the core capabilities from the first generation of Azure Data Lake Storage with a Hadoop compatible file system endpoint directly integrated into Azure Blob Storage. This enhancement combines the scale and cost benefits of object storage with the reliability and performance typically associated only with on-premises file systems.
+Azure Data Lake Storage Gen2 is the latest storage offering. It unifies the core capabilities from the first generation of Azure Data Lake Storage with a Hadoop compatible file system endpoint directly integrated into Azure Blob Storage. This enhancement combines the scale and cost benefits of object storage with the reliability and performance typically associated only with on-premises file systems.
 
 ADLS Gen 2 is built on top of [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md) and allows you to interface with data using both file system and object storage paradigms. Features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), such as file system semantics, file-level security, and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities, and a large SDK/tooling ecosystem from [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md). In Data Lake Storage Gen2, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
 
@@ -109,8 +108,9 @@ One of the following formats can be used to access data that is stored in ADLS G
 
 For more information, see the following articles:
 
-- [Introduction to Azure Data Lake Storage Gen2 Preview](../../storage/data-lake-storage/introduction.md)
+- [Introduction to Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
 - [The Azure Blob Filesystem driver (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## Secure Azure Storage keys within on-premises Hadoop cluster configuration
 
@@ -166,12 +166,12 @@ HDInsight by default has full access to data in the Azure Storage accounts assoc
 
 5. To limit access to a container with Shared Access Signature, add a custom entry to the core-site configuration for the cluster under Ambari HDFS Configs Advanced Custom core-site Add property.
 
-6. Use the following values for the **Key** and **Value** fields:
+6. Use the following values for the **Key** and **Value** fields:
 
     **Key**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net`
     **Value**: The SAS KEY returned by the Python application FROM step 4 above.
 
-7. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
+7. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
 
 8. In the Ambari web UI, select HDFS from the list on the left, and then select **Restart All Affected** from the Service Actions drop down list on the right. When prompted, select **Confirm Restart All**.
 
@@ -216,7 +216,6 @@ Additional storage account can be added in one on the following ways:
 
 For more information, see the following articles:
 - [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md)
-- [Attach additional Azure storage accounts to the cluster](https://blogs.msdn.microsoft.com/ashish/2016/08/25/hdinsight-attach-additional-azure-storage-accounts/)
 
 ## Next steps
 

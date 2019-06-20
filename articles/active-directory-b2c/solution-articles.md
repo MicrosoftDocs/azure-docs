@@ -2,12 +2,14 @@
 title: Solutions and Training for Azure Active Directory B2C | Microsoft Docs
 description: This article gives you links to solution and training information that can help you understand and use Azure Active Directory B2C for end-to-end-business solutions.
 services: active-directory-b2c
-author: davidmu1
-ms.author: davidmu
+author: mmacy
+manager: celestedg
+
+ms.author: marsma
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: b2c
+ms.subservice: B2C
 ---
 
 # Solutions and Training for Azure Active Directory B2C
@@ -23,3 +25,4 @@ Azure Active Directory (Azure AD) B2C enables organizations to implement busines
 | [Migrating Application Authentication to Azure AD B2C in a Hybrid Environment](https://aka.ms/MigratetoAADB2C) | In today’s modern organizations, digital transformation and moving to the cloud happens in stages, requiring most organizations to at least temporarily operate in a hybrid identity environment.<br><br>This guide focuses on creating the migration plan for moving your first application to Azure AD B2C, and covers the considerations for doing so while in a hybrid identity environment. |
 | [General Data protection Regulation (GDPR) Considerations for Customer Facing Applications](https://aka.ms/AADB2CandGDPR) | For any customer facing applications, GDPR must be taken into consideration by all organizations that embark on projects that hold personal data and serve EU citizens.<br><br>This solution guide focuses on how Azure AD B2C can be used as a flexible component of your overall GDPR compliance approach, including how Azure AD B2C components support each of the key GDPR rights for individuals. |
 | Working with custom policies:<br><ul><li>[Custom policies introduction](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Introduction.pdf)</li><li>[Leverage custom policies in your tenant](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Leveraging%20Custom%20Policies%20for%20your%20Tenant.pdf)</li><li>[Structure policies and manage keys](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Structuring%20Policies%20and%20Managing%20Keys.pdf)</li><li>[Bring your own identity and migrate users](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Bring-your-own-identity%20and%20Migrating%20Users.pdf)</li><li>[Troubleshoot policies and audit access](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Troubleshooting%20Policies%20and%20Auditing.pdf)</li><li>[Deep dive on custom policy schema](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Deep%20Dive%20on%20Custom%20Policy%20Schema.pdf)</li><br>| This series of documents provides an end-to-end journey with the custom policies in Azure AD B2C, presenting in-depth the most common advanced identity scenarios.<br><br> It includes how to implement and manage custom policies for these scenarios and how to diagnose them with the available tooling. It also provides an in-depth understanding of how custom policies work and details how to fine-tune them to accommodate your own specific requirements. |
+

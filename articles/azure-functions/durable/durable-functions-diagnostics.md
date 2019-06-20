@@ -2,7 +2,7 @@
 title: Diagnostics in Durable Functions - Azure
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
@@ -12,15 +12,15 @@ ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
-# Diagnostics in Durable Functions (Azure Functions)
+# Diagnostics in Durable Functions in Azure
 
 There are several options for diagnosing issues with [Durable Functions](durable-functions-overview.md). Some of these options are the same for regular functions and some of them are unique to Durable Functions.
 
 ## Application Insights
 
-[Application Insights](../../application-insights/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](../functions-monitoring.md).
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](../functions-monitoring.md).
 
-The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../../application-insights/app-insights-analytics.md) tool in the Azure portal.
+The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../../azure-monitor/app/analytics.md) tool in the Azure portal.
 
 ### Tracking data
 
@@ -322,7 +322,7 @@ Azure Functions supports debugging function code directly, and that same support
 
 By default, Durable Functions stores state in Azure Storage. This means you can inspect the state of your orchestrations using tools such as [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Azure Storage Explorer screen shot](./media/durable-functions-diagnostics/storage-explorer.png)
+![Azure Storage Explorer screenshot](./media/durable-functions-diagnostics/storage-explorer.png)
 
 This is useful for debugging because you see exactly what state an orchestration may be in. Messages in the queues can also be examined to learn what work is pending (or stuck in some cases).
 

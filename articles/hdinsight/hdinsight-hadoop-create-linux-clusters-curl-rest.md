@@ -1,7 +1,6 @@
 ---
 title: Create Apache Hadoop clusters using Azure REST API - Azure 
 description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -20,10 +19,7 @@ Learn how to create an HDInsight cluster using an Azure Resource Manager templat
 
 The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters.
 
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-> [!NOTE]
+> [!NOTE]  
 > The steps in this document use the [curl (https://curl.haxx.se/)](https://curl.haxx.se/) utility to communicate with the Azure REST API.
 
 ## Create a template
@@ -207,18 +203,18 @@ The following JSON document is a merger of the template and parameters files fro
 
 This example is used in the steps in this document. Replace the example *values* in the **Parameters** section with the values for your cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The template uses the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB ram.
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## Log in to your Azure subscription
+## Sign in to your Azure subscription
 
 Follow the steps documented in [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
 
-> [!NOTE]
+> [!NOTE]  
 > These steps are an abridged version of the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) document. These steps create a service principal that is used to authenticate to the Azure REST API.
 
 1. From a command line, use the following command to list your Azure subscriptions.
@@ -237,7 +233,7 @@ Follow the steps documented in [Get started with Azure CLI](https://docs.microso
 
     Replace the values for the `--display-name`, `--homepage`, and `--identifier-uris` with your own values. Provide a password for the new Active Directory entry.
 
-   > [!NOTE]
+   > [!NOTE]  
    > The `--home-page` and `--identifier-uris` values don't need to reference an actual web page hosted on the internet. They must be unique URIs.
 
    The value returned from this command is the __App ID__ for the new application. Save this value.
@@ -319,14 +315,14 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -d "{set your body string to the template and parameters}"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > If you saved the template to a file, you can use the following command instead of `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
 If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the deployment operation.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The deployment has been submitted, but has not completed. It can take several minutes, usually around 15, for the deployment to complete.
 
 ## Check the status of a deployment
@@ -343,7 +339,7 @@ This command returns a JSON document containing information about the deployment
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 
@@ -353,7 +349,7 @@ Now that you have successfully created an HDInsight cluster, use the following t
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
 * [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
-* [Use Apache Hadoop MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### Apache HBase clusters
 

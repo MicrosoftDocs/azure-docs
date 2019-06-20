@@ -5,8 +5,8 @@ services: site-recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 11/27/2018
+ms.topic: conceptual
+ms.date: 04/08/2019
 ms.author: mayg
 
 ---
@@ -39,7 +39,7 @@ The setup is as follows:
 Azure Traffic Manager enables DNS level routing between endpoints and can assist with [driving down your RTOs](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations) for a DR scenario. 
 
 Read more about failover scenarios with Traffic Manager:
-1. [On-Prem to Azure failover](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) with Traffic Manager 
+1. [On-premises to Azure failover](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) with Traffic Manager 
 2. [Azure to Azure failover](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) with Traffic Manager 
 
 The setup is as follows:

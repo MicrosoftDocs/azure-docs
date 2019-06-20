@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
@@ -24,7 +24,7 @@ There are three types of Cloudyn reports:
 
 - Over-time reports. For example, the Cost Over Time report. Over-time reports show a time series of data over a selected interval with a predefined resolution and show a weekly resolution for last two months. You can use grouping and filtering to zoom in to various data points.
   - Over-time reports can help you view trends and detect spikes or anomalies.
-- Analysis reports. For example, the Cost Analysis repot. These reports show aggregated data over a period that you define and allow grouping and filtering on the data.
+- Analysis reports. For example, the Cost Analysis report. These reports show aggregated data over a period that you define and allow grouping and filtering on the data.
   - Analysis reports can help you view spikes and determine anomaly root-causes and to show you a granular break-down of your data.
 - Tabular reports. You can view any report as a table, but some reports are viewed only as a table. These reports provide you detailed lists of items.
   - Recommendations are tabular reports—there are no visualizations for recommendations. However, you can visualize recommendation results. For example, savings over time.
@@ -58,7 +58,7 @@ Many Cloudyn reports show budget information after you've manually created one. 
 
 ## Reports and reporting features
 
-Clouydn includes the following reports and reporting features.
+Cloudyn includes the following reports and reporting features.
 
 ### Cost Navigator report
 

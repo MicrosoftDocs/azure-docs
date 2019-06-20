@@ -2,7 +2,7 @@
 title: Fan-out/fan-in scenarios in Durable Functions - Azure
 description: Learn how to implement a fan-out-fan-in scenario in the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
@@ -167,6 +167,9 @@ Now you can see that the orchestration is complete and approximately how much ti
 ## Visual Studio sample code
 
 Here is the orchestration as a single C# file in a Visual Studio project:
+
+> [!NOTE]
+> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Storage` Nuget package to run the sample code below.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

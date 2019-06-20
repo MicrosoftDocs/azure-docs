@@ -4,20 +4,29 @@ description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
 ---
 
 # Understand the Windows agent check results in Update Management
 
-There are many reasons why an Azure machine might not show a **Ready** status in Azure Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine underlying problem. This article describes how to run the Update Management troubleshooter from the Azure portal and in offline scenarios.
+There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and Non-Azure machines in the [offline scenario](#troubleshoot-offline).
+
+The following list are the three readiness states a machine can be in:
+
+* **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
+* **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
+* **Not configured** -  The update agent isn't found or hasn't finished onboarding.
+
+> [!NOTE]
+> There may be a slight delay between what the Azure portal shows and the current state of the machine.
 
 ## Start the troubleshooter
 
-In the Azure portal, the **Troubleshoot Update Agent** page displays problems with the agent. On the page, there's a link to this article to assist you with troubleshooting issues. To go to the **Troubleshoot Update Agent** page, select the **troubleshoot** link in the **Update Agent Readiness** column.
+For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the [offline instructions](#troubleshoot-offline) to troubleshoot a Non-Azure machine.
 
 ![Update management list of virtual machines](../media/update-agent-issues/vm-list.png)
 
@@ -28,7 +37,7 @@ On the **Troubleshoot Update Agent** page, select **Run checks** to start the tr
 
 ![Troubleshoot Update Agent page](../media/update-agent-issues/troubleshoot-page.png)
 
-Results are shown on the page when they're ready. The [checks sections](#prerequisiste-checks) show what's included in each check.
+Results are shown on the page when they're ready. The checks sections show what's included in each check.
 
 ![Troubleshoot Update Agent checks](../media/update-agent-issues/update-agent-checks.png)
 
@@ -91,7 +100,7 @@ To learn more about this event, see the [troubleshooting guide](hybrid-runbook-w
 
 The Crypto folder access check determines whether the Local System Account has access to C:\ProgramData\Microsoft\Crypto\RSA.
 
-## Troubleshoot offline
+## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
 You can use the troubleshooter on a Hybrid Runbook Worker offline by running the script locally. You can get the script,  [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), in the PowerShell Gallery. The output of this script looks like the following example:
 
@@ -108,7 +117,7 @@ CheckResultMessageArguments : {}
 
 RuleId                      : DotNetFrameworkInstalledCheck
 RuleGroupId                 : prerequisites
-RuleName                    : .Net Framework 4.5+
+RuleName                    : .NET Framework 4.5+
 RuleGroupName               : Prerequisite Checks
 RuleDescription             : .NET Framework version 4.5 or higher is required
 CheckResult                 : Passed
@@ -190,3 +199,4 @@ CheckResultMessageArguments : {}
 ## Next steps
 
 To troubleshoot more issues with your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Workers](hybrid-runbook-worker.md).
+

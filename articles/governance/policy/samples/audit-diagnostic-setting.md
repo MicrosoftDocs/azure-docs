@@ -1,15 +1,14 @@
 ---
 title: Sample - Audit diagnostic setting
-description: This sample policy audits if diagnostic settings not enabled for specified resource types.
-services: azure-policy
+description: This sample policy definition audits if diagnostic settings not enabled for specified resource types.
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Audit diagnostic setting
+# Sample - Audit diagnostic setting
 
 This built-in policy audits if diagnostic settings are not enabled for specified resource types. You specify an array of resource types to check whether diagnostic settings are enabled.
 
@@ -35,12 +34,12 @@ When assigning a policy, select **Audit diagnostic setting** from the available 
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
-$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/7f89b1eb-583c-429a-8828-af049802c1d9
+$definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/7f89b1eb-583c-429a-8828-af049802c1d9
 
-New-AzureRmPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definition -PolicyParameter '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}' -Scope <scope>
+New-AzPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definition -PolicyParameter '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}' -Scope <scope>
 ```
 
 ### Clean up PowerShell deployment
@@ -48,7 +47,7 @@ New-AzureRmPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definit
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
+Remove-AzPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
 ```
 
 ## Deploy with Azure CLI

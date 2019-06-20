@@ -6,8 +6,8 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-ms.date: 04/17/2018
+ms.subservice: implement
+ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -47,8 +47,44 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 ## Check database state
 
+> [!NOTE]
+> Currently Check database state might return ONLINE while the database is completing the online workflow, resulting in connection errors. You might need to add a 2 to 3 minutes delay in your application code if you are using this API call to trigger connection attempts.
+
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
+```
+
+## Get maintenance schedule
+Check the maintenance schedule that has been set for a data warehouse. 
+
+```
+GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
+
+```
+
+## Set maintenance schedule
+To set and update a maintnenance schedule on an existing data warehouse.
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
+
+{
+    "properties": {
+        "timeRanges": [
+                {
+                                "dayOfWeek": Saturday,
+                                "startTime": 00:00,
+                                "duration": 08:00,
+                },
+                {
+                                "dayOfWeek": Wednesday
+                                "startTime": 00:00,
+                                "duration": 08:00,
+                }
+                ]
+    }
+}
+
 ```
 
 

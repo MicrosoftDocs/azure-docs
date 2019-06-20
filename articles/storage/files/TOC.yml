@@ -1,12 +1,14 @@
+- name: Azure Storage Documentation
+  href: /azure/storage/
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Files?
     href: storage-files-introduction.md
-  - name: Choose Blobs, Files, or Disks
-    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Quickstarts
-  expanded: true
   items:
+  - name: Create / use file shares - Windows
+    href: storage-files-quick-create-use-windows.md
   - name: Create file shares - Portal
     href: storage-how-to-use-files-portal.md
   - name: Create file shares - PowerShell
@@ -23,7 +25,7 @@
   items:
   - name: About Azure Files
     href: storage-files-planning.md
-  - name: About Azure File Sync 
+  - name: About Azure File Sync
     href: storage-sync-files-planning.md
   - name: About cloud tiering
     href: storage-sync-cloud-tiering.md
@@ -44,10 +46,10 @@
   - name: Scalability and performance targets
     href: storage-files-scale-targets.md
   - name: Security
-    items: 
+    items:
     - name: Azure Storage security
       href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Encryption for data at rest
+    - name: Storage account encryption
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure AD authentication over SMB
       href: storage-files-active-directory-overview.md
@@ -61,26 +63,28 @@
       href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
     - name: Shared access signatures (SAS)
       href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Metrics
+  - name: Monitor and troubleshoot
     items:
-    - name: Diagnostics
-      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
-    - name: Storage Analytics
-      href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Monitor, diagnose, and troubleshoot
+      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Metrics in Azure Monitor
-      href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json  
-  - name: Disaster recovery
+      href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Migrate to new metrics
+      href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Storage analytics metrics (classic)
+      href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Disaster recovery and failover
     href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Limits
-    items: 
   - name: FAQ
     href: storage-files-faq.md
 - name: How-to guides
   items:
   - name: Create
     items:
-    - name: Create a file share
+    - name: Create a standard file share
       href: storage-how-to-create-file-share.md
+    - name: Create a premium file share
+      href: storage-how-to-create-premium-fileshare.md
   - name: Deploy
     items:
     - name: Deploy Azure Files
@@ -105,26 +109,30 @@
       href: storage-sync-files-server-endpoint.md
     - name: Manage storage in Azure independent clouds
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Initiate an account failover
+      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Monitor
     items:
-    - name: Metrics and logging
-      items:
-      - name: Migrate to new metrics
-        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Enable and view metrics (classic)
-        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Monitor Azure File Sync
+      href: storage-sync-files-monitoring.md
   - name: Migrate
     items:
+    - name: Migrate to Azure File Sync
+      href: storage-sync-offline-data-transfer.md
     - name: Move data to and from Azure Storage
-      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
-    - name: AzCopy on Windows
-      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
-    - name: AzCopy on Linux
-      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Move data with AzCopy
+      items:
+        - name: Get started
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Use with Files
+          href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Configure, optimize, troubleshoot
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Develop
     items:
     - name: Configure connection strings
-      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: .NET
       href: storage-dotnet-how-to-use-files.md
     - name: Java
@@ -135,10 +143,10 @@
       href: storage-python-how-to-use-file-storage.md
   - name: Secure
     items:
-    - name: Configure firewalls and virtual networks 
+    - name: Configure firewalls and virtual networks
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Require secure transfer
-      href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Enable Azure AD authentication over SMB
       href: storage-files-active-directory-enable.md
     - name: Enable secure TLS for Azure Storage client
@@ -149,6 +157,8 @@
       href: storage-troubleshoot-windows-file-connection-problems.md
     - name: Troubleshoot Azure Files on Linux
       href: storage-troubleshoot-linux-file-connection-problems.md
+    - name: Troubleshoot Azure Files performance
+      href: storage-troubleshooting-files-performance.md
     - name: Troubleshoot Azure File Sync
       href: storage-sync-files-troubleshoot.md
 - name: Reference
@@ -162,7 +172,7 @@
     - name: Blobs, Queues, Tables, and Files
       href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
     - name: Data movement
-      href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement
+      href: /dotnet/api/microsoft.azure.storage.datamovement
     - name: Resource Manager
       href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
   - name: Java
@@ -172,17 +182,17 @@
   - name: Node.js
     href: https://docs.microsoft.com/javascript/api/overview/azure/storage
   - name: Ruby
-    href: http://azure.github.io/azure-storage-ruby
+    href: https://azure.github.io/azure-storage-ruby
   - name: PHP
-    href: http://azure.github.io/azure-storage-php/
+    href: https://azure.github.io/azure-storage-php/
   - name: Python
     href: https://docs.microsoft.com/python/api/overview/azure/storage
   - name: C++
-    href: http://azure.github.io/azure-storage-cpp
+    href: https://azure.github.io/azure-storage-cpp
   - name: iOS
-    href: http://azure.github.io/azure-storage-ios/
+    href: https://azure.github.io/azure-storage-ios/
   - name: Android
-    href: http://azure.github.io/azure-storage-android
+    href: https://azure.github.io/azure-storage-android
   - name: REST
     items:
     - name: Blobs, Queues, Tables, and Files
@@ -191,6 +201,9 @@
       href: /rest/api/storagerp
     - name: Import/Export
       href: /rest/api/storageimportexport
+  - name: Resource Manager template
+    displayName: arm
+    href: /azure/templates/microsoft.storage/allversions
   - name: Samples
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 - name: Resources
@@ -200,9 +213,9 @@
   - name: Azure File Sync release notes
     href: storage-files-release-notes.md
   - name: Azure Storage client tools
-    href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+    href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+    href: https://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Forum
     href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
   - name: Pricing
@@ -214,31 +227,33 @@
   - name: Azure Storage Explorer
     items:
     - name: Storage Explorer
-      href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Storage Explorer release notes
-      href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Troubleshoot Storage Explorer
-      href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Storage Explorer accessibility
-      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: NuGet packages
     items:
-    - name: Azure Storage Client Library for .NET
-      href: https://www.nuget.org/packages/WindowsAzure.Storage/
+    - name: Azure Storage common client library
+      href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
+    - name: Azure Files storage client library
+      href: https://www.nuget.org/packages/Microsoft.Azure.Storage.File/
     - name: Azure Storage Data Movement Library
       href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
     - name: Azure Configuration Manager
-      href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
+      href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
   - name: Source code
     items:
     - name: .NET
       items:
-      - name: Blob, queue, table, and file
+      - name: Blobs, Queues, and Files
         href: https://github.com/Azure/azure-storage-net
-      - name: Data movement
-        href: https://github.com/Azure/azure-storage-net-data-movement
-      - name: Resource provider
-        href: https://github.com/Azure/azure-sdk-for-net
+      - name: Data Movement
+        href: /dotnet/api/microsoft.azure.storage.datamovement
+      - name: Storage Resource Provider
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
     - name: Java
       href: https://github.com/Azure/azure-storage-java
     - name: C++

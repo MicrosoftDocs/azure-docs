@@ -2,23 +2,26 @@
 title: Azure SQL Data Warehouse Release Notes September 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: 
 ms.date: 10/08/2018
-ms.author: mausher
-ms.reviewer: twounder
+ms.author: anjangsh
+ms.reviewer: jrasnick
 ---
 
 # What's new in Azure SQL Data Warehouse? September 2018
 Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in September 2018.
 
 ## New lower entry point for SQL Data Warehouse Gen2
-In April 2018, [Microsoft annouced](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 that offers 5x the performance, 5x the compute scale, 4x the concurrency, and unlimited storage. As noted in the [Data Warehouse in the cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) by Gigaom, SQL Data Warehouse Gen2 **outperforms Amazon Redshift by 42%**.
+In April 2018, [Microsoft announced](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 that offers 5x the performance, 5x the compute scale, 4x the concurrency, and unlimited storage. As noted in the [Data Warehouse in the cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) by Gigaom, SQL Data Warehouse Gen2 **outperforms Amazon Redshift by 42%**.
 
 Gen2 is now generally available at a lower entry point of DWU500c allowing you to run a smaller sized data warehouse or dev/test environments with all of the latest service improvements. The new entry point retains all of the Gen2 features including [Adaptive Caching](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [Lighting Fast Data Shuffling](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), and support for [real-time data warehouse](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
+
+## SQL Vulnerability Assessment
+[SQL Vulnerability Assessment (VA)](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/25/sql-vulnerability-assessment-now-supports-azure-sql-data-warehouse-and-azure-sql-database-managed-instance/) is an easy-to-use service that continually monitors your data warehouse. It helps you ensure a high level of security at all times and that your organizational policies are met. It provides a comprehensive security report along with actionable remediation steps for each issue found. This report makes it easy for you to proactively manage your database security stature and focus your attention on the highest impact actions, even if you're not a security expert. For dynamic environments where changes are frequent and hard to track, VA is invaluable in detecting the settings that can leave your data warehouse vulnerable to attacks.
 
 ## Improved availability with query restartability
 During query execution, any number of issues can occur that can cause a query to fail. A network outage, a hardware failure, or other disconnection can cause a disruption. SQL Data Warehouse now supports query restartability for step or statement-level SELECT queries. 
@@ -116,7 +119,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

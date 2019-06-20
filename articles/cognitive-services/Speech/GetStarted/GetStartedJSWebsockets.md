@@ -6,10 +6,11 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Get started with the Speech Recognition API in JavaScript
 
@@ -28,10 +29,10 @@ The Speech API is part of Cognitive Services. You can get free trial subscriptio
 
 ## Get started
 
-In this section we will walk you through the necessary steps to load a sample HTML page. The sample is located in our [github repository](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). You can **open the sample directly** from the repository, or **open the sample from a local copy** of the repository. 
+In this section we will walk you through the necessary steps to load a sample HTML page. The sample is located in our [GitHub repository](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). You can **open the sample directly** from the repository, or **open the sample from a local copy** of the repository.
 
 > [!NOTE]
-> Some browsers block microphone access on un-secure origin. So, it is recommended to host the 'sample'/'your app' on https to get it working on all supported browsers. 
+> Some browsers block microphone access on un-secure origin. So, it is recommended to host the 'sample'/'your app' on https to get it working on all supported browsers.
 
 ### Open the sample directly
 
@@ -59,7 +60,7 @@ More information on how to include the SDK into your own webpage is available [h
 
 ## Remarks
 
-- The Speech Recognition API supports three [recognition modes](../concepts.md#recognition-modes). You can switch the mode by updating the **Setup()** function found in the Sample.html file. The sample sets the mode to `Interactive` by default. To change the mode, update the parameter `SR.RecognitionMode.Interactive` to another mode. For example, change the parameter to  `SR.RecognitionMode.Conversation`.
+- The Speech Recognition API supports three [recognition modes](../concepts.md#recognition-modes). You can switch the mode by updating the **Setup()** function found in the Sample.html file. The sample sets the mode to `Interactive` by default. To change the mode, update the parameter `SR.RecognitionMode.Interactive` to another mode. For example, change the parameter to `SR.RecognitionMode.Conversation`.
 - For a complete list of supported languages, see [Supported languages](../API-Reference-REST/supportedlanguages.md).
 
 ## Related topics

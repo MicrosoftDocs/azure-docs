@@ -1,123 +1,154 @@
 ---
-title: Connect to, configure, and activate Azure Data Box Edge in Azure portal | Microsoft Docs
-description: Third tutorial to deploy Data Box Edge instructs you to connect, set up, and activate your physical device.
+title: Tutorial to connect to, configure, activate Azure Data Box Edge device in Azure portal | Microsoft Docs
+description: Tutorial to deploy Data Box Edge instructs you to connect, set up, and activate your physical device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
-ms.date: 10/08/2018
+ms.topic: tutorial
+ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Connect, set up, activate Azure Data Box Edge (Preview) 
+# Tutorial: Connect, set up, and activate Azure Data Box Edge 
 
-This tutorial describes how to connect to, set up, and activate your Data Box Edge device using the local web UI. 
+This tutorial describes how you can connect to, set up, and activate your Azure Data Box Edge device by using the local web UI.
 
-The setup and activation process can take around 20 minutes to complete. 
+The setup and activation process can take around 20 minutes to complete.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Connect to physical device
-> * Set up and activate physical device
-
-> [!IMPORTANT]
-> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
-
+> * Connect to a physical device
+> * Set up and activate the physical device
 
 ## Prerequisites
 
-Before you configure and set up your Data Box Edge, make sure that:
+Before you configure and set up your Data Box Edge device, make sure that:
 
-* You have installed the physical device as detailed in [Install Data Box Edge](data-box-edge-deploy-install.md).
+* You've installed the physical device as detailed in [Install Data Box Edge](data-box-edge-deploy-install.md).
 * You have the activation key from the Data Box Edge service that you created to manage the Data Box Edge device. For more information, go to [Prepare to deploy Azure Data Box Edge](data-box-edge-deploy-prep.md).
 
 ## Connect to the local web UI setup 
 
-1. Configure the Ethernet adapter on the computer you are using to connect to the Edge device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
-2. Connect the computer to PORT 1 on your device. 
-3. Open a browser window and access the local web UI of the device at https://192.168.100.10. This action may take a few minutes after you have turned on the device. 
-4. You see an error or a warning indicating that there is a problem with the website’s security certificate. Click **Continue to this webpage**. (These steps may be different based on the browser used.)
+1. Configure the Ethernet adapter on your computer to connect to the Data Box Edge device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
+
+2. Connect the computer to PORT 1 on your device. Use the following illustration to identify PORT 1 on your device.
+
+    ![Backplane of a cabled device](./media/data-box-edge-deploy-install/backplane-cabled.png)
+
+
+3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
+    This action may take a few minutes after you've turned on the device. 
+
+    You see an error or a warning indicating that there is a problem with the website’s security certificate. 
    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
+    ![Website security certificate error message](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
 
-2. Sign in to the web UI of your device. The default password is *Password1*. 
+4. Select **Continue to this webpage**.  
+    These steps might vary depending on the browser you're using.
+
+5. Sign in to the web UI of your device. The default password is *Password1*. 
    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
+    ![Data Box Edge device sign-in page](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
-3. You're prompted to change the device administrator password. Type in a new password that contains between 8 and 16 characters. The password must contain 3 of the following characters: uppercase, lowercase, numeric, and special characters.
+6. At the prompt, change the device administrator password.  
+    The new password must contain between 8 and 16 characters. It must contain three of the following characters: uppercase, lowercase, numeric, and special characters.
 
-You're now at the **Dashboard** of your device.
+You're now at the dashboard of your device.
 
 ## Set up and activate the physical device
  
-1. From the dashboard, you can go to various settings required to configure and register the physical device with the Data Box Edge service. The **Device name**, **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Cloud settings**.
+Your dashboard displays the various settings that are required to configure and register the physical device with the Data Box Edge service. The **Device name**, **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Cloud settings**.
    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
+![Local web UI "Dashboard" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
-2. In the **Device name** page, configure a friendly name for your device. The friendly name can be 1 to 15 characters long and can contain letter, numbers, and hyphens.
+1. In the left pane, select **Device name**, and then enter a friendly name for your device.  
+    The friendly name must contain from 1 to 15 characters and have letters, numbers, and hyphens.
 
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
+    ![Local web UI "Device name" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
-3. (Optionally) configure your **Network settings**. On your physical device, you'll see six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces. PORT 1 is automatically configured as management-only port while PORT 2 to PORT 6 are all data ports. The **Network settings** page as shown below.
+2. (Optional) In the left pane, select **Network settings** and then configure the settings.  
+    On your physical device, there are six network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3, PORT 4, PORT 5, and PORT 6 are all 25-Gbps network interfaces that can also serve as 10-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 6 are all data ports. The **Network settings** page is as shown below.
     
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
+    ![Local web UI "Network settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
-    When configuring network settings, keep in mind:
+    As you configure the network settings, keep in mind:
 
-    - If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
-    - If DHCP isn't enabled, you can assign static IPs if needed.
-    - You can configure your network interface as IPv4.
-   
-4. (Optionally) configure your web proxy server. Although web proxy configuration is optional, if you use a web proxy, you can only configure it here.
-   
-   ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
-   
-   In the **Web proxy** page:
-   
-   1. Supply the **Web proxy URL** in this format: `http://host-IP address or FDQN:Port number`. HTTPS URLs are not supported.
-   2. Specify **Authentication** as **Basic** or **None**.
-   3. If using authentication, you'll also need to provide a **Username** and **Password**.
-   4. Click **Apply** to validate and apply the configured web proxy settings.
+   - If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
+   - If DHCP isn't enabled, you can assign static IPs if needed.
+   - You can configure your network interface as IPv4.
 
-5. (Optionally) configure the time settings for your device, such as time zone and the primary and secondary NTP servers. NTP servers are required because your device must synchronize time so that it can authenticate with your cloud service providers.
-    
-    ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
-    
-    In the **Time settings** page:
-    
-    1. From the dropdown list, select the **Time zone** based on the geographic location in which the device is being deployed. The default time zone for your device is PST. Your device will use this time zone for all scheduled operations.
-    2. Specify a **Primary NTP server** for your device or accept the default value of time.windows.com. Ensure that your network allows NTP traffic to pass from your datacenter to the Internet.
-    3. Optionally specify a **Secondary NTP server** for your device.
-    4. Click **Apply** to validate and apply the configured time settings.
+     >[!NOTE] 
+     > We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has registered with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
 
-6. In the **Cloud settings** page, activate your device with the Data Box Edge service in Azure portal.
-    
-    1. Enter the **Activation key** that you got in [Get the activation key](data-box-edge-deploy-prep.md#get-the-activation-key) for Data Box Edge.
+3. (Optional) In the left pane, select **Web proxy settings**, and then configure your web proxy server. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.
+   
+   ![Local web UI "Web proxy settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
+   
+   On the **Web proxy settings** page, do the following:
+   
+   a. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
 
-    2. Click **Apply**. 
+   b. Under **Authentication**, select **None** or **NTLM**.
+
+   c. If you're using authentication, enter a username and password.
+
+   d. To validate and apply the configured web proxy settings, select **Apply settings**.
+
+4. (Optional) In the left pane, select **Time settings**, and then configure the time zone and the primary and secondary NTP servers for your device.  
+    NTP servers are required because your device must synchronize time so that it can authenticate with your cloud service providers.
        
-         ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
+    On the **Time settings** page, do the following:
     
-    3. After the device is successfully activated, you're presented with connectivity mode options. These settings are configured if you need to work with the device in partially disconnected or disconnected mode. 
+    1. In the **Time zone** drop-down list, select the time zone that corresponds to the geographic location in which the device is being deployed.
+        The default time zone for your device is PST. Your device will use this time zone for all scheduled operations.
 
-        ![](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)    
+    2. In the **Primary NTP server** box, enter the primary server for your device or accept the default value of time.windows.com.  
+        Ensure that your network allows NTP traffic to pass from your datacenter to the internet.
+
+    3. Optionally, in the **Secondary NTP server** box, enter a secondary server for your device.
+
+    4. To validate and apply the configured time settings, select **Apply settings**.
+
+        ![Local web UI "Time settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
+
+5. (Optional) In the left pane, select **Storage settings** to configure the storage resiliency on your device. This feature is currently in preview. By default, the storage on the device is not resilient and there is data loss if a data disk fails on the device. When you enable the Resilient option, the storage on the device will be reconfigured and the device can withstand the failure of one data disk with no data loss. Configuring the storage as resilient will reduce the usable capacity of your device.
+
+    > [!IMPORTANT] 
+    > The resiliency can only be configured before you activate the device. 
+
+    ![Local web UI "Storage settings" page](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+
+6. In the left pane, select **Cloud settings**, and then activate your device with the Data Box Edge service in the Azure portal.
+    
+    1. In the **Activation key** box, enter the activation key that you got in [Get the activation key](data-box-edge-deploy-prep.md#get-the-activation-key) for Data Box Edge.
+    2. Select **Apply**.
+       
+        ![Local web UI "Cloud settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
+
+    3. First the device is activated. The device is then scanned for any critical updates and if available, the updates are automatically applied. You see a notification to that effect.
+
+        The dialog also has a recovery key that you should copy and save it in a safe location. This key is used to recover your data in the event the device can't boot up.
+
+        ![Local web UI "Cloud settings" page updated](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
+
+    4. You may need to wait several minutes after the update is successfully completed. The page updates to indicate that the device is successfully activated.
+
+        ![Local web UI "Cloud settings" page updated](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 The device setup is complete. You can now add shares on your device.
 
-
 ## Next steps
 
-In this tutorial, you learned about Data Box Edge topics such as:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Connect to physical device
-> * Set up and activate physical device
+> * Connect to a physical device
+> * Set up and activate the physical device
 
-
-Advance to the next tutorial to learn how to transfer data with your Data Box Edge.
+To learn how to transfer data with your Data Box Edge device, see:
 
 > [!div class="nextstepaction"]
 > [Transfer data with Data Box Edge](./data-box-edge-deploy-add-shares.md).

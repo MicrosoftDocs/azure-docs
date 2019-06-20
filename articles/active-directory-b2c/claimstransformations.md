@@ -2,15 +2,15 @@
 title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Definition of the ClaimsTransformations element in the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # ClaimsTransformations
@@ -29,12 +29,12 @@ To include the list of claims transformation functions that can be used in the u
 </ClaimsTransformations>
 ```
 
-The **ClaimsTransformation** element conatains the following attributes:
+The **ClaimsTransformation** element contains the following attributes:
 
 | Attribute |Required | Description |
 | --------- |-------- | ----------- |
 | Id |Yes | An identifier that is used to uniquely identify the claim transformation. The identifier is referenced from other XML elements in the policy. |
-| TransformationMethod | Yes | The transform method to use in the claims transformation. Each claim transformation has its own values. See the [claims transformation reference](#Claims-transformations-reference) for a complete list of the available values. |
+| TransformationMethod | Yes | The transform method to use in the claims transformation. Each claim transformation has its own values. See the [claims transformation reference](#claims-transformations-reference) for a complete list of the available values. |
 
 ## ClaimsTransformation
 
@@ -76,7 +76,7 @@ The **InputClaim** element contains the following attributes:
 | Attribute |Required | Description |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |Yes | A reference to a ClaimType already defined in the ClaimsSchema section in the policy. |
-| TransformationClaimType |Yes | An identifier to reference a transformation claim type. Each claim transformation has its own values. See the [claims transformation reference](#Claims-transformations-reference) for a complete list of the available values. |
+| TransformationClaimType |Yes | An identifier to reference a transformation claim type. Each claim transformation has its own values. See the [claims transformation reference](#claims-transformations-reference) for a complete list of the available values. |
 
 ### InputParameters
 
@@ -91,7 +91,7 @@ The **InputParameters** element contains the following element:
 | Attribute | Required |Description |
 | --------- | ----------- |----------- |
 | Id | Yes | An identifier that is a reference to a parameter of the claims transformation method. Each claims transformation method has its own values. See the claims transformation table for a complete list of the available values. |
-| DataType | Yes | The type of data of the parameter, such as String, Boolean, Int, or DateTime as per the DataType enumeration in the custom policy XML schema. This type is used to perform arithmetic operations correctly. Each claim transformation has its own values. See the [claims transformation reference](#Claims-transformations-reference) for a complete list of the available values. |
+| DataType | Yes | The type of data of the parameter, such as String, Boolean, Int, or DateTime as per the DataType enumeration in the custom policy XML schema. This type is used to perform arithmetic operations correctly. Each claim transformation has its own values. See the [claims transformation reference](#claims-transformations-reference) for a complete list of the available values. |
 | Value | Yes | A value that is passed verbatim to the transformation. Some of the values are arbitrary, some of them you select from the claims transformation method. |
 
 ### OutputClaims
@@ -109,7 +109,7 @@ The **OutputClaim** element contains the following attributes:
 | Attribute |Required | Description |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Yes | A reference to a ClaimType already defined in the ClaimsSchema section in the policy.
-| TransformationClaimType | Yes | An identifier to reference a transformation claim type. Each claim transformation has its own values. See the [claims transformation reference](#Claims-transformations-reference) for a complete list of the available values. |
+| TransformationClaimType | Yes | An identifier to reference a transformation claim type. Each claim transformation has its own values. See the [claims transformation reference](#claims-transformations-reference) for a complete list of the available values. |
  
 If input claim and the output claim are the same type (string, or boolean), you can use the same input claim as the output claim. In this case, the claims transformation changes the input claim with the output value.
 

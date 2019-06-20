@@ -3,8 +3,8 @@ title: Attach a managed data disk to a Windows VM - Azure | Microsoft Docs
 description: How to attach a managed data disk to a Windows VM by using the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,8 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: cynthn
+ms.author: rogarana
+ms.subservice: disks
 
 ---
 # Attach a managed data disk to a Windows VM by using the Azure portal

@@ -1,29 +1,24 @@
 ---
-title: Optimize algorithms - Azure Machine Learning Studio | Microsoft Docs
+title: Optimize algorithms
+titleSuffix: Azure Machine Learning Studio
 description: Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: studio
+ms.topic: conceptual
+
+author: xiaoharper
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 11/29/2017
 ---
 # Choose parameters to optimize your algorithms in Azure Machine Learning Studio
 
-This topic describes how to choose the right hyperparameter set for an algorithm in Azure Machine Learning. Most machine learning algorithms have parameters to set. When you train a model, you need to provide values for those parameters. The efficacy of the trained model depends on the model parameters that you choose. The process of finding the optimal set of parameters is known as *model selection*.
+This topic describes how to choose the right hyperparameter set for an algorithm in Azure Machine Learning Studio. Most machine learning algorithms have parameters to set. When you train a model, you need to provide values for those parameters. The efficacy of the trained model depends on the model parameters that you choose. The process of finding the optimal set of parameters is known as *model selection*.
 
 
 
-There are various ways to do model selection. In machine learning, cross-validation is one of the most widely used methods for model selection, and it is the default model selection mechanism in Azure Machine Learning. Because Azure Machine Learning supports both R and Python, you can always implement their own model selection mechanisms by using either R or Python.
+There are various ways to do model selection. In machine learning, cross-validation is one of the most widely used methods for model selection, and it is the default model selection mechanism in Azure Machine Learning Studio. Because Azure Machine Learning Studio supports both R and Python, you can always implement their own model selection mechanisms by using either R or Python.
 
 There are four steps in the process of finding the best parameter set:
 
@@ -32,7 +27,7 @@ There are four steps in the process of finding the best parameter set:
 3. **Define the metric**: Decide what metric to use for determining the best set of parameters, such as accuracy, root mean squared error, precision, recall, or f-score.
 4. **Train, evaluate, and compare**: For each unique combination of the parameter values, cross-validation is carried out by and based on the error metric you define. After evaluation and comparison, you can choose the best-performing model.
 
-The following image illustrates shows how this can be achieved in Azure Machine Learning.
+The following image illustrates shows how this can be achieved in Azure Machine Learning Studio.
 
 ![Find the best parameter set](./media/algorithm-parameters-optimize/fig1.png)
 

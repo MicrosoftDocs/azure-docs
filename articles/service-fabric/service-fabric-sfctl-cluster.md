@@ -4,7 +4,7 @@ description: Describes the Service Fabric CLI sfctl cluster commands.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -137,7 +137,7 @@ Get the Service Fabric cluster manifest. The cluster manifest contains propertie
 ## sfctl cluster operation-cancel
 Cancels a user-induced fault operation.
 
-The following APIs start fault operations that may be cancelled by using CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. If force is false, then the specified user-induced operation will be gracefully stopped and cleaned up.  If force is true, the command will be aborted, and some internal state may be left behind.  Specifying force as true should be used with care. Calling this API with force set to true is not allowed until this API has already been called on the same test command with force set to false first, or unless the test command already has an OperationState of OperationState.RollingBack. 
+The following APIs start fault operations that may be canceled by using CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. If force is false, then the specified user-induced operation will be gracefully stopped and cleaned up.  If force is true, the command will be aborted, and some internal state may be left behind.  Specifying force as true should be used with care. Calling this API with force set to true is not allowed until this API has already been called on the same test command with force set to false first, or unless the test command already has an OperationState of OperationState.RollingBack. 
 
 Clarification\: OperationState.RollingBack means that the system will be/is cleaning up internal system state caused by executing the command.  It will not restore data if the test command was to cause data loss.  For example, if you call StartDataLoss then call this API, the system will only clean up internal state from running the command. It will not restore the target partition's data, if the command progressed far enough to cause data loss. 
 
@@ -261,7 +261,7 @@ The report must contain the information about the source of the health report an
 ## sfctl cluster select
 Connects to a Service Fabric cluster endpoint.
 
-If connecting to secure cluster, specify an absolute path to a cert (.crt) and key file (.key) or a single file with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster, also specify an absolute path to a CA bundle file or directory of trusted CA certs. If using a directory of CA certs, `c_rehash <directory>` provided by OpenSSL must be run first to compute the certificate hashes and create the appropriate symbolics links.
+If connecting to secure cluster, specify an absolute path to a cert (.crt) and key file (.key) or a single file with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster, also specify an absolute path to a CA bundle file or directory of trusted CA certs. If using a directory of CA certs, `c_rehash <directory>` provided by OpenSSL must be run first to compute the certificate hashes and create the appropriate symbolic links.
 
 ### Arguments
 

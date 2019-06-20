@@ -4,7 +4,7 @@ description: Describes the Service Fabric CLI sfctl mesh secretvalue commands.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -26,7 +26,7 @@ Get and delete mesh secretvalue resources.
 |Command|Description|
 | --- | --- |
 | delete | Deletes the specified  value of the named secret resource. |
-| list | List names of all values of the the specified secret resource. |
+| list | List names of all values of the specified secret resource. |
 | show | Retrieve the value of a specified version of a secret resource. |
 
 ## sfctl mesh secretvalue delete

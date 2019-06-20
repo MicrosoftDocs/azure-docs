@@ -23,7 +23,7 @@ In this article, you learn how to use the [Azure Functions extension for Visual 
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-The extension currently supports C#, JavaScript, and Java functions. The steps in this article may vary depending on your choice of language for your Azure Functions project. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
+The extension currently fully supports C#, JavaScript, and Java functions, with Python support currently in Preview. The steps in this article may vary depending on your choice of language for your Azure Functions project. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Function localhost response in the browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. To stop debugging, press Shift + F1.
+1. To stop debugging, press Shift + F5.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -111,12 +111,10 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Next steps
 
-You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).
-
-Next you may want to learn more about local testing and debugging from the Terminal or command prompt using the Azure Functions Core Tools.
+You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. You may also want to learn more about [local testing and debugging from the Terminal or command prompt](functions-run-local.md) using the Azure Functions Core Tools.
 
 > [!div class="nextstepaction"]
-> [Code and test locally](functions-run-local.md)
+> [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

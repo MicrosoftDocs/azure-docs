@@ -4,18 +4,19 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Cisco Umbrella
 
@@ -74,8 +75,8 @@ To configure and test Azure AD single sign-on with [Application name], you need 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Cisco Umbrella Single Sign-On](#configure-cisco-umbrella-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Cisco Umbrella test user](#create-cisco-umbrella-test-user)** - to have a counterpart of Britta Simon in Cisco Umbrella that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Cisco Umbrella test user](#create-cisco-umbrella-test-user)** - to have a counterpart of Britta Simon in Cisco Umbrella that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -102,11 +103,11 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	a. If you wish to configure the application in **SP** intiated mode, perform the following steps:
 
-    b. Click **set additional URLs**.
+    b. Click **Set additional URLs**.
 
     c. In the **Sign-on URL** textbox, type a URL: `https://login.umbrella.com/sso`
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -124,7 +125,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 1. In a different browser window, sign-on to your Cisco Umbrella company site as administrator.
 
-2.  From the left side of menu, click **Admin** and navigate to **Authentication** and then click on **SAML**.
+2. From the left side of menu, click **Admin** and navigate to **Authentication** and then click on **SAML**.
 
 	![The Admin](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
 
@@ -140,10 +141,9 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	![The Next](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-
 6. In the **Option A: Upload XML file**,  upload the **Federation Metadata XML** file that you downloaded from the Azure portal and after uploading metadata the below values get auto populated automatically then click **NEXT**.
 
-	![The choosefile ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
+	![The choosefile](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
 7. Under **Validate SAML Configuration** section, click **TEST YOUR SAML CONFIGURATION**.
 
@@ -151,7 +151,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 8. Click **SAVE**.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -169,7 +169,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -211,7 +211,7 @@ In the case of Cisco Umbrella, provisioning is a manual task.
 
 1. In a different browser window, sign-on to your Cisco Umbrella company site as administrator.
 
-2.  From the left side of menu, click **Admin** and navigate to **Accounts**.
+2. From the left side of menu, click **Admin** and navigate to **Accounts**.
 
 	![The Account](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
 
@@ -225,7 +225,7 @@ In the case of Cisco Umbrella, provisioning is a manual task.
 
 	c. From the **Choose Delegated Admin Role**, select your role.
   
-    d. In the **Email Address** field, enter the emailaddress of user like **brittasimon@contoso.com**.
+    d. In the **Email Address** field, enter the emailaddress of user like **brittasimon\@contoso.com**.
 
     e. In the **Password** field, enter your password.
 
@@ -233,7 +233,7 @@ In the case of Cisco Umbrella, provisioning is a manual task.
 
     g. Click **CREATE**.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -241,9 +241,8 @@ When you click the Cisco Umbrella tile in the Access Panel, you should be automa
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

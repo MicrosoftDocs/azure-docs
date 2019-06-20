@@ -2,12 +2,13 @@
 title: 'Tutorial: Host a static website on Blob storage - Azure Storage'
 description: Learn how to configure a storage account for static website hosting, and deploy a static website to Azure Storage.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
-ms.author: tamram
+ms.date: 12/31/2018
+ms.author: normesta
+ms.reviewer: seguler
 ms.custom: seodec18
 ---
 
@@ -74,7 +75,7 @@ Next, create a Hello World web page with Visual Studio Code and deploy it to the
     ```
 
 1. Create the default error file and name it *404.html*.
-1. Open *error.html* in the editor, paste the following text into the file, and save it:
+1. Open *404.html* in the editor, paste the following text into the file, and save it:
 
     ```
     <h1>404</h1>

@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Download log files that are produced by Azure Custom Decision Service.
 services: cognitive-services
 author: marco-rossi29
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
@@ -45,7 +45,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-s START_DATE`, `--start_date START_DATE` | The downloading start date (included), in *YYYY-MM-DD* format. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | The downloading end date (included), in *YYYY-MM-DD* format. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | The overwrite mode to use. | |
-| | `0`: Never overwrite; ask the user whether blobs are currently used. | Default | |
+| | `0`: Never overwrite; ask the user whether blobs are currently used. | Default |
 | | `1`: Ask the user how to proceed when the files have different sizes or when the blobs are currently being used. | |
 | | `2`: Always overwrite; download currently used blobs. | |
 | | `3`: Never overwrite, and append if the size is larger, without asking; download currently used blobs. | |

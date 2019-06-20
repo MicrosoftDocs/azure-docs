@@ -19,7 +19,9 @@ ms.author: spelluru
 
 This sample PowerShell script creates a custom role to use in a lab in Azure DevTest Labs. 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Prerequisites
 * **A lab**. The script requires you to have an existing lab. 
@@ -34,9 +36,9 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) | Gets the operations for an Azure resource provider that are securable using Azure RBAC. |
-| [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) | Lists all Azure RBAC roles that are available for assignment. |
-| [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) | Creates a custom role. |
+| [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Gets the operations for an Azure resource provider that are securable using Azure RBAC. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lists all Azure RBAC roles that are available for assignment. |
+| [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Creates a custom role. |
 
 ## Next steps
 

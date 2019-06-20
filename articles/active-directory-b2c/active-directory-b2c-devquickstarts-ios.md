@@ -2,15 +2,15 @@
 title: Using AppAuth in an iOS application in Azure Active Directory B2C | Microsoft Docs
 description: This article shows you how to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Azure AD B2C: Sign-in using an iOS application
@@ -25,7 +25,7 @@ The Microsoft identity platform uses open standards such as OAuth2 and OpenID Co
 If you're new to OAuth2 or OpenID Connect, much of this sample configuration may not make much sense to you. We recommend you look at a brief [overview of the protocol we've documented here](active-directory-b2c-reference-protocols.md).
 
 ## Get an Azure AD B2C directory
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](tutorial-create-tenant.md) before you continue.
 
 ## Create an application
 Next, you need to create an app in your B2C directory. The app registration gives Azure AD information that it needs to communicate securely with your app. To create a mobile app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
@@ -35,14 +35,11 @@ Next, you need to create an app in your B2C directory. The app registration give
 * Set up a **Redirect URI** with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). You need this URI later.
 
 ## Create your user flows
-In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. Create this user flow as described in the
-[user flow reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). When you create the user flow, be sure to:
+In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md). This application contains one identity experience: a combined sign-in and sign-up. When you create the user flow, be sure to:
 
 * Under **Sign-up attributes**, select the attribute **Display name**.  You can select other attributes as well.
 * Under **Application claims**, select the claims **Display name** and **User's Object ID**. You can select other claims as well.
 * Copy the **Name** of each user flow after you create it. Your user flow name is prefixed with `b2c_1_` when you save the user flow.  You need the user flow name later.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 After you have created your user flows, you're ready to build your app.
 

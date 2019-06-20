@@ -2,15 +2,15 @@
 title: Failback during disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of various types of failback and caveats to be considered while failing back to on-premises during disaster recovery with the Azure Site Recovery service.
 services: site-recovery
-author: rajani-janaki-ram
-manager: guaravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 11/27/2018
-ms.author: rajanki
+ms.topic: conceptual
+ms.date: 05/19/2019
+ms.author: raynew
 ---
 
-# Overview of failback
+# Failback after disaster recovery of VMware VMs
 
 After you have failed over to Azure as part of your disaster recovery process, you can fail back to your on-premises site. There are two different types of failback that are possible with Azure Site Recovery: 
 
@@ -20,7 +20,7 @@ After you have failed over to Azure as part of your disaster recovery process, y
 If you failed over a VMware virtual machine, you can fail back to the same source on-premises virtual machine if it still exists. In this scenario, only the changes are replicated back. This scenario is known as **original location recovery**. If the on-premises virtual machine does not exist, the scenario is an **alternate location recovery**.
 
 > [!NOTE]
-> You can only failback to the original vCenter and Configuration server. You cannot deploy a new Configuration server and fail back using it. Also, you cannot add a new vCenter to the existing Configuration server and failback into the new vCenter.
+> You can only fail back to the original vCenter and Configuration server. You cannot deploy a new Configuration server and fail back using it. Also, you cannot add a new vCenter to the existing Configuration server and failback into the new vCenter.
 
 ## Original Location Recovery (OLR)
 If you choose to fail back to the original virtual machine, the following conditions need to be met:

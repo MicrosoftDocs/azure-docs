@@ -3,7 +3,7 @@ title: Create a watcher task in the Azure Automation account
 description: Learn how to create a watcher task in the Azure Automation account to watch for new files created in a folder.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
@@ -31,6 +31,9 @@ To complete this tutorial, the following are required:
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](automation-offering-get-started.md) to hold the watcher and action runbooks and the Watcher Task.
 * A [hybrid runbook worker](automation-hybrid-runbook-worker.md) where the watcher task runs.
+
+> [!NOTE]
+> Watcher tasks are not supported in Azure China.
 
 ## Import a watcher runbook
 
@@ -84,8 +87,8 @@ The watcher task contains two parts. The watcher and the action. The watcher run
 1. Select **Configure action** and select "Process-NewFile" runbook.
 1. Enter the following values for parameters:
 
-   ***EVENTDATA** - Leave blank. Data is passed in from the watcher runbook.  
-   ***Run Settings** - Leave as Azure as this runbook runs in the Automation service.
+   * **EVENTDATA** - Leave blank. Data is passed in from the watcher runbook.  
+   * **Run Settings** - Leave as Azure as this runbook runs in the Automation service.
 
 1. Click **OK**, and then Select to return to the watcher page.
 1. Click **OK** to create the watcher task.
@@ -148,3 +151,4 @@ Follow this link to learn more about authoring your own runbook.
 
 > [!div class="nextstepaction"]
 > [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
+

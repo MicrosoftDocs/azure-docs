@@ -1,10 +1,10 @@
 ---
-title: On-Demand Backup in Azure Service Fabric | Microsoft Docs
-description: Use Service Fabric's backup and restore feature for backup of your application data on need basis.
+title: On-demand backup in Azure Service Fabric | Microsoft Docs
+description: Use the backup and restore feature in Service Fabric to back up your application data on a need basis.
 services: service-fabric
 documentationcenter: .net
 author: aagup
-manager: timlt
+manager: chackdan
 editor: aagup
 
 ms.assetid: 02DA262A-EEF6-4F90-842E-FFC4A09003E5
@@ -19,23 +19,49 @@ ms.author: aagup
 ---
 # On-demand backup in Azure Service Fabric
 
-The data of Reliable Stateful services and Reliable Actors can be backed up to address disaster or data loss scenarios.
+You can back up data of Reliable Stateful services and Reliable Actors to address disaster or data loss scenarios.
 
-Service Fabric is equipped with features for [periodic backup of data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) and backup of data on need basis. On-demand backup is useful as it guards against _data loss_/_data corruption_ caused due to planned changes in the underlying service or its environment.
+Azure Service Fabric has features for the [periodic backup of data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) and the backup of data on a need basis. On-demand backup is useful because it guards against _data loss_/_data corruption_ because of planned changes in the underlying service or its environment.
 
-The on-demand backup features is helpful in capturing state of the services, before any manually triggered operation related to the service or service environment. Like changing the service binaries, that is, upgrading or downgrading of the service; as it will have the data guarded against data corruption by bugs in application's code.
+The on-demand backup features are helpful for capturing the state of the services before you manually trigger a service or service environment operation. For example, if you make a change in service binaries when  upgrading or downgrading the service. In such a case, on-demand backup can help guard the data against corruption by application code bugs.
+## Prerequisites
+
+- Install Microsoft.ServiceFabric.Powershell.Http Module [In Preview] for making configuration calls.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request using Microsoft.ServiceFabric.Powershell.Http Module.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## Triggering on-demand backup
 
-The on-demand backup requires storage details for uploading backup files. The on-demand backup will happen in the storage specified in periodic backup policy or in the specified storage in on-demand backup request.
+On-demand backup requires storage details for uploading backup files. You specify the on-demand backup location, either in the periodic backup policy or in an on-demand backup request.
 
-### On-demand backup to storage specified by periodic backup policy
+### On-demand backup to storage specified by a periodic backup policy
 
-The partition of a Reliable Stateful service or Reliable Actor can be requested for an extra on need basis backup to storage specified in periodic backup policy. 
+You can configure the periodic backup policy to use a partition of a Reliable Stateful service or Reliable Actor for extra on-demand backup to storage.
 
-The following case is the continuation of sample as mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), where the partition has a backup policy enabled and is taking backup at a desired frequency in Azure Storage.
+The following case is the continuation of the scenario in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In this case, you enable a backup policy to use a partition and a backup occurs at a set frequency in Azure Storage.
 
-The on-demand backup for partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` can be triggered by  [BackupPartition] (https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API. 
+#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' 
+
+```
+
+#### Rest Call using Powershell
+
+Use the [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API to set up triggering for the on-demand backup for partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Backup?api-version=6.4"
@@ -43,13 +69,24 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-The [on-demand backup progress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress) can be tracked by [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API.
+Use the [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API to enable tracking for the [on-demand backup progress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ### On-demand backup to specified storage
 
-The on-demand backup can be requested for a partition of a Reliable Stateful service or Reliable Actor along with the storage information. The storage information should be provided as a part of the on-demand backup request.
+You can request on-demand backup for a partition of a Reliable Stateful service or Reliable Actor. Provide the storage information as a part of the on-demand backup request.
 
-The on-demand backup for partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` can be triggered by  [BackupPartition] (https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API with Azure storage information as shown below.
+
+#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlobStore -ConnectionString  'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### Rest Call using Powershell
+
+Use the [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API to set up triggering for the on-demand backup for partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Include the following Azure Storage information:
 
 ```powershell
 $StorageInfo = @{
@@ -68,73 +105,77 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-The [on-demand backup progress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress) can be tracked by [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API.
-
+You can use the [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API to set up tracking for the [on-demand backup progress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ## Tracking on-demand backup progress
 
-A partition of a Reliable Stateful service or Reliable Actor accepts only one on-demand backup request at a time. Another request can be accepted only when the current on-demand backup request has completed. 
+A partition of a Reliable Stateful service or Reliable Actor accepts only one on-demand backup request at a time. Another request can be accepted only after the current on-demand backup request has completed.
 
-Multiple on-demand backup requests can be triggered on different partitions at a same time.
+Different partitions can trigger on-demand backup requests at a same time.
+
+
+#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
-$url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4" 
- 
+
+Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+
+```
+#### Rest Call using Powershell
+
+```powershell
+$url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"
+
 $response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3' 
 $backupResponse = (ConvertFrom-Json $response.Content) 
 $backupResponse
 ```
 
-The on-demand backup request's progress may be one of the following states
+On-demand backup requests can be in the following states:
 
-* **Accepted** - The backup has been initiated on the partition and is in progress.
+- **Accepted**: The backup has started on the partition and is in progress.
+  ```
+  BackupState             : Accepted
+  TimeStampUtc            : 0001-01-01T00:00:00Z
+  BackupId                : 00000000-0000-0000-0000-000000000000
+  BackupLocation          :
+  EpochOfLastBackupRecord :
+  LsnOfLastBackupRecord   : 0
+  FailureError            :
+  ```
+- **Success**, **Failure**, or **Timeout**: A requested on-demand backup can be completed in any of the following states:
+  - **Success**: A _Success_ backup state indicates that the partition state has  backed up successfully. The response provides _BackupEpoch_ and _BackupLSN_ for the partition along with the time in UTC.
     ```
-    BackupState             : Accepted
+    BackupState             : Success
+    TimeStampUtc            : 2018-11-21T20:00:01Z
+    BackupId                : 5d64b697-6acd-45a4-adbd-3d75e0078081
+    BackupLocation          : SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-11-21 20.00.01.zip
+    EpochOfLastBackupRecord : @{DataLossNumber=131873018908156893; ConfigurationNumber=8589934592}
+    LsnOfLastBackupRecord   : 36
+    FailureError            :
+    ```
+  - **Failure**: A _Failure_ backup state indicates that a failure occurred during backup of the partition's state. The cause of the failure is stated in response.
+    ```
+    BackupState             : Failure
     TimeStampUtc            : 0001-01-01T00:00:00Z
     BackupId                : 00000000-0000-0000-0000-000000000000
-    BackupLocation          : 
-    EpochOfLastBackupRecord : 
+    BackupLocation          :
+    EpochOfLastBackupRecord :
     LsnOfLastBackupRecord   : 0
-    FailureError            : 
+    FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-    
-* **Success/ Failure/ Timeout** - A requested on-demand backup can be completed in any of the following states. Each state has the following significance and response details.
-
-    * **Success** - The backup state as _Success_ indicates that the partition state is backed up successfully. The response will provide __BackupEpoch__ and __BackupLSN__ for the partition along with the time in UTC.
-        ```
-        BackupState             : Success
-        TimeStampUtc            : 2018-11-21T20:00:01Z
-        BackupId                : 5d64b697-6acd-45a4-adbd-3d75e0078081
-        BackupLocation          : SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-11-21 20.00.01.zip
-        EpochOfLastBackupRecord : @{DataLossNumber=131873018908156893; ConfigurationNumber=8589934592}
-        LsnOfLastBackupRecord   : 36
-        FailureError            : 
-        ```
-        
-    * **Failure** - The backup state as _Failure_ indicates the failure occurred during backup of the partition's state. The cause of the failure will be stated in response.
-        ```
-        BackupState             : Failure
-        TimeStampUtc            : 0001-01-01T00:00:00Z
-        BackupId                : 00000000-0000-0000-0000-000000000000
-        BackupLocation          : 
-        EpochOfLastBackupRecord : 
-        LsnOfLastBackupRecord   : 0
-        FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
-        ```
-       
-    * **Timeout** - The backup state as _Timeout_ indicates that the partition state backup couldn't be created in given time frame; default timeout value is 10 minutes. Initiating a new backup request with greater [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in on-demand backup request is recommended in this scenario.
-
-        ```
-        BackupState             : Timeout
-        TimeStampUtc            : 0001-01-01T00:00:00Z
-        BackupId                : 00000000-0000-0000-0000-000000000000
-        BackupLocation          : 
-        EpochOfLastBackupRecord : 
-        LsnOfLastBackupRecord   : 0
-        FailureError            : @{Code=FABRIC_E_TIMEOUT; Message=The request of backup has timed out.}
-        ```
+  - **Timeout**: A _Timeout_ backup state indicates that the partition state backup couldn't be created in a given amount of time. The default timeout value is 10 minutes. Initiate a new on-demand backup request with greater [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in this scenario.
+    ```
+    BackupState             : Timeout
+    TimeStampUtc            : 0001-01-01T00:00:00Z
+    BackupId                : 00000000-0000-0000-0000-000000000000
+    BackupLocation          :
+    EpochOfLastBackupRecord :
+    LsnOfLastBackupRecord   : 0
+    FailureError            : @{Code=FABRIC_E_TIMEOUT; Message=The request of backup has timed out.}
+    ```
 
 ## Next steps
-- [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
+- [Understand periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
+- [BackupRestore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

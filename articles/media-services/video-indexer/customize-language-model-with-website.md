@@ -7,8 +7,9 @@ author: anikaz
 manager: johndeu
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 05/15/2019
 ms.author: anzaman
 ---
 
@@ -112,6 +113,34 @@ To delete a Language model from your account, click the **...** button on the ri
 This brings up a new window telling you that the deletion cannot be undone. Click the **Delete** option in the new window.
 
 This action removes the Language model completely from your account. Any video that was using the deleted Language model will keep the same index until you re-index the video. If you re-index the video, you can assign a new Language model to the video. Otherwise,  Video Indexer will use its default model to re-index the video. 
+
+## Customize Language models by correcting transcripts
+
+Video Indexer supports automatic customization of Language models based on the actual corrections users make to the transcriptions of their videos.
+
+1. To make corrections to a transcript, open up the video that you want to edit from your Account Videos. Select the **Timeline** tab.
+
+    ![Customize language model](./media/customize-language-model/timeline.png)
+1. Click on the pencil icon to edit the transcript of your transcription. 
+
+    ![Customize language model](./media/customize-language-model/edits.png)
+
+    Video Indexer captures all lines that are corrected by you in the transcription of your video and adds them automatically to a text file called "From transcript edits". These edits are used to re-train the specific Language model that was used to index this video. 
+    
+    If you did not specify a Language model when indexing this video, then all edits for this video will be stored in a default Language model called Account adaptations within the detected language of the video. 
+    
+    In case multiple edits have been made to the same line, only the last version of the corrected line will be used for updating the Language model.  
+    
+    > [!NOTE]
+    > Only textual corrections are used for the customization. This means that corrections that do not involve actual words (for example, punctuation marks or spaces) are not included. 
+    
+1. You will see transcript corrections show up in the Language tab of the Content model customization page.
+
+    ![Customize language model](./media/customize-language-model/customize.png)
+
+   To look at the "From transcript edits" file for each of your Language models, click on it to open it. 
+
+    ![From transcript edits](./media/customize-language-model/from-transcript-edits.png)
 
 ## Next steps
 

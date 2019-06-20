@@ -4,7 +4,7 @@ description: Comprehensive list of events provided by Azure Service Fabric to he
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/23/2018
-ms.author: dekapur
+ms.date: 2/25/2019
+ms.author: srrengar
 
 ---
 
 # List of Service Fabric events 
 
-Service Fabric exposes a primary set of cluster events to inform you of the status of your cluster as [Service Fabric Events](service-fabric-diagnostics-events.md). These are based on actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. These events can be accessed by configuring in a number of ways including configuring [Log Analytics with your cluster](service-fabric-diagnostics-oms-setup.md), or querying the [EventStore](service-fabric-diagnostics-eventstore.md). On Windows machines, these events are fed into the EventLog - so you can see Service Fabric Events in Event Viewer. 
+Service Fabric exposes a primary set of cluster events to inform you of the status of your cluster as [Service Fabric Events](service-fabric-diagnostics-events.md). These are based on actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. These events can be accessed by configuring in a number of ways including configuring [Azure Monitor logs with your cluster](service-fabric-diagnostics-oms-setup.md), or querying the [EventStore](service-fabric-diagnostics-eventstore.md). On Windows machines, these events are fed into the EventLog - so you can see Service Fabric Events in Event Viewer. 
 
 Here are some characteristics of these events
 * Each event is tied to a specific entity in the cluster e.g. Application, Service, Node, Replica.
@@ -100,6 +100,40 @@ More details on application upgrades can be found [here](service-fabric-applicat
 | EventId | Name | Category | Description |Source (Task) | Level | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | A partition reconfiguration has completed | RA | Informational | 
+
+## Replica events
+
+**Replica lifecycle events**
+
+| EventId | Name | Category | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | LifeCycle | Reliable dictionary has opened | DistributedDictionary | Informational |
+| 61702 | ReliableDictionaryClosed | LifeCycle | Reliable dictionary has closed | DistributedDictionary | Informational |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | Reliable dictionary has recovered its checkpoint | DistributedDictionary | Informational |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | Replica has sent reliable dictionary's checkpoint files | DistributedDictionary | Informational |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | Replica has received reliable dictionary's checkpoint files | DistributedDictionary | Informational |
+| 61963 | ReliableQueueOpened | LifeCycle | Reliable queue has opened | DistributedQueue | Informational |
+| 61964 | ReliableQueueClosed | LifeCycle | Reliable queue has closed | DistributedQueue | Informational |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | Reliable queue has recovered its checkpoint | DistributedQueue | Informational |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | Replica has sent reliable queue's checkpoint files | DistributedQueue | Informational |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | Replica has received reliable queue's checkpoint files | DistributedQueue | Informational |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | Reliable concurrent queue has opened | ReliableConcurrentQueue | Informational |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | Reliable concurrent queue has closed | ReliableConcurrentQueue | Informational |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | Reliable concurrent queue has recovered its checkpoint | ReliableConcurrentQueue | Informational |
+| 61687 | TStoreError | Failure | Reliable collection has received an unexpected error | TStore | Error |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | Primary replica has initiated a full copy | TReplicator | Informational |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | Primary replica has initiated a partial copy | TReplicator | Informational |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | Primary replica has started building idle replica | Replication | Informational |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | Primary replica has completed building idle replica | Replication | Informational |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | Primary replica has failed building idle replica | Replication | Warning |
+| 16834 | PrimaryReplicationQueueFull | Health | Primary replica's replication queue is full | Replication | Warning |
+| 16835 | PrimaryReplicationQueueWarning | Health | Primary replica's replication queue is near full | Replication | Warning |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Health | Primary replica's replication queue is okay | Replication | Informational |
+| 16837 | SecondaryReplicationQueueFull | Health | Secondary replica's replication queue is full | Replication | Warning |
+| 16838 | SecondaryReplicationQueueWarning | Health | Secondary replica's replication queue is near full | Replication | Warning |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Health | Secondary replica's replication queue is okay | Replication | Informational |
+| 16840 | PrimaryFaultedSlowSecondary | Health | Primary replica has faulted a slow secondary replica | Replication | Warning |
+| 16841 | ReplicatorFaulted | Health | Replica has faulted | Replication | Warning |
 
 ## Container events
 
@@ -212,7 +246,7 @@ The [Service Fabric Health Model](service-fabric-health-introduction.md) provide
 
 | EventId | Name | Description |Source (Task) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 65011 | CorrelationOperational | A correlation has been detacted | Testability | Informational | 1 |
+| 65011 | CorrelationOperational | A correlation has been detected | Testability | Informational | 1 |
 
 ## Events prior to version 6.2
 

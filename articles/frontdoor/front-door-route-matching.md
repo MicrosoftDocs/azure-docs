@@ -24,7 +24,7 @@ A Front Door routing rule configuration is composed of two major parts: a "left-
 The following properties determine whether the incoming request matches the routing rule (or left-hand side):
 
 * **HTTP Protocols** (HTTP/HTTPS)
-* **Hosts** (for example, www.foo.com, \*.bar.com)
+* **Hosts** (for example, www\.foo.com, \*.bar.com)
 * **Paths** (for example, /\*, /users/\*, /file.gif)
 
 These properties are expanded out internally so that every combination of Protocol/Host/Path is a potential match set.
@@ -47,19 +47,19 @@ To explain this process further, let's look at an example configuration of Front
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /users/\* |
-| C | www.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
+| C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
 If the following incoming requests were sent to Front Door, they would match against the following routing rules from above:
 
 | Incoming frontend host | Matched routing rule(s) |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| www.fabrikam.com | C |
+| www\.fabrikam.com | C |
 | images.fabrikam.com | Error 400: Bad Request |
 | foo.adventure-works.com | C |
 | contoso.com | Error 400: Bad Request |
-| www.adventure-works.com | Error 400: Bad Request |
-| www.northwindtraders.com | Error 400: Bad Request |
+| www\.adventure-works.com | Error 400: Bad Request |
+| www\.northwindtraders.com | Error 400: Bad Request |
 
 ### Path matching
 After determining the specific frontend host and filtering possible routing rules to just the routes with that frontend host, Front Door then filters the routing rules based on the request path. We use a similar logic as frontend hosts:
@@ -75,32 +75,32 @@ To explain further, let's look at another set of examples:
 
 | Routing rule | Frontend host    | Path     |
 |-------|---------|----------|
-| A     | www.contoso.com | /        |
-| B     | www.contoso.com | /\*      |
-| C     | www.contoso.com | /ab      |
-| D     | www.contoso.com | /abc     |
-| E     | www.contoso.com | /abc/    |
-| F     | www.contoso.com | /abc/\*  |
-| G     | www.contoso.com | /abc/def |
-| H     | www.contoso.com | /path/   |
+| A     | www\.contoso.com | /        |
+| B     | www\.contoso.com | /\*      |
+| C     | www\.contoso.com | /ab      |
+| D     | www\.contoso.com | /abc     |
+| E     | www\.contoso.com | /abc/    |
+| F     | www\.contoso.com | /abc/\*  |
+| G     | www\.contoso.com | /abc/def |
+| H     | www\.contoso.com | /path/   |
 
 Given that configuration, the following example matching table would result:
 
 | Incoming Request    | Matched Route |
 |---------------------|---------------|
-| www.contoso.com/            | A             |
-| www.contoso.com/a           | B             |
-| www.contoso.com/ab          | C             |
-| www.contoso.com/abc         | D             |
-| www.contoso.com/abzzz       | B             |
-| www.contoso.com/abc/        | E             |
-| www.contoso.com/abc/d       | F             |
-| www.contoso.com/abc/def     | G             |
-| www.contoso.com/abc/defzzz  | F             |
-| www.contoso.com/abc/def/ghi | F             |
-| www.contoso.com/path        | B             |
-| www.contoso.com/path/       | H             |
-| www.contoso.com/path/zzz    | B             |
+| www\.contoso.com/            | A             |
+| www\.contoso.com/a           | B             |
+| www\.contoso.com/ab          | C             |
+| www\.contoso.com/abc         | D             |
+| www\.contoso.com/abzzz       | B             |
+| www\.contoso.com/abc/        | E             |
+| www\.contoso.com/abc/d       | F             |
+| www\.contoso.com/abc/def     | G             |
+| www\.contoso.com/abc/defzzz  | F             |
+| www\.contoso.com/abc/def/ghi | F             |
+| www\.contoso.com/path        | B             |
+| www\.contoso.com/path/       | H             |
+| www\.contoso.com/path/zzz    | B             |
 
 >[!WARNING]
 > </br> If there are no routing rules for an exact-match frontend host with a catch-all route Path (`/*`), then there will not be a match to any routing rule.

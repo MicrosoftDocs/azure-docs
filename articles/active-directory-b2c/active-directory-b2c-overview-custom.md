@@ -1,16 +1,16 @@
-﻿---
+---
 title: Azure Active Directory B2C custom policies | Microsoft Docs
 description: Learn about Azure Active Directory B2C custom policies.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: davidmu
-ms.component: B2C
+ms.date: 03/20/2019
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Custom policies in Azure Active Directory B2C
@@ -25,10 +25,10 @@ Custom policies are configuration files that define the behavior of your Azure A
 |-|-------------------|-----------------|
 | Target users | All application developers with or without identity expertise. | Identity pros, systems integrators, consultants, and in-house identity teams. They are comfortable with OpenIDConnect flows and understand identity providers and claims-based authentication. |
 | Configuration method | Azure portal with a user-friendly user-interface (UI). | Directly editing XML files and then uploading to the Azure portal. |
-| UI customization | Full UI customization including HTML and CSS.<br><br>Multilanguage support with Custom strings. | Same |
+| UI customization | Full UI customization including HTML, CSS and JavaScript.<br><br>Multilanguage support with Custom strings. | Same |
 | Attribute customization | Standard and custom attributes. | Same |
 | Token and session management | Custom token and multiple session options. | Same |
-| Identity Providers | Predefined local or social provider. | Standards-based OIDC, OAUTH, and SAML. |
+| Identity Providers | Predefined local or social provider and most OIDC identity providers, such as federation with Azure Active Directory tenants. | Standards-based OIDC, OAUTH, and SAML.  Authentication is also possible by using integration with REST APIs. |
 | Identity Tasks | Sign-up or sign-in with local or many social accounts.<br><br>Self-service password reset.<br><br>Profile edit.<br><br>Multi-Factor Authentication.<br><br>Customize tokens and sessions.<br><br>Access token flows. | Complete the same tasks as user flows using custom identity providers or use custom scopes.<br><br>Provision a user account in another system at the time of registration.<br><br>Send a welcome email using your own email service provider.<br><br>Use a user store outside Azure AD B2C.<br><br>Validate user provided information with a trusted system by using an API. |
 
 ## Policy files

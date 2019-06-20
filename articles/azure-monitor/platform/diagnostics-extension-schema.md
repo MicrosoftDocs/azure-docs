@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
+ms.subservice: diagnostic-extension
 ---
 # Azure Diagnostics extension configuration schema versions and history
 This page indexes Azure Diagnostics extension schema versions shipped as part of the Microsoft Azure SDK.  
@@ -23,7 +23,7 @@ This page indexes Azure Diagnostics extension schema versions shipped as part of
 >
 > This page is only relevant if you are using one of these services.
 
-The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../../azure-monitor/overview.md).
+The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../../azure-monitor/overview.md).
 
 ## Azure SDK and diagnostics versions shipping chart  
 
@@ -61,7 +61,7 @@ Different versions of Azure diagnostics use different configuration schemas.
 ### Diagnostics extension 1.11
 Added support for the Azure Monitor sink. This sink is only applicable to performance counters. Enables sending performance counters collected on your VM, VMSS, or cloud service to Azure Monitor as custom metrics. The Azure Monitor sink supports:
 * Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Azure Monitor
+* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](../../azure-monitor/platform/alerts-overview.md) in Azure Monitor
 * Treating wildcard operator in performance counters as the "Instance" dimension on your metric. For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk (C:, D:, etc.)
 
 Define Azure Monitor as a new sink in your diagnostics extension configuration
@@ -169,7 +169,7 @@ Added Storage Type to PublicConfig. StorageType can be *Table*, *Blob*, *TableAn
 Added the ability to route to EventHub.
 
 ### Diagnostics extension 1.5
-Added the sinks element and the ability to send diagnostics data to [Application Insights](../../application-insights/app-insights-cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
+Added the sinks element and the ability to send diagnostics data to [Application Insights](../../azure-monitor/app/cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
 
 ### Azure SDK 2.6 and diagnostics extension 1.3
 For Cloud Service projects in Visual Studio, the following changes were made. (These changes also apply to later versions of Azure SDK.)
@@ -181,7 +181,7 @@ There are some notable differences between how the connection string worked in A
 
 * In Azure SDK 2.4 and earlier, the connection string was used at runtime by the diagnostics plugin to get the storage account information for transferring diagnostics logs.
 * In Azure SDK 2.6 and later, Visual Studio uses the diagnostics connection string to configure the diagnostics extension with the appropriate storage account information during publishing. The connection string lets you define different storage accounts for different service configurations that Visual Studio will use when publishing. However, because the diagnostics plugin is no longer available (after Azure SDK 2.5), the .cscfg file by itself can't enable the Diagnostics Extension. You have to enable the extension separately through tools such as Visual Studio or PowerShell.
-* To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio also contains the public configuration XML for the diagnostics extension for each role. Visual Studio uses the diagnostics connection string to populate the storage account information present in the public configuration. The public config files are created in the Extensions folder and follow the pattern PaaSDiagnostics.<RoleName>.PubConfig.xml. Any PowerShell based deployments can use this pattern to map each configuration to a Role.
+* To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio also contains the public configuration XML for the diagnostics extension for each role. Visual Studio uses the diagnostics connection string to populate the storage account information present in the public configuration. The public config files are created in the Extensions folder and follow the pattern `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Any PowerShell based deployments can use this pattern to map each configuration to a Role.
 * The connection string in the .cscfg file is also used by the Azure portal to access the diagnostics data so it can appear in the **Monitoring** tab. The connection string is needed to configure the service to show verbose monitoring data in the portal.
 
 #### Migrating projects to Azure SDK 2.6 and later
@@ -204,3 +204,4 @@ If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, y
 * **Diagnostics for cloud service applications can only be configured at the role level, not at the instance level.**
 * **Every time you deploy your app, the diagnostics configuration is updated** – This can cause parity issues if you change your diagnostics configuration from Server Explorer and then redeploy your app.
 * **In Azure SDK 2.5 and later, crash dumps are configured in the diagnostics configuration file, not in code** – If you have crash dumps configured in code, you'll have to manually transfer the configuration from code to the configuration file, because the crash dumps aren't transferred during the migration to Azure SDK 2.6.
+

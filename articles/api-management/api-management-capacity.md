@@ -75,7 +75,7 @@ The more complex operations on the requests are, the higher the **capacity** con
 4. From the green section, select **Location** for splitting the metric by dimension.
 5. Pick a desired timeframe from the top bar of the section.
 
-    You can set a metric alert to let you know when something unexpected is happening. For example, get notifications when your APIM instance has been exceededing its expected peak capacity for over 20 minutes.
+    You can set a metric alert to let you know when something unexpected is happening. For example, get notifications when your APIM instance has been exceeding its expected peak capacity for over 20 minutes.
 
     >[!TIP]
     > You can configure alerts to let you know when your service is running low on capacity or use Azure Monitor autoscaling functionality to automatically add an Azure API Management unit. Scaling operation can take around 30 minutes, so you should plan your rules accordingly.  

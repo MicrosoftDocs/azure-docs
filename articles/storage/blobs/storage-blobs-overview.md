@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: overview
 ms.date: 11/19/2018
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # What is Azure Blob storage? 
@@ -18,4 +18,4 @@ ms.component: blobs
 ## Next steps
 
 - [Introduction to Azure Blob storage](storage-blobs-introduction.md)
-- [Introduction to Azure Data Lake Storage Gen2 Preview](../blobs/data-lake-storage-introduction.md)
+- [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

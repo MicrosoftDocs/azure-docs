@@ -1,7 +1,6 @@
 ---
 title: Data Lake tools for Visual Studio with Hortonworks Sandbox - Azure HDInsight 
 description: Learn how to use the Azure Data Lake tools for Visual Studio with the Hortonworks sandbox running in a local VM. With these tools, you can create and run Hive and Pig jobs on the sandbox, and view job output and history.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -22,7 +21,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 * The Hortonworks Sandbox, running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox. For information on setting up the sandbox, see the [Get started with the Hortonworks sandbox.](hadoop/apache-hadoop-emulator-get-started.md) document.
 
-* Visual Studio 2013, Visual Studio 2015, or Visual Studio 2017 (any edition).
+* Visual Studio.
 
 * The [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 or later.
 
@@ -56,13 +55,13 @@ Make sure that the Hortonworks Sandbox is running. Then follow the steps in the 
 
     ![Screenshot of dialog box, with Update button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > The update process uses Ambari to modify the Hortonworks Sandbox configuration to what is expected by the Data Lake tools for Visual Studio.
 
 6. After validation has finished, select **Finish** to complete configuration.
     ![Screenshot of dialog box, with Finish button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-     >[!NOTE]
+     >[!NOTE]  
      > Depending on the speed of your development environment, and the amount of memory allocated to the virtual machine, it can take several minutes to configure and validate the services.
 
 After following these steps, you now have an **HDInsight local cluster** entry in Server Explorer, under the **HDInsight** section.
@@ -95,7 +94,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
     After the **Job State** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by Tez when processing the Hive query. Tez is the default execution engine for Hive on the local cluster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Apache Tez is also the default when you are using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight. To use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
 
     Use the **Job Output** link to view the output. In this case, it is 823, the number of rows in the sample_08 table. You can view diagnostics information about the job by using the **Job Log** and **Download YARN Log** links.
@@ -106,7 +105,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
     An interactive query streams the output log generated during processing to the **HiveServer2 Output** window.
 
-    > [!NOTE]
+    > [!NOTE]  
     > The information is the same that is available from the **Job Log** link after a job has finished.
 
     ![Screenshot of output log](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)

@@ -1,12 +1,10 @@
 ---
 title: Azure CLI script - Create an Azure Database for MariaDB
 description: This sample CLI script creates an Azure Database for MariaDB server and configures a server-level firewall rule.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018

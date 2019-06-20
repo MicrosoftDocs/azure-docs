@@ -1,16 +1,16 @@
 ---
 title: Monitor Azure Site Recovery | Microsoft Docs
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations using the portal 
-author: bsiva
-manager: abhemra
+author: raynew
+manager: carmonm
 ms.service: site-recovery
-ms.topic: troubleshooting
-ms.date: 11/27/2018
-ms.author: bsiva
+ms.topic: conceptual
+ms.date: 03/18/2019
+ms.author: raynew 
 
 ---
 
-# Monitor and troubleshoot Site Recovery
+# Monitor Site Recovery
 
 In this article, you learn how to use Azure Site Recovery's in built monitoring features for monitoring and troubleshooting. 
 
@@ -80,7 +80,7 @@ The **Error summary** section shows currently active error symptoms that may imp
 The **Infrastructure view** shows the infrastructure components involved in replication, and connectivity health between servers and the Azure services.
 
 - A green line indicates that connection is healthy.
-- A red line with the verlaid error icon indicates the existence of one or more error symptoms that impact connectivity.
+- A red line with the overlaid error icon indicates the existence of one or more error symptoms that impact connectivity.
 -  Hover the mouse pointer over the error icon to show the error and the number of impacted entities. Click the icon for a filtered list of impacted entities.
 
     ![Site Recovery infrastructure view (vault)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
@@ -145,19 +145,19 @@ In addition dashboard, you can monitor machines in the virtual machines page.
     ![Site Recovery replicated items list view](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. On the **Replicated items** page,  you can view and filter information. On the action menu at the top, you can perform actions for a particular machine, including running a test failover, or viewing specific errors.
-3.  Click **Columns** to show additional colums,  For example to show RPO, target configuration issues, and replication errors.
+3. Click **Columns** to show additional columns,  For example to show RPO, target configuration issues, and replication errors.
 4. Click **Filter** to view information based on specific parameters such as replication health, or a particular replication policy.
 5. Right-click a machine to initiate operations such as test failover for it, or to view specific error details associated with it.
 6. Click a machine to drill into more details for it. Details include:
-      - **Replication information**: Current status and health of the machine.
-      - **RPO** (recovery point objective): Current RPO for the virtual machine and the time at which the RPO was last computed.
-      - **Recovery points**: Latest available recovery points for the machine.
-      - **Failover readiness**: Indicates whether a test failover was run for the machine, the agent version running on the machine (for machines running the Mobility service), and any configuration issues.
-      - **Errors**: List of replication error symptoms currently observed on the machine, and possible causes/actions.
-      - **Events**: A chronological list of recent events impacting the machine. Error details shows the currently observable error symptoms, while events is a historical record of issues that have impacted the machine.
-      - **Infrastructure view**: Shows state of infrastructure for the scenario when machines are replicating to Azure.
+   - **Replication information**: Current status and health of the machine.
+   - **RPO** (recovery point objective): Current RPO for the virtual machine and the time at which the RPO was last computed.
+   - **Recovery points**: Latest available recovery points for the machine.
+   - **Failover readiness**: Indicates whether a test failover was run for the machine, the agent version running on the machine (for machines running the Mobility service), and any configuration issues.
+   - **Errors**: List of replication error symptoms currently observed on the machine, and possible causes/actions.
+   - **Events**: A chronological list of recent events impacting the machine. Error details shows the currently observable error symptoms, while events is a historical record of issues that have impacted the machine.
+   - **Infrastructure view**: Shows state of infrastructure for the scenario when machines are replicating to Azure.
 
-    ![Site Recovery replicated item details/overview](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Site Recovery replicated item details/overview](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 
 ### Common questions
@@ -186,8 +186,8 @@ You can subscribe to receive email notifications for these critical events:
 
 Subscribe as follows:
 
-In the vault > **Monitoring and Reports** section, click **Site Recovery Events**.
-2. Click **Email notifications**.
-3. In **Email notification**, turn on notifications and specify who to send to. You can send to all subscription admins be sent notifications, and optionally specific email addresses.
+In the vault > **Monitoring** section, click **Site Recovery Events**.
+1. Click **Email notifications**.
+1. In **Email notification**, turn on notifications and specify who to send to. You can send to all subscription admins be sent notifications, and optionally specific email addresses.
 
     ![Email notifications](./media/site-recovery-monitor-and-troubleshoot/email.png)

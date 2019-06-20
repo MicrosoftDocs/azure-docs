@@ -1,14 +1,12 @@
 ---
 title: Database migration tool for Azure Cosmos DB
 description: Learn how to use the open-source Azure Cosmos DB data migration tools to import data to Azure Cosmos DB from various sources including MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV, and JSON files. CSV to JSON conversion.
-keywords: csv to json, database migration tools, convert csv to json
-services: cosmos-db
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 05/20/2019
 ms.author: dech
-ms.custom: mvc
+
 ---
 # Use Data migration tool to migrate your data to Azure Cosmos DB
 
@@ -18,7 +16,7 @@ Which API are you going to use with Azure Cosmos DB?
 
 * **[SQL API](documentdb-introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data.
 * **[Table API](table-introduction.md)** - You can use the Data Migration tool or AzCopy to import data. For more information, see [Import data for use with the Azure Cosmos DB Table API](table-import.md).
-* **[MongoDB API](mongodb-introduction.md)** - The Data Migration tool doesn't currently support Azure Cosmos DB MongoDB API either as a source or as a target. If you want to migrate the data in or out of MongoDB API collections in Azure Cosmos DB, refer to [Azure Cosmos DB: How to migrate data for the MongoDB API](mongodb-migrate.md) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB SQL API collections for use with the SQL API.
+* **[Azure Cosmos DB's API for MongoDB](mongodb-introduction.md)** - The Data Migration tool doesn't currently support Azure Cosmos DB's API for MongoDB either as a source or as a target. If you want to migrate the data in or out of collections in Azure Cosmos DB, refer to [How to migrate MongoDB data a Cosmos database with Azure Cosmos DB's API for MongoDB](mongodb-migrate.md) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB SQL API collections for use with the SQL API.
 * **[Gremlin API](graph-introduction.md)** - The Data Migration tool isn't a supported import tool for Gremlin API accounts at this time.
 
 This tutorial covers the following tasks:
@@ -55,7 +53,7 @@ While the import tool includes a graphical user interface (dtui.exe), it can als
 
 ## <a id="Install"></a>Installation
 
-The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-compiled binary](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip), then run either:
+The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-compiled binary](https://aka.ms/csdmtool), then run either:
 
 * **Dtui.exe**: Graphical interface version of the tool
 * **Dt.exe**: Command-line version of the tool
@@ -83,6 +81,20 @@ The JSON file source importer option allows you to import one or more single doc
 
 ![Screenshot of JSON file source options - Database migration tools](./media/import-data/jsonsource.png)
 
+The connection string is in the following format:
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* The `<CosmosDB Endpoint>` is the endpoint URI. You can get this value from the Azure portal. Navigate to your Azure Cosmos account. Open the **Overview** pane and copy the **URI** value.
+* The `<AccountKey>` is the "Password" or **PRIMARY KEY**. You can get this value from the Azure portal. Navigate to your Azure Cosmos account. Open the **Connection Strings** or **Keys** pane, and copy the "Password" or **PRIMARY KEY** value.
+* The `<CosmosDB Database>` is the CosmosDB database name.
+
+Example: 
+`AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> Use the Verify command to ensure that the Cosmos DB account specified in the connection string field can be accessed.
+
 Here are some command-line samples to import JSON files:
 
 ```console
@@ -105,7 +117,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a id="MongoDB"></a>Import from MongoDB
 
 > [!IMPORTANT]
-> If you're importing to an Azure Cosmos DB account with Support for MongoDB, follow these [instructions](mongodb-migrate.md).
+> If you're importing to a Cosmos account configured with Azure Cosmos DB's API for MongoDB, follow these [instructions](mongodb-migrate.md).
 
 With the MongoDB source importer option, you can import from a single MongoDB collection, optionally filter documents using a query, and modify the document structure by using a projection.  
 
@@ -208,7 +220,7 @@ Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By
 *{
   "DomainInfo": {
     "Domain_Name": "ACUS.GOV",
-    "Domain_Name_Address": "https://www.ACUS.GOV"
+    "Domain_Name_Address": "https:\//www.ACUS.GOV"
   },
   "Federal Agency": "Administrative Conference of the United States",
   "RedirectInfo": {

@@ -3,19 +3,20 @@ title: Access Azure AD App Proxy apps in Teams | Microsoft Docs
 description: Use Azure AD Application Proxy to access your on-premises application through Microsoft Teams. 
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Access your on-premises applications through Microsoft Teams

@@ -2,18 +2,18 @@
 title: Acquiring a token using an Android application in Azure Active Directory B2C | Microsoft Docs
 description: This article will show you how to create an Android app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
-# Azure AD B2C: Sign-in using an Android application
+# Sign-in using an Android application in Azure Active Directory B2C
 
 The Microsoft identity platform uses open standards such as OAuth2 and OpenID Connect. These standards allow you to leverage any library you wish to integrate with Azure Active Directory B2C. To help you use other libraries, you can use a walkthrough like this one to demonstrate how to configure 3rd party libraries to connect to the Microsoft identity platform. Most libraries that implement [the RFC6749 OAuth2 spec](https://tools.ietf.org/html/rfc6749) can connect to the Microsoft Identity platform.
 
@@ -26,7 +26,7 @@ If you're new to OAuth2 or OpenID Connect much of this sample configuration may 
 
 ## Get an Azure AD B2C directory
 
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](tutorial-create-tenant.md) before you continue.
 
 ## Create an application
 
@@ -38,14 +38,11 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 
 ## Create your user flows
 
-In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md), which is a set of policies that control the behavior of Azure AD. This app contains one identity experience: a combined sign-in and sign-up user flow. You need to create this user flow, as described in the
-[user flow reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). When you create the user flow, be sure to:
+In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md), which is a set of policies that control the behavior of Azure AD. This application requires a sign-in and sign-up user flow. When you create the user flow, be sure to:
 
 * Choose the **Display name** as a sign-up attribute in your user flow.
 * Choose the **Display name** and **Object ID** application claims in every user flow. You can choose other claims as well.
 * Copy the **Name** of each user flow after you create it. It should have the prefix `b2c_1_`.  You'll need the user flow name later.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 After you have created your user flows, you're ready to build your app.
 
@@ -131,6 +128,4 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 ```
 
 Please refer to the [AppAuth guide](https://openid.github.io/AppAuth-Android/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [our sample](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
-
-We are always open to feedback and suggestions! If you have any difficulties with this article, or have recommendations for improving this content, we would appreciate your feedback at the bottom of the page. For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

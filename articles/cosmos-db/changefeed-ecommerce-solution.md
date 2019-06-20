@@ -1,13 +1,11 @@
 ---
 title: Use Azure Cosmos DB change feed to visualize real-time data analytics
 description: This article describes how change feed can be used by a retail company to understand user patterns, perform real-time data analysis and visualization.
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/12/2018
+ms.date: 05/28/2019
 ms.author: sngun
 
 ---
@@ -103,7 +101,7 @@ You will now create a collection to hold e-commerce site events. When a user vie
 
 3. Next create another collection named **leases** for change feed processing. The leases collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition.  
 
-4.	Return to the **Data Explorer** pane and select **New Collection** and fill the form with the following details:
+4. Return to the **Data Explorer** pane and select **New Collection** and fill the form with the following details:
 
    * For the **Database id** field, select **Use existing**, then enter **changefeedlabdatabase**.  
    * For the **Collection id** field, enter **leases**.  
@@ -163,7 +161,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
 
 1. Navigate back to the repository in File Explorer, and right-click **ChangeFeedFunction.sln** to open it again in a new Visual Studio window.  
 
-2. Navigate to the **App.config** file.Within the <appSettings> block, add the URI and unique **PRIMARY KEY** that of your Azure Cosmos DB account that you retrieved earlier.  
+2. Navigate to the **App.config** file.Within the `<appSettings>` block, add the endpoint and unique **PRIMARY KEY** that of your Azure Cosmos DB account that you retrieved earlier.  
 
 3. Add in the **collection** and **database** names. (These names should be **changefeedlabcollection** and **changefeedlabdatabase** unless you choose to name yours differently.)
 
@@ -380,7 +378,7 @@ You will now observe how you can use your new data analysis tool to connect with
 
 8. Navigate to and open the **Checkout folder** within **EcommerceWebApp.sln.** Then open the **Web.config** file within that folder.  
 
-9. Within the `<appSettings>` block, add the **URI** and **PRIMARY KEY** that you saved earlier where indicated. Then add in your **databse name** and **collection name** as indicated. (These names should be **changefeedlabdatabase** and **changefeedlabcollection** unless you chose to name yours differently.)  
+9. Within the `<appSettings>` block, add the **URI** and **PRIMARY KEY** that you saved earlier where indicated. Then add in your **database name** and **collection name** as indicated. (These names should be **changefeedlabdatabase** and **changefeedlabcollection** unless you chose to name yours differently.)  
 
 10.	Press **Start** at the top of the page to run the program.  
 

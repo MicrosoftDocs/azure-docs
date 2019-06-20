@@ -20,6 +20,7 @@ ms.custom: mvc
 
 ---
 # Tutorial: Create and use a custom image for virtual machine scale sets with Azure PowerShell
+
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -30,9 +31,9 @@ When you create a scale set, you specify an image to be used when the VM instanc
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## Create and configure a source VM
@@ -40,24 +41,24 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 >[!NOTE]
 > This tutorial walks through the process of creating and using a generalized VM image. Creating a scale set from a specialized VHD is not supported.
 
-First, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup), then create a VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). This VM is then used as the source for a custom VM image. The following example creates a VM named *myCustomVM* in the resource group named *myResourceGroup*. When prompted, enter a username and password to be used as logon credentials for the VM:
+First, create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup), then create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). This VM is then used as the source for a custom VM image. The following example creates a VM named *myCustomVM* in the resource group named *myResourceGroup*. When prompted, enter a username and password to be used as logon credentials for the VM:
 
 ```azurepowershell-interactive
 # Create a resource a group
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 # Create a Windows Server 2016 Datacenter VM
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -Name "myCustomVM" `
   -ImageName "Win2016Datacenter" `
   -OpenPorts 3389
 ```
 
-To connect to your VM, list the public IP address with  [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) as follows:
+To connect to your VM, list the public IP address with  [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) as follows:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
 Create a remote connection with the VM. If you use the Azure Cloud Shell, perform this step from a local PowerShell prompt or Remote Desktop Client. Provide your own IP address from the previous command. When prompted, enter the credentials used when you created the VM in the first step:
@@ -86,34 +87,34 @@ The remote connection to the VM is automatically closed when Sysprep completes t
 ## Create a custom VM image from the source VM
 The source VM now customized with the IIS web server installed. Let's create the custom VM image to use with a scale set.
 
-To create an image, the VM needs to be deallocated. Deallocate the VM with [Stop-AzureRmVm](/powershell/module/azurerm.compute/stop-azurermvm). Then, set the state of the VM as generalized with [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
+To create an image, the VM needs to be deallocated. Deallocate the VM with [Stop-AzVm](/powershell/module/az.compute/stop-azvm). Then, set the state of the VM as generalized with [Set-AzVm](/powershell/module/az.compute/set-azvm) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Force
-Set-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Generalized
+Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Force
+Set-AzVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Generalized
 ```
 
 It may take a few minutes to deallocate and generalize the VM.
 
-Now, create an image of the VM with [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) and [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage). The following example creates an image named *myImage* from your VM:
+Now, create an image of the VM with [New-AzImageConfig](/powershell/module/az.compute/new-azimageconfig) and [New-AzImage](/powershell/module/az.compute/new-azimage). The following example creates an image named *myImage* from your VM:
 
 ```azurepowershell-interactive
 # Get VM object
-$vm = Get-AzureRmVM -Name "myCustomVM" -ResourceGroupName "myResourceGroup"
+$vm = Get-AzVM -Name "myCustomVM" -ResourceGroupName "myResourceGroup"
 
 # Create the VM image configuration based on the source VM
-$image = New-AzureRmImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID 
+$image = New-AzImageConfig -Location "EastUS" -SourceVirtualMachineId $vm.ID 
 
 # Create the custom VM image
-New-AzureRmImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
+New-AzImage -Image $image -ImageName "myImage" -ResourceGroupName "myResourceGroup"
 ```
 
 
 ## Create a scale set from the custom VM image
-Now create a scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) that uses the `-ImageName` parameter to define the custom VM image created in the previous step. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
+Now create a scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss) that uses the `-ImageName` parameter to define the custom VM image created in the previous step. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
@@ -129,10 +130,11 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Test your scale set
-To see your scale set in action, get the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) as follows:
+To see your scale set in action, get the public IP address of your load balancer with [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) as follows:
+
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -ResourceGroupName "myResourceGroup" `
   -Name "myPublicIPAddress" | Select IpAddress
 ```
@@ -143,10 +145,10 @@ Type the public IP address into your web browser. The default IIS web page is di
 
 
 ## Clean up resources
-To remove your scale set and additional resources, delete the resource group and all its resources with [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
+To remove your scale set and additional resources, delete the resource group and all its resources with [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
+Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
 

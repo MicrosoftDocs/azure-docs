@@ -14,7 +14,7 @@ ms.author: glenga
 
 # App settings reference for Azure Functions
 
-App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are in [environment variables](functions-run-local.md#local-settings-file). This article lists the app settings that are available in function apps.
+App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-run-local.md#local-settings-file). This article lists the app settings that are available in function apps.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -27,6 +27,10 @@ The Application Insights instrumentation key if you're using Application Insight
 |Key|Sample value|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
+
+## AZURE_FUNCTIONS_ENVIRONMENT
+
+In version 2.x of the Functions runtime, configures app behavior based on the runtime environment. This value is [read during initialization](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). You can set `AZURE_FUNCTIONS_ENVIRONMENT` to any value, but [three values](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) are supported: [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), and [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). When `AZURE_FUNCTIONS_ENVIRONMENT` isn't set, it defaults to `Production`. This setting should be used instead of `ASPNETCORE_ENVIRONMENT` to set the runtime environment. 
 
 ## AzureWebJobsDashboard
 
@@ -67,14 +71,6 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
 
-## AzureWebJobsScriptRoot
-
-The path to the root directory where the *host.json* file and function folders are located. In a function app, the default is `%HOME%\site\wwwroot`.
-
-|Key|Sample value|
-|---|------------|
-|AzureWebJobsScriptRoot|%HOME%\site\wwwroot|
-
 ## AzureWebJobsSecretStorageType
 
 Specifies the repository or provider to use for key storage. Currently, the supported repositories are blob storage ("Blob") and the local file system ("Files"). The default is blob in version 2 and file system in version 1.
@@ -101,7 +97,7 @@ Path to the compiler used for TypeScript. Allows you to override the default if 
 
 ## FUNCTION\_APP\_EDIT\_MODE
 
-Valid values are "readwrite" and "readonly".
+Dictates whether editing in the Azure portal is enabled. Valid values are "readwrite" and "readonly".
 
 |Key|Sample value|
 |---|------------|
@@ -117,7 +113,7 @@ The version of the Functions runtime to use in this function app. A tilde with m
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript), and `java` (Java).
+The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell), and `python` (Python).
 
 |Key|Sample value|
 |---|------------|
@@ -174,7 +170,7 @@ By default Functions proxies will utilize a shortcut to send API calls from prox
 
 |Key|Value|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend url pointing to a function in the local Function will no longer be sent directly to the function, and will instead be directed back to the HTTP front end for the Function App|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend url pointing to a function in the local Function App will no longer be sent directly to the function, and will instead be directed back to the HTTP front end for the Function App|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|This is the default value. Calls with a  backend url pointing to a function in the local Function App will be forwarded directly to that Function|
 
 
@@ -212,7 +208,7 @@ Here is an example proxies.json in a function app at the URL myfunction.com
 
 ## Next steps
 
-[Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#settings)
 
 [See global settings in the host.json file](functions-host-json.md)
 

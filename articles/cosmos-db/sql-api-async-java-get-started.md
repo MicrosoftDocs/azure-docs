@@ -1,15 +1,12 @@
 ---
 title: 'Tutorial: Build a Java app with the Async Java SDK to manage a SQL API account in Azure Cosmos DB'
 description: This tutorial shows you how to store and access data within a SQL API account in Azure Cosmos DB by using an Async Java application. 
-keywords: nosql tutorial, online database, java console application
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 12/15/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 

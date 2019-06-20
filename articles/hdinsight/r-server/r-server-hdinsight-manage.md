@@ -1,7 +1,6 @@
 ---
 title: Manage ML Services cluster on HDInsight - Azure 
 description: Learn how to manage an ML Services cluster in Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -12,7 +11,7 @@ ms.date: 11/06/2018
 ---
 # Manage ML Services cluster on Azure HDInsight
 
-In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding mulitiple concurrent users, connecting remotely to an ML Services cluster, changing compute context, etc.
+In this article, you learn how to manage an existing ML Services cluster on Azure HDInsight to perform tasks like adding multiple concurrent users, connecting remotely to an ML Services cluster, changing compute context, etc.
 
 ## Prerequisites
 
@@ -293,10 +292,8 @@ If you want to install additional R packages on the edge node, you can use `inst
 
 To install R packages on the worker nodes of the cluster, you must use a Script Action. Script Actions are Bash scripts that are used to make configuration changes to the HDInsight cluster or to install additional software, such as additional R packages. 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Using Script Actions to install additional R packages can only be used after the cluster has been created. Do not use this procedure during cluster creation, as the script relies on ML Services being completely configured.
->
->
 
 1. Follow the steps at [Customize clusters using Script Action](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -306,7 +303,7 @@ To install R packages on the worker nodes of the cluster, you must use a Script 
 
    * For **Name**, provide a name for the script action.
 
-    * For **Bash script URI**, enter  `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. This is the script that installs additional R packages on the worker node
+     * For **Bash script URI**, enter  `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. This is the script that installs additional R packages on the worker node
 
    * Select the check box only for **Worker**.
 

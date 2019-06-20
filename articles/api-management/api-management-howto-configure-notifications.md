@@ -33,15 +33,15 @@ If you do not have an API Management service instance, complete the following qu
 
     The following list of events can be configured for notifications.
 
-    * **Subscription requests (requiring approval)** - The specified email recipients and users will receive email notifications about subscription requests for API products requiring approval.
-    * **New subscriptions** - The specified email recipients and users will receive email notifications about new API product subscriptions.
-    * **Application gallery requests** - The specified email recipients and users will receive email notifications when new applications are submitted to the application gallery.
-    * **BCC** - The specified email recipients and users will receive email blind carbon copies of all emails sent to developers.
-    * **New issue or comment** - The specified email recipients and users will receive email notifications when a new issue or comment is submitted on the developer portal.
-    * **Close account message** - The specified email recipients and users will receive email notifications when an account is closed.
-    * **Approaching subscription quota limit** - The following email recipients and users will receive email notifications when subscription usage gets close to usage quota.
+   * **Subscription requests (requiring approval)** - The specified email recipients and users will receive email notifications about subscription requests for API products requiring approval.
+   * **New subscriptions** - The specified email recipients and users will receive email notifications about new API product subscriptions.
+   * **Application gallery requests** - The specified email recipients and users will receive email notifications when new applications are submitted to the application gallery.
+   * **BCC** - The specified email recipients and users will receive email blind carbon copies of all emails sent to developers.
+   * **New issue or comment** - The specified email recipients and users will receive email notifications when a new issue or comment is submitted on the developer portal.
+   * **Close account message** - The specified email recipients and users will receive email notifications when an account is closed.
+   * **Approaching subscription quota limit** - The following email recipients and users will receive email notifications when subscription usage gets close to usage quota.
 
-    For each event, you can specify email recipients using the email address text box or you can select users from a list.
+     For each event, you can specify email recipients using the email address text box or you can select users from a list.
 
 3. To specify the email addresses to be notified, enter them in the email address text box. If you have multiple email addresses, separate them using commas.
 

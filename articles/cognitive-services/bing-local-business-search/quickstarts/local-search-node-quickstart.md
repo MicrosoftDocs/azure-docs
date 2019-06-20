@@ -4,11 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Start using the Bing Local Business Search API in Node.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-local-business
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ---
@@ -39,7 +38,7 @@ The following code gets defines and sends the request. It is implemented in the 
 
 The complete code for this demo follows:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -86,7 +85,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## Next steps
 

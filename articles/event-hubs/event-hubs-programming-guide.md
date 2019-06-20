@@ -22,8 +22,7 @@ You send events to an event hub either using HTTP POST or via an AMQP 1.0 connec
 When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the [EventHubClient][] and [EventData][] classes. [EventHubClient][] provides the AMQP communication channel over which events are sent to the event hub. The [EventData][] class represents an event, and is used to publish messages to an event hub. This class includes the body, some metadata, and header information about the event. Other properties are added to the [EventData][] object as it passes through an event hub.
 
 ## Get started
-
-The .NET classes that support Event Hubs are provided in the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package. You can install using the Visual Studio Solution explorer, or the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
+The .NET classes that support Event Hubs are provided in the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package. You can install using the Visual Studio Solution explorer, or the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
 
 ```shell
 Install-Package Microsoft.Azure.EventHubs
@@ -68,6 +67,9 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 ## Partition key
 
+> [!NOTE]
+> If you aren't familiar with partitions, see [this article](event-hubs-features.md#partitions). 
+
 When sending event data, you can specify a value that is hashed to produce a partition assignment. You specify the partition using the [Partition​Sender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) property. However, the decision to use partitions implies a choice between availability and consistency. 
 
 ### Availability considerations
@@ -88,14 +90,13 @@ For more information and a discussion about the trade-offs between availability 
 
 Sending events in batches can help increase throughput. You can use the [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API to create a batch to which data objects can later be added for a [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) call.
 
-A single batch must not exceed the 256 KB limit of an event. Additionally, each message in the batch uses the same publisher identity. It is the responsibility of the sender to ensure that the batch does not exceed the maximum event size. If it does, a client **Send** error is generated. You can use the helper method [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) to ensure that the batch does not exceed 256 KB. You get an empty [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) from  the [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API and then use [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) to add events to construct the batch. 
+A single batch must not exceed the 1 MB limit of an event. Additionally, each message in the batch uses the same publisher identity. It is the responsibility of the sender to ensure that the batch does not exceed the maximum event size. If it does, a client **Send** error is generated. You can use the helper method [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) to ensure that the batch does not exceed 1 MB. You get an empty [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) from  the [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API and then use [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) to add events to construct the batch. 
 
 ## Send asynchronously and send at scale
 
 You send events to an event hub asynchronously. Sending asynchronously increases the rate at which a client is able to send events. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) returns a [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) object. You can use the [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) class on the client to control client retry options.
 
 ## Event consumers
-
 The [EventProcessorHost][] class processes data from Event Hubs. You should use this implementation when building event readers on the .NET platform. [EventProcessorHost][] provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management.
 
 To use the [EventProcessorHost][] class, you can implement [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor). This interface contains four methods:
@@ -106,6 +107,9 @@ To use the [EventProcessorHost][] class, you can implement [IEventProcessor](/do
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
 To start event processing, instantiate [EventProcessorHost][], providing the appropriate parameters for your event hub. For example:
+
+> [!NOTE]
+> EventProcessorHost and its related classes are provided in the **Microsoft.Azure.EventHubs.Processor** package. Add the package to your Visual Studio project by following instructions in [this article](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) or by issuing the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

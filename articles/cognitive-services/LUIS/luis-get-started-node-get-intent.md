@@ -4,19 +4,17 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using Node.js, send the user's intention as text to the public app's HTTP prediction endpoint.  
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/07/2018
+ms.date: 01/17/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to query the LUIS endpoint of a published model using Node.js so that I can see the JSON prediction response.
 ---
 
 # Quickstart: Get intent using Node.js
-
-In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -30,7 +28,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 
 
 > [!NOTE] 
-> The complete Node.js solution is available from the [**LUIS-Samples** GitHub repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
+> The complete Node.js solution is available from the [**Azure-Samples** GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/analyze-text/node).
 
 ## Get LUIS key
 

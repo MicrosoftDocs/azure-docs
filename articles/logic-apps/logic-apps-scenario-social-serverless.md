@@ -14,7 +14,7 @@ ms.date: 03/15/2018
 
 # Create streaming customer insights dashboard with Azure Logic Apps and Azure Functions
 
-Azure offers serverless tools that help you quickly build 
+Azure offers [serverless](https://azure.microsoft.com/solutions/serverless/) tools that help you quickly build 
 and host apps in the cloud, without having to think about infrastructure. 
 In this tutorial, you can create a dashboard that triggers on customer feedback, 
 analyzes feedback with machine learning, and publishes insights to a source, 
@@ -159,6 +159,9 @@ To view previous run histories in Visual Studio or the Azure portal:
 * Open Visual Studio Cloud Explorer. 
 Find your logic app, open the app's shortcut menu. 
 Select **Open run history**.
+
+  > [!TIP]
+  > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
 * In the Azure portal, find your logic app. 
 On your logic app's menu, choose **Overview**. 

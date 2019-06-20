@@ -7,7 +7,7 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -47,7 +47,7 @@ If you require data that's not accessible through any of the available data sour
 You should define any queries that you think will be helpful to the user even if they aren't used by any views or alerts.  These will be available to them as Saved Searches in the portal, and you can also include them in a [List of Queries visualization part](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) in your custom view.
 
 ### Alerts
-[Alerts in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) identify issues through [log searches](#log-searches) against the data in the repository.  They either notify the user or automatically run an action in response. You should identify different alert conditions for your application and include corresponding alert rules in your solution file.
+[Alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) identify issues through [log searches](#log-searches) against the data in the repository.  They either notify the user or automatically run an action in response. You should identify different alert conditions for your application and include corresponding alert rules in your solution file.
 
 If the issue can potentially be corrected with an automated process, then you'll typically create a runbook in Azure Automation to perform this remediation.  Most Azure services can be managed with [cmdlets](/powershell/azure/overview) which the runbook would leverage to perform such functionality.
 

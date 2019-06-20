@@ -63,7 +63,7 @@ First, create the load balancer.
    | --- | --- |
    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
    | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
-   | **Virtual network** |Select the virtual network that the SQL Server intances are in. |
+   | **Virtual network** |Select the virtual network that the SQL Server instances are in. |
    | **Subnet** |Select the subnet that the SQL Server instances are in. |
    | **IP address assignment** |**Static** |
    | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script, later in this article, use this address for the `$ILBIP` variable. |
@@ -231,18 +231,18 @@ To add an IP address to a load balancer with the Azure portal, do the following:
 
 10. Configure the new load balancing rule by using the following settings:
 
-   |Setting |Value
-   |:-----|:----
-   |**Name** |A name to identify the load balancing rule. 
-   |**Frontend IP address** |Select the IP address you created. 
-   |**Protocol** |TCP
-   |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
-   |**Backend port** |Use the same value as **Port**.
-   |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
-   |**Health probe** |Choose the probe you created.
-   |**Session persistence** |None
-   |**Idle timeout (minutes)** |Default (4)
-   |**Floating IP (direct server return)** | Enabled
+    |Setting |Value
+    |:-----|:----
+    |**Name** |A name to identify the load balancing rule. 
+    |**Frontend IP address** |Select the IP address you created. 
+    |**Protocol** |TCP
+    |**Port** |Use the port that the SQL Server instances are using. A default instance uses port 1433, unless you changed it. 
+    |**Backend port** |Use the same value as **Port**.
+    |**Backend pool** |The pool that contains the virtual machines with the SQL Server instances. 
+    |**Health probe** |Choose the probe you created.
+    |**Session persistence** |None
+    |**Idle timeout (minutes)** |Default (4)
+    |**Floating IP (direct server return)** | Enabled
 
 ### Configure the availability group to use the new IP address
 

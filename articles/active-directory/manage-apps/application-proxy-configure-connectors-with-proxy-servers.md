@@ -2,20 +2,17 @@
 title: Work with existing on-premises proxy servers and Azure AD | Microsoft Docs
 description: Covers how to work with existing on-premises proxy servers.
 services: active-directory
-documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.author: barbkess
+ms.date: 05/21/2019
+ms.author: mimart
 ms.reviewer: japere
-ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Work with existing on-premises proxy servers
@@ -103,15 +100,16 @@ There are four aspects to consider at the outbound proxy:
 * SSL inspection
 
 #### Proxy outbound rules
-Allow access to the following endpoints for connector service access:
+Allow access to the following URLs:
 
-* *.msappproxy.net
-* *.servicebus.windows.net
+| URL | How it's used |
+| --- | --- |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates |
+| login.windows.net<br>login.microsoftonline.com | The connector uses these URLs during the registration process. |
 
-For initial registration, allow access to the following endpoints:
+If your firewall or proxy allows you to configure DNS allow lists, you can allow connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
 
-* login.windows.net
-* login.microsoftonline.com
 
 If you can't allow connectivity by FQDN and need to specify IP ranges instead, use these options:
 

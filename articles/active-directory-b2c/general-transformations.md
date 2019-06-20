@@ -2,15 +2,15 @@
 title: General claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
 description: General claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # General claims transformations
@@ -44,7 +44,7 @@ Use this claims transformation to check if a claim exists or contains any value.
 ### Example
 
 - Input claims:
-    - **inputClaim**: someone@contoso.com
+  - **inputClaim**: someone@contoso.com
 - Output claims: 
     - **outputClaim**: true
 

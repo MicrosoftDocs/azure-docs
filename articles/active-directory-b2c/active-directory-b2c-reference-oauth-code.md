@@ -1,19 +1,21 @@
 ---
-title: Authorization code flow in Azure Active Directory B2C | Microsoft Docs
+title: Authorization code flow - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to build web apps by using Azure AD B2C and OpenID Connect authentication protocol.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: davidmu
-ms.component: B2C
+ms.date: 02/19/2019
+ms.author: marsma
+ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 
-# Azure Active Directory B2C: OAuth 2.0 authorization code flow
+# OAuth 2.0 authorization code flow in Azure Active Directory B2C
+
 You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OAuth 2.0, you can add sign-up, sign-in,
 and other identity management tasks to your mobile and desktop apps. This article is language-independent. In the article, we describe how to send and receive HTTP messages without using any open-source libraries.
 
@@ -24,7 +26,7 @@ This article focuses on the **public clients** OAuth 2.0 authorization code flow
 > [!NOTE]
 > To add identity management to a web app by using Azure AD B2C, use [OpenID Connect](active-directory-b2c-reference-oidc.md) instead of OAuth 2.0.
 
-Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [user flow parameter](active-directory-b2c-reference-policies.md). With user flows, you can use OAuth 2.0 to add user experiences to your application, such as sign-up, sign-in, and profile management. In this article, we show you how to use OAuth 2.0 and user flows to implement each of these experiences in your native applications. We also show you how to get access tokens for accessing web APIs.
+Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization. It introduces the [user flow parameter](active-directory-b2c-reference-policies.md). With user flows, you can use OAuth 2.0 to add user experiences to your application, such as sign-up, sign-in, and profile management. Identity providers that use the OAuth 2.0 protocol include [Amazon](active-directory-b2c-setup-amzn-app.md), [Azure Active Directory](active-directory-b2c-setup-oidc-azure-active-directory.md), [Facebook](active-directory-b2c-setup-fb-app.md), [GitHub](active-directory-b2c-setup-github-app.md), [Google](active-directory-b2c-setup-goog-app.md), and [LinkedIn](active-directory-b2c-setup-li-app.md).
 
 In the example HTTP requests in this article, we use our sample Azure AD B2C directory, **fabrikamb2c.onmicrosoft.com**. We also use our sample application and user flows. You can try the requests yourself by using these values, or you can replace them with your own values.
 Learn how to [get your own Azure AD B2C directory, application, and user flows](#use-your-own-azure-ad-b2c-directory).
@@ -112,7 +114,9 @@ error=access_denied
 | state |See the full description in the preceding table. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 ## 2. Get a token
-Now that you've acquired an authorization code, you can redeem the `code` for a token to the intended resource by sending a POST request to the `/token` endpoint. In Azure AD B2C, the only resource that you can request a token for is your app's own back-end web API. The convention that's used for requesting a token to yourself is to use your app's client ID as the scope:
+Now that you've acquired an authorization code, you can redeem the `code` for a token to the intended resource by sending a POST request to the `/token` endpoint. In Azure AD B2C, you can [request access tokens for other API's](active-directory-b2c-access-tokens.md#request-a-token) as usual by specifying their scope(s) in the request.
+
+You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

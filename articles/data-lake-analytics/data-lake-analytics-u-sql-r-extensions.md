@@ -15,9 +15,9 @@ ms.date: 06/20/2017
 
 The following example illustrates the basic steps for deploying R code:
 * Use the `REFERENCE ASSEMBLY` statement to enable R extensions for the U-SQL Script.
-* Use the` REDUCE` operation to partition the input data on a key.
+* Use the `REDUCE` operation to partition the input data on a key.
 * The R extensions for U-SQL include a built-in reducer (`Extension.R.Reducer`) that runs R code on each vertex assigned to the reducer. 
-* Usage of dedicated named data frames called `inputFromUSQL` and `outputToUSQL `respectively to pass data between U-SQL and R. Input and output DataFrame identifier names are fixed (that is, users cannot change these predefined names of input and output DataFrame identifiers).
+* Usage of dedicated named data frames called `inputFromUSQL` and `outputToUSQL` respectively to pass data between U-SQL and R. Input and output DataFrame identifier names are fixed (that is, users cannot change these predefined names of input and output DataFrame identifiers).
 
 ## Embedding R code in the U-SQL script
 
@@ -168,7 +168,7 @@ First, create an R custom module and zip it and then upload the zipped R custom 
     DEPLOY RESOURCE @"/magrittr_1.5.zip";
 
     DECLARE @IrisData string =  @"/usqlext/samples/R/iris.csv";
-    DECLARE @OutputFileModelSummary string = @"/R/Output/CustomePackages.txt";
+    DECLARE @OutputFileModelSummary string = @"/R/Output/CustomPackages.txt";
 
     // R script to run
     DECLARE @myRScript = @"

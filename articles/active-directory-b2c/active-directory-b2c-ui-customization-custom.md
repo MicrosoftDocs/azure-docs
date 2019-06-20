@@ -2,15 +2,15 @@
 title: Customize the user interface of your application using a custom policy in Azure Active Directory B2C | Microsoft Docs
 description: Learn about customizing a user interface using a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.author: davidmu
-ms.component: B2C
+ms.date: 12/18/2018
+ms.author: marsma
+ms.subservice: B2C
 ---
 # Customize the user interface of your application using a custom policy in Azure Active Directory B2C
 
@@ -45,9 +45,6 @@ Create HTML content with your product's brand name in the title.
    </body>
    </html>
    ```
-
-   >[!NOTE]
-   >For security reasons, the use of JavaScript is currently blocked for customization.
 
 2. Paste the copied snippet in a text editor, and then save the file as *customize-ui.html*.
 
@@ -84,7 +81,7 @@ To create a public container in Blob storage, do the following:
 5. Click **$root** to open the new container.
 6. Click **Upload**.
 7. Click the folder icon next to **Select a file**.
-8. Go to **customize-ui.html**, which you created earlier in the [Page UI customization](#the-page-ui-customization-feature) section.
+8. Go to **customize-ui.html**, which you created earlier in the Page UI customization section.
 9. Click **Upload**.
 10. Select the customize-ui.html blob that you uploaded.
 11. Next to **URL**, click **Copy**.
@@ -95,7 +92,7 @@ To create a public container in Blob storage, do the following:
 Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
 
 1. In the menu, select **CORS**.
-2. For **Allowed origins**, enter `your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
+2. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
 3. For **Allowed Methods**, select both `GET` and `OPTIONS`.
 4. For **Allowed Headers**, enter an asterisk (*).
 5. For **Exposed Headers**, enter an asterisk (*).
@@ -119,7 +116,7 @@ To configure UI customization, you copy the **ContentDefinition** and its child 
 3. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 4. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element. 
 5. Search for the **ContentDefinition** element that contains `Id="api.signuporsignin"` in the XML that you copied.
-6. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
     
     Your custom policy should look like the following:
 
@@ -173,7 +170,7 @@ The sample_templates/wingtip folder contains the following HTML files:
 | *unified.html* | Use this file as a template for a unified sign-up or sign-in page. |
 | *updateprofile.html* | Use this file as a template for a profile update page. |
 
-In the [Modify your sign-up or sign-in custom policy section](#modify-your-sign-up-or-sign-in-custom-policy), you configured the content definition for `api.idpselections`. The full set of content definition IDs that are recognized by the Azure AD B2C identity experience framework and their descriptions are in the following table:
+In the Modify your sign-up or sign-in custom policy section, you configured the content definition for `api.idpselections`. The full set of content definition IDs that are recognized by the Azure AD B2C identity experience framework and their descriptions are in the following table:
 
 | Content definition ID | Description | 
 |-----------------------|-------------|

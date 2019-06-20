@@ -1,16 +1,16 @@
-﻿---
+---
 title: Customize the UI of a user journey with custom policies | Microsoft Docs
 description: Learn about Azure Active Directory B2C custom policies.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Customize the UI of a user journey with custom policies
@@ -62,7 +62,7 @@ To ensure that everything works as expected, you must:
 - Ensure your content is HTML5 compliant and accessible
 - Ensure your content server is enabled for CORS.
 - Serve content over HTTPS.
-- Use absolute URLS such as https://yourdomain/content for all links and CSS content.
+- Use absolute URLS such as `https://yourdomain/content` for all links and CSS content.
 
 > [!TIP]
 > To verify that the site you are hosting your content on has CORS enabled and test CORS requests, you can use the site https://test-cors.org/. Thanks to this site, you can either send the CORS request to a remote server (to test if CORS is supported), or send the CORS request to a test server (to explore certain features of CORS).
@@ -118,16 +118,16 @@ To verify that the storage you are hosting your content on has CORS enabled, pro
 
 1. Open a browsing session and navigate to the page *unified.html* using the full URL of its location in your storage account, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. For example, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Navigate to https://test-cors.org. This site allows you to verify that the page you are using has CORS enabled.  
-<!--
-![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
--->
+   <!--
+   ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+   -->
 
 3. In **Remote URL**, enter the full URL for your unified.html content, and click **Send Request**.
 4. Verify that the output in the **Results** section contains *XHR status: 200*, which indicates that CORS is enabled.
-<!--
-![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
--->
-The storage account should now contain a blob container named *b2c* in the illustration that contains the following wingtiptoys templates from the *Starter-Pack*.
+   <!--
+   ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+   -->
+   The storage account should now contain a blob container named *b2c* in the illustration that contains the following wingtiptoys templates from the *Starter-Pack*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)
@@ -147,7 +147,7 @@ The following table describes the purpose of the preceding HTML5 pages.
 
 You can add a link to your HTML5/CSS templates to your user journey by editing a custom policy directly.
 
-The custom HTML5/CSS templates to use in your user journey have to be specified in a list of content definitions that can be used in those user journeys. For that purpose, an optional *<ContentDefinitions>* XML element must be declared under the *<BuildingBlocks>* section of your custom policy XML file.
+The custom HTML5/CSS templates to use in your user journey have to be specified in a list of content definitions that can be used in those user journeys. For that purpose, an optional *\<ContentDefinitions>* XML element must be declared under the *\<BuildingBlocks>* section of your custom policy XML file.
 
 The following table describes the set of content definition IDs recognized by the Azure AD B2C identity experience engine and the type of pages that relates to them.
 

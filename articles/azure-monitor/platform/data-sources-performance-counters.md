@@ -1,6 +1,6 @@
 ---
-title: Collect and analyze performance counters in Azure Log Analytics | Microsoft Docs
-description: Performance counters are collected by Log Analytics to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the workspace, and how to analyze them in the Azure portal.
+title: Collect and analyze performance counters in Azure Monitor | Microsoft Docs
+description: Performance counters are collected by Azure Monitor to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the workspace, and how to analyze them in the Azure portal.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,19 +11,19 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 11/28/2018
 ms.author: magoedte
 ---
 
-# Windows and Linux performance data sources in Log Analytics
-Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications.  Log Analytics can collect performance counters at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
+# Windows and Linux performance data sources in Azure Monitor
+Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications.  Azure Monitor can collect performance counters at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
 
 ![Performance counters](media/data-sources-performance-counters/overview.png)
 
 ## Configuring Performance counters
-Configure Performance counters from the [Data menu in Log Analytics Settings](agent-data-sources.md#configuring-data-sources).
+Configure Performance counters from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources).
 
-When you first configure Windows or Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
+When you first configure Windows or Linux Performance counters for a new workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 
 For Windows performance counters, you can choose a specific instance for each performance counter. For Linux performance counters, the instance of each counter that you choose applies to all child counters of the parent counter. The following table shows the common instances available to both Linux and Windows performance counters.
 
@@ -83,7 +83,7 @@ The parameters in this element are described in the following table.
 | interval | Frequency at which the object's counters are collected. |
 
 
-The following table lists the objects and counters that you can specify in the configuration file.  There are additional counters available for certain applications as described in [Collect performance counters for Linux applications in Log Analytics](data-sources-linux-applications.md).
+The following table lists the objects and counters that you can specify in the configuration file.  There are additional counters available for certain applications as described in [Collect performance counters for Linux applications in Azure Monitor](data-sources-linux-applications.md).
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -177,7 +177,7 @@ Following is the default configuration for performance metrics.
 	</source>
 
 ## Data collection
-Log Analytics collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log search views for the duration specified by your subscription.
+Azure Monitor collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log query views for the duration specified by your subscription.
 
 ## Performance record properties
 Performance records have a type of **Perf** and have the properties in the following table.
@@ -198,18 +198,18 @@ Performance records have a type of **Perf** and have the properties in the follo
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## Log searches with Performance records
-The following table provides different examples of log searches that retrieve Performance records.
+## Log queries with Performance records
+The following table provides different examples of log queries that retrieve Performance records.
 
 | Query | Description |
 |:--- |:--- |
 | Perf |All Performance data |
 | Perf &#124; where Computer == "MyComputer" |All Performance data from a particular computer |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |All Performance data for a particular counter |
-| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(Average) by Computer |Average CPU Utilization across all computers |
-| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(Max) by Computer |Maximum CPU Utilization across all computers |
-| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |Average Current Disk Queue length across all  the instances of a given computer |
-| Perf &#124; where CounterName == "DiskTransfers/sec" &#124; summarize AggregatedValue = percentile(Average, 95) by Computer |95th Percentile of Disk Transfers/Sec across all computers |
+| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(CounterValue) by Computer |Average CPU Utilization across all computers |
+| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(CounterValue) by Computer |Maximum CPU Utilization across all computers |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(CounterValue) by InstanceName |Average Current Disk Queue length across all  the instances of a given computer |
+| Perf &#124; where CounterName == "Disk Transfers/sec" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer |95th Percentile of Disk Transfers/Sec across all computers |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Hourly average of CPU usage across all computers |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | Hourly 70 percentile of every % percent counter for a particular computer |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
@@ -220,5 +220,5 @@ The following table provides different examples of log searches that retrieve Pe
 
 ## Next steps
 * [Collect performance counters from Linux applications](data-sources-linux-applications.md) including MySQL and Apache HTTP Server.
-* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
-* Export collected data to [Power BI](../../azure-monitor/platform/powerbi.md) for additional visualizations and analysis.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
+* Export collected data to [Power BI](powerbi.md) for additional visualizations and analysis.
