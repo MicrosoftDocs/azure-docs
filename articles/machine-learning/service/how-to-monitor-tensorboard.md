@@ -17,9 +17,9 @@ ms.date: 06/17/2019
 
 In this article, you learn how to export your machine learning experiment run histories as TensorBoard logs using the [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). This allows you to visualize and inspect your experiment runs and metrics, so you can tune and retrain your machine learning models.
 
-[TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) is a suite of web applications for inspecting and understanding your experiment runs and graphs.
+[TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
-With the Azure Machine Learning SDK `tensorboard` extra you can perform the following,    
+With the Azure Machine Learning SDK `tensorboard` extra, you can perform the following,    
 
 * Launch Tensorboard from current run histories.
 
@@ -44,22 +44,23 @@ The code in this how-to can be run in either of the following environments:
 
 ## Launch TensorBoard from run history
 
-With the Azure Machine Learning tensorboard extra, we can export and visualize the run history and performance of experiments created using deep learning frameworks that natively support Tensorboard outputs, such as PyTorch, TensorFlow and Keras, in TensorBoard. 
+With the Azure Machine Learning `tensorboard` extra, you can export and visualize your experiment run history and performance in TensorBoard. This allows you to go back and tune and re-train your models. 
 
-The following example creates a
+The following code sections set up an experiment, begins the logging process and then exports the experiment logs and run history to TensorBoard for visualizing. 
 
-### Create experiment
-
-You can create your own experiment and log those runs and export that run history to view in Tensorboard so you can monitor its performance and go back and tune and re-train your models.
+### Set up experiment
 
 ```python
+from azureml.core import Workspace, Experiment
 import azuremml.core
 
+ws = Workspace.from_config()
 experiment_name = 'export-to-tensorboard'
 exp = Experiment(ws, experiment_name)
 root_run = exp.start_logging()
 
 # load diabetes dataset, a well-known built-in small dataset that comes with scikit-learn
+
 from sklearn.datasets import load_diabetes
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
@@ -71,35 +72,26 @@ data = {
     "train":{"x":x_train, "y":y_train},        
     "test":{"x":x_test, "y":y_test}
 }
-
-# Example experiment
+```
+### Create experiment and start logging
+```python
 from tqdm import tqdm
 alphas = [.1, .2, .3, .4, .5, .6 , .7]
-# try a bunch of alpha values in a Linear Regression (Ridge) model
+# try a bunch of alpha values in a Linear Regression (Ridge) mode
 for alpha in tqdm(alphas):
-    # create a bunch of child runs
-    with root_run.child_run("alpha" + str(alpha)) as run:
-        # More data science stuff
-        reg = Ridge(alpha=alpha)
-        reg.fit(data["train"]["x"], data["train"]["y"])
-        
-        preds = reg.predict(data["test"]["x"])
-        mse = mean_squared_error(preds, data["test"]["y"])
-        # End train and eval
-# log alpha, mean_squared_error and feature names in run history
-        root_run.log("alpha", alpha)
-        root_run.log("mse", mse)
-```
+  # create a bunch of child runs
+  with root_run.child_run("alpha" + str(alpha)) as run
+   # More data science stuff
+   reg = Ridge(alpha=alpha)
+   reg.fit(data["train"]["x"], data["train"]["y"])    
+ 
+   preds = reg.predict(data["test"]["x"])
+   mse = mean_squared_error(preds, data["test"]["y"])
+   # End train and eval
 
-```python
-from os import path, makedirs
-experiment_name = 'tensorboard-demo'
-# experiment folder
-exp_dir = './sample_projects/' + experiment_name
-if not path.exists(exp_dir):
-    makedirs(exp_dir)
-# runs we started in this session, for the finale
-runs = []
+# log alpha, mean_squared_error and feature names in run history
+   root_run.log("alpha", alpha)
+   root_run.log("mse", mse)
 ```
 
 ### Export runs to Tensorboard
@@ -119,12 +111,46 @@ print(logdir)
 # export run history for the project
 export_to_tensorboard(root_run, logdir)
 
-# or export a particular run
-# export_to_tensorboard(run, logdir)
 root_run.complete()
 ```
+
+>[!Note]
+ You can also export a particular run to Tensorboard by specifying the name of the run  `export_to_tensorboard(run, logdir)`
+
+### Start and stop TensorBoard 
+
+```python
+from azureml.tensorboard import Tensorboard
+
+# The Tensorboard constructor takes an array of runs, so be sure and pass it in as a single-element array here
+tb = Tensorboard([], local_root=logdir, port=6006)
+
+# If successful, start() returns a string with the URI of the instance.
+tb.start()
+
+# After your job completes, be sure to stop() the streaming otherwise it will continue to run. 
+tb.stop()
+```
+
+## Export history from previous runs into TensorBoard
+
+This can be done with experiments that were created using deep learning frameworks that natively support TensorBoard outputs, such as PyTorch, TensorFlow or Keras, in TensorBoard. 
+
 PyTorch now supports Tensorboard
 PyTorch 1.1
+
+### Convert run histories
+
+all other azure machine learning jobs that track metrics in automl, hyperdrive tuning are now convertible into Tensorboard consumable files.
+
+existing run histories from previous runs
+
+the [export_to_tensorboard()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) method. 
+
+The following example takes a scikit learn model and exports the run histories into Tensorboard
+
+Scikit learn models for example do not 
+
 
 ### TensorFlow estimator
 
@@ -145,34 +171,6 @@ run = exp.submit(tf_estimator)
 
 runs.append(run)
 ```
-
-### Start and stop TensorBoard 
-
-```python
-from azureml.tensorboard import Tensorboard
-
-# The Tensorboard constructor takes an array of runs, so be sure and pass it in as a single-element array here
-tb = Tensorboard([], local_root=logdir, port=6006)
-
-# If successful, start() returns a string with the URI of the instance.
-tb.start()
-
-# After your job completes, be sure to stop() the streaming otherwise it will continue to run. 
-tb.stop()
-```
-
-## Export history from previous runs into TensorBoard
-
-all other azure machine learning jobs that track metrics in automl, hyperdrive tuning are now convertible into Tensorboard consumable files.
-
-existing run histories from previous runs
-
-the [export_to_tensorboard()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) method. 
-
-The following example takes a scikit learn model and exports the run histories into Tensorboard
-
-Scikit learn models for example do not 
-
 ## Next steps
 
 * How to deploy a model
