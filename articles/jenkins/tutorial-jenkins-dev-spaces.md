@@ -121,7 +121,7 @@ For more details on using Azure Dev Spaces and multi-service development with Az
 5. Run the `azds prep` command to prepare your application to run in a dev space. This command must be run from `dev-spaces/samples/java/getting-started/webfrontend` to prepare your application correctly:
 
     ```bash
-    azds prep --public
+    azds prep --publicwi
     ```
 
     The Dev Spaces CLI's `azds prep` command generates Docker and Kubernetes assets with default settings. These files persist for the lifetime of the project, and they can be customized:
@@ -130,20 +130,19 @@ For more details on using Azure Dev Spaces and multi-service development with Az
     * A [Helm chart](https://helm.sh/docs/developing_charts/) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
     * `./azds.yaml` is the Azure Dev Spaces configuration file.
 
-    For more information, see [HOw Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
-6. Build and run the application in AKS by running this command from the `webfrontend` folder:
+    For more information Azure , see [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
+
+6. >Build and run the application in AKS using the `azds up` command:
 
     ```bash
     azds up
     ```
-
-7. <a name="test_endpoint"></a>Scan the console output for information about the public URL that was created by the `up` command. It will be in the form:
+    <a name="test_endpoint"></a>Scan the console output for information about the URL that was created by the `up` command. It will be in the form:
 
     ```bash
     (pending registration) Service 'webfrontend' port 'http' will be available at '<url>'
     Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
     ```
-
     Open this URL in a browser window, and you should see the web app. As the container executes, `stdout` and `stderr` output is streamed to the terminal window.
 
 8. Next, set up and deploy *mywebapi*:
@@ -189,14 +188,16 @@ In this section, you prepare the Jenkins server to run the sample CI pipeline.
 
 The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenkins is installed, it creates an admin account named *jenkins*. Both Helm and kubectl need to be accessible to the jenkins user.
 
-1. Switch to the `jenkins` user:
+1. Make a SSH connection to the Jenkins master. 
+
+2. Switch to the `jenkins` user:
     ```bash
     sudo su jenkins
     ```
 
-2. Install the Helm CLI. For more information, see [Installing Helm](https://helm.sh/docs/using_helm/#installing-helm).
+3. Install the Helm CLI. For more information, see [Installing Helm](https://helm.sh/docs/using_helm/#installing-helm).
 
-3. Install kubectl. For more information, see [**az acs kubernetes install-cli**](https://helm.sh/docs/using_helm/#installing-helm).
+4. Install kubectl. For more information, see [**az acs kubernetes install-cli**](https://helm.sh/docs/using_helm/#installing-helm).
 
 ### Add credentials to Jenkins
 
@@ -212,7 +213,7 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
     }
     ```
 
-2. Add a "Microsoft Azure Service Principal" credential type in Jenkins, using the service principal information from the previous step. The names in the Jenkins Add Credentials screenshot correspond to the output from `create-for-rbac`.
+2. Add a *Microsoft Azure Service Principal* credential type in Jenkins, using the service principal information from the previous step. The names in the screenshot below correspond to the output from `create-for-rbac`.
 
     The **ID** field is the Jenkins credential name for your service principal. The example uses the value of `displayName` (in this instance, `xxxxxxxjenkinssp`), but you can use any text you want. This credential name is the value for the AZURE_CRED_ID environment variable in the next section.
 
@@ -246,15 +247,15 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
     }
     ```
 
-4. Add a "Username with password" credential type in Jenkins. The **username** is the username from the last step, in this example `acr01` The **password** is the value for the first password, in this example `vGBP=zzzzzzzzzzzzzzzzzzzzzzzzzzz`. The name (ID) of this credential is the value of ACR_CRED_ID.
+4. Add a *Username with password* credential type in Jenkins. The **username** is the username from the last step, in this example `acr01`. The **password** is the value for the first password, in this example `vGBP=zzzzzzzzzzzzzzzzzzzzzzzzzzz`. The **ID** of this credential is the value of ACR_CRED_ID.
 
-5. Set up an AKS credential. Add a "Kubernetes configuration (kubeconfig)" credential type in Jenkins (use the option "Enter directly"). To get the access credentials for your AKS cluster, run the following command:
+5. Set up an AKS credential. Add a *Kubernetes configuration (kubeconfig)* credential type in Jenkins (use the option "Enter directly"). To get the access credentials for your AKS cluster, run the following command:
 
     ```cmd
     az aks get-credentials -g MyResourceGroup -n <yourAKSName> -f -
     ```
 
-   This name (ID) of this credential is the value of KUBE_CONFIG_ID in the next section.
+   The **ID** this credential is the value of KUBE_CONFIG_ID in the next section.
 
 ## Create a pipeline
 
@@ -264,7 +265,7 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 
 ![Jenkins pipeline flow](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. Download this [repo](https://github.com/azure-devops/mywebapi) to get the sample files needed for the pipeline. This project is a modification of the *mywebapi* project used for the Azure Dev Spaces tutorials. It contains the Jenkinsfile for the pipeline, along with Docker files needed during the build stage. The Docker files and Helm charts were generated with `azds prep`.
+1. Download a modified version of the *mywebapi* project from https://github.com/azure-devops/mywebapi. This projects contains several files needed to create a pipeline, including the *Jenkinsfile*, *Dockerfiles*, and Helm chart.
 
 2. Log into Jenkins. From the menu on the left, select **Add Item**.
 
@@ -303,7 +304,7 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 
 ## Create a pull request to trigger the pipeline
 
-To complete step 3 in this section, you will need to comment part of the Jenkinsfile, otherwise you will get a 404 error when you try to view the new and old versions side by side. By default, when you choose to merge the PR, the previous shared version of mywebapi will be removed and replaced by the new version. To prevent that from happening, make the following change to the Jenkinsfile:
+To complete step 3 in this section, you will need to comment part of the Jenkinsfile, otherwise you will get a 404 error when you try to view the new and old versions side by side. By default, when you choose to merge the PR, the previous shared version of mywebapi will be removed and replaced by the new version. That is what you would want to happen in production, but for testing purposes we want to see the old and new application. Make the following change to the Jenkinsfile before completing step 1:
 
 ```Groovy
     if (userInput == true) {
@@ -332,7 +333,7 @@ To complete step 3 in this section, you will need to comment part of the Jenkins
     }
 ```
 
-1. Create a pull request (PR) by editing `Application.java` in `mywebapi/src/main/java/com/ms/sample/mywebapi/`. Change the return string to something like this:
+1. Make a change to `mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java`and then create a pull request. For example:
 
     ```java
     public String index() {
@@ -340,18 +341,17 @@ To complete step 3 in this section, you will need to comment part of the Jenkins
     }
     ```
 
-2. If you have a webhook set up, the pipeline will be triggered automatically. Otherwise, you can run the job manually.
+2. Sign into Jenkins and select the pipeline name, and then choose **Build Now**. 
 
-    For more information about setting up a webhook, see [Connect Jenkins to GitHub](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service.md#connect-jenkins-to-github).
+    You can also set up a *webhook* to automatically trigger the Jenkins pipeline. When a pull request is entered, GitHub issues a POST to Jenkins, triggering the pipeline. For more information about setting up a webhook, see [Connect Jenkins to GitHub](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service.md#connect-jenkins-to-github).
 
 3. Compare changes to the current shared version:
 
-    1. , open your browser and navigate to the shared version `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`
+    1. Open your browser and navigate to the shared version `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. TEST_ENDPOINT contains the URL.
 
-    2. Open another tab and then enter the PR dev space URL. It will be similar to 
-    `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. You'll find the link in **Build History > <build#> > Console Output**  for the Jenkins job. Search the page for `aksapp`, or to see only the prefix, search for `azdsprefix`.
+    2. Open another tab and then enter the PR dev space URL. It will be similar to `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. You'll find the link in **Build History > <build#> > Console Output**  for the Jenkins job. Search the page for `aksapp`, or to see only the prefix, search for `azdsprefix`.
 
-    Notice that with the dev space prefix, your call is routed to the updated mywebapi while `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io` is still pointing to the (team's) shared version.
+ 
 
 ### Constructing the URL to the child dev space
 
