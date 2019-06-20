@@ -25,7 +25,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.0.__TBD__
 
 + **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
   + Add decision tree surrogate model to mimic explainer in azureml-explain-model package
   + Ability to specify a CUDA version to be installed on Inferencing images. Support for CUDA 9.0, 9.1, and 10.0.
   + Information about Azure ML training base images are now available at [Azure ML Contianers Github Repository](https://github.com/Azure/AzureML-Containers) and [DockerHub](https://hub.docker.com/_/microsoft-azureml)
@@ -37,10 +36,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Updated mlflow.azureml.build_image to the new api, patched bugs exposed by the new implementation.
 
 + **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
-  + [Insert fixes and improvements below. Link github issues resolved with this release]
   + Removed paramiko dependency from azureml-core. Added deprecation warnings for legacy compute target attach methods.
   + Improve performance of run.create_children
   + In mimic explainer with binary classifier, fix the order of probabilities when teacher probability is used for scaling shap values
