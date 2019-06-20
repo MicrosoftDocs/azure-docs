@@ -61,11 +61,15 @@ Use this table as a guide:
 
 ### Option 1: Use Azure AD
 
+By using Azure AD, you can authorize your identity one time. That way, you can run AzCopy commands without having to append a SAS token. If you plan to use AzCopy interactively, you can authorize your user identity. If you plan to include AzCopy commands inside of a script that runs at some scheduled interval, consider authorizing a service principal instead. 
+
+User identities and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
+
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
-If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your identity.
+If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity or service principal.
 
-If you want to upload files, then verify that one of these roles has been assigned to your identity:
+If you want to upload files, then verify that one of these roles has been assigned to your security principal:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -79,13 +83,13 @@ These roles can be assigned to your identity in any of these scopes:
 
 To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-You don't need to have one of these roles assigned to your identity if your identity is added to the access control list (ACL) of the target container or directory. In the ACL, your identity needs write permission on the target directory, and execute permission on container and each parent directory.
+You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### Authenticate your identity
+#### Authenticate your user identity
 
-After you've verified that your identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
+After you've verified that your user identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
 
 ```azcopy
 azcopy login
@@ -104,6 +108,58 @@ This command returns an authentication code and the URL of a website. Open the w
 ![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
+
+<a id="service-principal" />
+
+#### Authenticate your service principal
+
+You can sign into your account by using the client secret of your service principal or by using a certificate.
+
+You can use AzCopy inside of a script that runs without any user interaction, but before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with your credentials.  Those credentials are stored in a secured and encrypted file so that your script doesn't have persist and provide these sensitive items of information in calls to AzCopy. 
+
+##### Using a client secret
+
+Set the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal. 
+
+This example shows how you could do this in a Windows PowerShell prompt.
+
+```azcopy
+$env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
+```
+
+> [!NOTE]
+> Consider using a prompt as shown in this example. That way, the client secret won't appear your console's command history. Unlike command strings, the information that you type in response to prompts doesn't appear in the command history of your console. This information is stored to environment variables associated only with the current console session.
+
+Next, open a command prompt, type the following command, and then press the ENTER key.
+
+```azcopy
+azcopy login --service-principal --application-id <application-id>
+```
+
+Replace the `<application-id>` placeholder with the Application ID of your service principal's app registration.
+
+##### Using certificate
+
+If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration and then use that certificate to login.
+ 
+Set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the client secret of your service principal. 
+
+This example shows how you could do this in a Windows PowerShell prompt.
+
+```azcopy
+$env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
+```
+
+Then, open a command prompt, type the following command, and then press the ENTER key.
+
+```azcopy
+azcopy login --service-principal --certificate-path <path-to-certificate-file>
+```
+
+Replace the `<path-to-certificate-file>` placeholder with the path to the certificate file. Can be a fully qualified or relative path to the file.
+
+> [!NOTE]
+> Consider using a prompt as shown in this example. That way, the client secret won't appear your console's command history. Unlike command strings, the information that you type in response to prompts doesn't appear in the command history of your console. This information is stored to environment variables associated only with the current console session.
 
 ### Option 2: Use a SAS token
 
@@ -130,6 +186,8 @@ To find example commands, see any of these articles.
 - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
 ## Use AzCopy in a script
+
+If you signed into your account by using either a client secret or certificate associated with your service principal's app registration, then your script can sign in as the service principal without providing any credentials. Use the following command in your script to sign-in without requiring any interaction from a user. See the [Authenticate your service principal](#service-principal) section of this article for examples. 
 
 Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon. 
 
