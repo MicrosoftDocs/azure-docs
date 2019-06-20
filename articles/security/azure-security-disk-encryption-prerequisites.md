@@ -36,7 +36,7 @@ Azure Disk Encryption is available on virtual machines that meet these minimum m
 Once the OS disk encryption process is complete on Linux virtual machines, the VM can be configured to run with less memory. 
 
 > [!NOTE]
-> Linux OS disk encryption is not available for [Virtual Machine Scale Sets](./virtual-machine-scale-sets/index.md).
+> Linux OS disk encryption is not available for [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml).
 
 Azure Disk Encryption is also available for VMs with premium storage. 
 
