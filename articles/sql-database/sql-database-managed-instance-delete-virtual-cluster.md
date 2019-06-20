@@ -1,6 +1,6 @@
 ---
-title: Delete a subnet after deleting a managed instance of Azure SQL Database | Microsoft Docs
-description: Learn how to delete an Azure virtual network after deleting a managed instance of Azure SQL Database. 
+title: Delete a subnet after deleting an Azure SQL Database managed instance | Microsoft Docs
+description: Learn how to delete an Azure virtual network after deleting an Azure SQL Database managed instance. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: management
@@ -13,7 +13,7 @@ ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
 ---
-# Delete a subnet after deleting a managed instance of Azure SQL Database
+# Delete a subnet after deleting an Azure SQL Database managed instance
 
 This article provides guidelines on how to manually delete a subnet after deleting the last Azure SQL Database managed instance residing in it.
 
