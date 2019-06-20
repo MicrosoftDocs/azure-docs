@@ -491,13 +491,13 @@ This means that the challenge endpoint for the given registry responded with a 4
 
 This error means that the challenge endpoint of the target registry did not issue a challenge.
 
-*Potential solutions*: try again after some time. If error persists, please open a ticket to Azure Container Registry team. This can be done opening the registry in Azure Portal and creating a new support request in the 'Support + troubleshooting' section on the main menu.
+*Potential solutions*: try again after some time. If error persists, please open am issue at https://aka.ms/acr/issues.
 
 ### CONNECTIVITY_AAD_LOGIN_ERROR
 
 This error means that the challenge endpoint of the target registry issued a challenge, but the registry does not support AAD login.
 
-*Potential solutions*: try other way of logging in, e.g., admin credentials. In case the user wants to log in with AAD support, please open a ticket to Azure Container Registry team. This can be done opening the registry in Azure Portal and creating a new support request in the 'Support + troubleshooting' section on the main menu.
+*Potential solutions*: try other way of logging in, e.g., admin credentials. In case the user wants to log in with AAD support, please open am issue at https://aka.ms/acr/issues.
 
 ### CONNECTIVITY_REFRESH_TOKEN_ERROR
 
