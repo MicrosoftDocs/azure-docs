@@ -22465,6 +22465,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/how-to-sql-query.md",
+      "redirect_url": "articles/cosmos-db/sql-query-getting-started.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-query-reference.md",
+      "redirect_url": "articles/cosmos-db/sql-query-getting-started.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/secure-email-introduction.md",
       "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise/microsoft-365-policies-configurations",
       "redirect_document_id": false
