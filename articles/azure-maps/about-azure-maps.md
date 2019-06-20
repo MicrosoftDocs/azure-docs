@@ -58,7 +58,7 @@ Data is an imperative for maps. Use Data Service to upload and store geospatial 
 
 ### Mobility
 
-The Azure Maps Mobility service allows real-time trip planning. It returns the best possible route options and provides a variety of travel modes. For metro (city) areas, these modes can including walking, biking, and public transit. Developers can request transit itinerary details like line geometry, lists of stops, scheduled and real-time arrivals, and service alerts.
+The Azure Maps Mobility service allows real-time trip planning. It returns the best possible route options and provides a variety of travel modes. For metro (city) areas, these modes can include walking, biking, and public transit. Developers can request transit itinerary details like line geometry, lists of stops, scheduled and real-time arrivals, and service alerts.
 
 The service also allows searches for specific object types, such as shared bikes, scooters, or cars around a location. Users can request how many available shared bikes are left in the closest dock. They can search available car-share vehicles and find details like future availability and current fuel level.
 
