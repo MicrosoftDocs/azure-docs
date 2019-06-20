@@ -16,11 +16,9 @@ A variety of settings for your storage account are available in the [Azure porta
 
 ## Access control
 
-Azure Storage supports authentication with Azure Active Directory for Blob storage and Queue storage via role-based access control (RBAC). For more information about authentication with Azure AD, see [Authenticate access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md).
+Azure Storage supports authorization with Azure Active Directory for Blob storage and Queue storage via role-based access control (RBAC). For more information about authorization with Azure AD, see [Authorize access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
 The **Access control** settings in the Azure portal offer a simple way to assign RBAC roles to users, groups, service principals, and managed identities. For more information about assigning RBAC roles, see [Manage access rights to blob and queue data with RBAC](storage-auth-aad-rbac.md).
-
-[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 ## Tags
 
@@ -36,6 +34,8 @@ When you create a storage account, Azure generates two 512-bit storage account a
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
+
 ### View account keys and connection string
 
 [!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
@@ -45,7 +45,7 @@ When you create a storage account, Azure generates two 512-bit storage account a
 Microsoft recommends that you regenerate your access keys periodically to help keep your storage account secure. Two access keys are assigned so that you can rotate your keys. When you rotate your keys, you ensure that your application maintains access to Azure Storage throughout the process. 
 
 > [!WARNING]
-> Regenerating your access keys can affect any applications or Azure services that are dependent on the storage account key. Any clients that use the account key to access the storage account must be updated to use the new key, including media services, cloud, desktop and mobile applications, and graphical user interface applications for Azure Storage, such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). 
+> Regenerating your access keys can affect any applications or Azure services that are dependent on the storage account key. Any clients that use the account key to access the storage account must be updated to use the new key, including media services, cloud, desktop and mobile applications, and graphical user interface applications for Azure Storage, such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 Follow this process to rotate your storage account keys:
 
