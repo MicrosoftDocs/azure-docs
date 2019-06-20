@@ -37,7 +37,7 @@ The following example shows the schema of a client connection connected event:
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
     "timestamp": "2019-06-10T18:41:00.9584103Z",
-    "hub": "chat",
+    "hubName": "chat",
     "connectionId": "crH0uxVSvP61p5wkFY1x1A",
     "userId": "user-eymwyo23"
   },
@@ -57,7 +57,7 @@ The schema for a client connection disconnected event is similar:
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
     "timestamp": "2019-06-10T18:41:00.9584103Z",
-    "hub": "chat",
+    "hubName": "chat",
     "connectionId": "crH0uxVSvP61p5wkFY1x1A",
     "userId": "user-eymwyo23",
     "errorMessage": "Internal server error."
@@ -87,7 +87,7 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | timestamp | string | The time the event is generated based on the provider's UTC time. |
-| hub | string | The hub which the client connection belongs to. |
+| hubName | string | The hub which the client connection belongs to. |
 | connectionId | string | The unique identifier for the client connection. |
 | userId | string | The user identifier defined in claim. |
 | errorMessage | string | The error that causes the connection disconnected. |
