@@ -1,4 +1,4 @@
-﻿---
+---
 title: Continuous integration with Azure Pipelines | Microsoft Docs
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates.
 services: azure-resource-manager
@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/10/2019
+ms.date: 06/12/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -134,7 +134,7 @@ A DevOps organization is needed before you can proceed to the next procedure.  I
 1. Sign in to [Azure DevOps](https://dev.azure.com).
 1. Select a DevOps organization from the left.
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines create GitHub bash](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
+    ![Azure Resource Manager Azure DevOps Azure Pipelines create Azure DevOps project](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-create-devops-project.png)
 
 1. Select **Create project**. If you don't have any projects, the create project page is opened automatically.
 1. Enter the following values:
