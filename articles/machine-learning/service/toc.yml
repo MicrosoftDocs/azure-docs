@@ -211,6 +211,8 @@
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
+    - name: View accuracy metrics
+      href: how-to-understand-accuracy-metrics.md  
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
