@@ -47,14 +47,6 @@ In this section, you create an Azure Resource Group project with a **Web app** t
 
     All resource group deployment projects have these basic files. Other projects may have additional files to support other functionality.
 
-## Choose script version
-
-By default, the PowerShell script (Deploy-AzureResourceGroup.ps1) in the project uses the AzureRM module. If you still have the AzureRM module installed and want to continue using it, you can use this default script. With this script, you can use the Visual Studio interface to deploy your solution.
-
-However, if you've migrated to the new [Az module](/powershell/azure/new-azureps-module-az), you need to add a new script to your project. To add a script that uses the Az module, copy the [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) script and add it to your project. To use this script for deployment, you must run it from a PowerShell console, rather than using Visual Studio's deployment interface.
-
-Both approaches are shown in this article. This article refers to the default script as the AzureRM module script, and the new script as the Az module script.
-
 ## Customize Resource Manager template
 
 You can customize a deployment project by modifying the Resource Manager template that describes the resources you want to deploy. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
@@ -127,14 +119,18 @@ You can customize a deployment project by modifying the Resource Manager templat
 
 You're now ready to deploy your project to a resource group. The resource group is a logical grouping of resources that share a common lifecycle.
 
-The steps you take are different depending on whether you use the AzureRM module script or the Az module script.
+By default, the PowerShell script (Deploy-AzureResourceGroup.ps1) in the project uses the AzureRM module. If you still have the AzureRM module installed and want to continue using it, you can use this default script. With this script, you can use the Visual Studio interface to deploy your solution.
+
+However, if you've migrated to the new [Az module](/powershell/azure/new-azureps-module-az), you need to add a new script to your project. To add a script that uses the Az module, copy the [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) script and add it to your project. To use this script for deployment, you must run it from a PowerShell console, rather than using Visual Studio's deployment interface.
+
+Both approaches are shown in this article. This article refers to the default script as the AzureRM module script, and the new script as the Az module script.
 
 ### Az module script
 
 For the Az module script, open a PowerShell console and run:
 
 ```powershell
-.\Deploy-AzTemplate -ArtifactStagingDirectory .\ -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json
+.\Deploy-AzTemplate.ps1 -ArtifactStagingDirectory . -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json
 ```
 
 ### AzureRM module script
@@ -235,14 +231,26 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
 ## Deploy code with infrastructure
 
-You're ready to redeploy the project with the code. Because you added code to the project, you must stage a package to a place that Resource Manager can access. The package is staged to a storage account and accessed during deployment.
+Because you added code to the project, your deployment is a little different this time. During deployment, you stage artifacts for your project to a place that Resource Manager can access. The artifacts are staged to a storage account.
 
 ### Az module script
 
-For the Az module script, open a PowerShell console and run:
+There is one small change you need to make to your template if you're using the Az module script. This script adds a slash to the artifacts location but your template doesn't expect that slash. Open WebSite.json and find the properties for the MSDeploy extension. There is a property named **packageUri**. Remove the slash between the artifacts location and the package folder.
+
+It should look like:
+
+```json
+"packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
+```
+
+Notice in the preceding example there is not `'/',` between **parameters('_artifactsLocation')** and **parameters('ExampleAppPackageFolder')**.
+
+Rebuild the project. Building the project makes sure the files you need to deploy are added to the staging folder.
+
+Now, open a PowerShell console and run:
 
 ```powershell
-.\Deploy-AzTemplate -ArtifactStagingDirectory .\ -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json
+.\Deploy-AzTemplate.ps1 -ArtifactStagingDirectory .\bin\Debug\staging\ExampleAppDeploy -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json -UploadArtifacts -StorageAccountName <storage-account-name>
 ```
 
 ### AzureRM module script
@@ -256,6 +264,8 @@ For the AzureRM module script, use Visual Studio:
 1. Select the storage account you deployed with this resource group for the **Artifact storage account**.
 
    ![Redeploy web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy-web-app.png)
+
+## View web app
 
 1. After the deployment has finished, select your web app in the portal. Select the URL to browse to the site.
 
@@ -359,6 +369,16 @@ You aren't limited to only the resources that are available through the Visual S
    ![Custom Dashboard](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
 You can manage access to the dashboard by using RBAC groups. You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../azure-portal/azure-portal-dashboards-create-programmatically.md).
+
+## Clean up resources
+
+When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
+
+1. From the Azure portal, select **Resource groups** from the left menu.
+
+1. Select the resource group name.
+
+1. Select **Delete resource group** from the top menu.
 
 ## Next steps
 
