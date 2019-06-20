@@ -47,7 +47,7 @@ FROM f
 
 ## <a id="Iteration"></a>Iteration
 
-The SQL API provides support for iterating over JSON arrays, with a new construct added via the [IN keyword](sql-query-keywords#IN) in the FROM source. In the following example:
+The SQL API provides support for iterating over JSON arrays, with a new construct added via the [IN keyword](sql-query-keywords.md#IN) in the FROM source. In the following example:
 
 ```sql
     SELECT *

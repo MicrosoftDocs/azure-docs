@@ -115,7 +115,7 @@ The following example returns all items where the state is any of the specified 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-The SQL API provides support for [iterating over JSON arrays](sql-query-object-array#Iteration), with a new construct added via the in keyword in the FROM source. 
+The SQL API provides support for [iterating over JSON arrays](sql-query-object-array.md#Iteration), with a new construct added via the in keyword in the FROM source. 
 
 ## TOP
 
