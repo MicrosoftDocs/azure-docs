@@ -1,12 +1,12 @@
 ---
 title: Self-service password reset deployment plan - Azure Active Directory
-description: Tips for successful rollout of Azure AD self-service password reset
+description: Strategy for successful implementation of Azure AD self-service password reset
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 06/20/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -116,9 +116,9 @@ If there are multiple identity management systems within an environment such as 
 
 When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, ensure that you are engaging the right stakeholders, and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountability.
 
-### Communications planning
+### Communications plan
 
-Communication is critical to the success of any new service. Proactively communicate with your users how to use the service and what they can do to get help if something doesn’t work as expected. Review the [Azure AD SSPR Planning Communication documentation on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
+Communication is critical to the success of any new service. Proactively communicate with your users how to use the service and what they can do to get help if something doesn’t work as expected. Review the [Self-service password reset rollout materials on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
 
 ### Testing plan
 
@@ -182,9 +182,9 @@ The groups you are going to implement must have the Azure AD premium license ass
 
 Information about assigning licenses to groups of users can be found in the article, [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
-### Configure the SSPR Service
+### Configure SSPR
 
-#### Enable Groups for SSPR
+#### Enable groups for SSPR
 
 1. Access the Azure portal with an administrator account.
 1. Select All Services, and in the Filter box, type Azure Active Directory, and then select Azure Active Directory.
@@ -193,7 +193,7 @@ Information about assigning licenses to groups of users can be found in the arti
 1. In the Default password reset policy blade, type the name of the first group, select it, and then click Select at the bottom of the screen, and select Save at the top of the screen.
 1. Repeat this process for each group.
 
-#### Configure the Authentication methods
+#### Configure the authentication methods
 
 Reference your planning from the Planning Password Authentication Methods section of this document.
 
@@ -220,7 +220,7 @@ Required Roles
 | Level 2 Helpdesk | User administrator |
 | SSPR Administrator | Global administrator |
 
-### Support Case Scenarios
+### Support scenarios
 
 To enable your support team success, you can create an FAQ based on questions you receive from your users. The following table contains common support scenarios.
 
@@ -243,6 +243,6 @@ You can also refer to our online documentation on troubleshooting self-service p
 
 ## Next steps
 
-Consider implementing Azure AD password protection
+- [Consider implementing Azure AD password protection](concept-password-ban-bad.md)
 
-Consider implementing Azure AD Smart Lockout
+- [Consider implementing Azure AD Smart Lockout](howto-password-smart-lockout.md)
