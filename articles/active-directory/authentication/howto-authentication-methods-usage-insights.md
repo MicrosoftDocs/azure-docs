@@ -19,11 +19,6 @@ ms.collection: M365-identity-device-management
 
 Usage & insights enables you to understand how authentication methods for features like Azure Multi-Factor Authentication and self-service password reset are working in your organization. This reporting capability provides your organization with the means to understand what methods are being registered and how they are being used.
 
-## Prerequisites
-
-- Self-service password reset (SSPR) enabled for your directory
-- Enable the combined registration experience (Recommended)
-
 ## Permissions and licenses
 
 The following roles can access usage and insights:
@@ -49,7 +44,7 @@ To access usage & insights directly, go to [https://portal.azure.com/#blade/Micr
 
 The Users registered, Users enabled, and Users capable tiles show the following registration data for your users:
 
-- Registered: A user is considered registered if they (or an admin) have registered enough authentication methods to meet the SSPR policy.
+- Registered: A user is considered registered if they (or an admin) have registered enough authentication methods to meet your organization's SSPR or Multi-Factor Authentication policy.
 - Enabled: A user is considered enabled if they are in scope for the SSPR policy. If SSPR is enabled for a group, then the user is considered enabled if they are in that group. If SSPR is enabled for all users, then all users in the tenant (excluding guests) are considered enabled.
 - Capable: A user is considered capable if they are both registered and enabled. This status means that they can perform SSPR at any time if needed.
 
@@ -60,6 +55,8 @@ The **Registrations** chart on the **Registration** tab shows the number of succ
 Clicking on either of the charts will bring you to a pre-filtered list of registration or reset events.
 
 Using the control in the upper, right-hand corner, you can change the date range for the audit data shown in the Registrations and Resets charts to 24 hours, 7 days, or 30 days.
+
+Registration data from the 
 
 ### Registration details
 
