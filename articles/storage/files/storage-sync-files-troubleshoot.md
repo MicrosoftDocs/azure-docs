@@ -858,6 +858,8 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool:
 1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
+	> [!NOTE]
+	>AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.
 2. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
 
     ```powershell
