@@ -35,12 +35,16 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## <a id="registermodel"></a> Register your model
 
-Register your machine learning models in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
+A registered model logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in the workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
 
 ### Register a model from an Experiment Run
 
 + **Scikit-Learn example using the SDK**
   ```python
+  # You can provide an array of paths to store multiple files in the registration.
+  # For example, model_path=['file1.pkl','file2.pkl']
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
@@ -106,12 +110,14 @@ The script contains two functions that load and run the model:
 * `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
 #### What is get_model_path?
-When you register a model, you provide a model name used for managing the model in the registry. You use this name in the get_model_path API which returns the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory which contains those files.
 
-When you register a model, you give it a name which corresponds to where the model is placed, either locally or during service deployment.
+When you register a model, you provide a model name used for managing the model in the registry. You use this name with the [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) to retrieve the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory that contains those files.
 
-The below example will return a path to a single file called 'sklearn_mnist_model.pkl' (which was registered with the name 'sklearn_mnist')
-```
+When you register a model, you give it a name, which corresponds to where the model is placed, either locally or during service deployment.
+
+The below example will return a path to a single file called `sklearn_mnist_model.pkl` (which was registered with the name `sklearn_mnist`):
+
+```python
 model_path = Model.get_model_path('sklearn_mnist')
 ``` 
 
@@ -276,7 +282,8 @@ The following sections demonstrate how to create the deployment configuration, a
 
 ### Optional: Profile your model
 Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements.
-You can do this via the SDK or CLI.
+
+You can do profile your model using either the SDK or CLI.
 
 For more information, you can check out our SDK documentation here: 
 https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
