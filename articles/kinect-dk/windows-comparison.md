@@ -70,7 +70,4 @@ The Azure Kinect SDK feature set is different from Kinect for Windows v2, as det
 
 ## Next steps
 
-You can also review:
-
-> [!div class="nextstepaction"]
 >[Kinect for Windows developer pages](https://developer.microsoft.com/windows/kinect)
