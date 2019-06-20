@@ -5,7 +5,6 @@
 - name: Access rights for creating and managing support requests
   href: create-manage-support-requests-using-access-control.md
 - name: Quota increase requests
-  href: resource-manager-core-quotas-request.md
   items: 
   - name: VM Series vCPU limit increase
     href: per-vm-quota-requests.md
