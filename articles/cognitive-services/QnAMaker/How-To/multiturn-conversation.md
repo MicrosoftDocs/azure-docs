@@ -26,7 +26,7 @@ To see how multi-turn works, view the following demonstration video:
 
 Some questions can't be answered in a single turn. When you design your client application (chat bot) conversations, a user might ask a question that needs to be filtered or refined to determine the correct answer. You make this flow through the questions possible by presenting the user with *follow-up prompts*.
 
-When users ask a question, QnA Maker returns the answer _and_ any follow-up prompts. This response allows you to present the follow-up questions as choices. 
+When a user asks a question, QnA Maker returns the answer _and_ any follow-up prompts. This response allows you to present the follow-up questions as choices. 
 
 ## Example multi-turn conversation with chat bot
 
@@ -43,7 +43,7 @@ When the user selects an option (#3), the next list of refining options (#4) is 
 
 ### Use multi-turn in a bot
 
-To manage the contextual conversation, you need to change your client application by [adding code to your bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting). Adding the code enables users to see the prompts.  
+To manage the contextual conversation, change your client application by [adding code to your bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting). Adding the code enables users to see the prompts.  
 
 ## Create a multi-turn conversation from a document's structure
 
