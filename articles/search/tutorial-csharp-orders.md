@@ -107,13 +107,22 @@ There is no need to modify any of the models to enable ordering. The view and th
     }
     ```
 
+    >[!Tip]
+    >Browsers usually cache css files, and this can lead to an old css file being used, and your edits ignored. A good way round this is to add a query string with a version parameter to the link. For example:
+    >
+    >```html
+    >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
+    >```
+    >
+    >Update the version number if you think an old css file is being used by your browser.
+
 4. Add the **Rating** property to the **Select** parameter, in the **Index(SearchData model)** method.
 
     ```cs
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-5. Open the view (index.cshtml) and replace the rendering loop (**&lt!-- Show the hotel data. --&gt;**) with the following code.
+5. Open the view (index.cshtml) and replace the rendering loop (**&lt;!-- Show the hotel data. --&gt;**) with the following code.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -177,13 +186,6 @@ There is no need to modify any of the models to enable ordering. The view and th
             </script>
 
     ```
-    >[!Tip]
-    >Browsers usually cache css files, and this can lead to an old css file being used, and your edits ignored. A good way round this is to add a query string with a version parameter to the link. For example: 
-
-    ```html
-        <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
-    ```
-    Update the version number if you think an old css file is being used.
 
 8. Now run the app again. Search on any common term, such as "wifi", and verify that the results are ordered by descending order of hotel rating.
 
