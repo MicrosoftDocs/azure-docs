@@ -387,7 +387,11 @@ Service endpoints can be configured on a virtual network independently by a user
 ### Can I filter virtual network traffic to Azure services, allowing only specific azure service resources, over VNet service endpoints? 
 
 Virtual network (VNet) service endpoint policies allow you to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services. You can learn more about the service endpoint policies [here](virtual-network-service-endpoint-policies-overview.md).
- 
+
+### Does Azure Active Directory (Azure AD) support VNet service endpoints?
+
+Azure Active Directory (Azure AD) doesn't support service endpoints natively. Complete list of Azure Services supporting VNet service endpoints can be seen [here](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Note that "Microsoft.AzureActiveDirectory" tag listed under services supporting service endpoints is used for supporting service endpoints to ADLS Gen 1. For ADLS Gen 1, virtual network integration for Azure Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. Learn more about [Azure Data Lake Store Gen 1 VNet Integration](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+
 ### Are there any limits on how many VNet service endpoints I can set up from my VNet?
 There is no limit on the total number of VNet service endpoints in a virtual network. For an Azure service resource (such as, an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. The following table shows some example limits: 
 

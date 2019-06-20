@@ -64,6 +64,9 @@ True
 b'bar'
 ```
 
+> [!IMPORTANT]
+> For Redis version is 3.0 or higher, SSL certificate check is enforced. ssl_ca_certs must be explicitly set when connecting to Redis. In case of RH Linux, ssl_ca_certs can be found in the "/etc/pki/tls/certs/ca-bundle.crt" certificate module.
+
 ## Create a Python script
 
 Create a new script text file named *PythonApplication1.py*.
