@@ -1,5 +1,5 @@
 ---
-title: C# Tutorial on autocompletion and suggestions - Azure Search
+title: C# tutorial on autocompletion and suggestions - Azure Search
 description:  This tutorial builds on the "Search results pagination - Azure Search" project, to add autocompletion and suggestions. The goal is a richer user experience. Learn how to combine a drop-down list of suggestions with inline autocompletion.
 services: search
 ms.service: search
@@ -9,7 +9,7 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Add autocompletion and suggestions - Azure Search
+# C# tutorial: Add autocompletion and suggestions - Azure Search
 
 Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial, we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
 

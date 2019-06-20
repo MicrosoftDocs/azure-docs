@@ -1,15 +1,15 @@
 ---
-title: C# Tutorial on using facets for navigation and network efficiency - Azure Search
+title: C# tutorial on using facets for navigation and network efficiency - Azure Search
 description: This tutorial builds on the "Search results pagination - Azure Search" project, to add facet searches. Learn that facets can be used in both navigation, and autocompletion.
 services: search
 ms.service: search
 ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
-ms.date: 05/01/2019
+ms.date: 06/20/2019
 ---
 
-# C# Tutorial: Use facets for navigation and network efficiency - Azure Search
+# C# tutorial: Use facets for navigation and network efficiency - Azure Search
 
 Facets have two distinct uses in Azure Search. Facets can be used to aid navigation, by providing the user with a set of check boxes to use to focus their search. Also, they can be used to improve network efficiency, when used in autocompletion. Facet searches are efficient because they are carried out only once for each page load, rather than once for each keystroke. 
 
@@ -605,7 +605,7 @@ Now we can use the predefined autocomplete jquery functions.
     We need two lists, that are then combined into one, because we asked for two fields to be searched (**Tags** and **Category**). If we had asked for three fields to be searched, we would have to combine three lists into one, and so on.
 
     > [!NOTE]
-    > It is possible to set one or more of the following parameters for each field in a facet search: **count**, **sort**, **interval**, and **values**. For more information, see [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation).
+    > It is possible to set one or more of the following parameters for each field in a facet search: **count**, **sort**, **interval**, and **values**. For more information, see [How to implement faceted navigation in Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation).
 
 ### Compile and run your project
 

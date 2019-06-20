@@ -1,5 +1,5 @@
 ---
-title: C# Tutorial on search results pagination - Azure Search
+title: C# tutorial on search results pagination - Azure Search
 description: This tutorial builds on the "Create your first app - Azure Search" project, with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to its lower limit.
 services: search
 ms.service: search
@@ -9,7 +9,7 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Search results pagination - Azure Search
+# C# tutorial: Search results pagination - Azure Search
 
 Learn how to implement two different paging systems, the first based on page numbers and the second on infinite scrolling. Both systems of paging are widely used, and selecting the right one depends on the user experience you would like with the results. This tutorial builds the paging systems into the project created in the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) tutorial.
 
