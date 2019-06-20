@@ -21,7 +21,6 @@ When you add a gallery or non-gallery web application, one of the single sign-on
 ## Before you begin
 
 - If the application hasn't been added to your Azure AD tenant, see [Add a gallery app](add-gallery-app.md) or [Add a non-gallery app](add-non-gallery-app.md).
-- Ask your application vendor for the information described in [Configure basic SAML options](#configure-basic-saml-options).
 
 ### Open the app and select password single sign-on
 
