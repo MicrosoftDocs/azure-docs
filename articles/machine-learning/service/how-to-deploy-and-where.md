@@ -410,10 +410,8 @@ For more information on the `cluster_purpose` parameter, see the [AksCompute.Clu
 
 > [!IMPORTANT]
 > For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
-
+>
 > Also, AzureML SDK does not support scaling an AKS cluster. You can scale an existing AKS cluster through the Azure Portal. However, you will only be able to change the node count, not the vm_size. 
-
-> AzureML-managed cluster will be available with Managed Inferencing, which is currently under development.
 
 #### Attach an existing AKS cluster
 **Time estimate:** Approximately 5 minutes.
