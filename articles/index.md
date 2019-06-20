@@ -796,27 +796,9 @@ featureFlags:
                                     <h3>AI + Machine Learning</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/azure-databricks/">
-                                                <img src="media/index/logo_databricks.svg" alt="" />
-                                                <p>Azure Databricks</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
-                                                <img src="media/index/bot-service.svg" alt="" />
-                                                <p>Azure Bot Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/genomics/">
-                                                <img src="media/index/genomics.svg" alt="" />
-                                                <p>Microsoft Genomics</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/machine-learning/service">
-                                                <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning Services</p>
+                                                <img src="media/index/machine-learning-service.svg" alt="" />
+                                                <p>Machine Learning service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -832,11 +814,24 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
+                                                <img src="media/index/bot-service.svg" alt="" />
+                                                <p>Azure Bot Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/genomics/">
+                                                <img src="media/index/genomics.svg" alt="" />
+                                                <p>Microsoft Genomics</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/notebooks">
                                                 <img src="media/index/notebooks.svg" alt="" />
                                                 <p>Azure Notebooks</p>
                                             </a>
-                                        </li>                                        <li>
+                                        </li>                                        
+                                        <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Azure Search</p>
@@ -1056,6 +1051,12 @@ featureFlags:
                                             <a href="/azure/open-datasets">
                                                 <img src="media/index/open-data.svg" alt="" />
                                                 <p>Open Datasets</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-databricks/">
+                                                <img src="media/index/logo_databricks.svg" alt="" />
+                                                <p>Azure Databricks</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1295,12 +1296,7 @@ featureFlags:
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
                                         </li>
-                                        <li>
-                                        <a href="/azure/open-datasets">
-                                            <img src="media/index/open-data.svg" alt="" />
-                                            <p>Open Datasets</p>
-                                        </a>
-                                        </li>
+
                                     </ul>
                                     <h3>DevOps</h3>
                                     <ul>
