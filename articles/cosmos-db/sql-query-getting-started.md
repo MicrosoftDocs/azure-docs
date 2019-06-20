@@ -16,7 +16,7 @@ Azure Cosmos DB SQL API accounts support querying items using Structured Query L
 
 * Use JavaScript's programming model as the foundation for the query language. JavaScript's type system, expression evaluation, and function invocation are the roots of the SQL API. These roots provide a natural programming model for features like relational projections, hierarchical navigation across JSON items, self-joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript.
 
-## Get started with SQL queries
+## Upload sample data
 
 In your SQL API Cosmos DB account, create a container called `Families`. Create two simple JSON items in the container. You can run most of the sample queries in the Azure Cosmos DB query docs using this data set.
 

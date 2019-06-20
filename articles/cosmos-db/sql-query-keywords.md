@@ -4,7 +4,7 @@ description: Learn about SQL keywords for Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 06/20/2019
 ms.author: mjbrown
 
 ---

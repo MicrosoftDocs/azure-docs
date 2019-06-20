@@ -4,7 +4,7 @@ description: Learn about aliasing values in Azure Cosmos DB SQL queries
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/20/2019
 ms.author: mjbrown
 
 ---
