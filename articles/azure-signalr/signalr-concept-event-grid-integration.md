@@ -43,7 +43,7 @@ Here is an example of a client connection connected event:
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
   "data": {
     "timestamp": "2019-06-10T18:41:00.9584103Z",
-    "hub": "chat",
+    "hubName": "chat",
     "connectionId": "crH0uxVSvP61p5wkFY1x1A",
     "userId": "user-eymwyo23"
   },
