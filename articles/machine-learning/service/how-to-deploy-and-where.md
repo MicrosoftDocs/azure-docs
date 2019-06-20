@@ -247,6 +247,19 @@ inference_config = InferenceConfig(source_directory="C:/abc",
                                    conda_file="env/myenv.yml")
 ```
 
+### CLI example of InferenceConfig
+```JSON
+{
+   "entryScript": "x/y/score.py",
+   "runtime": "python",
+   "condaFile": "env/myenv.yml",
+   "sourceDirectory":"C:/abc",
+}
+```
+```azurecli-interactive
+az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
+```
+
 In this example, the configuration contains the following items:
 
 * A directory that contains assets needed to inference
