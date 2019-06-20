@@ -71,7 +71,7 @@ Use the following steps to enable diagnostic logging in the Azure portal:
 
     ![Turn on diagnostic logging for Azure Cosmos DB in the Azure portal](./media/logging/turn-on-portal-logging.png)
 
-1. In the **Diagnostic settings** page, fill the form with with the following details: 
+1. In the **Diagnostic settings** page, fill the form with the following details: 
 
     * **Name**: Enter a name for the logs to create.
 
