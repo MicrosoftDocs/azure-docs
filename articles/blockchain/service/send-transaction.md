@@ -44,7 +44,11 @@ Azure Blockchain Development Kit verifies your development environment prerequis
 
 From the VS Code command palette, choose **Azure Blockchain: Show Welcome Page**.
 
-Azure Blockchain Development Kit runs a validation script that takes about a minute to run. If you are missing a required tool, a new tab named **Azure Blockchain Development Kit - Preview** lists the required apps to install and links to download the tools.
+Azure Blockchain Development Kit runs a validation script that takes about a minute to complete. You can view the output by selecting **Terminal > New Terminal**. In the terminal menu bar, select the **Output** tab and **Azure Blockchain** from the dropdown. Successful validation looks like the following image:
+
+![Valid dev environment](./media/send-transaction/valid-environment.png)
+
+ If you are missing a required tool, a new tab named **Azure Blockchain Development Kit - Preview** lists the required apps to install and links to download the tools.
 
 ![Dev kit required apps](./media/send-transaction/required-apps.png)
 
