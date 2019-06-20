@@ -202,7 +202,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "westus",
     "name": "jubilee",
     "offer": "Windows-10",
@@ -280,7 +280,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
@@ -535,8 +535,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Response**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+
+The regions and the values of the Azure Environment are listed below.
+
+ Regions | Azure Environment
+---------|-----------------
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure China](https://www.azure.cn/)                                                     | AzureChinaCloud
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### Getting the tags for the VM
 
@@ -652,7 +661,7 @@ For certain scenarios, when querying Instance Metadata Service with Failover Clu
 route print
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > The following example output from a Windows Server VM with Failover Cluster enabled contains only the IPv4 Route Table for simplicity.
 
 ```bat
