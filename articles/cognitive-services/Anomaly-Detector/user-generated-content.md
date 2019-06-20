@@ -1,3 +1,17 @@
+---
+title: Featured User-generated content for the Anomaly Detector API
+titleSuffix: Azure Cognitive Services
+description: Find featured content and discover how other people are thinking about and using the Anomaly Detector API.
+services: cognitive-services
+author: aahill
+manager: nitinme
+
+ms.service: cognitive-services
+ms.subservice: anomaly-detector
+ms.topic: overview
+ms.date: 06/17/2019
+ms.author: aahi
+---
 # Featured User-generated content for the Anomaly Detector API
 
 Use this article to discover how other customers are thinking about and using the Anomaly Detector API. The following resources were created by the community of Anomaly Detector users. They include technical blogs, open-source projects, and other contributions created by both Microsoft and third-party users. 
