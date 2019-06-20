@@ -59,11 +59,11 @@ Launch the [Azure Kinect Viewer](azure-kinect-viewer.md) to check that your Azur
 
 ## Verify body tracking
 
-Launch the `k4abt_simple-3d-viewer.exe` sample to check that the Body Tracking SDK is set up correctly. The simple 3d viewer sample uses the Sensor SDK and Body Tracking SDK to visualize body tracking. A pre-compiled binary for the sample is located in the `examples/bin` folder.
+Launch the `k4abt_simple-3d-viewer.exe` sample to check that the Body Tracking SDK is set up correctly. This simple Body Tracking 3D Viewer tool uses the Sensor SDK and Body Tracking SDK to visualize body tracking. A pre-compiled binary for the sample is located in the `examples/bin` folder.
 
 If everything is set up correctly, a window with a 3D point cloud and tracked bodies should appear.
 
-![Simple 3D Viewer](./media/quickstarts/samples-simple3dviewer.png)
+![Body Tracking 3D Viewer](./media/quickstarts/samples-simple3dviewer.png)
 
 ## Next steps
 
