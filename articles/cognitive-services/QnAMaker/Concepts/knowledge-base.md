@@ -52,14 +52,8 @@ The process is explained in the following table:
 |7|The new results are returned to the client application in ranked order.|
 |||
 
-The following featurizations are used to preprocess (step 2 above) the user query:
+Features include but are not limited to word-level semantic meaning, word-level importance in a corpus, and semantic similarity between two text strings.|
 
-|Feature|Purpose|
-|--|--|
-|WordNet|Word-level semantic features generated using WordNet matching with questions and answers. |
-|Term frequency-inverse document frequency (TF-IDF)|A statistical measure used to evaluate how important a word is to a document in a collection or corpus. The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus. |
-| C (stands for what? ) Deep Structured Semantic Model or Deep Semantic Similarity Model (CDSSM)|A deep neural network (DNN) modeling technique for representing text strings (sentences, queries, predicates, entity mentions, etc.) in a continuous semantic space and modeling semantic similarity between two text strings.|
-|||
 
 ## Next steps
 
