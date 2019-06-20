@@ -20,7 +20,7 @@ This article explains how the voluntary migration tool works. It also describes 
 ## Classic alert rules that will not be migrated
 
 > [!IMPORTANT]
-> Activity log alerts (including Service health alerts) and Log alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)
+> Activity log alerts (including Service health alerts) and Log alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
 Although the tool can migrate almost all [classic alert rules](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform), there are some exceptions. The following alert rules won't be migrated by using the tool (or during the automatic migration starting September 2019):
 
@@ -32,7 +32,7 @@ Although the tool can migrate almost all [classic alert rules](monitoring-classi
 If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. However, no new classic alerts can be created after August 2019.
 
 > [!NOTE]
-> Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic- alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens.
+> Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens.
 
 ### Guest metrics on virtual machines
 
@@ -84,11 +84,11 @@ The migration tool converts your classic alert rules to equivalent new alert rul
 - **Units**: Property of the metric on which alert is created. Some equivalent metrics have different units. The threshold is adjusted appropriately as needed. For example, if the original metric has seconds as units but equivalent new metric has milliSeconds as units, the original threshold is multiplied by 1000 to ensure same behavior.
 - **Window Size**: Defines the window over which metric data is aggregated to compare against the threshold. For standard `windowSize` values like 5mins, 15mins, 30mins, 1hour, 3hours, 6 hours, 12 hours, 1 day, there is no change made for equivalent new alert rule. For other values, the closest `windowSize` is chosen to be used. For most customers, there is no impact with this change. For a small percentage of customers, there might be a need to tweak the threshold to get exact same behavior.
 
-In the following sections, we detail the metrics that have an different, equivalent metric in the new system. Any metric that remain same for classic and new alert rules are not listed. You can find a list of metrics supported in the new system [here](metrics-supported.md).
+In the following sections, we detail the metrics that have a different, equivalent metric in the new system. Any metric that remains the same for classic and new alert rules is not listed. You can find a list of metrics supported in the new system [here](metrics-supported.md).
 
 ### Microsoft.StorageAccounts/services
 
-For Storage account services like blob, table, file and queue, the following metrics are mapped to equivalent metrics as shown below
+For Storage account services like blob, table, file and queue, the following metrics are mapped to equivalent metrics as shown below:
 
 | Metric in classic alerts | Equivalent metric in new alerts | Comments|
 |--------------------------|---------------------------------|---------|
@@ -142,7 +142,7 @@ For Application Insights, equivalent metrics are as shown below:
 | performanceCounter.io_data_bytes_per_sec.value | performanceCounters/processIOBytesPerSecond|   |
 | performanceCounter.number_of_exceps_thrown_per_sec.value | performanceCounters/exceptionsPerSecond|   |
 | performanceCounter.percentage_processor_time_normalized.value | performanceCounters/processCpuPercentage|   |
-| performanceCounter.percentage_processor_time.value | performanceCounters/processCpuPercentage| Threshold will need to be appropriately modified as original metric was across all cores and new metric is normalized to one core. Migration tool doesn't change thresholds  |
+| performanceCounter.percentage_processor_time.value | performanceCounters/processCpuPercentage| Threshold will need to be appropriately modified as original metric was across all cores and new metric is normalized to one core. Migration tool doesn't change thresholds.  |
 | performanceCounter.percentage_processor_total.value | performanceCounters/processorCpuPercentage|   |
 | performanceCounter.process_private_bytes.value | performanceCounters/processPrivateBytes|   |
 | performanceCounter.request_execution_time.value | performanceCounters/requestExecutionTime|   |
@@ -155,7 +155,7 @@ For Application Insights, equivalent metrics are as shown below:
 
 ### How equivalent action groups are created
 
-Classic alert rules had email, webhook, logic app and runbook actions tied to the alert rule itself. New alert rules use action groups which can be reused across multiple alert rules. The migration tool creates single action group for same actions irrespective of how many alert rules are using the action. Action groups created by the migration tool use the naming format 'Migrated_AG*'
+Classic alert rules had email, webhook, logic app and runbook actions tied to the alert rule itself. New alert rules use action groups which can be reused across multiple alert rules. The migration tool creates single action group for same actions irrespective of how many alert rules are using the action. Action groups created by the migration tool use the naming format 'Migrated_AG*'.
 
 ## Rollout phases
 
