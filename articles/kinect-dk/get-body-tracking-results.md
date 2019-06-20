@@ -95,7 +95,7 @@ Use this pattern for applications that do not need real-time results or cannot a
 
 Processing throughput may be limited.
 
-The `simple_sample_.exe` sample located in `examples/src` is an example of synchronous processing.
+The `simple_sample.exe` sample located in `examples/src` is an example of synchronous processing.
 
 ```C
 k4a_wait_result_t queue_capture_result = k4abt_tracker_queue_capture(tracker, sensor_capture, K4A_WAIT_INFINITE);
