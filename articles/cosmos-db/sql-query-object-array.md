@@ -8,7 +8,7 @@ ms.date: 05/31/2019
 ms.author: mjbrown
 
 ---
-# Working with arrays and objects
+# Working with arrays and objects in Azure Cosmos DB
 
 ## Arrays
 

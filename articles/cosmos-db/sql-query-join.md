@@ -8,7 +8,7 @@ ms.date: 05/17/2019
 ms.author: mjbrown
 
 ---
-# Joins
+# Joins in Azure Cosmos DB
 
 In a relational database, joins across tables are the logical corollary to designing normalized schemas. In contrast, the SQL API uses the denormalized data model of schema-free items, which is the logical equivalent of a *self-join*.
 

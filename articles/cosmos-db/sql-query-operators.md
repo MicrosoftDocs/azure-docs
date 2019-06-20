@@ -8,7 +8,8 @@ ms.date: 05/31/2019
 ms.author: mjbrown
 
 ---
-# Operators
+# Operators in Azure Cosmos DB
+
 This article details the various operators supported by Azure Cosmos DB.
 
 ## Equality and Comparison Operators

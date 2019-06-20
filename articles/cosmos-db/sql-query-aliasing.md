@@ -8,7 +8,7 @@ ms.date: 06/20/2019
 ms.author: mjbrown
 
 ---
-# Aliasing
+# Aliasing in Azure Cosmos DB
 
 You can explicitly alias values in queries. If a query has two properties with the same name, use aliasing to rename one or both of the properties so they're disambiguated in the projected result.
 

@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
 ---
-# Parameterized queries
+# Parameterized queries in Azure Cosmos DB
 
 Cosmos DB supports queries with parameters expressed by the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, and prevents accidental exposure of data through SQL injection.
 

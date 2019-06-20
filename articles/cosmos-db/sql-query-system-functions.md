@@ -2485,7 +2485,7 @@ The following scalar functions allow you to get the current UTC date and time in
  **Syntax**
   
 ```
-GetCurrentDateTime ()
+GETCURRENTDATETIME ()
 ```
   
   **Return Types**
@@ -2510,7 +2510,7 @@ GetCurrentDateTime ()
 
   **Remarks**
 
-  GetCurrentDateTime is a nondeterministic function. 
+  GETCURRENTDATETIME is a nondeterministic function. 
   
   The result returned is UTC (Coordinated Universal Time).
 
@@ -2519,7 +2519,7 @@ GetCurrentDateTime ()
   The following example shows how to get the current UTC Date Time using the GetCurrentDateTime built-in function.
   
 ```  
-SELECT GetCurrentDateTime() AS currentUtcDateTime
+SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 ```  
   
  Here is an example result set.
@@ -2536,7 +2536,7 @@ SELECT GetCurrentDateTime() AS currentUtcDateTime
  **Syntax**  
   
 ```  
-GetCurrentTimestamp ()  
+GETCURRENTTIMESTAMP ()  
 ```  
   
   **Return Types**  
@@ -2545,7 +2545,7 @@ GetCurrentTimestamp ()
 
   **Remarks**
 
-  GetCurrentTimestamp is a nondeterministic function. 
+  GETCURRENTTIMESTAMP is a nondeterministic function.
   
   The result returned is UTC (Coordinated Universal Time).
 
@@ -2554,7 +2554,7 @@ GetCurrentTimestamp ()
   The following example shows how to get the current timestamp using the GetCurrentTimestamp built-in function.
   
 ```  
-SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 ```  
   
  Here is an example result set.

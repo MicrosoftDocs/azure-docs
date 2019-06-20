@@ -8,7 +8,7 @@ ms.date: 05/31/2019
 ms.author: tisande
 
 ---
-# SQL query execution
+# Azure Cosmos DB SQL query execution
 
 Any language capable of making HTTP/HTTPS requests can call the Cosmos DB REST API. Cosmos DB also offers programming libraries for .NET, Node.js, JavaScript, and Python programming languages. The REST API and libraries all support querying through SQL, and the .NET SDK also supports [LINQ querying](sql-query-linq-to-sql.md).
 

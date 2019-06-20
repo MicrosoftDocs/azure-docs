@@ -9,7 +9,7 @@ ms.author: tisande
 
 ---
 
-##  <a id="constants"></a> Constants  
+# Azure Cosmos DB SQL query constants  
 
  A constant, also known as a literal or a scalar value, is a symbol that represents a specific data value. The format of a constant depends on the data type of the value it represents.  
   
@@ -25,7 +25,7 @@ ms.author: tisande
 |**Array**|A sequence of zero or more elements. Each element can be a value of any scalar data type, except **Undefined**.|  
 |**Object**|An unordered set of zero or more name/value pairs. Name is a Unicode string, value can be of any scalar data type, except **Undefined**.|  
   
-##  <a name="bk_syntax"></a> Syntax
+## <a name="bk_syntax"></a>Syntax
   
 ```sql  
 <constant> ::=  

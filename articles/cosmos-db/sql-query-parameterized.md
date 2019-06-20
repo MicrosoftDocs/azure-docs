@@ -8,9 +8,11 @@ ms.date: 05/31/2019
 ms.author: mjbrown
 
 ---
-## <a id="Parameterized-queries"></a>Parameterized queries
+# Parameterized queries in Azure Cosmos DB
 
 Cosmos DB supports queries with parameters expressed by the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, and prevents accidental exposure of data through SQL injection.
+
+## Examples
 
 For example, you can write a query that takes `lastName` and `address.state` as parameters, and execute it for various values of `lastName` and `address.state` based on user input.
 
@@ -44,18 +46,6 @@ The following example sets the TOP argument with a parameterized query:
 ```
 
 Parameter values can be any valid JSON: strings, numbers, Booleans, null, even arrays or nested JSON. Since Cosmos DB is schemaless, parameters aren't validated against any type.
-
-## <a id="References"></a>References
-
-- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-- [JSON](https://json.org/)
-- [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
-- Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
-- Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
-- Lu, Ooi, Tan. "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
-- Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: A Not-So-Foreign Language for Data Processing." *SIGMOD* (2008).
 
 ## Next steps
 

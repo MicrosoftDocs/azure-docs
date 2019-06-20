@@ -8,7 +8,7 @@ ms.date: 06/20/2019
 ms.author: mjbrown
 
 ---
-# Keywords
+# Keywords in Azure Cosmos DB
 This article details keywords which may be used in Azure Cosmos DB SQL queries.
 
 ## BETWEEN

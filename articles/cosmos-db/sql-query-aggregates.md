@@ -8,7 +8,7 @@ ms.date: 05/31/2019
 ms.author: mjbrown
 
 ---
-# Aggregate functions
+# Aggregate functions in Azure Cosmos DB
 
 Aggregate functions perform a calculation on a set of values in the SELECT clause and return a single value. For example, the following query returns the count of items within the `Families` container:
 
