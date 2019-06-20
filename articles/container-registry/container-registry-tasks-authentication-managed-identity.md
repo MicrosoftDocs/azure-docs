@@ -1,6 +1,6 @@
 ---
 title: Use a managed identity with Azure Container Registry Tasks
-description: Enable a managed identity or Azure Resources to an Azure Container Registry task to allow the task to access other Azure resources including other private container registries.
+description: Enable a managed identity for Azure Resources in an Azure Container Registry task to allow the task to access other Azure resources including other private container registries.
 services: container-registry
 author: dlepow
 
@@ -31,7 +31,7 @@ Managed identities are of two types:
 
 * *User-assigned identities*, which you can assign to multiple resources and persist for as long as you want. User-assigned identities are currently in preview.
 
-* A *system-managed identity*, which is unique to a specific resource such as an ACR task and lasts for the lifetime of that resource. 
+* A *system-managed identity*, which is unique to a specific resource such as an ACR task and lasts for the lifetime of that resource.
 
 After you set up an Azure resource with a managed identity, grant the identity access to another resource, just like any security principal. For example, assign a managed identity a role with pull, push and pull, or other permissions to a private container registry in Azure. (For a complete list of registry roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).) You can give an identity access to one or more resources.
 
@@ -56,7 +56,7 @@ This example task requires pulling a base image from another registry to build a
 
 ### Prepare base registry
 
-First, create a working directory and then create a Dockerfile named Dockerfile with the following content. This simple example builds a Node.js base image from a public image in Docker Hub.
+First, create a working directory and then create a file named Dockerfile with the following content. This simple example builds a Node.js base image from a public image in Docker Hub.
     
 ```bash
 echo FROM node:9-alpine > Dockerfile
@@ -83,7 +83,7 @@ steps:
 
 The build step uses the `Dockerfile-app` file in the [Azure-Samples/acr-build-helloworld-node](https://github.com/Azure-Samples/acr-build-helloworld-node.git) to build an image. The `--build-arg` references the base registry to pull the base image. When successfully built, the image is pushed to the registry used to run the task.
 
-Create the task *helloworldtask* by executing the following [az acr task create][az-acr-task-create] command. The task context is the local system, and the command references the file `testtask.yaml` in the working directory. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task. This task is set up so you have to trigger it manually. 
+Create the task *helloworldtask* by executing the following [az acr task create][az-acr-task-create] command. The task context is the local system, and the command references the file `helloworldtask.yaml` in the working directory. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task. This task is set up so you have to trigger it manually. 
 
 ```azurecli
 az acr task create \
@@ -110,13 +110,13 @@ In the command output, the `identity` section shows an identity of type `SystemA
 [...]
 ``` 
 
-Use the [az acr task show][az-acr-task-show] command to store the principalId in a variable, to use in later commands:
+Use the [az acr task show][az-acr-task-show] command to store the `principalId` in a variable, to use in later commands:
 
 ```azurecli
 principalID=$(az acr task show --name helloworldtask --registry myregistry --query identity.principalId --output tsv)
 ```
 
-### Give the identity pull permissions to the base registry
+### Give identity pull permissions to the base registry
 
 In this section, give the system-assigned identity permissions to pull from the base registry, *mybaseregistry*.
 
@@ -233,7 +233,7 @@ Use the [az keyvault create][az-keyvault-create] command to create a key vault. 
 az keyvault create --name mykeyvault --resource-group myResourceGroup --location eastus
 ```
 
-Store the required Docker Hub credentials in the key vault using the [az keyvault secret set][az-keyvault-secret-set] command. ThIn these commands, the values are passed in environment variables:
+Store the required Docker Hub credentials in the key vault using the [az keyvault secret set][az-keyvault-secret-set] command. In these commands, the values are passed in environment variables:
 
 ```azurecli
 # Store Docker Hub user name
