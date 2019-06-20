@@ -468,7 +468,7 @@ Did you happen to notice the 'SmokingAllowed' property?
 ```csharp
 [JsonIgnore]
 public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
-```csharp
+```
 
 The 'JsonIgnore' attribute on this property tells the 'FieldBuilder' to not serialize it to the index as a field.  This is a great way to create client-side calculated properties you can use as helpers in your application.  In this case, the 'SmokingAllowed' property reflects whether any 'Room' in the 'Rooms' allows smoking.  If all are false, it indicates that the entire 'Hotel' does not allow smoking.
 
