@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -19,7 +19,7 @@ Cognitive search is an AI feature in Azure Search, used to extract text from ima
 
 + **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks) or attributes like colors or image orientation. You can create text-representations of image content, searchable using all the query capabilities of Azure Search.
 
-![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search pipeline overview")
+![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive search pipeline overview")
 
 Cognitive skills in Azure Search are based on machine learning models in Cognitive Services APIs: [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) and [Text Analysis](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
@@ -55,7 +55,7 @@ Internally, the pipeline generates a collection of enriched documents. You can d
 
 [Search service REST api-version=2019-05-06](search-api-preview.md) extends skillsets with a knowledgeStore definition that provides an Azure storage connection and projections that describe how the enrichments are stored. 
 
-Adding a knowledge store to a skillset gives you the ability to project a representation of your enrichments for scenarios other than full text search. For more information, see [What is Knowledge Store](knowledge-store-concept-intro.md).
+Adding a knowledge store to a skillset gives you the ability to project a representation of your enrichments for scenarios other than full text search. For more information, see [What is knowledge store](knowledge-store-concept-intro.md).
 
 ### Step 3: Search index and query-based access
 
@@ -80,7 +80,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 | Natural language processing | Text processing for insights and information about text inputs. Language detection, sentiment analysis, and key phrase extraction are skills that fall under natural language processing.  | [Key Phrase Extraction Skill](cognitive-search-skill-keyphrases.md), [Language Detection Skill](cognitive-search-skill-language-detection.md), [Sentiment Analysis Skill](cognitive-search-skill-sentiment.md) |
 | Document cracking | The process of extracting or creating text content from non-text sources during indexing. Optical character recognition (OCR) is an example, but generally it refers to core indexer functionality as the indexer extracts content from application files. The data source providing source file location, and the indexer definition providing field mappings, are both key factors in document cracking. | See [Indexers](search-indexer-overview.md) |
 | Shaping | Consolidate text fragments into a larger structure, or conversely break down larger text chunks into a manageable size for further downstream processing. | [Shaper Skill](cognitive-search-skill-shaper.md), [Text Merger Skill](cognitive-search-skill-textmerger.md), [Text Split Skill](cognitive-search-skill-textsplit.md) |
-| Enriched documents | A transitory internal structure, not directly accessible in code. Enriched documents are generated during processing, but only final outputs are persisted in a search index. Field mappings determine which data elements are added to the index. | See [Accessing enriched documents](cognitive-search-tutorial-blob.md#access-enriched-document). |
+| Enriched documents | A transitory internal structure, generated during processing, with final output reflected in a search index. A skillset determines which enrichments are performed. Field mappings determine which data elements are added to the index. Optionally, you can create a knowledge store to persist and explore enriched documents using tools like Storage Explorer, Power BI, or any other tool that connects to Azure Blob storage. | See [Knowledge store (preview)](knowledge-store-concept-intro.md). |
 | Indexer |  A crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source for document cracking. For cognitive search enrichments, the indexer invokes a skillset, and contains the field mappings associating enrichment output to target fields in the index. The indexer definition contains all of the instructions and references for pipeline operations, and the pipeline is invoked when you run the indexer. | [Indexers](search-indexer-overview.md) |
 | Data Source  | An object used by an indexer to connect to an external data source of supported types on Azure. | See [Indexers](search-indexer-overview.md) |
 | Index | A persisted search index in Azure Search, built from an index schema that defines field structure and usage. | [Indexes in Azure Search](search-what-is-an-index.md) | 
@@ -139,5 +139,5 @@ For more information about specific questions or problems, see [Troubleshooting 
 + [Cognitive search documentation](cognitive-search-resources-documentation.md)
 + [Quickstart: Try cognitive search in a portal walkthrough](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn the cognitive search APIs](cognitive-search-tutorial-blob.md)
-+ [Knowledge Store overview](knowledge-store-concept-intro.md)
-+ [Knowledge Store walkthrough](knowledge-store-howto.md)
++ [Knowledge store overview](knowledge-store-concept-intro.md)
++ [Knowledge store walkthrough](knowledge-store-howto.md)

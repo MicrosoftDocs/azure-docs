@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/11/2019
 ms.author: juliako
 ---
 
@@ -48,6 +48,17 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 |[Storage Client-Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault|Not supported|
 
 <sup>1</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but will not allow creation of new ones.
+
+## Storage account errors
+
+The "Disconnected" state for a Media Services account indicates that the account no longer has access to one or more of the attached storage accounts due to a change in storage access keys. Up-to-date storage access keys are required by Media Services to perform many tasks in the account.
+
+The following are the primary scenarios that would result in a Media Services account not having access to attached storage accounts. 
+
+|Issue|Solution|
+|---|---|
+|The Media Services account or attached storage account(s) were migrated to separate subscriptions. |Migrate the storage account(s) or Media Services account so that they are all in the same subscription. |
+|The Media Services account is using an attached storage account in a different subscription as it was an early Media Services account where this was supported. All early Media Services accounts were converted to modern Azure Resources Manager (ARM) based accounts and will have a Disconnected state. |Migrate the storage account or Media Services account so that they are all in the same subscription.|
 
 ## Next steps
 

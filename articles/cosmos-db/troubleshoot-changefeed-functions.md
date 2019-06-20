@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot issues when using Azure Cosmos DB Trigger in Az
 description: Common issues, workarounds, and diagnostic steps, when using the Azure Cosmos DB Trigger with Azure Functions
 author: ealsur
 ms.service: cosmos-db
-ms.date: 04/16/2019
+ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -22,17 +22,19 @@ The Azure Cosmos DB Trigger and bindings depend on the extension packages over t
 
 This article will always refer to Azure Functions V2 whenever the runtime is mentioned, unless explicitly specified.
 
-## Consuming the Cosmos DB SDK separately from the Trigger and bindings
+## Consume the Azure Cosmos DB SDK independently
 
 The key functionality of the extension package is to provide support for the Azure Cosmos DB trigger and bindings. It also includes the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), which is helpful if you want to interact with Azure Cosmos DB programmatically without using the trigger and bindings.
 
-If want to use the Azure Cosmos DB SDK, make sure that you don't add to your project another NuGet package reference. Instead, **let the SDK reference resolve through the Azure Functions' Extension package**.
+If want to use the Azure Cosmos DB SDK, make sure that you don't add to your project another NuGet package reference. Instead, **let the SDK reference resolve through the Azure Functions' Extension package**. Consume the Azure Cosmos DB SDK separately from the trigger and bindings
 
 Additionally, if you are manually creating your own instance of the [Azure Cosmos DB SDK client](./sql-api-sdk-dotnet-core.md), you should follow the pattern of having only one instance of the client [using a Singleton pattern approach](../azure-functions/manage-connections.md#documentclient-code-example-c). This process will avoid the potential socket issues in your operations.
 
-## Common known scenarios and workarounds
+## Common scenarios and workarounds
 
-### Azure Function fails with error message "Either the source collection 'collection-name' (in database 'database-name') or the lease collection 'collection2-name' (in database 'database2-name') does not exist. Both collections must exist before the listener starts. To automatically create the lease collection, set 'CreateLeaseCollectionIfNotExists' to 'true'"
+### Azure Function fails with error message collection doesn't exist
+
+Azure Function fails with error message "Either the source collection 'collection-name' (in database 'database-name') or the lease collection 'collection2-name' (in database 'database2-name') does not exist. Both collections must exist before the listener starts. To automatically create the lease collection, set 'CreateLeaseCollectionIfNotExists' to 'true'"
 
 This means that either one or both of the Azure Cosmos containers required for the trigger to work do not exist or are not reachable to the Azure Function. **The error itself will tell you which Azure Cosmos database and containers is the trigger looking for** based on your configuration.
 
@@ -73,13 +75,20 @@ If some changes are missing on the destination, this could mean that is some err
 
 In this scenario, the best course of action is to add `try/catch blocks` in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). 
 
-> **The Azure Cosmos DB Trigger, by default, won't retry a batch of changes if there was an unhandled exception** during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
+> [!NOTE]
+> The Azure Cosmos DB Trigger, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
 
 If, you find that some changes were not received at all by your trigger, the most common scenario is that there is **another Azure Function running**. It could be another Azure Function deployed in Azure or an Azure Function running locally on a developer's machine that has **exactly the same configuration** (same monitored and lease containers), and this Azure Function is stealing a subset of the changes you would expect your Azure Function to process.
 
 Additionally, the scenario can be validated, if you know how many Azure Function App instances you have running. If you inspect your leases container and count the number of lease items within, the distinct values of the `Owner` property in them should be equal to the number of instances of your Function App. If there are more Owners than the known Azure Function App instances, it means that these extra owners are the one "stealing" the changes.
 
 One easy way to workaround this situation, is to apply a `LeaseCollectionPrefix/leaseCollectionPrefix` to your Function with a new/different value or, alternatively, test with a new leases container.
+
+### Binding can only be done with IReadOnlyList<Document> or JArray
+
+This error happens if your Azure Functions project (or any referenced project) contains a manual NuGet reference to the Azure Cosmos DB SDK with a different version than the one provided by the [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
+
+To workaround this situation, remove the manual NuGet reference that was added and let the Azure Cosmos DB SDK reference resolve through the Azure Functions Cosmos DB Extension package.
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor - Zero instrumentation application monitoring for Kubernetes hosted apps | Microsoft Docs
-description: Zero instrumentation application monitoring for Kubernetes hosted apps is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster by utilizing service mesh technology called Istio.
+title: Use Application Insights to monitor your Azure Kubernetes Service (AKS) or other Kubernetes hosted applications - Azure Monitor | Microsoft Docs
+description: Azure Monitor uses service mesh technology, Istio, on your Kubernetes cluster to provide application monitoring for any Kubernetes hosted application. This allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your cluster.
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -10,7 +10,7 @@ ms.date: 04/25/2019
 ms.author: alkaplan
 ---
 
-# Zero instrumentation application monitoring for Kubernetes hosted apps
+# Zero instrumentation application monitoring for Kubernetes hosted applications
 
 > [!IMPORTANT]
 > This functionality is currently in public preview.

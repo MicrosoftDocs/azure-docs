@@ -54,7 +54,7 @@ For information about how to use the gateway with other services, see these arti
 ## Prerequisites
 
 * A [work or school account](../active-directory/fundamentals/sign-up-organization.md) that has an 
-[Azure subscription](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+[Azure subscription](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) 
 
   During gateway installation, you sign in to this account so you can 
   associate the gateway installation with your Azure subscription. 

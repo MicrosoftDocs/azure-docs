@@ -1,13 +1,13 @@
 ---
 title: Instead of ETL, design ELT for Azure SQL Data Warehouse | Microsoft Docs
-description: Instead of ETL, design an Extract, Load, and Transform (ELT) process for loading data or Azure SQL Data Warehouse.  
+description: Instead of ETL, design an Extract, Load, and Transform (ELT) process for loading data or Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: design
-ms.date: 04/12/2019
+ms.subservice: load data
+ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -44,8 +44,32 @@ Getting data out of your source system depends on the storage location.  The goa
 
 ### PolyBase external file formats
 
-PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addition to the delimited text files, it loads from the Hadoop file formats RC File, ORC, and Parquet. PolyBase can also load data from Gzip and Snappy compressed files. PolyBase currently does not support extended ASCII, fixed-width format, and nested formats such as WinZip, JSON, and XML. If you are exporting from SQL Server, you can use [bcp command-line tool](/sql/tools/bcp-utility) to export the data into delimited text files.
+PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addition to the delimited text files, it loads from the Hadoop file formats RC File, ORC, and Parquet. PolyBase can also load data from Gzip and Snappy compressed files. PolyBase currently does not support extended ASCII, fixed-width format, and nested formats such as WinZip, JSON, and XML. If you are exporting from SQL Server, you can use [bcp command-line tool](/sql/tools/bcp-utility) to export the data into delimited text files. The Parquet to SQL DW data type mapping is the following:
 
+| **Parquet Data Type** |                      **SQL Data Type**                       |
+| :-------------------: | :----------------------------------------------------------: |
+|        tinyint        |                           tinyint                            |
+|       smallint        |                           smallint                           |
+|          int          |                             int                              |
+|        bigint         |                            bigint                            |
+|        boolean        |                             bit                              |
+|        double         |                            float                             |
+|         float         |                             real                             |
+|        double         |                            money                             |
+|        double         |                          smallmoney                          |
+|        string         |                            nchar                             |
+|        string         |                           nvarchar                           |
+|        string         |                             char                             |
+|        string         |                           varchar                            |
+|        binary         |                            binary                            |
+|        binary         |                          varbinary                           |
+|       timestamp       |                             date                             |
+|       timestamp       |                        smalldatetime                         |
+|       timestamp       |                          datetime2                           |
+|       timestamp       |                           datetime                           |
+|       timestamp       |                             time                             |
+|       date        | 1) Load as int and cast to date </br> 2) [Use the Azure Databricks SQL DW connector](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) with </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**update coming soon**) |
+|        decimal        | [Use the Azure Databricks SQL DW connector](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) with </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**update coming soon**) |
 
 ## 2. Land the data into Azure Blob storage or Azure Data Lake Store
 

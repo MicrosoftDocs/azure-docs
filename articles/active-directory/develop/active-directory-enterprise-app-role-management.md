@@ -4,7 +4,7 @@ description: Learn how to configure the role claim issued in the SAML token for 
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74

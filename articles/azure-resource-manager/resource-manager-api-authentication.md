@@ -1,16 +1,9 @@
 ---
 title: Azure Active Directory authentication and Resource Manager | Microsoft Docs
 description: A developer's guide to authentication with the Azure Resource Manager API and Azure Active Directory for integrating an app with other Azure subscriptions.
-services: azure-resource-manager,active-directory
-documentationcenter: na
 author: dushyantgill
-
-ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 04/05/2019
 ms.author: dugill
 

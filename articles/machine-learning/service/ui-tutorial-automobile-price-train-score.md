@@ -31,8 +31,8 @@ In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial series, yo
 > A completed version of this tutorial is available as a sample experiment.
 > From the Experiments page, go to **Add New** > **Sample 1 - Regression: Automobile Price Prediction(Basic)**
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Build-zero-code-machine-learning-models-with-Azure-Machine-Learning-service/player]
 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
 ## Create a workspace
 
@@ -74,9 +74,9 @@ If you successfully reused your quickstart experiment, skip the next section to 
 
 If you didn't complete the quickstart, follow these steps to quickly create a new experiment that imports and cleans the automobile data set.
 
-1. Create a new experiment by selecting **+NEW** at the bottom of the visual interface window.
+1. Create a new experiment by selecting **+New** at the bottom of the visual interface window.
 
-1. Select **EXPERIMENT** >  **Blank Experiment**.
+1. Select **Experiments** >  **Blank Experiment**.
 
 1. Select the default experiment name **"Experimented Created on ...**" at the top of the canvas and rename it to something meaningful. For example, **Automobile price prediction**. The name doesn't need to be unique.
 
@@ -163,7 +163,7 @@ Now that you've trained the model using 70 percent of your data, you can use it 
 
 1. Type **score model** in the search box to find the **Score Model** module and drag the module to the experiment canvas. Connect the output of the **Train Model** module to the left input port of **Score Model**. Connect the test data output (right port) of the **Split Data** module to the right input port of **Score Model**.
 
-1. Type **evaluate** in the search box to find the **Evaluate Model** and drag the it module to the experiment canvas. Connect the output of the **Score Model** module to the left input of **Evaluate Model**. The final experiment should look something like this:
+1. Type **evaluate** in the search box to find the **Evaluate Model** and drag the module to the experiment canvas. Connect the output of the **Score Model** module to the left input of **Evaluate Model**. The final experiment should look something like this:
 
     ![Screenshot showing the final correct configuration of the experiment.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
 

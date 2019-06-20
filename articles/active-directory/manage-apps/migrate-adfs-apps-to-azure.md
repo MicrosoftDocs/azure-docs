@@ -2,8 +2,8 @@
 title: 'Move apps from AD FS to Azure AD. | Microsoft Docs'
 description: This article is intended to help organizations understand how to move applications to Azure AD, with a focus on federated SaaS applications.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
 ---
 
@@ -41,7 +41,7 @@ Many organizations have SaaS or custom line-of-business (LOB) apps federated dir
 For an organization that already uses AD FS, Ping, or another on-premises authentication provider, moving apps to Azure AD enables the following benefits:
 
 **More secure access**
-- Configure granular per-application access controls, including Azure Multi-Factor Authentication, by using [Azure AD conditional access](../active-directory-conditional-access-azure-portal.md). The policies can be applied to SaaS and custom apps in the same way that you might be doing today for Office 365.
+- Configure granular per-application access controls, including Azure Multi-Factor Authentication, by using [Azure AD Conditional Access](../active-directory-conditional-access-azure-portal.md). The policies can be applied to SaaS and custom apps in the same way that you might be doing today for Office 365.
 - To detect threats and help protect sign-on based on machine learning and heuristics that identify risky traffic, take advantage of [Azure AD Identity Protection](../active-directory-identityprotection.md).
 
 **Azure AD B2B collaboration**
@@ -150,7 +150,7 @@ Apps that you can move easily today include SAML 2.0 apps that use the standard 
 - Custom claims. For information about supported claims mappings, see [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) and [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 In addition to custom claims and **NameID** elements, configurations that require additional configuration steps in Azure AD as part of the migration are:
-- Custom authorization or Multi-Factor Authentication rules in AD FS. You configure them by using the [Azure AD conditional access](../active-directory-conditional-access-azure-portal.md) feature.
+- Custom authorization or Multi-Factor Authentication rules in AD FS. You configure them by using the [Azure AD Conditional Access](../active-directory-conditional-access-azure-portal.md) feature.
 - Apps with multiple SAML endpoints. You configure them in Azure AD by using PowerShell. (This capability is not available in the portal.)
 - WS-Federation apps such as SharePoint apps that require SAML version 1.1 tokens. You must configure them manually by using PowerShell.
 

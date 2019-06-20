@@ -3,8 +3,8 @@ title: Use Microsoft identity platform to access secure resources without user i
 description: Build web applications by using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

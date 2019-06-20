@@ -4,7 +4,7 @@ description: Learn how to clear the token cache using the Microsoft Authenticati
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

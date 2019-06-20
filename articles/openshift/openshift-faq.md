@@ -2,8 +2,8 @@
 title: Frequently asked questions for Azure Red Hat OpenShift | Microsoft Docs
 description: Here are answers to common questions about Microsoft Azure Red Hat OpenShift
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
@@ -13,6 +13,16 @@ ms.date: 05/08/2019
 # Azure Red Hat OpenShift FAQ
 
 This article addresses frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
+
+## How do I get started?
+
+Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes.
+
+If you are an Azure customer,[purchase Azure Red Hat OpenShift reserved instances](https://aka.ms/openshift/buy) through the Azure portal. After purchasing, your subscription will be activated within 24 hours, after which you'll be able to provision clusters.
+
+If you are not an Azure customer, [contact sales](https://aka.ms/openshift/contact-sales) and fill out the sales form at the bottom of the page to start the process.
+
+Refer to the [Azure Red Hat OpenShift pricing page](https://aka.ms/openshift/pricing) for more information.
 
 ## Which Azure regions are supported?
 
@@ -35,9 +45,13 @@ See [Azure Red Hat OpenShift virtual machine sizes](supported-resources.md#virtu
 
 By default, there is encryption at rest. The Azure Storage platform automatically encrypts your data before persisting it, and decrypts the data before retrieval. See [Azure Storage Service Encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) for details.
 
-## Can I use Prometheus/Grafana to monitor containers and manage capacity?
+## Can I use Prometheus/Grafana to monitor my applications?
 
-No, not at the current time.
+Yes, you can deploy Prometheus in your namespace and monitor applications in your namespace.
+
+## Can I use Prometheus/Grafana to monitor metrics related to cluster health and capacity?
+
+No, not at current time.
 
 ## Is the Docker registry available externally so I can use tools such as Jenkins?
 
@@ -63,3 +77,11 @@ No. All nodes in an Azure Red Hat OpenShift cluster must originate from the same
 ## Are master and infrastructure nodes abstracted away as they are with Azure Kubernetes Service (AKS)?
 
 No. All resources, including the cluster master, run in your customer subscription. These types of resources are put in a read-only resource group.
+
+## Is Open Service Broker for Azure (OSBA) supported?
+
+Yes. You can use OSBA with Azure Red Hat OpenShift. See [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) for more information.
+
+## I am trying to peer into a virtual network in a different subscription but getting `Failed to get vnet CIDR` error.
+
+In the subscription that has the virtual network, make sure to register `Microsoft.ContainerService` provider with `az provider register -n Microsoft.ContainerService --wait` 

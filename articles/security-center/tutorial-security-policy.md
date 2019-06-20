@@ -15,7 +15,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
-ms.author: monhaber
+ms.author: v-mohabe
 ---
 
 # Working with security policies

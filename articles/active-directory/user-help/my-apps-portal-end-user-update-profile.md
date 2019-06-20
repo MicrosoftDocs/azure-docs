@@ -52,7 +52,7 @@ Update and manage your work or school account information from the **Profile** p
 
 - Provide additional security verification information.
 
-- Review your organization’s Terms of Use.
+- Review your organization’s terms of use.
 
 - Sign out of everywhere.
 

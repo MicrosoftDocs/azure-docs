@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/09/2019
 ms.author: mbullwin
 
 ---
@@ -81,6 +81,9 @@ This would be possible by writing a [telemetry processor plugin](../../azure-mon
 Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 90 days. If you need to keep data longer than that, you can use [continuous export](../../azure-monitor/app/export-telemetry.md) to copy it to a storage account.
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 90 days.
+
+> [!NOTE]
+> Variable retention for Application Insights is in Preview now. Learn more [here](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031). 
 
 [Debug snapshots](../../azure-monitor/app/snapshot-debugger.md) are stored for fifteen days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 

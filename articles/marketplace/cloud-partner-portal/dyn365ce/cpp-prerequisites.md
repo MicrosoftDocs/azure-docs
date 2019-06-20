@@ -35,7 +35,7 @@ Your Dynamics 365 for Customer Engagement application must conform to the [Micro
 
 The business requirements include the following procedural, contractual, and legal obligations:
 
-* You must be registered on the [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) or be a registered Cloud Marketplace Publisher. If you’re not registered, follow the steps in [Become a Cloud Marketplace Publisher](../../become-publisher.md).  (For the third step, instead use the [AppSource partner nomination form](https://appsource.microsoft.com/partners/signup)). 
+* You must be registered on the [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) or be a registered Cloud Marketplace Publisher. If you’re not registered, follow the steps in [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).  (For the third step, instead use the [AppSource partner nomination form](https://appsource.microsoft.com/partners/signup)). 
 
     >[!NOTE]
     >You should use the same Microsoft Developer Center registration account to sign in to the Cloud Partner Portal. You should have only one Microsoft account for your Azure Marketplace offerings. This account shouldn’t be specific to individual services or offers.

@@ -1,5 +1,5 @@
 ---
-title: 'How to get started with Knowledge Store (preview) - Azure Search'
+title: 'How to get started with knowledge store (preview) - Azure Search'
 description: Learn the steps for sending enriched documents created by AI indexing pipelines in Azure Search to a knowledge store in your Azure storage account. From there, you can view, reshape, and consume enriched documents in Azure Search and in other applications. 
 manager: cgronlun
 author: HeidiSteen
@@ -9,9 +9,13 @@ ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: heidist
 ---
-# How to get started with Knowledge Store
+# How to get started with knowledge store in Azure Search
 
-[Knowledge Store](knowledge-store-concept-intro.md) is a new preview feature in Azure Search that saves AI enrichments created in an indexing pipeline for knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.
+> [!Note]
+> Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
+>
+
+[Knowledge store](knowledge-store-concept-intro.md) saves AI enrichments created during indexing to your Azure storage account for downstream knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.
 
 A knowledge store is defined by a skillset. For regular Azure Search full-text search scenarios, the purpose of a skillset is providing AI enrichments to make content more searchable. For knowledge mining scenarios, the role of a skillset is creating, populating, and storing multiple data structures for analysis or modeling in other apps and processes.
 

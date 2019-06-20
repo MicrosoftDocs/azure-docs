@@ -119,16 +119,16 @@ To configure Azure AD single sign-on with Appinux, perform the following steps:
 
 	| **Name** | **Namespace** | **Source Attribute**|
 	| ---------|---------------| --------- |
-	| `givenname` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
-	| `surname` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
-	| `emailaddress` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
-	| `name` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
+	| `givenname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
+	| `surname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
+	| `emailaddress` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
+	| `name` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
 	| `UserType` | `http://bcv.appinux.com/claims` | `Provide the value as per your organization` |
 	| `Tag` | `http://appinux.com/Tag` | `Provide the value as per your organization` |
 	| `Role` | `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` | `user.assignedroles` |
-	| `email` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
+	| `email` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
 	| `wanshort` | `http://appinux.com/windowsaccountname2` | `extractmailprefix([userprincipalname])` |
-	| `nameidentifier` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
+	| `nameidentifier` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -236,4 +236,4 @@ When you click the Appinux tile in the Access Panel, you should be automatically
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

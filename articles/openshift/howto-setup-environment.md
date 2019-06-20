@@ -3,9 +3,9 @@ title: Set up your Azure Red Hat OpenShift development environment | Microsoft D
 description: Here are the prerequisites for working with Microsoft Azure Red Hat OpenShift.
 services: openshift
 keywords:  red hat openshift setup set up
-author: TylerMSFT
-ms.author: twhitney
-ms.date: 05/06/2019
+author: jimzim
+ms.author: jzim
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
@@ -17,31 +17,33 @@ manager: jeconnoc
 To build and run Microsoft Azure Red Hat OpenShift applications, you'll need to:
 
 * Purchase Azure virtual machine reserved instances.
-* Install version 2.0.64 (or higher) of the Azure CLI (or use the Azure Cloud Shell).
-* Register for the `openshiftmanagedcluster` feature and associated resource providers.
+* Install version 2.0.65 (or higher) of the Azure CLI (or use the Azure Cloud Shell).
+* Register for the `AROGA` feature and associated resource providers.
 * Create an Azure Active Directory (Azure AD) tenant.
 * Create an Azure AD application object.
 * Create an Azure AD user.
 
 The following instructions will walk you through all of these prerequisites.
 
-## Purchase Azure virtual machine reserved instances
+## Purchase Azure Red Hat OpenShift application nodes reserved instances
 
-Before you can use Azure Red Hat OpenShift, you'll need to purchase Azure virtual machine reserved instances.
+Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes, after which you'll be able to provision clusters.
 
-If you are an Azure customer, here's how to [purchase Azure virtual machine reserved instances](https://aka.ms/openshift/buy). A reservation reduces your spend by pre-paying for fully managed Azure services. Refer to [*What are Azure Reservations*](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) to learn more about reservations and how they save you money.
+If you are an Azure customer, [purchase Azure Red Hat OpenShift reserved instances](https://aka.ms/openshift/buy) through the Azure portal. After purchasing, your subscription will be activated within 24 hours.
 
 If you are not an Azure customer, [contact sales](https://aka.ms/openshift/contact-sales) and fill out the sales form at the bottom of the page to start the process.
 
+Refer to the [Azure Red Hat OpenShift pricing page](https://aka.ms/openshift/pricing) for more information.
+
 ## Install the Azure CLI
 
-Azure Red Hat OpenShift requires version 2.0.64 or higher of the Azure CLI. If you've already installed the Azure CLI, you can check which version you have by running:
+Azure Red Hat OpenShift requires version 2.0.65 or higher of the Azure CLI. If you've already installed the Azure CLI, you can check which version you have by running:
 
 ```bash
 az --version
 ```
 
-The first line of output will have the CLI version, for example `azure-cli (2.0.64)`.
+The first line of output will have the CLI version, for example `azure-cli (2.0.65)`.
 
 Here are instructions for [installing the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you require a new installation or an upgrade.
 
@@ -49,41 +51,53 @@ Alternately, you can use the [Azure Cloud Shell](https://docs.microsoft.com/azur
 
 ## Register providers and features
 
-The `Microsoft.ContainerService openshiftmanagedcluster` feature, `Microsoft.Solutions`, and `Microsoft.Network` providers must be registered to your subscription manually before deploying your first Azure Red Hat OpenShift cluster.
+The `Microsoft.ContainerService AROGA` feature, `Microsoft.Solutions`, `Microsoft.Compute`, `Microsoft.Storage`, `Microsoft.KeyVault` and `Microsoft.Network` providers must be registered to your subscription manually before deploying your first Azure Red Hat OpenShift cluster.
 
 To register these providers and features manually, use the following instructions from a Bash shell if you've installed the CLI, or from the Azure Cloud Shell (Bash) session in your Azure portal:
-.
+
 1. If you have multiple Azure subscriptions, specify the relevant subscription ID:
 
     ```bash
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-2. Register the Microsoft.ContainerService openshiftmanagedcluster feature:
+1. Register the Microsoft.ContainerService AROGA feature:
 
     ```bash
-    az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
+    az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
-3. Register the Microsoft.Solutions provider:
+1. Register the Microsoft.Storage provider:
+
+    ```bash
+    az provider register -n Microsoft.Storage --wait
+    ```
+    
+1. Register the Microsoft.Compute provider:
+
+    ```bash
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Register the Microsoft.Solutions provider:
 
     ```bash
     az provider register -n Microsoft.Solutions --wait
     ```
 
-4. Register the Microsoft.Network provider:
+1. Register the Microsoft.Network provider:
 
     ```bash
     az provider register -n Microsoft.Network --wait
     ```
 
-5. Register the Microsoft.KeyVault provider:
+1. Register the Microsoft.KeyVault provider:
 
     ```bash
     az provider register -n Microsoft.KeyVault --wait
     ```
 
-6. Refresh the registration of the Microsoft.ContainerService resource provider:
+1. Refresh the registration of the Microsoft.ContainerService resource provider:
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait
@@ -95,11 +109,11 @@ The Azure Red Hat OpenShift service requires an associated Azure Active Director
 
 If you don't have an Azure AD to use as the tenant for your Azure Red Hat OpenShift cluster, or you wish to create a tenant for testing, follow the instructions in [Create an Azure AD tenant for your Azure Red Hat OpenShift cluster](howto-create-tenant.md) before continuing with this guide.
 
-## Create an Azure AD application object and user
+## Create an Azure AD user, security group and application object
 
-Azure Red Hat OpenShift requires permissions to perform tasks on your cluster, such as configuring storage. These permissions are represented through a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) and are created when you register an Azure AD application representing the workload you intend to host on Azure Red Hat OpenShift. You'll also want to create a new Active Directory user for testing apps running on your Azure Red Hat OpenShift cluster.
+Azure Red Hat OpenShift requires permissions to perform tasks on your cluster, such as configuring storage. These permissions are represented through a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). You'll also want to create a new Active Directory user for testing apps running on your Azure Red Hat OpenShift cluster.
 
-Follow the instructions in [Create an Azure AD app object and user](howto-aad-app-configuration.md) to learn how to create a service principal, generate a client secret and authentication callback URL for your app, and create a new Active Directory user for testing.
+Follow the instructions in [Create an Azure AD app object and user](howto-aad-app-configuration.md) to create a service principal, generate a client secret and authentication callback URL for your app, and create a new Azure AD security group and user to access the cluster.
 
 ## Next steps
 

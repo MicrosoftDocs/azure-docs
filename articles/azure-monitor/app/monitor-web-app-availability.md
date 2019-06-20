@@ -170,7 +170,7 @@ Select **View test details** from a specific test to see its scatter plot and sp
 
 You might want to disable availability tests or the alert rules associated with them while you are performing maintenance on your service.
 
-![Disable a web test](./media/monitor-web-app-availability/6disable.png)
+![Disable a web test](./media/monitor-web-app-availability/6disable.png)  
 ![Edit test](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>If you see failures

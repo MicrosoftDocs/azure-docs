@@ -150,8 +150,7 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 
 ### Access log
 
-The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as shown in the following example:
-
+The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as shown in the following example for v1:
 
 |Value  |Description  |
 |---------|---------|
@@ -188,6 +187,58 @@ The access log is generated only if you've enabled it on each Application Gatewa
         "sentBytes": 553,
         "timeTaken": 205,
         "sslEnabled": "off"
+    }
+}
+```
+For Application Gateway and WAF v2, the logs show a little more information:
+
+|Value  |Description  |
+|---------|---------|
+|instanceId     | Application Gateway instance that served the request.        |
+|clientIP     | Originating IP for the request.        |
+|clientPort     | Originating port for the request.       |
+|httpMethod     | HTTP method used by the request.       |
+|requestUri     | URI of the received request.        |
+|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
+|UserAgent     | User agent from the HTTP request header.        |
+|httpStatus     | HTTP status code returned to the client from Application Gateway.       |
+|httpVersion     | HTTP version of the request.        |
+|receivedBytes     | Size of packet received, in bytes.        |
+|sentBytes| Size of packet sent, in bytes.|
+|timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|sslEnabled| Whether communication to the back-end pools used SSL. Valid values are on and off.|
+|sslCipher| Cipher suite being used for SSL communication (if SSL is enabled).|
+|sslProtocol| SSL protocol being used (if SSL is enabled).|
+|serverRouted| The backend server that application gateway routes the request to.|
+|serverStatus| HTTP status code of the backend server.|
+|serverResponseLatency| Latency of the response from the backend server.|
+|host| Address listed in the host header of the request.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off"
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "52.231.230.101"
     }
 }
 ```

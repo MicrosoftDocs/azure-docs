@@ -84,7 +84,7 @@ metadata:
   namespace: kube-system
 data:
   test.server: | # you may select any name here, but it must end with the .server file extension
-    .:53 {
+    <domain to be rewritten>.com:53 {
         proxy foo.com 1.1.1.1
     }
 ```
@@ -190,5 +190,7 @@ To learn more about core network concepts, see [Network concepts for application
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [coredns hosts]: https://coredns.io/plugins/hosts/
 
-<!-- LINKS - external -->
+<!-- LINKS - internal -->
 [concepts-network]: concepts-network.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md

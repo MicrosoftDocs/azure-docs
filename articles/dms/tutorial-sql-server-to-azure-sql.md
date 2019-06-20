@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/14/2019
 ---
 
 # Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS
@@ -19,6 +19,7 @@ You can use the Azure Database Migration Service to migrate the databases from a
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
+>
 > - Assess your on-premises database by using the Data Migration Assistant.
 > - Migrate the sample schema by using the Data Migration Assistant.
 > - Create an instance of the Azure Database Migration Service.
@@ -58,7 +59,7 @@ To complete this tutorial, you need to:
 - Open your Windows firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 - If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
 - When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
-- Create a server-level IP [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure SQL Database server to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the VNET used for the Azure Database Migration Service.
+- Create a server-level IP [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure SQL Database server to allow the Azure Database Migration Service access to the target databases. Provide the subnet range of the VNet used for the Azure Database Migration Service.
 - Ensure that the credentials used to connect to source SQL Server instance have [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permissions.
 - Ensure that the credentials used to connect to target Azure SQL Database instance have CONTROL DATABASE permission on the target Azure SQL databases.
 
@@ -74,7 +75,7 @@ Before you can migrate data from an on-premises SQL Server instance to a single 
    - Check database compatibility
    - Check feature parity
 
-     Both report types are selected by default.
+    Both report types are selected by default.
 
 3. In the Data Migration Assistant, on the **Options** screen, select **Next**.
 4. On the **Select sources** screen, in the **Connect to a server** dialog box, provide the connection details to your SQL Server, and then select **Connect**.

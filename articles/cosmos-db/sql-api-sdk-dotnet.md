@@ -44,6 +44,26 @@ ms.author: sngun
 * Support for streams. 
 * Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned. 
 
+### <a name="2.5.0"/>2.5.0
+
+* Allow write requests to fallback to a different region if the original one fails
+* Add session retry policy for write request
+* Fixes tracing race condition for queries which caused empty pages
+
+### <a name="2.4.0"/>2.4.0
+
+* SDK’s System.Net.Http version matches what is defined in the NuGet package
+* Increased decimal precision size for LINQ queries.
+* Added new classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType and PartitionKeyDefinitionVersion
+* Added TimeToLivePropertyPath to DocumentCollection
+* Added CompositeIndexes and SpatialIndexes to IndexPolicy
+* Added Version to PartitionKeyDefinition
+* Added None to PartitionKey
+
+### <a name="2.3.0"/>2.3.0
+
+ * Added IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection and MaxTcpConnectionsPerEndpoint to ConnectionPolicy.
+
 ### <a name="2.2.3"/>2.2.3
 
 * Diagnostics improvements
@@ -357,6 +377,9 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.5.0](#2.5.0) |June  18, 2019 |--- |
+| [2.4.0](#2.4.0) |May  05, 2019 |--- |
+| [2.3.0](#2.3.0) |April  04, 2019 |--- |
 | [2.2.3](#2.2.3) |February 11, 2019 |--- |
 | [2.2.2](#2.2.2) |February 06, 2019 |--- |
 | [2.2.1](#2.2.1) |December 24, 2018 |--- |
