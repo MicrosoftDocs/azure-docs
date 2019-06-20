@@ -219,3 +219,6 @@ In this article, you trained and registered a PyTorch model on Azure Machine Lea
 
 > [!div class="nextstepaction"]
 > [How and where to deploy models](how-to-deploy-and-where.md)
+* [Track run metrics during training](how-to-track-experiments.md)
+* [Tune hyperparameters](how-to-tune-hyperparameters.md)
+* [Deploy a trained model](how-to-deploy-and-where.md)
