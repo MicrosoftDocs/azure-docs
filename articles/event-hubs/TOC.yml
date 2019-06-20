@@ -28,8 +28,20 @@
     items:
     - name: .NET Core
       href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Java
       href: event-hubs-java-get-started-send.md
+    - name: Python
+      href: event-hubs-python-get-started-send.md
+    - name: Node.js
+      href: event-hubs-node-get-started-send.md
+    - name: Go
+      href: event-hubs-go-get-started-send.md
+    - name: C (send only)
+      href: event-hubs-c-getstarted-send.md
+    - name: Apache Storm
+      href: event-hubs-storm-getstarted-receive.md
   - name: Capture events
     items:
     - name: Use the Azure portal to enable Event Hubs Capture
