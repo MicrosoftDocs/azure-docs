@@ -19,11 +19,11 @@ ms.author: mbullwin
 > [!NOTE]
 > The cloud-based load testing service has been deprecated. More information about the deprecation, the service availability, and alternative services can be found [here](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
 
-Application Insights allows you to generate load tests for your websites. Like [availability tests](monitor-web-app-availability), you can send either simple requests or [multi-step requests](availability-multistep) from Azure test agents around the world. Performance tests allow you to simulate up to 20,000 simultaneous users for up to 60 minutes.
+Application Insights allows you to generate load tests for your websites. Like [availability tests](monitor-web-app-availability), you can send either basic requests or [multi-step requests](availability-multistep) from Azure test agents around the world. Performance tests allow you to simulate up to 20,000 simultaneous users for up to 60 minutes.
 
 ## Create an Application Insights resource
 
-In order to create an performance test, you first need to create an Application Insights resource. If you have already created a resource proceed to the next section.
+In order to create a performance test, you first need to create an Application Insights resource. If you have already created a resource proceed to the next section.
 
 From the Azure portal, select **Create a resource** > **Developer Tools** > **Application Insights** and create an Application Insights resource.
 
@@ -35,7 +35,7 @@ Under **Configure**, go to **Performance Testing** and click **New** to create a
 
 ![Fill at least the URL of your website](./media/performance-testing/new-performance-test.png)
 
-To create a simple performance test select a test type of **Manual Test** and fill out the desired settings for your test.
+To create a basic performance test, select a test type of **Manual Test** and fill out the desired settings for your test.
 
 |Setting| Max Value
 |----------|------------|
@@ -44,13 +44,13 @@ To create a simple performance test select a test type of **Manual Test** and fi
 
 After your test is created, click **Run test**.
 
-Once the test is complete you will see results that look similar to the results below:
+Once the test is complete, you will see results that look similar to the results below:
 
 ![Test Results](./media/performance-testing/test-results.png)
 
 ## Configure Visual Studio Web test
 
-Application Insights advanced performance testing capabilities are built on top of Visual Studio performace and load test projects.
+Application Insights advanced performance testing capabilities are built on top of Visual Studio performance and load test projects.
 
 ![Visual Studio ](./media/performance-testing/visual-studio-test.png)
 

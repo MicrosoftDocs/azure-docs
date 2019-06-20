@@ -17,6 +17,8 @@ ms.author: lagayhar
 
 # Troubleshooting
 
+This article will help you to troubleshoot common issues that may occur when using availability monitoring.
+
 ## SSL/TLS errors
 
 |Symptom/Error Message| Possible causes|
@@ -34,14 +36,14 @@ ms.author: lagayhar
 |Symptom/Error Message| Possible causes|
 |----|---------|
 |A connection attempt failed because the connected party did not properly respond after a period of time  | Test agents in certain locations are being blocked by a firewall.|
-|    |Re-routing of certain IP addresses is occurring via (Load Balancers, Geo traffic managers, Azure Express Route.) 
-|    |If using Azure ExpressRoute there are scenarios where packets can be dropped in cases where [Aysmetric Routing occurs](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-asymmetric-routing).|
+|    |Rerouting of certain IP addresses is occurring via (Load Balancers, Geo traffic managers, Azure Express Route.) 
+|    |If using Azure ExpressRoute, there are scenarios where packets can be dropped in cases where [Asymmetric Routing occurs](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-asymmetric-routing).|
 
 ## Intermittent test failure with a protocol violation error
 
 |Symptom/Error Message| Possible causes|
 |----|---------|
-protocol violation CR must be followed by LF | This occurs when malformed headers are detected. Specifically, some headers might not be using CRLF to indicate end-of-line, which violates the HTTP specification and therefore will fail validation at the .NET WebRequest level.
+protocol violation CR must be followed by LF | This occurs when malformed headers are detected. Specifically, some headers might not be using CRLF to indicate end of line, which violates the HTTP specification and therefore will fail validation at the .NET WebRequest level.
  || This can also be caused by load balancers or CDNs.
 
 > [!NOTE]
@@ -63,7 +65,7 @@ protocol violation CR must be followed by LF | This occurs when malformed header
 
 ### I did not get an email when the alert triggered, or resolved or both?
 
-Check the classic alerts configuration to confirm your email is directly listed, or a distribution list you are on is configured to receive notifications. If it is,then check the distribution list configuration to confirm it can receive external emails. Also check if your mail administrator may have any policies configured that may cause this issue.
+Check the classic alerts configuration to confirm your email is directly listed, or a distribution list you are on is configured to receive notifications. If it is, then check the distribution list configuration to confirm it can receive external emails. Also check if your mail administrator may have any policies configured that may cause this issue.
 
 ### I did not receive the webhook notification?
 
@@ -71,12 +73,12 @@ Check to ensure the application receiving the webhook notification is available,
 
 ### Intermittent test failure with a protocol violation error?
 
-The error ("protocol violation..CR must be followed by LF") indicates an issue with the server (or dependencies). This happens when malformed headers are set in the response. It can be caused by load balancers or CDNs. Specifically, some headers might not be using CRLF to indicate end-of-line, which violates the HTTP specification and therefore fail validation at the .NET WebRequest level. Inspect the response to spot headers which might be in violation.
+The error ("protocol violation..CR must be followed by LF") indicates an issue with the server (or dependencies). This happens when malformed headers are set in the response. It can be caused by load balancers or CDNs. Specifically, some headers might not be using CRLF to indicate end of line, which violates the HTTP specification and therefore fail validation at the .NET WebRequest level. Inspect the response to spot headers, which might be in violation.
 
 > [!NOTE]
 > The URL may not fail on browsers that have a relaxed validation of HTTP headers. See this blog post for a detailed explanation of this issue: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
 
-### I don't see any related server side telemetry to diagnose test failures?*
+### I don't see any related server-side telemetry to diagnose test failures?*
 
 If you have Application Insights set up for your server-side application, that may be because [sampling](../../azure-monitor/app/sampling.md) is in operation. Select a different availability result.
 
@@ -121,7 +123,7 @@ This section only applies to classic alerts and will help you optimize your aler
 
 * For alerts on failures from X out of Y locations, the **bulk/group** check-box option, if enabled, sends to users with admin/co-admin roles.  Essentially _all_ administrators of the _subscription_ will receive notifications.
 
-* For alerts on availability metrics, (or any Application Insights metrics for that matter) the **bulk/group** check-box option if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
+* For alerts on availability metrics the **bulk/group** check-box option if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
 
 > [!NOTE]
 > If you currently use the **bulk/group** check-box option, and disable it, you will not be able to revert the change.
