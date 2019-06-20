@@ -84,7 +84,7 @@ This enables the following scenarios:
 - **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
 
 > [!NOTE]
-> During the public preview, if you add or remove a public IP address to a running firewall, existing inbound connectivity using DNAT rules may not function for 40 - 120 seconds.
+> During the public preview, if you add or remove a public IP address to a running firewall, existing inbound connectivity using DNAT rules may not function for 40 - 120 seconds. You can't remove the first public IP address assigned to the firewall unless the firewall is deallocated or deleted.
 
 ### Azure Monitor logging
 
