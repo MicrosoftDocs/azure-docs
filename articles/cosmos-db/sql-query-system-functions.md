@@ -29,6 +29,7 @@ Below are a list of functions within each category:
 | Type-checking functions | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
 | String functions | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, UPPER |
 | Array functions | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH, and ARRAY_SLICE |
+| Date and Time functions | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
 | Spatial functions | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, ST_ISVALIDDETAILED |
 
 If you’re currently using a user-defined function (UDF) for which a built-in function is now available, the corresponding built-in function will be quicker to run and more efficient.
@@ -2476,9 +2477,9 @@ The following scalar functions allow you to get the current UTC date and time in
 
 |||
 |-|-|
-|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+|[GETCURRENTDATETIME](#bk_get_current_date_time)|[GETCURRENTTIMESTAMP](#bk_get_current_timestamp)||
 
-####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+####  <a name="bk_get_current_date_time"></a> GETCURRENTDATETIME
  Returns the current UTC date and time as an ISO 8601 string.
   
  **Syntax**
@@ -2529,7 +2530,7 @@ SELECT GetCurrentDateTime() AS currentUtcDateTime
 }]  
 ```  
 
-####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+####  <a name="bk_get_current_timestamp"></a> GETCURRENTTIMESTAMP
  Returns the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970. 
   
  **Syntax**  

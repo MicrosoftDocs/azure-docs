@@ -1,5 +1,5 @@
 ---
-title: Scalar expressions for Azure Cosmos DB
+title: Scalar expressions in Azure Cosmos DB SQL queries
 description: Learn about scalar expression SQL syntax for Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.date: 05/17/2019
 ms.author: mjbrown
 
 ---
-# Scalar Expressions
+# Scalar expressions in Azure Cosmos DB SQL queries
 
 The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators.
 

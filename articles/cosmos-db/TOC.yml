@@ -121,7 +121,7 @@
       - name: Provision throughput on containers and databases
         displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
         href: set-throughput.md
-    - name: SQL query      
+    - name: SQL query reference      
       items:
       - name: Getting started
         displayName: sql query, query basics
@@ -144,7 +144,7 @@
           displayName: offset limit
           href: sql-query-offset-limit.md
       - name: Subquery
-        displayName: subquery
+        displayName: subquery, exists
         href: sql-query-subquery.md
       - name: Joins
         displayName: join
@@ -152,7 +152,7 @@
       - name: Aliasing
         displayName: alias, aliasing
         href: sql-query-aliasing.md
-      - name: Objects and arrays
+      - name: Arrays and objects
         displayName: object and array creation, object and array
         href: sql-query-object-array.md
       - name: Keywords
@@ -177,7 +177,7 @@
           href: sql-query-system-functions.md
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
-        href: sql-query-parameterized.md
+        href: sql-query-parameterized-queries.md
       - name: LINQ to SQL
         displayName: linq, .NET
         href: sql-query-linq-to-sql.md
