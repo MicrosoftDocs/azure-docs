@@ -12,7 +12,7 @@ ms.date: 09/24/2018
 
 This article describes how to set up Data-in Replication in Azure Database for MariaDB by configuring the master and replica servers.
 
-By using Data-in Replication, you can synchronize data from a master MariaDB server running on-premises, in virtual machines (VMs), or through database services hosted by other cloud providers. into a replica in the Azure Database for MariaDB service.
+To create a replica in the Azure Database for MariaDB service, Data-in Replication synchronizes data from a master MariaDB server on-premises, in virtual machines (VMs), or in cloud database services.
 
 We recommend that you set up the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/) if your master server's version is 10.2 or newer.
 
@@ -22,12 +22,12 @@ This article assumes that you have some prior experience with MariaDB servers an
 
 1. Create a new Azure Database for MariaDB server
 
-   Create a new MariaDB server (for example, replica.mariadb.database.azure.com). See [Create an Azure Database for MariaDB server by using the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md) for server creation. This server is the "replica" server in Data-in Replication.
+   Create a new MariaDB server (for example, replica.mariadb.database.azure.com). See [Create an Azure Database for MariaDB server by using the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md) for server creation. This server is the replica server in Data-in Replication.
 
    > [!IMPORTANT]
    > The Azure Database for MariaDB server must be created in the General Purpose or Memory Optimized pricing tiers.
 
-2. Create same user accounts and corresponding privileges
+2. Create identical user accounts and corresponding privileges
 
    User accounts aren't replicated from the master server to the replica server. If you plan to provide users with access to the replica server, you must manually create all accounts and corresponding privileges on this newly created Azure Database for MariaDB server.
 
