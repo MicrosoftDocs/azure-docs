@@ -8,6 +8,7 @@ ms.author: glenga
 | Resource | [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium plan](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Scale out | Event driven | Event driven | [Manual/autoscale](../articles/app-service/web-sites-scale.md) | 
+| Max instances | 200 | 20 | 10-20 |
 |Default [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
 |Max [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | unbounded | unbounded<sup>3</sup> |
 | Max outbound connections (per instance) | 600 active (1200 total) | unbounded | unbounded |
