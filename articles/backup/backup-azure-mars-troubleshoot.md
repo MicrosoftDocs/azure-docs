@@ -93,75 +93,75 @@ We recommend that you check the following before you start troubleshooting Micro
 | <br />Error 34506. The encryption passphrase stored on this computer is not correctly configured.    | <li> The scratch folder is located on a volume that doesn't have enough space. <li> The scratch folder has been incorrectly moved. <li> The OnlineBackup.KEK file is missing.        | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 
-## Backups don't run according to the schedule
-If scheduled backups don't get triggered automatically, while manual backups work without issues, try the following actions:
+## Backups don't run according to schedule
+If scheduled backups don't get triggered automatically but manual backups work without issues, try the following actions:
 
-- Ensure Windows Server backup schedule does not conflict with Azure files and folders backup schedule.
+- Ensure the Windows Server backup schedule doesn't conflict with the Azure files and folders backup schedule.
 
-- Ensure the  Online Backup status is set to **Enable**. To verify the status perform the below:
+- Ensure the  online backup status is set to **Enable**. To verify the status, take these steps:
 
-  - Open **Task Scheduler** and expand **Microsoft**, and select **Online Backup**.
-  - Double-click **Microsoft-OnlineBackup**, and go to the **Triggers** tab.
-  - Verify if the status is set to **Enabled**. If it isn't, then select **Edit** > **Enabled** check box and click **OK**.
+  - In Task Scheduler, expand **Microsoft** and select **Online Backup**.
+  - Double-click **Microsoft-OnlineBackup** and go to the **Triggers** tab.
+  - Check if the status is set to **Enabled**. If it isn't, select **Edit**, select **Enabled**, and then select **OK**.
 
 - Ensure the user account selected for running the task is either **SYSTEM** or **Local Administrators' group** on the server. To verify the user account, go to the **General** tab and check the **Security** options.
 
-- Ensure PowerShell 3.0 or later is installed on the server. To check the PowerShell version, run the following command and verify that the *Major* version number is equal to or greater than 3.
+- Ensure PowerShell 3.0 or later is installed on the server. To check the PowerShell version, run this command and verify that the `Major` version number is 3 or later:
 
   `$PSVersionTable.PSVersion`
 
-- Ensure the following path is part of the *PSMODULEPATH* environment variable
+- Ensure this path is part of the `PSMODULEPATH` environment variable:
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- If the PowerShell execution policy for *LocalMachine* is set to restricted, the PowerShell cmdlet that triggers the backup task might fail. Run the following commands in elevated mode, to check and set the execution policy to either *Unrestricted* or *RemoteSigned*
+- If the PowerShell execution policy for `LocalMachine` is set to restricted, the PowerShell cmdlet that triggers the backup task might fail. Run these commands in elevated mode to check and set the execution policy to either `Unrestricted` or `RemoteSigned`:
 
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
-- Ensure there are no missing or corrupted **PowerShell** module **MSonlineBackup**. In case there is any missing or corrupt file, to resolve this issue perform the below:
+- Ensure there are no missing or corrupted PowerShell module MSOnlineBackup files. If there are any missing or corrupt files, take these steps:
 
-  - From any machine having MARS agent that is working properly, copy the MSOnlineBackup folder from *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* path.
-  - Paste this in problematic machine in the same path *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)*.
-  - If **MSOnlineBackup** folder is already existed in the machine, paste or replace the content files inside it.
+  - From any machine that has a MARS agent that's working properly, copy the MSOnlineBackup folder from C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules.
+  - On the problematic machine, at the same folder location, paste the copied files.
+  - If there's already a MSOnlineBackup folder on the machine, paste the files into it or replace any existing files.
 
 
 > [!TIP]
-> To ensure that changes are applied consistently, reboot the server after performing the steps above.
+> To ensure changes are applied consistently, restart the server after performing the preceding steps.
 
 
-## Troubleshoot restore issues
+## Troubleshoot restore problems
 
-Azure Backup might not successfully mount the recovery volume, even after several minutes. You might also receive error messages during the process. To begin recovering normally, follow these steps:
+Azure Backup might not successfully mount the recovery volume, even after several minutes. And you might receive error messages during the process. To begin recovering normally, take these steps:
 
-1.  Cancel the ongoing mount process, in case it has been running for several minutes.
+1.  Cancel the mount process if it's been running for several minutes.
 
-2.  See if you're on the latest version of the Backup Agent. To find out the version, on the **Actions** pane of the MARS console, select **About Microsoft Azure Recovery Services Agent**. Confirm that the **Version** number is equal to or higher than the version mentioned in [this article](https://go.microsoft.com/fwlink/?linkid=229525). You can download the latest version from [here](https://go.microsoft.com/fwLink/?LinkID=288905).
+2.  Check if you have the latest version of Backup agent. To check the version, on the **Actions** pane of the MARS console, select **About Microsoft Azure Recovery Services Agent**. Confirm that the **Version** number is equal to or higher than the version mentioned in [this article](https://go.microsoft.com/fwlink/?linkid=229525). Select this link to [download the latest version](https://go.microsoft.com/fwLink/?LinkID=288905).
 
-3.  Go to **Device Manager** > **Storage Controllers**, and locate **Microsoft iSCSI Initiator**. If you can locate it, go directly to step 7.
+3.  Go to **Device Manager** > **Storage controllers** and locate **Microsoft iSCSI Initiator**. If you locate it, go directly to step 7.
 
-4.  If you can't locate Microsoft iSCSI Initiator service, try to find an entry under **Device Manager** > **Storage Controllers** called **Unknown Device**, with Hardware ID **ROOT\ISCSIPRT**.
+4.  If you can't locate the Microsoft iSCSI Initiator service, try to find an entry under **Device Manager** > **Storage controllers** named **Unknown Device** with Hardware ID **ROOT\ISCSIPRT**.
 
-5.  Right-click on **Unknown Device**, and select **Update Driver Software**.
+5.  Right-click **Unknown Device** and select **Update Driver Software**.
 
-6.	Update the driver by selecting the option to  **Search automatically for updated driver software**. Completion of the update should change **Unknown Device** to **Microsoft iSCSI Initiator**, as shown below.
+6.	Update the driver by selecting the option to  **Search automatically for updated driver software**. This update should change **Unknown Device** to **Microsoft iSCSI Initiator**:
 
     ![Screenshot of Azure Backup Device Manager, with Storage controllers highlighted](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7.  Go to **Task Manager** > **Services (Local)** > **Microsoft iSCSI Initiator Service**.
+7.  Go to **Task Manager** > **Services (Local)** > **Microsoft iSCSI Initiator Service**:
 
     ![Screenshot of Azure Backup Task Manager, with Services (Local) highlighted](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 
-8.  Restart the Microsoft iSCSI Initiator service. To do this, right-click on the service, select **Stop**, right-click again, and select **Start**.
+8.  Restart the Microsoft iSCSI Initiator service. To do this, right-click the service and select **Stop**. Then right-click it again and select **Start**.
 
-9.  Retry recovery by using [**Instant Restore**](backup-instant-restore-capability.md).
+9.  Retry recovery by using [Instant Restore](backup-instant-restore-capability.md).
 
-If the recovery still fails, reboot your server or client. If you don't want to reboot, or the recovery still fails even after rebooting the server, try recovering from an alternate machine. Follow the steps in [this article](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+If the recovery still fails, restart your server or client. If you don't want to restart, or if the recovery still fails even after you restart the server, try [recovering from another machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ## Need help? Contact support
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
 
 ## Next steps
-* Get more details on [how to back up Windows Server with the Azure Backup Agent](tutorial-backup-windows-server-to-azure.md).
-* If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
+* Get more details on [how to back up Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
+* If you need to restore a backup, see [restore files to a Windows machine](backup-azure-restore-windows-server.md).
