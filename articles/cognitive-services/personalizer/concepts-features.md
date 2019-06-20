@@ -58,7 +58,7 @@ You can name feature namespaces following your own conventions as long as they a
 
 In the following JSON, `user`, `state`, and `device` are feature namespaces.
 
-numerics in arrays only
+JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
 
 ```JSON
 {
@@ -190,6 +190,8 @@ In some cases, it can only be determined later in your business logic if a resul
 
 When calling Rank, you will send multiple actions to choose from:
 
+JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
+
 ```json
 {
     "actions": [
@@ -203,6 +205,10 @@ When calling Rank, you will send multiple actions to choose from:
         {
           "nutritionLevel": 5,
           "cuisine": "italian"
+        },
+        "status": {
+            x: g,
+            y: [123, 83, 73]
         }
       ]
     },
@@ -215,6 +221,10 @@ When calling Rank, you will send multiple actions to choose from:
         },
         {
           "nutritionalLevel": 2
+        },
+        "status": {
+            x: e,
+            y: [72, 234, 73]
         }
       ]
     },
@@ -230,6 +240,10 @@ When calling Rank, you will send multiple actions to choose from:
         },
         {
           "drink": true
+        },
+        "status": {
+            x: c,
+            y: [345, 83, 73]
         }
       ]
     },
@@ -242,6 +256,10 @@ When calling Rank, you will send multiple actions to choose from:
         },
         {
           "nutritionLevel": 8
+        },
+        "status": {
+            x: a,
+            y: [72, 456, 73]
         }
       ]
     }
@@ -265,6 +283,8 @@ Your application is responsible for loading the information about the context fr
 
 Context is expressed as a JSON object that is sent to the Rank API:
 
+JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -282,7 +302,9 @@ Context is expressed as a JSON object that is sent to the Rank API:
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]
