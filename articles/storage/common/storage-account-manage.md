@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 06/20/2019
 ms.author: tamram
 ---
 
@@ -37,17 +37,9 @@ When you create a storage account, Azure generates two 512-bit storage account a
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-### View and copy access keys
+### View account keys and connection string
 
-To view your storage account credentials:
-
-1. Navigate to the [Azure portal](https://portal.azure.com).
-2. Locate your storage account.
-3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
-4. Find the **Key** value under **key1**, and click the **Copy** button to copy the account key.
-5. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
-
-    ![Screenshot showing how to view access keys in the Azure portal](media/storage-manage-account/portal-connection-string.png)
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
 ### Regenerate access keys
 

@@ -24,12 +24,7 @@ A connection string includes the authentication information required for your ap
 
 ## View and copy a connection string
 
-To view your storage account access keys and copy the connection string from the Azure portal:
-
-1. Navigate to the [Azure portal](https://portal.azure.com).
-2. Locate your storage account.
-3. In the **Settings** section of the storage account overview, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
-4. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
 ## Store a connection string
 
