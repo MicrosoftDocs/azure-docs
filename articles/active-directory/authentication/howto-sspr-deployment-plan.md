@@ -73,7 +73,7 @@ When enabling Self-service password reset, choose a security group to be used du
 
 When you plan to launch the service more broadly, we recommend using the All option to enforce SSPR for everyone in the organization. If you cannot set to all, select the appropriate Azure AD Security group or AD group synced to Azure AD.
 
-#### Authentication methods
+### Authentication methods
 
 Set Authentication methods required to register to at least one more than the number required to reset. Allowing multiple gives users flexibility when they need to reset.
 
@@ -81,25 +81,25 @@ Set **Number of methods required to reset** to a level appropriate to your organ
 
 See [What are authentication methods](concept-authentication-methods.md) for detailed information on which authentication methods are available for SSPR, pre-defined security questions, and how to create customized security questions.
 
-#### Registration settings
+### Registration settings
 
 Set **Require users to register when signing in** to **Yes**. This setting means that the users will be forced to register when signing in, ensuring that all users are protected.
 
 Set **Number of days before users are asked to re-confirm their authentication information** to between **90** and **180** days, unless your organization has a business need for a shorter time frame.
 
-#### Notifications settings
+### Notifications settings
 
 Configure both the **Notify users on password resets** and the **Notify all admins when other admins reset their password** to **Yes**. Selecting **Yes** on both increases security by ensuring that users are aware when their password has been reset, and that all admins are aware when an admin changes a password. If users or admins receive such a notification and they have not initiated the change, they can immediately report a potential security breach.
 
-#### Customization
+### Customization
 
 It’s critical to customize the **helpdesk email or URL** to ensure users who experience problems can quickly get help. Set this option to a common helpdesk email address or web page that your users will be familiar with.
 
-#### On-premises integration
+### On-premises integration
 
 If you have a hybrid environment, ensure that **Write back passwords to on-premises AD** is set to **Yes**. Also set the Allow users to unlock account without resetting password to Yes, as it gives them more flexibility.
 
-#### Changing/Resetting passwords of administrators
+### Changing/Resetting passwords of administrators
 
 Administrator accounts are special accounts with elevated permissions. To secure them, the following restrictions apply to changing passwords of administrators:
 
@@ -166,17 +166,15 @@ Implementation occurs in three stages:
 - Configure Azure AD SSPR for registration and self-service
 - Configure Azure AD Connect for password writeback
 
-### Configure users and licenses
-
-#### Communicate the change
+### Communicate the change
 
 Begin implementation of the communications plan that you developed in the planning phase.
 
-#### Ensure groups are created and populated
+### Ensure groups are created and populated
 
 Reference the Planning password authentication methods section and ensure the group(s) for the pilot or production implementation are available, and all appropriate users are added to the groups.
 
-#### Apply licenses
+### Apply licenses
 
 The groups you are going to implement must have the Azure AD premium license assigned to them. You can assign licenses directly to the group, or you can use existing license policies such as through PowerShell or Group-Based Licensing.
 
@@ -202,7 +200,7 @@ Reference your planning from the Planning Password Authentication Methods sectio
 1. Select Customization, and configure per your plan, and then select Save.
 1. Select On-premises integration, and configure per your plan, and then select Save.
 
-#### Enable SSPR in Windows
+### Enable SSPR in Windows
 
 Windows 10 devices running version 1803 or higher that are either Azure AD joined or hybrid Azure AD joined can reset their passwords at the Windows login screen. Information and steps to configure this capability can be found in the article [Azure AD password reset from the login screen](tutorial-sspr-windows.md)
 
