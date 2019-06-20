@@ -60,10 +60,7 @@ ms.topic: hub-page
                         <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">Text Analytics</a></p>
                         <p><a href="/azure/cognitive-services/translator/">Translator Text</a></p>
-<<<<<<< HEAD
                         <p><a href="/azure/cognitive-services/immersive-reader"><span>Immersive Reader&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-=======
->>>>>>> ca32bdf8c5c79a95ead57a95ade8fb8a2a137ad6
                     </div>
                 </div>
             </div>
