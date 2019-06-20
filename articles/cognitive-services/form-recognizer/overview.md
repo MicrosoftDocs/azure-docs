@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # What is Form Recognizer?
 
-Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model by using a simple REST API to reduce complexity and easily integrate it into your workflow or application. To get started, you just need five form documents or an empty form of the same type as your input material. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise.
+Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model by using a simple REST API to reduce complexity and easily integrate it into your workflow or application. To get started, you just need five form documents or two forms plus an empty form of the same type as your input material. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise.
 
 ## Request access
 Form Recognizer is available in a limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. The form requests information about you, your company, and the user scenario for which you'll use Form Recognizer. If your request is approved by the Azure Cognitive Services team, you'll receive an email with instructions for accessing the service.
@@ -65,7 +65,7 @@ Use the following APIs to train and extract structured data from forms.
 
 | REST API | Description |
 |-----|-------------|
-| Train | Train	a new model to analyze your forms by using five forms from the same type or an empty form.  |
+| Train | Train	a new model to analyze your forms by using five forms of the same type. Or, train with an empty form and two filled-in forms.  |
 | Analyze  |Analyze a single document passed in as a stream to extract key-value pairs and tables from the form with your custom model.  |
 
 Explore the [REST API reference document](https://aka.ms/form-recognizer/api). 
