@@ -16,7 +16,7 @@ ms.date: 02/01/2019
 The Aggregate transformation is where you'll define aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT which can be grouped by existing or computed columns.
 
 ## Group By
-Select an existing column or create a new computed column to use as a group by clause for your aggregation. To use an existing column, select the desired column from the dropdown. To create a new computed column, hover over the clause and click 'Computed column'. This will open up the [Data Flow Expression Builder](concepts-data-flow-expression-builder). Once you create your computed column, enter the output column name under the 'Name as' field. If you wish to add an additional group by clause, hover over an existing clause and click '+'.
+Select an existing column or create a new computed column to use as a group by clause for your aggregation. To use an existing column, select the desired column from the dropdown. To create a new computed column, hover over the clause and click 'Computed column'. This will open up the [Data Flow Expression Builder](concepts-data-flow-expression-builder.md). Once you create your computed column, enter the output column name under the 'Name as' field. If you wish to add an additional group by clause, hover over an existing clause and click '+'.
 
 ![Aggregate transformation group by settings](media/data-flow/agg.png "Aggregate transformation group by settings")
 
@@ -24,7 +24,7 @@ Select an existing column or create a new computed column to use as a group by c
 > A group by clause is optional in an Aggregate transformation 
 
 ## Aggregate Column 
-Choose the 'Aggregates' tab to build aggregation expressions. You can either choose an existing column and overwrite the value with the aggregation, or create a new field with a new name. The aggregation expression is entered in the right-hand box next to the column name selector. To edit the expression, click on the text box to open up the Expression Builder. To add an additional aggregation, hover over an existing expression and click '+' to create a new aggregation column or [column pattern](concepts-data-flow-column-pattern).
+Choose the 'Aggregates' tab to build aggregation expressions. You can either choose an existing column and overwrite the value with the aggregation, or create a new field with a new name. The aggregation expression is entered in the right-hand box next to the column name selector. To edit the expression, click on the text box to open up the Expression Builder. To add an additional aggregation, hover over an existing expression and click '+' to create a new aggregation column or [column pattern](concepts-data-flow-column-pattern.md).
 
 ![Aggregate transformation aggregate settings](media/data-flow/agg2.png "Aggregate transformation aggregate settings")
 
