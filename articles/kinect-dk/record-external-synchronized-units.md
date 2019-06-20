@@ -112,7 +112,7 @@ For any issues see [Troubleshooting](https://aka.ms/AzureKinectAPIDocs/troublesh
 
 ## Next steps
 
-- [Setup external sync](https://support.microsoft.com/en-us/help/4494429/sync-multiple-devices)
+- [Set up external sync](https://support.microsoft.com/en-us/help/4494429/sync-multiple-devices)
 - [Azure Kinect Recorder](azure-kinect-recorder.md) for recorder settings and additional information.
 - [Azure Kinect Viewer](azure-kinect-viewer.md) for playing recordings or setting RGB camera properties not available through recorder.
 - [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md) for updating device firmware.
