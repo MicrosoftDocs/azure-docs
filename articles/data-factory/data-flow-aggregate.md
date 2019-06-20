@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory Mapping Data Flow Aggregate Transformation
-description: Azure Data Factory Data Flow Aggregate Transformation
+title: Aggregate transformation in Mapping Data Flow | Microsoft Docs
+description: Learn how to aggregate data at scale in Azure Data Factory with the Mapping Data Flow Aggregate transformation.
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ---
 
-# Aggregate Transformation in Mapping Data Flow 
+# Aggregate transformation in Mapping Data Flow 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -21,7 +21,7 @@ Select an existing column or create a new computed column to use as a group by c
 ![Aggregate transformation group by settings](media/data-flow/agg.png "Aggregate transformation group by settings")
 
 > [!NOTE]
-> A group by clause is optional in an Aggregate transformation 
+> A group by clause is optional in an Aggregate transformation.
 
 ## Aggregate Column 
 Choose the 'Aggregates' tab to build aggregation expressions. You can either choose an existing column and overwrite the value with the aggregation, or create a new field with a new name. The aggregation expression is entered in the right-hand box next to the column name selector. To edit the expression, click on the text box to open up the Expression Builder. To add an additional aggregation, hover over an existing expression and click '+' to create a new aggregation column or [column pattern](concepts-data-flow-column-pattern.md).
@@ -29,7 +29,11 @@ Choose the 'Aggregates' tab to build aggregation expressions. You can either cho
 ![Aggregate transformation aggregate settings](media/data-flow/agg2.png "Aggregate transformation aggregate settings")
 
 > [!NOTE]
-> Each aggregation expression must contain at least one aggregate function
+> Each aggregation expression must contain at least one aggregate function.
 
 > [!NOTE]
 > In Debug mode, the expression builder cannot produce data previews with aggregate functions. To view data previews for aggregate transformations, close the expression builder and view the data via the 'Data Preview' tab.
+
+## Next Steps
+
+-Define window-based aggregation using the [Window transformation](data-flow-window.md)
