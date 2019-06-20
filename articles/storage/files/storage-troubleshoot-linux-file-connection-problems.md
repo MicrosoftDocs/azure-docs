@@ -186,6 +186,40 @@ Use the storage account user for copying the files:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
+## Cannot connect to or mount an Azure file share
+
+### Cause
+
+Common causes for this problem are:
+
+- You're using an incompatible Linux distribution client. We recommend that you use the following Linux distributions to connect to an Azure file share:
+
+    |   | SMB 2.1 <br>(Mounts on VMs within the same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+- CIFS utilities (cifs-utils) are not installed on the client.
+- The minimum SMB/CIFS version, 2.1, is not installed on the client.
+- SMB 3.0 encryption is not supported on the client. SMB 3.0 encryption is available in Ubuntu 16.4 and later versions, along with SUSE 12.3 and later versions. Other distributions require kernel 4.11 and later versions.
+- You're trying to connect to a storage account over TCP port 445, which is not supported.
+- You're trying to connect to an Azure file share from an Azure VM, and the VM is not in the same region as the storage account.
+- If the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account, Azure Files will allow only connections that use SMB 3.0 with encryption.
+
+### Solution
+
+To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool:
+
+* Helps you to validate the client running environment.
+* Detects the incompatible client configuration that would cause access failure for Azure Files.
+* Gives prescriptive guidance on self-fixing.
+* Collects the diagnostics traces.
+
+
 ## ls: cannot access '&lt;path&gt;': Input/output error
 
 When you try to list files in an Azure file share by using the ls command, the command hangs when listing files. You get the following error:
