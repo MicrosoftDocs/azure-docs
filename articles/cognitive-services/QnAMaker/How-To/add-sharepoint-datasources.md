@@ -38,8 +38,10 @@ If files include images, those are not extracted. You can add the image, from th
 Add the image with the following markdown syntax: 
 
 ```markdown
-![Explanation or description of image in square brackets followed by public URL of image in parentheses.](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/index/logo_python.svg)
+![Explanation or description of image](URL of public image)
 ```
+
+The text in the square brackets, `[]`, explains the image. The URL in the parentheses, `()`, is the direct link to the image. 
 
 When you test the QnA pair in the interactive test panel, in the QnA Maker portal, the image is displayed, not the markdown text. This validates the image can be publicly retrieved from your client-application.
 
