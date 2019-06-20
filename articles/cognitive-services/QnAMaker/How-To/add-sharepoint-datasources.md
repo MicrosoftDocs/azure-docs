@@ -43,7 +43,7 @@ Add the image with the following markdown syntax:
 
 The text in the square brackets, `[]`, explains the image. The URL in the parentheses, `()`, is the direct link to the image. 
 
-When you test the QnA pair in the interactive test panel, in the QnA Maker portal, the image is displayed, not the markdown text. This validates the image can be publicly retrieved from your client-application.
+When you test the QnA pair in the interactive test panel, in the QnA Maker portal, the image is displayed, instead of the markdown text. This validates the image can be publicly retrieved from your client-application.
 
 ## Permissions
 
