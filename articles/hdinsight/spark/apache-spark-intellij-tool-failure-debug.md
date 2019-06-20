@@ -91,14 +91,9 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 
 ## Configure local debugging environment and debug on failure​​
 
-1. Open the original project​ or create a new project and associate it with the original source code​.​
-**Note**, only spark2.3.2 version is supported for failure debugging currently.
+1. Open the original project​ or create a new project and associate it with the original source code​.​ Only spark2.3.2 version is supported for failure debugging currently.
 
-2. In IntelliJ IDEA, create a Spark Failure Debug config file.
-
-   ![Add new configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration.png)
-
-3. In IntelliJ IDEA, create a Spark Failure Debug config file, select the FTD file from the previously downloaded failed job resources for the Spark Job Failure Context location field.
+2. In IntelliJ IDEA, create a **Spark Failure Debug** config file, select the FTD file from the previously downloaded failed job resources for the **Spark Job Failure Context location** field.
    
    ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
 
