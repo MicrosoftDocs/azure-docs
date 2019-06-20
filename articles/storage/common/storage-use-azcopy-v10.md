@@ -61,7 +61,7 @@ Use this table as a guide:
 
 ### Option 1: Use Azure AD
 
-By using Azure AD, you can authorize your identity one time. That way, you can run AzCopy commands without having to append a SAS token. If you plan to use AzCopy interactively, you can authorize your user identity. If you plan to include AzCopy commands inside of a script that runs at some scheduled interval, consider authorizing a service principal instead. 
+By using Azure AD, you can authorize your user identity or service principal one time. That way, you can run AzCopy commands without having to append a SAS token. 
 
 User identities and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
 
@@ -87,7 +87,7 @@ You don't need to have one of these roles assigned to your security principal if
 
 To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### Authenticate your user identity
+#### Authenticate a user identity
 
 After you've verified that your user identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
 
@@ -111,11 +111,11 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 <a id="service-principal" />
 
-#### Authenticate your service principal
+#### Authenticate a service principal
 
 You can sign into your account by using the client secret of your service principal or by using a certificate.
 
-You can use AzCopy inside of a script that runs without any user interaction, but before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with your credentials.  Those credentials are stored in a secured and encrypted file so that your script doesn't have persist and provide these sensitive items of information in calls to AzCopy. 
+You can use AzCopy inside of a script that runs without any user interaction, but before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with your credentials.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to persist that sensitive information, and then provide it in calls to AzCopy. 
 
 ##### Using a client secret
 
@@ -128,7 +128,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> Consider using a prompt as shown in this example. That way, the client secret won't appear your console's command history. Unlike command strings, the information that you type in response to prompts doesn't appear in the command history of your console. This information is stored to environment variables associated only with the current console session.
+> Consider using a prompt as shown in this example. That way, the client secret won't appear your console's command history. This information is stored to environment variables associated only with the current console session.
 
 Next, open a command prompt, type the following command, and then press the ENTER key.
 
@@ -159,7 +159,7 @@ azcopy login --service-principal --certificate-path <path-to-certificate-file>
 Replace the `<path-to-certificate-file>` placeholder with the path to the certificate file. Can be a fully qualified or relative path to the file.
 
 > [!NOTE]
-> Consider using a prompt as shown in this example. That way, the client secret won't appear your console's command history. Unlike command strings, the information that you type in response to prompts doesn't appear in the command history of your console. This information is stored to environment variables associated only with the current console session.
+> Consider using a prompt as shown in this example. That way, the client secret won't appear your console's command history. This information is stored to environment variables associated only with the current console session.
 
 ### Option 2: Use a SAS token
 
