@@ -11,19 +11,19 @@ ms.date: 06/12/2019
 
 # View definition artifact in Azure Managed Applications
 
-View definition is an optional artifact in Azure Managed Applications. It allows to customize user interface elements, including customized overview page and additional views such as Metrics and Custom resources.
+View definition is an optional artifact in Azure Managed Applications. It allows to customize overview page and add more views such as Metrics and Custom resources.
 
 This article provides an overview of view definition artifact and its capabilities.
 
 ## View definition artifact
 
-The view definition artifact must be named **viewDefinition.json** and must be at the same level as **createUiDefinition.json** and **mainTemplate.json** in .zip package used for creating a managed application definition. To learn how to create .zip package and publish a managed application definition, see [Publish an Azure Managed Application definition](publish-managed-app-definition-quickstart.md)
+The view definition artifact must be named **viewDefinition.json** and placed at the same level as **createUiDefinition.json** and **mainTemplate.json** in .zip package used for creating a managed application definition. To learn how to create .zip package and publish a managed application definition, see [Publish an Azure Managed Application definition](publish-managed-app-definition-quickstart.md)
 
 ## View definition schema
 
-The **viewDefinition.json** file has only one top-level `views` property, an array of views that will be shown in managed application user interface as a separate menu item in the Table of Contents. Each view should have `kind` property, the type of the view from supported list - [Overview](#overview), [Metrics](#metrics), [CustomResources](#custom-resources). For more information, see current [JSON schema for viewDefinition.json](TODO:).
+The **viewDefinition.json** file has only one top level `views` property, an array of views that will be shown in managed application user interface as a separate menu item in the Table of Contents. Each view should have `kind` property, the type of the view from supported list - [Overview](#overview), [Metrics](#metrics), [CustomResources](#custom-resources). For more information, see current [JSON schema for viewDefinition.json](TODO:).
 
-The basic template for `viewDefinition.json`:
+Sample JSON for view definition:
 
 ```json
 {
@@ -31,6 +31,62 @@ The basic template for `viewDefinition.json`:
         {
             "kind": "Overview",
             "properties": {
+                "header": "Welcome to your Azure Managed Application",
+                "description": "This managed application is for demo purposes only.",
+                "commands": [
+                    {
+                        "displayName": "Test Action",
+                        "path": "testAction"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Metrics",
+            "properties": {
+                "displayName": "This is my metrics view",
+                "version": "1.0.0",
+                "charts": [
+                    {
+                        "displayName": "Sample chart",
+                        "chartType": "Bar",
+                        "metrics": [
+                            {
+                                "name": "Sample metric",
+                                "aggregationType": "avg",
+                                "namespace": "Availability",
+                                "resourceTagFilter": [ "tag1" ],
+                                "resourceType": "Microsoft.Storage/storageAccounts"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "CustomResources",
+            "properties": {
+                "displayName": "Test custom resource type",
+                "version": "1.0.0",
+                "resourceType": "testCustomResource",
+                "createUIDefinition": { },
+                "commands": [
+                    {
+                        "displayName": "Custom Test Action",
+                        "path": "testAction"
+                    },
+                    {
+                        "displayName": "Custom Context Action",
+                        "path": "testCustomResource/testContextAction",
+                        "icon": "Stop",
+                        "createUIDefinition": { },
+                    }
+                ],
+                "columns": [
+                    {"key": "name", "displayName": "Name"},
+                    {"key": "properties.myProperty1", "displayName": "Property 1"},
+                    {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
+                ]
             }
         }
     ]
@@ -52,7 +108,7 @@ If this view is provided in **viewDefinition.json**, its content will override t
         "description": "This managed application is for demo purposes only.",
         "commands": [
             {
-                "displayName": "Test Action.",
+                "displayName": "Test Action",
                 "path": "testAction"
             }
         ]
@@ -76,15 +132,15 @@ Metrics view allows to collect and aggregate data from your managed application 
 {
     "kind": "Metrics",
     "properties": {
-        "displayName": "This is my metrics view.",
+        "displayName": "This is my metrics view",
         "version": "1.0.0",
         "charts": [
             {
-                "displayName": "This is my chart.",
+                "displayName": "Sample chart",
                 "chartType": "Bar",
                 "metrics": [
                     {
-                        "name": "This is my metric.",
+                        "name": "Sample metric",
                         "aggregationType": "avg",
                         "namespace": "Availability",
                         "resourceTagFilter": [ "tag1" ],
@@ -133,9 +189,9 @@ In this view you can perform GET, PUT, DELETE and POST operations for your custo
 {
     "kind": "CustomResources",
     "properties": {
-        "displayName": "This is my custom resource type.",
+        "displayName": "Test custom resource type",
         "version": "1.0.0",
-        "resourceType": "myCustomResource",
+        "resourceType": "testCustomResource",
         "createUIDefinition": { },
         "commands": [
             {
@@ -143,8 +199,8 @@ In this view you can perform GET, PUT, DELETE and POST operations for your custo
                 "path": "testAction"
             },
             {
-                "displayName": "Custom Context Test Action",
-                "path": "myCustomResource/testContextAction",
+                "displayName": "Custom Context Action",
+                "path": "testCustomResource/testContextAction",
                 "icon": "Stop",
                 "createUIDefinition": { },
             }
@@ -175,7 +231,7 @@ Commands is an array of additional toolbar buttons that will be displayed on pag
     {
         "commands": [
             {
-                "displayName": "Start Test Action.",
+                "displayName": "Start Test Action",
                 "path": "testAction",
                 "icon": "Start",
                 "createUIDefinition": { }
