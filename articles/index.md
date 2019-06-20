@@ -1296,7 +1296,6 @@ featureFlags:
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
                                         </li>
-
                                     </ul>
                                     <h3>DevOps</h3>
                                     <ul>
