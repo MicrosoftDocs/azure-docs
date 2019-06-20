@@ -15,7 +15,7 @@ manager:  mtillman
 
 For good performance and connectivity between your local- or wide-area network and the Azure cloud, configure on-premises security devices to bypass security restrictions for the Azure portal URLs. Network administrators often deploy proxy servers, firewalls, or other devices to help secure and give control over how users access the internet. However, rules designed to protect users can sometimes block or slow down legitimate business-related internet traffic, including communications between you and Azure. To optimize connectivity between your network and the Azure portal and its services, we recommend you add Azure portal URLs to your safelist.
 
-## List of Azure portal URLs for proxy bypass
+## Azure portal URLs for proxy bypass
 
 Add the following list of URLs to your proxy server or firewall to allow network traffic to these endpoints to bypass restrictions:
 
@@ -45,7 +45,7 @@ Add the following list of URLs to your proxy server or firewall to allow network
 > Traffic to these endpoints uses standard TCP ports for HTTP (80) and HTTPS (443).
 >
 >
-## Next Steps
+## Next steps
 
-* Need to safelist IP addresses? Download the list of [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+* Need to safelist IP addresses? Download the list of [Microsoft Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 * Other Microsoft services use additional URLs and IP addresses for connectivity. To optimize network connectivity for Microsoft 365 services, see [Set up your network for Office 365](/office365/enterprise/set-up-network-for-office-365).
