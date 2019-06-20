@@ -47,9 +47,17 @@ Azure Cosmos DB [unlimited](../cosmos-db/partition-data.md) containers are the r
 > [!Note]
 > At this time, Azure Stream Analytics only supports unlimited containers with partition keys at the top level. For example, `/region` is supported. Nested partition keys (e.g. `/region/name`) are not supported. 
 
+Depending on your choice of partition key you might receive this _warning_:
+
+`CosmosDB Output contains multiple rows and just one row per partition key. If the output latency is higher than expected, consider choosing a partition key that contains at least several hundred records per partition key.`
+
+It is important to choose a partition key property that has a number of distinct values, and lets you distribute your workload evenly across these values. As a natural artifact of partitioning, requests involving the same partition key are limited by the maximum throughput of a single partition. Additionally, the storage size for documents belonging to the same partition key is limited to 10GB. An ideal partition key is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure your solution is scalable.
+
+A partition key is also the boundary for transactions in DocumentDB's stored procedures and triggers. You should choose the partition key so that documents that occur together in transactions share the same partition key value. The article [Paritioning in Cosmos DB](../cosmos-db/partitioning-overview.md) gives more details on choosing a partition key.
+
 For fixed Azure Cosmos DB containers, Stream Analytics allows no way to scale up or out once they're full. They have an upper limit of 10 GB and 10,000 RU/s throughput.  To migrate the data from a fixed container to an unlimited container (for example, one with at least 1,000 RU/s and a partition key), you need to use the [data migration tool](../cosmos-db/import-data.md) or the [change feed library](../cosmos-db/change-feed.md).
 
-Writing to multiple fixed containers is being deprecated and is not the recommended approach for scaling out your Stream Analytics job. The article [Partitioning and scaling in Cosmos DB](../cosmos-db/sql-api-partition-data.md) provides further details.
+Writing to multiple fixed containers is being deprecated and is not the recommended approach for scaling out your Stream Analytics job.
 
 ## Improved throughput with Compatibility Level 1.2
 With Compatibility level 1.2, Stream Analytics supports native integration to bulk write into Cosmos DB. This enables writing effectively to Cosmos DB with maximizing throughput and efficiently handle throttling requests. The improved writing mechanism is available under a new compatibility level due to an upsert behavior difference.  Prior to 1.2, the upsert behavior is to insert or merge the document. With 1.2, upserts behavior is modified to insert or replace the document. 
