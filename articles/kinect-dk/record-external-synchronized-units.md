@@ -11,7 +11,7 @@ keywords: Kinect, sensor, viewer, external sync, phase delay, depth, RGB, camera
 
 # Use Azure Kinect recorder with external synchronized units
 
-This article provides guidance on how the [Azure Kinect Recorder](recorder.md) can record data external synchronization configured devices.
+This article provides guidance on how the [Azure Kinect Recorder](azure-kinect-recorder.md) can record data external synchronization configured devices.
 
 ## Prerequisites
 
@@ -98,7 +98,7 @@ Always start subordinate devices first and the master last.
 
 ## Playing recording
 
-You can use the [Azure Kinect viewer](azure-kinect-sensor-viewer.md) to play back recording.
+You can use the [Azure Kinect viewer](azure-kinect-viewer.md) to play back recording.
 
 ## Tips
 
@@ -112,12 +112,7 @@ For any issues see [Troubleshooting](https://aka.ms/AzureKinectAPIDocs/troublesh
 
 ## Next steps
 
-Learn how to synchronize multiple Azure Kinect DK devices
-> [!div class="nextstepaction"]
->[Setup external sync](https://support.microsoft.com/en-us/help/4494429/sync-multiple-devices)
-
-## See also
-
-- [Azure Kinect Recorder](recorder.md) for recorder settings and additional information.
-- [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) for playing recordings or setting RGB camera properties not available through recorder.
+- [Set up external sync](https://support.microsoft.com/en-us/help/4494429/sync-multiple-devices)
+- [Azure Kinect Recorder](azure-kinect-recorder.md) for recorder settings and additional information.
+- [Azure Kinect Viewer](azure-kinect-viewer.md) for playing recordings or setting RGB camera properties not available through recorder.
 - [Azure Kinect Firmware Tool](azure-kinect-firmware-tool.md) for updating device firmware.

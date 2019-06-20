@@ -63,11 +63,11 @@
      href: record-external-synchronized-units.md
 - name: Tools
   items:
-    - name: Sensor viewer
-      href: azure-kinect-sensor-viewer.md
-    - name: Recorder
-      href: recorder.md
-    - name: Firmware tool
+    - name: Azure Kinect viewer
+      href: azure-kinect-viewer.md
+    - name: Azure Kinect recorder
+      href: azure-kinect-recorder.md
+    - name: Azure Kinect firmware tool
       href: azure-kinect-firmware-tool.md
 - name: Resources
   items:  

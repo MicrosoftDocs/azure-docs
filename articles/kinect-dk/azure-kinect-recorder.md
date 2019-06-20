@@ -69,11 +69,11 @@ k4arecorder.exe -d WFOV_2X2BINNED -c OFF --imu OFF -l 5 output.mkv
 ```
 
 >[!TIP]
->You can use [Azure Kinect Viewer](azure-kinect-sensor-viewer.md) to configure RGB camera controls before recording (e.g. to set manual white balance).
+>You can use [Azure Kinect Viewer](azure-kinect-viewer.md) to configure RGB camera controls before recording (e.g. to set manual white balance).
 
 ## Verify recording
 
-You can open the output .mkv file with [Azure Kinect Viewer](azure-kinect-sensor-viewer.md).
+You can open the output .mkv file with [Azure Kinect Viewer](azure-kinect-viewer.md).
 
 To extract tracks or view file info, tools such as `mkvinfo` are available as part of the [MKVToolNix](https://mkvtoolnix.download/) toolkit.
 
