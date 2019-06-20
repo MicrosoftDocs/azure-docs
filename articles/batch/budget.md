@@ -16,7 +16,7 @@ ms.author: lahugh
 
 # Cost analysis and budget for Azure Batch
 
-The Azure Batch infrastructure is a free service. Charges only apply to the resources used to run Batch workloads, with the majority being virtual machines (VMs) and storage. Management of tasks, pools, and jobs does not contribute to your Azure bill. On a high level, costs are incurred when a virtual machine (VM) is added to a pool, when data is transferred from the VM, or when any input or output data is stored in the cloud. Let's take a look at some key components of Batch to understand where costs come from, and what you can do to make your Batch workloads more cost efficient. We'll also walk through the step of analyzing a pool and creating a budget.
+The Azure Batch infrastructure is a free service. Charges only apply to the resources used to run Batch workloads, with the majority being virtual machines (VMs) and storage. Management of tasks, pools, and jobs does not contribute to your Azure bill. On a high level, costs are incurred from virtual machines (VMs) in a pool, data transfer from the VM, or any input or output data stored in the cloud. Let's take a look at some key components of Batch to understand where costs come from, and what you can do to make your Batch workloads more cost efficient. We'll also walk through the step of analyzing a pool and creating a budget.
 
 ## Batch resources
 
@@ -40,21 +40,21 @@ Depending on which services you use with your Batch solution, you may incur addi
 
 ## Cost analysis and budget for a pool
 
-Through the Azure portal, you can get accurate, up-to-date information on the cost and resources used by your Batch pool.
+Through the Azure portal, you can get accurate, up-to-date information on cost and resources used by your Batch pool.
 
 1. In the Azure portal, select **Cost Management + Billing** from the left navigation bar.
 1. Select your subscription from the **My subscriptions** section
 1. Go to **Cost analysis** under the **Cost Management** section of the left nav bar, which will show a view like this:
 1. Select **Add Filter**. In the first drop-down, select **Resource**
-    ![Select the resource filter](../media/batch-budget/resource-filter.png)
+    ![Select the resource filter](./media/batch-budget/resource-filter.png)
 1. In the second drop-down, select the Batch pool. When the pool is selected, the cost analysis will look similar to the following analysis.
-    ![Cost analysis of a pool](../media/batch-budget/pool-cost-anaylysis.png)
+    ![Cost analysis of a pool](./media/batch-budget/pool-cost-analysis.png)
 
 The resulting cost analysis shows the cost of the pool as well as the resources that contribute to this cost. In this example, the VMs used in the pool are the most costly resource.
 
 To create a budget for the pool select **Budget: none**, and then select **Create new budget >**. This opens a window to configure a budget specifically for your pool.
 
-For more information on configuring a budget, see [Create and manage Azure budgets](../articles/cost-management/tutorial-acm-create-budgets.md).
+For more information on configuring a budget, see [Create and manage Azure budgets](../cost-management/tutorial-acm-create-budgets.md).
 
 > [!NOTE]
 > Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technology. When you choose **Cloud Services Configuration**, you are charged based on the Cloud Services pricing structure. When you choose **Virtual Machine Configuration**, you are charged based on the Virtual Machines pricing structure. The example on this page uses the **Virtual Machine Configuration**.
@@ -71,7 +71,7 @@ Learn more about how to set up low-priority VMs for your workload at [Use low-pr
 
 ### Premium storage virtual machines
 
-Most VM-series have sizes that support both premium and non-premium storage. Virtual machines with premium storage capabilities are more expensive than those without premium storage. If premium storage isn't necessary for your workload, consider using a non-premium VM size to reduce your monthly bill. See [Designing for high performance](..//virtual-machines/windows/premium-storage-performance.md) to learn more about premium storage and performance.
+Most VM-series have sizes that support both premium and non-premium storage. Virtual machines with premium storage capabilities are more expensive than VMs without premium storage. If premium storage isn't necessary for your workload, consider using a non-premium VM size to reduce your monthly bill. See [Designing for high performance](..//virtual-machines/windows/premium-storage-performance.md) to learn more about premium storage and performance.
 
 ### Reserved virtual machine instances
 
