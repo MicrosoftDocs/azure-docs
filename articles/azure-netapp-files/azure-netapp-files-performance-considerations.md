@@ -32,9 +32,9 @@ The [throughput limit](azure-netapp-files-service-levels.md) for a volume is det
 
 * If a workload’s performance is throughput-limit bound, it is possible to overprovision the volume quota to set a higher throughput level and achieve higher performance.  
 
-    For example, if a volume in the Premium storage tier has only 500 GiB of data but requires 128 MiB/s of throughput, you can set the quota to 2 TiB so that the throughput level is set accordingly (64MiB/s per TB * 2TiB = 128MiB/s).  
+    For example, if a volume in the Premium storage tier has only 500 GiB of data but requires 128 MiB/s of throughput, you can set the quota to 2 TiB so that the throughput level is set accordingly (64 MiB/s per TB * 2 TiB = 128 MiB/s).  
 
-    If you consistently overprovision a volume for achieving a higher throughput, consider using a higher service level instead.  In the example above, you can achieve the same throughput limit with half the volume quota by using the Ultra storage tier instead (128MiB/s per TiB * 1TiB = 128MiB/s).
+    If you consistently overprovision a volume for achieving a higher throughput, consider using a higher service level instead.  In the example above, you can achieve the same throughput limit with half the volume quota by using the Ultra storage tier instead (128 MiB/s per TiB * 1 TiB = 128 MiB/s).
 
 * If your performance requirements are temporary in nature, or if you have increased performance needs for a fixed period of time, you can dynamically increase or decrease volume quota to instantaneously adjust the throughput limit.  
 
