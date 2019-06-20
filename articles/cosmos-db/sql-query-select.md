@@ -51,7 +51,7 @@ SELECT <select_specification>
 
 - `<scalar_expression>`  
 
-  Expression representing the value to be computed. See [Scalar expressions](sql-query-scalar-expressions) section for details.  
+  Expression representing the value to be computed. See [Scalar expressions](sql-query-scalar-expressions.md) section for details.  
 
 ## Remarks
 

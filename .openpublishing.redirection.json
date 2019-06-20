@@ -1492,7 +1492,7 @@
     },
     {
       "source_path": "articles/cosmos-db/sql-api-sql-query-reference.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-query-reference",
+      "redirect_url": "/azure/cosmos-db/sql-api-query-getting-started.md",
       "redirect_document_id": true
     },
     {
@@ -1532,7 +1532,7 @@
     },
     {
       "source_path": "articles/cosmos-db/sql-api-sql-query.md",
-      "redirect_url": "/azure/cosmos-db/how-to-sql-query",
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started.md",
       "redirect_document_id": false
     },
     {

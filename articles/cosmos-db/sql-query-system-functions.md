@@ -2470,7 +2470,7 @@ SELECT
            "s7": [] 
 }]  
 ```  
-## <a id="date-time-function"></a>Date and Time Function
+## <a id="date-time-functions"></a>Date and Time Function
 
 The following scalar functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format. 
 
