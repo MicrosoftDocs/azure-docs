@@ -28,7 +28,7 @@ External services are published by third-party software vendors in the Azure mar
 - Each external service has a different billing model. Some services are billed in a pay-as-you-go fashion while others have fixed monthly charges.
 - You can't use monthly free credits for external services. If you're using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to charges from external services. When you provision a new external service or resource, a warning is shown:
 
-    ![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/create-sendgrid.png)
+    ![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/credit-warning.png)
 
 <!-- ## View external service spending and history in the Azure portal
 You can view a list of the external services that are on each subscription within the [Azure portal](https://portal.azure.com/): 
