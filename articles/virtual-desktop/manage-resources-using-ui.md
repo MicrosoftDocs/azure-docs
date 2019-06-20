@@ -61,12 +61,16 @@ Here's how to enter parameters for configuring the tool:
 
 After the GitHub Azure Resource Manager template completes, you'll find a resource group containing two app services along with one app service plan in the Azure portal.
 
-Before you login and use the management tool, you'll need to provide consent for the new Azure Active Directory application that is associated with the management tool. By providing consent, you are allowing the management tool to make Windows Virtual Desktop management calls on behalf of the user who's logged into the tool.
+Before you sign in and use the management tool, you'll need to provide consent for the new Azure Active Directory application that is associated with the management tool. By providing consent, you are allowing the management tool to make Windows Virtual Desktop management calls on behalf of the user who's signed into the tool.
 
-To determine which user you can use to login to the tool, go to your [Azure Active Directory user settings page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) and take note of the value for **Users can consent to apps accessing company data on their behalf**.
+![A screenshot showing the permissions being provided when you consent to the UI management tool.](media/management-ui-delegated-permissions.png)
 
-- If the value is set to **Yes**, you can login with any user account in the Azure Active Directory and provide consent for that user only. However, if you login to the management tool with a different user later, you must perform the same consent again.
-- If the value is set to **No**, you must login with a Global Administrator in the Azure Active Directory and provide admin consent for all users in the directory. You will not 
+To determine which user you can use to sign in to the tool, go to your [Azure Active Directory user settings page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) and take note of the value for **Users can consent to apps accessing company data on their behalf**.
+
+![A screenshot showing if users can grant consent to applications for just their user.](media/management-ui-user-consent-allowed.png)
+
+- If the value is set to **Yes**, you can sign in with any user account in the Azure Active Directory and provide consent for that user only. However, if you sign in to the management tool with a different user later, you must perform the same consent again.
+- If the value is set to **No**, you must sign in as a Global Administrator in the Azure Active Directory and provide admin consent for all users in the directory. No other users will face a consent prompt.
 
 
 Once you decide which user you will use to provide consent, follow these instructions to provide consent to the tool:
@@ -74,6 +78,8 @@ Once you decide which user you will use to provide consent, follow these instruc
 1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Sign in using the appropriate Azure Active Directory user account.
 3. If you authenticated with a Global Administrator, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent.
+   
+   ![A screenshot showing the full consent page that the user or admin will see.](media/management-ui-consent-page.png)
 
 This will now take you to the management tool.
 
