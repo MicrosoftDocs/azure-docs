@@ -33,7 +33,7 @@ This tutorial takes approximately 15 minutes to complete.
 
 Before starting this tutorial, complete these steps: 
 
-* [Install](fxt-install.md) each Azure FXT Edge Filer node in an equipment rack, and attach [power cables](fxt-power.md) and [network](fxt-network.md) access as described in the earlier tutorials. 
+* [Install](fxt-install.md) each Azure FXT Edge Filer node in an equipment rack, and attach power cables and network access as described in the [earlier tutorial](fxt-network-power.md). 
 * Find a USB-connected keyboard and a VGA-connected monitor that you can attach to the hardware nodes. (The node's serial port is inactive before you set the password.)
 
 ## Connect a keyboard and monitor to the node

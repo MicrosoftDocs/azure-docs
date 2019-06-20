@@ -24,7 +24,7 @@ The steps in this tutorial take approximately 45 minutes to complete.
 
 ## 1. Load the Cluster Nodes page
 
-Open the cluster's Control Panel in a web browser, and sign in as an administrator. (Detailed instructions are in the overview article, under [Open the Settings pages](fxt-cluster-config-overview.md#open-the-settings-pages).)
+Open the cluster's Control Panel in a web browser, and sign in as an administrator. (Detailed instructions are in the overview article, under [Open the Settings pages](fxt-cluster-create.md#open-the-settings-pages).)
 
 The Control Panel shows the **Dashboard** tab when it opens. 
 

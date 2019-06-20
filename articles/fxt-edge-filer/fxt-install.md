@@ -34,7 +34,7 @@ Before you begin, make sure that the data center and rack you will use has these
   For help planning and sizing the installation, read [Power and thermal specifications](fxt-specs.md#power-and-thermal-specifications) to learn about nameplate ratings and thermal output under common conditions.  
 
   > [!NOTE] 
-  > To take full advantage of the two redundant power supply units (PSUs), use power distribution units on two different branch circuits when attaching AC power. Read [Connect power to the Azure FXT Edge Filer](fxt-power.md) for details.  
+  > To take full advantage of the two redundant power supply units (PSUs), use power distribution units on two different branch circuits when attaching AC power. Read [Connect power cables](fxt-network-power.md#connect-power-cables) for details.  
 
 ## Unpack the hardware node 
 
@@ -224,4 +224,4 @@ To remove the front bezel:
 After you have unpacked and racked the device, continue setup by attaching network cables and connecting AC power to the Azure FXT Edge Filer.
 
 > [!div class="nextstepaction"]
-> [Cable the network ports and supply power](fxt-network.md)
+> [Cable the network ports and supply power](fxt-network-power.md)

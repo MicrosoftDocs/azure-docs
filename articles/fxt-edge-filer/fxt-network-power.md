@@ -36,7 +36,7 @@ Identify the various ports on the back of your Azure FXT Edge Filer.
 * Securely connect the [iDRAC port](#idrac-port) to a separate network with a secure DHCP server. 
 * Use the USB ports and the VGA port to connect a keyboard and monitor to the node for initial setup. You must boot the node and [set an initial password](fxt-node-password.md) to activate the node's other ports. Read [Set initial passwords](fxt-node-password.md) for details. 
 
-Before booting the node you also must connect AC power, described in [Connect power to the Azure FXT Edge Filer](fxt-power.md).
+This article also describes how to [connect AC power](#connect-power-cables) for the node. 
 
 This article also explains how to connect to the node's [serial port](#serial-port-only-when-necessary), but the serial port is only used for advanced troubleshooting. 
 
@@ -76,7 +76,7 @@ The type of connections to use for your system depends on your data center envir
 
 ### iDRAC port  
 
-The port labeled iDRAC is a 1Gb connection used for hardware management and monitoring. FXT software uses the Intelligent Platform Management Interface (IPMI) through this port for hardware troubleshooting and recovery. You also can use the built-in [iDRAC interface](https://www.dell.com/support/manuals/idrac9-lifecycle-controller-v3.30.30.30/idrac_3.30.30.30_ug/) to monitor hardware. iDRAC and IPMI access are enabled by default. 
+The port labeled iDRAC is a 1Gb connection that allows communication with a remote access controller used for hardware management and monitoring. FXT software uses the Intelligent Platform Management Interface (IPMI) with this controller for troubleshooting and recovery. You can use the built-in [iDRAC interface](https://www.dell.com/support/manuals/idrac9-lifecycle-controller-v3.30.30.30/idrac_3.30.30.30_ug/) to monitor hardware through this port. iDRAC and IPMI access are enabled by default. 
 
 > [!Note]
 > The iDRAC port can bypass the operating system and interact directly with hardware on the node. 
@@ -84,11 +84,11 @@ The port labeled iDRAC is a 1Gb connection used for hardware management and moni
 Use these security strategies when connecting and configuring the iDRAC port:
 
 * Only connect iDRAC ports to a network that is physically separated from the data network used to access the cluster.
-* Change the default iDRAC/IPMI administrator password on each node when you install it. Use a web browser to navigate to the node’s iDRAC port IP address and use the provided interface to modify the user configuration.
+* Set a secure iDRAC administrator password on each node. You must set this password to activate the hardware - follow instructions in [Set hardware passwords](fxt-node-password.md).
 * The default iDRAC port configuration uses DHCP and IPv4 for IP address assignment. Make sure your DHCP environment is well protected and that connections are restricted between DHCP clients and the DHCP server. (The cluster control panel includes settings to change the nodes’ address configuration method after you create the cluster.)
-* Leave the iDRAC port set to "dedicated mode" (the default), which restricts it to iDRAC/IPMI network connections only.
+* Leave the iDRAC port set to "dedicated mode" (the default), which restricts iDRAC/IPMI network traffic to the dedicated RJ-45 port.
 
-The iDRAC port does not require a high-speed network. A 100 Mbps or 1GbE connection is sufficient.  
+The iDRAC port does not require a high-speed network connection.
   
 ### Serial port (only when necessary)
 
@@ -136,7 +136,7 @@ The total number of IP addresses required depends on the number of nodes in that
 
 Configure the IP address range by using the Control Panel software after the nodes have been installed. To learn more, read [Gather information for the cluster](fxt-cluster-create.md#gather-information-for-the-cluster).  
 
-## Connect power cables 
+## Connect power cables
 
 Each Azure FXT Edge Filer node uses two power supply units (PSUs). 
 
