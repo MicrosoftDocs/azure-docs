@@ -4,7 +4,7 @@ description: Use Visual Studio to create an Azure resource group project and dep
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.date: 06/19/2019
+ms.date: 06/20/2019
 ms.author: tomfitz
 ---
 # Creating and deploying Azure resource groups through Visual Studio
@@ -53,7 +53,7 @@ By default, the PowerShell script (Deploy-AzureResourceGroup.ps1) in the project
 
 However, if you've migrated to the new [Az module](/powershell/azure/new-azureps-module-az), you need to add a new script to your project. To add a script that uses the Az module, copy the [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) script and add it to your project. To use this script for deployment, you must run it from a PowerShell console, rather than using Visual Studio's deployment interface.
 
-Both approaches are shown in this article. The default script is referred to as the AzureRM module script. The new script is referred to as the Az module script.
+Both approaches are shown in this article. This article refers to the default script as the AzureRM module script, and the new script as the Az module script.
 
 ## Customize Resource Manager template
 
@@ -125,7 +125,7 @@ You can customize a deployment project by modifying the Resource Manager templat
 
 ## Deploy project to Azure
 
-You're now ready to deploy your project. When you deploy an Azure Resource Group project, you deploy it to a resource group. The resource group is a logical grouping of resources that share a common lifecycle. 
+You're now ready to deploy your project to a resource group. The resource group is a logical grouping of resources that share a common lifecycle.
 
 The steps you take are different depending on whether you use the AzureRM module script or the Az module script.
 
@@ -155,13 +155,9 @@ For the AzureRM module script, use Visual Studio:
    18:00:58 - Successfully deployed template 'website.json' to resource group 'ExampleAppDeploy'.
    ```
 
-1. If you make changes and want to redeploy your project, choose the existing resource group from the shortcut menu of Azure resource group project. On the shortcut menu, choose **Deploy**, and then choose the resource group you deployed.
-
-    ![Redeploy project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
-
 ## View deployed resources
 
-For both deployment options, check the results.
+Let's check the results.
 
 1. In a browser, open the [Azure portal](https://portal.azure.com/) and sign in to your account. To see the resource group, select **Resource groups** and the resource group you deployed to.
 
@@ -215,7 +211,7 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
    Save your template.
 
-1. There are some new parameters in your template. They were added in the previous step. You don't need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because those values are automatically generated. However, you have to set the folder and file name to the path that contains the deployment package. These parameter names end with **PackageFolder** and **PackageFileName**. The first part of the name is the name of the Web Deploy resource you added. In this article, they are named **ExampleAppPackageFolder** and **ExampleAppPackageFileName**. 
+1. There are some new parameters in your template. They were added in the previous step. You don't need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because those values are automatically generated. However, you have to set the folder and file name to the path that contains the deployment package. The names of these parameters end with **PackageFolder** and **PackageFileName**. The first part of the name is the name of the Web Deploy resource you added. In this article, they're named **ExampleAppPackageFolder** and **ExampleAppPackageFileName**. 
 
    Open **Website.parameters.json** and set those parameters to the values you saw in the reference properties. Set **ExampleAppPackageFolder** to the name of the folder. Set **ExampleAppPackageFileName** to the name of the zip file.
 
@@ -239,13 +235,27 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
 ## Deploy code with infrastructure
 
-1. Redeploy your resource group project to the resource group.
+You're ready to redeploy the project with the code. Because you added code to the project, you must stage a package to a place that Resource Manager can access. The package is staged to a storage account and accessed during deployment.
 
-   If you are using the AzureRM module script (Deploy-AzureResourceGroup.ps1), select the storage account you deployed with this resource group for the **Artifact storage account**.
+### Az module script
+
+For the Az module script, open a PowerShell console and run:
+
+```powershell
+.\Deploy-AzTemplate -ArtifactStagingDirectory .\ -Location centralus -TemplateFile WebSite.json -TemplateParametersFile WebSite.parameters.json
+```
+
+### AzureRM module script
+
+For the AzureRM module script, use Visual Studio:
+
+1. To redeploy, choose **Deploy**, and the resource group you deployed earlier.
+
+    ![Redeploy project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
+
+1. Select the storage account you deployed with this resource group for the **Artifact storage account**.
 
    ![Redeploy web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy-web-app.png)
-
-   If you are using the Az module script (Deploy-AzTemplate.ps1)
 
 1. After the deployment has finished, select your web app in the portal. Select the URL to browse to the site.
 
@@ -259,7 +269,7 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
 You aren't limited to only the resources that are available through the Visual Studio interface. You can customize your deployment by adding a custom resource to your template. To show adding a resource, you add an operational dashboard to manage the resource you deployed.
 
-1. Open the WebsiteSqlDeploy.json file and add the following JSON after the storage account resource but before the closing `]` of the resources section.
+1. Open the WebSite.json file and add the following JSON after the storage account resource but before the closing `]` of the resources section.
 
    ```json
     ,{
@@ -338,11 +348,13 @@ You aren't limited to only the resources that are available through the Visual S
     }
    ```
 
-2. Redeploy your resource group. Look at your dashboard on the Azure portal, and notice the shared dashboard has been added to your list of choices.
+1. Redeploy your project.
+
+1. After deployment has finished, view your dashboard in the portal. Select **Dashboard** and pick the one you deployed.
 
    ![Custom Dashboard](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
-3. Select the dashboard.
+1. You see the customized dashboard.
 
    ![Custom Dashboard](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
