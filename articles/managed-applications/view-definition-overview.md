@@ -120,7 +120,7 @@ If this view is provided in **viewDefinition.json**, its content will override t
 |---------|---------|---------|
 |header|No|The header of the overview page.|
 |description|No|The description of your managed application.|
-|commands|No|The array of additional toolbar buttons of the overview page, see [commands](#commands). The buttons are Azure Custom Providers actions defined in your **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).|
+|commands|No|The array of additional toolbar buttons of the overview page, see [commands](#commands).|
 
 ## Metrics
 
@@ -220,12 +220,12 @@ In this view you can perform GET, PUT, DELETE and POST operations for your custo
 |version|No|The version of the platform used to render the view.|
 |resourceType|Yes|The custom resource type. Must be a **unique** custom resource type of your custom provider.|
 |createUIDefinition|No|Create UI Definition schema for create custom resource command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md)|
-|commands|No|The array of additional toolbar buttons of the CustomResources view, see [Commands](#commands) The buttons are Azure Custom Providers actions defined in your **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).|
+|commands|No|The array of additional toolbar buttons of the CustomResources view, see [commands](#commands).|
 |columns|No|The array of columns of the custom resource. If not defined the `name` column will be shown by default. The column must have `"key"` (The key of the property to display in a view. If nested, use dot as delimiter, for example, `"key": "name"` or `"key": "properties.property1"`) and `"displayName"` (The display name of the property to display in a view) properties, and could have `"optional"` property (if true, the column will be hidden in a view by default).|
 
 ## Commands
 
-Commands is an array of additional toolbar buttons that will be displayed on page. Each command represents POST action of your Azure Custom Provider defined in **mainTemplate.json**.
+Commands is an array of additional toolbar buttons that will be displayed on page. Each command represents POST action of your Azure Custom Provider defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers overview](custom-providers-overview.md).
 
 ```json
     {
