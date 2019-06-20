@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
 
 ---
@@ -91,7 +91,7 @@ The following list provides a general summary of Azure services that can be move
 * Portal dashboards
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - Basic SKU Public IP can be moved. Standard SKU Public IP can't be moved.
-* Recovery Services vault - enroll in a [preview](#recovery-services-limitations).
+* Recovery Services vault - see [limitations](#recovery-services-limitations).
 * SAP HANA on Azure
 * Scheduler
 * Search - You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
@@ -99,7 +99,7 @@ The following list provides a general summary of Azure services that can be move
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* Storage - storage accounts in different regions can't be moved in the same operation. Instead, use separate operations for each region.
+* Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Storage Sync Service
 * Stream Analytics - Stream Analytics jobs can't be moved when in running state.

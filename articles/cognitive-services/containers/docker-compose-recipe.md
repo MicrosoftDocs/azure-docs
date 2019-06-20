@@ -8,7 +8,7 @@ author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.topic: article 
+ms.topic: conceptual 
 ms.date: 06/19/2019
 ms.author: dapine
 #As a potential customer, I want to know how to configure containers so I can reuse them.
