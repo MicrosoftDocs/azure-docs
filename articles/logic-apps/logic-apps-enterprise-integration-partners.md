@@ -23,6 +23,12 @@ To define the details about the messages exchanged with your partners, you creat
 
 In an agreement, you specify the details for handling incoming and outgoing messages from the host partner's perspective. For incoming messages, the **Receive Settings** specify how the host partner receives messages from the guest partner in the agreement. For outgoing messages, the **Send Settings** specify how the host partner sends messages to the guest partner.
 
+## Prerequisites
+
+* An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for storing your partners, agreements, and other B2B artifacts. This integration account must be associated with your Azure subscription.
+
 ## Create partner
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
