@@ -5,7 +5,7 @@ services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 06/19/2019
 ms.author: bwren
 ---
 
@@ -88,7 +88,7 @@ See [Get started with Log Analytics in Azure Monitor](get-started-portal.md) for
 In addition to interactively working with log queries and their results in Log Analytics, areas in Azure Monitor where you will use queries include the following:
 
 - **Alert rules.** [Alert rules](../platform/alerts-overview.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
-- **Dashboards.** You can pin the results of any query into an [Azure dashboard](../learn/tutorial-logs-dashboards.md) which allow you to visualize log and metric data together and optionally share with other Azure users. 
+- **Dashboards.** You can pin the results of any query into an [Azure dashboard](../learn/tutorial-logs-dashboards.md) which allow you to visualize log and metric data together and optionally share with other Azure users.
 - **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](../platform/view-designer.md).  Log queries provide the data used by [tiles](../platform/view-designer-tiles.md) and [visualization parts](../platform/view-designer-parts.md) in each view.  
 - **Export.**  When you import log data from Azure Monitor into Excel or [Power BI](../platform/powerbi.md), you create a log query to define the data to export.
 - **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) to retrieve log data from Azure Monitor.  This cmdlet requires a query to determine the data to retrieve.
@@ -96,5 +96,5 @@ In addition to interactively working with log queries and their results in Log A
 
 
 ## Next steps
-- Learn about using [Log Analytics to create and edit log searches](../log-query/portals.md).
-- Check out a [tutorial on writing queries](../log-query/get-started-queries.md) using the new query language.
+- Walk through a [tutorial on using Log Analytics in the Azure portal](get-started-portal.md).
+- Walk through a [tutorial on writing queries](get-started-queries.md).

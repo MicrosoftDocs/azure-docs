@@ -68,8 +68,8 @@ search in (SecurityEvent) "Cryptographic"
 
 This query searches the *SecurityEvent* table for records that contain the phrase "Cryptographic". Of those records, 10 records will be returned and displayed. If we omit the `in (SecurityEvent)` part and just run `search "Cryptographic"`, the search will go over *all* tables, which would take longer and be less efficient.
 
-> [!NOTE]
-> By default, a time range of _last 24 hours_ is set. To use a different range, use the time-picker (located next to the *Go* button) or add an explicit time range filter to your query.
+> [!WARNING]
+> Search queries are typically slower than table-based queries because they have to process more data. 
 
 ## Sort and top
 While **take** is useful to get a few records, the results are selected and displayed in no particular order. To get an ordered view, you could **sort** by the preferred column:
