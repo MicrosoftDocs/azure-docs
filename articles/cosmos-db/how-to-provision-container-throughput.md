@@ -49,7 +49,7 @@ If you are provisioning throughput on a container in an Azure Cosmos account con
 > Use the Cosmos SDKs for SQL API to provision throughput for all Cosmos DB APIs, except Cassandra API.
 
 ### <a id="dotnet-most"></a>SQL, MongoDB, Gremlin, and Table APIs
-
+V2 SDK
 ```csharp
 // Create a container with a partition key and provision throughput of 1000 RU/s
 DocumentCollection myCollection = new DocumentCollection();
@@ -60,6 +60,18 @@ await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
     myCollection,
     new RequestOptions { OfferThroughput = 1000 });
+```
+V3 SDK
+
+```csharp
+// Create a container with a partition key and provision throughput of 1000 RU/s
+string containerName = "myContainerName";
+string partitionKeyPath = "/myPartitionKey";
+
+await this.cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(
+    id: containerName,
+    partitionKeyPath: partitionKeyPath,
+    throughput: 1000);
 ```
 
 ### <a id="dotnet-cassandra"></a>Cassandra API

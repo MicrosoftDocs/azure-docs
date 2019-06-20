@@ -35,7 +35,7 @@ This article explains how to provision throughput on a database in Azure Cosmos 
 > You can use Cosmos SDKs for SQL API to provision throughput for all APIs. You can optionally use the following example for Cassandra API as well.
 
 ### <a id="dotnet-all"></a>All APIs
-
+V2 SDK
 ```csharp
 //set the throughput for the database
 RequestOptions options = new RequestOptions
@@ -47,6 +47,14 @@ RequestOptions options = new RequestOptions
 await client.CreateDatabaseIfNotExistsAsync(
     new Database {Id = databaseName},  
     options);
+```
+
+V3 SDK
+```csharp
+//create the database with throughput
+await this.cosmosClient.CreateDatabaseIfNotExistsAsync(
+                    id : databaseName,
+                    throughput: 1000);
 ```
 
 ### <a id="dotnet-cassandra"></a>Cassandra API

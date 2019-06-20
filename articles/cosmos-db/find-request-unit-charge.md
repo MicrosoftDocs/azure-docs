@@ -67,6 +67,34 @@ while (query.HasMoreResults)
     requestCharge = queryResponse.RequestCharge;
 }
 ```
+### Use the .NET SDK V3
+
+Objects that are returned from the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) expose a `RequestCharge` property:
+
+```csharp
+Container container = this.cosmosClient.GetContainer("database", "container");
+
+ItemResponse<dynamic> itemResponse = await container.CreateItemAsync<dynamic>(
+    item: new { id ="myItem", pk = "partitionKey" },
+    partitionKey: new PartitionKey("partitionKey"));
+var requestCharge = itemResponse.RequestCharge;
+
+Scripts scripts = container.Scripts;
+StoredProcedureExecuteResponse<object> sprocResponse = await scripts.ExecuteStoredProcedureAsync<object, object>(
+    new PartitionKey("partitionKey"),
+    storedProcedureId: "storedProcedureId",
+    input: new object());
+requestCharge = sprocResponse.RequestCharge;
+
+FeedIterator<dynamic> feedIterator = container.GetItemQueryIterator<dynamic>(
+     sqlQueryText: "SELECT * FROM c",
+     requestOptions: new QueryRequestOptions() { PartitionKey = new PartitionKey("partitionKey")});
+while (feedIterator.HasMoreResults)
+{
+    FeedResponse<dynamic> feedResponse = await feedIterator.ReadNextAsync();
+    requestCharge = feedResponse.RequestCharge;
+}
+```
 
 For more information, see [Quickstart: Build a .NET web app by using a SQL API account in Azure Cosmos DB](create-sql-api-dotnet.md).
 
