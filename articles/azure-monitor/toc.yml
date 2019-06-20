@@ -986,6 +986,8 @@
         href: platform/runbook-datacollect.md
 - name: Reference
   items:
+  - name: Service limits
+    href: service-limits.md
   - name: Application Insights
     items:
     - name: Dependency auto-collection
