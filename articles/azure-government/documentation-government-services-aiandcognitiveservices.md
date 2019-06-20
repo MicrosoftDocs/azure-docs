@@ -82,7 +82,7 @@ Variations in Azure Government:
   Locales for the following languages are supported. 
   - English (United States) - en-us
 
-See details of supported locales by features in [Language and region support for the Speech Services](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support). 
+See details of supported locales by features in [Language and region support for the Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support). 
 
 ## Language
  
