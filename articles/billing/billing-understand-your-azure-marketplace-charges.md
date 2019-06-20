@@ -66,11 +66,13 @@ EA customers can see external service spending and download reports in the EA po
 
 ## Manage payment methods for external service orders
 
-When purchasing an external service, you choose an Azure subscription for the resource. The payment method of the selected Azure subscription becomes the payment method for the external service. To change the payment method for an external service, you must change the payment method of the Azure subscription tied to that external service in the [Azure portal](https://portal.azure.com).
+When purchasing an external service, you choose an Azure subscription for the resource. The payment method of the selected Azure subscription becomes the payment method for the external service. To change the payment method for an external service, you must [change the payment method of the Azure subscription](billing-how-to-change-credit-card.md) tied to that external service. You can figure out which subscription your external service order is tied to by following these steps:
 
-1. To find the subscription tied to the external service, click on **All Resources** in the left navigation menu.
+1. Log into the [Azure portal](https://portal.azure.com).
+1. Click on **All Resources** in the left navigation menu.
      ![screenshot of all resources menu item](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
-1. For each resource, you see the Azure subscription that it is tied to.
+1. Search for your external service.
+1. Look for the name of the subscription in the **Subscription** column.
     ![screenshot of subscription name for resource](./media/billing-understand-your-azure-marketplace-charges/sub-selected.png)
 1. Click on the subscription name and [update the active payment method](billing-how-to-change-credit-card.md).
  
@@ -95,8 +97,10 @@ When purchasing an external service, you choose an Azure subscription for the re
 ## Cancel an external service order
 If you want to cancel your external service order, delete the resource in the [Azure portal](https://portal.azure.com).
 
+1. Log into the [Azure portal](https://portal.azure.com).
 1. Click on **All Resources** in the left navigation menu.
     ![Screenshot of all resources menu item](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
+1. Search for your external service.
 1. Check the box next to the resource you want to delete.
 1. Select **Delete** in the command bar.
     ![Screenshot of delete button](./media/billing-understand-your-azure-marketplace-charges/delete-button.png)
