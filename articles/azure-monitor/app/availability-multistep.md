@@ -23,8 +23,8 @@ You can monitor a recorded sequence of URLs and interactions with a website via 
 
 ## Pre-requisites
 
-    * Visual Studio 2017 Enterprise or greater.
-    * Visual Studio web performance and load testing tools.
+* Visual Studio 2017 Enterprise or greater.
+* Visual Studio web performance and load testing tools.
 
 To locate the testing tools pre-requisite. Launch the **Visual Studio Installer** > **Individual components** > **Debugging and testing** > **Web performance and load testing tools**.
 
