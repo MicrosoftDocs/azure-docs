@@ -169,6 +169,9 @@ select **Open With Logic App Designer**.
 
    ![Open "azuredeploy.json" in Logic App Designer](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
 1. After the **Logic App Properties** box appears and if not already selected, 
 under **Subscription**, select your Azure subscription. Under **Resource Group**, 
 select the resource group and location where you deployed your solution, 
