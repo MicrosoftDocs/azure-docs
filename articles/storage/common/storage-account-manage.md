@@ -20,12 +20,11 @@ Azure Storage supports authentication with Azure Active Directory for Blob stora
 
 The **Access control** settings in the Azure portal offer a simple way to assign RBAC roles to users, groups, service principals, and managed identities. For more information about assigning RBAC roles, see [Manage access rights to blob and queue data with RBAC](storage-auth-aad-rbac.md).
 
-> [!NOTE]
-> Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. 
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 ## Tags
 
-Azure Storage supports Azure Resource Manager tags for organizing your Azure resources with a customized taxonomy. You can apply tags to your storage accounts so that you can group them within your subscription in a logical manner. 
+Azure Storage supports Azure Resource Manager tags for organizing your Azure resources with a customized taxonomy. You can apply tags to your storage accounts so that you can group them within your subscription in a logical manner.
 
 For storage accounts, a tag name is limited to 128 characters, and a tag value is limited to 256 characters.
 
@@ -62,6 +61,7 @@ After you create a storage account, you can modify its configuration. For exampl
 Changing the storage account configuration may result in added costs. For more details, see the [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page.
 
 ## Delete a storage account
+
 To remove a storage account that you are no longer using, navigate to the storage account in the [Azure portal](https://portal.azure.com), and click **Delete**. Deleting a storage account deletes the entire account, including all data in the account.
 
 > [!WARNING]
