@@ -214,14 +214,11 @@ import horovod
 To optimize inference with the [ONNX Runtime](concept-onnx.md), convert your trained PyTorch model to the ONNX format. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. See the [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) for an example.
 
 ## Next steps
-<<<<<<< HEAD
 
 In this article, you trained and registered a PyTorch model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
 
 > [!div class="nextstepaction"]
 > [How and where to deploy models](how-to-deploy-and-where.md)
-=======
 * [Track run metrics during training](how-to-track-experiments.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 * [Deploy a trained model](how-to-deploy-and-where.md)
->>>>>>> ca32bdf8c5c79a95ead57a95ade8fb8a2a137ad6
