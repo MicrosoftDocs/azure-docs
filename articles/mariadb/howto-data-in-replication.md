@@ -20,23 +20,19 @@ This article assumes that you have some prior experience with MariaDB servers an
 
 ## Create a MariaDB server to use as replica
 
-1. Create a new Azure Database for MariaDB server
+1. Create a new Azure Database for MariaDB server (for example, `replica.mariadb.database.azure.com`). This server is the replica server in Data-in Replication.
 
-   Create a new MariaDB server (for example, replica.mariadb.database.azure.com). See [Create an Azure Database for MariaDB server by using the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md) for server creation. This server is the replica server in Data-in Replication.
+    To learn about server creation, see [Create an Azure Database for MariaDB server by using the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md). 
 
    > [!IMPORTANT]
-   > The Azure Database for MariaDB server must be created in the General Purpose or Memory Optimized pricing tiers.
+   > You must create the Azure Database for MariaDB server in the General Purpose or Memory Optimized pricing tiers.
 
-2. Create identical user accounts and corresponding privileges
-
-   User accounts aren't replicated from the master server to the replica server. If you plan to provide users with access to the replica server, you must manually create all accounts and corresponding privileges on this newly created Azure Database for MariaDB server.
+2. Create identical user accounts and corresponding privileges. User accounts aren't replicated from the master server to the replica server. To provide users with access to the replica server, you must manually create all accounts and corresponding privileges on the newly created Azure Database for MariaDB server.
 
 ## Configure the master server
-The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or database service hosted by other cloud providers for Data-in Replication. This server is the master in Data-in replication.
+The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or in a database service hosted by other cloud providers for Data-in Replication. This server is the master in Data-in replication.
 
-1. Turn on binary logging
-
-   To see if binary logging has been enabled on the master, enter the following command:
+1. Turn on binary logging. To see if binary logging has been enabled on the master, enter the following command:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
@@ -46,9 +42,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    If `log_bin` returns the value *OFF*, edit your **my.cnf** file so that `log_bin=ON` to turn on binary logging. Restart your server for the change to take effect.
 
-2. Master server settings
-
-   Data-in Replication requires the parameter `lower_case_table_names` to be consistent between the master and replica servers. The `lower_case_table_names` parameter is 1 by default in Azure Database for MariaDB.
+2. Configure master server settings. Data-in Replication requires the parameter `lower_case_table_names` to be consistent between the master and replica servers. The `lower_case_table_names` parameter is `1` by default in Azure Database for MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -56,7 +50,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 3. Create a new replication role and set up permission
 
-   Create a user account on the master server that's configured with replication privileges. You can create an account by using SQL commands or MySQL Workbench. If you plan on replicating with SSL, you must specify it when you create the user.
+   Create a user account on the master server that's configured with replication privileges. You can create an account by using SQL commands or MySQL Workbench. If you plan to replicate with SSL, you must specify this when you create the user account.
    
    Refer to the MariaDB documentation to understand how to [add user accounts](https://mariadb.com/kb/en/library/create-user/) on your master server.
 
