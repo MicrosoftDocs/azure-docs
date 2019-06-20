@@ -142,7 +142,6 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    **Session configuration**
 
    ```scala
-   val storageAccountName = "<storage-account-name>"
    val appID = "<appID>"
    val password = "<password>"
    val fileSystemName = "<file-system-name>"
