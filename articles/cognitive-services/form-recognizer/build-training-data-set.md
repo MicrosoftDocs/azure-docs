@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Build a training data set for a custom model
 
-When you use the Form Recognizer custom model, you provide your own training data so the model can train to your industry-specific forms. It's important to use a data set that's optimized for training. Use the following tips to ensure you get the best results from the [Train Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/TrainCustomModel) operation.
+When you use the Form Recognizer custom model, you provide your own training data so the model can train to your industry-specific forms. It's important to use a data set that's optimized for training. Use the following tips to ensure you get the best results from the [Train Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/TrainCustomModel) operation:
 
 1.  If possible, use text-based PDF documents instead of image-based documents.
 1.	Use one empty form and two filled-in forms if you have them available.
@@ -25,8 +25,8 @@ When you use the Form Recognizer custom model, you provide your own training dat
 
 ## Next steps
 
-Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and use it on your forms.
+Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
 
-* Quickstart
-* Quickstart
+* [Quickstart: Train a model and extract form data by using cURL](./quickstarts/curl-train-extract.md)
+* [Quickstart: Train a model and extract form data using the REST API with Python](./quickstarts/python-train-extract.md)
 
