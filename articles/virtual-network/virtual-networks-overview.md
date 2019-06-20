@@ -74,7 +74,7 @@ Azure routes traffic between subnets, connected virtual networks, on-premises ne
 
 ## Azure VNet limits
 
-There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values However, ou can increase certain limits as specificed on the [VNet limits page.](./azure-subscription-service-limits.md#networking-limits)
+There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values However, ou can increase certain limits as specificed on the [VNet limits page.](../azure-subscription-service-limits.md#networking-limits)
 
 ## Pricing
 
@@ -82,4 +82,4 @@ There is no charge for using Azure VNet, it is free of cost. Standard charges ar
 
 ## Next steps
 
-You now have an overview of Azure Virtual Network. To get started using a virtual network, create one, deploy a few VMs to it, and communicate between the VMs. To learn how, see the [Create a virtual network](quick-create-portal.md) quickstart.
+ To get started using a virtual network, create one, deploy a few VMs to it, and communicate between the VMs. To learn how, see the [Create a virtual network](quick-create-portal.md) quickstart.
