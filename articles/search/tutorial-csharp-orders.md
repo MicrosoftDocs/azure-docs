@@ -11,7 +11,7 @@ ms.date: 06/21/2019
 
 # C# tutorial: Order the results - Azure Search
 
-Up until this point in our series of tutorials, results are returned and displayed in the order that the data is located. This is arbitrary, and rarely the best user experience. In this tutorial, we will go into how to order results based on a primary property, and then for results that have the same primary property, how to order that selection on a secondary property. We will also go a bit deeper into the display of _complex types_.
+Up until this point in our series of tutorials, results are returned and displayed in the order that the data is located. This order is arbitrary, and rarely the best user experience. In this tutorial, we will go into how to order results based on a primary property, and then for results that have the same primary property, how to order that selection on a secondary property. We will also go a bit deeper into the display of _complex types_.
 
 In order to compare returned results easily, this project builds onto the infinite scrolling project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
 
@@ -34,7 +34,7 @@ When we order results based on one property, say hotel rating, we not only want 
 
 In this tutorial, we will also add a bit more to the display of results, the cheapest room rate, and the most expensive room rate, for each hotel. As we delve into ordering, we will also be adding values to make sure what we are ordering on is also displayed in the view.
 
-There is no need to modify any of the models to enable ordering. The view and the controller do need to be updated. Start by opening the home controller.
+There is no need to modify any of the models to enable ordering. The view and the controller need updated. Start by opening the home controller.
 
 ### Add the OrderBy property to the search parameters
 
@@ -137,7 +137,7 @@ There is no need to modify any of the models to enable ordering. The view and th
                 }
     ```
 
-6. The rating needs to be available both in the first displayed page, and in the subsequent pages that are called via the infinite scroll. For the latter of these two situations we need to update both the **Next** action in the controller, and the **scrolled** function in the view. Starting with the controller, change the **Next** method to the following code. This code creates and communicates the rating text.
+6. The rating needs to be available both in the first displayed page, and in the subsequent pages that are called via the infinite scroll. For the latter of these two situations, we need to update both the **Next** action in the controller, and the **scrolled** function in the view. Starting with the controller, change the **Next** method to the following code. This code creates and communicates the rating text.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -191,7 +191,7 @@ There is no need to modify any of the models to enable ordering. The view and th
 
     ![Ordering based on rating](./media/tutorial-csharp-create-first-app/azure-search-orders-rating.png)
 
-    You will notice that several hotels have an identical rating, and so their appearance in the display is again the order in which the data is found, which is arbitary.
+    You will notice that several hotels have an identical rating, and so their appearance in the display is again the order in which the data is found, which is arbitrary.
 
     Before we look into adding a second level of ordering, let's add some code to display the range of room rates. We are adding this code to both show extracting data from a _complex type_, and also so we can discuss ordering results based on price (cheapest first perhaps).
 
@@ -324,7 +324,7 @@ The question now is how to differentiate between hotels with the same rating. On
     >[!Tip]
     >Any number of properties can be entered in the **OrderBy** list. If hotels had the same rating and renovation date, a third property could be entered to differentiate between them.
 
-2. Again,we need to see the renovation date in the view, just to be certain the ordering is correct. For such a thing as a renovation, probably just the year is required. Change the rendering loop in the view to the following code.
+2. Again, we need to see the renovation date in the view, just to be certain the ordering is correct. For such a thing as a renovation, probably just the year is required. Change the rendering loop in the view to the following code.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -457,7 +457,7 @@ To display results based on geographical distance, several steps are required.
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. Although the results were returned by Azure Search using a distance filter, the calculated distance between the data and the specified point is _not_ returned. Re-calculate this value in the view, or controller, if you want to display it in the results.
+3. Although the results were returned by Azure Search using a distance filter, the calculated distance between the data and the specified point is _not_ returned. Recalculate this value in the view, or controller, if you want to display it in the results.
 
     The following code will calculate the distance between two lat/lon points.
 
@@ -480,7 +480,7 @@ To display results based on geographical distance, several steps are required.
         }
     ```
 
-4. Now you have to tie these concepts together. However, this is as far as our tutorial goes, building a map-based app is left as an exercise for the reader!
+4. Now you have to tie these concepts together. However, these code snippets are as far as our tutorial goes, building a map-based app is left as an exercise for the reader!
 
 ## Take ordering even further
 
@@ -490,14 +490,12 @@ Scoring is outside the realm of this tutorial. For more information, see to the 
 * scoring
 * scoring profiles
 
-
-
 ## Takeaways
 
 Consider the following takeaways from this project:
 
 * Users will expect search results to be ordered, most relevant first.
-* Data needs to be structured so that ordering is easy. We were not able to sort on "cheapest" first easily, as the data is not structured to enable ordering to be done without additional code.
+* Data needs structured so that ordering is easy. We were not able to sort on "cheapest" first easily, as the data is not structured to enable ordering to be done without additional code.
 * There can be many levels to ordering, to differentiate between results that have the same value at a higher level of ordering.
 * It is natural for some results to be ordered in ascending order (say, distance away from a point), and some in descending order (say, guest's rating).
 * Scoring profiles can be defined when numerical comparisons are not available for a data set. Scoring each result will help to order and display them intelligently.
@@ -507,3 +505,11 @@ Consider the following takeaways from this project:
 You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Search APIs.
 
 For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure), or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/azure/search/).
+
+
+WORK
+1. SCORING SECTION
+1. Try ordering on Rooms[0].BaseRate, or similar. and images/code to match.
+1. Links to map resources
+1. Try putting cheapest etc. into searchdata, so only done once? not sure this will work
+1. 
