@@ -25,6 +25,27 @@ ms.collection: M365-identity-device-management
 
 **Azure AD Join** is intended for organizations that want to be cloud-first (that is, primarily use cloud services, with a goal to reduce use of an on-premises infrastructure) or cloud-only (no on-premises infrastructure). There are no restrictions on the size or type of organizations that can deploy Azure AD Join. Azure AD Join works well even in a hybrid environment, enabling access to both cloud and on-premises apps and resources.
 
+|   | Azure AD Join |
+| --- | --- |
+| **Definition** | Joined only to Azure AD requiring organizational account to login to the device |
+| **Primary audience** | Suitable for both cloud-only and hybrid organizations. |
+|   | Applicable to all users in an organization |
+| **Device ownership** | Organization |
+| **Operating Systems** | All Windows 10 devices |
+| **Provisioning** | Self-service: Windows OOBE or Settings |
+|   | Bulk enrollment |
+|   | Windows Autopilot |
+| **Device login options** | Organizational accounts using: |
+|   | Password |
+|   | Windows Hello for Business |
+|   | FIDO2.0 security keys (preview) |
+| **Device management** | Mobile Device Management (example: Microsoft Intune) |
+|   | Co-management with Microsoft Intune and System Center Configuration Manager |
+| **Key capabilities** | SSO to both cloud and on-premises resources |
+|   | Conditional Access through MDM enrollment and MDM compliance evaluation |
+|   | Self-service Password Reset and Windows Hello PIN reset on lock screen |
+|   | Enterprise State Roaming across devices |
+
 Implementing Azure AD joined devices provides you with the following benefits:
 
 - **Single-Sign-On (SSO)** to your Azure managed SaaS apps and services. Your users don’t see additional authentication prompts when accessing work resources. The SSO functionality is available, even when your users are not connected to the domain network.

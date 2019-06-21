@@ -32,6 +32,29 @@ Typically, organizations with an on-premises footprint rely on imaging methods t
 
 If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are joined to your on-premises Active Directory and registered with your Azure Active Directory.
 
+|   | Hybrid Azure AD Join |
+| --- | --- |
+| **Definition** | Joined to on-premises AD and Azure AD requiring organizational account to login to the device |
+| **Primary audience** | Suitable for hybrid organizations with existing on-premises AD infrastructure |
+|   | Applicable to all users in an organization |
+| **Device ownership** | Organization |
+| **Operating Systems** | Windows 10, 8.1 and 7 |
+|   | Windows Server 2008/R2, 2012/R2, 2016 and 2019 |
+| **Provisioning** | Windows 10, Windows Server 2016/2019 |
+|   | Domain join by IT and auto-join via Azure AD Connect or ADFS config |
+|   | Domain join by Windows Autopilot and auto-join via Azure AD Connect or ADFS config |
+|   | Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 and Windows Server 2008 R2 - Require MSI |
+| **Device login options** | Organizational accounts using: |
+|   | Password |
+|   | Windows Hello for Business for Win10 |
+| **Device management** | Group Policy |
+|   | System Center Configuration Manager standalone or co-management with Microsoft Intune |
+| **Key capabilities** | SSO to both cloud and on-premises resources |
+|   | Conditional Access through Domain join or through Intune if co-managed |
+|   | Self-service Password Reset and Windows Hello PIN reset on lock screen |
+|   | Enterprise State Roaming across devices |
+
+
 ![Azure AD registered devices](./media/overview/01.png)
 
 You should use Azure AD hybrid joined devices if:

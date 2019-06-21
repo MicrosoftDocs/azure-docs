@@ -91,9 +91,9 @@ With device identity management in Azure AD, you can:
 
 ## Next steps
 
-- concept-azure-ad-register.md
-- concept-azure-ad-join.md
-- concept-azure-ad-join-hybrid.md
+- Learn more about [Azure AD registered devices](concept-azure-ad-register.md)
+- Learn more about [Azure AD joined devices](concept-azure-ad-join.md)
+- Learn more about [hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
 
 - To get an overview of how to manage device identities in the Azure portal, see [Managing device identities using the Azure portal](device-management-azure-portal.md).
 - To set up:

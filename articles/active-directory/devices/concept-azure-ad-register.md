@@ -25,6 +25,30 @@ ms.collection: M365-identity-device-management
 
 The goal of Azure AD registered devices is to provide you with support for the **Bring Your Own Device (BYOD)** scenario. In this scenario, a user can access your organization’s Azure Active Directory controlled resources using a personal device.  
 
+|   | Azure AD Registered |
+| --- | --- |
+| Definition | Registered to Azure AD without requiring organizational account to login to the device |
+| Primary audience | Applicable to all users with the following criteria: |
+|   | Bring your own device (BYOD) |
+|   | Corporate owned mobile devices |
+| Device ownership | User or Organization |
+| Operating Systems | Windows 10, iOS, Android and MacOS |
+| Provisioning | Windows 10 – Settings |
+|   | iOS/Android – Company Portal or Microsoft Authenticator app |
+|   | MacOS – Company Portal |
+| Device login options | End-user local credentials |
+|   | Password |
+|   | Windows Hello |
+|   | PIN |
+|   | Biometrics or Pattern for other devices |
+| Device management | Mobile Device Management (example: Microsoft Intune) |
+|   | Mobile Application Management |
+| Key capabilities | SSO to cloud resources |
+|   | Conditional Access when enrolled into Intune |
+|   | Conditional Access via App protection policy |
+|   | Enables Phone sign in with Microsoft Authenticator |
+
+
 ![Azure AD registered devices](./media/overview/03.png)
 
 The access is based on a work or school account that has been entered on the device.  
