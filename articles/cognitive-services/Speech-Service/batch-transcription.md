@@ -86,6 +86,7 @@ Use these optional properties to configure transcription:
 | `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `none` which disables punctuation, `dictated` which implies explicit punctuation, `automatic` which lets the decoder deal with punctuation, or `dictatedandautomatic` which implies dictated punctuation marks or automatic. |
  | `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. |
  | `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `true` which enables sentiment per utterance and `false` (the default value) to disable it. |
+ | `AddDiarization` | Specifies that diarization alalysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` which enables diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.|
 
 ### Storage
 
@@ -123,13 +124,8 @@ The corresponding audio will contain the speakers identified by a number (curren
 
 Also note that Diarization is not available in Stereo recordings. Furthermore, all JSON output will contain the Speaker tag. If diarization is not used, it will show 'Speaker: Null' in the JSON output.
 
-Supported locales are listed below.
-
-| Language | locale |
-|--------|-------|
-| English | en-US |
-| Chinese | zh-CN |
-| Deutsch | de-DE |
+> [!NOTE]
+> Diarization is available in all regions and for all locales!
 
 ## Sentiment
 
