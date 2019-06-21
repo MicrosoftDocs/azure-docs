@@ -57,7 +57,7 @@ Let's start by creating an Azure Cosmos account. If you already have an Azure Co
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-In the next section, you create a new ASP.NET MVC application. 
+In the next section, you create a new ASP.NET Core MVC application. 
 
 ## <a name="create-a-new-mvc-application"></a>Step 2: Create a new ASP.NET Core MVC application
 
@@ -299,4 +299,4 @@ In this tutorial, you've learned how to build an ASP.NET Core MVC web applicatio
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
-[GitHub]: https://github.com/azure/azure-cosmos-dotnet-v3
+[GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app
