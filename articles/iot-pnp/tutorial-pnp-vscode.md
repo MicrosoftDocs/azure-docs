@@ -1,5 +1,5 @@
 ---
-title: Create and test a Azure IoT Plug and Play device | Microsoft Docs
+title: Create and test an Azure IoT Plug and Play device | Microsoft Docs
 description: As a device developer, learn about how to use VS Code to create and test a new device capability model for an IoT Plug and Play device.
 author: dominicbetts
 ms.author: dobett
@@ -17,7 +17,7 @@ manager: philmea
 
 This tutorial shows you how, as a device developer, to use Visual Studio code to create a _device capability model_. You can use the model to generate code to run on a device that connects to an Azure IoT Hub instance in the cloud.
 
-The section in this tutorial that describes how to build the generated code assumes you are using Windows.
+The section in this tutorial that describes how to build the generated code assumes you're using Windows.
 
 In this tutorial, you learn how to:
 
@@ -63,7 +63,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
 1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Create Interface** command. Then enter **EnvironmentalSensor** as the name of the interface. VS Code creates a sample interface file called **EnvironmentalSensor.interface.json**.
 
-1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field with a unique value. The interface ID must be unique to be able to save the interface in the repository:
+1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field with a unique value. The interface ID must be unique to save the interface in the repository:
 
     ```json
     {
@@ -166,7 +166,7 @@ To create a model file that specifies the interfaces your Plug and Play device i
 
 1. Enter **Plug and Play** and then select the **Azure IoT Plug & Play: Create Capability Model** command. Then enter **EnvironmentalSensorModel** as the name of the model. VS Code creates a sample interface file called **EnvironmentalSensorModel.capabilitymodel.json**.
 
-1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field and in the `EnvironmentalSensor` interface with the same value you used in the **EnvironmentalSensor.interface.json** file. The interface ID must be unique to be able to save the interface in the repository:
+1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field and in the `EnvironmentalSensor` interface with the same value you used in the **EnvironmentalSensor.interface.json** file. The interface ID must be unique to save the interface in the repository:
 
     ```json
     {
@@ -185,7 +185,6 @@ To create a model file that specifies the interfaces your Plug and Play device i
 
 1. Save the file.
 
-<!-- This step is probably not needed as it should be possible to build without repository access -->
 ### Add the files to the public model repository
 
 Before you can generate code from the model, you must add the model files to the *public model repository*. The public model repository already contains the **DeviceInformation** interface.
@@ -216,7 +215,7 @@ You can use the **Azure IoT Workbench extension for VS Code** to generate skelet
 
 1. Select the **modelcode** folder in your workspace to save the generated C files.
 
-VS Code generates the the skeleton C code and saves the files in the **modelcode** folder. VS Code opens a new window that contains the generated code files.
+VS Code generates the skeleton C code and saves the files in the **modelcode** folder. VS Code opens a new window that contains the generated code files.
 
 ## Update the generated code
 
@@ -232,7 +231,6 @@ To provide implementations for the stubbed code in VS Code:
 
 Before you run the code to test your plug and play device with an Azure IoT hub, you need to compile the code. The following steps show you how to compile the code on Windows:
 
-<!-- Need to verify which repo and branch to use for public preview -->
 1. Clone the Azure IoT C SDK:
 
     ```cmd
@@ -336,8 +334,6 @@ Before you run the code to test your plug and play device with an Azure IoT hub,
 
 When you run the code, it connects to IoT Hub and starts sending sample telemetry and property values. The device also responds to commands sent from IoT Hub. To verify this behavior:
 
-<!-- To do - complete this section -->
-
 1. To create an IoT hub:
 
     ```azurecli-interactive
@@ -356,4 +352,4 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
 
 ## Next steps
 
-Now that you've built an IoT Plug and Play ready for certification, learn how to [certify your device](link) and list it in the Certified for Azure IoT device catalog.
+Now that you've built an IoT Plug and Play ready for certification, learn how to [build a device that's ready for certification](tutorial-build-device-for-certification.md) and list it in the Certified for Azure IoT device catalog.

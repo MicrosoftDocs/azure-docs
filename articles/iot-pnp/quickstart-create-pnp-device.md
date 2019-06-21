@@ -3,7 +3,7 @@ title: Create an Azure plug and play device | Microsoft Docs
 description: Use a device capability model to generate device code. Then run the device code and see the device connect to your IoT Hub.
 author: miagdp
 ms.author: miag
-ms.date: 06/12/2019
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -42,6 +42,8 @@ Download and install the digital twin explorer tool from the [latest release]().
 ### Azure IoT Hub
 
 Create a device identity in an Azure IoT Hub. If you don't have one, follow instructions [here](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node#create-an-iot-hub) to create one.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create your model
 
@@ -166,3 +168,12 @@ Use the digital twin explorer tool to validate the code:
 1. Select **Device Twin**, confirm the change you just made in property **X**.
 1. Select the **Command** page under **interfaceX**. Select command **X** and select **Submit**.
 1. Go to the device to verify that the command executed as expected.
+
+## Next steps
+
+In this quickstart, you learned how to create a Plug and Play device using a DCM.
+
+To learn more about DCMs and how to create your own models, continue to the tutorial:
+
+> [!div class="nextstepaction"]
+> > [Tutorial: Create a test a device capability model using Visual Studio Code](tutorial-pnp-vscode.md)

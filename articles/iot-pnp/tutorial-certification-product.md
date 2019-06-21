@@ -7,15 +7,15 @@ services: iot-pnp
 ms.topic: tutorial
 ms.author: koichih
 author: konichi3
-ms.date: 06/07/2019
-# As a device builder, I want to certify my PnP device and add it to the Azure IoT device catalog so that customers can find it.
+ms.date: 06/21/2019
+# As a device builder, I want to certify my Plug and Play device and add it to the Azure IoT device catalog so that customers can find it.
 ---
 
 # Tutorial: Add your product information
 
 In the how-to article, you learned about how to register your company to the portal, create Plug and Play models and implement your device code to be certified.
 
-This tutorial shows you how to add the product information that's shown in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) for your Plug and Play (PnP) device.
+This tutorial shows you how to add the product information that's shown in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) for your Plug and Play device.
 
 In this tutorial, you learn how to:
 
@@ -37,7 +37,7 @@ To certify your IoT Plug and Play device, your device must meet following requir
 * Your device code must support the [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
 * Your device code must implement [Device Information Interface](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/src/provisioningscripts/samples/interfaces/DeviceInformation.interface.json)
 
-Use the [IoT Plug and Play SDK](https://github.com/Azure/Azure-IoT-PnP-Preview) for writing your device code. The SDK makes it easy to add PnP support to your device
+Use the [IoT Plug and Play SDK](https://github.com/Azure/Azure-IoT-PnP-Preview) for writing your device code. The SDK makes it easy to add Plug and Play support to your device
 
 ## Add product name
 
@@ -65,4 +65,4 @@ In this tutorial, you learned how to:
 > * Add your product name
 > * Add your product information
 
-Now that you know now to add your PnP device information to the portal, the suggested next step is to ...
+Now that you know now to add your Plug and Play device information to the portal, the suggested next step is to learn how to [run the certification tests](tutorial-certification-test.md).
