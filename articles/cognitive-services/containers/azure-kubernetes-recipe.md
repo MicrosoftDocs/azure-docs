@@ -76,7 +76,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     Save the results to get the **loginServer** property. This will be part of the hosted container's address, used later in the `language.yml` file.
 
     ```console
-    >az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
