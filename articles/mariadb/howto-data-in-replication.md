@@ -49,7 +49,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 2. Configure master server settings.
 
-    Data-in Replication requires the parameter `lower_case_table_names` to be consistent between the master and replica servers. The `lower_case_table_names` parameter is set to `1` by default in Azure Database for MariaDB.
+    Data-in Replication requires the parameter `lower_case_table_names` to be consistent between the master and replica servers. The parameter `lower_case_table_names` is set to `1` by default in Azure Database for MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -185,7 +185,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    **Examples**
 
-   Replication with SSL
+   - Replication with SSL
 
    Create the variable `@cert` by running the following commands:
 
@@ -200,7 +200,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
    ```
-   Replication without SSL:
+   - Replication without SSL
 
    Replication without SSL is set up between a master server hosted in the domain companya.com, and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
 
