@@ -11,14 +11,14 @@ keywords: azure, kinect, rgb, IR, recording, sensor, sdk, access, depth, video, 
 
 # About Azure Kinect Sensor SDK
 
-This article provides an overview of the Azure Kinect Sensor software development kit (SDK), it's features and tools.
+This article provides an overview of the Azure Kinect Sensor software development kit (SDK), its features and tools.
 
 ## Features
 
 The Azure Kinect Sensor SDK provides cross-platform low-level access for Azure Kinect device configuration and hardware sensors streams, including:
 
 - Depth camera access and mode control (a passive IR mode, plus wide and narrow field-of-view depth modes) 
-- RGB camera access and control (e.g. exposure and white balance) 
+- RGB camera access and control (for example, exposure and white balance) 
 - Motion sensor (gyroscope and accelerometer) access 
 - Synchronized Depth-RGB camera streaming with configurable delay between cameras 
 - External device synchronization control with configurable delay offset between devices 

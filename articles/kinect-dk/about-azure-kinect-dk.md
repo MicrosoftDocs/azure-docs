@@ -25,7 +25,7 @@ In addition, Cognitive Vision services can be used with the device RGB camera.
 
 ## Azure Kinect Sensor SDK
 
-The Azure Kinect Sensor SDK provides low-level sensor access for Azure Kinect DK hardware sensors and device configuration.
+The Azure Kinect Sensor software development kit (SDK) provides low-level sensor access for Azure Kinect DK hardware sensors and device configuration.
 
 To learn more about Azure Kinect Sensor SDK, see [Using Sensor SDK](about-sensor-sdk.md).
 
@@ -34,7 +34,7 @@ To learn more about Azure Kinect Sensor SDK, see [Using Sensor SDK](about-sensor
 The Sensor SDK has the following features that work once installed and run on the Azure Kinect DK:
 
 - Depth camera access and mode control (a passive IR mode, plus wide and narrow field-of-view depth modes) 
-- RGB camera access and control (e.g. exposure and white balance) 
+- RGB camera access and control (for example, exposure and white balance) 
 - Motion sensor (gyroscope and accelerometer) access 
 - Synchronized Depth-RGB camera streaming with configurable delay between cameras 
 - External device synchronization control with configurable delay offset between devices 
