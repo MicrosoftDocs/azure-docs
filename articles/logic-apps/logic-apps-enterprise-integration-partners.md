@@ -8,7 +8,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 06/22/2019
 ---
 
 # Add trading partners to integration accounts for Azure Logic Apps

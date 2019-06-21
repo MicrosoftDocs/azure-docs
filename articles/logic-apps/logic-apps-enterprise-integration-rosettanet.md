@@ -8,7 +8,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 06/22/2019
 ---
 
 # Exchange RosettaNet messages for B2B enterprise integration in Azure Logic Apps 
