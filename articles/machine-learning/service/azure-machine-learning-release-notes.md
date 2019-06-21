@@ -31,6 +31,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Added CLI support for pipeline schedule. Run "az ml pipeline -h" to learn more
   + Added custom Kubernetes namespace parameter to AKS webservice deployment configuration and CLI.
   + Deprecated hash_paths parameter for all pipeline steps
+  + Model.register now supports registering multiple individual files as a single model with use of the `child_paths` parameter.
   
 + **Preview features**
     + Scoring explainers can now optionally save conda and pip information for more reliable serialization and deserialization.
