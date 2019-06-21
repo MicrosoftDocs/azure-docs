@@ -1,62 +1,61 @@
 ---
-title: What are Azure AD registered devices in Azure Active Directory?
+title: What are Azure AD registered devices?
 description: Learn how device identity management can help you to manage devices that are accessing resources in your environment.
-services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
 
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
+services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/04/2019
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
-#Customer intent: As an IT admin, I want to learn how to bring and manage device identities in Azure AD, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD registered devices
 
-The goal of Azure AD registered devices is to provide you with support for the **Bring Your Own Device (BYOD)** scenario. In this scenario, a user can access your organization’s Azure Active Directory controlled resources using a personal device.  
+The goal of Azure AD registered devices is to provide your users with support for the Bring Your Own Device (BYOD) or mobile device scenarios. In these scenarios, a user can access your organization’s Azure Active Directory controlled resources using a personal device.
 
 |   | Azure AD Registered |
 | --- | --- |
-| Definition | Registered to Azure AD without requiring organizational account to login to the device |
-| Primary audience | Applicable to all users with the following criteria: |
+| **Definition** | Registered to Azure AD without requiring organizational account to sign in to the device |
+| **Primary audience** | Applicable to all users with the following criteria: |
 |   | Bring your own device (BYOD) |
-|   | Corporate owned mobile devices |
-| Device ownership | User or Organization |
-| Operating Systems | Windows 10, iOS, Android and MacOS |
-| Provisioning | Windows 10 – Settings |
+|   | Mobile devices |
+| **Device ownership** | User or Organization |
+| **Operating Systems** | Windows 10, iOS, Android, and MacOS |
+| **Provisioning** | Windows 10 – Settings |
 |   | iOS/Android – Company Portal or Microsoft Authenticator app |
 |   | MacOS – Company Portal |
-| Device login options | End-user local credentials |
+| **Device sign in options** | End-user local credentials |
 |   | Password |
 |   | Windows Hello |
 |   | PIN |
 |   | Biometrics or Pattern for other devices |
-| Device management | Mobile Device Management (example: Microsoft Intune) |
+| **Device management** | Mobile Device Management (example: Microsoft Intune) |
 |   | Mobile Application Management |
-| Key capabilities | SSO to cloud resources |
+| **Key capabilities** | SSO to cloud resources |
 |   | Conditional Access when enrolled into Intune |
 |   | Conditional Access via App protection policy |
-|   | Enables Phone sign in with Microsoft Authenticator |
-
+|   | Enables Phone sign in with Microsoft Authenticator app |
 
 ![Azure AD registered devices](./media/overview/03.png)
 
-The access is based on a work or school account that has been entered on the device.  
-For example, Windows 10 enables users to add a work or school account to a personal computer, tablet, or phone.  
-When a user has added a work or school account, the device is registered with Azure AD and optionally enrolled in the mobile device management (MDM) system that your organization has configured.
-Your organization’s users can add a work or school account to a personal device conveniently:
+Azure AD registered devices are signed in to using a local account like a Microsoft account on a Windows 10 device, but additionally have an Azure AD account attached for access to organizational resources. Access to resources in the organization can be further limited based on that Azure AD account and Conditional Access policies applied to the device identity.
 
-- When accessing a work application for the first time
-- Manually via the **Settings** menu in the case of Windows 10
+Administrators can secure and further control these Azure AD registered devices using Mobile Device Management (MDM) tools like Microsoft Intune. MDM provides a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, and security software kept updated. 
 
-You can configure an Azure AD registered device state for **Windows 10 personal, iOS, Android and macOS** devices.
+Azure AD registration can be accomplished when accessing a work application for the first time or manually using the Windows 10 Settings menu. 
+
+## Scenarios
+
+A user in your organization wants to access tools for email, reporting time off, and benefits enrollment from their home PC. Your organization has these tools behind a Conditional Access policy that requires access from an Intune compliant device. The user adds their organization account and registers their home PC with Azure AD and the required Intune policies are enforced giving the user access to their resources.
+
+Another user wants to access their organizational email on their personal Android phone that has been rooted. Your company requires a compliant device and has created an Intune complance policy to block any rooted devices. The employee is stopped from accessing organizational resources on this device.
+
+## Next steps
+
+- [What is Microsoft Intune?](https://docs.microsoft.com/intune/what-is-intune)

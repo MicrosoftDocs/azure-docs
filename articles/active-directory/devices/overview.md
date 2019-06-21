@@ -1,23 +1,19 @@
 ---
 title: What is device identity in Azure Active Directory?
 description: Learn how device identity management can help you to manage the devices that are accessing resources in your environment.
-services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
 
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
+services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 06/04/2019
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
-#Customer intent: As an IT admin, I want to learn how to bring and manage device identities in Azure AD, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
+
+#Customer intent: As an IT admin, I want to learn how to create and manage device identities in Azure AD, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
 
 ms.collection: M365-identity-device-management
 ---

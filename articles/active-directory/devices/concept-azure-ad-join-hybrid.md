@@ -1,23 +1,17 @@
 ---
-title: What are hybrid Azure AD joined devices in Azure Active Directory?
+title: What is a hybrid Azure AD joined device?
 description: Learn how device identity management can help you to manage devices that are accessing resources in your environment.
-services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
 
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
+services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/04/2019
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
-#Customer intent: As an IT admin, I want to learn how to bring and manage device identities in Azure AD, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
 
 ms.collection: M365-identity-device-management
 ---
@@ -34,7 +28,7 @@ If your environment has an on-premises AD footprint and you also want benefit fr
 
 |   | Hybrid Azure AD Join |
 | --- | --- |
-| **Definition** | Joined to on-premises AD and Azure AD requiring organizational account to login to the device |
+| **Definition** | Joined to on-premises AD and Azure AD requiring organizational account to sign in to the device |
 | **Primary audience** | Suitable for hybrid organizations with existing on-premises AD infrastructure |
 |   | Applicable to all users in an organization |
 | **Device ownership** | Organization |
@@ -44,7 +38,7 @@ If your environment has an on-premises AD footprint and you also want benefit fr
 |   | Domain join by IT and auto-join via Azure AD Connect or ADFS config |
 |   | Domain join by Windows Autopilot and auto-join via Azure AD Connect or ADFS config |
 |   | Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 and Windows Server 2008 R2 - Require MSI |
-| **Device login options** | Organizational accounts using: |
+| **Device sign in options** | Organizational accounts using: |
 |   | Password |
 |   | Windows Hello for Business for Win10 |
 | **Device management** | Group Policy |
@@ -81,3 +75,9 @@ Azure AD Join can be deployed by using any of the following methods:
 - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
 - [Bulk deployment](https://docs.microsoft.com/intune/windows-bulk-enroll)
 - [Self-service experience](azuread-joined-devices-frx.md)
+
+## Next steps
+
+- [What is Microsoft Intune?](https://docs.microsoft.com/intune/what-is-intune)
+- [What is co-management?](https://docs.microsoft.com/sccm/comanage/overview)
+- [Windows Hello for Business](https://docs.microsoft.com/indows/security/identity-protection/hello-for-business/hello-identity-verification)
