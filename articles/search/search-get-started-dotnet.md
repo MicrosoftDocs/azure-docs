@@ -213,71 +213,70 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
         class Program { 
 
-        // Demonstrates index delete, create, load, and query
-        // Commented-out code is uncommented in later steps
-        static void Main(string[] args)
-        {
-            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-            IConfigurationRoot configuration = builder.Build();
+            // Demonstrates index delete, create, load, and query
+            // Commented-out code is uncommented in later steps
+            static void Main(string[] args)
+            {
+                IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+                IConfigurationRoot configuration = builder.Build();
 
-            SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+                SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 
-            string indexName = configuration["SearchIndexName"];
+                string indexName = configuration["SearchIndexName"];
 
-            Console.WriteLine("{0}", "Deleting index...\n");
-            DeleteIndexIfExists(indexName, serviceClient);
+                Console.WriteLine("{0}", "Deleting index...\n");
+                DeleteIndexIfExists(indexName, serviceClient);
 
-            Console.WriteLine("{0}", "Creating index...\n");
-            CreateIndex(indexName, serviceClient);
+                Console.WriteLine("{0}", "Creating index...\n");
+                CreateIndex(indexName, serviceClient);
 
-            // Uncomment next 3 lines in "2 - Load documents"
-            // ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
-            // Console.WriteLine("{0}", "Uploading documents...\n");
-            // UploadDocuments(indexClient);
+                // Uncomment next 3 lines in "2 - Load documents"
+                // ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
+                // Console.WriteLine("{0}", "Uploading documents...\n");
+                // UploadDocuments(indexClient);
 
-            // Uncomment next 2 lines in "3 - Search an index"
-            // Console.WriteLine("{0}", "Searching index...\n");
-            // RunQueries(indexClient);
+                // Uncomment next 2 lines in "3 - Search an index"
+                // Console.WriteLine("{0}", "Searching index...\n");
+                // RunQueries(indexClient);
 
-            Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
-            Console.ReadKey();
+                Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
+                Console.ReadKey();
+                }
+
+            // Create the search service client
+            private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+            {
+                string searchServiceName = configuration["SearchServiceName"];
+                string adminApiKey = configuration["SearchServiceAdminApiKey"];
+
+                SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+                return serviceClient;
             }
 
-        // Create the search service client
-        private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
-        {
-            string searchServiceName = configuration["SearchServiceName"];
-            string adminApiKey = configuration["SearchServiceAdminApiKey"];
-
-            SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
-            return serviceClient;
-        }
-
-        // Delete an existing index to reuse its name
-        private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
-        {
-            if (serviceClient.Indexes.Exists(indexName))
+            // Delete an existing index to reuse its name
+            private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
             {
-                serviceClient.Indexes.Delete(indexName);
+                if (serviceClient.Indexes.Exists(indexName))
+                {
+                    serviceClient.Indexes.Delete(indexName);
+                }
+            }
+
+            // Create an index whose fields correspond to the properties of the Hotel class.
+            // The Address property of Hotel will be modeled as a complex field.
+            // The properties of the Address class in turn correspond to sub-fields of the Address complex field.
+            // The fields of the index are defined by calling the FieldBuilder.BuildForType() method.
+            private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
+            {
+                var definition = new Index()
+                {
+                    Name = indexName,
+                    Fields = FieldBuilder.BuildForType<Hotel>()
+                };
+
+                serviceClient.Indexes.Create(definition);
             }
         }
-
-        // Create an index with a single call to "Indexes.Create"
-        // This method takes as a parameter an Index object that defines an Azure Search index
-        // 
-        // Set the Fields property of the Index object to an array of Field objects.
-        // The field array is defined in the Hotels class, which subsumes the Address class.
-        private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
-        {
-            var definition = new Index()
-            {
-                Name = indexName,
-                Fields = FieldBuilder.BuildForType<Hotel>()
-            };
-
-            serviceClient.Indexes.Create(definition);
-        }
-    }
     }    
     ```
 
@@ -291,17 +290,17 @@ The hotels index consists of simple and complex fields, where a simple field is 
     > If you don't plan to use a model class, you can still define your index by creating `Field` objects directly. You can provide the name of the field to the constructor, along with the data type (or analyzer for string fields). You can also set other properties like `IsSearchable`, `IsFilterable`, to name a few.
     >
 
-1. Optionally, as a verification step, press F5 to build the app at this point to create the index. 
+1. Press F5 to build the app and create the index. 
 
-    If the project builds successfully, a console window opens, writing status messages to the screen for deleting and creating the index. In the Azure portal, in the search service **Overview** page, you should see an empty hotels-quickstart index with 0 documents.
+    If the project builds successfully, a console window opens, writing status messages to the screen for deleting and creating the index. 
 
 ## 2 - Load documents
 
-Documents are the unit of data ingestion in Azure Search. As obtained from an external data source, documents might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding four hotel JSON documents in the code itself. 
+In Azure Search, documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for four hotels in the code itself. 
 
-When uploading documents, it's common to submit documents in batch mode using an [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) object. An `IndexBatch` encapsulates a collection of [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) objects, each of which contains a document and a property telling Azure Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+When uploading documents, you must use an [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) object. An `IndexBatch` contains a collection of [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) objects, each of which contains a document and a property telling Azure Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
-1. In Program.cs, upload an array of documents and index actions, and then pass the array to `IndexBatch`. The documents below conform to the hotel-quickstart index, as defined by the hotel and address classes.
+1. In Program.cs, create an array of documents and index actions, and then pass the array to `IndexBatch`. The documents below conform to the hotel-quickstart index, as defined by the hotel and address classes.
 
     ```csharp
     // Upload documents as a batch
@@ -421,9 +420,7 @@ When uploading documents, it's common to submit documents in batch mode using an
     }
     ```
 
-    Once you initialize the`IndexBatch` object, you can send it to the index by calling [`Documents.Index`](https://docs.microsoft.com/eotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) on your `SearchIndexClient` object. `Documents` is a property of `SearchIndexClient` that provides methods for adding, modifying, deleting, or querying documents in your index.
-
-   [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) load documents into an index. There are other approaches that are better suited for production scenarios, but in this example, indexClient is initialized by calling the `Indexes.GetClient` method on the `SearchServiceClient` instance that is already created, passing in the indexName to use.
+    Once you initialize the`IndexBatch` object, you can send it to the index by calling [`Documents.Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) on your [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) object. `Documents` is a property of `SearchIndexClient` that provides methods for adding, modifying, deleting, or querying documents in your index.
 
     The `try`/`catch` surrounding the call to the `Index` method catches indexing failures, which might happen if your service is under heavy load. In production code, you could delay and then retry indexing the documents that failed, or log and continue like the sample does, or handle it in some other way that meets your application's data consistency requirements.
 
@@ -437,7 +434,7 @@ When uploading documents, it's common to submit documents in batch mode using an
     Console.WriteLine("{0}", "Uploading documents...\n");
     UploadDocuments(indexClient);
     ```
-1. Optionally, as a verification step, press F5 to rebuild the app. 
+1. Press F5 to rebuild the app. 
 
     If the project builds successfully, a console window opens, writing status messages, this time with a message about uploading documents. In the Azure portal, in the search service **Overview** page, the hotels-quickstart index should now have 4 documents.
 
@@ -445,15 +442,15 @@ For more information about document processing, see ["How the .NET SDK handles d
 
 ## 3 - Search an index
 
-You can run queries as soon as the first document is indexed, but actual testing should wait until after the index is fully built. Indexing progress can be monitored in the portal or through APIs that return a document count. 
+You can get query results as soon as the first document is indexed, but actual testing of your index should wait until all documents are indexed. 
 
 This section adds two pieces of functionality: query logic, and results. For queries, use the [`Search`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.search?view=azure-dotnet
-) method. This method takes strings as well as [parameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet). 
+) method. This method takes search text as well as other [parameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet). 
 
-The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1?view=azure-dotnet) class is used to shape results.
+The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1?view=azure-dotnet) class represents the results.
 
 
-1. In Program.cs, add a WriteDocuments method that prints search results to the console.
+1. In Program.cs, create a WriteDocuments method that prints search results to the console.
 
     ```csharp
     private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
@@ -467,7 +464,7 @@ The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.az
     }
     ```
 
-1. Add a RunQueries method that provides the query. Results consist of parts of the Hotel object. During code execution, StringBuilder is used to articulate the individual fields in the results.
+1. Create a RunQueries method to execute queries and return results. Results are Hotel objects. You can use the select parameter to surface individual fields.
 
     ```csharp
     private static void RunQueries(ISearchIndexClient indexClient)
@@ -531,7 +528,7 @@ The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.az
     }
     ```
 
-    The most commonly used [query types](search-query-overview.md#types-of-queries) are `search` and `filter`. A `search` query searches for one or more terms in all `IsSearchable` fields in your index. A `filter` query evaluates a boolean expression over all `IsFilterable` fields in an index. You can use searches and filters together or separately.
+    Commonly used [query constructions](search-query-overview.md#types-of-queries) include `search` and `filter`. A `search` query searches for one or more terms in all `IsSearchable` fields in your index. A `filter` query evaluates a boolean expression over all `IsFilterable` fields in an index. You can use searches and filters together or separately.
 
     Both searches and filters are performed using the `Documents.Search` method. A search query can be passed in the `searchText` parameter, while a filter expression can be passed in the `Filter` property of the `SearchParameters` class. To filter without searching, just pass `"*"` for the `searchText` parameter. To search without filtering, just leave the `Filter` property unset, or do not pass in a `SearchParameters` instance at all.
 
