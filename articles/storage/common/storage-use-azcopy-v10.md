@@ -124,7 +124,7 @@ You can sign into your account by using a client secret or by using the password
 
 Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration. This value is available only to the current session. 
 
-This example shows how you could do this in a Windows PowerShell prompt.
+This example shows how you could do this in PowerShell.
 
 ```azcopy
 $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
@@ -133,27 +133,27 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, the client secret won't appear in your console's command history. 
 
-Next, open a command prompt, type the following command, and then press the ENTER key.
+Next, type the following command, and then press the ENTER key.
 
 ```azcopy
 azcopy login --service-principal --application-id <application-id>
 ```
 
-Replace the `<application-id>` placeholder with the Application ID of your service principal's app registration.
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration.
 
-##### Using certificate
+##### Using a certificate
 
 If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to login.
  
 First, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate password. This value is available only to the current session. 
 
-This example shows how you could do this in a Windows PowerShell prompt.
+This example shows how you could do this in PowerShell.
 
 ```azcopy
 $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
 ```
 
-Then, open a command prompt, type the following command, and then press the ENTER key.
+Next, type the following command, and then press the ENTER key.
 
 ```azcopy
 azcopy login --service-principal --certificate-path <path-to-certificate-file>
@@ -162,7 +162,7 @@ azcopy login --service-principal --certificate-path <path-to-certificate-file>
 Replace the `<path-to-certificate-file>` placeholder with the relative or fully-qualified path to the certificate file. 
 
 > [!NOTE]
-> Consider using a prompt as shown in this example. That way, the certificate password won't appear in your console's command history. 
+> Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
 
 ### Option 2: Use a SAS token
 
@@ -190,7 +190,7 @@ To find example commands, see any of these articles.
 
 ## Use AzCopy in a script
 
-If you plan to use a service principal for authorization, make sure that you first interactively sign into your account by using a client secret or the password of a certificate that is associated with your service principal's app registration. Then, your script can sign in without having to provide these credentials. For examples, see the [Authenticate your service principal](#service-principal) section of this article. 
+If you plan to use a service principal for authorization, make sure that you first interactively sign into your account by using a client secret, or the password of a certificate that is associated with your service principal's app registration. Then, your script can sign in without having to provide these credentials. For examples, see the [Authenticate your service principal](#service-principal) section of this article. 
 
 Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon. 
 
