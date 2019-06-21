@@ -62,9 +62,9 @@
     href: https://go.microsoft.com/fwlink/?linkid=2092082
   - name: SDKs
     items:
-    - name: .Net
+    - name: .NET
       items: 
-      - name: .Net SDK Reference 
+      - name: .NET SDK Reference 
         href: https://go.microsoft.com/fwlink/?linkid=2092353
       - name: NuGet package
         href: https://go.microsoft.com/fwlink/?linkid=2092272
