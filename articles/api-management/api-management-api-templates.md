@@ -1359,7 +1359,7 @@ except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))  
   
 ####################################  
-```  
+```
   
 #### Controls  
  The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).  
