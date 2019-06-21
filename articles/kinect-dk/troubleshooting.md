@@ -33,7 +33,7 @@ and higher-level messages.
 
 For more information, see below clip from header file:
 
-```
+```console
 /**
 * environment variables
 * K4A_ENABLE_LOG_TO_A_FILE =
