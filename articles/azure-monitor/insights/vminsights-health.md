@@ -168,7 +168,7 @@ Selecting **View all health criteria** opens a page showing a list of all the he
 * **Type**. There are three types of health criteria to assess conditions and roll up the overall health state of a monitored VM:
     - **Unit**. Measures some aspect of a VM. This health criteria type might be checking a performance counter to determine the performance of the component, running a script to perform a synthetic transaction, or watching for an event that indicates an error. The filter is set to unit by default.
     - **Dependency**. Provides a health rollup between different entities. This health criteria allows the health of an entity to depend on the health of another type of entity that it relies on for successful operation.
-    - **Aggregate** Provides a combined health state of similar health criteria. Unit and dependency health criterion are typically configured under an aggregate health criterion. In addition to providing better general organization of the many different health criteria targeted at an entity, aggregate health criterion provides a unique health state for distinct categories of the entities.
+    - **Aggregate**. Provides a combined health state of similar health criteria. Unit and dependency health criterion are typically configured under an aggregate health criterion. In addition to providing better general organization of the many different health criteria targeted at an entity, aggregate health criterion provides a unique health state for distinct categories of the entities.
 
 * **Category**. The type of health criteria used to group similar criteria for reporting purposes. These categories are **Availability** and **Performance**.
 
@@ -274,7 +274,7 @@ Azure Monitor for VMs health integrates with [Azure Alerts](../../azure-monitor/
 
 Alerts aren't associated with an action group to notify you when the alert has been triggered. The subscription owner must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
 
-The total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the **Alerts section. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.
+The total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the **Alerts** section. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.
 
 For example, if you select the row corresponding to **Sev level 1**, you'll see the following view:
 
