@@ -1,5 +1,5 @@
 ---
-title: Getting started with SQL queries 
+title: Getting started with SQL queries in Azure Cosmos DB
 description: Introduction to SQL queries
 author: timsander1
 ms.service: cosmos-db
@@ -167,7 +167,6 @@ The preceding examples show several aspects of the Cosmos DB query language:
 
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
-- [Javascript Specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 - Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
 - Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
