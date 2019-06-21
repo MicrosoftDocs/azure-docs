@@ -247,6 +247,19 @@ inference_config = InferenceConfig(source_directory="C:/abc",
                                    conda_file="env/myenv.yml")
 ```
 
+### CLI example of InferenceConfig
+```JSON
+{
+   "entryScript": "x/y/score.py",
+   "runtime": "python",
+   "condaFile": "env/myenv.yml",
+   "sourceDirectory":"C:/abc",
+}
+```
+```azurecli-interactive
+az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
+```
+
 In this example, the configuration contains the following items:
 
 * A directory that contains assets needed to inference
@@ -254,7 +267,9 @@ In this example, the configuration contains the following items:
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to inference
 
-For information on InferenceConfig functionality, see the [Advanced configuration](#advanced-config) section.
+For information on InferenceConfig functionality, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class reference.
+
+For information on using a custom Docker image with inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
 ### 3. Define your Deployment configuration
 
@@ -369,7 +384,7 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
 Learn more about AKS deployment and autoscale in the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
 #### Create a new AKS cluster<a id="create-attach-aks"></a>
-**Time estimate:** Approximately 5 minutes.
+**Time estimate**: Approximately 20 minutes.
 
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
 
@@ -408,10 +423,11 @@ For more information on the `cluster_purpose` parameter, see the [AksCompute.Clu
 
 > [!IMPORTANT]
 > For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
-
-**Time estimate**: Approximately 20 minutes.
+>
+> Also, AzureML SDK does not support scaling an AKS cluster. You can scale an existing AKS cluster through the Azure Portal. However, you will only be able to change the node count, not the vm_size. 
 
 #### Attach an existing AKS cluster
+**Time estimate:** Approximately 5 minutes.
 
 If you already have AKS cluster in your Azure subscription, and it is version 1.12.##, you can use it to deploy your image.
 
@@ -510,54 +526,6 @@ print(service.state)
 print(service.get_logs())
 ```
 
-<a id="advanced-config"></a>
-
-## Advanced settings 
-
-**<a id="customimage"></a> Use a custom base image**
-
-Internally, InferenceConfig creates a Docker image that contains the model and other assets needed by the service. If not specified, a default base image is used.
-
-When creating an image to use with your inference configuration, the image must meet the following requirements:
-
-* Ubuntu 16.04 or greater.
-* Conda 4.5.# or greater.
-* Python 3.5.# or 3.6.#.
-
-To use a custom image, set the `base_image` property of the inference configuration to the address of the image. The following example demonstrates how to use an image from both a public and private Azure Container Registry:
-
-```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
-
-# or, use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
-```
-
-The following image URIs are for images provided by Microsoft, and can be used without providing a user name or password value:
-
-* `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
-
-To use these images, set the `base_image` to the URI from the list above. Set `base_image_registry.address` to `mcr.microsoft.com`.
-
-> [!IMPORTANT]
-> Microsoft images that use CUDA or TensorRT must be used on Microsoft Azure Services only.
-
-For more information on uploading your own images to an Azure Container Registry, see [Push your first image to a private Docker container registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
-
-If your model is trained on Azure Machine Learning Compute, using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. The following example demonstrates how to use this image:
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
-
 ## Clean up resources
 To delete a deployed web service, use `service.delete()`.
 To delete a registered model, use `model.delete()`.
@@ -565,6 +533,7 @@ To delete a registered model, use `model.delete()`.
 For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## Next steps
+* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

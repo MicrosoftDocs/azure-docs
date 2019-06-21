@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 06/19/2019
 ms.author: magoedte
 ---
 
@@ -72,6 +72,9 @@ AKS can be configured to use Azure Active Directory (AD) for user authentication
 
 >[!NOTE]
 >Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during initial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed.
+  
+>[!IMPORTANT]
+>If you reconfigured Azure AD for user authentication using the updated URI, clear your browser's cache to ensure the updated authentication token is downloaded and applied.   
 
 ## View live logs and events
 
@@ -98,6 +101,8 @@ After successfully authenticating, the live log pane will appear in the bottom s
 In the search bar, you can filter by key word to highlight that text in the log or event, and in the search bar on the far right, it shows how many results match out the filter.
 
   ![Live logs pane filter example](./media/container-insights-live-logs/live-logs-pane-filter-example-01.png)
+
+While viewing events, you can additionally limit the results using the **Filter** pill found to the right of the search bar. Depending on what resource you have selected, the pill lists a pod, namespace, or cluster to chose from.  
 
 To suspend autoscroll and control the behavior of the pane and allow you to manually scroll through the new data read, click on the **Scroll** option. To re-enable autoscroll, simply click the **Scroll** option again. You can also pause retrieval of log or event data by clicking on the **Pause** option and when you are ready to resume, simply click **Play**.  
 

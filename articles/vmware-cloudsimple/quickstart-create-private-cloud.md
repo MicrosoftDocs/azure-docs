@@ -27,7 +27,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 5. In CloudSimple portal, provide a name for your Private Cloud
 6. Select the **Location** of your Private Cloud
-7. Select the **Node type** you purchased on Azure.  You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
+7. Select the **Node type** you provisioned on Azure.  You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
 8. Specify the **Node count**.  Minimum three nodes are required to create a Private Cloud
 
     ![Create Private Cloud - Basic info](media/create-private-cloud-basic-info.png)
