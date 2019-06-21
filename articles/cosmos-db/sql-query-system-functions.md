@@ -1,722 +1,58 @@
 ---
-title: SQL language syntax in Azure Cosmos DB 
-description: This article explains the SQL query language syntax used in Azure Cosmos DB, different operators, and keywords available in this language. 
+title: System functions
+description: Learn about SQL System functions in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 05/31/2019
 ms.author: mjbrown
-ms.custom: seodec18
 
 ---
+# System functions
 
-# SQL language reference for Azure Cosmos DB 
-
-Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides documentation for the SQL query language syntax used in SQL API accounts. For a walkthrough of example SQL queries, see [SQL query examples in Cosmos DB](how-to-sql-query.md).  
-  
-Visit the [Query Playground](https://www.documentdb.com/sql/demo), where you can try Cosmos DB and run SQL queries against a sample dataset.  
-  
-## SELECT query  
-Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated, then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. For examples, see [SELECT query examples](how-to-sql-query.md#SelectClause)
-  
-**Syntax**  
-  
-```sql
-<select_query> ::=  
-SELECT <select_specification>   
-    [ FROM <from_specification>]   
-    [ WHERE <filter_condition> ]  
-    [ ORDER BY <sort_specification> ] 
-    [ OFFSET <offset_amount> LIMIT <limit_amount>]
-```  
-  
- **Remarks**  
-  
- See following sections for details on each clause:  
-  
--   [SELECT clause](#bk_select_query)    
--   [FROM clause](#bk_from_clause)    
--   [WHERE clause](#bk_where_clause)    
--   [ORDER BY clause](#bk_orderby_clause)  
--   [OFFSET LIMIT clause](#bk_offsetlimit_clause)
-
-  
-The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order.  
-  
-### Logical Processing Order of the SELECT statement  
-  
-The order in which clauses are processed is:  
-
-1.  [FROM clause](#bk_from_clause)  
-2.  [WHERE clause](#bk_where_clause)  
-3.  [ORDER BY clause](#bk_orderby_clause)  
-4.  [SELECT clause](#bk_select_query)
-5.  [OFFSET LIMIT clause](#bk_offsetlimit_clause)
-
-Note that this is different from the order in which they appear in the syntax. The ordering is such that all new symbols introduced by a processed clause are visible and can be used in clauses processed later. For instance, aliases declared in a FROM clause are accessible in WHERE and SELECT clauses.  
-
-### Whitespace characters and comments  
-
-All whitespace characters that are not part of a quoted string or quoted identifier are not part of the language grammar and are ignored during parsing.  
-
-The query language supports T-SQL style comments like  
-
--   SQL Statement `-- comment text [newline]`  
-
-While whitespace characters and comments do not have any significance in the grammar, they must be used to separate tokens. For instance: `-1e5` is a single number token, while`: – 1 e5` is a minus token followed by number 1 and identifier e5.  
-
-##  <a name="bk_select_query"></a> SELECT clause  
-The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order. For examples, see [SELECT query examples](how-to-sql-query.md#SelectClause).
-
-**Syntax**  
-
-```sql
-SELECT <select_specification>  
-
-<select_specification> ::=   
-      '*'   
-      | [DISTINCT] <object_property_list>   
-      | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
-  
-<object_property_list> ::=   
-{ <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
-  
-```  
-  
- **Arguments**  
-  
-- `<select_specification>`  
-
-  Properties or value to be selected for the result set.  
-  
-- `'*'`  
-
-  Specifies that the value should be retrieved without making any changes. Specifically if the processed value is an object, all properties will be retrieved.  
-  
-- `<object_property_list>`  
-  
-  Specifies the list of properties to be retrieved. Each returned value will be an object with the properties specified.  
-  
-- `VALUE`  
-
-  Specifies that the JSON value should be retrieved instead of the complete JSON object. This, unlike `<property_list>` does not wrap the projected value in an object.  
- 
-- `DISTINCT`
-  
-  Specifies that duplicates of projected properties should be removed.  
-
-- `<scalar_expression>`  
-
-  Expression representing the value to be computed. See [Scalar expressions](#bk_scalar_expressions) section for details.  
-  
-**Remarks**  
-  
-The `SELECT *` syntax is only valid if FROM clause has declared exactly one alias. `SELECT *` provides an identity projection, which can be useful if no projection is needed. SELECT * is only valid if FROM clause is specified and introduced only a single input source.  
-  
-Both `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be alternatively expressed by using simple SELECT statements as shown below.  
-  
-1. `SELECT * FROM ... AS from_alias ...`  
-  
-   is equivalent to:  
-  
-   `SELECT from_alias FROM ... AS from_alias ...`  
-  
-2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
-  
-   is equivalent to:  
-  
-   `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
-  
-**See Also**  
-  
-[Scalar expressions](#bk_scalar_expressions)  
-[SELECT clause](#bk_select_query)  
-  
-##  <a name="bk_from_clause"></a> FROM clause  
-Specifies the source or joined sources. The FROM clause is optional unless the source is filtered or projected later in the query. The purpose of this clause is to specify the data source upon which the query must operate. Commonly the whole container is the source, but one can specify a subset of the container instead. If this clause is not specified, other clauses will still be executed as if FROM clause provided a single document. For examples, see [FROM clause examples](how-to-sql-query.md#FromClause)
-  
-**Syntax**  
-  
-```sql  
-FROM <from_specification>  
-  
-<from_specification> ::=   
-        <from_source> {[ JOIN <from_source>][,...n]}  
-  
-<from_source> ::=   
-          <container_expression> [[AS] input_alias]  
-        | input_alias IN <container_expression>  
-  
-<container_expression> ::=   
-        ROOT   
-     | container_name  
-     | input_alias  
-     | <container_expression> '.' property_name  
-     | <container_expression> '[' "property_name" | array_index ']'  
-```  
-  
-**Arguments**  
-  
-- `<from_source>`  
-  
-  Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<container_expression>` using following rules:  
-  
-  -  If the expression is a container_name, then container_name will be used as an alias.  
-  
-  -  If the expression is `<container_expression>`, then property_name, then property_name will be used as an alias. If the expression is a container_name, then container_name will be used as an alias.  
-  
-- AS `input_alias`  
-  
-  Specifies that the `input_alias` is a set of values returned by the underlying container expression.  
- 
-- `input_alias` IN  
-  
-  Specifies that the `input_alias` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying container expression. Any value returned by underlying container expression that is not an array is ignored.  
-  
-- `<container_expression>`  
-  
-  Specifies the container expression to be used to retrieve the documents.  
-  
-- `ROOT`  
-  
-  Specifies that document should be retrieved from the default, currently connected container.  
-  
-- `container_name`  
-  
-  Specifies that document should be retrieved from the provided container. The name of the container must match the name of the container currently connected to.  
-  
-- `input_alias`  
-  
-  Specifies that document should be retrieved from the other source defined by the provided alias.  
-  
-- `<container_expression> '.' property_`  
-  
-  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified container expression.  
-  
-- `<container_expression> '[' "property_name" | array_index ']'`  
-  
-  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified container expression.  
-  
-**Remarks**  
-  
-All aliases provided or inferred in the `<from_source>(`s) must be unique. The Syntax `<container_expression>.`property_name is the same as `<container_expression>' ['"property_name"']'`. However, the latter syntax can be used if a property name contains a non-identifier character.  
-  
-### Handling missing properties, missing array elements, and undefined values
-  
-If a container expression accesses properties or array elements and that value does not exist, that value will be ignored and not processed further.  
-  
-### Container expression context scoping  
-  
-A container expression may be container-scoped or document-scoped:  
-  
--   An expression is container-scoped, if the underlying source of the container expression is either ROOT or `container_name`. Such an expression represents a set of documents retrieved from the container directly, and is not dependent on the processing of other container expressions.  
-  
--   An expression is document-scoped, if the underlying source of the container expression is `input_alias` introduced earlier in the query. Such an expression represents a set of documents obtained by evaluating the container expression in the scope of each document belonging to the set associated with the aliased container.  The resulting set will be a union of sets obtained by evaluating the container expression for each of the documents in the underlying set.  
-  
-### Joins 
-  
-In the current release, Cosmos DB supports inner joins. Additional join capabilities are forthcoming. 
-
-Inner joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses. For examples, see [JOIN keyword examples](how-to-sql-query.md#Joins)
-  
-The evaluation of the join depends on the context scope of the participating sets:  
-  
-- A join between container-set A and container-scoped set B, results in a cross product of all elements in sets A and B.
-  
-- A join between set A and document-scoped set B, results in a union of all sets obtained by evaluating document-scoped set B for each document from set A.  
-  
-  In the current release, a maximum of one container-scoped expression is supported by the query processor.  
-  
-### Examples of joins  
-  
-Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
-  
- Let each source define `input_alias1, input_alias2, …, input_aliasN`. This FROM clause returns a set of N-tuples (tuple with N values). Each tuple has values produced by iterating all container aliases over their respective sets.  
-  
-**Example 1** - 2 sources  
-  
-- Let `<from_source1>` be container-scoped and represent set {A, B, C}.  
-  
-- Let `<from_source2>` be document-scoped referencing input_alias1 and represent sets:  
-  
-    {1, 2} for `input_alias1 = A,`  
-  
-    {3} for `input_alias1 = B,`  
-  
-    {4, 5} for `input_alias1 = C,`  
-  
-- The FROM clause `<from_source1> JOIN <from_source2>` will result in the following tuples:  
-  
-    (`input_alias1, input_alias2`):  
-  
-    `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
-  
-**Example 2** - 3 sources  
-  
-- Let `<from_source1>` be container-scoped and represent set {A, B, C}.  
-  
-- Let `<from_source2>` be document-scoped referencing `input_alias1` and represent sets:  
-  
-    {1, 2} for `input_alias1 = A,`  
-  
-    {3} for `input_alias1 = B,`  
-  
-    {4, 5} for `input_alias1 = C,`  
-  
-- Let `<from_source3>` be document-scoped referencing `input_alias2` and represent sets:  
-  
-    {100, 200} for `input_alias2 = 1,`  
-  
-    {300} for `input_alias2 = 3,`  
-  
-- The FROM clause `<from_source1> JOIN <from_source2> JOIN <from_source3>` will result in the following tuples:  
-  
-    (input_alias1, input_alias2, input_alias3):  
-  
-    (A, 1, 100), (A, 1, 200), (B, 3, 300)  
-  
-  > [!NOTE]
-  > Lack of tuples for other values of `input_alias1`, `input_alias2`, for which the `<from_source3>` did not return any values.  
-  
-**Example 3** - 3 sources  
-  
-- Let <from_source1> be container-scoped and represent set {A, B, C}.  
-  
-- Let `<from_source1>` be container-scoped and represent set {A, B, C}.  
-  
-- Let <from_source2> be document-scoped referencing input_alias1 and represent sets:  
-  
-    {1, 2} for `input_alias1 = A,`  
-  
-    {3} for `input_alias1 = B,`  
-  
-    {4, 5} for `input_alias1 = C,`  
-  
-- Let `<from_source3>` be scoped to `input_alias1` and represent sets:  
-  
-    {100, 200} for `input_alias2 = A,`  
-  
-    {300} for `input_alias2 = C,`  
-  
-- The FROM clause `<from_source1> JOIN <from_source2> JOIN <from_source3>` will result in the following tuples:  
-  
-    (`input_alias1, input_alias2, input_alias3`):  
-  
-    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200),  (C, 4, 300) ,  (C, 5, 300)  
-  
-  > [!NOTE]
-  > This resulted in cross product between `<from_source2>` and `<from_source3>` because both are scoped to the same `<from_source1>`.  This resulted in 4 (2x2) tuples having value A, 0 tuples having value B (1x0) and 2 (2x1) tuples having value C.  
-  
-**See also**  
-  
- [SELECT clause](#bk_select_query)  
-  
-##  <a name="bk_where_clause"></a> WHERE clause  
- Specifies the search condition for the documents returned by the query. For examples, see [WHERE clause examples](how-to-sql-query.md#WhereClause)
-  
- **Syntax**  
-  
-```sql  
-WHERE <filter_condition>  
-<filter_condition> ::= <scalar_expression>  
-  
-```  
-  
- **Arguments**  
-  
-- `<filter_condition>`  
-  
-   Specifies the condition to be met for the documents to be returned.  
-  
-- `<scalar_expression>`  
-  
-   Expression representing the value to be computed. See the [Scalar expressions](#bk_scalar_expressions) section for details.  
-  
-  **Remarks**  
-  
-  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition.  
-  
-##  <a name="bk_orderby_clause"></a> ORDER BY clause  
- Specifies the sorting order for results returned by the query. For examples, see [ORDER BY clause examples](how-to-sql-query.md#OrderByClause)
-  
- **Syntax**  
-  
-```sql  
-ORDER BY <sort_specification>  
-<sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
-  
-```  
-
- **Arguments**  
-  
-- `<sort_specification>`  
-  
-   Specifies a property or expression on which to sort the query result set. A sort column can be specified as a name or property alias.  
-  
-   Multiple properties can be specified. Property names must be unique. The sequence of the sort properties in the ORDER BY clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on.  
-  
-   The property names referenced in the ORDER BY clause must correspond to either a property in the select list or to a property defined in the collection specified in the FROM clause without any ambiguities.  
-  
-- `<sort_expression>`  
-  
-   Specifies one or more properties or expressions on which to sort the query result set.  
-  
-- `<scalar_expression>`  
-  
-   See the [Scalar expressions](#bk_scalar_expressions) section for details.  
-  
-- `ASC | DESC`  
-  
-   Specifies that the values in the specified column should be sorted in ascending or descending order. ASC sorts from the lowest value to highest value. DESC sorts from highest value to lowest value. ASC is the default sort order. Null values are treated as the lowest possible values.  
-  
-  **Remarks**  
-  
-   The ORDER BY clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple ORDER BY properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](index-policy.md#composite-indexes) on the fields being sorted.
-
-
-##  <a name=bk_offsetlimit_clause></a> OFFSET LIMIT clause
-
-Specifies the number of items skipped and number of items returned. For examples, see [OFFSET LIMIT clause examples](how-to-sql-query.md#OffsetLimitClause)
-  
- **Syntax**  
-  
-```sql  
-OFFSET <offset_amount> LIMIT <limit_amount>
-```  
-  
- **Arguments**  
- 
-- `<offset_amount>`
-
-   Specifies the integer number of items that the query results should skip.
-
-
-- `<limit_amount>`
-  
-   Specifies the integer number of items that the query results should include
-
-  **Remarks**  
-  
-  Both the OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause. If an optional `ORDER BY` clause is used, the result set is produced by doing the skip over the ordered values. Otherwise, the query will return a fixed order of values.
-
-##  <a name="bk_scalar_expressions"></a> Scalar expressions  
- A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators. For examples, see [scalar expressions examples](how-to-sql-query.md#scalar-expressions)
-  
- For details on values that scalar expression may have, see [Constants](#bk_constants) section.  
-  
- **Syntax**  
-  
-```sql  
-<scalar_expression> ::=  
-       <constant>   
-     | input_alias   
-     | parameter_name  
-     | <scalar_expression>.property_name  
-     | <scalar_expression>'['"property_name"|array_index']'  
-     | unary_operator <scalar_expression>  
-     | <scalar_expression> binary_operator <scalar_expression>    
-     | <scalar_expression> ? <scalar_expression> : <scalar_expression>  
-     | <scalar_function_expression>  
-     | <create_object_expression>   
-     | <create_array_expression>  
-     | (<scalar_expression>)   
-  
-<scalar_function_expression> ::=  
-        'udf.' Udf_scalar_function([<scalar_expression>][,…n])  
-        | builtin_scalar_function([<scalar_expression>][,…n])  
-  
-<create_object_expression> ::=  
-   '{' [{property_name | "property_name"} : <scalar_expression>][,…n] '}'  
-  
-<create_array_expression> ::=  
-   '[' [<scalar_expression>][,…n] ']'  
-  
-```  
-  
- **Arguments**  
-  
-- `<constant>`  
-  
-   Represents a constant value. See [Constants](#bk_constants) section for details.  
-  
-- `input_alias`  
-  
-   Represents a value defined by the `input_alias` introduced in the `FROM` clause.  
-  This value is guaranteed to not be **undefined** –**undefined** values in the input are skipped.  
-  
-- `<scalar_expression>.property_name`  
-  
-   Represents a value of the property of an object. If the property does not exist or property is referenced on a value which is not an object, then the expression evaluates to **undefined** value.  
-  
-- `<scalar_expression>'['"property_name"|array_index']'`  
-  
-   Represents a value of the property with name `property_name` or array element with index `array_index` of an object/array. If the property/array index does not exist or the property/array index is referenced on a value that is not an object/array, then the expression evaluates to undefined value.  
-  
-- `unary_operator <scalar_expression>`  
-  
-   Represents an operator that is applied to a single value. See [Operators](#bk_operators) section for details.  
-  
-- `<scalar_expression> binary_operator <scalar_expression>`  
-  
-   Represents an operator that is applied to two values. See [Operators](#bk_operators) section for details.  
-  
-- `<scalar_function_expression>`  
-  
-   Represents a value defined by a result of a function call.  
-  
-- `udf_scalar_function`  
-  
-   Name of the user-defined scalar function.  
-  
-- `builtin_scalar_function`  
-  
-   Name of the built-in scalar function.  
-  
-- `<create_object_expression>`  
-  
-   Represents a value obtained by creating a new object with specified properties and their values.  
-  
-- `<create_array_expression>`  
-  
-   Represents a value obtained by creating a new array with specified values as elements  
-  
-- `parameter_name`  
-  
-   Represents a value of the specified parameter name. Parameter names must have a single \@ as the first character.  
-  
-  **Remarks**  
-  
-  When calling a built-in or user-defined scalar function all arguments must be defined. If any of the arguments is undefined, the function will not be called and the result will be undefined.  
-  
-  When creating an object, any property that is assigned undefined value will be skipped and not included in the created object.  
-  
-  When creating an array, any element value that is assigned **undefined** value will be skipped and not included in the created object. This will cause the next defined element to take its place in such a way that the created array will not have skipped indexes.  
-  
-##  <a name="bk_operators"></a> Operators  
- This section describes the supported operators. Each operator can be assigned to exactly one category.  
-  
- See **Operator categories** table below, for details regarding handling of **undefined** values, type requirements for input values and handling of values with not matching types.  
-  
- **Operator categories:**  
-  
-|**Category**|**Details**|  
-|-|-|  
-|**arithmetic**|Operator expects input(s) to be Number(s). Output is also a Number. If any of the inputs is **undefined** or type other than Number then the result is **undefined**.|  
-|**bitwise**|Operator expects input(s) to be 32-bit signed integer Number(s). Output is also 32-bit signed integer Number.<br /><br /> Any non-integer value will be rounded. Positive value will be rounded down, negative values rounded up.<br /><br /> Any value that is outside of the 32-bit integer range will be converted, by taking last 32-bits of its two's complement notation.<br /><br /> If any of the inputs is **undefined** or type other than Number, then the result is **undefined**.<br /><br /> **Note:** The above behavior is compatible with JavaScript bitwise operator behavior.|  
-|**logical**|Operator expects input(s) to be Boolean(s). Output is also a Boolean.<br />If any of the inputs is **undefined** or type other than Boolean, then the result will be **undefined**.|  
-|**comparison**|Operator expects input(s) to have the same type and not be undefined. Output is a Boolean.<br /><br /> If any of the inputs is **undefined** or the inputs have different types, then the result is **undefined**.<br /><br /> See **Ordering of values for comparison** table for value ordering details.|  
-|**string**|Operator expects input(s) to be String(s). Output is also a String.<br />If any of the inputs is **undefined** or type other than String then the result is **undefined**.|  
-  
- **Unary operators:**  
-  
-|**Name**|**Operator**|**Details**|  
-|-|-|-|  
-|**arithmetic**|+<br /><br /> -|Returns the number value.<br /><br /> Bitwise negation. Returns negated number value.|  
-|**bitwise**|~|Ones' complement. Returns a complement of a number value.|  
-|**Logical**|**NOT**|Negation. Returns negated Boolean value.|  
-  
- **Binary operators:**  
-  
-|**Name**|**Operator**|**Details**|  
-|-|-|-|  
-|**arithmetic**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addition.<br /><br /> Subtraction.<br /><br /> Multiplication.<br /><br /> Division.<br /><br /> Modulation.|  
-|**bitwise**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bitwise OR.<br /><br /> Bitwise AND.<br /><br /> Bitwise XOR.<br /><br /> Left Shift.<br /><br /> Right Shift.<br /><br /> Zero-fill Right Shift.|  
-|**logical**|**AND**<br /><br /> **OR**|Logical conjunction. Returns **true** if both arguments are **true**, returns **false** otherwise.<br /><br /> Logical disjunction. Returns **true** if any arguments are **true**, returns **false** otherwise.|  
-|**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Equals. Returns **true** if arguments are equal, returns **false** otherwise.<br /><br /> Not equal to. Returns **true** if arguments are not equal, returns **false** otherwise.<br /><br /> Greater Than. Returns **true** if first argument is greater than the second one, return **false** otherwise.<br /><br /> Greater Than or Equal To. Returns **true** if first argument is greater than or equal to the second one, return **false** otherwise.<br /><br /> Less Than. Returns **true** if first argument is less than the second one, return **false** otherwise.<br /><br /> Less Than or Equal To. Returns **true** if first argument is less than or equal to the second one, return **false** otherwise.<br /><br /> Coalesce. Returns the second argument if the first argument is an **undefined** value.|  
-|**String**|**&#124;&#124;**|Concatenation. Returns a concatenation of both arguments.|  
-  
- **Ternary operators:**  
-
-|**Name**|**Operator**|**Details**| 
-|-|-|-|  
-|Ternary operator|?|Returns the second argument if the first argument evaluates to **true**; return the third argument otherwise.|  
-
-  
- **Ordering of values for comparison**  
-  
-|**Type**|**Values order**|  
-|-|-|  
-|**Undefined**|Not comparable.|  
-|**Null**|Single value: **null**|  
-|**Number**|Natural real number.<br /><br /> Negative Infinity value is smaller than any other Number value.<br /><br /> Positive Infinity value is larger than any other Number value.**NaN** value is not comparable. Comparing with **NaN** will result in **undefined** value.|  
-|**String**|Lexicographical order.|  
-|**Array**|No ordering, but equitable.|  
-|**Object**|No ordering, but equitable.|  
-  
- **Remarks**  
-  
- In Cosmos DB, the types of values are often not known until they are retrieved from the database. In order to support efficient execution of queries, most of the operators have strict type requirements. Also operators by themselves do not perform implicit conversions.  
-  
- This means that a query like: SELECT * FROM ROOT r WHERE r.Age = 21 will only return documents with property Age equal to the number 21. Documents with property Age equal to the string "21" or the string "0021" will not match, as the expression "21" = 21 evaluates to undefined. This allows for a better use of indexes, because the lookup of a specific value (such as the number 21) is faster than search for indefinite number of potential matches (the number 21 or strings "21", "021", "21.0" …). This is different from how JavaScript evaluates operators on values of different types.  
-  
- **Arrays and objects equality and comparison**  
-  
- Comparing of Array or Object values using range operators (>, >=, <, <=) will result in undefined as there is not order defined on Object or Array values. However using equality/inequality operators (=, !=, <>) is supported and values will be compared structurally.  
-  
- Arrays are equal if both arrays have same number of elements and elements at matching positions are also equal. If comparing any pair of elements results in undefined, the result of array comparison is undefined.  
-  
- Objects are equal if both objects have same properties defined, and if values of matching properties are also equal. If comparing any pair of property values results in undefined, the result of object comparison is undefined.  
-  
-##  <a name="bk_constants"></a> Constants  
- A constant, also known as a literal or a scalar value, is a symbol that represents a specific data value. The format of a constant depends on the data type of the value it represents.  
-  
- **Supported scalar data types:**  
-  
-|**Type**|**Values order**|  
-|-|-|  
-|**Undefined**|Single value: **undefined**|  
-|**Null**|Single value: **null**|  
-|**Boolean**|Values: **false**, **true**.|  
-|**Number**|A double-precision floating-point number, IEEE 754 standard.|  
-|**String**|A sequence of zero or more Unicode characters. Strings must be enclosed in single or double quotes.|  
-|**Array**|A sequence of zero or more elements. Each element can be a value of any scalar data type, except Undefined.|  
-|**Object**|An unordered set of zero or more name/value pairs. Name is a Unicode string, value can be of any scalar data type, except **Undefined**.|  
-  
- **Syntax**  
-  
-```sql  
-<constant> ::=  
-   <undefined_constant>  
-     | <null_constant>   
-     | <boolean_constant>   
-     | <number_constant>   
-     | <string_constant>   
-     | <array_constant>   
-     | <object_constant>   
-  
-<undefined_constant> ::= undefined  
-  
-<null_constant> ::= null  
-  
-<boolean_constant> ::= false | true  
-  
-<number_constant> ::= decimal_literal | hexadecimal_literal  
-  
-<string_constant> ::= string_literal  
-  
-<array_constant> ::=  
-    '[' [<constant>][,...n] ']'  
-  
-<object_constant> ::=   
-   '{' [{property_name | "property_name"} : <constant>][,...n] '}'  
-  
-```  
-  
- **Arguments**  
-  
-* `<undefined_constant>; undefined`  
-  
-  Represents undefined value of type Undefined.  
-  
-* `<null_constant>; null`  
-  
-  Represents **null** value of type **Null**.  
-  
-* `<boolean_constant>`  
-  
-  Represents constant of type Boolean.  
-  
-* `false`  
-  
-  Represents **false** value of type Boolean.  
-  
-* `true`  
-  
-  Represents **true** value of type Boolean.  
-  
-* `<number_constant>`  
-  
-  Represents a constant.  
-  
-* `decimal_literal`  
-  
-  Decimal literals are numbers represented using either decimal notation, or scientific notation.  
-  
-* `hexadecimal_literal`  
-  
-  Hexadecimal literals are numbers represented using prefix '0x' followed by one or more hexadecimal digits.  
-  
-* `<string_constant>`  
-  
-  Represents a constant of type String.  
-  
-* `string _literal`  
-  
-  String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes (apostrophe: ' ) or double quotes (quotation mark: ").  
-  
-  Following escape sequences are allowed:  
-  
-|**Escape sequence**|**Description**|**Unicode character**|  
-|-|-|-|  
-|\\'|apostrophe (')|U+0027|  
-|\\"|quotation mark (")|U+0022|  
-|\\\ |reverse solidus (\\)|U+005C|  
-|\\/|solidus (/)|U+002F|  
-|\b|backspace|U+0008|  
-|\f|form feed|U+000C|  
-|\n|line feed|U+000A|  
-|\r|carriage return|U+000D|  
-|\t|tab|U+0009|  
-|\uXXXX|A Unicode character defined by 4 hexadecimal digits.|U+XXXX|  
-  
-##  <a name="bk_query_perf_guidelines"></a> Query performance guidelines  
- In order for a query to be executed efficiently for a large container, it should use filters that can be served through one or more indexes.  
-  
- The following filters will be considered for index lookup:  
-  
-- Use equality operator ( = ) with a document path expression and a constant.  
-  
-- Use range operators (<, \<=, >, >=) with a document path expression and number constants.  
-  
-- Document path expression stands for any expression that identifies a constant path in the documents from the referenced database container.  
-  
-  **Document path expression**  
-  
-  Document path expressions are expressions that a path of property or array indexer assessors over a document coming from database container documents. This path can be used to identify the location of values referenced in a filter directly within the documents in the database container.  
-  
-  For an expression to be considered a document path expression, it should:  
-  
-1.  Reference the container root directly.  
-  
-2.  Reference property or constant array indexer of some document path expression  
-  
-3.  Reference an alias, which represents some document path expression.  
-  
-     **Syntax conventions**  
-  
-     The following table describes the conventions used to describe syntax in the following SQL reference.  
-  
-    |**Convention**|**Used for**|  
-    |-|-|    
-    |UPPERCASE|Case-insensitive keywords.|  
-    |lowercase|Case-sensitive keywords.|  
-    |\<nonterminal>|Nonterminal, defined separately.|  
-    |\<nonterminal> ::=|Syntax definition of the nonterminal.|  
-    |other_terminal|Terminal (token), described in detail in words.|  
-    |identifier|Identifier. Allows following characters only: a-z A-Z 0-9 _First character cannot be a digit.|  
-    |"string"|Quoted string. Allows any valid string. See description of a string_literal.|  
-    |'symbol'|Literal symbol that is part of the syntax.|  
-    |&#124; (vertical bar)|Alternatives for syntax items. You can use only one of the items specified.|  
-    |[ ] /(brackets)|Brackets enclose one or more optional items.|  
-    |[ ,...n ]|Indicates the preceding item can be repeated n number of times. The occurrences are separated by commas.|  
-    |[ ...n ]|Indicates the preceding item can be repeated n number of times. The occurrences are separated by blanks.|  
-  
-##  <a name="bk_built_in_functions"></a> Built-in functions  
  Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
   
 |Function|Description|  
 |--------------|-----------------|  
-|[Mathematical functions](#bk_mathematical_functions)|The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.|  
-|[Type checking functions](#bk_type_checking_functions)|The type checking functions allow you to check the type of an expression within SQL queries.|  
-|[String functions](#bk_string_functions)|The string functions perform an operation on a string input value and return a string, numeric or Boolean value.|  
-|[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|
-|[Date and Time functions](#bk_date_and_time_functions)|The date and time functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format.|
-|[Spatial functions](#bk_spatial_functions)|The spatial functions perform an operation on a spatial object input value and return a numeric or Boolean value.|  
-  
-###  <a name="bk_mathematical_functions"></a> Mathematical functions  
- The following functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.  
+|[Mathematical functions](#mathematical-functions)|The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.|  
+|[Type checking functions](#type-checking-functions)|The type checking functions allow you to check the type of an expression within SQL queries.|  
+|[String functions](#string-functions)|The string functions perform an operation on a string input value and return a string, numeric or Boolean value.|  
+|[Array functions](#array-functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|
+|[Date and Time functions](#date-time-functions)|The date and time functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format.|
+|[Spatial functions](#spatial-functions)|The spatial functions perform an operation on a spatial object input value and return a numeric or Boolean value.|  
+
+Below are a list of functions within each category:
+
+| Function group | Operations |
+|---------|----------|
+| Mathematical functions | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, TAN |
+| Type-checking functions | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
+| String functions | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, UPPER |
+| Array functions | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH, and ARRAY_SLICE |
+| Date and Time functions | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
+| Spatial functions | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID, ST_ISVALIDDETAILED |
+
+If you’re currently using a user-defined function (UDF) for which a built-in function is now available, the corresponding built-in function will be quicker to run and more efficient.
+
+The main difference between Cosmos DB functions and ANSI SQL functions is that Cosmos DB functions are designed to work well with schemaless and mixed-schema data. For example, if a property is missing or has a non-numeric value like `unknown`, the item is skipped instead of returning an error.
+
+##  <a name="mathematical-functions"></a> Mathematical functions  
+
+The mathematical functions each perform a calculation, based on input values that are provided as arguments, and return a numeric value.
+
+You can run queries like the following example:
+
+```sql
+    SELECT VALUE ABS(-4)
+```
+
+The result is:
+
+```json
+    [4]
+```
+
+Here’s a table of supported built-in mathematical functions.
   
 ||||  
 |-|-|-|  
@@ -1555,10 +891,13 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
   
 ```  
 [{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
-```  
-  
-###  <a name="bk_type_checking_functions"></a> Type checking functions  
- The following functions support type checking against input values, and each return a Boolean value.  
+```
+
+## <a id="type-checking-functions"></a>Type checking functions
+
+The type-checking functions let you check the type of an expression within a SQL query. You can use type-checking functions to determine the types of properties within items on the fly, when they're variable or unknown. Here’s a table of supported built-in type-checking functions:
+
+The following functions support type checking against input values, and each return a Boolean value.  
   
 ||||  
 |-|-|-|  
@@ -1878,9 +1217,10 @@ SELECT
 ```  
 [{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
 ```  
-  
-###  <a name="bk_string_functions"></a> String functions  
- The following scalar functions perform an operation on a string input value and return a string, numeric or Boolean value.  
+
+## <a id="string-functions"></a>String functions
+
+The following scalar functions perform an operation on a string input value and return a string, numeric, or Boolean value:
   
 ||||  
 |-|-|-|  
@@ -2936,10 +2276,11 @@ SELECT UPPER("Abc") AS upper
   
 ```  
 [{"upper": "ABC"}]  
-```  
-  
-###  <a name="bk_array_functions"></a> Array functions  
- The following scalar functions perform an operation on an array input value and return numeric, Boolean or array value  
+```
+
+## <a id="array-functions"></a>Array functions
+
+The following scalar functions perform an operation on an array input value and return numeric, Boolean or array value:
   
 ||||  
 |-|-|-|  
@@ -3106,7 +2447,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   The following example shows how to get different slices of an array using ARRAY_SLICE.  
   
 ```  
-SELECT   
+SELECT
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1) AS s1,  
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1) AS s2,
            ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 1) AS s3,
@@ -3130,21 +2471,21 @@ SELECT
            "s7": [] 
 }]  
 ```  
+## <a id="date-time-functions"></a>Date and Time Function
 
-###  <a name="bk_date_and_time_functions"></a> Date and Time functions
- The following scalar functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format. 
+The following scalar functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format. 
 
 |||
 |-|-|
-|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+|[GETCURRENTDATETIME](#bk_get_current_date_time)|[GETCURRENTTIMESTAMP](#bk_get_current_timestamp)||
 
-####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+####  <a name="bk_get_current_date_time"></a> GETCURRENTDATETIME
  Returns the current UTC date and time as an ISO 8601 string.
   
  **Syntax**
   
 ```
-GetCurrentDateTime ()
+GETCURRENTDATETIME ()
 ```
   
   **Return Types**
@@ -3169,7 +2510,7 @@ GetCurrentDateTime ()
 
   **Remarks**
 
-  GetCurrentDateTime is a nondeterministic function. 
+  GETCURRENTDATETIME is a nondeterministic function. 
   
   The result returned is UTC (Coordinated Universal Time).
 
@@ -3178,7 +2519,7 @@ GetCurrentDateTime ()
   The following example shows how to get the current UTC Date Time using the GetCurrentDateTime built-in function.
   
 ```  
-SELECT GetCurrentDateTime() AS currentUtcDateTime
+SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 ```  
   
  Here is an example result set.
@@ -3189,13 +2530,13 @@ SELECT GetCurrentDateTime() AS currentUtcDateTime
 }]  
 ```  
 
-####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+####  <a name="bk_get_current_timestamp"></a> GETCURRENTTIMESTAMP
  Returns the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970. 
   
  **Syntax**  
   
 ```  
-GetCurrentTimestamp ()  
+GETCURRENTTIMESTAMP ()  
 ```  
   
   **Return Types**  
@@ -3204,7 +2545,7 @@ GetCurrentTimestamp ()
 
   **Remarks**
 
-  GetCurrentTimestamp is a nondeterministic function. 
+  GETCURRENTTIMESTAMP is a nondeterministic function.
   
   The result returned is UTC (Coordinated Universal Time).
 
@@ -3213,7 +2554,7 @@ GetCurrentTimestamp ()
   The following example shows how to get the current timestamp using the GetCurrentTimestamp built-in function.
   
 ```  
-SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 ```  
   
  Here is an example result set.
@@ -3222,10 +2563,11 @@ SELECT GetCurrentTimestamp() AS currentUtcTimestamp
 [{
   "currentUtcTimestamp": 1556916469065
 }]  
-```  
+```
 
-###  <a name="bk_spatial_functions"></a> Spatial functions  
- The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
+## <a id="spatial-functions"></a>Spatial functions
+
+Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
   
 |||||
 |-|-|-|-|
@@ -3339,10 +2681,10 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   The following example shows how to find all areas that intersect with the given polygon.  
   
 ```  
-SELECT a.id   
-FROM Areas a   
+SELECT a.id
+FROM Areas a
 WHERE ST_INTERSECTS(a.location, {  
-    'type':'Polygon',   
+    'type':'Polygon',
     'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]  
 })  
 ```  
@@ -3362,7 +2704,7 @@ WHERE ST_INTERSECTS(a.location, {
 ST_ISVALID(<spatial_expr>)  
 ```  
   
- **Arguments**  
+ **Arguments**
   
 - `spatial_expr`  
   
@@ -3417,22 +2759,22 @@ ST_ISVALIDDETAILED(<spatial_expr>)
 SELECT ST_ISVALIDDETAILED({   
   "type": "Polygon",   
   "coordinates": [[ [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] ]]  
-}) AS b  
+}) AS b 
 ```  
   
  Here is the result set.  
   
 ```  
 [{  
-  "b": {   
-    "valid": false,   
+  "b": {
+    "valid": false,
     "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points."   
   }  
 }]  
 ```  
- 
-## Next steps  
 
-- [SQL syntax and SQL query for Cosmos DB](how-to-sql-query.md)
+## Next steps
 
-- [Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)  
+- [Introduction to Azure Cosmos DB](introduction.md)
+- [UDFs](sql-query-udfs.md)
+- [Aggregates](sql-query-aggregates.md)
