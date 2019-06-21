@@ -131,7 +131,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
     ```
  
 
-## Dump and restore master server
+## Dump and restore the master server
 
 1. Dump all databases from master server.
 
@@ -154,7 +154,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    If the dump file is large, upload it to a VM in Azure within the same region as your replica server. Restore it to the Azure Database for MariaDB server from the VM.
 
-## Link master and replica servers to start Data-in Replication
+## Link the master and replica servers to start Data-in Replication
 
 1. Set the master server.
 
