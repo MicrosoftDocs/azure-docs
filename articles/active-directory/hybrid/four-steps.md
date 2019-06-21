@@ -30,7 +30,7 @@ Based on our learnings, this checklist of best practices will help you quickly d
 
 ## Step 1 - Connect to apps easily
 
-By connecting your apps with Azure AD, you can enable user provisioning by improving the end-user experience through seamless single sign-on access to any application and from any device. By managing your apps in a single place, Azure AD, you can minimize administrative overhead and achieve a single point of control for your security and compliance policies.
+By connecting your apps with Azure AD, you can enable user provisioning by improving the end-user experience through single sign-on (SSO) access to any application and from any device. By managing your apps in a single place, Azure AD, you can minimize administrative overhead and achieve a single point of control for your security and compliance policies.
 
 This section covers your options for managing user access to apps, enabling secure remote access to internal apps, and the benefits of migrating your apps to Azure AD.
 
@@ -78,7 +78,7 @@ In modern enterprises, IT departments are often not aware of all the cloud appli
 
 [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) can help you identify useful apps that are popular with users that IT may sanction and add to the Enterprise applications gallery so that users benefit from capabilities such as SSO and conditional access.
 
-*"**Cloud App Security** helps us ensure that our people are properly using our cloud and SaaS applications, in ways that support the foundational security policies that help protect Accenture."* John Blasi, Managing Director -- Information Security, Accenture
+*"**Cloud App Security** helps us ensure that our people are properly using our cloud and SaaS applications, in ways that support the foundational security policies that help protect Accenture."* [John Blasi, Managing Director -- Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 In addition to detecting shadow IT, MCAS can also determine the risk level of apps, prevent unauthorized access to corporate data, possible data leakage, and other security risks inherent in the applications.
 
@@ -110,11 +110,12 @@ Organizations with on-premises Active Directory should extend their directory to
 
 The simplest and recommended method for enabling cloud authentication for on-premises directory objects in Azure AD is to enable [Password Hash Synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (PHS). Alternatively, some organizations may consider enabling [Pass-through Authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA).
 
-Whether you choose PHS or PTA, don't forget to enable [Seamless Single Sign-on](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) (SSO) to allow users to access cloud apps without constantly entering their username and password in the app. Without single sign-on, users must remember application-specific passwords and sign into each application. Likewise, IT staff needs to create and update user accounts for each application such as Office 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign into each application. Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance.
+Whether you choose PHS or PTA, don't forget to enable [Seamless Single Sign-on](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) to allow users to access cloud apps without constantly entering their username and password in the app. Without single sign-on, users must remember application-specific passwords and sign into each application. Likewise, IT staff needs to create and update user accounts for each application such as Office 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign into each application. Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance.
 
 For organizations already using AD FS or another on-premises authentication provider, moving to Azure AD as your identity provider can reduce complexity and improve availability. Unless you have specific use cases for using federation, we recommend migrating from federated authentication to either PHS and Seamless SSO or PTA and Seamless SSO. For more information, see [Migrate from federation to password hash synchronization for Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync).
 
-Enable automatic deprovisioning of accounts\
+### Enable automatic deprovisioning of accounts
+
 Enabling automated provisioning and deprovisioning to your applications is the best strategy for governing the lifecycle of identities across multiple systems. Azure AD supports [automated, policy-based provisioning and deprovisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) of user accounts to a variety of popular SaaS applications such as ServiceNow and Salesforce, and others that implement the [SCIM 2.0 protocol](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups). Unlike traditional provisioning solutions, which require custom code or manual uploading of CSV files, the provisioning service is hosted in the cloud, and features pre-integrated connectors that can be set up and managed using the Azure portal. A key benefit of automatic deprovisioning is that it helps secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
 
 To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
@@ -194,7 +195,7 @@ When you implement a hybrid identity solution as outlined in this article, you s
 
 If you don't observe a reduction in support calls, we recommend that you analyze your support call drivers in an attempt to confirm if SSPR or self-service application access has been configured correctly or if there are any other new issues that can be systematically addressed.
 
-*"In our digital transformation journey, we needed a reliable identity and access management provider to facilitate seamless yet secure integration between us, partners and cloud service providers, for an effective ecosystem; Azure AD was the best option offering us the needed capabilities and visibility that enabled us to detect and respond to risks."* --- Yazan Almasri, Global Information Security Director, Aramex
+*"In our digital transformation journey, we needed a reliable identity and access management provider to facilitate seamless yet secure integration between us, partners and cloud service providers, for an effective ecosystem; Azure AD was the best option offering us the needed capabilities and visibility that enabled us to detect and respond to risks."* --- [Yazan Almasri, Global Information Security Director, Aramex](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en)
 
 ### Monitor your usage of apps to drive insights
 
@@ -204,7 +205,7 @@ In addition to discovering Shadow IT, monitoring app usage across your organizat
 * Where and when is sensitive data being stored in the cloud?
 * Who is accessing sensitive data in the cloud?
 
-*"With Cloud App Security, we can quickly spot anomalies and take action."* --- Eric LePenske, Senior Manager - Information Security, Accenture
+*"With Cloud App Security, we can quickly spot anomalies and take action."* --- [Eric LePenske, Senior Manager - Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 ## Summary
 
@@ -216,12 +217,6 @@ There are many aspects to implementing a hybrid Identity solution, but this four
 * Operationalize your insights
 
 We hope this document is a useful roadmap to establishing a strong identity foundation for your organization.
-
-## Next steps
-
-Learn how you can increase your secure posture using the capabilities of Azure Active Directory and this five-step checklist - [Five steps to securing your identity infrastructure](https://aka.ms/securitysteps).
-
-Learn how the identity features in Azure AD can help you accelerate your transition to cloud governed management by providing the solutions and capabilities that allow organizations to quickly adopt and move more of their identity management from traditional on-premises systems to Azure AD - [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads](https://aka.ms/cloudgoverned).
 
 ## Identity checklist
 
@@ -264,3 +259,9 @@ We recommend that you print the following checklist for reference as you begin y
 ||Enable self-service group management|
 ||Monitor your usage of apps to drive insights|
 ||Understand your support call drivers|
+
+## Next steps
+
+Learn how you can increase your secure posture using the capabilities of Azure Active Directory and this five-step checklist - [Five steps to securing your identity infrastructure](https://aka.ms/securitysteps).
+
+Learn how the identity features in Azure AD can help you accelerate your transition to cloud governed management by providing the solutions and capabilities that allow organizations to quickly adopt and move more of their identity management from traditional on-premises systems to Azure AD - [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads](https://aka.ms/cloudgoverned).
