@@ -4,7 +4,7 @@ description: Introduction to SQL queries
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 06/21/2019
 ms.author: tisande
 
 ---
@@ -162,16 +162,6 @@ The preceding examples show several aspects of the Cosmos DB query language:
 * Azure Cosmos DB supports strict JSON items only. The type system and expressions are restricted to deal only with JSON types. For more information, see the [JSON specification](https://www.json.org/).  
 
 * A Cosmos DB container is a schema-free collection of JSON items. The relations within and across container items are implicitly captured by containment, not by primary key and foreign key relations. This feature is important for the intra-item joins discussed later in this article.
-
-## References
-
-- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-- [JSON](https://json.org/)
-- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
-- Graefe, Goetz. [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611). *ACM Computing Surveys* 25, no. 2 (1993).
-- Graefe, G. "The Cascades framework for query optimization." *IEEE Data Eng. Bull.* 18, no. 3 (1995).
-- Lu, Ooi, Tan. "Query Processing in Parallel Relational Database Systems." *IEEE Computer Society Press* (1994).
-- Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, and Andrew Tomkins. "Pig Latin: A Not-So-Foreign Language for Data Processing." *SIGMOD* (2008).
 
 ## Next steps
 

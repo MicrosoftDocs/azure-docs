@@ -1,18 +1,20 @@
 ---
 title: Working with arrays and objects
-description: Learn about object and array creation SQL syntax for Azure Cosmos DB.
-author: markjbrown
+description: Learn about array and object creation SQL syntax for Azure Cosmos DB.
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.author: mjbrown
+ms.date: 06/21/2019
+ms.author: tisande
 
 ---
 # Working with arrays and objects in Azure Cosmos DB
 
+A key feature of the Azure Cosmos DB SQL API is array and object creation.
+
 ## Arrays
 
-A key feature of the SQL API is array and object creation. You can also construct arrays, as shown in the following example:
+You can construct arrays, as shown in the following example:
 
 ```sql
     SELECT [f.address.city, f.address.state] AS CityState
