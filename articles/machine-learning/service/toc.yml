@@ -106,6 +106,8 @@
     href: concept-accelerate-with-fpgas.md
   - name: ONNX and ONNX Runtime
     href: concept-onnx.md
+  - name: Data drift monitoring
+    href: concept-data-drift.md
   - name: Security
     items:
     - name: Enterprise security overview
@@ -251,6 +253,8 @@
     - name: 'CI/CD of ML workflows with Azure Pipelines'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+  - name: Monitor for data drift
+    href: how-to-monitor-data-drift.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
