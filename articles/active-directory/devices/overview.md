@@ -28,7 +28,7 @@ In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables 
 - Empower the end users to be productive wherever and whenever
 - Protect the organization's assets
 
-Through these devices, your users get access to your organization's assets. To protect these assets, IT professionals need to manage the device identities. This enables you to make sure that your users are accessing resources from devices that meet your organization's standards for security and compliance.
+Through these devices, your users get access to your organization's assets. To protect these assets, IT professionals need to manage the device identities. This ability enables you to make sure that your users are accessing resources from devices that meet your organization's standards for security and compliance.
 
 Device identity management is the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access policies, you can ensure that access to resources in your environment is only possible with managed devices.
 
@@ -36,17 +36,17 @@ Device identity management is the foundation for [device-based conditional acces
 
 To get a device in Azure AD, you have multiple options:
 
-- Azure AD registered
+- **Azure AD registered**
    - Devices that are Azure AD registered are typically personally owned or mobile devices, and are signed into with a personal Microsoft account or another local account.
       - Windows 10
       - iOS
       - Android
       - MacOS
-- Azure AD joined
-   - Devices that are Azure AD joined are owned by an organization, and are signed in to with an Azure AD account belonging to that organization.
+- **Azure AD joined**
+   - Devices that are Azure AD joined are owned by an organization, and are signed in to with an Azure AD account belonging to that organization. They exist only in the cloud.
       - Windows 10 
-- Hybrid Azure AD joined
-   - Devices that are hybrid Azure AD joined are owned by an organization, and are signed in to with an Azure AD account belonging to that organization.
+- **Hybrid Azure AD joined**
+   - Devices that are hybrid Azure AD joined are owned by an organization, and are signed in to with an Azure AD account belonging to that organization. They exist in the cloud and 
       - Windows 7, 8.1, or 10
       - Windows Server 2008 or newer
 
@@ -62,12 +62,12 @@ Devices that are Azure AD joined or hybrid Azure AD joined benefit from SSO to y
 
 ## Device security
 
-- **Azure AD registered devices** utilize an account managed by the end-user, this is either a Microsoft account or another locally managed credential secured with one or more of the following.
+- **Azure AD registered devices** utilize an account managed by the end user, this account is either a Microsoft account or another locally managed credential secured with one or more of the following.
    - Password
    - PIN
    - Pattern
    - Windows Hello
-- **Azure AD joined or hybrid Azure AD joined devices** utilize an organizational account in Azure AD secured with the secured with one or more of the following.
+- **Azure AD joined or hybrid Azure AD joined devices** utilize an organizational account in Azure AD secured with one or more of the following.
    - Password
    - Windows Hello for Business
 
