@@ -61,7 +61,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/op
 You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is complete, the `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the
 See the following receipt image and its corresponding JSON output. The output has been shortened for scanability.
 
-![A receipt from Serafina restaurant](../media/serafina-receipt.jpg)
+![A receipt from Contoso store](../media/contoso-receipt.png)
 
 ```json
 {
