@@ -110,9 +110,36 @@ If not then perform a [factory reset](https://support.microsoft.com/help/4494277
 
 ## USB3 host controller compatibility
 
-If the device is not enumerating under device manager, it may be because it's plugged into an unsupported USB3 controller. For best results,
-ensure the USB3 driver is a Microsoft driver, it's indicated in Device Manager with a '(Microsoft)' after the name. To remove a third-party driver,
-right-click the device in Device Manager and click "Uninstall Device". Select the checkbox to delete the driver, and then hit the button 'Uninstall'
+If the device is not enumerating under device manager, it may be because it's plugged into an unsupported USB3 controller. 
+
+For the Azure Kinect DK on **Windows, Intel**, **Texas Instruments (TI)**, and **Renesas** are the *only host controllers that are supported*. 
+The Azure Kinect SDK on Windows platforms relies on a unified container ID, and it must span USB 2.0 and 3.0 devices so that the SDK can find the depth, color, and audio devices that are physically located on the same device. 
+On Linux, more host controllers may be supported as that platform relies less on the container ID and more on device serial numbers. 
+
+The topic of USB host controllers gets even more complicated when a PC has more than one host controller installed. When host controllers are mixed, a user may experience issues where some ports work fine and other do not work at all. Depending on how the ports are wired to the case, you may see all front ports having issues with the Azure Kinect
+
+**Windows:** To find out what host controller you have open Device Manager
+
+1. View -> Devices by Type 
+2. With the Azure Kinect connected select Cameras->Azure Kinect 4K Camera
+3. View -> Devices by Connection
+
+![USB port troubleshooting](./media/resources/usb-troubleshooting.png)
+
+To better understand which USB port is connected on your PC, repeat these steps for each USB port as you connect Azure Kinect DK to different USB ports on the PC.
+
+## Multi device synchronization
+
+### Stabilization
+
+When starting up devices using the multi device synchronization feature, it is highly recommended to do so using a fixed exposure setting.
+With a manual exposure set, it can take up to eight captures from the device before images and framerate stabilize. 
+With auto exposure, it can take up to 20 captures before images and framerate stabilize.
+
+### Depth camera auto powers down
+
+The laser used by the depth camera to calculate image depth data, has a limited lifespan. To maximize the life of the lasers, the depth camera will detect when depth data is not being consumed. The depth camera power downs when the device is streaming for several minutes but the host PC is not reading the data. 
+It also impacts Multi Device Synchronization where subordinate devices start up in a state where the depth camera is streaming and depth frames are actively help up waiting for the master device to start synchronizing captures. To avoid this problem in Multi Device capture scenarios, ensure the master device starts within a minute of the first subordinate being started. 
 
 ## Next steps
 
