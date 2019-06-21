@@ -306,7 +306,7 @@ You can verify index deletion by requesting a list of existing indexes. If hotel
 ```python
 url = endpoint + "indexes" + api_version + "&$select=name"
 
-response  = requests.get(url, headers=headers)
+response = requests.get(url, headers=headers)
 index_list = response.json()
 pprint(index_list)
 ```

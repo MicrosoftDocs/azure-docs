@@ -57,11 +57,11 @@ dataset = Dataset.from_delimited_files(datapath)
 
 # register the Dataset with the workspace. if a Dataset with the same name already exists, retrieve it by turning `exist_ok = True`
 dataset_name = 'crime dataset'
-dataset = dataset.register(workspace = workspace, 
-                 name = dataset_name, 
-                 description = 'crime dataset for demo', 
-                 tags = {'year':'2019', 'month':'Apr'},
-                 exist_ok = True)
+dataset = dataset.register(workspace=workspace,
+                           name=dataset_name,
+                           description='crime dataset for demo',
+                           tags={'year': '2019', 'month': 'Apr'},
+                           exist_ok=True)
 ```
 
 The first Dataset definition (`version_id` = 1) is created when the Dataset is created. Then every time you update your Dataset definition, a new version_id will be assigned to the latest definition.
@@ -149,8 +149,8 @@ dataset.head(5)
 This definition update will not erase previous Dataset definitions. You can still access and consume the previous definitions.
 
 ```python
-# specify `version_id` to get a previous definition 
-ds_def_old = dataset.get_definition(version_id = 1)
+# specify `version_id` to get a previous definition
+ds_def_old = dataset.get_definition(version_id=1)
 ds_def_old.head(5)
 ```
 <div>
@@ -357,10 +357,11 @@ When deprecating a Dataset definition, specify the Dataset ID and the Dataset de
 
 ```python
 # get the definition that you want to deprecate
-ds_def = dataset.get_definition(version_id = 1)
+ds_def = dataset.get_definition(version_id=1)
 
 # deprecate it by providing the information for the replacement definition, which is recommended to be used in machine learning scenarios
-ds_def.deprecate(deprecate_by_dataset_id=dataset.id, deprecated_by_definition_version=2)
+ds_def.deprecate(deprecate_by_dataset_id=dataset.id,
+                 deprecated_by_definition_version=2)
 ```
 
 ### Archive
@@ -369,7 +370,7 @@ Dataset definitions can be archived when definitions are not supposed to be used
 
 ```python
 # archive the definition with `version_id = 1`
-ds_def = dataset.get_definition(version_id = 1)
+ds_def = dataset.get_definition(version_id=1)
 ds_def.archive()
 ```
 
@@ -379,7 +380,7 @@ You can reactivate any deprecated or archived Dataset definition easily.
 
 ```python
 # reactivate Dataset definition with `version_id =1` which was archived in the previous step
-ds_def = dataset.get_definition(version_id = 1)
+ds_def = dataset.get_definition(version_id=1)
 ds_def.reactivate()
 ```
 

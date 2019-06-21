@@ -60,14 +60,14 @@ You'll use a public blob container, named *sampledata*, in the *pipelinedata* ac
 ```python
 # Public blob container details
 account_name = "pipelinedata"
-datastore_name="images_datastore"
-container_name="sampledata"
- 
+datastore_name = "images_datastore"
+container_name = "sampledata"
+
 batchscore_blob = Datastore.register_azure_blob_container(ws,
-                      datastore_name=datastore_name,
-                      container_name= container_name,
-                      account_name=account_name,
-                      overwrite=True)
+                                                          datastore_name=datastore_name,
+                                                          container_name=container_name,
+                                                          account_name=account_name,
+                                                          overwrite=True)
 ```
 
 Next, set up to use the default datastore for the outputs.
@@ -86,23 +86,23 @@ Now, reference the data in your pipeline as inputs to pipeline steps.
 A data source in a pipeline is represented by a [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) object. The `DataReference` object points to data that lives in, or is accessible from, a datastore. You need `DataReference` objects for the directory used for input images, the directory in which the pretrained model is stored, the directory for labels, and the output directory.
 
 ```python
-input_images = DataReference(datastore=batchscore_blob, 
+input_images = DataReference(datastore=batchscore_blob,
                              data_reference_name="input_images",
                              path_on_datastore="batchscoring/images",
                              mode="download")
-                           
-model_dir = DataReference(datastore=batchscore_blob, 
+
+model_dir = DataReference(datastore=batchscore_blob,
                           data_reference_name="input_model",
                           path_on_datastore="batchscoring/models",
-                          mode="download")                          
-                         
-label_dir = DataReference(datastore=batchscore_blob, 
+                          mode="download")
+
+label_dir = DataReference(datastore=batchscore_blob,
                           data_reference_name="input_labels",
                           path_on_datastore="batchscoring/labels",
-                          mode="download")                          
-                         
-output_dir = PipelineData(name="scores", 
-                          datastore=def_data_store, 
+                          mode="download")
+
+output_dir = PipelineData(name="scores",
+                          datastore=def_data_store,
                           output_path_on_compute="batchscoring/results")
 ```
 
@@ -123,20 +123,20 @@ if compute_name in ws.compute_targets:
 else:
     print('Creating a new compute target...')
     provisioning_config = AmlCompute.provisioning_configuration(
-                     vm_size = vm_size, # NC6 is GPU-enabled
-                     vm_priority = 'lowpriority', # optional
-                     min_nodes = compute_min_nodes, 
-                     max_nodes = compute_max_nodes)
+        vm_size=vm_size,  # NC6 is GPU-enabled
+        vm_priority='lowpriority',  # optional
+        min_nodes=compute_min_nodes,
+        max_nodes=compute_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, 
-                        compute_name, 
-                        provisioning_config)
-    
+    compute_target = ComputeTarget.create(ws,
+                                          compute_name,
+                                          provisioning_config)
+
     compute_target.wait_for_completion(
-                     show_output=True, 
-                     min_node_count=None, 
-                     timeout_in_minutes=20)
+        show_output=True,
+        min_node_count=None,
+        timeout_in_minutes=20)
 ```
 
 ## Prepare the model
@@ -156,7 +156,7 @@ model_dir = 'models'
 if not os.path.isdir(model_dir):
     os.mkdir(model_dir)
 
-url="http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz"
+url = "http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz"
 response = urllib.request.urlretrieve(url, "model.tar.gz")
 tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall(model_dir)
@@ -170,13 +170,13 @@ Here's how to register the model:
 import shutil
 from azureml.core.model import Model
 
-# register downloaded model 
+# register downloaded model
 model = Model.register(
-        model_path = "models/inception_v3.ckpt",
-        model_name = "inception", # This is the name of the registered model
-        tags = {'pretrained': "inception"},
-        description = "Imagenet trained tensorflow inception",
-        workspace = ws)
+    model_path="models/inception_v3.ckpt",
+    model_name="inception",  # This is the name of the registered model
+    tags={'pretrained': "inception"},
+    description="Imagenet trained tensorflow inception",
+    workspace=ws)
 ```
 
 ## Write your scoring script
@@ -245,7 +245,8 @@ Specify the conda dependencies for your script. You'll need this object later, w
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-cd = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.10.0", "azureml-defaults"])
+cd = CondaDependencies.create(
+    pip_packages=["tensorflow-gpu==1.10.0", "azureml-defaults"])
 
 # Runconfig
 amlcompute_run_config = RunConfiguration(conda_dependencies=cd)
@@ -261,8 +262,8 @@ Create a pipeline parameter by using a [PipelineParameter](https://docs.microso
 
 ```python
 batch_size_param = PipelineParameter(
-                    name="param_batch_size", 
-                    default_value=20)
+    name="param_batch_size",
+    default_value=20)
 ```
 
 ### Create the pipeline step
@@ -293,8 +294,10 @@ Now run the pipeline, and examine the output it produced. The output has a score
 
 ```python
 # Run the pipeline
+import pandas as pd
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
-pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline, pipeline_params={"param_batch_size": 20})
+pipeline_run = Experiment(ws, 'batch_scoring').submit(
+    pipeline, pipeline_params={"param_batch_size": 20})
 
 # Wait for the run to finish (this might take several minutes)
 pipeline_run.wait_for_completion(show_output=True)
@@ -303,7 +306,6 @@ pipeline_run.wait_for_completion(show_output=True)
 step_run = list(pipeline_run.get_children())[0]
 step_run.download_file("./outputs/result-labels.txt")
 
-import pandas as pd
 df = pd.read_csv("result-labels.txt", delimiter=":", header=None)
 df.columns = ["Filename", "Prediction"]
 df.head()
@@ -315,8 +317,8 @@ After you're satisfied with the outcome of the run, publish the pipeline so you 
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline(
-    name="Inception_v3_scoring", 
-    description="Batch scoring using Inception v3 model", 
+    name="Inception_v3_scoring",
+    description="Batch scoring using Inception v3 model",
     version="1.0")
 ```
 
@@ -325,17 +327,17 @@ published_pipeline = pipeline_run.publish_pipeline(
 To rerun the pipeline, you'll need an Azure Active Directory authentication header token, as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
 
 ```python
+from azureml.pipeline.core.run import PipelineRun
 from azureml.pipeline.core import PublishedPipeline
 
 rest_endpoint = published_pipeline.endpoint
 # specify batch size when running the pipeline
-response = requests.post(rest_endpoint, 
-		headers=aad_token, 
-		json={"ExperimentName": "batch_scoring",
-               "ParameterAssignments": {"param_batch_size": 50}})
+response = requests.post(rest_endpoint,
+                         headers=aad_token,
+                         json={"ExperimentName": "batch_scoring",
+                               "ParameterAssignments": {"param_batch_size": 50}})
 
 # Monitor the run
-from azureml.pipeline.core.run import PipelineRun
 published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
 
 RunDetails(published_pipeline_run).show()
