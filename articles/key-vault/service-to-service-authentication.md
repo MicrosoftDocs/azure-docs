@@ -148,14 +148,13 @@ There are three primary methods of using a Service Principal to run your applica
 
 ### Use a certificate in local keystore to sign into Azure AD
 
-1. Create a service principal certificate using [az ad sp create-for-rbac --create-cert](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The .pem file (private key) will be stored in your home directory. 
+1. Create a service principal certificate using [az ad sp create-for-rbac --create-cert](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). This will create a .pem file (private key) that will be stored in your home directory. Deploy this certificate to either the *LocalMachine* or *CurrentUser* store. 
+
 
     > [!Important]
-    > This CLI command generates a certificate in the PEM format, but Windows only provides native support for PFX certificates. To generate a PFX certificate for use in a Windows local keystore, use the PowerShell commands shown here: [Create service principal with self-signed certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
+    > The CLI command generates a .pem file, but Windows only provides native support for PFX certificates. To generate a PFX certificate instead, use the PowerShell commands shown here: [Create service principal with self-signed certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). These commands automatically deploy the certificate as well.
 
-2. Deploy the certificate to either the *LocalMachine* or *CurrentUser* store. 
-
-3. Set an environment variable named **AzureServicesAuthConnectionString** to:
+1. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
@@ -164,7 +163,7 @@ There are three primary methods of using a Service Principal to run your applica
  
     Replace *{AppId}*, *{TenantId}*, and *{Thumbprint}* with values generated in Step 1. Replace *{CertificateStore}* with either `LocalMachine` or `CurrentUser`, based on your deployment plan.
 
-4. Run the application. 
+1. Run the application. 
 
 ### Use a shared secret credential to sign into Azure AD
 
