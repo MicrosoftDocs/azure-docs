@@ -39,16 +39,20 @@
       href: tutorial-csharp-paging.md
     - name: 3 - Add type-ahead
       href: tutorial-csharp-type-ahead-and-suggestions.md
+    - name: 4 - Add facets
+      href: tutorial-csharp-facets.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
   - name: Index Azure JSON blobs
     href: search-semi-structured-data.md
   - name: Enrich with AI (cognitive search)
     items:
+    - name: C#
+      href: cognitive-search-tutorial-blob-dotnet.md
     - name: REST
       href: cognitive-search-tutorial-blob.md
-    - name: C#
-      href: cognitive-search-tutorial-blob-dotnet.md 
+    - name: Python
+      href: cognitive-search-tutorial-blob-python.md
 - name: Samples
   items:
   - name: Azure code samples

@@ -46,6 +46,10 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 * Support for streams.
 * Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned.
 
+### <a name="2.4.1"/>2.4.1
+
+* Fixes tracing race condition for queries which caused empty pages
+
 ### <a name="2.4.0"/>2.4.0
 
 * SDK’s System.Net.Http version matches what is defined in the NuGet package
@@ -247,6 +251,7 @@ If you have questions related to this SDK, post to [StackOverflow](https://stack
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |June  20, 2019 |--- |
 | [2.4.0](#2.4.0) |May  05, 2019 |--- |
 | [2.3.0](#2.3.0) |April  04, 2019 |--- |
 | [2.2.3](#2.2.3) |March  11, 2019 |--- |
