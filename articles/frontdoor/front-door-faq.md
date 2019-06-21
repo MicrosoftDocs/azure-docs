@@ -70,11 +70,11 @@ Azure Front Door Service has the same list of POP (Point of Presence) locations 
 
 ### Is Azure Front Door Service a dedicated deployment for my application or is it shared across customers?
 
-Azure Front Door Service is a globally distributed multi-tenant service. So, the infrastructure for Front Door is shared across all its customers. However, by creating a Front Door you define the specific configuration required for your application and 
+Azure Front Door Service is a globally distributed multi-tenant service. So, the infrastructure for Front Door is shared across all its customers. However, by creating a Front Door profile, you define the specific configuration required for your application and no changes made to your Front Door impact other Front Door configurations.
 
 ### Is HTTP->HTTPS redirection supported?
 
-Front Door currently doesn't support URL redirection.
+Yes. In fact, Azure Front Door Service supports host, path and query string redirection as well as part of URL redirection. Learn more about [URL redirection](front-door-url-redirect.md). 
 
 ### In what order are routing rules processed?
 
@@ -136,6 +136,11 @@ Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 is not yet supported.
 
 To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you can choose to use a certificate that is managed by Azure Front Door Service or use your own certificate.
 The Front Door managed option provisions a standard SSL certificate via Digicert and  stored in Front Door's Key Vault. If you choose to use your own certificate, then you can onboard a certificate from a supported CA and can be a standard SSL, extended validation certificate, or even a wildcard certificate. Self-signed certificates are not supported. Learn [how to enable HTTPS for a custom domain](https://aka.ms/FrontDoorCustomDomainHTTPS).
+
+### Does Front Door support auto-rotation of certificates?
+
+For your own custom SSL certificate, auto-rotation isn't supported. Similar to how it was setup the first time for a given custom domain, you will need to point Front Door to the right certificate version in your Key Vault and ensure that the service principal for Front Door still has access to the Key Vault. This updated certificate rollout operation by Front Door is completely atomic and doesn't cause any production impact provided the subject name or SAN for the certificate doesn't change.
+</br>For the Front Door managed certificate option, the certificates are auto-rotated by Front Door.
 
 ### What are the current cipher suites supported by Azure Front Door Service?
 
