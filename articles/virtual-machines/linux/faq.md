@@ -71,6 +71,7 @@ The following usernames are not allowed:
 | `john`          | `owner`   | `root`             | `server` |
 | `sql`           | `support` | `support_388945a0` | `sys`    |
 | `test2`         | `test3`   | `user4`            | `user5`  |
+| `video`         |
 
 ## What are the password requirements when creating a VM?
 
