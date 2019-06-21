@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 06/21/2019
 ms.custom: seodec18
 ---
 # Rotate login credentials for inputs and outputs of a Stream Analytics Job
