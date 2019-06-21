@@ -18,14 +18,21 @@ Learn how to use an existing machine learning model with the Azure Machine Learn
 
 If you have a machine learning model that was trained outside the Azure Machine Learning service, you can still use the service to deploy the model as a web service or to an IoT Edge device.
 
+> [!NOTE]
+> The information in this article can be used with both the Azure Machine Learning SDK or Machine Learning CLI extension.
+
 ## Prerequisites
 
-* An Azure Machine Learning service workgroup. For more information, see the [Create a workspace](setup-create-workspace.md) article.
+* An Azure Machine Learning service workspace. For more information, see the [Create a workspace](setup-create-workspace.md) article.
 
     > [!TIP]
-    > The examples in this article assume that the `ws` variable is set to your Azure Machine Learning service workspace.
+    > The Python examples in this article assume that the `ws` variable is set to your Azure Machine Learning service workspace.
+    >
+    > The CLI examples use a placeholder of `myworkspacee` and `myresourcegroup`. Replace these with the name of your workspace and the resource group that contains it.
 
 * The Azure Machine Learning SDK. For more information, see the Python SDK section of the [Create a workspace](setup-create-workspace.md#sdk) article.
+
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 * A trained model. The model must be persisted to one or more files.
 
     > [!NOTE]
@@ -41,18 +48,22 @@ Registering a model allows you to store, version, and apply metadata to your tra
 > [!IMPORTANT]
 > When registering a trained model, the model must be persisted to one or more files. These files are then used to register the model.
 
-The following Python code demonstrates how to register a model that is stored in multiple files:
+To register a model trained outside the Azure Machine Learning service, you must have the files on the local filesystem of your development environment. In the following examples, the `models` directory contains the `model.h5`, `model.w2v`, `encoder.pkl`, and `tokenizer.pkl` files:
 
 ```python
 from azureml.core.model import Model
 
-model = Model.register(model_path = ["model.h5","model.w2v","encoder.pkl","tokenizer.pkl"],
+model = Model.register(model_path = "./models",
                        model_name = "sentiment",
                        description = "Sentiment analysis model trained outside Azure Machine Learning service",
                        workspace = ws)
 ```
 
-This example registers the `model.h5`, `model.w2v`, `encoder.pkl`, and `tokenizer.pkl` files as a single model registration. The registration uses a friendly name of `sentiment`.
+```azurecli
+az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
+```
+
+This example uploads the files contained in the `models` directory as a new model registration named `sentiment`.
 
 ## Define inference environment
 
@@ -62,7 +73,7 @@ Azure Machine Learning service uses the [InferenceConfig](https://docs.microsoft
 * An entry script. This file (named `score.py`) loads the model when the deployed service starts. It is also responsible for receiving data, passing it to the model, and then returning a response.
 * A conda environment file. This file defines the Python packages needed to run the model and entry script. 
 
-The following Python code shows a basic inference configuration:
+The following example shows a basic inference configuration using the Python SDK:
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -70,6 +81,16 @@ from azureml.core.model import InferenceConfig
 inference_config = InferenceConfig(runtime= "python", 
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
+```
+
+The CLI loads the inference configuration from a YAML file:
+
+```yaml
+{
+   "entryScript": "score.py",
+   "runtime": "python",
+   "condaFile": "myenv.yml"
+}
 ```
 
 ### Entry script
@@ -172,7 +193,7 @@ dependencies:
 
 The [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) package contains the classes used for deployment. The class you use determines where the model is deployed. For example, to deploy as a web service on Azure Kubernetes Service, use [AksWebService.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-) to create the deployment configuration.
 
-The following example code defines a deployment configuration for a local deployment. This configuration deploys the model as a web service to your local computer.
+The following Python code defines a deployment configuration for a local deployment. This configuration deploys the model as a web service to your local computer.
 
 > [!IMPORTANT]
 > A local deployment requires a working installation of [Docker](https://www.docker.com/) on your local computer.
@@ -183,20 +204,39 @@ from azureml.core.webservice import LocalWebservice
 deployment_config = LocalWebservice.deploy_configuration()
 ```
 
+The CLI loads the deployment configuration from a YAML file:
+
+```YAML
+{
+    "computeType": "LOCAL"
+}
+```
+
+> [!TIP]
+> Deploying to a different compute target, such as Azure Kubernetes Service in the Azure cloud, is as easy as changing the deployment configuration. For more information, see [How and where to deploy models](how-to-deploy-and-where.md).
+
 ## Deploy the model
 
-To deploy the registered model, use [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). The following example loads information on the registered model named `sentiment`, and then deploys it as a service named `sentiment`. During deployment, the `inference_config` and `deployment_config` are used to create and configure the service environment:
+To deploy the registered model with the SDK, use [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). The following example loads information on the registered model named `sentiment`, and then deploys it as a service named `sentiment`. During deployment, the `inference_config` and `deployment_config` are used to create and configure the service environment:
 
 ```python
 from azureml.core.model import Model
 
 model = Model(ws, name='sentiment')
-service = Model.deploy(ws, 'sentiment', [model], inference_config, deployment_config)
+service = Model.deploy(ws, 'myservice', [model], inference_config, deployment_config)
 
 service.wait_for_deployment(True)
 print(service.state)
 print("scoring URI: " + service.scoring_uri)
 ```
+
+To deploy the model from the CLI, use the following command:
+
+```azurecli
+az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
+```
+
+This command deploys version 1 of the registered model (`sentiment:1`) using the inference and deployment configuration stored in the `inferenceConfig.json` and `deploymentConfig.json` files.
 
 After deployment, the scoring URI is displayed. This URI can be used by clients to submit requests to the service. The following example is a basic Python client that submits data to the service and displays the response:
 
