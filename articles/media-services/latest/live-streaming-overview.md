@@ -27,7 +27,7 @@ Azure Media Services enables you to deliver live events to your customers on the
 - Components in Media Services, which enable you to ingest, preview, package, record, encrypt, and broadcast the live event to your customers, or to a CDN for further distribution.
 
 This article gives an overview and guidance of live streaming with Media Services and links to other relevant articles.
-
+ 
 > [!NOTE]
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
@@ -45,19 +45,19 @@ Dynamic filtering is used to control the number of tracks, formats, bitrates, an
 
 ## Live Event types
 
-A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live Events and Live Outputs](live-events-outputs-concept.md).
+[Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. A Live Event can be one of two types: pass-through and live encoding. For details about live streaming in Media Services v3, see [Live Events and Live Outputs](live-events-outputs-concept.md).
 
 ### Pass-through
 
 ![pass-through](./media/live-streaming/pass-through.svg)
 
-When using the pass-through **Live Event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 protocol). The Live Event then carries through the incoming video streams without any further processing. Such a pass-through Live Event is optimized for long-running live events or 24x365 linear live streaming. 
+When using the pass-through **Live Event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 input protocol). The Live Event then carries through the incoming video streams  to the dynamic packager (Streaming Endpoint) without any further transcoding. Such a pass-through Live Event is optimized for long-running live events or 24x365 linear live streaming. 
 
 ### Live encoding  
 
 ![live encoding](./media/live-streaming/live-encoding.svg)
 
-When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the Live Event (using RTMP or Fragmented-Mp4 protocol). The Live Event encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to play back devices via protocols like MPEG-DASH, HLS, and Smooth Streaming. 
+When using cloud encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed (up to 32Mbps aggregate) to the Live Event (using RTMP or fragmented-MP4 input protocol). The Live Event transcodes the incoming single bitrate stream into [multiple bitrate video streams](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) at varying resolutions to improve delivery and makes it available for delivery to playback devices via industry standard protocols like MPEG-DASH, Apple HTTP Live Streaming (HLS), and Microsoft Smooth Streaming. 
 
 ## Live streaming workflow
 
