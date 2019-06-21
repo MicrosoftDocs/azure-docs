@@ -1,7 +1,7 @@
 ---
 title: How to detect data drift (Preview) on AKS deployments
 titleSuffix: Azure Machine Learning service
-description: Learn how to detect data drift on AKS deployed models in Azure Machine Learning service.
+description: Learn how to detect data drift on Azure Kubernetes Service deployed models in Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,8 +12,10 @@ author: cody-dkdc
 ms.date: 06/20/2019
 ---
 
-# How to detect data drift on models deployed to Azure Kubernetes Service (Preview)
-In this article, you will learn how to monitor for [data drift](concept-data-drift.md) between the training dataset and inference data from Azure Kubernetes Service (AKS) for a deployed model. Data drift is one of the top reasons where model accuracy degrades over time. It happens when data served to model in production is different from the data that the model was trained on. The Azure Machine Learning service Data Drift Detector helps to monitor for data drift and send an alert when it is detected.  
+# How to detect data drift (preview) on models deployed to Azure Kubernetes Service
+In this article, you learn how to monitor for [data drift](concept-data-drift.md) between the training dataset and inference data of a deployed model. 
+
+Data drift is one of the top reasons where model accuracy degrades over time. It happens when data served to a model in production is different from the data used to train the model. The Azure Machine Learning service can monitor data drift using the Data Drift Detector. If drift is detected, the service can send an alert to you.  
 
 > [!Note]
 > This service is in (Preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
@@ -117,7 +119,7 @@ drift_figures = datadrift.show(with_details=True)
 
 For details on the metrics that are computed, see the [data drift concept](concept-data-drift.md) article.
 
-## Enable data drift schedule 
+## Schedule data drift detection 
 
 Enabling a data drift schedule performs a DataDriftDetector run at the specified frequency. If the drift coefficient is above the given threshold, an email is sent. 
 

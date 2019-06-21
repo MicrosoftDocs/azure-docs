@@ -14,9 +14,9 @@ ms.date: 06/20/2019
 
 # What is data drift monitoring (Preview)?
 
-Data drift is the change in distribution of data. In the context of machine learning, typically trained machine learning models may experience degraded prediction performance due to drift. Therefore, monitoring drift between training data and data used for making predictions can be informative.
+Data drift is the change in distribution of data. In the context of machine learning, trained machine learning models may experience degraded prediction performance because of drift. Monitoring drift between training data and data used for making predictions can help detect performance problems.
 
-Machine learning models are only as good as the dataset they are trained with. Deploying models to production without monitoring its performance can lead to undetected and detrimental impacts. With data drift monitoring, you can detect and adapt to data drift. 
+Machine learning models are only as good as the data used to train them. Deploying models to production without monitoring its performance can lead to undetected and detrimental impacts. With data drift monitoring, you can detect and adapt to data drift. 
 
 ## When to monitor for data drift?
 
@@ -28,7 +28,7 @@ Metrics we can monitor include:
 
 With this monitoring in place, alerting or actions can be set up when drift is detected and the data scientist can investigate the root cause of the issue. 
 
-Consider monitoring and alerting to data drift if you are deploying a model where there is potential for the input data it is predicting on to change from the dataset it was trained on.
+If you think that the input data for your deployed model may change, you should consider using data drift detection.
 
 ## How data drift is monitored in Azure Machine Learning service
 
@@ -46,8 +46,8 @@ The following metrics are saved in each run iteration for a data drift task:
 
 |Metric|Description|
 --|--|
-wasserstein_distance|Statistical distance defined for one dimensional numerical distribution.|
-energy_distance|Statistical distance defined for one dimensional numerical distribution.|
+wasserstein_distance|Statistical distance defined for one-dimensional numerical distribution.|
+energy_distance|Statistical distance defined for one-dimensional numerical distribution.|
 datadrift_coefficient|Formally Matthews correlation coefficient, a real number ranging from -1 to 1. In the context of drift, 0 indicates no drift and 1 indicates maximum drift.|
 datadrift_contribution|Feature importance of features contributing to drift.|
 
