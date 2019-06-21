@@ -76,7 +76,7 @@ If the VNet is peered with another VNet, you cannot expand the VNet address spac
 
 ### UDRs and NSGs
 
-Network security groups (NSGs) with a next hop cannot be used as delegated subnets for Azure NetApp Files. Similarly, user-defined routes (UDRs) are also not supported. 
+User-defined routes (UDRs) and Network security groups (NSGs) are not supported on delegated subnets for Azure NetApp Files.
 
 As a workaround, you can apply NSGs to other subnets that either permit or deny the traffic to and from the Azure NetApp Files delegated subnet.  
 

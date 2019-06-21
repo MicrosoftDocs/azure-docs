@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/21/2019
 ---
 
 # Azure Stream Analytics data errors
