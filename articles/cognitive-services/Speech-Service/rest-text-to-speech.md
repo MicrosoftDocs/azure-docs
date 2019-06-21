@@ -221,6 +221,7 @@ The HTTP status code for each response indicates success or common errors.
 | 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. |
 | 413 | Request Entity Too Large | The SSML input is longer than 1024 characters. |
 | 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 415 | Unsupported Media Type | It's possible that the wrong `Content-Type` was provided. `Content-Type` should be set to `application/ssml+xml`. | 
 | 502 | Bad Gateway	| Network or server-side issue. May also indicate invalid headers. |
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred, saved to a buffer, or saved to a file.
