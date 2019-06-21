@@ -10,13 +10,11 @@ ms.date: 09/24/2018
 
 # Configure Data-in Replication in Azure Database for MariaDB
 
-This article describes how to set up Data-in Replication in Azure Database for MariaDB by configuring the master and replica servers.
-
-To continue, you should have some prior experience with MariaDB servers and databases.
+This article describes how to set up Data-in Replication in Azure Database for MariaDB by configuring the master and replica servers. Before you continue, you should have some prior experience with MariaDB servers and databases.
 
 To create a replica in the Azure Database for MariaDB service, Data-in Replication synchronizes data from a master MariaDB server on-premises, in virtual machines (VMs), or in cloud database services.
 
-If your master server is version 10.2 or newer, you set up the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/).
+> [!NOTE] If your master server is version 10.2 or newer, we recommend that you set up Data-in Replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/).
 
 
 ## Create a MariaDB server to use as replica
@@ -34,7 +32,7 @@ If your master server is version 10.2 or newer, you set up the data-in replicati
 
 ## Configure the master server
 
-The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or in a cloud database service for Data-in Replication. This MariaDB server is the master in Data-in replication.
+The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or in a cloud database service for Data-in Replication. This MariaDB server is the master in Data-in Replication.
 
 1. Turn on binary logging.
     
@@ -260,4 +258,4 @@ CALL mysql.az_replication_skip_counter;
 ```
 
 ## Next steps
-- Learn more about [Data-in Replication](concepts-data-in-replication.md) for Azure Database for MariaDB
+Learn more about [Data-in Replication](concepts-data-in-replication.md) for Azure Database for MariaDB
