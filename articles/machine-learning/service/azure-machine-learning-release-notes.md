@@ -32,7 +32,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Added custom Kubernetes namespace parameter to AKS webservice deployment configuration and CLI.
   + Deprecated hash_paths parameter for all pipeline steps
   
-  + **Preview features**
++ **Preview features**
     + Scoring explainers can now optionally save conda and pip information for more reliable serialization and deserialization.
     + Bug Fix for Auto Feature Selector.
     + Updated mlflow.azureml.build_image to the new api, patched bugs exposed by the new implementation.
