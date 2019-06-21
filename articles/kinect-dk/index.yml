@@ -81,7 +81,7 @@ sections:
       Get familiar with Azure Kinect DK and its SDKs
       <div class="row"><div class="column"><ul>
       <li><b><a href="system-requirements.md">Sensor SDK system requirements</a></b></li>
-      <li><b><a href="overview-sensor-sdk.md">Learn about Sensor SDK</a></b></li>
+      <li><b><a href="about-sensor-sdk.md">Learn about Sensor SDK</a></b></li>
       <li><b><a href="depth-camera.md">Learn about depth camera</a></b></li></ul></div><div class="column"><ul>
       <li><b><a href="update-device-firmware.md">Update Azure Kinect DK firmware</a></b></li>
       <li><b><a href="azure-kinect-viewer.md">Learn how to use viewer</a></b></li>

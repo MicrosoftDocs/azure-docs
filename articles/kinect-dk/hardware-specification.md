@@ -194,5 +194,5 @@ To recover the device, see [instructions here](https://aka.ms/support).
 
 ## Next steps
 
-- [Use Azure Kinect Sensor SDK](overview-sensor-sdk.md)
+- [Use Azure Kinect Sensor SDK](about-sensor-sdk.md)
 - [Set up hardware](set-up-azure-kinect-dk.md)
