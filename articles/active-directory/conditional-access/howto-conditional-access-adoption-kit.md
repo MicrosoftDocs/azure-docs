@@ -27,7 +27,7 @@ To provide this control, **Azure Active Directory (AD) Conditional Access** allo
 
 For information on common access scenarios using Azure AD Conditional Access, watch this video, **Enable Azure Active Directory for Conditional Access for Secure User Access**
 
-[!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
+> [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
 Refer to [Azure AD Conditional Access FAQ](https://docs.microsoft.com/azure/active-directory/conditional-access/faqs) for common questions on using Conditional Access service.
 
@@ -144,15 +144,15 @@ Here are useful links to help you get started:
 
 * YouTube - **Conditional Access in Enterprise Mobility + Security**
 
-[!VIDEO https://www.youtube.com/embed/A7IrxAH87wc]
+> [!VIDEO https://www.youtube.com/embed/A7IrxAH87wc]
 
 * YouTube - **Device-based Conditional Access**
 
-[!VIDEO https://www.youtube.com/embed/AdM0zYB-3WQ]
+> [!VIDEO https://www.youtube.com/embed/AdM0zYB-3WQ]
 
 * YouTube - **Enable Azure Active Directory for Conditional Access for Secure User Access**
 
-[!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
+> [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
 ### Online Courses
 
