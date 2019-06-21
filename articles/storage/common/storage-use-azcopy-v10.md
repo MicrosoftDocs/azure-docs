@@ -114,13 +114,15 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 #### Authenticate a service principal
 
-You can use AzCopy inside of a script that runs without any user interaction, but before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with your credentials.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to persist that sensitive information.
+This is a great option if you plan to use AzCopy inside of a script that runs without any user interaction. 
 
-You can sign into your account by using a client secret or a certificate that is associated with your service principal.
+Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with your credentials.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to persist that sensitive information.
+
+You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal.
 
 ##### Using a client secret
 
-Set the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal. 
+Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal. This value is available only to the current session. 
 
 This example shows how you could do this in a Windows PowerShell prompt.
 
@@ -129,7 +131,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> Consider using a prompt as shown in this example. That way, the client secret won't appear your console's command history. This information is stored to environment variables associated only with the current console session.
+> Consider using a prompt as shown in this example. That way, the client secret won't appear in your console's command history. 
 
 Next, open a command prompt, type the following command, and then press the ENTER key.
 
@@ -141,9 +143,9 @@ Replace the `<application-id>` placeholder with the Application ID of your servi
 
 ##### Using certificate
 
-If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration and then use that certificate to login.
+If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to login.
  
-Set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the client secret of your service principal. 
+First, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the client secret of your service principal. This value is available only to the current session. 
 
 This example shows how you could do this in a Windows PowerShell prompt.
 
@@ -160,7 +162,7 @@ azcopy login --service-principal --certificate-path <path-to-certificate-file>
 Replace the `<path-to-certificate-file>` placeholder with the path to the certificate file. Can be a fully qualified or relative path to the file.
 
 > [!NOTE]
-> Consider using a prompt as shown in this example. That way, the client secret won't appear your console's command history. This information is stored to environment variables associated only with the current console session.
+> Consider using a prompt as shown in this example. That way, the client secret won't appear in your console's command history. 
 
 ### Option 2: Use a SAS token
 
