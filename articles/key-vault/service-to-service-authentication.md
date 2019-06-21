@@ -153,7 +153,7 @@ There are three primary methods of using a Service Principal to run your applica
     az ad sp create-for-rbac --create-cert
     ```
 
-This will create a .pem file (private key) that will be stored in your home directory. Deploy this certificate to either the *LocalMachine* or *CurrentUser* store. 
+    This will create a .pem file (private key) that will be stored in your home directory. Deploy this certificate to either the *LocalMachine* or *CurrentUser* store. 
 
     > [!Important]
     > The CLI command generates a .pem file, but Windows only provides native support for PFX certificates. To generate a PFX certificate instead, use the PowerShell commands shown here: [Create service principal with self-signed certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). These commands automatically deploy the certificate as well.
