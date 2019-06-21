@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 06/20/2019
 ---
 
 # Build your first serverless app by using Azure Logic Apps and Azure Functions in Visual Studio
@@ -38,9 +38,6 @@ To build a serverless app in Visual Studio, you need:
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure 
     > that you select the **Azure development** workload.
-    > For Visual Studio 2019, Cloud Explorer can open the 
-    > Logic App Designer in the Azure portal, but can't 
-    > yet open the embedded Logic App Designer.
 
   * [Microsoft Azure SDK for .NET (version 2.9.1 or later)](https://azure.microsoft.com/downloads/). 
   Learn more about [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
@@ -171,10 +168,11 @@ select **Open With Logic App Designer**.
 
    ![Open azuredeploy.json in Logic App Designer](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
 
-1. After the **Logic App Properties** box appears, 
-under **Subscription**, select your Azure subscription if it's not already selected. 
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
-1. Under **Resource Group**, 
+1. After the **Logic App Properties** box appears, 
+under **Subscription**, select your Azure subscription if it's not already selected. Under **Resource Group**, 
 select the resource group and location where you deployed your solution, 
 and then select **OK**.
 
@@ -213,6 +211,9 @@ associated with the logic apps that you want to manage, and then select **Apply*
 
 1. Under **Logic Apps**, select your logic app. From that app's shortcut menu, 
 select **Open with Logic App Editor**.
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
 You can now download the already published logic app into your resource group project. 
 So, although you might have started a logic app in the Azure portal, you can still import 
