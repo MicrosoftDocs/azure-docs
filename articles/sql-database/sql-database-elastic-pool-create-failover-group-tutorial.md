@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Add an Azure SQL Database single database to a failover group | Microsoft Docs"
-description: Add an Azure SQL Database single database to a failover group using the Azure Portal, PowerShell, or Azure CLI.  
+title: "Tutorial: Add an Azure SQL Database elastic pool to a failover group | Microsoft Docs"
+description: Add an Azure SQL Database elastic pool to a failover group using the Azure Portal, PowerShell, or Azure CLI.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -13,13 +13,14 @@ ms.reviewer: sstein, carlrab
 manager: jroth
 ms.date: 06/19/2019
 ---
-# Tutorial: Add an Azure SQL Database single database to a failover group
+# Tutorial: Add an Azure SQL Database elastic pool to a failover group
 
-Configure a failover group for an Azure SQL Database single database and test failover using either the Azure portal, PowerShell, or Azure CLI.  In this tutorial, you will learn how to:
+Configure a failover group for an Azure SQL Database elastic pool and test failover using either the Azure portal, PowerShell, or Azure CLI.  In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > - Create an Azure SQL Database single database.
-> - Create a [failover group](sql-database-auto-failover-group.md) for a single database between two logical SQL servers.
+  - Add the single database into an elastic pool. 
+> - Create a [failover group](sql-database-auto-failover-group.md) for an elastic pool between two logical SQL servers.
 > - Test failover.
 
 ## Prerequisites
@@ -49,8 +50,66 @@ To complete the tutorial, make sure you have the following items:
 
 [!INCLUDE [sql-database-create-single-database](../../includes/sql-database-create-single-database.md)]
 
-## 2 - Create the failover group 
-In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group. 
+## 2 - Add single database to elastic pool
+
+# [Azure Portal](#tab/azure-portal)
+
+1. Choose **Create a resource** in the upper left-hand corner of the [Azure portal](https://portal.azure.com).
+1. Type `elastic pool` in the search box, select the **SQL Elastic database pool** icon, and then select **Create**. 
+
+    ![Choose elastic pool from the marketplace](media/sql-database-elastic-pool-create-failover-group-tutorial/elastic-pool-market-place.png)
+
+1. Configure your elastic pool with the following values:
+   - **Name**: Provide a unique name for your elastic pool, such as `myElasticPool`. 
+   - **Subscription**: Select your subscription from the drop-down.
+   - **ResourceGroup**: Choose to **Create a new** resource group and name it with a unique name, such as `myResourceGroup`. 
+   - **Server**: Select the server and choose to **Create a new server**, configure it with the following values, and then select **Select**. 
+       - **Server name**: Type in a unique logical server name, such as `mysqlserver`. 
+       - **Server admin login**: Type in an admin login, such as `azureuser`. 
+       - **Password**: Provide a complex password that meets security requirements. 
+       - **Location**: Select a location from the drop-down, such as `West US 2`. 
+
+       ![Create new server for elastic pool](media/sql-database-elastic-pool-create-failover-group-tutorial/create-new-server-for-elastic-pool.png)
+
+   - **Configure pool**: Select this option to modify your compute and then select **Gen4** under **Compute Generation**. Leave the other values at default. 
+
+       ![Configure compute](media/sql-database-elastic-pool-create-failover-group-tutorial/compute-for-elastic-pool.png)
+
+1. On the **Configure** page, select the **Databases** tab, and then choose to **Add database**. Choose the database you created in section 1 and then select **Apply** to add it to your elastic pool. Select **Apply** again to apply your elastic pool settings and close the **Configure** page. 
+
+    ![Add SQL DB to elastic pool](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+
+1. Select **Create** to create your elastic pool. 
+
+# [PowerShell](#tab/powershell)
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
+   $ServerName = "mysqlserver" # to randomize: "mysqlserver-$(Get-Random)"
+   $DatabaseName = "mySampleDatabase"
+   $Poolname = "myElasticPool"
+
+
+   # Create the elastic pool
+   New-AzSqlElasticPool -ResourceGroupName $ResourceGroupName `
+    -ServerName $ServerName `
+    -ElasticPoolName $PoolName `
+    -Edition "GeneralPurpose" `
+    -VCore 1 `
+    -ComputeGeneration "Gen4"
+
+   # Move single database into the elastic pool
+   Set-AzSqlDatabase -ResourceGroupName $ResourceGroupName `
+    -ServerName $ServerName `
+    -DatabaseName $DatabaseName `
+    -ElasticPoolName $PoolName
+```
+
+---
+
+## 3 - Create the failover group 
+In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the elastic pool to the failover group. 
 
 # [Azure Portal](#tab/azure-portal)
 Create your failover group and add your single database to it using the Azure portal. 
@@ -62,7 +121,7 @@ Create your failover group and add your single database to it using the Azure po
     
     ![Locate SQL Servers](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
 
-1. Select **SQL servers** and choose the server you created in section 1, such as `mysqlserver`.
+1. Select **SQL servers** and choose the server you created in section 1.
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
 
     ![Add new failover group](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
@@ -74,19 +133,18 @@ Create your failover group and add your single database to it using the Azure po
         - **Server admin login**: Type `azureuser`
         - **Password**: Type a complex password that meets password requirements.
         - **Location**: Choose a location from the drop-down, such as East US 2. This location cannot be the same location as your primary server.
-
-    > [!NOTE]
-    > The server login and firewall settings must match that of your primary server. 
     
        ![Create a secondary server for the failover group](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
-   - **Databases within the group**: Once a secondary server is selected, this option becomes unlocked. Select it to **Select databases to add** and then choose the database you created in section 1. Adding the database to the failover group will start
+1. Once a secondary server is selected, this **Databases within the group** option becomes unlocked. Select it to **Select databases to add** and then select the elastic pool you created in section 2. A warning should appear, prompting you to create an elastic pool on the secondary server. Select the warning, and then select **OK** to create the elastic pool on the secondary server. 
         
     ![Add SQL DB to failover group](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
+1. Select **Select** to apply your elastic pool settings to the failover group, and then select **Create** to create your failover group. 
+
 
 # [PowerShell](#tab/powershell)
-Create your failover group and add your single database to it using PowerShell. 
+Create your failover group and add your elastic pool to it using PowerShell. 
 
 
    ```powershell-interactive
@@ -97,8 +155,9 @@ Create your failover group and add your single database to it using PowerShell.
    $Password = "ChangeYourAdminPassword1"
    $ServerName = "mysqlserver" # to randomize: "mysqlserver-$(Get-Random)"
    $DatabaseName = "mySampleDatabase"
+   $Poolname = "myElasticPool"
    $drLocation = "eastus2"
-   $drServerName = "secondaryFailover" # to randomize: "secondaryFailover-$(Get-Random)"
+   $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
    $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$(Get-Random)"
    
    # Create a secondary server in the failover region
@@ -107,7 +166,8 @@ Create your failover group and add your single database to it using PowerShell.
       -Location $drLocation `
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
          -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $Password -AsPlainText -Force))
-   
+
+  
    # Create a failover group between the servers
    New-AzSqlDatabaseFailoverGroup `
       –ResourceGroupName $ResourceGroupName `
@@ -116,16 +176,6 @@ Create your failover group and add your single database to it using PowerShell.
       –FailoverGroupName $FailoverGroupName `
       –FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
-   
-   # Add the database to the failover group
-   Get-AzSqlDatabase `
-      -ResourceGroupName $ResourceGroupName `
-      -ServerName $ServerName `
-      -DatabaseName $DatabaseName | `
-   Add-AzSqlDatabaseToFailoverGroup `
-      -ResourceGroupName $ResourceGroupName `
-      -ServerName $ServerName `
-      -FailoverGroupName $FailoverGroupName
    ```
 
 # [AZ CLI](#tab/bash)
@@ -160,12 +210,11 @@ Create your failover group and add your single database to it using AZ CLI.
       --resource-group $ResourceGroupName \
       --server $ServerName \
       --failover-policy Automatic \
-      --add-db $DatabaseName
    ```
 
 ---
 
-## 3 - Test failover 
+## 4 - Test failover 
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
 # [Azure Portal](#tab/azure-portal)
@@ -203,7 +252,7 @@ Check the role of the secondary replica:
 
 Failover to the secondary server: 
 
-   ```powershell-interactive
+   ```powershell
    # Set variables
    $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
    $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
@@ -218,7 +267,7 @@ Failover to the secondary server:
 
 Revert failover group back to the primary server:
 
-   ```powershell-interactive
+   ```powershell
    # Set variables
    $ResourceGroupName = "myResourceGroup" # to randomize: "myResourceGroup-$(Get-Random)"
    $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"

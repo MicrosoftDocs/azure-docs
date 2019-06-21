@@ -87,12 +87,16 @@
     items:
     - name: Migrate to a single/pooled database using DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-    - name: Create a failover group
+    - name: Add to a failover group
       href: sql-database-single-database-create-failover-group-tutorial.md
     - name: Implement a geo-distributed database
       href: sql-database-implement-geo-distributed-database.md 
     - name: Set up Azure SQL Data Sync
       href: sql-database-get-started-sql-data-sync.md
+  - name: Elastic pool
+    items:
+    - name: Add to a failover group
+      href: sql-database-elastic-pool-create-failover-group-tutorial.md
   - name: Managed Instance
     items:
     - name: Migrate online using DMS

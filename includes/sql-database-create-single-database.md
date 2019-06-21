@@ -45,7 +45,7 @@ Create your resource group and single database using the Azure Portal.
 
      ![vCore-based purchasing options](../articles/sql-database/media/sql-database-get-started-portal/create-database-vcore.png)
 
-   - Select **Serverless**.
+   - Select **Provisioned** and **Gen4**.
 
      ![serverless compute tier](../articles/sql-database/media/sql-database-get-started-portal/create-database-serverless.png)
 
@@ -113,7 +113,7 @@ Create your resource group and single database using PowerShell.
       -VCore 1 `
       -ComputeGeneration Gen4  `
       -MinimumCapacity 1 `
-      -SampleName "AdventureWorksLT" `
+      -SampleName "AdventureWorksLT"
    ```
 
 # [AZ CLI](#tab/bash)

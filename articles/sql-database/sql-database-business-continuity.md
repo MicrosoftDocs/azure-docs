@@ -59,7 +59,7 @@ The following table compares the ERT and RPO for each service tier for the most 
 > [!NOTE]
 > *Manual database failover* refers to failover of a single database to its geo-replicated secondary using the [unplanned mode](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
 
-## Comparing geo-replication with failover groups
+## Compare geo-replication with failover groups
 
 The following table describes the differences between [geo-replication](sql-database-active-geo-replication.md) and [failover groups](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities).
 
