@@ -9,7 +9,7 @@
   items:
   - name: Create Apache Hadoop cluster - Portal
     href: apache-hadoop-linux-create-cluster-get-started-portal.md
-  - name: Create Apache Hadoop cluster - Resource Manager template
+  - name: Create Apache Hadoop cluster - Template
     displayName: resource manager template, arm template, resource manager group
     href: apache-hadoop-linux-tutorial-get-started.md      
 - name: Tutorials
@@ -19,9 +19,6 @@
     maintainContext: true
   - name: Create on-demand clusters
     href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-    maintainContext: true
-  - name: Monitor cluster availability with Ambari and Azure Monitor logs
-    href: ../hdinsight-cluster-availability.md  
     maintainContext: true
 - name: Samples
   items:
@@ -36,6 +33,9 @@
     maintainContext: true
 - name: Concepts
   items:
+  - name: Monitor cluster availability with Ambari and Azure Monitor logs
+    href: ../hdinsight-cluster-availability.md  
+    maintainContext: true
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
     maintainContext: true
