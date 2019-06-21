@@ -116,7 +116,7 @@ For the Azure Kinect DK on **Windows, Intel**, **Texas Instruments (TI)**, and *
 The Azure Kinect SDK on Windows platforms relies on a unified container ID, and it must span USB 2.0 and 3.0 devices so that the SDK can find the depth, color, and audio devices that are physically located on the same device. 
 On Linux, more host controllers may be supported as that platform relies less on the container ID and more on device serial numbers. 
 
-The topic of USB host controllers gets even more complicated when a PC has more than one host controller installed. When host controllers are mixed a user may experience issues where some ports work fine and other do not work at all. Depending on how the ports are wired to the case, you may see all front ports having issues with the Azure Kinect
+The topic of USB host controllers gets even more complicated when a PC has more than one host controller installed. When host controllers are mixed, a user may experience issues where some ports work fine and other do not work at all. Depending on how the ports are wired to the case, you may see all front ports having issues with the Azure Kinect
 
 **Windows:** To find out what host controller you have open Device Manager
 

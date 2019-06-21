@@ -49,7 +49,7 @@ Lower end or older CPUs and NVIDIA GPUs may also work depending on your use-case
 
 ## USB3
 
-There are known compatibility issues with USB Host controllers. You can find fore information on [Troubleshooting page](troubleshooting.md#usb3-host-controller-compatibility)
+There are known compatibility issues with USB Host controllers. You can find more information on [Troubleshooting page](troubleshooting.md#usb3-host-controller-compatibility)
 
 ## Next steps
 
