@@ -133,7 +133,8 @@ There are several resources that can easily be deployed in a resource group toge
 10. After a few moments, a notification appears to confirm the **Deployment succeeded**.
 
 ### Review the Azure Stream Analytics TollApp resources
-1. Log in to the Azure portal
+
+1. Sign in to the Azure portal
 
 2. Locate the Resource Group that you named in the previous section.
 

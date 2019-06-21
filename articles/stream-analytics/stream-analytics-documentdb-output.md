@@ -53,7 +53,7 @@ Depending on your choice of partition key you might receive this _warning_:
 
 It is important to choose a partition key property that has a number of distinct values, and lets you distribute your workload evenly across these values. As a natural artifact of partitioning, requests involving the same partition key are limited by the maximum throughput of a single partition. Additionally, the storage size for documents belonging to the same partition key is limited to 10GB. An ideal partition key is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure your solution is scalable.
 
-A partition key is also the boundary for transactions in DocumentDB's stored procedures and triggers. You should choose the partition key so that documents that occur together in transactions share the same partition key value. The article [Paritioning in Cosmos DB](../cosmos-db/partitioning-overview.md) gives more details on choosing a partition key.
+A partition key is also the boundary for transactions in DocumentDB's stored procedures and triggers. You should choose the partition key so that documents that occur together in transactions share the same partition key value. The article [Partitioning in Cosmos DB](../cosmos-db/partitioning-overview.md) gives more details on choosing a partition key.
 
 For fixed Azure Cosmos DB containers, Stream Analytics allows no way to scale up or out once they're full. They have an upper limit of 10 GB and 10,000 RU/s throughput.  To migrate the data from a fixed container to an unlimited container (for example, one with at least 1,000 RU/s and a partition key), you need to use the [data migration tool](../cosmos-db/import-data.md) or the [change feed library](../cosmos-db/change-feed.md).
 
