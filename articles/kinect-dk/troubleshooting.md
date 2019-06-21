@@ -136,7 +136,7 @@ When starting up devices using the multi device synchronization feature, it is h
 With a manual exposure set, it can take up to eight captures from the device before images and framerate stabilize. 
 With auto exposure, it can take up to 20 captures before images and framerate stabilize.
 
-### Depth Camera Auto Powers Down
+### Depth camera auto powers down
 
 The laser used by the depth camera to calculate image depth data, has a limited lifespan. To maximize the life of the lasers, the depth camera will detect when depth data is not being consumed. The depth camera power downs when the device is streaming for several minutes but the host PC is not reading the data. 
 It also impacts Multi Device Synchronization where subordinate devices start up in a state where the depth camera is streaming and depth frames are actively help up waiting for the master device to start synchronizing captures. To avoid this problem in Multi Device capture scenarios, ensure the master device starts within a minute of the first subordinate being started. 
