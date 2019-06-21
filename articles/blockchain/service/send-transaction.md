@@ -1,5 +1,5 @@
 ---
-title: Using smart contracts with Azure Blockchain Service
+title: Use smart contracts on Azure Blockchain Service
 description: Tutorial on how to use Azure Blockchain Service to deploy a smart contract and execute a function via a transaction.
 services: azure-blockchain
 
@@ -13,7 +13,7 @@ ms.reviewer: chrisseg
 #Customer intent: As a developer, I want to use Azure Blockchain Service so that I can execute functions on a consortium network.
 ---
 
-# Tutorial: Using smart contracts with Azure Blockchain Service
+# Tutorial: Use smart contracts on Azure Blockchain Service
 
 In this tutorial, you'll use the Azure Blockchain Development Kit for Ethereum to create and deploy a smart contract then execute a smart contract function via a transaction on a consortium network.
 
@@ -38,7 +38,7 @@ You use Azure Blockchain Development Kit to:
 * [Truffle (5.0.0)](https://github.com/trufflesuite/truffle)
 * [Ganache CLI (6.0.0)](https://github.com/trufflesuite/ganache-cli)
 
-### Verify Azure Blockchain Development Kit development environment
+### Verify Azure Blockchain Development Kit environment
 
 Azure Blockchain Development Kit verifies your development environment prerequisites have been met. To verify your development environment:
 
