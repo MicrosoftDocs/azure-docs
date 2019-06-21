@@ -1548,7 +1548,7 @@
     {
       "source_path": "articles/cosmos-db/sql-api-dotnet-application-preview.md",
       "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-autosuggest-example.md",
