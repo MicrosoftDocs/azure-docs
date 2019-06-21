@@ -11,7 +11,7 @@ keywords: azure, kinect, rgb, IR, recording, sensor, sdk, access, depth, video, 
 
 # About Azure Kinect Sensor SDK
 
-This article provides an overview of the Azure Kinect Sensor software development kit (SDK), its features and tools.
+This article provides an overview of the Azure Kinect Sensor software development kit (SDK), its features, and tools.
 
 ## Features
 
