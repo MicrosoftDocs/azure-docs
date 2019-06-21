@@ -40,7 +40,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 As an alternative, specify the subscription key in the HTTP request header **ocp-apim-subscription-key: &lt;Subscription Key&gt;**.
 When you use a client library, the subscription key is passed in through the constructor of the FaceServiceClient class. For example:
  
-```CSharp 
+```csharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
  
@@ -59,7 +59,7 @@ First, create a new PersonGroup by using the [PersonGroup - Create](https://west
 
 After a group is defined, you can define people within it by using the [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API. The client library method is CreatePersonAsync. You can add a face to each person after they're created.
 
-```CSharp 
+```csharp 
 // Create an empty PersonGroup
 string personGroupId = "myfriends";
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, "My Friends");
@@ -80,7 +80,8 @@ Detection is done by sending a "POST" web request to the [Face - Detect](https:/
 For each face that's detected, call [PersonGroup Person – Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) to add it to the correct person.
 
 The following code demonstrates the process of how to detect a face from an image and add it to a person:
-```CSharp 
+
+```csharp 
 // Directory contains image files of Anna
 const string friend1ImageDir = @"D:\Pictures\MyFriends\Anna\";
  
@@ -101,13 +102,13 @@ If the image contains more than one face, only the largest face is added. You ca
 
 The PersonGroup must be trained before an identification can be performed by using it. The PersonGroup must be retrained after you add or remove any person or if you edit a person's registered face. The training is done by the [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API. When you use the client library, it's a call to the TrainPersonGroupAsync method:
  
-```CSharp 
+```csharp 
 await faceServiceClient.TrainPersonGroupAsync(personGroupId);
 ```
  
 Training is an asynchronous process. It might not be finished even after the TrainPersonGroupAsync method returns. You might need to query the training status. Use the [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) API or GetPersonGroupTrainingStatusAsync method of the client library. The following code demonstrates a simple logic of waiting for PersonGroup training to finish:
  
-```CSharp 
+```csharp 
 TrainingStatus trainingStatus = null;
 while(true)
 {
@@ -130,7 +131,7 @@ The testing face must be detected by using the previous steps. Then the face ID 
 
 The following code demonstrates the identification process:
 
-```CSharp 
+```csharp 
 string testImageFile = @"D:\Pictures\test_img1.jpg";
 
 using (Stream s = File.OpenRead(testImageFile))
