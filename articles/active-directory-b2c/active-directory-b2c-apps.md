@@ -94,7 +94,7 @@ A web API can receive tokens from many types of clients, including web applicati
 6. The `access_token` and `refresh_token` are returned to the web server.
 7. The web API is called with the `access_token` in an authorization header.
 8. The web API validates the token.
-9. Secure data is returned to the web server.
+9. Secure data is returned to the web application.
 
 To learn more about authorization codes, refresh tokens, and the steps for getting tokens, read about the [OAuth 2.0 protocol](active-directory-b2c-reference-oauth-code.md).
 

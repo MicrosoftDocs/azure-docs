@@ -4,7 +4,7 @@ description: Learn how to find the request unit (RU) charge for any operation ex
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 ms.author: thweiss
 ---
 # Find the request unit charge in Azure Cosmos DB
@@ -296,3 +296,4 @@ To learn about optimizing your RU consumption, see these articles:
 * [Globally scale provisioned throughput](scaling-throughput.md)
 * [Provision throughput on containers and databases](set-throughput.md)
 * [Provision throughput for a container](how-to-provision-container-throughput.md)
+* [Monitor and debug with metrics in Azure Cosmos DB](use-metrics.md)

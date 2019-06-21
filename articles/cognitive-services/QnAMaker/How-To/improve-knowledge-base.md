@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/19/2019
 ms.author: diberry
 ---
 
@@ -190,7 +190,7 @@ The JSON body has several settings:
 |--|--|--|--|
 |`feedbackRecords`|array|List of feedback.|
 |`userId`|string|The user ID of the person accepting the suggested questions. The user ID format is up to you. For example, an email address can be a valid user ID in your architecture. Optional.|
-|`userQuestion`|string|Exact text of the question. Required.|
+|`userQuestion`|string|Exact text of the user's query. Required.|
 |`qnaID`|number|ID of question, found in the [GenerateAnswer response](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 An example JSON body looks like:
@@ -208,6 +208,36 @@ An example JSON body looks like:
 ```
 
 A successful response returns a status of 204 and no JSON response body. 
+
+### Batch many feedback records into a single call
+
+In the client-side application, such as a bot, you can store the data, then send many records in a single JSON body in the `feedbackRecords` array. 
+
+An example JSON body looks like:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "How do I ...",
+            "qnaId": 1
+        },
+        {
+            "userId": "2",
+            "userQuestion": "Where is ...",
+            "qnaId": 40
+        },
+        {
+            "userId": "3",
+            "userQuestion": "When do I ...",
+            "qnaId": 33
+        }
+    ]
+}
+```
+
+
 
 <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
 
