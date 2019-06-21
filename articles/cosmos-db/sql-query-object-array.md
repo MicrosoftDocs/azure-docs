@@ -1,5 +1,5 @@
 ---
-title: Working with arrays and objects
+title: Working with arrays and objects in Azure Cosmos DB
 description: Learn about array and object creation SQL syntax for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db

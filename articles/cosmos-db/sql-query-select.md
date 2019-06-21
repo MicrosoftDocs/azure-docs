@@ -1,5 +1,5 @@
 ---
-title: SELECT clause
+title: SELECT clause in Azure Cosmos DB
 description: Learn about SQL SELECT clause for Azure Cosmos DB. Use SQL as an Azure Cosmos DB JSON query language.
 author: ginarobinson
 ms.service: cosmos-db

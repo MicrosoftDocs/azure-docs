@@ -1,5 +1,5 @@
 ---
-title: Aggregate functions
+title: Aggregate functions in Azure Cosmos DB
 description: Learn about SQL aggregate function syntax for Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db

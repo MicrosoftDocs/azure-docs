@@ -1,5 +1,5 @@
 ---
-title: LINQ to SQL translation
+title: LINQ to SQL translation in Azure Cosmos DB
 description: Mapping LINQ queries to Azure Cosmos DB SQL queries.
 author: timsander1
 ms.service: cosmos-db

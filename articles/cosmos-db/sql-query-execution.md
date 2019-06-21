@@ -1,5 +1,5 @@
 ---
-title: SQL query execution
+title: SQL query execution in Azure Cosmos DB
 description: Learn about SQL query execution in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db

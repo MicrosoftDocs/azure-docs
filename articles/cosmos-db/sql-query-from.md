@@ -1,5 +1,5 @@
 ---
-title: FROM clause
+title: FROM clause in Azure Cosmos DB
 description: Learn about SQL FROM clause for Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db

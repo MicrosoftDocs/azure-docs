@@ -1,5 +1,5 @@
 ---
-title: Parameterized queries
+title: Parameterized queries in Azure Cosmos DB
 description: Learn about SQL parameterized queries
 author: timsander1
 ms.service: cosmos-db

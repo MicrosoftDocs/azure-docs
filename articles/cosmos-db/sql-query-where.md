@@ -1,5 +1,5 @@
 ---
-title: WHERE clause
+title: WHERE clause in Azure Cosmos DB
 description: Learn about SQL WHERE clause for Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db

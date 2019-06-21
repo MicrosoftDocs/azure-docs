@@ -1,5 +1,5 @@
 ---
-title: OFFSET LIMIT clause
+title: OFFSET LIMIT clause in Azure Cosmos DB
 description: Learn about the OFFSET LIMIT clause for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db

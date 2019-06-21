@@ -1,5 +1,5 @@
 ---
-title: ORDER BY clause
+title: ORDER BY clause in Azure Cosmos DB
 description: Learn about SQL ORDER BY clause for Azure Cosmos DB. Use SQL as an Azure Cosmos DB JSON query language.
 author: markjbrown
 ms.service: cosmos-db

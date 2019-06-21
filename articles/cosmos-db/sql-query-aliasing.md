@@ -1,5 +1,5 @@
 ---
-title: Aliasing
+title: Aliasing in Azure Cosmos DB
 description: Learn about aliasing values in Azure Cosmos DB SQL queries
 author: markjbrown
 ms.service: cosmos-db
