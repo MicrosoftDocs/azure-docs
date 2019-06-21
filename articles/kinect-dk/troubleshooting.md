@@ -4,8 +4,8 @@ description: Known issues and troubleshooting Azure Kinect device
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
-ms.date: 06/13/2019
-ms.topic: article
+ms.date: 06/26/2019
+ms.topic: conceptual
 keywords: troubleshooting, update, bug, kinect, feedback, recovery, logging, tips
 ---
 # Azure Kinect known issues and troubleshooting

@@ -4,7 +4,7 @@ description: Download links for the Body Tracking SDK
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 06/06/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, sdk, download update, latest, available, install, body, tracking
 ---

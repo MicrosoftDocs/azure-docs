@@ -4,8 +4,8 @@ description: calibration functions for Azure kinect dk
 author: cdedmonds
 ms.author: cdedmonds
 ms.prod: kinect-dk
-ms.date: 06/13/2019
-ms.topic: article
+ms.date: 06/26/2019
+ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, coordinate system, calibration, functions, camera, intrinsic, extrinsic, project, unproject, transformation, rgb-d, point cloud
 ---
 

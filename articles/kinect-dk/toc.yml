@@ -31,7 +31,7 @@
   items: 
    - name: Use Sensor SDK
      items:
-       - name: Overview Sensor SDK
+       - name: About Sensor SDK
          href: overview-sensor-sdk.md
        - name: Find then open device
          href: find-then-open-device.md

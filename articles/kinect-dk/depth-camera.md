@@ -4,7 +4,7 @@ description: Azure Kinect DK depth camera concepts
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
-ms.date: 06/05/2019
+ms.date: 06/26/2019
 ms.topic: conceptual 
 keywords: kinect, azure, sensor, sdk, depth camera, tof, principles, performance, invalidation
 ---
