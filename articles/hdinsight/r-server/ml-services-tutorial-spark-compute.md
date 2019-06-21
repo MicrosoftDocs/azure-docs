@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An ML Services cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal) and select **ML Services** for **Cluster type**.
+* An ML Services cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **ML Services** for **Cluster type**.
 
 ## Connect to RStudio Server
 
