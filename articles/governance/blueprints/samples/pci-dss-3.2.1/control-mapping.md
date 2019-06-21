@@ -144,20 +144,11 @@ communication.
 - Audit the setting of Cluster Protection Level property to Encrypt and Sign in Service Fabric
 - Audit transparent data encryption status
 
-## 10.6.1 and 10.6.2 Event logging
+## 10.3 and 10.5.4 Event logging
 
 This blueprint helps you ensure system events are logged by assigning [Azure
 Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources.
-Diagnostic logs provide insight into operations that were performed within Azure resources.
-
-- [Preview]: Monitor unaudited SQL database in Azure Security Center
-- Audit diagnostic setting
-- Audit SQL server level Auditing settings
-
-## 10.1 and 10.4 
-
-This blueprint helps you ensure system events are logged by assigning [Azure
-Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources. Azure
+Diagnostic logs provide insight into operations that were performed within Azure resources. Azure
 logs rely on synchronized internal clocks to create a time-correlated record of events across
 resources.
 
@@ -165,7 +156,7 @@ resources.
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
 
-## 6.2.a, 6.6, 11.2.1.a and 11.2.2.b Management of technical vulnerabilities
+## 6.2, 6.6 and 11.2.1 Management of technical vulnerabilities
 
 This blueprint helps you manage information system vulnerabilities by assigning [Azure
 Policy](../../../policy/overview.md) definitions that monitor missing system updates, operating
@@ -173,13 +164,12 @@ system vulnerabilities, SQL vulnerabilities, and virtual machine vulnerabilities
 Center. Azure Security Center provides reporting capabilities that enable you to have real-time
 insight into the security state of deployed Azure resources.
 
-- [Preview]: Monitor missing Endpoint Protection in Azure Security Center
 - [Preview]: Monitor missing system updates in Azure Security Center
 - [Preview]: Monitor OS vulnerabilities in Azure Security Center
 - [Preview]: Monitor SQL vulnerability assessment results in Azure Security Center
 - [Preview]: Monitor VM Vulnerabilities in Azure Security Center
 
-## 6.6 Network controls
+## 1.3.2 and 1.3.4 Network controls
 
 This blueprint helps you manage and control networks by assigning [Azure
 Policy](../../../policy/overview.md) definitions that monitors network security groups with
@@ -190,8 +180,9 @@ and storage accounts with unrestricted access can allow unintended access to inf
 within the information system.
 
 - [Preview]: Monitor unprotected network endpoints in Azure Security Center
-- Audit enabling of only secure connections to your Redis Cache
+- [Preview]: Monitor missing Endpoint Protection in Azure Security Center
 - Audit unrestricted network access to storage accounts
+- Access through Internet facing endpoint should be restricted
 
 ## 4.1 Information transfer policies and procedures
 
