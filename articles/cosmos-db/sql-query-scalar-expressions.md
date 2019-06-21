@@ -10,7 +10,7 @@ ms.author: mjbrown
 ---
 # Scalar expressions in Azure Cosmos DB SQL queries
 
-The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators.
+The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Scalar expressions can be constants, property references, array element references, alias references, or function calls. Scalar expressions can be combined into complex expressions using operators.
 
 ## Syntax
   
@@ -54,11 +54,11 @@ The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar e
   
 - `<scalar_expression>.property_name`  
   
-   Represents a value of the property of an object. If the property does not exist or property is referenced on a value which is not an object, then the expression evaluates to **undefined** value.  
+   Represents a value of the property of an object. If the property does not exist or property is referenced on a value, which is not an object, then the expression evaluates to **undefined** value.  
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   Represents a value of the property with name `property_name` or array element with index `array_index` of an object/array. If the property/array index does not exist or the property/array index is referenced on a value that is not an object/array, then the expression evaluates to undefined value.  
+   Represents a value of the property with name `property_name` or array element with index `array_index` of an array. If the propertyarray index does not exist or the property/array index is referenced on a value that is not an object/array, then the expression evaluates to undefined value.  
   
 - `unary_operator <scalar_expression>`  
   
@@ -94,7 +94,7 @@ The [SELECT clause](sql-query-select.md) supports scalar expressions. A scalar e
   
 ## Remarks
   
-  When calling a built-in or user-defined scalar function all arguments must be defined. If any of the arguments is undefined, the function will not be called and the result will be undefined.  
+  When calling a built-in or user-defined scalar function, all arguments must be defined. If any of the arguments is undefined, the function will not be called and the result will be undefined.  
   
   When creating an object, any property that is assigned undefined value will be skipped and not included in the created object.  
   
