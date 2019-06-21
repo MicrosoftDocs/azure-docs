@@ -102,7 +102,7 @@ Then, select **Cloud** > **Azure Resource Group**.
 1. Give your project a name and a location, and then select **OK**.
 
    Visual Studio prompts you to select a template from the templates list. 
-   This example uses an Azure quickstart template so that you can build a serverless 
+   This example uses an Azure Quickstart template so that you can build a serverless 
    app that includes a logic app and a call to an Azure function.
 
    > [!TIP]
@@ -116,10 +116,10 @@ select **Azure QuickStart (github.com/Azure/azure-quickstart-templates)**.
 1. In the search box, enter "logic-app" as your filter. 
 From the results, select the **101-logic-app-and-function-app** template.
 
-   ![Select Azure quickstart template](./media/logic-apps-serverless-get-started-vs/select-template.png)
+   ![Select Azure Quickstart template](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
    Visual Studio creates and opens a solution for your resource group project. 
-   The Azure quickstart template that you selected creates a deployment template 
+   The Azure Quickstart template that you selected creates a deployment template 
    named azuredeploy.json inside your resource group project. This deployment 
    template includes the definition for a simple logic app that is triggered by an 
    HTTP request, and then calls an Azure function and returns the result as an HTTP response.
