@@ -243,7 +243,7 @@ Take these steps to tune the performance of your Azure Data Factory service with
     In some cases, when you run a copy activity in Azure Data Factory, you see a "Performance tuning tips" message on top of the [copy activity monitoring page](copy-activity-overview.md#monitor-visually), as shown in the following example. The message tells you the bottleneck that was identified for the given copy run. It also guides you on what to change to boost copy throughput. The performance tuning tips currently provide suggestions like:
 
     - Use PolyBase when you copy data into Azure SQL Data Warehouse.
-    - Increase Azure Cosmos DB Request Units (RUs) or Azure SQL Database Database Throughput Units (DTUs) when the resource on the data store side is the bottleneck.
+    - Increase Azure Cosmos DB Request Units or Azure SQL Database DTUs (Database Throughput Units) when the resource on the data store side is the bottleneck.
     - Remove the unnecessary staged copy.
 
     The performance tuning rules will be gradually enriched as well.
