@@ -3782,18 +3782,18 @@ featureFlags:
                                 <h2>Artificial Intelligence + Machine Learning</h2>
                             </li>
                             <li>
-                                <a href="/azure/azure-databricks/">
+                                <a href="/azure/open-datasets">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                        <img src="media/index/open-data.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Databricks</h3>
-                                                    <p>Create an Azure Databricks workspace with Spark clusters</p>
+                                                    <h3>Open Datasets</h3>
+                                                    <p>Curated public datasets to enhance machine learning models</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3845,11 +3845,11 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/MachineLearning.svg" alt="" />
+                                                        <img src="media/index/machine-learning-service.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning Services</h3>
+                                                    <h3>Machine Learning Service</h3>
                                                     <p>Build, deploy, and manage machine learning and AI models</p>
                                                 </div>
                                             </div>
@@ -3934,18 +3934,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/open-datasets">
+                                <a href="/azure/azure-databricks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/open-data.svg" alt="" />
+                                                        <img src="media/index/logo_databricks.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Open Datasets</h3>
-                                                    <p>Curated public datasets to enhance machine learning models</p>
+                                                    <h3>Azure Databricks</h3>
+                                                    <p>Create an Azure Databricks workspace with Spark clusters</p>
                                                 </div>
                                             </div>
                                         </div>
