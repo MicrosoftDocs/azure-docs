@@ -859,8 +859,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | dnszones/TXT | No |  No |
 | expressRouteCircuits | Yes  | No |
 | expressRouteServiceProviders | No |  No |
-| frontdoors | No | No |
-| frontdoorWebApplicationFirewallPolicies | No | No |
+| frontdoors | Yes (you can apply tags when creating the resource, but updating or adding tags is not currently supported) | Yes |
+| frontdoorWebApplicationFirewallPolicies (you can apply tags when creating the resource, but updating or adding tags is not currently supported) | Yes | Yes |
 | getDnsResourceReference | No |  No |
 | interfaceEndpoints | Yes | Yes |
 | internalNotify | No |  No |
