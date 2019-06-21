@@ -21,4 +21,4 @@ These pages cover recommended practices, observed patterns, and solutions to get
 
 For a higher level, architectural view running HPC workloads, see [High Performance Computing (HPC) on Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
 
-If you're looking for detailed specifications of H, HB, or HC-series VMs, see [High performance compute VM sizes](./linux/sizes-hpc.md).
+If you're looking for detailed specifications of H, HB, or HC-series VMs, see [High performance compute VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
