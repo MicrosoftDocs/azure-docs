@@ -860,7 +860,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | expressRouteCircuits | Yes  | No |
 | expressRouteServiceProviders | No |  No |
 | frontdoors | Yes, but limited (see [note below](#frontdoor)) | Yes |
-| frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below]($frontdoor)) | Yes |
+| frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#frontdoor)) | Yes |
 | getDnsResourceReference | No |  No |
 | interfaceEndpoints | Yes | Yes |
 | internalNotify | No |  No |
