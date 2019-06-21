@@ -51,11 +51,6 @@ energy_distance|Statistical distance defined for one-dimensional numerical distr
 datadrift_coefficient|Formally Matthews correlation coefficient, a real number ranging from -1 to 1. In the context of drift, 0 indicates no drift and 1 indicates maximum drift.|
 datadrift_contribution|Feature importance of features contributing to drift.|
 
-
-## Data drift across Microsoft
-
-Data drift monitoring is currently only available in Azure ML, but will roll out to more Microsoft solutions soon.
-
 ## Next steps
 
 See examples and learn how to monitor for data drift:
