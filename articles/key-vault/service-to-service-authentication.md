@@ -115,9 +115,8 @@ When creating a service that calls a custom service, use Azure AD client credent
 
     2.  Use Azure CLI to sign in:
 
-        ```
-        az login --service-principal -u <principal-id> --password <password>
-           --tenant <tenant-id> --allow-no-subscriptions
+        ```azurecli
+        az login --service-principal -u <principal-id> --password <password> --tenant <tenant-id> --allow-no-subscriptions
         ```
 
         Because the service principal may not have access to a subscription, use the `--allow-no-subscriptions` argument.
@@ -148,8 +147,13 @@ There are three primary methods of using a Service Principal to run your applica
 
 ### Use a certificate in local keystore to sign into Azure AD
 
-1. Create a service principal certificate using [az ad sp create-for-rbac --create-cert](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). This will create a .pem file (private key) that will be stored in your home directory. Deploy this certificate to either the *LocalMachine* or *CurrentUser* store. 
+1. Create a service principal certificate using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command. 
 
+    ```azurecli
+    az ad sp create-for-rbac --create-cert
+    ```
+
+This will create a .pem file (private key) that will be stored in your home directory. Deploy this certificate to either the *LocalMachine* or *CurrentUser* store. 
 
     > [!Important]
     > The CLI command generates a .pem file, but Windows only provides native support for PFX certificates. To generate a PFX certificate instead, use the PowerShell commands shown here: [Create service principal with self-signed certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). These commands automatically deploy the certificate as well.
@@ -192,7 +196,13 @@ Managed Identity or your developer identity must have permission to retrieve the
 
 To use a client certificate for service principal authentication
 
-1. Create a service principal certificate and automatically store it in your keyvault using [az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The certificate identifier will be a URL in the format `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
+1. Create a service principal certificate and automatically store it in your keyvault using the Azure CLI [az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
+
+    ```azurecli
+    az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment
+    ```
+    
+    The certificate identifier will be a URL in the format `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
 
 1. Replace `{KeyVaultCertificateSecretIdentifier}` in this connection string with the certificate identifier:
 
