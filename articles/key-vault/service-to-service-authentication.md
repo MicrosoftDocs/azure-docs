@@ -171,7 +171,7 @@ There are three primary methods of using a Service Principal to run your applica
 
 ### Use a shared secret credential to sign into Azure AD
 
-1. Create a service principal certificate with a password using [az ad sp create-for-rbac --password](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The .pem file (private key) will be stored in your home directory. 
+1. Create a service principal certificate with a password using [az ad sp create-for-rbac --password](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). 
 
 2. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
@@ -192,7 +192,7 @@ This option allows you to store a service principal's client certificate in Key 
 * Local authentication, where you want to authenticate using an explicit service principal, and want to keep the service principal credential securely in a key vault. Developer account must have access to the key vault. 
 * Authentication from Azure where you want to use explicit credential (e.g. for cross-tenant scenarios), and want to keep the service principal credential securely in a key vault. Managed identity must have access to key vault. 
 
-Managed Identity or your developer identity must have permission to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal's client credential.
+The managed identity or your developer identity must have permission to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal's client credential.
 
 To use a client certificate for service principal authentication
 
