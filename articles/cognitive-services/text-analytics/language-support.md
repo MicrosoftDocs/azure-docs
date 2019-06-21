@@ -25,6 +25,12 @@ If you have content expressed in a less frequently used language, you can try La
 
 ## Sentiment Analysis, Key Phrase Extraction, and Named Entity Recognition
 
+> [!NOTE]
+> [Sentiment analysis 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) is available for public preview for the following languages:
+> * English (en)
+> * Japanese (ja)
+
+
 For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages.
 
 ## Language list and status
