@@ -39,7 +39,7 @@ In this section, you'll use Batch Explorer to create the Batch pool and Batch jo
 1. Create a pool by selecting **Pools** on the left side bar, then the **Add** button above the search form. 
 	1. Choose an ID and display name. We'll use `ocr-pool` for this example.
 	1. Set the scale type to **Fixed size**, and set the dedicated node count to 3.
-	1. Select **Debian** as the operating system.
+	1. Select **Ubuntu 18.04-LTS** as the operating system.
 	1. Choose `Standard_f2s_v2` as the virtual machine size.
 	1. Enable the start task and add the command `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Be sure to set the user identity as **Task default user (Admin)**, which allows start tasks to include commands with `sudo`.
 	1. Select **OK**.
@@ -87,6 +87,8 @@ Additionally, you can watch the logs file at the bottom of the Azure Functions w
 2019-05-29T19:45:25.846 [Information] Creating job...
 2019-05-29T19:45:25.847 [Information] Accessing input container <inputContainer>...
 2019-05-29T19:45:25.847 [Information] Adding <fileName> as a resource file...
+2019-06-21T20:02:35.129 [Information] Name of output text file: <outputTxtFile>
+2019-06-21T20:02:35.130 [Information] Name of output PDF file: <outputPdfFile>
 2019-05-29T19:45:26.200 [Information] Adding OCR task <taskID> for <fileName> <size of fileName>...
 ```
 
