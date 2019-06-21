@@ -52,7 +52,7 @@ In an agreement, you specify the details for handling incoming and outgoing mess
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name** | Yes | The partner's name |
-   | **Qualifier** | Yes | The authenticating body that provides unique business identities to organizations. For example, **D-U-N-S (Dun & Bradstreet)**. <p>Partners can opt for a mutually defined business identity. For these scenarios, select **Mutually Defined** for EDIFACT or **Mutually Defined (X12)** for X12. <p>For RosettaNet, select only **DUNS**, which is the standard. |
+   | **Qualifier** | Yes | The authenticating body that provides unique business identities to organizations, for example, **D-U-N-S (Dun & Bradstreet)**. <p>Partners can opt for a mutually defined business identity. For these scenarios, select **Mutually Defined** for EDIFACT or **Mutually Defined (X12)** for X12. <p>For RosettaNet, select only **DUNS**, which is the standard. |
    | **Value** | Yes | A value that identifies the documents that your logic apps receive. <p>For RosettaNet, this value must be a nine-digit number that corresponds to the DUNS number. |
    ||||
 
