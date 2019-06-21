@@ -20,7 +20,7 @@ To create a replica in the Azure Database for MariaDB service, Data-in Replicati
 
 ## Create a MariaDB server to use as replica
 
-1. Create a new Azure Database for MariaDB server (for example, `replica.mariadb.database.azure.com`). This server is the replica server in Data-in Replication.
+1. Create a new Azure Database for MariaDB server (for example, replica.mariadb.database.azure.com). The server is the replica server in Data-in Replication.
 
     To learn about server creation, see [Create an Azure Database for MariaDB server by using the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
@@ -33,7 +33,7 @@ To create a replica in the Azure Database for MariaDB service, Data-in Replicati
 
 ## Configure the master server
 
-The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or in a cloud database service for Data-in Replication. This MariaDB server is the master in Data-in Replication.
+The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or in a cloud database service for Data-in Replication. The MariaDB server is the master in Data-in Replication.
 
 1. Turn on binary logging.
     
@@ -61,7 +61,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    
    To learn how to add user accounts on your master server, see the [MariaDB documentation](https://mariadb.com/kb/en/library/create-user/).
 
-   By using the following commands, the new replication role can access the master from any machine, not just the machine that hosts the master itself. For this access, specify **syncuser\@'%'** in the create user command.
+   By using the following commands, the new replication role can access the master from any machine, not just the machine that hosts the master itself. For this access, specify `syncuser\@'%'` in the create user command.
    
    To learn more about MariaDB documentation, see [specifying account names](https://mariadb.com/kb/en/library/create-user/#account-names).
 
@@ -69,7 +69,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    - Replication with SSL
 
-       To require SSL for all user connections, use the following command to create a user:
+       To require SSL for all user connections, enter the following command to create a user:
 
        ```sql
        CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
@@ -78,7 +78,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    - Replication without SSL
 
-       If SSL isn't required for all connections, use the following command to create a user:
+       If SSL isn't required for all connections, enter the following command to create a user:
     
        ```sql
        CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
@@ -111,7 +111,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 5. Get the current binary log file name and offset.
 
-   To determine the current binary log file name and offset, run the command [`show master status`](https://mariadb.com/kb/en/library/show-master-status/) .
+   To determine the current binary log file name and offset, run the command [`show master status`](https://mariadb.com/kb/en/library/show-master-status/).
 	
    ```sql
    show master status;
@@ -139,7 +139,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
     For more information, see [Dump & Restore](howto-migrate-dump-restore.md).
 
-2. Set master server to read/write mode.
+2. Set the master server to read/write mode.
 
    After the database has been dumped, change the master MariaDB server back to read/write mode.
 
@@ -150,13 +150,13 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 3. Restore the dump file to new server.
 
-   Restore the dump file to the server created in the Azure Database for MariaDB service. Refer to [Dump & Restore](howto-migrate-dump-restore.md) for how to restore a dump file to a MariaDB server.
+   Restore the dump file to the server created in the Azure Database for MariaDB service. See [Dump & Restore](howto-migrate-dump-restore.md) for how to restore a dump file to a MariaDB server.
 
    If the dump file is large, upload it to a VM in Azure within the same region as your replica server. Restore it to the Azure Database for MariaDB server from the VM.
 
 ## Link master and replica servers to start Data-in Replication
 
-1. Set master server.
+1. Set the master server.
 
    All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md). Stored procedures can be run in the MySQL shell or MySQL Workbench.
 
@@ -178,7 +178,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    - master_log_file: binary log file name from running `show master status`
    - master_log_pos: binary log position from running `show master status`
    - master_gtid_pos: GTID position from running `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
-   - master_ssl_ca: CA certificate’s context. If you're not using SSL, pass in empty string*.
+   - master_ssl_ca: CA certificate’s context. If you're not using SSL, pass in empty string.*
     
     
     *We recommend passing this parameter in as a variable. For more information, see Examples in the following section.
@@ -244,7 +244,7 @@ CALL mysql.az_replication_stop;
 
 ### Remove replication relationship
 
-To remove the relationship between master and replica server, use the following stored procedure:
+To remove the relationship between the master and replica server, use the following stored procedure:
 
 ```sql
 CALL mysql.az_replication_remove_master;
