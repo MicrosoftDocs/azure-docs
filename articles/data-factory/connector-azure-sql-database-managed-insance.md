@@ -30,7 +30,11 @@ Specifically, this Azure SQL Database Managed Instance connector supports:
 - As a source, retrieving data by using a SQL query or stored procedure.
 - As a sink, appending data to a destination table or invoking a stored procedure with custom logic during copy.
 
-SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) is not supported now. 
+>[!NOTE]
+>Azure SQL Database Managed Instance **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current)** is not supported by this connector now. To work around, you can use [generic ODBC connector](connector-odbc.md) and SQL Server ODBC driver via Self-hosted Integration Runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) with ODBC driver download and connection string configurations.
+
+>[!NOTE]
+>Service principal and managed identity authentications are currently not supported by this connector and on the plan to enable soon after. For now, to workaround, you can choose Azure SQL Database connector and manully specify the server of your managed instance.
 
 ## Prerequisites
 
@@ -55,6 +59,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your managed instance has public endpoint and allow ADF to access). If not specified, it uses the default Azure Integration Runtime. |Yes. |
 
 **Example 1: Use SQL authentication**
+Default port is 1433. If you are using SQL Managed Instance with public endpoint, explicitly specify port 3342.
 
 ```json
 {
@@ -64,7 +69,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -76,6 +81,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
 ```
 
 **Example 2: Use SQL authentication with password in Azure Key Vault**
+Default port is 1433. If you are using SQL Managed Instance with public endpoint, explicitly specify port 3342.
 
 ```json
 {
@@ -85,7 +91,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
             },
             "password": { 
                 "type": "AzureKeyVaultSecret", 
