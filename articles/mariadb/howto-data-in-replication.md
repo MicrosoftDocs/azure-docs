@@ -10,26 +10,31 @@ ms.date: 09/24/2018
 
 # Configure Data-in Replication in Azure Database for MariaDB
 
-This article describes how to set up Data-in Replication in Azure Database for MariaDB by configuring the master and replica servers. To continue, you should have some prior experience with MariaDB servers and databases.
+This article describes how to set up Data-in Replication in Azure Database for MariaDB by configuring the master and replica servers.
 
-To create a replica in the Azure Database for MariaDB service, Data-in Replication synchronizes data from a master MariaDB server on-premises, in virtual machines (VMs), or in cloud database services.
+To continue, you should have some prior experience with MariaDB servers and databases.
 
-We recommend that you set up the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/) if the version of your master server is 10.2 or newer.
+To create a replica in the Azure Database for MariaDB service, Data-in Replication synchronizes data from a master MariaDB server on-premises, in virtual machines (VMs), or in cloud database services hosted by other services.
+
+If your master server is version 10.2 or newer, you set up the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/).
 
 
 ## Create a MariaDB server to use as replica
 
 1. Create a new Azure Database for MariaDB server (for example, `replica.mariadb.database.azure.com`). This server is the replica server in Data-in Replication.
 
-    To learn about server creation, see [Create an Azure Database for MariaDB server by using the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md). 
+    To learn about server creation, see [Create an Azure Database for MariaDB server by using the Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
    > [!IMPORTANT]
    > You must create the Azure Database for MariaDB server in the General Purpose or Memory Optimized pricing tiers.
 
-2. Create identical user accounts and corresponding privileges. User accounts aren't replicated from the master server to the replica server. To provide users with access to the replica server, you must manually create all accounts and corresponding privileges on the newly created Azure Database for MariaDB server.
+2. Create identical user accounts and corresponding privileges.
+    
+    User accounts aren't replicated from the master server to the replica server. To provide user access to the replica server, you must manually create all accounts and corresponding privileges on the newly created Azure Database for MariaDB server.
 
 ## Configure the master server
-The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or in a database service hosted by other cloud providers for Data-in Replication. This MariaDB server is the master in Data-in replication.
+
+The following steps prepare and configure the MariaDB server hosted on-premises, in a VM, or in a cloud database service for Data-in Replication. This MariaDB server is the master in Data-in replication.
 
 1. Turn on binary logging.
     
@@ -51,7 +56,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Create a new replication role and set up permission.
+3. Create a new replication role and set up permissions.
 
    Create a user account on the master server that's configured with replication privileges. You can create an account by using SQL commands or MySQL Workbench. If you plan to replicate with SSL, you must specify this when you create the user account.
    
@@ -91,7 +96,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    ![Sync user](./media/howto-data-in-replication/syncuser.png)
  
-   Select the **Administrative Roles** panel, and then from the list of **Global Privileges**, select **Replication Slave**. Select **Apply** to create the replication role.
+   Select the **Administrative Roles** panel, and then in the list of **Global Privileges**, select **Replication Slave**. Select **Apply** to create the replication role.
 
    ![Replication Slave](./media/howto-data-in-replication/replicationslave.png)
 
@@ -120,7 +125,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    
 6. Get GTID position (Optional, needed for replication with GTID).
 
-   Run the function [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) command to get the GTID position for the corresponding binlog file name and offset.
+   Run the function [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) to get the GTID position for the corresponding binlog file name and offset.
   
     ```sql
     select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
@@ -131,18 +136,20 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 1. Dump all databases from master server.
 
-   You can use mysqldump to dump databases from your master. For details, see [Dump & Restore](howto-migrate-dump-restore.md). It isn't necessary to dump the MySQL library and test library.
+   Use mysqldump to dump databases from your master. It isn't necessary to dump the MySQL library and test library.
+
+    For more information, see [Dump & Restore](howto-migrate-dump-restore.md).
 
 2. Set master server to read/write mode.
 
-   Once the database has been dumped, change the master MariaDB server back to read/write mode.
+   After the database has been dumped, change the master MariaDB server back to read/write mode.
 
    ```sql
    SET GLOBAL read_only = OFF;
    UNLOCK TABLES;
    ```
 
-3. Restore dump file to new server.
+3. Restore the dump file to new server.
 
    Restore the dump file to the server created in the Azure Database for MariaDB service. Refer to [Dump & Restore](howto-migrate-dump-restore.md) for how to restore a dump file to a MariaDB server.
 
@@ -152,7 +159,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 1. Set master server.
 
-   All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench.
+   All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md). Stored procedures can be run in the MySQL shell or MySQL Workbench.
 
    To link two servers and start replication, sign in to the target replica server in the Azure DB for MariaDB service. Next, set the external instance as the master server by using the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure on the Azure DB for MariaDB server.
 
@@ -172,8 +179,10 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    - master_log_file: binary log file name from running `show master status`
    - master_log_pos: binary log position from running `show master status`
    - master_gtid_pos: GTID position from running `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
-   - master_ssl_ca: CA certificate’s context. If not using SSL, pass in empty string.
-       - We recommend that you pass this parameter in as a variable. For more information, see the following examples.
+   - master_ssl_ca: CA certificate’s context. If you're not using SSL, pass in empty string*.
+    
+    
+    *We recommend passing this parameter in as a variable. For more information, see Examples in the following section.
 
    **Examples**
 
@@ -187,14 +196,14 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    -----END CERTIFICATE-----'
    ```
 
-   Replication with SSL is set up between a master server hosted in the domain companya.com and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
+   Replication with SSL is set up between a master server hosted in the domain companya.com, and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
    ```
    Replication without SSL:
 
-   Replication without SSL is set up between a master server hosted in the domain companya.com and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
+   Replication without SSL is set up between a master server hosted in the domain companya.com, and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, '');
@@ -202,13 +211,13 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 2. Start replication.
 
-   Call the `mysql.az_replication_start` stored procedure to start replication.
+   Call the `mysql.az_replication_start` stored procedure to start replication,
 
    ```sql
    CALL mysql.az_replication_start;
    ```
 
-3. Check replication status
+3. Check replication status.
 
    Call the [`show slave status`](https://mariadb.com/kb/en/library/show-slave-status/) command on the replica server to view the replication status.
 	
@@ -216,11 +225,13 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    show slave status;
    ```
 
-   If the state of `Slave_IO_Running` and `Slave_SQL_Running` are *yes* and the value of `Seconds_Behind_Master` is *0*, replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't *0*, the replica is processing updates.
+   If `Slave_IO_Running` and `Slave_SQL_Running` are in the state **yes**, and the value of `Seconds_Behind_Master` is `0`, replication is working. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't `0`, then the replica is processing updates.
 
-4. Update correspond server variables to make data-in replication safer (required only for replication without GTID).
+4. Update the corresponding server variables to make data-in replication safer (required only for replication without GTID).
 	
-	Because of MariaDB native replication limitation, you must setup [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without GTID scenario. We recommand you check your slave server's `sync_master_info` and `sync_relay_log_info` variables and change them to `1` to make sure the data-in replication is stable.
+	Because of a native replication limitation in MariaDB, you must setup [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without the GTID scenario.
+
+    Check the variables on your slave server's `sync_master_info` and `sync_relay_log_info`. To make sure the data-in replication is stable, set the variables to `1`.
 	
 ## Other stored procedures
 
