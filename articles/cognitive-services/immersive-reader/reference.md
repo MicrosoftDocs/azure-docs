@@ -18,7 +18,7 @@ The Immersive Reader SDK is a JavaScript library that allows you to integrate th
 
 ## Functions
 
-The SDK exposes a single function, `ImmersiveReader.launchAsync(token, data, options)`.
+The SDK exposes a single function, `ImmersiveReader.launchAsync(token, resourceName, content, options)`.
 
 ### launchAsync
 

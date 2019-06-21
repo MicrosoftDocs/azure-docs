@@ -109,6 +109,11 @@ This article includes the most common errors that you might hit when executing S
     1. Prepare service principal for AAS [https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)
     2. In connection manager, configure “Use a specific user name and password”: set "AppID" as user name and "clientSecret" as password
 
+### Error message: "ADONET Source has failed to acquire the connection {GUID} with the following error message: Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" when using managed identity
+
+* Potential cause & recommended action:
+  * Make sure you don't configure the authentication method of connection manager as "Active Directory Password Authentication" when the parameter "ConnectUsingManagedIdentity" is True. You can configure it as "SQL Authentication" instead which would be ignored if "ConnectUsingManagedIdentity" is set
+
 ### Package takes unexpected long time to execute
 
 * Potential cause & recommended action:
