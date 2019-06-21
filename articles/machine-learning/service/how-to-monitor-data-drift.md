@@ -57,7 +57,7 @@ For details on how these metrics are computed, see the [data drift concept](conc
 
 - Set up the [model data collector](how-to-enable-data-collection.md) to collect data from the AKS deployment of the model and confirm data is being collected in the `modeldata` blob container.
 
-## Import Dependencies 
+## Import dependencies 
 Import dependencies used in this guide:
 
 ```python
@@ -132,7 +132,7 @@ The configuration of the data drift detector can be seen on the model details pa
 
 ![Azure portal Data Drift Config](media/how-to-monitor-data-drift/drift_config.png)
 
-## View Results in Azure ML Workspace UI
+## View results in Azure ML Workspace UI
 
 To view results in the Azure ML Workspace UI, navigate to the model page. On the details tab of the model, the data drift configuration is shown. A 'Data Drift (Preview)' tab is now available visualizing the data drift metrics. 
 
