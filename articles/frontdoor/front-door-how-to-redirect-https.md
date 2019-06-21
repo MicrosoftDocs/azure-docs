@@ -29,29 +29,29 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 3. Search for **Front Door** using the search bar and once you find the resource type, click **Create**.
 4. Choose a subscription and then either use an existing resource group or create a new one. Note, the location asked in the UI is for the resource group only. Your Front Door configuration will get deployed across all of [Azure Front Door's POP locations](https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-are-the-pop-locations-for-azure-front-door-service).
 
-    ![Configure basics for new Front Door](./media/front-door-url-redirect\front-door-create-basics.png)
+    ![Configure basics for new Front Door](./media/front-door-url-redirect/front-door-create-basics.png)
 
 5. Click **Next** to enter the configuration tab. The configuration for Front Door happens in three steps - adding a default frontend host, adding backends in a backend pool and then creating routing rules to map the routing behavior for frontend host. 
 
-     ![Front Door configuration designer](./media/front-door-url-redirect\front-door-designer.png)
+     ![Front Door configuration designer](./media/front-door-url-redirect/front-door-designer.png)
 
 6. Click the '**+**' icon on the _Frontend hosts_ to create a frontend host, enter a globally unique name for your default frontend host for your Front Door (`\<**name**\>.azurefd.net`). Click **Add** to proceed to the next step.
 
-     ![Add a frontend host](./media/front-door-url-redirect\front-door-create-fehost.png)
+     ![Add a frontend host](./media/front-door-url-redirect/front-door-create-fehost.png)
 
 7. Click the '**+**' icon on the _Backend pools_ to create a backend pool. Provide a name for the backend pool and then click '**Add a backend**'.
 8. Select the Backend Host Type as _App service_. Select the subscription where your web app is hosted and then select the specific web app from the dropdown for **Backend host name**.
 9. Click **Add** to save the backend and click **Add** again to save the backend pool config.
-     ![Add a backend in a backend pool](./media/front-door-url-redirect\front-door-create-backendpool.png)
+     ![Add a backend in a backend pool](./media/front-door-url-redirect/front-door-create-backendpool.png)
 
 10. Click the '**+**' icon on the _Routing rules_ to create a route. Provide a name for the route, say 'HttpToHttpsRedirect', and then set the _Accepted Protocols_ field to **'HTTP only'**. Ensure that the appropriate _frontend host_ is selected.  
 11. On the _Route Details_ section, set the _Route Type_ to **Redirect**, ensure that the _Redirect type_ is set to **Found (302)** and _Redirect protocol_ is set to **HTTPS only**. 
 12. Click Add to save the routing rule for HTTP to HTTPS redirect.
-     ![Add an HTTP to HTTPS redirect route](./media/front-door-url-redirect\front-door-redirect-config-example.png)
+     ![Add an HTTP to HTTPS redirect route](./media/front-door-url-redirect/front-door-redirect-config-example.png)
 13. Add another routing rule for handling the HTTPS traffic. Click the '**+**' sign on the _Routing rules_ and provide a name for the route, say 'DefaultForwardingRoute', and then set the _Accepted Protocols_ field to **'HTTPS only'**. Ensure that the appropriate _frontend host_ is selected.
 14. On the Route Details section, set the _Route Type_ to **Forward**, ensure that the right backend pool is selected and the _Forwarding Protocol_ is set to **HTTPS only**. 
 15. Click Add to save the routing rule for request forwarding.
-     ![Add a forward route for HTTPS traffic](./media/front-door-url-redirect\front-door-forward-route-example.png)
+     ![Add a forward route for HTTPS traffic](./media/front-door-url-redirect/front-door-forward-route-example.png)
 16. Click **Review + create** and then **Create**, to create your Front Door profile. Go to the resource once created.
 
 ## Add a custom domain to your Front Door and enable HTTPS on it
@@ -69,7 +69,7 @@ For the `www.contoso.com` domain, as an example, add a CNAME record that maps th
 
 After you add the CNAME, the DNS records page looks like the following example:
 
-![CNAME custom domain to Front Door](./media/front-door-url-redirect\front-door-dns-cname.png)
+![CNAME custom domain to Front Door](./media/front-door-url-redirect/front-door-dns-cname.png)
 
 #### Onboard the custom domain on your Front Door
 
@@ -78,13 +78,13 @@ After you add the CNAME, the DNS records page looks like the following example:
 3. Once the CNAME mapping from the domain to your Front Door is validated, click on **Add** to add the custom domain.
 4. Click **Save** to submit the changes.
 
-![Custom domain menu](./media/front-door-url-redirect\front-door-add-custom-domain.png)
+![Custom domain menu](./media/front-door-url-redirect/front-door-add-custom-domain.png)
 
 ### Enable HTTPS on your custom domain
 
 1. Click on the custom domain that was added and under the section **Custom domain HTTPS**, change the status to **Enabled**.
 2. You can leave the **Certificate management type** set to _Front Door managed_ for the free certificate maintained, managed, and autorotated by Front Door. You can also choose to use your own custom SSL certificate stored with Azure Key Vault. This tutorial assumes that the use of Front Door managed certificate.
-![Enabling HTTPS for custom domain](./media/front-door-url-redirect\front-door-custom-domain-https.png)
+![Enabling HTTPS for custom domain](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
 3. Click on **Update** to save the selection and then click **Save**.
 4. Click **Refresh** after a couple of minutes and then click on the custom domain again to see the progress of certificate provisioning. 
