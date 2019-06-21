@@ -13,7 +13,7 @@
     - name: Total regional vCPU limit increase
       href: regional-quota-requests.md
     - name: Networking limit increase
-      href: regional-quota-requests.md
+      href: networking-quota-requests.md
   - name: Classic Deployment Model Quota increase requests
     href: classic-deployment-model-quota-increase-requests.md      
 - name: Troubleshooting region or SKU subscription issues
