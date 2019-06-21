@@ -124,13 +124,8 @@ The corresponding audio will contain the speakers identified by a number (curren
 
 Also note that Diarization is not available in Stereo recordings. Furthermore, all JSON output will contain the Speaker tag. If diarization is not used, it will show 'Speaker: Null' in the JSON output.
 
-Supported locales are listed below.
-
-| Language | locale |
-|--------|-------|
-| English | en-US |
-| Chinese | zh-CN |
-| Deutsch | de-DE |
+> [!NOTE]
+> Speaker Separation is available for all locales!
 
 ## Sentiment
 
