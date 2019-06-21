@@ -59,10 +59,10 @@ Here you'll create blob containers that will store your input and output files f
 1. Using the storage account linked to your Batch account, create two blob containers (one for input files, one for output files) by following the steps at [Create a blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container).
 
 In this example, the input container is named `input` and is where all documents without OCR are initially uploaded for processing. The output container is named `output` and is where the Batch job writes processed documents with OCR.
-	* In this example, we'll call our input container `input`, and our output container `output`.
-	* The input container is where all documents without OCR are initially uploaded.
-	* The output container is where the Batch job writes documents with OCR.
-1. Create a shared access signature for your output container in Storage Explorer. Do this by right-clicking on the output container and selecting **Get Shared Access Signature...**. Under **Permissions**, check **Write**. No other permissions are necessary. 
+	* In this example, we'll call our input container `input`, and our output container `output`.  
+	* The input container is where all documents without OCR are initially uploaded.  
+	* The output container is where the Batch job writes documents with OCR.  
+* Create a shared access signature for your output container in Storage Explorer. Do this by right-clicking on the output container and selecting **Get Shared Access Signature...**. Under **Permissions**, check **Write**. No other permissions are necessary.  
 
 ## Create an Azure Function
 
@@ -97,7 +97,7 @@ To download the output files from Storage Explorer to your local machine, first 
 > [!TIP]
 > The downloaded files are searchable if opened in a PDF reader.
 
-## Next Steps
+## Next steps
 
 In this tutorial you learned how to: 
 
