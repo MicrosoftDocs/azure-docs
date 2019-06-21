@@ -12,6 +12,8 @@ ms.date: 06/20/2019
 
 This article shows the Azure Cosmos emulator release notes with a list of feature updates made in each release, it also lists the latest version of emulator to download and use.
 
+## Download
+
 | | |
 |---------|---------|
 |**MSI download**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
@@ -21,10 +23,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ### 2.4.3
 
-- Disabled starting the Mongo DB service by default; only the SQL endpoint is enabled as default. The user must start the endpoint manually using the emulator’s “/EnableMongoDbEndpoint” command line option just like all the other service endpoints such as Gremlin/Graph, Cassandra and Table.
-- Fix a bug in the emulator when starting with “/AllowNetworkAccess” where the Gremlin/Graph, Cassandra and Table where not properly handling requests from external clients.
+- Disabled starting the MongoDB service by default. Only the SQL endpoint is enabled as default. The user must start the endpoint manually using the emulator's "/EnableMongoDbEndpoint" command line option just like all the other service endpoints such as Gremlin, Cassandra and Table.
+- Fixed a bug in the emulator when starting with “/AllowNetworkAccess” where the Gremlin, Cassandra and Table endpoints where not properly handling requests from external clients.
 - Add direct connection ports to the Firewall Rules settings.
 
 ### 2.4.0
 
-- Fix an issue with emulator failing to start when network monitoring apps such as Pulse Client are present on the host computer.
+- Fixed an issue with emulator failing to start when network monitoring apps such as Pulse Client are present on the host computer.
