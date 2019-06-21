@@ -38,9 +38,9 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   If the variable [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) returns the value *ON*, binary logging is enabled on your server.
+   If the variable [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) returns the value **ON**, binary logging is enabled on your server.
 
-   If `log_bin` returns the value *OFF*, edit your **my.cnf** file so that `log_bin=ON` to turn on binary logging. Restart your server for the change to take effect.
+   If `log_bin` returns the value **OFF**, edit the **my.cnf** file so that `log_bin=ON` turns on binary logging. Restart the server to make the change take effect.
 
 2. Configure master server settings. Data-in Replication requires the parameter `lower_case_table_names` to be consistent between the master and replica servers. The `lower_case_table_names` parameter is `1` by default in Azure Database for MariaDB.
 
@@ -48,52 +48,52 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Create a new replication role and set up permission
+3. Create a new replication role and set up permission.
 
    Create a user account on the master server that's configured with replication privileges. You can create an account by using SQL commands or MySQL Workbench. If you plan to replicate with SSL, you must specify this when you create the user account.
    
-   Refer to the MariaDB documentation to understand how to [add user accounts](https://mariadb.com/kb/en/library/create-user/) on your master server.
+   To learn how to add user accounts on your master server, see the [MariaDB documentation](https://mariadb.com/kb/en/library/create-user/).
 
-   In the following commands, the new replication role can access the master from any machine, not just the machine that hosts the master itself. Specify **syncuser\@'%'** in the create user command for this access.
+   By using the following commands, the new replication role can access the master from any machine, not just the machine that hosts the master itself. For this access, specify **syncuser\@'%'** in the create user command.
    
    To learn more about MariaDB documentation, see [specifying account names](https://mariadb.com/kb/en/library/create-user/#account-names).
 
    **SQL Command**
 
-   *Replication with SSL*
+   - Replication with SSL
 
-   To require SSL for all user connections, use the following command to create a user:
+       To require SSL for all user connections, use the following command to create a user:
 
-   ```sql
-   CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
-   ```
+       ```sql
+       CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
+       GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
+       ```
 
-   *Replication without SSL*
+   - Replication without SSL
 
-   If SSL isn't required for all connections, use the following command to create a user:
-
-   ```sql
-   CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
-   ```
+       If SSL isn't required for all connections, use the following command to create a user:
+    
+       ```sql
+       CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
+       GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
+       ```
 
    **MySQL Workbench**
 
-   To create the replication role in MySQL Workbench, open the **Users and Privileges** panel from the **Management** panel. Then click on **Add Account**.
+   To create the replication role in MySQL Workbench, in the **Management** pane, select the **Users and Privileges**. Next, near the bottom of the page, select **Add Account**.
  
    ![Users and Privileges](./media/howto-data-in-replication/users_privileges.png)
 
-   Type in the username into the **Login Name** field.
+   Enter a username in the **Login Name** field.
 
    ![Sync user](./media/howto-data-in-replication/syncuser.png)
  
-   Click on the **Administrative Roles** panel and then select **Replication Slave** from the list of **Global Privileges**. Then click on **Apply** to create the replication role.
+   Select the **Administrative Roles** panel, and then select **Replication Slave** from the list of **Global Privileges**. Select **Apply** to create the replication role.
 
    ![Replication Slave](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Set the master server to read-only mode
+4. Set the master server to read-only mode.
 
    Before dumping a database, the server must be placed in read-only mode. While in read-only mode, the master can't process any write transactions. To help avoid business impact, schedule the read-only window during an off-peak time.
 
@@ -102,16 +102,18 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    SET GLOBAL read_only = ON;
    ```
 
-5. Get binary log file name and offset
+5. Get the current binary log file name and offset.
 
    Run the [`show master status`](https://mariadb.com/kb/en/library/show-master-status/) command to determine the current binary log file name and offset.
 	
    ```sql
    show master status;
    ```
-   The results should be like following. Make sure to note the binary file name as it will be used in later steps.
-
+   The results should be similar to the following table:
+   
    ![Master Status Results](./media/howto-data-in-replication/masterstatus.png)
+
+   Note the binary file name as it will be used in later steps.
    
 6. Get GTID position (Optional, needed for replication with GTID)
 
@@ -172,7 +174,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    **Examples**
 
-   *Replication with SSL*
+   Replication with SSL
 
    The variable `@cert` is created by running the following commands: 
 
@@ -182,12 +184,12 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    -----END CERTIFICATE-----'
    ```
 
-   Replication with SSL is set up between a master server hosted in the domain “companya.com” and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica. 
+   Replication with SSL is set up between a master server hosted in the domain “companya.com” and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
    ```
-   *Replication without SSL*
+   Replication without SSL:
 
    Replication without SSL is set up between a master server hosted in the domain “companya.com” and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
 
@@ -211,7 +213,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    show slave status;
    ```
 
-   If the state of `Slave_IO_Running` and `Slave_SQL_Running` are *yes* and the value of `Seconds_Behind_Master` is *0*, replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't *0*, then the replica is processing updates.
+   If the state of `Slave_IO_Running` and `Slave_SQL_Running` are *yes* and the value of `Seconds_Behind_Master` is *0*, replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't *0*, the replica is processing updates.
 
 4. Update correspond server variables to make data-in replication safer (required only for replication without GTID).
 	
