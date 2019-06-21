@@ -73,7 +73,6 @@
       - name: Configure containers
         href: text-analytics-resource-container-config.md
       - name: Use Container Instances (ACI)
-        href: How-tos/text-analytics-how-to-use-container-instance.md
         items:
           - name: Sentiment analysis
             href: how-tos/text-analytics-how-to-use-container-instances.md
