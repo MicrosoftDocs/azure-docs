@@ -66,7 +66,7 @@ A linked service links a data store to a data factory. You create a linked servi
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **Hdfs** |Yes |
-| Url |URL to the HDFS |Yes |
+| url |URL to the HDFS |Yes |
 | authenticationType |Anonymous, or Windows. <br><br> To use **Kerberos authentication** for HDFS connector, refer to [this section](#use-kerberos-authentication-for-hdfs-connector) to set up your on-premises environment accordingly. |Yes |
 | userName |Username for Windows authentication. For Kerberos authentication, specify `<username>@<domain>.com`. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |

@@ -2,14 +2,14 @@
 title: Tutorial - Add identity providers to your applications - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to add identity providers to your applications in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -42,7 +42,7 @@ To enable sign-in for users from Azure AD, you need to register an application w
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your Azure AD tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations (Legacy)**.
 4. Select **New application registration**.
 5. Enter a name for your application. For example, `Azure AD B2C App`.
 6. For the **Application type**, select `Web app / API`.
@@ -102,7 +102,7 @@ After you create the application for the identity provider that you want to add,
     For example, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
 8. For **Client ID**, enter the application ID that you previously recorded and for **Client secret**, enter the key value that you previously recorded.
-9. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. 
+9. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. Domain hints(https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.
 10. Click **OK**.
 11. Select **Map this identity provider's claims** and set the following claims:
     

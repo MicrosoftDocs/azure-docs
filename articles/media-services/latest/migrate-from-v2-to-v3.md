@@ -76,7 +76,7 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
 
 * The [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) and the legacy [media analytics processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via v3.<br/>Customers who wish to migrate from the Media Indexer 1 or 2 preview can immediately use the AudioAnalyzer preset in the v3 API.  This new preset contains more features than the older Media Indexer 1 or 2. 
 * Many of the [advanced features of the Media Encoder Standard in v2](../previous/media-services-advanced-encoding-with-mes.md) APIs are currently not available in v3, such as:
-    * Clipping (for on-demand and live scenarios)
+  
     * Stitching of Assets
     * Overlays
     * Cropping

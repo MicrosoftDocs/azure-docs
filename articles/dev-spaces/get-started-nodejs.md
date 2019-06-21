@@ -49,7 +49,7 @@ az account set --subscription <subscription ID>
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-At the command prompt, create the resource group in a [region that supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -266,3 +266,5 @@ In this configuration, the container is configured to start *nodemon*. When serv
 > [!div class="nextstepaction"]
 > [Learn about multi-service development](multi-service-nodejs.md)
 
+
+[supported-regions]: about.md#supported-regions-and-configurations

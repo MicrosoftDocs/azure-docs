@@ -82,10 +82,10 @@
       items:
       - name: Optimize performance
         href: storage-performance.md
-    - name: GPU optimized
-      displayName: NV NVv2 NC NCv2 NCv3 ND
-      href: sizes-gpu.md   
+    - name: Accelerated compute
       items:
+      - name: GPU optimized
+        href: sizes-gpu.md
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
@@ -118,8 +118,8 @@
       href: ephemeral-os-disks.md
   - name: Networking
     href: network-overview.md
-  - name: Auto-scale applications
-    href: autoscale.md
+  - name: Scale sets
+    href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Infrastructure automation
     href: infrastructure-automation.md
   - name: Security and policy

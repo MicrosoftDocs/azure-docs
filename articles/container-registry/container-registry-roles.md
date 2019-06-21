@@ -19,7 +19,7 @@ The Azure Container Registry service supports a set of Azure roles that provide 
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Owner | X | X | X | X | X | X |  |  
 | Contributor | X | X | X |  X | X | X |  |  
-| Reader | X |  |  | X |  |  |  |
+| Reader | X |  |  |  |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |

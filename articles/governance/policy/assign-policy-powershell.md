@@ -27,10 +27,11 @@ before you begin.
 
 - Before you start, make sure that the latest version of Azure PowerShell is installed. See [Install Azure PowerShell module](/powershell/azure/install-az-ps)
   for detailed information.
-- Register the Policy Insights resource provider using Azure PowerShell. Registering the resource
-  provider makes sure that your subscription works with it. To register a resource provider, you
-  must have permission to the register resource provider operation. This operation is included in
-  the Contributor and Owner roles. Run the following command to register the resource provider:
+- Register the Azure Policy Insights resource provider using Azure PowerShell. Registering the
+  resource provider makes sure that your subscription works with it. To register a resource
+  provider, you must have permission to the register resource provider operation. This operation is
+  included in the Contributor and Owner roles. Run the following command to register the resource
+  provider:
 
   ```azurepowershell-interactive
   # Register the resource provider if it's not already registered

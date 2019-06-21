@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with Control | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Control.
+description: Learn how to configure single sign-on between Azure Active Directory and Continuity Control.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -19,11 +19,11 @@ ms.author: jeedes
 
 ms.collection: M365-identity-device-management
 ---
-# Tutorial: Integrate Control with Azure Active Directory
+# Tutorial: Integrate Continuity Control with Azure Active Directory
 
-In this tutorial, you'll learn how to integrate Control with Azure Active Directory (Azure AD). When you integrate Control with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Continuity Control (Control) with Azure Active Directory (Azure AD). When you integrate Control with Azure AD, you can:
 
-* Control in Azure AD who has access to Control.
+* Manage in Azure AD who has access to Control.
 * Enable your users to be automatically signed-in to Control with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
@@ -34,7 +34,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* Control single sign-on (SSO) enabled subscription.
+* A Control single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.continuity.net/auth/saml`
 
 	> [!Note]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Control Client support team](mailto:help@continuity.net) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the correct subdomain. Your SSO subdomain can be configured at [Control Authentication Strategies](https://control.continuity.net/settings/account_profile#tab/security). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -90,19 +90,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![Copy Thumbprint value](common/copy-thumbprint.png)
 
-1. On the **Set up Control** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up Control** section, copy the Login URL and save it on your computer.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
-
-	b. Azure AD Identifier
-
-	c. Logout URL
-
 ### Configure Control SSO
 
-To configure single sign-on on **Control** side, you need to send the **Thumbprint value** and appropriate copied URLs from Azure portal to [Control support team](mailto:help@continuity.net). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Control** side, you need to update the single sign-on authentication settings at [Control Authentication Strategies](https://control.continuity.net/settings/account_profile#tab/security). Update **SAML SSO URL** with the **Login URL** and **Certificate Fingerprint** with the **Thumbprint value** from the Azure portal.
 
 ### Create an Azure AD test user
 
@@ -136,7 +130,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ### Create Control test user
 
-In this section, you create a user called Britta Simon in Control. Work with [Control support team](mailto:help@continuity.net) to add the users in the Control platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Control. Work with [Control support team](mailto:help@continuity.net) to add the users in the Control platform. Use Britta Simon's Azure AD **User name** to populate her **Identity Provider User ID** in Control. Users must be created, and their **Identity Provider User ID** set, in Control before they can use single sign-on.
 
 ### Test SSO
 
@@ -144,8 +138,8 @@ When you select the Control tile in the Access Panel, you should be automaticall
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

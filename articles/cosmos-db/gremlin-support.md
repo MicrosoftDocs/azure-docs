@@ -5,7 +5,7 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 01/02/2018
+ms.date: 05/21/2019
 ms.author: lbosq
 ---
 

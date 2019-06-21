@@ -26,7 +26,7 @@
       href: expressroute-locations-providers.md
     - name: Locations by provider
       href: expressroute-locations.md
-  - name: ExpressRoute virtual network gateway and FastPath
+  - name: Virtual network gateway and FastPath
     href: expressroute-about-virtual-network-gateways.md
   - name: Prerequisites
     href: expressroute-prerequisites.md
@@ -56,6 +56,8 @@
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json 
   - name: Cross-network connectivity 
     href: cross-network-connectivity.md   
+  - name: Azure common security attributes 
+    href: expressroute-security-attributes.md   
 - name: How-to guides
   items:
   - name: Create and modify a circuit

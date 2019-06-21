@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -22,6 +22,12 @@ ms.collection: M365-identity-device-management
 Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft Online Services with a feature called Azure AD access reviews.
 
 This article describes how a designated reviewer performs an access review for members of a group or users with access to an application.
+
+## Prerequisites
+
+- Azure AD Premium P2
+
+For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## Open the access review
 
@@ -59,14 +65,14 @@ If the request is to review your own access, the page will look different. For m
 
 There are two ways that you can approve or deny access:
 
-- You can approve or deny each request individually, or
+- You can approve or deny access for one or more users, or
 - You can accept the system recommendations, which is the easiest and quickest way.
 
-### Approve or deny access for each request
+### Approve or deny access for one or more users
 
 1. Review the list of users to decide whether to approve or deny their continued access.
 
-1. To approve or deny each request, click the row to open a window to specify the action to take.
+1. To approve or deny access for a single user, click the row to open a window to specify the action to take. To approve or deny access for multiple users, add check marks next to the users and then click the **Review X user(s)** button to open a window to specify the action to take.
 
 1. Click **Approve** or **Deny**. If you are unsure, you can click **Don't know**. Doing so will result in the user maintaining their access, but the selection will be reflected in the audit logs.
 

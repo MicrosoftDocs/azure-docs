@@ -29,7 +29,7 @@ In this article, you'll learn how to:
 > * Create a stored procedure that makes predictions using the model
 > * Execute the model with new data
 
-In [part one](sql-database-tutorial-predictive-model-prepare-data.md), you learned how how to import a sample database into an Azure SQL database, and then prepare the data to be used for training a predictive model in R.
+In [part one](sql-database-tutorial-predictive-model-prepare-data.md), you learned how to import a sample database into an Azure SQL database, and then prepare the data to be used for training a predictive model in R.
 
 In [part two](sql-database-tutorial-predictive-model-build-compare.md), you learned how to create and train multiple models, and then choose the most accurate one.
 
