@@ -14,7 +14,7 @@ This article describes how to set up Data-in Replication in Azure Database for M
 
 To continue, you should have some prior experience with MariaDB servers and databases.
 
-To create a replica in the Azure Database for MariaDB service, Data-in Replication synchronizes data from a master MariaDB server on-premises, in virtual machines (VMs), or in cloud database services hosted by other services.
+To create a replica in the Azure Database for MariaDB service, Data-in Replication synchronizes data from a master MariaDB server on-premises, in virtual machines (VMs), or in cloud database services.
 
 If your master server is version 10.2 or newer, you set up the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/).
 
@@ -58,7 +58,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 3. Create a new replication role and set up permissions.
 
-   Create a user account on the master server that's configured with replication privileges. You can create an account by using SQL commands or MySQL Workbench. If you plan to replicate with SSL, you must specify this when you create the user account.
+   Create a user account on the master server that's configured with replication privileges. You can create an account by using SQL commands or MySQL Workbench. If you plan to replicate with SSL, you must specify as such when you create the user account.
    
    To learn how to add user accounts on your master server, see the [MariaDB documentation](https://mariadb.com/kb/en/library/create-user/).
 
@@ -229,7 +229,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 4. Update the corresponding server variables to make data-in replication safer (required only for replication without GTID).
 	
-	Because of a native replication limitation in MariaDB, you must setup [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without the GTID scenario.
+	Because of a native replication limitation in MariaDB, you must set  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without the GTID scenario.
 
     Check the variables on your slave server's `sync_master_info` and `sync_relay_log_info`. To make sure the data-in replication is stable, set the variables to `1`.
 	
