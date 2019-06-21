@@ -45,4 +45,4 @@ The gyroscope's origin `[0,0,0]` is identical to the origin of the depth camera.
 
 ## Next Steps
 
-[Learn about Azure Kinect Sensor SDK](overview-sensor-sdk.md)
+[Learn about Azure Kinect Sensor SDK](about-sensor-sdk.md)

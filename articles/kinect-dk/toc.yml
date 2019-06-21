@@ -32,7 +32,7 @@
    - name: Use Sensor SDK
      items:
        - name: About Sensor SDK
-         href: overview-sensor-sdk.md
+         href: about-sensor-sdk.md
        - name: Find then open device
          href: find-then-open-device.md
        - name: Retrieve images

@@ -176,4 +176,4 @@ int main()
 
 You may also review the following articles:
 > [!div class="nextstepaction"]
->[Using Azure Kinect Sensor SDK](overview-sensor-sdk.md)
+>[Using Azure Kinect Sensor SDK](about-sensor-sdk.md)
