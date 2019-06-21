@@ -1,6 +1,6 @@
 ---
-title: What is device identity in Azure Active Directory? | Microsoft Docs
-description: Learn how device identity management can help you to manage devices that are accessing resources in your environment.
+title: What is device identity in Azure Active Directory?
+description: Learn how device identity management can help you to manage the devices that are accessing resources in your environment.
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -23,12 +23,15 @@ ms.collection: M365-identity-device-management
 ---
 # What is a device identity?
 
-In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices - including Bring Your Own Device (BYOD), IT professionals are faced with two opposing goals:
+With the proliferation of devices of all shapes and sizes and the Bring Your Own Device (BYOD) concept, IT professionals are faced with two opposing goals:
 
-- Empower the end users to be productive wherever and whenever
+- Allow end users to be productive wherever and whenever
 - Protect the organization's assets
 
-Through these devices, your users get access to your organization's assets. To protect these assets, IT professionals need to manage the device identities. This ability enables you to make sure that your users are accessing resources from devices that meet your organization's standards for security and compliance.
+To protect these assets, IT staff need to first manage the device identities. IT staff can build on the device identity with tools like Microsoft Intune to ensure standards for security and compliance are met. Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere through these devices.
+
+- Your users get access to your organization's assets they need. 
+- Your IT staff get the controls they need to secure your organization.
 
 Device identity management is the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access policies, you can ensure that access to resources in your environment is only possible with managed devices.
 
