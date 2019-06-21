@@ -18,7 +18,7 @@ The machine learning models assume a uniformly sampled time series. If the time 
 
 The machine learning operations do not support seasonality trends or multi-variate correlations at this time.
 
-## Model accuracy and performance
+## Model behavior
 
 Generally, the model's accuracy improves with more data in the sliding window. The data in the specified sliding window is treated as part of its normal range of values for that time frame. The model only considers event history over the sliding window to check if the current event is anomalous. As the sliding window moves, old values are evicted from the model’s training.
 
@@ -27,6 +27,8 @@ The functions operate by establishing a certain normal based on what they have s
 The model's response time increases with history size because it needs to compare against a higher number of past events. It is recommended to only include the necessary number of events for better performance.
 
 Gaps in the time series can be a result of the model not receiving events at certain points in time. This situation is handled by Stream Analytics using imputation logic. The history size, as well as a time duration, for the same sliding window is used to calculate the average rate at which events are expected to arrive.
+
+An anomaly generator available [here](https://aka.ms/asaanomalygenerator) can be used to feed an Iot Hub with data with different anomaly patterns. An ASA job can be set up with these anomaly detection functions to read from this Iot Hub and detect anomalies.
 
 ## Spike and dip
 
