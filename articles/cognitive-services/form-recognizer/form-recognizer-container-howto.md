@@ -248,7 +248,8 @@ var config = FormRecognizerConfig.FromEndpoint("ws://localhost:5000/formrecogniz
 Change from using this Azure-cloud initialization call:
 
 ```python
-formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=formrecognizer_key, region=service_region)
+formrecognizer_config = formrecognizersdk.FormRecognizerConfig(
+    subscription=formrecognizer_key, region=service_region)
 ```
 
 to this call, which uses the container endpoint:

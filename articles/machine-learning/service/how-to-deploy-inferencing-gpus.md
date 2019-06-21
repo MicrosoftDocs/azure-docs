@@ -66,20 +66,23 @@ from azureml.core.model import Model
 from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
 
+
 def init():
     global session
     global input_name
     global output_name
-    
+
     session = tf.Session()
 
     model_path = Model.get_model_path('resnet50')
     model = tf.saved_model.loader.load(session, ['serve'], model_path)
     if len(model.signature_def['serving_default'].inputs) > 1:
         raise ValueError("This score.py only supports one input")
-    input_name = [tensor.name for tensor in model.signature_def['serving_default'].inputs.values()][0]
-    output_name = [tensor.name for tensor in model.signature_def['serving_default'].outputs.values()]
-    
+    input_name = [
+        tensor.name for tensor in model.signature_def['serving_default'].inputs.values()][0]
+    output_name = [
+        tensor.name for tensor in model.signature_def['serving_default'].outputs.values()]
+
 
 @rawhttp
 def run(request):
@@ -92,16 +95,17 @@ def run(request):
         return AMLResponse(respBody, 405)
     return AMLResponse("bad request", 500)
 
+
 def score(data):
     result = session.run(output_name, {input_name: [data]})
     return ujson.dumps(result[1])
 
+
 if __name__ == "__main__":
     init()
-    with open("lynx.jpg", 'rb') as f: #load file for testing locally
+    with open("lynx.jpg", 'rb') as f:  # load file for testing locally
         content = f.read()
         print(score(content))
-
 ```
 
 ## Define the conda environment
@@ -129,16 +133,16 @@ Create an `InferenceConfig` object that enables the GPUs and ensures that CUDA i
 from azureml.core.model import Model
 from azureml.core.model import InferenceConfig
 
-aks_service_name ='gpu-rn'
-gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled = False, 
-                                                    num_replicas = 3, 
-                                                    cpu_cores=2, 
+aks_service_name = 'gpu-rn'
+gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
+                                                    num_replicas=3,
+                                                    cpu_cores=2,
                                                     memory_gb=4)
-model = Model(ws,"resnet50")
+model = Model(ws, "resnet50")
 
-inference_config = InferenceConfig(runtime= "python", 
+inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
-                                   conda_file="myenv.yml", 
+                                   conda_file="myenv.yml",
                                    enable_gpu=True)
 ```
 
@@ -154,12 +158,12 @@ Deploy the model to your AKS cluster and wait for it to create your service.
 ```python
 aks_service = Model.deploy(ws,
                            models=[model],
-                           inference_config=inference_config, 
+                           inference_config=inference_config,
                            deployment_config=gpu_aks_config,
                            deployment_target=aks_target,
                            name=aks_service_name)
 
-aks_service.wait_for_deployment(show_output = True)
+aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
 
@@ -177,9 +181,9 @@ scoring_url = aks_service.scoring_uri
 api_key = aks_service.get_key()(0)
 IMAGEURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Lynx_lynx_poing.jpg/220px-Lynx_lynx_poing.jpg"
 
-headers = {'Authorization':('Bearer '+ api_key)}
+headers = {'Authorization': ('Bearer ' + api_key)}
 img_data = read_image_from(IMAGEURL).read()
-r = requests.post(scoring_url, data = img_data, headers=headers)
+r = requests.post(scoring_url, data=img_data, headers=headers)
 ```
 
 > [!IMPORTANT]
