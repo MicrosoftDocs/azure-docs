@@ -57,13 +57,72 @@ Ability to read other users | This setting is available in PowerShell only. Sett
 ### Application registration owner permissions
 When a user registers an application, they are automatically added as an owner for the application. As an owner, they can manage the metadata of the application, such as the name and permissions the app requests. They can also manage the tenant-specific configuration of the application, such as the SSO configuration and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can only manage applications they own.
 
-<!-- ### Enterprise application owner permissions
-
-When a user adds a new enterprise application, they are automatically added as an owner for the tenant-specific configuration of the application. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications they own. <!--To assign an enterprise application owner, see *Assigning Owners for an Application*.-->
+### Enterprise application owner permissions
+When a user adds a new enterprise application, they are automatically added as an owner. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the applications they own.
 
 ### Group owner permissions
-
 When a user creates a group, they are automatically added as an owner for that group. As an owner, they can manage properties of the group such as the name, as well as manage group membership. An owner can also add or remove other owners. Unlike Global administrators and User administrators, owners can only manage groups they own. To assign a group owner, see [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
+
+### Ownership Permissions
+The following tables describe the specific permissions in Azure Active Directory member users have over owned objects. The user only has these permissions on objects they own.
+
+#### Owned application registrations
+Users can perform the following actions on owned application registrations.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.directory/applications/audience/update | Update applications.audience property in Azure Active Directory. |
+| microsoft.directory/applications/authentication/update | Update applications.authentication property in Azure Active Directory. |
+| microsoft.directory/applications/basic/update | Update basic properties on applications in Azure Active Directory. |
+| microsoft.directory/applications/credentials/update | Update applications.credentials property in Azure Active Directory. |
+| microsoft.directory/applications/delete | Delete applications in Azure Active Directory. |
+| microsoft.directory/applications/owners/update | Update applications.owners property in Azure Active Directory. |
+| microsoft.directory/applications/permissions/update | Update applications.permissions property in Azure Active Directory. |
+| microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
+| microsoft.directory/applications/restore | Restore applications in Azure Active Directory. |
+
+#### Owned enterprise applications
+Users can perform the following actions on owned enterprise applications. An enterprise application is made up of service principal, one or more application policies, and sometimes an application object in the same tenant as the service principal.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/policies/basic/update | Update basic properties on policies in Azure Active Directory. |
+| microsoft.directory/policies/delete | Delete policies in Azure Active Directory. |
+| microsoft.directory/policies/owners/update | Update policies.owners property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/delete | Delete servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
+
+#### Owned devices
+Users can perform the following actions on owned devices.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/devices/disable | Disable devices in Azure Active Directory. |
+
+#### Owned groups
+Users can perform the following actions on owned groups.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups/delete | Delete groups in Azure Active Directory. |
+| microsoft.directory/groups/dynamicMembershipRule/update | Update groups.dynamicMembershipRule property in Azure Active Directory. |
+| microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups/restore | Restore groups in Azure Active Directory. |
+| microsoft.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
 
 ## Next steps
 
