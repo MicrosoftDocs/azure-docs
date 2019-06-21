@@ -27,22 +27,22 @@ Using the script actions described in this article, you can modify the OS patchi
 ## How to use the script 
 
 When using this script requires the following information:
-1. The os-patching-reboot-config script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh.
+1. The install-updates-schedule-reboots script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh.
  	HDInsight uses this URI to find and run the script on all the virtual machines in the cluster. This script provides options to install updates and reboot the VM.
   
-2. The reboot-config script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/reboot-config.sh.
+2. The schedule-reboots script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh.
  	HDInsight uses this URI to find and run the script on all the virtual machines in the cluster. This script reboots the VM.
   
 3. The cluster node types that the script is applied to: headnode, workernode, zookeeper. This script must be applied to all node types in the cluster. If it is not applied to a node type, then the virtual machines for that node type will not be updated or rebooted.
 
-4.  Parameter: The os-patching-reboot-config script accepts two numeric parameters:
+4.  Parameter: The install-updates-schedule-reboots script accepts two numeric parameters:
 
     | Parameter | Definition |
     | --- | --- |
     | Install kernel updates/Install all updates/Install security updates only |0 or 1 or 2. A value of 0 installs kernel updates only while 1 installs all updates and 2 installs security updates only. If no parameter is provided the default is 0. |
     | Enable/disable reboot |0 or 1. A value of 0 disables reboot while 1 enables reboot. If no parameter is provided the default is 0. User must input parameter 1 to input parameter 2. |
     
- 5. The reboot-config script doesn't need any input parameters. Use this script to enable reboot on VM's without installing any updates.
+ 5. The schedule-reboots script doesn't need any input parameters. Use this script to enable reboot on VM's without installing any updates.
 
 > [!NOTE] 
 > You must mark the script as persisted when applying to an existing cluster. Otherwise, any new nodes created through scaling operations will use the default patching schedule.  If you apply the script as part of the cluster creation process, it is persisted automatically.
