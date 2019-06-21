@@ -33,6 +33,12 @@
     href: custom-providers-overview.md
 - name: How-to guides
   items:
+  - name: Custom Resource Providers
+    items:
+    - name: Create Custom Provider Endpoint
+      href: custom-providers-endpoint-how-to.md
+    - name: Create Custom Azure Resources
+      href: custom-providers-customresources-how-to.md
   - name: Publishers
     items:
     - name: Create portal interface
