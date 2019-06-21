@@ -152,7 +152,7 @@ To add a PIP process configuration to your integration account, follow these ste
       | **Certificate** | Yes, if encryption is enabled | The certificate to use for encryption |
       ||||
 
-   1. Under **Endpoints**, specify the required URLs to use for sending action messages and acknowledgements.
+   1. Under **Endpoints**, specify the required URLs to use for sending action messages and acknowledgments.
 
       | Property | Required | Description |
       |----------|----------|-------------|
@@ -172,7 +172,7 @@ After you complete these steps, you're ready to send or receive RosettaNet messa
 
 ## RosettaNet templates
 
-To accelerate development and recommend integration patterns, you can use logic app templates for decoding and encoding RosettaNet messages. When you create a logic app,you can select from the template gallery in Logic App Designer. You can also find these templates in the [GitHub repository for Azure Logic Apps](https://github.com/Azure/logicapps).
+To accelerate development and recommend integration patterns, you can use logic app templates for decoding and encoding RosettaNet messages. When you create a logic app, you can select from the template gallery in Logic App Designer. You can also find these templates in the [GitHub repository for Azure Logic Apps](https://github.com/Azure/logicapps).
 
 ![RosettaNet templates](media/logic-apps-enterprise-integration-rosettanet/decode-encode-rosettanet-templates.png)
 
