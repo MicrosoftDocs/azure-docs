@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/17/2019
+ms.date: 06/20/2019
 ms.author: magoedte
 ---
 
@@ -21,7 +21,7 @@ Azure Monitor for containers collects stdout, stderr, and environmental variable
 
 ## Configure your cluster with custom data collection settings
 
-A sample ConfigMap file is provided that allows you to easily edit it with your customizations without having to create it from scratch. Before starting, you should review the Kubernetes documentation about [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and familiarize yourself with how to create, configure, and deploy ConfigMaps. This will allow you to filter stderr and stdout per namespace or across the entire cluster, and environment variables for any container running across all pods/nodes in the cluster.  
+A template ConfigMap file is provided that allows you to easily edit it with your customizations without having to create it from scratch. Before starting, you should review the Kubernetes documentation about [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and familiarize yourself with how to create, configure, and deploy ConfigMaps. This will allow you to filter stderr and stdout per namespace or across the entire cluster, and environment variables for any container running across all pods/nodes in the cluster.  
 
 ### Overview of configurable data collection settings 
 
@@ -41,7 +41,7 @@ The following are the settings that can be configured to control data collection
 
 Perform the following steps to configure and deploy your ConfigMaps configuration file to your cluster.
 
-1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the sample ConfigMaps yaml file and save it as container-azm-ms-agentconfig.yaml.  
+1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMaps yaml file and save it as container-azm-ms-agentconfig.yaml.  
 1. Edit the ConfigMaps yaml file with your customizations. 
 
     - To exclude specific namespaces for stdout log collection, you configure the key/value using the following example: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
@@ -68,6 +68,25 @@ Errors prevent omsagent from parsing the file, causing it to restart and use the
 If you have already deployed a ConfigMaps for your cluster and you want to update it with a newer configuration, you can simply edit the ConfigMaps file you've previously used and then apply using the same command as before, `kubectl apply -f <configmap_yaml_file.yaml`.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" updated`.
+
+## Verifying schema version
+
+Supported config schema versions are available as pod annotation (schema-versions) on the omsagent pod. You can see them with the following kubectl command: `kubectl describe pod omsagent-fdf58 -n=kube-system`
+
+The output will show similar to the following with the annotation schema-versions:
+
+```
+	Name:           omsagent-fdf58
+	Namespace:      kube-system
+	Node:           aks-agentpool-95673144-0/10.240.0.4
+	Start Time:     Mon, 10 Jun 2019 15:01:03 -0700
+	Labels:         controller-revision-hash=589cc7785d
+	                dsName=omsagent-ds
+	                pod-template-generation=1
+	Annotations:    agentVersion=1.10.0.1
+	              dockerProviderVersion=5.0.0-0
+	                schema-versions=v1 
+```
 
 ## Next steps
 
