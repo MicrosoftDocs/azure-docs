@@ -4,7 +4,7 @@ description: Retrieve Images using the Kinect Sensor SDK
 author: cdedmonds
 ms.author: cedmonds
 ms.prod: kinect-dk
-ms.date: 04/10/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, retrieve, sensor, camera, sdk, depth, rgb, images, color, capture, resolution, buffer
 ---

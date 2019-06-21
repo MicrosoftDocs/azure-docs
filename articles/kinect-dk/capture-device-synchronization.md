@@ -4,8 +4,8 @@ description: Device synchronization
 author: xthexder
 ms.author: jawirth
 ms.prod: kinect-dk
-ms.date: 06/22/2019
-ms.topic: overview
+ms.date: 06/26/2019
+ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, depth, rgb, internal, external, synchronization, daisy chain, phase offset
 ---
 

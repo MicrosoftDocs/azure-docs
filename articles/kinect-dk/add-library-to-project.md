@@ -4,7 +4,7 @@ description: Add the Azure Kinect library to a project
 author: wes-b
 ms.author: wes-b
 ms.prod: kinect-dk
-ms.date: 06/10/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, visual studio 2017, visual studio 2019, nuget
 ---

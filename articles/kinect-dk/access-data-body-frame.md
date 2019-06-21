@@ -4,7 +4,7 @@ description: Describe the APIs to access the data stored in a body frame
 author: qm13
 ms.author: yijwan, quentinm
 ms.prod: kinect-dk
-ms.date: 06/12/2019
+ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: body, frame, azure, kinect, body, tracking, tips
 ---

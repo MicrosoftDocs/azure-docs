@@ -4,7 +4,7 @@ description: Azure Kinect recorder options and functionality
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
-ms.date: 06/04/2019
+ms.date: 06/26/2019
 ms.topic: article
 keywords: kinect, record, playback, reader, matroska, mkv, streams, depth, rgb, camera, color, imu, audio
 ---

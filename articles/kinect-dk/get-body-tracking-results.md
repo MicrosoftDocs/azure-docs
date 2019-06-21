@@ -4,7 +4,7 @@ description: Get body tracking results
 author: qm13
 ms.prod: kinect-dk
 ms.author: yijwan, quentinm
-ms.date: 03/05/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, body, tracking, joint
 ---

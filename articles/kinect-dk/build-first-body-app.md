@@ -4,7 +4,7 @@ description: Step by step instructions to build your first Azure Kinect body tra
 author: qm13
 ms.author: yijwan, quentinm
 ms.prod: kinect-dk
-ms.date: 06/12/2019
+ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azure, sensor, sdk, body, tracking, joint, application, first
 

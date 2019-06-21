@@ -5,7 +5,7 @@ author: cdedmonds
 ms.author: cdedmonds
 ms.prod: kinect-dk
 ms.topic: conceptual
-ms.date: 06/15/2019 
+ms.date: 06/26/2019 
 keywords: kinect, azure, sensor, sdk, coordinate system, calibration, project, unproject, transformation, rgb-d, point cloud
 ---
 

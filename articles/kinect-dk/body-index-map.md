@@ -4,7 +4,7 @@ description: Using body index maps
 author: qm13
 ms.author: yijwan, quentinm
 ms.prod: kinect-dk
-ms.date: 06/06/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, porting, body, tracking, index, segmentation, map
 ---

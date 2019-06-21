@@ -4,7 +4,7 @@ description: Find and open an Azure Kinect device
 author: cedmonds
 ms.author: cedmonds
 ms.prod: kinect-dk
-ms.date: 04/10/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, depth, rgb, device, find, open
 ---

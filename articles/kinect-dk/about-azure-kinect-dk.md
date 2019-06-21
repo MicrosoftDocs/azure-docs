@@ -5,7 +5,7 @@ author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
 ms.topic: overview 
-ms.date: 04/11/2019
+ms.date: 06/26/2019
 keywords: azure, kinect, overview, dev kit, DK, device, depth, body tracking, speech, cognitive services, SDKs, SDK, firmware
 ---
 

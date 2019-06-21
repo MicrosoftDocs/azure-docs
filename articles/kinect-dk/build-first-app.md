@@ -4,7 +4,7 @@ description: This quickstart guides the Azure Kinect DK user through the process
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
-ms.date: 06/10/2019
+ms.date: 06/26/2019
 ms.topic: quickstart 
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 

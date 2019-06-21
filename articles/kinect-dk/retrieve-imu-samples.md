@@ -3,7 +3,7 @@ ms.title: Retrieve Azure Kinect IMU samples
 description: Retrieve IMU samples using Azure Kinect 
 author: qm13
 ms.author: cedmonds
-ms.date: 04/26/2019
+ms.date: 06/26/2019
 ms.prod: kinect-dk
 ms.topic: conceptual
 keywords: kinect, azure, configure, depth, color, RBG, camera, sensor, sdk, IMU, motion sensor, motion, gyroscope, gyro, accelerometer, FPS

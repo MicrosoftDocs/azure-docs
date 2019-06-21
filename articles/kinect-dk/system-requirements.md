@@ -4,7 +4,7 @@ description: Sensor SDK system requirements
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
-ms.date: 06/17/2019
+ms.date: 06/26/2019
 ms.topic: article
 keywords: azure, kinect, system requirements, CPU, GPU, USB, set up, setup, minimum, requirements
 ---

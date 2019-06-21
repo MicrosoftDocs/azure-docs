@@ -4,7 +4,7 @@ description: Azure Kinect DK specifications and capabilities
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
-ms.date: 06/13/2019
+ms.date: 06/26/2019
 ms.topic: article
 keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth
 ---

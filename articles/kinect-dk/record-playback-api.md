@@ -4,8 +4,8 @@ description: Using record and playback API
 author: xthexder
 ms.author: jawirth
 ms.prod: kinect-depth_track_enabled
-ms.date: 06/27/2019
-ms.topic: article
+ms.date: 06/26/2019
+ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, depth, rgb, record, playback, matroska, mkv
 ---
 # The Azure Kinect record and playback API

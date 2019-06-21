@@ -4,8 +4,8 @@ description: Azure Kinect Sensor SDK
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
-ms.date: 06/10/2019
-ms.topic: overview 
+ms.date: 06/26/2019
+ms.topic: article 
 keywords: azure, kinect, rgb, IR, recording, sensor, sdk, access, depth, video, camera, imu, motion, sensor, audio, microphone, matroska, sensor sdk, download
 ---
 
