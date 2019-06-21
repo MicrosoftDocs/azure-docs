@@ -25,7 +25,8 @@ policy initiative.
 Having only one Azure subscription owner doesn't allow for administrative redundancy. Conversely,
 having too many Azure subscription owners can increase the potential for a breach via a compromised
 owner account. This blueprint helps you maintain an appropriate number of Azure subscription owners
-by assigning two Azure Policy definitions that audit the number of owners for Azure subscriptions.
+by assigning [Azure
+Policy](../../../policy/overview.md) definitions which audit the number of owners for Azure subscriptions.
 Managing subscription owner permissions can help you implement appropriate separation of duties.
 
 - [Preview]: Audit minimum number of owners for subscription
@@ -34,7 +35,7 @@ Managing subscription owner permissions can help you implement appropriate separ
 ## 7.1 Access to networks and network services
 
 Azure implements role-based access control (RBAC) to manage who has access to Azure resources. This
-blueprint helps you control access to Azure resources by assigning three [Azure
+blueprint helps you control access to Azure resources by assigning [Azure
 Policy](../../../policy/overview.md) definitions. These policies audit use of resource types and
 configurations that may allow more permissive access to resources. Understanding resources that are
 in violation of these policies can help you take corrective actions to ensure access Azure resources
@@ -46,16 +47,16 @@ is restricted to authorized users.
 
 ## 7.2.1, 8.3.1.a and 8.3.1.b Management of privileged access rights
 
-This blueprint helps you restrict and control privileged access rights by assigning seven Azure
-Policy definitions to audit external accounts with owner, write and/or read permissions and accounts
-with owner and/or write permissions that don't have multi-factor authentication enabled. Azure
-implements role-based access control (RBAC) to manage who has access to Azure resources. This
-blueprint also assigns [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure
-Active Directory authentication for SQL Servers. Using Azure Active Directory authentication enables
-simplified permission management and centralized identity management of database users and other
-Microsoft services. This blueprint also assigns an Azure Policy definition to audit the use of
-custom RBAC rules. Understanding where custom RBAC rules are implement can help you verify need and
-proper implementation, as custom RBAC rules are error prone.
+This blueprint helps you restrict and control privileged access rights by assigning [Azure
+Policy](../../../policy/overview.md) definitions to audit external accounts with owner, write 
+and/or read permissions and accounts with owner and/or write permissions that don't have multi-factor 
+authentication enabled. Azure implements role-based access control (RBAC) to manage who has access to
+Azure resources. This blueprint also assigns [Azure Policy](../../../policy/overview.md) definitions to 
+audit use of Azure Active Directory authentication for SQL Servers. Using Azure Active Directory 
+authentication enables simplified permission management and centralized identity management of database 
+users and other Microsoft services. This blueprint also assigns an Azure Policy definition to audit the 
+use of custom RBAC rules. Understanding where custom RBAC rules are implement can help you verify need 
+and proper implementation, as custom RBAC rules are error prone.
 
 - [Preview]: Audit external accounts with owner permissions on a subscription
 - [Preview]: Audit external accounts with write permissions on a subscription
@@ -65,22 +66,11 @@ proper implementation, as custom RBAC rules are error prone.
 - Audit provisioning of an Azure Active Directory administrator for SQL server
 - Audit usage of custom RBAC rules
 
-## 8.3.1.a and 8.3.1.b Management of secret authentication information of users
-
-This blueprint assigns two [Azure Policy](../../../policy/overview.md) definitions to audit accounts
-that don't have multi-factor authentication enabled. Multi-factor authentication helps keep accounts
-secure even if one piece of authentication information is compromised. By monitoring accounts
-without multi-factor authentication enabled, you can identify accounts that may be more likely to be
-compromised.
-
-- [Preview]: Audit accounts with owner permissions who are not MFA enabled on a subscription
-- [Preview]: Audit accounts with write permissions who are not MFA enabled on a subscription
-
-## 7.2.1, 7.2.3 and 8.1.2 Review of user access rights
+## 8.1.2 and 8.1.5 Review of user access rights
 
 Azure implements role-based access control (RBAC) to helps you manage who has access to resources in
 Azure. Using the Azure portal, you can review who has access to Azure resources and their
-permissions. This blueprint assigns five [Azure Policy](../../../policy/overview.md) definitions to
+permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions to
 audit accounts that should be prioritized for review, including depreciated accounts and external
 accounts with elevated permissions.
 
@@ -90,12 +80,13 @@ accounts with elevated permissions.
 - [Preview]: Audit external accounts with write permissions on a subscription
 - [Preview]: Audit external accounts with read permissions on a subscription
 
-## 7.2.3 and 8.1.2 Removal or adjustment of access rights
+
+## 8.1.3 Removal or adjustment of access rights
 
 Azure implements role-based access control (RBAC) to help you manage who has access to resources in
 Azure. Using Azure Active Directory and RBAC, you can update user roles to reflect organizational
 changes. When needed, accounts can be blocked from signing in (or removed), which immediately
-removes access rights to Azure resources. This blueprint assigns two [Azure
+removes access rights to Azure resources. This blueprint assigns [Azure
 Policy](../../../policy/overview.md) definitions to audit depreciated account that should be
 considered for removal.
 
@@ -112,10 +103,11 @@ may be more likely to be compromised.
 
 - [Preview]: Audit accounts with owner permissions who are not MFA enabled on a subscription
 - [Preview]: Audit accounts with write permissions who are not MFA enabled on a subscription
+- [Preview]: Audit accounts with read permissions who are not MFA enabled on a subscription
 
-## 8.2.4.a and 8.2.4.b Password management system
+## 8.2.3.a,b and 8.2.4.a,b Password management system
 
-This blueprint helps you enforce strong passwords by assigning six [Azure
+This blueprint helps you enforce strong passwords by assigning [Azure
 Policy](../../../policy/overview.md) definitions that audit Windows VMs that don't enforce minimum
 strength and other password requirements. Awareness of VMs in violation of the password strength
 policy helps you take corrective actions to ensure passwords for all VM user accounts are compliant
@@ -130,8 +122,8 @@ with policy.
 
 ## 3.4.a, 4.1, 4.1.g, 4.1.h Policy on the use of cryptographic controls
 
-This blueprint helps you enforce your policy on the use of cryptograph controls by assigning 12
-[Azure Policy](../../../policy/overview.md) definitions that enforce specific cryptograph controls
+This blueprint helps you enforce your policy on the use of cryptograph controls by assigning
+[Azure Policy](../../../policy/overview.md) definitions which enforce specific cryptograph controls
 and audit use of weak cryptographic settings. Understanding where your Azure resources may have
 non-optimal cryptographic configurations can help you take corrective actions to ensure resources
 are configured in accordance with your information security policy. Specifically, the policies
@@ -144,19 +136,17 @@ communication.
 - [Preview]: Audit HTTPS only access for a Function App
 - [Preview]: Audit HTTPS only access for a Web Application
 - [Preview]: Audit HTTPS only access for an API App
-- [Preview]: Audit missing blob encryption for storage accounts
 - [Preview]: Monitor unencrypted SQL database in Azure Security Center
 - [Preview]: Monitor unencrypted VM Disks in Azure Security Center
-- [Preview]: Audit Missing Blob Encryption for Storage Accounts
 - Audit enablement of encryption of Automation account variables
 - Audit enabling of only secure connections to your Redis Cache
 - Audit secure transfer to storage accounts
 - Audit the setting of Cluster Protection Level property to Encrypt and Sign in Service Fabric
 - Audit transparent data encryption status
 
-## 10.1 Event logging
+## 10.6.1 and 10.6.2 Event logging
 
-This blueprint helps you ensure system events are logged by assigning three [Azure
+This blueprint helps you ensure system events are logged by assigning [Azure
 Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources.
 Diagnostic logs provide insight into operations that were performed within Azure resources.
 
@@ -164,19 +154,9 @@ Diagnostic logs provide insight into operations that were performed within Azure
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
 
-## 10.1 Administrator and operator logs
+## 10.1 and 10.4 
 
-This blueprint helps you ensure system events are logged by assigning seven [Azure
-Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources.
-Diagnostic logs provide insight into operations that were performed within Azure resources.
-
-- [Preview]: Monitor unaudited SQL database in Azure Security Center
-- Audit diagnostic setting
-- Audit SQL server level Auditing settings
-
-## 10.1 and 10.4 Clock synchronization
-
-This blueprint helps you ensure system events are logged by assigning three [Azure
+This blueprint helps you ensure system events are logged by assigning [Azure
 Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources. Azure
 logs rely on synchronized internal clocks to create a time-correlated record of events across
 resources.
@@ -187,7 +167,7 @@ resources.
 
 ## 6.2.a, 6.6, 11.2.1.a and 11.2.2.b Management of technical vulnerabilities
 
-This blueprint helps you manage information system vulnerabilities by assigning five [Azure
+This blueprint helps you manage information system vulnerabilities by assigning [Azure
 Policy](../../../policy/overview.md) definitions that monitor missing system updates, operating
 system vulnerabilities, SQL vulnerabilities, and virtual machine vulnerabilities in Azure Security
 Center. Azure Security Center provides reporting capabilities that enable you to have real-time
@@ -201,8 +181,8 @@ insight into the security state of deployed Azure resources.
 
 ## 6.6 Network controls
 
-This blueprint helps you manage and control networks by assigning an [Azure
-Policy](../../../policy/overview.md) definition that monitors network security groups with
+This blueprint helps you manage and control networks by assigning [Azure
+Policy](../../../policy/overview.md) definitions that monitors network security groups with
 permissive rules. Rules that are too permissive may allow unintended network access and should be
 reviewed. This blueprint assigns one Azure Policy definitions that monitor unprotected endpoints,
 applications, and storage accounts. Endpoints and applications that aren't protected by a firewall,
@@ -215,8 +195,9 @@ within the information system.
 
 ## 4.1 Information transfer policies and procedures
 
-The blueprint helps you ensure information transfer with Azure services is secure by assigning two
-Azure Policy definitions to audit insecure connections to storage accounts and Redis Cache.
+The blueprint helps you ensure information transfer with Azure services is secure by assigning
+[Azure
+Policy](../../../policy/overview.md) definitions to audit insecure connections to storage accounts and Redis Cache.
 
 - Audit enabling of only secure connections to your Redis Cache
 - Audit secure transfer to storage accounts
