@@ -43,16 +43,21 @@ Machine learning models are registered in your Azure Machine Learning workspace.
 
 + **Scikit-Learn example using the SDK**
   ```python
-  # You can provide an array of paths to store multiple files in the registration.
-  # For example, model_path=['file1.pkl','file2.pkl']
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
+
+  > [!TIP]
+  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+
 + **Using the CLI**
+
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
+  > [!TIP]
+  > To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
 
 + **Using VS Code**
 
@@ -77,10 +82,16 @@ You can register an externally created model by providing a **local path** to th
                          description = "MNIST image classification CNN from ONNX Model Zoo",)
   ```
 
+  > [!TIP]
+  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+
 + **Using the CLI**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
+
+  > [!TIP]
+  > To include multiple files in the model registration, set `-p` to the directory that contains the files.
 
 **Time estimate**: Approximately 10 seconds.
 
