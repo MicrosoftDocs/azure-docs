@@ -53,6 +53,8 @@ To get a device in Azure AD, you have multiple options:
       - Windows 7, 8.1, or 10
       - Windows Server 2008 or newer
 
+![Devices displayed in Azure AD Devices blade](./media/overview/azure-ad-devices-all-devices-overview.png)
+
 ## Device management
 
 Devices in Azure AD can be managed using Mobile Device Management (MDM) tools like Microsoft Intune, System Center Configuration Manager, Group Policy (hybrid Azure AD join), or other Mobile Application Management (MAM) tools. 
