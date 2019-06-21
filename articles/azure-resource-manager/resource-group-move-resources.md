@@ -74,7 +74,6 @@ The following list provides a general summary of Azure services that can be move
 * DNS
 * Event Grid
 * Event Hubs
-* Front Door
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
@@ -133,6 +132,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
+* Front Door
 * Lab Services - Classroom Labs can't be moved to a new resource group or subscription. DevTest Labs can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Managed Applications
 * Managed Identity - user-assigned
