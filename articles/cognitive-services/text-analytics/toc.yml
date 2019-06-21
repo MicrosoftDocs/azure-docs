@@ -75,13 +75,13 @@
       - name: Use Container Instances (ACI)
         items:
           - name: Sentiment analysis
-            href: how-tos/use-sentiment-on-aci.md
+            href: how-tos/use-sentiment-analysis-on-aci.md
       - name: Use Kubernetes Service (AKS)
         items:
           - name: Language detection
             href: how-tos/use-language-detection-on-aks.md
           - name: Sentiment analysis
-            href: how-tos/use-sentiment-on-aks.md
+            href: how-tos/use-sentiment-analysis-on-aks.md
    - name: Use the Text Analytics Connected Service
      href: vs-text-connected-service.md
 - name: Reference

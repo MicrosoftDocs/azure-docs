@@ -3,7 +3,7 @@
 1. Select the **Overview** tab and copy the IP address.
 1. Open a new browser tab and use the IP address, for example, `http://<IP-address>:5000 (http://55.55.55.55:5000`). The container's home page is presented, letting you know the container is running.
 
-    ![View the Container homepage to verify it is running](../media/how-tos/container-instance/container-webpage.png)
+    ![View the Container homepage to verify it is running](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
 1. Select the **Service API Description** link to navigate to the containers swagger page.
 
