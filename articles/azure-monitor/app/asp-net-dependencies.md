@@ -111,7 +111,7 @@ In the above cases, the correct way of validating that instrumentation engine is
 * [Transaction Diagnostics](transaction-diagnostics.md) shows unified, correlated server data.
 * [Browsers tab](javascript.md#ajax-performance) shows AJAX calls from your users' browsers.
 * Click through from slow or failed requests to check their dependency calls.
-* [Analytics](#Logs-(Analytics)) can be used to query dependency data.
+* [Analytics](#logs-analytics) can be used to query dependency data.
 
 ## <a name="diagnosis"></a> Diagnose slow requests
 
