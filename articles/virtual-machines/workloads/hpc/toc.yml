@@ -1,7 +1,7 @@
 - name: High Performance Computing Documentation
   items:
   - name: Overview
-    href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
+    href: overview.md
   - name: Configuration
     items:
       - name: Optimization for Linux
