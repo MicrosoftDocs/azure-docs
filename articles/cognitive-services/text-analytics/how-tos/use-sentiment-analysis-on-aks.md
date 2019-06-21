@@ -28,7 +28,7 @@ This procedure requires several tools that must be installed and run locally. Do
     * **Text Analytics** resource with F0 or Standard pricing tiers only.
     * **Cognitive Services** resource with the S0 pricing tier.
 
-[!INCLUDE [Create a Cognitive Services Text Analytics resource](../../includes/create-text-analytics-resource.md)]
+[!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Kubernetes Services (AKS)](../../containers/includes/create-aks-resource.md)]
 
@@ -143,7 +143,7 @@ This procedure requires several tools that must be installed and run locally. Do
     sentiment    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
     ```
 
-[!INCLUDE [Verify the Sentiment Analysis container instance](../../includes/verify-sentiment-analysis-container.md)]
+[!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
 ## Next steps
 

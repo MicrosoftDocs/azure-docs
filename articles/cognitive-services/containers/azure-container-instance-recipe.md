@@ -35,7 +35,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 
 ## Launch your container on Azure Container Instances (ACI)
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](../includes/create-aci-resource.md)]
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
 
 ## Use the Container Instance
 

@@ -20,11 +20,11 @@ Learn how to deploy the Cognitive Services [Text Analytics](https://docs.microso
 
 * Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [Create a Cognitive Services Text Analytics resource](../../includes/create-text-analytics-resource.md)]
+[!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](../../containers/includes/create-aci-resource.md)]
 
-[!INCLUDE [Verify the Sentiment Analysis container instance](../../includes/verify-sentiment-analysis-container.md)]
+[!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
 ## Next steps 
 
