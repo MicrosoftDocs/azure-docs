@@ -81,7 +81,7 @@ Azure Maps have been localized in a variety of languages across the services. Th
 ## Azure Maps supported views
 
 > [!Note]
-> Before **August 1, 2019**, Azure Maps is available in all countries/regions except in India, Pakistan, Morocco and Argentina.  After August 1, 2019, `View` parameter setting will define the returned map content for these new regions/countries. We encourage you to ensure, your services that use these APIs and SDKs operate as desired in the new countries/regions, however please complete them no later than August 1, 2019.
+> Before **August 1, 2019**, Azure Maps is available in all countries/regions except in India, Pakistan, Morocco and Argentina.  After August 1, 2019, **View** parameter setting will define the returned map content for these new regions/countries. We encourage you to ensure, your services that use these APIs and SDKs operate as desired in the new countries/regions, however please complete them no later than August 1, 2019.
 
 
 Azure Maps **View** parameter (also referred to as “user region parameter”) is a two letter ISO-3166 Country Code that will show the correct maps for that country/region specifying which set of geopolitically disputed content is returned via Azure Maps services, including borders and labels displayed on the map. 
