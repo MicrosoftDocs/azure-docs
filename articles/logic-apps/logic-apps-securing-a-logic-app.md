@@ -211,9 +211,9 @@ Logic Apps supports [Azure Role-Based Access Control (RBAC)](../role-based-acces
 which you can customize or assign built-in roles to members in 
 your subscription, for example:
 
-* [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Users can perform management tasks, such as view, edit, and update your logic app, but they can't change permissions or access to your logic app.
+* [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets users manage your logic app, but they can't change permissions or access to your logic app.
 
-* [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Users can read, view run history, and enable or disable your logic app, but they can't edit or update your logic app.
+* [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Lets users perform read-only tasks, and enable or disable your logic app, but they can't edit or update your logic app.
 
 To prevent others from changing or deleting your logic app, you can use 
 [Azure Resource Lock](../azure-resource-manager/resource-group-lock-resources.md). 
