@@ -13,7 +13,7 @@ ms.author: v-erkell
 
 This tutorial describes how to install a hardware node for the Azure FXT Edge Filer hybrid storage cache. You need to install at least three hardware nodes to create an Azure FXT Edge Filer cluster.
 
-The installation procedure involves unpacking and rack mounting the device, and attaching the cable management arm (CMA) and front bezel. Separate tutorials explain attaching network cables and connecting power. 
+The installation procedure involves unpacking and rack mounting the device, and attaching the cable management arm (CMA) and front bezel. A separate tutorial explains attaching network cables and connecting power. 
 
 It takes approximately one hour to install an Azure FXT Edge Filer node. 
 

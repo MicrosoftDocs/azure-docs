@@ -23,7 +23,6 @@ sections:
     - html: <a href="fxt-network">Make network connections for the Azure FXT Edge Filer</a>
     - html: <a href="fxt-node-password">Set root passwords on the hardware nodes</a>
     - html: <a href="fxt-cluster-create">Create the hybrid storage cache cluster</a>
-    - html: <a href="fxt-cluster-config-overview">Configure the cluster - overview and first steps</a>
     - html: <a href="fxt-add-nodes.md">Add cluster nodes</a>
     - html: <a href="ftx-add-storage.md">Configure back-end storage and virtual namespace</a>
 
