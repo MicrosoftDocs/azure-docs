@@ -51,8 +51,7 @@ Here are some concepts and terms that are unique to the RosettaNet specification
 
 * An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-for storing your agreement and other B2B artifacts. This integration account must be associated with your Azure subscription.
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for storing your agreement and other B2B artifacts. This integration account must be associated with your Azure subscription.
 
 * At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that are defined in your integration account and configured with the "DUNS" qualifier under **Business Identities**
 
