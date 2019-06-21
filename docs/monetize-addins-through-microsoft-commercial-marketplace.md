@@ -26,5 +26,5 @@ In this monetization model, your add-in is authenticated by your SaaS offering, 
 To kickstart your SaaS migration, and to answer any questions you might have, contact [OVMC@microsoft.com](mailto:OVMC@microsoft.com). 
 
 > [!NOTE] 
-> Starting July 22, 2019, we will no longer accept new paid add-in submissions to AppSource. Customers will be able to purchase existing paid add-ins in AppSource until July 2020, and then they will be removed from AppSource and for existing users unless they are listed as free. For details, see [Transition from paid to free add-ins](transition-from-paid-to-free-addins.md). We will provide additional migration information in the near future.
+> Starting July 22, 2019, we will no longer accept new paid add-in submissions to AppSource. Customers will be able to purchase existing paid add-ins in AppSource until July 2020, and then they will be removed from AppSource and for existing users unless they are listed as free. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). We will provide additional migration information in the near future.
 
