@@ -32,7 +32,7 @@ For details on how these metrics are computed, see the [data drift concept](conc
 
 - If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-- An Azure Machine Learning service Workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
+- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 
 - [Set up your environment](how-to-configure-environment.md), and then install the data drift SDK using the following command:
 
