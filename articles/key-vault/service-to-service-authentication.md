@@ -146,7 +146,7 @@ It may be necessary to create an Azure AD Client credential to authenticate. Com
 
 There are three primary methods of using a Service Principal to run your application. To use any of them, you must first [create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
 
-### Use a certificate to sign into Azure AD
+### Use a certificate in local keystore to sign into Azure AD
 
 1. Create a service principal certificate using [az ad sp create-for-rbac --create-cert](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The .pem file (private key) will be stored in your home directory. 
 
@@ -163,9 +163,9 @@ There are three primary methods of using a Service Principal to run your applica
 
 4. Run the application. 
 
-### Sign in using an Azure AD shared secret credential
+### Use a shared secret credential to sign into Azure AD
 
-1. Create a service principal certificate with a password using [az ad sp create-for-rbac --create-cert --password](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The .pem file (private key) will be stored in your home directory. 
+1. Create a service principal certificate with a password using [az ad sp create-for-rbac --password](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The .pem file (private key) will be stored in your home directory. 
 
 2. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
@@ -179,23 +179,23 @@ There are three primary methods of using a Service Principal to run your applica
 
 Once everything's set up correctly, no further code changes are necessary.  `AzureServiceTokenProvider` uses the environment variable and the certificate to authenticate to Azure AD. 
 
-### Run the application using custom services authentication
+### Use a certificate in Key Vault to sign into Azure AD
 
 This option allows you to store a service principal's client certificate in Key Vault and use it for service principal authentication. You may use this for the following scenarios:
 
-* Local authentication, where you want to authenticate using an explicit service principal, and want to keep the service principal credential securely in a Key vault. Developer account must have access to key vault. 
+* Local authentication, where you want to authenticate using an explicit service principal, and want to keep the service principal credential securely in a key vault. Developer account must have access to the key vault. 
 * Authentication from Azure where you want to use explicit credential (e.g. for cross-tenant scenarios), and want to keep the service principal credential securely in a key vault. Managed identity must have access to key vault. 
 
-Managed Identity or your developer identity must have permission to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal.
+Managed Identity or your developer identity must have permission to retrieve the client certificate from the Key Vault. The AppAuthentication library uses the retrieved certificate as the service principal's client credential.
 
 To use a client certificate for service principal authentication
 
-1. Create a service principal certificate and automatically store it in your keyvault using  [az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The certificate identifier will be a URL in the format `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
+1. Create a service principal certificate and automatically store it in your keyvault using [az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). The certificate identifier will be a URL in the format `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
 
 1. Replace `{KeyVaultCertificateSecretIdentifier}` in this connection string with the certificate identifier:
 
 ```
-RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
 ```
 
 If, for instance your key vault was called "myKeyVault" and you created a certificate called 'myCert', the certificate identifier would be `https://myKeyVault.vault.azure.net/secrets/myCert`, and the connection string would be `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`.
@@ -215,7 +215,7 @@ The following options are supported:
 | `RunAs=CurrentUser` | Local development | AzureServiceTokenProvider uses Azure AD Integrated Authentication to get token. |
 | `RunAs=App` | [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider uses a managed identity to get token. |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [User-assigned identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | AzureServiceTokenProvider uses a user-assigned identity to get token. |
-| `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Custom services authentication | KeyVaultCertificateSecretIdentifier = the certificate's secret identifier; TenantId is optional. |
+| `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Custom services authentication | KeyVaultCertificateSecretIdentifier = the certificate's secret identifier. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service principal |`AzureServiceTokenProvider` uses secret to get token from Azure AD. |
