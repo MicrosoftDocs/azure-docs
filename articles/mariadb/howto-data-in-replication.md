@@ -14,7 +14,7 @@ This article describes how to set up Data-in Replication in Azure Database for M
 
 To create a replica in the Azure Database for MariaDB service, Data-in Replication synchronizes data from a master MariaDB server on-premises, in virtual machines (VMs), or in cloud database services.
 
-We recommend that you set up the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/) if your master server's version is 10.2 or newer.
+We recommend that you set up the data-in replication with [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/) if the version of your master server is 10.2 or newer.
 
 This article assumes that you have some prior experience with MariaDB servers and databases.
 
@@ -113,7 +113,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    
    ![Master Status Results](./media/howto-data-in-replication/masterstatus.png)
 
-   Note the binary file name as it will be used in later steps.
+   Note the binary file name, as it'll be used in later steps.
    
 6. Get GTID position (Optional, needed for replication with GTID)
 
