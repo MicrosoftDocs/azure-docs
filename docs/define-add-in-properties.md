@@ -36,7 +36,7 @@ The following are the categories that you can choose from:
 
 ## Add industries
 
-Choose up to three industries to help customers find your add-in more easily. The industries that you choose appear on your AppSource listing.
+Choose the right industries to help customers find your add-in more easily. You must choose at least one and can choose up to three industries. The industries that you choose appear on your AppSource listing.
 
 The following are the industries that you can choose from:
 

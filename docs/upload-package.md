@@ -19,6 +19,6 @@ When you upload your manifest file, you might get one of the following messages:
 
 ## See also
 
-- [Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md)
-- [Create your AppSource listing](office-store-listing.md)
-- [AppSource submission FAQ](office-store-submission-faq.md)
+- [Office Add-ins XML manifest](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/add-in-manifests?tabs=tabid-1)
+- [SharePoint Add-in manifest](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/explore-the-app-manifest-structure-and-the-package-of-a-sharepoint-add-in)
+
