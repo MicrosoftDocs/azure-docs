@@ -23,6 +23,59 @@ The first client can write data to the local region (for example, US West). The 
 ## Configure the clients
 
 The following sample shows a data access layer that instantiates two clients for custom synchronization:
+<details open>
+<summary>V3 SDK</summary>
+
+```csharp
+class MyDataAccessLayer
+{
+    private CosmosClient writeClient;
+    private CosmosClient readClient;
+
+    public void InitializeAsync(string accountEndpoint, string key)
+    {
+        CosmosClientOptions writeConnectionOptions = new CosmosClientOptions();
+        writeConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        writeConnectionOptions.ApplicationRegion = "West US";
+
+        CosmosClientOptions readConnectionOptions = new CosmosClientOptions();
+        readConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        readConnectionOptions.ApplicationRegion = "East US";
+
+
+        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+    }
+}
+```
+
+## Implement custom synchronization
+
+After the clients are initialized, the application can perform writes to the local region (US West) and force-sync the writes to US East as follows.
+
+```csharp
+class MyDataAccessLayer
+{
+     public async Task CreateItem(string databaseId, string containerId, dynamic item)
+     {
+        ItemResponse<dynamic> response = await writeClient.GetContainer("containerId", "databaseId")
+            .CreateItemAsync<dynamic>(
+                item,
+                new PartitionKey("test"));
+
+        await readClient.GetContainer("containerId", "databaseId").ReadItemAsync<dynamic>(
+            response.Resource.id,
+            new PartitionKey("test"),
+            new ItemRequestOptions { SessionToken = response.Headers.Session, ConsistencyLevel = ConsistencyLevel.Session });
+    }
+}
+```
+</details>
+
+---
+
+<details>
+<summary>V2 SDK</summary>
 
 ```csharp
 class MyDataAccessLayer
@@ -76,6 +129,7 @@ class MyDataAccessLayer
     }
 }
 ```
+</details>
 
 You can extend the model to sync to multiple regions in parallel.
 
