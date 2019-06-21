@@ -40,19 +40,20 @@ If you have a machine learning model that was trained outside the Azure Machine 
 
 ## Register the model(s)
 
-Registering a model allows you to store, version, and apply metadata to your trained models. During registration, the model is uploaded to your Azure Machine Learning service workspace. From there, you can search, download, or deploy the model. When deploying, you can deploy as a web service or to an Azure IoT Edge device.
+Registering a model allows you to store, version, and apply metadata to your trained models. During registration, the model is uploaded to your Azure Machine Learning service workspace. From there, you can search, download, or deploy the model. When deploying, you can deploy as a web service or to an Azure IoT Edge device. You can also track metadata about your deployed model.
 
 > [!TIP]
 > Each time you register a model using the same name, the model version is automatically incremented. The first model registered with a specific name is version 1. The second registered with the same name is version 2, and so on. You can optionally add other metadata such as tags, properties, and descriptions.
 
 > [!IMPORTANT]
-> When registering a trained model, the model must be persisted to one or more files. These files are then used to register the model.
+> When registering a trained model, the model must be persisted to one or more files on the local filesystem. These files are then used to register the model.
 
-To register a model trained outside the Azure Machine Learning service, you must have the files on the local filesystem of your development environment. In the following examples, the `models` directory contains the `model.h5`, `model.w2v`, `encoder.pkl`, and `tokenizer.pkl` files:
+In the following examples, the `models` directory contains the `model.h5`, `model.w2v`, `encoder.pkl`, and `tokenizer.pkl` files:
 
 ```python
 from azureml.core.model import Model
-
+# Tip: When model_path is set to a directory, you can use the child_paths parameter to include
+#      only some of the files from the directory
 model = Model.register(model_path = "./models",
                        model_name = "sentiment",
                        description = "Sentiment analysis model trained outside Azure Machine Learning service",
