@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/21/2019
 abstract:
-  description: Stream Analytics is a fully managed, PaaS service to help customers analyze and process fast moving streams of data from IoT devices, applications, clickstreams etc in real-time and trigger necessary actions as necessary. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
+  description: Stream Analytics is a fully managed, PaaS service to help customers analyze and process fast moving streams of data from IoT devices, applications, clickstreams etc., in real-time and trigger necessary actions as necessary. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
   aside:
     image:
       alt: 
