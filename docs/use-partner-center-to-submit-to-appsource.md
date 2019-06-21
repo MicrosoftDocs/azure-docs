@@ -43,18 +43,11 @@ On the Product overview page, add the details associated with your submission. T
 
 After you add your information, you can submit your solution for publishing. Your approved add-ins will be listed in product-specific stores.
 
-### Publish a new solution
-
 1. Complete your submission details.
-
-2. Select **SUBMIT FOR APPROVAL**.
-
-### To submit a solution that you saved as a draft and need to edit
-
-1. On the **Add-in overview** page, choose **Publish**.
-2. On the **Review and publish** page, review the details and status of your submission.
-3. Add any testing notes.
-4. Choose **Publish**.
+2. Select **Publish** on the top right in Partner Center.
+3. Review the details and status of your submission.
+4. Add any testing notes.
+5. Select **Publish**.
     
 > [!NOTE]
 > After you submit a solution for approval, you cannot make changes to it during the approval process. When the approval process is complete, you receive an email message indicating that your add-in was approved or that you need to make changes before it can be approved. 

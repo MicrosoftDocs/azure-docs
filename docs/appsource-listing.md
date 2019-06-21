@@ -11,8 +11,10 @@ You enter the AppSource listing information on the Store listings page in Partne
 > [!NOTE]
 > We recommend that you follow the guidelines in [Create effective AppSource listings](create-effective-office-store-listings.md) when you create your AppSource listing.
 
-## App name
-In the **App name** field, specify the title that will be displayed in AppSource. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-listings.md#use-a-succinct-and-descriptive-title).
+## Add languages
+
+## Display name
+In the **Display name** field, specify the title that will be displayed in AppSource. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-listings.md#use-a-succinct-and-descriptive-title).
 
 ## Short description and long description
 
@@ -35,6 +37,13 @@ Your screenshots appear on the AppSource details page and can help draw in poten
 At a minimum, you must supply a **Primary** screenshot. You can optionally provide an additional four images. Screenshot images must have a file extention of .png, .jpg, .jpeg, or .gif. Each screenshot must be exactly 1366 pixels wide and 768 pixels high (1366 x 768) and no larger than 1024 KB.
 
 For guidance for creating compelling screenshots, see [Use screenshots effectively](craft-effective-appsource-store-images.md).
+
+## Icon
+
+## Additional information
+
+Video link
+Search terms
 
 ## See also
 
