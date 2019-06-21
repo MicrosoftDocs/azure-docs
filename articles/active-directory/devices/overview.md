@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is a device identity?
 
-With the proliferation of devices of all shapes and sizes and the Bring Your Own Device (BYOD) concept, IT professionals are faced with two opposing goals:
+With the proliferation of devices of all shapes and sizes and the Bring Your Own Device (BYOD) concept, IT professionals are faced with two somewhat opposing goals:
 
 - Allow end users to be productive wherever and whenever
 - Protect the organization's assets
