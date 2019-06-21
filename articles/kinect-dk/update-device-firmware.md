@@ -4,7 +4,7 @@ description: Instructions for updating Azure Kinect DK device firmware
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
-ms.date: 06/28/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, firmware, update, recovery
 ---

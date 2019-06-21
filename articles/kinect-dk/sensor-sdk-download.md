@@ -4,7 +4,7 @@ description: Download links for the Sensor SDK and instructions how to install.
 author: Brent-A
 ms.author: brenta
 ms.prod: kinect-dk
-ms.date: 06/16/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect,sdk, download update, latest, available, install
 ---
