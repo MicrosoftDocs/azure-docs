@@ -96,8 +96,7 @@ The results are:
     }
 ]
 ```
-
-## IN
+## <a name="in"></a> IN
 
 Use the IN keyword to check whether a specified value matches any value in a list. For example, the following query returns all family items where the `id` is `WakefieldFamily` or `AndersenFamily`.
 
