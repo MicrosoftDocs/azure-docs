@@ -40,7 +40,7 @@ It's recommended you connect devices to dedicated PCs to prevent issues with USB
 
 2. Device starts waiting
 
-    ```
+    ```console
     Device serial number: 000011590212
     Device version: Rel; C: 1.5.78; D: 1.5.60[6109.6109]; A: 1.5.13
     Device started
@@ -55,7 +55,7 @@ It's recommended you connect devices to dedicated PCs to prevent issues with USB
 
 2. Device starts waiting
 
-    ```
+    ```console
     Device serial number: 000011590212
     Device version: Rel; C: 1.5.78; D: 1.5.60[6109.6109]; A: 1.5.13
     Device started

@@ -17,7 +17,7 @@ The Azure Kinect Firmware Tool can be used to query and update the device firmwa
 
 You can get a list of connected devices by using the -l option.  `AzureKinectFirmwareTool.exe -l`
 
-```
+```console
  == Azure Kinect DK Firmware Tool ==
 Found 2 connected devices:
 0: Device "000036590812"
@@ -28,7 +28,7 @@ Found 2 connected devices:
 
 You can check the current firmware versions of the first attached device by using -q option, for example, `AzureKinectFirmwareTool.exe -q`.
 
-```
+```console
  == Azure Kinect DK Firmware Tool ==
 Device Serial Number: 000036590812
 Current Firmware Versions:
@@ -70,7 +70,7 @@ Inspecting firmware allows you to get the version information from a firmware bi
 
 `AzureKinectFirmwareTool.exe -i firmware\AzureKinectDK_Fw_1.5.926614.bin`
 
-```
+```console
  == Azure Kinect DK Firmware Tool ==
 Loading firmware package ..\tools\updater\firmware\AzureKinectDK_Fw_1.5.926614.bin.
 File size: 1228844 bytes
@@ -86,7 +86,7 @@ This package contains:
 
 ## Firmware update tool options
 
-```
+```console
  == Azure Kinect DK Firmware Tool ==
 * Usage Info *
     AzureKinectFirmwareTool.exe <Command> <Arguments>
