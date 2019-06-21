@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 06/20/2019
 ms.author: tulasim
 ---
 
@@ -30,6 +30,20 @@ You can add all QnA Maker-supported [file types](../Concepts/data-sources-suppor
     ![Get the Sharepoint file URL by selecting the file's ellipsis menu then copying the URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. In the QnA Maker portal, on the **Settings** page, [add the URL](edit-knowledge-base.md#add-datasource) to the knowledge base. 
+
+### Images with Sharepoint files
+
+If files include images, those are not extracted. You can add the image, from the QnA Maker portal, after the file is extracted into QnA pairs.
+
+Add the image with the following markdown syntax: 
+
+```markdown
+![Explanation or description of image](URL of public image)
+```
+
+The text in the square brackets, `[]`, explains the image. The URL in the parentheses, `()`, is the direct link to the image. 
+
+When you test the QnA pair in the interactive test panel, in the QnA Maker portal, the image is displayed, instead of the markdown text. This validates the image can be publicly retrieved from your client-application.
 
 ## Permissions
 
