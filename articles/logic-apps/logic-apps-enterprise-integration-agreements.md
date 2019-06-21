@@ -8,11 +8,10 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 04/05/2019
+ms.date: 06/25/2019
 ---
 
-# Create and manage trading partner agreements by using Azure Logic Apps and Enterprise Integration Pack
+# Create and manage trading partner agreements in Azure Logic Apps
 
 A [trading partner](../logic-apps/logic-apps-enterprise-integration-partners.md) 
 *agreement* helps organizations and businesses communicate seamlessly with each 
@@ -29,6 +28,8 @@ when building enterprise integration solutions for B2B scenarios by using the
 and [Azure Logic Apps](../logic-apps/logic-apps-overview.md). After you create 
 an agreement, you can then use the AS2, EDIFACT, or X12 connectors for exchanging 
 B2B messages.
+
+To create agreements for exchanging RosettaNet messages, see [Exchange RosettaNet messages](../logic-apps/logic-apps-enterprise-integration-rosettanet.md).
 
 ## Prerequisites
 
