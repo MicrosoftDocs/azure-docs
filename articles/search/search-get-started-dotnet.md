@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: C# console application - Azure Search'
+title: 'C# Quickstart: Create, load, and query indexes using .NET SDK - Azure Search'
 description: Learn how to create a full text searchable index in C# using the Azure Search .NET SDK.
 author: heidisteen
 manager: cgronlun
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 06/20/2019
 
 ---
-# Quickstart: Create an Azure Search index in C#
+# C# Quickstart: Create an Azure Search index using the .NET SDK
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
@@ -68,7 +68,7 @@ For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package an
 
 1. Copy and run the following command: `Install-Package Microsoft.Azure.Search -Version 9.0.1`
 
-   You can get command syntax for other installation methodologies on the [Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search) NuGet package page
+   You can get command syntax for other installation methodologies on the [Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search) NuGet package page.
 
 1. Install `Microsoft.Extensions.Configuration.Json`. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...**. 
 
@@ -121,7 +121,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
     using Microsoft.Azure.Search.Models;
     using Newtonsoft.Json;
 
-    namespace azure_search_quickstart
+    namespace AzureSearchQuickstart
     {
         public partial class Address
         {
@@ -146,49 +146,49 @@ The hotels index consists of simple and complex fields, where a simple field is 
 1. In Hotel.cs, the class defines the overall structure of the index, including references to the address class.
 
     ```csharp
-        namespace azure_search_quickstart
+    namespace AzureSearchQuickstart
+    {
+        using System;
+        using Microsoft.Azure.Search;
+        using Microsoft.Azure.Search.Models;
+        using Newtonsoft.Json;
+
+        public partial class Hotel
         {
-            using System;
-            using Microsoft.Azure.Search;
-            using Microsoft.Azure.Search.Models;
-            using Newtonsoft.Json;
+            [System.ComponentModel.DataAnnotations.Key]
+            [IsFilterable]
+            public string HotelId { get; set; }
 
-            public partial class Hotel
-            {
-                [System.ComponentModel.DataAnnotations.Key]
-                [IsFilterable]
-                public string HotelId { get; set; }
+            [IsSearchable, IsSortable]
+            public string HotelName { get; set; }
 
-                [IsSearchable, IsSortable]
-                public string HotelName { get; set; }
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+            public string Description { get; set; }
 
-                [IsSearchable]
-                [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
-                public string Description { get; set; }
+            [IsSearchable]
+            [Analyzer(AnalyzerName.AsString.FrLucene)]
+            [JsonProperty("Description_fr")]
+            public string DescriptionFr { get; set; }
 
-                [IsSearchable]
-                [Analyzer(AnalyzerName.AsString.FrLucene)]
-                [JsonProperty("Description_fr")]
-                public string DescriptionFr { get; set; }
+            [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+            public string Category { get; set; }
 
-                [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-                public string Category { get; set; }
+            [IsSearchable, IsFilterable, IsFacetable]
+            public string[] Tags { get; set; }
 
-                [IsSearchable, IsFilterable, IsFacetable]
-                public string[] Tags { get; set; }
+            [IsFilterable, IsSortable, IsFacetable]
+            public bool? ParkingIncluded { get; set; }
 
-                [IsFilterable, IsSortable, IsFacetable]
-                public bool? ParkingIncluded { get; set; }
+            [IsFilterable, IsSortable, IsFacetable]
+            public DateTimeOffset? LastRenovationDate { get; set; }
 
-                [IsFilterable, IsSortable, IsFacetable]
-                public DateTimeOffset? LastRenovationDate { get; set; }
+            [IsFilterable, IsSortable, IsFacetable]
+            public double? Rating { get; set; }
 
-                [IsFilterable, IsSortable, IsFacetable]
-                public double? Rating { get; set; }
-
-                public Address Address { get; set; }
-            }
+            public Address Address { get; set; }
         }
+    }
     ```
 
     Attributes on the field determine how it is used in an application. For example, the `IsSearchable` attribute is assigned to every field that should be included in a full text search. In the .NET SDK, the default is to disable field behaviors that are not explicitly enabled.
@@ -202,8 +202,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
    `SearchServiceClient` has an [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) property, providing all the methods you need to create, list, update, or delete Azure Search indexes. 
 
     ```csharp
-    namespace azure_search_quickstart
-
+    namespace AzureSearchQuickstart
     {
         using System;
         using System.Linq;
@@ -481,7 +480,6 @@ The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.az
         parameters = new SearchParameters();
         results = indexClient.Documents.Search<Hotel>("Atlanta", parameters);
         WriteDocuments(results);
-
 
         // Query 2
         Console.WriteLine("Query 2: Search on the term 'Atlanta', with trimming");

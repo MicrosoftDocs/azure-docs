@@ -1546,6 +1546,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/search/search-create-index-dotnet.md",
+      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-import-data-dotnet.md",
+      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-query-dotnet.md",
+      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/search/search-autosuggest-example.md",
       "redirect_url": "/azure/search/search-autocomplete-tutorial",
       "redirect_document_id": false
