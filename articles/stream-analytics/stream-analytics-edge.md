@@ -199,6 +199,29 @@ There are two ways to update the reference data:
 * [Azure Stream Analytics on IoT Edge license](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Third-party notice for Azure Stream Analytics on IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
+## Azure Stream Analytics Edge Module Image Information (updated on 6/21/2019)
+
+image: asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3
+  
+  * image: asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64
+    base image: microsoft/dotnet:2.1.6-runtime-alpine3.7
+    platform:
+      architecture: amd64
+      os: linux
+  
+  * image: asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7
+    base image: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+    platform:
+      architecture: arm
+      os: linux
+  
+  * image: asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64
+    base image: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+    platform:
+      architecture: amd64
+      os: windows
+      
+      
 ## Get help
 For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
