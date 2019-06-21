@@ -15,7 +15,6 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/21/2019
 ms.author: spelluru
-
 ---
 
 # Create a Service Bus namespace by using an Azure Resource Manager template
@@ -79,9 +78,9 @@ Write-Host "Press [ENTER] to continue ..."
 
 Azure PowerShell is used to deploy the template in this tutorial. For other template deployment methods, see:
 
-- [By using the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-- [By using Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-- [By using REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [By using the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* [By using Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+* [By using REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
 ## Clean up resources
 
@@ -102,10 +101,3 @@ In this article, you created a Service Bus namespace. See the other quickstarts 
 
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [Get started with Service Bus topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
-[Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: https://azure.microsoft.com/pricing/details/service-bus/
-[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
