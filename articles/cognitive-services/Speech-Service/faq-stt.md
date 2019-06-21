@@ -81,6 +81,10 @@ Contact us if you require a higher scale.
 
 If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.
 
+**Q: How I am charged for dual channel audio?**
+
+**A**: If you submit each channel separately, you will be charged per the duration of the file. If you submit the whole file then you will be charged for the duration of the file.
+
 ## Importing data
 
 **Q: What is the limit on the size of a dataset, and why is it the limit?**
