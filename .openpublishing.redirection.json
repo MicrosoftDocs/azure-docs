@@ -1546,6 +1546,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-application-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-autosuggest-example.md",
       "redirect_url": "/azure/search/search-autocomplete-tutorial",
       "redirect_document_id": false

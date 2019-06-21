@@ -1,13 +1,13 @@
 ---
-title: Tutorial to develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET preview SDK.
-description: This tutorial describes how to create an ASP .NET Core MVC web application by using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure.
-author: deborahc
+title: 'ASP.NET Core MVC tutorial for Azure Cosmos DB: Web Application Development'
+description:  ASP.NET Core MVC tutorial to create an MVC web application using Azure Cosmos DB. You'll store JSON and access data from a todo app hosted on Azure App Service - ASP NET Core MVC tutorial step by step.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/18/2018
-ms.author: dech
+ms.date: 06/21/2019
+ms.author: sngun
 ---
 
 # Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK 
