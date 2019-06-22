@@ -91,7 +91,7 @@ $ docker images
 
 REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB
+mycontainerregistry.azureacr.io/azure-vote-front     v1            eaf2b9c57e5e        8 minutes ago       716 MB
 redis                                                latest        a1b99da73d05        7 days ago          106MB
 tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313        8 months ago        694 MB
 ```
