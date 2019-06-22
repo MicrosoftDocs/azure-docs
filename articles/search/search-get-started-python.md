@@ -1,6 +1,6 @@
 ---
-title: 'Python Quickstart: Create, load, and query indexes using REST APIs - Azure Search'
-description: Create, load, and query an index using Python, Jupyter Notebooks, and the Azure Search REST API.
+title: 'Python Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+description: Explains how to create an index, load data, and run queries using Python, Jupyter Notebooks, and the Azure Search REST API.
 
 ms.date: 06/20/2019
 author: heidisteen
@@ -12,7 +12,7 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ---
-# Python Quickstart: Create an Azure Search index using Jupyter notebooks
+# Quickstart: Create an Azure Search index in Python using Jupyter notebooks
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)

@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Search in Node.js - Azure Search
-description: Walk through building a search application on a hosted cloud search service on Azure using Node.js as your programming language.
+title: 'Node.js Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+description: Explains how to create an index, load data, and run queries using Node.js and the Azure Search REST APIs.
 author: jj09
 manager: jlembicz
 services: search
@@ -10,7 +10,7 @@ ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
 ---
-# Get started with Azure Search in Node.js
+# Quickstart: Create an Azure Search index in Node.js
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
