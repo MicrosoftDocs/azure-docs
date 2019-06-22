@@ -23,7 +23,7 @@
 3. Use the following command to verify that the *AllowBastionHost* feature is registered with your subscription:
 
     ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.Network
+    Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBastionHost
     ````
 
     It may take a few minutes for registration to complete.
