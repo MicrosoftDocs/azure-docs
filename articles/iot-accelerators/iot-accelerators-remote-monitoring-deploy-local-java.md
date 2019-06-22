@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. You learn how to run the microservices in IntelliJ. A local microservices deployment uses the following cloud services: IoT Hub, Azure Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights services in the cloud.
+This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. You will learn how to run the microservices in IntelliJ. A local microservices deployment will use the following cloud services: IoT Hub, Azure Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights services in the cloud.
 
 If you want to run the Remote Monitoring solution accelerator in Docker on your local machine, see [Deploy the Remote Monitoring solution accelerator locally - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -32,9 +32,9 @@ To complete the local deployment, you need the following tools installed on your
 * [Docker](https://www.docker.com).
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/).
-* [IntelliJ Plugin Scala](https://plugins.jetbrains.com/plugin/1347-scala).
-* [IntelliJ Plugin SBT](https://plugins.jetbrains.com/plugin/5007-sbt).
-* [IntelliJ Plugin SBT Executor](https://plugins.jetbrains.com/plugin/7247-sbt-executor).
+* [IntelliJ Scala plugin](https://plugins.jetbrains.com/plugin/1347-scala).
+* [IntelliJ SBT plugin](https://plugins.jetbrains.com/plugin/5007-sbt).
+* [IntelliJ SBT Executor plugin](https://plugins.jetbrains.com/plugin/7247-sbt-executor).
 * [Nginx](https://nginx.org/en/download.html).
 * [Node.js v8](https://nodejs.org/). This software is a prerequisite for the PCS CLI that the scripts use to create Azure resources. Don't use Node.js v10.
 
@@ -45,7 +45,7 @@ To complete the local deployment, you need the following tools installed on your
 
 The Remote Monitoring source code repositories include the source code and the Docker configuration files you need to run the microservices Docker images.
 
-To clone and create a local version of the repository, use your command-line environment to browse to a suitable folder on your local machine. Next, run one of the following sets of commands to clone the Java repository:
+To clone and create a local version of the repository, use your command-line environment to go to a suitable folder on your local machine. Next, run one of the following sets of commands to clone the Java repository:
 
 * To download the latest version of the Java microservice implementations, run the following command:
 
@@ -86,12 +86,12 @@ If you've not yet created the required Azure resources, follow these steps:
    * The Azure subscription to use.
    * The location of the Azure datacenter to use.
 
-   The script creates a resource group in Azure with your solution name. This resource group contains the Azure resources that the solution accelerator uses. You can delete this resource group once you no longer need the corresponding resources.
+   The script creates a resource group in Azure that has your solution name. This resource group contains the Azure resources that the solution accelerator uses. You can delete this resource group once you no longer need the corresponding resources.
 
    The script also adds a set of environment variables to your local machine. Each variable name has the prefix **PCS**. These environment variables provide details that let Remote Monitoring read its configuration values from an Azure Key Vault resource.
 
    > [!TIP]
-   > When the script completes, it saves the environment variables to a file called **\<your home folder\>\\.pcs\\\<solution name\>.env**. You can use them for future solution-accelerator deployments. Note that any environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
+   > When the script completes, it saves the environment variables to a file called **\<your home folder\>\\.pcs\\\<solution name\>.env**. You can use them for future solution-accelerator deployments. Note that any environment variables set on your local machine override the values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
 
 1. Close your command-line environment.
 
@@ -104,11 +104,11 @@ If you've already created the required Azure resources, set the corresponding en
 
 Configuration values will be read from this Key Vault resource. These environment variables may be saved in the **\<your home folder\>\\.pcs\\\<solution name\>.env** file from the deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
 
-Some of the configuration needed by the microservice is stored in an instance of Key Vault that was created on initial deployment. The corresponding variables in keyvault should be modified as needed.
+Some of the configuration needed by the microservice is stored in an instance of Key Vault that was created on initial deployment. The corresponding variables in key vault should be modified as needed.
 
 ## Run the microservices
 
-In this section, you run the Remote Monitoring microservices. You run the web UI natively; the Azure IoT Device Simulation, Auth, and Azure Stream Analytics Manager services in Docker; and the microservices in IntelliJ.
+In this section, you run the Remote Monitoring microservices. You run the web UI natively; the Azure IoT Device Simulation, Authentication and Authorization, and Azure Stream Analytics Manager services in Docker; and the microservices in IntelliJ.
 
 ### Run the Device Simulation service
 
@@ -120,9 +120,9 @@ Run the following command to launch the Docker container for the Device Simulati
 <path_to_cloned_repository>\services\device-simulation\scripts\docker\run.cmd
 ```
 
-### Run the Auth service
+### Run the Authentication and Authorization service
 
-Open a new Command Prompt window, and then run the following command to launch the Docker container for the Auth service. The service allows you to manage the users authorized to access Azure IoT Solutions.
+Open a new Command Prompt window, and then run the following command to launch the Docker container for the Authentication and Authorization service. The service allows you to manage the users who are authorized to access Azure IoT Solutions.
 
 ```cmd
 <path_to_cloned_repository>\services\auth\scripts\docker\run.cmd
@@ -136,7 +136,7 @@ Open a new Command Prompt window, and then run the following command to launch t
 <path_to_cloned_repository>\services\asa-manager\scripts\docker\run.cmd
 ```
 
-### Deploy all other microservices on local machine
+### Deploy all other microservices on your local machine
 
 The following steps show you how to run the Remote Monitoring microservices in IntelliJ:
 
@@ -150,7 +150,7 @@ The following steps show you how to run the Remote Monitoring microservices in I
 
 1. Select **Run** > **Edit Configurations**.
 1. Select **Add New Configuration** > **sbt task**.
-1. Enter **Name**, and then enter **Tasks** as run.
+1. Enter **Name**, and then enter **Tasks** as **run**.
 1. Select the **Working Directory** based on the service you want to run.
 1. Select **Apply** > **OK** to save your choices.
 1. Create run configurations for the following services:
@@ -169,13 +169,13 @@ As an example, the following image shows how to add a configuration for a servic
 1. Enter **Name**, and then **add sbt tasks**.
 1. Select **Apply** > **OK** to save your choices.
 
-As an example, the following image shows adding all sbt tasks to a single configuration:
+As an example, the following image shows how to add all sbt tasks to a single configuration:
 
 [![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
 Select **Run** to build and run the web services on the local machine.
 
-Each web service opens a Command Prompt window and web browser window. At the command prompt, you see output from the running service, and the browser window lets you monitor the status. Don't close the Command Prompt windows or web pages, as these actions stop the web service.
+Each web service opens a Command Prompt window and web browser window. At the command prompt, you see output from the running service. The browser window lets you monitor the status. Don't close the Command Prompt windows or web pages, as these actions stop the web service.
 
 To access the status of the services, you can go to the following URLs:
 
