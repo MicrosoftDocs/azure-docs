@@ -156,24 +156,6 @@
         href: platform/manage-access.md
       - name: Integrate with Configuration Manager
         href: platform/collect-sccm.md
-    - name: Log Analytics workspaces
-      items:
-      - name: Create a workspace
-        items:
-        - name: Use Azure portal
-          href: learn/quick-create-workspace.md 
-        - name: Use Azure CLI
-          href: learn/quick-create-workspace-cli.md
-        - name: Use Azure PowerShell
-          href: learn/quick-create-workspace-posh.md
-      - name: Delete a workspace
-        href: platform/delete-workspace.md
-      - name: Design for service providers
-        href: platform/service-providers.md
-      - name: Manage access
-        href: platform/manage-access.md
-      - name: Integrate with Configuration Manager
-        href: platform/collect-sccm.md
     - name: Usage and cost
       items:
       - name: Usage and estimated costs
