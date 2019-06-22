@@ -1,7 +1,7 @@
 ---
-title: Translator Text API V2.0
+title: Translator Text API v2.0
 titleSuffix: Azure Cognitive Services
-description: Reference documentation for the V2.0 Translator Text API.
+description: Reference documentation for the Translator Text API v2.0.
 services: cognitive-services
 author: rajdeep-in
 manager: nitinme
@@ -18,34 +18,34 @@ ms.author: v-pawal
 > [!IMPORTANT]
 > This version of the Translator Text API has been deprecated. [View documentation for v3 of the Translator Text API](v3-0-reference.md).
 
-Translator Text API V2 can be seamlessly integrated into your applications, websites, tools, or other solutions to provide multi-language user experiences. Leveraging industry standards, it can be used on any hardware platform and with any operating system to perform language translation and other language-related operations such as text language detection or text to speech. Click Here for more information about the Microsoft Translator API.
+Version 2 of the Translator Text API can be seamlessly integrated into your apps, websites, tools, or other solutions to provide multilanguage user experiences. It can be used on any hardware platform and with any operating system to perform language translation and other language-related operations, like text language detection and text to speech, according to industry standards. For more information, see [Translator Text API](../translator-info-overview.md).
 
 ## Getting started
-To access the Translator Text API you will need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
+To access the Translator Text API, you'll need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
 
-## Authorization
-All calls to Translator Text API require a subscription key to authenticate. The API supports three modes of authentication:
+## Authentication 
+All calls to the Translator Text API require a subscription key for authentication. The API supports three methods of authentication:
 
-- An access token. Use the subscription key referenced in **step** 9 to generate an access token by making a POST request to the authorization service. See the token service documentation for details. Pass the access token to the Translator service using the Authorization header or the `access_token` query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests during these 10 minutes.
-- A subscription key directly. Pass your subscription key as a value in the `Ocp-Apim-Subscription-Key` header included with your request to the Translator API. In this mode, you don't have to call the authentication token service to generate an access token.
-- A [Cognitive Services multi-service subscription](https://azure.microsoft.com/pricing/details/cognitive-services/). This mode allows you to use a single secret key to authenticate requests for multiple services. <br/>
-When you use a multi-service secret key, you must include two authentication headers with your request. The first header passes the secret key. The second header specifies the region associated with your subscription:
+- An access token. Use the subscription key referenced in step 9 to create an access token by making a POST request to the authentication service. See the token service documentation for details. Pass the access token to the Translator service by using the Authorization header or the `access_token` query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests during these 10 minutes.
+- A subscription key used directly. Pass your subscription key as a value in the `Ocp-Apim-Subscription-Key` header included with your request to the Translator Text API. When you use the subscription key directly, you don't have to call the token authentication service to create an access token.
+- A [Cognitive Services multi-service subscription](https://azure.microsoft.com/pricing/details/cognitive-services/). This method allows you to use a single secret key to authenticate requests for multiple services.
+When you use a multi-service secret key, you need to include two authentication headers with your request. The first header passes the secret key. The second header specifies the region associated with your subscription:
    - `Ocp-Apim-Subscription-Key`
    - `Ocp-Apim-Subscription-Region`
 
-The region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service subscription key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
+The region is required for the multi-service Text API subscription. The region you select is the only region you can use for text translation when you use the multi-service subscription key. It needs to be the same region you selected when you signed up for your multi-service subscription on the Azure portal.
 
 The available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
 
-Consider your subscription key and the access token as secrets that should be hidden from view.
+Your subscription key and access token are secrets that should be hidden from view.
 
 ## Profanity handling
-Normally the Translator service will retain profanity that is present in the source in the translation. The degree of profanity and the context that makes words profane differ between cultures, and as a result the degree of profanity in the target language may be amplified or reduced.
+Normally, the Translator service will retain profanity that's present in the source. The degree of profanity and the context that makes words profane differ according to culture. So the degree of profanity in the target language could be increased or reduced.
 
-If you want to avoid getting profanity in the translation, regardless of the presence of profanity in the source text, you can use the profanity filtering option for the methods that support it. The option allows you to choose whether you want to see profanity deleted or marked with appropriate tags, or no action taken. The accepted values of  `ProfanityAction` are `NoAction` (default), Marked and `Deleted`.
+If you want to prevent profanity in the translation even when it's in the source text, you can use the profanity filtering option for the methods that support it. The option allows you to choose whether you want to see profanity deleted or marked with appropriate tags, or whether you want to allow the profanity in the target. The accepted values of  `ProfanityAction` are `NoAction` (default), `Marked`, and `Deleted`.
 
 
-|ProfanityAction	|Action	|Example Source (Japanese)	|Example Translation (English)	|
+|ProfanityAction	|Action	|Example source (Japanese)	|Example translation (English)	|
 |:--|:--|:--|:--|
 |NoAction	|Default. Same as not setting the option. Profanity will pass from source to target.		|彼はジャッカスです。		|He is a jackass.	|
 |Marked		|Profane words will be surrounded by XML tags \<profanity> and \</profanity>.		|彼はジャッカスです。	|He is a \<profanity>jackass\</profanity>.	|
@@ -53,7 +53,7 @@ If you want to avoid getting profanity in the translation, regardless of the pre
 
 	
 ## Excluding content from translation
-When translating content with tags such as HTML (`contentType=text/html`), it is sometimes useful to exclude specific content from translation. You may use the attribute `class=notranslate` to specify content that should remain in its original language. In the following example, the content inside the first `div` element will not be translated, while the content in the second `div` element will be translated.
+When you translate content with tags, like HTML (`contentType=text/html`), it's sometimes useful to exclude specific content from the translation. You can use the attribute `class=notranslate` to specify content that should remain in its original language. In the following example, the content in the first `div` element won't be translated, but the content in the second `div` element will be translated.
 
 ```HTML
 <div class="notranslate">This will not be translated.</div>
@@ -67,37 +67,37 @@ Translates a text string from one language to another.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/Translate`.
 
-**Return value:** A string representing the translated text.
+**Return value:** A string that represents the translated text.
 
-If you previously used `AddTranslation` or `AddTranslationArray` to enter a translation with a rating of 5 or higher for the same source sentence, `Translate` returns only the top choice that is available to your system. The "same source sentence" means the exact same (100% matching), except for capitalization, white space, tag values, and punctuation at the end of a sentence. If no rating is stored with a rating of 5 or above then the returned result will be the automatic translation by Microsoft Translator.
+If you previously used `AddTranslation` or `AddTranslationArray` to enter a translation with a rating of 5 or higher for the same source sentence, `Translate` returns only the top choice that's available to your system. "Same source sentence" means exactly the same (100% matching), except for capitalization, white space, tag values, and punctuation at the end of a sentence. If no rating is stored with a rating of 5 or above, the returned result will be the automatic translation by Microsoft Translator.
 
-### Response class (Status 200)
+### Response class (status 200)
 
 string
 
-Response Content Type: application/xml 
+Response content type: application/xml
 
 ### Parameters
 
-|Parameter|Value|Description	|Parameter Type|Data Type|
+|Parameter|Value|Description	|Parameter type|data type|
 |:--|:--|:--|:--|:--|
-|appid	|(empty)	|Required. If the Authorization or  Ocp-Apim-Subscription-Key header is used, leave the appid field empty else include a string containing  "Bearer" + " " + "access_token".|query|string|
-|text|(empty)	|Required. A string representing the text to translate. The size of the text must not exceed 10000 characters.|query|string|
-|from|(empty)	|Optional. A string representing the language code of the translation text. For example, en for English.|query|string|
-|to|(empty)	|Required. A string representing the language code to translate the text into.|query|string|
-|contentType|(empty)	|Optional. The format of the text being translated. The supported formats are text/plain (default) and  text/html. Any HTML needs to be a well-formed, complete element.|query|string|
-|category|(empty)	|Optional. A string containing the category (domain) of the translation. Defaults to "general".|query|string|
-|Authorization|(empty)	|Required if the appid field or  Ocp-Apim-Subscription-Key header is not specified. Authorization token:  "Bearer" + " " + "access_token".|header|string|
-|Ocp-Apim-Subscription-Key|(empty)	|Required if the appid field or Authorization header is not specified.|header|string|
+|AppId	|(empty)	|Required. If the Authorization or  Ocp-Apim-Subscription-Key header is used, leave the appid field empty. Otherwise, include a string that contains  "Bearer" + " " + "access_token".|query|string|
+|Text|(empty)	|Required. A string that represents the text to translate. The text can't contain more than 10,000 characters.|query|string|
+|From|(empty)	|Optional. A string that represents the language code of the text being translated. For example, en for English.|query|string|
+|To|(empty)	|Required. A string that represents the code of the language to translate the text into.|query|string|
+|ContentType|(empty)	|Optional. The format of the text being translated. The supported formats are text/plain (default) and  text/html. Any HTML elements need to be well-formed, complete elements.|query|string|
+|Category|(empty)	|Optional. A string containing the category (domain) of the translation. Defaults to "general".|query|string|
+|Authorization|(empty)	|Required if the appid field or  Ocp-Apim-Subscription-Key header isn't specified. Authorization token:  "Bearer" + " " + "access_token".|header|string|
+|Ocp-Apim-Subscription-Key|(empty)	|Required if the appid field or Authorization header isn't specified.|header|string|
 
 
 ### Response messages
 
-|HTTP Status Code|Reason|
+|HTTP status code|Reason|
 |:--|:--|
 |400	|Bad request. Check input parameters and the detailed error response.|
-|401	|Invalid credentials|
-|500	|Server error. If the error persists, let us know. Please provide us with the approximate date & time of the request and with the request ID included in the response header  X-MS-Trans-Info.|
+|401	|Invalid credentials.|
+|500	|Server error. If the error persists, let us know. Please provide us with the approximate date & time of the request and with the request ID included in the response header X-MS-Trans-Info.|
 |503	|Service temporarily unavailable. Please retry and let us know if the error persists.|
 
 ## POST /TranslateArray
@@ -107,7 +107,7 @@ Use the `TranslateArray` method to retrieve translations for multiple source tex
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/TranslateArray`.
 
-The format of the request body should be as follows:
+The format of the request body should look like this:
 
 ```
 <TranslateArrayRequest>
@@ -129,34 +129,34 @@ The format of the request body should be as follows:
 </TranslateArrayRequest>
 ```
 
-Elements within the `TranslateArrayRequest` are:
+These are the elements in `TranslateArrayRequest`:
 
 
-* `appid`: Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the appid field empty else include a string containing `"Bearer" + " " + "access_token"`.
-* `from`: Optional. A string representing the language code to translate the text from. If left empty the response will include the result of language auto-detection.
-* `options`: Optional. An `Options` object which contains the values listed below. They are all optional and default to the most common settings. Specified elements must be listed in alphabetical order.
-	- `Category`: A string containing the category (domain) of the translation. Defaults to `general`.
-	- `ContentType`: The format of the text being translated. The supported formats are `text/plain` (default), `text/xml` and `text/html`. Any HTML needs to be a well-formed, complete element.
-	- `ProfanityAction`: Specifies how profanities are handled as explained above. Accepted values of `ProfanityAction` are `NoAction` (default), `Marked` and `Deleted`.
+* `AppId`: Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `AppId` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.
+* `From`: Optional. A string that represents the language code of the text being translated. If this field is left empty, the response will include the result of language autodetection.
+* `Options`: Optional. An `Options` object that contains the following values. They are all optional and default to the most common settings. List specified elements in alphabetical order.
+	- `Category`: A string that contains the category (domain) of the translation. Defaults to `general`.
+	- `ContentType`: The format of the text being translated. The supported formats are `text/plain` (default), `text/xml`, and `text/html`. Any HTML elements need to be well-formed, complete elements.
+	- `ProfanityAction`: Specifies how profanities are handled, as explained earlier. Accepted values are `NoAction` (default), `Marked`, and `Deleted`.
 	- `State`: User state to help correlate request and response. The same contents will be returned in the response.
 	- `Uri`: Filter results by this URI. Default: `all`.
 	- `User`: Filter results by this user. Default: `all`.
-* `texts`: Required. An array containing the texts for translation. All strings must be of the same language. The total of all texts to be translated must not exceed 10000 characters. The maximum number of array elements is 2000.
-* `to`: Required. A string representing the language code to translate the text into.
+* `Texts`: Required. An array that contains the text for translation. All strings must be in the same language. The total of all text to be translated can't exceed 10,000 characters. The maximum number of array elements is 2,000.
+* `To`: Required. A string that represents the code of the language to translate the text into.
 
-Optional elements can be omitted. Elements which are direct children of TranslateArrayRequest must be listed in alphabetical order.
+Optional elements can be omitted. Elements that are direct children of `TranslateArrayRequest` must be listed in alphabetical order.
 
-TranslateArray method accepts `application/xml` or `text/xml` for `Content-Type`.
+The `TranslateArray` method accepts `application/xml` or `text/xml` for `Content-Type`.
 
-**Return value:** A `TranslateArrayResponse` array. Each `TranslateArrayResponse` has the following elements:
+**Return value:** A `TranslateArrayResponse` array. Each `TranslateArrayResponse` has these elements:
 
-* `Error`: Indicates an error if one has occurred. Otherwise set to null.
-* `OriginalSentenceLengths`: An array of integers indicating the length of each sentence in the original source text. The length of the array indicates the number of sentences.
+* `Error`: Indicates an error if one occurs. Otherwise set to null.
+* `OriginalSentenceLengths`: An array of integers that indicates the length of each sentence in the source text. The length of the array indicates the number of sentences.
 * `TranslatedText`: The translated text.
-* `TranslatedSentenceLengths`: An array of integers indicating the length of each sentence in the translated text. The length of the array indicates the number of sentences.
-* `State`: User state to help correlate request and response. Returns the same content as in the request.
+* `TranslatedSentenceLengths`: An array of integers that indicates the length of each sentence in the translated text. The length of the array indicates the number of sentences.
+* `State`: User state to help correlate request and response. Returns the same content as the request.
 
-The format of the response body is as follows.
+This is the format of the response body:
 
 ```
 <ArrayOfTranslateArrayResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
@@ -175,37 +175,37 @@ The format of the response body is as follows.
 </ArrayOfTranslateArrayResponse>
 ```
 
-### Response class (Status 200)
-A successful response includes an array of `TranslateArrayResponse` in format described above.
+### Response class (status 200)
+A successful response includes an array of `TranslateArrayResponse` arrays in the format described earlier.
 
 string
 
-Response Content Type: application/xml
+Response content type: application/xml
 
 ### Parameters
 
-|Parameter|Value|Description|Parameter Type|Data Type|
+|Parameter|Value|Description|Parameter type|Data type|
 |:--|:--|:--|:--|:--|
-|Authorization|(empty))	|Required if the appid field or  Ocp-Apim-Subscription-Key header is not specified. Authorization token:  "Bearer" + " " + "access_token".|header|string|
-|Ocp-Apim-Subscription-Key|(empty)|Required if the appid field or Authorization header is not specified.|header|string|
+|Authorization|(empty)	|Required if the AppId field or  Ocp-Apim-Subscription-Key header isn't specified. Authorization token:  "Bearer" + " " + "access_token".|header|string|
+|Ocp-Apim-Subscription-Key|(empty)|Required if the AppId field or Authorization header isn't specified.|header|string|
 
 ### Response messages
 
-|HTTP Status Code	|Reason|
+|HTTP status code	|Reason|
 |:--|:--|
-|400	|Bad request. Check input parameters and the detailed error response. Common errors include: <ul><li>Array element cannot be empty</li><li>Invalid category</li><li>From language is invalid</li><li>To language is invalid</li><li>The request contains too many elements</li><li>The From language is not supported</li><li>The To language is not supported</li><li>Translate Request has too much data</li><li>HTML is not in a correct format</li><li>Too many strings were passed in the Translate Request</li></ul>|
-|401	|Invalid credentials|
+|400	|Bad request. Check input parameters and the detailed error response. Common errors include: <ul><li>Array element cannot be empty.</li><li>Invalid category.</li><li>From language is invalid.</li><li>To language is invalid.</li><li>The request contains too many elements.</li><li>The From language is not supported.</li><li>The To language is not supported.</li><li>Translate Request has too much data.</li><li>HTML is not in a correct format.</li><li>Too many strings were passed in the Translate Request.</li></ul>|
+|401	|Invalid credentials.|
 |500	|Server error. If the error persists, let us know. Please provide us with the approximate date & time of the request and with the request ID included in the response header  X-MS-Trans-Info.|
 |503	|Service temporarily unavailable. Please retry and let us know if the error persists.|
 
 ## POST /GetLanguageNames
 
 ### Implementation notes
-Retrieves friendly names for the languages passed in as the parameter `languageCodes`, and localized using the passed locale language.
+Retrieves friendly names for the languages passed in as the parameter `languageCodes`, localized into the passed `locale` language.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`.
 
-The request body includes a string array representing the ISO 639-1 language codes to retrieve the friendly names for. For example:
+The request body includes a string array that represents the ISO 639-1 language codes for which to retrieve the friendly names. For example:
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -214,54 +214,54 @@ The request body includes a string array representing the ISO 639-1 language cod
 </ArrayOfstring>
 ```
 
-**Return value:** A string array containing languages names supported by the Translator Service, localized into the requested language.
+**Return value:** A string array that contains language names supported by the Translator service, localized into the requested language.
 
-### Response class (Status 200)
-A string array containing languages names supported by the Translator Service, localized into the requested language.
+### Response class (status 200)
+A string array that contains languages names supported by the Translator service, localized into the requested language.
 
 string
 
-Response Content Type: application/xml
+Response content type: application/xml
  
 ### Parameters
 
-|Parameter|Value|Description|Parameter Type|Data Type|
+|Parameter|Value|Description|Parameter type|Data type|
 |:--|:--|:--|:--|:--|
-|appid|(empty)|Required. If the `Authorization` or  `Ocp-Apim-Subscription-Key` header is used, leave the appid field empty else include a string containing  `"Bearer" + " " + "access_token"`.|query|string|
-|locale|(empty)	|Required. A string representing a combination of an ISO 639 two-letter lowercase culture code associated with a language and an ISO 3166 two-letter uppercase subculture code to localize the language names or an ISO 639 lowercase culture code by itself.|query|string|
-|Authorization|(empty)	|Required if the appid field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key|(empty)	|Required if the appid field or `Authorization` header is not specified.|header|string|
+|AppId|(empty)|Required. If the `Authorization` or  `Ocp-Apim-Subscription-Key` header is used, leave the AppId field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.|query|string|
+|Locale|(empty)	|Required. A string that represents one of the following, used to localize the language names: <ul><li>The combination of an ISO 639 two-letter lowercase culture code associated with a language and an ISO 3166 two-letter uppercase subculture code. <li>An ISO 639 lowercase culture code by itself.|query|string|
+|Authorization|(empty)	|Required if the AppId field or  `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key|(empty)	|Required if the AppId field or `Authorization` header isn't specified.|header|string|
 
 ### Response messages
 
-|HTTP Status Code|Reason|
+|HTTP status code|Reason|
 |:--|:--|
 |400	|Bad request. Check input parameters and the detailed error response.|
-|401	|Invalid credentials|
+|401	|Invalid credentials.|
 |500	|Server error. If the error persists, let us know. Please provide us with the approximate date & time of the request and with the request ID included in the response header  X-MS-Trans-Info.|
 |503	|Service temporarily unavailable. Please retry and let us know if the error persists.|
 
 ## GET /GetLanguagesForTranslate
 
 ### Implementation notes
-Obtain a list of language codes representing languages that are supported by the Translation Service.  `Translate` and `TranslateArray` can translate between any two of these languages.
+Gets a list of language codes that represent languages supported by the Translation service.  `Translate` and `TranslateArray` can translate between any two of these languages.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
 
-**Return value:** A string array containing the language codes supported by the Translator Services.
+**Return value:** A string array that contains the language codes supported by the Translator services.
 
-### Response class (Status 200)
-A string array containing the language codes supported by the Translator Services.
+### Response class (status 200)
+A string array that contains the language codes supported by the Translator services.
 
 string
 
-Response Content Type: application/xml
+Response content type: application/xml
  
 ### Parameters
 
-|Parameter|Value|Description|Parameter Type|Data Type|
+|Parameter|Value|Description|Parameter type|Data type|
 |:--|:--|:--|:--|:--|
-|appid|(empty)|Required. If the `Authorization` or  `Ocp-Apim-Subscription-Key` header is used, leave the appid field empty else include a string containing  `"Bearer" + " " + "access_token"`.|query|string|
+|AppId|(empty)|Required. If the `Authorization` or  `Ocp-Apim-Subscription-Key` header is used, leave the appid field empty else include a string containing  `"Bearer" + " " + "access_token"`.|query|string|
 |Authorization|(empty)	|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 
