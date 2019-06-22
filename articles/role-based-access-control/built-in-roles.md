@@ -94,8 +94,8 @@ The following table provides a brief description of each built-in role. Click th
 | [Lab Creator](#lab-creator) | Lets you create, manage, delete your managed labs under your Azure Lab Accounts. |
 | [Log Analytics Contributor](#log-analytics-contributor) | Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; creating and configuring Automation accounts; adding solutions; and configuring Azure diagnostics on all Azure resources. |
 | [Log Analytics Reader](#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. |
-| [Logic App Contributor](#logic-app-contributor) | Lets you manage logic app, but not access to them. |
-| [Logic App Operator](#logic-app-operator) | Lets you read, enable and disable logic app. |
+| [Logic App Contributor](#logic-app-contributor) | Lets you manage logic apps, but not change access to them. |
+| [Logic App Operator](#logic-app-operator) | Lets you read, enable, and disable logic apps, but not edit or update them. |
 | [Managed Application Operator Role](#managed-application-operator-role) | Lets you read and perform actions on Managed Application resources |
 | [Managed Applications Reader](#managed-applications-reader) | Lets you read resources in a managed app and request JIT access. |
 | [Managed Identity Contributor](#managed-identity-contributor) | Create, Read, Update, and Delete User Assigned Identity |
@@ -1616,7 +1616,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage logic app, but not access to them. |
+> | **Description** | Lets you manage logic apps, but not change access to them. |
 > | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -1650,7 +1650,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you read, enable and disable logic app. |
+> | **Description** | Lets you read, enable, and disable logic apps, but not edit or update them. |
 > | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
