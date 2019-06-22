@@ -1,13 +1,13 @@
 ---
-title: Use PostgreSQL extensions in Azure Database for PostgreSQL
-description: Describes the ability to extend the functionality of your database using extensions in Azure Database for PostgreSQL.
+title: Use PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
+description: Describes the ability to extend the functionality of your database using extensions in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 06/19/2019
 ---
-# PostgreSQL extensions in Azure Database for PostgreSQL
+# PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function as do built-in features. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## How to use PostgreSQL extensions
@@ -119,7 +119,7 @@ TimescaleDB is a time-series database that is packaged as an extension for Postg
 [Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/)
 
 ### Installing TimescaleDB
-To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's shared preload libraries requires a **server reboot** to take effect.
+To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 > [!NOTE]
 > TimescaleDB can be enabled on Azure Database for PostgreSQL versions 9.6 and 10
@@ -132,10 +132,7 @@ Using the [Azure portal](https://portal.azure.com/):
 
 3. Search for the `shared_preload_libraries` parameter.
 
-4. Copy and paste the following as the value for `shared_preload_libraries`
-   ```
-   timescaledb
-   ```
+4. Select **TimescaleDB**.
 
 5. Select **Save** to preserve your changes. You get a notification once the change is saved. 
 
@@ -153,4 +150,4 @@ You can now create a TimescaleDB hypertable [from scratch](https://docs.timescal
 
 
 ## Next steps
-If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback and requests in our [Customer feedback forum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

@@ -35,7 +35,7 @@ Before you begin, you must have Network Security Group Flow Logging enabled on o
 
 ## Retrieve the block list
 
-The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) block blob. Update the script to contain valid values for your environment.
+The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -112,7 +112,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## Read the block blob
 
-Next you need to read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method to retrieve the data.
+Next you need to read the `$blocklist` variable to retrieve the data. In this example we iterate through the blocklist, read the bytes from each block and story them in an array. Use the [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method to retrieve the data.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {

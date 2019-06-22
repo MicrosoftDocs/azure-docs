@@ -141,6 +141,20 @@ Now, get started writing some code. The complete *Project.cs* file for this tuto
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
       }
    ```
+
+   If you are using a proxy object to connect to Azure Cosmos DB, you should instead use the following code block to create the DocumentClient object. The sample in this document doesn't use a proxy object, so the example below is just for your reference:
+
+   ```csharp
+   HttpClientHandler handler = new HttpClientHandler()
+   {
+     Proxy = proxyObject
+     UseProxy = true,
+   };
+
+   //Pass handler to the constructor of DocumentClient.
+   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   
+   ```
    
 1. Add the following code to the `Main` method to run the `GetStartedDemo` task. The `Main` method catches exceptions and writes them to the console.
    
@@ -431,7 +445,7 @@ The following diagram illustrates how the Azure Cosmos DB SQL query syntax calls
 
 ![Diagram illustrating the scope and meaning of the query used by the NoSQL tutorial to create a C# console application](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-The [FROM](how-to-sql-query.md#FromClause) keyword in the SQL query is optional, because Azure Cosmos DB queries are already scoped to a single collection. You can swap `FROM Families f` with `FROM root r`, or any other variable name you choose. Azure Cosmos DB will infer that `Families`, `root`, or the variable name you choose refers to the current collection.
+The [FROM](sql-query-from.md) keyword in the SQL query is optional, because Azure Cosmos DB queries are already scoped to a single collection. You can swap `FROM Families f` with `FROM root r`, or any other variable name you choose. Azure Cosmos DB will infer that `Families`, `root`, or the variable name you choose refers to the current collection.
 
 ## <a id="ReplaceDocument"></a>Update a JSON document
 

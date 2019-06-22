@@ -13,14 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 05/03/2019
 ms.author: barclayn
 
 ---
 # Azure Identity Management and access control security best practices
-
-Many consider identity to be the new boundary layer for security, taking over that role from the traditional network-centric perspective. This evolution of the primary pivot for security attention and investments come from the fact that network perimeters have become increasingly porous and that perimeter defense cannot be as effective as they once were prior to the explosion of [BYOD](https://aka.ms/byodcg) devices and cloud applications.
-
 In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) and the experiences of customers like yourself.
 
 For each best practice, we explain:
@@ -37,37 +34,63 @@ Azure identity management and access control security best practices discussed i
 
 * Treat identity as the primary security perimeter
 * Centralize identity management
+* Manage connected tenants
 * Enable single sign-on
-* Turn on conditional access
+* Turn on Conditional Access
 * Enable password management
 * Enforce multi-factor verification for users
 * Use role-based access control
 * Lower exposure of privileged accounts
 * Control locations where resources are located
+* Use Azure AD for storage authentication
 
 ## Treat identity as the primary security perimeter
 
 Many consider identity to be the primary perimeter for security. This is a shift from the traditional focus on network security. Network perimeters keep getting more porous, and that perimeter defense can’t be as effective as it was before the explosion of [BYOD](https://aka.ms/byodcg) devices and cloud applications.
+
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) is the Azure solution for identity and access management. Azure AD is a multitenant, cloud-based directory and identity management service from Microsoft. It combines core directory services, application access management, and identity protection into a single solution.
 
 The following sections list best practices for identity and access security using Azure AD.
 
 ## Centralize identity management
 
-In a [hybrid identity](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one single location, regardless of where an account is created. Integration also helps your users to be more productive by providing a common identity for accessing both cloud and on-premises resources.
+In a [hybrid identity](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one location, regardless of where an account is created. Integration also helps your users be more productive by providing a common identity for accessing both cloud and on-premises resources.
 
+**Best practice**: Establish a single Azure AD instance. Consistency and a single authoritative sources will increase clarity and reduce security risks from human errors and configuration complexity.
+**Detail**: Designate a single Azure AD directory as the authoritative source for corporate and organizational accounts.
 
 **Best practice**: Integrate your on-premises directories with Azure AD.  
 **Detail**: Use [Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md) to synchronize your on-premises directory with your cloud directory.
 
-**Best practice**: Turn on password hash synchronization.  
-**Detail**: Password hash synchronization is a feature used to synchronize hashes of user password hashes from an on-premises Active Directory instance to a cloud-based Azure AD instance.
+> [!Note]
+> There are [factors that affect the performance of Azure AD Connect](../active-directory/hybrid/plan-connect-performance-factors.md). Ensure Azure AD Connect has enough capacity to keep underperforming systems from impeding security and productivity. Large or complex organizations (organizations provisioning more than 100,000 objects) should follow the [recommendations](../active-directory/hybrid/whatis-hybrid-identity.md) to optimize their Azure AD Connect implementation.
 
-Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises servers fail or become temporarily unavailable. This enables users to sign in to the service by using the same password that they use to sign in to their on-premises Active Directory instance. It also allows Identity Protection to detect compromised credentials by comparing those password hashes with passwords known to be compromised, if a user has used their same email address and password on other services not connected to Azure AD.
+**Best practice**: Don’t synchronize accounts to Azure AD that have high privileges in your existing Active Directory instance.
+**Detail**: Don’t change the default [Azure AD Connect configuration](../active-directory/hybrid/how-to-connect-sync-configure-filtering.md) that filters out these accounts. This configuration mitigates the risk of adversaries pivoting from cloud to on-premises assets (which could create a major incident).
+
+**Best practice**: Turn on password hash synchronization.  
+**Detail**: Password hash synchronization is a feature used to synch user password hashes from an on-premises Active Directory instance to a cloud-based Azure AD instance. This sync helps to protect against leaked credentials being replayed from previous attacks.
+
+Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises servers fail or become temporarily unavailable. This sync enables users to sign in to the service by using the same password that they use to sign in to their on-premises Active Directory instance. It also allows Identity Protection to detect compromised credentials by comparing synchronized password hashes with passwords known to be compromised, if a user has used the same email address and password on other services that aren't connected to Azure AD.
 
 For more information, see [Implement password hash synchronization with Azure AD Connect sync](../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
+**Best practice**: For new application development, use Azure AD for authentication.
+**Detail**: Use the correct capabilities to support authentication:
+
+  - Azure AD for employees
+  - [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/) for guest users and external partners
+  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) to control how customers sign up, sign in, and manage their profiles when they use your applications
+
 Organizations that don’t integrate their on-premises identity with their cloud identity can have more overhead in managing accounts. This overhead increases the likelihood of mistakes and security breaches.
+
+> [!Note]
+> You need to choose which directories critical accounts will reside in and whether the admin workstation used is managed by new cloud services or existing processes. Using existing management and identity provisioning processes can decrease some risks but can also create the risk of an attacker compromising an on-premises account and pivoting to the cloud. You might want to use a different strategy for different roles (for example, IT admins vs. business unit admins). You have two options. First option is to create Azure AD Accounts that aren’t synchronized with your on-premises Active Directory instance. Join your admin workstation to Azure AD, which you can manage and patch by using Microsoft Intune. Second option is to use existing admin accounts by synchronizing to your on-premises Active Directory instance. Use existing workstations in your Active Directory domain for management and security.
+
+## Manage connected tenants
+Your security organization needs visibility to assess risk and to determine whether the policies of your organization, and any regulatory requirements, are being followed. You should ensure that your security organization has visibility into all subscriptions connected to your production environment and network (via [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or [site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). A [Global Administrator/Company Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) in Azure AD can elevate their access to the [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) role and see all subscriptions and managed groups connected to your environment.
+
+See [elevate access to manage all Azure subscriptions and management groups](../role-based-access-control/elevate-access-global-admin.md) to ensure that you and your security group can view all subscriptions or management groups connected to your environment. You should remove this elevated access after you’ve assessed risks.
 
 ## Enable single sign-on
 
@@ -82,14 +105,17 @@ Use SSO to enable users to access their [SaaS applications](../active-directory/
 
 Organizations that don’t create a common identity to establish SSO for their users and applications are more exposed to scenarios where users have multiple passwords. These scenarios increase the likelihood of users reusing passwords or using weak passwords.
 
-## Turn on conditional access
+## Turn on Conditional Access
 
-Users can access your organization's resources by using a variety of devices and apps from anywhere. As an IT administrator, you want to make sure that these devices meet your standards for security and compliance. Just focusing on who can access a resource is not sufficient anymore.
+Users can access your organization's resources by using a variety of devices and apps from anywhere. As an IT admin, you want to make sure that these devices meet your standards for security and compliance. Just focusing on who can access a resource is not sufficient anymore.
 
-To balance security and productivity, you need to think about how a resource is accessed before you can make an access control decision. With Azure AD conditional access, you can address this requirement. With conditional access, you can make automated access control decisions for accessing your cloud apps that are based on conditions.
+To balance security and productivity, you need to think about how a resource is accessed before you can make a decision about access control. With Azure AD Conditional Access, you can address this requirement. With Conditional Access, you can make automated access control decisions based on conditions for accessing your cloud apps.
 
 **Best practice**: Manage and control access to corporate resources.  
-**Detail**: Configure Azure AD [conditional access](../active-directory/active-directory-conditional-access-azure-portal.md) based on a group, location, and application sensitivity for SaaS apps and Azure AD–connected apps.
+**Detail**: Configure Azure AD [Conditional Access](../active-directory/active-directory-conditional-access-azure-portal.md) based on a group, location, and application sensitivity for SaaS apps and Azure AD–connected apps.
+
+**Best practice**: Block legacy authentication protocols.
+**Detail**: Attackers exploit weaknesses in older protocols every day, particularly for password spray attacks. Configure Conditional Access to block legacy protocols. See the video [Azure AD: Do’s and Don’ts](https://www.youtube.com/watch?v=wGk0J4z90GI) for more information.
 
 ## Enable password management
 
@@ -101,6 +127,9 @@ If you have multiple tenants or you want to enable users to [reset their own pas
 **Best practice**: Monitor how or if SSPR is really being used.  
 **Detail**: Monitor the users who are registering by using the Azure AD [Password Reset Registration Activity report](../active-directory/active-directory-passwords-get-insights.md). The reporting feature that Azure AD provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
 
+**Best practice**: Extend cloud-based password policies to your on-premises infrastructure.
+**Detail**: Enhance password policies in your organization by performing the same checks for on-premises password changes as you do for cloud-based password changes. Install [Azure AD password protection](../active-directory/authentication/concept-password-ban-bad.md) for Windows Server Active Directory agents on-premises to extend banned password lists to your existing infrastructure. Users and admins who change, set, or reset passwords on-premises are required to comply with the same password policy as cloud-only users.
+
 ## Enforce multi-factor verification for users
 
 We recommend that you require two-step verification for all of your users. This includes administrators and others in your organization who can have a significant impact if their account is compromised (for example, financial officers).
@@ -110,14 +139,16 @@ There are multiple options for requiring two-step verification. The best option 
 Following are options and benefits for enabling two-step verification:
 
 **Option 1**: [Enable Multi-Factor Authentication by changing user state](../active-directory/authentication/howto-mfa-userstates.md).   
-**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](../active-directory/authentication/concept-mfa-whichversion.md). Using this method requires users to perform two-step verification every time they sign in and overrides conditional access policies.
+**Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](../active-directory/authentication/concept-mfa-whichversion.md). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
 
-**Option 2**: [Enable Multi-Factor Authentication with conditional access policy](../active-directory/authentication/howto-mfa-getstarted.md).
-**Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [conditional access](../active-directory/active-directory-conditional-access-azure-portal.md). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
+To determine where Multi-Factor Authentication needs to be enabled, see [Which version of Azure MFA is right for my organization?](../active-directory/authentication/concept-mfa-whichversion.md).
 
-This is the most flexible way to enable two-step verification for your users. Enabling a conditional access policy works only for Azure Multi-Factor Authentication in the cloud and is a premium feature of Azure AD. You can find more information on this method in [Deploy cloud-based Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
+**Option 2**: [Enable Multi-Factor Authentication with Conditional Access policy](../active-directory/authentication/howto-mfa-getstarted.md).
+**Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [Conditional Access](../active-directory/active-directory-conditional-access-azure-portal.md). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
 
-**Option 3**: Enable Multi-Factor Authentication with conditional access policies by evaluating user and sign-in risk of [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
+This is the most flexible way to enable two-step verification for your users. Enabling a Conditional Access policy works only for Azure Multi-Factor Authentication in the cloud and is a premium feature of Azure AD. You can find more information on this method in [Deploy cloud-based Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).
+
+**Option 3**: Enable Multi-Factor Authentication with Conditional Access policies by evaluating user and sign-in risk of [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
 **Benefit**: This option enables you to:
 
 - Detect potential vulnerabilities that affect your organization’s identities.
@@ -127,15 +158,38 @@ This is the most flexible way to enable two-step verification for your users. En
 This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md).
 
 > [!Note]
-> Option 1, enabling Multi-Factor Authentication by changing the user state, overrides conditional access policies. Because options 2 and 3 use conditional access policies, you cannot use option 1 with them.
+> Option 1, enabling Multi-Factor Authentication by changing the user state, overrides Conditional Access policies. Because options 2 and 3 use Conditional Access policies, you cannot use option 1 with them.
 
 Organizations that don’t add extra layers of identity protection, such as two-step verification, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
 
-## Use role-based access control (RBAC)
+## Use role-based access control
+Access management for cloud resources is critical for any organization that uses the cloud. [Role-based access control (RBAC)](../role-based-access-control/overview.md) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
-Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. You can use [role-based access control (RBAC)](../role-based-access-control/overview.md) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
+Designating groups or individual roles responsible for specific functions in Azure helps avoid confusion that can lead to human and automation errors that create security risks. Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access.
 
-You can use [built-in RBAC](../role-based-access-control/built-in-roles.md) roles in Azure to assign privileges to users. Organizations that do not enforce data access control by using capabilities such as RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing user access to certain types of data (for example, high business impact) that they shouldn’t have.
+Your security team needs visibility into your Azure resources in order to assess and remediate risk. If the security team has operational responsibilities, they need additional permissions to do their jobs.
+
+You can use [RBAC](../role-based-access-control/overview.md) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
+
+**Best practice**: Segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, allow only certain actions at a particular scope.
+**Detail**: Use [built-in RBAC roles](../role-based-access-control/built-in-roles.md) in Azure to assign privileges to users.
+
+> [!Note]
+> Specific permissions create unneeded complexity and confusion, accumulating into a “legacy” configuration that’s difficult to fix without fear of breaking something. Avoid resource-specific permissions. Instead, use management groups for enterprise-wide permissions and resource groups for permissions within subscriptions. Avoid user-specific permissions. Instead, assign access to groups in Azure AD.
+
+**Best practice**: Grant security teams with Azure responsibilities access to see Azure resources so they can assess and remediate risk.
+**Detail**: Grant security teams the RBAC [Security Reader](../role-based-access-control/built-in-roles.md#security-reader) role. You can use the root management group or the segment management group, depending on the scope of responsibilities:
+
+- **Root management group** for teams  responsible for all enterprise resources
+- **Segment management group** for teams with limited scope (commonly because of regulatory or other organizational boundaries)
+
+**Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.
+**Detail**: Review the RBAC built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [custom roles for Azure resources](../role-based-access-control/custom-roles.md). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
+
+**Best practices**: Grant Azure Security Center access to security roles that need it. Security Center allows security teams to quickly identify and remediate risks.
+**Detail**: Add security teams with these needs to the RBAC [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.
+
+Organizations that don’t enforce data access control by using capabilities like RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing users to access types of data (for example, high business impact) that they shouldn’t have.
 
 ## Lower exposure of privileged accounts
 
@@ -149,6 +203,12 @@ The following summarizes the best practices found in [Securing privileged access
 
 **Best practice**: Manage, control, and monitor access to privileged accounts.   
 **Detail**: Turn on [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md). After you turn on Privileged Identity Management, you’ll receive notification email messages for privileged access role changes. These notifications provide early warning when additional users are added to highly privileged roles in your directory.
+
+**Best practice**: Ensure all critical admin accounts are managed Azure AD accounts.
+**Detail**: Remove any consumer accounts from critical admin roles (for example, Microsoft accounts like hotmail.com, live.com, and outlook.com).
+
+**Best practice**: Ensure all critical admin roles have a separate account for administrative tasks in order to avoid phishing and other attacks to compromise administrative privileges.
+**Detail**: Create a separate admin account that’s assigned the privileges needed to perform the administrative tasks. Block the use of these administrative accounts for daily productivity tools like Microsoft Office 365 email or arbitrary web browsing.
 
 **Best practice**: Identify and categorize accounts that are in highly privileged roles.   
 **Detail**: After turning on Azure AD Privileged Identity Management, view the users who are in the global administrator, privileged role administrator, and other highly privileged roles. Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
@@ -169,10 +229,27 @@ The following summarizes the best practices found in [Securing privileged access
 **Best practice**: Define at least two emergency access accounts.   
 **Detail**: Emergency access accounts help organizations restrict privileged access in an existing Azure Active Directory environment. These accounts are highly privileged and are not assigned to specific individuals. Emergency access accounts are limited to scenarios where normal administrative accounts can’t be used. Organizations must limit the emergency account's usage to only the necessary amount of time.
 
-Evaluate the accounts that are assigned or eligible for the global admin role. If you don’t see any cloud-only accounts by using the `*.onmicrosoft.com` domain (intended for emergency access), create them. For more information, see Managing emergency access administrative accounts in Azure AD.
+Evaluate the accounts that are assigned or eligible for the global admin role. If you don’t see any cloud-only accounts by using the `*.onmicrosoft.com` domain (intended for emergency access), create them. For more information, see [Managing emergency access administrative accounts in Azure AD](../active-directory/users-groups-roles/directory-emergency-access.md).
 
-**Best practice**: Turn on Multi-Factor Authentication, and register all other highly privileged single-user non-federated admin accounts.  
-**Detail**: Require Azure Multi-Factor Authentication at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: global administrator, privileged role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-Factor Authentication for your admin accounts](../active-directory/authentication/howto-mfa-userstates.md) and ensure that all those users have [registered](https://aka.ms/mfasetup).
+**Best practice**: Have a “break glass" process in place in case of an emergency.
+**Detail**: Follow the steps in [Securing privileged access for hybrid and cloud deployments in Azure AD](../active-directory/users-groups-roles/directory-admin-roles-secure.md).
+
+**Best practice**: Require all critical admin accounts to be password-less (preferred), or require Multi-Factor Authentication.
+**Detail**: Use the [Microsoft Authenticator app](../active-directory/authentication/howto-authentication-phone-sign-in.md) to sign in to any Azure AD account without using a password. Like [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), the Microsoft Authenticator uses key-based authentication to enable a user credential that’s tied to a device and uses biometric authentication or a PIN.
+
+Require Azure Multi-Factor Authentication at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global Administrator, Privileged Role Administrator, Exchange Online Administrator, and SharePoint Online Administrator. Enable [Multi-Factor Authentication for your admin accounts](../active-directory/authentication/howto-mfa-userstates.md) and ensure that admin account users have registered.
+
+**Best practice**: For critical admin accounts, have an admin workstation where production tasks aren’t allowed (for example, browsing and email). This will protect your admin accounts from attack vectors that use browsing and email and significantly lower your risk of a major incident.
+**Detail**: Use an admin workstation. Choose a level of workstation security:
+
+- Highly secure productivity devices provide advanced security for browsing and other productivity tasks.
+- [Privileged Access Workstations (PAWs)](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) provide a dedicated operating system that’s protected from internet attacks and threat vectors for sensitive tasks.
+
+**Best practice**: Deprovision admin accounts when employees leave your organization.
+**Detail**: Have a process in place that disables or deletes admin accounts when employees leave your organization.
+
+**Best practice**: Regularly test admin accounts by using current attack techniques.
+**Detail**: Use Office 365 Attack Simulator or a third-party offering to run realistic attack scenarios in your organization. This can help you find vulnerable users before a real attack occurs.
 
 **Best practice**: Take steps to mitigate the most frequently used attacked techniques.  
 **Detail**:
@@ -229,6 +306,11 @@ An active identity monitoring system can quickly detect suspicious behavior and 
 **Detail**: Use [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md), which flags the current risks on its own dashboard and sends daily summary notifications via email. To help protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level is reached.
 
 Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
+
+## Use Azure AD for storage authentication
+[Azure Storage](../storage/common/storage-auth-aad.md) supports authentication and authorization with Azure AD for Blob storage and Queue storage. With Azure AD authentication, you can use the Azure role-based access control to grant specific permissions to users, groups, and applications down to the scope of an individual blob container or queue.
+
+We recommend that you use [Azure AD for authenticating access to storage](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/).
 
 ## Next step
 

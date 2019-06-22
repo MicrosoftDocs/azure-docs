@@ -74,12 +74,6 @@ The following example utterances use entities and roles:
 |I'm interesting in learning more about **Seattle**|I'm interested in learning more about {Location}|
 |Buy a ticket from Seattle to New York|Buy a ticket from {Location:Origin} to {Location:Destination}|
 
-## How are roles related to hierarchical entities?
-
-Roles are now available for all entities in example utterances, as well as the previous use of patterns. Because they are available everywhere, they replace the need for hierarchical entities. New entities should be created with roles, instead of using hierarchical entities. 
-
-Hierarchical entities will eventually be deprecated.
-
 ## How are roles used in patterns?
 In a pattern's template utterance, roles are used within the utterance: 
 

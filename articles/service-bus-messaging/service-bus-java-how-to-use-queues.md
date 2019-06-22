@@ -225,12 +225,15 @@ application to handle duplicate message delivery. This is often achieved
 using the **getMessageId** method of the message, which remains
 constant across delivery attempts.
 
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
+
 ## Next Steps
 Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][Queues, topics, and subscriptions] for more information.
 
 For more information, see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
-[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
+[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

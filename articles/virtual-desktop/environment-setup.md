@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
 ---
 # Windows Virtual Desktop Preview environment
@@ -58,5 +58,5 @@ To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant
 
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 
-- [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
-- [Connect to the Windows Virtual Desktop Preview web client](connect-web.md)
+- [Connect from Windows 10 or Windows 7](connect-windows-7-and-10.md)
+- [Connect from a web browser](connect-web.md)

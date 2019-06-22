@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 06/12/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
@@ -30,7 +30,7 @@ In Azure Media Services, a [Live Event](https://docs.microsoft.com/rest/api/medi
 
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming.
-
+ 
 * An on-premises live encoder sends a single-bitrate stream to the Live Event that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The Live Event then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream.
 
 For detailed information about live encoding with Media Services, see [Live streaming with Media Services v3](live-streaming-overview.md).
@@ -65,6 +65,9 @@ Media Services recommends using one of the following live encoders that have mul
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
+
+> [!TIP]
+>  If you are streaming live events in multiple languages (for example, one English audio track and one Spanish audio track), you can accomplish this with the Media Excel live encoder configured to send the live feed to a pass-through Live Event.
 
 ## Configuring on-premises live encoder settings
 
@@ -130,7 +133,7 @@ Follow the same steps as in [Pass-through Live Event verification](#pass-through
 
 ### Email your recorded settings
 
-Finally, email your recorded settings and live archive parameters to Azure Media Services at amsstreaming@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow-ups. You can contact the Azure Media Services team with any questions about this process.
+Finally, email your recorded settings and live archive parameters to Azure Media Services at amslived@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow-ups. You can contact the Azure Media Services team with any questions about this process.
 
 ## Next steps
 

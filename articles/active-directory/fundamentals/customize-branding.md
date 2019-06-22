@@ -13,6 +13,7 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
 ms.custom: "it-pro, seodec18"
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ---
 
@@ -54,7 +55,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 
         - **Banner logo.** Select a .png or .jpg version of your logo to appear on the sign-in page after the user enters a username and on the **My Apps** portal page.
             
-            The image can't be taller than 36 pixels or wider than 245 pixels. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
+            The image can't be taller than 60 pixels or wider than 280 pixels. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
 
         - **Username hint.** Type the hint text that appears to users if they forget their username. This text must be Unicode, without links or code, and can't exceed 64 characters. If guests sign in to your app, we suggest not adding this hint.
 
@@ -66,7 +67,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 
         - **Sign-in page background color.** Specify the hexadecimal color (for example, white is #FFFFFF) that will appear in place of your background image in low-bandwidth connection situations. We recommend using the primary color of your banner logo or your organization color.
 
-        - **Square logo image.** Select a .png (preferred) or .jpg image of your organization’s logo to appear to users during the setup process for new Windows 10 Enterprise devices. This image is only used for Windows authentication and appears only on tenants that are using [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) for deployment or for password entry pages in other Windows 10 experiences.
+        - **Square logo image.** Select a .png (preferred) or .jpg image of your organization’s logo to appear to users during the setup process for new Windows 10 Enterprise devices. This image is only used for Windows authentication and appears only on tenants that are using [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) for deployment or for password entry pages in other Windows 10 experiences. In some cases it may also appear in the consent dialog.
         
             The image can’t be larger than 240x240 pixels in size and must have a file size of less than 10 KB. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
     

@@ -21,6 +21,9 @@ This article is for organizations that are federated with Azure Active Directory
 
 This documentation covers using the Azure Multi-Factor Authentication Server with AD FS 2.0. For information about AD FS, see [Securing cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS](howto-mfaserver-adfs-2012.md).
 
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+
 ## Secure AD FS 2.0 with a proxy
 
 To secure AD FS 2.0 with a proxy, install the Azure Multi-Factor Authentication Server on the AD FS proxy server.
@@ -82,7 +85,7 @@ You enabled IIS authentication, but to perform the pre-authentication to your Ac
 3. If users enter their username in “domain\username” format, the Server needs to be able to strip the domain off the username when it creates the LDAP query. That can be done through a registry setting.
 4. Open the registry editor and go to HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor on a 64-bit server. If on a 32-bit server, take the “Wow6432Node” out of the path. Create a DWORD registry key called “UsernameCxz_stripPrefixDomain” and set the value to 1. Azure Multi-Factor Authentication is now securing the AD FS proxy.
 
-Ensure that users have been imported from Active Directory into the Server. See the [Trusted IPs section](#trusted-ips) if you would like to whitelist internal IP addresses so that two-step verification is not required when signing in to the website from those locations.
+Ensure that users have been imported from Active Directory into the Server. See the [Trusted IPs section](#trusted-ips) if you would like to allow internal IP addresses so that two-step verification is not required when signing in to the website from those locations.
 
 ![Registry editor to configure company settings](./media/howto-mfaserver-adfs-2/reg.png)
 
@@ -106,15 +109,17 @@ You can secure AD FS when the AD FS proxy is not used. Install the Azure Multi-F
 
 Azure Multi-Factor Authentication is now securing AD FS.
 
-Ensure that users have been imported from Active Directory into the Server. See the Trusted IPs section if you would like to whitelist internal IP addresses so that two-step verification is not required when signing in to the website from those locations.
+Ensure that users have been imported from Active Directory into the Server. See the Trusted IPs section if you would like to allow internal IP addresses so that two-step verification is not required when signing in to the website from those locations.
 
 ## Trusted IPs
+
 Trusted IPs allow users to bypass Azure Multi-Factor Authentication for website requests originating from specific IP addresses or subnets. For example, you may want to exempt users from two-step verification when they sign in from the office. For this, you would specify the office subnet as a Trusted IPs entry.
 
 ### To configure trusted IPs
+
 1. In the IIS Authentication section, click the **Trusted IPs** tab.
 2. Click the **Add…** button.
 3. When the Add Trusted IPs dialog box appears, select one of the **Single IP**, **IP range**, or **Subnet** radio buttons.
-4. Enter the IP address, range of IP addresses, or subnet that should be whitelisted. If entering a subnet, select the appropriate Netmask and click the **OK** button. The trusted IP has now been added.
+4. Enter the IP address, range of IP addresses, or subnet that should be allowed. If entering a subnet, select the appropriate Netmask and click the **OK** button.
 
 ![Configure trusted IPs to MFA Server](./media/howto-mfaserver-adfs-2/trusted.png)

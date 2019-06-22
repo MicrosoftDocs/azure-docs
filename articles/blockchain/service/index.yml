@@ -32,11 +32,11 @@ sections:
       text: Connect using MetaMask
       href: /azure/blockchain/service/connect-metamask
     - image: 
-        src: ./media/index/multi-connect.svg
+        src: ./media/index/cligeneric.svg
       text: Connect using geth
       href: /azure/blockchain/service/connect-geth
     - image: 
-        src: ./media/index/multi-connect.svg
+        src: ./media/index/code-blocks.svg
       text: Connect using Truffle
       href: /azure/blockchain/service/connect-truffle
 - title: Step-by-Step Tutorials
@@ -47,3 +47,11 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/blockchain/service/send-transaction">Create an Azure Blockchain Service member and send a transaction</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/blockchain">REST API</a></p>

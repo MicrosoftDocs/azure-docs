@@ -27,11 +27,11 @@ The hosting plan you choose dictates the following behaviors:
 * The resources available to each function app instance.
 * Support for advanced features, such as VNET connectivity.
 
-Both Consumption and Premium plans automatically add compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. You don't have to pay for idle VMs or reserve capacity in advance.  
+Both Consumption and Premium plans automatically add compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. For the Consumption plan, you also don't have to pay for idle VMs or reserve capacity in advance.  
 
 Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.
 
-App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales down to zero. (Requires that [Always on](#always-on) be enabled.)
+App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales down to zero. (Requires that [Always on](#always-on) is enabled.)
 
 > [!NOTE]
 > You can switch between Consumption and Premium plans by changing the plan property of the function app resource.
@@ -45,7 +45,7 @@ Feature support falls into the following two categories:
 
 The following table indicates the current level of support for the three hosting plans, when running on either Windows or Linux:
 
-| | Consumption plan | Premium plan | App Service plan |
+| | Consumption plan | Premium plan | Dedicated plan |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | preview | GA |
 | Linux | preview | N/A | GA |
@@ -54,14 +54,14 @@ The following table indicates the current level of support for the three hosting
 
 When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This serverless plan scales automatically, and you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
 
-Billing is based on number of executions, execution time, and memory used. Billing is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page](https://azure.microsoft.com/en-us/pricing/details/functions/).
+Billing is based on number of executions, execution time, and memory used. Billing is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
 The Consumption plan is the default hosting plan and offers the following benefits:
 
 * Pay only when your functions are running
 * Scale out automatically, even during periods of high load
 
-All Consumption plans in a given region share the same set of resources. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same consumption plan has no impact on resilience, scalability, or reliability of each app.
+Function apps in the same region can be assigned to the same Consumption plan. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same consumption plan has no impact on resilience, scalability, or reliability of each app.
 
 ## <a name="premium-plan"></a>Premium plan (preview)
 
@@ -90,7 +90,7 @@ Consider the Azure Functions premium plan in the following situations:
 
 When running JavaScript functions on a Premium plan, you should choose an instance that has fewer vCPUs. For more information, see the [Choose single-core Premium plans](functions-reference-node.md#considerations-for-javascript-functions).  
 
-## App Service plan
+## <a name="app-service-plan"></a>Dedicated (App Service) plan
 
 Your function apps can also run on the same dedicated VMs as other App Service apps (Basic, Standard, Premium, and Isolated SKUs).
 
@@ -173,7 +173,7 @@ There are many aspects of a function app that will impact how well it will scale
 
 ### Billing model
 
-Billing for the different plans is described in detail on the [Azure Functions pricing page](https://azure.microsoft.com/en-us/pricing/details/functions/). Usage is aggregated at the function app level and counts only the time that function code is executed. The following are units for billing:
+Billing for the different plans is described in detail on the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). Usage is aggregated at the function app level and counts only the time that function code is executed. The following are units for billing:
 
 * **Resource consumption in gigabyte-seconds (GB-s)**. Computed as a combination of memory size and execution time for all functions within a function app. 
 * **Executions**. Counted each time a function is executed in response to an event trigger.
@@ -181,3 +181,9 @@ Billing for the different plans is described in detail on the [Azure Functions p
 Useful queries and information on how to understand your consumption bill can be found [on the billing FAQ](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Azure Functions pricing page]: https://azure.microsoft.com/pricing/details/functions
+
+## Service limits
+
+The following table indicates the limits that apply to function apps when running in the various hosting plans:
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

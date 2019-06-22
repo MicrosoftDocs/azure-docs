@@ -18,9 +18,9 @@ ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ---
 
-# PowerShell examples for group-based licensing in Azure AD
+# PowerShell and Graph examples for group-based licensing in Azure AD
 
-Full functionality for group-based licensing is available through the [Azure portal](https://portal.azure.com), and currently PowerShell and Microsoft Graph support is limited. However, there are some useful tasks that can be performed using the existing [MSOnline PowerShell
+Full functionality for group-based licensing is available through the [Azure portal](https://portal.azure.com), and currently PowerShell and Microsoft Graph support is limited to read-only operations. However, there are some useful tasks that can be performed using the existing [MSOnline PowerShell
 cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) and Microsoft Graph. This document provides examples of what is possible.
 
 > [!NOTE]
@@ -565,10 +565,8 @@ $servicePlansFromGroups = ("EXCHANGE_S_ENTERPRISE", "SHAREPOINTENTERPRISE", "OFF
 
 $expectedDisabledPlans = GetDisabledPlansForSKU $skuId $servicePlansFromGroups
 
-#process all members in the group
-Get-MsolGroupMember -All -GroupObjectId $groupId
-    #get full info about each user in the group
-    Get-MsolUser -ObjectId {$_.ObjectId} | Foreach {
+#process all members in the group and get full info about each user in the group looping through group members. 
+Get-MsolGroupMember -All -GroupObjectId $groupId | Get-MsolUser -ObjectId {$_.ObjectId} | Foreach {
         $user = $_;
         $operationResult = "";
 
@@ -619,6 +617,8 @@ UserId                               OperationResult
 0ddacdd5-0364-477d-9e4b-07eb6cdbc8ea User has extra plans that may be lost - license removal was skipped. Extra plans: SHAREPOINTWAC
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
+> [!NOTE]
+> Please update the values for the variables `$skuId` and `$groupId` which is being targeted for removal of Direct Licenses as per your test environment before running the above script. 
 
 ## Next steps
 

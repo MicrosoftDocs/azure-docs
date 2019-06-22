@@ -100,6 +100,8 @@ If you used the Start/Stop VMs during off-hours solution, optionally you may wan
 * Start and stop VM runbooks
 * Variables
 
+Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
+
 ## Next steps
 
 Continue to the tutorials for the solutions to learn how to use them:

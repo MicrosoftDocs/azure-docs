@@ -54,7 +54,7 @@ The pane shows the following Azure Repos code repository settings:
 
 | Setting | Description | Value |
 |:--- |:--- |:--- |
-| **Repository Type** | The type of the Azure Repos code repository.<br/>**Note**: GitHub is not currently supported. | Azure Repos Git |
+| **Repository Type** | The type of the Azure Repos code repository.<br/> | Azure Repos Git |
 | **Azure Active Directory** | Your Azure AD tenant name. | `<your tenant name>` |
 | **Azure Repos Organization** | Your Azure Repos organization name. You can locate your Azure Repos organization name at `https://{organization name}.visualstudio.com`. You can [sign in to your Azure Repos organization](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | `<your organization name>` |
 | **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |

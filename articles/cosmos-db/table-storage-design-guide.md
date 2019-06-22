@@ -4,7 +4,7 @@ description: "Azure Storage Table Design Guide: Designing scalable and performan
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18

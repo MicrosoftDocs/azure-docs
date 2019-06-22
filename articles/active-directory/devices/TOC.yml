@@ -1,8 +1,8 @@
-- name: Device Management Documentation
+- name: Device Identities Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is device management in Azure AD?
+  - name: What is a device identity?
     href: overview.md
   - name: What is enterprise state roaming?
     href: enterprise-state-roaming-overview.md
@@ -22,10 +22,14 @@
   items:
   - name: SSO to on-premises resources
     href: azuread-join-sso.md
+  - name: Primary Refresh Tokens
+    href: concept-primary-refresh-token.md
+  - name: Azure managed workstations
+    href: concept-azure-managed-workstation.md
 - name: How-to guides
   expanded: true
   items:
-  - name: Manage devices using the Azure portal
+  - name: Manage device identity
     href: device-management-azure-portal.md
   - name: Manage stale devices
     href: manage-stale-devices.md
@@ -33,12 +37,14 @@
     href: azureadjoin-plan.md
   - name: Plan your hybrid Azure AD join implementation
     href: hybrid-azuread-join-plan.md
-  - name: Control the hybrid Azure AD join of your devices
+  - name: Controlled validation of hybrid Azure AD join
     href: hybrid-azuread-join-control.md
   - name: Assign local admins to Azure AD joined devices
     href: assign-local-admin.md
   - name: Enable enterprise state roaming
     href: enterprise-state-roaming-enable.md
+  - name: Deploy Azure managed workstations
+    href: howto-azure-managed-workstation.md
   - name: Troubleshoot hybrid Azure AD joined Windows current devices
     href: troubleshoot-hybrid-join-windows-current.md
   - name: Troubleshoot hybrid Azure AD joined legacy Windows devices

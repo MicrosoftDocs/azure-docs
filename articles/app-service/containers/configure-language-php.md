@@ -102,7 +102,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## Access environment variables
 
-In App Service, you can [set app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) outside of your app code. Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
+In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
 
 ```php
 getenv("DB_HOST")
@@ -144,7 +144,7 @@ If you need to make changes to your PHP installation, you can change any of the 
 > The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://php.net/manual/function.phpinfo.php) in your app.
 >
 
-### Customize non-PHP_INI_SYSTEM directives
+### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Customize-non-PHP_INI_SYSTEM directives
 
 To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), add an *.htaccess* file to the root directory of your app.
 
@@ -164,7 +164,7 @@ Redeploy your app with the changes and restart it. If you deploy it with Kudu (f
 
 As an alternative to using *.htaccess*, you can use [ini_set()](https://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
 
-### Customize PHP_INI_SYSTEM directives
+### <a name="customize-php_ini_system-directives"></a>Customize PHP_INI_SYSTEM directives
 
 To customize PHP_INI_SYSTEM directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), you can't use the *.htaccess* approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
 
@@ -184,7 +184,7 @@ Create a directory in `/home/site` called `ini`, then create an *.ini* file in t
 > In the built-in Linux containers in App Service, */home* is used as persisted shared storage. 
 >
 
-For example, to change the value of [expose_php](http://php.net/manual/ini.core.php#ini.expose-php) run the following commands:
+For example, to change the value of [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) run the following commands:
 
 ```bash
 cd /home/site
@@ -234,7 +234,7 @@ When a working PHP app behaves differently in App Service or has errors, try the
     - Depending on your *composer.json*, different packages may be installed for production mode (`require` vs. `require-dev`).
     - Certain web frameworks may deploy static files differently in production mode.
     - Certain web frameworks may use custom startup scripts when running in production mode.
-- Run your app in App Service in debug mode. For example, in [Laravel](https://meanjs.org/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Run your app in App Service in debug mode. For example, in [Laravel](https://meanjs.org/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ### robots933456
 

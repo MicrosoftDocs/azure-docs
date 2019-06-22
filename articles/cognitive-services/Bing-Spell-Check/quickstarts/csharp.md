@@ -18,9 +18,9 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * To install `Newtonsoft.Json` as a NuGet package in Visual studio:
-    1. In your Solution Explorer, right-click on the Solution file.
+    1. In **Solution Explorer**, right-click the Solution file.
     1. Select **Manage NuGet Packages for Solution**.
     1. Search for `Newtonsoft.Json` and install the package.
 * If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
@@ -183,4 +183,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Create a single-page web app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

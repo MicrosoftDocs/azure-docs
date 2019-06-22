@@ -106,11 +106,8 @@ namespace CSHttpClientSample
                 client.DefaultRequestHeaders.Add(
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-                // Request parameter.
-                string requestParameters = "mode=Handwritten";
-
                 // Assemble the URI for the REST API method.
-                string uri = uriBase + "?" + requestParameters;
+                string uri = uriBase;
 
                 HttpResponseMessage response;
 

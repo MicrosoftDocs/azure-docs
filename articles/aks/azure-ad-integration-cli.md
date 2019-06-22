@@ -21,7 +21,6 @@ For the complete sample script used in this article, see [Azure CLI samples - AK
 The following limitations apply:
 
 - Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.
-- *Guest* users in Azure AD, such as if you use a federated sign in from a different directory, are not supported.
 
 ## Before you begin
 
@@ -233,8 +232,9 @@ If you see an authorization error message after you've successfully signed in us
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* The user you are signed in as is not a *Guest* in the Azure AD instance (this is often the case if you use a federated login from a different directory).
+* You defined the appropriate object ID or UPN, depending on if the user account is in the same Azure AD tenant or not.
 * The user is not a member of more than 200 groups.
+* Secret defined in the application registration for server matches the value configured using `--aad-server-app-secret`
 
 ## Next steps
 

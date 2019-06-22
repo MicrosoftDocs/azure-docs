@@ -27,9 +27,11 @@ device form factor.
 
 |          | Circular Array    |       |  Linear Array              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |![7 mic circular array](media/speech-devices-sdk/7-mic-c.png)|![4 mic circular array](media/speech-devices-sdk/4-mic-c.png)|![4 mic linear array](media/speech-devices-sdk/4-mic-l.png)|![2 mic linear array](media/speech-devices-sdk/2-mic-l.png)|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Mics  | 7                 | 4                 | 4              | 2              |
 | Geometry | 6 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced| 3 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced | Length = 120 mm, Spacing = 40 mm | Spacing = 40 mm |
+
+Microphone channels should be ordered according to the numbering depicted for each above array, increasing from 0.  The Microsoft Audio Stack will require an additional reference stream of audio playback to perform echo cancellation.
 
 ## Component selection
 
@@ -123,4 +125,4 @@ higher sample rates and bit depths.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn more about the [Speech Devices SDK](speech-devices-sdk.md)
+> [Learn more about the Speech Devices SDK](speech-devices-sdk.md)

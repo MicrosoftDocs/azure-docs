@@ -112,7 +112,7 @@ Leave defaults for the remaining settings, and save the file. It should look sim
 {
   "name": "myPoolName",
   "vmSize": "Standard_D2_v2",
-  "maxTasksPerNode": 4,
+  "maxTasksPerNode": 2,
   "poolSize": {
     "dedicatedNodes": {
       "min": 0,

@@ -27,7 +27,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 5. In CloudSimple portal, provide a name for your Private Cloud
 6. Select the **Location** of your Private Cloud
-7. Select the **Node type** you purchased on Azure.  You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
+7. Select the **Node type** you provisioned on Azure.  You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
 8. Specify the **Node count**.  Minimum three nodes are required to create a Private Cloud
 
     ![Create Private Cloud - Basic info](media/create-private-cloud-basic-info.png)
@@ -129,7 +129,7 @@ The VLAN/subnet will be created.  You can now use this VLAN ID to create a distr
 
 ## Connect your environment to an Azure virtual network
 
-CloudSimple provides you with an ExpressRoute circuit for your private cloud. You can connect your virtual network on Azure to the ExpressRoute circuit. For full details on setting up the connection, follow the steps in [Azure Virtual Network Connection using ExpressRoute](https://docs.azure.cloudsimple.com/azure-er-connection)
+CloudSimple provides you with an ExpressRoute circuit for your private cloud. You can connect your virtual network on Azure to the ExpressRoute circuit. For full details on setting up the connection, follow the steps in [Azure Virtual Network Connection using ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
 
 ## Sign in to vCenter
 

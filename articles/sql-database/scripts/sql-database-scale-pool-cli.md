@@ -7,8 +7,8 @@ ms.subservice: elastic-pools
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
 manager: craigg
 ms.date: 02/08/2019

@@ -1,13 +1,13 @@
 ---
-title: High availability concepts in Azure Database for PostgreSQL
-description: This article provides information of high availability when using Azure Database for PostgreSQL.
+title: High availability concepts in Azure Database for PostgreSQL - Single Server
+description: This article provides information of high availability when using Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 5/6/2019
 ---
-# High availability concepts in Azure Database for PostgreSQL
+# High availability concepts in Azure Database for PostgreSQL - Single Server
 The Azure Database for PostgreSQL service provides a guaranteed high level of availability. The financially backed service level agreement (SLA) is 99.99% upon general availability. There is virtually no application down time when using this service.
 
 ## High availability

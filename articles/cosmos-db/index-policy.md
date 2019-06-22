@@ -4,7 +4,7 @@ description:  Learn how to configure and change the default indexing policy for 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/14/2019
 ms.author: thweiss
 ---
 
@@ -13,6 +13,9 @@ ms.author: thweiss
 In Azure Cosmos DB, every container has an indexing policy that dictates how the container's items should be indexed. The default indexing policy for newly created containers indexes every property of every item, enforcing range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point. This allows you to get high query performance without having to think about indexing and index management upfront.
 
 In some situations, you may want to override this automatic behavior to better suit your requirements. You can customize a container's indexing policy by setting its *indexing mode*, and include or exclude *property paths*.
+
+> [!NOTE]
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API.
 
 ## Indexing mode
 
@@ -67,6 +70,36 @@ Any indexing policy has to include the root path `/*` as either an included or a
 - For paths with regular characters that include: alphanumeric characters and _ (underscore), you don’t have to escape the path string around double quotes (for example, "/path/?"). For paths with other special characters, you need to escape the path string around double quotes (for example, "/\"path-abc\"/?"). If you expect special characters in your path, you can escape every path for safety. Functionally it doesn’t make any difference if you escape every path Vs just the ones that have special characters.
 
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples.
+
+## Composite indexes
+
+Queries that `ORDER BY` two or more properties require a composite index. Currently, composite indexes are only utilized by Multi `ORDER BY` queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) as needed.
+
+When defining a composite index, you specify:
+
+- Two or more property paths. The sequence in which property paths are defined matters.
+- The order (ascending or descending).
+
+The following considerations are used when using composite indexes:
+
+- If the composite index paths do not match the sequence of the properties in the ORDER BY clause, then the composite index can't support the query
+
+- The order of composite index paths (ascending or descending) should also match the order in the ORDER BY clause.
+
+- The composite index also supports an ORDER BY clause with the opposite order on all paths.
+
+Consider the following example where a composite index is defined on properties a, b, and c:
+
+| **Composite Index**     | **Sample `ORDER BY` Query**      | **Supported by Index?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+You should customize your indexing policy so you can serve all necessary `ORDER BY` queries.
 
 ## Modifying the indexing policy
 

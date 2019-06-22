@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: ad891f99-179e-4487-834d-35f3bc01c1ec
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 05/03/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -34,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Cherwell, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * Cherwell single sign-on enabled subscription
 
 ## Scenario description
@@ -63,7 +64,7 @@ To configure the integration of Cherwell into Azure AD, you need to add Cherwell
 
 4. In the search box, type **Cherwell**, select **Cherwell** from result panel then click **Add** button to add the application.
 
-	 ![Cherwell in the results list](common/search-new-app.png)
+	![Cherwell in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -117,13 +118,13 @@ To configure Azure AD single sign-on with Cherwell, perform the following steps:
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
 ### Configure Cherwell Single Sign-On
 
-To configure single sign-on on **Cherwell** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Cherwell support team](https://csm.cherwell.com/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Cherwell** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Cherwell support team](https://cherwellsupport.com/CherwellPortal). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!NOTE]
 > Your Cherwell support team has to do the actual SSO configuration. You will get a notification when SSO has been enabled for your subscription.
@@ -144,10 +145,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field, type `brittasimon\@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -173,15 +173,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Cherwell test user
 
-To enable Azure AD users to log in to Cherwell, they must be provisioned into Cherwell. In the case of Cherwell, the user accounts need to be created by your [Cherwell support team](https://csm.cherwell.com/contact).
+To enable Azure AD users to sign in to Cherwell, they must be provisioned into Cherwell. In the case of Cherwell, the user accounts need to be created by your [Cherwell support team](https://cherwellsupport.com/CherwellPortal).
 
 > [!NOTE]
 > You can use any other Cherwell user account creation tools or APIs provided by Cherwell to provision Azure Active Directory user accounts.
@@ -198,4 +198,4 @@ When you click the Cherwell tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

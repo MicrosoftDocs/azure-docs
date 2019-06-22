@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 05/03/2019
 ms.author: jeedes
 
 ---
@@ -118,17 +118,25 @@ To configure Azure AD single sign-on with XaitPorter, perform the following step
 
 ### Configure XaitPorter Single Sign-On
 
-1. In a different web browser window, sign in to your XaitPorter company site as an administrator.
+1. To automate the configuration within XaitPorter, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Click on **Admin**.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup XaitPorter** will direct you to the XaitPorter application. From there, provide the admin credentials to sign into XaitPorter. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup XaitPorter manually, open a new web browser window and sign into your XaitPorter company site as an administrator and perform the following steps:
+
+4. Click on **Admin**.
 
 	![Configure Single Sign-On](./media/xaitporter-tutorial/user1.png)
 
-3. Select **Manage Single Sign-On** from the **System Setup** dropdown list.
+5. Select **Manage Single Sign-On** from the **System Setup** dropdown list.
 
 	![Configure Single Sign-On](./media/xaitporter-tutorial/user2.png)
 
-4. In the **MANAGE SINGLE SIGN-ON** section, perform the following steps:
+6. In the **MANAGE SINGLE SIGN-ON** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/xaitporter-tutorial/user3.png)
 
@@ -206,5 +214,5 @@ When you click the XaitPorter tile in the Access Panel, you should be automatica
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

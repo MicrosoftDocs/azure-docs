@@ -14,6 +14,8 @@ ms.author: yinhew
 
 # Quickstart: Synthesize speech in C++ on Linux by using the Speech SDK
 
+Quickstarts are also available for [speech-recognition](quickstart-cpp-linux.md).
+
 In this article, you create a C++ console application for Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). You use the Cognitive Services [Speech SDK](speech-sdk.md) to synthesize speech from text in real time and play the speech on your PC's speaker. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
 
 ## Prerequisites
@@ -24,7 +26,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.5.0`.
+The current version of the Cognitive Services Speech SDK is `1.5.1`.
 
 The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tar file from https://aka.ms/csspeech/linuxbinary.
 

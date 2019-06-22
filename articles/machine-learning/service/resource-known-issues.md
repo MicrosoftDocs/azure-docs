@@ -9,7 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
 
 ---
@@ -66,6 +66,9 @@ You will not be able to deploy models on FPGAs until you have requested and been
 Tensor Flow
 Automated machine learning does not currently support tensor flow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release. 
 
+### Experiment Charts
+
+Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering corectly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
 ## Databricks
 

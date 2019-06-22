@@ -188,7 +188,7 @@ For a synchronized user, the UserPrincipalName suffix was changed from one feder
 
 #### Example
 1. Bob Smith, an account for Contoso.com, gets added as a new user in Active Directory with the UserPrincipalName bob@contoso.com
-2. Bob moves to a different division of Contoso.com called Fabrikam.com and his UserPrincipalName is changed to bob@fabrikam.com
+2. Bob moves to a different division of Contoso.com called Fabrikam.com and their UserPrincipalName is changed to bob@fabrikam.com
 3. Both contoso.com and fabrikam.com domains are federated domains with Azure Active Directory.
 4. Bob's userPrincipalName does not get updated and results in a "FederatedDomainChangeError" sync error.
 

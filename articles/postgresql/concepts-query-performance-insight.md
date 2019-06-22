@@ -1,16 +1,16 @@
 ---
-title: Query Performance Insight in Azure Database for PostgreSQL
-description: This article describes the Query Performance Insight feature in Azure Database for PostgreSQL.
+title: Query Performance Insight in Azure Database for PostgreSQL - Single Server
+description: This article describes the Query Performance Insight feature in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 5/6/2019
 ---
 
 # Query Performance Insight 
 
-**Applies to:** Azure Database for PostgreSQL 9.6 and 10
+**Applies to:** Azure Database for PostgreSQL - Single Server 9.6 and 10
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 

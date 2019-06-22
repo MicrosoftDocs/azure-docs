@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 02/19/2019
+  ms.date: 05/14/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -24,7 +24,7 @@ abstract:
       src: media/index/video.png
       width: 250  
     title: Watch video (9:58)
-    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    href: https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/
     width: 250  
 sections:   
 - title: 5-Minute Quickstarts
@@ -36,6 +36,7 @@ sections:
     items:
     - html: <a href="quickstart-run-cloud-notebook">Run an experiment in the cloud</a> (no install required).
     - html: <a href="quickstart-run-local-notebook">Run an experiment using a local notebook server</a> (local SDK install).
+    - html: <a href="ui-quickstart-run-experiment">Prepare and visualize data without writing code</a> in the visual interface.
 
 - title: Step-by-Step Tutorials
   items:
@@ -46,6 +47,7 @@ sections:
     items:
     - html: <a href="tutorial-train-models-with-aml">Train</a> and <a href="tutorial-deploy-models-with-aml">deploy</a>  image classification models (<b>two-part series</b>).
     - html: <a href="tutorial-data-prep">Prep data</a> and <a href="tutorial-auto-train-models">use automated machine learning</a> to train & tune regression models  (<b>two-part series</b>).
+    - html: <a href="ui-tutorial-automobile-price-train-score">Predict automobile price</a>  with the visual interface and <a href="ui-tutorial-automobile-price-deploy">deploy</a> the regression model.
 
 - title: Samples
   items:
@@ -60,6 +62,7 @@ sections:
     - html: '<a href="https://aka.ms/aml-sdk">Main Python SDK</a>: core functionality, automated machine learning, pipelines, and more'
     - html: '<a href="https://aka.ms/aml-monitoring-sdk">Monitoring</a> Python SDK: collect data on deployed web services'
     - html: '<a href="../algorithm-module-reference/module-reference.md">Algorithm & module reference</a> for the visual interface'
+    - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>: a machine learning command-line interface extension'
   
 - title: Other Azure Machine Learning technologies
   items:

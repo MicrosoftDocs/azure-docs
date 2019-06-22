@@ -15,7 +15,7 @@ ms.date: 04/27/2019
 ms.author: juliako
 ---
 
-# Streaming Endpoints (Origin)
+# Streaming Endpoints 
 
 In Microsoft Azure Media Services, a [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry leading DRMs.
 
@@ -24,7 +24,7 @@ When you create a Media Services account, a **default** Streaming Endpoint is cr
 > [!NOTE]
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video. 
 >  
-> You are only billed when your Streaming Endpoint is in running state.
+> You are only billed when your Streaming Endpoint is in the running state.
 
 ## Naming convention
 
@@ -140,7 +140,7 @@ You also need to consider how adaptive streaming works. Each individual video fr
 
 After a Streaming Endpoint is provisioned with CDN enabled there is a defined wait time on Media Services before DNS update is done to map the Streaming Endpoint to CDN endpoint.
 
-If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, your can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period your streaming endpoint will be in **starting** state and you might observe degraded performance.
+If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, your can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period your streaming endpoint will be in the **starting** state and you might observe degraded performance.
 
 When the Standard streaming endpoint is created, it is configured by default with Standard Verizon. You can configure Premium Verizon or Standard Akamai providers using REST APIs. 
 
@@ -153,7 +153,7 @@ CDN integration is enabled in all the Azure data centers except China and Federa
 
 You can determine if DNS change has been made on a Streaming Endpoint (the traffic is being directed to the Azure CDN) by using https://www.digwebinterface.com. If the results has azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

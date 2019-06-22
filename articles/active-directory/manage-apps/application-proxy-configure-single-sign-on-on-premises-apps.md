@@ -3,8 +3,8 @@ title: SAML single sign-on for on-premises applications with Azure Active Direct
 description: Learn how to provide single sign-on for on-premises applications published through Application Proxy that are secured with SAML authentication.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.author: celested
+ms.date: 05/20/2019
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -47,13 +47,14 @@ Keep in mind the following when you're going through the tutorial:
 1. Select **SAML** as the single sign-on method.
 1. In the **Set up Single Sign-On with SAML** page, edit the **Basic SAML Configuration** data, and follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) to configure SAML-based authentication for the application.
 
-   * Make sure the **Reply URL** matches or is a path under the **External URL** for the on-premises application that you published through Application Proxy. If your application requires a different **Reply URL** for the SAML configuration, add this as the **first** URL in the list and keep the **External URL** as an additional URL, ordered after the first.
-   * Ensure that the application also specifies the correct **Reply URL** or Assertion Consumer Service URL to use for receiving the authentication token.
+   * Make sure the **Reply URL** matches the **External URL** for the on-premises application that you published through Application Proxy or is a path under the **External URL**.
+   * For an IDP-initiated flow where your application requires a different **Reply URL** for the SAML configuration, add this as an **additional** URL in the list and mark the checkbox next to it to designate it as the primary **Reply URL**.
+   * For an SP-initiated flow ensure that the backend application specifies the correct **Reply URL** or Assertion Consumer Service URL to use for receiving the authentication token.
 
      ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
     > [!NOTE]
-    > If the backend application expects the **Reply URL** to be the internal URL, you'll need to install the My Apps secure sign-in extension on users' devices. This extension will automatically redirect to the appropriate Application Proxy Service. To install the extension, see [My Apps secure sign-in extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
+    > If the backend application expects the **Reply URL** to be the internal URL, you'll need either use [custom domains](application-proxy-configure-custom-domain.md) to have matching internal and external URLS or install the My Apps secure sign-in extension on users' devices. This extension will automatically redirect to the appropriate Application Proxy Service. To install the extension, see [My Apps secure sign-in extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ## Test your app
 
