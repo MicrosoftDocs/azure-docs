@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a Standard load balancer
 
-Standard Load Balancer supports only a Standard Public IP address. When you create a Standard load balancer, you must also create a new Standard Public IP address that is configured as the frontend for the Standard load balancer.
+Standard Load Balancer supports only a Standard Public IP address. When you create a Standard load balancer, you must also create a new Standard Public IP address that is configured as the front end for the Standard load balancer.
 
 You can use many methods to create a Standard load balancer. In this quickstart, you use Azure PowerShell to deploy a [Resource Manager template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json). Resource Manager templates are JSON files that define the resources you need to deploy for your solution.
 
@@ -49,8 +49,11 @@ To understand the concepts associated with deploying and managing your Azure sol
    ```
 
    Wait until you see the prompt from the console.
+
 1. Select **Copy** from the previous code block to copy the PowerShell script.
+
 1. Right-click the shell console pane and then select **Paste**.
+
 1. Enter the values.
 
    The template deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **centralus**.
@@ -62,9 +65,13 @@ It takes about 10 minutes to deploy the template.
 ## Test the load balancer
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Select **Resource groups** from the left pane.
+
 1. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
+
 1. Select the load balancer. Its default name is the project name with **-lb** appended.
+
 1. Copy only the IP address part of the public IP address, and then paste it into the address bar of your browser. The browser displays the default page of the Internet Information Services (IIS) web server.
 
    ![IIS web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
