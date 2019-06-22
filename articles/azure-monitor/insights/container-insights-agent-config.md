@@ -23,7 +23,7 @@ Azure Monitor for containers collects stdout, stderr, and environmental variable
 
 A template ConfigMap file is provided that allows you to easily edit it with your customizations without having to create it from scratch. Before starting, you should review the Kubernetes documentation about [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and familiarize yourself with how to create, configure, and deploy ConfigMaps. This will allow you to filter stderr and stdout per namespace or across the entire cluster, and environment variables for any container running across all pods/nodes in the cluster.
 
->[!NOTE]
+>[!IMPORTANT]
 >The minimum agent version supported by this feature is microsoft/oms:ciprod06142019 or later. 
 
 ### Overview of configurable data collection settings
