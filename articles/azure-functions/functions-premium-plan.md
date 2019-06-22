@@ -19,7 +19,7 @@ ms.author: jehollan
 The Azure Functions Premium plan is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
 > [!NOTE]
-> The Premium plan preview currently supports functions running in .NET, Node, or Java through Windows infrastructure.
+> The Premium plan preview currently supports functions running in .NET, Node, Java, and Python.
 
 ## Create a Premium plan
 
@@ -100,26 +100,26 @@ When creating or scaling your plan, you can choose between three instance sizes.
 
 Below are the currently supported regions for the public preview.
 
-|Region|
-|--|
-|Australia East|
-|Australia Southeast|
-|Canada Central|
-|Central US|
-|East Asia|
-|East US 2|
-|France Central|
-|Japan West|
-|Korea Central|
-|North Central US|
-|North Europe|
-|South Central US|
-|South India|
-|Southeast Asia|
-|UK West|
-|West Europe|
-|West India|
-|West US|
+|Region| Windows | Linux |
+|--| -- | -- |
+|Australia East| ✔ | -- |
+|Australia Southeast | ✔ | -- |
+|Canada Central| ✔ | -- |
+|Central US| ✔ | -- |
+|East Asia| ✔ | -- |
+|East US 2| ✔ | -- |
+|France Central| ✔ | -- |
+|Japan West| ✔ | -- |
+|Korea Central| ✔ | -- |
+|North Central US| ✔ | -- |
+|North Europe| ✔ | -- |
+|South Central US| ✔ | -- |
+|South India | ✔ | -- |
+|Southeast Asia| ✔ | -- |
+|UK West| ✔ | -- |
+|West Europe| ✔ | -- |
+|West India| ✔ | -- |
+|West US| ✔ | -- |
 
 ## Known Issues
 
