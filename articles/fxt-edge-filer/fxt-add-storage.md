@@ -8,7 +8,7 @@ ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 
-# Tutorial: Configure the cluster - Back-end storage and virtual namespace 
+# Tutorial: Add back-end storage and configure the virtual namespace 
 
 This tutorial explains how to add back-edge storage for your cache and how to set up the client-facing virtual filesystem. 
 
@@ -40,11 +40,11 @@ Use the Control Panel to add a core filer to your system.
 
 For more detailed information about adding core filers, read these sections of the Cluster Configuration Guide:
 
-* For more about choosing and preparing to add a core filer, read [Working With Core Filers](https://azure.github.io/Avere/legacy/ops_guide/4_7/core_filer_overview.html#core-filer-overview).
+* For more about choosing and preparing to add a core filer, read [Working With Core Filers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/core_filer_overview.html#core-filer-overview).
 * For detailed prerequisites and step-by-step instructions, read these articles:
 
-  * [Adding a New NAS Core Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/new_core_filer_nas.html#create-core-filer-nas)
-  * [Adding a New Cloud Core Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/new_core_filer_cloud.html#create-core-filer-cloud)
+  * [Adding a New NAS Core Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html#create-core-filer-nas)
+  * [Adding a New Cloud Core Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#create-core-filer-cloud)
 
 After you add a core filer, you can update its settings on the Core Filer Details settings page.
 

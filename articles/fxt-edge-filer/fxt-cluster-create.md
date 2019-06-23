@@ -12,7 +12,7 @@ ms.author: v-erkell
 
 After you install and initialize the Azure FXT Edge Filer hardware nodes for your cache, use the FXT cluster software to create the cache cluster. 
 
-This tutorial walks you through the steps configure your Azure FXT Edge Filer nodes as a cluster. 
+This tutorial walks you through the steps to configure your hardware nodes as a cluster. 
 
 In this tutorial, you will learn: 
 
@@ -302,7 +302,7 @@ These steps are needed for most or all clusters.
 
 * Specify back-end storage
 
-  Add *core filer* definitions for each back-end storage system that the cluster will use. Read [Configure the cluster - back-end storage and virtual namespace](fxt-add-storage.md#about-back-end-storage) to learn more.
+  Add *core filer* definitions for each back-end storage system that the cluster will use. Read [Add back-end storage and configure virtual namespace](fxt-add-storage.md#about-back-end-storage) to learn more.
 
 * Set up client access and the virtual namespace 
 
@@ -339,7 +339,7 @@ These steps are not required for all clusters. They are needed for some types of
 
 * Customize node settings
 
-  You can set node names and configure node IPMI ports on a cluster-wide level, or individually. If you configure these settings before adding nodes to the cluster, the new nodes can pick up the settings automatically when they join. The options are described in the legacy cluster creation document section [Customizing Node Settings](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
+  You can set node names and configure node IPMI ports on a cluster-wide level, or individually. If you configure these settings before adding nodes to the cluster, the new nodes can pick up the settings automatically when they join. The options are described in the legacy cluster creation document [Customizing Node Settings](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
 
   > [!TIP]
   > Some documentation for this product is not yet available on the Microsoft Azure documentation site. Links to the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) and the legacy version of the [Cluster Creation Guide](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) will take you to a separate GitHub-hosted website. 
@@ -354,7 +354,7 @@ These steps are not required for all clusters. They are needed for some types of
 
 * Install additional licenses
 
-  If you want to use cloud storage other than Azure Blob, you must install an additional feature license. Contact your Microsoft representative for details about purchasing a FlashCloud<sup>TM</sup> license. Details are explained in [Configure the cluster - Back-end storage and virtual namespace](fxt-add-storage.md#about-back-end-storage).
+  If you want to use cloud storage other than Azure Blob, you must install an additional feature license. Contact your Microsoft representative for details about purchasing a FlashCloud<sup>TM</sup> license. Details are explained in [Add back-end storage and configure virtual namespace](fxt-add-storage.md#about-back-end-storage).
 
 
 ### Enable support
