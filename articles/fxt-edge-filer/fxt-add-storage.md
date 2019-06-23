@@ -14,7 +14,7 @@ This tutorial explains how to add back-edge storage for your cache and how to se
 
 The cluster connects to back-end storage systems to access the data clients request, and to store changes more permanently than in the cache. 
 
-The namespace is the client-facing pseudofilesystem that allows you to swap out back-end storage without changing client-side workflows. 
+The namespace is the client-facing pseudo filesystem that allows you to swap out back-end storage without changing client-side workflows. 
 
 In this tutorial you will learn: 
 
