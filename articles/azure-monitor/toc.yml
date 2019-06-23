@@ -121,15 +121,6 @@
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
-    href: platform/partners.md
-  - name: OMS portal deprecation
-    href: platform/oms-portal-transition.md
-  - name: FAQ
-    items:
-    - name: Log Analytics
-      href: platform/log-faq.md
-    - name: Application Insights
-      href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
   - name: Manage Azure Monitor
@@ -646,22 +637,22 @@
         href: insights/solutions.md
       - name: Target solutions
         href: insights/solution-targeting.md
-    - name: Collect custom data 
-      items:
-      - name: Custom metrics
-        href: platform/metrics-custom-overview.md   
-      - name: Log Analytics Data collector API 
-        href: platform/data-collector-api.md
-      - name: Log Analytics Data Collector API Pipeline example
-        href: platform/create-pipeline-datacollector-api.md
-      - name: Metrics REST API
-        href: platform/metrics-store-custom-rest-api.md
-      - name: GuestOS to Metrics Linux VM (Telegraf)
-        href: platform/collect-custom-metrics-linux-telegraf.md  
     - name: System Center
       items:
       - name: Configuration Manager
         href: platform/collect-sccm.md
+  - name: Collect custom data 
+    items:
+    - name: Custom metrics
+      href: platform/metrics-custom-overview.md   
+    - name: Log Analytics Data collector API 
+      href: platform/data-collector-api.md
+    - name: Log Analytics Data Collector API Pipeline example
+      href: platform/create-pipeline-datacollector-api.md
+    - name: Metrics REST API
+      href: platform/metrics-store-custom-rest-api.md
+    - name: GuestOS to Metrics Linux VM (Telegraf)
+      href: platform/collect-custom-metrics-linux-telegraf.md  
   - name: Analyze data
     items:
     - name: Metrics
@@ -971,31 +962,31 @@
       href: app/platforms.md
     - name: Endpoint overrides
       href: app/custom-endpoints.md
-  - name: Application Insights data model
-    items:
-    - name: Overview
-      href: app/data-model.md
-    - name: Request
-      href: app/data-model-request-telemetry.md
-    - name: Dependency
-      href: app/data-model-dependency-telemetry.md
-    - name: Exception
-      href: app/data-model-exception-telemetry.md
-    - name: Trace
-      href: app/data-model-trace-telemetry.md
-    - name: Event
-      href: app/data-model-event-telemetry.md
-    - name: Metric
-      href: app/data-model-metric-telemetry.md
-    - name: Context
-      href: app/data-model-context.md
+    - name: Data model
+      items:
+      - name: Overview
+        href: app/data-model.md
+      - name: Request
+        href: app/data-model-request-telemetry.md
+      - name: Dependency
+        href: app/data-model-dependency-telemetry.md
+      - name: Exception
+        href: app/data-model-exception-telemetry.md
+      - name: Trace
+        href: app/data-model-trace-telemetry.md
+      - name: Event
+        href: app/data-model-event-telemetry.md
+      - name: Metric
+        href: app/data-model-metric-telemetry.md
+      - name: Context
+        href: app/data-model-context.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure Functions
     href: app/azure-functions-supported-features.md 
   - name: Azure PowerShell
     items:
-    - name: Monitor
+    - name: Application Insights
       href: /powershell/module/az.applicationinsights
     - name: Logs
       href: /powershell/module/az.operationalinsights
@@ -1017,7 +1008,7 @@
       href: platform/metrics-supported.md
     - name: Supported metrics for newer alerts
       href: platform/alerts-metric-near-real-time.md
-  - name: Schemas
+  - name: Diagnostic Logs
     items:
     - name: Diagnostic logs services, categories, and schemas
       href: platform/diagnostic-logs-schema.md
