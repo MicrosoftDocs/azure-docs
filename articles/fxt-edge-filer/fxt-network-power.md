@@ -17,7 +17,7 @@ In this tutorial, you will learn:
 > [!div class="checklist"]
 > * How to choose the type of network cable for your environment
 > * How to connect an Azure FXT Edge Filer node to your datacenter network
-> * How to route cables through the Cable Management Arm (CMA)
+> * How to route cables through the cable management arm (CMA)
 > * How to connect power to the racked device and power it on
 
 ## Prerequisites
