@@ -241,7 +241,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
                 Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
                 Console.ReadKey();
-                }
+            }
 
             // Create the search service client
             private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -464,7 +464,7 @@ The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.az
     }
     ```
 
-1. Create a RunQueries method to execute queries and return results. Results are Hotel objects. You can use the select parameter to surface individual fields.
+1. Create a RunQueries method to execute queries and return results. Results are Hotel objects. You can use the select parameter to surface individual fields. If a field is not included in the select parameter, its corresponding Hotel property will be null.
 
     ```csharp
     private static void RunQueries(ISearchIndexClient indexClient)
@@ -528,7 +528,7 @@ The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.az
     }
     ```
 
-    Commonly used [query constructions](search-query-overview.md#types-of-queries) include `search` and `filter`. A `search` query searches for one or more terms in all `IsSearchable` fields in your index. A `filter` query evaluates a boolean expression over all `IsFilterable` fields in an index. You can use searches and filters together or separately.
+    There are two [ways of matching terms in a query](search-query-overview.md#types-of-querie): full-text search, and filters. A full-text search query searches for one or more terms in `IsSearchable` fields in your index. A filter is a boolean expression that is evaluated over `IsFilterable` fields in an index. You can use full-text search and filters together or separately.
 
     Both searches and filters are performed using the `Documents.Search` method. A search query can be passed in the `searchText` parameter, while a filter expression can be passed in the `Filter` property of the `SearchParameters` class. To filter without searching, just pass `"*"` for the `searchText` parameter. To search without filtering, just leave the `Filter` property unset, or do not pass in a `SearchParameters` instance at all.
 

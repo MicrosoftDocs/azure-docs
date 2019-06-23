@@ -163,12 +163,12 @@ The APIs you use to build an index have varying default behaviors. For the [REST
 
 | Attribute | Description |
 | --- | --- |
-| `Key` |A string that provides the unique ID of each document, used for document lookup. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String. |
-| `Retrievable` |Specifies whether a field can be returned in a search result. |
-| `Filterable` |Allows the field to be used in filter queries. |
+| `key` |A string that provides the unique ID of each document, used for document lookup. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String. |
+| `retrievable` |Specifies whether a field can be returned in a search result. |
+| `filterable` |Allows the field to be used in filter queries. |
 | `Sortable` |Allows a query to sort search results using this field. |
-| `Facetable` |Allows a field to be used in a [faceted navigation](search-faceted-navigation.md) structure for user self-directed filtering. Typically fields containing repetitive values that you can use to group multiple documents together (for example, multiple documents that fall under a single brand or service category) work best as facets. |
-| `Searchable` |Marks the field as full-text searchable. |
+| `facetable` |Allows a field to be used in a [faceted navigation](search-faceted-navigation.md) structure for user self-directed filtering. Typically fields containing repetitive values that you can use to group multiple documents together (for example, multiple documents that fall under a single brand or service category) work best as facets. |
+| `searchable` |Marks the field as full-text searchable. |
 
 
 ## Storage implications
