@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
-description: Create, load, and query an index using PowerShell's Invoke-RestMethod and the Azure Search REST API.
+description: Explains how to create an index, load data, and run queries using PowerShell's Invoke-RestMethod and the Azure Search REST API.
 
 ms.date: 06/10/2019
 author: heidisteen
