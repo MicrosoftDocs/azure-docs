@@ -4,17 +4,17 @@ description: How to configure back-end storage and the client-facing pseudonames
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 04/30/2019
+ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 
-# Tutorial: Configure the cluster - Back-end storage and virtual namespace 
+# Tutorial: Add back-end storage and configure the virtual namespace 
 
 This tutorial explains how to add back-edge storage for your cache and how to set up the client-facing virtual filesystem. 
 
 The cluster connects to back-end storage systems to access the data clients request, and to store changes more permanently than in the cache. 
 
-The namespace is the client-facing pseudofilesystem that allows you to swap out back-end storage without changing client-side workflows. 
+The namespace is the client-facing pseudo filesystem that allows you to swap out back-end storage without changing client-side workflows. 
 
 In this tutorial you will learn: 
 
@@ -40,11 +40,11 @@ Use the Control Panel to add a core filer to your system.
 
 For more detailed information about adding core filers, read these sections of the Cluster Configuration Guide:
 
-* For more about choosing and preparing to add a core filer, read [Working With Core Filers](https://azure.github.io/Avere/legacy/ops_guide/4_7/core_filer_overview.html#core-filer-overview).
+* For more about choosing and preparing to add a core filer, read [Working With Core Filers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/core_filer_overview.html#core-filer-overview).
 * For detailed prerequisites and step-by-step instructions, read these articles:
 
-  * [Adding a New NAS Core Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/new_core_filer_nas.html#create-core-filer-nas)
-  * [Adding a New Cloud Core Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/new_core_filer_cloud.html#create-core-filer-cloud)
+  * [Adding a New NAS Core Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html#create-core-filer-nas)
+  * [Adding a New Cloud Core Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#create-core-filer-cloud)
 
 After you add a core filer, you can update its settings on the Core Filer Details settings page.
 
@@ -54,7 +54,7 @@ Define a core filer by clicking the **Create** button on the **Core Filer** > **
 
 ![Clicking the create button above the list of core filers on the Manage Core Filers page](media/fxt-cluster-config/create-core-filer-button.png)
 
-The **Add New Core Filer** wizard walks you through the process of creating a core filer that links to your backend storage. The Cluster Configuration Guide has step by step descriptions of the process, which is different for NFS/NAS storage and for cloud storage (links are above). 
+The **Add New Core Filer** wizard walks you through the process of creating a core filer that links to your backend storage. The Cluster Configuration Guide has step-by-step descriptions of the process, which is different for NFS/NAS storage and for cloud storage (links are above). 
 
 Subtasks include:
 
@@ -155,4 +155,5 @@ Read the Cluster Configuration Guide article [Controlling Access to Core Filer E
 
 After adding storage and configuring the client-facing namespace, complete your cluster's initial setup: 
 
-* [Configure the cluster's network settings](fxt-configure-network.md)
+> [!div class="nextstepaction"]
+> [Configure the cluster's network settings](fxt-configure-network.md)

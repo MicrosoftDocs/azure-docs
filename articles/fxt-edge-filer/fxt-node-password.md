@@ -4,7 +4,7 @@ description: How to set an initial password on Azure FXT Edge Filer nodes
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 
@@ -33,7 +33,7 @@ This tutorial takes approximately 15 minutes to complete.
 
 Before starting this tutorial, complete these steps: 
 
-* [Install](fxt-install.md) each Azure FXT Edge Filer node in an equipment rack, and attach [power cables](fxt-power.md) and [network](fxt-network.md) access as described in the earlier tutorials. 
+* [Install](fxt-install.md) each Azure FXT Edge Filer node in an equipment rack, and attach power cables and network access as described in the [earlier tutorial](fxt-network-power.md). 
 * Find a USB-connected keyboard and a VGA-connected monitor that you can attach to the hardware nodes. (The node's serial port is inactive before you set the password.)
 
 ## Connect a keyboard and monitor to the node
@@ -77,9 +77,9 @@ The password you enter is used for two things:
 
   This password will change when you create a cluster using this node, or when you add this node to the cluster. The cluster management password (associated with the user ``admin``) is also the root password for all nodes in a cluster.
 
-* It is the permanent password for the iDRAC/IPMI hardware management port.
+* It is the long-term password for the iDRAC/IPMI hardware management port.
 
-  Make sure you remember the password in case you need to sign in on the IPMI port later to troubleshoot a hardware problem.
+  Make sure you remember the password in case you need to sign in with IPMI later to troubleshoot a hardware problem.
 
 Enter and confirm the password: 
 
@@ -104,7 +104,7 @@ After you sign in as root, the network ports are active and will contact the DHC
 
 ## Next steps
 
-The node is ready to be part of a cluster. 
+The node is ready to be part of a cluster. You can use it to create the Azure FXT Edge Filer cluster, or you can [add it to an existing cluster](fxt-add-nodes.md). 
 
-* You can use it to [Create the FXT Edge Filer cluster](fxt-cluster-create.md)
-* You can add it to an existing cluster: [Add cluster nodes](fxt-add-nodes.md)
+> [!div class="nextstepaction"]
+> [Create a cluster](fxt-cluster-create.md)

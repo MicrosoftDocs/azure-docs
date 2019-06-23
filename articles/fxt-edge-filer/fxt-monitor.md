@@ -4,7 +4,7 @@ description: How to monitor hardware status for the Azure FXT Edge Filer hybrid 
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell
 ---
 
@@ -14,7 +14,7 @@ The Azure FXT Edge Filer hybrid storage cache system has multiple status lights 
 
 ## System health status
 
-To monitor cache operations at a higher level, use the software Control Panel's **Dashboard** page, as described in the [Control Panel Dashboard Guide](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html) <!-- xxx replace with ms docs link when available xxx -->
+To monitor cache operations at a higher level, use the software Control Panel's **Dashboard** page, as described in the [Control Panel Dashboard Guide](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html)
 
 ## Hardware status LEDs
 
@@ -35,9 +35,7 @@ Each drive carrier has two status LEDs: an activity indicator (1) and a status i
 | Off (unlit)                         | System has not finished startup *or* <br>Drive is ready to be removed |
 | Flashes green, amber, and off       | Drive failure is predicted   |
 | Flashes amber four times per second | Drive failed   |
-| Flashes green slowly                | Drive is rebuilding |
 | Solid green                         | Drive is online |
-| Flashes green for three seconds, amber for three seconds, and then turns off after six seconds | Rebuild is stopped | 
 
 The right side of the drive (3) is labeled with the drive's capacity and other information.
 

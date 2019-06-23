@@ -4,13 +4,13 @@ description: How to add nodes to the Azure FXT Edge Filer storage cache
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 
-# Tutorial: Configure the cluster - Add cluster nodes 
+# Tutorial: Add cluster nodes 
 
-A new Azure FXT Edge Filer cluster is created with only one node. You should add at least two more nodes and enable high availability before doing other configuration.
+A new Azure FXT Edge Filer cluster is created with only one node. You should add at least two more nodes and enable high availability before doing other configuration. 
 
 This tutorial explains how to add cluster nodes and enable the High Availability (HA) feature. 
 
@@ -22,9 +22,11 @@ In this tutorial, you will learn:
 
 The steps in this tutorial take approximately 45 minutes to complete.
 
+Before you start this tutorial, power on the nodes that you want to add and [set their initial passwords](fxt-node-password.md). 
+
 ## 1. Load the Cluster Nodes page
 
-Open the cluster's Control Panel in a web browser, and sign in as an administrator. (Detailed instructions are in the overview article, under [Open the Settings pages](fxt-cluster-config-overview.md#open-the-settings-pages).)
+Open the cluster's Control Panel in a web browser, and sign in as an administrator. (Detailed instructions are in the overview article, under [Open the Settings pages](fxt-cluster-create.md#open-the-settings-pages).)
 
 The Control Panel shows the **Dashboard** tab when it opens. 
 
@@ -41,24 +43,19 @@ To add nodes, click the **Settings** tab and choose the **FXT Nodes** page in th
 The **FXT Nodes - Unjoined** list shows all unassigned FXT nodes (most data centers have only a few. Find the FXT nodes that you want to add to the cluster.
 
 > [!Tip] 
-> Nodes that appear on the **Unjoined** list meet these requirements:
+> If you cannot find the node you want on the **Unjoined** list, check that it meets these requirements:
 > 
-> * They are powered on.
-> * They have had their root passwords set (read [Set initial passwords](fxt-node-password.md) for details).
-> * They are connected to an accessible network. 
->   If VLANs are being used, they are on the same VLAN as the cluster.
-> * They can be detected with the Bonjour protocol. 
+> * It is powered on and has had a [root password set](fxt-node-password.md).
+> * It is connected to a network you can access. If you use VLANs , it must be are on the same VLAN as the cluster.
+> * It can be detected with the Bonjour protocol. 
 >
 >   Some firewall settings block the TCP/UDP ports used by Bonjour, which prevents the FXT operating system from automatically detecting the nodes.
 > 
-> If the node that you want to add isn’t on the list, click the **Manual Discover** button to find it by IP address.
+> If the node that you want to add isn’t on the list, try these solutions: 
 > 
-> In some situations, you might need to manually assign temporary IP addresses to each node before you can add them to the cluster - for example:
+> * Click the **Manual Discover** button to find it by IP address.
 > 
-> * Your network uses tagged VLANs and the nodes are not on the correct network
-> * The nodes have self-assigned IP addresses (169.254.\*.\*) and your network does not permit the use of such addresses
-> 
-> In those situations, follow these instructions (in the legacy version of this document) to [manually set a static IP address](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
+> * Manually assign temporary IP addresses. This is rare but might be needed if you use tagged VLANs and the nodes are not on the correct network, or your network does not allow self-assigned IP addresses. Follow the instructions in the legacy version of this document to [manually set a static IP address](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
 
 The node name, IP address, software version, and eligibility status are displayed in the list. Typically, the **Status** column either says “Wants to join” or describes a system or hardware problem that makes the node ineligible to join the cluster.
 
@@ -66,7 +63,7 @@ The **Actions** column has buttons that let you add the node to the cluster or u
 
 All of the nodes in a cluster must use the same version of the OS, but you don’t need to update software before adding a node. After you click the **Allow To Join** button, the cluster join process automatically checks and installs the OS software that matches the version on the cluster.
 
-To learn more about the options on this page, read [**Cluster** > **FXT Nodes**](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) in the *Cluster Configuration Guide*.
+To learn more about the options on this page, read [**Cluster** > **FXT Nodes**](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) in the Cluster Configuration Guide.
 
 ## 3. Click the "Allow to Join" button 
 
@@ -108,7 +105,7 @@ An alert appears on the **Dashboard** to confirm that HA is enabled.
 
 ## Next steps
 
-After adding all of the nodes in your cluster, continue the setup with these tasks: 
+After adding all of the nodes in your cluster, continue the setup by configuring your cluster's long-term storage.
 
-* [Add back-end storage and set up the virtual namespace](fxt-add-storage.md)
-* [Configure the cluster's network settings](fxt-configure-network.md)
+> [!div class="nextstepaction"]
+> [Add back-end storage and set up the virtual namespace](fxt-add-storage.md)

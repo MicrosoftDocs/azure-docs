@@ -4,7 +4,7 @@ description: How to customize network settings after creating the Azure FXT Edge
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell 
 ---
 
@@ -143,8 +143,8 @@ For more details, read [DNS Settings](<https://azure.github.io/Avere/legacy/ops_
 
 ## Next steps
 
-This is the last basic configuration step for the FXT Edge Filer cluster. 
+This is the last basic configuration step for the Azure FXT Edge Filer cluster. 
 
-* Learn about the system's LEDs and other indicators in [Monitor the FXT Edge Filer](fxt-monitor.md).
+* Learn about the system's LEDs and other indicators in [Monitor hardware status](fxt-monitor.md).
 * Learn more about how clients should mount the FXT Edge Filer cluster in [Mount the cluster](fxt-mount-clients.md). 
 * For more information about operating and managing an FXT Edge Filer cluster, see the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html). 

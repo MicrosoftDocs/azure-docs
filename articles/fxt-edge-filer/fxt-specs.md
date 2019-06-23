@@ -4,7 +4,7 @@ description: Physical and environmental specifications for Azure FXT Edge Filer 
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.author: v-erkell
 ---
 
@@ -31,8 +31,8 @@ Drive numbers are printed on the space between drives. In the Azure FXT Edge Fil
 
 | Drive numbers    |  Use   |  Specifications |
 |------------------|--------|-----------------|
-| 0, 1             | OS     | 480 GB SATA     |
-| 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600: 3.2 TB NVMe <br> FXT 6400: 1.6 TB NVMe |
+| 0, 1             | OS     | 480 GB SATA SSD |
+| 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600: 3.2 TB NVMe SSD <br> FXT 6400: 1.6 TB NVMe SSD |
 
 
 ## Dimensions and weight
@@ -51,17 +51,13 @@ The Azure FXT Edge Filer is designed to fit in a standard 19" equipment rack and
 | Depth - rack ears to furthest front protrusion, without bezel | 22.0 mm (0.87 inch)  |
 | Depth - rack ears to furthest front protrusion, with bezel    | 35.84 mm (1.41 inches) |
 
-<!-- [ XXX still need weights XXX ]
-
 | Weight | |
 |-----------------|----------------------|
-| Gross Weight (includes all packaging) | ***TBD*** |
-| Net Weight (without packaging, including accessories) | ***TBD*** |
-| Node Weight (without packaging, without accessories) | ***TBD*** |
+| Node weight (without packaging, without accessories) | 40 lbs (18.1 kg) |
+| Net weight (without packaging, including accessories) | 51 lbs (23.1 kg)|
+| Gross weight (as shipped, includes all packaging) |  64 lbs (29.0 kg) |
 
--->
-
-### Shipping dimensions 
+### Shipping dimensions
 
 | Package dimension | Millimeters | Inches |
 |-------------------|-------------|--------|
@@ -69,19 +65,19 @@ The Azure FXT Edge Filer is designed to fit in a standard 19" equipment rack and
 | Width             | 642.8       | 25.31" |
 | Length            | 1,051.1     | 41.38" |
 
-## Power and thermal specifications 
+## Power and thermal specifications
 
 This section gives power ratings and measurements for the Azure FXT Edge Filer.
 
 ### Nameplate ratings
 
-| Nameplate ratings for FXT 6000 series models | 
+| Nameplate ratings for FXT 6000 series models |
 |----------------|
 | 100 - 240V~    |
 | 10A - 5A (X2)  |
-| 5060Hz         |
+| 50/60Hz         |
 
-<!-- these numbers look funny but I was told to match the Dell regulatory label exactly -->
+<!-- matches the Dell regulatory label exactly -->
 
 ### Power and thermal measurements 
 
