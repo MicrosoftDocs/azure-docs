@@ -1491,8 +1491,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cosmos-db/sql-api-sql-query-reference.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-query-reference",
+      "source_path": "articles/cosmos-db/sql-api-query-reference.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-query-getting-started.md",
       "redirect_document_id": true
     },
     {
@@ -1532,7 +1532,7 @@
     },
     {
       "source_path": "articles/cosmos-db/sql-api-sql-query.md",
-      "redirect_url": "/azure/cosmos-db/how-to-sql-query",
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started.md",
       "redirect_document_id": false
     },
     {
@@ -15376,6 +15376,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/stream-analytics-common-troubleshooting-issues.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-input",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/vs-code-how-to.md",
       "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
       "redirect_document_id": false
@@ -22482,6 +22487,16 @@
     {
       "source_path": "articles/vs-azure-tools-storage-explorer-relnotes-0-8-7.md",
       "redirect_url": "/azure/vs-azure-tools-storage-explorer-relnotes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-sql-query.md",
+      "redirect_url": "articles/cosmos-db/sql-query-getting-started.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-query-reference.md",
+      "redirect_url": "articles/cosmos-db/sql-query-getting-started.md",
       "redirect_document_id": false
     },
     {
