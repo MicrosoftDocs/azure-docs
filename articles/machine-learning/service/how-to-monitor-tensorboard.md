@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 06/24/2019
 
 ---
 
@@ -19,11 +19,10 @@ In this article, you learn how to export your machine learning experiment run hi
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
-With the Azure Machine Learning SDK `tensorboard` extra, you can perform the following,    
+With the Azure Machine Learning SDK `tensorboard` extra, you can     
+* Launch TensorBoard from your current experiment's run history.
 
-* Launch Tensorboard from current run histories.
-
-* Convert and export previous experiment run histories and view their performance via TensorBoard.
+* Convert and export experiment run histories and view their performance via TensorBoard.
 
 ## Prerequisites
 
@@ -44,9 +43,9 @@ The code in this how-to can be run in either of the following environments:
 
 ## Launch TensorBoard from run history
 
-With the Azure Machine Learning `tensorboard` extra, you can export and visualize your experiment run history and performance in TensorBoard. This allows you to go back and tune and re-train your models. 
+To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to track its metrics and performance. You can launch TensorBoard from the run history of any experiment regardless of the framework or environment it was created. 
 
-The following code sections set up an experiment, begins the logging process and then exports the experiment logs and run history to TensorBoard for visualizing. 
+The following code sets up an experiment, begins the logging process using the Azure Machine Learning run history APIs, and exports the experiment logs and run history to TensorBoard for visualizing. 
 
 ### Set up experiment
 
@@ -96,6 +95,8 @@ for alpha in tqdm(alphas):
 
 ### Export runs to Tensorboard
 
+In the following code, we create the folder `logdir` in our current working directory. This folder is where we will export our experiment run history and logs from `root_run` and then mark that run as completed. 
+
 ```Python
 from azureml.tensorboard.export import export_to_tensorboard
 import os
@@ -115,14 +116,16 @@ root_run.complete()
 ```
 
 >[!Note]
- You can also export a particular run to Tensorboard by specifying the name of the run  `export_to_tensorboard(run, logdir)`
+ You can also export a particular run to Tensorboard by specifying the name of the run  `export_to_tensorboard(run_name, logdir)`
 
 ### Start and stop TensorBoard 
+You can launch Tensorboard during your run or after it has completed. In this example, we create a TensorBoard object instance, `tb`, that takes the experiment run history in the `logdir` directory, and then launch TensorBoard with the `start()` method,  
+
+The [Tensorboard constructor](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) takes an array of runs, so be sure and pass it in as a single-element array.
 
 ```python
 from azureml.tensorboard import Tensorboard
 
-# The Tensorboard constructor takes an array of runs, so be sure and pass it in as a single-element array here
 tb = Tensorboard([], local_root=logdir, port=6006)
 
 # If successful, start() returns a string with the URI of the instance.
@@ -132,45 +135,22 @@ tb.start()
 tb.stop()
 ```
 
-## Export history from previous runs into TensorBoard
+## Export and convert run histories
 
-This can be done with experiments that were created using deep learning frameworks that natively support TensorBoard outputs, such as PyTorch, TensorFlow or Keras, in TensorBoard. 
+Experiments created using deep learning frameworks such as PyTorch, TensorFlow or Keras, output run histories that are consumable in TensorBoard. This means we don't have to go through a conversion step in order to view them with Tensorboard.
 
-PyTorch now supports Tensorboard
-PyTorch 1.1
+With the SDK's [export_to_tensorboard()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) method, experiments created with other frameworks like scikit learn or Azure machine learning it's possible to export those run histories and view them via TensorBoard. 
 
-### Convert run histories
-
-all other azure machine learning jobs that track metrics in automl, hyperdrive tuning are now convertible into Tensorboard consumable files.
-
-existing run histories from previous runs
-
-the [export_to_tensorboard()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) method. 
-
-The following example takes a scikit learn model and exports the run histories into Tensorboard
-
-Scikit learn models for example do not 
+The following example takes a scikit learn model and exports the run histories into Tensorboard.
 
 
-### TensorFlow estimator
+## Example notebooks
 
-With the TensorFlow estimator you don't need to configure directories, all of this is done in the estimator parameters and your training script.
+Concepts demonstrated in this article are expanded upon in the following notebooks. 
 
-```Python
-script_params = {"--log_dir": "./logs"}
+* [Export run history to tensorboard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb)
+* [Tensorboard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/tensorboard/tensorboard.ipynb)
 
-# If you want the run to go longer, set --max-steps to a higher number.
-# script_params["--max_steps"] = "5000"
-
-pytorch_estimator = PyTorch(source_directory=exp_dir,
-                          compute_target=compute_target,
-                          entry_script='mnist_with_summaries.py',
-                          script_params=script_params)
-
-run = exp.submit(tf_estimator)
-
-runs.append(run)
-```
 ## Next steps
 
 * How to deploy a model
