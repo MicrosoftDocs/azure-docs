@@ -202,17 +202,16 @@ The hotels index consists of simple and complex fields, where a simple field is 
    `SearchServiceClient` has an [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) property, providing all the methods you need to create, list, update, or delete Azure Search indexes. 
 
     ```csharp
+    using System;
+    using System.Linq;
+    using System.Threading;
+    using Microsoft.Azure.Search;
+    using Microsoft.Azure.Search.Models;
+    using Microsoft.Extensions.Configuration;
+
     namespace AzureSearchQuickstart
     {
-        using System;
-        using System.Linq;
-        using System.Threading;
-        using Microsoft.Azure.Search;
-        using Microsoft.Azure.Search.Models;
-        using Microsoft.Extensions.Configuration;
-
-        class Program { 
-
+        class Program
             // Demonstrates index delete, create, load, and query
             // Commented-out code is uncommented in later steps
             static void Main(string[] args)
