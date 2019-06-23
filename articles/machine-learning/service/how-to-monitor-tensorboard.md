@@ -93,7 +93,7 @@ for alpha in tqdm(alphas):
    root_run.log("mse", mse)
 ```
 
-### Export runs to Tensorboard
+### Export runs to TensorBoard
 
 In the following code, we create the folder `logdir` in our current working directory. This folder is where we will export our experiment run history and logs from `root_run` and then mark that run as completed. 
 
@@ -116,12 +116,12 @@ root_run.complete()
 ```
 
 >[!Note]
- You can also export a particular run to Tensorboard by specifying the name of the run  `export_to_tensorboard(run_name, logdir)`
+ You can also export a particular run to TensorBoard by specifying the name of the run  `export_to_tensorboard(run_name, logdir)`
 
 ### Start and stop TensorBoard 
-You can launch Tensorboard during your run or after it has completed. In this example, we create a TensorBoard object instance, `tb`, that takes the experiment run history in the `logdir` directory, and then launch TensorBoard with the `start()` method,  
+You can launch TensorBoard during your run or after it has completed. In this example, we create a TensorBoard object instance, `tb`, that takes the experiment run history in the `logdir` directory, and then launch TensorBoard with the `start()` method,  
 
-The [Tensorboard constructor](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) takes an array of runs, so be sure and pass it in as a single-element array.
+The [TensorBoard constructor](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) takes an array of runs, so be sure and pass it in as a single-element array.
 
 ```python
 from azureml.tensorboard import Tensorboard
@@ -137,11 +137,11 @@ tb.stop()
 
 ## Export and convert run histories
 
-Experiments created using deep learning frameworks such as PyTorch, TensorFlow or Keras, output run histories that are consumable in TensorBoard. This means we don't have to go through a conversion step in order to view them with Tensorboard.
+Experiments created using deep learning frameworks such as PyTorch, TensorFlow or Keras, output run histories that are consumable in TensorBoard. This means we don't have to go through a conversion step in order to view them with TensorBoard.
 
 With the SDK's [export_to_tensorboard()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) method, experiments created with other frameworks like scikit learn or Azure machine learning it's possible to export those run histories and view them via TensorBoard. 
 
-The following example takes a scikit learn model and exports the run histories into Tensorboard.
+The following example takes a scikit learn model and exports the run histories into TensorBoard.
 
 
 ## Example notebooks
@@ -149,7 +149,7 @@ The following example takes a scikit learn model and exports the run histories i
 Concepts demonstrated in this article are expanded upon in the following notebooks. 
 
 * [Export run history to tensorboard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb)
-* [Tensorboard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/tensorboard/tensorboard.ipynb)
+* [TensorBoard](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/tensorboard/tensorboard.ipynb)
 
 ## Next steps
 
