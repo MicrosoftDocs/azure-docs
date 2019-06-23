@@ -392,7 +392,7 @@ Navigate to `<app-name>.azurewebsites.net` and sign in using same admin user you
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## Manage your app in the Azure Portal
+## Manage your app in the Azure portal
 
 Go to the [Azure portal](https://portal.azure.com) to see the app you created.
 
