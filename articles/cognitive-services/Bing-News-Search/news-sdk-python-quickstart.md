@@ -67,7 +67,8 @@ If any search results are found, print the first webpage result:
 ```python
 if news_result.value:
     first_news_result = news_result.value[0]
-    print("Total estimated matches value: {}".format(news_result.total_estimated_matches))
+    print("Total estimated matches value: {}".format(
+        news_result.total_estimated_matches))
     print("News result count: {}".format(len(news_result.value)))
     print("First news name: {}".format(first_news_result.name))
     print("First news url: {}".format(first_news_result.url))
