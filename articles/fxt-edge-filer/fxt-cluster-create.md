@@ -121,7 +121,7 @@ Enter the IP address for the node in a web browser. If the browser gives a messa
 
 Leave the **Username** and **Password** fields blank. Click **Login** to load the cluster creation page.
 
-![Initial setup screen for an unconfigured node in the browser-based GUI control panel. It shows options to updates software, configure a cluster manually, or configure a cluster from a setup file.](media/fxt-cluster-create/setup-first-screen.png)
+![Initial setup screen for an unconfigured node in the browser-based GUI control panel. It shows options to update software, configure a cluster manually, or configure a cluster from a setup file.](media/fxt-cluster-create/setup-first-screen.png)
 
 ## Create the cluster
 
