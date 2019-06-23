@@ -341,7 +341,7 @@ The templates in this section allow you to customize the content of the API page
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|`apiId`|string|The id of the current API.|  
+|`apiId`|string|The ID of the current API.|  
 |`apiName`|string|The name of the API.|  
 |`apiDescription`|string|A description of the API.|  
 |`api`|[API summary](api-management-template-data-model-reference.md#APISummary) entity.|The current API.|  
