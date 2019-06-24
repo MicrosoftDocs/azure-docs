@@ -76,7 +76,7 @@ Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and A
 |---|---|
 | `TenantId` | Your tenant ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Time stamp when tshe log was recorded in UTC |
+| `TimeGenerated` [UTC] | Time stamp when the log was recorded in UTC |
 | `Type` | Type of the log. Always `AzureDiagnostics` |
 | `SubscriptionId` | GUID for the subscription that the server belongs to |
 | `ResourceGroup` | Name of the resource group the server belongs to |
