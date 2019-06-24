@@ -24,6 +24,8 @@ With the Azure Machine Learning SDK `tensorboard` extra, you can
 
 * Convert and export experiment run histories and view their performance via TensorBoard.
 
+* Compare and view historical runs via TensorBoard
+
 ## Prerequisites
 
 The code in this how-to can be run in either of the following environments: 
@@ -143,6 +145,9 @@ With the SDK's [export_to_tensorboard()](https://docs.microsoft.com/python/api/a
 
 The following example takes a scikit learn model and exports the run histories into TensorBoard.
 
+### Compare experiment runs
+
+Add each run to the array so TensorBoard proceses its as a single process. 
 
 ## Example notebooks
 
