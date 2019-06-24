@@ -27164,6 +27164,11 @@
       "redirect_url": "/azure/backup/backup-azure-dpm-introduction",
       "redirect_document_id": false
     },
+	{
+      "source_path": "articles/backup/backup-azure-monitor-vms.md",
+      "redirect_url": "/azure/backup/backup-azure-monitoring-built-in-monitor",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/backup/backup-azure-manage-vms-classic.md",
       "redirect_url": "/azure/backup/backup-azure-manage-vms",
