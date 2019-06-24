@@ -1284,6 +1284,8 @@
         href: vodeclic-tutorial.md
       - name: Voyance
         href: voyance-tutorial.md
+      - name: Vtiger CRM (SAML)
+        href: vtiger-crm-saml-tutorial.md
       - name: vxMaintain
         href: vxmaintain-tutorial.md
     - name: W - Z
