@@ -81,7 +81,7 @@ To create a public container in Blob storage, do the following:
 5. Click **root** to open the new container.
 6. Click **Upload**.
 7. Click the folder icon next to **Select a file**.
-8. Go to **customize-ui.html**, which you created earlier in the Page UI customization section.
+8. Navigate to and select **customize-ui.html** which you created earlier in the Page UI customization section.
 9. If you want to upload to a subfolder, expand **Advanced** and enter a folder name in **Upload to folder**.
 10. Click **Upload**.
 11. Select the customize-ui.html blob that you uploaded.
