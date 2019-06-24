@@ -44,7 +44,7 @@ In MSAL library, the application registration information is passed as configura
 // Configuration object constructed.
 const config = {
     auth: {
-        clientID: 'your_app_id',
+        clientId: 'your_app_id',
         redirectUri: "your_app_redirect_uri" //defaults to application start page
     }
 }
@@ -60,7 +60,7 @@ For more details on the configurable options available, see [Initializing applic
 //In app.module.ts
 @NgModule({
   imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id'
+                clientId: 'your_app_id'
             })]
          })
 

@@ -36,7 +36,7 @@ Navigate to the left pane of your workspace. Select Automated Machine Learning u
 
 ![Azure portal experiment landing page](media/how-to-create-portal-experiments/landing-page.png)
 
-Otherwise, you will see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments, including those run with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
+Otherwise, you will see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments, including those created with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
 
 ![Azure portal experiment dashboard](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -92,16 +92,16 @@ Select the Create Experiment button to populate the following form.
 
 1. For forecasting:
     1. Select time column: This column contains the time data to be used.
-    1. Select forecast horizon: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment).
+    1. Select forecast horizon: Indicate how many time units (minutes/hours/days/weeks/months/years) will the model be able to predict to the future. The further the model is required to predict into the future, the less accurate it will become. [Learn more about forecasting and forecast horizon](how-to-auto-train-forecast.md).
 
 1. (Optional) Advanced settings: additional settings you can use to better control the training job.
 
     Advanced settings|Description
     ------|------
-    Primary metric| Main metric used for scoring your model. [Learn more about model metrics](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics).
+    Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#explore-model-metrics).
     Exit criteria| When any of these criteria are met, the training job ends before full completion. <br> *Training job time (minutes)*: How long to allow the training job to run.  <br> *Max number of iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Preprocessing| Select to enable or disable the preprocessing done by automated machine learning. Preprocessing includes automatic data cleansing, preparing, and transformation to generate synthetic features. [Learn more about preprocessing](#preprocess).
-    Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options).
+    Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](how-to-configure-auto-train.md).
     Concurrency| Select the multi-core limits you would like to use when using multi-core compute.
     Blocked algorithm| Select algorithms you want to exclude from the training job.
 
@@ -176,10 +176,67 @@ Training jobs can take a while for each pipeline to finish running.
 
 ### View training run details
 
-Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
+Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](how-to-track-experiments.md#understanding-automated-ml-charts).
 
 ![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)
+
+## Deploy model
+
+Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
+
+Automated ML helps you with deploying the model without writing code:
+
+1. You have a few options for deployment. 
+    1. If you want to deploy the best model based on the metric criteria you set for the experiment, select **Deploy Best Model** from the **Run Detail** page.
+
+        ![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. If you want to deploy a specific model iteration, drill down on the model to open its specific run detail page and select **Deploy Model**.
+
+        ![Deploy model button](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. First step is to register the model into the service. Select "Register model" and wait for the registration process to complete.
+
+    ![Deploy model blade](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. Once the model is registered, you'll be able to download the scoring script (scoring.py) and the environment script (condaEnv.yml) to be used during deployment.
+
+1. When the scoring script and the environment script are downloaded, go to the **Assets** blade of the left navigation pane and select **Models**.
+
+    ![Navigation pane models](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. Select the model you registered, and select "Create image".
+
+    You can identify the model by its description, which will include the run ID, iteration number, in the following format: *<Run_ID>_<Iteration_number>_Model*
+
+    ![Models: Create image](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. Enter a name for the image. 
+1. Select the **Browse** button next to the "Scoring File" box to upload the scoring file (scoring.py) you previously downloaded.
+
+1. Select the **Browse** button next to the "Conda File" box to upload the environment file (condaEnv.yml) you previously downloaded.
+
+    You can use your own scoring script and conda file, as well as upload additional files. [Learn more about scoring script](how-to-deploy-and-where.md#script).
+
+      >[!Important]
+      > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
+
+    ![Create image](media/how-to-create-portal-experiments/create-image.png)
+
+1. Select the "Create" button to start the image creation. This will take a few minutes to complete, once done, you will see a message on the top bar.
+1. Go to the "Images" tab, check the checkbox next to the image you want to deploy, and select "Create deployment". [Learn more about deployments](how-to-deploy-and-where.md).
+
+    There are 2 options for deployment.
+     + Azure Container Instance (ACI) - This is used more for testing purpose rather than operational deployment at scale. Make sure to fill in the values for at least one core for  _CPU Reserve Capacity_, and at least one gigabyte (GB) for _Memory Reserve Capacity_
+     + Azure Kubernetes Service (AKS)) - This option is for deployment at scale. You will need to have an AKS based compute ready.
+
+     ![Images: Create deployment](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. When done, select **Create**. Deploying the model can take several minutes for each pipeline to finish running.
+
+1. That's it! You have an operational web service to generate predictions.
 
 ## Next steps
 
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
+* [Learn how to consume a web service](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

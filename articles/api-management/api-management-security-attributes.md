@@ -1,8 +1,7 @@
 ---
-title: Common security attributes for Azure API Management
+title: Security attributes for Azure API Management
 description: A checklist of common security attributes for evaluating API Management
 services: api-management
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: api-management
@@ -12,9 +11,9 @@ ms.date: 04/16/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for API Management
+# Security attributes for API Management
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into API Management.
+This article documents the security attributes built into API Management.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,7 +25,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | [Express Route](../expressroute/index.yml) and VNet encryption is provided by [Azure networking](../virtual-network/index.yml). |
 | Encryption key handling (CMK, BYOK, etc.)| No | All encryption keys are per service instance and are service managed. |
 | Column level encryption (Azure Data Services)| N/A | |
-| API calls encrypted| Yes | Management plane calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) over TLS. A valid JSON web token (JWT) is required.  Data plane calls can be secured with TLS and one of supported authentication mechanisms (e.g. client certificate or JWT).
+| API calls encrypted| Yes | Management plane calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) over TLS. A valid JSON web token (JWT) is required.  Data plane calls can be secured with TLS and one of supported authentication mechanisms (for example, client certificate or JWT).
  |
 
 ## Network segmentation
@@ -71,4 +70,4 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Vulnerability               | Description                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ticketbleed (CVE-2016-9244) | Ticketbleed is vulnerability in the implementation of the TLS SessionTicket extension found in some F5 products. It allows the leakage ("bleeding") of up to 31 bytes of data from uninitialized memory. This is caused by the TLS stack padding a Session ID, passed from the client, with data to make it 32-bits long. |
+| Ticketbleed (CVE-2016-9244) | Ticketbleed is vulnerability in the implementation of the TLS SessionTicket extension found in some F5 products. It allows the leakage ("bleeding") of up to 31 bytes of data from uninitialized memory. This is caused by the TLS stack padding a Session ID, passed from the client, with data to make it 32 bits long. |

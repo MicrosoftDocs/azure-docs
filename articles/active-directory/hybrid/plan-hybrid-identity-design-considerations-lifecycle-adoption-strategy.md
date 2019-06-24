@@ -36,7 +36,7 @@ Accounts in sophisticated IT enterprises include hundreds of parameters that def
 
 ## Role-based access control
 Role-based access control (RBAC) uses roles and provisioning policies to evaluate, test, and enforce your business processes and rules for granting access to users. Key administrators create provisioning policies and assign users to roles and that define sets of entitlements to resources for these roles. RBAC extends the identity management solution to use software-based processes and reduce user manual interaction in the provisioning process.
-Azure AD RBAC enables the company to restrict the number of operations that an individual can do once he has access to the Azure portal. By using RBAC to control access to the portal, IT Admins ca delegate access by using the following access management approaches:
+Azure AD RBAC enables the company to restrict the number of operations that an individual can do once they have access to the Azure portal. By using RBAC to control access to the portal, IT Admins ca delegate access by using the following access management approaches:
 
 * **Group-based role assignment**: You can assign access to Azure AD groups that can be synced from your local Active Directory. This enables you to leverage the existing investments that your organization has made in tooling and processes for managing groups. You can also use the delegated group management feature of Azure AD Premium.
 * **Leverage built in roles in Azure**: You can use three roles — Owner, Contributor, and Reader, to ensure that users and groups have permission to do only the tasks they need to do their jobs.
@@ -74,7 +74,7 @@ Azure Active Directory provides single-sign on and enhanced application access s
 Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. With this integration, users and organizations can take advantage of the following:
 
 * Organizations can provide users with a common hybrid identity across on-premises or cloud-based services leveraging Windows Server Active Directory and then connecting to Azure Active Directory.
-* Administrators can provide conditional access based on application resource, device and user identity, network location and multi-factor authentication.
+* Administrators can provide Conditional Access based on application resource, device and user identity, network location and multi-factor authentication.
 * Users can leverage their common identity through accounts in Azure AD to Office 365, Intune, SaaS apps, and third-party applications.
 * Developers can build applications that leverage the common identity model, integrating applications into Active Directory on-premises or Azure for cloud-based applications
 

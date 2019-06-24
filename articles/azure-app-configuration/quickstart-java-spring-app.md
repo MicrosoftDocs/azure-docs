@@ -26,7 +26,7 @@ You can use any code editor to do the steps in this quickstart. [Visual Studio C
 
 ## Prerequisites
 
-To do this quickstart, install a supported [Java Development Kit (JDK)](https://aka.ms/azure-jdks) with version 8 and [Apache Maven](https://maven.apache.org/) with version 3.0 or above.
+To do this quickstart, install a supported [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) with version 8 and [Apache Maven](https://maven.apache.org/) with version 3.0 or above.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +34,7 @@ To do this quickstart, install a supported [Java Development Kit (JDK)](https://
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|

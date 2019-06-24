@@ -7,7 +7,7 @@ tags: azure-resource-manager
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 6/18/2019
 ms.author: cherylmc
 
 ---
@@ -94,7 +94,7 @@ The client address pool is a range of private IP addresses that you specify. The
 2. Click **Configure now** to open the configuration page.
 
    ![Configure now](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. On the **Point-to-site** configuration page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. Click **Save** to validate and save the setting.
+3. On the **Point-to-site** configuration page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration. Click **Save** to validate and save the setting.
 
    ![Client address pool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
@@ -104,7 +104,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
 ## <a name="tunneltype"></a>7. Configure tunnel type
 
-You can select the tunnel type. The two tunnel options are SSTP and IKEv2. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can choose to enable one of them or both. Select the checkboxes that your solution requires.
+You can select the tunnel type. The tunnel options are OpenVPN, SSTP and IKEv2. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can use the OpenVPN client to connect to the OpenVPN tunnel type.
 
 ![Tunnel type](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 

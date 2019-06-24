@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
@@ -14,7 +13,8 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/26/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev 
 ms.collection: M365-identity-device-management
 ---
@@ -75,7 +75,7 @@ You can register your application in either of two ways, as described in the nex
 
 #### CocoaPods
 
-You can use [CocoaPods](http://cocoapods.org/) to install `MSAL` by adding it to your `Podfile` under target:
+You can use [CocoaPods](https://cocoapods.org/) to install `MSAL` by adding it to your `Podfile` under target:
 
 ```
 use_frameworks!

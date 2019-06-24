@@ -1,18 +1,9 @@
 ---
 title: Link templates for Azure deployment | Microsoft Docs
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
-ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
 ---
@@ -86,7 +77,7 @@ To nest the template within the main template, use the **template** property and
 > [!NOTE]
 > For nested templates, you cannot use parameters or variables that are defined within the nested template. You can use parameters and variables from the main template. In the preceding example, `[variables('storageName')]` retrieves a value from the main template, not the nested template. This restriction does not apply to external templates.
 >
-> For two resources defined inside a nest template and one resource depends on the other, the value of the dependency is simply the name of the depended resource:
+> For two resources defined inside a nested template and one resource depends on the other, the value of the dependency is simply the name of the dependent resource:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"

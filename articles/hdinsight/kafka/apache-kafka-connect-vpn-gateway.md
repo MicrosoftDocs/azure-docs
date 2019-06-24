@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/28/2019
 ---
 
 # Connect to Apache Kafka on HDInsight through an Azure Virtual Network
@@ -80,7 +80,7 @@ Use the steps in this section to create the following configuration:
 
 1. Follow the steps in the [Working with self-signed certificates for Point-to-site connections](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) document. This document creates the certificates needed for the gateway.
 
-2. Open a PowerShell prompt and use the following code to log in to your Azure subscription:
+2. Open a PowerShell prompt and use the following code to sign in to your Azure subscription:
 
     ```powershell
     Connect-AzAccount
@@ -192,8 +192,10 @@ Use the steps in this section to create the following configuration:
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $storageName `
-        -Type Standard_GRS `
-        -Location $location
+        -SkuName Standard_GRS `
+        -Location $location `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
 
     # Get the storage account keys and create a context
     $defaultStorageKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
@@ -235,7 +237,7 @@ Use the steps in this section to create the following configuration:
 
 By default, Apache Zookeeper returns the domain name of the Kafka brokers to clients. This configuration does not work with the VPN software client, as it cannot use name resolution for entities in the virtual network. For this configuration, use the following steps to configure Kafka to advertise IP addresses instead of domain names:
 
-1. Using a web browser, go to https://CLUSTERNAME.azurehdinsight.net. Replace __CLUSTERNAME__ with the name of the Kafka on HDInsight cluster.
+1. Using a web browser, go to `https://CLUSTERNAME.azurehdinsight.net`. Replace `CLUSTERNAME` with the name of the Kafka on HDInsight cluster.
 
     When prompted, use the HTTPS user name and password for the cluster. The Ambari Web UI for the cluster is displayed.
 
@@ -315,7 +317,9 @@ To validate connectivity to Kafka, use the following steps to create and run a P
 
 2. Use the following to install the [kafka-python](https://kafka-python.readthedocs.io/) client:
 
-        pip install kafka-python
+    ```bash
+    pip install kafka-python
+    ```
 
 3. To send data to Kafka, use the following Python code:
 

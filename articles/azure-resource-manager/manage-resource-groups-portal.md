@@ -6,9 +6,6 @@ documentationcenter: ''
 author: mumian
 
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
@@ -104,72 +101,7 @@ You can apply tags to resource groups and resources to logically organize your a
 
 ## Export resource groups to templates
 
-After setting up your resource group successfully, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
-
-- Automate future deployments of the solution because the template contains all the complete infrastructure.
-- Learn template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
-
-There are two ways to export a template:
-
-- You can export the actual template used for deployment. The exported template includes all the parameters and variables exactly as they appeared in the original template. This approach is helpful when you deployed resources through the portal, and want to see the template to create those resources. This template is readily usable. 
-- You can export a generated template that represents the current state of the resource group. The exported template isn't based on any template that you used for deployment. Instead, it creates a template that is a "snapshot" or "backup" of the resource group. The exported template has many hard-coded values and probably not as many parameters as you would typically define. Use this option to redeploy resources to the same resource group. To use this template for another resource group, you may have to significantly modify it.
-
-### Export templates from deployment history
-
-This method exports the templates for certain deployments. If you have changed the resources from the portal, or added/removed resource in multiple deployments, see [Export templates from resource groups](#export-templates-from-resource-groups).
-
-1. Open the resource group you want to export.  See [Open resource groups](#open-resource-groups).
-2. In the left pane, select **Deployments**, or select the link under **Deployments**.  On the following screenshot, it shows **4 Succeeded** because there were four separated deployments with four different deployment names. You might see **1 Succeeded**.
-
-    ![azure resource group export templates](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. Select one of the deployments from the list.
-4. In the left pane, select **Template**. Resource Manager retrieves the following six files for you:
-
-   - **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
-   - **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment. You can change any of these values when you redeploy the template.
-   - **CLI** - An Azure CLI script file that you can use to deploy the template.
-   - **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
-   - **.NET** - A .NET class that you can use to deploy the template.
-   - **Ruby** - A Ruby class that you can use to deploy the template.
-
-     By default, the portal displays the template.
-
-5. Select **Download** to export a template to your local computer.
-
-    ![azure resource group export templates](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### Export templates from resource groups
-
-If you've changed your resources from the portal, or added/remove resources in multiple deployments, retrieving a template from the deployment history doesn't reflect the current state of the resource group. This section shows you how to export a template that reflects the current state of the resource group. It is intended as a snapshot of the resource group, which you can use to redeploy to the same resource group. To use the exported template for other solutions, you must significantly modify it.
-
-1. Open the resource group you want to export.  See [Open resource groups](#open-resource-groups).
-2. In the left pane, select **Export template**. Resource Manager retrieves the following six files for you:
-
-   - **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
-   - **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment. You can change any of these values when you redeploy the template.
-   - **CLI** - An Azure CLI script file that you can use to deploy the template.
-   - **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
-   - **.NET** - A .NET class that you can use to deploy the template.
-   - **Ruby** - A Ruby class that you can use to deploy the template.
-
-     By default, the portal displays the template.
-3. Select **Download** to export a template to your local computer.
-
-Some exported templates need some edits before they can be used. To learn how to develop templates, see the [Step-by-step tutorials](/azure/azure-resource-manager/).
-
-### Export template before deploying
-
-You can use the portal to define a resource.  Before deploying the resource, you can view and export a template. For the instructions, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md).
-
-### Fix export issues
-
-Not all resource types support the export template function. You only see export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that aren't defined in a single template.
-
-To resolve export issues, manually add the missing resources back into your template. The error message includes the resource types that can't be exported. Find that resource type in [Template reference](/azure/templates/). For example, to manually add a virtual network gateway, see [Microsoft.Network/virtualNetworkGateways template reference](/azure/templates/microsoft.network/virtualnetworkgateways). The template reference gives you the JSON to add the resource to your template.
-
-After getting the JSON format for the resource, you need to get the resource values. You can see the values for the resource by using the GET operation in the REST API for the resource type. For example, to get the values for your virtual network gateway, see [Virtual Network Gateways - Get](/rest/api/network-gateway/virtualnetworkgateways/get).
+For information about exporting templates, see [Single and multi-resource export to template - Portal](export-template-portal.md).
 
 ## Manage access to resource groups
 

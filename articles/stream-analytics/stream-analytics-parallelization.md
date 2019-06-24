@@ -54,7 +54,7 @@ An *embarrassingly parallel* job is the most scalable scenario we have in Azure 
 
 1. If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For Event Hubs or IoT Hub, this means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, this means that the events are sent to the same partition folder. If your query logic does not require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
 
-2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **PARTITION BY** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Currently, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel.  
+2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **PARTITION BY** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Under compatibility level 1.0 and 1.1, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel. For jobs with compatility level 1.2 and higher, custom column can be specified as Partition Key in the input settings and the job will be paralellized automoatically even without PARTITION BY clause.
 
 3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#outputs) for more details.
 
@@ -81,7 +81,7 @@ Query:
     WHERE TollBoothId > 100
 ```
 
-This query is a simple filter. Therefore, we don't need to worry about partitioning the input that is being sent to the event hub. Notice that the query includes **PARTITION BY PartitionId**, so it fulfills requirement #2 from earlier. For the output, we need to configure the event hub output in the job to have the partition key set to **PartitionId**. One last check is to make sure that the number of input partitions is equal to the number of output partitions.
+This query is a simple filter. Therefore, we don't need to worry about partitioning the input that is being sent to the event hub. Notice that jobs with compatibility level before 1.2 must include **PARTITION BY PartitionId** clause, so it fulfills requirement #2 from earlier. For the output, we need to configure the event hub output in the job to have the partition key set to **PartitionId**. One last check is to make sure that the number of input partitions is equal to the number of output partitions.
 
 ### Query with a grouping key
 
@@ -135,6 +135,26 @@ Query:
 As you can see, the second step uses **TollBoothId** as the partitioning key. This step is not the same as the first step, and it therefore requires us to do a shuffle. 
 
 The preceding examples show some Stream Analytics jobs that conform to (or don't) an embarrassingly parallel topology. If they do conform, they have the potential for maximum scale. For jobs that don't fit one of these profiles, scaling guidance will be available in future updates. For now, use the general guidance in the following sections.
+
+### Compatibility level 1.2 - Multi-step query with different PARTITION BY values 
+* Input: Event hub with 8 partitions
+* Output: Event hub with 8 partitions
+
+Query:
+
+```SQL
+    WITH Step1 AS (
+    SELECT COUNT(*) AS Count, TollBoothId
+    FROM Input1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+    )
+
+    SELECT SUM(Count) AS Count, TollBoothId
+    FROM Step1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
+
+Compatibility level 1.2 enables parallel query execution by default. For example, query from the previous section will be parttioned as long as "TollBoothId" column is set as input Partition Key. PARTITION BY ParttionId clause is not required.
 
 ## Calculate the maximum streaming units of a job
 The total number of streaming units that can be used by a Stream Analytics job depends on the number of steps in the query defined for the job and the number of partitions for each step.

@@ -1,6 +1,6 @@
 ---
-title: Mobile app that calls web APIs - acquiring a token for the app | Microsoft identity platform
-description: Learn how to build a mobile app that calls web APIs (acquiring a token for the app)
+title: Mobile app that calls web APIs - getting a token for the app | Microsoft identity platform
+description: Learn how to build a mobile app that calls web APIs (getting a token for the app)
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -13,42 +13,43 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
-# Mobile app that calls web APIs - acquire a token
+# Mobile app that calls web APIs - get a token
 
-Before you can begin calling protected web APIs, your app will need an access token. This section walks you through the process to get a token using the Microsoft Authentication Library (MSAL).
+Before you can begin calling protected web APIs, your app will need an access token. This article walks you through the process for getting a token by using the Microsoft Authentication Library (MSAL).
 
 ## Scopes to request
 
-When asking for tokens, a scope is always required. The scope determines what data your app can access.  
+When you request a token, you need to define a scope. The scope determines what data your app can access.  
 
-The simplest approach is to combine the desired web API's `App ID URI` with the scope `.default`. This tells Microsoft identity your app requires all scopes set in the portal.
+The easiest approach is to combine the desired web API's `App ID URI` with the scope `.default`. Doing so tells Microsoft identity platform that your app requires all scopes set in the portal.
 
-Android
+#### Android
 ```Java
 String[] SCOPES = {"https://graph.microsoft.com/.default"};
 ```
 
-iOS
+#### iOS
 ```swift
 let scopes: [String] = ["https://graph.microsoft.com/.default"]
 ```
 
-Xamarin
+#### Xamarin
 ```CSharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## Acquiring tokens
+## Get tokens
 
-### via MSAL
+### Via MSAL
 
-MSAL allows apps to acquire tokens silently and interactively. Just call these methods and MSAL returns back an Access token for the scopes requested. The correct pattern is to perform a silent request and fallback to an interactive request.
+MSAL allows apps to acquire tokens silently and interactively. Just call these methods and MSAL returns an access token for the requested scopes. The correct pattern is to perform a silent request and fall back to an interactive request.
 
 #### Android
 
@@ -58,32 +59,32 @@ PublicClientApplication sampleApp = new PublicClientApplication(
                     this.getApplicationContext(),
                     R.raw.auth_config);
 
-// Check if there are any accounts we can sign in silently
-// Result is in our silent callback (success or error)
+// Check if there are any accounts we can sign in silently.
+// Result is in the silent callback (success or error).
 sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
     @Override
     public void onAccountsLoaded(final List<IAccount> accounts) {
 
         if (accounts.isEmpty() && accounts.size() == 1) {
-            // TODO: Create a silent callback to catch successful or failed request
+            // TODO: Create a silent callback to catch successful or failed request.
             sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
         } else {
-            /* No accounts or >1 account */
+            /* No accounts or > 1 account. */
         }
     }
 });    
 
 [...]
 
-// No accounts found, interactively request a token 
-// TODO: Create an interactive callback to catch successful or failed request
+// No accounts found. Interactively request a token.
+// TODO: Create an interactive callback to catch successful or failed request.
 sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
 ```
 
 #### iOS
 
 ```swift
-// Initialize our app 
+// Initialize the app.
 guard let authorityURL = URL(string: kAuthority) else {
     self.loggingText.text = "Unable to create authority URL"
     return
@@ -92,14 +93,14 @@ let authority = try MSALAADAuthority(url: authorityURL)
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 
-// Get tokens
+// Get tokens.
 let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
 applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
     if let error = error {
         let nsError = error as NSError
 
-        // interactionRequired means we need to ask the user to sign-in. This usually happens
-        // when the user's Refresh Token is expired or if the user has changed their password
+        // interactionRequired means you need to ask the user to sign in. This usually happens
+        // when the user's refresh token is expired or when the user has changed the password,
         // among other possible reasons.
         if (nsError.domain == MSALErrorDomain) {
             if (nsError.code == MSALError.interactionRequired.rawValue) {    
@@ -133,7 +134,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
         return
     }
 
-    // Token is ready via silent acquisition 
+    // Token is ready via silent acquisition.
     self.accessToken = result.accessToken
 }
 ```
@@ -157,13 +158,13 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### via Protocol
+### Via the protocol
 
-We do not advise going directly against the protocol. Your app will not be capable of many single sign-on (SSO) scenarios and will not be able to support all device management and Conditional Access scenarios.
+We don't recommend using the protocol directly. If you do, the app won’t support some single sign-on (SSO), device management, and Conditional Access scenarios.
 
-When getting tokens for mobile apps using the protocol, you'll need to make 2 requests: get an authorization code and exchange it for a token. 
+When you use the protocol to get tokens for mobile apps, you need to make two requests: get an authorization code and exchange it for a token.
 
-#### Getting Authorization code
+#### Get authorization code
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -175,7 +176,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### Getting access and refresh token
+#### Get access and refresh token
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1

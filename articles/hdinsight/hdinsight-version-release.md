@@ -11,7 +11,7 @@ ms.date: 04/15/2019
 
 # HDInsight 4.0 overview
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure. HDInsight 4.0 is a cloud distribution of the Apache Hadoop components from the [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). This article provides information about the most recent Azure HDInsight release and how to upgrade.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure. HDInsight 4.0 is a cloud distribution of Apache Hadoop components. This article provides information about the most recent Azure HDInsight release and how to upgrade.
 
 ## What's new in HDInsight 4.0?
 
@@ -85,7 +85,7 @@ There is no supported upgrade path from previous versions of HDInsight to HDInsi
 
 ## Limitations
 
-* HDInsight 4.0 does not support MapReduce. Use Apache Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
+* HDInsight 4.0 does not support MapReduce for Apache Hive. Use Apache Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 does not support Apache Storm. 
 * Hive View is no longer available in HDInsight 4.0. 
 * Shell interpreter in Apache Zeppelin is not supported in Spark and Interactive Query clusters.

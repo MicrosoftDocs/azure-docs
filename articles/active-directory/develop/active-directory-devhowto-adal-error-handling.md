@@ -3,9 +3,9 @@ title: Error handling best practices for Azure Active Directory Authentication L
 description: Provides error handling guidance and best practices for ADAL client applications.
 services: active-directory
 documentationcenter: ''
-author: danieldobalian
-manager: mtillman
-ms.author: CelesteDG
+author: rwike77
+manager: CelesteDG
+ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: 
 ms.collection: M365-identity-device-management
 ---

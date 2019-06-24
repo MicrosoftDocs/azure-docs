@@ -9,13 +9,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/07/2018
-ms.author: gracez
+ms.date: 05/22/2019
+ms.author: wellsi
 ---
 
 # Release notes of Cognitive Services Speech Devices SDK
-
 The following sections list changes in the most recent releases.
+
+## Speech Devices SDK 1.5.1:
+
+*	Include [Conversation Transcription](conversation-transcription-service.md) in the sample app.
+*	Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.5.1. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
 
 ## Cognitive Services Speech Devices SDK 1.5.0: 2019-May release
 
@@ -41,7 +45,7 @@ The following sections list changes in the most recent releases.
 
 **Breaking changes** 
 
-*	[Installing a wake word](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) has been simplified, it is now part of the app and does not need separate installation on the device.
+*	[Installing a wake word](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) has been simplified, it is now part of the app and does not need separate installation on the device.
 *	The wake word recognition has changed, and two events are supported.
     - RecognizingKeyword, indicates the speech result contains (unverified) keyword text.
     - RecognizedKeyword, indicates that keyword recognition completed recognizing the given keyword.
