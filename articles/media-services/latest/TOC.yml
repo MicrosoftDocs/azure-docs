@@ -222,7 +222,15 @@
         href: custom-preset-cli-howto.md
       - name: With REST
         displayName: encode, encoding, custom, transform
-        href: custom-preset-rest-howto.md      
+        href: custom-preset-rest-howto.md    
+    - name: Subclip a video
+      items:
+      - name: With .NET
+        href: subclip-video-dotnet-howto.md
+        displayName: subclipping, clip, edit, trim, clipping
+      - name: With REST
+        href: subclip-video-rest-howto.md
+        displayName: subclipping, clip, edit, trim, clipping        
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
