@@ -76,7 +76,7 @@ To create a public container in Blob storage, do the following:
 
 1. Under **Blob service** in the left-hand menu, select **Blobs**.
 2. Click **+Container**.
-3. For **Name**, type **root**. (You can give it a name of your choice like *wingtiptoys*.)
+3. For **Name**, enter *root*. This can be a name of your choosing, for example *wingtiptoys*, but we use *root* in this example for simplicity.
 4. Set **Access type** to **Blob**.
 5. Click **root** to open the new container.
 6. Click **Upload**.
