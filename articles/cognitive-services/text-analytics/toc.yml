@@ -8,6 +8,7 @@
   - name: Example user scenarios
     href: text-analytics-user-scenarios.md
 - name: Quickstarts
+  expanded: true
   items:
     - name: REST API
       items:
@@ -29,8 +30,12 @@
         href: quickstarts/csharp.md
       - name: Python
         href: quickstarts/python-sdk.md
+      - name: Go
+        href: quickstarts/go-sdk.md
       - name: Ruby
         href: quickstarts/ruby-sdk.md
+      - name: Node.js
+        href: quickstarts/nodejs-sdk.md
 
 - name: Tutorials
   items:

@@ -77,7 +77,7 @@ Following are the supported **single sign-on** modes for Azure AD applications.
   >
   >
 
-- **Header-based Sign-on** – choose this [Header-based Sign-on](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) single sign-on mode if you have an application using PingAccess that supports HTTP-header-based authentication that you wish to perform single-sign on to 
+- **Header-based Sign-on** – choose this [Header-based Sign-on](application-proxy-configure-single-sign-on-with-ping-access.md) single sign-on mode if you have an application using PingAccess that supports HTTP-header-based authentication that you wish to perform single-sign on to 
 
   >[!NOTE]
   >This option is only available when the application proxy and PingAccess is configured for an application.

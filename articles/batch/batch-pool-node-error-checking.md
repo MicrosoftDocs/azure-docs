@@ -5,7 +5,7 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 9/25/2018
+ms.date: 05/28/2019
 ms.topic: conceptual
 ---
 
@@ -79,18 +79,27 @@ You can specify one or more application packages for a pool. Batch downloads the
 
 The node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property reports a failure to download and uncompress an application package. Batch sets the node state to **unusable**.
 
+### Container download failure
+
+You can specify one or more container references on a pool. Batch downloads the specified containers to each node. The node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property reports a failure to download a container and sets the node state to **unusable**.
+
 ### Node in unusable state
 
 Azure Batch might set the [node state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) to **unusable** for many reasons. With the node state set to **unusable**, tasks can't be scheduled to the node, but it still incurs charges.
 
-Batch always tries to recover unusable nodes, but recovery may or may not be possible depending on the cause.
+Nodes in an **unsuable**, but without [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) state means that Batch is unable to communicate with the VM. In this case, Batch always tries to recover the VM. Batch will not automatically attempt to recover VMs which failed to install application packages or containers even though their state is **unusable**.
 
 If Batch can determine the cause, the node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property reports it.
 
 Additional examples of causes for **unusable** nodes include:
 
 - A custom VM image is invalid. For example, an image that's not properly prepared.
+
 - A VM is moved because of an infrastructure failure or a low-level upgrade. Batch recovers the node.
+
+- A VM image has been deployed on hardware which doesn’t support it. For example an “HPC” VM image running on non-HPC hardware. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+
+- The VMs are in an [Azure virtual network](batch-virtual-network.md), and traffic has been blocked to key ports.
 
 ### Node agent log files
 

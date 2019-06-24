@@ -3,14 +3,14 @@ title: Install and run containers
 titlesuffix: Face - Azure Cognitive Services
 description: Download, install, and run containers for Face in this walkthrough tutorial.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: article
-ms.date: 04/16/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
 ---
 
 # Install and run Face containers
@@ -137,6 +137,10 @@ The Face API containers send billing information to Azure by using a Face API re
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](./face-resource-container-config.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

@@ -11,18 +11,19 @@ ms.date: 05/30/2019
 
 # Create a new SaaS offer
 
-To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Offers** tab selected. 
+To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
-![Commercial Marketplace dashboard on Partner Center](./media/commercial-marketplace-offers.png)
+![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
 Select the + **Create a new…** button, then select the **Software as a Service** menu item. 
 
 If you select one of the other offer types, you will be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/).  Only SaaS offers are available in the Commercial Marketplace portal on Partner Center at this time. 
 
-![Create offer window on Partner Center](./media/new-offer.png)
+![Create offer window on Partner Center](./media/new-offer-click.png)
 
+The **New offer** dialog box is displayed. 
 
-The **New offer** dialog box is displayed. ![New offer dialog box](./media/new-offer-popup.png)
+![New offer dialog box](./media/new-offer-popup.png)
 
 
 ## Offer ID and name
@@ -66,12 +67,12 @@ Selling through Microsoft provides better customer discovery and acquisition, al
 
 In order to list Software as a Service (SaaS) offers with Commercial Marketplace on Partner Center, the following criteria must be met:
 
-- Your offer must be compatible with Azure clients. (Often SaaS apps are also hosted on Azure for best performance and compatibility, but this is not a requirement.) 
 - Your offer must use [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for identity management and authentication.
-- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
+- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
+- For more extensive requirements, see the [SaaS Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### Billing infrastructure costs
-For SaaS offers, you, as the publisher, must account for Azure infrastructure usage fees, and software licensing fees as a single cost item. This cost is represented as a flat monthly fee to the customer. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. 
+#### SaaS on Azure Billing infrastructure costs
+If the SaaS offer is hosted in Azure, you, as the publisher, must account for Azure infrastructure usage fees, and software licensing fees as a single cost item. This cost is represented as a flat monthly fee to the customer. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. 
 
 Software licensing fees are presented as a monthly, recurring site-based subscription flat-rate fee and are not metered or consumption based.
 
@@ -258,7 +259,7 @@ The **Technical configuration** tab defines the technical details (URL path, web
 
 - **Landing page URL** (required): Define the site URL that customers will be directed to land on after acquiring your offer from the marketplace. This URL will also be the endpoint that will be receiving the connection APIs to facilitate commerce with Microsoft.
 
-- **Connection webhook** (required): For all asynchronous events that Microsoft needs to send to you on behalf of the customer (example: Azure Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (e.g. https://prod-1westus.logic.azure.com:443/work). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Connection webhook** (required): For all asynchronous events that Microsoft needs to send to you on behalf of the customer (example: Azure Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (e.g. https:\//prod-1westus.logic.azure.com:443/work). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
 

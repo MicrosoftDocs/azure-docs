@@ -54,6 +54,14 @@ Classification | Regression | Time Series Forecasting
 [Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
+Use the `task` parameter in the `AutoMLConfig` constructor to specify your experiment type.
+
+```python
+from azureml.train.automl import AutoMLConfig
+
+# task can be one of classification, regression, forecasting
+automl_config = AutoMLConfig(task="classification")
+```
 
 ## Data source and format
 Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into:
@@ -116,7 +124,7 @@ Key	| Type | Mutually Exclusive with	| Description
 ---|---|---|---
 X |	Pandas Dataframe or Numpy Array	| data_train, label, columns |	All features to train with
 y |	Pandas Dataframe or Numpy Array |	label	| Label data to train with. For classification, should be an array of integers.
-X_valid	| Pandas Dataframe or Numpy Array	| data_train, label	| _Optional_ All features to validate with. If not specified, X is split between train and validate
+X_valid	| Pandas Dataframe or Numpy Array	| data_train, label	| _Optional_ Feature data that forms the validation set. If not specified, X is split between train and validate
 y_valid |	Pandas Dataframe or Numpy Array	| data_train, label	| _Optional_ The label data to validate with. If not specified, y is split between train and validate
 sample_weight |	Pandas Dataframe or Numpy Array |	data_train, label, columns|	_Optional_ A weight value for each sample. Use when you would like to assign different weights for your data points
 sample_weight_valid	| Pandas Dataframe or Numpy Array |	data_train, label, columns |	_Optional_ A weight value for each validation sample. If  not specified, sample_weight is split between train and validate
@@ -124,30 +132,6 @@ data_train |	Pandas Dataframe |	X, y, X_valid, y_valid |	All data (features+labe
 label |	string	| X, y, X_valid, y_valid |	Which column in data_train represents the label
 columns	| Array of strings	||	_Optional_ Whitelist of columns to use for features
 cv_splits_indices	| Array of integers	||	_Optional_ List of indexes to split the data for cross validation
-
-### Load and prepare data using data prep SDK
-Automated machine learning experiments supports data loading and transforms using the data prep SDK. Using the SDK provides the ability to
-
->* Load from many file types with parsing parameter inference (encoding, separator, headers)
->* Type-conversion using inference during file loading
->* Connection support for MS SQL Server and Azure Data Lake Storage
->* Add column using an expression
->* Impute missing values
->* Derive column by example
->* Filtering
->* Custom Python transforms
-
-To learn about the data prep sdk refer the [How to prepare data for modeling article](how-to-load-data.md).
-Below is an example loading data using data prep sdk.
-```python
-# The data referenced here was pulled from `sklearn.datasets.load_digits()`.
-simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
-X = dprep.auto_read_file(simple_example_data_root + 'X.csv').skip(1)  # Remove the header row.
-# You can use `auto_read_file` which intelligently figures out delimiters and datatypes of a file.
-
-# Here we read a comma delimited file and convert all columns to integers.
-y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelector(term='.*', use_regex = True))
-```
 
 ## Train and validation data
 
@@ -169,7 +153,7 @@ Use custom validation dataset if random split is not acceptable, usually time se
 
 Next determine where the model will be trained. An automated machine learning training experiment can run on the following compute options:
 *	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
-*	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
+*	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
 
 See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for example notebooks with local and remote compute targets.
 
@@ -269,6 +253,20 @@ automl_config = AutoMLConfig(task='forecasting',
 ```
 
 ## Run experiment
+
+For automated ML you will need to create an `Experiment` object, which is a named object in a `Workspace` used to run experiments.
+
+```python
+from azureml.core.experiment import Experiment
+
+ws = Workspace.from_config()
+
+# Choose a name for the experiment and specify the project folder.
+experiment_name = 'automl-classification'
+project_folder = './sample_projects/automl-classification'
+
+experiment = Experiment(ws, experiment_name)
+```
 
 Submit the experiment to run and generate a model. Pass the `AutoMLConfig` to the `submit` method to generate the model.
 
@@ -496,6 +494,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 ![feature importance graph](./media/how-to-configure-auto-train/feature-importance.png)
+
+For more information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](machine-learning-interpretability-explainability.md) article on interpretability.
 
 ## Next steps
 

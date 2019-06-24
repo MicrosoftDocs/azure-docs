@@ -19,9 +19,9 @@ ms.author: glenga
 
 # Get started with the Azure WebJobs SDK for event-driven background processing
 
-This article shows how to use Visual Studio 2019 to create an Azure WebJobs SDK project, run it locally, and then deploy it to [Azure App Service](overview.md). The project you create is a .NET Core console app, which uses version 3.x of the WebJobs SDK. If you are interested in version 2.x, which uses the .NET Framework, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
+This article shows how to use Visual Studio 2019 to create an Azure WebJobs SDK project, run it locally, and then deploy it to [Azure App Service](overview.md). Version 3.x of the WebJobs SDK supports both .NET Core and .NET Framework console apps. To learn more about working with the WebJobs SDK, see [How to use the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-how-to.md).
 
-To learn more about working with the WebJobs SDK, see [How to use the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-how-to.md).
+This article shows you how to deploy WebJobs as a .NET Core console app. To deploy WebJobs as a .NET Framework console app, see [WebJobs as .NET Framework console apps](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). If you are interested in WebJobs SDK version 2.x, which only supports .NET Framework, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 ## Prerequisites
 

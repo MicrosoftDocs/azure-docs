@@ -2,14 +2,14 @@
 title: Frequently asked questions for Azure Active Directory B2C | Microsoft Docs
 description: Frequently asked questions (FAQ) about Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -23,7 +23,7 @@ There are two common reasons for why the Azure AD extension is not working for y
 Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant.  An Azure AD tenant represents an organization.  An Azure AD B2C tenant represents a collection of identities to be used with relying party applications.  With custom policies (in public preview), Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
 
 ### Can I use Azure AD B2C to provide social login (Facebook and Google+) into Office 365?
-Azure AD B2C can't be used to authenticate users for Microsoft Office 365.  Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and conditional access.  Azure AD B2C provides an identity and access management platform for building web and mobile applications.  When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
+Azure AD B2C can't be used to authenticate users for Microsoft Office 365.  Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and Conditional Access.  Azure AD B2C provides an identity and access management platform for building web and mobile applications.  When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
 
 ### What are local accounts in Azure AD B2C? How are they different from work or school accounts in Azure AD?
 In an Azure AD tenant, users that belong to the tenant sign-in with an email address of the form `<xyz>@<tenant domain>`.  The `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.

@@ -1,6 +1,6 @@
 ---
 title: Configure workload importance in Azure SQL Data Warehouse | Microsoft Docs
-description: Learn how to set request level importance
+description: Learn how to set request level importance.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -48,4 +48,4 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier 
 - For more information on Importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Go to Manage and monitor Workload Importance ](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
+> [Go to Manage and monitor Workload Importance](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

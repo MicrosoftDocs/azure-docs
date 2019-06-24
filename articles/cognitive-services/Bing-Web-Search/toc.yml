@@ -70,9 +70,9 @@
 - name: Reference
   items:
   - name: Bing Web Search API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference
   - name: Bing Web Search API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v5-reference
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell

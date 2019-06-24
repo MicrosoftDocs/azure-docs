@@ -1,27 +1,27 @@
 ---
-title: 'Quickstart: Visualize data from Azure Data Explorer using a SQL query in Power BI'
-description: 'In this quickstart, you learn how to use one of the three options for visualizing data in Power BI: a SQL query against an Azure Data Explorer cluster.'
+title: 'Visualize data from Azure Data Explorer using a SQL query in Power BI'
+description: 'In this article, you learn how to use one of the three options for visualizing data in Power BI: a SQL query against an Azure Data Explorer cluster.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/14/2018
+ms.topic: conceptual
+ms.date: 05/30/2019
 
 # Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario.
 ---
 
-# Quickstart: Visualize data using the Azure Data Explorer connector for Power BI
+# Visualize data using the Azure Data Explorer connector for Power BI
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Power BI is a business analytics solution that lets you visualize your data and share the results across your organization.
 
-Azure Data Explorer provides three options for connecting to data in Power BI: use the built-in connector, import a query from Azure Data Explorer, or use a SQL query. This quickstart shows you how to use a SQL query to get data and visualize it in a Power BI report.
+Azure Data Explorer provides three options for connecting to data in Power BI: use the built-in connector, import a query from Azure Data Explorer, or use a SQL query. This article shows you how to use a SQL query to get data and visualize it in a Power BI report.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-You need the following to complete this quickstart:
+You need the following to complete this article:
 
 * An organizational email account that is a member of Azure Active directory, so you can connect to the [Azure Data Explorer help cluster](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -77,9 +77,8 @@ You typically use the native query language with Azure Data Explorer, but it als
 
 ## Clean up resources
 
-If you no longer need the report you created for this quickstart, delete the Power BI Desktop (.pbix) file.
+If you no longer need the report you created for this article, delete the Power BI Desktop (.pbix) file.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Visualize data using an imported query in Power BI](power-bi-connector.md)
+[Visualize data using an imported query in Power BI](power-bi-connector.md)

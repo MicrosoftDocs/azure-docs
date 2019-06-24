@@ -36,8 +36,6 @@ The current default counters that are configured to be collected for ASP.NET/ASP
          - ASP.NET Applications\\Requests In Application Queue
          - Processor(_Total)\\% Processor Time
 
-To see all your most useful charts in one place, create a [dashboard](../../azure-monitor/app/app-insights-dashboards.md) and pin them to it.
-
 ## Add counters
 
 If the performance counter you want isn't included in the list of metrics, you can add it.

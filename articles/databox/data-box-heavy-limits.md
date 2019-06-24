@@ -10,7 +10,8 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: alkohli
 ---
-# Azure Data Box Heavy limits
+# Azure Data Box Heavy limits (preview)
+
 
 Consider these limits as you deploy and operate your Azure Data Box Heavy device. The following table describes these limits for the Data Box.
 

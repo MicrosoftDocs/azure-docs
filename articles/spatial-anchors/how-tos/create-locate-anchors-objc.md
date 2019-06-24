@@ -149,7 +149,7 @@ Learn more about the [ASACloudSpatialAnchor](https://docs.microsoft.com/objectiv
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
     NSArray<ARHitTestResult *> *hits = [_sceneView.session.currentFrame hitTest:CGPointMake(0.5, 0.5) types:ARHitTestResultTypeEstimatedHorizontalPlane];
     if ([hits count] == 0) return;
-    // The hitTest method sorts the resulting list by distance from the camera, increasing
+    // The hitTest method sorts the resulting list by increasing distance from the camera
     // The first hit result will usually be the most relevant when responding to user input
     ARAnchor *localAnchor = [[ARAnchor alloc] initWithTransform:hits[0].worldTransform];
     [_sceneView.session addAnchor:localAnchor];

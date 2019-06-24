@@ -50,7 +50,7 @@ az account set --subscription <subscription ID>
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-At the command prompt, create the resource group in a [region that supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -215,3 +215,6 @@ Refresh the web app in the browser. You should see your custom message appear in
 
 > [!div class="nextstepaction"]
 > [Learn about multi-service development](multi-service-java.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

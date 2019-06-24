@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ---

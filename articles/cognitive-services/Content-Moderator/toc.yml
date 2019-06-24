@@ -123,8 +123,6 @@
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
   - name: Azure webinar series
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-  - name: FAQ
-    href: FAQs.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
   - name: UserVoice
