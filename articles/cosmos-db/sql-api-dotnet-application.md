@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/21/2019
+ms.date: 06/24/2019
 ms.author: sngun
 ---
 
@@ -109,11 +109,11 @@ Now let's add the models, the views, and the controllers to this MVC application
 
 1. Name your new class **Item.cs** and select **Add**. 
 
-1. Next replace the code in "Item" class with the following code:
+1. Next replace the code in "Item.cs" class with the following code:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs)]
    
-   The data stored in Azure Cosmos DB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET, you can use the **JsonProperty** attribute as demonstrated in the **Item** class you created. Not only can you control the format of the property name that goes into JSON, you can also rename your .NET properties like you did with the **Description** property. 
+   The data stored in Azure Cosmos DB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET, you can use the **JsonProperty** attribute as demonstrated in the **Item** class you created. Not only can you control the format of the property name that goes into JSON, you can also rename your .NET properties like you did with the **Completed** property. 
 
 ### <a name="add-a-controller"></a>Add a controller
 
@@ -123,7 +123,7 @@ Now let's add the models, the views, and the controllers to this MVC application
 
    ![Screenshot of the Add Scaffold dialog box with the MVC Controller - Empty option highlighted](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
-1. Name your new controller, **ItemController, and replace the code in that file with the following code:
+1. Name your new controller, **ItemController**, and replace the code in that file with the following code:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
 
@@ -202,7 +202,7 @@ The first thing to do here is add a class that contains the logic to connect to 
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs)]
 
- 1. Repeat the same steps, but this time, for a class named **ICosmosDBService**, and add the following code:
+ 1. Repeat steps 2-3, but this time, for a class named **ICosmosDBService**, and add the following code:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs)]
  
@@ -244,7 +244,7 @@ The first thing to do here is add a class that contains the logic to connect to 
       }
    ```
  
-Now if you run the application, it calls into your **ItemController** that calls the GetItems methods from the TodoItemService class that you define in the next section. 
+Now if you run the application, ASP.NET Core's pipeline will instantiate **CosmosDbService** and maintain a single instance as Singleton; when **ItemController** is used to process client side requests, it will receive this single instance and be able to use it to perform CRUD operations.
 
 If you build and run this project now, you should now see something that looks like this:
 
@@ -269,7 +269,9 @@ To test the application on your local machine, use the following steps:
    
    ![Screenshot of the Index view with the Completed box checked](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 
-5. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
+5. You can verify the at any point the state of the data in the Azure Cosmos DB service using [Cosmos Explorer](https://cosmos.azure.com) or the Azure Cosmos DB Emulator's Data Explorer.
+
+6. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
 ## <a name="deploy-the-application-to-azure"></a>Step 7: Deploy the application 
 Now that you have the complete application working correctly with Azure Cosmos DB we're going to deploy this web app to Azure App Service.  
@@ -292,7 +294,9 @@ In a few seconds, Visual Studio publishes your web application and launch a brow
 In this tutorial, you've learned how to build an ASP.NET Core MVC web application that can access data stored in Azure Cosmos DB. You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
-> [Build a Java application to access data stored in SQL API account of Azure Cosmos DB]( sql-api-java-application.md)
+> [Learn about partitioning your data in Azure Cosmos DB](./partitioning-overview.md)
+> [Learn about how to do more advanced queries in Azure Cosmos DB](./how-to-query.md)
+> [Learn about how to model your data in a more advanced scenario](./how-to-model-partition-example.md)
 
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
