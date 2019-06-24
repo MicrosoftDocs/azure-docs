@@ -220,6 +220,7 @@ The HTTP status code for each response indicates success or common errors.
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
 | 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. |
 | 413 | Request Entity Too Large | The SSML input is longer than 1024 characters. |
+| 415 | Unsupported Media Type | It's possible that the wrong `Content-Type` was provided. `Content-Type` should be set to `application/ssml+xml`. | 
 | 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway	| Network or server-side issue. May also indicate invalid headers. |
 
