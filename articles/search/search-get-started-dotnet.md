@@ -293,7 +293,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
     If the project builds successfully, a console window opens, writing status messages to the screen for deleting and creating the index. 
 
-<a name="load-documents></a>
+<a name="load-documents"></a>
 
 ## 2 - Load documents
 
