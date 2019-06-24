@@ -29,7 +29,7 @@ Refer to [Azure AD Conditional Access FAQ](faqs.md) for common questions on usin
 
 ## Pricing and licensing requirements
 
-Azure AD Conditional Access capability requires you to use Azure Active Directory Premium P1, Premium P2. For more information about licensing and editions, see [Sign up for Azure Active Directory Premium editions](../fundamentals/active-directory-get-started-premium.md).
+Azure AD Conditional Access capability requires you to use Azure Active Directory Premium P1 or P2. For more information about licensing and editions, see [Sign up for Azure Active Directory Premium editions](../fundamentals/active-directory-get-started-premium.md).
 
 For more information on pricing, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
