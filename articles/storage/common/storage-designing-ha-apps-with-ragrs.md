@@ -209,6 +209,22 @@ In this example, assume the client switches to reading from the secondary region
 
 To recognize that it has potentially inconsistent data, the client can use the value of the *Last Sync Time* that you can get at any time by querying a storage service. This tells you the time when the data in the secondary region was last consistent and when the service had applied all the transactions prior to that point in time. In the example shown above, after the service inserts the **employee** entity in the secondary region, the last sync time is set to *T1*. It remains at *T1* until the service updates the **employee** entity in the secondary region when it is set to *T6*. If the client retrieves the last sync time when it reads the entity at *T5*, it can compare it with the timestamp on the entity. If the timestamp on the entity is later than the last sync time, then the entity is in a potentially inconsistent state, and you can take whatever is the appropriate action for your application. Using this field requires that you know when the last update to the primary was completed.
 
+## Getting the last sync time
+
+To get the last sync time and information about the storage account's geo-replication status with PowerShell, check the storage account's **GeoReplicationStats** property. Remember to replace the placeholder values with your own values:
+
+```powershell
+$stats = $(Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -IncludeGeoReplicationStats).GeoReplicationStats
+```
+
+The output is similar to the following:
+
+```powershell
+Status LastSyncTime
+------ ------------
+Live   6/10/2019 8:11:20 PM
+```
+
 ## Testing
 
 It's important to test that your application behaves as expected when it encounters retryable errors. For example, you need to test that the application switches to the secondary and into read-only mode when it detects a problem, and switches back when the primary region becomes available again. To do this, you need a way to simulate retryable errors and control how often they occur.
