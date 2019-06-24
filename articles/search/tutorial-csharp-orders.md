@@ -291,7 +291,7 @@ There is no need to modify any of the models to enable ordering. The view and th
 
 6. Update the **scrolled** function in the view, to handle the room rates text.
 
-    ```cs
+    ```javascript
             <script>
                 function scrolled() {
                     if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
@@ -311,7 +311,7 @@ There is no need to modify any of the models to enable ordering. The view and th
             </script>
     ```
 
-5. Run the app, and verify the room rate ranges are displayed.
+7. Run the app, and verify the room rate ranges are displayed.
 
     ![Displaying room rate ranges](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
@@ -479,4 +479,3 @@ Consider the following takeaways from this project:
 You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Search APIs.
 
 For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure), or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/azure/search/).
-

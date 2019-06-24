@@ -435,7 +435,7 @@ To implement infinite scrolling, let's start with the project before any of the 
                 {
                     // Display the hotel name and description.
                     @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
-                    @Html.TextArea("desc", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
+                    @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
                 }
             </div>
         }

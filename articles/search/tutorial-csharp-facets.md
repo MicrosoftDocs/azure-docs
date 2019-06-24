@@ -378,7 +378,7 @@ For the view, we organize the output into a table, to neatly align the facets on
                             {
                                 // Display the hotel name and description.
                                 @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
-                                @Html.TextArea("desc", Model.resultList.Results[i].Document.Description + "\nCategory:  " +  Model.resultList.Results[i].Document.Category, new { @class = "box2" })
+                                @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description + "\nCategory:  " +  Model.resultList.Results[i].Document.Category, new { @class = "box2" })
                             }
                         }
                     </div>
