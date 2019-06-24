@@ -25,6 +25,11 @@
       "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
       "redirect_document_id": true
     },
+	{
+      "source_path": "articles/active-directory/saas-apps/realtimeboard-tutorial.md",
+      "redirect_url": "/articles/active-directory/saas-apps/miro-tutorial",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-asm.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
@@ -15101,16 +15106,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/linux/autoscale.md",
-      "redirect_url": "/azure/virtual-machine-scale-sets/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/windows/autoscale.md",
-      "redirect_url": "/azure/virtual-machine-scale-sets/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets",
       "redirect_document_id": false
@@ -19921,12 +19916,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-mysql-install.md",
-      "redirect_url": "/azure/virtual-machines/linux/mysql-on-opensuse",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/linux/mysql-install.md",
-      "redirect_url": "/azure/virtual-machines/linux/mysql-on-opensuse",
+      "redirect_url": "/azure/virtual-machines/linux/mysql-install",
       "redirect_document_id": false
     },
     {
@@ -39970,11 +39960,6 @@
     {
       "source_path": "articles/backup/backup-azure-upgrade-backup-to-recovery-services.md",
       "redirect_url": "/azure/backup/backup-create-rs-vault",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md",
-      "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": true
     }
   ]
