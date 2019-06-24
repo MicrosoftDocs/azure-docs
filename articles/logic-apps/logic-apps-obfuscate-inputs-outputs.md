@@ -13,17 +13,17 @@ ms.date: 06/28/19
 
 # Secure inputs and outputs with obfuscation in Azure Logic Apps
 
-Logic Apps provides a rich run history providing a view of the steps the instance the logic app has taken, the status of each action as well as the inputs and outputs of each action. This provides great insight as to how your logic apps are executing. Sometimes data that is passed in and out of actions are either secrets or contain sensitive data that you don’t want operators or developers to see or have access to. For example, if you are retrieving a secret from Key Vault that you need to pass to an HTTP action as authentication information, you don’t want to let others see those secrets. 
+When your logic app finishes running, you get access to the history for that specific run, including the steps that the run took along with the status, duration, inputs, and outputs for each action. This rich detail helps provide insight into how well your logic app runs. However, some actions might handle data that contains secrets or sensitive information, which you don't want others to view or have access. For example, if you need to get a secret from Azure Key Vault to use as authentication for an HTTP action, you want to hide that secret from view.
 
-Configuring secure outputs and secure inputs on your actions prevents the outputs and/or inputs from being accessible from the run history. If you enable secure outputs on an action, not only is the action output not visible but the logic app engine will also will block the action input history to whatever action explicitly references that output.
+To prevent showing inputs and outputs in your logic app's run history, you can secure those inputs and outputs on triggers and actions. If you secure outputs on an action, not only does Logic Apps hide this data, the service blocks that action's input history for any action that explicitly references that output.
 
+Here are some considerations when using secured inputs and outputs:
 
+* If another action uses secured output as input, that input is treated as secure only if that action produces the same data as the input that was passed to that action. So, make sure that you also enable secure outputs on that action.
 
-> [!NOTE]
-> If you use secured output as input to another action, that input is treated as secure only if that action produces the same data as the input that was passed to that action. So, make sure that you also enable secure outputs on that action.
+* When secured outputs are enabled, the **Workflow history** API doesn't return those outputs. 
 
-When secured outputs are enabled for a run instance, the **Workflow history** API doesn't return those outputs when secure outputs were enabled for a run instance. Also, when secured inputs or outputs are enabled, you can't add Tracked Properties to that action to prevent any secure data from being emitted to Log Analytics.
-
+* When secured inputs or outputs are enabled, you can't add Tracked Properties to that action, which prevents sending secured data Azure Log Analytics.
 
 ## Prerequisites
 
