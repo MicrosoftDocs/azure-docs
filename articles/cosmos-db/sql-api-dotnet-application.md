@@ -295,7 +295,7 @@ In this tutorial, you've learned how to build an ASP.NET Core MVC web applicatio
 
 > [!div class="nextstepaction"]
 > [Learn about partitioning your data in Azure Cosmos DB](./partitioning-overview.md)
-> [Learn about how to do more advanced queries in Azure Cosmos DB](./how-to-query.md)
+> [Learn about how to do more advanced queries in Azure Cosmos DB](./how-to-sql-query.md)
 > [Learn about how to model your data in a more advanced scenario](./how-to-model-partition-example.md)
 
 
