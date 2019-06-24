@@ -46,7 +46,4 @@ Azure Data Share enables Data Consumers to:
 
 All key capabilities listed above are supported through the Azure or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
 
-    ![Supported Scenarios](./media/supported-scenarios.png "Supported Scenarios")
-
-## Azure Data Share Security 
-Placeholder. 
+    ![Supported Scenarios](/media/supported-scenarios.png)

@@ -10,12 +10,11 @@ ms.author: joanpo
 ---
 # Tutorial: Accept and receive data 
 
-This tutorial will teach you:
-
-* How to accept a Data Share invitation;
-* Create a Data Share account
-* Specify a destination for your data
-* Create a subscription to your data share for scheduled refresh
+> [!div class="checklist"]
+> * How to accept a Data Share invitation
+> * Create a Data Share account
+> * Specify a destination for your data
+> *  Create a subscription to your data share for scheduled refresh
 
 ## Prerequisites
 
@@ -70,7 +69,6 @@ Click **Enable** to enable a synchronization schedule, or if you'd like to stop 
 ## View a history of your snapshots
 To view a history of your snapshots, navigate to Received Shares -> History. Here you'll find a history of all snapshots that were generated for the past 60 days. 
 
-## Next steps
 You are now ready to consume your data. 
 
 To navigate to the data that has been shared with you, select Received Shares -> Datasets. Under **Path**, you'll see a link to the path that contains your received data. Wait until a snapshot has been successful before you can see your data. Information about the status of your snapshot can be seen in the Details tab, or the History tab. 

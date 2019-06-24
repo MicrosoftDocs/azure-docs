@@ -14,7 +14,7 @@ Azure Data Share introduces some new concepts related to data sharing. This arti
 
 ## Data Provider
 
-A Data Provider is the entity that is sharing data with their consumers. 
+A Data Provider is the organization that is sharing data with their consumers. 
 
 ## Data Consumer 
 

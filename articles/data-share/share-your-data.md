@@ -91,4 +91,7 @@ Create an Azure Data Share resource in an Azure resource group.
 Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation. 
 
 ## Next steps
-Your Azure Data Share is now active. You can monitor the status of your invitation. You can also check to see if your data consumer has generated a snapshot of your data. 
+In this tutorial, you learnt how to create an Azure Data Share and invite recipients. To learn about how a Data Consumer can accept and receive a data share, continue to the next tutorial. 
+
+> [!div class="nextstepaction"]
+> [Tutorial: Accept and receive data](subscribe-to-data-share.md)
