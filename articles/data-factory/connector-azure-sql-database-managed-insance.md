@@ -34,7 +34,7 @@ Specifically, this Azure SQL Database Managed Instance connector supports:
 >Azure SQL Database Managed Instance [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) with ODBC driver download and connection string configurations.
 
 >[!NOTE]
->Service principal and managed identity authentications currently aren't supported by this connector but are planned to be enabled soon. To work around, choose an Azure SQL Database connector and manually specify the server of your managed instance.
+>Service principal and managed identity authentications currently aren't supported by this connector. To work around, choose an Azure SQL Database connector and manually specify the server of your managed instance.
 
 ## Prerequisites
 
