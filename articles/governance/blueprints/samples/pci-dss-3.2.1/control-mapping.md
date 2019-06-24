@@ -29,21 +29,8 @@ by assigning [Azure
 Policy](../../../policy/overview.md) definitions which audit the number of owners for Azure subscriptions.
 Managing subscription owner permissions can help you implement appropriate separation of duties.
 
-- [Preview]: Audit minimum number of owners for subscription
-- [Preview]: Audit maximum number of owners for a subscription
-
-## 7.1 Access to networks and network services
-
-Azure implements role-based access control (RBAC) to manage who has access to Azure resources. This
-blueprint helps you control access to Azure resources by assigning [Azure
-Policy](../../../policy/overview.md) definitions. These policies audit use of resource types and
-configurations that may allow more permissive access to resources. Understanding resources that are
-in violation of these policies can help you take corrective actions to ensure access Azure resources
-is restricted to authorized users.
-
-- Audit use of classic storage accounts
-- Audit use of classic virtual machines
-- Audit usage of custom RBAC rules
+- There should be more than one owner assigned to your subscription
+- A maximum of 3 owners should be designated for your subscription 
 
 ## 7.2.1, 8.3.1.a and 8.3.1.b Management of privileged access rights
 
@@ -80,7 +67,6 @@ accounts with elevated permissions.
 - [Preview]: Audit external accounts with write permissions on a subscription
 - [Preview]: Audit external accounts with read permissions on a subscription
 
-
 ## 8.1.3 Removal or adjustment of access rights
 
 Azure implements role-based access control (RBAC) to help you manage who has access to resources in
@@ -92,18 +78,6 @@ considered for removal.
 
 - [Preview]: Audit deprecated accounts on a subscription
 - [Preview]: Audit deprecated accounts with owner permissions on a subscription
-
-## 8.3.1.a and 8.3.1.b Secure log-on procedures
-
-This blueprint assigns two [Azure Policy](../../../policy/overview.md) definitions to audit accounts
-that don't have multi-factor authentication enabled. Azure Multi-Factor Authentication provides
-additional security by requiring a second form of authentication and delivers strong authentication.
-By monitoring accounts without multi-factor authentication enabled, you can identify accounts that
-may be more likely to be compromised.
-
-- [Preview]: Audit accounts with owner permissions who are not MFA enabled on a subscription
-- [Preview]: Audit accounts with write permissions who are not MFA enabled on a subscription
-- [Preview]: Audit accounts with read permissions who are not MFA enabled on a subscription
 
 ## 8.2.3.a,b and 8.2.4.a,b Password management system
 
@@ -120,7 +94,7 @@ with policy.
 - [Preview]: Audit Windows VM passwords must be at least 14 characters
 - [Preview]: Audit Windows VM should not allow previous 24 passwords
 
-## 3.4.a, 4.1, 4.1.g, 4.1.h Policy on the use of cryptographic controls
+## 3.4.a, 4.1, 4.1.g, 4.1.h Policies on the use of cryptographic controls
 
 This blueprint helps you enforce your policy on the use of cryptograph controls by assigning
 [Azure Policy](../../../policy/overview.md) definitions which enforce specific cryptograph controls
@@ -143,6 +117,7 @@ communication.
 - Audit secure transfer to storage accounts
 - Audit the setting of Cluster Protection Level property to Encrypt and Sign in Service Fabric
 - Audit transparent data encryption status
+- Deploy SQL DB transparent data encryption
 
 ## 10.3 and 10.5.4 Event logging
 
@@ -155,8 +130,11 @@ resources.
 - [Preview]: Monitor unaudited SQL database in Azure Security Center
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
+- Deploy Auditing on SQL servers
+- Audit use of classic storage accounts
+- Audit use of classic virtual machines
 
-## 6.2, 6.6 and 11.2.1 Management of technical vulnerabilities
+## 5.1, 6.2, 6.6 and 11.2.1 Management of technical vulnerabilities
 
 This blueprint helps you manage information system vulnerabilities by assigning [Azure
 Policy](../../../policy/overview.md) definitions that monitor missing system updates, operating
@@ -164,10 +142,12 @@ system vulnerabilities, SQL vulnerabilities, and virtual machine vulnerabilities
 Center. Azure Security Center provides reporting capabilities that enable you to have real-time
 insight into the security state of deployed Azure resources.
 
-- [Preview]: Monitor missing system updates in Azure Security Center
-- [Preview]: Monitor OS vulnerabilities in Azure Security Center
-- [Preview]: Monitor SQL vulnerability assessment results in Azure Security Center
-- [Preview]: Monitor VM Vulnerabilities in Azure Security Center
+- Monitor missing Endpoint Protection in Azure Security Center 
+- Deploy default Microsoft IaaSAntimalware extension for Windows Server
+- System updates should be installed on your machines
+- Vulnerabilities in security configuration on your machines should be remediated
+- Vulnerabilities on your SQL databases should be remediated
+- Vulnerabilities should be remediated by a Vulnerability Assessment solution
 
 ## 1.3.2 and 1.3.4 Network controls
 
@@ -179,19 +159,17 @@ applications, and storage accounts. Endpoints and applications that aren't prote
 and storage accounts with unrestricted access can allow unintended access to information contained
 within the information system.
 
-- [Preview]: Monitor unprotected network endpoints in Azure Security Center
-- [Preview]: Monitor missing Endpoint Protection in Azure Security Center
 - Audit unrestricted network access to storage accounts
 - Access through Internet facing endpoint should be restricted
 
-## 4.1 Information transfer policies and procedures
+## 12.3.6 and 12.3.7 Policies that addresses information security for all personnel
+This blueprint helps you manage and control networks by assigning [Azure
+Policy](../../../policy/overview.md) definitions that audit the acceptable network locations and the
+approved company products allowed for the environment. These are customizable by each company through
+the policy parameters. 
 
-The blueprint helps you ensure information transfer with Azure services is secure by assigning
-[Azure
-Policy](../../../policy/overview.md) definitions to audit insecure connections to storage accounts and Redis Cache.
-
-- Audit enabling of only secure connections to your Redis Cache
-- Audit secure transfer to storage accounts
+- Allowed locations
+- Allowed locations for resource groups
 
 ## Next steps
 
@@ -202,7 +180,7 @@ articles to learn about the overview and how to deploy this sample:
 > [PCI-DSS v3.2.1 blueprint - Overview](./index.md)
 > [PCI-DSS v3.2.1 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+## Addition articles about blueprints and how to use them:
 
 - Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
