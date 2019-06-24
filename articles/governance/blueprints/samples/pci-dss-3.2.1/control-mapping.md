@@ -25,9 +25,9 @@ policy initiative.
 Having only one Azure subscription owner doesn't allow for administrative redundancy. Conversely,
 having too many Azure subscription owners can increase the potential for a breach via a compromised
 owner account. This blueprint helps you maintain an appropriate number of Azure subscription owners
-by assigning [Azure
-Policy](../../../policy/overview.md) definitions which audit the number of owners for Azure subscriptions.
-Managing subscription owner permissions can help you implement appropriate separation of duties.
+by assigning [Azure Policy](../../../policy/overview.md) definitions which audit the number of
+owners for Azure subscriptions. Managing subscription owner permissions can help you implement
+appropriate separation of duties.
 
 - There should be more than one owner assigned to your subscription
 - A maximum of 3 owners should be designated for your subscription 
@@ -35,15 +35,15 @@ Managing subscription owner permissions can help you implement appropriate separ
 ## 7.2.1, 8.3.1.a and 8.3.1.b Management of privileged access rights
 
 This blueprint helps you restrict and control privileged access rights by assigning [Azure
-Policy](../../../policy/overview.md) definitions to audit external accounts with owner, write 
-and/or read permissions and accounts with owner and/or write permissions that don't have multi-factor 
-authentication enabled. Azure implements role-based access control (RBAC) to manage who has access to
-Azure resources. This blueprint also assigns [Azure Policy](../../../policy/overview.md) definitions to 
-audit use of Azure Active Directory authentication for SQL Servers. Using Azure Active Directory 
-authentication enables simplified permission management and centralized identity management of database 
-users and other Microsoft services. This blueprint also assigns an Azure Policy definition to audit the 
-use of custom RBAC rules. Understanding where custom RBAC rules are implement can help you verify need 
-and proper implementation, as custom RBAC rules are error prone.
+Policy](../../../policy/overview.md) definitions to audit external accounts with owner, write and/or
+read permissions and accounts with owner and/or write permissions that don't have multi-factor
+authentication enabled. Azure implements role-based access control (RBAC) to manage who has access
+to Azure resources. This blueprint also assigns [Azure Policy](../../../policy/overview.md)
+definitions to audit use of Azure Active Directory authentication for SQL Servers. Using Azure
+Active Directory authentication enables simplified permission management and centralized identity
+management of database users and other Microsoft services. This blueprint also assigns an Azure
+Policy definition to audit the use of custom RBAC rules. Understanding where custom RBAC rules are
+implement can help you verify need and proper implementation, as custom RBAC rules are error prone.
 
 - [Preview]: Audit external accounts with owner permissions on a subscription
 - [Preview]: Audit external accounts with write permissions on a subscription
@@ -57,9 +57,9 @@ and proper implementation, as custom RBAC rules are error prone.
 
 Azure implements role-based access control (RBAC) to helps you manage who has access to resources in
 Azure. Using the Azure portal, you can review who has access to Azure resources and their
-permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions to
-audit accounts that should be prioritized for review, including depreciated accounts and external
-accounts with elevated permissions.
+permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions to audit
+accounts that should be prioritized for review, including depreciated accounts and external accounts
+with elevated permissions.
 
 - [Preview]: Audit deprecated accounts on a subscription
 - [Preview]: Audit deprecated accounts with owner permissions on a subscription
@@ -96,16 +96,15 @@ with policy.
 
 ## 3.4.a, 4.1, 4.1.g, 4.1.h Policies on the use of cryptographic controls
 
-This blueprint helps you enforce your policy on the use of cryptograph controls by assigning
-[Azure Policy](../../../policy/overview.md) definitions which enforce specific cryptograph controls
-and audit use of weak cryptographic settings. Understanding where your Azure resources may have
-non-optimal cryptographic configurations can help you take corrective actions to ensure resources
-are configured in accordance with your information security policy. Specifically, the policies
-assigned by this blueprint require encryption for blob storage accounts and data lake storage
-accounts; require transparent data encryption on SQL databases; audit missing encryption on storage
-accounts, SQL databases, and automation account variables; audit insecure connections to storage
-accounts, Function Apps, Web App, API Apps, and Redis Cache, and audit unencrypted Service Fabric
-communication.
+This blueprint helps you enforce your policy on the use of cryptograph controls by assigning [Azure Policy](../../../policy/overview.md)
+definitions which enforce specific cryptograph controls and audit use of weak cryptographic
+settings. Understanding where your Azure resources may have non-optimal cryptographic configurations
+can help you take corrective actions to ensure resources are configured in accordance with your
+information security policy. Specifically, the policies assigned by this blueprint require
+encryption for blob storage accounts and data lake storage accounts; require transparent data
+encryption on SQL databases; audit missing encryption on storage accounts, SQL databases, and
+automation account variables; audit insecure connections to storage accounts, Function Apps, Web
+App, API Apps, and Redis Cache, and audit unencrypted Service Fabric communication.
 
 - [Preview]: Audit HTTPS only access for a Function App
 - [Preview]: Audit HTTPS only access for a Web Application
@@ -163,10 +162,11 @@ within the information system.
 - Access through Internet facing endpoint should be restricted
 
 ## 12.3.6 and 12.3.7 Policies that addresses information security for all personnel
+
 This blueprint helps you manage and control networks by assigning [Azure
 Policy](../../../policy/overview.md) definitions that audit the acceptable network locations and the
-approved company products allowed for the environment. These are customizable by each company through
-the policy parameters. 
+approved company products allowed for the environment. These are customizable by each company
+through the policy parameters.
 
 - Allowed locations
 - Allowed locations for resource groups
