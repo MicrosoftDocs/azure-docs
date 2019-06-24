@@ -31,7 +31,7 @@ You can use many methods to create a Standard load balancer. In this quickstart,
 
 To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager documentation](/azure/azure-resource-manager/). To find more templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-1. Select **Try it** from the following code block to open the Azure Cloud shell, and then follow the instructions to sign in to Azure.
+1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
