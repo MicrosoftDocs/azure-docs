@@ -56,6 +56,10 @@ Azure DNS provides the following capabilities:
 
 * **Reverse DNS lookup is supported within the virtual-network scope**. Reverse DNS lookup for a private IP within the virtual network assigned to a private zone returns the FQDN that includes the host/record name and the zone name as the suffix.
 
+## Known issues
+Following are know bugs/issues in the preview release
+* Deleting a virtual network linked to a private DNS zone does not delete the links to the private DNS zone. If you recreate the virtual network with same name and resource group and try to link it again to any private DNS zone the linking will fail. You can workaround this issue by creating the virtual network in a different resource group or with a different name in the same resource group.
+
 ## Other considerations
 
 Azure DNS has the following limitations:
