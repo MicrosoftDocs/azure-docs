@@ -108,7 +108,7 @@ Some of the configuration needed by the microservice is stored in an instance of
 
 ## Run the microservices
 
-In this section, you run the Remote Monitoring microservices. You run the web UI natively; the Azure IoT Device Simulation, Authentication and Authorization, and Azure Stream Analytics Manager services in Docker; and the microservices in IntelliJ.
+In this section, you run the Remote Monitoring microservices. You run the web UI natively; the Azure IoT Device Simulation, Auth, and Azure Stream Analytics Manager services in Docker; and the microservices in IntelliJ.
 
 ### Run the Device Simulation service
 
@@ -120,9 +120,9 @@ Run the following command to launch the Docker container for the Device Simulati
 <path_to_cloned_repository>\services\device-simulation\scripts\docker\run.cmd
 ```
 
-### Run the Authentication and Authorization service
+### Run the Auth service
 
-Open a new Command Prompt window, and then run the following command to launch the Docker container for the Authentication and Authorization service. The service allows you to manage the users who are authorized to access Azure IoT Solutions.
+Open a new Command Prompt window, and then run the following command to launch the Docker container for the Auth service. The service allows you to manage the users who are authorized to access Azure IoT Solutions.
 
 ```cmd
 <path_to_cloned_repository>\services\auth\scripts\docker\run.cmd
@@ -166,7 +166,7 @@ As an example, the following image shows how to add a configuration for a servic
 #### Create a compound configuration
 
 1. To run all the services together, select **Add new Configuration** > **Compound**.
-1. Enter **Name**, and then **add sbt tasks**.
+1. Enter **Name**, and then select **add sbt tasks**.
 1. Select **Apply** > **OK** to save your choices.
 
 As an example, the following image shows how to add all sbt tasks to a single configuration:
