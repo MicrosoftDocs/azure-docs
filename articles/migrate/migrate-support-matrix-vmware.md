@@ -37,7 +37,7 @@ VMware limitations  | Assess up to 35,000 VMware VMs in a single project.
 
 A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
 
-## Assessment - VMware server requirements
+## Assessment-VMware server requirements
 
 This table summarizes assessment support and limitations for VMware virtualization servers.
 
@@ -45,11 +45,11 @@ This table summarizes assessment support and limitations for VMware virtualizati
 --- | ---
 **vCenter server** | VMware VMs you want to assess must be managed by one or more vCenter Servers running 5.5, 6.0, 6.5, or 6.7.
 
-## Assessment - vCenter Server permissions
+## Assessment-vCenter Server permissions
 
 For assessment only, you need a read-only account for the vCenter Server.
 
-## Assessment - appliance requirements
+## Assessment-appliance requirements
 
 **Support** | **Details**
 --- | ---
@@ -58,7 +58,7 @@ For assessment only, you need a read-only account for the vCenter Server.
 **vCenter Server** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to one vCenter Server.
 
 
-## Assessment - appliance collected data
+## Assessment-appliance collected data
 
 The Azure Migrate appliance collects machine metadata and performance data, as summarized in the table.
 
@@ -70,7 +70,7 @@ The Azure Migrate appliance collects machine metadata and performance data, as s
 - Performance data is collected every 20 seconds for each metric. These 20-second datapoints are rolled up to create a single datapoint every five minutes, and sent to Azure for assessment calculation.
 - Based on the percentile specified in the assessment, the appropriate value is selected from the five-minute datapoints for assessment computation.
 
-## Assessment - URL access requirements
+## Assessment-URL access requirements
 
 The Azure Migrate appliance needs internet connectivity to the internet.
 
@@ -91,7 +91,7 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.blob.core.windows.net | Upload data to storage accounts.
 
 
-## Assessment - port requirements
+## Assessment-port requirements
 
 **Device** | **Connection**
 --- | --- 
@@ -99,7 +99,7 @@ Appliance | Inbound connections on TCP port 3389 to allow remote desktop connect
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
 
 
-## Agentless migration - VMware server requirements
+## Agentless migration-VMware server requirements
 
 This table summarizes assessment support and limitations for VMware virtualization servers.
 
@@ -107,7 +107,7 @@ This table summarizes assessment support and limitations for VMware virtualizati
 --- | ---
 **vCenter server** | VMware VMs you migrate using an agentless migration must be managed by one or more vCenter Servers running 5.5, 6.0, 6.5, or 6.7.
 
-## Agentless migration - vCenter Server permissions
+## Agentless migration-vCenter Server permissions
 
 **Permissions** | **Details**
 --- | --- 
@@ -121,7 +121,7 @@ VirtualMachine.SnapshotManagement.* | Allow creation and management of VM snapsh
 Virtual Machine.Interaction.Power Off | Allow the VM to be powered off during migration to Azure.
 
 
-## Agentless migration - VMware VM requirements
+## Agentless migration-VMware VM requirements
 
 **Support** | **Details**
 --- | ---
@@ -135,7 +135,7 @@ Virtual Machine.Interaction.Power Off | Allow the VM to be powered off during mi
 **Target disk** | VMs can only be migrated to managed disks (standard HHD, premium SSD) in Azure.
 
 
-## Agentless migration - appliance requirements
+## Agentless migration-appliance requirements
 
 **Support** | **Details**
 --- | ---
@@ -144,7 +144,7 @@ Virtual Machine.Interaction.Power Off | Allow the VM to be powered off during mi
 **vCenter Server** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to one vCenter Server.
 **VDDK** | If you're running an agentless migration with Azure Migrate Server Migration, the VMware vSphere Virtual Disk Development Kit (VDDK) must be installed on the appliance VM.
 
-## Agentless migration - URL access requirements
+## Agentless migration-URL access requirements
 
 The Azure Migrate appliance needs internet connectivity to the internet.
 
@@ -165,7 +165,7 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.blob.core.windows.net | Upload data to storage accounts.
 
 
-## Agentless migration - port requirements
+## Agentless migration-port requirements
 
 **Device** | **Connection**
 --- | --- 
@@ -174,7 +174,7 @@ vCenter server | Inbound connections on TCP port 443 to allow the appliance to o
 vSphere/EXSI host | Inbound on TCP port 902 for the appliance to replicate data from snapshots. 
 
 
-## Agent-based migration - VMware server requirements
+## Agent-based migration-VMware server requirements
 
 This table summarizes assessment support and limitations for VMware virtualization servers.
 
@@ -182,7 +182,7 @@ This table summarizes assessment support and limitations for VMware virtualizati
 --- | ---
 **vCenter server/ESXI** | VMware VMs you migrate using an agentless migration must be managed by one or more vCenter Servers running 5.5, 6.0, 6.5, or 6.7, or running on an ESXI host with vSphere version 5.5, 6.0, 6.5 or 6.7.
 
-### Agent-based migration - vCenter Server permissions
+### Agent-based migration-vCenter Server permissions
 
 **Permissions** | **Details**
 --- | --- 
@@ -214,7 +214,7 @@ VirtualMachine.SnapshotManagement.RemoveSnapshot | Allow removal of a snapshot f
 
 
 
-## Agent-based migration - VMware VM requirements
+## Agent-based migration-VMware VM requirements
 
 **Support** | **Details**
 --- | ---
@@ -228,7 +228,7 @@ VirtualMachine.SnapshotManagement.RemoveSnapshot | Allow removal of a snapshot f
 
    
 
-## Agent-based migration - URL access requirements
+## Agent-based migration-URL access requirements
 
 The Mobility service running on VMware VMs needs internet connectivity to the internet.
 
@@ -248,7 +248,7 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.migration.windowsazure.com | *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
 
-## Agent-based migration - port requirements
+## Agent-based migration-port requirements
 
 **Device** | **Connection**
 --- | --- 
