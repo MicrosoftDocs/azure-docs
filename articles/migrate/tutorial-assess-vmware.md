@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 06/24/2019
 ms.author: raynew
 ---
 
@@ -22,6 +22,8 @@ In this tutorial, you learn how to:
 > * Start continuous discovery of on-premises VMs. The appliance sends metadata and performance data for discovered VMs to Azure.
 > * Group discovered VMs, and assess the VM group.
 > * Review the assessment.
+
+
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the How Tos for VMware VM assessment and migration.
