@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 06/24/2019
 ms.author: aahi
 ---
 # Tutorial: Single-page Video Search app
@@ -369,7 +369,7 @@ The renderer function:
 > * Builds the HTML `<a>` tags that link to the image and the page that contains it.
 > * Builds the description that displays information about the image and the site it's on.
 
-The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The [Bing thumbnail service](resize-and-crop-thumbnails.md) then delivers a thumbnail of exactly that size.
+The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. Bing will return a [thumbnail](resize-and-crop-thumbnails.md) of exactly that size.
 
 ## Persisting client ID
 Responses from the Bing search APIs may include an `X-MSEdge-ClientID` header that should be sent back to the API with successive requests. If multiple Bing Search APIs are being used, the same client ID should be used with all of them, if possible.

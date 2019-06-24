@@ -364,7 +364,7 @@ The `index` and `count` parameters are used to number results, generate HTML for
     }, // relatedSearches renderer omitted
 ```
 
-The thumbnail image's `height` and `width` are used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. This enables Bing to return [a thumbnail](resize-and-crop-thumbnails.md) of exactly that size.
+The thumbnail image's `height` and `width` are used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. This enables Bing to return [a thumbnail](../bing-web-search/resize-and-crop-thumbnails.md) of exactly that size.
 
 ## Persisting client ID
 
