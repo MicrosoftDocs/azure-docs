@@ -40,7 +40,7 @@ Complete these steps to enable combined registration:
 > Starting in March 2019, the phone call options won't be available to Multi-Factor Authentication and SSPR users in free/trial Azure AD tenants. SMS messages are not affected by this change. The phone call options will still be available to users in paid Azure AD tenants.
 
 > [!NOTE]
-> After you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for Multi-Factor Authentication and SSPR, if those methods are enabled in the Multi-Factor Authentication and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at `https:/aka.ms/ssprsetup` will be required to perform multi-factor authentication before they can access the page.
+> After you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for Multi-Factor Authentication and SSPR, if those methods are enabled in the Multi-Factor Authentication and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at `https://aka.ms/ssprsetup` will be required to perform multi-factor authentication before they can access the page.
 
 If you have configured the Site to Zone Assignment List in Internet Explorer, the following sites have to be in the same zone:
 
@@ -48,9 +48,9 @@ If you have configured the Site to Zone Assignment List in Internet Explorer, th
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
-## Conditional access policies for combined registration
+## Conditional Access policies for combined registration
 
-Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in conditional access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in conditional access, see the article [What is the location condition in Azure Active Directory conditional access?](../conditional-access/location-condition.md#named-locations)
+Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
 ### Create a policy to require registration from a trusted location
 
@@ -58,7 +58,7 @@ The following policy applies to all selected users, who attempt to register usin
 
 ![Create a CA policy to control security info registration](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
 
-1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional access**
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**
 1. Select **New policy**
 1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**
 1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to
@@ -89,4 +89,4 @@ The following policy applies to all selected users, who attempt to register usin
 
 [Troubleshooting combined security info registration](howto-registration-mfa-sspr-combined-troubleshoot.md)
 
-[What is the location condition in Azure Active Directory conditional access?](../conditional-access/location-condition.md)
+[What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md)

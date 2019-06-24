@@ -70,7 +70,7 @@ The following table lists some of the major Azure Machine Learning service opera
 | View models/images | ✓ | ✓ | ✓ |
 | Call web service | ✓ | ✓ | ✓ |
 
-If the built-in roles are insufficient for your needs, you can also create custom roles. Note that the only custom roles we support are for operations on the workspace and Machine Learning Compute. The custom roles may have read, write, or delete permissions on the workspace and the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md)
+If the built-in roles are insufficient for your needs, you can also create custom roles. The only custom roles we support are for operations on the workspace and Machine Learning Compute. The custom roles may have read, write, or delete permissions on the workspace and the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md)
 
 ### Securing compute and data
 Owners and contributors can use all compute targets and data stores that are attached to the workspace.  
@@ -89,14 +89,14 @@ For more information on managed identities, see [Managed identities for Azure re
 
 It is recommended that administrators do not revoke the access of the managed identity to the resources mentioned above. Access can be restored with the Resync Keys operation.
 
-Azure Machine Learning service creates an additional application (name starts with aml-) with the contributor level access in your subscription for every workspace region. For ex. if you have a workspace in East US and another workspace in North Europe in the same subscription you will see 2 such applications. This is needed so that Azure Machine Learning service can help manage compute resources.
+Azure Machine Learning service creates an additional application (name starts with `aml-`) with the contributor level access in your subscription for every workspace region. For ex. if you have a workspace in East US and another workspace in North Europe in the same subscription you will see two such applications. This is needed so that Azure Machine Learning service can help manage compute resources.
 
 
 ## Network security
 
 The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. These compute targets can be created inside a virtual network. For example, you can use the Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS).  
 
-For more information, see [How to run experiments and inferencing in a virtual network](how-to-enable-virtual-network.md).
+For more information, see [How to run experiments and inference in a virtual network](how-to-enable-virtual-network.md).
 
 ## Data encryption
 
@@ -107,6 +107,8 @@ Azure Machine Learning service stores snapshots, outputs, and logs in the Azure 
 For more information on how to bring your own keys for the data stored in Azure Blob Storage, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 
 Training data is typically also stored in Azure Blob storage so that it is accessible to training compute. This storage is not managed by Azure Machine Learning but mounted to compute as a remote file system.
+
+For information on regenerating the access keys for the Azure storage accounts used with your workspace, see the [Regenerate storage access keys](how-to-change-storage-access-key.md) article.
 
 #### Cosmos DB
 Azure Machine Learning service stores metrics and metadata to the Cosmos DB that lives in a Microsoft subscription managed by Azure Machine Learning service. All the data stored in Cosmos DB is encrypted at rest using Microsoft Managed Keys.
@@ -152,7 +154,7 @@ The following diagram shows the create workspace workflow.
 User logs into Azure AD from any of the supported Azure Machine Learning service clients (CLI, Python SDK, Azure portal) and requests the appropriate Azure Resource Manager token.  User then calls Azure Resource Manager to create the workspace.  Azure Resource Manager contacts the Azure Machine Learning service Resource Provider to provision the workspace.  Additional resources are created in the customer’s subscription during workspace creation:
 * KeyVault (to store secrets)
 * An Azure Storage account (including Blob & FileShare)
-* Azure Container Registry (to store docker images for inferencing and experimentation)
+* Azure Container Registry (to store docker images for inference/scoring and experimentation)
 * Application Insights (to store telemetry)
 
 Other computes attached to a workspace (Azure Kubernetes Service, VM etc.) can also be provisioned by customers as needed. 
@@ -170,7 +172,7 @@ The following diagram shows the training workflow.
 * Azure Machine Learning service is called with the snapshot ID for the code snapshot saved above
 * Azure Machine Learning service creates run ID (optional) & Azure Machine Learning service token, which is later used by the compute targets like Machine Learning Compute/VM to talk back to Azure Machine Learning service
 * You can choose either a managed compute (ex. Machine Learning Compute) or unmanaged compute (ex. VM) to run your training jobs. Data flow is explained for both the scenarios below:
-* (VM/HDInsight/Local – accessed using SSH creds in Key Vault in Microsoft subscription) Azure Machine Learning service runs management code on compute target that:
+* (VM/HDInsight – accessed using SSH creds in Key Vault in Microsoft subscription) Azure Machine Learning service runs management code on compute target that:
     1.	Prepares the environment (note: Docker is an option for VM/Local as well. See steps for Machine Learning Compute below to understand how running experiment on docker container works)
     2.	Downloads the code
     3.	Sets up environment variables/configs
@@ -188,7 +190,7 @@ This step is shown in the flow where training compute writes the *Run Metrics* b
 ![Screenshot showing create workspace workflow](./media/enterprise-readiness/training-and-metrics.png)
 
 ### Creating web services
-The following diagram shows the inferencing workflow in which model is deployed as a web service.
+The following diagram shows the inference workflow. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
 See details below:
 * User registers a model using a client like Azure ML SDK
 * User creates image using model, score file, and other model dependencies

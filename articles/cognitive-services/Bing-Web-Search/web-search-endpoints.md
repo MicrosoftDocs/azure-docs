@@ -26,7 +26,7 @@ To get Web search results using the Bing API, send a `GET` request to the follow
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
 
-Endpoint: For details about headers, parameters, market codes, response objects, errors, and more, see the [Bing Web API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) reference.
+Endpoint: For details about headers, parameters, market codes, response objects, errors, and more, see the [Bing Web API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) reference.
 
 ## Response JSON
 

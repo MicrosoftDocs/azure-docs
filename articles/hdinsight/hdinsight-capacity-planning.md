@@ -6,9 +6,10 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
 ---
+
 # Capacity planning for HDInsight clusters
 
 Before deploying an HDInsight cluster, plan for the desired cluster capacity by determining the needed performance and scale. This planning helps optimize both usability and costs. Some cluster capacity decisions cannot be changed after deployment. If the performance parameters change, a cluster can be dismantled and re-created without losing stored data.
@@ -101,9 +102,9 @@ To identify the issue on a single-node local cluster you can rerun failed jobs a
 
 After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have 30 core limit in the East US region. If you need to request a quota increase, do the following steps:
 
-1. Go to the Azure portal
-1. Click on **Help and Support** on the bottom-left side of the page.
-1. Click on **New support request**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Select **Help + support** on the bottom-left side of the page.
+1. Select on **New support request**.
 1. On the **New support request** page, under **Basics** tab, select the following options:
    - **Issue type**: **Service and subscription limits (quotas)**
    - **Subscription**: the subscription you want to modify
@@ -111,10 +112,10 @@ After determining your target cluster VM size, scale, and type, check the curren
     
      ![Create a support request to increase HDInsight core quota](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Click **Next**.
-1. On the **Details** page, enter a description of the issue, select the severity of the issue, and select your preferred contact method.
-1. Click **Next: Review + create**.
-1. On the **Review + create** tab, click **Create**.
+1. Select **Next: Solutions >>**.
+1. On the **Details** page, enter a description of the issue, select the severity of the issue, your preferred contact method, and other required fields.
+1. Select **Next: Review + create >>**.
+1. On the **Review + create** tab, select **Create**.
 
 > [!NOTE]  
 > If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).

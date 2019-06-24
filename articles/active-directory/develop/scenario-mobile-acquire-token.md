@@ -13,7 +13,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
@@ -159,7 +160,7 @@ catch(MsalUiRequiredException e)
 
 ### Via the protocol
 
-We don't recommend using the protocol directly. If you do, the app won’t support some single sign-on (SSO), device management, and conditional access scenarios.
+We don't recommend using the protocol directly. If you do, the app won’t support some single sign-on (SSO), device management, and Conditional Access scenarios.
 
 When you use the protocol to get tokens for mobile apps, you need to make two requests: get an authorization code and exchange it for a token.
 

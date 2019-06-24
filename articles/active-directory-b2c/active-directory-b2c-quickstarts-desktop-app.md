@@ -2,7 +2,7 @@
 title: Quickstart - Set up sign-in for a desktop app using Azure Active Directory B2C | Microsoft Docs
 description: Run a sample ASP.NET desktop application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 

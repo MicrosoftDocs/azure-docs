@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 06/03/2019
 ms.author: alkohli
 ---
 # Choose an Azure solution for data transfer
@@ -58,6 +58,11 @@ Answer the following questions to help select a data transfer solution:
 - Are you looking for on-going, continuous data transfer?
 
     If yes, use the options in [Scenario 4: Periodic data transfers](storage-solution-periodic-data-transfer.md).
+ 
+
+## Data transfer feature in Azure portal
+
+You can also go to your Azure Storage account in Azure portal and select the **Data transfer** feature. Provide the network bandwidth in your environment, the size of the data you want to transfer, and the frequency of data transfer. You will see the optimum data transfer solutions corresponding to the information that you have provided. 
 
 ## Next steps
 

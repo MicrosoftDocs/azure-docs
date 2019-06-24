@@ -59,6 +59,9 @@ You create an Azure Database for MariaDB server with a defined set of [compute a
     
    ![Pricing tier](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
+   > [!TIP]
+   > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
+
 4. Select **Create**. In a minute or two, a new Azure Database for MariaDB server is running in the cloud. To monitor the deployment process, select **Notifications** on the toolbar.
 
 ## Configure the firewall

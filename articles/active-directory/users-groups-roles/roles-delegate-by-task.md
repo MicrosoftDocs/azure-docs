@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -54,6 +54,9 @@ Create, read, update, and delete user attributes | Global Administrator |
 Create, read, update, and delete users | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
 Read all configuration | Global Administrator | 
 Read B2C audit logs | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+
+> [!NOTE]
+> Azure AD B2C global administrators do not have the same permissions as Azure AD global administrators. If you have Azure AD B2C global administrator privileges, make sure that you are in an Azure AD B2C directory and not an Azure AD directory.
 
 ## Company branding
 
@@ -265,25 +268,25 @@ Task | Least privileged role | Additional roles
 Configure authentication methods | Global Administrator | 
 Read all configuration | Global Administrator | 
 
-## Security - Conditional access
+## Security - Conditional Access
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Configure MFA trusted IP addresses | Conditional access administrator | 
-Create custom controls | Conditional access administrator | Security administrator
-Create named locations | Conditional access administrator | Security administrator
-Create policies | Conditional access administrator | Security administrator
-Create terms of use | Conditional access administrator | Security administrator
-Create VPN connectivity certificate | Conditional access administrator | Security administrator
-Delete classic policy | Conditional access administrator | Security administrator
-Delete terms of use | Conditional access administrator | Security administrator
-Delete VPN connectivity certificate | Conditional access administrator | Security administrator
-Disable classic policy | Conditional access administrator | Security administrator
-Manage custom controls | Conditional access administrator | Security administrator
-Manage named locations | Conditional access administrator | Security administrator
-Manage terms of use | Conditional access administrator | Security administrator
+Configure MFA trusted IP addresses | Conditional Access administrator | 
+Create custom controls | Conditional Access administrator | Security administrator
+Create named locations | Conditional Access administrator | Security administrator
+Create policies | Conditional Access administrator | Security administrator
+Create terms of use | Conditional Access administrator | Security administrator
+Create VPN connectivity certificate | Conditional Access administrator | Security administrator
+Delete classic policy | Conditional Access administrator | Security administrator
+Delete terms of use | Conditional Access administrator | Security administrator
+Delete VPN connectivity certificate | Conditional Access administrator | Security administrator
+Disable classic policy | Conditional Access administrator | Security administrator
+Manage custom controls | Conditional Access administrator | Security administrator
+Manage named locations | Conditional Access administrator | Security administrator
+Manage terms of use | Conditional Access administrator | Security administrator
 Read all configuration | Security reader | Security administrator
-Read named locations | Security reader | Conditional access administrator, security administrator
+Read named locations | Security reader | Conditional Access administrator, security administrator
 
 ## Security - Identity security score
 
@@ -336,7 +339,7 @@ Update user settings | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Submit support ticket | Service Administrator | Application Administrator, Billing Administrator, Cloud Application Administrator, Compliance Administrator, Dynamics 365 Administrator, Desktop Analytics Administrator, Exchange Administrator, Password Administrator, Information Protection Administrator, Intune Administrator, Skype for Business Administrator, Power BI Administrator, Privileged Authentication Administrator, SharePoint Administrator, Teams Communications Administrator, Teams Administrator, User Administrator, Workplace Analytics Administrator
+Submit support ticket | Service Administrator | Application Administrator, Azure Information Protection Administrator, Billing Administrator, Cloud Application Administrator, Compliance Administrator, Dynamics 365 Administrator, Desktop Analytics Administrator, Exchange Administrator, Password Administrator, Intune Administrator, Skype for Business Administrator, Power BI Administrator, Privileged Authentication Administrator, SharePoint Administrator, Teams Communications Administrator, Teams Administrator, User Administrator, Workplace Analytics Administrator
 
 ## Next steps
 

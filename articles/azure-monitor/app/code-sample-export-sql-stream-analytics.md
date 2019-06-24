@@ -174,10 +174,10 @@ To get the name and iKey of your Application Insights resource, open Essentials 
 
 > [!TIP]
 > Use the Sample function to check that you have set the input path correctly. If it fails: Check that there is data in the storage for the sample time range you chose. Edit the input definition and check you set the storage account, path prefix and date format correctly.
-> 
-> 
-> ## Set query
-> Open the query section:
+
+ 
+## Set query
+Open the query section:
 
 Replace the default query with:
 

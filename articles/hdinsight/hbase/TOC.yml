@@ -114,7 +114,7 @@
         href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
-      - name: Use the Azure Classic CLI
+      - name: Use the Azure CLI
         href: ../hdinsight-administer-use-command-line.md
     - name: Manage clusters using the Apache Ambari web UI
       href: ../hdinsight-hadoop-manage-ambari.md
@@ -236,6 +236,10 @@
     href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   - name: Network access
     items:
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+    - name: Use firewall to restrict outbound traffic
+      href: ../hdinsight-restrict-outbound-traffic.md
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
     - name: Connect HDInsight with on-premises network
@@ -260,7 +264,5 @@
   items:
   - name: Windows clusters
     items:
-    - name: Migrate Windows clusters to Linux clusters
-      href: ../hdinsight-migrate-from-windows-to-linux.md
     - name: Migrate .NET solutions to Linux clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

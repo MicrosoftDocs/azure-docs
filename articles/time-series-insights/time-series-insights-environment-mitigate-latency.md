@@ -4,9 +4,9 @@ description: This article describes how to monitor, diagnose, and mitigate perfo
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
@@ -37,11 +37,11 @@ You are most likely to experience latency and throttling when you:
 
 Alerts can help you to help diagnose and mitigate latency issues caused by your environment.
 
-1. In the Azure portal, click **Metrics**.
+1. In the Azure portal, select **Metrics**.
 
    [![Metrics](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-1. Click **Add metric alert**.  
+1. Select **Add metric alert**.  
 
    [![Add metric alert](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
