@@ -1,0 +1,66 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Immersive Reader Documentation
+metadata:
+  title: Immersive Reader Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  description: Learn how to use Immersive Reader in your application.
+  services: cognitive-services
+  author: metanMSFT
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: metanMSFT
+abstract:
+  description: Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences. You can use Immersive Reader in your web application by using the Immersive Reader SDK. 
+  
+sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/immersive-reader/overview
+          html: <p>Learn about Immersive Reader and how to integrate it into your applications</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Immersive Reader?
+        - href: /azure/cognitive-services/immersive-reader/reference
+          html: <p>Learn about the Immersive Reader Javascript SDK</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: Use Immersive Reader SDK
+
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Get started with Immersive Reader:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/logo_csharp.svg
+      text: C&#35;
+      alt: C# logo
+      href: quickstart
+    
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using Immersive Reader:'
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="tutorial.md">Launch Immersive Reader using Node.js</a>
+
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: SDKs
+      html: <p><a href="reference.md">Javascript</a></p>
