@@ -86,7 +86,7 @@ Azure Maps have been localized in a variety of languages across the services. Th
 >  * India
 >  * Morocco
 >  * Pakistan
->  After August 1, 2019, View parameter setting will define the returned map content for the new regions/countries listed above. We encourage you ensure that you have set up the View parameter as required for the REST APIs and SDKs that your services are using.
+> After August 1, 2019, View parameter setting will define the returned map content for the new regions/countries listed above. We encourage you ensure that you have set up the View parameter as required for the REST APIs and SDKs that your services are using.
   
 
 >  **Rest APIs:**
