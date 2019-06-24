@@ -225,7 +225,9 @@ To provide implementations for the stubbed code in VS Code:
 
 1. Open the **device_model.c** file.
 
-<!-- To do - complete this section -->
+1. Add code to implement the stubbed functions.
+
+1. Save your changes.
 
 ## Build the code
 
@@ -340,16 +342,16 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```
 
-1. Add a device
+1. Add a device:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```
 
-1. Get the device's connection-string
+1. Get the device's connection-string.
 1. Run the code.
-1. Use the Plug and Play Device Explorer to interact with the device
+1. Use the Plug and Play Device Explorer to interact with the device.
 
 ## Next steps
 
-Now that you've built an IoT Plug and Play ready for certification, learn how to [build a device that's ready for certification](tutorial-build-device-for-certification.md) and list it in the Certified for Azure IoT device catalog.
+Now that you've built an IoT Plug and Play ready for certification, learn how to [build a device that's ready for certification](tutorial-build-device-certification.md) and list it in the Certified for Azure IoT device catalog.

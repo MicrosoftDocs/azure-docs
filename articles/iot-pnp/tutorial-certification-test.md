@@ -61,7 +61,7 @@ On the review page, review discovered Plug and Play interfaces and make sure the
 1. To complete the certification tests, select **Finish**.
 1. To add the certified device to the device catalog, select **Add to Catalog** on the toolbar.
 
-## Next Steps
+## Next steps
 
 In this tutorial, you learned how to:
 

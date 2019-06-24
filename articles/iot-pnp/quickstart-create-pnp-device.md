@@ -33,7 +33,7 @@ Install the Azure IoT Device Workbench extension from a .vsix file. Use the foll
 1. Select the .vsix file you downloaded.
 1. Select **Install**.
 
-![Install Azure IoT Device Workbench extension](media/quickstart-create-pnp-device/install-vsix.png)
+    ![Install Azure IoT Device Workbench extension](media/quickstart-create-pnp-device/install-vsix.png)
 
 ### Install the digital twin explorer
 
@@ -41,7 +41,7 @@ Download and install the digital twin explorer tool from the [latest release]().
 
 ### Azure IoT Hub
 
-Create a device identity in an Azure IoT Hub. If you don't have one, follow instructions [here](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node#create-an-iot-hub) to create one.
+Create a device identity in an Azure IoT Hub. If you don't have one, follow instructions [here](../iot-hub/quickstart-send-telemetry-node.md#create-an-iot-hub) to create one.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -58,7 +58,7 @@ To create a new interface in VS Code:
 
 1. Copy the contents from the file [here]() into the file you created.
   
-1. Make the value of the **@id** property unique, for example:
+1. Make the value of the `@id` property unique, for example:
 
 ```json
 "@id": "http://yourdomain.com/environmentalsensor/1.0.1"
@@ -176,4 +176,4 @@ In this quickstart, you learned how to create a Plug and Play device using a DCM
 To learn more about DCMs and how to create your own models, continue to the tutorial:
 
 > [!div class="nextstepaction"]
-> > [Tutorial: Create a test a device capability model using Visual Studio Code](tutorial-pnp-vscode.md)
+> > [Tutorial: Create a test a device capability model using Visual Studio Code](tutorial-pnp-visual-studio-code.md)

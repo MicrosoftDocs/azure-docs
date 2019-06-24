@@ -11,9 +11,9 @@
 - name: Tutorials
   items:
   - name: Create a device using VS Code
-    href: tutorial-pnp-vscode.md
+    href: tutorial-pnp-visual-studio-code.md
   - name: Build a device ready for certification
-    href: tutorial-build-device-for-certification.md
+    href: tutorial-build-device-certification.md
   - name: Add product information to the catalog
     href: tutorial-certification-product.md
   - name: Run certification tests
@@ -21,4 +21,4 @@
 - name: How-to guides
   items:
   - name: Onboard to the IoT portal
-    href: howto-onboard-to-portal.md
+    href: howto-onboard-portal.md

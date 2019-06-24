@@ -106,7 +106,7 @@ For your device to pass certification tests the code must:
 
 If you use the code generation function in VS Code, your device code uses the Azure IoT Plug and Play device SDK.
 
-To add the ability to use DPS, copy this code to the ***** file in the generated code:
+To add the ability to use DPS, copy this code to the source file in the generated code.
 
 Finally, you must implement the **Device Information** interface on your device and provide device-specific information from the device at run time. You can use example implementations of the **Device Information** interface for Windows IoT Core and Linux as references.
 
