@@ -362,6 +362,8 @@
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Networking forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Networking feecback
     href: https://feedback.azure.com/forums/217313-networking?category_id=77469
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-network
