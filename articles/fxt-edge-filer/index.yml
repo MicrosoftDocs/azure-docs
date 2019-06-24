@@ -20,7 +20,7 @@ sections:
     style: unordered
     items:
     - html: <a href="fxt-install">Install Azure FXT Edge Filer hardware</a>
-    - html: <a href="fxt-network">Make network connections for the Azure FXT Edge Filer</a>
+    - html: <a href="fxt-network-power">Make network connections for the Azure FXT Edge Filer</a>
     - html: <a href="fxt-node-password">Set root passwords on the hardware nodes</a>
     - html: <a href="fxt-cluster-create">Create the hybrid storage cache cluster</a>
     - html: <a href="fxt-add-nodes">Add cluster nodes</a>
