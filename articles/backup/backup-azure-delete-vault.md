@@ -163,11 +163,11 @@ This procedure provides an example that shows you how to remove backup data from
 
 ### Deleting Backup items associated with a Backup Management Server or Azure Backup Agent server
 
-If you are noticing below error message when deleting items from Backup Infrastructure:
+If you are noticing below error message when deleting backup items from Backup Infrastructure:
 
 ![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
 
-To resolve the issue, perform the below:<br/>
+To delete the backup items from Backup Infrastructure, perform the below:<br/>
 Navigate to Management Console that is MARS, Azure Backup Server or SC DPM depending on where your back items are protected<br/>
 
 For MARS agent
