@@ -102,7 +102,7 @@ Then, select **Cloud** > **Azure Resource Group**.
 1. Give your project a name and a location, and then select **OK**.
 
    Visual Studio prompts you to select a template from the templates list. 
-   This example uses an Azure Quickstart template so that you can build a serverless 
+   This example uses an Azure QuickStart template so that you can build a serverless 
    app that includes a logic app and a call to an Azure function.
 
    > [!TIP]
@@ -116,17 +116,17 @@ select **Azure QuickStart (github.com/Azure/azure-quickstart-templates)**.
 1. In the search box, enter "logic-app" as your filter. 
 From the results, select the **101-logic-app-and-function-app** template.
 
-   ![Select Azure Quickstart template](./media/logic-apps-serverless-get-started-vs/select-template.png)
+   ![Select Azure QuickStart template](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
    Visual Studio creates and opens a solution for your resource group project. 
-   The Azure Quickstart template that you selected creates a deployment template 
+   The Azure QuickStart template that you selected creates a deployment template 
    named azuredeploy.json inside your resource group project. This deployment 
    template includes the definition for a simple logic app that is triggered by an 
-   HTTP request, and then calls an Azure function and returns the result as an HTTP response.
+   HTTP request, calls an Azure function, and returns the result as an HTTP response.
 
    ![New serverless solution](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
-1. Next, deploy your solution to Azure. YOu must do this before you can open 
+1. Next, deploy your solution to Azure. You must do this before you can open 
 the deployment template and review the resources for your serverless app.
 
 ## Deploy your solution
@@ -159,9 +159,7 @@ for your function app.
 
 ## Edit your logic app in Visual Studio
 
-Now that your solution is deployed to your resource group, 
-open your logic app in the Logic App Designer so that you 
-can edit and change it.
+To edit your logic app after deployment, open your logic app by using the Logic App Designer in Visual Studio.
 
 1. In Solution Explorer, from the shortcut menu of the azuredeploy.json file, 
 select **Open With Logic App Designer**.
