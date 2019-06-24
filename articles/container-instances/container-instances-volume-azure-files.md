@@ -79,7 +79,7 @@ The `--dns-name-label` value must be unique within the Azure region where you cr
 
 ## Deploy container and mount volume - YAML
 
-You can also deploy a container group and mount a volume with the Azure CLI and a [YAML template](container-instances-multi-container-yaml.md). Deploying by YAML template is the preferred method when deploying container groups consisting of multiple containers.
+You can also deploy a container group and mount a volume in a container with the Azure CLI and a [YAML template](container-instances-multi-container-yaml.md). Deploying by YAML template is the preferred method when deploying container groups consisting of multiple containers.
 
 The following YAML template defines a container group with one container created with the `aci-hellofiles` image. The container mounts the Azure file share *acishare* created previously as a volume. Where indicated, enter the name and storage key for the storage account that hosts the file share. 
 
@@ -129,7 +129,7 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
 ## Deploy container and mount volume - Resource Manager
 
-In addition to CLI and YAML deployment, you can deploy a container group using an Azure [Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups).
+In addition to CLI and YAML deployment, you can deploy a container group and mount a volume in a container using an Azure [Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups).
 
 First, populate the `volumes` array in the container group `properties` section of the template. 
 
