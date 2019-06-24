@@ -269,7 +269,7 @@ To test the application on your local machine, use the following steps:
    
    ![Screenshot of the Index view with the Completed box checked](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 
-5. You can verify the at any point the state of the data in the Azure Cosmos DB service using [Cosmos Explorer](https://cosmos.azure.com) or the Azure Cosmos DB Emulator's Data Explorer.
+5. You can verify at any point the state of the data in the Azure Cosmos DB service using [Cosmos Explorer](https://cosmos.azure.com) or the Azure Cosmos DB Emulator's Data Explorer.
 
 6. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
