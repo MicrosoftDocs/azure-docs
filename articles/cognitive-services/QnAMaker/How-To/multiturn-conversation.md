@@ -404,7 +404,7 @@ FIX - Need to go to parent, then answer column, then edit answer.
 
 -->
 
-## Manage multi-turn prompts via the API
+## Add or delete multi-turn prompts with the Update API
 
 You can add or delete multi-turn prompts via the [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following JSON examples shows the `context` including `promptsToAdd`, and `promptsToDelete` to change the settings. 
 
