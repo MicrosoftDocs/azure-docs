@@ -60,7 +60,7 @@ For a company's department list, you can have normalized values: `Accounting` an
 
     You can add more list items or more item synonyms by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](luis-how-to-add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or importing a list. 
 
-## Add composite entity
+## Add a composite entity
 
 Composite entities are created from existing **Entities** to form a parent entity. 
 
