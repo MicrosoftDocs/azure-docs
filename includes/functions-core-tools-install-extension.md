@@ -24,7 +24,7 @@ To learn more, see [Register Azure Functions binding extensions](../articles/azu
 
 ### Register individual extensions
 
-If for some reason you don't want to use extension bundles, you can still manually register individual extension packages for specific bindings. 
+If you need to install extensions that aren't in a bundle, you can manually register individual extension packages for specific bindings. 
 
 > [!NOTE]
 > To manually register extensions by using `func extensions install`, you must have the .NET Core 2.x SDK installed.
