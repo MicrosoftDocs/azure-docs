@@ -29,7 +29,7 @@ To deploy Application Proxy successfully, you need at least one connector, but w
 ### Windows server
 You need a server running Windows Server 2012 R2 or later on which you can install the Application Proxy connector. The server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you're publishing.
 
-The windows server needs to have TLS 1.2 enabled before you install the Application Proxy connector. Existing connectors with versions below 1.5.612.0 will continue to work on prior versions of TLS until further notice. To enable TLS 1.2:
+The windows server needs to have TLS 1.2 enabled before you install the Application Proxy connector. To enable TLS 1.2 on the server:
 
 1. Set the following registry keys:
 	

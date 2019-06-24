@@ -85,10 +85,10 @@ In this section, you'll build the iOS app that will connect to the notification 
 
    | Key                            | Type                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | String                   | <hubKey>                  |
-   | notificationHubKeyName         | String                   | <hubKeyName>              |
-   | notificationHubName            | String                   | <hubName>                 |
-   | notificationHubNamespace       | String                   | <hubNamespace>            |
+   | notificationHubKey             | String                   | \<hubKey>                  |
+   | notificationHubKeyName         | String                   | \<hubKeyName>              |
+   | notificationHubName            | String                   | \<hubName>                 |
+   | notificationHubNamespace       | String                   | \<hubNamespace>            |
 
    You can find the required values by navigating to the notification hub resource in the Azure portal. In particular, the **notificationHubName** and **notificationHubNamespace** values are in the upper-right corner of the **Essentials** summary within the **Overview** page.
 
@@ -407,7 +407,7 @@ Follow these steps to call the **installations** API:
    | Key           | Value            |
    | ------------- | ---------------- |
    | Content-Type  | application/json |
-   | Authorization | <sasToken>       |
+   | Authorization | \<sasToken>       |
    | x-ms-version  | 2015-01          |
 
 1. Select the **Code** button that appears on the upper-right under the **Save** button. The request should look similar to the following example:
@@ -655,7 +655,7 @@ You can send notifications via the [REST API](/rest/api/notificationhubs/) by us
    | Key                            | Value                          |
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
-   | Authorization                  | <sasToken>                     |
+   | Authorization                  | \<sasToken>                     |
    | ServiceBusNotification-Format  | template                       |
    | Tags                           | "12345"                        |
 
