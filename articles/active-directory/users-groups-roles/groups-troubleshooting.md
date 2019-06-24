@@ -19,21 +19,25 @@ ms.collection: M365-identity-device-management
 # Troubleshoot and resolve groups issues
 
 ## Troubleshooting group creation issues
+
 **I disabled security group creation in the Azure portal but groups can still be created via Powershell**
 The **User can create security groups in Azure portals** setting in the Azure portal controls whether or not non-admin users can create security groups in the Access panel or the Azure portal. It does not control security group creation via Powershell.
 
 To disable group creation for non-admin users in Powershell:
 1. Verify that non-admin users are allowed to create groups:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+
+   ```powershell
+   Get-MsolCompanyInformation | Format-List UsersPermissionToCreateGroupsEnabled
+   ```
+
   
 2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
 
 <br/>**I received a max groups allowed error when trying to create a Dynamic Group in Powershell**<br/>
 If you receive a message in Powershell indicating _Dynamic group policies max allowed groups count reached_, this means you have reached the max limit for Dynamic groups in your tenant. The max number of Dynamic groups per tenant is 5,000.

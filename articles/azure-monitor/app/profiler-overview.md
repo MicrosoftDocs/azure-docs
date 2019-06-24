@@ -69,7 +69,7 @@ If **clr!ThePreStub** takes a long time for a request, the request is the first 
 
 ### <a id="ngencold"></a>Loading code ([COLD])
 
-If the method name contains **[COLD]**, such as **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, .NET Framework runtime is executing code for the first time that isn't optimized by [profile-guided optimization](https://msdn.microsoft.com/library/e7k32f4k.aspx). For each method, it should be displayed at most once during the process.
+If the method name contains **[COLD]**, such as **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, .NET Framework runtime is executing code for the first time that isn't optimized by [profile-guided optimization](/cpp/build/profile-guided-optimizations). For each method, it should be displayed at most once during the process.
 
 If loading code takes a substantial amount of time for a request, the request is the first one to execute the unoptimized portion of the method. Consider using a warmup process that executes that portion of the code before your users access it.
 

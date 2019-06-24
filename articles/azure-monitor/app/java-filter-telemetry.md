@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/23/2016
+ms.date: 3/14/2019
 ms.author: mbullwin
 ---
 # Filter telemetry in your Java web app
@@ -180,12 +180,12 @@ Filters log traces (logged using [TrackTrace()](../../azure-monitor/app/api-cust
 ```
 
 * `FromSeverityLevel` valid values are:
- *  OFF             - Filter out ALL traces
- *  TRACE           - No filtering. equals to Trace level
- *  INFO            - Filter out TRACE level
- *  WARN            - Filter out TRACE and INFO
- *  ERROR           - Filter out WARN, INFO, TRACE
- *  CRITICAL        - filter out all but CRITICAL
+  *  OFF             - Filter out ALL traces
+  *  TRACE           - No filtering. equals to Trace level
+  *  INFO            - Filter out TRACE level
+  *  WARN            - Filter out TRACE and INFO
+  *  ERROR           - Filter out WARN, INFO, TRACE
+  *  CRITICAL        - filter out all but CRITICAL
 
 
 ## Custom filters
@@ -247,6 +247,20 @@ In ApplicationInsights.xml:
     </ApplicationInsights>
 
 ```
+
+### 3. Invoke your filter (Java Spring)
+
+For applications based on the Spring framework, custom telemetry processors must be registered in your main application class as a bean. They will then be autowired when the application starts.
+
+```Java
+@Bean
+public TelemetryProcessor successFilter() {
+      return new SuccessFilter();
+}
+```
+
+You will need to create your own filter parameters in `application.properties` and leverage Spring Boot's externalized configuration framework to pass those parameters into your custom filter. 
+
 
 ## Troubleshooting
 

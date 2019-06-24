@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -30,7 +30,7 @@ The overall architecture of SAP HANA on Azure (Large Instances) provides an SAP 
 
 The architecture shown is divided into three sections:
 
-- **Right**: Shows an on-premises infrastructure that runs different applications in data centers so that end users can access LOB applications, such as SAP. Ideally, this on-premises infrastructure is then connected to Azure with [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **Right**: Shows an on-premises infrastructure that runs different applications in data centers so that end users can access LOB applications, such as SAP. Ideally, this on-premises infrastructure is connected to Azure with [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 - **Center**: Shows Azure IaaS and, in this case, use of VMs to host SAP or other applications that use SAP HANA as a DBMS system. Smaller HANA instances that function with the memory that VMs provide are deployed in VMs together with their application layer. For more information about virtual machines, see [Virtual machines](https://azure.microsoft.com/services/virtual-machines/).
 
@@ -41,11 +41,11 @@ The architecture shown is divided into three sections:
   -  [Use SAP on Windows virtual machines](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Use SAP solutions on Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Left**: Shows the SAP HANA TDI-certified hardware in the Azure Large Instance stamp. The HANA Large Instance units are connected to the virtual networks of your subscription by using the same technology as the connectivity from on-premises into Azure.
+- **Left**: Shows the SAP HANA TDI-certified hardware in the Azure Large Instance stamp. The HANA Large Instance units are connected to the virtual networks of your Azure subscription by using the same technology as the connectivity from on-premises into Azure. As of May 2019, an optimization got introduced that allows to communicate between the HANA Large Instance units and the Azure VMs without involvement of the ExpressRoute Gateway. This optimization called ExpressRoute Fast Path is displayed in this architecture (red lines). 
 
 The Azure Large Instance stamp itself combines the following components:
 
-- **Computing**: Servers that are based on Intel Xeon E7-8890v3 or Intel Xeon E7-8890v4 processors that provide the necessary computing capability and are SAP HANA certified.
+- **Computing**: Servers that are based on different generation of Intel Xeon processors that provide the necessary computing capability and are SAP HANA certified.
 - **Network**: A unified high-speed network fabric that interconnects the computing, storage, and LAN components.
 - **Storage**: A storage infrastructure that is accessed through a unified network fabric. The specific storage capacity that is provided depends on the specific SAP HANA on Azure (Large Instances) configuration that is deployed. More storage capacity is available at an additional monthly cost.
 

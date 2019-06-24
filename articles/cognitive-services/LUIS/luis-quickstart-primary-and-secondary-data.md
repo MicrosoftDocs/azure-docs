@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 ---
@@ -44,7 +44,7 @@ The simple entity is a good fit for this type of data when:
 * Data is not well-formatted such as a regular expression.
 * Data is not common such as a prebuilt entity of phone number or data.
 * Data is not matched exactly to a list of known words, such as a list entity.
-* Data does not contain other data items such as a composite entity or hierarchical entity.
+* Data does not contain other data items such as a composite entity or contextual roles.
 
 Consider the following utterances from a chat bot:
 
@@ -123,7 +123,7 @@ Simple entities need many examples in order to have a high confidence of predict
     |Apply for tile work.|tile|
     |Attached resume for landscape architect.|landscape architect|
     |My curriculum vitae for professor of biology is enclosed.|professor of biology|
-    |I would like to apply for the position in photography.|photography|git 
+    |I would like to apply for the position in photography.|photography|
 
 ## Mark job entity in other intents
 

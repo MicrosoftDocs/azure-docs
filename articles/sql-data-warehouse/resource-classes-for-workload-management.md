@@ -1,5 +1,5 @@
 ---
-title: Resource classes for workload management - Azure SQL Data Warehouse | Microsoft Docs
+title: Resource classes for workload management in Azure SQL Data Warehouse | Microsoft Docs
 description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 04/26/2018
+ms.date: 06/20/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
@@ -74,11 +74,12 @@ The dynamic resource classes are implemented with these pre-defined database rol
 
 When digging into the details of dynamic resource classes on Gen1, there are a few details that add additional complexity to understanding their behavior:
 
-- The smallrc resources class operates with a fixed memory model like a static resource class.  Smallrc queries do not dynamically get more memory as the service level is increased.
+**On Gen1**
+- The smallrc resources class operates with a fixed memory model like a static resource class.  Smallrc queries do not dynamically get more memory as the service level is increased. 
 - As service levels change, the available query concurrency can go up or down.
-- Scaling services levels does not provide a proportional change the memory allocated to the same resource classes.
+- Scaling service levels does not provide a proportional change to the memory allocated to the same resource classes.
 
-On **Gen2 only**, dynamic resource classes are truly dynamic addressing the points mentioned above.  The new rule is 3-10-22-70 for memory percentage allocations for small-medium-large-xlarge resource classes, **regardless of service level**.  The below table has the consolidated details of memory allocation percentages and the minimum number of concurrent queries that run, regardless of the service level.
+**On Gen2**, dynamic resource classes are truly dynamic addressing the points mentioned above.  The new rule is 3-10-22-70 for memory percentage allocations for small-medium-large-xlarge resource classes, **regardless of service level**.  The below table has the consolidated details of memory allocation percentages and the minimum number of concurrent queries that run, regardless of the service level.
 
 | Resource Class | Percentage Memory | Min Concurrent Queries |
 |:--------------:|:-----------------:|:----------------------:|
@@ -125,21 +126,21 @@ Some queries always run in the smallrc resource class even though the user is a 
 
 The following statements are exempt from resource classes and always run in smallrc:
 
--CREATE or DROP TABLE
--ALTER TABLE ... SWITCH, SPLIT, or MERGE PARTITION
--ALTER INDEX DISABLE
--DROP INDEX
--CREATE, UPDATE, or DROP STATISTICS
--TRUNCATE TABLE
--ALTER AUTHORIZATION
--CREATE LOGIN
--CREATE, ALTER, or DROP USER
--CREATE, ALTER, or DROP PROCEDURE
--CREATE or DROP VIEW
--INSERT VALUES
--SELECT from system views and DMVs
--EXPLAIN
--DBCC
+- CREATE or DROP TABLE
+- ALTER TABLE ... SWITCH, SPLIT, or MERGE PARTITION
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE, UPDATE, or DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE, ALTER, or DROP USER
+- CREATE, ALTER, or DROP PROCEDURE
+- CREATE or DROP VIEW
+- INSERT VALUES
+- SELECT from system views and DMVs
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQL DW
@@ -169,15 +170,15 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 ## Change a user's resource class
 
-Resource classes are implemented by assigning users to database roles. When a user runs a query, the query runs with the user's resource class. For example, if a user is a member of the smallrc or staticrc10 database role, their queries run with small amounts of memory. If a database user is a member of the xlargerc or staticrc80 database roles, their queries run with large amounts of memory.
+Resource classes are implemented by assigning users to database roles. When a user runs a query, the query runs with the user's resource class. For example, if a user is a member of the staticrc10 database role, their queries run with small amounts of memory. If a database user is a member of the xlargerc or staticrc80 database roles, their queries run with large amounts of memory.
 
-To increase a user's resource class, use the stored procedure [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+To increase a user's resource class, use [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) to add the user to a database role of a large resource class.  The below code adds a user to the largerc database role.  Each request gets 22% of the system memory.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-To decrease the resource class, use [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
+To decrease the resource class, use [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  If 'loaduser' is not a member or any other resource classes, they go into the default smallrc resource class with a 3% memory grant.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -269,7 +270,7 @@ The following statement creates Table1 that is used in the preceding examples.
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
 -------------------------------------------------------------------------------
-IF EXISTS (SELECT -FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
 DROP PROCEDURE dbo.prc_workload_management_by_DWU
 GO
 

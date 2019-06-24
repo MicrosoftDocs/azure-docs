@@ -3,14 +3,14 @@ title: Translator Text API V2.0
 titleSuffix: Azure Cognitive Services
 description: Reference documentation for the V2.0 Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
+author: rajdeep-in
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-jansko
+ms.author: v-pawal
 ---
 
 # Translator Text API v2.0
@@ -24,11 +24,18 @@ Translator Text API V2 can be seamlessly integrated into your applications, webs
 To access the Translator Text API you will need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## Authorization
-All calls to Translator Text API require a subscription key to authenticate. The API supports two modes of authentication:
+All calls to Translator Text API require a subscription key to authenticate. The API supports three modes of authentication:
 
-* Using an access token. Use the subscription key referenced in **step** 9 to generate an access token by making a POST request to the authorization service. See the token service documentation for details. Pass the access token to the Translator service using the Authorization header or the access_token query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests within these 10 minutes.
+- An access token. Use the subscription key referenced in **step** 9 to generate an access token by making a POST request to the authorization service. See the token service documentation for details. Pass the access token to the Translator service using the Authorization header or the `access_token` query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests during these 10 minutes.
+- A subscription key directly. Pass your subscription key as a value in the `Ocp-Apim-Subscription-Key` header included with your request to the Translator API. In this mode, you don't have to call the authentication token service to generate an access token.
+- A [Cognitive Services multi-service subscription](https://azure.microsoft.com/pricing/details/cognitive-services/). This mode allows you to use a single secret key to authenticate requests for multiple services. <br/>
+When you use a multi-service secret key, you must include two authentication headers with your request. The first header passes the secret key. The second header specifies the region associated with your subscription:
+   - `Ocp-Apim-Subscription-Key`
+   - `Ocp-Apim-Subscription-Region`
 
-* Using a subscription key directly. Pass your subscription key as a value in `Ocp-Apim-Subscription-Key` header included with your request to the Translator API. In this mode, you do not have to call the authentication token service to generate an access token.
+The region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service subscription key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
+
+The available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
 
 Consider your subscription key and the access token as secrets that should be hidden from view.
 
@@ -41,7 +48,7 @@ If you want to avoid getting profanity in the translation, regardless of the pre
 |ProfanityAction	|Action	|Example Source (Japanese)	|Example Translation (English)	|
 |:--|:--|:--|:--|
 |NoAction	|Default. Same as not setting the option. Profanity will pass from source to target.		|彼はジャッカスです。		|He is a jackass.	|
-|Marked		|Profane words will be surrounded by XML tags <profanity> and </profanity>.		|彼はジャッカスです。	|He is a <profanity>jackass</profanity>.	|
+|Marked		|Profane words will be surrounded by XML tags \<profanity> and \</profanity>.		|彼はジャッカスです。	|He is a \<profanity>jackass\</profanity>.	|
 |Deleted	|Profane words will be removed from the output without replacement.		|彼はジャッカスです。	|He is a.	|
 
 	
@@ -323,7 +330,7 @@ Response Content Type: application/xml
 |text|(empty)	|Required. A string containing a sentence or sentences of the specified language to be spoken for the wave stream. The size of the text to speak must not exceed 2000 characters.|query|string|
 |language|(empty)	|Required. A string representing the supported language code to speak the text in. The code must be present in the list of codes returned from the method  `GetLanguagesForSpeak`.|query|string|
 |format|(empty)|Optional. A string specifying the content-type ID. Currently,  `audio/wav` and `audio/mp3` are available. The default value is `audio/wav`.|query|string|
-|options|(empty)	|<ul><li>Optional. A string specifying properties of the synthesized speech:<li>`MaxQuality` and `MinSize` are available to specify the quality of the audio signals. With `MaxQuality`, you can get voices with the highest quality, and with `MinSize`, you can get the voices with the smallest size. Default is  `MinSize`.</li><li>`female` and `male` are available to specify the desired gender of the voice. Default is `female`. Use the vertical bar `|` to include multiple options. For example  `MaxQuality|Male`.</li></li></ul>	|query|string|
+|options|(empty)	|<ul><li>Optional. A string specifying properties of the synthesized speech:<li>`MaxQuality` and `MinSize` are available to specify the quality of the audio signals. With `MaxQuality`, you can get voices with the highest quality, and with `MinSize`, you can get the voices with the smallest size. Default is  `MinSize`.</li><li>`female` and `male` are available to specify the desired gender of the voice. Default is `female`. Use the vertical bar <code>\|</code> to include multiple options. For example  `MaxQuality|Male`.</li></li></ul>	|query|string|
 |Authorization|(empty)|Required if the `appid` field or  `Ocp-Apim-Subscription-Key` header is not specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header is not specified.|header|string|
 

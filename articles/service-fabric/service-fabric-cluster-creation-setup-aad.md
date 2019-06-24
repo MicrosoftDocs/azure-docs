@@ -4,7 +4,7 @@ description: Learn how to set up Azure Active Directory (Azure AD) to authentica
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -35,12 +35,12 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
 2. Right-click the zip file, select **Properties**, select the **Unblock** check box, and then click **Apply**.
 3. Extract the zip file.
 
-## Create Azure AD applications and asssign users to roles
+## Create Azure AD applications and assign users to roles
 Create two Azure AD applications to control access to the cluster: one web application and one native application. After you have created the applications to represent your cluster, assign your users to the [roles supported by Service Fabric](service-fabric-cluster-security-roles.md): read-only and admin.
 
 Run `SetupApplications.ps1`, and provide the tenant ID, cluster name, and web application reply URL as parameters.  Also specify usernames and passwords for the users.  For example:
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
@@ -111,7 +111,7 @@ Select "App registrations" in AAD page, select your cluster application, and the
 ### Connect the cluster by using Azure AD authentication via PowerShell
 To connect the Service Fabric cluster, use the following PowerShell command example:
 
-```PowerShell
+```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 

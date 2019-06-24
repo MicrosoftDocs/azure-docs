@@ -78,7 +78,7 @@ Ubuntu	| 18.04
 ### DSC requirements
 
 For all Windows nodes running in Azure,
-[WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure)
+[WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure)
 will be installed during onboarding.  For nodes running Windows Server 2012 and Windows 7,
 [WinRM will be enabled](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
@@ -95,6 +95,20 @@ the following port and URLs are required for State Configuration (DSC) to commun
 * Global URL: *.azure-automation.net
 * Global URL of US Gov Virginia: *.azure-automation.us
 * Agent service: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+#### Proxy Support
+
+Proxy support for the DSC agent is available in Windows version 1809 and later.
+To configure this option,
+set the value for **ProxyURL** and **ProxyCredential** in the
+[metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations)
+used to register nodes.
+Proxy is not available in DSC for previous versions of Windows.
+
+For Linux nodes,
+the DSC agent supports proxy and will utilize the http_proxy variable to determine the url.
+
+#### Azure State Configuration network ranges and namespace
 
 It's recommended to use the addresses listed when defining exceptions. For IP addresses you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.
 
@@ -134,7 +148,7 @@ State Configuration was first announced.
 > Configuration has progressed a lot since this video was recorded. It is now generally available,
 > has a much more extensive UI in the Azure portal, and supports many additional capabilities.
 
-<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## Next steps
 

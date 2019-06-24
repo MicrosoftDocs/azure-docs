@@ -2,11 +2,11 @@
 title: Azure File Sync on-premises firewall and proxy settings | Microsoft Docs
 description: Azure File Sync on-premises network configuration
 services: storage
-author: fauhse
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 11/26/2018
-ms.author: fauhse
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -44,7 +44,7 @@ Azure File Sync supports app-specific and machine-wide proxy settings.
 **App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 4.0.1.0 or newer and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
 
 PowerShell commands to configure app-specific proxy settings:
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
@@ -54,28 +54,28 @@ To configure machine-wide proxy settings, follow the steps below:
 
 1. Configure proxy settings for .NET applications 
 
-  - Edit these two files:  
-    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
-    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+   - Edit these two files:  
+     C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+     C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-  - Add the <system.net> section in the machine.config files (below the <system.serviceModel> section).  Change 127.0.01:8888 to the IP address and port for the proxy server. 
-  ```
+   - Add the <system.net> section in the machine.config files (below the <system.serviceModel> section).  Change 127.0.01:8888 to the IP address and port for the proxy server. 
+     ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
           <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
         </defaultProxy>
       </system.net>
-  ```
+     ```
 
 2. Set the WinHTTP proxy settings 
 
-  - Run the following command from an elevated command prompt or PowerShell to see the existing proxy setting:   
+   - Run the following command from an elevated command prompt or PowerShell to see the existing proxy setting:   
 
-    netsh winhttp show proxy
+     netsh winhttp show proxy
 
-  - Run the following command from an elevated command prompt or PowerShell to set the proxy setting (change 127.0.01:8888 to the IP address and port for the proxy server):  
+   - Run the following command from an elevated command prompt or PowerShell to set the proxy setting (change 127.0.01:8888 to the IP address and port for the proxy server):  
 
-    netsh winhttp set proxy 127.0.0.1:8888
+     netsh winhttp set proxy 127.0.0.1:8888
 
 3. Restart the Storage Sync Agent service by running the following command from an elevated command prompt or PowerShell: 
 

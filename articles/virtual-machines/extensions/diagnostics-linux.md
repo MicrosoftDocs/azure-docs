@@ -495,7 +495,9 @@ ReadsPerSecond | Read operations per second
 WritesPerSecond | Write operations per second
 TransfersPerSecond | Read or write operations per second
 
-Aggregated values across all file systems can be obtained by setting `"condition": "IsAggregate=True"`. Values for a specific mounted file system, such as "/mnt", can be obtained by setting `"condition": 'Name="/mnt"'`.
+Aggregated values across all file systems can be obtained by setting `"condition": "IsAggregate=True"`. Values for a specific mounted file system, such as "/mnt", can be obtained by setting `"condition": 'Name="/mnt"'`. 
+
+**NOTE**: If using the Azure Portal instead of JSON, the correct condition field form is Name='/mnt'
 
 ### builtin metrics for the Disk class
 

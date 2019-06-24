@@ -1,17 +1,17 @@
 ---
 title: Index of Blueprint samples
-description: Index of samples for Azure Blueprints
-services: blueprints
+description: Index of compliance and standard environment samples for deploying with Azure Blueprints.
 author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
-ms.topic: conceptual
-ms.date: 03/14/2019
+ms.topic: sample
+ms.date: 06/24/2019
 ms.author: dacoulte
 ---
 # Azure Blueprints samples
 
-The following table includes links to samples for Azure Blueprints.
+The following table includes links to samples for Azure Blueprints. Each sample is production
+quality and ready to deploy today to assist you in meeting your various compliance needs.
 
 ## Standards-based blueprint samples
 
@@ -19,6 +19,8 @@ The following table includes links to samples for Azure Blueprints.
 |---------|---------|
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards ISO 27001 attestation. |
 | [ISO 27001 App Service Environment/SQL Database workload](./iso27001-ase-sql-workload/index.md) | Provides additional infrastructure to the [ISO 27001 Shared Services](./iso27001-shared/index.md) blueprint sample. |
+| [UK OFFICIAL Governance](./ukofficial/control-mapping.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards UK OFFICIAL attestation. |
+| [NIST SP 800-53 R4](./nist-sp-800-53-rev4/control-mapping.md) | Provides guardrails for compliance to NIST SP 800-53 R4. |
 
 ## Next steps
 

@@ -1,47 +1,49 @@
 ---
-title: Run Ansible with Bash in Azure Cloud Shell
-description: Learn how to perform various Ansible tasks with Bash in Azure Cloud Shell
-ms.service: azure
+title: Quickstart - Run Ansible playbooks via Bash in Azure Cloud Shell | Microsoft Docs
+description: In this quickstart, learn how to carry out various Ansible tasks with Bash in Azure Cloud Shell
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/07/2018
-ms.topic: quickstart
+ms.date: 04/30/2019
 ---
 
-# Run Ansible with Bash in Azure Cloud Shell
+# Quickstart: Run Ansible playbooks via Bash in Azure Cloud Shell
 
-In this tutorial, you learn how to use Bash within Cloud Shell to configure an Azure subscription as your Ansible workspace. 
+Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources. Cloud Shell provides enables you to use either a Bash or Powershell command line. In this article, you use Bash within Azure Cloud Shell to run an Ansible playbook.
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-- **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article, [Quickstart for Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart), illustrates how to start and configure Cloud Shell. 
-
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- **Configure Azure Cloud Shell** - If you're new to Azure Cloud Shell, see [Quickstart for Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Automatic credential configuration
 
-When signed into the Cloud Shell, Ansible authenticates with Azure to manage infrastructure without any additional configuration. If you have more than one subscription, you can choose which subscription Ansible should work with by exporting the `AZURE_SUBSCRIPTION_ID` environment variable. To list all of your Azure subscriptions, run the following command:
+When signed into the Cloud Shell, Ansible authenticates with Azure to manage infrastructure without any additional configuration. 
+
+When working with multiple subscriptions, specify the subscription Ansible uses by exporting the `AZURE_SUBSCRIPTION_ID` environment variable. 
+
+To list all of your Azure subscriptions, run the following command:
 
 ```azurecli-interactive
 az account list
 ```
 
-Using the **id** of the subscription with which you want to work, set the **AZURE_SUBSCRIPTION_ID** as follows:
+Using your Azure subscription ID, set the `AZURE_SUBSCRIPTION_ID` as follows:
 
 ```azurecli-interactive
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 
 ## Verify the configuration
-To verify the successful configuration, use Ansible to create a resource group.
+To verify the successful configuration, use Ansible to create an Azure resource group.
 
-[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-create-resource-group.md)]
+[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-snippet-create-resource-group.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Create a basic virtual machine in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Quickstart: Configure virtual machine in Azure using Ansible](/azure/virtual-machines/linux/ansible-create-vm)

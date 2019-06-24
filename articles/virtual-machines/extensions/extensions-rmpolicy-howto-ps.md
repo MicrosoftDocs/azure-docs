@@ -23,7 +23,7 @@ If you want to prevent the use or installation of certain extensions on your Win
 
 This tutorial uses Azure PowerShell within the Cloud Shell, which is constantly updated to the latest version. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Create a rules file
 

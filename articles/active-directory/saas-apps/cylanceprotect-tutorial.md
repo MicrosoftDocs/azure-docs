@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with CylancePROTECT, perform the following 
 	
 	| Region | URL Value |
 	|----------|---------|
-	| Asia-Pacific Northeast (APNE1)| ` https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
+	| Asia-Pacific Northeast (APNE1)| `https://login-apne1.cylance.com/EnterpriseLogin/ConsumeSaml`|
 	| Asia-Pacific Southeast (AU) | `https://login-au.cylance.com/EnterpriseLogin/ConsumeSaml` |
 	| Europe Central (EUC1)|`https://login-euc1.cylance.com/EnterpriseLogin/ConsumeSaml`|
 	| North America|`https://login.cylance.com/EnterpriseLogin/ConsumeSaml`|
@@ -206,5 +206,5 @@ When you click the CylancePROTECT tile in the Access Panel, you should be automa
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

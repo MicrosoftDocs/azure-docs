@@ -4,7 +4,7 @@ description: include file
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

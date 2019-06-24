@@ -381,4 +381,4 @@ In this tutorial, you learned how to use metrics and diagnostic logs by performi
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Configure your devices from a back-end service](tutorial-device-twins.md)
+> [Configure your devices from a back-end service](tutorial-device-twins.md)

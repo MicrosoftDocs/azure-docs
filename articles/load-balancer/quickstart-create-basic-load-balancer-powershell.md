@@ -23,7 +23,7 @@ This quickstart shows you how to create Basic Load Balancer using Azure PowerShe
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -290,18 +290,18 @@ Install IIS with a custom web page on both backend VMs as follows:
 
 1. Get the Public IP address of the Load Balancer. Using `Get-AzPublicIPAddress`, obtain the Public IP address of the Load Balancer.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Create a remote desktop connection to VM1 using the Public Ip address that you obtained from the previous step. 
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
 
       mstsc /v:PublicIpAddress:4221  
   
-  ```
+   ```
 3. Enter the credentials for *VM1* to start the RDP session.
 4. Launch Windows PowerShell on VM1 and using the following commands to install IIS server and update the default htm file.
     ```azurepowershell-interactive
@@ -330,7 +330,7 @@ You can then enter the public IP address in to a web browser. The website is dis
 
 ![Test load balancer](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-To see the load balancer distribute traffic across all two VMs running your app, you can force-refresh your web browser.
+To see the load balancer distribute traffic across both VMs running your app, you can force-refresh your web browser.
 
 ## Clean up resources
 

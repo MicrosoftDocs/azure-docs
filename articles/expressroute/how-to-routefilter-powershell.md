@@ -127,7 +127,7 @@ New-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Lo
 You can specify a set of BGP communities as a comma-separated list, as shown in the example. Run the following command to create a new rule:
  
 ```azurepowershell-interactive
-$rule = New-AzRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList "12076:5010,12076:5040"
+$rule = New-AzRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList 12076:5010,12076:5040
 ```
 
 ### 3. Add the rule to the route filter
@@ -158,15 +158,15 @@ To get the properties of a route filter, use the following steps:
 
 1. Run the following command to get the route filter resource:
 
-  ```azurepowershell-interactive
-  $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-  ```
+   ```azurepowershell-interactive
+   $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   ```
 2. Get the route filter rules for the route-filter resource by running the following command:
 
-  ```azurepowershell-interactive
-  $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-  $rule = $routefilter.Rules[0]
-  ```
+   ```azurepowershell-interactive
+   $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   $rule = $routefilter.Rules[0]
+   ```
 
 ### <a name="updateproperties"></a>To update the properties of a route filter
 

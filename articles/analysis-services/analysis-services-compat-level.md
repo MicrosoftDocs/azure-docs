@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -23,7 +23,11 @@ Azure Analysis Services supports tabular models at the 1200 and 1400 compatibili
 *  Object-level security for table and column names, in addition to the data within them.
 *  Enhanced support for ragged hierarchies.
 *  Performance and monitoring improvements.
- 
+
+> [!NOTE]
+> Azure Analysis Services supports imported Power BI Desktop files at the 1465 compatibility level. However, the Import from Power BI Desktop functionality, which had always been a preview feature, was discontinued and removed from the service in March 2019. Existing models at the 1465 compatibility level remain supported.  
+
+
 ## Set compatibility level
 
  When creating a new tabular model project in SSDT, you can specify the compatibility level on the **Tabular model designer** dialog. 
@@ -43,6 +47,9 @@ Azure Analysis Services supports tabular models at the 1200 and 1400 compatibili
  In SSMS, right-click the server name>  **Properties** > **Supported Compatibility Level**.  
   
  This property specifies the highest compatibility level of a database that will run on the server (excluding preview). The supported compatibility level cannot be changed.  
+
+> [!NOTE]
+> In SSMS, when connected to an Azure Analysis Services server, the **Supported Compatibility Level** property will show **1200**. This is a known issue and will be resolved in an upcoming SSMS update. When resolved, this property will show the highest supported compatibility level.
 
 ## Next steps
 

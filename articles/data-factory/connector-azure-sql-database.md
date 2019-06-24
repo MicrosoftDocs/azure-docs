@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/14/2019
 ms.author: jingwang
 
 ---
@@ -21,11 +21,16 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Current version](connector-azure-sql-database.md)
 
-This article explains how to use Copy Activity in Azure Data Factory to copy data from or to Azure SQL Database. It builds on the [Copy Activity overview](copy-activity-overview.md) article, which presents a general overview of Copy Activity.
+This article outlines how to copy data to and from Azure SQL Database. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
-You can copy data from or to Azure SQL Database to any supported sink data store. And you can copy data from any supported source data store to Azure SQL Database. For a list of data stores that are supported as sources or sinks by Copy Activity, see the [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats) table.
+This Azure SQL Database connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md) table
+- [Mapping data flow](concepts-data-flow-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
 
 Specifically, this Azure SQL Database connector supports these functions:
 
@@ -33,7 +38,8 @@ Specifically, this Azure SQL Database connector supports these functions:
 - As a source, retrieve data by using a SQL query or stored procedure.
 - As a sink, append data to a destination table or invoke a stored procedure with custom logic during the copy.
 
-Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) is not supported now. 
+>[!NOTE]
+>Azure SQL Database **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current)** is not supported by this connector now. To work around, you can use [generic ODBC connector](connector-odbc.md) and SQL Server ODBC driver via Self-hosted Integration Runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) with ODBC driver download and connection string configurations.
 
 > [!IMPORTANT]
 > If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure Services can access the server.
@@ -129,21 +135,21 @@ To use a service principal-based Azure AD application token authentication, foll
     - Application key
     - Tenant ID
 
-1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator must be an Azure AD user or Azure AD group, but it can't be a service principal. This step is done so that, in the next step, you can use an Azure AD identity to create a contained database user for the service principal.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator must be an Azure AD user or Azure AD group, but it can't be a service principal. This step is done so that, in the next step, you can use an Azure AD identity to create a contained database user for the service principal.
 
-1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
-    
+3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code:
+4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code, or refer to more options [here](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-1. **Configure an Azure SQL Database linked service** in Azure Data Factory.
+5. **Configure an Azure SQL Database linked service** in Azure Data Factory.
 
 
 #### Linked service example that uses service principal authentication
@@ -179,31 +185,21 @@ A data factory can be associated with a [managed identity for Azure resources](d
 
 To use managed identity authentication, follow these steps:
 
-1. **Create a group in Azure AD.** Make the managed identity a member of the group.
-    
-    1. Find the data factory managed identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
-    
-    1. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the managed identity as a member.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-    ```
-    
 1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
-    
+2. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Data Factory Managed Identity. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
+  
     ```sql
-    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Grant the Azure AD group needed permissions** as you normally do for SQL users and others. For example, run the following code:
+3. **Grant the Data Factory Managed Identity needed permissions** as you normally do for SQL users and others. Run the following code, or refer to more options [here](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your AAD group name];
+    EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-1. **Configure an Azure SQL Database linked service** in Azure Data Factory.
+4. **Configure an Azure SQL Database linked service** in Azure Data Factory.
 
 **Example:**
 
@@ -230,7 +226,7 @@ To use managed identity authentication, follow these steps:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) article. This section provides a list of properties supported by the Azure SQL Database dataset.
 
-To copy data from or to Azure SQL Database, set the **type** property of the dataset to **AzureSqlTable**. The following properties are supported:
+To copy data from or to Azure SQL Database, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -249,6 +245,7 @@ To copy data from or to Azure SQL Database, set the **type** property of the dat
             "referenceName": "<Azure SQL Database linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -365,22 +362,22 @@ GO
 
 ### Azure SQL Database as the sink
 
+> [!TIP]
+> Learn more on the supported write behaviors, configurations and best practice from [Best practice for loading data into Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
+
 To copy data to Azure SQL Database, set the **type** property in the Copy Activity sink to **SqlSink**. The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity sink must be set to **SqlSink**. | Yes |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**.<br/> The allowed value is **integer** (number of rows). | No. The default is 10000. |
+| writeBatchSize | Number of rows to inserts into the SQL table **per batch**.<br/> The allowed value is **integer** (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. | No |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Database. It's only invoked once per copy run. Use this property to clean up the preloaded data. | No |
-| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. An example is to do upserts or transform by using your own business logic. <br/><br/>This stored procedure is **invoked per batch**. For operations that only run once and have nothing to do with source data, use the `preCopyScript` property. Example operations are delete and truncate. | No |
+| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is **invoked per batch**. For operations that only run once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. | No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | sqlWriterTableType | Specify a table type name to be used in the stored procedure. Copy Activity makes the data being moved available in a temporary table with this table type. Stored procedure code can then merge the data being copied with existing data. | No |
 
-> [!TIP]
-> When you copy data to Azure SQL Database, Copy Activity appends data to the sink table by default. To do an upsert or additional business logic, use the stored procedure in **SqlSink**. Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stored-procedure-for-sql-sink).
-
-#### Append data example
+**Example 1: append data**
 
 ```json
 "activities":[
@@ -412,7 +409,7 @@ To copy data to Azure SQL Database, set the **type** property in the Copy Activi
 ]
 ```
 
-#### Invoke a stored procedure during copy for upsert example
+**Example 2: invoke a stored procedure during copy**
 
 Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stored-procedure-for-sql-sink).
 
@@ -451,88 +448,73 @@ Learn more details from [Invoking stored procedure from SQL Sink](#invoking-stor
 ]
 ```
 
-## Identity columns in the target database
+## Best practice for loading data into Azure SQL Database
 
-This section shows you how to copy data from a source table without an identity column to a destination table with an identity column.
+When you copy data into Azure SQL Database, you may require different write behavior:
 
-#### Source table
+- **[Append](#append-data)**: my source data only has new records;
+- **[Upsert](#upsert-data)**: my source data has both inserts and updates;
+- **[Overwrite](#overwrite-entire-table)**: I want to reload entire dimension table each time;
+- **[Write with custom logic](#write-data-with-custom-logic)**: I need extra processing before the final insertion into the destination table.
+
+Refer to the respectively sections on how to configure in ADF and the best practices.
+
+### Append data
+
+This is the default behavior of this Azure SQL Database sink connector, and ADF do **bulk insert** to write to your table efficiently. You can simply configure the source and sink accordingly in Copy activity.
+
+### Upsert data
+
+**Option I** (suggested especially when you have large data to copy): the **most performant approach** to do upsert is the following: 
+
+- Firstly, leverage a [database scoped temporary table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) to bulk load all records using Copy activity. As operations against database scoped temporary tables are not logged, you can load millions of records in seconds.
+- Execute a Stored Procedure activity in ADF to apply a [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (or INSERT/UPDATE) statement, and use the temp table as source to perform all updates or inserts as a single transaction, reducing the amount of roundtrips and log operations. At the end of the Stored Procedure activity , temp table can be truncated to be ready for the next upsert cycle. 
+
+As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity** on success. The former copies data from your source store into an Azure SQL Database temporary table, say "**##UpsertTempTable**" as table name in dataset, then the latter invokes a Stored Procedure to merge source data from the temp table into target table, and clean up temp table.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+In your database, define a Stored Procedure with MERGE logic, like the following, which is pointed to from the above Stored Procedure activity. Assuming target **Marketing** table with three columns: **ProfileID**, **State**, and **Category**, and do the upsert based on the **ProfileID** column.
 
 ```sql
-create table dbo.SourceTbl
-(
-       name varchar(100),
-       age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+	MERGE TargetTable AS target
+	USING ##UpsertTempTable AS source
+	ON (target.[ProfileID] = source.[ProfileID])
+	WHEN MATCHED THEN
+		UPDATE SET State = source.State
+    WHEN NOT matched THEN
+    	INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-#### Destination table
+**Option II:** alternatively, you can choose to [Invoke stored procedure within Copy activity](#invoking-stored-procedure-for-sql-sink), while note this approach is executed for each row in the source table instead of leveraging bulk insert as the default approach in Copy activity, thus it doesn't fit for large scale upsert.
 
-```sql
-create table dbo.TargetTbl
-(
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
-)
-```
+### Overwrite entire table
 
-> [!NOTE]
-> The target table has an identity column.
+You can configure **preCopyScript** property in Copy activity sink, in which case for each Copy activity run, ADF executes the script first, then run the copy to insert the data. For example, to overwrite the entire table with the latest data, you can specify a script to first delete all records before bulk-loading the new data from the source.
 
-#### Source dataset JSON definition
+### Write data with custom logic
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
-
-#### Destination dataset JSON definition
-
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
-
-> [!NOTE]
-> Your source and target table have different schema. 
-
-The target has an additional column with an identity. In this scenario, you must specify the **structure** property in the target dataset definition, which doesn’t include the identity column.
+Similar as described in [Upsert data](#upsert-data) section, when you need to apply extra processing before the final insertion of source data into the destination table, you can a) for large scale, load to a database scoped temporary table then invoke a stored procedure, or b) invoking a stored procedure during copy.
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> Invoke stored procedure from SQL sink
 
-When you copy data into Azure SQL Database, you can also configure and invoke a user-specified stored procedure  with additional parameters.
+When you copy data into Azure SQL Database, you can also configure and invoke a user-specified stored procedure with additional parameters.
 
-You can use a stored procedure when built-in copy mechanisms don't serve the purpose. They're typically used when an upsert, insert plus update, or extra processing must be done before the final insertion of source data into the destination table. Some extra processing examples are merge columns, look up additional values, and insertion into more than one table.
+> [!TIP]
+> Invoking stored procedure processes the data row-by-row instead of bulk operation, which is not suggested for large scale copy. Learn more from [Best practice for loading data into Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
+
+You can use a stored procedure when built-in copy mechanisms don't serve the purpose, e.g. apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are merge columns, look up additional values, and insertion into more than one table.
 
 The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
 
-#### Output dataset
+**Output dataset:** the "tableName" should be the same table type parameter name in your stored procedure (see below stored procedure script).
 
 ```json
 {
@@ -551,7 +533,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 }
 ```
 
-Define the **SqlSink** section in Copy Activity:
+Define the **SQL sink** section in copy activity as follows.
 
 ```json
 "sink": {
@@ -594,6 +576,10 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+
+## Mapping Data Flow properties
+
+Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in Mapping Data Flow.
 
 ## Data type mapping for Azure SQL Database
 

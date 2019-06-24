@@ -332,18 +332,18 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
 10. Change the folder permission:
 
-   ```bash
-   chmod -R 775 /opt 
-   chown grid:oinstall /opt 
-   chown oracle:oinstall /dev/sdc1 
-   chown oracle:oinstall /dev/sdd1 
-   chown oracle:oinstall /dev/sde1 
-   chown oracle:oinstall /dev/sdf1 
-   chmod 600 /dev/sdc1 
-   chmod 600 /dev/sdd1 
-   chmod 600 /dev/sde1 
-   chmod 600 /dev/sdf1
-   ```
+    ```bash
+    chmod -R 775 /opt 
+    chown grid:oinstall /opt 
+    chown oracle:oinstall /dev/sdc1 
+    chown oracle:oinstall /dev/sdd1 
+    chown oracle:oinstall /dev/sde1 
+    chown oracle:oinstall /dev/sdf1 
+    chmod 600 /dev/sdc1 
+    chmod 600 /dev/sdd1 
+    chmod 600 /dev/sde1 
+    chmod 600 /dev/sdf1
+    ```
 
 ## Download and prepare Oracle Grid Infrastructure
 

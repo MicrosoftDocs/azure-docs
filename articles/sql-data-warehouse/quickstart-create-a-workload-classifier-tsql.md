@@ -1,23 +1,20 @@
 ---
 title: 'Quickstart: Create a workload classifier - T-SQL | Microsoft Docs'
-description: Use T-SQL to create a workload classifier with high importance
+description: Use T-SQL to create a workload classifier with high importance.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Create a workload classifier using T-SQL (Preview)
+# Quickstart: Create a workload classifier using T-SQL
 
 In this quickstart, you'll quickly create a workload classifier with high importance for the CEO of your organization. This workload classifier will allow CEO queries to take precedence over other queries with lower importance in the queue.
-
-> [!Note]
-> Workload classification is available on SQL Data Warehouse Gen2.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -46,7 +43,9 @@ END
 ;
 ```
 
-## Create TheCEO user in mySampleDataWarehouse
+## Create user
+
+[Create user](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest), "TheCEO", in mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
@@ -56,7 +55,9 @@ END
 ;
 ```
 
-## Create a workload classifier for TheCEO with high importance
+## Create a workload classifier
+
+Create a [workload classifier](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) for "TheCEO" with high importance.
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];
@@ -101,6 +102,6 @@ Follow these steps to clean up resources.
 
 ## Next steps
 
-You've now created a workload classifier. Run a few queries as TheCEO to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
-
-For more information about SQL Data Warehouse workload management, see [SQL Data Warehouse Workload Importance](sql-data-warehouse-workload-importance.md) and [SQL Data Warehouse Workload Classification](sql-data-warehouse-workload-classification.md).
+- You've now created a workload classifier. Run a few queries as TheCEO to see how they perform. See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+- For more information about Azure SQL Data Warehouse workload management, see [Workload Importance](sql-data-warehouse-workload-importance.md) and [Workload Classification](sql-data-warehouse-workload-classification.md).
+- See the how-to articles to [Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md) and how to [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

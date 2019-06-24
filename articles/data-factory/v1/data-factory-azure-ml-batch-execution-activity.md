@@ -149,7 +149,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 	    }
 	  }
 	}
-	```
+    ```
 2. Create the **input** Azure Data Factory **dataset**. Unlike some other Data Factory datasets, these datasets must contain both **folderPath** and **fileName** values. You can use partitioning to cause each batch execution (each data slice) to process or produce unique input and output files. You may need to include some upstream activity to transform the input into the CSV file format and place it in the storage account for each slice. In that case, you would not include the **external** and **externalData** settings shown in the following example, and your DecisionTreeInputBlob would be the output dataset of a different Activity.
 
 	```JSON
@@ -180,7 +180,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 	    }
 	  }
 	}
-	```
+    ```
 
     Your input csv file must have the column header row. If you are using the **Copy Activity** to create/move the csv into the blob storage, you should set the sink property **blobWriterAddHeader** to **true**. For example:
 
@@ -190,7 +190,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
     	"type": "BlobSink",
         "blobWriterAddHeader": true
 	}
-	```
+    ```
 
     If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.
 3. Create the **output** Azure Data Factory **dataset**. This example uses partitioning to create a unique output path for each slice execution. Without the partitioning, the activity would overwrite the file.
@@ -233,7 +233,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 	    }
 	  }
 	}
-	```
+    ```
 4. Create a **linked service** of type: **AzureMLLinkedService**, providing the API key and model batch execution URL.
 
 	```JSON
@@ -247,7 +247,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 	    }
 	  }
 	}
-	```
+    ```
 5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. At runtime, pipeline performs the following steps:
 
    1. Gets the location of the input file from your input datasets.
@@ -259,8 +259,8 @@ We recommend that you go through the [Build your first pipeline with Data Factor
       >
       >
 
-	```JSON
-	{
+      ```JSON
+      {
 		"name": "PredictivePipeline",
 	 	"properties": {
 			"description": "use AzureML model",
@@ -298,8 +298,8 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 	   		"start": "2016-02-13T00:00:00Z",
 	   		"end": "2016-02-14T00:00:00Z"
 	 	}
-	}
-	```
+      }
+      ```
 
       Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
 

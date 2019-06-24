@@ -1,20 +1,17 @@
 ---
-title: Authenticate Azure Stream Analytics Job to Azure Data Lake Storage Gen1 Output
+title: Authenticate Azure Stream Analytics job to Azure Data Lake Storage Gen1 output
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Data Lake Storage Gen1 output.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
 ---
 
-# Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities (Preview)
+# Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities
 
 Azure Stream Analytics supports managed identity authentication with Azure Data Lake Storage (ADLS) Gen1 output. The identity is a managed application registered in Azure Active Directory that represents a given Stream Analytics job, and can be used to authenticate to a targeted resource. Managed identities eliminate the limitations of user-based authentication methods, like needing to reauthenticate due to password changes or user token expirations that occur every 90 days. Additionally, managed identities help with the automation of Stream Analytics job deployments that output to Azure Data Lake Storage Gen1.
-
-Visit the [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blog post to sign up for this preview and read more about new features.
 
 This article shows you three ways to enable managed identity for an Azure Stream Analytics job that outputs to an Azure Data Lake Storage Gen1 through the Azure portal, Azure Resource Manager template deployment, and Azure Stream Analytics tools for Visual Studio.
 
@@ -22,11 +19,11 @@ This article shows you three ways to enable managed identity for an Azure Stream
 
 ## Azure portal
 
-1. Start by creating a new Stream Analytics job or by opening an existing job in Azure portal. From the menu bar located on the left side of the screen, select **Managed Identity (preview)** located under **Configure**.
+1. Start by creating a new Stream Analytics job or by opening an existing job in Azure portal. From the menu bar located on the left side of the screen, select **Managed Identity** located under **Configure**.
 
-   ![Configure Stream Analytics managed identity preview](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Configure Stream Analytics managed identity](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Select **Use System-assigned Managed Identity (preview)** from the window that appears on the right. Click **Save** to a service principal for the identity of the Stream Analytics job in Azure Active Directory. The life cycle of the newly created identity will be managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.
+2. Select **Use System-assigned Managed Identity** from the window that appears on the right. Click **Save** to a service principal for the identity of the Stream Analytics job in Azure Active Directory. The life cycle of the newly created identity will be managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.
 
    When the configuration is saved, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:
 
@@ -34,7 +31,7 @@ This article shows you three ways to enable managed identity for an Azure Stream
  
    The service principal has the same name as the Stream Analytics job. For example, if the name of your job is **MyASAJob**, the name of the service principal created is also **MyASAJob**.
 
-3. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity (preview)**.
+3. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity **.
 
 4. Fill out the rest of the properties. To learn more about creating an ADLS output, see [Create a Data lake Store output with stream analytics](../data-lake-store/data-lake-store-stream-analytics.md). When you are finished, click **Save**.
 
@@ -68,7 +65,7 @@ This article shows you three ways to enable managed identity for an Azure Stream
 
    ![Stream Analytics job config managed identities](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity (preview)**.
+2. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity **.
 
    ![ADLS output managed identities](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 
@@ -97,33 +94,37 @@ This article shows you three ways to enable managed identity for an Azure Stream
    This property tells Azure Resource Manager to create and manage the identity for your Azure Stream Analytics job.
 
    **Sample job**
-
-    ```json
-    {
-      "Name": "AsaJobWithIdentity",
-      "Type": "Microsoft.StreamAnalytics/streamingjobs",
-      "Location": "West US",
-      "Identity": {
-        "Type": "SystemAssigned",
-      },
-      "properties": {
-        "sku": {
-          "name": "standard"
-        },
-        "outputs": [
-          {
-            "name": "string",
-            "properties":{
-              "datasource": {
-                "type": "Microsoft.DataLake/Accounts",
-                "properties": {
-                  "accountName": "myDataLakeAccountName",
-                  "filePathPrefix": "cluster1/logs/{date}/{time}",
-                  "dateFormat": "YYYY/MM/DD",
-                  "timeFormat": "HH",
-                  "authenticationMode": "Msi"
-                }
-              }
+   
+   ```json
+   {
+     "Name": "AsaJobWithIdentity",
+     "Type": "Microsoft.StreamAnalytics/streamingjobs",
+     "Location": "West US",
+     "Identity": {
+       "Type": "SystemAssigned",
+     },
+     "properties": {
+       "sku": {
+         "name": "standard"
+       },
+       "outputs": [
+         {
+           "name": "string",
+           "properties":{
+             "datasource": {
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": "myDataLakeAccountName",
+                 "filePathPrefix": "cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+             }
+           }
+         }
+       }
+     }
+   }
    ```
   
    **Sample job response**
@@ -142,7 +143,8 @@ This article shows you three ways to enable managed identity for an Azure Stream
         "sku": {
           "name": "standard"
         },
-      }
+     }
+   }
    ```
 
    Take note of the Principal ID from the job response to grant access to the required ADLS resource.
@@ -166,15 +168,14 @@ This article shows you three ways to enable managed identity for an Azure Stream
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   To learn more about the above PowerShell command, refer to the [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentation.
+   To learn more about the above PowerShell command, refer to the [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentation.
 
 ## Limitations
 This feature doesn’t support the following:
 
-1.	**Multi-tenant access**: The Service principal created for a given Stream Analytics job will reside on the Azure Active Directory tenant on which the job was created, and cannot be used against a resource that resides on a different Azure Active Directory tenant. Therefore, you can only use MSI on ADLS Gen 1 resources that are within the same Azure Active Directory tenant as your Azure Stream Analytics job. 
+1. **Multi-tenant access**: The Service principal created for a given Stream Analytics job will reside on the Azure Active Directory tenant on which the job was created, and cannot be used against a resource that resides on a different Azure Active Directory tenant. Therefore, you can only use MSI on ADLS Gen 1 resources that are within the same Azure Active Directory tenant as your Azure Stream Analytics job. 
 
-2.	**[User Assigned Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: is not supported This means the user is not able to enter their own service principal to be used by their Stream Analytics job. The service principal is generated by Azure Stream Analytics. 
-
+2. **[User Assigned Identity](../active-directory/managed-identities-azure-resources/overview.md)**: is not supported. This means the user is not able to enter their own service principal to be used by their Stream Analytics job. The service principal is generated by Azure Stream Analytics.
 
 ## Next steps
 

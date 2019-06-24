@@ -5,13 +5,15 @@ services: azure-blockchain
 keywords:
 author: CodyBorn
 ms.author: coborn
-ms.date: 8/2/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ---
 # Ethereum proof-of-authority consortium
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Overview
 [This solution](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) is designed to make it easier to
@@ -400,7 +402,7 @@ Network ID|The network ID for the consortium Ethereum network being deployed.  E
 Admin Ethereum Address|Ethereum account address that is used for participating in PoA governance.  We recommend using MetaMask for generating an Ethereum address.|42 alphanumeric characters starting with 0x|NA
 Advanced Options|Advanced options for Ethereum settings|Enable or Disable|Disable
 Public IP (Advanced Options = Enable)|Deploys the network behind a VNet Gateway and removes peering access. If this option is selected, all members must use a VNet Gateway for the connection to be compatible.|Public IP Private VNet|Public IP
-Block Gas Limit (Advanced Options = Enable)|The starting block gas limit of the network|Any numeric|50,000,00
+Block Gas Limit (Advanced Options = Enable)|The starting block gas limit of the network|Any numeric|50000000
 Block Reseal Period (sec)|The frequency at which empty blocks will be created when there are no transactions on the network. A higher frequency will have faster finality but increased storage costs.|Any numeric|15
 Transaction Permission Contract (Advanced Options = Enable)|Bytecode for the Transaction Permissioning contract. Restricts smart contract deployment and execution to a permitted list of Ethereum accounts.|Contract bytecode|NA
 
@@ -552,7 +554,7 @@ $MyGatewayName = $splitValue[8]
 
 ## $otherGatewayResourceid tells me what the subscription and VNet GatewayName are
 $OtherGatewayName = $OtherGatewayResourceId.Split('/')[8]
-$Subscription=Select-AzureRmSubscription -SubscriptionId $MySubscriptionid
+$Subscription=Select-AzSubscription -SubscriptionId $MySubscriptionid
 
 ## create a PSVirtualNetworkGateway instance for the gateway I want to connect to
 $OtherGateway=New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -562,10 +564,10 @@ $OtherGateway.GatewayType = "Vpn"
 $OtherGateway.VpnType = "RouteBased"
 
 ## get a PSVirtualNetworkGateway instance for my gateway
-$MyGateway = Get-AzureRmVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
+$MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
 
 ## create the connection
-New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
+New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
 ### Service monitoring

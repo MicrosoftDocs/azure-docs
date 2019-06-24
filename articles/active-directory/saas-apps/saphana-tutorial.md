@@ -246,8 +246,8 @@ If you need to create a user manually, take the following steps:
 
 4. Add the **External Identity** (in this case, BrittaSimon) or choose **Any**. Then select **OK**.
 
-	>[!Note]
-	>If  the **Any** check box is not selected, then the user name in HANA needs to exactly match the name of the user in the UPN before the domain suffix. (For example, BrittaSimon@contoso.com becomes BrittaSimon in HANA.)
+   > [!Note]
+   > If  the **Any** check box is not selected, then the user name in HANA needs to exactly match the name of the user in the UPN before the domain suffix. (For example, BrittaSimon@contoso.com becomes BrittaSimon in HANA.)
 
 5. For testing purposes, assign all **XS** roles to the user.
 
@@ -270,5 +270,5 @@ When you click the SAP HANA tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

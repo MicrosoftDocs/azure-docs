@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/18/2018
+ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -55,8 +55,7 @@ Follow these steps to find location information for your data warehouse.
 
     ![Server name and resource group](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Write down the data warehouse name, which is the database name. Also write down the server name, and the resource group. You
-5.  these in the pause and resume commands.
+4. Write down the data warehouse name, which is the database name. Also write down the server name, and the resource group.
 6. If your server is foo.database.windows.net, use only the first part as the server name in the PowerShell cmdlets. In the preceding image, the full server name is newserver-20171113.database.windows.net. Drop the suffix and use **newserver-20171113** as the server name in the PowerShell cmdlet.
 
 ## Pause compute
@@ -97,6 +96,14 @@ $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
+```
+
+## Check status of your data warehouse operation
+
+To check the status of your data warehouse, use the [Get-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseActivity#description) cmdlet.
+
+```
+Get-AzSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ## Clean up resources

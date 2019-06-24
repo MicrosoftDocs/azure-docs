@@ -2,13 +2,13 @@
 title: Build integrated solutions with SQL Data Warehouse | Microsoft Docs
 description: 'Tools and partners with solutions that integrate with SQL Data Warehouse. '
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: mlee3gsd 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: martinle
 ms.reviewer: igorstan
 ---
 
@@ -53,6 +53,4 @@ Azure Stream Analytics is a complex, fully managed infrastructure for processing
 
 For more information, see [Integrate with Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md).
 
-## Next steps
-To integrate with Azure SQL Database, see [Configure SQL Database elastic query](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 

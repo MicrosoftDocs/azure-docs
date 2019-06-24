@@ -12,7 +12,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 03/26/2019
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
 
@@ -58,7 +58,7 @@ When the server-level firewall is configured for an individual IP address or ran
 
 When the server-level firewall is properly configured, the **SQL server admin** and the **Azure Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
 
-![Administrator access path](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+![configuration of the two administration accounts](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 When using an open port in the server-level firewall, administrators can connect to any SQL Database.
 
@@ -197,6 +197,12 @@ When managing logins and users in SQL Database, consider the following:
            WHERE  [name] = N'database_name')
   DROP DATABASE [database_name];
   GO
+  ```
+  
+  Instead, use the following Transact-SQL statement:
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
   ```
 
 - When executing the `CREATE USER` statement with the `FOR/FROM LOGIN` option, it must be the only statement in a Transact-SQL batch.

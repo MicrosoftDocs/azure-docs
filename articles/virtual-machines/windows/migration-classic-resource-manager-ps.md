@@ -32,7 +32,7 @@ Here is a flowchart to identify the order in which steps need to be executed dur
 
 ![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Step 1: Plan for migration
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:

@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 # Add an artifact repository to your lab in DevTest Labs
-DevTest Labs allows you to specify an artifact to be added to a VM at the time of creating the VM or after the VM is created. This artifact could be a tool or an application that you want to install on the VM. Artifacts are defined in a JSON file loaded from a GitHub or VSTS Git repository. 
+DevTest Labs allows you to specify an artifact to be added to a VM at the time of creating the VM or after the VM is created. This artifact could be a tool or an application that you want to install on the VM. Artifacts are defined in a JSON file loaded from a GitHub or Azure DevOps Git repository. 
 
 The [public artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), maintained by DevTest Labs, provides many common tools for both Windows and Linux. A link to this repository is automatically added to your lab. You can create your own artifact repository with specific tools that aren't available in the public artifact repository. To learn about creating custom artifacts, see [Create custom artifacts](devtest-lab-artifact-author.md).
 
@@ -70,11 +70,11 @@ This section provides steps to add an artifact repository to a lab in the Azure 
 
     ![The Add repository button](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. On the **Repositories** page, specify the following information:
-  1. **Name**. Enter a name for the repository.
-  2. **Git Clone Url**. Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Azure DevOps Services.
-  3. **Branch**. To get your definitions, enter the branch.
-  4. **Personal Access Token**. Enter the personal access token that you got earlier from either GitHub or Azure DevOps Services.
-  5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure you include the forward slash in the folder path.
+   1. **Name**. Enter a name for the repository.
+   2. **Git Clone Url**. Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Azure DevOps Services.
+   3. **Branch**. To get your definitions, enter the branch.
+   4. **Personal Access Token**. Enter the personal access token that you got earlier from either GitHub or Azure DevOps Services.
+   5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure you include the forward slash in the folder path.
 
         ![Repositories area](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Select **Save**.
@@ -228,7 +228,7 @@ Folder under which artifacts can be found. Defaults to '/Artifacts'
 
 .PARAMETER PersonalAccessToken
 Security token for access to GitHub or VSOGit repository.
-See https://azure.microsoft.com/en-us/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
+See https://azure.microsoft.com/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
 
 .PARAMETER SourceType
 Whether artifact is VSOGit or GitHub repository.

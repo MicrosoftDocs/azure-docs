@@ -21,8 +21,8 @@ To begin, let's take a look at how unmanaged disks are deployed. When creating u
 ```json
 {
     "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2018-07-01",
     "name": "[variables('storageAccountName')]",
-    "apiVersion": "2016-01-01",
     "location": "[resourceGroup().location]",
     "sku": {
         "name": "Standard_LRS"
@@ -36,8 +36,8 @@ Within the virtual machine object, add a dependency on the storage account to en
 
 ```json
 {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -95,8 +95,8 @@ To create a VM with managed disks, you no longer need to create the storage acco
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -137,8 +137,8 @@ As an alternative to specifying the disk configuration in the virtual machine ob
 ```json
 {
     "type": "Microsoft.Compute/disks",
+    "apiVersion": "2018-06-01",
     "name": "[concat(variables('vmName'),'-datadisk1')]",
-    "apiVersion": "2017-03-30",
     "location": "[resourceGroup().location]",
     "sku": {
         "name": "Standard_LRS"
@@ -156,8 +156,8 @@ Within the VM object, reference the disk object to be attached. Specifying the r
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -197,12 +197,12 @@ Within the VM object, reference the disk object to be attached. Specifying the r
 
 ### Create managed availability sets with VMs using managed disks
 
-To create managed availability sets with VMs using managed disks, add the `sku` object to the availability set resource and set the `name` property to `Aligned`. This property ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure. Also note that the `apiVersion` for the availability set resource is set to `2017-03-30`.
+To create managed availability sets with VMs using managed disks, add the `sku` object to the availability set resource and set the `name` property to `Aligned`. This property ensures that the disks for each VM are sufficiently isolated from each other to avoid single points of failure. Also note that the `apiVersion` for the availability set resource is set to `2018-10-01`.
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/availabilitySets",
+    "apiVersion": "2018-10-01",
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {

@@ -18,7 +18,7 @@ This article lists the various servers and workloads that you can protect with A
 ## Protection support matrix
 
 |Workload|Version|Azure Backup Server</br> installation|Azure Backup</br> Server V3|Azure Backup</br> Server V2|Protection and recovery|
-|------------|-----------|---------------|--------------|---------------|-----------------|---------------------------|
+|------------|-----------|---------------|--------------|---------------|-----------------|
 |Client computers (64-bit and 32-bit)|Windows 10|Physical server<br /><br />Hyper-V virtual machine<br /><br />VMware virtual machine|Y|Y|Volume, share, folder, files, deduped volumes<br /><br />Protected volumes must be NTFS. FAT and FAT32 aren't supported.<br /><br />Volumes must be at least 1 GB. DPM uses Volume Shadow Copy Service (VSS) to take the data snapshot and the snapshot only works if the volume is at least 1 GB.|
 |Client computers (64-bit and 32-bit)|Windows 8.1|Physical server<br /><br />Hyper-V virtual machine|Y|Y|Files<br /><br />Protected volumes must be NTFS. FAT and FAT32 aren't supported.<br /><br />Volumes must be at least 1 GB. DPM uses Volume Shadow Copy Service (VSS) to take the data snapshot and the snapshot only works if the volume is at least 1 GB.|
 |Client computers (64-bit and 32-bit)|Windows 8.1|Windows virtual machine in VMWare (protects workloads running in Windows virtual machine in VMWare)|Y|Y|Volume, share, folder, files, deduped volumes<br /><br />Protected volumes must be NTFS. FAT and FAT32 aren't supported.<br /><br />Volumes must be at least 1 GB. DPM uses Volume Shadow Copy Service (VSS) to take the data snapshot and the snapshot only works if the volume is at least 1 GB.|
@@ -77,6 +77,15 @@ This article lists the various servers and workloads that you can protect with A
 |VMware VMs|VMware vCenter/vSphere ESX/ESXi  licensed version 5.5/6.0/6.5 |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMWare|Y|Y|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
 |VMware VMs|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMWare|Y|N|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
 |Linux|Linux running as Hyper-V or VMware guest|Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMWare|Y|Y|Hyper-V must be running on Windows Server 2012 R2 or Windows Server 2016. Protect: Entire virtual machine<br /><br />Recover: Entire virtual machine <br/><br/> For a complete list of supported Linux distributions and versions, see the article, [Linux on distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md).|
+
+## Azure ExpressRoute support
+
+If Azure ExpressRoute is configured with Private or Microsoft peering, it cannot be used to back up the data to Azure.
+
+If Azure ExpressRoute is configured with Public Peering, it can be used to back up the data to Azure.
+
+>[!NOTE]
+>Public Peering is deprecated for new circuits.
 
 ## Cluster support
 Azure Backup Server can protect data in the following clustered applications:

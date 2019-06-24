@@ -52,6 +52,7 @@ Name     | Description
 **aborted** | True if the request timed out.
 
 <br>
+
 #### Example:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2

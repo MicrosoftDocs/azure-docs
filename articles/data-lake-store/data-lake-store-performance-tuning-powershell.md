@@ -4,7 +4,7 @@ description: Tips on how to improve performance when using Azure PowerShell with
 services: data-lake-store
 documentationcenter: ''
 author: stewu
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 
 ms.service: data-lake-store

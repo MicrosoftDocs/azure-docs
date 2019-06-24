@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom:  seodec18
 ms.date: 05/25/2018
@@ -78,7 +78,7 @@ Returns a response such as:
 
 The Catalog API stores information about published entities to the Azure AI Gallery that you can also view directly on the [AI Gallery website](https://gallery.azure.ai/). 
 
-To view published entities, visit the following URL, replacing `[AuthorId]` with the Author ID obtained in [Get an author ID](#get-an-author-ID) above.
+To view published entities, visit the following URL, replacing `[AuthorId]` with the Author ID obtained in [Get an author ID](#get-an-author-id) above.
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 

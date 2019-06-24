@@ -146,7 +146,7 @@ After the namespace and topic/subscriptions are provisioned, and you have the ne
 4. To run the program, issue the following command. Make sure to replace the placeholders with the connection string and topic name you obtained in the previous step:
 
    ```shell
-  java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
+   java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
    ```
 
    Observe 10 messages being sent to the topic, and subsequently received from the individual subscriptions:
@@ -322,6 +322,9 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
     return new CompletableFuture().completedFuture(null);
 }
 ```
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 

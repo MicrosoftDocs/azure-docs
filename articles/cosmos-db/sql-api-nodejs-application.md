@@ -83,7 +83,7 @@ Now let's learn to create a basic Hello World Node.js project using the Express 
    
    ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
- Stop the application by using CTRL+C in the terminal window, and select **y** to terminate the batch job.
+   Stop the application by using CTRL+C in the terminal window, and select **y** to terminate the batch job.
 
 ## <a name="_Toc395783179"></a>Install the required modules
 
@@ -179,7 +179,7 @@ Now that you have completed the initial setup and configuration, next you will w
       const { body } = await this.container.item(itemId).read();
       return body;
     }
-  }
+   }
 
    module.exports = TaskDao;
    ```
@@ -239,9 +239,9 @@ Now that you have completed the initial setup and configuration, next you will w
 
       res.redirect("/");
     }
-  }
+   }
 
-  module.exports = TaskList;
+   module.exports = TaskList;
    ```
 
 3. Save and close the **tasklist.js** file.

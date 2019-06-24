@@ -60,11 +60,10 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
 | Replication | Single and pooled databases | Instance  databases|
 | :----| :------------- | :--------------- |
-| [**Transactional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Yes (only as subscriber) | Yes | 
+| [**Standard Transactional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Yes (only as subscriber) | Yes | 
 | [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Yes (only as subscriber) | Yes|
 | [**Merge replication**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
 | [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
-| **One-way** | Yes | Yes|
 | [**Bidirectional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
 | [**Updatable subscriptions**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
 | &nbsp; | &nbsp; | &nbsp; |
@@ -73,7 +72,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
   > - Attempting to configure replication using an older version can result in error number MSSQL_REPL20084 (The process could not connect to Subscriber.) and MSSQ_REPL40532 (Cannot open server \<name> requested by the login. The login failed.)
   > - To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
-  ### Supportabilty matrix for Instance Databases and On-premises systems
+  ### Supportability matrix for Instance Databases and On-premises systems
   The replication supportability matrix for instance databases is the same as the one for SQL Server on-premises. 
   
   | **Publisher**   | **Distributor** | **Subscriber** |
@@ -134,7 +133,7 @@ In this configuration, an Azure SQL Database (single, pooled, and instance datab
 
 ## Next steps
 
-1. [Configure transactional replication for a Managed Instance](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
+1. [Configure transactional replication for a Managed Instance](replication-with-sql-database-managed-instance.md). 
 1. [Create a publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Create a push subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) by using the Azure SQL Database server name as the subscriber (for example `N'azuresqldbdns.database.windows.net` and the Azure SQL Database name as the destination database (for example **Adventureworks**. )
 

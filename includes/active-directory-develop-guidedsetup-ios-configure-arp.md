@@ -3,9 +3,8 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
-editor: ''
+author: danieldobalian
+manager: CelesteDG
 
 ms.service: active-directory
 ms.devlang: na
@@ -13,7 +12,8 @@ ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 ms.date: 09/19/2018
-ms.author: andret
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: include file 
 #Do not delete: File is used in the Azure portal guided setup experience but not rendered as part of docs.microsoft.com
 ---

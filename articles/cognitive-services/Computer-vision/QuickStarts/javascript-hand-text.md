@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 ## Create and run the sample
 
@@ -69,11 +69,6 @@ To create and run the sample, do the following steps:
         var uriBase =
             "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
 
-        // Request parameter.
-        var params = {
-            "mode": "Handwritten",
-        };
-
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
@@ -83,7 +78,7 @@ To create and run the sample, do the following steps:
         //
         // Make the first REST API call to submit the image for processing.
         $.ajax({
-            url: uriBase + "?" + $.param(params),
+            url: uriBase,
 
             // Request headers.
             beforeSend: function(jqXHR){

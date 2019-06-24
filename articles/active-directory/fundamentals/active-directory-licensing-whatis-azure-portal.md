@@ -45,7 +45,7 @@ Here are the main features of group-based licensing:
 
 - All Microsoft cloud services that require user-level licensing are supported. This support includes all Office 365 products, Enterprise Mobility + Security, and Dynamics 365.
 
-- Group-based licensing is currently available only through [the Azure portal](https://portal.azure.com). If you primarily use other management portals for user and group management, such as the Office 365 portal, you can continue to do so. But you should use the Azure portal to manage licenses at group level.
+- Group-based licensing is currently available only through the [Azure portal](https://portal.azure.com). If you primarily use other management portals for user and group management, such as the [Microsoft 365 admin center](https://admin.microsoft.com), you can continue to do so. But you should use the Azure portal to manage licenses at group level.
 
 - Azure AD automatically manages license modifications that result from group membership changes. Typically, license modifications are effective within minutes of a membership change.
 

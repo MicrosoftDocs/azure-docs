@@ -55,7 +55,7 @@ First, create a public Standard load balancer that can balance traffic load over
     |Availability zone| Select **Zone redundant**.    |
      
     >[!NOTE]
-     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+     >Make sure to create your Load Balancer and all resources for it in a location that supports Availability Zones. For more information, see [Regions that support Availability Zones](../availability-zones/az-overview.md#services-support-by-region). 
 
 3. In the **Review + create** tab, click **Create**.  
   
@@ -215,7 +215,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Select **OK**.
    
-  ![Add a load balancer rule](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+   ![Add a load balancer rule](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## Create an inbound NAT port-forwarding rule
 

@@ -41,15 +41,15 @@ This tutorial shows you how to:
 
 Edit the `App.config` file and add the Active Directory tenant name, service endpoints, and subscription keys indicated by `#####`. You need the following information:
 
-    |Key|Description|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|Endpoint for the Azure Media Services (AMS) API|
-    |`ClientSecret`|Subscription key for Azure Media Services|
-    |`ClientId`|Client ID for Azure Media Services|
-    |`AzureAdTenantName`|Active Directory tenant name representing your organization|
-    |`ContentModeratorReviewApiSubscriptionKey`|Subscription key for the Content Moderator review API|
-    |`ContentModeratorApiEndpoint`|Endpoint for the Content Moderator API|
-    |`ContentModeratorTeamId`|Content moderator team ID|
+|Key|Description|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|Endpoint for the Azure Media Services (AMS) API|
+|`ClientSecret`|Subscription key for Azure Media Services|
+|`ClientId`|Client ID for Azure Media Services|
+|`AzureAdTenantName`|Active Directory tenant name representing your organization|
+|`ContentModeratorReviewApiSubscriptionKey`|Subscription key for the Content Moderator review API|
+|`ContentModeratorApiEndpoint`|Endpoint for the Content Moderator API|
+|`ContentModeratorTeamId`|Content moderator team ID|
 
 ## Examine the main code
 
@@ -231,7 +231,7 @@ The moderation process returns a list of key frames from the video, along with a
 `CreateVideoReviewInContentModerator()` calls several other methods to perform the following tasks:
 
 > [!NOTE]
-> The console application uses the [FFmpeg](https://ffmpeg.org/) library for generating thumbnails. These thumbnails (images) correspond to the frame timestamps in the [video moderation output](#sample-video-moderation-response).
+> The console application uses the [FFmpeg](https://ffmpeg.org/) library for generating thumbnails. These thumbnails (images) correspond to the frame timestamps in the video moderation output.
 
 |Task|Methods|File|
 |-|-|-|

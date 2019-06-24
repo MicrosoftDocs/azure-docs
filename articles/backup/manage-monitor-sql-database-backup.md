@@ -13,7 +13,6 @@ ms.author: raynew
 ---
 # Manage and monitor backed up SQL Server databases
 
-
 This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. You'll learn how to monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
 
 If you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
@@ -28,7 +27,7 @@ Azure Backup shows all manually triggered jobs in the **Backup jobs** portal. Th
 > The **Backup jobs** portal doesn't show scheduled backup jobs. Use SQL Server Management Studio to monitor scheduled backup jobs, as described in the next section.
 >
 
-For details on Monitoring scenarios, go to [Monitoring in Azure Portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
+For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
 
 ## View backup alerts
@@ -87,6 +86,14 @@ To stop protection for a database:
 
 6. Select **Stop backup**.
 
+>
+> [!NOTE]
+Refer the below FAQ for more information on delete data option: <br/>
+* [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+* [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>
+
 
 ## Resume protection for a SQL database
 
@@ -109,6 +116,7 @@ You can run different types of on-demand backups:
 * Differential backup
 * Log backup
 
+While you need to specify the retention duration for Copy-only full backup, the retention range for other backup types is automatically set to 30 days from current time. <br/>
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 
 ## Unregister a SQL Server instance
@@ -125,9 +133,9 @@ Unregister a SQL Server instance after you disable protection but before you del
 
 3. In **Protected Servers**, select the server to unregister. To delete the vault, you must unregister all servers.
 
-4. Right-click the protected server, and select **Delete**.
+4. Right-click the protected server, and select **Unregister**.
 
-   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## Re-register extension on the SQL Server VM
 

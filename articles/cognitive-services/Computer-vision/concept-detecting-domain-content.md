@@ -26,7 +26,7 @@ You can analyze an image using only the chosen domain-specific model by calling 
 
 The following is a sample JSON response returned by the **models/celebrities/analyze** API for the given image:
 
-![Satya Nadella standing](./images/satya.jpeg)
+![Satya Nadella standing, smiling](./images/satya.jpeg)
 
 ```json
 {

@@ -39,7 +39,7 @@ Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResour
 
 A banner with the following message stays in your account after trying to update your AzureRM modules:
 
-```
+```error
 Azure modules are being updated
 ```
 

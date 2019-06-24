@@ -4,7 +4,7 @@ description: Learn about the different lifecycle events in Service Fabric Reliab
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: vturecek;
 
 ms.assetid:

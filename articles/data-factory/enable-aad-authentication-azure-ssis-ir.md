@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
@@ -54,7 +54,7 @@ You can use an existing Azure AD group or create a new one using Azure AD PowerS
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Add the managed identity for your ADF to the group. You can follow the article [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) to get the principal SERVICE IDENTITY ID (e.g. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use SERVICE IDENTITY APPLICATION ID for this purpose).
+3.  Add the managed identity for your ADF to the group. You can follow the article [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) to get the principal Managed Identity Object ID (e.g. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use Managed Identity Application ID for this purpose).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -86,22 +86,40 @@ You can [Configure and manage Azure AD authentication with SQL](https://docs.mi
 
 For this next step, you need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-1.  Start SSMS.
+1. Start SSMS.
 
-2.  In the **Connect to Server** dialog, enter your Azure SQL Database server name in
-    the **Server name** field.
+2. In the **Connect to Server** dialog, enter your Azure SQL Database server name in
+   the **Server name** field.
 
-3.  In the **Authentication** field, select **Active Directory - Universal with MFA support** (you can also use the other two Active Directory authentication types, see [Configure and manage Azure AD authentication with SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
+3. In the **Authentication** field, select **Active Directory - Universal with MFA support** (you can also use the other two Active Directory authentication types, see [Configure and manage Azure AD authentication with SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
 
-4.  In the **User name** field, enter the name of Azure AD account that you set as the server administrator, e.g. testuser@xxxonline.com.
+4. In the **User name** field, enter the name of Azure AD account that you set as the server administrator, e.g. testuser@xxxonline.com.
 
-5.  select **Connect** and complete the sign-in process.
+5. select **Connect** and complete the sign-in process.
 
-6.  In the **Object Explorer**, expand the **Databases** -> **System Databases** folder.
+6. In the **Object Explorer**, expand the **Databases** -> **System Databases** folder.
 
-7.  Right-click on **master** database and select **New query**.
+7. Right-click on **master** database and select **New query**.
 
-8.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+8. In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+
+   ```sql
+   CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+   ```
+
+   The command should complete successfully, creating a contained user to represent the group.
+
+9. Clear the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+
+   ```sql
+   ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+   ```
+
+   The command should complete successfully, granting the contained user the ability to create a database (SSISDB).
+
+10. If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
+
+11. In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -109,25 +127,7 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
     The command should complete successfully, creating a contained user to represent the group.
 
-9.  Clear the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
-
-    ```sql
-    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
-    ```
-
-    The command should complete successfully, granting the contained user the ability to create a database (SSISDB).
-
-10.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
-
-11.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
-
-    ```sql
-    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
-    ```
-
-    The command should complete successfully, creating a contained user to represent the group.
-
-12.  Clear the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+12. Clear the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
 
     ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
@@ -165,12 +165,12 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 
 4.	Right-click on **master** database and select **New query**.
 
-5.	Get the managed identity for your ADF. You can follow the article [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) to get the principal SERVICE IDENTITY APPLICATION ID (but do not use SERVICE IDENTITY ID for this purpose).
+5.	Get the managed identity for your ADF. You can follow the article [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) to get the principal Managed Identity Application ID (but do not use Managed Identity Object ID for this purpose).
 
 6.	In the query window, execute the following T-SQL script to convert the managed identity for your ADF to binary type:
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
+    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -179,7 +179,7 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
 7.	Clear the query window and execute the following T-SQL script to add the managed identity for your ADF as a user
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```

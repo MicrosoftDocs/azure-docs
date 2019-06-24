@@ -42,6 +42,7 @@ For the *json* search, the POST body is a JSON object. The JSON object describes
 For the *lambda* search, the POST body is a plain-text string. The POST body is a LIKQ lambda query string, which  is a single C# statement (see the [specification of query string](LambdaSearchSyntax.md) for *lambda* search). 
 
 <br>
+
 ## Response (JSON)
 
 Name | Description
@@ -53,6 +54,7 @@ Name | Description
 If a query cannot be processed within _800 ms_, a _timeout_ error will be returned. 
 
 <br>
+
 #### Example:
 
 ##### JSON Search

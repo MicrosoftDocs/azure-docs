@@ -105,7 +105,7 @@ In this tutorial, the following output settings are used. The rest of this secti
    * Profile: Main
    * Key frame every: 60 frames
 
-    **Audio**
+     **Audio**
 
    * Target bit rate: 192 kbits/sec
    * Sample Rate: 44.100 kHz
@@ -131,7 +131,7 @@ In this tutorial, the following output settings are used. The rest of this secti
 1. Select **OK**.
 2. On the main **Wirecast** screen, confirm input sources for video and audio are ready and then hit **Stream** in the top left-hand corner.
 
-   ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > Before you click **Stream**, you **must** ensure that the Channel is ready.

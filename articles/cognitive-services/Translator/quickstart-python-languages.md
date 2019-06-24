@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ---
 
@@ -28,7 +28,10 @@ Create a new Python project using your favorite IDE or editor. Then copy this co
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -76,7 +79,8 @@ response = request.json()
 The last step is to print the results. This code snippet prettifies the results by sorting the keys, setting indentation, and declaring item and key separators.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## Put it all together
@@ -90,6 +94,8 @@ python get-languages.py
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## Sample response
+
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 This sample has been truncated to show a snippet of the result:
 

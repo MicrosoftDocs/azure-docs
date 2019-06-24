@@ -17,7 +17,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 2. Create a self-hosted integration runtime. 
 
    ```powershell
-   Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
+   Set-AzDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
    ```
 
    Here is the sample output:
@@ -30,11 +30,11 @@ In this section, you create a self-hosted integration runtime and associate it w
     Name              : myonpremirsp0914
     Description       :
     ```
- ​
+  
 3. To retrieve the status of the created integration runtime, run the following command. Confirm that the value of the **State** property is set to **NeedRegistration**. 
 
    ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
    ```
 
    Here is the sample output:
@@ -59,7 +59,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 4. To retrieve the authentication keys used to register the self-hosted integration runtime with Azure Data Factory service in the cloud, run the following command: 
 
    ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
+   Get-AzDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
    Here is the sample output:

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -32,6 +32,9 @@ These instructions only apply to circuits created with service providers that of
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Configuration prerequisites
 
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the [routing requirements](expressroute-routing.md) page, and the [workflows](expressroute-workflows.md) page before you begin configuration.
@@ -54,25 +57,25 @@ To sign in to your Azure account, use the following examples:
 
 1. Open your PowerShell console with elevated rights and connect to your account.
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 2. Check the subscriptions for the account.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzSubscription
+   ```
 3. If you have more than one subscription, select the subscription that you want to use.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## Azure private peering
 
@@ -82,59 +85,59 @@ This section provides instructions on how to create, get, update, and delete the
 
 1. **Create an ExpressRoute circuit.**
 
-  Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
+   Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
 2. **Check the ExpressRoute circuit to make sure it is provisioned.**
    
-  Check to see if the ExpressRoute circuit is Provisioned and also Enabled.
+   Check to see if the ExpressRoute circuit is Provisioned and also Enabled.
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Return:
+   Return:
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Make sure that the circuit shows as Provisioned and Enabled. If it isn't, work with your connectivity provider to get your circuit to the required state and status.
+   Make sure that the circuit shows as Provisioned and Enabled. If it isn't, work with your connectivity provider to get your circuit to the required state and status.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **Configure Azure private peering for the circuit.**
 
-  Make sure that you have the following items before you proceed with the next steps:
+   Make sure that you have the following items before you proceed with the next steps:
    
-  * A /30 subnet for the primary link. This must not be part of any address space reserved for virtual networks.
-  * A /30 subnet for the secondary link. This must not be part of any address space reserved for virtual networks.
-  * A valid VLAN ID to establish this peering on. Verify that no other peering in the circuit uses the same VLAN ID.
-  * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Verify that you are not using 65515.
-  * An MD5 hash if you choose to use one. **Optional**.
+   * A /30 subnet for the primary link. This must not be part of any address space reserved for virtual networks.
+   * A /30 subnet for the secondary link. This must not be part of any address space reserved for virtual networks.
+   * A valid VLAN ID to establish this peering on. Verify that no other peering in the circuit uses the same VLAN ID.
+   * AS number for peering. You can use both 2-byte and 4-byte AS numbers. You can use a private AS number for this peering. Verify that you are not using 65515.
+   * An MD5 hash if you choose to use one. **Optional**.
      
-  You can use the following example to configure Azure private peering for your circuit:
+   You can use the following example to configure Azure private peering for your circuit:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
-  ```    
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+   ```    
 
-  If you want to use an MD5 hash, use the following example to configure private peering for your circuit:
+   If you want to use an MD5 hash, use the following example to configure private peering for your circuit:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+   ```
      
-  > [!IMPORTANT]
-  > Verify that you specify your AS number as peering ASN, not customer ASN.
-  > 
+   > [!IMPORTANT]
+   > Verify that you specify your AS number as peering ASN, not customer ASN.
+   > 
 
 ### To view Azure private peering details
 
@@ -181,63 +184,67 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 
 This section provides instructions on how to create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
 
+> [!NOTE]
+> Azure public peering is deprecated for new circuits.
+>
+
 ### To create Azure public peering
 
 1. **Create an ExpressRoute circuit**
 
-  Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure public peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
+   Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure public peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
 2. **Check ExpressRoute circuit to verify that it is provisioned**
 
-  You must first check to see if the ExpressRoute circuit is Provisioned and also Enabled.
+   You must first check to see if the ExpressRoute circuit is Provisioned and also Enabled.
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Return:
+   Return:
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Verify that the circuit shows as Provisioned and Enabled. If it isn't, work with your connectivity provider to get your circuit to the required state and status.
+   Verify that the circuit shows as Provisioned and Enabled. If it isn't, work with your connectivity provider to get your circuit to the required state and status.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 4. **Configure Azure public peering for the circuit**
    
-  Make sure that you have the following information before you proceed:
+   Make sure that you have the following information before you proceed:
    
-  * A /30 subnet for the primary link. This must be a valid public IPv4 prefix.
-  * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
-  * A valid VLAN ID to establish this peering on. Verify that no other peering in the circuit uses the same VLAN ID.
-  * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
-  * An MD5 hash if you choose to use one. **Optional**.
+   * A /30 subnet for the primary link. This must be a valid public IPv4 prefix.
+   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix.
+   * A valid VLAN ID to establish this peering on. Verify that no other peering in the circuit uses the same VLAN ID.
+   * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
+   * An MD5 hash if you choose to use one. **Optional**.
 
-  > [!IMPORTANT]
-  > Make sure that you specify your AS number as peering ASN and not customer ASN.
-  >  
+   > [!IMPORTANT]
+   > Make sure that you specify your AS number as peering ASN and not customer ASN.
+   >  
      
-  You can use the following example to configure Azure public peering for your circuit:
+   You can use the following example to configure Azure public peering for your circuit:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+   ```
      
-  If you want to use an MD5 hash, use the following example to configure your circuit:
+   If you want to use an MD5 hash, use the following example to configure your circuit:
      
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+   ```
      
 ### To view Azure public peering details
 
@@ -289,34 +296,34 @@ This section provides instructions on how to create, get, update, and delete the
 
 1. **Create an ExpressRoute circuit**
   
-  Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
+   Follow the instructions to create an [ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, follow the instructions below.
 2. **Check ExpressRoute circuit to verify that it is provisioned**
 
-  Verify that the circuit shows as Provisioned and Enabled. 
+   Verify that the circuit shows as Provisioned and Enabled. 
    
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Return:
+   Return:
    
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Verify that the circuit shows as Provisioned and Enabled. If it isn't, work with your connectivity provider to get your circuit to the required state and status.
+   Verify that the circuit shows as Provisioned and Enabled. If it isn't, work with your connectivity provider to get your circuit to the required state and status.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **Configure Microsoft peering for the circuit**
    
     Make sure that you have the following information before you proceed.
@@ -330,11 +337,11 @@ This section provides instructions on how to create, get, update, and delete the
    * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
    * An MD5 hash, if you choose to use one. **Optional.**
      
-  Run the following cmdlet to configure Microsoft peering for your circuit:
+   Run the following cmdlet to configure Microsoft peering for your circuit:
  
-  ```powershell
-  New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+   ```
 
 ### To view Microsoft peering details
 

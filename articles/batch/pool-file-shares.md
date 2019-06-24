@@ -62,16 +62,16 @@ To simplify the mount operation, optionally persist the credentials on the nodes
 
 1. Run the `cmdkey` command-line utility using a start task in the pool configuration. This persists the credentials on each Windows node. The start task command line is similar to:
 
-  ```
-  cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
+   ```
+   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
-  ```
+   ```
 
 2. Mount the share on each node as part of each task using `net use`. For example, the following task command line mounts the file share as the *S:* drive. This would be followed by a command or script that references the share. Cached credentials are used in the call to `net use`. This step assumes you are using the same user identity for the tasks that you used in the start task on the pool, which isn't appropriate for all scenarios.
 
-  ```
-  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
-  ```
+   ```
+   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
+   ```
 
 ### C# example
 The following C# example shows how to persist the credentials on a Windows pool using a start task. The storage file service name and storage credentials are passed as defined constants. Here, the start task runs under a standard (non-administrator) auto-user account with pool scope.
@@ -144,17 +144,18 @@ The following Python example shows how to configure an Ubuntu pool to mount the 
 ```python
 pool = batch.models.PoolAddParameter(
     id=pool_id,
-    virtual_machine_configuration = batchmodels.VirtualMachineConfiguration(
-        image_reference = batchmodels.ImageReference(
-    	    publisher="Canonical",
-    	    offer="UbuntuServer",
-    	    sku="16.04.0-LTS",
-    	    version="latest"),
-        node_agent_sku_id = "batch.node.ubuntu 16.04"),
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+            publisher="Canonical",
+            offer="UbuntuServer",
+            sku="16.04.0-LTS",
+            version="latest"),
+        node_agent_sku_id="batch.node.ubuntu 16.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_POOL_NODE_COUNT,
     start_task=batchmodels.StartTask(
-        command_line="/bin/bash -c \"apt-get update && apt-get install cifs-utils && mkdir -p {} && mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(_COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
+        command_line="/bin/bash -c \"apt-get update && apt-get install cifs-utils && mkdir -p {} && mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(
+            _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
         wait_for_success=True,
         user_identity=batchmodels.UserIdentity(
             auto_user=batchmodels.AutoUserSpecification(

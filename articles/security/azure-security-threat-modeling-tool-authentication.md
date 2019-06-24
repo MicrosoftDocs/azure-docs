@@ -100,7 +100,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>Password and account policy in compliance with organizational policy and best practices should be implemented.</p><p>To defend against brute-force and dictionary based guessing: Strong password policy must be implemented to ensure that users create complex password (e.g., 12 characters minimum length, alphanumeric and special characters).</p><p>Account lockout policies may be implemented in the following manner:</p><ul><li>**Soft lock-out:** This can be a good option for protecting your users against brute force attacks. For example, whenever the user enters a wrong password three times the application could lock down the account for a minute in order to slow down the process of brute forcing his password making it less profitable for the attacker to proceed. If u were to implement hard lock-out countermeasures for this example you would achieve a "Dos" by permanently locking out accounts. Alternatively, application may generate an OTP (One Time Password) and send it out-of-band (through email, sms etc.) to the user. Another approach may be to implement CAPTCHA after a threshold number of failed attempts is reached.</li><li>**Hard lock-out:** This type of lockout should be applied whenever you detect a user attacking your application and counter him by means of permanently locking out his account until a response team had time to do their forensics. After this process you can decide to give the user back his account or take further legal actions against him. This type of approach prevents the attacker from further penetrating your application and infrastructure.</li></ul><p>To defend against attacks on default and predictable accounts, verify that all keys and passwords are replaceable, and are generated or replaced after installation time.</p><p>If the application has to auto-generate passwords, ensure that the generated passwords are random and have high entropy.</p>|
+| Details | <p>Password and account policy in compliance with organizational policy and best practices should be implemented.</p><p>To defend against brute-force and dictionary based guessing: Strong password policy must be implemented to ensure that users create complex password (e.g., 12 characters minimum length, alphanumeric and special characters).</p><p>Account lockout policies may be implemented in the following manner:</p><ul><li>**Soft lock-out:** This can be a good option for protecting your users against brute force attacks. For example, whenever the user enters a wrong password three times the application could lock down the account for a minute in order to slow down the process of brute forcing their password making it less profitable for the attacker to proceed. If you were to implement hard lock-out countermeasures for this example you would achieve a "DoS" by permanently locking out accounts. Alternatively, application may generate an OTP (One Time Password) and send it out-of-band (through email, sms etc.) to the user. Another approach may be to implement CAPTCHA after a threshold number of failed attempts is reached.</li><li>**Hard lock-out:** This type of lockout should be applied whenever you detect a user attacking your application and counter them by means of permanently locking out their account until a response team had time to do their forensics. After this process you can decide to give the user back their account or take further legal actions against them. This type of approach prevents the attacker from further penetrating your application and infrastructure.</li></ul><p>To defend against attacks on default and predictable accounts, verify that all keys and passwords are replaceable, and are generated or replaced after installation time.</p><p>If the application has to auto-generate passwords, ensure that the generated passwords are random and have high entropy.</p>|
 
 ## <a id="controls-username-enum"></a>Implement controls to prevent username enumeration
 
@@ -473,7 +473,7 @@ await deviceClient.SendEventAsync(message);
 ### Example
 **Node.JS: Authentication**
 #### Symmetric key
-* Create a IoT hub on azure
+* Create an IoT hub on azure
 * Create an entry in the device identity registry
     ```javascript
     var device = new iothub.Device(null);
@@ -487,7 +487,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### SAS Token
+  #### SAS Token
 * Gets internally generated when using symmetric key but we can generate and use it explicitly as well
 * Define a protocol : `var Http = require('azure-iot-device-http').Http;`
 * Create a sas token :
@@ -504,7 +504,7 @@ await deviceClient.SendEventAsync(message);
     var base64UriEncoded = encodeURIComponent(base64signature);
     // construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "%2fdevices%2f"+deviceName+"&sig="
-    + base64UriEncoded + "&se=" + expires;
+  + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
@@ -512,7 +512,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     Client.fromSharedAccessSignature(sas, Http); 
     ```
-#### Certificates
+  #### Certificates
 * Generate a self signed X509 certificate using any tool such as OpenSSL to generate a .cert and .key files to store the certificate and the key respectively
 * Provision a device that accepts secured connection using certificates.
     ```javascript

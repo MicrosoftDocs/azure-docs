@@ -47,13 +47,13 @@ The following lists the role startup procedure in Azure:
    * The **background** and **foreground** tasks are started asynchronously, parallel to the startup task.  
      
      > [!WARNING]
-     > IIS may not be fully configured during the startup task stage in the startup process, so role-specific data may not be available. Startup tasks that require role-specific data should use [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+     > IIS may not be fully configured during the startup task stage in the startup process, so role-specific data may not be available. Startup tasks that require role-specific data should use [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)).
      > 
      > 
 3. The role host process is started and the site is created in IIS.
-4. The [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) method is called.
+4. The [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) method is called.
 5. The instance is marked as **Ready** and traffic is routed to the instance.
-6. The [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method is called.
+6. The [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](/previous-versions/azure/reference/ee772746(v=azure.100)) method is called.
 
 ## Example of a startup task
 Startup tasks are defined in the [ServiceDefinition.csdef] file, in the **Task** element. The **commandLine** attribute specifies the name and parameters of the startup batch file or console command, the **executionContext** attribute specifies the privilege level of the startup task, and the **taskType** attribute specifies how the task will be executed.

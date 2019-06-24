@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: 8569cae1-87dd-4c40-9bbb-527ac80d6a96
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.author: jeedes
 
 ---
@@ -129,6 +130,9 @@ To configure Azure AD single sign-on with Figma, perform the following steps:
 	| Name | Source Attribute|
 	| ---------------| --------- |
 	| `externalId` | `user.mailnickname` |
+	| `displayName` | `user.displayname` |
+	| `title` | `user.jobtitle` |
+	| `emailaddress` | `user.mail` |
 	| `familyName` | `user.surname` |
 	| `givenName` | `givenName` |
 	| `userName` | `user.userprincipalname` |
@@ -157,23 +161,7 @@ To configure Azure AD single sign-on with Figma, perform the following steps:
   
 ### Configure Figma Single Sign-On
 
-1. In a different web browser window, open the Figma's site [here](https://goo.gl/forms/XkRB1z5ed4eVUzXn2) as an Administrator.
-
-2. On the **Figma SAML SSO Configuration** page, perform the following steps:
-
-	![Configure Single Sign-On](./media/figma-tutorial/configure01.png)
-
-	a. In **Email address** text box, enter the email of user like **brittasimon\@contoso.com**.
-
-	b. In **Your Name** text box, enter the name of user like **Brittasimon**.
-
-	c. Select your option according to Figma organization.
-
-	d. In **Your organization's name on Figma** textbox, type your organization name.
-
-	e. In **Identity Provider (IDP) Metadata URL** textbox, paste the **App Federation Metadata Url** which you have copied from the Azure portal.
-
-	f. Click **SUBMIT**.
+To configure single sign-on on Figma side, you need to follow the Figma`s article [Configure Azure Active Directory SAML SSO process](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
 ### Create an Azure AD test user 
 
@@ -242,5 +230,5 @@ When you click the Figma tile in the Access Panel, you should be automatically s
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

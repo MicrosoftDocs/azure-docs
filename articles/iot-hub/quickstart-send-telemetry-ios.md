@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 04/03/2019
 # As a developer, I need to build an end-to-end IoT solution that sends telemetry from a device to an IoT hub and reads that telemetry data from the hub using a back-end application.
 ---
 
@@ -16,9 +16,9 @@ ms.date: 02/20/2019
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this article, you send telemetry from a simulated device application to IoT Hub. Then you can view the data from a back-end application. 
+IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this article, you send telemetry from a simulated device application to IoT Hub. Then you can view the data from a back-end application.
 
-This article uses a pre-written Swift application to send the telemetry and a CLI utility to read the telemetry from IoT Hub. 
+This article uses a pre-written Swift application to send the telemetry and a CLI utility to read the telemetry from IoT Hub.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -26,9 +26,14 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-- Download the code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) 
-- The latest version of [XCode](https://developer.apple.com/xcode/), running the latest version of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
+- Download the code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)
+- The latest version of [XCode](https://developer.apple.com/xcode/), running the latest version of the iOS SDK. This quickstart was tested with XCode 10.2 and iOS 12.2.
 - The latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
+- Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 ## Create an IoT hub
 
@@ -38,14 +43,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+1. Run the following command in Azure Cloud Shell to create the device identity.
 
    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
 
    **myiOSdevice** : This is the name given for the registered device. Use myiOSdevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
    az iot hub device-identity create --hub-name YourIoTHubName --device-id myiOSdevice
    ```
 
@@ -133,9 +137,3 @@ To learn how to control your simulated device from a back-end application, conti
 
 > [!div class="nextstepaction"]
 > [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-node.md)
-
-<!-- Links -->
-[lnk-process-d2c-tutorial]: tutorial-routing.md
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/

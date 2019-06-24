@@ -14,7 +14,7 @@ Azure SignalR Service lets you easily add real-time functionality to your applic
 
 ## Prerequisites
 
-If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+If you don’t already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 You may also run this tutorial on the command line (macOS, Windows, or Linux) using the [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing), the [.NET Core SDK](https://dotnet.microsoft.com/download), and your favorite code editor.
 
@@ -30,7 +30,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 ## Configure and run the Azure Function app
 
-1. Start Visual Studio (or another code editor) and open the solution in the *chat\src\csharp* folder of the cloned repository.
+1. Start Visual Studio (or another code editor) and open the solution in the *src/chat/csharp* folder of the cloned repository.
 
 1. In the browser where the Azure portal is opened, confirm the SignalR Service instance you deployed earlier was successfully created by searching for its name in the search box at the top of the portal. Select the instance to open it.
 

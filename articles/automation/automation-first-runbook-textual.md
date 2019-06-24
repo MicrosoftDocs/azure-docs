@@ -132,7 +132,7 @@ You've tested and published your runbook, but so far it doesn't do anything usef
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
    ```
 
    > [!IMPORTANT]
@@ -161,7 +161,7 @@ Now that your runbook is authenticating to your Azure subscription, you can mana
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
 
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzureRmContext $AzureContext
    }

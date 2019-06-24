@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
 
 ---
@@ -37,12 +37,11 @@ Information Protection comes with a built-in set of labels and information types
 ## Customize the information protection policy
 To customize the information protection policy for your Azure tenant, you need to have [administrative privileges on the tenant's root management group](security-center-management-groups.md). 
  
-1. In the Security Center main menu, select **Security policy**.
-2. Choose **Hierarchical view (preview)**, and then under **Tenant Root Group**, click **Edit settings**.
- 
+1. In the Security Center main menu, under **RESOURCE SECURITY HYGIENE** go to **Data & storage** and click on the **SQL Information Protection** button.
+
    ![Configure Information protection policy](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. Under **Policy components**, click **Information protection**. In the **Information protection settings** page, you can view your current set of labels. These are the main classification attributes that are used to categorize the sensitivity level of your data. From here, you can configure the **Information protection labels** and **Information types** for the tenant. 
+2. In the **SQL Information Protection** page, you can view your current set of labels. These are the main classification attributes that are used to categorize the sensitivity level of your data. From here, you can configure the **Information protection labels** and **Information types** for the tenant. 
  
 ### Customizing labels
  

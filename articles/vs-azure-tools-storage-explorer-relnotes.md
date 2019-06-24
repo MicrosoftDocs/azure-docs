@@ -18,46 +18,51 @@ ms.author: cawa
 ---
 # Microsoft Azure Storage Explorer release notes
 
-This article contains the release notes for Azure Storage Explorer 1.4.3 release, as well as release notes for previous versions.
+This article contains the release notes for Azure Storage Explorer 1.8.1 release, as well as release notes for previous versions.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
-## Version 1.7.0
-3/5/2019
+## Version 1.8.1
+5/13/2019
 
-### Download Azure Storage Explorer 1.7.0
-- [Azure Storage Explorer 1.7.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.7.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.7.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### Download Azure Storage Explorer 1.8.1
+- [Azure Storage Explorer 1.8.1 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.8.1 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.8.1 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### Hotfixes
+* In some cases, clicking "Load more" at the resource level would not return the next page of resources. This has been fixed. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
+* On Windows, AzCopy downloads would fail if a single file or folder was being downloaded and the name of the file or folder had a character which was invalid for a Windows path. This has been fixed. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
+* In extremely rare cases, while performing a rename of a File Share or a rename in a File Share, if the copies for the rename failed, or if Storage Explore was unable to confirm the success of the copies with Azure, there was the potential for Storage Explorer to delete the original files before the copy had finished. This has been fixed.
 
 ### New
 
-* You can now change the owner and owning group when managing access for an ADLS Gen2 container, file, or folder.
-* On Windows, updating Storage Explorer from within the product is now an incremental install. This should result in a faster update experience. If you prefer a clean install, then you can download the [installer](https://azure.microsoft.com/en-us/features/storage-explorer/) yourself and then install manually. #1089
+* The integrated AzCopy version has been updated to version 10.1.0.
+* Ctrl/Cmd+R can now be used to refresh the currently focused editor. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* The Azure Stack Storage API version has been changed to 2017-04-17.
+* The Manage Access Dialog for ADLS Gen2 will now keep the Mask in sync in a way similar to other POSIX permissions tools. The UI will also warn you if a change is made that causes the permissions of a user or group to exceed the bounds of the Mask. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* For AzCopy uploads, the flag to calculate and set the MD5 hash is now enabled. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
 
 ### Preview Features
 
-* Device code flow sign in is now available to preview. To enable it, go to "Preview" → "Use Device Code Flow Sign-in". We encourage any users who have had issues with blank sign-in windows to try this feature, as it may prove to be a more reliable form of sign-in. #938
+* Device code flow sign in is now available to preview. To enable it, go to "Preview" → "Use Device Code Flow Sign-in". We encourage any users who have had issues with blank sign-in windows to try this feature, as it may prove to be a more reliable form of sign-in.
 * Storage Explorer integrated with AzCopy is currently available to preview. To enable it, go to "Preview" → "Use AzCopy for Improved Blob Upload and Download". Blob transfers completed with AzCopy should be faster and more performant.
 
 ### Fixes
 
-* You can now choose the blob type you want to upload as when AzCopy is enabled. #1111
-* Previously, if you had enabled static websites for an ADLS Gen2 Storage account and then attached it with name and key, Storage Explorer would not have detected that hierarchical namespace was enabled. This has been fixed. #1081
-* In the blob editor, sorting by either retention days remaining or status was broken. This has been fixed. #1106
-* After 1.5.0, Storage Explorer no longer waited for server side copies to finish before reporting success during a rename or copy & paste. This has been fixed. #976
-* When using the experimental AzCopy feature, the command copied after clicking "Copy command to clipboard" was not always runnable on its own. Now, all commands needed to run the transfer manually will be copied. #1079
-* Previously, ADLS Gen2 blobs were not accessible if you were behind a proxy. This was due to a bug in a new networking library used by the Storage SDK. In 1.7.0, an attempt to mitigate this issue has been made, but some people may continue to see issues. A full fix will be released in a future update. #1090
-* In 1.7.0, the save file dialog now correctly remembers the last location you saved a file to. #16
-* In the properties panel, the SKU tier of a Storage account was being shown as the account's kind. This has been fixed. #654
-* Sometimes, it was impossible to break the lease of a blob, even if you entered the name of the blob correctly. This has been fixed. #1070
+* The Access Policies dialog will no longer set an expiry date on Storage Access Policies that do not have an expiry. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Some changes have been made to the Generate SAS dialog to make sure Stored Access Policies are used correctly when generating a SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* When attempting to upload a non-512 byte aligned file to a page Blob, Storage Explorer will now expose a more relevant error. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* Copying a Blob container which utilized a display name would fail. Now, the actual name of the Blob container is used. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* Attempting to perform certain actions on an ADLS Gen2 folder which had unicode characters in its name would fail. All actions should now work. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
 
 ### Known Issues
 
-* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* When performing a non-AzCopy Blob download, the MD5 for large files is not being verified. This is due to a bug in the Storage SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
 * Attempting to access ADLS Gen2 Blobs when behind a proxy may fail.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
-* Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. For more information, see #537.
 * If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
 * Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
 * In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
@@ -70,30 +75,19 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
    * File shares
    * Access tiers
    * Soft Delete
+   * ADLS Gen2
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
-	```
+    ```
 	./StorageExplorer.exe --disable-gpu
-	```
+    ```
 
-* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
-* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
-
-	```
-	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-	sudo apt-get update
-	sudo apt-get upgrade
-	sudo apt-get dist-upgrade
-	```
-
-* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
-
-	```
-	sudo apt-get install libgconf-2-4
-	```
+* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) for more information.
 
 ## Previous releases
 
+* [Version 1.8.0](#version-180)
+* [Version 1.7.0](#version-170)
 * [Version 1.6.2](#version-162)
 * [Version 1.6.1](#version-161)
 * [Version 1.6.0](#version-160)
@@ -129,6 +123,133 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
 
+## Version 1.8.0
+5/1/2019
+
+### Download Azure Storage Explorer 1.8.0
+- [Azure Storage Explorer 1.8.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.8.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.8.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### New
+
+* The integrated AzCopy version has been updated to version 10.1.0.
+* Ctrl/Cmd+R can now be used to refresh the currently focused editor. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* The Azure Stack Storage API version has been changed to 2017-04-17.
+* The Manage Access Dialog for ADLS Gen2 will now keep the Mask in sync in a way similar to other POSIX permissions tools. The UI will also warn you if a change is made that causes the permissions of a user or group to exceed the bounds of the Mask. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* For AzCopy uploads, the flag to calculate and set the MD5 hash is now enabled. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### Preview Features
+
+* Device code flow sign in is now available to preview. To enable it, go to "Preview" → "Use Device Code Flow Sign-in". We encourage any users who have had issues with blank sign-in windows to try this feature, as it may prove to be a more reliable form of sign-in.
+* Storage Explorer integrated with AzCopy is currently available to preview. To enable it, go to "Preview" → "Use AzCopy for Improved Blob Upload and Download". Blob transfers completed with AzCopy should be faster and more performant.
+
+### Fixes
+
+* The Access Policies dialog will no longer set an expiry date on Storage Access Policies that do not have an expiry. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Some changes have been made to the Generate SAS dialog to make sure Stored Access Policies are used correctly when generating a SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* When attempting to upload a non-512 byte aligned file to a page Blob, Storage Explorer will now expose a more relevant error. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* Copying a Blob container which utilized a display name would fail. Now, the actual name of the Blob container is used. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* Attempting to perform certain actions on an ADLS Gen2 folder which had unicode characters in its name would fail. All actions should now work. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### Known Issues
+
+* When performing a non-AzCopy Blob download, the MD5 for large files is not being verified. This is due to a bug in the Storage SDK. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* Attempting to access ADLS Gen2 Blobs when behind a proxy may fail.
+* Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron. To work around this issue when uploading to or downloading from a blob container, you can use the experimental AzCopy feature.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described here.
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
+* Azure Stack does not support the following features. Attempting to use these features while working with Azure Stack resources may result in unexpected errors.
+   * File shares
+   * Access tiers
+   * Soft Delete
+   * ADLS Gen2
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+    ```
+	./StorageExplorer.exe --disable-gpu
+    ```
+
+* Running Storage Explorer on Linux requires certain dependencies to be installed first. Check the Storage Explorer [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) for more information.
+
+## Version 1.7.0
+3/5/2019
+
+### Download Azure Storage Explorer 1.7.0
+- [Azure Storage Explorer 1.7.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.7.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.7.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### New
+
+* You can now change the owner and owning group when managing access for an ADLS Gen2 container, file, or folder.
+* On Windows, updating Storage Explorer from within the product is now an incremental install. This should result in a faster update experience. If you prefer a clean install, then you can download the [installer](https://azure.microsoft.com/features/storage-explorer/) yourself and then install manually. #1089
+
+### Preview Features
+
+* Device code flow sign in is now available to preview. To enable it, go to "Preview" → "Use Device Code Flow Sign-in". We encourage any users who have had issues with blank sign-in windows to try this feature, as it may prove to be a more reliable form of sign-in. #938
+* Storage Explorer integrated with AzCopy is currently available to preview. To enable it, go to "Preview" → "Use AzCopy for Improved Blob Upload and Download". Blob transfers completed with AzCopy should be faster and more performant.
+
+### Fixes
+
+* You can now choose the blob type you want to upload as when AzCopy is enabled. #1111
+* Previously, if you had enabled static websites for an ADLS Gen2 Storage account and then attached it with name and key, Storage Explorer would not have detected that hierarchical namespace was enabled. This has been fixed. #1081
+* In the blob editor, sorting by either retention days remaining or status was broken. This has been fixed. #1106
+* After 1.5.0, Storage Explorer no longer waited for server side copies to finish before reporting success during a rename or copy & paste. This has been fixed. #976
+* When using the experimental AzCopy feature, the command copied after clicking "Copy command to clipboard" was not always runnable on its own. Now, all commands needed to run the transfer manually will be copied. #1079
+* Previously, ADLS Gen2 blobs were not accessible if you were behind a proxy. This was due to a bug in a new networking library used by the Storage SDK. In 1.7.0, an attempt to mitigate this issue has been made, but some people may continue to see issues. A full fix will be released in a future update. #1090
+* In 1.7.0, the save file dialog now correctly remembers the last location you saved a file to. #16
+* In the properties panel, the SKU tier of a Storage account was being shown as the account's kind. This has been fixed. #654
+* Sometimes, it was impossible to break the lease of a blob, even if you entered the name of the blob correctly. This has been fixed. #1070
+
+### Known Issues
+
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* Attempting to access ADLS Gen2 Blobs when behind a proxy may fail.
+* Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
+* Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. For more information, see #537.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, comment on this issue.
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron. To work around this issue when uploading to or downloading from a blob container, you can use the experimental AzCopy feature.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter work around described here.
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files, and entities are preserved during a rename.
+* Azure Stack does not support the following features. Attempting to use these features while working with Azure Stack resources may result in unexpected errors.
+   * File shares
+   * Access tiers
+   * Soft Delete
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+    ```
+	./StorageExplorer.exe --disable-gpu
+    ```
+
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
+
+    ```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+    ```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+    ```
+	sudo apt-get install libgconf-2-4
+    ```
+
 ## Version 1.6.2
 1/9/2019
 
@@ -153,12 +274,12 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 * You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
 * Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
-	* Create and delete containers
-	* Manage container properties and permissions (left-hand side)
-	* View and navigate data inside of containers
-	* Create new folders
-	* Upload, download, rename, and delete files and folders
-	* Manage file and folder properties and permissions (right-hand side).
+  * Create and delete containers
+  * Manage container properties and permissions (left-hand side)
+  * View and navigate data inside of containers
+  * Create new folders
+  * Upload, download, rename, and delete files and folders
+  * Manage file and folder properties and permissions (right-hand side).
 	
 	Other typical Blob features, such as Soft Delete, and Snapshots, are not currently available. Managing permissions is also only available when signed in. Additionally, when working in an ADLS Gen2 Storage account, Storage Explorer will use AzCopy for all uploads and downloads and default to using name and key credentials for all operations if available.
 * After strong user feedback, break lease can once again be used to break leases on multiple blobs at once.
@@ -181,25 +302,25 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
    * Soft Delete
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
-	```
+    ```
 	./StorageExplorer.exe --disable-gpu
-	```
+    ```
 
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.6.1
 12/18/2018
@@ -222,12 +343,12 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 * You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
 * Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
-	* Create and delete containers
-	* Manage container properties and permissions (left-hand side)
-	* View and navigate data inside of containers
-	* Create new folders
-	* Upload, download, rename, and delete files and folders
-	* Manage file and folder properties and permissions (right-hand side).
+  * Create and delete containers
+  * Manage container properties and permissions (left-hand side)
+  * View and navigate data inside of containers
+  * Create new folders
+  * Upload, download, rename, and delete files and folders
+  * Manage file and folder properties and permissions (right-hand side).
 	
 	Other typical Blob features, such as Soft Delete, and Snapshots, are not currently available. Managing permissions is also only available when signed in. Additionally, when working in an ADLS Gen2 Storage account, Storage Explorer will use AzCopy for all uploads and downloads and default to using name and key credentials for all operations if available.
 * After strong user feedback, break lease can once again be used to break leases on multiple blobs at once.
@@ -250,25 +371,25 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
    * Soft Delete
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
-	```
+    ```
 	./StorageExplorer.exe --disable-gpu
-	```
+    ```
 
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.6.0
 12/5/2018
@@ -277,12 +398,12 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 * You can now use Storage Explorer to access your Blob data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). If you are signed in and Storage Explorer is unable to retrieve the keys for your Storage account, then an OAuth token will be used to authenticate when interacting with your data.
 * Storage Explorer now supports ADLS Gen2 Storage accounts. When Storage Explorer detects that hierarchical namespace is enabled for a Storage account, you will see "(ADLS Gen2 Preview)" next to the name of your Storage account. Storage Explorer is able to detect whether or not hierarchical namespace is enabled when you are signed in, or if you have attached your Storage Account with name and  key. For ADLS Gen2 Storage accounts, you can use Storage Explorer to:
-	* Create and delete containers
-	* Manage container properties and permissions (left-hand side)
-	* View and navigate data inside of containers
-	* Create new folders
-	* Upload, download, rename, and delete files and folders
-	* Manage file and folder properties and permissions (right-hand side).
+  * Create and delete containers
+  * Manage container properties and permissions (left-hand side)
+  * View and navigate data inside of containers
+  * Create new folders
+  * Upload, download, rename, and delete files and folders
+  * Manage file and folder properties and permissions (right-hand side).
 	
 	Other typical Blob features, such as Soft Delete, and Snapshots, are not currently available. Managing permissions is also only available when signed in. Additionally, when working in an ADLS Gen2 Storage account, Storage Explorer will use AzCopy for all uploads and downloads and default to using name and key credentials for all operations if available.
 * After strong user feedback, break lease can once again be used to break leases on multiple blobs at once.
@@ -305,25 +426,25 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
    * Soft Delete
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
-	```
+    ```
 	./StorageExplorer.exe --disable-gpu
-	```
+    ```
 
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.5.0
 10/29/2018
@@ -369,25 +490,25 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
    * Soft Delete
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 
-	```
+    ```
 	./StorageExplorer.exe --disable-gpu
-	```
+    ```
 
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 
 ## Version 1.4.4
@@ -433,18 +554,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.4.3
 10/11/2018
@@ -489,18 +610,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.4.2
 09/24/2018
@@ -544,18 +665,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.4.1
 08/28/2018
@@ -604,18 +725,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.3.0
 07/09/2018
@@ -661,18 +782,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.2.0
 06/12/2018
@@ -718,18 +839,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 1.1.0
 05/09/2018
@@ -772,18 +893,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 
 ## Version 1.0.0
@@ -838,18 +959,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.9.6
 02/28/2018
@@ -874,18 +995,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.9.5
 02/06/2018
@@ -923,18 +1044,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.9.4 and 0.9.3
 01/21/2018
@@ -970,18 +1091,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.9.2
 11/01/2017
@@ -1034,18 +1155,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.9.1 and 0.9.0
 10/20/2017
@@ -1090,18 +1211,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ## Version 0.8.16
 8/21/2017
@@ -1130,18 +1251,18 @@ Finally, support for using AzCopy with File Shares will be coming in the future.
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 	sudo apt-get update
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
-	```
+    ```
 
 * For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
 
-	```
+    ```
 	sudo apt-get install libgconf-2-4
-	```
+    ```
 
 ### Version 0.8.14
 06/22/2017

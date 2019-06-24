@@ -13,7 +13,7 @@ ms.custom: mvc
 # Quickstart: Create an Azure Database for MySQL server using Azure CLI
 
 > [!TIP]
-> Consider using the simpler [az mysql up](/cli/azure/ext/db-up/postgres#ext-db-up-az-mysql-up) Azure CLI command (currently in preview). Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
+> Consider using the simpler [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI command (currently in preview). Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
 This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group in about five minutes. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
 
@@ -139,15 +139,15 @@ Connect to your server using the **mysql.exe** command-line tool. You can downlo
 Type the next commands: 
 
 1. Connect to the server using **mysql** command-line tool:
-```bash
- mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-```
+   ```bash
+   mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. View server status:
-```sql
- mysql> status
-```
-If everything goes well, the command-line tool should output the following text:
+   ```sql
+   mysql> status
+   ```
+   If everything goes well, the command-line tool should output the following text:
 
 ```dos
 C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
@@ -193,9 +193,9 @@ mysql>
 > For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 ## Connect to the server using the MySQL Workbench GUI tool
-1.	Launch the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [here](https://dev.mysql.com/downloads/workbench/).
+1. Launch the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [here](https://dev.mysql.com/downloads/workbench/).
 
-2.	In the **Setup New Connection** dialog box, enter the following information on **Parameters** tab:
+2. In the **Setup New Connection** dialog box, enter the following information on **Parameters** tab:
 
    ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 

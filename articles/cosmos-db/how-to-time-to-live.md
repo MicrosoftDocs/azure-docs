@@ -4,7 +4,7 @@ description: Learn how to configure and manage time to live in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/14/2018
+ms.date: 05/23/2019
 ms.author: mjbrown
 ---
 
@@ -110,8 +110,8 @@ Use the following steps to enable time to live on an item:
 
 5. Next navigate to the item for which you want to set time to live, add the `ttl` property and select **Update**. 
 
-  ```json
-  {
+   ```json
+   {
     "id": "1",
     "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
     "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
@@ -119,8 +119,8 @@ Use the following steps to enable time to live on an item:
     "_attachments": "attachments/",
     "ttl": 10,
     "_ts": 1551307496
-  }
-  ```
+   }
+   ```
 
 ### <a id="dotnet-set-ttl-item"></a>.NET SDK
 

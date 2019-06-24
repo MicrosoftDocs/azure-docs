@@ -4,7 +4,7 @@ description: Azure Service Fabric allows you to specify resource limits for serv
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90

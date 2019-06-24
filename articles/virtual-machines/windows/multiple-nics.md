@@ -24,7 +24,7 @@ Virtual machines (VMs) in Azure can have multiple virtual network interface card
 
 In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Create a VM with multiple NICs
 First, create a resource group. The following example creates a resource group named *myResourceGroup* in the *EastUs* location:

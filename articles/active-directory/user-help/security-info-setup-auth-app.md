@@ -48,10 +48,10 @@ Depending on your organization’s settings, you might be able to use an authent
 
     ![Start by getting the app page](media/security-info/securityinfo-myprofile-getauthapp.png)
 
-    >[!Note]
-    >If you want to use an authenticator app other than the Microsoft Authenticator app, select the **I want to use a different authenticator app** link.
-    
-    >If your organization lets you choose a different method besides the authenticator app, you can select the **I want to set up a different method link**.
+   > [!Note]
+   > If you want to use an authenticator app other than the Microsoft Authenticator app, select the **I want to use a different authenticator app** link.
+   > 
+   > If your organization lets you choose a different method besides the authenticator app, you can select the **I want to set up a different method link**.
 
 5. Remain on the **Set up your account** page while you set up the Microsoft Authenticator app on your mobile device.
 
@@ -77,9 +77,9 @@ Depending on your organization’s settings, you might be able to use an authent
 
 8. Approve the notification in the Microsoft Authenticator app, and then select **Next**.
 
-    ![Success notification, connecting the app and your account](media/security-info/securityinfo-myprofile-successauthapp.png)
+     ![Success notification, connecting the app and your account](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or password reset.
+     Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or password reset.
 
 ## Delete your authenticator app from your security info methods
 If you no longer want to use your authenticator app as a security info method, you can remove it from the **Security info** page. This works for all authenticator apps, not just the Microsoft Authenticator app. After you delete the app, you'll have to go into the authenticator app on your mobile device and delete the account.

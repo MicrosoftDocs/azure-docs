@@ -28,7 +28,7 @@ public static async Task<IActionResult> Run(
 
 ### JavaScript
 
-Open the function.json file for your new function, open it in a text editor, update the **authLevel** property in **bindings.httpTrigger** to `anonymous`, and save your changes.
+Open the function.json file for your new function in a text editor, update the **authLevel** property in **bindings** to `anonymous`, and save your changes.
 
 ```json
   "bindings": [

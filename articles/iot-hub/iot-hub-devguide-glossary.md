@@ -3,7 +3,7 @@ title: Azure IoT Hub glossary of terms | Microsoft Docs
 description: Developer guide - a glossary of common terms relating to Azure IoT Hub.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

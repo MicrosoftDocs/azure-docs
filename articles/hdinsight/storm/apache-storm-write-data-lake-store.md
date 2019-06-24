@@ -1,7 +1,6 @@
 ---
 title: Apache Storm write to Storage/Data Lake Storage - Azure HDInsight 
 description: Learn how to use the Apache Storm to write to the HDFS-compatible storage for HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed

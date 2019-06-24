@@ -64,7 +64,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2S
 Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
-Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
+Once the feature shows as registered, register the subscription to Microsoft.Network namespace.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
@@ -98,11 +98,11 @@ A P2S configuration defines the parameters for connecting remote clients.
 4. Click **+Add point-to-site config** at the top of the page to open the **Create new point-to-site configuration** page.
 5. On the **Create new point-to-site configuration** page, fill in the following fields:
 
-  *  **Configuration name** - This is the name by which you want to refer to your configuration.
-  *  **Tunnel type** - The protocol to use for the tunnel.
-  *  **Address pool** - This is the IP address pool that the clients will be assigned Is from.
-  *  **Root Certificate Name** - A descriptive name for the certificate.
-  *  **Root Certificate Data** - Base-64 encoded X.509 certificate data.
+   *  **Configuration name** - This is the name by which you want to refer to your configuration.
+   *  **Tunnel type** - The protocol to use for the tunnel.
+   *  **Address pool** - This is the IP address pool that the clients will be assigned Is from.
+   *  **Root Certificate Name** - A descriptive name for the certificate.
+   *  **Root Certificate Data** - Base-64 encoded X.509 certificate data.
 
 6. Click **Create** to create the configuration.
 

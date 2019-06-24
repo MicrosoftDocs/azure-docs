@@ -4,7 +4,7 @@ description: Use Azure Monitor logs for monitoring containers running on Azure S
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -22,13 +22,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 ## Create and run the sample application
 
 To create the sample in Visual Studio, do the following steps:
 
-1. Create a new Visual Studio solution in Visual Studio, using the Visual C# Console App template.
+1. Create a new Visual Studio solution in Visual Studio, using the Visual C# Console App (.NET Framework) template.
 1. Install the Newtonsoft.Json NuGet package.
     1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
     1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
@@ -23,10 +23,10 @@ Depending on the platform, different dependencies exist to execute your applicat
 
 The Cognitive Services Speech SDK is tested on Windows 10 and on Windows Server 2016.
 
-The Cognitive Services Speech SDK requires the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) on the system. You can download installers for the latest version of the `Microsoft Visual C++ Redistributable for Visual Studio 2017` here:
+The Cognitive Services Speech SDK requires the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) on the system. You can download installers for the latest version of the `Microsoft Visual C++ Redistributable for Visual Studio 2019` here:
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 If your application uses managed code, the `.NET Framework 4.6.1` or later is required on the target machine.
 
@@ -44,19 +44,26 @@ The required Speech SDK files can be deployed in the same directory as your appl
 
 ## Linux
 
-The Speech SDK currently supports the Ubuntu 16.04 and 18.04 distributions.
+The Speech SDK currently supports the Ubuntu 16.04, Ubuntu 18.04, and Debian 9 distributions.
 For a native application, you need to ship the Speech SDK library, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Make sure you select the version (x86, x64) that matches your application. Depending on the Linux version, you also might need to include the following dependencies:
 
 * The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
-* The OpenSSL library (`libssl.so.1.0.0`)
+* The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)
 * The shared library for ALSA applications (`libasound.so.2`)
 
 On Ubuntu, the GNU C libraries should already be installed by default. The last three can be installed by using these commands:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+On Debian 9 install these packages:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## Next steps

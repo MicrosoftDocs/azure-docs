@@ -24,7 +24,7 @@ The S0 and S1 pricing tiers handle different amounts of data throughput. Before 
 
 | Capability                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| Search                                  |        ✓           |     ✓    |
+| Search (fwd/rev geocoding, points of interest)  |        ✓           |     ✓    |
 | Batch geocoding (preview)              |                   |     ✓    |
 | Polygons from search          |                   |     ✓    |
 | Routing                                 |        ✓           |     ✓    |

@@ -556,12 +556,10 @@ The pipeline contains a Copy Activity that is configured to use these input and 
 6. **Verify connection**: To connect to the SQL Server using fully qualified name, use SQL Server Management Studio from a different machine. For example: "\<machine\>.\<domain\>.corp.\<company\>.com,1433."
 
    > [!IMPORTANT]
-
+   > 
    > See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for detailed information.
-   >
+   > 
    > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
-   >
-   >
 
 
 ## Identity columns in the target database

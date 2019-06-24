@@ -1,12 +1,12 @@
 ---
-title: Azure MFA versions and consumption plans | Microsoft Docs
+title: Azure MFA versions and consumption plans - Azure Active Directory
 description: Information about the Multi-factor Authentication client and the different methods and versions available. 
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 06/03/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -28,9 +28,9 @@ The following table describes the differences between three versions of multi-fa
 
 | Version | Description |
 | --- | --- |
-| Multi-Factor Authentication for Office 365 <br> Microsoft 365 Business |This version works exclusively with Office 365 applications and is managed from the Office 365 or Microsoft 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 or Microsoft 365 Business subscription. |
-| Multi-Factor Authentication for Azure AD Administrators | Users assigned the Azure AD Global Administrator role in Azure AD tenants can enable two-step verification at no additional cost.|
-| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure portal](https://portal.azure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication is a feature of [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features), and can be deployed either in the cloud or on-premises. |
+| Multi-Factor Authentication for Office 365 <br> Microsoft 365 Business | This version is managed from the Office 365 or Microsoft 365 portal. Administrators can [secure Office 365 resources with two-step verification](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). This version is part of an Office 365 or Microsoft 365 Business subscription. |
+| Multi-Factor Authentication for Azure AD Administrators | Users assigned the Azure AD Global Administrator role in Azure AD tenants can enable two-step verification at no additional cost. |
+| Azure Multi-Factor Authentication | Often referred to as the "full" version, Azure Multi-Factor Authentication offers the richest set of capabilities. It provides additional configuration options via the [Azure portal](https://portal.azure.com), advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication is a feature of [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features). |
 
 > [!NOTE]
 > New customers may no longer purchase Azure Multi-Factor Authentication as a standalone offering effective September 1st, 2018. Multi-factor authentication will continue to be available as a feature in Azure AD Premium licenses.
@@ -51,7 +51,7 @@ The following table provides a list of the features that are available in the va
 | SMS as a second factor |● |● |● |
 | App passwords for clients that don't support MFA |● |● |● |
 | Admin control over verification methods |● |● |● |
-| Protect non-admin accounts with MFA |● (Only for Office 365 applications) | |● |
+| Protect non-admin accounts with MFA |● | |● |
 | PIN mode | | |● |
 | Fraud alert | | |● |
 | MFA Reports | | |● |
@@ -71,17 +71,13 @@ Users assigned the Global Administrator role in Azure AD tenants can enable two-
 
 ## How to purchase Azure Multi-Factor Authentication
 
-If you would like the full functionality offered by Azure Multi-Factor Authentication, there are several options:
+Purchase licenses that include Azure Multi-Factor Authentication, like Azure Active Directory Premium, or a license bundle that includes Azure AD Premium, or Conditional Access and assign them to your users in Azure Active Directory.
 
-### Option 1 - Licenses that include MFA
+### Consumption-based licensing
 
-Purchase licenses that include Azure Multi-Factor Authentication, like Azure Active Directory Premium or a license bundle that includes Azure AD Premium, and assign them to your users in Azure Active Directory.
+Consumption-based licensing is no longer available to new customers effective September 1, 2018.
 
-### Option 2 - MFA consumption-based model
-
-This option is no longer available to new customers effective September 1, 2018.
-
-Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
+Effective September 1, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be an available feature in Azure AD Premium licenses.
 
 When using an Azure Multi-Factor Authentication Provider, there are two usage models available that are billed through your Azure subscription:
 

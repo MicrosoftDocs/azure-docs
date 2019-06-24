@@ -134,7 +134,7 @@ To check the status of your payment, [create a support ticket](https://portal.az
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Learn more
 

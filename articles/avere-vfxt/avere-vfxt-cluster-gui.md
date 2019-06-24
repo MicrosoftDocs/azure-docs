@@ -64,7 +64,7 @@ Authentication is automatic if you used your SSH public key to create the cluste
 
 This step uses a web browser to connect to the configuration utility running on the vFXT cluster.
 
-* For an SSH tunnel connection, open your web browser and navigate to https://127.0.0.1:8443. 
+* For an SSH tunnel connection, open your web browser and navigate to `https://127.0.0.1:8443`. 
 
   You connected to the cluster IP address when you created the tunnel, so you just need to use the localhost IP address in the browser. If you used a local port other than 8443, use your port number instead.
 

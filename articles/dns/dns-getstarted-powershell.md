@@ -20,7 +20,7 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 Azure DNS also supports creating private domains. For step-by-step instructions about how create your first private DNS zone and record, see [Get started with Azure DNS private zones using PowerShell](private-dns-getstarted-powershell.md).
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -86,7 +86,7 @@ Now that you have a test DNS zone with a test 'A' record, you can test the name 
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-The host name **www.contoso.xyz** resolves to **10.10.10.10**, just as you configured it. This result verifies that name resolution is working correctly.
+The host name **www\.contoso.xyz** resolves to **10.10.10.10**, just as you configured it. This result verifies that name resolution is working correctly.
 
 ## Delete all resources
 

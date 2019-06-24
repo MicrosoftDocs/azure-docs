@@ -1,14 +1,14 @@
 ---
-title: Backup and restore in Azure Database for PostgreSQL
-description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server.
+title: Backup and restore in Azure Database for PostgreSQL - Single Server
+description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 5/6/2019
 ---
 
-# Backup and restore in Azure Database for PostgreSQL
+# Backup and restore in Azure Database for PostgreSQL - Single Server
 
 Azure Database for PostgreSQL automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Backups can be used to restore your server to a point-in-time. Backup and restore are an essential part of any business continuity strategy because they protect your data from accidental corruption or deletion.
 

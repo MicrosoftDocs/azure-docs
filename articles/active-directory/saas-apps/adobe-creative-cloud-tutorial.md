@@ -247,9 +247,9 @@ In order to enable Azure AD users to log into Adobe Creative Cloud, they must be
 2. Add the user within Adobe’s console as Federated ID and assign them to a Product Profile. For detailed information on adding users, see [Add users in Adobe Admin Console](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. At this point, type your email address/upn into the Adobe signin form, press tab, and you should be federated back to Azure AD:
-	* Web access: www.adobe.com > sign-in
-	* Within the desktop app utility > sign-in
-	* Within the application > help > sign-in
+   * Web access: www\.adobe.com > sign-in
+   * Within the desktop app utility > sign-in
+   * Within the application > help > sign-in
 
 ### Test single sign-on
 
@@ -263,7 +263,7 @@ When you click the Adobe Creative Cloud tile in the Access Panel, you should be 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
   
 - [Set up a domain (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
   

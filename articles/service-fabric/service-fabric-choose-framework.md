@@ -4,7 +4,7 @@ description: 'Service Fabric offers two frameworks for building services: the ac
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382

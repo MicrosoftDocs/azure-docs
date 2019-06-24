@@ -3,8 +3,8 @@ title: Connect virtual networks with virtual network peering - Azure CLI | Micro
 description: In this article, you learn how to connect virtual networks with virtual network peering, using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom:
 ---
 
@@ -91,7 +91,7 @@ az network vnet peering create \
   --name myVirtualNetwork1-myVirtualNetwork2 \
   --resource-group myResourceGroup \
   --vnet-name myVirtualNetwork1 \
-  --remote-vnet-id $vNet2Id \
+  --remote-vnet $vNet2Id \
   --allow-vnet-access
 ```
 
@@ -102,7 +102,7 @@ az network vnet peering create \
   --name myVirtualNetwork2-myVirtualNetwork1 \
   --resource-group myResourceGroup \
   --vnet-name myVirtualNetwork2 \
-  --remote-vnet-id $vNet1Id \
+  --remote-vnet $vNet1Id \
   --allow-vnet-access
 ```
 

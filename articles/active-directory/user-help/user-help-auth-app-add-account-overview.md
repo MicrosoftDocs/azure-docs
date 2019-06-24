@@ -19,10 +19,10 @@ ms.collection: M365-identity-device-management
 
 The Microsoft Authenticator app helps you sign-in to your accounts if you use two-factor verification. Two-factor verification helps you to access your accounts more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
 
->[!Important]
->The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
-
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
+> [!Important]
+> The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
+> 
+> This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 
 You can use the Microsoft Authenticator app in multiple ways, including:
 

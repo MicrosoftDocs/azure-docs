@@ -71,7 +71,7 @@ To set up your Azure Data Science environment, follow these steps.
 **Provision your Azure SQL DW instance.**
 Follow the documentation at [Create a SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) to provision a SQL Data Warehouse instance. Make sure that you make notations on the following SQL Data Warehouse credentials which will be used in later steps.
 
-* **Server Name**: <server Name>.database.windows.net
+* **Server Name**: \<server Name>.database.windows.net
 * **SQLDW (Database) Name**
 * **Username**
 * **Password**
@@ -579,11 +579,11 @@ If you have already set up an AzureML workspace, you can directly upload the sam
 
 In order to run the sample IPython Notebook or the Python script file, the following Python packages are needed. If you are using the AzureML IPython Notebook service, these packages have been pre-installed.
 
-    - pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 The recommended sequence when building advanced analytical solutions on AzureML with large data is the following:
 

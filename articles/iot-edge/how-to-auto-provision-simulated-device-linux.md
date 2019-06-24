@@ -101,6 +101,8 @@ In the virtual machine, build a C SDK tool that you can use to retrieve the devi
    make
    sudo ./tpm_device_provision
    ```
+   >[!TIP]
+   >If you are testing with TPM simulator, you'll need to put an extra parameter `-Duse_tpm_simulator:BOOL=ON` to enable it. The full command will be `cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON .. `.
 
 5. Copy the values for **Registration ID** and **Endorsement Key**. You use these values to create an individual enrollment for your device in DPS. 
 
@@ -229,17 +231,17 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
 
 11. Verify that the override was successful.
 
-   ```bash
-   sudo systemctl cat iotedge.service
-   ```
+    ```bash
+    sudo systemctl cat iotedge.service
+    ```
 
-   Successful output displays the **iotedge** default service variables, and then shows the environment variable that you set in **override.conf**. 
+    Successful output displays the **iotedge** default service variables, and then shows the environment variable that you set in **override.conf**. 
 
 12. Reload the settings.
 
-   ```bash
-   sudo systemctl daemon-reload
-   ```
+    ```bash
+    sudo systemctl daemon-reload
+    ```
 
 ## Restart the IoT Edge runtime
 

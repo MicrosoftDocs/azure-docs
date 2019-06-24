@@ -1,13 +1,12 @@
 ---
 title: Migrate on-premises Windows Server 2008 servers to Azure with Azure Site Recovery | Microsoft Docs
 description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, using Azure Site Recovery.
-author: bsiva
-manager: abhemraj
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 11/27/2018
-ms.author: bsiva
+ms.date: 05/30/2019
+ms.author: raynew
 ms.custom: MVC
 ---
 
@@ -29,7 +28,7 @@ The limitations and known issues section, lists some of limitations and workarou
 ## Supported Operating Systems and environments
 
 
-|Operating System  | On-premise environment  |
+|Operating System  | On-premises environment  |
 |---------|---------|
 |Windows Server 2008 SP2 - 32 bit and 64 bit(IA-32 and x86-64)</br>- Standard</br>- Enterprise</br>- Datacenter   |     VMware VMs, Hyper-V VMs, and Physical Servers    |
 |Windows Server 2008 R2 SP1 - 64 bit</br>- Standard</br>- Enterprise</br>- Datacenter     |     VMware VMs, Hyper-V VMs, and Physical Servers|
@@ -46,6 +45,8 @@ Before you start, it's helpful to review the Azure Site Recovery architecture fo
 To migrate Hyper-V virtual machines running Windows Server 2008 or Windows Server 2008 R2, follow the steps in the [migrate on-premises machines to Azure](migrate-tutorial-on-premises-azure.md) tutorial.
 
 The rest of this tutorial shows you how you can migrate on-premises VMware virtual machines and Physical servers running Windows Server 2008 or 2008 R2.
+> [!TIP]
+> Looking for an agentless way to migrate VMware VMs to Azure? [Click here](https://aka.ms/migrateVMs-signup)
 
 
 ## Limitations and known issues

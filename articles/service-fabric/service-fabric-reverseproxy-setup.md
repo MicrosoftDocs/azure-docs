@@ -4,7 +4,7 @@ description: Understand how to set up and configure Service Fabric's reverse pro
 services: service-fabric
 documentationcenter: na
 author: jimacoMS2
-manager: timlt
+manager: chackdan
 editor: 
 
 ms.assetid: 

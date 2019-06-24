@@ -29,7 +29,7 @@ curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deploymen
 
 The following example uses [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) to send a request that contains the .zip file. Replace the placeholders `<deployment_user>`, `<deployment_password>`, `<zip_file_path>`, and `<app_name>`.
 
-```PowerShell
+```powershell
 #PowerShell
 $username = "<deployment_user>"
 $password = "<deployment_password>"

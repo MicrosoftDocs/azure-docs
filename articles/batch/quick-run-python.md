@@ -123,9 +123,9 @@ blob_client = azureblob.BlockBlobService(
 The app uses the `blob_client` reference to create a container in the storage account and to upload data files to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
 
 ```python
-input_file_paths =  [os.path.join(sys.path[0], 'taskdata0.txt'),
-                     os.path.join(sys.path[0], 'taskdata1.txt'),
-                     os.path.join(sys.path[0], 'taskdata2.txt')]
+input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
+                    os.path.join(sys.path[0], 'taskdata1.txt'),
+                    os.path.join(sys.path[0], 'taskdata2.txt')]
 
 input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
@@ -136,11 +136,11 @@ The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclien
 
 ```python
 credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
-    config._BATCH_ACCOUNT_KEY)
+                                              config._BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=config._BATCH_ACCOUNT_URL)
+    batch_url=config._BATCH_ACCOUNT_URL)
 ```
 
 ### Create a pool of compute nodes
@@ -160,7 +160,7 @@ new_pool = batch.models.PoolAddParameter(
             offer="UbuntuServer",
             sku="18.04-LTS",
             version="latest"
-            ),
+        ),
         node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=config._POOL_VM_SIZE,
     target_dedicated_nodes=config._POOL_NODE_COUNT
@@ -188,14 +188,14 @@ Then, the app adds tasks to the job with the [task.add_collection](/python/api/a
 ```python
 tasks = list()
 
-for idx, input_file in enumerate(input_files): 
+for idx, input_file in enumerate(input_files):
     command = "/bin/bash -c \"cat {}\"".format(input_file.file_path)
     tasks.append(batch.models.TaskAddParameter(
         id='Task{}'.format(idx),
         command_line=command,
         resource_files=[input_file]
     )
-)
+    )
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
@@ -207,12 +207,13 @@ The app monitors task state to make sure the tasks complete. Then, the app displ
 tasks = batch_service_client.task.list(job_id)
 
 for task in tasks:
-    
+
     node_id = batch_service_client.task.get(job_id, task.id).node_info.node_id
     print("Task: {}".format(task.id))
     print("Node: {}".format(node_id))
 
-    stream = batch_service_client.file.get_from_task(job_id, task.id, config._STANDARD_OUT_FILE_NAME)
+    stream = batch_service_client.file.get_from_task(
+        job_id, task.id, config._STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,

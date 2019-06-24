@@ -207,7 +207,7 @@ The solution resource has the properties in the following table.  This includes 
 
 | Property | Description |
 |:--- |:--- |
-| workspaceResourceId |ID of the Log Analytics workspace in the form *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>*. |
+| workspaceResourceId |ID of the Log Analytics workspace in the form *\<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>*. |
 | referencedResources |List of resources in the solution that should not be removed when the solution is removed. |
 | containedResources |List of resources in the solution that should be removed when the solution is removed. |
 

@@ -17,17 +17,18 @@ ms.author: yegu
 
 # Point-in-time snapshot
 
-Azure App Configuration keeps records of the precise times when a new key-value pair is created and subsequently modified. These records form a complete timeline in key-value changes. An app configuration store can reconstruct the history of any key-value and replay its past value at any given moment, up to the present. This feature allows you to “time-travel” backward and retrieve an old key-value. For example, you can get the configuration settings for yesterday, just before the most recent deployment so that you can recover a previous configuration in case that you need to roll back the application.
+Azure App Configuration keeps records of the precise times when a new key-value pair is created and then modified. These records form a complete timeline in key-value changes. An app configuration store can reconstruct the history of any key value and replay its past value at any given moment, up to the present. With this feature, you can “time-travel” backward and retrieve an old key value. For example, you can get yesterday's configuration settings, just before the most recent deployment, in order to recover a previous configuration and roll back the application.
 
 ## Key-value retrieval
 
-To retrieve past key-values, you need to specify a time at which key-values are snapshot in the HTTP header of a REST API call. For example:
+To retrieve past key values, specify a time at which key values are snapshot in the HTTP header of a REST API call. For example:
 
-        GET /revisions HTTP/1.1
+        GET /kv HTTP/1.1
         Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
 
-Currently, App Configuration will retain 7 days of change history.
+Currently, App Configuration keeps seven days of change history.
 
 ## Next steps
 
-* [Quickstart: Create an ASP.NET web app](quickstart-aspnet-core-app.md)  
+> [!div class="nextstepaction"]
+> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)  

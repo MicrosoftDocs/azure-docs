@@ -37,7 +37,7 @@ If you are not upgrading from DirSync, see related documentation for other scena
 Depending on your current DirSync deployment, there are different options for the upgrade. If the expected upgrade time is less than three hours, then the recommendation is to do an in-place upgrade. If the expected upgrade time is more than three hours, then the recommendation is to do a parallel deployment on another server. It is estimated that if you have more than 50,000 objects it takes more than three hours to do the upgrade.
 
 | Scenario |
-| --- | --- |
+| --- |
 | [In-place upgrade](#in-place-upgrade) |
 | [Parallel deployment](#parallel-deployment) |
 

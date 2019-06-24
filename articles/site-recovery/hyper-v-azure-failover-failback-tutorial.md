@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -44,16 +44,16 @@ Before failover verify the VM properties, and make sure that the VM meets with [
 
 In **Protected Items**, click **Replicated Items** > VM.
 
-2. In the **Replicated item** pane, there's a summary of VM information, health status, and the
+1. In the **Replicated item** pane, there's a summary of VM information, health status, and the
    latest available recovery points. Click **Properties** to view more details.
 
-3. In **Compute and Network**, you can modify the Azure name, resource group, target size,
+1. In **Compute and Network**, you can modify the Azure name, resource group, target size,
    [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings.
 
-4. You can view and modify network settings, including the network/subnet in which the Azure VM
+1. You can view and modify network settings, including the network/subnet in which the Azure VM
    will be located after failover, and the IP address that will be assigned to it.
 
-5. In **Disks**, you can see information about the operating system and data disks on the VM.
+1. In **Disks**, you can see information about the operating system and data disks on the VM.
 
 ## Failover to Azure
 

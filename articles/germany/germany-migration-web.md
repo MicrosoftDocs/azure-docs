@@ -35,9 +35,9 @@ For more information:
 
 To migrate settings from one Azure Notification Hubs instance to another instance, export and import all registration tokens with their tags:
 
-1. [Export the existing notification hub registrations](https://msdn.microsoft.com/library/azure/dn790624.aspx) to an Azure Blob storage container.
+1. [Export the existing notification hub registrations](/previous-versions/azure/azure-services/dn790624(v=azure.100)) to an Azure Blob storage container.
 1. Create a new notification hub in the target environment.
-1. [Import your registration tokens](https://msdn.microsoft.com/library/azure/dn790624.aspx) from Blob storage to your new notification hub.
+1. [Import your registration tokens](/previous-versions/azure/azure-services/dn790624(v=azure.100)) from Blob storage to your new notification hub.
 
 For more information:
 

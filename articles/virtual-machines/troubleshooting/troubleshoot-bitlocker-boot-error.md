@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/31/2018
+ms.date: 03/25/2019
 ms.author: genli
 ---
 
@@ -20,7 +20,7 @@ ms.author: genli
 
  This article describes BitLocker errors that you may experience when you start a Windows virtual machine (VM) in Microsoft Azure.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Symptom
 
@@ -163,9 +163,9 @@ For a Key Encryption Key scenario, follow these steps:
             [string] 
             $adTenant
             )
-    # Load ADAL Assemblies
-    $adal = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
+    # Load ADAL Assemblies. The following script assumes that the Azure PowerShell version you installed is 1.0.0. 
+    $adal = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\1.0.0\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
+    $adalforms = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\1.0.0\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
     [System.Reflection.Assembly]::LoadFrom($adal)
     [System.Reflection.Assembly]::LoadFrom($adalforms)
 
@@ -180,7 +180,7 @@ For a Key Encryption Key scenario, follow these steps:
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $authResult = $authContext.AcquireToken($resourceAppIdURI, $clientId, $redirectUri, "Auto")
+    $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI, $clientId, $redirectUri, $platformParameters).result
     # Generate auth header 
     $authHeader = $authResult.CreateAuthorizationHeader()
     # Set HTTP request headers to include Authorization header
@@ -233,8 +233,8 @@ For a Key Encryption Key scenario, follow these steps:
 
         GAC    Version        Location                                                                              
         ---    -------        --------                                                                              
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\AzureRM.profile\4.0.0\Microsoft.Identity...
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\AzureRM.profile\4.0.0\Microsoft.Identity...
+        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
 
     When the script finishes, you see the following output:
 

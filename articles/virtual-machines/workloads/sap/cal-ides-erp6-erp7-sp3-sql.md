@@ -42,8 +42,8 @@ After you sign in to the SAP CAL, the first page usually leads you to the **Solu
     
     c. Give the SAP CAL permission to deploy into your Azure subscription.
 
-    > [!NOTE]
-    The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
+   > [!NOTE]
+   >  The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
 
 1. To create a new SAP CAL account, the **Accounts** page shows two choices for Azure: 
 
@@ -87,7 +87,7 @@ You successfully created an SAP CAL account that is able to:
 - Deploy SAP systems into your Azure subscription.
 
 > [!NOTE]
-Before you can deploy the SAP IDES solution based on Windows and SQL Server, you might need to sign up for an SAP CAL subscription. Otherwise, the solution might show up as **Locked** on the overview page.
+> Before you can deploy the SAP IDES solution based on Windows and SQL Server, you might need to sign up for an SAP CAL subscription. Otherwise, the solution might show up as **Locked** on the overview page.
 
 ### Deploy a solution
 1. After you set up an SAP CAL account, select **The SAP IDES solution on Windows and SQL Server** solution. Click **Create Instance**, and confirm the usage and terms conditions. 

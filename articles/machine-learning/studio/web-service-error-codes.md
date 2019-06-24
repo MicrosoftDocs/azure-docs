@@ -4,7 +4,7 @@ description: These error codes could be returned by an operation on an Azure Mac
 keywords: 
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 

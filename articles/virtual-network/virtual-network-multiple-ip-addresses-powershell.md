@@ -3,7 +3,7 @@ title: Multiple IP addresses for Azure virtual machines - PowerShell | Microsoft
 description: Learn how to assign multiple IP addresses to a virtual machine using PowerShell. | Resource Manager
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: jdial;annahar
+ms.author: kumud;annahar
 ---
 
 # Assign multiple IP addresses to virtual machines using PowerShell
@@ -88,11 +88,11 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	-Location $Location `
 	-Name MyNetworkSecurityGroup `
 	-SecurityRules $NSGRule
-	```
+    ```
 
 6. Define the primary IP configuration for the NIC. Change 10.0.0.4 to a valid address in the subnet you created, if you didn't use the value defined previously. Before assigning a static IP address, it's recommended that you first confirm it's not already in use. Enter the command `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. If the address is available, the output returns *True*. If it's not available, the output returns *False* and a list of addresses that are available. 
 
-	In the following commands, **Replace <replace-with-your-unique-name> with the unique DNS name to use.** The name must be unique across all public IP addresses within an Azure region. This is an optional parameter. It can be removed if you only want to connect to the VM using the public IP address.
+	In the following commands, **Replace \<replace-with-your-unique-name> with the unique DNS name to use.** The name must be unique across all public IP addresses within an Azure region. This is an optional parameter. It can be removed if you only want to connect to the VM using the public IP address.
 
 	```powershell
 	
@@ -112,7 +112,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	-PrivateIpAddress 10.0.0.4 `
 	-PublicIpAddress $PublicIP1 `
 	-Primary
-	```
+    ```
 
 	When you assign multiple IP configurations to a NIC, one configuration must be assigned as the *-Primary*.
 
@@ -143,7 +143,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	-Name $IPConfigName3 `
 	-Subnet $Subnet `
 	-PrivateIpAddress 10.0.0.6
-	```
+    ```
 
 8. Create the NIC and associate the three IP configurations to it:
 
@@ -186,13 +186,13 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	-ResourceGroupName $RgName `
 	-Location $Location `
 	-VM $VmConfig
-	```
+    ```
 
 10. Add the private IP addresses to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
 ## <a name="add"></a>Add IP addresses to a VM
 
-You can add private and public IP addresses to the Azure network interface by completing the steps that follow. The examples in the following sections assume that you already have a VM with the three IP configurations described in the [scenario](#Scenario) in this article, but it's not required that you do.
+You can add private and public IP addresses to the Azure network interface by completing the steps that follow. The examples in the following sections assume that you already have a VM with the three IP configurations described in the [scenario](#scenario) in this article, but it's not required that you do.
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](/powershell/azure/overview) article.
 2. Change the "values" of the following $Variables to the name of the NIC you want to add IP address to and the resource group and location the NIC exists in:

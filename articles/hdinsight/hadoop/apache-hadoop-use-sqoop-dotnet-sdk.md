@@ -3,7 +3,6 @@ title: Run Apache Sqoop jobs by using .NET and HDInsight - Azure
 description: Learn how to use the HDInsight .NET SDK to run Apache Sqoop import and export between an Apache Hadoop cluster and an Azure SQL database.
 keywords: sqoop job
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 
 ms.service: hdinsight
@@ -113,7 +112,6 @@ Linux-based HDInsight presents the following limitations:
 ## Next steps
 Now you have learned how to use Sqoop. To learn more, see:
 
-* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie.md): Use Sqoop action in an Oozie workflow.
-* [Analyze flight delay data using HDInsight](../hdinsight-analyze-flight-delay-data.md): Use Apache Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
+* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie-linux-mac.md): Use Sqoop action in an Oozie workflow.
 * [Upload data to HDInsight](../hdinsight-upload-data.md): Find other methods for uploading data to HDInsight or Azure Blob storage.
 

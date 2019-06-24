@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 05/14/2019
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -66,11 +66,11 @@ Route-based gateways implement the route-based VPNs. Route-based VPNs use "route
 ### Can I update my Policy-based VPN gateway to Route-based?
 No. An Azure Vnet gateway type cannot be changed from policy-based to route-based or the other way. The gateway must be deleted and recreated, a process taking around 60 minutes. The IP address of the gateway will not be preserved nor will the Pre-Shared Key (PSK).
 1. Delete any connections associated with the gateway to be deleted.
-2. Delete the gateway:
-* [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-* [Azure Powershell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-3. [Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. Delete the gateway:
+1. [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+1. [Azure Powershell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### Do I need a 'GatewaySubnet'?
 
@@ -185,7 +185,7 @@ Transit traffic via Azure VPN gateway is possible using the classic deployment m
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
-No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST be alphanumerical string of length between 1 to 128 characters.
+No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST be printable ASCII characters.
 
 ### Do I get more bandwidth with more Site-to-Site VPNs than for a single virtual network?
 
@@ -237,3 +237,5 @@ You view additional virtual network information in the [Virtual Network FAQ](../
 
 * For more information about VPN Gateway, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 * For more information about VPN Gateway configuration settings, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
+
+**"OpenVPN" is a trademark of OpenVPN Inc.**

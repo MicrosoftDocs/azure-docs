@@ -47,7 +47,7 @@ let path = '/answerSearch/v7.0/search';
 let mkt = 'en-us';
 let q = 'Yosemite National Park';
 
-let params = '?q=' + encodeURI(q) + '&mkt=en-us';
+let params = '?q=' + encodeURI(q) + '&mkt= + mkt;
 
 let response_handler = function (response) {
     let body = '';

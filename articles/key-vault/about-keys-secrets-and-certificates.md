@@ -2,15 +2,11 @@
 title: About Azure Key Vault keys, secrets and certificates - Azure Key Vault
 description: Overview of Azure Key Vault REST interface and developer details for keys, secrets and certificates.
 services: key-vault
-documentationcenter:
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
@@ -406,10 +402,10 @@ Certificate contacts contain contact information to send notifications triggered
 
 If a certificate's policy is set to auto renewal, then a notification is sent on the following events.  
 
--   Before certificate renewal
--   After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
+- Before certificate renewal
+- After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
 
- When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
+  When a certificate policy that is set to be manually renewed (email only), a notification is sent when it’s time to renew the certificate.  
 
 ### Certificate Access Control
 

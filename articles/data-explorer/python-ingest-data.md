@@ -1,22 +1,21 @@
 ---
-title: 'Quickstart: Ingest data using the Azure Data Explorer Python library'
-description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using Python.'
-services: data-explorer
+title: 'Ingest data using the Azure Data Explorer Python library'
+description: In this article, you learn how to ingest (load) data into Azure Data Explorer using Python.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
+ms.topic: conceptual
+ms.date: 06/03/2019
 
-#Customer intent: As a Python developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
+# Customer intent: As a Python developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
 ---
 
-# Quickstart: Ingest data using the Azure Data Explorer Python library
+# Ingest data using the Azure Data Explorer Python library
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides two client libraries for Python: an [ingest library](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) and [a data library](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). These libraries enable you to ingest (load) data into a cluster and query data from your code. In this quickstart, you first create a table and data mapping in a cluster. You then queue ingestion to the cluster and validate the results.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides two client libraries for Python: an [ingest library](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) and [a data library](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). These libraries enable you to ingest (load) data into a cluster and query data from your code. In this article, you first create a table and data mapping in a cluster. You then queue ingestion to the cluster and validate the results.
 
-This quickstart is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
+This article is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
 ## Prerequisites
 
@@ -168,7 +167,7 @@ Run the following command to view the status of all ingestion operations in the 
 
 ## Clean up resources
 
-If you plan to follow our other quickstarts and tutorials, keep the resources you created. If not, run the following command in your database to clean up the StormEvents table.
+If you plan to follow our other articles, keep the resources you created. If not, run the following command in your database to clean up the StormEvents table.
 
 ```Kusto
 .drop table StormEvents
@@ -176,5 +175,4 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Query data using Python](python-query-data.md)
+* [Query data using Python](python-query-data.md)

@@ -2,8 +2,8 @@
 title: Create a snapshot of a VHD in Azure | Microsoft Docs
 description: Learn how to create a copy of an Azure VM to use as a back up or for troubleshooting issues.
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
 
 ---
@@ -40,45 +40,45 @@ If you are going to use the snapshot to create a new VM, we recommend that you c
 
 The following steps show how to copy the VHD disk, create the snapshot configuration, and take a snapshot of the disk by using the [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 1. Set some parameters: 
 
- ```azurepowershell-interactive
-$resourceGroupName = 'myResourceGroup' 
-$location = 'eastus' 
-$vmName = 'myVM'
-$snapshotName = 'mySnapshot'  
-```
+   ```azurepowershell-interactive
+   $resourceGroupName = 'myResourceGroup' 
+   $location = 'eastus' 
+   $vmName = 'myVM'
+   $snapshotName = 'mySnapshot'  
+   ```
 
 2. Get the VM:
 
- ```azurepowershell-interactive
-$vm = get-azvm `
+   ```azurepowershell-interactive
+   $vm = get-azvm `
    -ResourceGroupName $resourceGroupName 
    -Name $vmName
-```
+   ```
 
 3. Create the snapshot configuration. For this example, the snapshot is of the OS disk:
 
- ```azurepowershell-interactive
-$snapshot =  New-AzSnapshotConfig 
+   ```azurepowershell-interactive
+   $snapshot =  New-AzSnapshotConfig 
    -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
    -Location $location 
    -CreateOption copy
-```
+   ```
    
    > [!NOTE]
    > If you would like to store your snapshot in zone-resilient storage, create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `-SkuName Standard_ZRS` parameter.   
    
 4. Take the snapshot:
 
- ```azurepowershell-interactive
-New-AzSnapshot 
+   ```azurepowershell-interactive
+   New-AzSnapshot 
    -Snapshot $snapshot 
    -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 
-```
+   ```
 
 
 ## Next steps

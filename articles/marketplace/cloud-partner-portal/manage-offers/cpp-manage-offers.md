@@ -1,20 +1,12 @@
 ---
-title: Manage Azure and AppSource Marketplace Offers  | Microsoft Docs
+title: Manage Azure and AppSource Marketplace offers | Azure Marketplace
 description: Managing offers on the Azure and AppSource Marketplaces
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Manage Azure and AppSource Marketplace offers

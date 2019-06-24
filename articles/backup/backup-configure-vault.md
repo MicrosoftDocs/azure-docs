@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/04/2019
 ms.author: raynew
 ---
 
@@ -46,19 +46,27 @@ What you can back up depends on where the agent is installed.
 
 ### Verify internet access
 
-If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these URLs:
+If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow these URLs and IP address:
 
-- www.msftncsi.com
+**URLs**
+
+- www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
 
+**IP address**
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
+
 ## Create a Recovery Services vault
 
 A Recovery Services vault stores all the backups and recovery points you create over time, and contains the backup policy applied to backed up machines. Create a vault as follows:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
 2. In search, type **Recovery Services** and click **Recovery Services vaults**.
 
     ![Create Recovery Services Vault step 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png)
@@ -69,18 +77,18 @@ A Recovery Services vault stores all the backups and recovery points you create 
 
 4. For **Name**, enter a friendly name to identify the vault.
 
-  - The name needs to be unique for the Azure subscription.
-  - It can contain 2 to 50 characters.
-  - It must start with a letter, and it can contain only letters, numbers, and hyphens.
+   - The name needs to be unique for the Azure subscription.
+   - It can contain 2 to 50 characters.
+   - It must start with a letter, and it can contain only letters, numbers, and hyphens.
 
 5. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Backup data is sent to the vault. Then click **Create**.
 
     ![Create Recovery Services Vault step 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-    - It can take a while for the vault to be created.
-    - Monitor the status notifications in the upper-right area of the portal. If after several minutes you don't see the vault, click **Refresh**.
+   - It can take a while for the vault to be created.
+   - Monitor the status notifications in the upper-right area of the portal. If after several minutes you don't see the vault, click **Refresh**.
 
-    ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
+     ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
 ### Set storage redundancy
 
@@ -129,17 +137,17 @@ Download the MARS agent for installation on machines you want to back up.
 
 1. Run the **MARSagentinstaller.exe** file on machines you want to back up.
 2. In the MARS Agent Setup Wizard > **Installation Settings**, specify where you want to install the agent, and a location to use for the cache. Then click **Next**.
-    - Azure Backup uses the cache to store data snapshots before sending them to Azure.
-    - The cache location should have free space equal to at least 5% of the size of the data you'll back up.
+   - Azure Backup uses the cache to store data snapshots before sending them to Azure.
+   - The cache location should have free space equal to at least 5% of the size of the data you'll back up.
 
-    ![MARS wizard installation settings](./media/backup-configure-vault/mars1.png)
+     ![MARS wizard installation settings](./media/backup-configure-vault/mars1.png)
 
 2. In **Proxy Configuration**, specify how the agent running on the Windows machine will connect to the internet. Then click **Next**.
 
-    - If you're using a custom proxy specify the proxy settings, and credentials if needed.
-    - Remember that the agent needs access to [these URLs](#verify-internet-access).
+   - If you're using a custom proxy specify the proxy settings, and credentials if needed.
+   - Remember that the agent needs access to [these URLs](#verify-internet-access).
 
-    ![MARS wizard internet access](./media/backup-configure-vault/mars2.png)
+     ![MARS wizard internet access](./media/backup-configure-vault/mars2.png)
 
 3. In **Installation** review the prerequisites check, and click **Install**.
 4. After the agent is installed, click **Proceed to Registration**.
@@ -152,7 +160,7 @@ Download the MARS agent for installation on machines you want to back up.
     - Save the encryption passphrase in a secure location.
     - If you lose or forget the passphrase, Microsoft can't help recover the backup data. Save the file in a secure location. You need it to restore a backup.
 
-7. click **Finish**. The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
+7. Click **Finish**. The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
 ## Create a backup policy
 
@@ -241,6 +249,16 @@ Enable network throttling as follows:
 
 After the initial backup is completed, the **Job completed** status appears in the Backup console.
 
+## Ad hoc backup policy retention behavior
+
+* For more information, refer step 8 of [Create a backup policy](backup-configure-vault.md#create-a-backup-policy)
+
+| Backup Schedule option | How long will the backed-up data be retained?
+| -- | --
+| Schedule a backup every: *Day | **Default Retention**: Equivalent to the “retention in days for daily backups” <br/><br/> **Exception**: If a daily scheduled backup set for long term retention (Weeks, Months, Years) fails, then an adhoc backup triggered right after this failed scheduled backup is considered for long-term retention. Otherwise, the next scheduled backup is considered for long-term retention.<br/><br/> **Example**: If (say) the scheduled backup taken on Thursday 8:00 am fails and the same backup was to be considered for Weekly/Monthly/Yearly retention, then the first adhoc backup triggered before the next scheduled backup (say) Friday, 8:00 am would be automatically tagged for Weekly/Monthly/Yearly retention as applicable to the Thursday 8:00 am backup.
+| Schedule a backup every: *Weekly | **Default Retention**: 1 day <br/> Adhoc Backups taken for a data source with weekly Backup policy are deleted the very next day, even if they are the most recent Backups for the data source. <br/><br/> **Exception**: If a weekly scheduled backup set for long term retention (Weeks, Months, Years) fails, then an adhoc backup triggered right after this failed scheduled backup is considered for long-term retention. Otherwise, the next scheduled backup is considered for long-term retention. <br/><br/> **Example**: If (say) the scheduled backup taken on Thursday 8:00 am fails and the same backup was to be considered for Monthly/Yearly retention, then the first adhoc backup triggered before the next scheduled backup (say) Thursday, 8:00 am would be automatically tagged for Monthly/Yearly retention as applicable to the Thursday 8:00 am backup
+
+
 ## Next steps
 
-[Learn how to](backup-azure-restore-windows-server.md) restore files.
+[Learn how to restore files](backup-azure-restore-windows-server.md).

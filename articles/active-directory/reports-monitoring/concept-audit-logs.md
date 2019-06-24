@@ -4,7 +4,7 @@ title: Audit activity reports in the Azure Active Directory portal | Microsoft D
 description: Introduction to the audit activity reports in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -201,7 +201,7 @@ If you want to review audit data related to your applications, you can find a fi
 
 ## Office 365 activity logs
 
-You can view Office 365 activity logs from the [Office 365 Admin Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Office 365 Admin Center provides a full view of the Office 365 activity logs. 
+You can view Office 365 activity logs from the [Microsoft 365 admin center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Microsoft 365 admin center provides a full view of the Office 365 activity logs. 
 
 You can also access the Office 365 activity logs programmatically using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

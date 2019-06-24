@@ -40,7 +40,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     import com.google.gson.JsonParser;
     ```
 
-2. Create variables for your subscription key, the API host and path, your [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), and a search query.
+2. Create variables for your subscription key, the API host and path, your [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search query.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -69,51 +69,51 @@ public static String prettify(String json_text) {
 
 1. Create a new method named  `get_suggestions()` and perform the following steps:
 
-    1. construct the URL for your request by combining your API host, path, and encoding your search query. Be sure to url-encode the query before appending it. Create a parameters string for your query by appending the market code to the `mkt=` parameter, and your query to the `q=` parameter.
+   1. construct the URL for your request by combining your API host, path, and encoding your search query. Be sure to url-encode the query before appending it. Create a parameters string for your query by appending the market code to the `mkt=` parameter, and your query to the `q=` parameter.
     
       ```java
   
       public static String get_suggestions () throws Exception {
-          String encoded_query = URLEncoder.encode (query, "UTF-8");
-          String params = "?mkt=" + mkt + "&q=" + encoded_query;
-          //...
+         String encoded_query = URLEncoder.encode (query, "UTF-8");
+         String params = "?mkt=" + mkt + "&q=" + encoded_query;
+         //...
       }
       ```
     
-    2. Create a new URL for the request with the API host, path, and parameters created above. 
+   2. Create a new URL for the request with the API host, path, and parameters created above. 
     
-        ```java
-        //...
-        URL url = new URL (host + path + params);
-        //...
-        ```
+       ```java
+       //...
+       URL url = new URL (host + path + params);
+       //...
+       ```
     
-    3. Create a `HttpsURLConnection` object, and use  `openConnection()` to create a connection. Set the request method to `GET`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+   3. Create a `HttpsURLConnection` object, and use  `openConnection()` to create a connection. Set the request method to `GET`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
       ```java
-        //...
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setDoOutput(true);
-        //...
+       //...
+       HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+       connection.setRequestMethod("GET");
+       connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+       connection.setDoOutput(true);
+       //...
       ```
 
-    4. Read in the API response to a `StringBuilder`. After the response has been captured, close the `InputStreamReader` stream, and return the response.
+   4. Read in the API response to a `StringBuilder`. After the response has been captured, close the `InputStreamReader` stream, and return the response.
 
-        ```java
-        //...
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(
-        new InputStreamReader(connection.getInputStream()));
-        String line;
-        while ((line = in.readLine()) != null) {
-          response.append(line);
-        }
-        in.close();
+       ```java
+       //...
+       StringBuilder response = new StringBuilder ();
+       BufferedReader in = new BufferedReader(
+       new InputStreamReader(connection.getInputStream()));
+       String line;
+       while ((line = in.readLine()) != null) {
+         response.append(line);
+       }
+       in.close();
     
-        return response.toString();
-        ```
+       return response.toString();
+       ```
 
 2. In the main function of your application, call `get_suggestions()`, and print the response using `prettify()`.
     
@@ -203,4 +203,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Create a single-page web app](../tutorials/autosuggest.md)
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
