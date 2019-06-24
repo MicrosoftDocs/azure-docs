@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 06/24/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -169,7 +169,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Cisco Webex test user
