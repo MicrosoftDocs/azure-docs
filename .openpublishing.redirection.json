@@ -25,9 +25,9 @@
       "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
       "redirect_document_id": true
     },
-	  {
-      "source_path": "https://docs.microsoft.com/azure/active-directory/saas-apps/realtimeboard-tutorial.md",
-      "redirect_url": "https://docs.microsoft.com/azure/active-directory/saas-apps/miro-tutorial.md",
+	{
+      "source_path": "articles/active-directory/saas-apps/realtimeboard-tutorial.md",
+      "redirect_url": "/articles/active-directory/saas-apps/miro-tutorial",
       "redirect_document_id": true
     },
     {
