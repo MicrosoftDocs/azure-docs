@@ -270,7 +270,7 @@ This step shows you how to query an index using the [Search Documents REST API](
 
     ![Search an index](media/search-get-started-python/search-index.png "Search an index")
 
-1. Try a few other query examples to get a feel for the syntax. You can replace the searchstring with the following examples and then rerun the search request. 
+1. Try a few other query examples to get a feel for the syntax. You can replace the `searchstring` with the following examples and then rerun the search request. 
 
    Apply a filter: 
 
