@@ -97,7 +97,7 @@ You can filter this view by selecting values in the dropdown menus at the top of
 
 | Column | Description |
 |:---|:---|
-| Subscription | Select up to five Azure subscriptions. Only alerts in the selected subscriptions are included in the view. |
+| Subscription | Select the Azure subscriptions for which you wish to view the alerts. You can optionally choose to select all your subscriptions. Only alerts that you have access to in the selected subscriptions  are included in the view. |
 | Resource group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
 | Time range | Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. |
 
@@ -140,7 +140,7 @@ You can filter the view by selecting the following values in the dropdown menus 
 
 | Column | Description |
 |:---|:---|
-| Subscription | Select up to five Azure subscriptions. Only alerts in the selected subscriptions are included in the view. |
+| Subscription | Select the Azure subscriptions for which you wish to view the alerts. You can optionally choose to select all your subscriptions. Only alerts that you have access to in the selected subscriptions  are included in the view. |
 | Resource group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
 | Resource type | Select one or more resource types. Only alerts with targets of the selected type are included in the view. This column is only available after a resource group has been specified. |
 | Resource | Select a resource. Only alerts with that resource as a target are included in the view. This column is only available after a resource type has been specified. |
@@ -152,19 +152,18 @@ You can filter the view by selecting the following values in the dropdown menus 
 
 Select **Columns** at the top of the page to select which columns to display. 
 
-## Alert detail page
+## Alert details page
 The Alert detail page is displayed when you select an alert. It provides details of the alert and enables you to change its state.
 
 ![Alert detail](media/alerts-overview/alert-detail2.png)
 
-The Alert detail page includes the following sections.
+The Alert details page includes the following sections.
 
 | Section | Description |
 |:---|:---|
-| Essentials | Displays the properties and other significant information about the alert. |
+| Summary | Displays the properties and other significant information about the alert. |
 | History | Lists each action taken by the alert and any changes made to the alert. Currently limited to state changes. |
-| Smart group | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days regardless of the time filter in the alerts list page. Select an alert to view its detail. |
-| More details | Displays further contextual information for the alert, which is typically specific to the type of source that created the alert. |
+| Diagnostics | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days regardless of the time filter in the alerts list page. Select an alert to view its detail. |
 
 
 ## Classic alerts 
