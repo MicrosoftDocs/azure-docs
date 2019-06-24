@@ -32,11 +32,11 @@ You use Azure Blockchain Development Kit to:
 * Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Azure Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js (10.15.0)](https://nodejs.org)
-* [Git (2.10.0)](https://git-scm.com)
-* [Python (2.7.15)](https://www.python.org/downloads/release/python-2715/). Add python.exe to your path. Python in your path is required for Azure Blockchain Development Kit.
-* [Truffle (5.0.0)](https://github.com/trufflesuite/truffle)
-* [Ganache CLI (6.0.0)](https://github.com/trufflesuite/ganache-cli)
+* [Node.js](https://nodejs.org)
+* [Git](https://git-scm.com)
+* [Python](https://www.python.org/downloads/release/python-2715/). Add python.exe to your path. Python in your path is required for Azure Blockchain Development Kit.
+* [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Ganache CLI](https://github.com/trufflesuite/ganache-cli)
 
 ### Verify Azure Blockchain Development Kit environment
 
