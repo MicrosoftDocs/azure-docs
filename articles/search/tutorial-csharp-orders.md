@@ -130,10 +130,10 @@ There is no need to modify any of the models to enable ordering. The view and th
                 {
                     var ratingText = $"Rating: {Model.resultList.Results[i].Document.Rating}";
 
-                    // Display the hotel name and description.
-                    @Html.TextArea("name", Model.resultList.Results[i].Document.HotelName, new { @class = "box1A" })
-                    @Html.TextArea("rating", ratingText, new { @class = "box1B" })
-                    @Html.TextArea("desc", Model.resultList.Results[i].Document.Description, new { @class = "box3" })
+                    // Display the hotel details.
+                    @Html.TextArea($"name{i}", Model.resultList.Results[i].Document.HotelName, new { @class = "box1A" })
+                    @Html.TextArea($"rating{i}", ratingText, new { @class = "box1B" })
+                    @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description, new { @class = "box3" })
                 }
     ```
 
@@ -197,25 +197,31 @@ There is no need to modify any of the models to enable ordering. The view and th
 
 ### Add the range of room rates to the view
 
-1. Add the **Rooms** property to the **Select** parameter in the **Index(SearchData model)** method of the controller.
+1. Add properties containing the cheapest and most expensive room rate to the Hotel.cs model.
 
     ```cs
-     Select = new[] { "HotelName", "Description", "Rating", "Rooms" },
+        // Room rate range
+        public double cheapest { get; set; }
+        public double expensive { get; set; }
     ```
 
-2. Change the rendering loop in the view to calculate the rate range for the first page of results.
+2. Calculate the room rates at the end of the **Index(SearchData model)** action, in the home controller. Add the calculations after the storing of temporary data.
 
     ```cs
-                <!-- Show the hotel data. -->
-                @for (var i = 0; i < Model.resultList.Results.Count; i++)
+                // Ensure TempData is stored for the next call.
+                TempData["page"] = page;
+                TempData["searchfor"] = model.searchText;
+
+                // Calculate the room rate ranges.
+                for (int n = 0; n < model.resultList.Results.Count; n++)
                 {
-                    <!-- Find the range of room prices -->
+                    // Calculate room rates.
                     var cheapest = 10000d;
                     var expensive = 0d;
 
-                    @for (var r = 0; r < Model.resultList.Results[i].Document.Rooms.Length; r++)
+                    for (var r = 0; r < model.resultList.Results[n].Document.Rooms.Length; r++)
                     {
-                        var rate = Model.resultList.Results[i].Document.Rooms[r].BaseRate;
+                        var rate = model.resultList.Results[n].Document.Rooms[r].BaseRate;
                         if (rate < cheapest)
                         {
                             cheapest = (double)rate;
@@ -225,19 +231,35 @@ There is no need to modify any of the models to enable ordering. The view and th
                             expensive = (double)rate;
                         }
                     }
-
-                    var rateText = $"Rates from ${cheapest} to ${expensive}";
-                    var ratingText = $"Rating: {Model.resultList.Results[i].Document.Rating}";
-
-                    // Display the hotel details.
-                    @Html.TextArea("name", Model.resultList.Results[i].Document.HotelName, new { @class = "box1A" })
-                    @Html.TextArea("rating", ratingText, new { @class = "box1B" })
-                    @Html.TextArea("rates", rateText, new { @class = "box2A" })
-                    @Html.TextArea("desc", Model.resultList.Results[i].Document.Description, new { @class = "box3" })
+                    model.resultList.Results[n].Document.cheapest = cheapest;
+                    model.resultList.Results[n].Document.expensive = expensive;
                 }
     ```
 
-3. Change the **Next** method in the home controller to calculate the rate range for subsequent pages of results.
+3. Add the **Rooms** property to the **Select** parameter in the **Index(SearchData model)** method of the controller.
+
+    ```cs
+     Select = new[] { "HotelName", "Description", "Rating", "Rooms" },
+    ```
+
+4. Change the rendering loop in the view to display the rate range for the first page of results.
+
+    ```cs
+                <!-- Show the hotel data. -->
+                @for (var i = 0; i < Model.resultList.Results.Count; i++)
+                {
+                    var rateText = $"Rates from ${Model.resultList.Results[i].Document.cheapest} to ${Model.resultList.Results[i].Document.expensive}";
+                    var ratingText = $"Rating: {Model.resultList.Results[i].Document.Rating}";
+
+                    // Display the hotel details.
+                    @Html.TextArea($"name{i}", Model.resultList.Results[i].Document.HotelName, new { @class = "box1A" })
+                    @Html.TextArea($"rating{i}", ratingText, new { @class = "box1B" })
+                    @Html.TextArea($"rates{i}" , rateText, new { @class = "box2A" })
+                    @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description, new { @class = "box3" })
+                }
+    ```
+
+5. Change the **Next** method in the home controller to communicate the rate range, for subsequent pages of results.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -252,25 +274,8 @@ There is no need to modify any of the models to enable ordering. The view and th
             // Add a hotel details to the list.
             for (int n = 0; n < model.resultList.Results.Count; n++)
             {
-                // Calculate room rates.
-                var cheapest = 10000d;
-                var expensive = 0d;
-
-                for (var r = 0; r < model.resultList.Results[n].Document.Rooms.Length; r++)
-                {
-                    var rate = model.resultList.Results[n].Document.Rooms[r].BaseRate;
-                    if (rate < cheapest)
-                    {
-                        cheapest = (double)rate;
-                    }
-                    if (rate > expensive)
-                    {
-                        expensive = (double)rate;
-                    }
-                }
-
                 var ratingText = $"Rating: {model.resultList.Results[n].Document.Rating}";
-                var rateText = $"Rates from ${cheapest} to ${expensive}";
+                var rateText = $"Rates from ${model.resultList.Results[n].Document.cheapest} to ${model.resultList.Results[n].Document.expensive}";
 
                 // Add strings to the list.
                 nextHotels.Add(model.resultList.Results[n].Document.HotelName);
@@ -284,7 +289,7 @@ There is no need to modify any of the models to enable ordering. The view and th
         }
     ```
 
-4. Update the **scrolled** function in the view, to handle the room rates text.
+6. Update the **scrolled** function in the view, to handle the room rates text.
 
     ```cs
             <script>
@@ -310,6 +315,8 @@ There is no need to modify any of the models to enable ordering. The view and th
 
     ![Displaying room rate ranges](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
+The **OrderBy** property of the search parameters will not accept an entry such as **Rooms[0].BaseRate** to provide the cheapest room rate, even if the rooms were already sorted on rate (which they are not). In order to display hotels in the sample data set, ordered on room rate, you would have to sort the results in your home controller, and send these results to the view in the desired order.
+
 ## Order results based on multiple values
 
 The question now is how to differentiate between hotels with the same rating. One good way would be to order on the basis of the last time the hotel was renovated. In other words, the more recently the hotel was renovated, the higher the hotel appears in the results.
@@ -330,33 +337,16 @@ The question now is how to differentiate between hotels with the same rating. On
                 <!-- Show the hotel data. -->
                 @for (var i = 0; i < Model.resultList.Results.Count; i++)
                 {
-                    <!-- Find the range of room prices -->
-                    var cheapest = 10000d;
-                    var expensive = 0d;
-
-                    @for (var r = 0; r < Model.resultList.Results[i].Document.Rooms.Length; r++)
-                    {
-                        var rate = Model.resultList.Results[i].Document.Rooms[r].BaseRate;
-                        if (rate < cheapest)
-                        {
-                            cheapest = (double)rate;
-                        }
-                        if (rate > expensive)
-                        {
-                            expensive = (double)rate;
-                        }
-                    }
-
-                    var rateText = $"Rates from ${cheapest} to ${expensive}";
+                    var rateText = $"Rates from ${Model.resultList.Results[i].Document.cheapest} to ${Model.resultList.Results[i].Document.expensive}";
                     var lastRenovatedText = $"Last renovated: { Model.resultList.Results[i].Document.LastRenovationDate.Value.Year}";
                     var ratingText = $"Rating: {Model.resultList.Results[i].Document.Rating}";
 
                     // Display the hotel details.
-                    @Html.TextArea("name", Model.resultList.Results[i].Document.HotelName, new { @class = "box1A" })
-                    @Html.TextArea("rating", ratingText, new { @class = "box1B" })
-                    @Html.TextArea("rates", rateText, new { @class = "box2A" })
-                    @Html.TextArea("renovation", lastRenovatedText, new { @class = "box2B" })
-                    @Html.TextArea("desc", Model.resultList.Results[i].Document.Description, new { @class = "box3" })
+                    @Html.TextArea($"name{i}", Model.resultList.Results[i].Document.HotelName, new { @class = "box1A" })
+                    @Html.TextArea($"rating{i}", ratingText, new { @class = "box1B" })
+                    @Html.TextArea($"rates{i}" , rateText, new { @class = "box2A" })
+                    @Html.TextArea($"renovation{i}", lastRenovatedText, new { @class = "box2B" })
+                    @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description, new { @class = "box3" })
                 }
     ```
 
@@ -375,28 +365,11 @@ The question now is how to differentiate between hotels with the same rating. On
             // Add a hotel details to the list.
             for (int n = 0; n < model.resultList.Results.Count; n++)
             {
-                // Calculate room rates.
-                var cheapest = 10000d;
-                var expensive = 0d;
-
-                for (var r = 0; r < model.resultList.Results[n].Document.Rooms.Length; r++)
-                {
-                    var rate = model.resultList.Results[n].Document.Rooms[r].BaseRate;
-                    if (rate < cheapest)
-                    {
-                        cheapest = (double)rate;
-                    }
-                    if (rate > expensive)
-                    {
-                        expensive = (double)rate;
-                    }
-                }
-
                 var ratingText = $"Rating: {model.resultList.Results[n].Document.Rating}";
-                var rateText = $"Rates from ${cheapest} to ${expensive}";
+                var rateText = $"Rates from ${model.resultList.Results[n].Document.cheapest} to ${model.resultList.Results[n].Document.expensive}";
                 var lastRenovatedText = $"Last renovated: {model.resultList.Results[n].Document.LastRenovationDate.Value.Year}";
 
-                // Add five strings to the list.
+                // Add strings to the list.
                 nextHotels.Add(model.resultList.Results[n].Document.HotelName);
                 nextHotels.Add(ratingText);
                 nextHotels.Add(rateText);
@@ -409,7 +382,7 @@ The question now is how to differentiate between hotels with the same rating. On
         }
     ```
 
-4. Change the **scrolled** function in the view to handle the renovation text.
+4. Change the **scrolled** function in the view to display the renovation text.
 
     ```javascript
             <script>
@@ -480,15 +453,16 @@ To display results based on geographical distance, several steps are required.
         }
     ```
 
-4. Now you have to tie these concepts together. However, these code snippets are as far as our tutorial goes, building a map-based app is left as an exercise for the reader!
+4. Now you have to tie these concepts together. However, these code snippets are as far as our tutorial goes, building a map-based app is left as an exercise for the reader. To take this example further, consider either entering a city name with a radius, or locating a point on a map, and selecting a radius. To investigate these options further, see the following resources:
+
+* [Azure Maps Documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
+* [Find an address using the Azure Maps search service](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-search-for-address)
 
 ## Take ordering even further
 
 The examples given in the tutorial so far show how to order on numerical values, providing an exact process of ordering. However, some searches and some data do not lend themselves to such an easy comparison between two data elements. Azure Search includes the concept of _scoring_. _Scoring profiles_ can be specified for a set of data that can be used to provide more complex and qualitative comparisons, that should be most valuable when, say, comparing two documents to decide which should be displayed first.
 
-Scoring is outside the realm of this tutorial. For more information, see to the following resources.
-* scoring
-* scoring profiles
+Scoring is outside the realm of this tutorial. For more information, see the following [Add scoring profiles to an Azure Search index](https://docs.microsoft.com/en-us/azure/search/index-add-scoring-profiles).
 
 ## Takeaways
 
@@ -506,10 +480,3 @@ You have completed this series of C# tutorials - you should have gained valuable
 
 For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure), or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/azure/search/).
 
-
-WORK
-1. SCORING SECTION
-1. Try ordering on Rooms[0].BaseRate, or similar. and images/code to match.
-1. Links to map resources
-1. Try putting cheapest etc. into searchdata, so only done once? not sure this will work
-1. 
