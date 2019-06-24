@@ -13,7 +13,7 @@ monikerRange: 'vsts'
 
 # Deployment Center Launcher
 
-Deployment center in Azure DevOps simplifies setting up of a robust DevOps pipeline for your application. By default, this configures a DevOps pipeline to deploy your application updates to the kubernetes cluster. You can extend the default configured DevOps pipeline and add the richer DevOps capabilities - approvals before deploying, provisioning additional Azure resources, running scripts, upgrading your application, or even running additional validation tests.
+Deployment center in Azure DevOps simplifies setting up of a robust DevOps pipeline for your application. By default, configures a DevOps pipeline to deploy your application updates to the kubernetes cluster. You can extend the default configured DevOps pipeline and add the richer DevOps capabilities - approvals before deploying, provisioning additional Azure resources, running scripts, upgrading your application, or even running additional validation tests.
 
 ## Prerequisites
 
