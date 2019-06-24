@@ -3,7 +3,7 @@ title: Set up a device template in an Azure IoT Central application | Microsoft 
 description: Learn how to set up a device template with measurements, settings, properties, rules, and a dashboard.
 author: viv-liu
 ms.author: viviali
-ms.date: 01/30/2019
+ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

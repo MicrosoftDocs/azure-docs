@@ -13,16 +13,9 @@ ms.author: roaror
 # Partitioning in Azure Cosmos DB’s API for MongoDB 
 
 The concept of partitioning in Cosmos DB’s API for MongoDB is analogous to sharding in MongoDB, but please keep in mind: 
-It is important to note that you must pick a partition key if you expect your data to grow more than 10GB. Unless you are sure that your data will never grow more than 10GB, you should always create a partitioned collection and pick a good partition key.  
+- It is important to note that you must pick a partition key if you expect your data to grow more than 10GB. Unless you are sure that your data will never grow more than 10GB, you should always create a partitioned collection and pick a good partition key.  
+- Please follow the best practices for choosing the partition key for your collection, which are discussed below in this article. 
 
-Please follow the best practices for choosing the partition key for your collection, which are discussed below in this article. 
-
-In this article, we cover: 
-
-1. [Partitioning in Cosmos DB’s API for MongoDB](#partitioning-in-cosmos-dbs-api-for-mongodb) 
-2. [Managing Logical Partitions ](#managing-logical-partitions)
-3. [Best practices for choosing a partition key ](#best-practices-for-choosing-a-partition-key)
- 
 ## Partitioning in Cosmos DB’s API for MongoDB 
 
 Azure Cosmos DB uses partitioning to scale individual collections in a database to meet the performance needs of your application. In partitioning, the items in a collection are divided into distinct subsets called logical partitions. Logical partitions are formed based on the value of a partition key that is associated with each item in a collection. All items in a logical partition have the same partition key value. 
@@ -53,10 +46,10 @@ The following are best practices for choosing a partition key:
 4. Choose a partition key that spreads the workload evenly across all partitions and evenly over time. Your choice of partition key should balance the need for efficient partition queries and transactions against the goal of distributing items across multiple partitions to achieve scalability. 
 5. Candidates for partition keys might include properties that appear frequently as a filter in your queries. Queries can be efficiently routed by including the partition key in the filter predicate. 
 
- 
+For more context on real-world examples pertaining to partitioning, please see [how to partition (and model) your data in Azure Cosmos DB.](how-to-model-partition-example.md)
 
 ## Next steps:
-- Learn about provisioned throughput in Azure Cosmos DB. 
+- Learn about [provisioned throughput in Azure Cosmos DB](request-units.md). 
 - Learn about global distribution in Azure Cosmos DB's API for MongoDB. 
 - Learn about managing data indexing in Azure Cosmos DB’s API for MongoDB. 
 
