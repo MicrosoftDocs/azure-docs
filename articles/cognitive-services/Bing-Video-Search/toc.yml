@@ -52,7 +52,8 @@
   - name: Page videos
     href: paging-videos.md
   - name: Resize and crop thumbnails
-    href: resize-and-crop-thumbnails.md
+    maintainContext: true
+    href: ../bing-web-search/resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7
     href: bing-video-upgrade-guide-v5-to-v7.md
 - name: Concepts
