@@ -6,7 +6,7 @@ ms.manager: douge
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 06/24/2019
 author: mlearned
 monikerRange: 'vsts'
 ---
@@ -17,29 +17,29 @@ Azure DevOps Projects present a simplified experience where you can bring your e
 
 DevOps Projects also:
 
-- Automatically creates Azure resources, such as Azure Cosmos DB, Application Insights, App Service and App Service plan
+* Automatically creates Azure resources, such as Azure Cosmos DB, Application Insights, App Service and App Service plan
 
-- Creates and configures a release pipeline in Azure DevOps for CI/CD
+* Creates and configures a release pipeline in Azure DevOps for CI/CD
 
 In this tutorial, you will:
 
-- Use DevOps Projects to deploy a Node.js app powered by Azure Cosmos DB
+* Use DevOps Projects to deploy a Node.js app powered by Azure Cosmos DB
 
-- Configure Azure DevOps and an Azure subscription
+* Configure Azure DevOps and an Azure subscription
 
-- Examine the Azure Cosmos DB
+* Examine the Azure Cosmos DB
 
-- Examine the CI pipeline
+* Examine the CI pipeline
 
-- Examine the CD pipeline
+* Examine the CD pipeline
 
-- Commit the changes to Git and automatically deploy them to Azure
+* Commit the changes to Git and automatically deploy them to Azure
 
-- Clean up the resources
+* Clean up the resources
 
 ## Prerequisites
 
-- An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
+* An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 
 ## Use DevOps Projects to deploy Node.js app
 
