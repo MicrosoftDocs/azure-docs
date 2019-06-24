@@ -12,7 +12,7 @@ ms.date: 06/18/19
 
 # Tutorial: Using the Azure Dev Spaces Plugin for Jenkins with Azure Kubenetes Service 
 
-Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. With the Azure Dev Spaces plugin for Jenkins, you can use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline. That means you can check your code into a development branch and deploy the update to a child dev space in AKS. Using Jenkins, you can then have end-to-end integration tests against your code before merging your changes into the main branch.
+Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. The Azure Dev Spaces plugin for Jenkins helps you use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline.
 
 This tutorial also uses Azure Container Registry (ACR). ACR stores images, and an ACR Task builds Docker and Helm artifacts. Using ACR and ACR Task for artifact generation removes the need for you to install additional software, such as Docker, on your Jenkins server. 
 
@@ -80,7 +80,7 @@ In this section, you create Azure resources:
 
 In this section, you set up a dev space and deploy a sample application to the AKS cluster you created in the last section. The application consists of two parts, *webfrontend* and *mywebapi*. Both components are deployed in a dev space. Later in this tutorial, you'll submit a pull request against mywebapi to trigger the CI pipeline in Jenkins.
 
-For more details on using Azure Dev Spaces and multi-service development with Azure Dev Spaces, see [Get started on Azure Dev Spaces with Java](https://docs.microsoft.com/azure/dev-spaces/get-started-java), and [Multi-service development with Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/multi-service-java). Those tutorials provide additional background information not included here.
+For more information on using Azure Dev Spaces and multi-service development with Azure Dev Spaces, see [Get started on Azure Dev Spaces with Java](https://docs.microsoft.com/azure/dev-spaces/get-started-java), and [Multi-service development with Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/multi-service-java). Those tutorials provide additional background information not included here.
 
 1. Download the https://github.com/Azure/dev-spaces repo from GitHub.
 
@@ -130,7 +130,7 @@ For more details on using Azure Dev Spaces and multi-service development with Az
     * A [Helm chart](https://helm.sh/docs/developing_charts/) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
     * `./azds.yaml` is the Azure Dev Spaces configuration file.
 
-    For more information Azure , see [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
+    For more information, see [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
 
 6. >Build and run the application in AKS using the `azds up` command:
 
@@ -178,7 +178,7 @@ In this section, you prepare the Jenkins server to run the sample CI pipeline.
     * [Environment Injector](https://plugins.jenkins.io/envinject)
     * [GitHub Integration](https://plugins.jenkins.io/github-pullrequest)
 
-    If these plugins don't appear in the list, check the **Installed** tab to see if they are already installed.
+    If these plugins don't appear in the list, check the **Installed** tab to see if they're already installed.
 
 3. To install the plugins, choose **Download now and install after restart**.
 
@@ -188,7 +188,7 @@ In this section, you prepare the Jenkins server to run the sample CI pipeline.
 
 The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenkins is installed, it creates an admin account named *jenkins*. Both Helm and kubectl need to be accessible to the jenkins user.
 
-1. Make a SSH connection to the Jenkins master. 
+1. Make an SSH connection to the Jenkins master. 
 
 2. Switch to the `jenkins` user:
     ```bash
@@ -265,7 +265,7 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 
 ![Jenkins pipeline flow](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. Download a modified version of the *mywebapi* project from https://github.com/azure-devops/mywebapi. This projects contains several files needed to create a pipeline, including the *Jenkinsfile*, *Dockerfiles*, and Helm chart.
+1. Download a modified version of the *mywebapi* project from https://github.com/azure-devops/mywebapi. This project contains several files needed to create a pipeline, including the *Jenkinsfile*, *Dockerfiles*, and Helm chart.
 
 2. Log into Jenkins. From the menu on the left, select **Add Item**.
 
@@ -304,7 +304,7 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 
 ## Create a pull request to trigger the pipeline
 
-To complete step 3 in this section, you will need to comment part of the Jenkinsfile, otherwise you will get a 404 error when you try to view the new and old versions side by side. By default, when you choose to merge the PR, the previous shared version of mywebapi will be removed and replaced by the new version. That is what you would want to happen in production, but for testing purposes we want to see the old and new application. Make the following change to the Jenkinsfile before completing step 1:
+To complete step 3 in this section, you will need to comment part of the Jenkinsfile, otherwise you will get a 404 error when you try to view the new and old versions side by side. By default, when you choose to merge the PR, the previous shared version of mywebapi will be removed and replaced by the new version. Make the following change to the Jenkinsfile before completing step 1:
 
 ```Groovy
     if (userInput == true) {
@@ -355,7 +355,7 @@ To complete step 3 in this section, you will need to comment part of the Jenkins
 
 ### Constructing the URL to the child dev space
 
-The child dev space (where you have deployed the changes) URL is of the form `
+When you file a pull request, Jenkins creates a child dev space based on the team's shared dev space and runs the code from your pull request in that child dev space. The URL to the child dev space takes the form `
 http://$env.azdsprefix.<test_endpoint>`. 
 
 **$env.azdsprefix** is set during pipeline execution by the Azure Dev Spaces plugin by **devSpacesCreate**:
@@ -371,9 +371,9 @@ stage('create dev space') {
 }
 ```
 
-The `test_endpoint` is the URL to the webfrontend app you previously deployed using `azds up` ([Deploy sample apps to the AKS cluster, Step 7](#test_endpoint)). In this example, `$env.TEST_ENDPOINT` is set in the pipeline configuration.
+The `test_endpoint` is the URL to the webfrontend app you previously deployed using `azds up`in [Deploy sample apps to the AKS cluster, Step 7](#test_endpoint). The value of `$env.TEST_ENDPOINT` is set in the pipeline configuration. 
 
-The following code snippet shows how the child dev space URL is used in the `smoketest` stage:
+The following code snippet shows how the child dev space URL is used in the `smoketest` stage. The code checks to see if the child dev space TEST_ENDPOINT is available, and if so, downloads the greeting text to stdout:
 
 ```Groovy
 stage('smoketest') {
@@ -399,8 +399,6 @@ stage('smoketest') {
     }
 }
 ```
-
-The smoke test is intentionally superficial; it simply checks to see if the test endpoint is available.
 
 ## Clean up resources
 
