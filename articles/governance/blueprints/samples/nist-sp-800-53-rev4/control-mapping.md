@@ -16,10 +16,11 @@ the NIST SP 800-53 R4 controls. For more information about the controls, see [NI
 The following mappings are to the **NIST SP 800-53 (Rev. 4)** controls. Use the navigation on the
 right to jump directly to a specific control mapping. Many of the mapped controls are implemented
 with an [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative,
-open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **[Preview]
-NIST SP 800-53 (Rev. 4) controls to support audit requirements** built-in policy initiative.
+open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **[Preview]:
+Audit NIST SP 800-53 R4 controls and deploy specific VM Extensions to support audit requirements**
+built-in policy initiative.
 
-## AAC-2 Account Management
+## AC-2 Account Management
 
 This blueprint helps you review accounts that may not comply with your organization’s account
 management requirements. This blueprint assigns five Azure Policy definitions that audit external
