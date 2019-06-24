@@ -89,19 +89,19 @@ The following table lists the .NET Framework types and their members that are al
 |System.Byte|All|
 |System.Char|All|
 |System.Collections.Generic.Dictionary<TKey, TValue>|All|
-|System.Collections.Generic.HashSet<T>|All|
-|System.Collections.Generic.ICollection<T>|All|
+|System.Collections.Generic.HashSet\<T>|All|
+|System.Collections.Generic.ICollection\<T>|All|
 |System.Collections.Generic.IDictionary<TKey, TValue>|All|
-|System.Collections.Generic.IEnumerable<T>|All|
-|System.Collections.Generic.IEnumerator<T>|All|
-|System.Collections.Generic.IList<T>|All|
-|System.Collections.Generic.IReadOnlyCollection<T>|All|
+|System.Collections.Generic.IEnumerable\<T>|All|
+|System.Collections.Generic.IEnumerator\<T>|All|
+|System.Collections.Generic.IList\<T>|All|
+|System.Collections.Generic.IReadOnlyCollection\<T>|All|
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|All|
-|System.Collections.Generic.ISet<T>|All|
+|System.Collections.Generic.ISet\<T>|All|
 |System.Collections.Generic.KeyValuePair<TKey, TValue>|All|
-|System.Collections.Generic.List<T>|All|
-|System.Collections.Generic.Queue<T>|All|
-|System.Collections.Generic.Stack<T>|All|
+|System.Collections.Generic.List\<T>|All|
+|System.Collections.Generic.Queue\<T>|All|
+|System.Collections.Generic.Stack\<T>|All|
 |System.Convert|All|
 |System.DateTime|(Constructor), Add, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, Date, Day, DayOfWeek, DayOfYear, DaysInMonth, Hour, IsDaylightSavingTime, IsLeapYear, MaxValue, Millisecond, Minute, MinValue, Month, Now, Parse, Second, Subtract, Ticks, TimeOfDay, Today, ToString, UtcNow, Year|
 |System.DateTimeKind|Utc|
