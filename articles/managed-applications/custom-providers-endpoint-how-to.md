@@ -330,6 +330,108 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+#### Create Request
+
+Azure API Incoming Request:
+
+``` HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
+Authorization: Bearer eyJ0e...
+Content-Type: application/json
+
+{
+    "myProperty1": "myPropertyValue1",
+    "myProperty2": {
+        "myProperty3" : "myPropertyValue3"
+    }
+}
+```
+
+This request will then be forwarded to the **endpoint** in the form:
+
+``` HTTP
+PUT https://{endpointURL2}/?api-version=2018-09-01-preview
+Content-Type: application/json
+X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
+
+{
+    "myProperty1": "myPropertyValue1",
+    "myProperty2": {
+        "myProperty3" : "myPropertyValue3"
+    }
+}
+```
+
+Similarly the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+
+- Valid JSON object document. All arrays and strings should be nested under a top object.
+- The `Content-Type` header should be set to "application/json; charset=utf-8".
+
+**Endpoint** Response:
+
+``` HTTP
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "myProperty1": "myPropertyValue1",
+    "myProperty2": {
+        "myProperty3" : "myPropertyValue3"
+    }
+}
+```
+
+Azure Custom Resource Provider Response:
+
+``` HTTP
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "myProperty1": "myPropertyValue1",
+    "myProperty2": {
+        "myProperty3" : "myPropertyValue3"
+    }
+}
+```
+
+#### Delete Request
+
+Azure API Incoming Request:
+
+``` HTTP
+Delete https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
+Authorization: Bearer eyJ0e...
+Content-Type: application/json
+```
+
+This request will then be forwarded to the **endpoint** in the form:
+
+``` HTTP
+Delete https://{endpointURL2}/?api-version=2018-09-01-preview
+Content-Type: application/json
+X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
+```
+
+Similarly the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+
+- Valid JSON object document. All arrays and strings should be nested under a top object.
+- The `Content-Type` header should be set to "application/json; charset=utf-8".
+
+**Endpoint** Response:
+
+``` HTTP
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+
+Azure Custom Resource Provider Response:
+
+``` HTTP
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+```
+
 ## Next steps
 
 For information about Azure Custom Resource Providers, see [How To Create Custom Resources](custom-providers-customresources-how-to.md)

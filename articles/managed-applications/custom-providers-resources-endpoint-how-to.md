@@ -1,0 +1,179 @@
+---
+title: Adding Custom Resources to Azure REST API
+description: Learn how to add custom resources to the Azure REST API. This article will walk through the requirements and best practices for endpoints that wish to implement custom resources.
+services: managed-applications
+ms.service: managed-applications
+ms.topic: conceptual
+ms.author: jobreen
+author: jjbfour
+ms.date: 06/20/2019
+---
+
+# Adding Custom Resources to Azure REST API
+
+This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implements custom resources. If you are unfamiliar with Azure Custom Resource Providers, check out the documentation [here](./custom-providers-overview.md).
+
+## How to define a resource endpoint
+
+An **endpoint** is a URL that points to a service, which implements the underlying contract between it and Azure. The endpoint is defined in the custom resource provider and can be any publicly accessible URL. The sample below has an **resourceType** called `myCustomResource` implemented by `endpointURL`.
+
+Sample **ResourceProvider**:
+
+```JSON
+{
+  "properties": {
+    "resourceTypes": [
+      {
+        "name": "myCustomResource",
+        "routingType": "Proxy, Cache",
+        "endpoint": "https://{endpointURL}/"
+      }
+    ]
+  },
+  "location": "eastus",
+  "type": "Microsoft.CustomProviders/resourceProviders",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}",
+  "name": "{resourceProviderName}"
+}
+```
+
+## Building a resource endpoint
+
+An **endpoint** that implements an **resourceType** must handle the request and response for the new API in Azure. When a custom resource provider with an **resourceType** is created, it will generate a new set of APIs in Azure. In this case, the **resourceType** will generate a new Azure resource API for `PUT`, `GET`, and `DELETE` to perform CRUD on a single resource as well as `GET` to retrieve all existing resources:
+
+Manipulate Single Resource (`PUT`, `GET`, and `DELETE`):
+
+``` JSON
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource/{myCustomResourceName}
+```
+
+Retrieve All Resources (`GET`):
+
+``` JSON
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource
+```
+
+For custom resources, custom resource providers offer two types of **routingTypes**: "`Proxy`" and "`Proxy, Cache`".
+
+### Proxy Routing Type
+
+The "`Proxy`" **routingType** proxies all request methods to the **endpoint** specified in the custom resource provider. When to use "`Proxy`":
+
+- Full control over the response is needed.
+- Integrating systems with existing resources.
+
+### Proxy Cache Routing Type
+
+The "`Proxy, Cache`" **routingType** proxies only `PUT` and `DELETE` request methods to the **endpoint** specified in the custom resource provider. The custom resource provider will automatically return `GET` requests based on what it has stored in its cache. If a custom resource is marked with cache, the custom resource provider will also add / overwrite fields in the response to make the APIs Azure compliant. When to use "`Proxy, Cache`":
+
+- Creating a new system that has no existing resources.
+- Work with existing Azure ecosystem.
+
+## Creating a Custom Resource
+
+There are two main ways of creating a custom resource off of a custom resource provider:
+
+- Azure CLI
+- Azure Resource Manager Templates
+
+### Azure CLI
+
+Create a custom resource:
+
+```azurecli-interactive
+az resource create --is-full-object \
+                   --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName} \
+                   --properties \
+                    '{
+                        "location": "eastus",
+                        "properties": {
+                            "myProperty1": "myPropertyValue1",
+                            "myProperty2": {
+                                "myProperty3": "myPropertyValue3"
+                            }
+                        }
+                    }'
+```
+
+Parameter | Required | Description
+---|---|---
+is-full-object | *yes* | Indicates that the properties object includes other options such as location, tags, sku, and/or plan.
+id | *yes* | The resource ID of the custom resource. This should exist off of the **ResourceProvider**
+properties | *yes* | The request body that will be sent to the **endpoint**.
+
+Delete an Azure Custom Resource:
+
+```azurecli-interactive
+az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
+```
+
+Parameter | Required | Description
+---|---|---=
+id | *yes* | The resource ID of the custom resource. This should exist off of the **ResourceProvider**.
+
+Retrieve an Azure Custom Resource:
+
+```azurecli-interactive
+az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
+```
+
+Parameter | Required | Description
+---|---|---
+id | *yes* | The resource ID of the custom resource. This should exist off of the **ResourceProvider**
+
+### Azure Resource Manager Template
+
+> [!NOTE]
+> Resources require that the response contain an appropriate `id`, `name`, and `type` from the **endpoint**.
+
+Azure Resource Manager Templates require that `id`, `name`, and `type` are returned correctly from the downstream endpoint. A returned resource response should be in the form:
+
+Sample **endpoint** response:
+
+``` JSON
+{
+  "properties": {
+    "myProperty1": "myPropertyValue1",
+    "myProperty2": {
+        "myProperty3": "myPropertyValue3"
+    }
+  },
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{customResourceName}",
+  "name": "{customResourceName}",
+  "type": "Microsoft.CustomProviders/resourceProviders/{resourceTypeName}"
+}
+```
+
+Sample Azure Resource Manager Template:
+
+```JSON
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.CustomProviders/resourceProviders/{resourceTypeName}",
+            "name": "{resourceProviderName}/{customResourceName}",
+            "apiVersion": "2018-09-01-preview",
+            "location": "eastus",
+            "properties": {
+                "myProperty1": "myPropertyValue1",
+                "myProperty2": {
+                    "myProperty3": "myPropertyValue3"
+                }
+            }
+        }
+    ]
+}
+```
+
+Parameter | Required | Description
+---|---|---
+resourceTypeName | *yes* | The **name** of the **resourceType** defined in the custom provider.
+resourceProviderName | *yes* | The custom resource provider instance name.
+customResourceName | *yes* | The custom resource name.
+
+## Next steps
+
+For information about Azure Custom Resource Providers, see [How To Create Custom Resources](custom-providers-customresources-how-to.md)
+For information about Azure Custom Resource Providers, see [Azure Custom Resource Provider overview](custom-providers-overview.md)
