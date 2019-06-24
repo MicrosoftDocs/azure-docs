@@ -114,6 +114,7 @@ Azure Maps have been localized in a variety of languages across the services. Th
 >
 >    
 >  **SDKs:**
+>
 >  Ensure that you have set up the View parameter as required, and you have the latest version of Web SDK and Android SDK. Affected SDKs:
 >
 >    * Azure Maps Web SDK
