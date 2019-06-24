@@ -7,7 +7,7 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
+manager: philmea
 ---
 
 # Localization support in Azure Maps
