@@ -188,7 +188,7 @@ For MARS agent
 
   ![Security Pin](./media/backup-azure-delete-vault/security_pin.png)
 
-- In **Modify Backup Progress** wizard you will see *Deleted backup data will be retained for 14 day. After that time, backup data will be permanently deleted.*  
+- In the **Modify Backup Progress** wizard you will see *Deleted backup data will be retained for 14 day. After that time, backup data will be permanently deleted.*  
 
   ![Delete Backup Infrastructure](./media/backup-azure-delete-vault/deleted_backup_data.png)
 
