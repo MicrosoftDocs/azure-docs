@@ -461,7 +461,7 @@ Once we have successfully gotten a token, we can make a request to the Microsoft
 
 | header key    | value                 |
 | ------------- | --------------------- |
-| Authorization | Bearer <access-token> |
+| Authorization | Bearer \<access-token> |
 
 To do so in code, add the following two methods to your app to call graph and update the UI: 
 

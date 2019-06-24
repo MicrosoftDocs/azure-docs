@@ -181,7 +181,7 @@ To assign a new user or group to your application:
 3. Select **Users and groups (\<Number> Selected)**. The **Users and groups** page appears, showing a list of available users and groups.
 4. Type or scroll to find the user or group you wish to assign from the list.
 5. Select each user or group that you want to add, and then select the **Select** button. The **Users and groups** page disappears.
-6. In the **Add Assignments** page, select **Assign**. The **<application name> - Users and groups** page appears with the additional users shown in the list.
+6. In the **Add Assignments** page, select **Assign**. The **\<application name> - Users and groups** page appears with the additional users shown in the list.
 
    ![Application users and groups](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
