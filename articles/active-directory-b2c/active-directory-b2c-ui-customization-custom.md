@@ -74,18 +74,19 @@ To host this HTML content in Blob storage, do the following:
 
 To create a public container in Blob storage, do the following:
 
-1. Click the **Overview** tab.
-2. Click **Container**.
-3. For **Name**, type **$root**.
+1. Click the **Blobs** tab under the Blob service menu item group in menu.
+2. Click **+Container**.
+3. For **Name**, type **root**. (You can give it a name of your choice like *wingtiptoys*.)
 4. Set **Access type** to **Blob**.
-5. Click **$root** to open the new container.
+5. Click **root** to open the new container.
 6. Click **Upload**.
 7. Click the folder icon next to **Select a file**.
 8. Go to **customize-ui.html**, which you created earlier in the Page UI customization section.
-9. Click **Upload**.
-10. Select the customize-ui.html blob that you uploaded.
-11. Next to **URL**, click **Copy**.
-12. In a browser, paste the copied URL, and go to the site. If the site is inaccessible, make sure the container access type is set to **blob**.
+9. If you want to upload to a sub folder, expand **Advanced** options and type a folder name in "Upload to folder".
+10. Click **Upload**.
+11. Select the customize-ui.html blob that you uploaded.
+12. Next to **URL**, click **Copy**.
+13. In a browser, paste the copied URL, and go to the site. If the site is inaccessible, make sure the container access type is set to **blob**.
 
 ## Configure CORS
 
@@ -154,6 +155,7 @@ To configure UI customization, you copy the **ContentDefinition** and its child 
 
 ## Reference
 
+### Sample templates
 You can find sample templates for UI customization here:
 
 ```
@@ -169,6 +171,16 @@ The sample_templates/wingtip folder contains the following HTML files:
 | *selfasserted.html* | Use this file as a template for a social account sign-up page, a local account sign-up page, or a local account sign-in page. |
 | *unified.html* | Use this file as a template for a unified sign-up or sign-in page. |
 | *updateprofile.html* | Use this file as a template for a profile update page. |
+
+Here are the steps on how to use the sample. 
+1. Clone the repo on your local machine. Choose a template folder under sample_templates, you can use wingtip or contoso.
+2. Upload all the files under css, fonts and images folder to Blob storage as mentioned above. 
+3. Now open each html file in the editor, search for instances of "http://localhost" and replace the corresponding references of css, image and fonts with those you uploaded in step 2.
+4. Save the html files and upload to the Blob storage.
+5. Now modify the extensions file as mentioned above in [Modify the extensions file](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-ui-customization-custom#modify-the-extensions-file).
+6. If you see missing fonts/images or css, please check your references in extensions policy and htmls itself. 
+
+### Content defintion IDs
 
 In the Modify your sign-up or sign-in custom policy section, you configured the content definition for `api.idpselections`. The full set of content definition IDs that are recognized by the Azure AD B2C identity experience framework and their descriptions are in the following table:
 
