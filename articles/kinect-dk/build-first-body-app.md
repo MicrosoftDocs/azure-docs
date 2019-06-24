@@ -136,7 +136,7 @@ k4a_device_close(device);
 
 ## Full source
 
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 
