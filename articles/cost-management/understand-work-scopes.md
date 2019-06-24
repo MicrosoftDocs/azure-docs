@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -55,14 +55,14 @@ Cost Management supports the following built-in roles for each of the following 
 - [**Owner**](../role-based-access-control/built-in-roles.md#owner) – Can view costs and manage everything, including cost configuration.
 - [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) – Can view costs and manage everything, including cost configuration, but excluding access control.
 - [**Reader**](../role-based-access-control/built-in-roles.md#reader) – Can view everything, including cost data and configuration, but cannot make any changes.
-- [**Cost Management Contributor**](../role-based-access-control/built-in-roles.md#cost-management-contributor) – Can view costs and manage cost configuration.
-- [**Cost Management Reader**](../role-based-access-control/built-in-roles.md#cost-management-reader) – Can view cost data and configuration.
+- [**Cost Management Contributor**](../role-based-access-control/built-in-roles.md#cost-management-contributor) – Can view costs, manage cost configuration, and view recommendations.
+- [**Cost Management Reader**](../role-based-access-control/built-in-roles.md#cost-management-reader) – Can view cost data, cost configuration, and view recommendations.
 
 Cost Management Contributor is the recommended least-privilege role. It allows people access to create and manage budgets and exports to more effectively monitor and report on costs. Cost Management Contributors might also require additional roles to support end-to-end cost management scenarios. Consider the following scenarios:
 
 - **Act when budgets are exceeded** – Cost Management Contributors also need access to create and/or manage action groups to automatically react to overages. Consider granting [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor) to a resource group that contains the action group to use when budget thresholds are exceeded. Automating specific actions requires additional roles for the specific services used, such as Automation and Azure Functions.
 - **Schedule cost data export** – Cost Management Contributors also need access to manage storage accounts to schedule an export to copy data into a storage account. Consider granting [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) to a resource group that contains the storage account where cost data is exported.
-- **Viewing cost-saving recommendations** – Cost Management Readers and Contributors don't have access to recommendations by default. Access to recommendations requires read access to individual resources. Consider granting [Reader](../role-based-access-control/built-in-roles.md#reader) or a [service-specific role](../role-based-access-control/built-in-roles.md#built-in-role-descriptions).
+- **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) if you want to act on a cost-based recommendation.
 
 ## Enterprise Agreement scopes
 

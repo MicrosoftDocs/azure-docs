@@ -135,7 +135,7 @@ docker tag seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709 mycontainer
 docker tag seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709 mycontainerregistry.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709
 ```
 
-Log in to the Azure Container Registry.
+Sign in to the Azure Container Registry.
 
 ```azurecli
 az acr login -n myContainerRegistry

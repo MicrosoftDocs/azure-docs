@@ -39,7 +39,7 @@ When you query the web, Bing returns all the relevant content it finds for the s
     }
 }    
 ```
-You can filter the types of content you'll receive (for example images, videos, and news) by using the [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) query parameter. If Bing finds relevant content for the specified answers, it will be returned. The response filter is a comma-delimited list of answers. 
+You can filter the types of content you'll receive (for example images, videos, and news) by using the [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) query parameter. If Bing finds relevant content for the specified answers, it will be returned. The response filter is a comma-delimited list of answers. 
 
 To exclude specific types of content, such as images, from the response, you can add a `-` character to the beginning of the `responseFilter` value. You can separate excluded types with a comma (`,`). For example:
 
@@ -87,7 +87,7 @@ The following shows the response to the previous query. Because Bing didn't find
 
 Although Bing did not return video and news results in the previous response, it does not mean that video and news content does not exist. It simply means that the page didn't include them. However, if you [page](./paging-webpages.md) through more results, the subsequent pages would likely include them. Also, if you call the [Video Search API](../bing-video-search/search-the-web.md) and [News Search API](../bing-news-search/search-the-web.md) endpoints directly, the response would likely contain results.
 
-You are discouraged from using `responseFilter` to get results from a single API. If you want content from a single Bing API, call that API directly. For example, to receive only images, send a request to the Image Search API endpoint, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` or one of the other [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#endpoints) endpoints. Calling the single API is important not only for performance reasons but because the content-specific APIs offer richer results. For example, you can use filters that are not available to the Web Search API to filter the results.  
+You are discouraged from using `responseFilter` to get results from a single API. If you want content from a single Bing API, call that API directly. For example, to receive only images, send a request to the Image Search API endpoint, `https://api.cognitive.microsoft.com/bing/v7.0/images/search` or one of the other [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) endpoints. Calling the single API is important not only for performance reasons but because the content-specific APIs offer richer results. For example, you can use filters that are not available to the Web Search API to filter the results.  
 
 To get search results from a specific domain, include the `site:` query operator in the query string.  
 
@@ -96,7 +96,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 ```
 
 > [!NOTE]
-> Depending on the query, if you use the `site:` query operator, there is the chance that the response may contain adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.
+> Depending on the query, if you use the `site:` query operator, there is the chance that the response may contain adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.
 
 ## Limiting the number of answers in the response
 
@@ -116,7 +116,7 @@ Bing includes answers in the response based on ranking. For example, if you quer
 }
 ```
 
-To limit the number of answers that Bing returns to the top two answers (webpages and images), set the [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) query parameter to 2.
+To limit the number of answers that Bing returns to the top two answers (webpages and images), set the [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) query parameter to 2.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -157,7 +157,7 @@ If you add the `responseFilter` query parameter to the previous query and set it
 
 ## Promoting answers that are not ranked
 
-If the top ranked answers that Bing returns for a query are webpages, images, videos, and relatedSearches, the response would include those answers. If you set [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) to two (2), Bing returns the top two ranked answers: webpages and images. If you want Bing to include images and videos in the response, specify the [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) query parameter and set it to images and videos.
+If the top ranked answers that Bing returns for a query are webpages, images, videos, and relatedSearches, the response would include those answers. If you set [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) to two (2), Bing returns the top two ranked answers: webpages and images. If you want Bing to include images and videos in the response, specify the [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) query parameter and set it to images and videos.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  

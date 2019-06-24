@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
 
@@ -22,19 +22,19 @@ ms.subservice: disks
 
 # Migrate Azure VMs to Managed Disks in Azure
 
-Azure Managed Disks simplifies your storage management by removing the need to separately manage storage accounts.  You can also migrate your existing Azure VMs to Managed Disks to benefit from better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set is sufficiently isolated from each other to avoid single point of failures. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures.
+Azure Managed Disks simplifies your storage management by removing the need to separately manage storage accounts.  You can also migrate your existing Azure VMs to Managed Disks to benefit from better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set are sufficiently isolated from each other to avoid single point of failures. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures.
 Based on your needs, you can choose from four types of storage options. To learn about the available disk types, see our article [Select a disk type](disks-types.md)
 
-## Migrate scenarios
+## Migration scenarios
 
 You can migrate to Managed Disks in following scenarios:
 
-| **Migrate...**                                            | **Documentation link**                                                                                                                                                                                                                                                                  |
-|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Convert stand alone VMs and VMs in an availability set to managed disks   | [Convert VMs to use managed disks](convert-unmanaged-to-managed-disks.md) |
-| A single VM from classic to Resource Manager on managed disks     | [Create a VM from a classic VHD](create-vm-specialized-portal.md)  | 
-| All the VMs in a vNet from classic to Resource Manager on managed disks     | [Migrate IaaS resources from classic to Resource Manager](migration-classic-resource-manager-ps.md) and then [Convert a VM from unmanaged disks to managed disks](convert-unmanaged-to-managed-disks.md) | 
-
+|Scenario  |Article  |
+|---------|---------|
+|Convert stand alone VMs and VMs in an availability set to managed disks     |[Convert VMs to use managed disks](convert-unmanaged-to-managed-disks.md)         |
+|Convert a single VM from classic to Resource Manager on managed disks     |[Create a VM from a classic VHD](create-vm-specialized-portal.md)         |
+|Convert all the VMs in a vNet from classic to Resource Manager on managed disks     |[Migrate IaaS resources from classic to Resource Manager](migration-classic-resource-manager-ps.md) and then [Convert a VM from unmanaged disks to managed disks](convert-unmanaged-to-managed-disks.md)         |
+|Upgrade VMs with standard unmanaged disks to VMs with managed premium disks     | First, [Convert a Windows virtual machine from unmanaged disks to managed disks](convert-unmanaged-to-managed-disks.md). Then [Update the storage type of a managed disk](convert-disk-storage.md).         |
 
 ## Next steps
 

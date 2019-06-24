@@ -7,8 +7,8 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
+ms.topic: conceptual
+ms.date: 05/20/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -29,9 +29,7 @@ servers, systems, and services, in your virtual network.
 
 This article shows how to complete these tasks:
 
-* Set up ports on your Azure virtual network so traffic 
-can travel through your integration service environment 
-(ISE) across subnets in your virtual network.
+* Make sure any necessary ports on a virtual network are open so that traffic can travel through your integration service environment (ISE) across the subnets in that virtual network.
 
 * Create your integration service environment (ISE).
 
@@ -48,8 +46,8 @@ For more information about integration service environments, see
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
   > [!IMPORTANT]
-  > Logic apps, built-in actions, and connectors that run in your ISE use 
-  > a different pricing plan, not the consumption-based pricing plan. 
+  > Logic apps, built-in triggers, built-in actions, and connectors that run in 
+  > your ISE use a pricing plan different from the consumption-based pricing plan. 
   > For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
@@ -85,30 +83,13 @@ which is a capability that's available with ISE public preview.
 
 <a name="ports"></a>
 
-## Set up network ports
+## Check network ports
 
-To work correctly and stay accessible, your integration 
-service environment (ISE) needs to have specific ports 
-available on your virtual network. Otherwise, if any of 
-these ports are unavailable, you might lose access to your 
-ISE, which might stop working. When you use an ISE in a 
-virtual network, a common setup problem is having one 
-or more blocked ports. For connections between your ISE 
-and the destination system, the connector you use might 
-also have its own port requirements. For example, if you 
-communicate with an FTP system by using the FTP connector, 
-make sure the port you use on that FTP system, 
-such as port 21 for sending commands, is available.
+When you use an integration service environment (ISE) with a virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port you use on that FTP system, such as port 21 for sending commands, is available.
 
-To control the traffic across the virtual network's 
-subnets where you deploy your ISE, you can set up 
-[network security groups](../virtual-network/security-overview.md) for those subnets by 
-[filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
-These tables describe the ports in your virtual network 
-that your ISE uses and where those ports get used. 
-The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) 
-represents a group of IP address prefixes that help 
-minimize complexity when creating security rules.
+To control the traffic across the virtual network's subnets where you deploy ISE, you can set up [network security groups](../virtual-network/security-overview.md) by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). However, your ISE must have specific ports open on the virtual network that uses network security groups. That way, your ISE stays accessible and can work correctly so that you don't lose access to your ISE. Otherwise, if any required ports are unavailable, your ISE stops working.
+
+These tables describe the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
 
 > [!IMPORTANT]
 > For internal communication inside your subnets, 
@@ -275,55 +256,29 @@ For more information about creating subnets, see
 
 ## Create logic app - ISE
 
-To create logic apps that use your integration 
-service environment (ISE), follow the steps in 
-[how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-but with these differences: 
-
-* When you create your logic app, under the **Location** property, 
-select your ISE from the **Integration service environments** section, 
-for example:
+To create logic apps that run in your integration service environment (ISE), 
+[create your logic apps in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+except when you set the **Location** property, select your ISE from the 
+**Integration service environments** section, for example:
 
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* You can use the same built-in triggers and actions such as HTTP, 
-which run in the same ISE as your logic app. Connectors with 
-the **ISE** label also run in the same ISE as your logic app. 
-Connectors without the **ISE** label run in the global Logic Apps service.
-
-  ![Select ISE connectors](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
-
-* After you inject your ISE into an Azure virtual network, 
-the logic apps in your ISE can directly access resources in that virtual network. 
-For on-premises systems that are connected to a virtual network, 
-inject an ISE into that network so your logic apps can directly 
-access those systems by using any of these items: 
-
-  * ISE connector for that system, for example, SQL Server
-  
-  * HTTP action 
-  
-  * Custom connector
-
-  For on-premises systems that aren't in a virtual 
-  network or don't have ISE connectors, first 
-  [set up the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
+For differences in how triggers and actions work and how they're labeled when you use an ISE 
+compared to the global Logic Apps service, see [Isolated versus global in the ISE overview](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 <a name="create-integration-account-environment"></a>
 
 ## Create integration account - ISE
 
-To use an integration account with logic apps in an 
-integration service environment (ISE), that integration 
-account must use the *same environment* as the logic apps. 
-Logic apps in an ISE can reference only integration 
-accounts in the same ISE. 
+If you want to use an integration account with logic apps in an 
+integration service environment (ISE), that integration account 
+must use the *same environment* as the logic apps. Logic apps in 
+an ISE can reference only integration accounts in the same ISE.
 
-To create an integration account that uses an ISE, follow the steps in 
-[how to create integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-except for the **Location** property where the 
-**Integration service environments** section now appears. 
-Instead, select your ISE, rather than a region, for example:
+To create an integration account that uses an ISE, 
+[create your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
+except when you set the **Location** property, select your ISE from 
+the **Integration service environments** section, for example:
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

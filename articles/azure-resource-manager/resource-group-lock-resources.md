@@ -1,17 +1,10 @@
 ---
 title: Lock Azure resources to prevent changes | Microsoft Docs
 description: Prevent users from updating or deleting critical Azure resources by applying a lock for all users and roles.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-
-ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
 ---
 
@@ -32,7 +25,13 @@ Unlike role-based access control, you use management locks to apply a restrictio
 
 Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to `https://management.azure.com`. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations aren't restricted. For example, a ReadOnly lock on a SQL Database prevents you from deleting or modifying the database. It doesn't prevent you from creating, updating, or deleting data in the database. Data transactions are permitted because those operations aren't sent to `https://management.azure.com`.
 
-Applying **ReadOnly** can lead to unexpected results because some operations that seem like read operations actually require additional actions. For example, placing a **ReadOnly** lock on a storage account prevents all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations. For another example, placing a **ReadOnly** lock on an App Service resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
+Applying **ReadOnly** can lead to unexpected results because some operations that don't seem to modify the resource actually require actions that are blocked by the lock. The **ReadOnly** lock can be applied to the resource or to the resource group containing the resource. Some common examples of the operations that are blocked by a **ReadOnly** lock are:
+
+* A **ReadOnly** lock on a storage account prevents all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations.
+
+* A **ReadOnly** lock on an App Service resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
+
+* A **ReadOnly** lock on a resource group that contains a virtual machine prevents all users from starting or restarting the virtual machine. These operations require a POST request.
 
 ## Who can create or delete locks
 To create or delete management locks, you must have access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions.
@@ -148,7 +147,7 @@ To lock a resource group, provide the name of the resource group.
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-To get information about a lock, use [Get-​Azure​Rm​Resource​Lock](/powershell/module/az.resources/get-azresourcelock). To get all the locks in your subscription, use:
+To get information about a lock, use [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock). To get all the locks in your subscription, use:
 
 ```azurepowershell-interactive
 Get-AzResourceLock

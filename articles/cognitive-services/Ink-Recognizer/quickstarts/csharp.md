@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
 ---
@@ -31,9 +31,9 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
         1. Right click on the **Solution Manager**
         2. Click **Manage NuGet Packages...**
         3. Search for `Newtonsoft.Json` and install the package
-- If you are using Linux/MacOS, this application can be ran using [Mono](http://www.mono-project.com/).
+- If you are using Linux/MacOS, this application can be ran using [Mono](https://www.mono-project.com/).
 
-- The example ink stroke data for this quickstart can be found on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+- The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -153,7 +153,7 @@ public static JObject LoadJson(string fileLocation){
 
 ## Run the application and view the response
 
-Run the application. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+Run the application. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
 
 
 ## Next steps

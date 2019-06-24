@@ -34,7 +34,7 @@ Options for creating a resource file:
 
 ### Storage container URL
 
-Using a storage container URL means you can access files in any storage container in Azure. With the correct permissions
+Using a storage container URL means you can access files in any storage container in Azure with the correct permissions.
 
 In this C# example, the files have already been uploaded to an Azure storage container as blob storage. To access the data needed to create a resource file, we first need to get access to the storage container.
 

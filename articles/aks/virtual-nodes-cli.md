@@ -64,6 +64,7 @@ Virtual Nodes functionality is heavily dependent on ACI's feature set. The follo
 * [Host aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Arguments](../container-instances/container-instances-exec.md#restrictions) for exec in ACI
 * [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) will not deploy pods to the virtual node
+* [Windows Server nodes (currently in preview in AKS)](windows-container-cli.md) are not supported alongside virtual nodes. You can use virtual nodes to schedule Windows Server containers without the need for Windows Server nodes in an AKS cluster.
 
 ## Launch Azure Cloud Shell
 
@@ -297,7 +298,15 @@ Close the terminal session to your test pod with `exit`. When your session is en
 
 ## Remove virtual nodes
 
-If you no longer wish to use virtual nodes, you can disable them using the [az aks disable-addons][az aks disable-addons] command. The following example disables the Linux virtual nodes:
+If you no longer wish to use virtual nodes, you can disable them using the [az aks disable-addons][az aks disable-addons] command. 
+
+First, delete the helloworld pod running on the virtual node:
+
+```azurecli-interactive
+kubectl delete -f virtual-node.yaml
+```
+
+The following example command disables the Linux virtual nodes:
 
 ```azurecli-interactive
 az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --addons virtual-node
@@ -306,23 +315,29 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 Now, remove the virtual network resources and resource group:
 
 ```azurecli-interactive
-# Change the name of your resource group and network resources as needed
+# Change the name of your resource group, cluster and network resources as needed
 RES_GROUP=myResourceGroup
+AKS_CLUSTER=myAKScluster
+AKS_VNET=myVnet
+AKS_SUBNET=myVirtualNodeSubnet
+
+# Get AKS node resource group
+NODE_RES_GROUP=$(az aks show --resource-group $RES_GROUP --name $AKS_CLUSTER --query nodeResourceGroup --output tsv)
 
 # Get network profile ID
-NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
+NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --query [0].id --output tsv)
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
 # Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
+SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
 
 # Delete the default SAL ID for the subnet
 az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
-az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --remove delegations 0
+az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
 
 ## Next steps

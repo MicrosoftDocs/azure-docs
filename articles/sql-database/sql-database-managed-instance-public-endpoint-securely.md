@@ -10,7 +10,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/16/2019
+ms.date: 05/08/2019
 ---
 # Use an Azure SQL Database managed instance securely with public endpoints
 
@@ -45,3 +45,7 @@ To ensure traffic to the managed instance is coming from trusted sources, we rec
 When clients need to initiate a connection from an on-premises network, make sure the originating address is translated to a well-known set of IP addresses. If you can't do so (for example, a mobile workforce being a typical scenario), we recommend you use [point-to-site VPN connections and a private endpoint](sql-database-managed-instance-configure-p2s.md).
 
 If connections are started from Azure, we recommend that traffic come from a well-known assigned [virtual IP address](../virtual-network/virtual-networks-reserved-public-ip.md) (for example, a virtual machine). To make managing virtual IP (VIP) addresses easier, you might want to use [public IP address prefixes](../virtual-network/public-ip-address-prefix.md).
+
+## Next steps
+
+- Learn how to configure public endpoint for manage instances: [Configure public endpoint](sql-database-managed-instance-public-endpoint-configure.md)

@@ -2,11 +2,11 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 05/24/2019
 ms.author: jingwang
 ---
 
-| Category | Data store | Supported as a source | Supported as a sink | Supported by [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supported by [Self-hosted IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Supported by [Data Flow](../articles/data-factory/concepts-data-flow-overview.md)
+| Category | Data store | Supported as a [Copy activity](../articles/data-factory/copy-activity-overview.md) source | Supported as a [Copy activity](../articles/data-factory/copy-activity-overview.md) sink | Supported by [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Supported by [Self-hosted IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Supported by [Data Flow](../articles/data-factory/concepts-data-flow-overview.md)
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>Supported Formats: Delimited Text, Parquet</small> |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  ||
@@ -19,7 +19,7 @@ ms.author: jingwang
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |✓  |
-| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-insance.md) | |✓ |✓ |✓  ||
+| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |✓  |
 | &nbsp; |[Azure Search Index](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  ||
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  ||
@@ -43,6 +43,7 @@ ms.author: jingwang
 | &nbsp; |[SAP Business Warehouse Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  ||
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  ||
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  ||
+| &nbsp; |[SAP Table](../articles/data-factory/connector-sap-table.md) |✓ | | |✓  ||
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |✓ | |✓ |✓  ||
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  ||

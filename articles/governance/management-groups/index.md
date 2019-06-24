@@ -4,7 +4,7 @@ description: Learn about the management groups, how their permissions work, and 
 author: rthorn17
 
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
-ms.service: azure-resource-manager
+ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
