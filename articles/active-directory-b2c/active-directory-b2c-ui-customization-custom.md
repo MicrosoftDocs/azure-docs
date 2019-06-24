@@ -74,7 +74,7 @@ To host this HTML content in Blob storage, do the following:
 
 To create a public container in Blob storage, do the following:
 
-1. Click the **Blobs** tab under the Blob service menu item group in menu.
+1. Under **Blob service** in the left-hand menu, select **Blobs**.
 2. Click **+Container**.
 3. For **Name**, type **root**. (You can give it a name of your choice like *wingtiptoys*.)
 4. Set **Access type** to **Blob**.
