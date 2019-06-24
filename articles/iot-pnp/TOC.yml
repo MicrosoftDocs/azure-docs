@@ -4,3 +4,21 @@
   items:
   - name: What is IoT Plug and Play?
     href: overview-iot-plug-and-play.md
+- name: Quickstarts
+  items:
+  - name: Use a device capability model to create a device
+    href: quickstart-create-pnp-device.md
+- name: Tutorials
+  items:
+  - name: Create a device using VS Code
+    href: tutorial-pnp-visual-studio-code.md
+  - name: Build a device ready for certification
+    href: tutorial-build-device-certification.md
+  - name: Add product information to the catalog
+    href: tutorial-certification-product.md
+  - name: Run certification tests
+    href: tutorial-certification-test.md
+- name: How-to guides
+  items:
+  - name: Onboard to the IoT portal
+    href: howto-onboard-portal.md
