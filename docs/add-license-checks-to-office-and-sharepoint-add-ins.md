@@ -7,6 +7,9 @@ localization_priority: Normal
 
 # Add license checks to Office and SharePoint Add-ins
 
+> [!NOTE]
+> Upcoming changes to the add-in payment model will affect all paid add-ins. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). 
+
 You can create and load test your Office Add-in licenses. To help you test your add-in's license-checking code, you can use test licenses. The Office runtime treats these test tokens as if they were valid tokens acquired from the AppSource, with the exception that tokens loaded through the registry are not tested for expiration or entitlement type. These test licenses are strings that conform to the [add-in license schema structure](add-in-license-schema.md).
 
 To create a test token:
