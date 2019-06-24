@@ -26,8 +26,8 @@
       "redirect_document_id": true
     },
 	  {
-      "source_path": "https://docs.microsoft.com/azure/active-directory/saas-apps/realtimeboard-tutorial",
-      "redirect_url": "https://docs.microsoft.com/azure/active-directory/saas-apps/miro-tutorial",
+      "source_path": "https://docs.microsoft.com/azure/active-directory/saas-apps/realtimeboard-tutorial.md",
+      "redirect_url": "https://docs.microsoft.com/azure/active-directory/saas-apps/miro-tutorial.md",
       "redirect_document_id": true
     },
     {
