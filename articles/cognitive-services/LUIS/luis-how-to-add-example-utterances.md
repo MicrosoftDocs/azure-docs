@@ -126,7 +126,7 @@ You can perform actions on example utterances as a selected group or as an indiv
 
 ### Remove entity labels from utterances
 
-You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
+You can remove machine-learned entity labels from an utterance on the **Intents** page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
 
 To remove a machine-learned entity label from an utterance, select the entity in the utterance. Then select **Remove Label** in the entity drop-down box that appears.
 
