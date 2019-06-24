@@ -362,7 +362,7 @@
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Networking forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+    href: https://feedback.azure.com/forums/217313-networking
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-network
   - name: Pricing calculator
