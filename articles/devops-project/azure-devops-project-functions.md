@@ -17,31 +17,31 @@ Azure DevOps Projects presents a simplified experience where you can bring your 
 
 DevOps Projects also:
 
-- Automatically creates Azure resources, such as Azure Functions
+* Automatically creates Azure resources, such as Azure Functions
 
-- Creates and configures a release pipeline in Azure DevOps for CI/CD
+* Creates and configures a release pipeline in Azure DevOps for CI/CD
 
 In this tutorial, you will:
 
-- Use DevOps Projects to deploy an ASP.NET app to Azure Function
+* Use DevOps Projects to deploy an ASP.NET app to Azure Function
 
-- Configure Azure DevOps and an Azure subscription
+* Configure Azure DevOps and an Azure subscription
 
-- Examine the Azure Function
+* Examine the Azure Function
 
-- Examine the CI pipeline
+* Examine the CI pipeline
 
-- Examine the CD pipeline
+* Examine the CD pipeline
 
-- Commit changes to Git and automatically deploy them to Azure
+* Commit changes to Git and automatically deploy them to Azure
 
-- Clean up resources
+* Clean up resources
 
 Currently the supported runtimes for functions are **.NET** and **Node.js**. We use. NET runtime for this tutorial to deploy to Azure Functions. 
 
 ## Prerequisites
 
-- An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
+* An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 
 ## Use DevOps Projects to deploy an ASP.NET app to Azure Functions
 
