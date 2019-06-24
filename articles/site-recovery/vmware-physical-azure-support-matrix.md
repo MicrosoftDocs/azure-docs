@@ -180,7 +180,7 @@ Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | From mobility service [version 9.25](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery), 5 GPT partitions. Before, 4 partitions.
-Guest/server EFI/UEFI boot | Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/><br/> You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/><br/> Requires Mobility Service version 9.13 or later.<br/><br/> The server shouldn't have more than four partitions on the OS disk.<br/><br/>  Only NTFS is supported. <br/><br/> Disk sector size should be 512 Bytes per Physical Sector
+Guest/server EFI/UEFI boot | Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/> You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/> Requires Mobility Service version 9.13 or later.<br/> Secure UEFI boot type is not supported<br/>  Only NTFS is supported. <br/> Disk sector size should be 512 Bytes per Physical Sector
 
 ## Replication channels
 
