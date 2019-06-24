@@ -175,5 +175,6 @@ functionValues | *no* | The request body that will be sent to the **endpoint**.
 
 ## Next steps
 
-For information about Azure Custom Resource Providers, see [How To Create Custom Resources](custom-providers-customresources-how-to.md)
-For information about Azure Custom Resource Providers, see [Azure Custom Resource Provider overview](custom-providers-overview.md)
+- [Overview on Azure Custom Resource Providers](./custom-providers-overview.md)
+- [Tutorial: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
+- [How To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

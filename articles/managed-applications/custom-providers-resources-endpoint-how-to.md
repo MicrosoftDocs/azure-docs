@@ -62,12 +62,16 @@ The "`Proxy`" **routingType** proxies all request methods to the **endpoint** sp
 - Full control over the response is needed.
 - Integrating systems with existing resources.
 
+Learn more about "`Proxy`" resources: [here](./custom-providers-proxy-resource-endpoint-reference.md)
+
 ### Proxy Cache Routing Type
 
 The "`Proxy, Cache`" **routingType** proxies only `PUT` and `DELETE` request methods to the **endpoint** specified in the custom resource provider. The custom resource provider will automatically return `GET` requests based on what it has stored in its cache. If a custom resource is marked with cache, the custom resource provider will also add / overwrite fields in the response to make the APIs Azure compliant. When to use "`Proxy, Cache`":
 
 - Creating a new system that has no existing resources.
 - Work with existing Azure ecosystem.
+
+Learn more about "`Proxy, Cache`" resources: [here](./custom-providers-proxycache-resource-endpoint-reference.md)
 
 ## Creating a Custom Resource
 
@@ -175,5 +179,8 @@ customResourceName | *yes* | The custom resource name.
 
 ## Next steps
 
-For information about Azure Custom Resource Providers, see [How To Create Custom Resources](custom-providers-customresources-how-to.md)
-For information about Azure Custom Resource Providers, see [Azure Custom Resource Provider overview](custom-providers-overview.md)
+- [Overview on Azure Custom Resource Providers](./custom-providers-overview.md)
+- [Tutorial: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
+- [How To: Adding Custom Actions to Azure REST API](./custom-providers-actions-endpoint-how-to.md)
+- [Reference: Custom Resource Proxy Reference](./custom-providers-proxy-resource-endpoint-reference.md)
+- [Reference: Custom Resource Cache Reference](./custom-providers-proxycache-resource-endpoint-reference.md)
