@@ -7,7 +7,7 @@ ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 06/24/2019
-author: azooinmylugage
+author: pulkitaggarwl
 monikerRange: 'vsts'
 ---
 
