@@ -31,7 +31,10 @@ Create a new Python project using your favorite IDE or editor, or create a new f
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -69,7 +72,7 @@ The `params` are used to set the source and output languages. In this sample we'
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/dictionary/lookup?api-version=3.0'
-params = '&from=en&to=es';
+params = '&from=en&to=es'
 constructed_url = base_url + path + params
 ```
 
@@ -111,7 +114,8 @@ response = request.json()
 The last step is to print the results. This code snippet prettifies the results by sorting the keys, setting indentation, and declaring item and key separators.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## Put it all together

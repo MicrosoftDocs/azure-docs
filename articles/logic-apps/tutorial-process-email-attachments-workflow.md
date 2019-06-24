@@ -186,7 +186,7 @@ with these settings:
 
    | Setting | Value | Description |
    | ------- | ----- | ----------- |
-   | **App name** | CleanTextFunctionApp | A globally unique and descriptive name for your function app |
+   | **App name** | <*function-app-name*> | Your function app's descriptive and globally unique name, which is "CleanTextFunctionApp" in this example, so provide a different name, such as "MyCleanTextFunctionApp" |
    | **Subscription** | <*your-Azure-subscription-name*> | The same Azure subscription that you previously used | 
    | **Resource Group** | LA-Tutorial-RG | The same Azure resource group that you previously used |
    | **Hosting Plan** | Consumption Plan | This setting determines how to allocate and scale resources, such as computing power, for running your function app. See [hosting plans comparison](../azure-functions/functions-scale.md). | 
@@ -215,9 +215,7 @@ with these settings:
    [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md), 
    or [PowerShell and Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
 
-2. Under **Function Apps**, expand **CleanTextFunctionApp**, 
-and select **Functions**. On the functions toolbar, 
-select **New function**.
+2. Under **Function Apps**, expand your function app, which is  "CleanTextFunctionApp" in this example, and select **Functions**. On the functions toolbar, select **New function**.
 
    ![Create new function](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
@@ -502,7 +500,7 @@ and select this action: **Choose an Azure function - Azure Functions**
 
    ![Select action for "Choose an Azure function"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Select your previously created function app: **CleanTextFunctionApp**
+3. Select your previously created function app, which is "CleanTextFunctionApp" in this example:
 
    ![Select your Azure function app](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 

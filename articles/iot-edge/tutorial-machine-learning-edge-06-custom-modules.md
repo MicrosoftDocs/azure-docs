@@ -382,7 +382,7 @@ To add the directory to the module’s container, we will modify the Dockerfiles
 2. Modify the file so that is looks like the following example:
 
    ```dockerfile
-   FROM ubuntu:xenial  
+   FROM ubuntu:xenial
 
    WORKDIR /app
 
