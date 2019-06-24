@@ -17,7 +17,7 @@ ms.author: diberry
 
 Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
-Usually, add an example utterance to an intent first, and then create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
+Usually, you add an example utterance to an intent first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
 
 ## Marking entities in example utterances
 

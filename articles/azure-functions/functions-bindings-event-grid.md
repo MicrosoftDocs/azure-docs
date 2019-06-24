@@ -210,6 +210,7 @@ Here's the Python code:
 import logging
 import azure.functions as func
 
+
 def main(event: func.EventGridEvent):
     logging.info("Python Event Grid function processed a request.")
     logging.info("  Subject: %s", event.subject)
