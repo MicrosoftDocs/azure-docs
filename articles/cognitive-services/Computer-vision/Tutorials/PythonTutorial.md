@@ -41,9 +41,10 @@ You will also need to make sure the `_region` field matches the region that corr
 
 ```python
 # Variables
-_region = 'westcentralus' #Here you enter the region of your subscription
-_url = 'https://{}.api.cognitive.microsoft.com/vision/v2.0/analyze'.format(_region)
-_key = None #Here you have to paste your primary key
+_region = 'westcentralus'  # Here you enter the region of your subscription
+_url = 'https://{}.api.cognitive.microsoft.com/vision/v2.0/analyze'.format(
+    _region)
+_key = None  # Here you have to paste your primary key
 _maxNumRetries = 10
 ```
 
