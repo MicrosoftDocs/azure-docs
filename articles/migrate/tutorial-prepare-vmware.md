@@ -109,7 +109,7 @@ To prepare for VMware VM assessment, you need to verify Hyper-V host and VM sett
 
 Azure Migrate needs to access the vCenter Server to discover VMs for assessment and agentless migration. For assessment only, you need a read-only account for the vCenter Server.
 
-. If you're using a URL-based firewall.proxy, allow access to the required [Azure URLs](migrate-support-matrix-vmware.md#url-access-requirements).
+. If you're using a URL-based firewall.proxy, allow access to the required [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
 3. Make sure that the proxy resolves any CNAME records received while looking up the URLs.
 
 

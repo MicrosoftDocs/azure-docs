@@ -35,12 +35,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - Make sure that you [complete the first tutorial](tutorial-prepare-hyper-v.md) in the series to prepare Hyper-V VMs for assessment. If you don't complete the first tutorial, the instructions in this tutorial won't work.
 - After following the first tutorial here's what you should have set up before you continue with the steps in the article:
-    - Hyper-V [support requirements](migrate-support-matrix-hyper-v.md) should be reviewed.
-    - [Azure permissions](tutorial-prepare-hyper-v.md#set-up-azure-permissions) for Azure Migrate should be configured. 
-    - Hyper-V host settings for [Azure Migrate](tutorial-prepare-hyper-v.md#verify-hyper-v-host-settings) and for the [Azure Migrate appliance](tutorial-prepare-hyper-v.md#verify-settings-for-the-azure-migrate-appliance) should be checked.
-- You should have an [account set up](tutorial-prepare-hyper-v.md#set-up-an-account-for-vm-discovery) for VM discovery.
-- Integration Services should be [enabled on VMs](tutorial-prepare-hyper-v.md#enable-integration-services-on-vms) you want to discover.
-- Required ports should be available, and the appliance should be able to [access Azure URLs](tutorial-prepare-hyper-v.md#verify-port-and-url-access).
+    - [Azure permissions](tutorial-prepare-hyper-v.md#prepare-azure) for Azure Migrate should be configured. 
+    - [Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) should be set up for assessment.
 
 ## Set up an Azure Migrate project
 
@@ -55,17 +51,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ![Discover and assess servers](./media/tutorial-assess-hyper-v/assess-migrate.png)
 
 1. In **Discover, assess and migrate servers**, click **Add tools**.
-2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-hyper-v.md#assign-role-assignment-permissions).
+2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. 
 3. In **Project Details**, specify the project name, and geography in which you want to create the project. You can create an Azure Migrate project in the regions summarized in the table.
-
-    - The region specified for the project is only used to store the metadata gathered from on-premises VMs.
-    - You can select any target region for the actual migration.
-    
-        **Geography** | **Region**
-        --- | ---
-        Asia | Southeast Asia
-        Europe | North Europe or West Europe
-        United States | East US or West Central US
 
 
     ![Create an Azure Migrate project](./media/tutorial-assess-hyper-v/migrate-project.png)
@@ -140,7 +127,7 @@ Import the downloaded file to the Hyper-V host, and create a VM from it.
 
 ### Verify appliance access to Azure
 
-Ensure that the appliance VM has internet connectivity to [Azure URLs](tutorial-prepare-hyper-v.md#verify-port-and-url-access).
+Ensure that the appliance VM has internet connectivity to [Azure URLs](migrate-support-matrix-hyper-v.md#asssessment-appliance-url-access).
 
 ## Configure and the appliance
 
@@ -171,7 +158,7 @@ Set up the appliance for the first time.
 
 ## Delegate credentials for SMB VHDs
 
-If you're running VHDs on SMBs, you need to enable delegation of credentials from the appliance to the Hyper-V hosts you want to discover. If you didn't [do this in the previous tutorial](tutorial-prepare-hyper-v.md#enable-credssp-authentication), you can do this now from the appliance, as follows:
+If you're running VHDs on SMBs, you need to enable delegation of credentials from the appliance to the Hyper-V hosts you want to discover. If you didn't [do this in the previous tutorial](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), you can do this now from the appliance, as follows:
 
 
 1. On the appliance VM, run this command. We're using HyperVHost1/HyperVHost2 as example host names.
