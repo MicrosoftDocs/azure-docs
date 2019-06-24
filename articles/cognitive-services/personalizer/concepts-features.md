@@ -7,10 +7,11 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: concept
+ms.date: 06/24/2019
 ms.author: edjez
 ---
+
 # Features are information about actions and context
 
 The Personalizer service works by learning what your application should show to users in a given context.
@@ -23,7 +24,7 @@ For example, you may have a **feature** about:
 * The _content_ such as if a video is a `Documentary`, a `Movie`, or a `TV Series`, or whether a retail item is available in store.
 * The _current_ period of time such as which day of the week it is.
 
-Personalizer does not prescribe, limit or fix what features you can send for actions and context:
+Personalizer does not prescribe, limit, or fix what features you can send for actions and context:
 
 * You can send some features for some actions and not for others, if you don't have them. For example, TV series may have attributes movies don't have.
 * You may have some features available only some times. For example, a mobile application may provide more information than a web page. 
@@ -64,12 +65,15 @@ You can name feature namespaces following your own conventions as long as they a
 
 In the following JSON, `user`, `state`, and `device` are feature namespaces.
 
+JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
+
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -115,7 +119,7 @@ For example, a timestamp down to the second is a very sparse feature. It could b
 
 #### Expand feature sets with extrapolated information
 
-You can also get more features by thinking of unexplored attributes that can be derived from information you already have. For example, in a fictitious movie list personalization, is it possible that a weekend vs weekday elicit different behavior from users? Time could be expanded to have a "weekend" or "weekday" attribute. Do national cultural holidays drive attention to certain movie types? For example, a "Halloween" attribute is useful in places where it is relevant. Is it possible that rainy weather has significant impact on the choice of a movie for many people? With time and place, a weather service could provide that information and you can add it as an extra feature. 
+You can also get more features by thinking of unexplored attributes that can be derived from information you already have. For example, in a fictitious movie list personalization, is it possible that a weekend vs weekday elicits different behavior from users? Time could be expanded to have a "weekend" or "weekday" attribute. Do national cultural holidays drive attention to certain movie types? For example, a "Halloween" attribute is useful in places where it is relevant. Is it possible that rainy weather has significant impact on the choice of a movie for many people? With time and place, a weather service could provide that information and you can add it as an extra feature. 
 
 #### Expand feature sets with artificial intelligence and cognitive services
 
@@ -190,6 +194,8 @@ In some cases, it can only be determined later in your business logic if a resul
 
 When calling Rank, you will send multiple actions to choose from:
 
+JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
+
 ```json
 {
     "actions": [
@@ -198,7 +204,8 @@ When calling Rank, you will send multiple actions to choose from:
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -211,7 +218,8 @@ When calling Rank, you will send multiple actions to choose from:
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -223,7 +231,8 @@ When calling Rank, you will send multiple actions to choose from:
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -238,7 +247,8 @@ When calling Rank, you will send multiple actions to choose from:
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -265,6 +275,8 @@ Your application is responsible for loading the information about the context fr
 
 Context is expressed as a JSON object that is sent to the Rank API:
 
+JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -282,7 +294,9 @@ Context is expressed as a JSON object that is sent to the Rank API:
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]
