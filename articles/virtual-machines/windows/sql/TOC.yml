@@ -34,6 +34,8 @@
       href: virtual-machines-windows-sql-automated-backup-v2.md
   - name: Management
     items:
+    - name: With the Azure portal
+      href: virtual-machines-windows-sql-manage-portal.md
     - name: Extend support for SQL 2008 & R2
       href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
     - name: Connect to a VM

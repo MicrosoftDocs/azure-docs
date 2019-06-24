@@ -40,7 +40,7 @@ Applications you can run in a cross-cloud configuration include:
 * Oracle Retail applications
 * Oracle Hyperion Financial Management
 
-The following diagram is a high-level overview of the connected solution. For simplicity, the diagram shows only an application tier and a data tier. Depending on the application architecutre, your solution could include additional tiers such as a web tier in Azure. For more information, see the following sections.
+The following diagram is a high-level overview of the connected solution. For simplicity, the diagram shows only an application tier and a data tier. Depending on the application architecture, your solution could include additional tiers such as a web tier in Azure. For more information, see the following sections.
 
 ![Azure OCI solution overview](media/oracle-oci-overview/crosscloud.png)
 

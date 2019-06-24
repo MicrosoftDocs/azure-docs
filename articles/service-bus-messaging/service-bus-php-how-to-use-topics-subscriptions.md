@@ -47,7 +47,23 @@ The only requirement for creating a PHP application that accesses the Azure Blob
 This article describes how to use service features that can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ## Get the Azure client libraries
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+
+### Install via Composer
+1. Create a file named **composer.json** in the root of your project and add the following code to it:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/windowsazure": "*"
+      }
+    }
+    ```
+2. Download **[composer.phar][composer-phar]** in your project root.
+3. Open a command prompt and execute the following command in your project root
+   
+    ```
+    php composer.phar install
+    ```
 
 ## Configure your application to use Service Bus
 To use the Service Bus APIs:
@@ -63,7 +79,7 @@ The following example shows how to include the autoloader file and reference the
 > 
 
 ```php
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
