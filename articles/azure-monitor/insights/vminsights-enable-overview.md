@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 06/19/2019
 ms.author: magoedte
 ---
 
@@ -37,10 +37,10 @@ Azure Monitor for VMs supports a Log Analytics workspace in the following region
 - West Central US
 - West US 2<sup>1</sup>
 - East US
-- Canada Central<sup>1</sup>
-- UK South<sup>1</sup>
+- Canada Central
+- UK South
 - West Europe
-- Southeast Asia<sup>1</sup>
+- Southeast Asia
 
 <sup>1</sup> This region doesn't currently support the Health feature of Azure Monitor for VMs.
 
@@ -85,6 +85,10 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available directly from the left pane of the Azure VM.
+
+>[!NOTE]
+>The Health feature of Azure Monitor for VMs does not support [nested virtualization](../../virtual-machines/windows/nested-virtualization.md) in an Azure VM.
+>
 
 >[!NOTE]
 >In the Linux operating system:

@@ -45,24 +45,22 @@
         href: application-proxy-network-topology.md
       - name: Comparison of remote access solutions
         href: application-proxy-migration.md
+    - name: Single sign-on
+      items: 
+      - name: What is single sign-on
+        href: what-is-single-sign-on.md
+      - name: Planning a single sign-on deployment
+        href: plan-sso-deployment.md
+    - name: One Click SSO
+      items:
+      - name: What is One Click SSO
+        href: one-click-sso-tutorial.md
     - name: Provisioning users and groups
       items:
       - name: Automatic user provisioning
-        href: configure-automatic-user-provisioning-portal.md
-      - name: SaaS apps
         href: user-provisioning.md
-      - name: SCIM-enabled apps
+      - name: Automatic provisioning for SCIM-enabled apps
         href: use-scim-to-provision-users-and-groups.md
-      - name: Customize application attributes
-        href: Customize-application-attributes.md
-      - name: Write expressions for attribute mappings
-        href: functions-for-customizing-application-data.md
-      - name: Scoping filters
-        href: define-conditional-rules-for-provisioning-user-accounts.md
-      - name: Report on automatic user provisioning
-        href: check-status-user-account-provisioning.md
-      - name: Troubleshoot user provisioning
-        href: application-provisioning-config-problem.md
     - name: Application security
       items:
       - name: App access options
@@ -75,18 +73,8 @@
         href: tenant-restrictions.md
       - name: Configure SAML token encryption (Preview)
         href: howto-saml-token-encryption.md
-    - name: Single sign-on
-      items: 
-      - name: What is single sign-on
-        href: what-is-single-sign-on.md
-      - name: Planning a single sign-on deployment
-        href: plan-sso-deployment.md
     - name: End-user portals
       href: end-user-experiences.md
-    - name: One Click SSO
-      items:
-      - name: What is One Click SSO
-        href: one-click-sso-tutorial.md
   - name: How-to guides
     items:
     - name: Add a cloud app
@@ -157,12 +145,20 @@
           href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Configure user provisioning
       items:
-      - name: How long provisioning takes
-        href: application-provisioning-when-will-provisioning-finish-specific-user.md
-      - name: Configure user provisioning - gallery app
+      - name: User provisioning for gallery apps
         href: application-provisioning-config-how-to.md
-      - name: Sync an attribute for mapping - gallery app
-        href: user-provisioning-sync-attributes-for-mapping.md
+      - name: Configure automatic user provisioning
+        href: configure-automatic-user-provisioning-portal.md
+      - name: Customize application attributes
+        href: Customize-application-attributes.md
+      - name: Write expressions for attribute mappings
+        href: functions-for-customizing-application-data.md
+      - name: Scoping filters
+        href: define-conditional-rules-for-provisioning-user-accounts.md
+      - name: Check provisioning status
+        href: application-provisioning-when-will-provisioning-finish-specific-user.md
+      - name: Report on automatic user provisioning
+        href: check-status-user-account-provisioning.md
     - name: Assign users and manage access to apps
       items:
       - name: Configure user consent
@@ -235,10 +231,12 @@
           href: configure-password-single-sign-on-non-gallery-applications-problems.md
       - name: Troubleshoot user provisioning
         items:
+        - name: Troubleshoot user provisioning
+          href: application-provisioning-config-problem.md
+        - name: Sync an attribute for mapping - gallery app
+          href: user-provisioning-sync-attributes-for-mapping.md
         - name: Taking hours - gallery app
           href: application-provisioning-when-will-provisioning-finish.md
-        - name: Problem configuring user provisioning - gallery app
-          href: application-provisioning-config-problem.md
         - name: Problem saving administrator credentials while configuring user provisioning gallery app
           href: application-provisioning-config-problem-storage-limit.md
         - name: Users are not provisioned - gallery app
