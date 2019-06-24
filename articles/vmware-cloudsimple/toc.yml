@@ -10,7 +10,7 @@
   - name: Quickstart
     expanded: true
     items:
-    - name: Initialize and purchase capacity
+    - name: Initialize and provision capacity
       href: quickstart-create-cloudsimple-service.md
     - name: Configure private cloud environment
       href: quickstart-create-private-cloud.md
@@ -62,24 +62,20 @@
       href: access-cloudsimple-portal.md
     - name: Manage nodes
       items:
-      - name: Purchase nodes
+      - name: Provision nodes
         href: create-nodes.md
     - name: Manage private cloud resources
       items: 
       - name: Create a private cloud
-        href: https://docs.azure.cloudsimple.com/create-private-cloud/
+        href: create-private-cloud.md
       - name: Manage your private clouds
-        href: https://docs.azure.cloudsimple.com/manage-private-cloud/
+        href: manage-private-cloud.md
       - name: Expand a private cloud
-        href: https://docs.azure.cloudsimple.com/expand-private-cloud/
-      - name: Shrink a private cloud
-        href: https://docs.azure.cloudsimple.com/shrink-private-cloud/
-      - name: View the list of private cloud racks  
-        href: https://docs.azure.cloudsimple.com/view-cloud-racks/
+        href: expand-private-cloud.md
       - name: Map your Azure subscription
-        href: https://docs.azure.cloudsimple.com/azure-subscription-mapping/
+        href: azure-subscription-mapping.md
       - name: Escalate privileges
-        href: https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges/
+        href: escalate-private-cloud-privileges.md
     - name: Monitor CloudSimple activity
       href: https://docs.azure.cloudsimple.com/activity/
     - name: Set up private cloud networking
