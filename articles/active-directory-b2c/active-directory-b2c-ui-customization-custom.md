@@ -178,7 +178,7 @@ Here are the steps on how to use the sample.
 3. Next, open each *.html file in the root of either `wingtip` or `contoso` (whichever you selected in the first step) and replace all instances of "http://localhost" with the URLs of the css, images, and fonts files you uploaded in step 2.
 4. Save the *.html files and upload them to Blob storage.
 5. Now modify the extensions file as mentioned previously in [Modify the extensions file](#modify-the-extensions-file).
-6. If you see missing fonts/images or css, please check your references in extensions policy and htmls itself. 
+6. If you see missing fonts, images, or css, please check your references in the extensions policy and the *.html files.
 
 ### Content defintion IDs
 
