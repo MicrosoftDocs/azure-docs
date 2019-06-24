@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 06/24/2019
 ms.author: diberry
 ---
 
@@ -84,66 +84,7 @@ The V3 API has different query string parameters.
 |`externalEntities`|array|V3 only|Not required.|[External entities](#external-entities-passed-in-at-prediction-time) give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities. |
 |`options.datetimeReference`|string|V3 only|No default|Used to determine [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity).|
 |`options.overridePredictions`|boolean|V3 only|false|Specifies if user's [external entity (with same name as existing entity)](#override-existing-model-predictions) is used or the existing entity in the model is used for prediction. |
-|`query`|string|V3 only|No default - it is required in the GET request|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
-
-### Override existing model predictions
-
-The `overridePredictions` options property specifies that if the user sends an external entity that overlaps with a predicted entity with the same name, LUIS chooses the entity passed in or the entity existing in the model. 
-
-For example, consider the query `today I'm free`. LUIS detects `today` as a datetimeV2 with the following response:
-
-```JSON
-"datetimeV2": [
-    {
-        "type": "date",
-        "values": [
-            {
-                "timex": "2019-06-21",
-                "value": "2019-06-21"
-            }
-        ]
-    }
-]
-```
-
-If the user sends the external entity:
-
-```JSON
-{
-    "entityName": "datetimeV2",
-    "startIndex": 0,
-    "entityLength": 5,
-    "resolution": {
-        "date": "2019-06-21"
-    }
-}
-```
-
-If the `overridePredictions` is set to `false`, LUIS returns a response as if the external entity were not sent. 
-
-```JSON
-"datetimeV2": [
-    {
-        "type": "date",
-        "values": [
-            {
-                "timex": "2019-06-21",
-                "value": "2019-06-21"
-            }
-        ]
-    }
-]
-```
-
-If the `overridePredictions` is set to `true`, LUIS returns a response including:
-
-```JSON
-"datetimeV2": [
-    {
-        "date": "2019-06-21"
-    }
-]
-```
+|`query`|string|V3 only|Required.|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
 
 
 
@@ -344,6 +285,67 @@ In the previous utterance, the utterance uses `him` as a reference to `Hazem`. T
 
 The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.  
 
+### Override existing model predictions
+
+The `overridePredictions` options property specifies that if the user sends an external entity that overlaps with a predicted entity with the same name, LUIS chooses the entity passed in or the entity existing in the model. 
+
+For example, consider the query `today I'm free`. LUIS detects `today` as a datetimeV2 with the following response:
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+If the user sends the external entity:
+
+```JSON
+{
+    "entityName": "datetimeV2",
+    "startIndex": 0,
+    "entityLength": 5,
+    "resolution": {
+        "date": "2019-06-21"
+    }
+}
+```
+
+If the `overridePredictions` is set to `false`, LUIS returns a response as if the external entity were not sent. 
+
+```JSON
+"datetimeV2": [
+    {
+        "type": "date",
+        "values": [
+            {
+                "timex": "2019-06-21",
+                "value": "2019-06-21"
+            }
+        ]
+    }
+]
+```
+
+If the `overridePredictions` is set to `true`, LUIS returns a response including:
+
+```JSON
+"datetimeV2": [
+    {
+        "date": "2019-06-21"
+    }
+]
+```
+
+
+
 #### Resolution
 
 The _optional_ `resolution` property returns in the prediction response, allowing you to pass in the metadata associated with the external entity, then receive it back out in the response. 
@@ -356,6 +358,7 @@ The `resolution` property can be a number, a string, an object, or an array:
 * {"text": "value"}
 * 12345 
 * ["a", "b", "c"]
+
 
 
 ## Dynamic lists passed in at prediction time
