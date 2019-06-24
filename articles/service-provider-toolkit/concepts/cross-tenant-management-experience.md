@@ -4,7 +4,7 @@ description: Azure Delegated Resource Management enables a cross-tenant manageme
 author: JnHs
 ms.service: service-provider-toolkit
 ms.author: jenhayes
-ms.date: 06/05/2019
+ms.date: 06/24/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -71,11 +71,20 @@ Currently, the cross-tenant management experience supports the following scenari
 
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/):
 
-- Ability to filter and see all info for delegated subscriptions
-- Configure security policies in Azure Policy and view them in Security Center
-- View and apply recommendations provided in Security Center
-- Monitor resource health and resource security hygiene
-- Configure alert notification settings and contact info
+- Cross-tenant visibility
+  - Monitor compliance to security policies and ensure security coverage across all tenants’ resources
+  - Continuous regulatory compliance monitoring
+  - Monitor, triage, and prioritize actionable security recommendations with secure score calculation
+- Cross-tenant security posture management
+  - Manage security policies
+  - Take action on resources that are out of compliance with actionable security recommendations
+  - Collect and store security-related data
+- Cross-tenant threat detection and protection
+  - Detect threats across tenants’ resources
+  - Apply advanced threat protection controls such as just-in-time (JIT) VM access
+  - Harden network security group configuration with Adaptive Network Hardening
+  - Ensure servers are running only the applications and processes they should be with adaptive application controls
+  - Monitor changes to important files and registry entries with File Integrity Monitoring (FIM)
 
 [Azure Service Health](https://docs.microsoft.com/azure/service-health/):
 
