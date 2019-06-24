@@ -175,7 +175,7 @@ The sample_templates/wingtip folder contains the following HTML files:
 Here are the steps on how to use the sample. 
 1. Clone the repo on your local machine. Choose a template folder under sample_templates, you can use wingtip or contoso.
 2. Upload all the files under the `css`, `fonts`, and `images` folders to Blob storage as described in the previous sections. 
-3. Now open each html file in the editor, search for instances of "http://localhost" and replace the corresponding references of css, image and fonts with those you uploaded in step 2.
+3. Next, open each *.html file in the root of either `wingtip` or `contoso` (whichever you selected in the first step) and replace all instances of "http://localhost" with the URLs of the css, images, and fonts files you uploaded in step 2.
 4. Save the html files and upload to the Blob storage.
 5. Now modify the extensions file as mentioned above in [Modify the extensions file](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-ui-customization-custom#modify-the-extensions-file).
 6. If you see missing fonts/images or css, please check your references in extensions policy and htmls itself. 
