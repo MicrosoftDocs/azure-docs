@@ -280,7 +280,7 @@ Now that you have the complete application working correctly with Azure Cosmos D
    
 2. In the **Publish** dialog box, select **App Service**, then select **Create New** to create an App Service profile, or choose **Select Existing** to use an existing profile.
 
-3. If you have an existing Azure App Service profile, select a **Subscription** from the dropdown. Use the **View** filter to sort by resource group or resource type. Next search the required Azure App Service and select **OK**. 
+3. If you have an existing Azure App Service profile, select a **Subscription** from the dropdown. Use the **View** filter to sort by resource group or resource type. Next search the required Azure App Service and select **OK**.
    
    ![App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
 
