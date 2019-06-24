@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 06/24/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -52,7 +52,7 @@ The process is explained in the following table:
 |7|The new results are returned to the client application in ranked order.|
 |||
 
-Features include but are not limited to word-level semantic meaning, word-level importance in a corpus, and semantic similarity between two text strings.|
+Features include but are not limited to word-level semantic meaning, word-level importance in a corpus, and semantic similarity between two text strings.
 
 
 ## Next steps
