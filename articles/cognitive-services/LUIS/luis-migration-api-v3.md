@@ -14,7 +14,7 @@ ms.author: diberry
 ---
 
 
-# Preview: Migrate to API version 3.x  for LUIS apps
+# Preview: Migrate to API version 3.x for LUIS apps
 
 The query prediction endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 
@@ -37,6 +37,16 @@ The query prediction endpoint [request](#request-changes) and [response](#respon
 The following LUIS features are **not supported** in the V3 API:
 
 * Bing Spell Check V7
+
+## Endpoint URL changes
+
+The format of the V3 endpoint HTTP call has changed.
+
+|METHOD|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{API-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{API-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|||
 
 [Reference documentation](https://aka.ms/luis-api-v3) is available for V3.
 
