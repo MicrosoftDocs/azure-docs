@@ -22,7 +22,7 @@ This article provides references to best practices that can help you understand 
 ## Solutions for Oracle database
 
 * [Oracle on Azure deployment best practice guide using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
-* [Oracle VM images and their deployment on Microsoft Azure: Attached disk configuration options](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#attached-disk-configuration-options)
+* [Oracle VM images and their deployment on Microsoft Azure: Attached disk configuration options](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#attached-disk-configuration-options)
 
 ## Solutions for SAP applications
 
