@@ -404,4 +404,16 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 ## Enabling Dev Spaces failing when Windows node pools are added to an AKS cluster
 
 ### Reason
-Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only. At this time, you cannot enable Azure Dev Spaces on an AKS cluster with a Windows node pool.
+Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only. When you have an AKS cluster with a Windows node pool, you must ensure that Azure Dev Spaces pods are only scheduled on Linux nodes. If an Azure Dev Spaces pod is scheduled to run on a Windows node, that pod will not start and enabling Dev Spaces will fail.
+
+### Try
+[Add a taint](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to your AKS cluster to ensure Linux pods are not scheduled to run on a Windows node.
+
+## Error "Found no untainted Linux nodes in Ready state on the cluster. There needs to be at least one untainted Linux node in Ready state to deploy pods in 'azds' namespace."
+
+### Reason
+
+Azure Dev Spaces could not create a controller on your AKS cluster because it could not find an untainted node in a *Ready* state to schedule pods on. Azure Dev Spaces requires at least one Linux node in a *Ready* state that allows for scheduling pods without specifying tolerations.
+
+### Try
+[Update your taint configuration](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) on your AKS cluster to ensure at least one Linux node allows for scheduling pods without specifying tolerations. Also, ensure that at least one Linux node that allows scheduling pods without specifying tolerations is in the *Ready* state. If your node is taking a long time to reach the *Ready* state, you can try restarting your node.

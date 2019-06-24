@@ -71,6 +71,7 @@ InvoiceSection | MCA | See InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Unique identifier for the EA department or MCA invoice section.
 InvoiceSectionName | EA, MCA | Name of the EA department or MCA invoice section.
 IsAzureCreditEligible | EA, MCA | Indicates if the charge is eligible to be paid for using Azure credits (Values: True, False).
+IsEstimated | All | Indicates whether the billing period is closed/finalized. Usage data can change throughout the billing period until the invoice is generated. These records are marked as "estimated".
 Location | EA, MCA | Datacenter location where the resource is running.
 MeterCategory | All | Name of the classification category for the meter. For example, *Cloud services* and *Networking*.
 MeterId | All | The unique identifier for the meter.
