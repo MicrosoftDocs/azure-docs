@@ -163,7 +163,7 @@ Extensions | Not supported | Extensions are not replicated to the failover VM in
 **Action** | **Details**
 -- | ---
 Resize disk on replicated VM | Supported
-Add a disk to a replicated VM | Not supported.<br/><br/> You need to disable replication for the VM, add the disk, and then enable replication again.
+Add a disk to a replicated VM | Supported
 
 ## Replicated machines - storage
 
