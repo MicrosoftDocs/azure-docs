@@ -316,7 +316,7 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
         await this.CreateContainer();
     }
     ```
-    Select **F5** to run your application.
+   Select **F5** to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB container.  
 
