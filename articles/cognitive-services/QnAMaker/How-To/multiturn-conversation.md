@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article 
-ms.date: 06/12/2019
+ms.date: 06/24/2019
 ms.author: diberry
 #
 ---
@@ -403,6 +403,123 @@ The [display text and display order](https://docs.microsoft.com/rest/api/cogniti
 FIX - Need to go to parent, then answer column, then edit answer. 
 
 -->
+
+## Manage multi-turn prompts via the API
+
+You can add or delete multi-turn prompts via the [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following JSON examples shows the `context` including `promptsToAdd`, and `promptsToDelete` to change the settings. 
+
+```json
+{
+    "add": {
+        "qnaList": []
+    },
+    "delete": {
+        "ids": []
+    },
+    "update": {
+        "qnaList": [
+            {
+                "id": 2,
+                "answer": "You can use our REST apis to create a KB. See here for details: https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase/create",
+                "source": "Custom Editorial",
+                "questions": {
+                    "add": [],
+                    "delete": []
+                },
+                "metadata": {
+                    "add": [],
+                    "delete": []
+                },
+                "alternateQuestionClusters": {
+                    "delete": []
+                },
+                "context": {
+                    "isContextOnly": false,
+                    "promptsToAdd": [
+                        {
+                            "displayText": "Add Prompts",
+                            "displayOrder": 0,
+                            "qna": {
+                                "id": 0,
+                                "answer": "Click here to know more https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/multiturn-conversation",
+                                "source": "Editorial",
+                                "questions": [
+                                    "How can I add prompts?"
+                                ],
+                                "metadata": [],
+                                "alternateQuestionClusters": [],
+                                "context": {
+                                    "isContextOnly": false,
+                                    "prompts": []
+                                }
+                            },
+                            "qnaId": 0
+                        },
+                        {
+                            "displayText": "Delete Prompts",
+                            "displayOrder": 0,
+                            "qna": {
+                                "id": 0,
+                                "answer": "Click here to know more https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/multiturn-conversation",
+                                "source": "Editorial",
+                                "questions": [
+                                    "How can I delete delete prompts?"
+                                ],
+                                "metadata": [],
+                                "alternateQuestionClusters": [],
+                                "context": {
+                                    "isContextOnly": false,
+                                    "prompts": []
+                                }
+                            },
+                            "qnaId": 0
+                        },
+                        {
+                            "displayText": "Update Knowledgebase",
+                            "displayOrder": 0,
+                            "qna": null,
+                            "qnaId": 3
+                        }
+                    ],
+                    "promptsToDelete": [
+                        3
+                    ]
+                }
+            },
+            {
+                "id": 3,
+                "answer": "You can use our REST apis to update your KB. See here for details: https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
+                "source": "Custom Editorial",
+                "questions": {
+                    "add": [],
+                    "delete": []
+                },
+                "metadata": {
+                    "add": [],
+                    "delete": []
+                },
+                "alternateQuestionClusters": {
+                    "delete": []
+                },
+                "context": {
+                    "isContextOnly": false,
+                    "promptsToAdd": [
+                        {
+                            "displayText": "Refresh Endpoint keys",
+                            "displayOrder": 1,
+                            "qna": null,
+                            "qnaId": 4
+                        }
+                    ],
+                    "promptsToDelete": [
+                        4
+                    ]
+                }
+            }
+        ]
+    }
+}
+```
 
 ## Next steps
 
