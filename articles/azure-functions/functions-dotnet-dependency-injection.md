@@ -11,13 +11,15 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
-ms.author: jehollan, glenga, cshoe
+ms.author: jehollan, cshoe
 ---
 # Use dependency injection in .NET Azure Functions
 
 Azure Functions supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) between classes and their dependencies.
 
 Azure Functions builds on top of the ASP.NET Core Dependency Injection features. Being aware of services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using DI features in an Azure Functions app is recommended.
+
+Support for dependency injection begins with Azure Functions 2.x.
 
 ## Prerequisites
 
@@ -36,6 +38,13 @@ To register services, you can create a method to configure and add components to
 To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup. Also code is referencing a prerelease of [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) on Nuget.
 
 ```csharp
+using System;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Cosmos;
+
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
 namespace MyNamespace
@@ -59,6 +68,16 @@ namespace MyNamespace
 ASP.NET Core uses constructor injection to make your dependencies available to your function. The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
 
 ```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+
 namespace MyNamespace
 {
     public class HttpTrigger
