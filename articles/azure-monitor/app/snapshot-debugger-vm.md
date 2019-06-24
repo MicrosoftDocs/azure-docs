@@ -15,7 +15,9 @@ ms.author: brahmnes
 ---
 # Enable Snapshot Debugger for .NET apps in Azure Service Fabric, Cloud Service, and Virtual Machines
 
-If your ASP.NET or ASP.NET core application runs in Azure App Service, the instructions below can also be used. Unless your application requires a customized Snapshot Debugger configuration, it's highly recommended to [enable Snapshot Debugger through the Application Insights portal page](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). If your application runs in Azure Service Fabric, Cloud Service, Virtual Machines, or on-premises machines, the following instructions should be used. 
+If your ASP.NET or ASP.NET core application runs in Azure App Service, it's highly recommended to [enable Snapshot Debugger through the Application Insights portal page](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). However, if your application requires a customized Snapshot Debugger configuration, or a preview version of .NET core, then this instruction should be followed ***in addition*** to the instructions for [enabling through the Application Insights portal page](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+
+If your application runs in Azure Service Fabric, Cloud Service, Virtual Machines, or on-premises machines, the following instructions should be used. 
     
 ## Configure snapshot collection for ASP.NET applications
 
@@ -166,5 +168,5 @@ If your ASP.NET or ASP.NET core application runs in Azure App Service, the instr
 ## Next steps
 
 - Generate traffic to your application that can trigger an exception. Then, wait 10 to 15 minutes for snapshots to be sent to the Application Insights instance.
-- See [snapshots](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json) in the Azure portal.
-- For help with troubleshooting Profiler issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+- See [snapshots](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) in the Azure portal.
+- For help with troubleshooting Snapshot Debugger issues, see [Snapshot Debugger troubleshooting](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
