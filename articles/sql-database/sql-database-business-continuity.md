@@ -12,7 +12,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/04/2019
+ms.date: 06/24/2019
 ---
 # Overview of business continuity with Azure SQL Database
 
@@ -45,16 +45,16 @@ Then, you can learn about the additional mechanisms that you can use to recover 
 - [Active geo-replication](sql-database-active-geo-replication.md) enables you to create readable replicas and manually failover to any replica in case of a data center outage or application upgrade.
 - [Auto-failover group](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) allows the application to automatically recovery in case of a data center outage.
 
-Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO).
+As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as Recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering from an unplanned disruptive event. The potential data loss is known as Recovery point objective (RPO).
 
-The following table compares the ERT and RPO for each service tier for the most common scenarios.
+Different recovery methods offer different levels of RPO and RTO. You can choose a specific recovery method, or use a combination of methods to achicethe the full application recovery. The following table compares RPO and RTO of each recovery option.
 
-| Capability | Basic | Standard | Premium | General Purpose | Business Critical
+| Recovery method | Basic | Standard | Premium | General Purpose | Business Critical
 | --- | --- | --- | --- |--- |--- |
 | Point in Time Restore from backup |Any restore point within seven days |Any restore point within 35 days |Any restore point within 35 days |Any restore point within configured period (up to 35 days)|Any restore point within configured period (up to 35 days)|
-| Geo-restore from geo-replicated backups |ERT < 12 h<br> RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h|ERT < 12 h<br>RPO < 1 h|
-| Auto-failover groups |RTO = 1 h<br>RPO < 5s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s|RTO = 1 h<br>RPO < 5 s|
-| Manual database failover |ERT = 30 s<br>RPO < 5s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s|ERT = 30 s<br>RPO < 5 s|
+| Geo-restore from geo-replicated backups |RTO = 12 h<br> RPO = 1 h |RTO = 12 h<br>RPO = 1 h |RTO = 12 h<br>RPO = 1 h |RTO = 12 h<br>RPO = 1 h|RTO = 12 h<br>RPO = 1 h|
+| Auto-failover groups |RTO = 1 h<br>RPO = 5s |RTO = 1 h<br>RPO = 5 s |RTO = 1 h<br>RPO = 5 s |RTO = 1 h<br>RPO = 5 s|RTO = 1 h<br>RPO = 5 s|
+| Manual database failover |RTO = 30 s<br>RPO = 5s |RTO = 30 s<br>RPO = 5 s |RTO = 30 s<br>RPO = 5 s |RTO = 30 s<br>RPO < 5 s|RTO = 30 s<br>RPO = 5 s|
 
 > [!NOTE]
 > *Manual database failover* refers to failover of a single database to its geo-replicated secondary using the [unplanned mode](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
