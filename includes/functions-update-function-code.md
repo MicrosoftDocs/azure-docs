@@ -51,3 +51,11 @@ Open the function.json file for your new function in a text editor, update the *
 ```
 
 Now you can call the function in Azure without having to supply the function key. The function key is never required when running locally.
+
+### Typescript
+
+Modify the function.json as specified above with the Javascript settings. Then run
+
+``` 
+npm install @azure/functions && tsc
+```
