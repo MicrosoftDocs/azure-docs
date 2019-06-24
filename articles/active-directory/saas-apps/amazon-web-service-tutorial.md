@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 06/24/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ With these values, Azure AD will remove the value of **#** and send the correct 
 
 **We recommend to use this approach for the following reasons:**
 
-a. Each application will provide you a unique X509 certificate. Each instance of something that should be defined in this sentence can then have a different certificate expiry date which can be managed on an individual AWS account basis. Overall certificate rollover will be easier in this case.
+a. Each application will provide you a unique X509 certificate. Each instance of AWS App instance can then have a different certificate expiry date which can be managed on an individual AWS account basis. Overall certificate rollover will be easier in this case.
 
 b. You can enable User Provisioning with AWS app in Azure AD and then our service will fetch all the roles from that AWS account. You don’t have to manually add or update the AWS roles on the app.
 
