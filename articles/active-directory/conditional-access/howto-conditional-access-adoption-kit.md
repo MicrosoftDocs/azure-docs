@@ -1,17 +1,17 @@
 ---
 title: Conditional Access adoption kit - Azure Active Directory
-description: Conditional Access deployment adoption kit
+description: Adopting Azure AD Conditional Access for access to resources
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 06/24/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: martinco
 
 ms.collection: M365-identity-device-management
 ---
@@ -19,19 +19,7 @@ ms.collection: M365-identity-device-management
 
 In a mobile-first, cloud-first world, users can access your organization's resources from anywhere using different kinds of devices and apps. As a result, just focusing on who can access a resource is no longer enough. You can control who has access and identify where the user is and what device is being used and much more.
 
-To provide this control, **Azure Active Directory (AD) Conditional Access** allows you to specify the conditions any user must meet for access to an application, such as Multi-Factor Authentication (MFA). Using Conditional Access policies controls how authorized users (users that have been granted access to a cloud app) access cloud apps under specific conditions. Refer to [What is Conditional Access in Azure Active Directory](overview.md#conditional-access-policies)?
-
-For information on common access scenarios using Azure AD Conditional Access, watch this video, **Enable Azure Active Directory for Conditional Access for Secure User Access**
-
-> [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
-
-Refer to [Azure AD Conditional Access FAQ](faqs.md) for common questions on using Conditional Access service.
-
-## Pricing and licensing requirements
-
-Azure AD Conditional Access capability requires you to use Azure Active Directory Premium P1 or P2. For more information about licensing and editions, see [Sign up for Azure Active Directory Premium editions](../fundamentals/active-directory-get-started-premium.md).
-
-For more information on pricing, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+To provide this control, **Azure Active Directory (AD) Conditional Access** allows you to specify the conditions any user must meet for access to an application, such as Multi-Factor Authentication (MFA). Using Conditional Access policies controls how authorized users (users that have been granted access to a cloud app) access cloud apps under specific conditions. Refer to [What is Conditional Access in Azure Active Directory](overview.md#conditional-access-policies) for more information.
 
 ## Key benefits
 
@@ -67,8 +55,6 @@ Recent blogs by the Tech Community and Microsoft Identity Division:
 
 ## Learning resources
 
-### Level 100 knowledge concepts
-
 Follow the links below to get an overview of how Azure AD Conditional Access functions.
 
 * Learn "[What is Conditional Access in Azure Active Directory?](overview.md)"
@@ -89,13 +75,13 @@ Additionally, refer to the following links for guidance to protect access to all
 
 ### Training videos
 
-* YouTube - **Conditional Access in Enterprise Mobility + Security**
+**Conditional Access in Enterprise Mobility + Security**
    > [!VIDEO https://www.youtube.com/embed/A7IrxAH87wc]
 
-* YouTube - **Device-based Conditional Access**
+**Device-based Conditional Access**
    > [!VIDEO https://www.youtube.com/embed/AdM0zYB-3WQ]
 
-* YouTube - **Enable Azure Active Directory for Conditional Access for Secure User Access**
+**Enable Azure Active Directory for Conditional Access for Secure User Access**
    > [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
 ### Online Courses
@@ -134,7 +120,7 @@ Refer to the following Conditional Access courses and more on [Pluralsight.com](
 
 Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator, security administrator, or Conditional Access administrator. Refer to [Administrator role permissions in Azure Active Directory.](../users-groups-roles/directory-assign-admin-roles.md)
 
-As an IT administrator, use [Azure AD Conditional Access](overview) to require users to authenticate using Azure Multi-Factor Authentication, sign in from a trusted network, or trusted device.
+As an IT administrator, use [Azure AD Conditional Access](overview.md) to require users to authenticate using Azure Multi-Factor Authentication, sign in from a trusted network, or trusted device.
 
 Here are useful links to help you get started:
 
@@ -145,12 +131,8 @@ Here are useful links to help you get started:
 * [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md)
 * [Quickstart: Block access when a session risk is detected with Azure Active Directory Conditional Access](app-sign-in-risk.md)
 * [Azure AD Conditional Access FAQs](faqs.md)
-
-### Role-based guidance for help desk
-
-* Refer to [Azure AD Conditional Access FAQs](faqs.md) for common questions.
-* For additional questions, you can also view the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&sort=relevancedesc&brandIgnore=True&searchTerm=password+reset+azure).
-* If you cannot find the answer to a problem, our support teams are always available to assist you further. Use [Contact Microsoft support](../authentication/active-directory-passwords-troubleshoot.md#contact-microsoft-support).
+   * For additional questions, you can also view the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&sort=relevancedesc&brandIgnore=True&searchTerm=password+reset+azure).
+   * If you cannot find the answer to a problem, our support teams are always available to assist you further. Use [Contact Microsoft support](../authentication/active-directory-passwords-troubleshoot.md#contact-microsoft-support).
 
 ### Tutorials
 
@@ -165,10 +147,6 @@ Here are useful links to help you get started:
 
 * [Tutorial: **Migrate a classic policy that requires multi-factor authentication in the Azure portal**](policy-migration-mfa.md)
    * This tutorial shows how to migrate a classic policy that requires multi-factor authentication (MFA) for a cloud app.
-
-## FAQs
-
-Refer to [Azure AD Conditional Access FAQs](faqs.md) for common questions.
 
 ## End-user readiness and communication
 
