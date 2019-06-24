@@ -153,7 +153,7 @@ The following steps show you how to run the Remote Monitoring microservices in I
 1. Enter **Name**, and then enter **Tasks** as **run**.
 1. Select the **Working Directory** based on the service you want to run.
 1. Select **Apply** > **OK** to save your choices.
-1. Create run configurations for the following services:
+1. Create run configurations for the following web services:
     * WebService (services\config)
     * WebService (services\device-telemetry)
     * WebService (services\iothub-manager)
@@ -177,7 +177,7 @@ Select **Run** to build and run the web services on the local machine.
 
 Each web service opens a Command Prompt window and web browser window. At the command prompt, you see output from the running service. The browser window lets you monitor the status. Don't close the Command Prompt windows or web pages, as these actions stop the web service.
 
-To access the status of the services, you can go to the following URLs:
+To access the status of the services, go to the following URLs:
 
 * IoT-Hub Manager: [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
 * Device Telemetry: [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
@@ -206,7 +206,7 @@ When the **start** command is completed, your browser displays the page at the a
 
 ### Configure and run Nginx
 
-Set up a reverse proxy server to link the web application to the microservices running on your local machine:
+Set up a reverse proxy server that links the web application to the microservices running on your local machine:
 
 1. Copy the **nginx.conf** file from the **webui\scripts\localhost** folder in your local copy of the repository to the **nginx\conf** installation directory.
 1. Run Nginx.
