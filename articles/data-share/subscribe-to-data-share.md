@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Accept and receive data 
-description: Tutorial - Accept and receive data 
+title: Tutorial - Accept and receive data using Azure Data Share Preview
+description: Tutorial - Accept and receive data using Azure Data Share Preview
 author: joannapea
 
 ms.service: data-share
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
 ---
-# Tutorial: Accept and receive data 
+# Tutorial: Accept and receive data using Azure Data Share Preview
 
 > [!div class="checklist"]
 > * How to accept a Data Share invitation

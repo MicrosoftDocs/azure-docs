@@ -1,7 +1,7 @@
-- name: Azure Data Share
+- name: Azure Data Share Preview
 - name: Overview
   items:
-  - name: What is Azure Data Share?
+  - name: What is Azure Data Share Preview?
     href: overview.md
 - name: Tutorials
   expanded: true

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Share data with customers and partners using Azure Data Share
-description: Tutorial - Share data with customers and partners using Azure Data Share
+title: Tutorial - Share data with customers and partners using Azure Data Share Preview
+description: Tutorial - Share data with customers and partners using Azure Data Share Preview
 author: joannapea
 
 ms.service: data-share
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
 ---
-# Tutorial: Share your data
+# Tutorial: Share your data using Azure Data Share Preview
 
 Learn how to share data from Azure Blob Storage or Azure Data Lake Store using Azure Data Share. 
 

@@ -1,6 +1,6 @@
 ---
-title: What is Azure Data Share
-description: An overview of Azure Data Share
+title: What is Azure Data Share Preview
+description: An overview of Azure Data Share Preview
 author: joannapea
 
 ms.service: data-share
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
 ---
-# What is Azure Data Share?
+# What is Azure Data Share Preview?
 
 Azure Data Share enables you to easily and securely share your data with your customers and partners outside of your organization in a governed way. It provides a single pane of glass for you to manage data sharing relationships with your customers and partners. 
 
