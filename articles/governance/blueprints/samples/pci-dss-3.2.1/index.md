@@ -4,7 +4,7 @@ description: Overview of the Payment Card Industry Data Security Standard v3.2.1
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/16/2019
+ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
