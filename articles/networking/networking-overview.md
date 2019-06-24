@@ -18,14 +18,14 @@ ms.author: kumud
 # Azure networking
 
 The networking services in Azure provide a variety of networking capabilities that can be used together or separately. Click any of the following key capabilities to learn more about them:
-- [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using Virtual Network, Virtual WAN, ExpressRoute, and VPN Gateway.
-- [**Application protection services**](#protect) Protect your applications using DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
-- [**Application delivery services**](#deliver) Deliver applications in the Azure network using CDN, Front Door, Traffic Manager, Application Gateway, Load Balancer.
-- [**Network monitoring**](#monitor) – Monitor your network resources in Azure using Network Watcher, ExpressRoute Monitor, Azure Monitor, Virtual Network TAP.
+- [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using Virtual Network, Virtual WAN, ExpressRoute, VPN Gateway, or Azure DNS.
+- [**Application protection services**](#protect) Protect your applications using DDoS protection, Firewall, Network Security Groups, Web Application Firewall, or Virtual Network Endpoints.
+- [**Application delivery services**](#deliver) Deliver applications in the Azure network using CDN, Front Door, Traffic Manager, Application Gateway, or Load Balancer.
+- [**Network monitoring**](#monitor) – Monitor your network resources in Azure using Network Watcher, ExpressRoute Monitor, Azure Monitor, or Virtual Network TAP.
 
 ## <a name="connect"></a>Connectivity services
  
-This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual network, 
+This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual network, ExpressRoute, VPN Gateway, Virtual WAN, DNS.
 
 |Service|Why use?|Scenarios|
 |---|---|---|
@@ -33,7 +33,7 @@ This section describes services that provide connectivity between Azure resource
 |[ExpressRoute](#expressroute)|Extends your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.|<p>[- Create and modify an ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> [- Create and modify peering for an ExpressRoute circuit](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[- Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[- Configure and manage route filters for ExpressRoute circuits](../expressroute/how-to-routefilter-portal.md)</p>|
 |[VPN Gateway](#vpngateway)|Sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.|<p>[- Site-to-site-connections](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[- VNet-to-VNet connections](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[- Point-to-site connections](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[Virtual WAN](#virtualwan)|Optimizes and automates branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to.|<p>[- Site-to-site connections](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute connections](../virtual-wan/virtual-wan-expressroute-portal.md)</p> <p>[- Point-to-site connections](../virtual-wan/virtual-wan-point-to-site-portal.md)</p> |
-|||
+|[Azure DNS](#dns)|||
 
 
 ### <a name="vnet"></a>Virtual network
