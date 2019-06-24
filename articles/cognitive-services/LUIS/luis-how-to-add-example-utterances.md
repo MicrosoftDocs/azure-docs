@@ -62,7 +62,7 @@ For a company's department list, you can have normalized values: `Accounting` an
 
 ## Add composite entity
 
-Composite entities are created from existing **Entities** into a parent entity. 
+Composite entities are created from existing **Entities** to form a parent entity. 
 
 Assuming the utterance, `Does John Smith work in Seattle?`, a composite utterance can return entity information of the employee name `John Smith`, and the location `Seattle` in a composite entity. The child entities must already exist in the app and be marked in the example utterance before creating the composite entity.
 
