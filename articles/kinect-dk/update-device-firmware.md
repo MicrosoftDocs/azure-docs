@@ -50,7 +50,7 @@ Azure Kinect DK doesn't update firmware automatically. You can use [Azure Kinect
 
 2. View the following example.
 
-    ```
+    ```console
        >AzureKinectFirmwareTool.exe -q
         == Azure Kinect DK Firmware Tool ==
         Device Serial Number: 000036590812
@@ -77,7 +77,7 @@ Firmware updates can fail for several reasons. When a firmware update fails, try
 
 3. If all else fails, follow the [recovery](https://support.microsoft.com/help/4494277/reset-azure-kinect-dk) steps to revert to the factory firmware and try again.
 
-For any additional issues, see [Microsoft support pages](http://aka.ms/kinectsupport)
+For any additional issues, see [Microsoft support pages](https://aka.ms/kinectsupport)
 
 ## Next steps
 
