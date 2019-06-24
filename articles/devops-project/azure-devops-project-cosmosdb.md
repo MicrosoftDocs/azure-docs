@@ -13,11 +13,11 @@ monikerRange: 'vsts'
 
 # Deploy Node.js apps powered by Azure Cosmos DB with DevOps Projects
 
-Azure DevOps Projects present a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
+Azure DevOps Projects offers a streamlined experience where you can bring your existing code and Git repo or select a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
 
 DevOps Projects also:
 
-* Automatically creates Azure resources, such as Azure Cosmos DB, Application Insights, App Service and App Service plan
+* Create Azure resources automatically, such as Azure Cosmos DB, Application Insights, App Service and App Service.
 
 * Creates and configures a release pipeline in Azure DevOps for CI/CD
 
