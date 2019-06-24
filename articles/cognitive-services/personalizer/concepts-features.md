@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: concept
-ms.date: 06/20/2019
+ms.date: 06/24/2019
 ms.author: edjez
 ---
 
@@ -24,7 +24,7 @@ For example, you may have a **feature** about:
 * The _content_ such as if a video is a `Documentary`, a `Movie`, or a `TV Series`, or whether a retail item is available in store.
 * The _current_ period of time such as which day of the week it is.
 
-Personalizer does not prescribe, limit or fix what features you can send for actions and context:
+Personalizer does not prescribe, limit, or fix what features you can send for actions and context:
 
 * You can send some features for some actions and not for others, if you don't have them. For example, TV series may have attributes movies don't have.
 * You may have some features available only some times. For example, a mobile application may provide more information than a web page. 
@@ -66,7 +66,8 @@ JSON objects can include nested JSON objects and simple property/values. An arra
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -78,11 +79,7 @@ JSON objects can include nested JSON objects and simple property/values. An arra
         {
             "device": {
                 "mobile":true,
-                "Windows":true,
-                "status": {
-                    x: y,
-                    y: [72, 83, 73]
-                }
+                "Windows":true
             }
         }
     ]
@@ -116,7 +113,7 @@ For example, a timestamp down to the second is a very sparse feature. It could b
 
 #### Expand feature sets with extrapolated information
 
-You can also get more features by thinking of unexplored attributes that can be derived from information you already have. For example, in a fictitious movie list personalization, is it possible that a weekend vs weekday elicit different behavior from users? Time could be expanded to have a "weekend" or "weekday" attribute. Do national cultural holidays drive attention to certain movie types? For example, a "Halloween" attribute is useful in places where it is relevant. Is it possible that rainy weather has significant impact on the choice of a movie for many people? With time and place, a weather service could provide that information and you can add it as an extra feature. 
+You can also get more features by thinking of unexplored attributes that can be derived from information you already have. For example, in a fictitious movie list personalization, is it possible that a weekend vs weekday elicits different behavior from users? Time could be expanded to have a "weekend" or "weekday" attribute. Do national cultural holidays drive attention to certain movie types? For example, a "Halloween" attribute is useful in places where it is relevant. Is it possible that rainy weather has significant impact on the choice of a movie for many people? With time and place, a weather service could provide that information and you can add it as an extra feature. 
 
 #### Expand feature sets with artificial intelligence and cognitive services
 
@@ -201,15 +198,12 @@ JSON objects can include nested JSON objects and simple property/values. An arra
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
           "cuisine": "italian"
-        },
-        "status": {
-            x: g,
-            y: [123, 83, 73]
         }
       ]
     },
@@ -218,14 +212,11 @@ JSON objects can include nested JSON objects and simple property/values. An arra
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
-        },
-        "status": {
-            x: e,
-            y: [72, 234, 73]
         }
       ]
     },
@@ -234,17 +225,14 @@ JSON objects can include nested JSON objects and simple property/values. An arra
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
         },
         {
           "drink": true
-        },
-        "status": {
-            x: c,
-            y: [345, 83, 73]
         }
       ]
     },
@@ -253,14 +241,11 @@ JSON objects can include nested JSON objects and simple property/values. An arra
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
-        },
-        "status": {
-            x: a,
-            y: [72, 456, 73]
         }
       ]
     }
