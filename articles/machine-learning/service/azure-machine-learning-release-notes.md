@@ -44,6 +44,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Removed paramiko dependency from azureml-core. Added deprecation warnings for legacy compute target attach methods.
   + Improve performance of run.create_children
   + In mimic explainer with binary classifier, fix the order of probabilities when teacher probability is used for scaling shap values
+  + Improved error handling and message for Automated machine learning. 
+  + Fixed the iteration timeout issue for Automated machine learning.
+  + Improved the time-series transformation performance for Automated machine learning.
 
 ## 2019-06-10
 
