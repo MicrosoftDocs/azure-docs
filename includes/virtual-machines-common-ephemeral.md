@@ -34,7 +34,32 @@ Key differences between persistent and ephemeral OS disks:
 | OS disk resize              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
 | Resizing to a new VM size   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned                                      |
 
-## Scale set deployment  
+
+## PowerShell
+
+To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration and set the `-DiffDiskSetting` to `Local`.     
+
+```powershell
+Set-AzVMOSDisk -DiffDiskSetting Local
+```
+
+
+## CLI
+
+To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az-vm-create) to `true`.
+
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --ephemeral-os-disk true \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+
+## Scale set template deployment  
 The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the 
 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. 
 
@@ -79,7 +104,7 @@ The process to create a scale set that uses an ephemeral OS disk is to add the `
 }  
 ```
 
-## VM deployment 
+## VM template deployment 
 You can deploy a VM with an ephemeral OS disk using a template. The process to create a VM that uses ephemeral OS disks is to add the `diffDiskSettings` property to the Microsoft.Compute/virtualMachines resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. 
 
 ```json
