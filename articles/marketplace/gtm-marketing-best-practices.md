@@ -4,16 +4,9 @@ description: Go-To-Market Services - this section describes marketing best pract
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 
 author: qianw211
-
-
-
-
 ms.service: marketplace
-
-
-
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 6/24/2018
 ms.author: ellacroi
 
 ---
@@ -89,6 +82,8 @@ When your offer is listed in AppSource or the Azure Marketplace, you have earned
 The AppSource badge is available in three sizes. You can download the badge along with guidance on how to use it at [Promote the availability of your app on Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 
 The Azure Marketplace badge is provided as part of your free [go-to-market benefits](./gtm-your-marketplace-benefits.md).
+
+An optimized marketplace listing and go-to-market campaigns can help you accelerate your customer acquisition growth, and thus can play a significant role in your cloud business strategy and engine. Get ready to list offers, provide customer trials, and connect with Microsoft customers and the partner community. Download the [AppSource & Azure Marketplace marketing best practice guide](https://aka.ms/marketplacebestpractices) to learn how to get the most out of your online marketing efforts.
 
 ## Next steps
 
