@@ -226,4 +226,3 @@ You can also delete the local copy of the Remote Monitoring repository that was 
 ## Next steps
 
 Now that you've deployed the Remote Monitoring solution, the next step is to [explore the capabilities of the solution dashboard](quickstart-remote-monitoring-deploy.md).
- 
