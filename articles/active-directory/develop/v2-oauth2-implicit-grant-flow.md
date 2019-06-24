@@ -239,4 +239,4 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 ## Next steps
 
-* Go over the [MSAL JS samples](sample-v2-code.md#single-page-applications-spa) to get started coding.
+* Go over the [MSAL JS samples](sample-v2-code.md) to get started coding.

@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/21/2019
 ---
 
 # Anomaly detection in Azure Stream Analytics
@@ -16,7 +16,7 @@ Available in both the cloud and Azure IoT Edge, Azure Stream Analytics offers bu
 
 The machine learning models assume a uniformly sampled time series. If the time series is not uniform, you may insert an aggregation step with a tumbling window prior to calling anomaly detection.
 
-The machine learning operations do not support seasonality trends or multi-variate correlations.
+The machine learning operations do not support seasonality trends or multi-variate correlations at this time.
 
 ## Model accuracy and performance
 
@@ -24,9 +24,9 @@ Generally, the model's accuracy improves with more data in the sliding window. T
 
 The functions operate by establishing a certain normal based on what they have seen so far. Outliers are identified by comparing against the established normal, within the confidence level. The window size should be based on the minimum events required to train the model for normal behavior so that when an anomaly occurs, it would be able to recognize it.
 
-Keep in mind that the model's response time increases with history size because it needs to compare against a higher number of past events. It is recommended to only include the necessary number of events for better performance.
+The model's response time increases with history size because it needs to compare against a higher number of past events. It is recommended to only include the necessary number of events for better performance.
 
-Gaps in the time series can be a result of the model not receiving events at certain points in time. This situation is handled by Stream Analytics using imputation. The history size, as well as a time duration, for the same sliding window is used to calculate the average rate at which events are expected to arrive.
+Gaps in the time series can be a result of the model not receiving events at certain points in time. This situation is handled by Stream Analytics using imputation logic. The history size, as well as a time duration, for the same sliding window is used to calculate the average rate at which events are expected to arrive.
 
 ## Spike and dip
 
@@ -35,7 +35,7 @@ Temporary anomalies in a time series event stream are known as spikes and dips. 
 
 ![Example of spike and dip anomaly](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
-In the same sliding window, if a second spike is smaller than the first one, the computed score for the smaller spike is probably not significant enough compared to the score for the first spike within the confidence level specified. You can try decreasing the model's confidence level setting to catch such anomalies. However, if you start to get too many alerts, you can use a higher confidence interval.
+In the same sliding window, if a second spike is smaller than the first one, the computed score for the smaller spike is probably not significant enough compared to the score for the first spike within the confidence level specified. You can try decreasing the model's confidence level to detect such anomalies. However, if you start to get too many alerts, you can use a higher confidence interval.
 
 The following example query assumes a uniform input rate of one event per second in a 2-minute sliding window with a history of 120 events. The final SELECT statement extracts and outputs the score and anomaly status with a confidence level of 95%.
 

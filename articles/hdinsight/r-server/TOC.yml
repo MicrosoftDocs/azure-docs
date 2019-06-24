@@ -11,6 +11,10 @@
     href: ./ml-services-quickstart-job-rstudio.md
   - name: Sample job - R console
     href: ./ml-services-quickstart-job-rconsole.md
+- name: Tutorials
+  items:
+    - name: R in Spark compute context in HDInsight
+      href: ml-services-tutorial-spark-compute.md
 - name: Concepts
   items:
   - name: Apache Hadoop components on HDInsight
