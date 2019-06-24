@@ -69,7 +69,7 @@ When you import the PDF document, QnA Maker determines follow-up prompts from th
 
     After the knowledge base is created, a view of the question-and-answer pairs is displayed.
 
-## Display questions and answers with context
+## Show questions and answers with context
 
 Reduce the displayed question-and-answer pairs to only those with contextual conversations. 
 
@@ -388,7 +388,7 @@ In the initial question's response, any follow-up prompts and its associated `qn
 
 ## Display prompts and send context in the client application 
 
-You have added prompts in your knowledge base and tested the flow in the test pane. Now you need to use these prompts in the client application. For Bot Framework, the prompts aren't automatically displayed in the client applications. You can display the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA Maker ID and the user query, and pass them in the [context object of the GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) for the next user query. 
+You have added prompts in your knowledge base and tested the flow in the test pane. Now you need to use these prompts in the client application. For Bot Framework, the prompts aren't automatically displayed in the client applications. You can display the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA Maker ID and the user query, and pass them in the [context object of the GenerateAnswer API](#a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts) for the next user query. 
 
 ## Display order is supported in the Update API
 
