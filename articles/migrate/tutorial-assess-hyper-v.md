@@ -127,7 +127,7 @@ Import the downloaded file to the Hyper-V host, and create a VM from it.
 
 ### Verify appliance access to Azure
 
-Ensure that the appliance VM has internet connectivity to [Azure URLs](migrate-support-matrix-hyper-v.md#asssessment-appliance-url-access).
+Ensure that the appliance VM has internet connectivity to [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
 
 ## Configure and the appliance
 

@@ -148,7 +148,7 @@ Now connect to the vCenter Server and start discovery.
 
 1. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-    - In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions](tutorial-prepare-vmware.md#set-up-an-account-for-discovery).
+    - In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. 
     - In **Collection scope**, select a scope for VM discovery. The collector discovers VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster.
 2. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 3. After the connection is established, click **Save** > **Start discovery**.
