@@ -1,6 +1,6 @@
 ---
 title: Moving from paid to free add-ins
-description: 
+description: "The licensing framework for Office and SharePoint Add-ins is in the process of being retired."
 ms.date: 06/22/2019
 localization_priority: Priority
 ---
