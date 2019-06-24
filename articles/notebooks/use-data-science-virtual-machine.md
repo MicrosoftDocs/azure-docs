@@ -48,9 +48,9 @@ You obtain these values from the DSVM page in the Azure portal.
 
 ## Accessing Azure Notebooks files from the DSVM
 
-To preserve parity of file paths with the **Free Compute** tier, you are able to only open one project at a time on a DSVM. To open a new project, you must shut down the open project first.
+File system is supported for DSVM versions 19.06.15 or later.
 
-![Shutdown button in Azure Notebooks](media/shutdown.png)
+To preserve parity of file paths with the **Free Compute** tier, you are able to only open one project at a time on a DSVM. To open a new project, you must shut down the open project first.
 
 When a project is run on a VM, the files are mounted on the root directory of the Jupyter server (the directory shown in JupyterHub), replacing the default Azure Notebooks files. When you shut down the VM using the **Shutdown** button on the notebook UI, Azure Notebooks restores the default files.
 
@@ -65,6 +65,10 @@ If multiple users share a DSVM, you can avoid blocking each other by creating an
 1. Enter a new username and password and select **Update**. (Existing usernames are not affected.)
 1. Repeat the previous step for any additional users.
 
-## Next steps
+## How to check the version of your DSVM
+1. Connect to your DSVM via SSH. You can get the IP address from Azure Portal if necessary.
+1. Run this command: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"`
+1. Look at the number listed for "version".
 
+## Next steps
 Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).
