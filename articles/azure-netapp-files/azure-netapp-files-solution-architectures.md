@@ -17,7 +17,7 @@ ms.date: 06/24/2019
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
-This article provide references to best practices that can help you understand the solution architectures for using Azure NetApp Files.  
+This article provides references to best practices that can help you understand the solution architectures for using Azure NetApp Files.  
 
 ## Solutions for Oracle database
 

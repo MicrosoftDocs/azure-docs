@@ -151,7 +151,7 @@ The following example scripts are for demonstration purpose only.  They are not 
     for vnet in 1; do
         for pattern in FillWrite SeqRead SeqWrite RndRead RndWrite SeqMix RndMix; do
             echo "include=vnet${vnet}-hosts-nfs" > vnet${vnet}-${pattern}-workload
-           echo "include=vnet${vnet}-luns-nfs" >> vnet${vnet}-${pattern}-workload
+            echo "include=vnet${vnet}-luns-nfs" >> vnet${vnet}-${pattern}-workload
         done 
         #Fill Write File
         echo "wd=FillWrite,sd=sd*,rdpct=0,seekpct=eof,xfersize=64k" >> vnet${vnet}-FillWrite-workload
