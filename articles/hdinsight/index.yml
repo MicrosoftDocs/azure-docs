@@ -52,7 +52,7 @@ sections:
     - image: 
         src: media/index/storm_r.svg
       text: Apache Storm
-      href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux 
+      href: /azure/hdinsight/storm/apache-storm-quickstart 
     - image: 
         src: media/index/ml-server_r.svg
       text: ML Services
