@@ -118,6 +118,10 @@ IO depth greater than one is not supported on CentOS/RHEL.
 - Upgrade to CentOS 8 / RHEL 8.
 - Change to Ubuntu.
 
+## Slow file copying to and from Azure Files in Linux
+
+If you are experiencing slow file copying to and from Azure Files, take a look at the [Slow file copying to and from Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) section in the Linux troubleshooting guide.
+
 ## Jittery/saw-tooth pattern for IOPS
 
 ### Cause

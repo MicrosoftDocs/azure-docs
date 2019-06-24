@@ -46,7 +46,7 @@ Every storage account must belong to an Azure resource group. A resource group i
 1. Select **Account kind** and choose **FileStorage**.
 1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)**.
 
-    ![How to create a storage account for a premium file share](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
+    ![How to create a storage account for a premium file share](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Select **Review + Create** to review your storage account settings and create the account.
 1. Select **Create**.
@@ -78,7 +78,7 @@ Then, upgrade your powershell module, sign in to your Azure subscription, create
 
 ### Upgrade your PowerShell module
 
-To interact with a premium file share from with PowerShell, you'll need to install an Az.Storage module released after June 18, 2019, or the latest Az.Storage module.
+To interact with a premium file share from with PowerShell, you'll need to install an Az.Storage module version 1.4.0, or the latest Az.Storage module.
 
 Start by opening a PowerShell session with elevated permissions.
 
