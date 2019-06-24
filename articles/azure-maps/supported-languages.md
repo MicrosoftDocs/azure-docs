@@ -81,7 +81,44 @@ Azure Maps have been localized in a variety of languages across the services. Th
 ## Azure Maps supported views
 
 > [!Note]
-> Before **August 1, 2019**, Azure Maps is available in all countries/regions except in India, Pakistan, Morocco and Argentina.  After August 1, 2019, **View** parameter setting will define the returned map content for these new regions/countries. We encourage you to ensure, your services that use these APIs and SDKs operate as desired in the new countries/regions, however please complete them no later than August 1, 2019.
+> We are releasing Azure Maps in the following countries/regions on August 1, 2019:
+  * Argentina
+  * India
+  * Morocco
+  * Pakistan
+
+  After August 1, 2019, View parameter setting will define the returned map content for the new regions/countries listed above. We encourage you ensure that you have set up the View parameter as required for the REST APIs and SDKs that your services are using.
+  
+
+  **Rest APIs:**
+  
+  Ensure that you have set up the View parameter as required. View parameter specifies which set of geopolitically disputed content is returned via Azure Maps services. 
+
+  Affected Azure Maps REST Services:
+    
+    * Get Map Tile
+    * Get Map Image 
+    * Get Search Fuzzy
+    * Get Search POI
+    * Get Search POI Category
+    * Get Search Nearby
+    * Get Search Address
+    * Get Search Address Structured
+    * Get Search Address Reverse
+    * Get Search Address Reverse Cross Street
+    * Post Search Inside Geometry
+    * Post Search Address Batch Preview
+    * Post Search Address Reverse Batch Preview
+    * Post Search Along Route
+    * Post Search Fuzzy Batch Preview
+    
+    
+    **SDKs:**
+    Ensure that you have set up the View parameter as required, and you have the latest version of Web SDK and Android SDK. 
+    Affected SDKs:
+
+      * Azure Maps Web SDK
+      * Azure Maps Android SDK
 
 
 Azure Maps **View** parameter (also referred to as “user region parameter”) is a two letter ISO-3166 Country Code that will show the correct maps for that country/region specifying which set of geopolitically disputed content is returned via Azure Maps services, including borders and labels displayed on the map. 
@@ -109,4 +146,5 @@ The following table provides supported Views.
 | SA           | Saudi Arabia (Arabic View)            |   ✓   |        |     ✓          |
 | SY           | Syria (Arabic View)                   |   ✓   |        |     ✓          |
 | YE           | Yemen (Arabic View)                   |   ✓   |        |     ✓          |
+| Auto         | Return the map data based on the IP address of the request.|   ✓   |    ✓   |     ✓          |
 | Unified      | Unified View (Others)                  |   ✓   |   ✓     |     ✓          |
