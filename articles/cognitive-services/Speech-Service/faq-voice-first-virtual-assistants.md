@@ -30,7 +30,7 @@ If you can't find answers to your questions in this document, check out [other s
 
 **Q: I receive a 401 error when connecting and nothing works. I know my speech subscription key is valid. What's going on?**
 
-**A:** In preview, Direct Line Speech has very specific limitations on the subscription used. Please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Additionally, please note that only [a subset of Speech Services regions](regions.md#voice-first-virtual-assistants) is currently supported for Direct Line Speech.
+**A:** In preview, Direct Line Speech has specific limitations on the subscription used. Ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Additionally, note that only [a subset of Speech Services regions](regions.md#voice-first-virtual-assistants) is currently supported for Direct Line Speech.
 
 ![correct subscription for direct line speech](media/voice-first-virtual-assistants/faq-supported-subscription.png "example of a compatible Speech subscription")
 
@@ -38,9 +38,9 @@ If you can't find answers to your questions in this document, check out [other s
 
 **A:** This error indicates a communication problem between the bot and Direct Line Speech. Ensure that you've [connected the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [added Streaming protocol support](https://aka.ms/botframework/addstreamingprotocolsupport) to your bot (with the related Web Socket support), and then check that your bot is responding to incoming requests from the channel.
 
-**Q: This still doesn't work and/or I'm getting a different error when using a DialogServiceConnector and it's not clear what I should do. What *should* I do?**
+**Q: This code still doesn't work and/or I'm getting a different error when using a DialogServiceConnector and it's not clear what I should do. What *should* I do?**
 
-**A:** File-based logging provides substantially more detail and can help accelerate support requests. To enable this, see [how to use file logging](how-to-use-logging.md).
+**A:** File-based logging provides substantially more detail and can help accelerate support requests. To enable this functionality, see [how to use file logging](how-to-use-logging.md).
 
 ## Next steps
 
