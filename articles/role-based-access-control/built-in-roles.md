@@ -50,9 +50,15 @@ The following table provides a brief description of each built-in role. Click th
 | [Automation Runbook Operator](#automation-runbook-operator) | Read Runbook properties - to be able to create Jobs of the runbook. |
 | [Avere Contributor](#avere-contributor) | Can create and manage an Avere vFXT cluster. |
 | [Avere Operator](#avere-operator) | Used by the Avere vFXT cluster to manage the cluster |
+| [Azure Event Hubs Data Owner (Preview)](#azure-event-hubs-data-owner-preview) | Allows for full access to Azure Event Hubs resources. |
+| [Azure Event Hubs Data Receiver (Preview)](#azure-event-hubs-data-receiver-preview) | Allows receive access to Azure Event Hubs resources. |
+| [Azure Event Hubs Data Sender (Preview)](#azure-event-hubs-data-sender-preview) | Allows send access to Azure Event Hubs resources. |
 | [Azure Kubernetes Service Cluster Admin Role](#azure-kubernetes-service-cluster-admin-role) | List cluster admin credential action. |
 | [Azure Kubernetes Service Cluster User Role](#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. |
 | [Azure Maps Data Reader (Preview)](#azure-maps-data-reader-preview) | Grants access to read map related data from an Azure maps account. |
+| [Azure Service Bus Data Owner (Preview)](#azure-service-bus-data-owner-preview) | Allows for full access to Azure Service Bus resources. |
+| [Azure Service Bus Data Receiver (Preview)](#azure-service-bus-data-receiver-preview) | Allows for receive access to Azure Service Bus resources. |
+| [Azure Service Bus Data Sender (Preview)](#azure-service-bus-data-sender-preview) | Allows for send access to Azure Service Bus resources. |
 | [Azure Stack Registration Owner](#azure-stack-registration-owner) | Lets you manage Azure Stack registrations. |
 | [Backup Contributor](#backup-contributor) | Lets you manage backup service,but can't create vaults and give access to others |
 | [Backup Operator](#backup-operator) | Lets you manage backup services, except removal of backup, vault creation and giving access to others |
@@ -542,6 +548,51 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotDataActions** |  |
 > | *none* |  |
 
+## Azure Event Hubs Data Owner (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for full access to Azure Event Hubs resources. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Actions** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Azure Event Hubs Data Receiver (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows receive access to Azure Event Hubs resources. |
+> | **Id** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | **Actions** |  |
+> | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Azure Event Hubs Data Sender (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows send access to Azure Event Hubs resources. |
+> | **Id** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | **Actions** |  |
+> | Microsoft.EventHub/*/eventhubs/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/send/action |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
 ## Azure Kubernetes Service Cluster Admin Role
 > [!div class="mx-tableFixed"]
 > | | |
@@ -584,6 +635,55 @@ The following table provides a brief description of each built-in role. Click th
 > | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Maps/accounts/data/read | Grants data read access to a maps account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Azure Service Bus Data Owner (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for full access to Azure Service Bus resources. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Actions** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Azure Service Bus Data Receiver (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for receive access to Azure Service Bus resources. |
+> | **Id** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | **Actions** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Azure Service Bus Data Sender (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for send access to Azure Service Bus resources. |
+> | **Id** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | **Actions** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/send/action |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
