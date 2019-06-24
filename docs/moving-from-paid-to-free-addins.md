@@ -16,87 +16,14 @@ After the move from paid to free, the add-in will still be sent licensing tokens
 The user experience can depend on whether the license is for a new or existing user and whether the payment option was previously a subscription or one-time purchase.
 
 For details about how to monetize add-ins going forward, see [Monetize your add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md).
+## Add-in user experience
 
-## Subscription
-
-### New user
-
-The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free. This will be returned in the token for the add-in entitlement.
-
-### Existing user
-
-The user will no longer be charged after their billed month ends. At the end of the period they have paid for, the subscription license will be extended indefinitely.
-
-If the license was previously seat-based (applies to Outlook and SharePoint add-ins only), it will be modified to resemble a site license for the user. This will be returned in the token to the add-in.
-
-All active trial licenses will be converted to free licenses.
-
-### Action to take
-
-Where a token in a free or extended subscription state is returned, you can take the opportunity to upsell the user to the new license.
-
-Some information to inform upsell decisions is maintained in the token.
-
-#### Token changes
-
-The license tokens will change when an add-in moves from paid to free, as follows:
-
-- Update to all migrated tokens:
-
-  > ed="8999-12-31T23:59:59Z"
-
-- Update to all seat-based tokens:
-
-  > sl="true"
-
-- For seat-based tokens, where the customer previously purchased a site-license:
-
-  > ts="0"
-
-- For seat-based tokens, where the customer purchased 3 seats:
-
-  > ts="3"
-
-## One-time purchase
-
-### New user
-
-The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free. This will be returned in the token for the add-in entitlement.
-
-### Existing user
-
-The user’s original purchase will still be valid. If the license was previously seat-based (applies to Outlook and SharePoint add-ins only), it will be modified to resemble a site license for the user. This will be returned in the token to the add-in.
-
-All active trial licenses will be converted to Free entitlements.
-
-### Action to take
-
-For existing users that return a valid paid token, those users should continue to work. If the original token was seat-based (applies to Outlook and SharePoint add-ins only), the new token will contain the originally purchased seat count.  
-
-For new users, or users where the original seat count has been exceeded, you can take the opportunity to upsell the user to the new license.
-
-#### Token changes
-
-For most users, the license token returned to the add-in will not change. The license tokens will change when an add-in moves from paid to free for seat-based tokens:
-
-- Update to all seat-based tokens:
-
-  > sl="true"
-
-- For seat-based tokens, where the customer previously purchased a site-license:
-
-  > ts="0"
-
-- For seat-based tokens, where the customer purchased 3 seats:
-
-  > ts="3" 
-
-<!--Use text above OR the following table, which duplicates the above information. Note that, in the table, I added a separate column for token changes for easier readability. -->
+The following table describes the add-in user experience for different purchase types, and the action that you can take to transition from paid to free add-ins.
 
 |Purchase type |New user |Existing user |Action to take|
 |:------------ |:------- |:------------ |:-------------|
-|Subscription  |The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free. This will be returned in the token for the add-in entitlement.|The user will no longer be charged after their billed month ends. At the end of the period they have paid for, the subscription license will be extended indefinitely.<br/><br/>If the license was previously seat-based (applies to Outlook and SharePoint add-ins only), it will be modified to resemble a site license for the user. This will be returned in the token to the add-in.<br/><br/>All active trial licenses will be converted to free entitlements.	|Where a token in a free or extended subscription state is returned, you can take the opportunity to upsell the user to the new license. Some information to inform upsell decisions is maintained in the token.<br/><br/>**Token changes**<br/>The license tokens will change when an add-in moves from paid to free, as follows:<ul><li>Update to all migrated tokens:<br/>ed="8999-12-31T23:59:59Z"</li><li>Update to all seat-based tokens:<br/>sl="true"</li><li>For seat-based tokens, where the customer previously purchased a site-license:<br/>ts="0"</li><li>For seat-based tokens, where the customer purchased 3 seats:<br/>ts="3"</li></ul>|
-|One-time purchase	|The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free. This will be returned in the token for the add-in entitlement. |The user’s original purchase will still be valid. If the license was previously seat based (applies to Outlook and SharePoint add-ins only), it will be modified to resemble a site license for the user. This will be returned in the token to the add-in.<br/><br/>All active trial licenses will be converted to Free entitlements.	|For existing users that return a valid paid token, those users should continue to work. If the original token was seat-based (applies to Outlook and SharePoint add-ins only), the new token will contain the originally purchased seat count.<br/><br/>For new users, or users where the original seat count has been exceeded, you can take the opportunity to upsell the user to the new license.<br/><br/>**Token changes**<br/>For most users, the license token returned to the add-in will not change. The license tokens will change when an add-in moves from paid to free for seat-based tokens:<ul><li>Update to all seat-based tokens:<br/>sl="true"</li><li>For seat-based tokens, where the customer previously purchased a site-license:<br/>ts="0"</li><li>For seat-based tokens, where the customer purchased 3 seats:<br/>ts="3"</li></ul> |
+|Subscription  |The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free. This will be returned in the token for the add-in entitlement.|The user will no longer be charged after their billed month ends. At the end of the period they have paid for, the subscription license will be extended indefinitely.<br/><br/>If the license was previously seat-based (applies to Outlook and SharePoint add-ins only), it will be modified to resemble a site license for the user. This will be returned in the token to the add-in.<br/><br/>All active trial licenses will be converted to free entitlements.	|Where a token in a free or extended subscription state is returned, you can take the opportunity to upsell the user to the new license. Some information to inform upsell decisions is maintained in the token.<br/><br/>**Token changes**<br/>The license tokens will change when an add-in moves from paid to free, as follows:<ul><li>Update to all migrated tokens:<br/>ed="8999-12-31T23:59:59Z"</li><li>Update to all seat-based tokens:<br/>> sl="true"</li><li>For seat-based tokens, where the customer previously purchased a site-license:<br/>> ts="0"</li><li>For seat-based tokens, where the customer purchased 3 seats:<br/>> ts="3"</li></ul>|
+|One-time purchase	|The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free. This will be returned in the token for the add-in entitlement. |The user’s original purchase will still be valid. If the license was previously seat based (applies to Outlook and SharePoint add-ins only), it will be modified to resemble a site license for the user. This will be returned in the token to the add-in.<br/><br/>All active trial licenses will be converted to Free entitlements.	|For existing users that return a valid paid token, those users should continue to work. If the original token was seat-based (applies to Outlook and SharePoint add-ins only), the new token will contain the originally purchased seat count.<br/><br/>For new users, or users where the original seat count has been exceeded, you can take the opportunity to upsell the user to the new license.<br/><br/>**Token changes**<br/>For most users, the license token returned to the add-in will not change. The license tokens will change when an add-in moves from paid to free for seat-based tokens:<ul><li>Update to all seat-based tokens:<br/>> sl="true"</li><li>For seat-based tokens, where the customer previously purchased a site-license:<br/>> ts="0"</li><li>For seat-based tokens, where the customer purchased 3 seats:<br/>> ts="3"</li></ul> |
 
 For the license token schema, see [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md).
 
@@ -134,5 +61,4 @@ Following are a few examples of the experience after an add-in switches from pai
 
    Because this add-in was acquired prior to the trial expiration date, the trial will now return a free entitlement.
 
-   > [!NOTE] 
-   > This applies for subscription or one-time purchase add-ins.
+   > **Note:** This applies for subscription or one-time purchase add-ins.
