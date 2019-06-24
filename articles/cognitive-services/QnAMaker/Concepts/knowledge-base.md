@@ -47,12 +47,12 @@ The process is explained in the following table:
 |2|Qna Maker preprocessing the user query with language detection, spellers, and word breakers.|
 |3|This preprocessing is taken to alter user query for best search results.|
 |4|This altered query is sent to Azure Search Index, receiving the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally a value of 10 for `top` works in 90% of queries.|
-|5|The search results returned from Azure Search Index have features applied.|
-|6|The features scores are used to determine best ranking of the results from Azure Search Index.|
+|5|QnA Maker applies advanced featurization to determine the correctness of the fetched Azure Search results for user query. |
+|6|The trained ranker model uses the feature score, from step 5, to rank the Azure Search results.|
 |7|The new results are returned to the client application in ranked order.|
 |||
 
-Features include but are not limited to word-level semantic meaning, word-level importance in a corpus, and semantic similarity between two text strings.
+Features used include but are not limited to word-level semantics, term-level importance in a corpus, and deep learned semantic models to determine similarity and relevance between two text strings.
 
 
 ## Next steps
