@@ -356,7 +356,7 @@ While developing an application, it is often useful to see logging information i
 [!INCLUDE [functions-enable-log-stream-vscode](../../includes/functions-enable-log-stream-vscode.md)]
 
 > [!NOTE]
-> Streaming logs support only a single instance of the Functions host. When your function is scaled to multiple instances, data from other instances are not shown in the log stream. The [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights does supported multiple instances. While also in near real time, streaming analytics are also based on [sampled data](#configure-sampling).
+> Streaming logs support only a single instance of the Functions host. When your function is scaled to multiple instances, data from other instances are not shown in the log stream. The [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights does supported multiple instances. While also in near real time, streaming analytics are also based on [sampled data](functions-monitoring.md#configure-sampling).
 
 ### Application Insights
 
@@ -390,7 +390,7 @@ The Azure Functions extension provides a very useful graphical interface in the 
 | **Configure Deployment Source...** | Connect your function app in Azure to a local Git repository. To learn more, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). |
 | **Connect to GitHub Repository...** | Connect your function app a GitHub repository. |
 | **Copy Function URL** | Gets the remote URL of an HTTP triggered function running in Azure. To learn more, see how to [get the deployed function URL](#get-deployed-function-url). |
-| **Create function app in Azure...** | Creates a new function app in your subscription in Azure. To learn more, see how to [publish to a new function app in Azure](#publish-to-a-new-function-app-in-azure).        |
+| **Create function app in Azure...** | Creates a new function app in your subscription in Azure. To learn more, see how to [publish to a new function app in Azure](#publish-to-azure).        |
 | **Decrypt Settings** | Use to decrypt [local settings](#local-settings-file) that have been encrypted by using `Azure Functions: Encrypt Settings`.  |
 | **Delete Function App...** | Removes an existing function app from your subscription in Azure. When there are no other apps in the App Service plan, you are given the option to delete that also. Other resources, such as storage accounts and resource groups, aren't deleted. To remove all resources, you should instead [delete the resource group](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Your local project isn't affected. |
 |**Delete Function...**  | Removes an existing function from a function app in Azure. Because this deletion doesn't affect your local project, instead consider removing the function locally and then [republishing your project](#republish-project-files). |
