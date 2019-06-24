@@ -1,7 +1,7 @@
 ---
 title: Deployment Center Launcher
 description: Deployment center in Azure DevOps simplifies setting up a robust DevOps pipeline for your application.
-ms.author: mlearned
+ms.author: puagarw
 ms.manager: douge
 ms.prod: devops
 ms.technology: devops-cicd
