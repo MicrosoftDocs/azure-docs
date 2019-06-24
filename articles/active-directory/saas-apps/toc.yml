@@ -191,6 +191,8 @@
         href: bridge-tutorial.md
       - name: Bridgeline Unbound
         href: bridgelineunbound-tutorial.md
+      - name: Bright Pattern Omnichannel Contact Center
+        href: bright-pattern-omnichannel-contact-center-tutorial.md  
       - name: Brightidea
         href: brightidea-tutorial.md
       - name: Brightspace by Desire2Learn
@@ -1352,7 +1354,7 @@
         href: zoho-mail-tutorial.md
       - name: Zoho One
         href: zohoone-tutorial.md
-        name: Zoom
+      - name: Zoom
         href: zoom-tutorial.md
       - name: Zscaler
         href: zscaler-tutorial.md
@@ -1442,6 +1444,8 @@
         href: netsuite-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+      - name: proxyclick
+        href: proxyclick-provisioning-tutorial.md
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
