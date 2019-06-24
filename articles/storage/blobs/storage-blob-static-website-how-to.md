@@ -176,11 +176,13 @@ You can view content from a browser by using the public URL of the website.
 Find the URL by using the following command:
 
 ```powershell
-$context = Get-AzSubscription -SubscriptionId <subscription-d>
-Set-AzContext $context
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+* Replace the `<resource-group-name>` placeholder value with the name of your resource group.
+
+* Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 <a id="metrics" />
 

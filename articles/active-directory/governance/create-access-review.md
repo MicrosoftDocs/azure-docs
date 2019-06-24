@@ -26,7 +26,6 @@ This article describes how to create one or more access reviews for group member
 ## Prerequisites
 
 - Azure AD Premium P2
-- [Access reviews onboarded](access-reviews-overview.md)
 - Global administrator or User administrator
 
 For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).

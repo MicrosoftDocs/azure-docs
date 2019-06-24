@@ -2,31 +2,55 @@
 title: Deploy multiple instances of Azure resources | Microsoft Docs
 description: Use copy operation and arrays in an Azure Resource Manager template to iterate multiple times when deploying resources.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
-
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
 
 ---
-# Deploy more than one instance of a resource or property in Azure Resource Manager Templates
+# Resource, property, or variable iteration in Azure Resource Manager templates
 
-This article shows you how to iterate in your Azure Resource Manager template to create more than one instance of a resource. If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
+This article shows you how to create more than one instance of a resource, variable, or property in your Azure Resource Manager template. To create multiple instances, add the `copy` object to your template.
 
-For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+When used with a resource, the copy object has the following format:
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+When used with a variable or property, the copy object has the following format:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Both uses are described in greater detail in this article. For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+
+If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
+
+## Copy limits
+
+To specify the number of iterations, you provide a value for the count property. The count can't exceed 800.
+
+The count can't be a negative number. If you deploy a template with REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of the REST API don't support zero for count. Currently, Azure CLI or PowerShell don't support zero for count, but that support will be added in a future release.
+
+The limits for the count are the same whether used with a resource, variable, or property.
 
 ## Resource iteration
 
-When you must decide during deployment to create one or more instances of a resource, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and can't be more than 800. 
+When you must decide during deployment to create one or more instances of a resource, add a `copy` element to the resource type. In the copy element, specify the number of iterations and a name for this loop.
 
 The resource to create several times takes the following format:
 
@@ -67,7 +91,7 @@ Creates these names:
 * storage1
 * storage2.
 
-To offset the index value, you can pass a value in the copyIndex() function. The number of iterations to perform is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, the following example:
+To offset the index value, you can pass a value in the copyIndex() function. The number of iterations is still specified in the copy element, but the value of copyIndex is offset by the specified value. So, the following example:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -152,7 +176,7 @@ For information about using copy with nested templates, see [Using copy](resourc
 To create more than one value for a property on a resource, add a `copy` array in the properties element. This array contains objects, and each object has the following properties:
 
 * name - the name of the property to create several values for
-* count - the number of values to create. The count value must be a positive integer and can't be more than 800.
+* count - the number of values to create.
 * input - an object that contains the values to assign to the property  
 
 The following example shows how to apply `copy` to the dataDisks property on a virtual machine:

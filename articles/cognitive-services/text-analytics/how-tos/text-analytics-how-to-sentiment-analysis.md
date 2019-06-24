@@ -85,7 +85,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 
 ## Step 2: Post the request
 
-Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
+Analysis is performed upon receipt of the request. See the [data limits](../overview.md#data-limits) section in the overview for information on the size and number of requests you can send per minute and second.
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 

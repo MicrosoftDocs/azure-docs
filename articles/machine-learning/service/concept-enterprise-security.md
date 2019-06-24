@@ -70,7 +70,7 @@ The following table lists some of the major Azure Machine Learning service opera
 | View models/images | ✓ | ✓ | ✓ |
 | Call web service | ✓ | ✓ | ✓ |
 
-If the built-in roles are insufficient for your needs, you can also create custom roles. Note that the only custom roles we support are for operations on the workspace and Machine Learning Compute. The custom roles may have read, write, or delete permissions on the workspace and the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md)
+If the built-in roles are insufficient for your needs, you can also create custom roles. The only custom roles we support are for operations on the workspace and Machine Learning Compute. The custom roles may have read, write, or delete permissions on the workspace and the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md)
 
 ### Securing compute and data
 Owners and contributors can use all compute targets and data stores that are attached to the workspace.  
@@ -89,7 +89,7 @@ For more information on managed identities, see [Managed identities for Azure re
 
 It is recommended that administrators do not revoke the access of the managed identity to the resources mentioned above. Access can be restored with the Resync Keys operation.
 
-Azure Machine Learning service creates an additional application (name starts with aml-) with the contributor level access in your subscription for every workspace region. For ex. if you have a workspace in East US and another workspace in North Europe in the same subscription you will see 2 such applications. This is needed so that Azure Machine Learning service can help manage compute resources.
+Azure Machine Learning service creates an additional application (name starts with `aml-`) with the contributor level access in your subscription for every workspace region. For ex. if you have a workspace in East US and another workspace in North Europe in the same subscription you will see two such applications. This is needed so that Azure Machine Learning service can help manage compute resources.
 
 
 ## Network security
@@ -107,6 +107,8 @@ Azure Machine Learning service stores snapshots, outputs, and logs in the Azure 
 For more information on how to bring your own keys for the data stored in Azure Blob Storage, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 
 Training data is typically also stored in Azure Blob storage so that it is accessible to training compute. This storage is not managed by Azure Machine Learning but mounted to compute as a remote file system.
+
+For information on regenerating the access keys for the Azure storage accounts used with your workspace, see the [Regenerate storage access keys](how-to-change-storage-access-key.md) article.
 
 #### Cosmos DB
 Azure Machine Learning service stores metrics and metadata to the Cosmos DB that lives in a Microsoft subscription managed by Azure Machine Learning service. All the data stored in Cosmos DB is encrypted at rest using Microsoft Managed Keys.

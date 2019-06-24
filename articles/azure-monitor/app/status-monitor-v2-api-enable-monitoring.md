@@ -19,7 +19,7 @@ This article describes a cmdlet that's a member of the [Az.ApplicationMonitor Po
 
 > [!IMPORTANT]
 > Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommended it for production workloads. Some features might not be supported, and some might have constrained capabilities.
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Description
@@ -39,7 +39,7 @@ After you enable monitoring, we recommend that you use [Live Metrics](live-strea
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
 > [!IMPORTANT] 
-> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy).
+> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 
 ## Examples
 
@@ -103,7 +103,7 @@ The instrumentation engine adds overhead and is off by default.
 **Optional.** Use this switch to accept the license and privacy statement in headless installations.
 
 ### -Verbose
-**Common parameter.** Use this switch to output detailed logs.
+**Common parameter.** Use this switch to display detailed logs.
 
 ### -WhatIf 
 **Common parameter.** Use this switch to test and validate your input parameters without actually enabling monitoring.
@@ -149,7 +149,7 @@ Successfully enabled Application Insights Status Monitor
   View your telemetry:
  - [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
 - [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
-- Use [analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
+- [Use Analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
 - [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
  
  Add more telemetry:

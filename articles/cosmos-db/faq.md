@@ -157,7 +157,7 @@ The SQL query language supported by SQL API accounts is an enhanced subset of th
 
 ### Does the SQL API support SQL aggregation functions?
 
-The SQL API supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](how-to-sql-query.md#Aggregates).
+The SQL API supports low-latency aggregation at any scale via aggregate functions `COUNT`, `MIN`, `MAX`, `AVG`, and `SUM` via the SQL grammar. For more information, see [Aggregate functions](sql-query-aggregates.md).
 
 ### How does the SQL API provide concurrency?
 
@@ -739,11 +739,11 @@ Yes, you can use regular syntax to create composite partition key.
 
 ### Can I use stable loader for data loading?
 
-No, during preview stable loader isn't supported.
+No,  stable loader isn't supported.
 
 ### Can an on-premises Apache Cassandra cluster be paired with Azure Cosmos DB's Cassandra API?
 
-At present Azure Cosmos DB has an optimized experience for cloud environment without overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario.
+At present Azure Cosmos DB has an optimized experience for cloud environment without overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario. We are working on offering to help pair the on-premise/different cloud Cassandra cluster to Cosomos DB's Cassandra API.
 
 ### Does Cassandra API provide full backups?
 
@@ -758,15 +758,12 @@ You can add as many regions as you want for the account and control where it can
 
 ### Does the Apache Cassandra API index all attributes of an entity by default?
 
-Yes, all attributes of an entity are indexed by default by Azure Cosmos DB. For more information, see [Azure Cosmos DB: Indexing policies](index-policy.md). You get benefits of guaranteed performance with consistent indexing and durable quorum committed writes always.
+Cassandra API is planning to support Secondary indexing to help create selective index on certain attributes. 
 
-### Does this mean I don't have to create more than one index to satisfy the queries?
-
-Yes, Azure Cosmos DB provides automatic indexing of all attributes without any schema definition. This automation frees developers to focus on the application rather than on index creation and management. For more information, see [Azure Cosmos DB: Indexing policies](index-policy.md).
 
 ### Can I use the new Cassandra API SDK locally with the emulator?
 
-We plan to support this capability in future.
+Yes this is supported.
 
 ### Azure Cosmos DB as a platform seems to have lot of capabilities, such as change feed and other functionality. Will these capabilities be added to the Cassandra API?
 
