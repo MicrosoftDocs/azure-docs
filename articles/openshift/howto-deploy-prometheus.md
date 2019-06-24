@@ -11,30 +11,26 @@ keywords: prometheus, aro, openshift, metrics, red hat
 
 # Deploy a standalone Prometheus in an Azure Red Hat OpenShift cluster
 
-This guide will describe how to configure a standalone Prometheus with service discovery.
+This guide will describe how to configure a standalone Prometheus with service discovery in an Azure Red Hat OpenShift cluster.  “Customer admin” access to the cluster is NOT needed.
 
 The target setup is as follows:
 
-- one project, which contains the Prometheus and Alertmanager called prometheus-project
-- two projects, which contain the applications to monitor called app-project1 and app-project2
+- one project (prometheus-project), which contains Prometheus and Alertmanager
+- two projects (app-project1 and app-project2), which contain the applications to monitor
 
-You'll prepare some configuration files locally. Create a new folder to store them.
-The config files are stored in the cluster as secrets in case there are some secret tokens added inside them later.
+You'll prepare some Prometheus configuration files locally. Create a new folder to store them.
+These config files will be stored in the cluster as Secrets in case secret tokens are added to them later.
 
-## Step 1: Sign in to the cluster
-Sign in with your `oc` tool by going to the URL based on properties.publicHostname of the cluster:
-
-https://openshift.random-id.region.azmosa.io
-
-and signing in,
-then clicking your username in top right and selecting "Copy Login Command",
-and pasting it into the terminal you'll use.
+## Step 1: Sign in to the cluster using the `oc` tool
+Using a web browser, navigate to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
+Sign in with your Azure credentials.
+Click your username in top right and select "Copy Login Command". Paste it into the terminal you'll use.
 
 You can verify if you're signed in to the correct cluster with the `oc whoami -c` command.
 
 ## Step 2: Prepare the projects
 
-Create projects
+Create projects.
 ```
 oc new-project prometheus-project
 oc new-project app-project1
@@ -46,7 +42,7 @@ oc new-project app-project2
 > You can either use the `-n` or `--namespace` parameter or select an active project with the `oc project` command
 
 ## Step 3: Prepare Prometheus config
-Create a file called prometheus.yml with the following content:
+Create a file called prometheus.yml with the following content.
 ```
 global:
   scrape_interval: 30s
@@ -67,20 +63,20 @@ scrape_configs:
           - app-project1
           - app-project2
 ```
-Create a secret named "prom" with the configuration.
+Create a Secret named "prom" with the configuration.
 ```
 oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 ```
 
 The file listed above is a basic Prometheus config file.
 It sets the intervals and configures auto discovery in three projects (prometheus-project, app-project1, app-project2).
-The auto discovered endpoints will be scraped over HTTP without authentication.
+In this example, the auto discovered endpoints will be scraped over HTTP without authentication.
 For more information on scraping endpoints,
 see https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config.
 
 
 ## Step 4: Prepare Alertmanager config
-Create a file called alertmanager.yml with the following content:
+Create a file called alertmanager.yml with the following content.
 ```
 global:
   resolve_timeout: 5m
@@ -98,7 +94,7 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-create a secret named "prom-alerts" with the configuration
+Create a Secret named "prom-alerts" with the configuration.
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
@@ -108,16 +104,16 @@ The file listed above is the Alert Manager configuration file.
 > [!NOTE]
 > You can verify the two previous steps with `oc get secret -n prometheus-project`
 
-## Step 5: Start the Prometheus and Alertmanager
+## Step 5: Start Prometheus and Alertmanager
 Download the [prometheus-standalone.yaml](
 https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml)
-from the [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus)
+Template from the [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus)
 and apply it in the prometheus-project
 ```
-oc process -f prometheus-standalone.yaml | oc apply -f - -n prometheus-project
+oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
 The prometheus-standalone.yaml file is an OpenShift Template, which will create a Prometheus instance
-with an oauth-proxy in front of it and an Alertmanager instance, also secured with oauth-proxy.
+with an oauth-proxy in front of it and an Alertmanager instance, also secured with oauth-proxy.  In this Template oauth-proxy is configured to allow any User who can "get" the "prometheus-project" namespace (see the `-openshift-sar` flag).
 
 > [!NOTE]
 > You can verify if the "prom" StatefulSet has equal *DESIRED* and *CURRENT* number replicas
@@ -125,7 +121,7 @@ with an oauth-proxy in front of it and an Alertmanager instance, also secured wi
 > You can also check all resources in the project with `oc get all -n prometheus-project`.
 
 ## Step 6: Add permissions to allow Service Discovery
-Create prometheus-sdrole.yaml with the following content:
+Create prometheus-sdrole.yml with the following content.
 ```
 apiVersion: template.openshift.io/v1
 kind: Template
@@ -170,18 +166,18 @@ objects:
     name: prom
     namespace: ${PROMETHEUS_PROJECT}
 ```
-Apply the template to all projects where you would like to allow service discovery:
+Apply the template to all projects where you would like to allow service discovery.
 ```
-oc process -f prometheus-sdrole.yaml | oc apply -f - -n app-project1
-oc process -f prometheus-sdrole.yaml | oc apply -f - -n app-project2
+oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project1
+oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 ```
-If you'd like to also gather metrics from Prometheus, remember to add the permissions in prometheus-project.
+If you'd also like Prometheus to be able to gather metrics from itself, remember to apply the permissions in prometheus-project too.
 
 > [!NOTE]
 > You can verify if the Role and RoleBinding were created correctly with the `oc get role` and `oc get rolebinding` commands respectively
 
 ## Optional: Deploy example application
-Everything is working, but there are no metrics sources. Go to the Prometheus URL, which can be found with
+Everything is working, but there are no metrics sources. Go to the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/), which can be found with the following command.
 ```
 oc get route prom -n prometheus-project
 ```
@@ -194,13 +190,16 @@ To deploy an example application, which exposes basic python metrics under the /
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example1 -n app-project1
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example2 -n app-project2
 ```
-The new applications will appear as valid targets on the Service Discovery page within 30s after deployment.
+The new applications will appear as valid targets on the Service Discovery page within 30s after deployment. You can get more details on the **Status > Targets** page.
+
+> [!NOTE]
+> For every successfully scraped target Prometheus adds a datapoint in the "up" metric. Click **Prometheus** in the top left corner and enter "up" as the expression and click **Execute**.
 
 ## Next steps
 
-Add more metrics to your applications.
+You can add custom Prometheus instrumentation to your applications.
 
-The Prometheus Client library, which simplifies preparing Prometheus metrics, is ready for different programming languages:
+The Prometheus Client library, which simplifies preparing Prometheus metrics, is ready for different programming languages.
 
  - Java https://github.com/prometheus/client_java
  - Python https://github.com/prometheus/client_python
