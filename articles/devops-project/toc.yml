@@ -47,4 +47,5 @@
     maintainContext: true
   - name: 6- Deploy Node.js apps powered by Azure Cosmos DB
     href: /azure/devops-project/azure-devops-project-cosmosdb.md
+    maintainContext: true
     
