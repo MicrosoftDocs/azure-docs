@@ -45,225 +45,227 @@ You can target a Log Analytics workspace from another subscription. To monitor v
 
 ### Deploy a solution to the Log Analytics workspace
 
-Once the data is inside Log Analytics workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) onto Log Analytics to visualize the data. Make sure you give the same resource group, workspace name, and workspace location to properly identify the workspace and then install this template on it.
+Once the data is inside Log Analytics workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) to Log Analytics to visualize the data. To properly identify the workspace, make sure you give it the same resource group, workspace name, and workspace location. Then install this template on the workspace.
 
 > [!NOTE]
-> Users who do not have alerts or backup/restore jobs in their Log Analytics workspace might see an error with code "BadArgumentError" on the portal. Users can ignore this error and continue using the solution. Once data of the relevant type starts flowing into the workspace, the visualizations will reflect the same and users will not see this error anymore.
+> If you don't have alerts or backup/restore jobs in your Log Analytics workspace, you might see a "BadArgumentError" error code in the portal. You can ignore this error and continue using the solution. After the relevant data type starts flowing into the workspace, the visualizations will reflect the same, and you won't see this error anymore.
 
 ### View Azure Backup data by using Log Analytics
 
-Once the template is deployed, the solution for monitoring Azure Backup will show up in the workspace summary region. You can traverse via
+After the template is deployed, the solution for monitoring Azure Backup will show up in the workspace summary region. To go to the summary, follow one of these paths:
 
-- Azure Monitor -> "More" under 'Insights' section and choose the relevant workspace OR
-- Log Analytics Workspaces -> select the relevant workspace -> 'Workspace summary' under the General section.
+- **Azure Monitor**: In the **Insights** section, select **More** and then choose the relevant workspace.
+- **Log Analytics workspaces**: Select the relevant workspace, and then under **General**, select **Workspace summary**.
 
-![AzureBackup Log Analytics MonitoringTile](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
+![The Log Analytics monitoring tile](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
 
-On clicking the tile, the designer template opens up a series of graphs about the basic monitoring data from Azure Backup such as
+When you select the monitoring tile, the designer template opens a series of graphs about basic monitoring data from Azure Backup. Here are some of the graphs you'll see:
 
-#### All Backup jobs
+* All backup jobs
 
-![Log Analytics BackupJobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
+   ![Log Analytics graphs for backup jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
 
-#### Restore Jobs
+* Restore jobs
 
-![Log Analytics RestoreJobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
+   ![Log Analytics graph for restore jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
 
-#### Inbuilt Azure Backup alerts for Azure Resources
+* Built-in Azure Backup alerts for Azure resources
 
-![Log Analytics InbuiltAzureBackupAlertsForAzureResources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
+   ![Log Analytics graph for built-in Azure Backup alerts for Azure resources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
 
-#### Inbuilt Azure Backup alerts for on-premises Resources
+* Built-in Azure Backup alerts for on-premises resources
 
-![Log Analytics InbuiltAzureBackupAlertsForOnPremResources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
+   ![Log Analytics graph for built-in Azure Backup alerts for on-premises resources](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
 
-#### Active datasources
+* Active data sources
 
-![Log Analytics ActiveBackedUpEntities](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
+   ![Log Analytics graph for active backed-up entities](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
 
-#### RS Vault Cloud Storage
+* RS vault cloud storage
 
-![Log Analytics RSVaultCloudStorage](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
+   ![Log Analytics graph for RS vault cloud storage](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
 
-The above graphs are provided with the template and the customer is free to edit/add more graphs.
-
-> [!IMPORTANT]
-> When you deploy the template, it essentially creates a read-only lock and you need to remove it to edit the template and save. To remove locks, look in the 'Locks' pane under the 'Settings' section of the Log Analytics workspace.
-
-### Create alerts using Log Analytics
-
-Azure Monitor allows users to create their own alerts from Log Analytics workspace where you can *leverage the Azure Action groups to select your preferred notification mechanism*. Click on any of the graphs above to open the 'Logs' section of Log Analytics workspace ***where you can edit the queries and create alerts on top of them***.
-
-![Log Analytics CreateAlerts](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
-
-Clicking on "New Alert Rule" as shown above will open the Azure Monitor alert creation screen.
-
-As you can notice below, the resource is already marked as the Log Analytics workspace and action group integration is provided.
-
-![Log Analytics AzureBackupCreateAlert](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
+These graphs are provided with the template. You can edit the graphs or add more graphs if you need to.
 
 > [!IMPORTANT]
-> Please note that the relevant pricing impact of creating this query is provided [here](https://azure.microsoft.com/pricing/details/monitor/).
+> When you deploy the template, you're essentially creating a read-only lock. To edit and save the template, you need to remove the lock. You can remove a lock in the **Settings** section of the Log Analytics workspace,in the **Locks** pane.
+
+### Create alerts by using Log Analytics
+
+In Azure Monitor, you can create your own alerts in a Log Analytics workspace. In the workspace, you use the *Azure action groups* to select your preferred notification mechanism. 
+
+> [!IMPORTANT]
+> For information on the cost of creating this query, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+Select any of the graphs to open the **Logs** section of the Log Analytics workspace. In the **Logs** section, edit the queries and create alerts on them.
+
+![Create an alert in a Log Analytics workspace](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+
+When you select **New Alert Rule**, the Azure Monitor alert-creation page opens.
+
+In the following image, the resource is already marked as the Log Analytics workspace, and action group integration is provided.
+
+![The Log Analytics alert-creation page](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
 #### Alert condition
 
-The key aspect is the triggering condition of the alert. Clicking on 'Condition' will automatically load the Kusto query in the 'Logs' screen as shown below and you can edit it to suit your scenario. Some sample Kusto queries are provided in the [section below](#sample-kusto-queries).
+The defining characteristic of an alert is its triggering condition. Select **Condition** to automatically load the Kusto query on the **Logs** page as shown in the following image. Here you can edit the condition to suit your needs. For more information, see [Sample Kusto queries](#sample-kusto-queries).
 
-![Log Analytics AzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
+![Setting up an alert condition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Edit the Kusto query, if necessary, select the right threshold (which will decide when the alert will be fired), the right period (time window for which the query is run), and the frequency. For example: If the threshold is greater than 0, the period is 5 minutes and the frequency is 5 minutes, then the rule is translated as "Run the query every 5 minutes for the last 5 minutes and if the number of results is greater than 0, notify me via the selected action group"
+If necessary, you can edit the Kusto query. Choose a threshold, period, and frequency. The threshold determines when the alert will be raised. The period is the window of time in which the query is run. For example, if the threshold is greater than 0, the period is 5 minutes, and the frequency is 5 minutes, then the rule runs the query every 5 minutes, reviewing the previous 5 minutes. If the number of results is greater than 0, you're notified through the selected action group.
 
-#### Action group integration
+#### Alert action groups
 
-Action groups specify the notification channels available to the user. Clicking on "Create New" under "Action groups" section shows the available list of notification mechanisms.
+Use an action group to specify a notification channel. To see the available notification mechanisms, under **Action groups**, select **Create New**.
 
-![Log Analytics AzureBackupNewActionGroup](media/backup-azure-monitoring-laworkspace/LA-AzureBackup-ActionGroup.png)
+![Available notification mechanisms in the "Add action group" window](media/backup-azure-monitoring-laworkspace/LA-AzureBackup-ActionGroup.png)
 
-Learn more about the [Alerts from Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) and about [Action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) from Azure Monitor documentation.
+You can satisfy all alerting and monitoring requirements from Log Analytics alone, or you can use Log Analytics to supplement built-in notifications.
 
-Hence you can satisfy all alerting and monitoring requirements from Log Analytics alone or use it as a supplementary technique to in-built notification mechanisms.
+For more information, see [Create, view, and manage log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) and [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
 
 ### Sample Kusto queries
 
-The default graphs would give you Kusto queries for basic scenarios on which you can build alerts. You can also modify them to get the data you wish to get alerted on. Here we provide some sample Kusto queries that can you paste in 'Logs' window and then create an alert on the query.
+The default graphs give you Kusto queries for basic scenarios on which you can build alerts. You can also modify the queries to get the data you want to be alerted on. You can paste the following sample Kusto queries in the **Logs** page and then create alerts on the queries:
 
-#### All successful backup jobs
+* All successful backup jobs
 
-````Kusto
-AzureDiagnostics
-| where Category == "AzureBackupReport"
-| where SchemaVersion_s == "V2"
-| where OperationName == "Job" and JobOperation_s == "Backup"
-| where JobStatus_s == "Completed"
-````
-
-#### All failed backup jobs
-
-````Kusto
-AzureDiagnostics
-| where Category == "AzureBackupReport"
-| where SchemaVersion_s == "V2"
-| where OperationName == "Job" and JobOperation_s == "Backup"
-| where JobStatus_s == "Failed"
-````
-
-#### All successful Azure VM backup jobs
-
-````Kusto
-AzureDiagnostics
-| where Category == "AzureBackupReport"
-| where SchemaVersion_s == "V2"
-| extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-| where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
-| join kind=inner
-(
+    ````Kusto
     AzureDiagnostics
     | where Category == "AzureBackupReport"
-    | where OperationName == "BackupItem"
     | where SchemaVersion_s == "V2"
-    | where BackupItemType_s == "VM" and BackupManagementType_s == "IaaSVM"
-    | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-    | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-)
-on BackupItemUniqueId_s
-| extend Vault= Resource
-| project-away Resource
-````
+    | where OperationName == "Job" and JobOperation_s == "Backup"
+    | where JobStatus_s == "Completed"
+    ````
+    
+* All failed backup jobs
 
-#### All successful SQL Log backup jobs
-
-````Kusto
-AzureDiagnostics
-| where Category == "AzureBackupReport"
-| where SchemaVersion_s == "V2"
-| extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-| where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s == "Log"
-| join kind=inner
-(
+    ````Kusto
     AzureDiagnostics
     | where Category == "AzureBackupReport"
-    | where OperationName == "BackupItem"
     | where SchemaVersion_s == "V2"
-    | where BackupItemType_s == "SQLDataBase" and BackupManagementType_s == "AzureWorkload"
-    | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-    | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-)
-on BackupItemUniqueId_s
-| extend Vault= Resource
-| project-away Resource
-````
+    | where OperationName == "Job" and JobOperation_s == "Backup"
+    | where JobStatus_s == "Failed"
+    ````
+    
+* All successful Azure VM backup jobs
 
-#### All successful MAB Agent backup jobs
-
-````Kusto
-AzureDiagnostics
-| where Category == "AzureBackupReport"
-| where SchemaVersion_s == "V2"
-| extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-| where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
-| join kind=inner
-(
+    ````Kusto
     AzureDiagnostics
     | where Category == "AzureBackupReport"
-    | where OperationName == "BackupItem"
     | where SchemaVersion_s == "V2"
-    | where BackupItemType_s == "FileFolder" and BackupManagementType_s == "MAB"
-    | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-    | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-)
-on BackupItemUniqueId_s
-| extend Vault= Resource
-| project-away Resource
-````
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
+    | join kind=inner
+    (
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
+        | where OperationName == "BackupItem"
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "VM" and BackupManagementType_s == "IaaSVM"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+    )
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
+    ````
+
+* All successful SQL log backup jobs
+
+    ````Kusto
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s == "Log"
+    | join kind=inner
+    (
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
+        | where OperationName == "BackupItem"
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "SQLDataBase" and BackupManagementType_s == "AzureWorkload"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+    )
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
+    ````
+
+* All successful Azure Backup agent jobs
+
+    ````Kusto
+    AzureDiagnostics
+    | where Category == "AzureBackupReport"
+    | where SchemaVersion_s == "V2"
+    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
+    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
+    | join kind=inner
+    (
+        AzureDiagnostics
+        | where Category == "AzureBackupReport"
+        | where OperationName == "BackupItem"
+        | where SchemaVersion_s == "V2"
+        | where BackupItemType_s == "FileFolder" and BackupManagementType_s == "MAB"
+        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
+        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
+    )
+    on BackupItemUniqueId_s
+    | extend Vault= Resource
+    | project-away Resource
+    ````
 
 ### Diagnostic data update frequency
 
-The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives to the Log Analytics workspace ***with a lag of 20-30 mins after it is pushed from the RS vault.***
+The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace *20 to 30 minutes* after it's pushed from the RS vault. Here are further details about the lag:
 
-- The backup service built-in alerts (across all solutions) are pushed as soon as they are created. Which means they typically appear in the Log Analytics workspace after a lag of 20-30 mins.
-- Adhoc backup jobs and restore jobs (across all solutions) are pushed as soon as they ***are completed***.
-- The scheduled backup jobs from all solutions (except SQL backup) are pushed as soon as they ***are completed***.
-- For SQL backup,since we can have log backups every 15 mins, for all the completed scheduled backup jobs, including logs, the information is batched and pushed every 6 hours.
-- All other information such as backup item, policy, Recovery points, storage etc. across all solutions are pushed **atleast once per day.**
-- A change in the backup configuration such as changing policy, editing policy etc. triggers a push of all related backup information.
+- Across all solutions, the backup service's built-in alerts are pushed as soon as they are created. So they usually appear in the Log Analytics workspace after 20 to 30 minutes.
+- Across all solutions, ad hoc backup jobs and restore jobs are pushed as soon as they *finish*.
+- For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they *finish*.
+- For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
+- Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on are pushed at least *once per day.*
+- A change in the backup configuration (such as changing policy or editing policy) triggers a push of all related backup information.
 
-## Use RS Vault's Activity logs
+## Use the RS vault's activity logs
 
-You can also use Activity logs to get notification for events such as backup success.
+You can also use activity logs to get notification for events such as backup success.
 
 > [!CAUTION]
-> **Please note this is only applicable for Azure VM backups.** You cannot use this for other solutions such as Azure Backup Agent, SQL backups within Azure, Azure Files etc.
+> These steps apply only to *Azure VM backups.* You can't use these steps for solutions such as the Azure Backup agent, SQL backups within Azure, or Azure Files.
 
 ### Sign in to the Azure portal
 
-Sign in into the Azure portal and proceed to the relevant Azure Recovery Services vault and click the “Activity log” section in the properties.
+Sign in into the Azure portal and proceed to the relevant RS vault. In the vault's properties, open the **Activity log** section.
 
-### Identify the appropriate log and create alert
+### Identify the appropriate log and create an alert
 
-Apply the filters shown in the following picture to verify whether you are receiving activity logs for successful backups. Change the timespan accordingly to view records.
+To verify that you're receiving activity logs for successful backups, apply the filters shown in the following image. Change the **Timespan** value accordingly to view records.
 
-![Activity logs for Azure VM backups](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
+![Filtering to find activity logs for Azure VM backups](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-Click on the operation name it will display the operation and relevant details.
+Select the operation name to see the operation and relevant details.
+
+Select **New alert rule** to open the **Create rule** page. Here you can create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
 ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Click **New alert rule** to open the **Create rule** screen, here you can create alert using steps described in this [article](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+Here the resource is the RS vault itself. You must repeat the same action for all of the vaults in which you want to be notified through activity logs. The condition will not have a threshold, period, or frequency because this is an event-based alert. As soon as the relevant activity log is generated, the alert is raised.
 
-Here the resource is the Recovery Service vault itself and hence you need to repeat the same action for all the vaults in which you want notification via activity logs. The condition will not have any threshold, period, frequency since this is an event-based alert. As soon as the relevant activity log is generated, the alert is fired.
+## Use Log Analytics to monitor at scale
 
-## Recommendation
+You can view all alerts created from activity logs and Log Analytics workspaces in Azure Monitor. Just open the **Alerts** pane on the left.
 
-***All alerts created from activity logs and Log Analytics workspaces can be viewed in Azure Monitor in the 'Alerts' pane to the left.***
+Although you can get notifications through activity logs, we highly recommend using Log Analytics rather than activity logs for monitoring at scale. Here's why:
 
-While the notification via Activity logs can be used, ***Azure Backup service highly recommends to use Log Analytics for monitoring at scale and NOT activity logs for the following reasons***.
+- **Limited scenarios**: Notifications through activity logs apply only to Azure VM backups. The notifications have to be set up for every RS vault.
+- **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [diagnostic logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
+- **Problems with the activity log channel**: In RS vaults, activity logs pumped from Azure Backup now follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Sovereign Cloud. If Azure Sovereign Cloud users create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects RS activity logs into a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), these logs don't appear.
 
-- **Limited Scenarios:** Applicable only for Azure VM backups and should be repeated for every RS vault.
-- **Definition fit:** The scheduled backup activity doesn't fit with the latest definition of activity logs and aligns with [diagnostic logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). This lead to unexpected impact when the data pumping via activity log channel is changed as pointed below.
-- **Problems with Activity log channel:** We have moved to a new model of pumping Activity logs from Azure Backup on Recovery Services vaults. Unfortunately, the move has affected generation of activity logs in Azure Sovereign Clouds. If Azure Sovereign Cloud users created/configured any alerts from Activity logs via Azure Monitor, they would not be triggered. Also, in all Azure public regions, if a user is collecting Recovery Services Activity logs into a Log Analytic workspace as mentioned [here](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), these logs also would not appear.
-
-Hence it is highly recommended to use Log Analytic workspace for monitoring and alerting at scale for all your Azure Backup protected workloads.
+Use a Log Analytics workspace for monitoring and alerting at scale for all your workloads that are protected by Azure Backup.
 
 ## Next steps
 
-- Refer to [Log analytics data model](backup-azure-log-analytics-data-model.md) to create custom queries.
+To create custom queries, see [Log analytics data model](backup-azure-log-analytics-data-model.md).
