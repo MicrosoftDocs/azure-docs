@@ -202,7 +202,7 @@ The first thing to do here is add a class that contains the logic to connect to 
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs)]
 
- 1. Repeat steps 2-3, but this time, for a class named **ICosmosDBService**, and add the following code:
+1. Repeat steps 2-3, but this time, for a class named **ICosmosDBService**, and add the following code:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs)]
  
@@ -288,15 +288,14 @@ Now that you have the complete application working correctly with Azure Cosmos D
 
    ![Create App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
-In a few seconds, Visual Studio publishes your web application and launch a browser where you can see your project running in Azure!
+In a few seconds, Visual Studio publishes your web application and launches a browser where you can see your project running in Azure!
 
 ## Next steps
 In this tutorial, you've learned how to build an ASP.NET Core MVC web application that can access data stored in Azure Cosmos DB. You can now proceed to the next article:
 
-> [!div class="nextstepaction"]
-> [Learn about partitioning your data in Azure Cosmos DB](./partitioning-overview.md)
-> [Learn about how to do more advanced queries in Azure Cosmos DB](./how-to-sql-query.md)
-> [Learn about how to model your data in a more advanced scenario](./how-to-model-partition-example.md)
+* [Learn about partitioning your data in Azure Cosmos DB](./partitioning-overview.md)
+* [Learn about how to do more advanced queries in Azure Cosmos DB](./how-to-sql-query.md)
+* [Learn about how to model your data in a more advanced scenario](./how-to-model-partition-example.md)
 
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
