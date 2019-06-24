@@ -31,9 +31,9 @@ The various client libraries define classes like `Index`, `Field`, and `Document
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
-If you would like to provide feedback for a future update of the SDK, see our [feedback page](https://feedback.azure.com/forums/263029-azure-search/).
+If you would like to provide feedback for a future update of the SDK, see our [feedback page](https://feedback.azure.com/forums/263029-azure-search/) or create an issue on [GitHub](https://github.com/azure/azure-sdk-for-net/issues) and mention "Azure Search" in the issue title.
 
-The .NET SDK supports version `2019-05-06` of the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version includes support for [complex types](https://docs.microsoft.com/azure/search/search-howto-complex-data-types), [cognitive search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete), and [JsonLines parsing mode](https://docs.microsoft.com/azure/search/search-howto-index-json-blobs) when indexing Azure Blobs. 
+The .NET SDK supports version `2019-05-06` of the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version includes support for [complex types](search-howto-complex-data-types.md), [cognitive search](cognitive-search-concept-intro.md), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete), and [JsonLines parsing mode](search-howto-index-json-blobs.md) when indexing Azure Blobs. 
 
 This SDK does not support [Management Operations](https://docs.microsoft.com/rest/api/searchmanagement/) such as creating and scaling Search services and managing API keys. If you need to manage your Search resources from a .NET application, you can use the [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 
@@ -374,7 +374,7 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 }
 ```
 
-This method has four parts. The first creates an array of 3 `Hotel` objects each with 3 'Room' objects that will serve as our input data to upload to the index. This data is hard-coded for simplicity. In your own application, your data will likely come from an external data source such as a SQL database.
+This method has four parts. The first creates an array of 3 `Hotel` objects each with 3 `Room` objects that will serve as our input data to upload to the index. This data is hard-coded for simplicity. In your own application, your data will likely come from an external data source such as a SQL database.
 
 The second part creates an `IndexBatch` containing the documents. You specify the operation you want to apply to the batch at the time you create it, in this case by calling `IndexBatch.Upload`. The batch is then uploaded to the Azure Search index by the `Documents.Index` method.
 
@@ -395,7 +395,7 @@ Finally, the `UploadDocuments` method delays for two seconds. Indexing happens a
 <a name="how-dotnet-handles-documents"></a>
 
 #### How the .NET SDK handles documents
-You may be wondering how the Azure Search .NET SDK is able to upload instances of a user-defined class like 'Hotel' to the index. To help answer that question, let's look at the 'Hotel' class:
+You may be wondering how the Azure Search .NET SDK is able to upload instances of a user-defined class like `Hotel` to the index. To help answer that question, let's look at the `Hotel` class:
 
 ```csharp
 using System;
@@ -452,7 +452,7 @@ public partial class Hotel
 }
 ```
 
-The first thing to notice is that each public property of `Hotel` corresponds to a field in the index definition.  
+The first thing to notice is that the name of each public property in the `Hotel` class will map to a field with the same name in the index definition. If you would like each field to start with a lower-case letter, ("camel case"), you can tell the SDK to map the property names to camel-case automatically with the `[SerializePropertyNamesAsCamelCase]` attribute on the class. This scenario is common in .NET applications that perform data-binding where the target schema is outside the control of the application developer without having to violate the "Pascal case" naming guidelines in .NET.
 
 > [!NOTE]
 > The Azure Search .NET SDK uses the [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) library to serialize and deserialize your custom model objects to and from JSON. You can customize this serialization if needed. For more information, see [Custom Serialization with JSON.NET](#JsonDotNet).
@@ -461,20 +461,20 @@ The first thing to notice is that each public property of `Hotel` corresponds to
 
 The second thing to notice is each property is decorated with attributes such as `IsFilterable`, `IsSearchable`, `Key`, and `Analyzer`. These attributes map directly to the [corresponding field attributes in an Azure Search index](https://docs.microsoft.com/rest/api/searchservice/create-index#request). The `FieldBuilder` class uses these properties to construct field definitions for the index.
 
-The third important thing about the `Hotel` class is the data types of the public properties. The .NET types of these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?` and `Edm.Boolean`, `DateTimeOffset?` and `Edm.DateTimeOffset`, etc. The specific rules for the type mapping are documented with the `Documents.Get` method in the [Azure Search .NET SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). The `FieldBuilder` class takes care of this mapping for you, but it can still be helpful to understand in case you need to troubleshoot any serialization issues.
+The third important thing about the `Hotel` class is the data types of the public properties. The .NET types of these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?`, `Edm.Boolean`, `DateTimeOffset?`, and `Edm.DateTimeOffset` and so on. The specific rules for the type mapping are documented with the `Documents.Get` method in the [Azure Search .NET SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). The `FieldBuilder` class takes care of this mapping for you, but it can still be helpful to understand in case you need to troubleshoot any serialization issues.
 
-Did you happen to notice the 'SmokingAllowed' property?
+Did you happen to notice the `SmokingAllowed` property?
 
 ```csharp
 [JsonIgnore]
 public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
 ```
 
-The 'JsonIgnore' attribute on this property tells the 'FieldBuilder' to not serialize it to the index as a field.  This is a great way to create client-side calculated properties you can use as helpers in your application.  In this case, the 'SmokingAllowed' property reflects whether any 'Room' in the 'Rooms' allows smoking.  If all are false, it indicates that the entire 'Hotel' does not allow smoking.
+The `JsonIgnore` attribute on this property tells the `FieldBuilder` to not serialize it to the index as a field.  This is a great way to create client-side calculated properties you can use as helpers in your application.  In this case, the `SmokingAllowed` property reflects whether any `Room` in the `Rooms` collection allows smoking.  If all are false, it indicates that the entire hotel does not allow smoking.
 
-Some properties such as 'Address' and 'Rooms' are instances of .Net classes.  These properties represent more complex data structures and, as a result, require fields with a [complex data type](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) in the index.
+Some properties such as `Address` and `Rooms` are instances of .NET classes.  These properties represent more complex data structures and, as a result, require fields with a [complex data type](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) in the index.
 
-The 'Address' property represents a set of multiple values in the 'Address' class, defined below:
+The `Address` property represents a set of multiple values in the `Address` class, defined below:
 
 ```csharp
 using System;
@@ -506,7 +506,7 @@ namespace AzureSearch.SDKHowTo
 
 This class contains the standard values used to describe addresses in the United States or Canada. You can use types like this to group logical fields together in the index.
 
-The 'Rooms' property represents an array of 'Room' objects:
+The `Rooms` property represents an array of `Room` objects:
 
 ```csharp
 using System;
@@ -548,9 +548,9 @@ namespace AzureSearch.SDKHowTo
 }
 ```
 
-Your data model in .Net and its corresponding index schema should be designed to support the search experience you'd like to give to your end user. Each top level object in .Net, ie document in the index, corresponds to a search result you would present in your user interface. For example, in a hotel search application your end users may want to search by hotel name, features of the hotel, or the characteristics of a particular room. We'll cover some query examples a little later.
+Your data model in .NET and its corresponding index schema should be designed to support the search experience you'd like to give to your end user. Each top level object in .NET, ie document in the index, corresponds to a search result you would present in your user interface. For example, in a hotel search application your end users may want to search by hotel name, features of the hotel, or the characteristics of a particular room. We'll cover some query examples a little later.
 
-This ability to use your own .Net classes to interact with documents in the index works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as we will see in the next section.
+This ability to use your own classes to interact with documents in the index works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as we will see in the next section.
 
 > [!NOTE]
 > The Azure Search .NET SDK also supports dynamically-typed documents using the `Document` class, which is a key/value mapping of field names to field values. This is useful in scenarios where you don't know the index schema at design-time, or where it would be inconvenient to bind to specific model classes. All the methods in the SDK that deal with documents have overloads that work with the `Document` class, as well as strongly-typed overloads that take a generic type parameter. Only the latter are used in the sample code in this tutorial. The [`Document` class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) inherits from `Dictionary<string, object>`.
