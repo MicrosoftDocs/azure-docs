@@ -151,7 +151,7 @@ Other than using more than 25 policies for appropriate secure user management, t
 you protect service interfaces from unauthorized access by assigning an [Azure Policy](../../../policy/overview.md)
 definition that monitors unrestricted storage accounts. Storage accounts with unrestricted access
 can allow unintended access to information contained within the information system. This blueprint
-also assigns a policy that enables adative application controls on virtual machines.
+also assigns a policy that enables adaptive application controls on virtual machines.
 
 - Audit unrestricted network access to storage accounts
 - Adaptive Application Controls should be enabled on virtual machines
