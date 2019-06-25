@@ -115,7 +115,7 @@ Automated ML is also available in other Microsoft solutions such as:
 
 See examples and learn how to build models using automated machine learning:
 
-+ Follow the [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
++ Follow the [Tutorial: Automatically train a regression model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
 + Configure the settings for automatic training experiment:
   + In Azure portal interface, [use these steps](how-to-create-portal-experiments.md).
