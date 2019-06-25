@@ -181,7 +181,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    - master_ssl_ca: CA certificate’s context. If you're not using SSL, pass in empty string.*
     
     
-    *We recommend passing the master_ssl_ca parameter in as a variable. See the following examples for more information.
+    *We recommend passing the master_ssl_ca parameter in as a variable. For more information, see the following examples.
 
    **Examples**
 
