@@ -1,12 +1,12 @@
 ---
 title: 'Build a .NET console app to manage data in Azure Cosmos DB SQL API account'
-description: A tutorial that creates an online database and C# console application using the SQL API.
+description: Learn how to create an Azure Cosmos DB SQL API resources using a C# console application.
 author: kirankumarkolli
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 06/24/2019
 ms.author: kirankumarkolli
 
 ---
@@ -14,13 +14,12 @@ ms.author: kirankumarkolli
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
-Welcome to the Azure Cosmos DB SQL API get started tutorial. After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources. This tutorial uses [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK, which targets [.NET Standard 2.0.](https://docs.microsoft.com/dotnet/standard/net-standard)
+Welcome to the Azure Cosmos DB SQL API get started tutorial. After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources. This tutorial uses [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK, which can be targeted to [.NET Framework](https://dotnet.microsoft.com/download) or [.NET Core](https://dotnet.microsoft.com/download).
 
 This tutorial covers:
 
@@ -56,13 +55,13 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 1. In the **New Project** dialog, select **Visual C#** / **Console App (.NET Framework)**, name your project, and then click **OK**.
     ![Screenshot of the New Project window](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 
-> [!NOTE]
-> For .NET core target, in the **New Project** dialog, select **Visual C#** / **Console App (.NET Core)**, name your project, and then click **OK**
+    > [!NOTE]
+    > For .NET core target, in the **New Project** dialog, select **Visual C#** / **Console App (.NET Core)**, name your project, and then click **OK**
 
 1. In the **Solution Explorer**, right click on your new console application, which is under your Visual Studio solution, and then click **Manage NuGet Packages...**
 
     ![Screenshot of the Right Clicked Menu for the Project](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
-1. In the **NuGet** tab, click **Browse**, and type **Microsoft.Azure.Cosmos** in the search box. Be sure to check *Include prelease* to find the preview.
+1. In the **NuGet** tab, click **Browse**, and type **Microsoft.Azure.Cosmos** in the search box.
 1. Within the results, find **Microsoft.Azure.Cosmos** and click **Install**.
    The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
    ![Screenshot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
