@@ -6,7 +6,6 @@ documentationcenter: na
 author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
-ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
@@ -19,7 +18,7 @@ ms.reviewer: jroth
 ---
 # Register SQL Server virtual machine in Azure with the SQL VM resource provider
 
-This article describes how to register your Azure SQL Server virtual machine (VM) with the SQL VM resource provider. 
+This article describes how to register your Azure SQL Server virtual machine (VM) with the SQL VM resource provider - **Microsoft.SqlVirtualMachine**. 
 
 The SQL VM resource provider enables improved and robust management of SQL Server VMs. SQL Server VMs that have been created using the Azure portal are automatically registered with the SQL VM resource provider. However, there are some specific cases in which manual registration is necessary, such as when SQL Server has been self-installed. You can use Azure CLI or PowerShell to register your SQL Server VM with the SQL VM resource provider. 
 
@@ -160,7 +159,7 @@ To resolve this issue, install the SQL IaaS extension before attempting to regis
 
 
 ### The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.
-This error occurs when attempting to change the licensing model on a SQL Server VM that has not been registered with the SQL VM resource provider. You'll need to register the resource provider to your [subscription](#register-sql-vm-resource-provider-with-subscription), and then register your SQL Server VM with the SQL [resource provider](#register-sql-server-vm-with-sql-resource-provider). 
+This error occurs when attempting to change the licensing model on a SQL Server VM that has not been registered with the SQL VM resource provider. You'll need to register the resource provider to your [subscription](#register-sql-vm-resource-provider-with-subscription), and then register your SQL Server VM with the SQL [resource provider](virtual-machines-windows-sql-register-with-rp.md). 
 
 ### Cannot validate argument on parameter 'Sku'
 You may encounter this error when attempting to change your SQL Server VM licensing model when using Azure PowerShell > 4.0:

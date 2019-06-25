@@ -4,7 +4,7 @@ description: Learn how to switch licensing for a SQL virtual machine in Azure fr
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
+manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
