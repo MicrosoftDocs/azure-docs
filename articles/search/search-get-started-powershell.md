@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: PowerShell and REST APIs - Azure Search'
-description: Create, load, and query an index using PowerShell's Invoke-RestMethod and the Azure Search REST API.
+title: 'PowerShell Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+description: Explains how to create an index, load data, and run queries using PowerShell's Invoke-RestMethod and the Azure Search REST API.
 
 ms.date: 06/10/2019
 author: heidisteen
@@ -12,7 +12,7 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ---
-# Quickstart: Create an Azure Search index using PowerShell
+# Quickstart: Create an Azure Search index in PowerShell using REST APIs
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
@@ -21,7 +21,7 @@ ms.custom: seodec2018
 > * [Portal](search-create-index-portal.md)
 > 
 
-This article walks you through the process of creating, loading, and querying an Azure Search index using PowerShell and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to run PowerShell commands interatively. Alternatively, you could run a finished script. To download a copy, go to the [azure-search-powershell-samples](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) repo.
+This article walks you through the process of creating, loading, and querying an Azure Search index using PowerShell and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you could run a finished script. To download a copy, go to the [azure-search-powershell-samples](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) repo.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin and then [sign up for Azure Search](search-create-service-portal.md).
 

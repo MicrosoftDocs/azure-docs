@@ -3,13 +3,13 @@ title: "Quickstart: Detect text language, Python - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to identify the language of provided text using Python and the Translator Text REST API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to detect text language using Python
