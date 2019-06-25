@@ -1,5 +1,5 @@
 ---
-title: C# tutorial on using facets for navigation - Azure Search
+title: C# tutorial on using facets to aid navigation - Azure Search
 description: This tutorial builds on the "Search results pagination - Azure Search" project, to add facet navigation. Learn that facets can be used to easily narrow a search.
 services: search
 ms.service: search
@@ -9,7 +9,7 @@ author: PeterTurcan
 ms.date: 06/20/2019
 ---
 
-# C# tutorial: Use facets for navigation - Azure Search
+# C# tutorial: Use facets to aid navigation - Azure Search
 
 Facets are used to aid navigation, by providing the user with a set of links to use to focus their search. Facets are attributes of the data (such as the category, or a specific feature, of a hotel in our sample data).
 
@@ -26,7 +26,7 @@ To complete this tutorial, you need to:
 
 Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This project can either be your own version, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
-## Set model fields as IsFacetable
+## Set model properties as IsFacetable
 
 In order for a model property to be located in a facet search (either navigation or autocompletion), it must be tagged with **IsFacetable**.
 
@@ -87,18 +87,18 @@ We need the controller to pass the lists of facets to the view. We need to maint
 
 ![Using facet navigation to narrow a search of "pool"](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
 
-### Modify the SearchData model
+### Add filter strings to the SearchData model
 
-1. Open the SearchData.cs file, and add string properties to hold the facet text.
+1. Open the SearchData.cs file, and add string properties to hold the facet filter strings.
 
     ```cs
         public string categoryFilter { get; set; }
         public string amenityFilter { get; set; }
     ```
 
-### Search for facets
+### Add the Facet action method
 
-The home controller needs one new action, and updates to its existing **Index** and **Page** actions, as well as updates to the **RunQueryAsync** method.
+The home controller needs one new action, **Facet**, and updates to its existing **Index** and **Page** actions, as well as updates to the **RunQueryAsync** method.
 
 1. Open the home controller file, and add the **using** statement.
 
@@ -106,7 +106,7 @@ The home controller needs one new action, and updates to its existing **Index** 
     using System.Collections.Generic;
     ```
 
-2.  Replace the **Index(SearchData model)** action method.
+2. Replace the **Index(SearchData model)** action method.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -309,7 +309,7 @@ When a user selects a certain facet, for example, they click on the **Resort and
 
     We have added the **Category** and **Tags** properties to the list of **Select** items to return. This is not a requirement for facet navigation to work, but in this way we can verify that we are filtering correctly.
 
-### Add a list of facet links to the view
+### Add lists of facet links to the view
 
 The view is going to require some significant changes. 
 
@@ -335,7 +335,7 @@ The view is going to require some significant changes.
     }
     ```
 
-2. For the view, we organize the output into a table, to neatly align the facets on the left, and the results on the right. Open the index.cshtml file. Replace the entire contents of the HTML &lt;body&gt; tags, with the following code.
+2. For the view, we organize the output into a table, to neatly align the facet lists on the left, and the results on the right. Open the index.cshtml file. Replace the entire contents of the HTML &lt;body&gt; tags, with the following code.
 
     ```cs
     <body>
@@ -515,11 +515,11 @@ The view is going to require some significant changes.
     </body>
     ```
 
-    Notice the use of the **@Html.ActionLink** call, to communicate a valid filter string, when the user selects a facet link. 
+    Notice the use of the **@Html.ActionLink** call, to communicate a valid filter string to the controller, when the user selects a facet link. 
 
 ### Run and test the app
 
-The advantage of facet navigation to the user is that they can narrow searches with a single click.
+The advantage of facet navigation to the user is that they can narrow searches with a single click, which we can show in the following sequence.
 
 1. Run the app, type "airport" as the search text. Verify that the list of facets appears neatly to the left.
 
@@ -535,7 +535,7 @@ The advantage of facet navigation to the user is that they can narrow searches w
 
 4. Try selecting any other category, then one amenity, and view the narrowing results. Then try the other way around, one amenity, then one category.
 
-    >{!Note]
+    >[!Note]
     > When one selection is made in a facet list (such as category) it will override any previous selection within that list.
 
 ## Takeaways
