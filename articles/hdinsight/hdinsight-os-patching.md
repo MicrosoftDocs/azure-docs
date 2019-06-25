@@ -24,7 +24,7 @@ Using the script actions described in this article, you can modify the OS patchi
 > These script actions will only work with Linux-based HDInsight clusters created after August 1st, 2016. Patches will be effective only when VMs are rebooted. 
 > These scripts will not automatically apply updates for all future update cycles. Run the scripts each time new updates need to be applied in order to install the updates and reboot the VM.
 
-## How to use the script 
+## How to use the script
 
 Using this script requires the following information:
 1. The install-updates-schedule-reboots script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh.
