@@ -153,7 +153,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 4. Click **Connect**. The Object Explorer window opens in SSMS. 
 
-5. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **mySampleDatabase** to view the objects in your new database.
+5. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **SampleDW** to view the objects in your new database.
 
     ![database objects](media/load-data-wideworldimportersdw/connected.png) 
 
