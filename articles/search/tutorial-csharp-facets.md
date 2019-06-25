@@ -527,11 +527,11 @@ The advantage of facet navigation to the user is that they can narrow searches w
 
 2. Click the **Resort and Spa** category. Verify all results are in this category.
 
-    ![Narrowing the search to "Resort and Spa"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport_ras.png)
+    ![Narrowing the search to "Resort and Spa"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras.png)
 
 3. Click the **continental breakfast** amenity. Verify all results are still in the "Resort and Spa" category, with the selected amenity.
 
-    ![Narrowing the search to "continental breakfast"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport_ras_cb.png)
+    ![Narrowing the search to "continental breakfast"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport-ras-cb.png)
 
 4. Try selecting any other category, then one amenity, and view the narrowing results. Then try the other way around, one amenity, then one category.
 
