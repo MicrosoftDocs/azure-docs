@@ -4,7 +4,7 @@ description: Learn how to onboard a customer to Azure Delegated Resource Managem
 author: JnHs
 ms.author: jenhayes
 ms.service: service-provider-toolkit
-ms.date: 06/05/2019
+ms.date: 06/24/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -265,21 +265,24 @@ az deployment create –-name <deploymentName \
 
 ## Confirm successful onboarding
 
-When a customer subscription has successfully been onboarded to Azure Delegated Resource Management, users in the service provider's tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.
+When a customer subscription has successfully been onboarded to Azure Delegated Resource Management, users in the service provider's tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.  
 
 ### Azure portal
 
 In the service provider's tenant:
 
 1. Navigate to the [My customers page](view-manage-customers.md).
-1. Select **Customers**.
-1. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
+2. Select **Customers**.
+3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
 
 In the customer's tenant:
 
 1. Navigate to the [Service providers page](view-manage-service-providers.md).
-1. Select **Service provider offers**.
-1. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
+2. Select **Service provider offers**.
+3. Confirm that you can see the subscription(s) with the offer name you provided in the Resource Manager template.
+
+> [!NOTE]
+> It may take a few minutes after your deployment is complete before the updates are reflected in the Azure portal.
 
 ### PowerShell
 
