@@ -186,7 +186,10 @@ for f in run.get_file_names():
 
 ## Next steps
 
-In this article, you trained and registered a Scikit-learn model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a Scikit-learn model on Azure Machine Learning service.
 
-> [!div class="nextstepaction"]
-> [How and where to deploy models](how-to-deploy-and-where.md)
+* To learn how to deploy a model, continue on to our [model deployment](how-to-deploy-and-where.md) article.
+
+* [Tune hyperparameters](how-to-tune-hyperparameters.md)
+
+* [Track run metrics during training](how-to-track-experiments.md)
