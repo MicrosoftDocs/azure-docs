@@ -68,6 +68,7 @@ Allow only Azure as a datasource for the Azure Linux Agent by creating a new fil
 
 ```bash
 # Azure Data Source config
+datasource_list: [ Azure ]
 ```
 
 If your existing Azure image has a swap file configured and you want to change the swap file configuration for new images using cloud-init, you need to remove the existing swap file.
