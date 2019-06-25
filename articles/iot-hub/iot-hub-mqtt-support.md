@@ -116,7 +116,7 @@ Connecting to IoT Hub over MQTT using a module identity is similar to the device
 
 * Set the client id to `{device_id}/{module_id}`.
 
-* If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` and use the SAS token associated with the module identity as your password.
+* If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` and use the SAS token of the Azure IoT Edge running the module as your password.
 
 * Use `devices/{device_id}/modules/{module_id}/messages/events/` as topic for publishing telemetry.
 
