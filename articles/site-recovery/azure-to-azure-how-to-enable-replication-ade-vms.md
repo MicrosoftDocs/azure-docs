@@ -135,10 +135,23 @@ You can use [a script](#copy-disk-encryption-keys-to-the-dr-region-by-using-the-
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Troubleshoot key vault permission issues during  Azure-to-Azure VM replication
 
-**Cause 1:** You might have selected from the target region an already-created key vault that doesn't have the required permissions instead of letting Site Recovery create one. Make sure that the key vault has the require permissions, as described earlier.
+Azure Site Recovery requires at least read permission on the Source region Key vault and write permission on the target region key vault to read the secret and copy it to the target region key vault. 
+
+**Cause 1:** You don't have "GET" permission on the **source region Key vault** to read the keys. </br>
+**How to fix:** Regardless of whether you are a subscription admin or not, it is important that you have get permission on the key vault.
+
+1. Go to source region Key vault which in this example is "ContososourceKeyvault" > **Access policies** 
+2. Under **Select Principal** add your user name for example: "dradmin@contoso.com"
+3. Under **Key permissions** select GET 
+4. Under **Secret Permission** select GET 
+5. Save the access policy
+
+**Cause 2:** You don't have required permission on the **Target region Key vault** to write the keys. </br>
 
 *For example*: You try to replicate a VM that has key vault *ContososourceKeyvault* on a source region.
 You have all the permissions on the source region key vault. But during protection, you select the already-created key vault ContosotargetKeyvault, which doesn't have permissions. An error occurs.
+
+Permission required on target Key vault 
 
 **How to fix:** Go to **Home** > **Keyvaults** > **ContososourceKeyvault** > **Access policies** and add the appropriate permissions.
 
