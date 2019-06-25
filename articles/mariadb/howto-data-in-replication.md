@@ -122,7 +122,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    Note the binary file name, because it'll be used in later steps.
    
-6. Get GTID position (Optional, needed for replication with GTID).
+6. Get the GTID position (optional, needed for replication with GTID).
 
    Run the function [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) to get the GTID position for the corresponding binlog file name and offset.
   
@@ -137,7 +137,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    Use mysqldump to dump all the databases from the master server. It isn't necessary to dump the MySQL library and test library.
 
-    For more information, see [Dump & Restore](howto-migrate-dump-restore.md).
+    For more information, see [Dump and restore](howto-migrate-dump-restore.md).
 
 2. Set the master server to read/write mode.
 
@@ -178,10 +178,10 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    - master_log_file: binary log file name from running `show master status`
    - master_log_pos: binary log position from running `show master status`
    - master_gtid_pos: GTID position from running `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
-   - master_ssl_ca: CA certificate’s context. If you're not using SSL, pass in empty string.*
+   - master_ssl_ca: CA certificate’s context. If you're not using SSL, pass in an empty string.*
     
     
-    *We recommend passing the master_ssl_ca parameter in as a variable. For more information, see the following examples.
+    *We recommend passing in the master_ssl_ca parameter as a variable. For more information, see the following examples.
 
    **Examples**
 
