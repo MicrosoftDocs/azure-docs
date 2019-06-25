@@ -89,6 +89,8 @@ Smart groups are aggregations of alerts based on machine learning algorithms, wh
 ## Alerts experience 
 The default Alerts page provides a summary of alerts that are created within a particular time window. It displays the total alerts for each severity with columns that identify the total number of alerts in each state for each severity. Select any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
 
+Alternatively, you can [programmatically enumerate the alert instances generated on your subscription(s) by using REST APIs](#Manage-your-alert-instances-programmatically).
+
 It does not show or track older [classic alerts](#classic-alerts). You can change the subscriptions or filter parameters to update the page. 
 
 ![Alerts page](media/alerts-overview/alerts-page.png)
@@ -165,6 +167,30 @@ The Alert details page includes the following sections.
 | History | Lists each action taken by the alert and any changes made to the alert. Currently limited to state changes. |
 | Diagnostics | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days regardless of the time filter in the alerts list page. Select an alert to view its detail. |
 
+## Manage your alert instances programmatically
+
+There are many scenarios where you would want to progammatically query for alerts generated against your subscription. This could be to create custom views outside of the Azure Portal, or to analyze your alerts to identify patterns and trends.
+
+You can query for alerts generated against your subscriptions either by using the [Alert Management REST API](https://aka.ms/alert-management-api) or by using the [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+
+The [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) allows you to query for alerts at scale. This is recommended for scenarios where you have to manage alerts generated across many subscriptions. 
+
+The following sample request to the API returns the count of alerts within one subscription:
+
+```json
+{
+  "subscriptions": [
+    <subscriptionId>
+  ],
+  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
+  "options": {
+            "dataset":"alerts"
+  }
+}
+```
+The alerts can be queried for their ['essential'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) fields.
+
+The [Alert Management REST API](https://aka.ms/alert-management-api) can be used to get more information about specific alerts, including their ['alert context'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) fields.
 
 ## Classic alerts 
 
