@@ -220,10 +220,10 @@ spec:
         resources:
           limits:
             cpu: 1
-            memory: 800m
+            memory: 800M
           requests:
             cpu: .1
-            memory: 300m
+            memory: 300M
         ports:
           - containerPort: 80
   selector:

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -99,35 +99,30 @@ Azure datacenters in Australia have an additional security notification. All the
 
 #### Pick up in Japan
 
-1. Make sure to include the return connote of Japan Post Chakubarai.
-2. Write your company name and address information on the connote as your sender information.
-3. Call Japan Post pickup request number 0800-0800-111 (free dial). Dial the 7-digit postal code for pickup address and then forward to your nearest post office.
-    - Available times for pickup request depend on the respective post offices.
-    - Inform that the shipment is for Japan Post Chakubarai Yu-Pack.
-    - Use the Chakubarai connote which was included.
-4. If Japan Post Chakubarai connote was not included, email *Quantium Solutions* at `Customerservice.JP@quantiumsolutions.com`. *Quantium Solutions* will request Japan Post to pick up and ask them to bring the connote upon pickup.
-    - Indicate the reference number on the Chakubarai connote remark column that Japan Post will bring.
-    - Enter the delivery address as shown below:   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. Write your company name and address information on the consignment note as your sender information.
+2. Email Quantium solution using the following email template.
 
-If the Chakubarai connote is missing, you can request the pickup via email. Use the following email template to request pickup.
+    - If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
+    - If you have multiple orders, email to ensure individual pickup.
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. Receive an email confirmation from Quantium solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
+
+If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
+
+- Email：Customerservice.JP@quantiumsolutions.com 
+- Telephone：03-5755-0150 
 
 #### Pick up in Korea
 
