@@ -47,7 +47,7 @@ When you test the QnA pair in the interactive test panel, in the QnA Maker porta
 Granting permissions happens when a secured file from a SharePoint server is added to a knowledge base. Depending on how the SharePoint is set up and the permissions of the person adding the file, this could require:
 
 * no additional steps - the person adding the file has all the permissions needed.
-* steps by both [knowledge base manager](#knowledge-base-manager-add-SharePoint-data-source-in-qna-maker-portal) and [Active Directory manager](#active-directory-manager-grant-file-read-access-to-qna-maker).
+* steps by both [knowledge base manager](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) and [Active Directory manager](#active-directory-manager-grant-file-read-access-to-qna-maker).
 
 See the steps listed below. 
 
@@ -57,7 +57,7 @@ When the **QnA Maker manager** adds a secured SharePoint document to a knowledge
 
 The request begins with a pop-up to authenticate to an Active Directory account. 
 
-![Authenticate User Account](../media/add-SharePoint-datasources/authenticate-user-account.png)
+![Authenticate User Account](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
 Once the QnA Maker manager selects the account, the Active Directory administrator will receive a notice that they need to allow the QnA Maker app (not the QnA Maker manager) access to the SharePoint resource. The Active Directory manager will need to do this for every SharePoint resource, but not every document in that resource. 
 
@@ -65,7 +65,7 @@ Once the QnA Maker manager selects the account, the Active Directory administrat
 
 The Active Directory manager (not the QnA Maker manager) needs to grant access to QnA Maker to access the SharePoint resource by selecting [this link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) to authorize the QnA Maker Portal SharePoint enterprise app to have file read permissions. 
 
-![Azure Active Directory manager grants permission interactively](../media/add-SharePoint-datasources/aad-manager-grants-permission-interactively.png)
+![Azure Active Directory manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
 <!--
 The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
@@ -75,7 +75,7 @@ The Active Directory manager must grant QnA Maker access either by application n
 
 The Active Directory manager will get a pop-up window requesting permissions to the `QnAMakerPortalSharePoint` app. The pop-up window includes the QnA Maker Manager email address that initiated the request, an `App Info` link to learn more about **QnAMakerPortalSharePoint**, and a list of permissions requested. Select **Accept** to provide those permissions. 
 
-![Azure Active Directory manager grants permission interactively](../media/add-SharePoint-datasources/aad-manager-grants-permission-interactively.png)
+![Azure Active Directory manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 -->
 <!--
 
@@ -85,15 +85,15 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Search for and select the **QnAMakerPortalSharePoint** app. Change the second filter box from **My apps** to **All apps**. The app information will open on the right side.
 
-    ![Select QnA Maker app in App registrations list](../media/add-SharePoint-datasources/select-qna-maker-app-in-app-registrations.png)
+    ![Select QnA Maker app in App registrations list](../media/add-sharepoint-datasources/select-qna-maker-app-in-app-registrations.png)
 
 1. Select **Settings**.
 
-    [![Select Settings in the right-side blade](../media/add-SharePoint-datasources/select-settings-for-qna-maker-app-registration.png)](../media/add-SharePoint-datasources/select-settings-for-qna-maker-app-registration.png#lightbox)
+    [![Select Settings in the right-side blade](../media/add-sharepoint-datasources/select-settings-for-qna-maker-app-registration.png)](../media/add-sharepoint-datasources/select-settings-for-qna-maker-app-registration.png#lightbox)
 
 1. Under **API access**, select **Required permissions**. 
 
-    ![Select 'Settings', then under 'API access', select 'Required permission'](../media/add-SharePoint-datasources/select-required-permissions-in-settings-blade.png)
+    ![Select 'Settings', then under 'API access', select 'Required permission'](../media/add-sharepoint-datasources/select-required-permissions-in-settings-blade.png)
 
 1. Do not change any settings in the **Enable Access** window. Select **Grant Permission**. 
 
@@ -101,7 +101,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Select **YES** in the pop-up confirmation windows. 
 
-    ![Grant required permissions](../media/add-SharePoint-datasources/grant-required-permissions.png)
+    ![Grant required permissions](../media/add-sharepoint-datasources/grant-required-permissions.png)
 -->
 ### Grant access from the Azure Active Directory admin center
 
@@ -109,11 +109,11 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Search for `QnAMakerPortalSharePoint` the select the QnA Maker app. 
 
-    [![Search for QnAMakerPortalSharePoint in Enterprise apps list](../media/add-SharePoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-SharePoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![Search for QnAMakerPortalSharePoint in Enterprise apps list](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
 1. Under **Security**, go to **Permissions**. Select **Grant admin consent for Organization**. 
 
-    [![Select authenticated user for Active Directory Admin](../media/add-SharePoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-SharePoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+    [![Select authenticated user for Active Directory Admin](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
 1. Select a Sign-On account with permissions to grant permissions for the Active Directory. 
 
