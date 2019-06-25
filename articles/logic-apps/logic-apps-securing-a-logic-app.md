@@ -509,7 +509,7 @@ This example template that has multiple secured parameter definitions that use t
 
 ## Access to services and systems called from logic apps
 
-Here are some ways that you can secure any endpoint where your logic app needs access to send requests:
+Here are some ways that you can secure endpoints where your logic app needs access to send requests:
 
 * Add authentication on outbound requests.
 
@@ -518,6 +518,10 @@ Here are some ways that you can secure any endpoint where your logic app needs a
 * Restrict access from logic app IP addresses.
 
   All calls to endpoints from logic apps originate from specific designated IP addresses that are based on your logic apps' regions. You can add filtering that accepts requests only from those IP addresses. To get these IP addresses, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
+
+* Authenticate and access resources as managed identities.
+
+  To access resources in other Azure Active Directory (Azure AD) tenants, your logic app can authenticate your identity without signing in by using a managed identity (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. For more information about how to set up and use a system-assigned managed identity for your logic app, see [Authenticate and access resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 * Secure connections to on-premises systems.
 
