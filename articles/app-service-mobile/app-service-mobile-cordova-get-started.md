@@ -16,8 +16,7 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: crdun
-
+ms.author: emalani
 ---
 # Create an Apache Cordova app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

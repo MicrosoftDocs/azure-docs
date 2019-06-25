@@ -14,8 +14,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: crdun
-
+ms.author: emalani
 ---
 # <a name="getting-started"> </a>About Mobile Apps in Azure App Service
 

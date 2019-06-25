@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: crdun
+ms.author: emalani
 ---
 # Create a Windows app with an Azure backend
 

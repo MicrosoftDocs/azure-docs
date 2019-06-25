@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: crdun
+ms.author: emalani
 ---
 # Create a Xamarin.Forms app with Azure
 
