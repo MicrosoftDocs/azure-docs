@@ -37,7 +37,7 @@ Regions                                        | Availability?                  
 -----------------------------------------------|-----------------------------------------------|-----------------
 [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure China](https://www.azure.cn/)                                                     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure China](https://azure.microsoft.com/global-infrastructure/china)                                                     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Public West Central US](https://azure.microsoft.com/regions/)                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 
@@ -202,7 +202,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "westus",
     "name": "jubilee",
     "offer": "Windows-10",
@@ -280,7 +280,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
@@ -535,8 +535,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Response**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+
+The regions and the values of the Azure Environment are listed below.
+
+ Regions | Azure Environment
+---------|-----------------
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure China](https://azure.microsoft.com/global-infrastructure/china)                   | AzureChinaCloud
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### Getting the tags for the VM
 
@@ -617,11 +626,11 @@ Once you get the signature above, you can verify that the signature is from Micr
 > [!NOTE]
 > The certificate for Public cloud and sovereign cloud will be different.
 
- Regions | Certificate
+ Cloud | Certificate
 ---------|-----------------
 [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -652,7 +661,7 @@ For certain scenarios, when querying Instance Metadata Service with Failover Clu
 route print
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > The following example output from a Windows Server VM with Failover Cluster enabled contains only the IPv4 Route Table for simplicity.
 
 ```bat
