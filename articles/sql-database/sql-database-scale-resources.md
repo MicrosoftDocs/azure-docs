@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 06/25/2019
 ---
 
 # Dynamically scale database resources with minimal downtime
