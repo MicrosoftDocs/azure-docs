@@ -10,7 +10,7 @@ ms.author: lbosq
 ---
 # Introduction to Azure Cosmos DB: Gremlin API
 
-[Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and columnar data models. The Azure Cosmos DB Gremlin API is used to store and operate with graph data on a fully-managed database environment at any scale.  
+[Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and columnar data models. The Azure Cosmos DB Gremlin API is used to store and operate with graph data on a fully managed database environment at any scale.  
 
 This article provides an overview of the Azure Cosmos DB Gremlin API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's Gremlin API is based on the [Apache TinkerPop](https://tinkerpop.apache.org) graph database standard, and uses the Gremlin query language. 
 
@@ -35,7 +35,7 @@ For example, the following sample graph shows relationships among people, mobile
 
 Graph databases are often included within the NoSQL, or non-relational, database category since there is no dependency on a schema or constrained data model. This lack of schema allows for modelling and storing connected structures naturally and efficiently. 
 
-Azure Cosmos DB's Gremlin API combines the power of graph database algorithms with highly-scalable managed infrastructure to provide a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches. 
+Azure Cosmos DB's Gremlin API combines the power of graph database algorithms with highly scalable, managed infrastructure to provide a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches. 
 
 ## Features of Azure Cosmos DB graph database
  
@@ -63,7 +63,7 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
   Azure Cosmos DB eliminates the need to manage database and machine resources. Most existing graph database platforms are bound to the limitations of their infrastructure and often require a high degree of maintenance to ensure its operation. 
   
-  As a fully managed Microsoft Azure service, there is no need to manage virtual machines, update runtime software, manage sharding or replication, or deal with complex data-tier upgrades. Every graph is automatically backed up and protected against regional failures. This allows developers to focus on delivering application value instead of operating and managing their databases. 
+  As a fully managed Microsoft Azure service, there is no need to manage virtual machines, update runtime software, manage sharding or replication, or deal with complex data-tier upgrades. Every graph is automatically backed up and protected against regional failures. These guarantees allow developers to focus on delivering application value instead of operating and managing their databases. 
 
 * **Automatic indexing**
 
