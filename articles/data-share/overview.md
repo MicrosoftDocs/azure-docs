@@ -18,7 +18,7 @@ When creating a new data share, data providers can specify terms of use that the
 
 Data is shared by adding Azure Data sources into data shares. A Data Share can then be shared with multiple recipients outside of your organization. Once those recipients accept your invitation for sharing data, they become your data consumers. 
 
-    ![Data Share Flow](/media/datashareflow.png)
+![data share flow](/media/datashareflow.png "Data Share Flow")
 
 ## Key capabilities
 
@@ -47,9 +47,5 @@ Azure Data Share enables Data Consumers to:
 * Accept data shared with you into an Azure Blob Storage or Azure Data Lake Gen2 account
 
 All key capabilities listed above are supported through the Azure or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
-
-    ![Supported Scenarios](/media/supported-scenarios.png)
-
-## Security
 
 
