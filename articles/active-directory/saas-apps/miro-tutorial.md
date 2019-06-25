@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 06/24/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -78,12 +78,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
     In the **Identifier** text box, type a URL:
-    `https://realtimeboard.com`
+    `https://miro.com`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL:
-    `https://realtimeboard.com/sso/saml`
+    `https://miro.com/sso/saml`
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Miro test user
 
-In this section, a user called B.Simon is created in Miro. Miro supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Miro, a new one is created when you attempt to access Miro.
+In this section, a user called B.Simon is created in Miro. Miro supports just-in-time provisioning, which can be enabled as per requirement. There is no action item for you in this section. If a user doesn't already exist in Miro, a new one is created when you attempt to access Miro.
 
 ### Test SSO
 
