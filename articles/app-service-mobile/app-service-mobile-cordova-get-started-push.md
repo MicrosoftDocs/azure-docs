@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
+ms.date: 06/25/2019
 ms.author: crdun
 ---
 # Add push notifications to your Apache Cordova app
