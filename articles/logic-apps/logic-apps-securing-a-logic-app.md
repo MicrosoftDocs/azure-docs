@@ -107,7 +107,7 @@ To set up this restriction in the Azure portal, go to your logic app's settings.
 
 1. Under **IP ranges for triggers**, specify the IP address ranges that the trigger accepts. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
-If you want your logic app to fire only as a nested logic app, from the **Allowed inbound IP addresses** list, select **Only other Logic Apps**. This option writes an empty array to your logic app resource. That way, only only calls from the Logic Apps service (parent logic apps) can trigger the nested logic app.
+If you want your logic app to fire only as a nested logic app, from the **Allowed inbound IP addresses** list, select **Only other Logic Apps**. This option writes an empty array to your logic app resource. That way, only calls from the Logic Apps service (parent logic apps) can trigger the nested logic app.
 
 > [!NOTE]
 > Regardless of IP address, you can still run a logic app that has an HTTP request-based trigger 
@@ -179,7 +179,7 @@ To control access to the inputs and outputs in your logic app's run history, you
 
   * When you secure the outputs from a trigger or action, Logic Apps also blocks the inputs history for any actions that explicitly reference those outputs. Also, if actions use secured outputs as inputs, those inputs are secured only if the actions produce the same data as the inputs. Make sure that you secure the outputs from those actions.
 
-  * When you secure an action's inputs or outputs, you prevent that action from sending the that secured data to Azure Log Analytics. You also can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that action for monitoring.
+  * When you secure an action's inputs or outputs, you prevent that action from sending that secured data to Azure Log Analytics. You also can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that action for monitoring.
 
   * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
 
@@ -204,7 +204,7 @@ You can limit access to IP ranges either by using the Azure portal or by using a
 
 ### Restrict IP ranges in logic app template
 
-If you automate logic app deployment by using a [Azure Resource Manager template](../logic-apps/logic-apps-create-deploy-template.md), you can specific the IP ranges in that template by using the `accessControl` object, for example:
+If you automate logic app deployment by using a [Azure Resource Manager template](../logic-apps/logic-apps-create-deploy-template.md), you can specify the IP ranges in that template by using the `accessControl` object, for example:
 
 ``` json
 {
