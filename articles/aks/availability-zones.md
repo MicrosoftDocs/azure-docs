@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 06/24/2019
 ms.author: iainfou
 ---
 
@@ -19,18 +19,34 @@ To provide a higher level of availability to your applications, AKS clusters can
 This article shows you how to create an AKS cluster and distribute the node components across availability zones. This feature is currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
 >
-> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
+> * [AKS Support Policies][aks-support-policies]
+> * [Azure Support FAQ][aks-faq]
 
 ## Before you begin
 
-You need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.66 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-To create an AKS cluster that availability zones, first enable two feature flags on your subscription. Clusters use a virtual machine scale set (VMSS) to manage the deployment and configuration of the Kubernetes nodes. Register the *AvailabilityZonePreview* and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
+### Install aks-preview CLI extension
+
+To create AKS clusters that use availability zones, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### Register feature flag for your subscription
+
+To create an AKS cluster that availability zones, first enable some feature flags on your subscription. Clusters use a virtual machine scale set (VMSS) to manage the deployment and configuration of the Kubernetes nodes. The *standard* SKU of the Azure load balancer is also required to provide resiliency for the network components to route traffic into your cluster. Register the *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*, and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
+az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
@@ -38,6 +54,7 @@ It takes a few minutes for the status to show *Registered*. You can check on the
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
@@ -62,9 +79,7 @@ The following limitations apply when you create an AKS cluster using availabilit
 * You can't disable availability zones for an AKS cluster once it has been created.
 * The node size (VM SKU) selected must be available across all availability zones.
 
-While this feature is in preview, the following additional limitation applies:
-
-* You can't create a service, as the Azure basic balancer doesn't correctly attach nodes for network traffic to be routed to your applications.
+AKS clusters that use availability zones must use the Azure load balancer *standard* SKU. The default *basic* SKU of the Azure load balancer doesn't support distribution across availability zones. For more information on limitations of the standard load balancer, see [Azure load balancer standard SKU preview limitations][standard-lb-limitations].
 
 ### Azure disks limitations
 
@@ -86,7 +101,7 @@ In a zone outage, the nodes can be rebalanced manually or using the cluster au
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the *--agent-zones* parameter defines which zones an agent node is deployed into.
+When you create a cluster using the [az aks create][az-aks-create] command, the *--node-zones* parameter defines which zones an agent node is deployed into.
 
 The following example creates a VMSS-based cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*:
 
@@ -96,20 +111,18 @@ az group create --name myResourceGroup --location eastus2
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --kubernetes-version 1.12.6 \
+    --kubernetes-version 1.13.5 \
     --generate-ssh-keys \
     --enable-vmss \
     --node-count 3 \
-    --agent-zones 1 2 3
+    --node-zones 1 2 3
 ```
+
+It takes a few minutes to create the AKS cluster.
 
 ## Next steps
 
 This article detailed how to create an AKS cluster that uses availability zones. For more considerations on highly available clusters, see [Best practices for business continuity and disaster recovery in AKS][best-practices-bc-dr].
-
-<!-- LINKS - external -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-[aks-github]: https://github.com/azure/aks/issues
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
@@ -119,3 +132,6 @@ This article detailed how to create an AKS cluster that uses availability zones.
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-overview]: ../availability-zones/az-overview.md
 [best-practices-bc-dr]: operator-best-practices-multi-region.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md
+[standard-lb-limitations]: load-balancer-standard.md#limitations
