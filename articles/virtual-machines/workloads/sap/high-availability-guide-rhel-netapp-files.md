@@ -239,6 +239,18 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
+   This is a test:
+
+   ```
+   sudo vi /etc/hosts
+   ```
+
+   This is test 2: 
+
+   ```bash
+   sudo vi /etc/hosts
+   ```
+
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
 
    <pre><code>
