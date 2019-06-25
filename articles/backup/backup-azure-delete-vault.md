@@ -73,7 +73,7 @@ For more information on ARMClient command, refer this [document](https://github.
 
 ## Remove vault items and delete the vault
 
-These procedures provide some examples for removing backup data and infrastructure servers. After everything's removed from a vault, you can delete it.
+Remove all the dependencies before the Recovery Services vault is deleted.
 
 ### Remove backup items
 
@@ -161,7 +161,7 @@ This procedure provides an example that shows you how to remove backup data from
 8. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
 9. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
 
-### Deleting Backup items associated with a Backup Management Server or Azure Backup Agent server
+## Deleting Backup items associated with a Backup Management Server or Azure Backup Agent server
 
 If you are noticing below error message when deleting backup items from Backup Infrastructure:
 
