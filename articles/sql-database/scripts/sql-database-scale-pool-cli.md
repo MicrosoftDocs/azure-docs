@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 06/19/2019
+ms.date: 06/25/2019
 ---
 # Use CLI to scale an elastic pool in Azure SQL Database
 
