@@ -113,13 +113,13 @@ If you have never used Azure PowerShell, see: [How to install and configure Azur
 
 1. Connect to Azure
 
-    ```azure-powershell
+    ```azurepowershell
     Connect-AzAccount
     ```
 
 1. Check the subscriptions for the account.
 
-    ```azure-powershell
+    ```azurepowershell
     Get-AzSubscription
     ```
 
@@ -127,19 +127,19 @@ If you have never used Azure PowerShell, see: [How to install and configure Azur
 
 1. Choose which of your Azure subscriptions to use.
 
-    ```azure-powershell
+    ```azurepowershell
     Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. If needed, create a resource group using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
 1. Run the **New-AzResourceGroupDeployment** cmdlet to deploy the new virtual network using the preceding template and parameter files you downloaded and modified.
     
-    ```azure-powershell
+    ```azurepowershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
@@ -206,7 +206,7 @@ To delete all resources created in this article, complete one of the following s
 
 ### Azure PowerShell
 
-```azure-powershell
+```azurepowershell
 Remove-AzResourceGroup -Name appgatewayRG
 ```
 
