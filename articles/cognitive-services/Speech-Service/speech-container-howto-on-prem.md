@@ -30,13 +30,13 @@ This procedure requires several tools that must be installed and run locally. Do
 * An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
     * **Cognitive Services** resource with the S0 pricing tier.
 
-## Helm Charts
+## The K8s package / helm chart
 
-The *helm chart* contains the configuration of which docker images to pull from containerpreview.azurecr.io.
+The *helm chart* contains the configuration of which docker images to pull from the container registry, **containerpreview.azurecr.io**.
 
-> A helm chart is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on. <cite>[--Helm](https://helm.sh/docs/developing_charts/)</cite>
+> A [helm chart](https://helm.sh/docs/developing_charts/) is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-## Recommended Host Computer Configuration
+## The recommended hst computer configuration
 
 Please see the [Speech Service container computing](./speech-container-howto#the-host-computer) resource as a reference. This Helm chart automatically calculates CPU and memory requirements base on how many decodes (concurrent requests) that user specifies and also whether optimization for audio/text input is enabled. This Helm chart sets 2 concurrent requests and optimization disabled as default
 
@@ -45,14 +45,24 @@ Please see the [Speech Service container computing](./speech-container-howto#the
 | **Speech-to-Text** | 1 decoder requires a minimum of 1,150 millicores<br>If the `optimizedForAudioFile` is enabled, then 1,950 millicores is required. (support 2 decoder by default) | Required: 2GB<br>Limited:  4GB |
 | **Text-to-Speech** | 1 concurrent request requires a minimum of 500 millicores<br>If the `optimizedForTextFile` is enabled, then 1,000 millicores is required. (support 2 concurrent requests by default) | Required: 1GB<br> Limited: 2GB |
 
+## Run speech service in K8s / helm
 
-Steps to Run Onprem Speech Service in K8S/helm
+To deploy the Speech Service in a kubernetes cluster, two sample files are provided as a reference under dir **speech-onprem/tests**
 
-1.	To deploy Speech Service in kubernetes cluster, two sample files are provided as a reference under dir **speech-onprem/tests**
-    * *containerpreview-sample-deployment.yaml*
-    * *containerpreview-multi-decoders-sample-deployment.yaml*
-      
-Both of them pull the docker images of Speech Service from containerpreview.azurecr.io. To use them, please make sure you have permission to access.
+| File Name | Description |
+|--|--|
+| *containerpreview-sample-deployment.yaml* | ... |
+| *containerpreview-multi-decoders-sample-deployment.yaml* | ... |
+
+## Request access to the container registry
+
+You must first complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. 
+
+[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
+
+[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+
+Both of them pull the docker images of Speech Service from **containerpreview.azurecr.io**. To use them, please make sure you have permission to access.
 
     ```console
     docker login containerpreview.azurecr.io
