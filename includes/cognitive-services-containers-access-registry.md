@@ -8,7 +8,7 @@ ms.topic: include
 
 ## Use the Docker CLI to authenticate the private container registry
 
-You can authenticate with the private container registry for Cognitive Services Containers in any of several ways, but the recommended method from the command line is to use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
+You can authenticate with the private container registry for Cognitive Services Containers in many of several ways, but the recommended method from the command line is to use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
 
 Use the [`docker login` command](https://docs.docker.com/engine/reference/commandline/login/), as shown in the following example, to log in to `containerpreview.azurecr.io`, the private container registry for Cognitive Services Containers. Replace *\<username\>* with the user name and *\<password\>* with the password that's provided in the credentials you received from the Azure Cognitive Services team.
 
