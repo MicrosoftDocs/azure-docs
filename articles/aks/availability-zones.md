@@ -76,6 +76,8 @@ AKS clusters can currently be created using availability zones in the following 
 
 The following limitations apply when you create an AKS cluster using availability zones:
 
+* You can only enable availability zones when the cluster is created.
+* Availability zone settings can't be updated after the cluster is created. You also can't update an existing, non-availability zone cluster to use availabillity zones.
 * You can't disable availability zones for an AKS cluster once it has been created.
 * The node size (VM SKU) selected must be available across all availability zones.
 
