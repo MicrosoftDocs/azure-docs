@@ -194,3 +194,125 @@ There is no need to modify any of the models to enable ordering. The view and th
     You will notice that several hotels have an identical rating, and so their appearance in the display is again the order in which the data is found, which is arbitrary.
 
     Before we look into adding a second level of ordering, let's add some code to display the range of room rates. We are adding this code to both show extracting data from a _complex type_, and also so we can discuss ordering results based on price (cheapest first perhaps).
+
+### Add the range of room rates to the view
+
+1. Add properties containing the cheapest and most expensive room rate to the Hotel.cs model.
+
+    ```cs
+        // Room rate range
+        public double cheapest { get; set; }
+        public double expensive { get; set; }
+    ```
+
+2. Calculate the room rates at the end of the **Index(SearchData model)** action, in the home controller. Add the calculations after the storing of temporary data.
+
+    ```cs
+                // Ensure TempData is stored for the next call.
+                TempData["page"] = page;
+                TempData["searchfor"] = model.searchText;
+
+                // Calculate the room rate ranges.
+                for (int n = 0; n < model.resultList.Results.Count; n++)
+                {
+                    // Calculate room rates.
+                    var cheapest = 0d;
+                    var expensive = 0d;
+
+                    for (var r = 0; r < model.resultList.Results[n].Document.Rooms.Length; r++)
+                    {
+                        var rate = model.resultList.Results[n].Document.Rooms[r].BaseRate;
+                        if (rate < cheapest || cheapest == 0)
+                        {
+                            cheapest = (double)rate;
+                        }
+                        if (rate > expensive)
+                        {
+                            expensive = (double)rate;
+                        }
+                    }
+                    model.resultList.Results[n].Document.cheapest = cheapest;
+                    model.resultList.Results[n].Document.expensive = expensive;
+                }
+    ```
+
+3. Add the **Rooms** property to the **Select** parameter in the **Index(SearchData model)** method of the controller.
+
+    ```cs
+     Select = new[] { "HotelName", "Description", "Rating", "Rooms" },
+    ```
+
+4. Change the rendering loop in the view to display the rate range for the first page of results.
+
+    ```cs
+                <!-- Show the hotel data. -->
+                @for (var i = 0; i < Model.resultList.Results.Count; i++)
+                {
+                    var rateText = $"Rates from ${Model.resultList.Results[i].Document.cheapest} to ${Model.resultList.Results[i].Document.expensive}";
+                    var ratingText = $"Rating: {Model.resultList.Results[i].Document.Rating}";
+
+                    // Display the hotel details.
+                    @Html.TextArea($"name{i}", Model.resultList.Results[i].Document.HotelName, new { @class = "box1A" })
+                    @Html.TextArea($"rating{i}", ratingText, new { @class = "box1B" })
+                    @Html.TextArea($"rates{i}" , rateText, new { @class = "box2A" })
+                    @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description, new { @class = "box3" })
+                }
+    ```
+
+5. Change the **Next** method in the home controller to communicate the rate range, for subsequent pages of results.
+
+    ```cs
+        public async Task<ActionResult> Next(SearchData model)
+        {
+            // Set the next page setting, and call the Index(model) action.
+            model.paging = "next";
+            await Index(model);
+
+            // Create an empty list.
+            var nextHotels = new List<string>();
+
+            // Add a hotel details to the list.
+            for (int n = 0; n < model.resultList.Results.Count; n++)
+            {
+                var ratingText = $"Rating: {model.resultList.Results[n].Document.Rating}";
+                var rateText = $"Rates from ${model.resultList.Results[n].Document.cheapest} to ${model.resultList.Results[n].Document.expensive}";
+
+                // Add strings to the list.
+                nextHotels.Add(model.resultList.Results[n].Document.HotelName);
+                nextHotels.Add(ratingText);
+                nextHotels.Add(rateText);
+                nextHotels.Add(model.resultList.Results[n].Document.Description);
+            }
+
+            // Rather than return a view, return the list of data.
+            return new JsonResult(nextHotels);
+        }
+    ```
+
+6. Update the **scrolled** function in the view, to handle the room rates text.
+
+    ```javascript
+            <script>
+                function scrolled() {
+                    if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
+                        $.getJSON("/Home/Next", function (data) {
+                            var div = document.getElementById('myDiv');
+
+                            // Append the returned data to the current list of hotels.
+                            for (var i = 0; i < data.length; i += 4) {
+                                div.innerHTML += '\n<textarea class="box1A">' + data[i] + '</textarea>';
+                                div.innerHTML += '\n<textarea class="box1B">' + data[i + 1] + '</textarea>';
+                                div.innerHTML += '\n<textarea class="box2A">' + data[i + 2] + '</textarea>';
+                                div.innerHTML += '\n<textarea class="box3">' + data[i + 4] + '</textarea>';
+                            }
+                        });
+                    }
+                }
+            </script>
+    ```
+
+7. Run the app, and verify the room rate ranges are displayed.
+
+    ![Displaying room rate ranges](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
+
+The **OrderBy** property of the search parameters will not accept an entry such as **Rooms.BaseRate** to provide the cheapest room rate, even if the rooms were already sorted on rate (which they are not). In order to display hotels in the sample data set, ordered on room rate, you would have to sort the results in your home controller, and send these results to the view in the desired order.
