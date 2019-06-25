@@ -26,29 +26,29 @@ Azure Backup provides [built-in monitoring and alerting capabilities](backup-azu
 > [!NOTE]
 > Data from Azure VM backups, the Azure Backup agent, System Center Data Protection Manager, SQL backups in Azure VMs, and Azure Files share backups is pumped to the Log Analytics workspace through diagnostic settings. 
 
-To monitor at scale, you need the capabilities of two Azure services. *Diagnostic settings* send data from multiple Azure Resource Manager resources to another resource. *Log Analytics* generates custom alerts where you can define other notification channels by using action groups. 
+To monitor at scale, you need the capabilities of two Azure services. *Diagnostic settings* send data from multiple Azure Resource Manager resources to another resource. *Log Analytics* generates custom alerts where you can use action groups to define other notification channels. 
 
 The following sections detail how to use Log Analytics to monitor Azure Backup at scale.
 
 ### Configure diagnostic settings
 
-Azure Resource Manager resources, such as RS vault, record information about scheduled operations and user-triggered operations as diagnostic data. 
+Azure Resource Manager resources, such as the RS vault, record information about scheduled operations and user-triggered operations as diagnostic data. 
 
-In the monitoring section, select **Diagnostic settings** and specify the target for the the RS vault's diagnostic data.
+In the monitoring section, select **Diagnostic settings** and specify the target for the RS vault's diagnostic data.
 
-![RS vault's diagnostic setting, targeting Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
+![The RS vault's diagnostic setting, targeting Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
 
-You can target a Log Analytics workspace from another subscription. To monitor vaults across subscriptions in a single place, select the same Log Analytics workspace for multiple RS vaults. To channel to the Log Analytics workspace all the information that's related to Azure Backup, select **AzureBackupReport** as the log.
+You can target a Log Analytics workspace from another subscription. To monitor vaults across subscriptions in a single place, select the same Log Analytics workspace for multiple RS vaults. To channel all the information that's related to Azure Backup to the Log Analytics workspace, select **AzureBackupReport** as the log.
 
 > [!IMPORTANT]
-> After you finish the configuration, you should wait 24 hours for the initial data push to finish. After that initial data push, all the events are pushed as described in the [frequency section](#diagnostic-data-update-frequency).
+> After you finish the configuration, you should wait 24 hours for the initial data push to finish. After that initial data push, all the events are pushed as described later in this article, in the [frequency section](#diagnostic-data-update-frequency).
 
 ### Deploy a solution to the Log Analytics workspace
 
-Once the data is inside Log Analytics workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) to Log Analytics to visualize the data. To properly identify the workspace, make sure you give it the same resource group, workspace name, and workspace location. Then install this template on the workspace.
+After the data is inside the Log Analytics workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) to Log Analytics to visualize the data. To properly identify the workspace, make sure you give it the same resource group, workspace name, and workspace location. Then install this template on the workspace.
 
 > [!NOTE]
-> If you don't have alerts or backup/restore jobs in your Log Analytics workspace, you might see a "BadArgumentError" error code in the portal. You can ignore this error and continue using the solution. After the relevant data type starts flowing into the workspace, the visualizations will reflect the same, and you won't see this error anymore.
+> If you don't have alerts, backup jobs, or restore jobs in your Log Analytics workspace, you might see a "BadArgumentError" error code in the portal. Ignore this error and continue using the solution. After the relevant data type starts flowing into the workspace, the visualizations will reflect the same, and you won't see the error anymore.
 
 ### View Azure Backup data by using Log Analytics
 
@@ -88,11 +88,11 @@ When you select the monitoring tile, the designer template opens a series of gra
 These graphs are provided with the template. You can edit the graphs or add more graphs if you need to.
 
 > [!IMPORTANT]
-> When you deploy the template, you're essentially creating a read-only lock. To edit and save the template, you need to remove the lock. You can remove a lock in the **Settings** section of the Log Analytics workspace,in the **Locks** pane.
+> When you deploy the template, you're essentially creating a read-only lock. To edit and save the template, you need to remove the lock. You can remove a lock in the **Settings** section of the Log Analytics workspace,on the **Locks** pane.
 
 ### Create alerts by using Log Analytics
 
-In Azure Monitor, you can create your own alerts in a Log Analytics workspace. In the workspace, you use the *Azure action groups* to select your preferred notification mechanism. 
+In Azure Monitor, you can create your own alerts in a Log Analytics workspace. In the workspace, you use *Azure action groups* to select your preferred notification mechanism. 
 
 > [!IMPORTANT]
 > For information on the cost of creating this query, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
@@ -101,9 +101,7 @@ Select any of the graphs to open the **Logs** section of the Log Analytics works
 
 ![Create an alert in a Log Analytics workspace](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
 
-When you select **New Alert Rule**, the Azure Monitor alert-creation page opens.
-
-In the following image, the resource is already marked as the Log Analytics workspace, and action group integration is provided.
+When you select **New Alert Rule**, the Azure Monitor alert-creation page opens, as shown in the following image. Here the resource is already marked as the Log Analytics workspace, and action group integration is provided.
 
 ![The Log Analytics alert-creation page](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
@@ -127,7 +125,7 @@ For more information, see [Create, view, and manage log alerts by using Azure Mo
 
 ### Sample Kusto queries
 
-The default graphs give you Kusto queries for basic scenarios on which you can build alerts. You can also modify the queries to get the data you want to be alerted on. You can paste the following sample Kusto queries in the **Logs** page and then create alerts on the queries:
+The default graphs give you Kusto queries for basic scenarios on which you can build alerts. You can also modify the queries to get the data you want to be alerted on. Paste the following sample Kusto queries in the **Logs** page and then create alerts on the queries:
 
 * All successful backup jobs
 
@@ -226,7 +224,7 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 - Across all solutions, ad hoc backup jobs and restore jobs are pushed as soon as they *finish*.
 - For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they *finish*.
 - For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
-- Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on are pushed at least *once per day.*
+- Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on is pushed at least *once per day.*
 - A change in the backup configuration (such as changing policy or editing policy) triggers a push of all related backup information.
 
 ## Use the RS vault's activity logs
@@ -234,7 +232,7 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 You can also use activity logs to get notification for events such as backup success.
 
 > [!CAUTION]
-> These steps apply only to *Azure VM backups.* You can't use these steps for solutions such as the Azure Backup agent, SQL backups within Azure, or Azure Files.
+> The following steps apply only to *Azure VM backups.* You can't use these steps for solutions such as the Azure Backup agent, SQL backups within Azure, or Azure Files.
 
 ### Sign in to the Azure portal
 
@@ -242,7 +240,7 @@ Sign in into the Azure portal and proceed to the relevant RS vault. In the vault
 
 ### Identify the appropriate log and create an alert
 
-To verify that you're receiving activity logs for successful backups, apply the filters shown in the following image. Change the **Timespan** value accordingly to view records.
+To verify that you're receiving activity logs for successful backups, apply the filters shown in the following image. Change the **Timespan** value as necessary to view records.
 
 ![Filtering to find activity logs for Azure VM backups](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
@@ -262,7 +260,7 @@ Although you can get notifications through activity logs, we highly recommend us
 
 - **Limited scenarios**: Notifications through activity logs apply only to Azure VM backups. The notifications have to be set up for every RS vault.
 - **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [diagnostic logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
-- **Problems with the activity log channel**: In RS vaults, activity logs pumped from Azure Backup now follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Sovereign Cloud. If Azure Sovereign Cloud users create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects RS activity logs into a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), these logs don't appear.
+- **Problems with the activity log channel**: In RS vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Sovereign Cloud. If Azure Sovereign Cloud users create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects RS activity logs into a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), these logs don't appear.
 
 Use a Log Analytics workspace for monitoring and alerting at scale for all your workloads that are protected by Azure Backup.
 
