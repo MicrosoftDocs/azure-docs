@@ -16,10 +16,12 @@ ms.date: 06/19/2019
 
 Learn how to use an existing machine learning model with the Azure Machine Learning service.
 
-If you have a machine learning model that was trained outside the Azure Machine Learning service, you can still use the service to deploy the model as a web service or to an IoT Edge device.
+If you have a machine learning model that was trained outside the Azure Machine Learning service, you can still use the service to deploy the model as a web service or to an IoT Edge device. 
 
-> [!NOTE]
-> The information in this article can be used with both the Azure Machine Learning SDK or Machine Learning CLI extension.
+> [!TIP]
+> This article provides basic information on deploying an existing model. For more information on the concepts and terms used here, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
+>
+> For general information on the deployment process, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
@@ -40,15 +42,7 @@ If you have a machine learning model that was trained outside the Azure Machine 
 
 ## Register the model(s)
 
-Registering a model allows you to store, version, and apply metadata to your trained models. During registration, the model is uploaded to your Azure Machine Learning service workspace. From there, you can search, download, or deploy the model. When deploying, you can deploy as a web service or to an Azure IoT Edge device. You can also track metadata about your deployed model.
-
-> [!TIP]
-> Each time you register a model using the same name, the model version is automatically incremented. The first model registered with a specific name is version 1. The second registered with the same name is version 2, and so on. You can optionally add other metadata such as tags, properties, and descriptions.
-
-> [!IMPORTANT]
-> When registering a trained model, the model must be persisted to one or more files on the local filesystem. These files are then used to register the model.
-
-In the following examples, the `models` directory contains the `model.h5`, `model.w2v`, `encoder.pkl`, and `tokenizer.pkl` files:
+Registering a model allows you to store, version, and apply metadata to your trained models. In the following examples, the `models` directory contains the `model.h5`, `model.w2v`, `encoder.pkl`, and `tokenizer.pkl` files. This example uploads the files contained in the `models` directory as a new model registration named `sentiment`:
 
 ```python
 from azureml.core.model import Model
@@ -60,15 +54,21 @@ model = Model.register(model_path = "./models",
                        workspace = ws)
 ```
 
+For more information, see the [Model.register()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--root-dir-none-) reference.
+
 ```azurecli
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 ```
 
-This example uploads the files contained in the `models` directory as a new model registration named `sentiment`.
+For more information, see the [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) reference.
 
-## Define inference environment
 
-Azure Machine Learning service uses the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class to define the inference environment for the model. The inference configuration references the following files that are used to run the model when it's deployed:
+For more information on model registration in general, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
+
+
+## Define inference configuration
+
+The inference configuration defines the environment used to run the deployed model. The inference configuration references the following files that are used to run the model when it's deployed:
 
 * The runtime. The only valid value for runtime currently is Python.
 * An entry script. This file (named `score.py`) loads the model when the deployed service starts. It is also responsible for receiving data, passing it to the model, and then returning a response.
@@ -84,6 +84,8 @@ inference_config = InferenceConfig(runtime= "python",
                                    conda_file="myenv.yml")
 ```
 
+For more information, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) reference.
+
 The CLI loads the inference configuration from a YAML file:
 
 ```yaml
@@ -93,6 +95,8 @@ The CLI loads the inference configuration from a YAML file:
    "condaFile": "myenv.yml"
 }
 ```
+
+For more information on inference configuration, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
 
 ### Entry script
 
@@ -174,6 +178,8 @@ def predict(text, include_neutral=True):
 
 The entry script has only two required functions, `init()` and `run(data)`. These functions are used to initialize the service at startup and run the model using request data passed in by a client. The rest of the script handles loading and running the model(s).
 
+For more information on the entry script, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
+
 ### Conda environment
 
 The following YAML describes the conda environment needed to run the model and entry script:
@@ -189,6 +195,8 @@ dependencies:
     - azureml-defaults
     - keras
 ```
+
+For more information, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
 
 ## Define deployment
 
@@ -213,12 +221,11 @@ The CLI loads the deployment configuration from a YAML file:
 }
 ```
 
-> [!TIP]
-> Deploying to a different compute target, such as Azure Kubernetes Service in the Azure cloud, is as easy as changing the deployment configuration. For more information, see [How and where to deploy models](how-to-deploy-and-where.md).
+Deploying to a different compute target, such as Azure Kubernetes Service in the Azure cloud, is as easy as changing the deployment configuration. For more information, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 ## Deploy the model
 
-To deploy the registered model with the SDK, use [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). The following example loads information on the registered model named `sentiment`, and then deploys it as a service named `sentiment`. During deployment, the `inference_config` and `deployment_config` are used to create and configure the service environment:
+The following example loads information on the registered model named `sentiment`, and then deploys it as a service named `sentiment`. During deployment, the inference configuration and deployment configuration are used to create and configure the service environment:
 
 ```python
 from azureml.core.model import Model
@@ -231,13 +238,19 @@ print(service.state)
 print("scoring URI: " + service.scoring_uri)
 ```
 
-To deploy the model from the CLI, use the following command:
+For more information, see the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-) reference.
+
+To deploy the model from the CLI, use the following command. This command deploys version 1 of the registered model (`sentiment:1`) using the inference and deployment configuration stored in the `inferenceConfig.json` and `deploymentConfig.json` files:
 
 ```azurecli
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-This command deploys version 1 of the registered model (`sentiment:1`) using the inference and deployment configuration stored in the `inferenceConfig.json` and `deploymentConfig.json` files.
+For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference.
+
+For more information on deployment, see [How and where to deploy models](how-to-deploy-and-where.md).
+
+## Request-response consumption
 
 After deployment, the scoring URI is displayed. This URI can be used by clients to submit requests to the service. The following example is a basic Python client that submits data to the service and displays the response:
 
@@ -256,7 +269,7 @@ print(response.elapsed)
 print(response.json())
 ```
 
-For an example of how to create a client in several different programming languages, see [Create a client](how-to-consume-web-service.md).
+For more information on how to consume the deployed service, see [Create a client](how-to-consume-web-service.md).
 
 ## Next steps
 
