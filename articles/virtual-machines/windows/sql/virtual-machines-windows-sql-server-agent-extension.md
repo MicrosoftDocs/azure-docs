@@ -79,7 +79,7 @@ It is possible to upgrade from **NoAgent**, to **Lightweight**, to **Full**, but
 
 This can be viewed and changed in the portal - going from any other mode to full will cause SQL Server to restart. 
 
-Verify the current mode of your SQL Server IaaS agent with PowerShell:
+Along with the Azure portal, you can also view your existing SQL IaaS agent mode with PowerShell: 
 
   ```powershell-interactive
      //Get the SqlVirtualMachine
