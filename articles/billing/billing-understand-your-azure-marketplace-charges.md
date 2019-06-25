@@ -18,7 +18,7 @@ External services are published by third-party software vendors in the Azure mar
 
 ## How external services are billed
 
-- If you have a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement), your third-party services are billed with the rest of your Azure services.
+- If you have a [Microsoft Customer Agreement](#check-access), your third-party services are billed with the rest of your Azure services.
 - If you don't have a Microsoft Customer Agreement, your external services are billed separately from your Azure services.
 - Each external service has a different billing model. Some services are billed in a pay-as-you-go fashion while others have fixed monthly charges.
 - You can't use monthly free credits for external services. If you're using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to charges from external services. When you provision a new external service or resource, a warning is shown:
@@ -44,7 +44,7 @@ You can view a list of the external services that are on each subscription withi
 
 ## View and download Azure marketplace invoices
 
-If you have a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement), your third-party charges are on the same invoice as your Azure charges. Learn how to [view and download your Azure invoice](billing-download-azure-invoice.md) from the Azure portal to see your third-party charges.
+If you have a [Microsoft Customer Agreement](#check-access), your third-party charges are on the same invoice as your Azure charges. Learn how to [view and download your Azure invoice](billing-download-azure-invoice.md) from the Azure portal to see your third-party charges.
 
 If you don't have a Microsoft Customer Agreement, you have separate invoices for third-party charges. You can view and download your Azure Marketplace invoices from the Azure portal by following these steps:
 
