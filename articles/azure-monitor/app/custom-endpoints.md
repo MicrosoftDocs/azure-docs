@@ -141,7 +141,19 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 
 ## Regions that require endpoint modification
 
-Currently the only region that requires endpoint modifications is [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+Currently the only region that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+|Region |  Endpoint Name | Value |
+|-----------------|:------------|:-------------|
+| Azure China | Telemetry Channel | `https://dc.applicationinsights.azure.cn/v2/track` |
+| Azure China | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure China | Profile Query |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
+| Azure Government | Telemetry Channel |`https://dc.applicationinsights.us/v2/track` |
+| Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
+| Azure Government | Profile Query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+> [!NOTE]
+> Codeless agent/extension based monitoring for Azure App Services is **currently not supported** in these regions. As soon as this functionality becomes available this article will be updated.
 
 ## Next step
 
