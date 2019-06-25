@@ -58,6 +58,8 @@ After you've called the **Analyze Receipt** API, you call the **Get Receipt Resu
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/operations/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
+### Examine the response
+
 You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is complete, the `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the receipt.
 
 See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
@@ -67,179 +69,122 @@ See the following receipt image and its corresponding JSON output. The output ha
 ```json
 {
   "status": "Succeeded",
-  "recognitionResults": [
-    {
-      "page": 1,
-      "clockwiseOrientation": 359.68,
-      "width": 1440,
-      "height": 2560,
-      "unit": "pixel",
-      "lines": [
-        {
-          "boundingBox": [
-            541,
-            563,
-            842,
-            562,
-            843,
-            666,
-            542,
-            666
-          ],
-          "text": "Serafina",
-          "words": [
-            {
-              "boundingBox": [
-                560,
-                572,
-                839,
-                563,
-                842,
-                668,
-                563,
-                663
-              ],
-              "text": "Serafina",
-              "confidenceScore": 0.39,
-              "confidence": "Low"
-            }
-          ]
-        },
-        ...
-      ]
-    }
-  ],
-  "understandingResults": [
-    {
-      "pages": [
-        1
-      ],
-      "fields": {
-        "Subtotal": {
-          "valueType": "numberValue",
-          "value": 358.44,
-          "text": "$358.44",
-          "elements": [
-            {
-              "$ref": "#/recognitionResults/0/lines/56/words/0"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/56/words/1"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/56/words/2"
-            }
-          ]
-        },
-        "Total": {
-          "valueType": "numberValue",
-          "value": 463.61,
-          "text": "$463.61",
-          "elements": [
-            {
-              "$ref": "#/recognitionResults/0/lines/3/words/0"
-            }
-          ]
-        },
-        "Tax": {
-          "valueType": "numberValue",
-          "value": 42.53,
-          "text": "$42.53",
-          "elements": [
-            {
-              "$ref": "#/recognitionResults/0/lines/27/words/0"
-            }
-          ]
-        },
-        "MerchantAddress": {
-          "valueType": "stringValue",
-          "value": "2043 East lake Ave East Seattle, WA 98102",
-          "text": "2043 East lake Ave East Seattle, WA 98102",
-          "elements": [
-            {
-              "$ref": "#/recognitionResults/0/lines/12/words/0"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/12/words/1"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/12/words/2"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/12/words/3"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/12/words/4"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/33/words/0"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/33/words/1"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/33/words/2"
-            }
-          ]
-        },
-        "MerchantName": {
-          "valueType": "stringValue",
-          "value": "Serafina Osteria & Enoteca",
-          "text": "Serafina Osteria & Enoteca",
-          "elements": [
-            {
-              "$ref": "#/recognitionResults/0/lines/40/words/0"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/40/words/1"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/40/words/2"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/40/words/3"
-            }
-          ]
-        },
-        "MerchantPhoneNumber": {
-          "valueType": "stringValue",
-          "value": null,
-          "text": "206.323 .0807",
-          "elements": [
-            {
-              "$ref": "#/recognitionResults/0/lines/53/words/0"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/53/words/1"
-            }
-          ]
-        },
-        "TransactionDate": {
-          "valueType": "stringValue",
-          "value": "2018-06-06",
-          "text": "06/06/18",
-          "elements": [
-            {
-              "$ref": "#/recognitionResults/0/lines/51/words/0"
-            }
-          ]
-        },
-        "TransactionTime": {
-          "valueType": "stringValue",
-          "value": "13:11:00",
-          "text": "1:11 PM",
-          "elements": [
-            {
-              "$ref": "#/recognitionResults/0/lines/51/words/1"
-            },
-            {
-              "$ref": "#/recognitionResults/0/lines/51/words/2"
-            }
-          ]
-        }
+  "recognitionResults": [{
+    "page": 1,
+    "clockwiseOrientation": 0.36,
+    "width": 1688,
+    "height": 3000,
+    "unit": "pixel",
+    "lines": [{
+      "boundingBox": [616, 291, 1050, 278, 1053, 384, 620, 397],
+      "text": "Contoso",
+      "words": [{
+        "boundingBox": [619, 292, 1051, 284, 1052, 382, 620, 398],
+        "text": "Contoso"
+      }]
+    }, {
+      "boundingBox": [322, 588, 501, 600, 497, 655, 318, 643],
+      "text": "Contoso",
+      "words": [{
+        "boundingBox": [330, 590, 501, 602, 499, 654, 326, 644],
+        "text": "Contoso"
+      }]
+    },
+    ...
+    ]
+  }],
+  "understandingResults": [{
+    "pages": [1],
+    "fields": {
+      "Subtotal": {
+        "valueType": "numberValue",
+        "value": 1098.99,
+        "text": "1098.99",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/14/words/1"
+        }]
+      },
+      "Total": {
+        "valueType": "numberValue",
+        "value": 1203.39,
+        "text": "1203.39",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/18/words/1"
+        }]
+      },
+      "Tax": {
+        "valueType": "numberValue",
+        "value": 104.4,
+        "text": "$104.40",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/16/words/0"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/16/words/1"
+        }]
+      },
+      "MerchantAddress": {
+        "valueType": "stringValue",
+        "value": "123 Main Street Redmond, WA 98052",
+        "text": "123 Main Street Redmond, WA 98052",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/2/words/0"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/2/words/1"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/2/words/2"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/3/words/0"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/3/words/1"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/3/words/2"
+        }]
+      },
+      "MerchantName": {
+        "valueType": "stringValue",
+        "value": "Contoso",
+        "text": "Contoso",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/1/words/0"
+        }]
+      },
+      "MerchantPhoneNumber": {
+        "valueType": "stringValue",
+        "value": null,
+        "text": "123-456-7890",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/4/words/0"
+        }]
+      },
+      "TransactionDate": {
+        "valueType": "stringValue",
+        "value": "2019-06-10",
+        "text": "6/10/2019",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/5/words/0"
+        }]
+      },
+      "TransactionTime": {
+        "valueType": "stringValue",
+        "value": "13:59:00",
+        "text": "13:59",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/5/words/1"
+        }]
       }
     }
-  ]
+  }],
+  "perfTrace": {
+    "GetImageStreamElapsedMS": 28,
+    "GenerateBitmapElapsedMS": 40,
+    "GenerateMultipleBitmapsElapsedMS": 20,
+    "UploadImageStreamElapsedMS": 15,
+    "DownloadImageElapsedMS": 45,
+    "DistributeTaskElapsedMS": 0,
+    "ProcessImageElapsedMS": 503,
+    "ReceiptAnalysisElapsedMS": 49,
+    "TotalElapsedMS": 19982
+  }
 }
 ```
 

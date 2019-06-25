@@ -78,7 +78,7 @@ https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of that operation. Add the following code to the bottom of your Python script. This extracts the operation ID value and passes it to a new API call. The analysis is asynchronous, so this script calls the API at regular intervals until the results are available.
+After you've called the **Analyze Receipt** API, you call the **Get Receipt Result** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This extracts the operation ID value and passes it to a new API call. The operation is asynchronous, so this script calls the API at regular intervals until the results are available.
 
 ```python
 operationId = operationURL.split("operations/")[1]
@@ -104,326 +104,131 @@ while True:
 
 ### Examine the response
 
-A success response is returned in JSON and printed to the console. It represents the key-value pairs and tables extracted from the form:
+The script will print responses to the console until the Analyze operation completes. Then, it will print the extracted text data in JSON format. The `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the receipt.
 
-```bash
+See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
+
+![A receipt from Contoso store](../media/contoso-receipt.png)
+
+```json
 {
-  "status": "success",
-  "pages": [
-    {
-      "number": 1,
-      "height": 792,
-      "width": 612,
-      "clusterId": 0,
-      "keyValuePairs": [
-        {
-          "key": [
-            {
-              "text": "Address:",
-              "boundingBox": [
-                57.4,
-                683.1,
-                100.5,
-                683.1,
-                100.5,
-                673.7,
-                57.4,
-                673.7
-              ]
-            }
-          ],
-          "value": [
-            {
-              "text": "1 Redmond way Suite",
-              "boundingBox": [
-                57.4,
-                671.3,
-                154.8,
-                671.3,
-                154.8,
-                659.2,
-                57.4,
-                659.2
-              ],
-              "confidence": 0.86
-            },
-            {
-              "text": "6000 Redmond, WA",
-              "boundingBox": [
-                57.4,
-                657.1,
-                146.9,
-                657.1,
-                146.9,
-                645.5,
-                57.4,
-                645.5
-              ],
-              "confidence": 0.86
-            },
-            {
-              "text": "99243",
-              "boundingBox": [
-                57.4,
-                643.4,
-                85,
-                643.4,
-                85,
-                632.3,
-                57.4,
-                632.3
-              ],
-              "confidence": 0.86
-            }
-          ]
-        },
-        {
-          "key": [
-            {
-              "text": "Invoice For:",
-              "boundingBox": [
-                316.1,
-                683.1,
-                368.2,
-                683.1,
-                368.2,
-                673.7,
-                316.1,
-                673.7
-              ]
-            }
-          ],
-          "value": [
-            {
-              "text": "Microsoft",
-              "boundingBox": [
-                374,
-                687.9,
-                418.8,
-                687.9,
-                418.8,
-                673.7,
-                374,
-                673.7
-              ],
-              "confidence": 1
-            },
-            {
-              "text": "1020 Enterprise Way",
-              "boundingBox": [
-                373.9,
-                673.5,
-                471.3,
-                673.5,
-                471.3,
-                659.2,
-                373.9,
-                659.2
-              ],
-              "confidence": 1
-            },
-            {
-              "text": "Sunnayvale, CA 87659",
-              "boundingBox": [
-                373.8,
-                659,
-                479.4,
-                659,
-                479.4,
-                645.5,
-                373.8,
-                645.5
-              ],
-              "confidence": 1
-            }
-          ]
-        }
-      ],
-      "tables": [
-        {
-          "id": "table_0",
-          "columns": [
-            {
-              "header": [
-                {
-                  "text": "Invoice Number",
-                  "boundingBox": [
-                    38.5,
-                    585.2,
-                    113.4,
-                    585.2,
-                    113.4,
-                    575.8,
-                    38.5,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "34278587",
-                    "boundingBox": [
-                      38.5,
-                      547.3,
-                      82.8,
-                      547.3,
-                      82.8,
-                      537,
-                      38.5,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "Invoice Date",
-                  "boundingBox": [
-                    139.7,
-                    585.2,
-                    198.5,
-                    585.2,
-                    198.5,
-                    575.8,
-                    139.7,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "6/18/2017",
-                    "boundingBox": [
-                      139.7,
-                      546.8,
-                      184,
-                      546.8,
-                      184,
-                      537,
-                      139.7,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "Invoice Due Date",
-                  "boundingBox": [
-                    240.5,
-                    585.2,
-                    321,
-                    585.2,
-                    321,
-                    575.8,
-                    240.5,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "6/24/2017",
-                    "boundingBox": [
-                      240.5,
-                      546.8,
-                      284.8,
-                      546.8,
-                      284.8,
-                      537,
-                      240.5,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "Charges",
-                  "boundingBox": [
-                    341.3,
-                    585.2,
-                    381.2,
-                    585.2,
-                    381.2,
-                    575.8,
-                    341.3,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "$56,651.49",
-                    "boundingBox": [
-                      387.6,
-                      546.4,
-                      437.5,
-                      546.4,
-                      437.5,
-                      537,
-                      387.6,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "VAT ID",
-                  "boundingBox": [
-                    442.1,
-                    590,
-                    474.8,
-                    590,
-                    474.8,
-                    575.8,
-                    442.1,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "PT",
-                    "boundingBox": [
-                      447.7,
-                      550.6,
-                      460.4,
-                      550.6,
-                      460.4,
-                      537,
-                      447.7,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            }
-          ]
-        }
-      ]
+  "status": "Succeeded",
+  "recognitionResults": [{
+    "page": 1,
+    "clockwiseOrientation": 0.36,
+    "width": 1688,
+    "height": 3000,
+    "unit": "pixel",
+    "lines": [{
+      "boundingBox": [616, 291, 1050, 278, 1053, 384, 620, 397],
+      "text": "Contoso",
+      "words": [{
+        "boundingBox": [619, 292, 1051, 284, 1052, 382, 620, 398],
+        "text": "Contoso"
+      }]
+    }, {
+      "boundingBox": [322, 588, 501, 600, 497, 655, 318, 643],
+      "text": "Contoso",
+      "words": [{
+        "boundingBox": [330, 590, 501, 602, 499, 654, 326, 644],
+        "text": "Contoso"
+      }]
+    },
+    ...
+    ]
+  }],
+  "understandingResults": [{
+    "pages": [1],
+    "fields": {
+      "Subtotal": {
+        "valueType": "numberValue",
+        "value": 1098.99,
+        "text": "1098.99",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/14/words/1"
+        }]
+      },
+      "Total": {
+        "valueType": "numberValue",
+        "value": 1203.39,
+        "text": "1203.39",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/18/words/1"
+        }]
+      },
+      "Tax": {
+        "valueType": "numberValue",
+        "value": 104.4,
+        "text": "$104.40",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/16/words/0"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/16/words/1"
+        }]
+      },
+      "MerchantAddress": {
+        "valueType": "stringValue",
+        "value": "123 Main Street Redmond, WA 98052",
+        "text": "123 Main Street Redmond, WA 98052",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/2/words/0"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/2/words/1"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/2/words/2"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/3/words/0"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/3/words/1"
+        }, {
+          "$ref": "#/recognitionResults/0/lines/3/words/2"
+        }]
+      },
+      "MerchantName": {
+        "valueType": "stringValue",
+        "value": "Contoso",
+        "text": "Contoso",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/1/words/0"
+        }]
+      },
+      "MerchantPhoneNumber": {
+        "valueType": "stringValue",
+        "value": null,
+        "text": "123-456-7890",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/4/words/0"
+        }]
+      },
+      "TransactionDate": {
+        "valueType": "stringValue",
+        "value": "2019-06-10",
+        "text": "6/10/2019",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/5/words/0"
+        }]
+      },
+      "TransactionTime": {
+        "valueType": "stringValue",
+        "value": "13:59:00",
+        "text": "13:59",
+        "elements": [{
+          "$ref": "#/recognitionResults/0/lines/5/words/1"
+        }]
+      }
     }
-  ],
-  "errors": []
+  }],
+  "perfTrace": {
+    "GetImageStreamElapsedMS": 28,
+    "GenerateBitmapElapsedMS": 40,
+    "GenerateMultipleBitmapsElapsedMS": 20,
+    "UploadImageStreamElapsedMS": 15,
+    "DownloadImageElapsedMS": 45,
+    "DistributeTaskElapsedMS": 0,
+    "ProcessImageElapsedMS": 503,
+    "ReceiptAnalysisElapsedMS": 49,
+    "TotalElapsedMS": 19982
+  }
 }
 ```
 
