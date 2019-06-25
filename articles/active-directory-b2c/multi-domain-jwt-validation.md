@@ -1,5 +1,5 @@
 ---
-title: Use multiple issuer URIs in a .NET web API
+title: Enable multiple token issuer URIs in a .NET web API
 description: Learn how to enable a .NET web API to validate tokens from multiple issuers.
 services: active-directory-b2c
 author: mmacy
@@ -13,7 +13,7 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Use multiple issuer URIs in a .NET web API
+# Enable multiple token issuer URIs in a .NET web API
 
 Azure Active Directory (AD) B2C supports the validation of multiple JWT tokens that have been issued by different domains. You might use this scenario when you're migrating your applications from *login.microsoftonline.com* to *b2clogin.com* and you want to support both token issuers during the migration.
 
