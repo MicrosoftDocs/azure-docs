@@ -103,6 +103,33 @@ This procedure provides an example that shows you how to remove backup data from
 
       ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
 
+## Deleting backup items from management console
+
+To delete the backup items from Backup Infrastructure, navigate to your on-premises server Management Console (MARS, Azure Backup Server or SC DPM depending on where your back items are protected).
+
+### For MARS agent
+
+- Launch the MARS Management console go to the **Actions** pane and choose **Schedule Backup**.
+- From **Modify or Stop a Scheduled Backup** wizard, choose the option **Stop using this backup schedule and delete all the stored backups** and click **Next**.
+
+    ![Modify or Stop a Scheduled Backup](./media/backup-azure-delete-vault/modify_schedule_backup.png)
+
+- From **Stop a Scheduled Backup** wizard, click **Finish**.
+
+    ![Stop a Scheduled Backup](./media/backup-azure-delete-vault/stop_schedule_backup.png)
+- You are prompted to enter a Security Pin. To generate the PIN, perform the below steps:
+  - Sign in to the Azure portal.
+  - Browse to **Recovery Services vault** > **Settings** > **Properties**.
+  - Under **Security PIN**, click **Generate**. Copy this PIN.(This PIN is valid for only five minutes)
+- In the Management Console (client app) paste the PIN and click **Ok**.
+
+  ![Security Pin](./media/backup-azure-delete-vault/security_pin.png)
+
+- In the **Modify Backup Progress** wizard you will see *Deleted backup data will be retained for 14 day. After that time, backup data will be permanently deleted.*  
+
+    ![Delete Backup Infrastructure](./media/backup-azure-delete-vault/deleted_backup_data.png)
+
+Now that you have deleted the backup items, you can [Remove Azure Backup management servers](#remove-azure-backup-management-servers) and [Remove Azure Backup agent recovery points](#remove-azure-backup-agent-recovery-points)
 
 ### Remove Azure Backup management servers
 
@@ -160,42 +187,6 @@ This procedure provides an example that shows you how to remove backup data from
 
 8. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
 9. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
-
-## Deleting Backup items associated with a Backup Management Server or Azure Backup Agent server
-
-If you are noticing below error message when deleting backup items from Backup Infrastructure:
-
-![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
-
-To delete the backup items from Backup Infrastructure, perform the below:<br/>
-Navigate to Management Console that is MARS, Azure Backup Server or SC DPM depending on where your back items are protected<br/>
-
-For MARS agent
-
-- In the **Actions** pane, choose **Schedule Backup**.
-- In the **Modify or Stop a Scheduled Backup** wizard, choose the option **Stop using this backup schedule and delete all the stored backups** and click **Next**.
-
-  ![Modify or Stop a Scheduled Backup](./media/backup-azure-delete-vault/modify_schedule_backup.png)
-
-- In the **Stop a Scheduled Backup** wizard, click **Finish**. You are prompted to enter a Security Pin.
-
-  ![Stop a Scheduled Backup](./media/backup-azure-delete-vault/stop_schedule_backup.png)
-
-  - Sign in to the Azure portal.
-  - Browse to **Recovery Services vault** > **Settings** > **Properties**.
-  - Under **Security PIN**, click **Generate**. This opens a blade that contains the PIN to be entered in the Azure Recovery Services agent user interface. This PIN is valid for only five minutes, and it gets generated automatically after that period.
-- From the Console (client app) enter the PIN and click **Ok**.
-
-  ![Security Pin](./media/backup-azure-delete-vault/security_pin.png)
-
-- In the **Modify Backup Progress** wizard you will see *Deleted backup data will be retained for 14 day. After that time, backup data will be permanently deleted.*  
-
-  ![Delete Backup Infrastructure](./media/backup-azure-delete-vault/deleted_backup_data.png)
-
-- After the completion of above steps, go to Azure portal and select **Backup Infrastructure**.
-- Select **Backup Management Servers** for MABS/DPM to delete items. For MARS choose **Protected Servers** > **Azure Backup Agent** > choose the item > click **Delete**.
-
-    ![Delete Backup Infrastructure](./media/backup-azure-delete-vault/backup_infrastructure.png)
 
 
 ### Delete the vault after removing dependencies
