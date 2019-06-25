@@ -208,7 +208,7 @@ As in the previous examples, the `dnsNameLabel` value must be unique within the 
 
 To deploy with the Resource Manager template, save the preceding JSON to a file named `deploy-aci.json`, then execute the [az group deployment create][az-group-deployment-create] command with the `--template-file` parameter:
 
-```azurecli-interactive
+```azurecli
 # Deploy with Resource Manager template
 az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
 ```
@@ -227,7 +227,7 @@ You can use the [Azure portal][portal] or a tool like the [Microsoft Azure Stora
 
 To mount multiple volumes in a container instance, you must deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups) or a YAML file. To use a template or YAML file, provide the share details and define the volumes by populating the `volumes` array in the `properties` section of the template. 
 
-For example, to use a template, if you created two Azure Files shares named *share1* and *share2* in storage account *myStorageAccount*, the `volumes` array would appear similar to the following:
+For example, if you created two Azure Files shares named *share1* and *share2* in storage account *myStorageAccount*, the `volumes` array in a Resource Manager template would appear similar to the following:
 
 ```JSON
 "volumes": [{
