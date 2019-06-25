@@ -12,8 +12,10 @@
     href: cognitive-services-container-support.md
 - name: Quickstarts
   items:
-  - name: Create an account
+  - name: Create an account using the Azure portal
     href: cognitive-services-apis-create-account.md
+  - name: Create an account using the Azure Command Line Interface(CLI)
+    href: cognitive-services-create-account-cli.md
   - name: Authentication
     href: authentication.md
   - name: Diagnostic logging
