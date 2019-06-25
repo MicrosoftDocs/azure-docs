@@ -109,6 +109,16 @@
       href: security-center-incident.md
     - name: Understanding security alerts
       href: security-center-alerts-type.md
+    - name: Security alerts
+      href: security-center-alerts-overview.md
+    - name: IaaS VMs & Servers Alerts
+      href: security-center-alerts-iaas.md
+    - name: Native computer alerts
+      href: security-center-compute.md
+    - name: Data service alerts
+      href: security-center-data-services.md
+    - name: Service layer alerts
+      href: security-center-data-services.md    
     - name: Alert validation
       href: security-center-alert-validation.md
     - name: UEBA for Azure resources and users
