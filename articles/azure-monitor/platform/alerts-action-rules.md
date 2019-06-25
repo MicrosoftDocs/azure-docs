@@ -25,6 +25,8 @@ There are often many scenarios where it would be useful to suppress the notifica
 
 Although alert rules allow you to define the action group that triggers when the alert is generated, customers often tend to have a common action group across their scope of operations. For example, a team responsible for the resource group 'ContosoRG' will probably define the same action group for all alert rules defined within 'ContosoRG'. Action rules allow you to simplify this process by allowing you to define actions at scale, so that an action group can be triggered for any alert generated on the configured scope. Going back to the previous example, the team can now define one action rule on 'ContosoRG' that will trigger the same action group for all alerts generated within it.
 
+> [!NOTE]
+> Action rules currently do not apply to Service Health alerts.
 
 ## Configuring an action rule
 

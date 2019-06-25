@@ -103,7 +103,7 @@ You must complete specific configuration steps in the operating system for the v
         # logout
 14. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
-- - -
+---
 ## Oracle Linux 7.0+
 **Changes in Oracle Linux 7**
 
