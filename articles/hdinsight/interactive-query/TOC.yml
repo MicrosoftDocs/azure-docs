@@ -6,10 +6,15 @@
     href: ./apache-interactive-query-get-started.md
     maintainContext: true
 - name: Quickstarts
+  expanded: true
   items:
   - name: Execute Apache Hive queries - Apache Zeppelin
     href: ./hdinsight-connect-hive-zeppelin.md
-- name: Get started
+- name: Tutorials
+  items:
+  - name: Analyze data with Interactive Query
+    href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Concepts
   items:
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
