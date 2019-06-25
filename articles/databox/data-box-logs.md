@@ -25,7 +25,7 @@ The following table shows a summary of the Data Box or Data Box Heavy order step
 | Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy) for data copy                                                             |
 | Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                                      |
 | Data upload to Azure       | [Review *copylogs*](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
-| Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                                                   |
+| Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
 This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy order. The information in this article applies to both, Data Box and Data Box Heavy. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
 
