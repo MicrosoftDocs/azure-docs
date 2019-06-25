@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
 ---
-# Monitoring my Azure Data Share as a Data Provider 
+# Monitoring my Azure Data Share Preview as a Data Provider 
 As a data provider, you can monitor various aspects of your share. Below is a list of what you can monitor.
 
 * Invitations: View the status of your data share invitations by navigating to Sent shares -> Invitations. There are 3 states that your invitation can be in:

@@ -11,10 +11,10 @@ ms.author: joanpo
 # Tutorial: Accept and receive data using Azure Data Share Preview
 
 > [!div class="checklist"]
-> * How to accept a Data Share invitation
-> * Create a Data Share account
+> * How to accept an Azure Data Share Preview invitation
+> * Create an Azure Data Share Preview account
 > * Specify a destination for your data
-> *  Create a subscription to your data share for scheduled refresh
+> * Create a subscription to your data share for scheduled refresh
 
 ## Prerequisites
 Before you can accept a data share invitation, you must provision a number of Azure resources which are listed below. 
@@ -75,3 +75,9 @@ To view a history of your snapshots, navigate to Received Shares -> History. Her
 You are now ready to consume your data. 
 
 To navigate to the data that has been shared with you, select Received Shares -> Datasets. Under **Path**, you'll see a link to the path that contains your received data. Wait until a snapshot has been successful before you can see your data. Information about the status of your snapshot can be seen in the Details tab, or the History tab. 
+
+## Next steps
+In this tutorial, you learnt how to accept and receive an Azure Data Share. To learn more about Azure Data Share concepts, continue to Azure Data Share Terminology. 
+
+> [!div class="nextstepaction"]
+> [Concepts: Azure Data Share Terminology](terminology.md)

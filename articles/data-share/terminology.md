@@ -10,7 +10,7 @@ ms.author: joanpo
 ---
 # Azure Data Share Preview Terminology 
 
-Azure Data Share introduces some new concepts related to data sharing. This article explains some commonly used terminology for Azure Data Share. 
+Azure Data Share Preview introduces some new concepts related to data sharing. This article explains some commonly used terminology for Azure Data Share. 
 
 ## Data Provider
 

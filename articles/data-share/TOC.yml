@@ -17,17 +17,11 @@
   items:
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/data-share
-  - name: Forums
-    items:
-    - name: Microsoft Tech Community
-      href: https://techcommunity.microsoft.com/
-    - name: MSDN forum
-      href: https://social.msdn.microsoft.com/Forums
+  - name: Microsoft Tech Community
+    href: https://techcommunity.microsoft.com/
   - name: Product feedback
     href: https://feedback.azure.com/
   - name: Pricing
     href: https://azure.microsoft.com/pricing
-  - name: Cost Estimator
-    href: https://aka.ms/adecostestimator
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-share

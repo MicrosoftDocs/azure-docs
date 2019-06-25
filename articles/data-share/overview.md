@@ -10,7 +10,7 @@ ms.author: joanpo
 ---
 # What is Azure Data Share Preview?
 
-Azure Data Share enables you to easily and securely share your data with your customers and partners outside of your organization in a governed way. It provides a single pane of glass for you to manage data sharing relationships with your customers and partners. 
+Azure Data Share Preview enables you to easily and securely share your data with your customers and partners outside of your organization in a governed way. It provides a single pane of glass for you to manage data sharing relationships with your customers and partners. 
 
 Azure Data Share enables you to share data through Snapshot-based sharing, which provides incremental updates to the data consumers tenant. In this scenario, data consumers will see the data within their own tenant. Easily connect your data to the rich set of Azure analytics tools such as HDInsight or Databricks for processing and insights. 
 

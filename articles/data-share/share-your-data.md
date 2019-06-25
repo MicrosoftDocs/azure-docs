@@ -10,7 +10,7 @@ ms.author: joanpo
 ---
 # Tutorial: Share your data using Azure Data Share Preview
 
-Learn how to share data from Azure Blob Storage or Azure Data Lake Store using Azure Data Share. 
+Learn how to share data from Azure Blob Storage or Azure Data Lake Store using Azure Data Share Preview. 
 
 In this tutorial, you'll learn how to:
 
