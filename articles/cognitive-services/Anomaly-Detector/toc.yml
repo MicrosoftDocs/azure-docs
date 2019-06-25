@@ -58,6 +58,8 @@
       href: https://aka.ms/adpricing
     - name: Regional availability 
       href: https://aka.ms/adregion
+    - name: User-generated content
+      href: user-generated-content.md
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams
       href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture
