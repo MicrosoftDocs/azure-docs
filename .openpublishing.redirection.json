@@ -22506,17 +22506,17 @@
     },
     {
       "source_path": "articles/cosmos-db/how-to-sql-query.md",
-      "redirect_url": "articles/cosmos-db/sql-query-getting-started",
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/sql-api-query-getting-started.md",
-      "redirect_url": "articles/cosmos-db/sql-query-getting-started",
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/sql-query-reference.md",
-      "redirect_url": "articles/cosmos-db/sql-query-getting-started",
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
       "redirect_document_id": false
     },
     {
