@@ -1,30 +1,21 @@
 ﻿---
-title: Create an Azure Application Gateway - templates | Microsoft Docs
-description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
-documentationcenter: na
+title: Create an Azure Application Gateway - templates
+description: This article provides instructions to create an Azure application gateway by using the Azure Resource Manager template
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 6/26/2019
 ms.author: victorh
-
 ---
+
 # Create an application gateway by using the Azure Resource Manager template
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](overview.md)
+Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md)
 
 This article walks you through downloading and modifying an existing [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) from GitHub and deploying the template from GitHub, PowerShell, and the Azure CLI.
 
-If you are simply deploying the template directly from GitHub without any changes, skip to deploy a template from GitHub.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+If you're simply deploying the template directly from GitHub without any changes, skip to deploy a template from GitHub.
 
 ## Scenario
 
@@ -38,7 +29,7 @@ In this scenario you will:
 > [!NOTE]
 > Those settings are the parameters for this template. To customize the template, you can change rules, the listener, SSL, and other options in the azuredeploy.json file.
 
-![Scenario](./media/create-vmss-template/scenario.png)
+![Scenario](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
 ## Download and understand the Azure Resource Manager template
 
@@ -47,9 +38,9 @@ You can download the existing Azure Resource Manager template to create a virtua
 1. Navigate to [Create Application Gateway with web application firewall enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf).
 1. Click **azuredeploy.json**, and then click **RAW**.
 1. Save the file to a local folder on your computer.
-1. If you are familiar with Azure Resource Manager templates, skip to step 7.
-1. Open the file that you saved and look at the contents under **parameters** in line
-1. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
+1. If you're familiar with Azure Resource Manager templates, skip to step 7.
+2. Open the file that you saved and look at the contents under **parameters** in line
+3. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
 
    | Parameter | Description |
    | --- | --- |
@@ -66,7 +57,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 
    * **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
    * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
-   * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation. For the JSON syntax and properties of an application gateway in template, see [Microsoft.Network/applicationGateways](/azure/templates/microsoft.network/applicationgateways).
+   * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
 1. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Click **azuredeploy-parameters.json**, and then click **RAW**.
@@ -116,12 +107,14 @@ You can download the existing Azure Resource Manager template to create a virtua
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 If you have never used Azure PowerShell, visit: [How to install and configure Azure PowerShell](/powershell/azure/overview) and follow the instructions to sign into Azure and select your subscription.
 
-1. Login to PowerShell
+1. Connect to Azure
 
     ```powershell
-    Login-AzAccount
+    Connect-AzAccount
     ```
 
 1. Check the subscriptions for the account.
@@ -130,7 +123,7 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
     Get-AzSubscription
     ```
 
-    You are prompted to authenticate with your credentials.
+    You're prompted to authenticate with your credentials.
 
 1. Choose which of your Azure subscriptions to use.
 
@@ -181,21 +174,22 @@ Click-to-deploy is another way to use Azure Resource Manager templates. It's an 
 
 1. Click **Deploy to Azure**.
 
-    ![Deploy to Azure](./media/create-vmss-template/deploytoazure.png)
+    ![Deploy to Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
     
 1. Fill out the parameters for the deployment template on the portal and click **OK**.
 
-    ![Parameters](./media/create-vmss-template/ibiza1.png)
+    ![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
     
 1. Select **I agree to the terms and conditions stated above** and click **Purchase**.
 
-1. On the Custom deployment blade, click **Create**.
+1. On the Custom deployment page, click **Create**.
 
 ## Providing certificate data to Resource Manager templates
 
 When using SSL with a template, the certificate needs to be provided in a base64 string instead of being uploaded. To convert a .pfx or .cer to a base64 string use one of the following commands. The following commands convert the certificate to a base64 string, which can be provided to the template. The expected output is a string that can be stored in a variable and pasted in the template.
 
 ### macOS
+
 ```bash
 cert=$( base64 <certificate path and name>.pfx )
 echo $cert
@@ -224,12 +218,11 @@ az group delete --name appgatewayRG
 
 ## Next steps
 
-If you want to configure SSL offload, visit: [Configure an application gateway for SSL offload](tutorial-ssl-cli.md).
+If you want to configure SSL offload, see: [Configure an application gateway for SSL offload](application-gateway-ssl.md).
 
-If you want to configure an application gateway to use with an internal load balancer, visit: [Create an application gateway with an internal load balancer (ILB)](redirect-internal-site-cli.md).
+If you want to configure an application gateway to use with an internal load balancer, see: [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
 
-If you want more information about load balancing options in general, visit:
+If you want more information about load balancing options in general, see:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
