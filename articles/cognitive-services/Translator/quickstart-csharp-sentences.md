@@ -159,6 +159,8 @@ foreach (BreakSentenceResult o in deserializedOutput)
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Put it all together
 
 The last step is to call `BreakSentenceRequest()` in the `Main` function. Locate `static void Main(string[] args)` and replace it with this code:
