@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create, load, and query an index in Azure portal - Azure Search'
-description: Build and query your first index in Azure Search using built-in sample data and the Import Data wizard in the Azure portal. 
+title: 'Quickstart: Create, load, and query an index using Azure portal - Azure Search'
+description: Use the Import Data wizard in Azure portal to create, load, and query your first index in Azure Search. 
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -12,7 +12,7 @@ ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
-# Quickstart: Use built-in portal tools for Azure Search import, indexing, and queries
+# Quickstart: Create an Azure Search index using the Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
