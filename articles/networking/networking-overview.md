@@ -39,10 +39,16 @@ This section describes services that provide connectivity between Azure resource
 
 ### <a name="vnet"></a>Virtual network
 
-Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. Azure resource, such as virtual machines, can use VNet to securely communicate between each other, the internet, and on-premises networks. For more information, see [What is Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
+Azure Virtual Network (VNet) is the fundamental building block for your private network in Azure. You can use a VNets to:
+- **Communicate between Azure resources**: You can deploy VMs, and several other types of Azure resources to a virtual network, such as Azure App Service Environments, the Azure Kubernetes Service (AKS), and Azure Virtual Machine Scale Sets. To view a complete list of Azure resources that you can deploy into a virtual network, see [Virtual network service integration](../virtual-network/virtual-network-for-azure-services.md).
+- **Communicate between each other**: You can connect virtual networks to each other, enabling resources in either virtual network to communicate with each other, using virtual network peering. The virtual networks you connect can be in the same, or different, Azure regions. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+- **Communicate to the internet**: All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use [Public IP addresses](virtual-network-public-ip-address.md) or public [Load Balancer](../load-balancer/load-balancer-overview.md) to manage your outbound connections.
+- **Communicate with on-premises networks**: You can connect your on-premises computers and networks to a virtual network using [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md).
+
+For more information, see [What is Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
 
 ### <a name="expressroute"></a>ExpressRoute
-ExpressRoute enables you to extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365. For more information, see [What is ExpressRoute?](../expressroute/expressroute-introduction.md)
+ExpressRoute enables you to extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. This connection is private. Traffic does not go over the internet. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.  For more information, see [What is ExpressRoute?](../expressroute/expressroute-introduction.md).
 
 ![Azure ExpressRoute](../expressroute/media/expressroute-introduction/expressroute-connection-overview.png)
 
