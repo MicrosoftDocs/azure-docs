@@ -18,6 +18,7 @@ This article details information on how to troubleshoot issues you may see when 
 ## Error classes
 
 The errors in Data Box and Data Box Heavy are summarized as follows:
+
 | Error category*        | Description        | Recommended action    |
 |----------------------------------------------|---------|--------------------------------------|
 | Container or share names | The container or share names do not follow the Azure naming rules.  |Download the error lists. <br> Rename the containers or shares. [Learn more](#container-or-share-name-errors).  |
