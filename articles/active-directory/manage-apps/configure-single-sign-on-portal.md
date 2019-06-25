@@ -131,5 +131,5 @@ If an error message appears. Complete the following steps:
 
 ## Next steps
 
-- [Assign users or groups to the application](methods-for-assigning-users-and-groups)
+- [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
 - [Configure automatic user account provisioning](configure-automatic-user-provisioning-portal.md)

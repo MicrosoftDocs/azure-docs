@@ -85,7 +85,7 @@ To add a gallery application to your Azure AD tenant:
 
      *Can the user see the application in the access panel and the Office 365 app launcher?
 
-1. To use a custom logo, see create a logo that is 215 by 215 pixels, and save it in PNG format. Then browse to your logo and upload it.
+1. To use a custom logo, create a logo that is 215 by 215 pixels, and save it in PNG format. Then browse to your logo and upload it.
 
     ![Change the logo](media/add-application-portal/change-logo.png)
 
@@ -98,8 +98,4 @@ Now that you've added the application to your Azure AD organization, [choose a s
 - [Configure SAML-based single sign-on](configure-single-sign-on-portal.md)
 - [Configure password single sign-on](configure-password-single-sign-on.md)
 - [Configure linked sign-on](configure-linked-sign-on.md)
-
-> [!div class="nextstepaction"]
-> [Learn how to assign users with automatic provisioning](configure-automatic-user-provisioning-portal.md)
-
 
