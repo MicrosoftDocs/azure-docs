@@ -79,24 +79,26 @@ It is possible to upgrade from **NoAgent**, to **Lightweight** to **Full**, but 
 
 Verify the current mode of your SQL Server IaaS VM with PowerShell as well:
 
-    ```powershell-interactive
-       //Get the SqlVirtualMachine
-       $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
-       $sqlvm.Properties 
-   ```
+  ```powershell-interactive
+     //Get the SqlVirtualMachine
+     $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
+     $sqlvm.Properties 
+  ```
+
 
 Install SQL IaaS agent in lightweight mode using PowerShell:
 
-    ```powershell-interactive
+  ```powershell-interactive
      // Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-           
-    // Register SQL VM with 'Lightweight' SQL IaaS agent
-    New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-          -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-          -Properties @{virtualMachineResourceId=$vm.Id;sqlManagement='LightWeight'} -Force 
-    
-    ```
+          
+     // Create a new SQL VM with the 'Lightweight' SQL IaaS agent
+     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlManagement='LightWeight'} -Force 
+  
+  ```
+
 
 ## Installation
 The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images. The SQL IaaS extension offers manageability for a single instance on the SQL Server VM. If there is a default instance, then the extension will work with the default instance, and it will not support managing other instances. If there is no default instance but only one named instance, then it will manage the named instance. If there is no default instance and there are multiple named instances, then the extension will fail to install. 

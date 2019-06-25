@@ -20,14 +20,14 @@ ms.reviewer: jroth
 
 This article describes how to register your Azure SQL Server virtual machine (VM) with the SQL VM resource provider - **Microsoft.SqlVirtualMachine**. 
 
-The SQL VM resource provider enables improved and robust management of SQL Server VMs. SQL Server VMs that have been created using the Azure portal are automatically registered with the SQL VM resource provider. However, there are some specific cases in which manual registration is necessary, such as when SQL Server has been self-installed. You can use Azure CLI or PowerShell to register your SQL Server VM with the SQL VM resource provider. 
+The SQL VM resource provider enables improved and robust management of SQL Server VMs. SQL Server VMs that have been created using the Azure marketplace are automatically registered with the SQL VM resource provider. However, there are some specific cases in which manual registration is necessary, such as when SQL Server has been self-installed. You can use Azure CLI or PowerShell to register your SQL Server VM with the SQL VM resource provider. 
 
 To utilize the SQL VM resource provider, you must also register the SQL VM resource provider with your subscription. This can be accomplished with the Azure portal, Azure CLI, and PowerShell. 
 
 
 ## Remarks
 
- - Registering a SQL Server VM with the SQL VM resource provider requires the SQL IaaS extension. If the SQL IaaS extension has not already been installed, it will be installed when you register your SQL Server VM with the SQL VM resource provider. You can specify the type of installation mode you want for the SQL IaaS extension. 'Full' mode requires a restart of SQL Server, while ['lightweight' and 'noagent'](#sql-iaas-noagent-and-lightweight-agent-options) do not. For more information about SQL IaaS agent modes, see [SQL IaaS agent modes](virtual-machines-windows-sql-server-agent-extension.md#modes). 
+ - Registering a SQL Server VM with the SQL VM resource provider requires the SQL IaaS extension. If the SQL IaaS extension has not already been installed it will be installed when you register your SQL Server VM with the SQL VM resource provider. You can specify the type of installation mode you want for the SQL IaaS extension. 'Full' mode requires a restart of SQL Server, while ['lightweight' and 'noagent'](#sql-iaas-noagent-and-lightweight-agent-options) do not. For more information about SQL IaaS agent modes, see [SQL IaaS agent modes](virtual-machines-windows-sql-server-agent-extension.md#modes). 
  - When registering a custom SQL Server VM image with the resource provider, specify the license type as = 'AHUB'. Leaving the license type as blank, or specifying 'PAYG' will cause the registration to fail.
  - The SQL VM resource provider only supports SQL Server VMs deployed using the 'Resource Manager', and to the public cloud. 
 
@@ -82,7 +82,7 @@ Register SQL Server VM using Azure CLI with the below code snippet:
 
 ```azurecli-interactive
 # Register your existing SQL Server VM with the new resource provider
-az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation> --license-type <AHUB or PAYG>
+az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation> --license-type AHUB
 ```
 
 # [PowerShell](#tab/powershell)
@@ -108,40 +108,40 @@ For more information about SQL IaaS agent modes, see [SQL IaaS agent odes](virtu
 
 You can verify the current mode of your SQL Server VM with PowerShell:
 
-    ```powershell-interactive
-       //Get the SqlVirtualMachine
-       $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
-       $sqlvm.Properties 
-   ```
+  ```powershell-interactive
+      //Get the SqlVirtualMachine
+      $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
+      $sqlvm.Properties 
+  ```
 
 
 ### Lightweight mode
 To avoid restarting SQL Server during SQL VM resource provider registration, specify the lightweight agent installation mode using PowerShell. This can be done by specifying `sqlManagement=LightWeight` in the registration command. The lightweight option does not restart the SQL Server service but only allows modification of the SQL Server edition and license type. 
 
-    ```powershell-interactive
+  ```powershell-interactive
      // Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-           
-    // Register SQL VM with 'Lightweight' SQL IaaS agent
-    New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-          -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-          -Properties @{virtualMachineResourceId=$vm.Id;sqlManagement='LightWeight'} -Force 
-    
-    ```
+          
+     // Register SQL VM with 'Lightweight' SQL IaaS agent
+     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlManagement='LightWeight'} -Force 
+  
+  ```
 
 ### NoAgent mode
 For SQL Server VMs that do not have the **Windows Guest Agent** service, such as Windows Server 2008 images, register with the SQL VM resource provider with the **NoAgent** option using PowerShell. This can be done by specifying `sqlManagement=NoAgent` in the registration command. The 'noagent' option offers limited functionality but does not restart the SQL Server service.  
 
-    ```powershell-interactive
+  ```powershell-interactive
      // Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-           
-    // Register SQL VM with 'NoAgent' SQL IaaS agent
-    New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-          -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-          -Properties @{virtualMachineResourceId=$vm.Id;sqlManagement='NoAgent'} -Force 
-    
-    ```
+          
+     // Register SQL VM with 'NoAgent' SQL IaaS agent
+     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlManagement='NoAgent'} -Force 
+  
+  ```
 
 
 
@@ -166,18 +166,18 @@ You may encounter this error when attempting to change your SQL Server VM licens
 Set-AzResource : Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
 To resolve this error, uncomment these lines in the previously mentioned PowerShell code snippet when switching your licensing model:
 
-```powershell
-# the following code snippet is necessary if using Azure Powershell version > 4
-$SqlVm.Kind= "LicenseChange"
-$SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-$SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
-```
-
-Use the following code to verify your Azure PowerShell version:
-
-```powershell-interactive
-Get-Module -ListAvailable -Name Azure -Refresh
-```
+  ```powershell-interactive
+  # the following code snippet is necessary if using Azure Powershell version > 4
+  $SqlVm.Kind= "LicenseChange"
+  $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
+  $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
+  ```
+  
+  Use the following code to verify your Azure PowerShell version:
+  
+  ```powershell-interactive
+  Get-Module -ListAvailable -Name Azure -Refresh
+  ```
 
 ## Next steps
 
