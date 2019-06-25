@@ -52,9 +52,9 @@ Different recovery methods offer different levels of RPO and RTO. You can choose
 | Recovery method | Basic | Standard | Premium | General Purpose | Business Critical
 | --- | --- | --- | --- |--- |--- |
 | Point in Time Restore from backup |Any restore point within seven days |Any restore point within 35 days |Any restore point within 35 days |Any restore point within configured period (up to 35 days)|Any restore point within configured period (up to 35 days)|
-| Geo-restore from geo-replicated backups |RTO = 12h<br> RPO = 1h |RTO = 12h<br>RPO = 1h |RTO = 12h<br>RPO = 1h |RTO = 12h<br>RPO = 1h|RTO = 12h<br>RPO = 1h|
-| Auto-failover groups |RTO = 1h<br>RPO = 5s |RTO = 1h<br>RPO = 5s |RTO = 1h<br>RPO = 5s |RTO = 1h<br>RPO = 5s|RTO = 1h<br>RPO = 5s|
-| Manual database failover |RTO = 30s<br>RPO = 5s |RTO = 30s<br>RPO = 5s |RTO = 30s<br>RPO = 5s |RTO = 30s<br>RPO < 5s|RTO = 30s<br>RPO = 5s|
+| Geo-restore from geo-replicated backups |RTO = 12 h<br> RPO = 1 h |RTO = 12 h<br>RPO = 1 h |RTO = 12 h<br>RPO = 1 h |RTO = 12 h<br>RPO = 1 h|RTO = 12 h<br>RPO = 1 h|
+| Auto-failover groups |RTO = 1 h<br>RPO = 5 s |RTO = 1 h<br>RPO = 5 s |RTO = 1 h<br>RPO = 5 s |RTO = 1 h<br>RPO = 5 s|RTO = 1 h<br>RPO = 5 s|
+| Manual database failover |RTO = 30 s<br>RPO = 5 s |RTO = 30 s<br>RPO = 5 s |RTO = 30 s<br>RPO = 5 s |RTO = 30 s<br>RPO = 5 s|RTO = 30 s<br>RPO = 5 s|
 
 > [!NOTE]
 > *Manual database failover* refers to failover of a single database to its geo-replicated secondary using the [unplanned mode](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
