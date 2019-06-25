@@ -11242,7 +11242,7 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-r-scripts.md",
-      "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
+      "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
       "redirect_document_id": false
     },
     {
@@ -11307,7 +11307,7 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-r-scripts-linux.md",
-      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-r-server-get-started",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-r-server-overview",
       "redirect_document_id": false
     },
     {
@@ -22506,12 +22506,17 @@
     },
     {
       "source_path": "articles/cosmos-db/how-to-sql-query.md",
-      "redirect_url": "articles/cosmos-db/sql-query-getting-started",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-api-query-getting-started.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/sql-query-reference.md",
-      "redirect_url": "articles/cosmos-db/sql-query-getting-started",
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
       "redirect_document_id": false
     },
     {
@@ -25861,8 +25866,8 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-r-server-get-started.md",
-      "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-r-server-install-r-studio.md",
@@ -25872,7 +25877,7 @@
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-r-server-overview.md",
       "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-r-server-storage.md",
@@ -26191,7 +26196,12 @@
     },
     {
       "source_path": "articles/hdinsight/r-server/r-server-install-r-studio.md",
-      "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
+      "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/r-server/r-server-get-started.md",
+      "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
       "redirect_document_id": false
     },
     {

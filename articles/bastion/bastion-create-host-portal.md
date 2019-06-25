@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/25/2019
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
 
@@ -30,10 +30,6 @@ There are two ways that you can create a Bastion host resource:
 The public preview is limited to the following Azure public regions:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
-
-To participate in this preview, you need to register. Use these steps to register for the preview:
-
-[!INCLUDE [register](../../includes/bastion-preview-register-include.md)]
 
 ## <a name="createhost"></a>Create a bastion host
 
