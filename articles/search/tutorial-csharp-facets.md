@@ -519,15 +519,24 @@ The view is going to require some significant changes.
 
 ### Run and test the app
 
-1. Run the app, and verify that the list of facets appears neatly to the left, after typing some search text.
-
-2. Try selecting one category, then one amenity, and view the narrowing results. Then try one amenity, then one category.
-
-    ![Using facet navigation to narrow a search of "wifi"](./media/tutorial-csharp-create-first-app/azure-search-facet-nav.png)
-
-When one selection is made in a facet list (such as category) it will override any previous selection within that list.
-
 The advantage of facet navigation to the user is that they can narrow searches with a single click.
+
+1. Run the app, type "airport" as the search text. Verify that the list of facets appears neatly to the left.
+
+    ![Using facet navigation to narrow a search of "airport"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport.png)
+
+2. Click the **Resort and Spa** category. Verify all results are in this category.
+
+    ![Narrowing the search to "Resort and Spa"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport_ras.png)
+
+3. Click the **continental breakfast** amenity. Verify all results are still in the "Resort and Spa" category, with the selected amenity.
+
+    ![Narrowing the search to "continental breakfast"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport_ras_cb.png)
+
+4. Try selecting any other category, then one amenity, and view the narrowing results. Then try the other way around, one amenity, then one category.
+
+    >{!Note]
+    > When one selection is made in a facet list (such as category) it will override any previous selection within that list.
 
 ## Takeaways
 
