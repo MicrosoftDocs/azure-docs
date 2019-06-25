@@ -16,10 +16,6 @@ ms.author: diberry
 # Ordinal V2 prebuilt entity for a LUIS app
 Ordinal V2 number expands [Ordinal](luis-reference-prebuilt-ordinal.md) to provide relative references such as `next`, `last`, and `previous`. These are not extracted using the ordinal prebuilt entity.
 
-The [ordinal](luis-reference-prebuilt-ordinal.md) prebuilt entity returns a value of `1` for a query of `first`. 
-
-The ordinalV2 returns a value and information about what the value is relative to. 
-
 ## Resolution for prebuilt ordinal V2 entity
 
 ### API version 2.x
