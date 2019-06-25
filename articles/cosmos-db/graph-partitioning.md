@@ -6,7 +6,7 @@ ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/24/2019
 ms.custom: seodec18
 ---
 # Using a partitioned graph in Azure Cosmos DB
@@ -19,15 +19,15 @@ One of the key features of the Gremlin API in Azure Cosmos DB is the ability to 
 
 ## Graph partitioning mechanism
 
-The following describes how the partitioning strategy in Azure Cosmos DB operates:
+The following guidelines describe how the partitioning strategy in Azure Cosmos DB operates:
 
 - **Both vertices and edges are stored as JSON documents**.
 
 - **Vertices require a partition key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The name of this partition key is a single-word string without spaces or special characters. The partition key is defined when creating a new container and it has a format: `/partitioning-key-name`.
 
-- **Edges will be stored with their source vertex**. In other words, for each vertex its partition key defines where they are stored along with its outgoing edges. This is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
+- **Edges will be stored with their source vertex**. In other words, for each vertex its partition key defines where they are stored along with its outgoing edges. This optimization is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
 
-- **Edges contain references to the vertices they point to**. All edges are stored with the partition keys and ID's of the vertices that they are pointing to. This computation makes all `out()` direction queries always be a scoped partitioned query, and not a blind cross-partition query. 
+- **Edges contain references to the vertices they point to**. All edges are stored with the partition keys and IDs of the vertices that they are pointing to. This computation makes all `out()` direction queries always be a scoped partitioned query, and not a blind cross-partition query. 
 
 - **Graph queries need to specify a partition key**. To take full advantage of the horizontal partitioning in Azure Cosmos DB, the partition key should be specified when a single vertex is selected, whenever it's possible. The following are queries for selecting one or multiple vertices in a partitioned graph:
 
