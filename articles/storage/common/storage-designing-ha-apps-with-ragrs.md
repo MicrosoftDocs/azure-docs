@@ -211,18 +211,29 @@ To recognize that it has potentially inconsistent data, the client can use the v
 
 ## Getting the last sync time
 
-To get the last sync time and information about the storage account's geo-replication status with PowerShell, check the storage account's **GeoReplicationStats** property. Remember to replace the placeholder values with your own values:
+You can use PowerShell or Azure CLI to retrieve the last sync time to determine when data was last written to the secondary.
+
+### PowerShell
+
+To get the last sync time for the storage account by using PowerShell, check the storage account's **GeoReplicationStats.LastSyncTime** property. Remember to replace the placeholder values with your own values:
 
 ```powershell
-$stats = $(Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account> -IncludeGeoReplicationStats).GeoReplicationStats
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account> `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
 ```
 
-The output is similar to the following:
+### Azure CLI
 
-```powershell
-Status LastSyncTime
------- ------------
-Live   6/10/2019 8:11:20 PM
+To get the last sync time for the storage account by using Azure CLI, check the storage account's **geoReplicationStats.lastSyncTime** property. Use the `--expand` parameter to return values for the properties nested under **geoReplicationStats**. Remember to replace the placeholder values with your own values:
+
+```cli
+$lastSyncTime=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --expand geoReplicationStats \
+    --query geoReplicationStats.lastSyncTime \
+    --output tsv)
 ```
 
 ## Testing
