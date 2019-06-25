@@ -18,22 +18,22 @@ ms.collection: M365-identity-device-management
 ---
 # View role assignments for an Azure Active Directory organization
 
-In Azure Active Directory (Azure AD), roles can be assigned at directory level or with a scope of a single application. Roles assignments at the directory scope are added to the list of single application role assignments, but role assignments at the single application scope aren't added to the list of directory level assignments.
+Roles can be assigned at directory level or with a scope of a single application. Roles assignments at the directory scope will show in the list of single application role assignments. Role assignments at the single application scope will not show in the list of directory level assignments.
 
 ## View the assignments of a role with directory scope using the Azure AD portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
-1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to view its properties.
-
-  ![View or edit roles from the Roles and administrators page](./media/roles-view-assignments/role-list.png)
-
-1. Select **Assignments** to view the assignments for the role.
-
-  ![View role assignments and permissions when you open a role from the list](./media/roles-view-assignments/role-assignments.png)
+1. Sign in to the Azure portal as a Privileged Role Administrator or Global Administrator for the organization.
+1. Select Azure Active Directory, select Roles and administrators, and then select the role you want to view assignments for.
+	
+	<screenshot of Roles and administrators tab>
+	
+1. On the Assignments tab view the assignments for the role.
+	
+	<screenshot of Assignments tab>
 
 ## View the assignments of a role with directory scope using Azure AD PowerShell
 
-You can automate how you assign Azure AD admin roles to users using Azure PowerShell. This article uses the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
+You can automate how you assign roles to user accounts using Azure PowerShell. This article uses the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
 
 ### Prepare PowerShell
 
@@ -92,15 +92,18 @@ HTTP/1.1 200 OK
 }
 ```
 
-## View the assignments of a role with single-application scope using the Azure AD portal (preview)
+## View the assignments of a single application level role using the Azure AD portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
-1. Select Azure Active Directory, select **App registrations**, and then select the app registration to view its properties.
+1. Sign in to the Azure portal as a Privileged Role Administrator or Global Administrator for the organization.
+1. Select Azure Active Directory, select App registration, and then select the app registration you want to view role assignments for.
 
-  ![Create or edit app registrations from the App registrations page](./media/roles-view-assignments/app-registrations.png)
+<screenshot of App registration tab>
 
-1. Select **Roles and administrators**, and then select a role to view its properties.
-1. Select **Assignments** to view the assignments for the role.
+1. Select the Roles and administrators tab, and then select the role you want to view assignments for.
+
+<screenshot of Roles and administrators tab>
+
+1. On the Assignments tab view the assignments for the role.
 
 <screenshot of Assignments tab>
 
