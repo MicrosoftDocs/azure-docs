@@ -4,7 +4,7 @@ description: As a service provider using Azure Delegated Resource Management, yo
 author: JnHs
 ms.author: jenhayes
 ms.service: service-provider-toolkit
-ms.date: 06/06/2019
+ms.date: 06/24/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -18,7 +18,7 @@ In this article, you'll learn how, as a service provider using [Azure Delegated 
 
 To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “My customers” in the search box near the top of the Azure portal.
 
-Keep in mind that the **My customer** page only shows info about customers who have delegated subscriptions or resource groups. If you work with other customers (such as through the [Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-overview), you won’t see info about those customers here unless you onboard their resources for delegated resource management.
+Keep in mind that the **My customers** page only shows info about customers who have delegated subscriptions or resource groups. If you work with other customers (such as through the [Cloud Solution Provider program](https://docs.microsoft.com/partner-center/csp-overview), you won’t see info about those customers here unless you onboard their resources for delegated resource management.
 
 > [!NOTE]
 > Your customers can view info about service providers by navigating to **Service providers** in the Azure portal. For more info, see [View and manage service providers](view-manage-service-providers.md).

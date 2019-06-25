@@ -4,7 +4,7 @@ description: Azure Service Provider Management Toolkit lets service providers ma
 author: JnHs
 ms.author: jenhayes
 ms.service: service-provider-toolkit
-ms.date: 06/05/2019
+ms.date: 06/24/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -29,8 +29,8 @@ Publishing a Managed Services offer is similar to publishing any other type of o
 ## Create your offer in the Cloud Partner Portal
 
 1. Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
-1. From the left navigation menu, select **New offer**, then select **Managed services**.
-1. You'll see an **Editor** section for your offer with four parts to fill in: **Offer Settings**, **Plans**, **Marketplace**, and **Support**. Read on for guidance on how to complete these sections.
+2. From the left navigation menu, select **New offer**, then select **Managed services**.
+3. You'll see an **Editor** section for your offer with four parts to fill in: **Offer Settings**, **Plans**, **Marketplace**, and **Support**. Read on for guidance on how to complete these sections.
 
 ## Enter offer settings
 
