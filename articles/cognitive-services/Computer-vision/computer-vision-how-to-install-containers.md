@@ -120,7 +120,7 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, `https://localhost:5000`, for container APIs.
+Use the host, `http://localhost:5000`, for container APIs.
 
 ### Asynchronous text recognition
 

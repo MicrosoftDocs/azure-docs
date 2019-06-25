@@ -3,14 +3,14 @@ title: Translator Text API v2.0
 titleSuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Text API v2.0.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-pawal
+ms.author: swmachan
 ---
 
 # Translator Text API v2.0
