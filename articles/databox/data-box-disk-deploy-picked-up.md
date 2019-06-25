@@ -126,11 +126,17 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 #### Pick up in Korea
 
-1. Make sure to include the return connote.
+1. Make sure to include the return consignment note.
 2. To request pickup:
-    1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft pickup* and the connote number to arrange for a collection.  
-    2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Pickup* and the connote number as reference.
+    1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft Azure pickup* and the service request number to arrange for a collection.  
+    2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Azure Pickup* and the service request number as reference.
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
+    4. You receive an email confirmation for the pickup schedule.
+3. Do this step only if the consignmnet note is not present. To request pickup:
+    1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft Azure pickup* and the service request number to arrange for a collection. Specify that you need a new consignment note to arrange for a collection. Provide sender (customer), receiver information (Azure datacenter), and reference number (service request number). 
+    2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Azure Pickup* and the service request number as reference.
+    3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
+    4. You receive a verbal confirmation if the request is made via telephone.
 
 ## Verify data upload to Azure
 
