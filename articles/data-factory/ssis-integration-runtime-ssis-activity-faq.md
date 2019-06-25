@@ -119,7 +119,7 @@ We also recommend that you set a timeout on the **General** tab:
 
 ### Poor performance in package execution
 
-Here are recommended actions:
+Try these actions:
 
 * Make sure the SSIS integration runtime is in the same region as the data source and destination.
 
