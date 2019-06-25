@@ -19,21 +19,42 @@ ms.author: monhaber
 ---
 # Understand Alerts
 
-This article explains the different types of security alerts and related insights available in Azure Security Center (ASC).  
+This article introduces the different kinds of alerts available in Azure Security Center (ASC).
 
-ASC has a variety of detections for different resource types for all resources whether deployed on Azure or extending the scope of Azure to on-premises and hybrid cloud environments.  
+## What are security alerts?
 
-* For getting started with Azure Security Center detection capabilities, see [How Security Center detects and responds to threats](https://docs.microsoft.com/en-us/azure/security-center/security-center-detection-capabilities).  
+Alerts are the notifications that Security Center generates when it detects threats to your resources. It prioritizes and lists the alerts along with information needed to quickly investigate the problem and recommendations for how to remediate an attack.
 
-* For the complete list of supported scenarios, see [Platforms and features supported by Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage).  
+To detect real threats and reduce false positives, Security Center collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions.
 
-* To better understand how Security Incidents, see [How to handle Security Incidents in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-incident). 
+The following topics guide you through the different ASC alerts according to resource types:
 
-* For information on how to manage alerts and incidents, see [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-managing-and-responding-alerts).  
+* [IaaS VMs & Servers Alerts](security-center-alerts-iaas.md)
+* [Native computer alerts](security-center-compute.md)
+* [SErvice layer alerts](security-center-data-services.md)
+* [Data services alerts](security-center-data-services.md)
 
-* For information on to how validate Security Center is properly configured and to stimulate a test alert, see [Alerts Validation in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-alert-validation).  
+ASC monitors the resources whether deployed on Azure or deployed on other on-premises and hybrid cloud environments.  
 
-To set up advanced detections, upgrade to Azure Security Center Standard. In-order to do so, navigate to Security Policy while in Azure Security Center click Edit settings for the subscriptions you would like to move to Standard tier. To upgrade, select Pricing Tier. A free trial is available for a month. To learn more see the [pricing page](https://azure.microsoft.com/en-us/pricing/details/security-center/). 
+* To learn how Azure Security Center detects and responds to threats, see [How Security Center detects and responds to threats](security-center-detection-capabilities.md).  
+
+* To see which platforms and features are protected by ASC, see [Platforms and features supported by Azure Security Center](security-center-os-coverage.md).  
+
+* To understand what are security incidents and how ASC responds to them, see [How to handle Security Incidents in Azure Security Center](security-center-incident.md). 
+
+* To learn how to manage the alerts you receive, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).  
+
+* For information on to how validate Security Center is properly configured and to stimulate a test alert, see [Alerts Validation in Azure Security Center](security-center-alert-validation.md).  
+
+
+## Upgrade to Standard for advanced detections
+
+To set up advanced detections, upgrade to Azure Security Center Standard. 
+
+1. From the Security Center menu, select **Security Policy**.
+2. For the subscriptions you would like to move to Standard tier, click **Edit settings**. 
+3. From the Settings page, select **Pricing Tier**. 
+   A free trial is available for a month. To learn more see the [pricing page](https://azure.microsoft.com/en-us/pricing/details/security-center/). 
 
 ## Next steps
 
