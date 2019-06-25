@@ -1,5 +1,5 @@
 ---
-title: 'Four steps to a strong identity foundation'
+title: 'Four steps to a strong identity foundation with Azure Active Directory'
 description: This topic describes four steps hybrid identity customers can take to build a strong identity foundation.
 services: active-directory
 author: martincoetzer
@@ -15,7 +15,7 @@ ms.author: martincoetzer
 ms.collection: M365-identity-device-management
 ---
 
-# Four steps to a strong identity foundation
+# Four steps to a strong identity foundation with Azure Active Directory
 
 Managing access to apps and data can no longer rely on the traditional network security boundary strategies such as perimeter networks and firewalls because of the rapid movement of apps to the cloud. Now organizations must trust their identity solution to control who and what has access to the organization's apps and data. More organizations are allowing employees to bring their own devices to work and use their devices from anywhere they can connect to the Internet. Ensuring those devices are compliant and secure has become an important consideration in the identity solution an organization chooses to implement. In today's digital workplace, [identity is the primary control plane](https://www.microsoft.com/security/technology/identity-access-management?rtc=1) of any organization moving to the cloud.
 
