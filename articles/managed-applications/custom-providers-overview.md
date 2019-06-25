@@ -10,7 +10,7 @@ ms.author: jobreen
 
 # Azure Custom Resource Providers Overview
 
-Azure Custom Resource Providers is an extensibility platform to Azure. It allows you define custom APIs that can be used enrich or augment the default Azure experience. This documentation describes:
+Azure Custom Resource Providers is an extensibility platform to Azure. It allows you define custom APIs that can be used enrich the default Azure experience. This documentation describes:
 
 - How to build and deploy an Azure Custom Resource Provider.
 - How to utilize Azure Custom Resource Providers to extend existing workflows.
@@ -37,7 +37,7 @@ Azure Custom Resource Providers are created by creating a contract between Azure
 
 ## What is a custom resource provider
 
-Custom Resource Providers are a list of contracts between Azure and endpoints and describe how Azure should interact with an endpoint. The resource provider acts like a proxy and will forward requests and responses to and from the specified **endpoint**. A resource provider can specify two types of contracts: **resourceTypes** and **actions**. These are enabled through endpoint definitions. An endpoint definition is comprised of three fields: **name**, **endpoint**, and **routingType**.
+Custom Resource Providers are a list of contracts between Azure and endpoints and describe how Azure should interact with an endpoint. The resource provider acts like a proxy and will forward requests and responses to and from the specified **endpoint**. A resource provider can specify two types of contracts: [**resourceTypes**](./custom-providers-resources-endpoint-how-to.md) and [**actions**](./custom-providers-action-endpoint-how-to.md). These are enabled through endpoint definitions. An endpoint definition is comprised of three fields: **name**, **endpoint**, and **routingType**.
 
 Sample Endpoint:
 
@@ -51,11 +51,11 @@ Sample Endpoint:
 
 Property | Required | Description
 ---|---|---
-name | *yes* | The name of the endpoint definition. Azure will expose this name through its API under '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
+name | *yes* | The name of the endpoint definition. Azure will expose this name through its API under '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
 routingType | *no* | Determines the contract type with the **endpoint**. If not specified, it will default to "Proxy".
 endpoint | *yes* | The endpoint to route the requests to. This will handle the response as well as any side effects of the request.
 
-### ResourceTypes and custom resources
+### Building custom resources
 
 **ResourceTypes** describe new custom resources that are added to Azure. These expose basic RESTful CRUD methods. To learn more about creating custom resources [click here](./custom-providers-resources-endpoint-how-to.md)
 
@@ -80,12 +80,12 @@ APIs added to Azure for the above sample:
 
 HttpMethod | Sample URI | Description
 ---|---|---
-PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call to create a new resource.
-DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call the delete an existing resource.
-GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call to retrieve an existing resource.
-GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources?api-version=2018-09-01-preview | The Azure REST API call to retrieve the list of existing resources.
+PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call to create a new resource.
+DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call the delete an existing resource.
+GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call to retrieve an existing resource.
+GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomResources?api-version=2018-09-01-preview | The Azure REST API call to retrieve the list of existing resources.
 
-## Actions and custom actions
+## Building custom actions
 
 **Actions** describe new actions that are added to Azure. These can be exposed on top of the resource provider or nested under a **resourceType**. To learn more about creating custom resources [click here](./custom-providers-action-endpoint-how-to.md)
 
@@ -110,7 +110,7 @@ APIs added to Azure for the above sample:
 
 HttpMethod | Sample URI | Description
 ---|---|---
-POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction?api-version=2018-09-01-preview | The Azure REST API call to activate the action.
+POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomAction?api-version=2018-09-01-preview | The Azure REST API call to activate the action.
 
 ## Looking for help
 

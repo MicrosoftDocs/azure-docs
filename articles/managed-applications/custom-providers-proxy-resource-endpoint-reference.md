@@ -64,9 +64,9 @@ Parameter Reference:
 
 Property | Sample | Description
 ---|---|---
-name | {myCustomResourceName} | The name of the custom resource.
-type | Microsoft.CustomProviders/resourceProviders/{resourceTypeName} | The resource type namespace.
-id | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName} | The resource ID.
+name | '{myCustomResourceName}' | The name of the custom resource.
+type | 'Microsoft.CustomProviders/resourceProviders/{resourceTypeName}' | The resource type namespace.
+id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}' | The resource ID.
 
 ### Create a custom resource
 

@@ -92,6 +92,20 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+Azure Custom Resource Provider Response:
+
+``` HTTP
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "myProperty1": "myPropertyValue1",
+    "myProperty2": {
+        "myProperty3" : "myPropertyValue3"
+    }
+}
+```
+
 ## Calling a Custom Action
 
 There are two main ways of calling a custom action off of a custom resource provider:
