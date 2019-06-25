@@ -34,7 +34,7 @@
       href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates 
     - name: Azure PowerShell
       href: samples-powershell.md
-    - name: Azure PowerShell - sample Az.DevTestLabs2 module
+    - name: Azure PowerShell - Az.DevTestLabs2 module
       href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library      
     - name: Azure CLI
       href: samples-cli.md    
