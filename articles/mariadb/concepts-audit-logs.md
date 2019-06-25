@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 06/24/2019
 ---
 
 # Audit Logs in Azure Database for MariaDB
@@ -39,7 +39,7 @@ Other parameters you can adjust include:
 
 Audit logs are integrated with Azure Monitor Diagnostic Logs. Once you've enabled audit logs on your MariaDB server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs in the Azure portal, see the [audit log portal article](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
-## Schemas
+## Diagnostic Logs Schemas
 
 The following sections describe what's output by MariaDB audit logs based on the event type. Depending on the output method, the fields included and the order in which they appear may vary.
 
@@ -76,7 +76,7 @@ Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and A
 |---|---|
 | `TenantId` | Your tenant ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Time stamp when tshe log was recorded in UTC |
+| `TimeGenerated` [UTC] | Time stamp when the log was recorded in UTC |
 | `Type` | Type of the log. Always `AzureDiagnostics` |
 | `SubscriptionId` | GUID for the subscription that the server belongs to |
 | `ResourceGroup` | Name of the resource group the server belongs to |

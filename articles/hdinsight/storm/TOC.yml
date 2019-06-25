@@ -47,8 +47,6 @@
       href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
     - name: Event Hub and Apache Storm (C# & Java)
       href: apache-storm-develop-csharp-event-hub-topology.md
-    - name: Event Hub, Apache HBase (Java)
-      href: apache-storm-sensor-data-analysis.md
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
