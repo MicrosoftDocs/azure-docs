@@ -29,7 +29,7 @@ The unit of deployment for Azure functions is the function app. This means that 
 
 ## Requirements for continuous deployment
 
-For continuous deployment to succeed, your directory structure must be compatible the following basic folder structure that Azure Functions expects:
+For continuous deployment to succeed, your directory structure must be compatible with the following basic folder structure that Azure Functions expects:
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -41,13 +41,15 @@ Use this procedure to configure continuous deployment for an existing function a
 
     ![Opening the deployment center](./media/functions-continuous-deployment/platform-features.png)
 
-2. On the **Deployment Center**, select **GitHub** for **Source Control** > **Authorize**.
+2. In the **Deployment Center**, select **GitHub**, and then select **Authorize**. Or, if you've already authorized GitHub, select **Continue**. 
 
     ![Deployment center](./media/functions-continuous-deployment/github.png)
 
-3. Select **Authorize AzureAppService** > **Continue**.
+3. In GitHub, select **Authorize AzureAppService**. 
 
     ![Authorizing](./media/functions-continuous-deployment/authorize.png)
+    
+    In the Azure portal **Deployment Center**, select **Continue**.
 
 4. Select one of the following build providers:
 

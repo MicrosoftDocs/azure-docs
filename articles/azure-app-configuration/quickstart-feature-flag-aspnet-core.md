@@ -85,9 +85,9 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` and `Microsoft.FeatureManagement` NuGet packages by running the following commands:
 
     ```
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008920001-990
 
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-008560001-910
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
     ```
 
 1. Run the following command to restore packages for your project:
@@ -163,7 +163,8 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
+    using Microsoft.FeatureManagement.Mvc;
 
     namespace TestFeatureFlags.Controllers
     {
@@ -176,7 +177,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
                 _featureManager = featureManager;
             }
 
-            [Feature(MyFeatureFlags.Beta)]
+            [FeatureGate(MyFeatureFlags.Beta)]
             public IActionResult Index()
             {
                 return View();

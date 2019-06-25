@@ -225,7 +225,7 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
@@ -250,7 +250,8 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
                         "qna": null,
                         "displayText": "Create a Windows Account"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -264,14 +265,15 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Turn off the device"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -285,14 +287,21 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         }
     ]
 }
 ```
 
-The `prompts` array provides text in the `displayText` property and the `qnaId` value so you can show these answers as the next displayed choices in the conversation flow, then send the selected value to QnA Maker in the following request. 
+The `promptsToAdd` array provides text in the `displayText` property and the `qnaId` value so you can show these answers as the next displayed choices in the conversation flow, then send the selected value to QnA Maker in the following request. 
+
+<!--
+
+The `promptsToDelete` array provides the ...
+
+-->
 
 ## JSON request to return non-initial answer and follow-up prompts
 
@@ -332,7 +341,8 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         },
         {
@@ -346,14 +356,15 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 4,
                         "qna": null,
                         "displayText": "Ports and connectors"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -367,7 +378,8 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         }
     ]

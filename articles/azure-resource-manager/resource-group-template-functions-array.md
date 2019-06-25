@@ -1,18 +1,9 @@
 ---
 title: Azure Resource Manager template functions - arrays and objects | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template for working with arrays and objects.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 
