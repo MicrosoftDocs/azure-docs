@@ -406,7 +406,7 @@ FIX - Need to go to parent, then answer column, then edit answer.
 
 ## Add or delete multi-turn prompts with the Update API
 
-You can add or delete multi-turn prompts via the [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following JSON examples shows the `context` including `promptsToAdd`, and `promptsToDelete` to change the settings. 
+You can add or delete multi-turn prompts via the [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following JSON example shows the `context` including `promptsToAdd`, and `promptsToDelete` to change the settings. 
 
 ```json
 {
@@ -551,6 +551,8 @@ Your `promptsToAdd` can create a new prompt by creating a new QnA pair and link 
     ]
  }
 ```
+
+If you use want to add prompts to your QnA Maker definition file (json), use the same JSON object array structure, but change the property name from `promptsToAdd` to `"prompts`.
 
 ### Add a prompt and link to an existing QnA pair
 
