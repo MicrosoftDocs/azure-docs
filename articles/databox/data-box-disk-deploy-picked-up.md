@@ -84,7 +84,7 @@ Take the following steps if returning the device in Europe.
 
 ### Pick up in Asia-Pacific region
 
-This region includes instructions for pickup in Japan, Korea, and Australia.
+This region includes instructions for pickup in Japan, Korea, Australia, and Singapore.
 
 #### Pick up in Australia
 
@@ -127,16 +127,36 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 #### Pick up in Korea
 
 1. Make sure to include the return consignment note.
-2. To request pickup:
+2. To request pickup when consignment note is present:
     1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft Azure pickup* and the service request number to arrange for a collection.  
     2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Azure Pickup* and the service request number as reference.
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
     4. You receive an email confirmation for the pickup schedule.
-3. Do this step only if the consignmnet note is not present. To request pickup:
+3. Do this step only if the consignment note is not present. To request pickup:
     1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft Azure pickup* and the service request number to arrange for a collection. Specify that you need a new consignment note to arrange for a collection. Provide sender (customer), receiver information (Azure datacenter), and reference number (service request number). 
     2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Azure Pickup* and the service request number as reference.
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
     4. You receive a verbal confirmation if the request is made via telephone.
+
+### Pick up in Singapore
+
+1. Print the shipping label and attach onto the box. If the label is damaged or lost:
+    - Go to **Overview > Download shipping label**.
+
+        ![Download shipping label](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        This action downloads a return shipping label as shown below.
+
+        ![Example shipping label](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Affix the label on the device. Make sure that the label is visible.
+
+2. To request pickup:
+    - Call **SingPost** hotline at **6845 6485** during office hours (9am to 5pm, Monday to Friday).  
+    - Quote *Microsoft Azure pickup* and the service request number (tracking number on the return shipping label) to arrange for a collection. 
+    - You will get a verbal confirmation for the pickup schedule. 
+    - If the courier does not arrive for collection, call **SingPost** at **6845 6485** for alternate arrangements. 
+3. Hand over to the courier. 
+
 
 ## Verify data upload to Azure
 
