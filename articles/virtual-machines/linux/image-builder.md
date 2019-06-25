@@ -15,6 +15,7 @@ This article shows you how you can create a customized Linux image using the Azu
 - Shell (ScriptUri) - downloads and runs a [shell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
 - Shell (inline) - runs specific commands. In this example, the inline commands include creating a directory and updating the OS.
 - File - copies a [file from GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) into a directory on the VM.
+- buildTimeoutInMinutes - Increase a build time to allow for longer running builds
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
@@ -52,7 +53,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## Create a resource group
+## Setup Example Variables
 
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
@@ -74,14 +75,18 @@ Create a variable for your subscription ID. You can get this using `az account s
 subscriptionID=<Your subscription ID>
 ```
 
-Create the resource group.
+## Create the resource group.
+This is going to be used to store the Image Configuration Template Artifact and also the Image.
 
 ```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
+## Set Permissions on the Resource Group
+Give Image Builder 'contributor' permission to create the image in the created resource group, without this, the image build will fail. 
 
-Give Image Builder permission to create resources in that resource group. The `--assignee` value is the app registration ID for the Image Builder service. 
+
+The `--assignee` value is the app registration ID for the Image Builder service. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -90,9 +95,9 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-## Download the .json example
+## Download the Image Configuration Template Example
 
-Download the example .json file and configure it with the variables you created.
+A parameterized Image ConfigurationTemplate has been created for you to try immediately,  download the example .json file and configure it with the variables you set in a previous step.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
@@ -103,6 +108,15 @@ sed -i -e "s/<region>/$location/g" helloImageTemplateLinux.json
 sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
+
+You can modify this example, in the terminal, just run:
+```azurecli-interactive
+vi helloImageTemplateLinux.json
+```
+Note:
+* For source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
+* If you add or change the resource group where the image is to be distributed to, you must ensure the permissions are set, this is at the begining of this article.
+
 
 ## Create the image
 Submit the image configuration to the VM Image Builder service
@@ -116,7 +130,26 @@ az resource create \
     -n helloImageTemplateLinux01
 ```
 
-Start the image build.
+On success, this will return a success message back to the console, and create an Image Builder Configuration Template artifact in the $imageResourceGroup. You can see this in the Portal in the resource group, when you enable 'Show hidden types'.
+
+Additionally, in the background, Image Builder will have created a staging resource group in your subcription, that it uses for the image build. It will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`
+
+>>Note! You must not delete the staging resource group directly, you must delete the image template artifact, this will delete it, you can use the code at the end of this walk through, in 'Clean Up'.
+
+If the service reports a failure during the image configuration template submission:
+* Please review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. 
+* You will need to delete the tempate using the code below, before you retry submission:
+
+```azurecli-interactive
+az resource delete \
+    --resource-group $imageResourceGroup \
+    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
+    -n helloImageTemplateLinux01
+```
+
+## Start the image build.
+Before you start the image build, ensure you have not deleted the destination image resource group!
+
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -126,7 +159,9 @@ az resource invoke-action \
      --action Run 
 ```
 
-Wait until the build is complete. This can take about 15 minutes.
+Wait until the build is complete, for this example, it can take 10-15 minutes.
+
+If you encounter any errors, please review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) steps.
 
 
 ## Create the VM
@@ -173,15 +208,17 @@ cat helloImageTemplateLinux.json
 For more detailed information about this .json file, see [Image builder template reference](image-builder-json.md)
 
 ## Clean up
-
 When you are done, delete the resources.
+### Delete the Image Builder Template
 
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateLinux01
-
+```
+### Delete the Image Resource Group
+```bash
 az group delete -n $imageResourceGroup
 ```
 
