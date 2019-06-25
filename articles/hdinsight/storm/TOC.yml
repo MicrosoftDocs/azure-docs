@@ -49,8 +49,6 @@
       href: apache-storm-develop-csharp-event-hub-topology.md
     - name: Azure Storage/Data Lake Storage (Java)
       href: apache-storm-write-data-lake-store.md
-    - name: Event Hub, Apache HBase (Java)
-      href: apache-storm-sensor-data-analysis.md
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
