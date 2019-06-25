@@ -20,14 +20,14 @@ ms.reviewer: jroth
 
 This article describes how to register your Azure SQL Server virtual machine (VM) with the SQL VM resource provider - **Microsoft.SqlVirtualMachine**. 
 
-The SQL VM resource provider enables improved and robust management of SQL Server VMs. SQL Server VMs that have been created using the Azure marketplace are automatically registered with the SQL VM resource provider. However, there are some specific cases in which manual registration is necessary, such as when SQL Server has been self-installed. You can use Azure CLI or PowerShell to register your SQL Server VM with the SQL VM resource provider. 
+The SQL VM resource provider enables improved and robust management of SQL Server VMs - such as **portal management**, **changing license type**, and **changing edition SKU**. SQL Server VMs created using the Azure marketplace are automatically registered with the SQL VM resource provider. However, there are some specific cases in which manual registration is necessary, such as when SQL Server has been self-installed. You can use Azure CLI or PowerShell to register your SQL Server VM with the SQL VM resource provider. 
 
 To utilize the SQL VM resource provider, you must also register the SQL VM resource provider with your subscription. This can be accomplished with the Azure portal, Azure CLI, and PowerShell. 
 
 
 ## Remarks
 
- - Registering a SQL Server VM with the SQL VM resource provider requires the SQL IaaS extension. If the SQL IaaS extension has not already been installed it will be installed when you register your SQL Server VM with the SQL VM resource provider. You can specify the type of installation mode you want for the SQL IaaS extension. 'Full' mode requires a restart of SQL Server, while ['lightweight' and 'noagent'](#sql-iaas-noagent-and-lightweight-agent-options) do not. For more information about SQL IaaS agent modes, see [SQL IaaS agent modes](virtual-machines-windows-sql-server-agent-extension.md#modes). 
+ - Registering a SQL Server VM with the SQL VM resource provider requires the SQL IaaS extension. If the SQL IaaS extension has not already been installed it will be installed when you register your VM with the resource provider. You can specify the type of installation mode you want for the SQL IaaS extension. 'Full' mode requires a restart of SQL Server, while ['lightweight' and 'noagent'](#sql-iaas-noagent-and-lightweight-agent-options) do not. For more information about SQL IaaS agent modes, see [SQL IaaS agent modes](virtual-machines-windows-sql-server-agent-extension.md#modes). 
  - When registering a custom SQL Server VM image with the resource provider, specify the license type as = 'AHUB'. Leaving the license type as blank, or specifying 'PAYG' will cause the registration to fail.
  - The SQL VM resource provider only supports SQL Server VMs deployed using the 'Resource Manager', and to the public cloud. 
 
@@ -97,6 +97,8 @@ New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -
 
 # [Azure Portal](#tab/azure-portal)
 The ability to register with the SQL VM resource provider is not available with the Azure portal. 
+
+---
 
 ## SQL IaaS 'noagent' and 'lightweight' agent options
 

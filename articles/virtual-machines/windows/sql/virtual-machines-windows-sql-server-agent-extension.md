@@ -75,9 +75,11 @@ There are three mode types for the SQL IaaS extension: **Full** and **Lightweigh
 - **Lightweight** does not require the restart of SQL Server, but only supports changing the license type and edition of SQL Server. 
 - **NoAgent** is dedicated to VMs that do not have the **Windows Guest Agent** installed, such as Windows Server 2008 images.  This option *does not install* the SQL IaaS extension, but allows VMs without a **Windows Guest Agent** to register with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md). 
 
-It is possible to upgrade from **NoAgent**, to **Lightweight** to **Full**, but it is not possible to downgrade. To downgrade, you would need to completely uninstall the SQL IaaS extension and install it again. This can be changed in the portal - going from anything to full will cause SQL Server to restart. 
+It is possible to upgrade from **NoAgent**, to **Lightweight**, to **Full**, but it is not possible to downgrade. To downgrade, you will need to completely uninstall the SQL IaaS extension and install it again. 
 
-Verify the current mode of your SQL Server IaaS VM with PowerShell as well:
+This can be viewed and changed in the portal - going from any other mode to full will cause SQL Server to restart. 
+
+Verify the current mode of your SQL Server IaaS agent with PowerShell:
 
   ```powershell-interactive
      //Get the SqlVirtualMachine
@@ -86,7 +88,19 @@ Verify the current mode of your SQL Server IaaS VM with PowerShell as well:
   ```
 
 
-Install SQL IaaS agent in lightweight mode using PowerShell:
+
+
+
+## Installation
+The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images. The SQL IaaS extension offers manageability for a single instance on the SQL Server VM. If there is a default instance, then the extension will work with the default instance, and it will not support managing other instances. If there is no default instance but only one named instance, then it will manage the named instance. If there is no default instance and there are multiple named instances, then the extension will fail to install. 
+
+If you need to reinstall the extension manually on one of these SQL Server VMs, use the following PowerShell command:
+
+```powershell
+Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
+```
+
+Install SQL IaaS agent with lightweight mode using PowerShell:
 
   ```powershell-interactive
      // Get the existing  Compute VM
@@ -98,16 +112,6 @@ Install SQL IaaS agent in lightweight mode using PowerShell:
         -Properties @{virtualMachineResourceId=$vm.Id;sqlManagement='LightWeight'} -Force 
   
   ```
-
-
-## Installation
-The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images. The SQL IaaS extension offers manageability for a single instance on the SQL Server VM. If there is a default instance, then the extension will work with the default instance, and it will not support managing other instances. If there is no default instance but only one named instance, then it will manage the named instance. If there is no default instance and there are multiple named instances, then the extension will fail to install. 
-
-If you need to reinstall the extension manually on one of these SQL Server VMs, use the following PowerShell command:
-
-```powershell
-Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
-```
 
 > [!WARNING]
 > If the extension is not already installed, installing the extension restarts the SQL Server service. However, updating the SQL IaaS extension does not restart the SQL Server service. 

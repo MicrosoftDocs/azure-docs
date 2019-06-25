@@ -33,6 +33,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 | **New SQL IaaS installation modes** | It's now possible to install the SQL IaaS extension in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#modes) to avoid restarting SQL Server service.  |
 | **SQL Server edition modification** | You can now change the [edition sku](virtual-machines-windows-sql-change-edition.md) of SQL Server. |
 | **SQL VM RP changes** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md#sql-iaas-noagent-and-lightweight-agent-options) - even Windows 2008 images - using the new SQL IaaS modes. |
+| **BYOL images using AHUB** | BYOL images deployed from the marketplace can now switch their [license type to 'PAYG'](virtual-machines-windows-sql-ahb.md#remarks), though they'll need to register as 'AHUB' initially. | 
 | &nbsp; | &nbsp; |
 
 
@@ -60,7 +61,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **Portal improvement** | It is now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license using the [Azure portal](virtual-machines-windows-sql-ahb.md#with-the-azure-portal-1).|
+| **Portal improvement** | It is now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license using the [Azure portal](virtual-machines-windows-sql-ahb.md#with-the-azure-portal)|
 |**AG deployment simplification with Azure SQL VM CLI** | It is now easier than ever to deploy an availability group to a SQL Server VM in Azure. [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) allows you to create the WSFC, ILB and AG listener all from the command line, and in record time! For more information, see [Use Azure SQL VM CLI to configure Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-cli.md). | 
 | &nbsp; | &nbsp; |
 
@@ -71,7 +72,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 | --- | --- |
 | **New SQL cluster group resource provider** | A new resource provider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) that defines the metadata of the Windows Failover Cluster. Joining a SQL Server VM to the *SqlVirtualMachineGroups* bootstraps the Windows Failover Cluster service and joins the VM to the cluster.  |
 |**Automate setting up an availability group deployment with Azure Quickstart Templates** |It is now possible to create the Windows Failover Cluster, join SQL Server VMs to it, create the listener, and configure the Internal Load Balancer with two Azure Quickstart Templates. For more information, see [Use Azure Quickstart Template to configure Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
-| **Automatic SQL VM Resource Provider Registration** | SQL Server VMs deployed after this month are automatically registered with the new SQL Server resource provider. SQL Server VMs deployed prior to this month still need to be manually registered. For more information, see [Register existing SQL VM with SQL VM resource provider](virtual-machines-register-with-rp.md).|
+| **Automatic SQL VM Resource Provider Registration** | SQL Server VMs deployed after this month are automatically registered with the new SQL Server resource provider. SQL Server VMs deployed prior to this month still need to be manually registered. For more information, see [Register existing SQL VM with SQL VM resource provider](virtual-machines-sql-register-with-rp.md).|
 | &nbsp; | &nbsp; |
 
 
@@ -79,8 +80,8 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **New SQL VM resource provider** |  A new resource provider for SQL Server VMs (Microsoft.SqlVirtualMachine) that provides better management of your SQL Server VM. For more information on registering your VM, see [Register existing SQL VM with new resource provider](virtual-machines-register-with-rp.md). |
-|**Switch licensing model** |You can now switch between the pay-per-usage and bring-your-own license model for your SQL VM using Azure CLI or Powershell. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). | 
+| **New SQL VM resource provider** |  A new resource provider for SQL Server VMs (Microsoft.SqlVirtualMachine) that provides better management of your SQL Server VM. For more information on registering your VM, see [Register existing SQL VM with new resource provider](virtual-machines-sql-register-with-rp.md). |
+|**Switch licensing model** | You can now switch between the pay-per-usage and bring-your-own license model for your SQL VM using Azure CLI or Powershell. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). | 
 | &nbsp; | &nbsp; |
 
 
