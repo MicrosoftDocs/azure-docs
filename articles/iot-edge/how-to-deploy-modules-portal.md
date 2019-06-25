@@ -4,7 +4,7 @@ description: Use the Azure portal to deploy modules to an IoT Edge device
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
@@ -38,9 +38,9 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
 ### Add modules
 
-1. In the **Registry settings** section of the page, provide the credentials to access any private container registries that contain your module images.
+1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
 
-1. In the **Deployment modules** section of the page, select **Add**.
+1. In the **Deployment Modules** section of the page, select **Add**.
 
 1. Look at the types of modules from the drop-down list:
 
