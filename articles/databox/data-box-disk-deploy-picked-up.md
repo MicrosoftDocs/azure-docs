@@ -102,6 +102,9 @@ Azure datacenters in Australia have an additional security notification. All the
 1. Write your company name and address information on the consignment note as your sender information.
 2. Email Quantium solution using the following email template.
 
+    - If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
+    - If you have multiple orders, email to ensure individual pickup.
+
     ```
     To: Customerservice.JP@quantiumsolutions.com
     Subject: Pickup request for Azure Data Box Disk｜Job Name： 
@@ -113,16 +116,10 @@ Azure datacenters in Australia have an additional security notification. All the
         c. 15：00-17：00 
         d. 17：00-19：00 
     ```
-    
-3. Receive an email confirmation from Quantium solutions after the you've booked a pickup.
-4. Quantium Solutions Japan will respond by email with a confirmation regarding the Chakubarai consignment note.
 
+3. Receive an email confirmation from Quantium solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
 
-> [!IMPORTANT] 
-> - If Japan Post Chakubarai consignment note wasn't included or is missing, note that in the above email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
-> - If you have multiple orders, email to ensure individual pickup.
-
-You can contact Quantium Solution Support (Japanese language) at the following information: 
+If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
 
 - Email：mailto:Customerservice.JP@quantiumsolutions.com 
 - Telephone：03-5755-0150 
