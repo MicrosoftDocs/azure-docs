@@ -5,7 +5,7 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 06/17/2019
+ms.date: 06/24/2019
 ms.author: lbosq
 ---
 
@@ -89,7 +89,7 @@ The properties used by GraphSON for vertices are described below:
 | Property | Description | 
 | --- | --- | --- |
 | `id` | The ID for the vertex. Must be unique (in combination with the value of `_partition` if applicable). If no value is provided, it will be automatically supplied with a GUID | 
-| `label` | The label of the vertex. This is used to describe the entity type. |
+| `label` | The label of the vertex. This property is used to describe the entity type. |
 | `type` | Used to distinguish vertices from non-graph documents |
 | `properties` | Bag of user-defined properties associated with the vertex. Each property can have multiple values. |
 | `_partition` | The partition key of the vertex. Used for [graph partitioning](graph-partitioning.md). |
