@@ -521,6 +521,67 @@ You can add or delete multi-turn prompts via the [QnA Maker Update API](https://
 }
 ```
 
+### Add a prompt and create a new QnA pair
+
+Your `promptsToAdd` can create a new prompt by creating a new QnA pair and link to it. The following JSON shows an example:
+
+```json
+ "context": {
+    "isContextOnly": true,
+    "promptsToAdd": [
+        {
+            "displayText": "Add Prompts",
+            "displayOrder": 0,
+            "qna": {
+                "id": 0,
+                "answer": "Click here to know more https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/multiturn-conversation",
+                "source": "Editorial",
+                "questions": [
+                    "How can I add prompts?"
+                ],
+                "metadata": [],
+                "alternateQuestionClusters": [],
+                "context": {
+                    "isContextOnly": false,
+                    "prompts": []
+                }
+            },
+            "qnaId": 0
+        }
+    ]
+ }
+```
+
+### Add a prompt and link to an existing QnA pair
+
+Your `promptsToAdd` can create a new prompt and link to an existing QnA pair. The following JSON shows an example:
+
+```json
+"context": {
+    "isContextOnly": true,
+    "promptsToAdd": [
+        {
+            "displayText": "Refresh Endpoint keys",
+            "displayOrder": 1,
+            "qna": null,
+            "qnaId": 4
+        }
+    ]
+}
+```
+
+### Delete prompt by QnA ID
+
+Your `promptsToDelete` references the QnA pair ID of the prompt to delete. The following JSON shows an example:
+
+```json
+"context": {
+    "promptsToDelete": [
+        4
+    ]
+}
+```
+
 ## Next steps
 
 Learn more about contextual conversations from the [Dialog sample](https://aka.ms/qnamakermultiturnsample) or learn more [conceptual bot design for multi-turn conversations](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
