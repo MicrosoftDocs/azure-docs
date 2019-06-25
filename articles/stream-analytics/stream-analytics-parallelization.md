@@ -248,28 +248,33 @@ An [embarrassingly parallel](#embarrassingly-parallel-jobs) job is necessary but
 
 The following observations use a Stream Analytics job with stateless (passthrough) query, a basic JavaScript UDF which writes to Event Hub, Azure SQL DB, or Cosmos DB.
 
-|Sink     |Ingestion Rate (events/s)  |Streaming Units  | Output Resources  |
-|---------|---------|---------|---------|
-|Event Hub    |       |         |         |
-|    |    1K     |    1     |    2 TU     |
-|    |    5K     |     6    |    6 TU     |
-|    |    10K     |    12     |    10 TU     |
-|Azure SQL    |         |         |         |
-|    |    1K     |     3    |    S3     |
-|    |    5K     |     18    |    P4     |
-|    |    10K     |    36     |     P6    |
-|Cosmos DB    |         |         |         |
-|    |    1K     |    3     |    20K RU    |
-|    |    5K     |    24     |    60K RU     |
-|    |    10K     |   48      |    120K RU     |
+#### Event Hub
 
-Notes -
+|Ingestion Rate (events per second) | Streaming Units | Output Resources  |
+|--------|---------|---------|
+| 1K     |    1    |  2 TU   |
+| 5K     |    6    |  6 TU   |
+| 10K    |    12   |  10 TU  |
 
-- [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) - This is the most efficient and performant way to analyze and stream data out of Stream Analytics. This solution scales out quite linearly in terms of streaming units and throughput. With maximum size of stream analytics jobs scale up to 192 Streaming Units, this roughly translates to processing of up to 200 MB/s (or 19 trillion events per day) on a single job while delivering milliseconds latency.
+The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) solution scales linearly in terms of streaming units (SU) and throughput, making it the most efficient and performant way to analyze and stream data out of Stream Analytics. Jobs can be scaled up to 192 SU, which roughly translates to processing up to 200 MB/s, or 19 trillion events per day.
 
-- [Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) - SQL output in Azure Stream Analytics supports writing in parallel as an option (Inherit Partitioning) that is not enabled by default. Enabling this along with a fully parallel query still may not be sufficient to achieve higher throughputs, as SQL write throughputs depends significantly on your SQL Azure database configuration and table schema. [SQL Output Performance](./stream-analytics-sql-output-perf.md) article discusses in more detail about the parameters that can maximize your write throughput. As [noted here](./stream-analytics-sql-output-perf.md#azure-stream-analytics), this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL Output(see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with log backups overhead happening every few minutes.
+#### Azure SQL
+|Ingestion Rate (events per second) | Streaming Units | Output Resources  |
+|---------|------|-------|
+|    1K   |   3  |  S3   |
+|    5K   |   18 |  P4   |
+|    10K  |   36 |  P6   |
 
-- [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) - Cosmos DB output from Stream Analytics has been updated to use native integration under [compatibility level 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12), which is not the current default. Compat level 1.2 enables significantly higher throughput and reduces RU consumption compared to 1.1. The solution uses CosmosDB containers partitioned on `/deviceId` and rest of solution is identically configured. 
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  supports writing in parallel, called Inherit Partitioning, but it's not enabled by default. However, enabling Inherit Partitioning, along with a fully parallel query, may not be sufficient to achieve higher throughputs. SQL write throughputs depend significantly on your SQL Azure database configuration and table schema. The [SQL Output Performance](./stream-analytics-sql-output-perf.md) article has more detail about the parameters that can maximize your write throughput. As noted in the [Azure Stream Analytics output to Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics) article, this solution doesn't scale linearly as a fully parallel pipeline beyond 8 partitions and may need repartitioning before SQL output (see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKUs are needed to sustain high IO rates along with overhead from log backups happening every few minutes.
+
+#### Cosmos DB
+|Ingestion Rate (events per second) | Streaming Units | Output Resources  |
+|-------|-------|---------|
+|  1K   |  3    | 20K RU  |
+|  5K   |  24   | 60K RU  |
+|  10K  |  48   | 120K RU |
+
+[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) output from Stream Analytics has been updated to use native integration under [compatibility level 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Compatibility level 1.2 enables significantly higher throughput and reduces RU consumption compared to 1.1, which is the default compatibility level for new jobs. The solution uses CosmosDB containers partitioned on /deviceId and the rest of solution is identically configured.
 
 All [Streaming at Scale azure samples](https://github.com/Azure-Samples/streaming-at-scale) use an Event Hub fed by load simulating test clients as input. Each input event is a 1KB JSON document, which translates configured ingestion rates to throughput rates (1MB/s, 5MB/s and 10MB/s) easily. Events simulate an IoT device sending the following JSON data (in a shortened form) for up to 1K devices:
 

@@ -44,7 +44,7 @@ If you want to save <i>all</i> documents including the ones with a duplicate ID,
 
 ## Data partitioning in Cosmos DB
 Azure Cosmos DB [unlimited](../cosmos-db/partition-data.md) containers are the recommended approach for partitioning your data, as Azure Cosmos DB automatically scales partitions based on your workload. When writing to unlimited containers, Stream Analytics uses as many parallel writers as the previous query step or input partitioning scheme.
-> [!Note]
+> [!NOTE]
 > At this time, Azure Stream Analytics only supports unlimited containers with partition keys at the top level. For example, `/region` is supported. Nested partition keys (e.g. `/region/name`) are not supported. 
 
 Depending on your choice of partition key you might receive this _warning_:
@@ -57,14 +57,14 @@ A partition key is also the boundary for transactions in DocumentDB's stored pro
 
 For fixed Azure Cosmos DB containers, Stream Analytics allows no way to scale up or out once they're full. They have an upper limit of 10 GB and 10,000 RU/s throughput.  To migrate the data from a fixed container to an unlimited container (for example, one with at least 1,000 RU/s and a partition key), you need to use the [data migration tool](../cosmos-db/import-data.md) or the [change feed library](../cosmos-db/change-feed.md).
 
-Writing to multiple fixed containers is being deprecated and is not the recommended approach for scaling out your Stream Analytics job.
+The ability to write to multiple fixed containers is being deprecated and is not recommended for scaling out your Stream Analytics job.
 
 ## Improved throughput with Compatibility Level 1.2
 With Compatibility level 1.2, Stream Analytics supports native integration to bulk write into Cosmos DB. This enables writing effectively to Cosmos DB with maximizing throughput and efficiently handle throttling requests. The improved writing mechanism is available under a new compatibility level due to an upsert behavior difference.  Prior to 1.2, the upsert behavior is to insert or merge the document. With 1.2, upserts behavior is modified to insert or replace the document. 
 
 Before 1.2, uses a custom stored procedure to bulk upsert documents per partition key into Cosmos DB, where a batch is written as a transaction. Even when a single record hits a transient error (throttling), the whole batch must be retried. This made scenarios with even reasonable throttling relatively slower. Following comparison shows how such jobs would behave with 1.2.
 
-Below setup shows two identical Stream Analytics jobs reading from same input (event hub). Both Stream Analytics jobs are [fully partitioned](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) with a passthrough query and writing to identical CosmosDB containers. Metrics on the left is from the job configured with compatibility level 1.0 and the ones on the right is configured with 1.2. Cosmos DB container's partition key is a unique guid coming from the input event.
+The following example shows two identical Stream Analytics jobs reading from same Event Hub input. Both Stream Analytics jobs are [fully partitioned](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) with a passthrough query and write to identical CosmosDB containers. Metrics on the left are from the job configured with compatibility level 1.0 and the ones on the right are configured with 1.2. A Cosmos DB container's partition key is a unique GUID coming from the input event.
 
 ![stream analytics metrics comparison](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-3.png)
 
