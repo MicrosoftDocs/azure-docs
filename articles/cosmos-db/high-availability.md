@@ -66,6 +66,9 @@ This feature is available in following Azure regions:
 
 * UK South
 * Southeast Asia 
+* East US
+* East US 2 
+* Central US
 
 > [!NOTE] 
 > Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles. 
@@ -85,7 +88,7 @@ The following table summarizes the high availability capability of various accou
 |Regional outage –availability  |  Availability loss       |  Availability loss       |  No availability loss  |
 |Throughput    |  X RU/s provisioned throughput      |  X RU/s provisioned throughput       |  2X RU/s provisioned throughput <br/><br/> This configuration mode requires twice the amount of throughput when compared to a single region with Availability Zones because there are two regions.   |
 
-You can enable zone redundancy when adding a region to new or existing Azure Cosmos accounts. Currently, you can only enable zone redundancy by using PowerShell or Azure Resource Manager templates. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following powershell snippet enables zone redundancy for the "Southeast Asia" region:
+You can enable zone redundancy when adding a region to new or existing Azure Cosmos accounts. Currently, you can only enable zone redundancy by using Azure portal, PowerShell and Azure Resource Manager templates. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following powershell snippet enables zone redundancy for the "Southeast Asia" region:
 
 ```powershell
 $locations = @( 
