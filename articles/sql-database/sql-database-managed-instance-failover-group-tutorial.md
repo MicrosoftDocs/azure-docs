@@ -1,6 +1,6 @@
 ---
-title: Implement a geo-distributed Azure SQL database solution| Microsoft Docs
-description: Learn to configure your Azure SQL database and application for failover to a replicated database, and test failover.
+title: "Tutorial: Configure a failover group for an Azure SQL Database managed instance"
+description: Learn to configure a failover group for you Azure SQL database managed instance. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,42 +11,81 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 01/10/2019
 ---
-# Tutorial: Implement a geo-distributed database
+# Tutorial: Configure a failover group for an Azure SQL Database managed instance
 
-Configure an Azure SQL database and application for failover to a remote region and test a failover plan. You learn how to:
+Configure a failover group for an Azure SQL database managed instance. In this article, you will learn how to:
 
 > [!div class="checklist"]
-> - Create a [failover group](sql-database-auto-failover-group.md)
-> - Run a Java application to query an Azure SQL database
+> - Create a primary managed instance
+> - Create a secondary managed instance as part of a [failover group](sql-database-auto-failover-group.md). 
+> - Configure networking to facilitate communication between the two managed instances.
 > - Test failover
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+  > [!NOTE]
+  > Creating a managed instance can take a significant amount of time. As a result, this tutorial could take a few hours to complete. 
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+To complete this tutorial, make sure you've installed the following items:
 
-To complete the tutorial, make sure you've installed the following items:
-
+- An Azure subscription, [create a free account](https://azure.microsoft.com/free/) if you don't already have one. 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- A single database in Azure SQL Database. To create one use,
-  - [Portal](sql-database-single-database-get-started.md)
-  - [CLI](sql-database-cli-samples.md)
-  - [PowerShell](sql-database-powershell-samples.md)
 
-  > [!NOTE]
-  > The tutorial uses the *AdventureWorksLT* sample database.
-
-- Java and Maven, see [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), highlight **Java** and select your environment, then follow the steps.
 
 > [!IMPORTANT]
 > Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary server.
 >
 > For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-server-level-firewall-rule.md).  
+
+## 1 - Create resource group and primary managed instance
+In this step, you will create the resource group and the primary managed instance for your failover group using the Azure portal. 
+
+1. Sign into the [Azure portal](https://portal.azure.com). 
+1. Choose to **Create a resource** on the upper-left hand corner of the Azure portal. 
+1. Type `managed instance` in the search box and select the option for Azure SQL Managed Instance. 
+1. Select **Create** to launch the **SQL managed instance** creation page. 
+1. On the **SQL managed instance** creation page, fill out or select the following values and then select **Create** to create your primary managed instance. 
+    - **Subscription**: Select your subscription from the drop-down. 
+    - **Managed Instance name**: Type in a name for your primary managed instance, such as `primary-sql-mi`. 
+    - **Managed Instance admin login**: Type in a login name, such as `azureuser`. 
+    - **Time zone**: Select your preferred time zone from the drop-down. 
+    - **Collation**: Type in your preferred collation. The default is `SQL_Latin1_General_CP1_CI_AS`. 
+    - **Location**: Select your preferred location from the drop-down, such as `West US 2`. 
+    - **Virtual network**: Choose to **Create new virtual network** from the drop-down. 
+    - **Connection type**: Leave this as **Proxy (Default)** and optionally select the checkbox next to **Enable public endpoint**. 
+    - **Resource group**: Choose to **Create new** and then type in the name of your resource group, such as `myResourceGroup`. 
+
+       ![Create primary MI](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
+
+## Create a secondary managed instance
+The following steps create a secondary managed instance as part of failover group using the Azure portal. 
+
+1. In the [Azure portal](http://portal.azure.com), select **Create a resource** and search for *Azure SQL Managed Instance*. 
+1. Select the **Azure SQL Managed Instance** option published by Microsoft, and then select **Create** on the next blade.
+1. Fill out the required fields to configure your secondary managed instance. 
+
+  The following table shows the values necessary for the managed instance:
+
+   | **Field** | Value |
+   | --- | --- |
+   | **Subscription** |  The subscription where your primary managed instance resides. |
+   | **Managed instance name** | The name of your new secondary managed instance.  | 
+   | **Managed instance admin login** | The login you want to use for your new secondary managed instance. |
+   | **Password** | A complex password that will be used by the admin login for the new secondary managed instance.  |
+   | **Collation** | The collation for your secondary managed instance. *SQL_Latin1_General_CP1_CI_AS* is provided by default. |
+   | **Location**| The location where your resource group resides.  |
+   | **Virtual network**| Create a new virtual network for the secondary managed instance, as the two managed instances need to be in different vNets. |
+   | **Resource group**| The resource group where your primary managed instance resides. |
+   | &nbsp; | &nbsp; |
+
+1. Select the checkbox next to *I want to use this managed instance as an Instance Failover Group secondary*. 
+1. From the **DnsZonePartner managed instance** drop down, select the managed instance you want acting as the primary.
+
+
+
+
 
 ## Create a failover group
 
@@ -70,14 +109,14 @@ To create a failover group, run the following script:
     $myfailovergroupname = "<your globally unique failover group name>"
 
     # Create a backup server in the failover region
-    New-AzSqlServer -ResourceGroupName $myresourcegroupname `
+    New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
        -ServerName $mydrservername `
        -Location $mydrlocation `
        -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
           -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
     # Create a failover group between the servers
-    New-AzSqlDatabaseFailoverGroup `
+    New-AzureRMSqlDatabaseFailoverGroup `
        –ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -PartnerServerName $mydrservername  `
@@ -86,11 +125,11 @@ To create a failover group, run the following script:
        -GracePeriodWithDataLossHours 2
 
     # Add the database to the failover group
-    Get-AzSqlDatabase `
+    Get-AzureRmSqlDatabase `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -DatabaseName $mydatabasename | `
-     Add-AzSqlDatabaseToFailoverGroup `
+     Add-AzureRmSqlDatabaseToFailoverGroup `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -FailoverGroupName $myfailovergroupname
@@ -298,7 +337,7 @@ Run the following scripts to simulate a failover and observe the application res
 You can also check the role of the disaster recovery server during the test with the following command:
 
    ```powershell
-   (Get-AzSqlDatabaseFailoverGroup `
+   (Get-AzureRMSqlDatabaseFailoverGroup `
       -FailoverGroupName $myfailovergroupname `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername).ReplicationRole
@@ -309,7 +348,7 @@ To test a failover:
 1. Start a manual failover of the failover group:
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup `
+   Switch-AzureRMSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername `
       -FailoverGroupName $myfailovergroupname
@@ -318,7 +357,7 @@ To test a failover:
 1. Revert failover group back to the primary server:
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup `
+   Switch-AzureRMSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname

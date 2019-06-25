@@ -91,16 +91,20 @@
       href: sql-database-single-database-create-failover-group-tutorial.md
     - name: Implement a geo-distributed database
       href: sql-database-implement-geo-distributed-database.md 
+    - name: Configure active geo-replication
+      href: sql-database-active-geo-replication-portal.md
     - name: Set up Azure SQL Data Sync
       href: sql-database-get-started-sql-data-sync.md
   - name: Elastic pool
     items:
     - name: Add to a failover group
-      href: sql-database-elastic-pool-create-failover-group-tutorial.md
+      href: sql-database-elastic-pool-failover-group-tutorial.md
   - name: Managed Instance
     items:
     - name: Migrate online using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+    - name: Add to a failover group
+      href: sql-database-managed-instance-failover-group-tutorial.md
     - name: Configure transactional replication
       href: replication-with-sql-database-managed-instance.md
   - name: Security in SQL Database
@@ -245,8 +249,6 @@
         href: sql-database-active-geo-replication.md
       - name: Auto-failover groups
         href: sql-database-auto-failover-group.md
-      - name: Configure active geo-replication - Portal
-        href: sql-database-active-geo-replication-portal.md
       - name: Configure security for replicas
         href: sql-database-geo-replication-security-config.md
     - name: Database recovery options
