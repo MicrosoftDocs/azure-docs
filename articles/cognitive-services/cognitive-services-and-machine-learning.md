@@ -1,49 +1,51 @@
 ---
 title: Cognitive services and machine learning
 titlesuffix: Azure Cognitive Services
-description: Learn where Azure Cognitive Services fit in the Microsoft Machine Learning offerings.
+description: Learn where Azure Cognitive Services fits in the Microsoft Machine Learning offerings.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 06/25/2019
 ms.author: diberry
 ---
 # Cognitive Services and Machine learning
 
-Cognitive Services provides machine learning to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You shouldn't need special machine learning or data science knowledge to use these services. 
+Cognitive Services provides machine learning to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services. 
 
 ## What is machine learning?
 
-Machine learning is a platform where you bring together data and an algorithm to solve a specific need. Once the data and algorithm are trained, the output is a model that you can use again with different data. The trained model provides specific insights based on the new data. 
+Machine learning is a platform where you bring together data and an algorithm to solve a specific need. Once the data and algorithm are trained, the output is a model that you can use again with different data. The trained model provides insights based on the new data. 
 
 The process of building a machine learning system requires some knowledge of machine-learning or data-science.
 
+Learn more about the [Azure Machine Learning (ML) products and services](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context).
+
 ## What is a Cognitive Service?
 
-A Cognitive Service provides part or all of the machine learning: data, algorithm, or trained model. The list of services includes models which are: fully-trained with data, pretrained with data but customizable, or completely customizable models. Use the models with your own data. 
+A Cognitive Service provides part or all of the machine learning: data, algorithm, and trained model. The list of services includes: fully trained models, customizable models you can bring your own data to, or completely customizable models. Use the models with your own data. 
 
-These services are meant to require general data knowledge without having experience with machine-learning or data-science. These services provide both REST and language-based SDKs. As a result, you need to provide programming language knowledge to use the services
+These services are meant to require general data knowledge without needing experience with machine-learning or data-science. These services provide both REST and language-based SDKs. As a result, you need to have programming language knowledge to use the services.
 
 ## How is a Cognitive Service different from Azure Machine learning?
 
-Cognitive Services provide a trained model for you. This brings data and an algorithm together, available from a REST API or SDK. You can implement this service within minutes or hours depending on your scenario. Cognitive Services provide answers to general problems such as key phrases in text or item identification in images. 
+Cognitive Services provides a trained model for you. This brings data and an algorithm together, available from a REST API or SDK. You can implement this service within minutes, depending on your scenario. Cognitive Services provides answers to general problems such as key phrases in text or item identification in images. 
 
-Machine learning is a process that generally requires a longer period of time to implement successfully. This time is spent on data collection, transformation, algorithm selection, model training, and deployment to get to the same level of functionality provided by a Cognitive Service. With machine learning, it is possible to provide answers to any kind of problem including highly specialized or specific problems. These machine-learning problems require one or more of the following: subject matter, machine learning, data science.
+Machine learning is a process that generally requires a longer period of time to implement successfully. This time is spent on data collection, cleaning, transformation, algorithm selection, model training, and deployment to get to the same level of functionality provided by a Cognitive Service. With machine learning, it is possible to provide answers to any kind of problem including highly specialized or specific problems. These machine-learning problems require familiarity with one or more of the following: subject matter, machine learning, data science.
 
-## Use a fully-trained model 
+## Use a fully trained model 
 
-Services that provide a fully-trained model can be treated as a _black box_. You don't need to know how they work or what data was used to train them. You bring your data to a fully-trained model to get a prediction. The following table lists some examples of a fully-trained model-based services. 
+Services that provide a fully trained model can be treated as a _black box_. You don't need to know how they work or what data was used to train them. You bring your data to a fully trained model to get a prediction. The following table lists some examples of fully trained model-based services. 
 
-|Fully-trained service|Your data sent to trained model|Service Output|
+|Fully trained service|Your data sent to trained model|Service Output|
 |--|--|--|
 |Text Analytics - Sentiment analysis|Your own text.|Sentiment value of positive, negative, or neutral.|
 |Computer vision|Your image.|Information about what is in the image.|
 
 ## Train with your own data 
 
-Some services allow you to bring your own data, then train a model. This allows you to extend the model to train using the Service's data and algorithm with your own data. The output matches your needs. When you bring your own data, you may need to tag the data in a way specific to the service. For example, if you are training a model to identify flowers, you can provide a catalog of flower images along with the location of the flower in each image to train the model. 
+Some services allow you to bring your own data, then train a model. This allows you to extend the model using the Service's data and algorithm with your own data. The output matches your needs. When you bring your own data, you may need to tag the data in a way specific to the service. For example, if you are training a model to identify flowers, you can provide a catalog of flower images along with the location of the flower in each image to train the model. 
 
 The following table lists some examples of this type of service:
 
