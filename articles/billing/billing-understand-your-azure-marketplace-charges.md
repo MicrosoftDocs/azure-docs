@@ -42,7 +42,7 @@ You can view a list of the external services that are on each subscription withi
 
     ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
 
-## View and download Azure marketplace invoices
+## View and download invoices
 
 If you have a [Microsoft Customer Agreement](#check-access), your third-party charges are on the same invoice as your Azure charges. Learn how to [view and download your Azure invoice](billing-download-azure-invoice.md) from the Azure portal to see your third-party charges.
 
@@ -55,11 +55,11 @@ If you don't have a Microsoft Customer Agreement, you have separate invoices for
     ![Picture of Azure marketplace and reservations tab](./media/billing-understand-your-azure-marketplace-charges/invoice-tabs.png)
 1. In the subscription drop-down, select the subscription that contains the external services you want to see invoices for.
 
-## View external service spending for Enterprise Agreement (EA) customers
+## External spending for EA customers
 
 EA customers can see external service spending and download reports in the EA portal. See [Azure Marketplace for EA Customers](https://ea.azure.com/helpdocs/azureMarketplace) to get started.
 
-## Manage payment methods for external service orders
+## Manage payment for external services
 
 When purchasing an external service, you choose an Azure subscription for the resource. The payment method of the selected Azure subscription becomes the payment method for the external service. To change the payment method for an external service, you must [change the payment method of the Azure subscription](billing-how-to-change-credit-card.md) tied to that external service. You can figure out which subscription your external service order is tied to by following these steps:
 
