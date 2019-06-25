@@ -55,6 +55,15 @@ To verify that the extension has been installed, use the following command to di
 az ml -h
 ```
 
+## Update the extension
+
+To update the Machine Learning CLI extension, use the following command:
+
+```azurecli-interactive
+az extension update -n azure-cli-ml
+```
+
+
 ## Remove the extension
 
 To remove the CLI extension, use the following command:
