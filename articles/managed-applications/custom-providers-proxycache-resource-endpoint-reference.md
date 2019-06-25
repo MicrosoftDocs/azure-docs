@@ -67,7 +67,7 @@ Content-Type: application/json
 This request will then be forwarded to the **endpoint** in the form:
 
 ``` HTTP
-PUT https://{endpointURL2}/?api-version=2018-09-01-preview
+PUT https://{endpointURL}/?api-version=2018-09-01-preview
 Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 
@@ -137,7 +137,7 @@ Content-Type: application/json
 This request will then be forwarded to the **endpoint** in the form:
 
 ``` HTTP
-Delete https://{endpointURL2}/?api-version=2018-09-01-preview
+Delete https://{endpointURL}/?api-version=2018-09-01-preview
 Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```

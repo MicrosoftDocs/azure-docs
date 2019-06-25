@@ -112,7 +112,7 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 ```
 
 Parameter | Required | Description
----|---|---=
+---|---|---
 id | *yes* | The resource ID of the custom resource. This should exist off of the **ResourceProvider**.
 
 Retrieve an Azure Custom Resource:

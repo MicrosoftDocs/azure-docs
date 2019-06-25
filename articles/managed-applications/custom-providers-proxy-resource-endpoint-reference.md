@@ -32,7 +32,7 @@ Sample custom resource provider:
   },
   "location": "eastus",
   "type": "Microsoft.CustomProviders/resourceProviders",
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resource-provider-name}",
   "name": "{resourceProviderName}"
 }
 ```
@@ -49,7 +49,7 @@ Sample Resource:
 ``` JSON
 {
     "name": "{myCustomResourceName}",
-    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}",
+    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resource-provider-name}/myCustomResources/{myCustomResourceName}",
     "type": "Microsoft.CustomProviders/resourceProviders/myCustomResources",
     "properties": {
         "myProperty1": "myPropertyValue1",
@@ -60,18 +60,20 @@ Sample Resource:
 }
 ```
 
+Parameter Reference:
+
 Property | Sample | Description
 ---|---|---
 name | {myCustomResourceName} | The name of the custom resource.
 type | Microsoft.CustomProviders/resourceProviders/{resourceTypeName} | The resource type namespace.
-id | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName} | The resource id.
+id | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resource-provider-name}/myCustomResources/{myCustomResourceName} | The resource id.
 
 ### Create a custom resource
 
 Azure API Incoming Request:
 
 ``` HTTP
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resource-provider-name}/myCustomResources/{myCustomResourceName}?api-version=2018-09-01-preview
 Authorization: Bearer eyJ0e...
 Content-Type: application/json
 
@@ -88,7 +90,7 @@ Content-Type: application/json
 This request will then be forwarded to the **endpoint** in the form:
 
 ``` HTTP
-PUT https://{endpointURL2}/?api-version=2018-09-01-preview
+PUT https://{endpointURL}/?api-version=2018-09-01-preview
 Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 
@@ -158,7 +160,7 @@ Content-Type: application/json
 This request will then be forwarded to the **endpoint** in the form:
 
 ``` HTTP
-Delete https://{endpointURL2}/?api-version=2018-09-01-preview
+Delete https://{endpointURL}/?api-version=2018-09-01-preview
 Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
@@ -195,7 +197,7 @@ Content-Type: application/json
 This request will then be forwarded to the **endpoint** in the form:
 
 ``` HTTP
-GET https://{endpointURL2}/?api-version=2018-09-01-preview
+GET https://{endpointURL}/?api-version=2018-09-01-preview
 Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
@@ -256,7 +258,7 @@ Content-Type: application/json
 This request will then be forwarded to the **endpoint** in the form:
 
 ``` HTTP
-GET https://{endpointURL2}/?api-version=2018-09-01-preview
+GET https://{endpointURL}/?api-version=2018-09-01-preview
 Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources
 ```
