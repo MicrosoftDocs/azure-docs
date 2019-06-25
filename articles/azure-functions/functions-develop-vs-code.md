@@ -183,65 +183,6 @@ To learn more, see the [Queue storage output binding](functions-bindings-storage
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
-## Run functions locally
-
-The Azure Functions extension lets you run a functions project on your local development computer. Local settings are read from the local.settings.json file.
-
-### Additional requirements to run locally
-
-To be able to run your Functions project locally, you must also meet these additional requirements:
-
-* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2). This is downloaded and installed for your automatically when you start the project locally. The Core Tools include the entire Azure Functions runtime, so download and installation may take some time.
-
-* Install the specific requirements for your chosen language:
-
-    | Language | Requirement |
-    | -------- | --------- |
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
-    | **Java** | [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Python** | [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6+](https://www.python.org/downloads/)|
-    <sup>*</sup>TLS-covered, even-numbered major versions starting with Node 8.0.
-
-### Configure the project to run locally
-
-The Functions runtime uses an Azure Storage account internally for all trigger types other than HTTP and webhooks. This means that you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string.
-
-This section uses the [Azure Storage extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) with [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to connect to and retrieve the storage connection string.   
-
-To set the storage account connection string:
-
-1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.
-
-2. In your project, open the local.settings.json file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
-
-3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.
-
-For more information, see [Local settings file](#local-settings-file).
-
-### Debugging functions locally  
-
-To debug your functions, press F5. f you haven't already download the [Azure Functions Core Tools], you are prompted to do so. When the Core Tools is installed and running, output is shown in the Terminal. This is the same as running `func host start` Core Tools command from the Terminal, but with additional build tasks and an attached debugger.  
-
-With the project running, you can trigger your functions as you would when deployed to Azure. When running in debug mode, breakpoints are hit in Visual Studio Code, as expected.
-
-The request URL for HTTP triggers is displayed in the output in the terminal. Function keys for HTTP triggers are not used when running locally. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).  
-
-To learn more, see [Work with Azure Functions Core Tools][Azure Functions Core Tools].
-
-[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
-
-By default, these settings are not migrated automatically when the project is published to Azure. After publishing completes, you are given the option of publishing settings from local.settings.json to your function app in Azure. To learn more, see  [Publish application settings](#publish-application-settings).
-
-Values in **ConnectionStrings** are never published.
-
-The function application settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference articles:
-
-* [C# precompiled](functions-dotnet-class-library.md#environment-variables)
-* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-* [Java](functions-reference-java.md#environment-variables)
-* [JavaScript](functions-reference-node.md#environment-variables)
-
 ## Publish to Azure
 
 Visual Studio Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
@@ -318,6 +259,66 @@ To be able to call an HTTP triggered function, you need the URL of the function 
 
 The function URL is copied to the clipboard, along with any required keys passed using the `code` query parameter. Use an HTTP tool to submit POST requests, or a browser for GET requests to the remote function.  
 
+## Run functions locally
+
+The Azure Functions extension lets you run a functions project on your local development computer. Local settings are read from the local.settings.json file.
+
+### Additional requirements to run locally
+
+To be able to run your Functions project locally, you must also meet these additional requirements:
+
+* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2). This is downloaded and installed for your automatically when you start the project locally. The Core Tools include the entire Azure Functions runtime, so download and installation may take some time.
+
+* Install the specific requirements for your chosen language:
+
+    | Language | Requirement |
+    | -------- | --------- |
+    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **Java** | [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
+    | **Python** | [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6+](https://www.python.org/downloads/)|
+
+    <sup>*</sup>TLS-covered, even-numbered major versions starting with Node 8.0.
+
+### Configure the project to run locally
+
+The Functions runtime uses an Azure Storage account internally for all trigger types other than HTTP and webhooks. This means that you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string.
+
+This section uses the [Azure Storage extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) with [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to connect to and retrieve the storage connection string.   
+
+To set the storage account connection string:
+
+1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.
+
+2. In your project, open the local.settings.json file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
+
+3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.
+
+For more information, see [Local settings file](#local-settings-file).
+
+### Debugging functions locally  
+
+To debug your functions, press F5. f you haven't already download the [Azure Functions Core Tools], you are prompted to do so. When the Core Tools is installed and running, output is shown in the Terminal. This is the same as running `func host start` Core Tools command from the Terminal, but with additional build tasks and an attached debugger.  
+
+With the project running, you can trigger your functions as you would when deployed to Azure. When running in debug mode, breakpoints are hit in Visual Studio Code, as expected.
+
+The request URL for HTTP triggers is displayed in the output in the terminal. Function keys for HTTP triggers are not used when running locally. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).  
+
+To learn more, see [Work with Azure Functions Core Tools][Azure Functions Core Tools].
+
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+By default, these settings are not migrated automatically when the project is published to Azure. After publishing completes, you are given the option of publishing settings from local.settings.json to your function app in Azure. To learn more, see  [Publish application settings](#publish-application-settings).
+
+Values in **ConnectionStrings** are never published.
+
+The function application settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference articles:
+
+* [C# precompiled](functions-dotnet-class-library.md#environment-variables)
+* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
+
 ## Application settings in Azure
 
 The settings in the local.settings.json file in your project should be the same as the application settings in the function app in Azure. Any settings you add to the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project. Likewise, any settings that you create in your function app [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) must be downloaded to your local project.
@@ -351,7 +352,11 @@ When you [run locally](#run-functions-locally), log data is streamed to the Term
 
 ### Streaming logs
 
-While developing an application, it is often useful to see logging information in near-real time. You can view a stream of log files being generated by your functions. To learn more, see [Streaming Logs](functions-monitoring.md#streaming-logs). 
+While developing an application, it is often useful to see logging information in near-real time. You can view a stream of log files being generated by your functions. The following output is an example of streaming logs for a request to an HTTP triggered function:
+
+![Streaming logs output for HTTP trigger](media/functions-develop-vs-code/streaming-logs-vscode-console.png) 
+
+To learn more, see [Streaming Logs](functions-monitoring.md#streaming-logs). 
 
 [!INCLUDE [functions-enable-log-stream-vscode](../../includes/functions-enable-log-stream-vscode.md)]
 
