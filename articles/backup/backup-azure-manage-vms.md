@@ -111,9 +111,9 @@ To stop protection and retain data for a VM:
 1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Stop backup**.
 2. Choose **Retain Backup Data**, and confirm your selection as needed. Add a comment if you want. If you aren't sure of the item's name, hover over the exclamation mark to view the name.
 
-    ![Stop protection](./media/backup-azure-manage-vms/retain-backup-data.png)
+  ![Stop protection](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     A notification lets you know that the backup jobs have been stopped.
+A notification lets you know that the backup jobs have been stopped.
 
 ## Resume protection of a VM
 
