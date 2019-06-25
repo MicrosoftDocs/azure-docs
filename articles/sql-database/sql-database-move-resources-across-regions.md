@@ -1,0 +1,174 @@
+---
+title: Move Azure SQL resources to another region | Microsoft Docs
+description: Learn how to move  your Azure SQL Database, Azure SQL elastic pool, or Azure SQL managed instance to another region.
+services: sql-database
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MashaMSFT
+ms.author: mathoma
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 05/15/2019
+---
+
+# Move Azure SQL resources to another region
+
+This article teaches you a generic workflow for how to move your Azure SQL Database single database, elastic pool, and managed instance to a new region. 
+
+## Overview
+
+There are various scenarios in which you'd want to move your existing Azure SQL resources from one region to another. For example, you expand your business to a new region and want to optimize it for the new customer base. Or you need to move the operations to a different region for compliance reason. Or Azure released a brand-new region that provides a better proximity and improves the customer experience.  
+
+This article provides a general workflow for moving resources to a different region. The workflow consists of the following steps: 
+
+- Verify the prerequisites for the move 
+- Prepare to move the resources in scope
+- Monitor the preparation process
+- Test the move process
+- Initiate the actual move 
+- Remove the resources from the source region 
+
+  > [!NOTE]
+  > This article applies to migrations within the Azure public cloud, or within the same sovereign cloud. 
+
+## Move single database
+
+### Verify prerequisites 
+
+- Create a target logical server for each source server. 
+- Configure the firewall with the right exceptions using [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).  
+- Configure the logical servers with the correct logins. If you're not the subscription administrator or SQL server administrator, work with the administrator to assign the permissions that you need. For more information, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md). 
+- If your databases are encrypted with TDE and use your own encryption key in Azure key vault, ensure that the correct encryption material is provisioned in the target regions. For more information, see [Azure SQL Transparent Data Encryption with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md)
+- If database-level audit is enabled, disable it and enable server-level auditing instead. After failover, database level auditing will require the cross-region traffic, which will is not desired or possible after the move. 
+- If audit is enabled for the server, ensure that:
+    - The storage container, Log Analytics, or event hub with the existing audit logs is moved to the target region. 
+    - Auditing is configured on the target server. For more information, see [Get started with SQL database auditing](sql-database-auditing.md). 
+- If your instance has a long-term retention policy (LTR), make sure to move the LTR backups to the target region. [!!!NEED LINK FOR THIS!!!](NEEDLINK.MD).
+
+
+### Prepare resources
+
+- Create a [failover group](sql-database-single-database-failover-group-tutorial.md#2---create-the-failover-group) between the logical server of the source to the logical server of the target.  
+- Add the databases you want to move to the failover group. 
+    - Replication of all added databases will be initiated automatically. For more information, see [Best practices for using failover groups with single databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). 
+ 
+### Monitor the preparation process
+
+You can periodically call [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup?view=azurermps-6.13.0) to monitor replication of your databases from the source to the target. The output object of `Get-AzureRmSqlDatabaseFailoverGroup` includes a property for the **ReplicationState**: 
+   - **ReplicationState = 2** (CATCH_UP) indicates the database is synchronized and can be safely failed over. 
+   - **ReplicationState = 0** (SEEDING) indicates that the database is not yet seeded, and an attempt to failover will fail. 
+
+### Test synchronization
+
+Once **ReplicationState** is `2`, connect to each database, or subset of databases using the secondary endpoint `<fog-name>.secondary.database.windows.net` and perform any query against the databases to ensure connectivity, proper security configuration, and data replication. 
+
+### Initiate the move
+
+- Connect to the target server using the secondary endpoint `<fog-name>.secondary.database.windows.net`.
+- Use [Switch-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup?view=azurermps-6.13.0) to switch the secondary managed instance to be the primary with full synchronization. This operation will either succeed, or it will roll back. 
+- Verify that the command has completed successfully by using `nslook up <fog-name>.secondary.database.windows.net` to ascertain that the DNS CNAME entry points to the target region IP address. If the switch command fails, the CNAME will not get updated. 
+
+### Remove the source databases
+
+After the move has successfully completed, remove the resources in the source region to avoid unnecessary charges. 
+
+- Delete the failover group using [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup?view=azurermps-6.13.0). 
+- Delete each source database using [Remove-AzureRmSqlInstance](/powershell/module/azurerm.sql/remove-azurermsqlinstance?view=azurermps-6.13.0) for each of the databases on the source server. This will automatically terminate geo-replication links. 
+- Delete the source server using [Remove-AzureRmSqlInstance](/powershell/module/azurerm.sql/remove-azurermsqlinstance?view=azurermps-6.13.0). 
+- Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop the billing. 
+
+## Move elastic pools
+
+### Verify prerequisites 
+
+- Create a target logical server for each source server. 
+- Configure the firewall with the right exceptions using [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). 
+- Configure the logical servers with the correct logins. If you're not the subscription administrator or SQL server administrator, work with the administrator to assign the permissions that you need. For more information, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md). 
+- If your databases are encrypted with TDE and use your own encryption key in Azure key vault, ensure that the correct encryption material is provisioned in the target region.
+- Create a target elastic pool for each source elastic pool, making sure the pool is created in the same service tier, with the same name and the same size. 
+- If a database-level audit is enabled, disable it and enable server-level auditing instead. After failover, database-level auditing will require cross-region traffic, which is not desired, or possible after the move. For server-level audits, ensure that:
+    - The storage container, Log Analytics, or event hub with the existing audit logs is moved to the target region.
+    - Audit configuration is configured at the target server. For more information, see [SQL database auditing](sql-database-auditing.md).
+- If your databases have a long-term retention (LTR) policy, make sure to move the LTR backups to the target region. For more information, see [NEED LINK](NEEDLINK.MD). 
+
+### Prepare to move
+ 
+- Create a separate [failover group](sql-database-elastic-pool-failover-group-tutorial.md#3---create-the-failover-group) between each elastic pool on the source logical server and its counterpart elastic pool on the target server. 
+- Add all the databases in the pool to the failover group. 
+    - Replication of the added databases will be initiated automatically. For more information, see [best practices for failover groups with elastic pools](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). 
+
+  > [!NOTE]
+  > While it is possible to create a failover group that includes multiple elastic pools, we strongly recommend that you create a separate failover group for each pool. If you have a large number of databases across multiple elastic pools that you need to move, you can run the preparation steps in parallel and then initiate the move step in parallel. This process will scale better and will take less time compared to having multiple elastic pools in the same failover group. 
+
+### Monitor the preparation process
+
+You can periodically call [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup?view=azurermps-6.13.0) to monitor replication of your databases from the source to the target. The output object of `Get-AzureRmSqlDatabaseFailoverGroup` includes a property for the **ReplicationState**: 
+   - **ReplicationState = 2** (CATCH_UP) indicates the database is synchronized and can be safely failed over. 
+   - **ReplicationState = 0** (SEEDING) indicates that the database is not yet seeded, and an attempt to failover will fail. 
+
+### Test synchronization
+ 
+Once **ReplicationState** is `2`, connect to each database, or subset of databases using the secondary endpoint `<fog-name>.secondary.database.windows.net` and perform any query against the databases to ensure connectivity, proper security configuration, and data replication. 
+
+### Initiate the move
+ 
+- Connect to the target server using the secondary endpoint `<fog-name>.secondary.database.windows.net`.
+- Use [Switch-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup?view=azurermps-6.13.0) to switch the secondary managed instance to be the primary with full synchronization. This operation will either succeed, or it will roll back. 
+- Verify that the command has completed successfully by using `nslook up <fog-name>.secondary.database.windows.net` to ascertain that the DNS CNAME entry points to the target region IP address. If the switch command fails, the CNAME will not get updated. 
+
+### Remove the source elastic pools
+ 
+After the move has successfully completed, remove the resources in the source region to avoid unnecessary charges. 
+
+- Delete the failover group using [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup?view=azurermps-6.13.0).
+- Delete each source elastic pool on the source server using [Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool?view=azurermps-6.13.0). 
+- Delete the source server using [Remove-AzureRmSqlInstance](/powershell/module/azurerm.sql/remove-azurermsqlinstance?view=azurermps-6.13.0). 
+- Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop the billing. 
+
+## Move managed instance
+
+### Verify prerequisites
+ 
+- For each source managed instance create a target managed instance of the same size in the target region.  
+- Configure the network for a managed instance. For more information, see [network configuration](sql-database-howto-managed-instance.md#network-configuration).  
+- Configure the target master database with the correct logins. If you're not the subscription administrator or SQL server administrator, work with the administrator to assign the permissions that you need. 
+- If your databases are encrypted with TDE and use your own encryption key in Azure key vault, ensure that the AKV with the identical encryption keys exist in both source and target regions. For more information, see [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
+- If audit is enabled for the instance, ensure that:
+    - The storage container or event hub with the existing logs is moved to the target region. 
+    - Audit is configured on the target instance. For more information, see [auditing with managed instance](sql-database-managed-instance-auditing.md).
+- If your instance has a long-term retention (LTR) policy, make sure to move the LTR backups to the target region. For more information, see [NEED LINK](NEEDLINK.MD). 
+
+### Prepare resources
+
+ - Create a failover group between each source instance and the corresponding target instance.
+     - Replication of all databases on each instance will be initiated automatically. See [Autofailover groups](sql-database-auto-failover-group.md) for more information.
+
+ 
+### Monitor the preparation process
+
+You can periodically call [Get-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup?view=azurermps-6.13.0) to monitor replication of your databases from the source to the target. The output object of `Get-AzureRmSqlDatabaseFailoverGroup` includes a property for the **ReplicationState**: 
+   - **ReplicationState = 2** (CATCH_UP) indicates the database is synchronized and can be safely failed over. 
+   - **ReplicationState = 0** (SEEDING) indicates that the database is not yet seeded, and an attempt to failover will fail. 
+
+### Test synchronization
+
+Once **ReplicationState** is `2`, connect to each database, or subset of databases using the secondary endpoint `<fog-name>.secondary.database.windows.net` and perform any query against the databases to ensure connectivity, proper security configuration, and data replication. 
+
+### Initiate the move 
+
+- Connect to the target server using the secondary endpoint `<fog-name>.secondary.database.windows.net`.
+- Use [Switch-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup?view=azurermps-6.13.0) to switch the secondary managed instance to be the primary with full synchronization. This operation will either succeed, or it will roll back. 
+- Verify that the command has completed successfully by using `nslook up <fog-name>.secondary.database.windows.net` to ascertain that the DNS CNAME entry points to the target region IP address. If the switch command fails, the CNAME will not get updated. 
+
+### Remove the source managed instances
+After the move has successfully completed, remove the resources in the source region to avoid unnecessary charges. 
+
+- Delete the failover group using [Remove-AzureRmSqlDatabaseFailoverGroup](/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup?view=azurermps-6.13.0). This will drop the failover group configuration and terminate geo-replication links between the two instances. 
+- Delete the source managed instance using [Remove-AzureRmSqlInstance](/powershell/module/azurerm.sql/remove-azurermsqlinstance?view=azurermps-6.13.0). 
+- Remove any additional resources in the resource group, such as the virtual cluster, virtual network, and security group. 
+
+
+

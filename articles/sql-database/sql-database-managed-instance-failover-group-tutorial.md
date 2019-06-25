@@ -81,7 +81,7 @@ The following steps create a secondary managed instance as part of failover grou
    | &nbsp; | &nbsp; |
 
 1. Select the checkbox next to *I want to use this managed instance as an Instance Failover Group secondary*. 
-1. From the **DnsZonePartner managed instance** drop down, select the managed instance you want acting as the primary.
+1. From the **DnsZonePartner managed instance** drop-down, select the managed instance you want to act as the primary.
 
 
 
