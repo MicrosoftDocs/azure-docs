@@ -69,7 +69,7 @@ Variations in Azure Government:
 
 - Endpoint:  https://virginia.stt.speech.azure.us
 - Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken 
-- Available SKUs: S1
+- Available SKUs: S0
 - Supported features:
   - Speech-to-Text 
   - Custom Speech (Acoustic/language adaptation)
