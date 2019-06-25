@@ -17,7 +17,7 @@ This article will go through the requirements for endpoints implementing cache c
 
 A proxy resource can be created by specifying the **routingType** to "`Proxy, Cache`".
 
-Sample **ResourceProvider**:
+Sample custom resource provider:
 
 ```JSON
 {

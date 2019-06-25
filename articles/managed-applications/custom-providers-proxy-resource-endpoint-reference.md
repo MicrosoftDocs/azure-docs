@@ -17,7 +17,7 @@ This article will go through the requirements for endpoints implementing proxy c
 
 A proxy resource can be created by specifying the **routingType** to "`Proxy`".
 
-Sample **ResourceProvider**:
+Sample custom resource provider:
 
 ```JSON
 {
