@@ -159,6 +159,24 @@ This error typically occurs when the node is assigned a node configuration name 
 * Make sure that you're assigning the node with a node configuration name that exactly matches the name in the service.
 * You can choose to not include the node configuration name, which will result in onboarding the node but not assigning a node configuration
 
+### <a name="failure-linux-temp-noexec"></a>Scenario: Applying a configuration in Linux, a failure occurs with a general error
+
+#### Issue
+
+When applying a configuration in Linux, a failure occurs containing the error:
+
+```error
+This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
+```
+
+#### Cause
+
+Customers have identified that if the /tmp location is set to noexec, the current version of DSC will fail to apply configurations.
+
+#### Resolution
+
+* Remove the noexec option from the /tmp location.
+
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
