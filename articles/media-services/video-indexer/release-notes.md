@@ -53,11 +53,11 @@ You can now see a preview of all the insights that are selected as a result of c
 
 [Create custom language model](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) and [Update custom language models](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) APIs now support VTT, SRT, and TTML file formats as input for language models.
 
-When calling the [Update Video transcript API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript), the transcript is added automatically as training data for the custom language model related to the video. 
+When calling the [Update Video transcript API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript), the transcript is added automatically. The training model associated with the video is updated automatically as well. For information on how to customize and train your language models, see [Customize a Language model with Video Indexer](customize-language-model-overview.md).
 
 ### New download transcript formats – TXT and CSV
 
-In addition to the closed captioning format already supported (SRT, VTT, and TTML), we now also support downloading the transcript in TXT and CSV formats.
+In addition to the closed captioning format already supported (SRT, VTT, and TTML), Video Indexer now supports downloading the transcript in TXT and CSV formats.
 
 ## Next steps
 
