@@ -25,15 +25,15 @@ The Form Recognizer custom model trains to your own data, and you only need five
 
 Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. By contrast, pre-trained machine learning models require standardized data. They're less accurate with input material that deviates from traditional formats, like industry-specific forms.
 
-### Pre-trained models
+### Pre-built models
 
-Form Recognizer also includes a model for reading sales receipts. This model is trained to recognize all of the text on a receipt. It also identifies and labels key information, such as the time and date of the transaction, merchant information, and the amounts of taxes and totals.
+Form Recognizer also includes a model for reading sales receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes and totals and more. In addition, the pre-built receipts model is trained to recognize and return all of the text on a receipt.
 
 ## What it includes
 
 Form Recognizer is available as a REST API. You can create, train, and score a custom model or access the pre-built model by invoking these APIs. If you want, you can run the model in a local Docker container.
 
-## Input requirements
+## Input requirements (custom model)
 
 Form Recognizer works on input documents that meet these requirements:
 
@@ -63,6 +63,8 @@ Form Recognizer is available in a limited-access preview. To get access to the p
 **Step 2:** Follow a quickstart to use the REST API:
 * [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-extract.md)
 * [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-extract.md)
+* [Quickstart: Extract receipt data using cURL](quickstarts/curl-receipts.md)
+* [Quickstart: Extract receipt data using Python](quickstarts/python-receipts.md)
 
 We recommend that you use the free service when you're learning the technology. Keep in mind that the number of free pages is limited to 500 per month.
 
@@ -72,8 +74,9 @@ You use the following APIs to train and extract structured data from forms.
 
 | REST API | Description |
 |-----|-------------|
-| Train | Train	a new model to analyze your forms by using five forms from the same type or an empty form.  |
-| Analyze  |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
+| Train Model | Train a new model to analyze your forms by using five forms from the same type or an empty form.  |
+| Analyze Form |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
+| Analyze Receipt |Analyze a single receipt document to extract key information and other receipt text.|
 
 Explore the [REST API reference documentation](https://aka.ms/form-recognizer/api) to learn more. 
 
