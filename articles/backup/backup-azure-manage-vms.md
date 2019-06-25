@@ -143,6 +143,8 @@ There are two ways to delete a VM's backup data:
 
 - From the vault item dashboard, select Stop backup and follow the instructions for [Stop protection and delete backup data](#stop-protection-and-delete-backup-data) option.
 
+  ![Select Stop backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
+
 - From the vault item dashboard, select Delete backup data. This option is enabled if you had chosen to [Stop protection and retain backup data](#stop-protection-and-retain-backup-data) option during stop VM protection
 
   ![Select Delete backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
