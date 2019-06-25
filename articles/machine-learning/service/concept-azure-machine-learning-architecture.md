@@ -24,12 +24,14 @@ Learn about the architecture, concepts, and workflow for Azure Machine Learning 
 
 The machine learning workflow generally follows this sequence:
 
-1. Develop machine learning training scripts in **Python** or with the visual interface.
-1. Create and configure a **compute target**.
-1. **Submit the scripts** to the configured compute target to run in that environment. During training, the scripts can read from or write to **datastore**. And the records of execution are saved as **runs** in the **workspace** and grouped under **experiments**.
-1. **Query the experiment** for logged metrics from the current and past runs. If the metrics don't indicate a desired outcome, loop back to step 1 and iterate on your scripts.
-1. After a satisfactory run is found, register the persisted model in the **model registry**.
-1. Develop a scoring script that uses the model and **Deploy the model** as a **web service** in Azure, or to an **IoT Edge device**.
+1. Train model
+    + Develop machine learning training scripts in **Python** or with the visual interface.
+    + Create and configure a **compute target**.
+    + **Submit the scripts** to the configured compute target to run in that environment. During training, the scripts can read from or write to **datastore**. And the records of execution are saved as **runs** in the **workspace** and grouped under **experiments**.
+1. Package model - After a satisfactory run is found, register the persisted model in the **model registry**.
+1. Validate model - **Query the experiment** for logged metrics from the current and past runs. If the metrics don't indicate a desired outcome, loop back to step 1 and iterate on your scripts.
+1. Deploy model  - Develop a scoring script that uses the model and **Deploy the model** as a **web service** in Azure, or to an **IoT Edge device**.
+1. Monitor model - Monitor for **data drift** between the training dataset and inference data of a deployed model. When necessary, loop back to step 1 to re-train the model with new training data.
 
 You perform these steps with any of the following:
 + [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
