@@ -27,7 +27,7 @@ The errors in Data Box and Data Box Heavy are summarized as follows:
 | Data or file type | The data format or the file type is not supported. |Download the error lists. <br> For page blobs or managed disks, ensure the data is 512-bytes aligned and copied to the pre-created folders. [Learn more](#data-or-file-type-errors). |
 | Non-critical blob or file errors  | The blob or file names do not follow the Azure naming rules or the file type is not supported. | These blob or files may not be copied or the names may be changed. [Learn how to fix these errors](#non-critical-blob-or-file-errors). |
 
-* The first four error categories are critical errors and must be fixed before you can proceed to prepare to ship.
+\* The first four error categories are critical errors and must be fixed before you can proceed to prepare to ship.
 
 
 ## Container or share name errors
