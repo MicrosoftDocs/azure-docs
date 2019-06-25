@@ -159,6 +159,8 @@ This error typically occurs when the node is assigned a node configuration name 
 * Make sure that you're assigning the node with a node configuration name that exactly matches the name in the service.
 * You can choose to not include the node configuration name, which will result in onboarding the node but not assigning a node configuration
 
+### <a name="failure-linux-temp-noexec"></a>Scenario: Applying a configuration in Linux, a failure occurs with a general error
+
 #### Issue
 
 When applying a configuration in Linux, a failure occurs containing the error:
