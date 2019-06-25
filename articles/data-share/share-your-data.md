@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account). 
+* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account)
 
 ## Sign in to the Azure portal
 
