@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need to:
 
-Have the infinite scrolling version of the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This can either be your own version, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Have the infinite scrolling version of the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) project up and running. This project can either be your own version, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## Order results based on one property
 
@@ -236,7 +236,7 @@ There is no need to modify any of the models to enable ordering. The view and th
                 }
     ```
 
-3. Add the **Rooms** property to the **Select** parameter in the **Index(SearchData model)** method of the controller.
+3. Add the **Rooms** property to the **Select** parameter in the **Index(SearchData model)** action method of the controller.
 
     ```cs
      Select = new[] { "HotelName", "Description", "Rating", "Rooms" },
