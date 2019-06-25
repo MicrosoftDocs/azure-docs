@@ -136,7 +136,7 @@ This error means that the CLI was unable to find the login server of the given r
 
 ## Next steps
 
-See the [FAQ](Docker-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
+See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
 
 
 
