@@ -40,8 +40,8 @@ To get started, you need the following items:
 * For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or higher
 * The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. This can be done by [submitting a service request](https://hi.service-now.com).
 * For automatic configuration, enable the multi-provider plugin for ServiceNow.
-* To install the Servicenow Classic (Mobile) application you need to go to the appropriate store and search for the Servicenow Classic application and click Download.
-* Servicenow Classic (Mobile) application supports both Android and IOS users.
+* To install the ServiceNow Classic (Mobile) application you need to go to the appropriate store and search for the ServiceNow Classic application and click Download.
+* ServiceNow Classic (Mobile) application supports both Android and IOS users.
 
 ## Scenario description
 
@@ -428,9 +428,9 @@ The objective of this section is to create a user called Britta Simon in Service
 
 When you select the ServiceNow tile in the Access Panel, you should be automatically signed in to the ServiceNow for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-### Test SSO for Servicenow Classic (Mobile)
+### Test SSO for ServiceNow Classic (Mobile)
 
-Open your **Servicenow Classic (Mobile)** application on the hand held device and perform the following steps:
+Open your **ServiceNow Classic (Mobile)** application on the hand held device and perform the following steps:
 
 ![The sign in](./media/servicenow-tutorial/test01.png)
 
