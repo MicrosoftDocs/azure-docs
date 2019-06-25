@@ -18,7 +18,7 @@ ms.author: swmachan
 > [!IMPORTANT]
 > This version of the Translator Text API has been deprecated. [View documentation for v3 of the Translator Text API](v3-0-reference.md).
 
-Version 2 of the Translator Text API can be seamlessly integrated into your apps, websites, tools, or other solutions to provide multilanguage user experiences. It can be used on any hardware platform and with any operating system to perform language translation and other language-related operations, like text language detection and text to speech, according to industry standards. For more information, see [Translator Text API](../translator-info-overview.md).
+Version 2 of the Translator Text API can be seamlessly integrated into your apps, websites, tools, or other solutions to provide multilanguage user experiences. You can use it on any hardware platform and with any operating system to perform language translation and other language-related tasks, like text-language detection and text to speech, according to industry standards. For more information, see [Translator Text API](../translator-info-overview.md).
 
 ## Getting started
 To access the Translator Text API, you'll need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
@@ -107,7 +107,7 @@ Retrieves translations for multiple source texts.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/TranslateArray`.
 
-This is the format of the request body:
+Format of the request body like this:
 
 ```
 <TranslateArrayRequest>
@@ -129,7 +129,7 @@ This is the format of the request body:
 </TranslateArrayRequest>
 ```
 
-These are the elements in `TranslateArrayRequest`:
+These elements are in `TranslateArrayRequest`:
 
 
 * `AppId`: Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `AppId` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.
@@ -156,7 +156,7 @@ The `TranslateArray` method accepts `application/xml` or `text/xml` for `Content
 * `TranslatedSentenceLengths`: An array of integers that indicates the length of each sentence in the translated text. The length of the array indicates the number of sentences.
 * `State`: User state to help correlate request and response. Returns the same content as the request.
 
-This is the format of the response body:
+Here's the format of the response body:
 
 ```
 <ArrayOfTranslateArrayResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
@@ -385,7 +385,7 @@ Identifies the languages in an array of strings. Independently detects the langu
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/DetectArray`.
 
-This is the format of the request body:
+Here's the format of the request body:
 
 ```
 <ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -398,7 +398,7 @@ The text can't exceed 10,000 characters.
 
 **Return value:** A string array that contains a two-character language code for each row in the input array.
 
-This is the format of the response body:
+Here's the format of the response body:
 
 ```
 <ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
@@ -486,7 +486,7 @@ Adds an array of translations to translation memory. This method is an array ver
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/AddTranslationArray`.
 
-This is the format of the request body:
+Here's the format of the request body:
 
 ```
 <AddtranslationsRequest>
@@ -510,7 +510,7 @@ This is the format of the request body:
 </AddtranslationsRequest>
 ```
 
-These are the elements in `AddtranslationsRequest`:
+These elements are in `AddtranslationsRequest`:
 
 * `AppId`: Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `AppId` field empty. Otherwise, include a string that  contains `"Bearer" + " " + "access_token"`.
 * `From`: Required. A string that contains the language code of the source language. Must be one of the languages returned by the `GetLanguagesForTranslate` method.
@@ -603,7 +603,7 @@ The `TranslateOptions` object contains the values the following list. They're al
 
 * `Category`: A string that contains the category (domain) of the translation. The default is `general`.
 * `ContentType`: The only supported option, and the default, is `text/plain`.
-* `IncludeMultipleMTAlternatives`: A Boolean flag to specify whether more than one alternative should be returned from the MT engine. Valid values are `true` and `false` (case-sensitive). The default is `false`, which returns only one alternative. Setting the flag to `true` enables the generation of artificial alternatives, fully integrated with the Collaborative Translation Framework (CTF). The feature enables returning alternatives for sentences that have no translations in CTF by adding artificial alternatives from the *n*-best list of the decoder.
+* `IncludeMultipleMTAlternatives`: A Boolean flag to specify whether more than one alternative should be returned from the MT engine. Valid values are `true` and `false` (case-sensitive). The default is `false`, which returns only one alternative. Setting the flag to `true` enables the creation of artificial alternatives, fully integrated with the Collaborative Translation Framework (CTF). The feature enables returning alternatives for sentences that have no translations in CTF by adding artificial alternatives from the *n*-best list of the decoder.
 	- Ratings. The ratings are applied like this: 
 	     - The best automatic translation has a rating of 5.
        - The alternatives from CTF reflect the authority of the reviewer. They range from -10 to +10.
@@ -616,7 +616,7 @@ The `TranslateOptions` object contains the values the following list. They're al
 
 Request `Content-Type` should be `text/xml`.
 
-**Return value:** This is the format of the response:
+**Return value:** Here's the format of the response:
 
 ```
 <GetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
@@ -685,7 +685,7 @@ Retrieves multiple translation candidates for multiple source texts.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/GetTranslationsArray`.
 
-This is the format of the request body:
+Here's the format of the request body:
 
 ```
 <GetTranslationsArrayRequest>
@@ -732,7 +732,7 @@ You can omit optional elements. Elements that are direct children of `GetTransla
 
 Request `Content-Type` should be `text/xml`.
 
-**Return value:** This is the format of the response:
+**Return value:** Here's the format of the response:
 
 ```
 <ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
