@@ -57,7 +57,7 @@ endpoint | *yes* | The endpoint to route the requests to. This will handle the r
 
 ### ResourceTypes and custom resources
 
-**ResourceTypes** describe new custom resources that are added to Azure. These expose basic RESTful CRUD methods. To learn more about creating custom resources [click here](./custom-providers-resources-endpoint-reference.md)
+**ResourceTypes** describe new custom resources that are added to Azure. These expose basic RESTful CRUD methods. To learn more about creating custom resources [click here](./custom-providers-resources-endpoint-how-to.md)
 
 Sample Custom Resource Provider with **resourceTypes**:
 
@@ -87,7 +87,7 @@ GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provide
 
 ## Actions and custom actions
 
-**Actions** describe new actions that are added to Azure. These can be exposed on top of the resource provider or nested under a **resourceType**. To learn more about creating custom resources [click here](./custom-providers-action-endpoint-reference.md)
+**Actions** describe new actions that are added to Azure. These can be exposed on top of the resource provider or nested under a **resourceType**. To learn more about creating custom resources [click here](./custom-providers-action-endpoint-how-to.md)
 
 Sample Custom Resource Provider with **actions**:
 

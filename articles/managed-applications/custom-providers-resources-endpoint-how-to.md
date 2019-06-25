@@ -181,6 +181,6 @@ customResourceName | *yes* | The custom resource name.
 
 - [Overview on Azure Custom Resource Providers](./custom-providers-overview.md)
 - [Tutorial: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
-- [How To: Adding Custom Actions to Azure REST API](./custom-providers-actions-endpoint-how-to.md)
+- [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [Reference: Custom Resource Proxy Reference](./custom-providers-proxy-resource-endpoint-reference.md)
 - [Reference: Custom Resource Cache Reference](./custom-providers-proxycache-resource-endpoint-reference.md)
