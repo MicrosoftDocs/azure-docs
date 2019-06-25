@@ -181,7 +181,7 @@ The metrics view enables you to collect and aggregate data from your managed app
 
 `"kind": "CustomResources"`
 
-You can define multiple views for this kind of view. Each view represents a **unique** custom resource type from the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
+You can define multiple views of this type. Each view represents a **unique** custom resource type from the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
 
 In this view you can perform GET, PUT, DELETE and POST operations for your custom resource type. POST operations could be global custom actions or custom actions in a context of your custom resource type.
 
