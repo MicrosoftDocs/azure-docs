@@ -4,9 +4,9 @@ description: Add security to triggers, inputs and outputs, parameters, and conne
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam
-ms.reviewer: estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
 ---
@@ -187,7 +187,7 @@ To control access to the inputs and outputs in your logic app's run history, you
 
   This option lets you secure access to run history based on the requests from a specific IP address range.
 
-* [Secure inputs and outputs by using obfuscation](#obfuscate).
+* [Hide inputs and outputs in run history by using obfuscation](#obfuscate).
 
   This option lets you hide inputs and outputs in run history based on the trigger or action.
 
@@ -195,8 +195,7 @@ To control access to the inputs and outputs in your logic app's run history, you
 
 ### Restrict access by IP address range
 
-You can limit access to the inputs and outputs in your logic app's run history so that only requests from specific IP address ranges can view that data. For example, to block anyone from accessing inputs and outputs, specify an IP address range such as `0.0.0.0-0.0.0.0`. Only a person with administrator permissions can remove this restriction, which provides the possibility for "just-in-time" access to your logic app's data.
-You can specify the IP ranges to restrict either by using the Azure portal or in an Azure Resource Manager template that you use for logic app deployment.
+You can limit access to the inputs and outputs in your logic app's run history so that only requests from specific IP address ranges can view that data. For example, to block anyone from accessing inputs and outputs, specify an IP address range such as `0.0.0.0-0.0.0.0`. Only a person with administrator permissions can remove this restriction, which provides the possibility for "just-in-time" access to your logic app's data. You can specify the IP ranges to restrict either by using the Azure portal or in an Azure Resource Manager template that you use for logic app deployment.
 
 #### Restrict IP ranges in Azure portal
 
@@ -206,7 +205,9 @@ You can specify the IP ranges to restrict either by using the Azure portal or in
 
 1. Under **Access control configuration** > **Allowed inbound IP addresses**, select **Specific IP ranges**.
 
-1. Under **IP ranges for contents**, specify the IP address ranges that can access content from inputs and outputs. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
+1. Under **IP ranges for contents**, specify the IP address ranges that can access content from inputs and outputs. 
+
+   A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
 #### Restrict IP ranges in Azure Resource Manager template
 
@@ -251,7 +252,7 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 
 <a name="obfuscate"></a>
 
-### Secure access by obfuscation
+### Hide inputs and outputs in run history by using obfuscation
 
 1. If your logic app isn't already open in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
