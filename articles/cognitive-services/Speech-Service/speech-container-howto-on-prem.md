@@ -154,9 +154,11 @@ To apply your own secret, add below argument after helm install command in Step.
 https://helm.sh/docs/helm/#helm-install
 
 ```console
-helm install <local path to helm chart YAML> \
-    --values <local path to custom values YAML> \
-    --name <name>
+helm install <local path> --values <local path to custom values YAML> --name <name>
+```
+
+```console
+helm install "." --values speech-helm-chart.yaml --name on-prem-speech
 ```
 
 4.	The K8S deployment takes a bit while. Confirm speech-to-text and text-to-speech pods and service are properly deployed and ready
@@ -175,10 +177,10 @@ helm test
 These tests will output various status results:
 
 ```console
-RUNNING:    speech-to-text-readiness-test
-PASSED:     speech-to-text-readiness-test
-RUNNING:    text-to-speech-readiness-test
-PASSED:     text-to-speech-readiness-test
+RUNNING: speech-to-text-readiness-test
+PASSED: speech-to-text-readiness-test
+RUNNING: text-to-speech-readiness-test
+PASSED: text-to-speech-readiness-test
 ```
 
 
@@ -191,6 +193,8 @@ i.e.
    Text-to-speech: 40.91.92.231:80 
 
 ## Customizing helm charts
+
+Helm charts are hierarchial. This allows for inheritance, it also caters to the concept of specificity, where settings that are more specific override inherited rules.
 
 ### Speech (umbrella chart)
 
@@ -240,10 +244,8 @@ i.e.
 
 ### Text-to-Speech (subchart: charts/textToSpeech)
 
-> Again, no customized values in sub-chart values.yaml! <br/>
-> 
-> Add prefix `textToSpeech.` on any parameter below into your values yaml file/umbrella chart's values.yaml can override the corresponding parameter value. <br/>
-> i.e. `textToSpeech.numberOfConcurrentRequest` overrides `numberOfConcurrentRequest`.<br/>
+> [!TIP]
+> To override the "umbrella" chart, add the prefix `textToSpeech.` on any parameter to make it more specific. For example, it will override the corresponding parameter e.g. `textToSpeech.numberOfConcurrentRequest` overrides `numberOfConcurrentRequest`.
 
 |Parameter|Description|Values|Default|
 | --- | --- | --- | --- |
@@ -262,7 +264,6 @@ i.e.
 |`service.port`| Specifies the port of **text-to-speech** service| int| `80`|
 |`service.autoScaler.enabled`| Specifies if enable [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)<br/> If enabled, `text-to-speech-autoscaler` will be deployed in the Kubernetes cluster | true/false| `true`|
 |`service.podDisruption.enabled`| Specifies if enable [Pod Disruption Budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/)<br/> If enabled, `text-to-speech-poddisruptionbudget` will be deployed in the Kubernetes cluster| true/false| `true`|
-
 
 ## Next steps
 
