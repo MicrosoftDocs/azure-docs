@@ -14,7 +14,7 @@ ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ---
 
-# How to configure password single sign-on
+# Configure password single sign-on
 
 When you add a gallery or non-gallery web application, one of the single sign-on options available to you is [password-based single sign-on](what-is-single-sign-on.md). This option is available for any web with an HTML sign-in page. Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It's also useful for scenarios where several users need to share a single account, such as to your organization's social media app accounts.
 

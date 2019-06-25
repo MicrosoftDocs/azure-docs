@@ -16,36 +16,20 @@ ms.collection: M365-identity-device-management
 
 # Add an unlisted (non-gallery) application to your Azure AD organization
 
-This article is about a feature that enables administrators to configure single sign-on for applications missing in the Microsoft identity platform app gallery *without writing code*.
+Azure AD can manage user access to any software as a service (SaaS) application or a third-party web application. Even if an application hasn't been pre-integrated and added to the Azure AD gallery, you can add it to Azure AD without writing code. The following capabilities are available depending on your [license agreement](https://azure.microsoft.com/pricing/details/active-directory/):
 
-If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md).
-
-The Microsoft identity platform application gallery provides a listing of applications that are known to support a form of single sign-on with Microsoft identity platform, as described in [this article](what-is-single-sign-on.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by following the step-by-step instructions presented in the Azure portal to enable single sign-on.
-
-The following capabilities are also available, according to your license agreement. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
-
-- Self-service integration of an application that use a modern protocol like [OpenId Connect/OAuth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) to authenticate its users and obtain tokens for [Microsoft Graph](https://graph.microsoft.com).
 - Self-service integration of any application that supports [Security Assertion Markup Language (SAML) 2.0](https://wikipedia.org/wiki/SAML_2.0) identity providers (SP-initiated or IdP-initiated)
 - Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](what-is-single-sign-on.md#password-based-sso)
 - Self-service connection of applications that use the [System for Cross-Domain Identity Management (SCIM) protocol for user provisioning](use-scim-to-provision-users-and-groups.md)
 - Ability to add links to any application in the [Office 365 app launcher](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](what-is-single-sign-on.md#linked-sign-on)
 
-These capabilities can include self-service integration of a software as a service (SaaS) application that you use, even if nobody has onboarded the application to the Azure AD application gallery yet. Another capability is self-service integration of a third-party web application that your organization has deployed to servers you control, either in the cloud or on-premises.
+This article describes how to add a non-gallery application to Azure AD using the **Enterprise Applications** blade in the Azure portal. 
 
-Also known as *app integration templates*, these capabilities provide standards-based connection points for applications that support SAML, SCIM, or forms-based authentication. The capabilities include flexible options and settings for compatibility with a broad number of applications.
+If instead you're looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md). When you develop an app that uses a modern protocol like [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) to authenticate users, you can register it with the Microsoft identity platform by using the [App registrations](../develop/quickstart-register-app.md) experience in the Azure portal.
 
-## Adding an unlisted application
-
-The Microsoft identity platform provides two mechanisms to register applications.
-
-An application that uses a modern protocol like [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) to authenticate its users is registered using the [Application registration portal](../develop/quickstart-register-app.md).
-
-To register applications using all other types of [supported authentication mechanisms](what-is-single-sign-on.md), like the [SAML](../develop/single-sign-on-saml-protocol.md) protocol, use the **Enterprise Applications** blade to connect them with the Microsoft identity platform.
-
-To connect an unlisted application using an app integration template, do these steps:
+## To add a non-gallery application
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) using your Microsoft identity platform administrator account.
-   * wheat is ok  
 1. Select **Enterprise Applications** > **New application**.
 2. (Optional but recommended) In the **Add from the gallery** search box, enter the display name of the application. If the application appears in the search results, select it and skip the rest of this procedure.
 3. Select **Non-gallery application**. The **Add your own application** page appears.
@@ -54,11 +38,13 @@ To connect an unlisted application using an app integration template, do these s
 5. Enter the display name for your new application.
 6. Select **Add**.
 
-By adding an application this way, you provide a similar experience to the one available for pre-integrated applications. First select **Single sign-on** from the application’s sidebar. The next page (**Select a single sign-on method**) presents the options for configuring SSO:
+## Next steps
 
-- **SAML**
-- **Password-based**
-- **Linked**
+Now that you've added the application to your Azure AD organization, [choose a single sign-on method](what-is-single-sign-on.md#choosing-a-single-sign-on-method) you want to use and refer to the appropriate article below:
+
+- [Configure SAML-based single sign-on](configure-single-sign-on-portal.md)
+- [Configure password single sign-on](configure-password-single-sign-on.md)
+- [Configure linked sign-on](configure-linked-sign-on.md)
 
 ![Select a single sign-on method](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
@@ -182,7 +168,7 @@ To assign a new user or group to your application:
 3. Select **Users and groups (\<Number> Selected)**. The **Users and groups** page appears, showing a list of available users and groups.
 4. Type or scroll to find the user or group you wish to assign from the list.
 5. Select each user or group that you want to add, and then select the **Select** button. The **Users and groups** page disappears.
-6. In the **Add Assignments** page, select **Assign**. The **<application name> - Users and groups** page appears with the additional users shown in the list.
+6. In the **Add Assignments** page, select **Assign**. The **\<application name> - Users and groups** page appears with the additional users shown in the list.
 
    ![Application users and groups](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 

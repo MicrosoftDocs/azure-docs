@@ -14,7 +14,7 @@ ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ---
 
-# How to configure linked sign-on
+# Configure linked sign-on
 
 When you add a gallery or non-gallery web application, one of the single sign-on options available to you is [linked sign-on](what-is-single-sign-on.md). Select this option to add a link to the application in your organization's Azure AD Access Panel or Office 365 portal. You can use this method to add links to custom web applications that currently use Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels.
 
