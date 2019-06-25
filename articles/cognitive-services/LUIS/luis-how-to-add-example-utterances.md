@@ -60,9 +60,9 @@ For a company's department list, you can have normalized values: `Accounting` an
 
     You can add more list items or more item synonyms by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](luis-how-to-add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or importing a list. 
 
-## Add composite entity
+## Add a composite entity
 
-Composite entities are created from existing **Entities** into a parent entity. 
+Composite entities are created from existing **Entities** to form a parent entity. 
 
 Assuming the utterance, `Does John Smith work in Seattle?`, a composite utterance can return entity information of the employee name `John Smith`, and the location `Seattle` in a composite entity. The child entities must already exist in the app and be marked in the example utterance before creating the composite entity.
 
@@ -126,7 +126,7 @@ You can perform actions on example utterances as a selected group or as an indiv
 
 ### Remove entity labels from utterances
 
-You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
+You can remove machine-learned entity labels from an utterance on the Intents page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
 
 To remove a machine-learned entity label from an utterance, select the entity in the utterance. Then select **Remove Label** in the entity drop-down box that appears.
 
