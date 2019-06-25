@@ -177,7 +177,7 @@ To prevent others from changing or deleting your logic app, you can use [Azure R
 
 ## Access to run history inputs and outputs
 
-All data that is handled during a logic app's run is encrypted during transit and at rest. When your logic app finishes running, you can view the history for that run, including the steps that ran along with the status, duration, inputs, and outputs for each action. This rich detail provides insight into how your logic app ran and where you might start troubleshooting any problems that arise.
+During a logic app run, all the data is encrypted during transit and at rest. When your logic app finishes running, you can view the history for that run, including the steps that ran along with the status, duration, inputs, and outputs for each action. This rich detail provides insight into how your logic app ran and where you might start troubleshooting any problems that arise.
 
 When you access your logic app's run history, Logic Apps authenticates your access and provides links to the inputs and outputs from the requests and responses in your logic app's run. However, for actions that handle any passwords, secrets, keys, or other sensitive information, you want to prevent others from viewing and accessing that data. For example, if your logic app gets a secret from [Azure Key Vault](../key-vault/key-vault-whatis.md) to use when authenticating an HTTP action, you want to hide that secret from view.
 
@@ -189,13 +189,7 @@ To control access to the inputs and outputs in your logic app's run history, you
 
 * [Secure inputs and outputs by using obfuscation](#obfuscate).
 
-  This option lets you hide inputs and outputs based on the trigger or action. Here are some considerations when using obfuscation:
-
-  * When you secure the outputs from a trigger or action, Logic Apps also blocks the inputs history for any actions that explicitly reference those outputs. Also, if actions use secured outputs as inputs, those inputs are secured only if the actions produce the same data as the inputs. Make sure that you secure the outputs from those actions.
-
-  * When you secure an action's inputs or outputs, you prevent that action from sending that secured data to Azure Log Analytics. You also can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that action for monitoring.
-
-  * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
+  This option lets you hide inputs and outputs in run history based on the trigger or action.
 
 <a name="restrict-ip"></a>
 
@@ -288,6 +282,18 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
       Secured inputs and outputs are hidden from view.
 
       ![Hidden data in run history](media/logic-apps-obfuscate-inputs-outputs/hidden-data-run-history.png)
+
+Here are some considerations for when you use obfuscation:
+
+* If you secure the outputs from a trigger or action, and a later action explicitly uses those secured outputs as inputs, Logic Apps secures those inputs in the run history. However, if that later action produces outputs that are the same as the consumed secured inputs, Logic Apps doesn't secure those outputs in the run history.
+
+  To continue securing this data, make sure that you explicitly secure outputs when they're the same as the secured inputs that the action consumes.
+
+  ![Secured outputs as inputs](media/logic-apps-obfuscate-inputs-outputs/secure-outputs-as-inputs-flow.png)
+
+* When you secure an action's inputs or outputs, you prevent that action from sending that secured data to Azure Log Analytics. You also can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that action for monitoring.
+
+* The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
 
 <a name="secure-action-parameters"></a>
 
@@ -510,7 +516,7 @@ Here are some ways that you can secure any endpoint where your logic app needs a
 
 * Restrict access from logic app IP addresses.
 
-  All calls from logic apps to endpoints originate from specific designated IP addresses that are based on the logic apps' regions. You can add filtering that accepts requests only from those IP addresses. To get these IP addresses, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
+  All calls to endpoints from logic apps originate from specific designated IP addresses that are based on your logic apps' regions. You can add filtering that accepts requests only from those IP addresses. To get these IP addresses, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
 
 * Secure connections to on-premises systems.
 
