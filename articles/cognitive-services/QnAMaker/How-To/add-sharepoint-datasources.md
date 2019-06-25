@@ -97,7 +97,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Do not change any settings in the **Enable Access** window. Select **Grant Permission**. 
 
-    [![Under 'Grant Permission', select 'Yes'](../media/add-SharePoint-datasources/grant-app-required-permissions.png)](../media/add-SharePoint-datasources/grant-app-required-permissions.png#lightbox)
+    [![Under 'Grant Permission', select 'Yes'](../media/add-sharepoint-datasources/grant-app-required-permissions.png)](../media/add-sharepoint-datasources/grant-app-required-permissions.png#lightbox)
 
 1. Select **YES** in the pop-up confirmation windows. 
 
