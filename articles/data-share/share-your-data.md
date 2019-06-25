@@ -35,9 +35,9 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the  portal.
 
-1. Search for *Azure Data Share*.
+1. Search for *Data Share*.
 
-1. Under **Azure Data Share**, at the bottom of the screen, select **Create**.
+1. Select Data Share (preview) and click **Create**.
 
 1. Fill out the basic details of your Azure Data Share resource with the following information. 
 
@@ -49,7 +49,7 @@ Create an Azure Data Share resource in an Azure resource group.
     | Location | *East US 2* | Select a region for your data share account.
     | | |
 
-1. Select **New** to provision your data share account. Provisioning a new data share account typically takes about 1 minute or less. 
+1. Select **Create** to provision your data share account. Provisioning a new data share account typically takes about 2 minutes or less. 
 
 1. When the deployment is complete, select **Go to resource**.
 
@@ -70,17 +70,29 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. To add Datasets to your Data Share, click **Add Datasets**. 
 
-    ![EnableRefresh](./media/add-datasets.png "Add Datasets")
+    ![Datasets](./media/datasets.png "Datasets")
 
-1. Select the dataset type that you would like to add. Navigate to the object you would like to share and click 'Add Datasets'. 
+1. Select the dataset type that you would like to add. 
+
+    ![AddDatasets](./media/add-datasets.png "Add Datasets")    
+
+1. Navigate to the object you would like to share and click 'Add Datasets'. 
+
+    ![SelectDatasets](./media/select-datasets.png "Select Datasets")    
 
 1. Click **Continue**
+
+    ![DatasetsAdded](./media/datasets-added.png "Datasets added")    
 
 1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'. 
 
+    ![AddRecipients](./media/add-recipient.png "Add recipients") 
+
 1. Click **Continue**
 
-1. If you would like to offer a synchronization schedule for your Data Consumer, enable the scheduled refresh slider shown below and select a recurrence interval. 
+1. If you'd like your data consumer to be able to get incremental updates of your data, enable the snapshot schedule. 
+
+    ![EnableSnapshots](./media/enable-snapshots.png "Enable snapshots") 
 
 1. Select a start time and recurrence interval. 
 
