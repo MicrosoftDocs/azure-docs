@@ -91,6 +91,8 @@ Using the controls at the top of the list, you can search for a user and filter 
 
 The data shown in these reports will be delayed by up to 60 minutes. A “Last refreshed" field exists in the Azure portal to identify how recent your data is.
 
+Usage and insights data is not a replacement for the Azure Multi-Factor Authentication activity reports or information contained in the Azure AD sign-ins report.
+
 ## Next steps
 
 - [Choosing authentication methods for your organization](concept-authentication-methods.md)
