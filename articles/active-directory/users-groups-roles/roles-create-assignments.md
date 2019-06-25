@@ -1,5 +1,5 @@
 ---
-title: View administrator role permissions in the admin center - Azure Active Directory | Microsoft Docs
+title: Create a custom role defnition in Azure AD role-based access control - Azure Active Directory | Microsoft Docs
 description: You can now see and manage members of an Azure AD administrator role in the Azure AD admin center.
 services: active-directory
 author: curtand
@@ -16,96 +16,84 @@ ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
-# View role assignments for an Azure Active Directory organization
+## Create a custom role in your Azure Active Directory (Azure AD) organization.
 
-Roles can be assigned at directory level or with a scope of a single application. Roles assignments at the directory scope will show in the list of single application role assignments. Role assignments at the single application scope will not show in the list of directory level assignments.
+In Azure Active Directory (Azure AD), custom roles can be created in the Roles and administrators tab on the Azure AD page or the Application registration page. Custom roles can be assigned at the directory scope or a scope of a single app registration.
 
-## View the assignments of a role with directory scope using the Azure AD portal
-
-1. Sign in to the Azure portal as a Privileged Role Administrator or Global Administrator for the organization.
-1. Select Azure Active Directory, select Roles and administrators, and then select the role you want to view assignments for.
+Create a new custom role using the Azure AD portal
+	1. Sign in to the Azure portal as a Privileged Role Administrator or Global Administrator for the organization.
+	2. Select Azure Active Directory, select Roles and administrators, and then select New custom role
 	
 	<screenshot of Roles and administrators tab>
 	
-1. On the Assignments tab view the assignments for the role.
+	3. On the Basics tab provide "Application Support Administrator" for the name of the role and "Can manage basic aspects of application registrations." for the role description.
 	
 	<screenshot of Assignments tab>
 
-## View the assignments of a role with directory scope using Azure AD PowerShell
+	1. On the Permissions tab use the filter box to search for the following permissions individually, selecting the checkbox next to each one:
+		a. microsoft.directory/applications/allProperties/read
+		b. microsoft.directory/applications/basic/update
+		c. microsoft.directory/applications/credentials/update
+	
+	<screenshot of Permissions tab>
+	
+	4. On the Review + create tab review the permissions and select Create
 
-You can automate how you assign roles to user accounts using Azure PowerShell. This article uses the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
+Create a custom role using Azure AD PowerShell
+	1. Open the Azure AD preview PowerShell module
+	2. Sign in by executing the command Connect-AzureAD
+	3. Create a new role using the below PowerShell script:
+	
+	# Basic role information
+	$description = "Application Support Administrator"
+	$displayName = "Can manage basic aspects of application registrations."
+	$templateId = (New-Guid).Guid
+	
+	# Set of permissions to grant
+	$allowedResourceAction =
+	@(
+	    "microsoft.directory/applications/allProperties/read",
+	    "microsoft.directory/applications/basic/update",
+	    "microsoft.directory/applications/credentials/update"
+	)
+	$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
+	$rolePermission = @{'resourceActions' = $resourceActions}
+	$rolePermissions = $rolePermission
+	
+	# Create new custom admin role
+	$customAdmin = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 
-### Prepare PowerShell
+Create a custom role using Microsoft Graph API
 
-First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
-
-To install the Azure AD PowerShell module, use the following commands:
-
-``` PowerShell
-install-module azuread
-import-module azuread
-```
-
-To verify that the module is ready to use, use the following command:
-
-``` PowerShell
-get-module azuread
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
-```
-
-### View the assignments of a role
-
-Example of viewing the assignments of a role.
-
-``` PowerShell
-# Fetch list of all directory roles with object ID
-Get-AzureADDirectoryRole
-
-# Fetch a specific directory role by ID
-$role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543"
-
-# Fetch role membership for a role
-Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
-```
-
-## View the assignments of a role with directory scope using Microsoft Graph API
-
-HTTP request to get a role assignment for a given role definition.
-
-GET
-
-``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
-```
-
-Response
-
-``` HTTP
-HTTP/1.1 200 OK
+HTTP Request 
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
+Body 
 {
-    "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1"
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "resourceScopes":["/"]
+    "description":"Can manage basic aspects of application registrations.",
+    "displayName":"Application Support Administrator",
+    "isEnabled":true, 
+    "rolePermissions":
+    [
+        {
+            "resourceActions":
+            {
+                "allowedResourceActions": 
+                [
+                    "microsoft.directory/applications/allProperties/read",
+                    "microsoft.directory/applications/basic/update",
+                    "microsoft.directory/applications/credentials/update"
+                ]
+            },
+            "condition":null
+        }
+    ],
+    "templateId":"<GET NEW GUID AND INSERT HERE>",
+    "version":"1"
 }
-```
 
-## View the assignments of a single application level role using the Azure AD portal
-
-1. Sign in to the Azure portal as a Privileged Role Administrator or Global Administrator for the organization.
-1. Select Azure Active Directory, select App registration, and then select the app registration you want to view role assignments for.
-
-<screenshot of App registration tab>
-
-1. Select the Roles and administrators tab, and then select the role you want to view assignments for.
-
-<screenshot of Roles and administrators tab>
-
-1. On the Assignments tab view the assignments for the role.
-
-<screenshot of Assignments tab>
+Note: there are two permissions available for granting the ability to create application registrations with different behaviors.
+		○ microsoft.directory/applications/createAsOwner: this permission will result in the creator being added as the first owner of the created app registration, and the created app registration will count against the creator's 250 created objects quota.
+		○ microsoft.directory/applicationPolicies/create: this permission will result in the creator not being added as the first owner of the createa app registration, and the created app registration will not count against the creator's 250 created objects quota. Use this permission carefully, as there is nothing preventing the assignee from creating app registrations until the directory-level quota is hit. If both permissions are assigned, this permission will take precedent.
 
 ## Next steps
 

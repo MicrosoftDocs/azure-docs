@@ -100,9 +100,12 @@ HTTP/1.1 200 OK
   ![Create or edit app registrations from the App registrations page](./media/roles-view-assignments/app-registrations.png)
 
 1. Select **Roles and administrators**, and then select a role to view its properties.
+
+  ![View app registration role assignments from the App registrations page](./media/roles-view-assignments/appreg-assignments.png)
+
 1. Select **Assignments** to view the assignments for the role.
 
-<screenshot of Assignments tab>
+  ![View app registration role assignments from the App registration properties page](./media/roles-view-assignments/appreg-assignments-2.png)
 
 ## Next steps
 
