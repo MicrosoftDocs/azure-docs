@@ -29,11 +29,11 @@ This section describes services that provide connectivity between Azure resource
 
 |Service|Why use?|Scenarios|
 |---|---|---|
-|[Virtual network](#vnet)|Enables Azure resources to securely communicate with each other, the internet, and on-premises networks.| <p>[- Filter network traffic](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[- Route network traffic](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[Restrict network access to resources](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p> [- Connect virtual networks](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
-|[ExpressRoute](#expressroute)|Extends your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.|<p>[- Create and modify an ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> [- Create and modify peering for an ExpressRoute circuit](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[- Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[- Configure and manage route filters for ExpressRoute circuits](../expressroute/how-to-routefilter-portal.md)</p>|
-|[VPN Gateway](#vpngateway)|Sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.|<p>[- Site-to-site-connections](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[- VNet-to-VNet connections](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[- Point-to-site connections](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
-|[Virtual WAN](#virtualwan)|Optimizes and automates branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to.|<p>[- Site-to-site connections](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute connections](../virtual-wan/virtual-wan-expressroute-portal.md)</p> <p>[- Point-to-site connections](../virtual-wan/virtual-wan-point-to-site-portal.md)</p> |
-|[Azure DNS](#dns)|Hosts DNS domains that provides name resolution by using Microsoft Azure infrastructure.|<p>[- Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p>[- Create DNS records for a web app](../azure/dns/dns-web-sites-custom-domain.md)</p>- Create an alias record for [Traffic Manager](../dns/tutorial-alias-tm.md), [Public IP Address](../dns/tutorial-alias-pip.md), and [Zone resource record](../dns/tutorial-alias-rr.md)|
+|[Virtual network](#vnet)|Enables Azure resources to securely communicate with each other, the internet, and on-premises networks.| <p>[Filter network traffic](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[Route network traffic](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[Restrict network access to resources](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[Connect virtual networks](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
+|[ExpressRoute](#expressroute)|Extends your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.|<p>[Create and modify an ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[Create and modify peering for an ExpressRoute circuit](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[- Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[- Configure and manage route filters for ExpressRoute circuits](../expressroute/how-to-routefilter-portal.md)</p>|
+|[VPN Gateway](#vpngateway)|Sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.|<p>[Site-to-site-connections](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet-to-VNet connections](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Point-to-site connections](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
+|[Virtual WAN](#virtualwan)|Optimizes and automates branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to.|<p>[Site-to-site connections](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute connections](../virtual-wan/virtual-wan-expressroute-portal.md)</p> <p>[Point-to-site connections](../virtual-wan/virtual-wan-point-to-site-portal.md)</p> |
+|[Azure DNS](#dns)|Hosts DNS domains that provides name resolution by using Microsoft Azure infrastructure.|<p>[Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Create DNS records for a web app](../dns/dns-web-sites-custom-domain.md)</p> <p>[Create an alias record for Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Create an alias record for public IP Address](../dns/tutorial-alias-pip.md)</p> <p>[Create an alias record for zone resource record](../dns/tutorial-alias-rr.md)</p>|||||
 
 
 ### <a name="vnet"></a>Virtual network
@@ -43,27 +43,34 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 ### <a name="expressroute"></a>ExpressRoute
 ExpressRoute enables you to extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365. For more information, see [What is ExpressRoute?](../expressroute/expressroute-introduction.md)
 
+![Azure ExpressRoute](../expressroute/media/expressroute-introduction/expressroute-connection-overview.png)
+
 ### <a name="vpngateway"></a>VPN Gateway
-VPN Gateway helps you create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets. For more information, see [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+VPN Gateway helps you create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets. There are different configurations available for VPN Gateway connections, such as, site-to-site, point-to-site, or vnet to vnet.
+The following diagram illustrates a point-to-site VPN connection.
+
+![Point-to-site Azure VPN Gateway connection](../vpn-gateway/media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
+
+For more information about different types of VPN connections, see [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="virtualwan"></a>Virtual WAN
 Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches and enjoy branch-to-VNet connectivity. 
-Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN (generally available), ExpressRoute (Preview), point-to-site user VPN (Preview) into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure virtual WAN?](..//virtual-wan/virtual-wan-about.md).
+Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN (generally available), ExpressRoute (Preview), point-to-site user VPN (Preview) into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure virtual WAN?](../virtual-wan/virtual-wan-about.md).
 
+![Virtual WAN diagram](.virtual-wan/media/virtual-wan-about/virtualwan1.png)
 
-### <a name="serviceendpoints"></a>Virtual network service endpoints
-Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network. For more information, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
+### <a name="dns"></a>Azure DNS
+Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services. For more information, see [What is Azure DNS?](../dns/dns-overview.md).
 
 ## <a name="protect"></a>Application protection services
 
 This section describes networking services in Azure that help protect your network resources - DDoS Protection, Web Application Firewall, Azure Firewall, network security groups, and service endpoints.
 
-
 |Service|Why use?|Scenario|
 |---|---|---|
 |[DDoS protection](#ddosprotection) |High availability for your applications with protection from excess IP traffic charges|[Manage Azure DDoS Protection](../virtual-network/manage-ddos-protection.md)|
-|[Web Application Firewall](#waf)|Prevent SQL injection, stop cross site scripting, and an array of other types of attacks using cloud native approach|<p>[- Configure bot protection rules](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[- Configure custom response code](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[- Configure IP restriction rules](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[- Configure rate limit rule](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
-|[Azure Firewall](#firewall)|Better central governance of all traffic flows, full devops integration using cloud native high availability with autoscale|<p>[- Deploy an Azure Firewall in a Vnet](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[- Deploy an Azure Firewall in a hybrid network](../firewall/tutorial-hybrid-ps.md)</p> <p>[- Filter inbound traffic with Azure Firewall DNAT](../firewall/tutorial-firewall-dnat.md)</p>|
+|[Web Application Firewall](#waf)|Prevent SQL injection, stop cross site scripting, and an array of other types of attacks using cloud native approach|<p>[Configure bot protection rules](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Configure custom response code](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Configure IP restriction rules](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Configure rate limit rule](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
+|[Azure Firewall](#firewall)|Better central governance of all traffic flows, full devops integration using cloud native high availability with autoscale|<p>[Deploy an Azure Firewall in a Vnet](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[- Deploy an Azure Firewall in a hybrid network](../firewall/tutorial-hybrid-ps.md)</p> <p>[Filter inbound traffic with Azure Firewall DNAT](../firewall/tutorial-firewall-dnat.md)</p>|
 |[Network security groups](#nsg)|Full granular distributed end node control at VM/subnet for all network traffic flows|[Filter network traffic using network security groups](../virtual-network/tutorial-filter-network-traffic.md)|
 |[Virtual network service endpoints](#serviceendpoints)|Enables you to limit network access to some Azure service resources to a virtual network subnet|[Restrict network access to PaaS resources](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
 |||
@@ -91,7 +98,7 @@ Virtual Network (VNet) service endpoints extend your virtual network private add
 
 ![Virtual network service endpoints](../virtual-network/media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
-## <a name="deliver"></a>Application delivery in Azure
+## <a name="deliver"></a>Application delivery services
 
 This section describes Azure networking services that help deliver applications in the Azure network - Content Delivery Network (CDN), Azure Front Door service, Traffic Manager, Application Gateway, Load Balancer Azure networking services.
 
@@ -112,17 +119,31 @@ Azure Content Delivery Network (CDN) offers developers a global solution for rap
 ### <a name="frontdoor"></a>Azure Front Door service
 Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. For more information, see [Azure Front Door](../frontdoor/front-door-overview.md).
 
+
 ### <a name="trafficmanager"></a>Traffic Manager
 
-Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. For more information, see [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
+Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. Traffic Manager provides a range of traffic-routing methods to distribute traffic such as priority, weighted, performance, geographic, multi-value, or subnet. For more information about traffic routing methods, see [Traffic Manager routing methods](traffic-manager-routing-methods.md).
+
+The following diagram shows endpoint priority-based routing with Traffic Manager:
+
+![Azure Traffic Manager 'Priority' traffic-routing method](../traffic-manager/media/traffic-manager-routing-methods/priority.png)
+
+For more information about Traffic Manager, see [What is Azure Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
 ### <a name="loadbalancer"></a>Load Balancer
-Azure Load Balancer helps you scale your applications and create high availability for your services. Load Balancer supports inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. For more information, see [Azure Load Balancer](../load-balancer/load-balancer-overview.md).
+The Azure Load Balancer provides high-performance, low-latency Layer 4 load-balancing for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints. You can define rules to map inbound connections to back-end pool destinations by using TCP and HTTP health-probing options to manage service availability. To learn more about Load Balancer, read the [Load Balancer overview](../load-balancer/load-balancer-overview.md) article.
+
+The following picture shows an Internet-facing multi-tier application that utilizes both external and internal load balancers:
+
+![Azure Load Balancer example](../load-balancer/media/load-balancer-overview/IC744147.png)
+
 
 ### <a name="applicationgateway"></a>Application Gateway
-Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. It is an Application Delivery Controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your applications. For more information, see [What is Azure Application Gateway?](../application-gateway/overview.md). 
+Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. It is an Application Delivery Controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your applications. For more information, see [What is Azure Application Gateway?](../application-gateway/overview.md).
 
-![Application Gateway](../application-gateway/media/application-gateway-introduction/scenario.png)
+The following diagram shows url path-based routing with Application Gateway.
+
+![Application Gateway example](../application-gateway/media/application-gateway-introduction/scenario.png)
 
 ## <a name="monitor"></a>Network monitoring services
 Monitor your network resources in Azure using Network Watcher, ExpressRoute Monitor, Azure Monitor, Virtual Network TAP.
