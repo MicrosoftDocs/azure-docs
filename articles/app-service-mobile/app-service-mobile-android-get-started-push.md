@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 06/25/2019
 ms.author: crdun
 ---
 # Add push notifications to your Android app

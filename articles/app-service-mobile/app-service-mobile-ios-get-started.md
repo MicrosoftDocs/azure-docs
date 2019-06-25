@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/25/2019
 ms.author: crdun
 ---
 # Create an iOS app

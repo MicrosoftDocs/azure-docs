@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 06/25/2019
 ms.author: crdun
 
 ---
