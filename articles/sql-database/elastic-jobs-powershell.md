@@ -289,7 +289,7 @@ The following table lists the possible job execution states:
 |**Created** | The job execution was just created and is not yet in progress.|
 |**InProgress** | The job execution is currently in progress.|
 |**WaitingForRetry** | The job execution wasn’t able to complete its action and is waiting to retry.|
-|**Succeeded** - The job execution has completed successfully.|
+|**Succeeded** | The job execution has completed successfully.|
 |**SucceededWithSkipped** | The job execution has completed successfully, but some of its children were skipped.|
 |**Failed** | The job execution has failed and exhausted its retries.|
 |**TimedOut** | The job execution has timed out.|
