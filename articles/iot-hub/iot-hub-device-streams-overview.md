@@ -1,13 +1,12 @@
 ---
 title: Azure IoT Hub device streams (preview) | Microsoft Docs
-description: Overview of IoT Hub device streams.
-author: rezasherafat
-manager: briz
+description: Overview of IoT Hub device streams
+author: robinsh
 services: iot-hub
 ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: rezas
+ms.author: robinsh
 ---
 
 # IoT Hub Device Streams (preview)

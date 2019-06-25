@@ -1,15 +1,14 @@
 ---
 title: Azure IoT Hub device streams C# quickstart for SSH and RDP (preview) | Microsoft Docs
 description: In this quickstart, you run two sample C# applications that enable SSH and RDP scenarios over an IoT Hub device stream.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
+ms.author: robinsh
 ---
 
 # Quickstart: Enable SSH and RDP over an IoT Hub device stream by using a C# proxy application (preview)
