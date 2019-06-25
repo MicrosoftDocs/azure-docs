@@ -3,7 +3,7 @@ title: Add push notifications to your Universal Windows Platform (UWP) app | Mic
 description: Learn how to use Azure App Service Mobile Apps and Azure Notification Hubs to send push notifications to your Universal Windows Platform (UWP) app.
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: crdun 
 editor: ''
 

@@ -3,7 +3,7 @@ title: Add push notifications to your Xamarin.iOS app with Azure App Service
 description: Learn how to use Azure App Service to send push notifications to your Xamarin.iOS app
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 

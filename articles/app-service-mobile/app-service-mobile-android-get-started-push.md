@@ -5,7 +5,7 @@ services: app-service\mobile
 documentationcenter: android
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile

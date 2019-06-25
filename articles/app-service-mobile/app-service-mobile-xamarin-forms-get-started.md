@@ -3,7 +3,7 @@ title: Get started with Mobile Apps by using Xamarin.Forms
 description: Follow this tutorial to start using Mobile Apps for Xamarin.Forms development
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5

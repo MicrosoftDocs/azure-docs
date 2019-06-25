@@ -5,7 +5,7 @@ services: app-service\mobile
 documentationcenter: ios
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.service: app-service-mobile

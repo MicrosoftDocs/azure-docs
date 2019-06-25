@@ -3,7 +3,7 @@ title: How to Use iOS SDK for Azure Mobile Apps
 description: How to Use iOS SDK for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9

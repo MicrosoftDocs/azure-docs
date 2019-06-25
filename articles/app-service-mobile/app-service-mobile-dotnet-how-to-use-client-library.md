@@ -3,7 +3,7 @@ title: Working with the App Service Mobile Apps managed client library | Microso
 description: Learn how to use the .NET client library for Azure App Service Mobile Apps with Windows and Xamarin apps.
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 

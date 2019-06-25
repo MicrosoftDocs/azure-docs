@@ -3,7 +3,7 @@ title: How to Use the JavaScript SDK for Azure Mobile Apps
 description: How to Use v for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 
