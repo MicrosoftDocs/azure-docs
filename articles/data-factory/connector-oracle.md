@@ -281,7 +281,7 @@ To copy data to Oracle, set the sink type in the copy activity to **OracleSink**
 
 ## Parallel copy from Oracle
 
-Data Factory Oracle connector provides built-in data partitioning to copy data from Oracle in parallel performantly. You can find data partitioning options on copy activity -> Oracle source:
+Data factory Oracle connector provides built-in data partitioning to copy data from Oracle in parallel with great performance. You can find data partitioning options on copy activity -> Oracle source:
 
 ![Partition options](./media/connector-oracle/connector-oracle-partition-options.png)
 
