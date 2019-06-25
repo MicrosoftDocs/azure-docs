@@ -105,6 +105,10 @@
         href: ../aks/tutorial-kubernetes-prepare-app.md
       - name: Service Fabric
         href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+  - name: Troubleshoot
+    items:
+      - name: Diagnose common issues
+        href: container-registry-check-health.md
 - name: Reference
   items:
   - name: Azure CLI
