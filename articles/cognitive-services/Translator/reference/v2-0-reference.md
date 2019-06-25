@@ -16,19 +16,19 @@ ms.author: swmachan
 # Translator Text API v2.0
 
 > [!IMPORTANT]
-> This version of the Translator Text API has been deprecated. [View documentation for v3 of the Translator Text API](v3-0-reference.md).
+> This version of the Translator Text API has been deprecated. [View documentation for version 3 of the Translator Text API](v3-0-reference.md).
 
 Version 2 of the Translator Text API can be seamlessly integrated into your apps, websites, tools, or other solutions to provide multilanguage user experiences. You can use it on any hardware platform and with any operating system to perform language translation and other language-related tasks, like text-language detection and text to speech, according to industry standards. For more information, see [Translator Text API](../translator-info-overview.md).
 
 ## Getting started
-To access the Translator Text API, you'll need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
+To access the Translator Text API, you need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## Authentication 
 All calls to the Translator Text API require a subscription key for authentication. The API supports three methods of authentication:
 
-- An access token. Use the subscription key referenced in step 9 to create an access token by making a POST request to the authentication service. See the token service documentation for details. Pass the access token to the Translator service by using the `Authorization` header or the `access_token` query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests during these 10 minutes.
+- An access token. Use the subscription key referenced in step 9 to create an access token by making a POST request to the authentication service. See the token service documentation for details. Pass the access token to the Translator service by using the `Authorization` header or the `access_token` query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests during the 10 minutes.
 - A subscription key used directly. Pass your subscription key as a value in the `Ocp-Apim-Subscription-Key` header included with your request to the Translator Text API. When you use the subscription key directly, you don't have to call the token authentication service to create an access token.
-- A [Cognitive Services multi-service subscription](https://azure.microsoft.com/pricing/details/cognitive-services/). This method allows you to use a single secret key to authenticate requests for multiple services.
+- An [Azure Cognitive Services multi-service subscription](https://azure.microsoft.com/pricing/details/cognitive-services/). This method allows you to use a single secret key to authenticate requests for multiple services.
 When you use a multi-service secret key, you need to include two authentication headers with your request. The first header passes the secret key. The second header specifies the region associated with your subscription:
    - `Ocp-Apim-Subscription-Key`
    - `Ocp-Apim-Subscription-Region`
@@ -85,10 +85,10 @@ Response content type: application/xml
 |text|(empty)	|Required. A string that represents the text to translate. The text can't contain more than 10,000 characters.|query|string|
 |from|(empty)	|Optional. A string that represents the language code of the text being translated. For example, en for English.|query|string|
 |to|(empty)	|Required. A string that represents the code of the language to translate the text into.|query|string|
-|contentType|(empty)	|Optional. The format of the text being translated. The supported formats are text/plain (default) and  text/html. Any HTML elements need to be well-formed, complete elements.|query|string|
-|category|(empty)	|Optional. A string containing the category (domain) of the translation. The default is `general`.|query|string|
-|Authorization|(empty)	|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|contentType|(empty)	|Optional. The format of the text being translated. Supported formats are `text/plain` (default) and  `text/html`. Any HTML elements need to be well-formed, complete elements.|query|string|
+|category|(empty)	|Optional. A string that contains the category (domain) of the translation. The default is `general`.|query|string|
+|Authorization|(empty)	|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key|(empty)	|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 
 ### Response messages
@@ -107,7 +107,7 @@ Retrieves translations for multiple source texts.
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/TranslateArray`.
 
-Format of the request body like this:
+Here's the format of the request body:
 
 ```
 <TranslateArrayRequest>
@@ -133,12 +133,12 @@ These elements are in `TranslateArrayRequest`:
 
 
 * `AppId`: Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `AppId` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.
-* `From`: Optional. A string that represents the language code of the text being translated. If this field is left empty, the response will include the result of language autodetection.
+* `From`: Optional. A string that represents the language code of the text being translated. If this field is left empty, the response will include the result of automatic language detection.
 * `Options`: Optional. An `Options` object that contains the following values. They're all optional and default to the most common settings. Specified elements must be listed in alphabetical order.
-	- `Category`: A string that contains the category (domain) of the translation. The default is to `general`.
+	- `Category`: A string that contains the category (domain) of the translation. The default is `general`.
 	- `ContentType`: The format of the text being translated. The supported formats are `text/plain` (default), `text/xml`, and `text/html`. Any HTML elements need to be well-formed, complete elements.
 	- `ProfanityAction`: Specifies how profanities are handled, as explained earlier. Accepted values are `NoAction` (default), `Marked`, and `Deleted`.
-	- `State`: User state to help correlate request and response. The same contents will be returned in the response.
+	- `State`: User state to help correlate the request and response. The same content will be returned in the response.
 	- `Uri`: Filter results by this URI. Default: `all`.
 	- `User`: Filter results by this user. Default: `all`.
 * `Texts`: Required. An array that contains the text for translation. All strings must be in the same language. The total of all text to be translated can't exceed 10,000 characters. The maximum number of array elements is 2,000.
@@ -154,7 +154,7 @@ The `TranslateArray` method accepts `application/xml` or `text/xml` for `Content
 * `OriginalSentenceLengths`: An array of integers that indicates the length of each sentence in the source text. The length of the array indicates the number of sentences.
 * `TranslatedText`: The translated text.
 * `TranslatedSentenceLengths`: An array of integers that indicates the length of each sentence in the translated text. The length of the array indicates the number of sentences.
-* `State`: User state to help correlate request and response. Returns the same content as the request.
+* `State`: User state to help correlate the request and response. Returns the same content as the request.
 
 Here's the format of the response body:
 
@@ -186,8 +186,8 @@ Response content type: application/xml
 
 |Parameter|Value|Description|Parameter type|Data type|
 |:--|:--|:--|:--|:--|
-|Authorization|(empty)	|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|(empty)	|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key|(empty)|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
@@ -205,7 +205,7 @@ Retrieves friendly names for the languages passed in as the parameter `languageC
 
 The request URI is `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`.
 
-The request body includes a string array that represents the ISO 639-1 language codes for which to retrieve the friendly names. For example:
+The request body includes a string array that represents the ISO 639-1 language codes for which to retrieve the friendly names. Here's an example:
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -229,8 +229,8 @@ Response content type: application/xml
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `appid` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.|query|string|
 |locale|(empty)	|Required. A string that represents one of the following, used to localize the language names: <ul><li>The combination of an ISO 639 two-letter lowercase culture code associated with a language and an ISO 3166 two-letter uppercase subculture code. <li>An ISO 639 lowercase culture code by itself.|query|string|
-|Authorization|(empty)	|Required if the appid field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|(empty)	|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key|(empty)	|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
@@ -262,8 +262,8 @@ Response content type: application/xml
 |Parameter|Value|Description|Parameter type|Data type|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `appid` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.|query|string|
-|Authorization|(empty)	|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|(empty)	|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key|(empty)|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
@@ -295,8 +295,8 @@ Response content type: application/xml
 |Parameter|Value|Description|Parameter type|Data type|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `appid` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.|query|string|
-|Authorization|(empty)|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|(empty)|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key|(empty)|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
  
 ### Response messages
 
@@ -331,8 +331,8 @@ Response content type: application/xml
 |language|(empty)	|Required. A string that represents the supported language code of the language in which to speak the text. The code must be one of the codes returned by the method `GetLanguagesForSpeak`.|query|string|
 |format|(empty)|Optional. A string that specifies the content-type ID. Currently,  `audio/wav` and `audio/mp3` are available. The default value is `audio/wav`.|query|string|
 |options|(empty)	|Optional. A string that specifies properties of the synthesized speech:<ul><li>`MaxQuality` and `MinSize` specify the quality of the audio signal. `MaxQuality` provides the highest quality. `MinSize` provides the smallest file size. The default is  `MinSize`.</li><li>`female` and `male` specify the desired gender of the voice. The default is `female`. Use the vertical bar (<code>\|</code>) to include multiple options. For example,  `MaxQuality|Male`.</li></li></ul>	|query|string|
-|Authorization|(empty)|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|(empty)|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key|(empty)	|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
@@ -364,8 +364,8 @@ Response content type: application/xml
 |:--|:--|:--|:--|:--|
 |appid|(empty)	|Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `appid` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.|query|string|
 |text|(empty)|Required. A string that contains text whose language is to be identified. The text must not exceed 10,000 characters.|query|	string|
-|Authorization|(empty)|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key	|(empty)	|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|(empty)|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key	|(empty)	|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
@@ -419,8 +419,8 @@ Response content type: application/xml
 |Parameter|Value|Description|Parameter type|Data type|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `appid` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.|query|string|
-|Authorization|(empty)|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|(empty)|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty.  Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key|(empty)|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
@@ -462,8 +462,8 @@ Response content type: application: xml
 |category|(empty)|Optional. A string that contains the category (domain) of the translation. The default is `general`.|query|string|
 |user|(empty)|Required. A string that's used to track the originator of the submission.|query|string|
 |uri|(empty)|Optional. A string that contains the content location of the translation.|query|string|
-|Authorization|(empty)|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.	|header|string|
-|Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|(empty)|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty.  Authorization token:  `"Bearer" + " " + "access_token"`.	|header|string|
+|Ocp-Apim-Subscription-Key|(empty)|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
@@ -531,8 +531,8 @@ Response content type: application/xml
 
 |Parameter|Value|Description|Parameter type|Data type|
 |:--|:--|:--|:--|:--|
-|Authorization|(empty)|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|(empty)|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty.  Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key|(empty)|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
@@ -567,8 +567,8 @@ Response content type: application/xml
 |appid|(empty)	|Required. If the `Authorization` or `Ocp-Apim-Subscription-Key` header is used, leave the `appid` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.|query|	string|
 |text|(empty)	|Required. A string that represents the text to split into sentences. The maximum size of the text is 10,000 characters.|query|string|
 |language	|(empty)	|Required. A string that represents the language code of the input text.|query|string|
-|Authorization|(empty)|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.	|header|string|
-|Ocp-Apim-Subscription-Key|(empty)|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|(empty)|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty. Authorization token:  `"Bearer" + " " + "access_token"`.	|header|string|
+|Ocp-Apim-Subscription-Key|(empty)|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
@@ -599,7 +599,7 @@ The body of the request includes the optional `TranslationOptions` object, which
 </TranslateOptions>
 ```
 
-The `TranslateOptions` object contains the values the following list. They're all optional and default to the most common settings. Specified elements must be listed in alphabetical order.
+The `TranslateOptions` object contains the values in the following list. They're all optional and default to the most common settings. Specified elements must be listed in alphabetical order.
 
 * `Category`: A string that contains the category (domain) of the translation. The default is `general`.
 * `ContentType`: The only supported option, and the default, is `text/plain`.
@@ -610,7 +610,7 @@ The `TranslateOptions` object contains the values the following list. They're al
        - The automatically generated (*n*-best) translation alternatives have a rating of 0 and a match degree of 100.
 	- Number of alternatives. The number of returned alternatives can be as high as the value specified in `maxTranslations`, but it can be lower.
 	- Language pairs. This functionality isn't available for translations between Simplified Chinese and Traditional Chinese, in either direction. It is available for all other language pairs supported by Microsoft Translator.
-* `State`: User state to help correlate request and response. The same content will be returned in the response.
+* `State`: User state to help correlate the request and response. The same content will be returned in the response.
 * `Uri`: Filter results by this URI. If no value is set, the default is `all`.
 * `User`: Filter results by this user. If no value is set, the default is `all`.
 
@@ -639,7 +639,7 @@ This response includes a `GetTranslationsResponse` element that contains the fol
 
 * `Translations`: An array of the matches found, stored in `TranslationMatch` objects (described in the following section). The translations might include slight variants of the original text (fuzzy matching). The translations will be sorted: 100% matches first, fuzzy matches next.
 * `From`: If the method doesn't specify a `From` language, this value will come from automatic language detection. Otherwise, it will be the specified `From` language.
-* `State`: User state to help correlate request and response. Contains the value supplied in the `TranslateOptions` parameter.
+* `State`: User state to help correlate the request and response. Contains the value supplied in the `TranslateOptions` parameter.
 
 The `TranslationMatch` object consists of these values:
 
@@ -666,8 +666,8 @@ Response content type: application/xml
 |from|(empty)|Required. A string that represents the language code of the text being translated.|query|string|
 |to	|(empty)	|Required. A string that represents the language code of the language to translate the text into.|query|string|
 |maxTranslations|(empty)|Required. An integer that represents the maximum number of translations to return.|query|integer|
-|Authorization|	(empty)|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|string|	header|
-|Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization|	(empty)|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty. Authorization token:  `"Bearer" + " " + "access_token"`.|string|	header|
+|Ocp-Apim-Subscription-Key|(empty)	|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
@@ -709,23 +709,23 @@ Here's the format of the request body:
 
 `GetTranslationsArrayRequest` includes these elements:
 
-* `AppId`: Required. If the `Authorization` header is used, leave the `appid` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.
+* `AppId`: Required. If the `Authorization` header is used, leave the `AppId` field empty. Otherwise, include a string that contains `"Bearer" + " " + "access_token"`.
 * `From`: Required. A string that represents the language code of the text being translated.
 * `MaxTranslations`: Required. An integer that represents the maximum number of translations to return.
 * `Options`: Optional. An `Options` object that contains the following values. They're all optional and default to the most common settings. Specified elements must be listed in alphabetical order.
-	- `Category`: A string that contains the category (domain) of the translation. The default is general.
+	- `Category`: A string that contains the category (domain) of the translation. The default is `general`.
 	- `ContentType`: The only supported option, and the default, is `text/plain`.
-	- `IncludeMultipleMTAlternatives`: A Boolean flag to specify whether more than one alternative should be returned from the MT engine. Valid values are `true` and `false` (case-sensitive). The default is `false`, which returns only one alternative. Setting the flag to true enables generation of artificial alternatives in translation, fully integrated with the Collaborative Translations Framework (CTF). The feature enables returning alternatives for sentences that have no alternatives in CTF by adding artificial alternatives from the *n*-best list of the decoder.
+	- `IncludeMultipleMTAlternatives`: A Boolean flag to specify whether more than one alternative should be returned from the MT engine. Valid values are `true` and `false` (case-sensitive). The default is `false`, which returns only one alternative. Setting the flag to `true` enables generation of artificial alternatives in translation, fully integrated with the Collaborative Translations Framework (CTF). The feature enables returning alternatives for sentences that have no alternatives in CTF by adding artificial alternatives from the *n*-best list of the decoder.
 		- Ratings The ratings are applied like this:
 		  - The best automatic translation has a rating of 5.
 		  - The alternatives from CTF reflect the authority of the reviewer. They range from -10 to +10.
 		  - The automatically generated (*n*-best) translation alternatives have a rating of 0 and a match degree of 100.
-		- Number of alternatives. The number of returned alternatives can be as high as the value specified in `maxTranslations`, but can be lower.
+		- Number of alternatives. The number of returned alternatives can be as high as the value specified in `maxTranslations`, but it can be lower.
 		- Language pairs. This functionality isn't available for translations between Simplified Chinese and Traditional Chinese, in either direction. It is available for all other language pairs supported by Microsoft Translator.
-* `State`: User state to help correlate request and response. The same content will be returned in the response.
+* `State`: User state to help correlate the request and response. The same content will be returned in the response.
 * `Uri`: Filter results by this URI. If no value is set, the default is `all`.
 * `User`: Filter results by this user. If no value is set, the default is `all`.
-* `Texts`: Required. An array that contains the texts for translation. All strings must be in the same language. The total of all texts to be translated can't exceed 10,000 characters. The maximum number of array elements is 10.
+* `Texts`: Required. An array that contains the text for translation. All strings must be in the same language. The total of all text to be translated can't exceed 10,000 characters. The maximum number of array elements is 10.
 * `To`: Required. A string that represents the language code of the language to translate the text into.
 
 You can omit optional elements. Elements that are direct children of `GetTranslationsArrayRequest` must be listed in alphabetical order.
@@ -763,7 +763,7 @@ Each `GetTranslationsResponse` element contains these values:
 
 * `Translations`: An array of the matches found, stored in `TranslationMatch` objects (described in the following section). The translations might include slight variants of the original text (fuzzy matching). The translations will be sorted: 100% matches first, fuzzy matches next.
 * `From`: If the method doesn't specify a `From` language, this value will come from automatic language detection. Otherwise, it will be the specified `From` language.
-* `State`: User state to help correlate request and response. Contains the value supplied in the `TranslateOptions` parameter.
+* `State`: User state to help correlate the request and response. Contains the value supplied in the `TranslateOptions` parameter.
 
 The `TranslationMatch` object contains the following values:
 * `Error`: The error code, if an error occurs for a specific input string. Otherwise, this field is empty.
@@ -784,8 +784,8 @@ Response content type: application/xml
 
 |Parameter|Value|Description|Parameter type|Data type|
 |:--|:--|:--|:--|:--|
-|Authorization	|(empty)	|Required if the `appid` field or `Ocp-Apim-Subscription-Key` header isn't specified. Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
-|Ocp-Apim-Subscription-Key|(empty)	|Required if the `appid` field or `Authorization` header isn't specified.|header|string|
+|Authorization	|(empty)	|Required if both the `appid` field and the `Ocp-Apim-Subscription-Key` header are left empty.  Authorization token:  `"Bearer" + " " + "access_token"`.|header|string|
+|Ocp-Apim-Subscription-Key|(empty)	|Required if both the `appid` field and the `Authorization` header are left empty.|header|string|
 
 ### Response messages
 
