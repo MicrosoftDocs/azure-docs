@@ -227,7 +227,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 To get the last sync time for the storage account by using Azure CLI, check the storage account's **geoReplicationStats.lastSyncTime** property. Use the `--expand` parameter to return values for the properties nested under **geoReplicationStats**. Remember to replace the placeholder values with your own values:
 
-```cli
+```azurecli
 $lastSyncTime=$(az storage account show \
     --name <storage-account> \
     --resource-group <resource-group> \
