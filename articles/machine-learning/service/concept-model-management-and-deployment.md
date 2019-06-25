@@ -19,10 +19,10 @@ In this article, learn about how to use Azure Machine Learning service to manage
 
 Azure Machine Learning Service provides the following MLOps capabilities:
 
-1. **Deploy ML projects from anywhere**
-1. **Monitor ML applications for operational and ML related issues** - compare model inputs between training and inference, explore model-specific metrics and provide monitoring and alerts on your ML infrastructure.
-1. **Capture the data required for establishing an end to end audit trail of the ML lifecycle**, including who is publishing models, why changes are being made, and when models were deployed or used in production.
-1. **Automate the end to end ML lifecycle with Azure Machine Learning and Azure DevOps** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
+- **Deploy ML projects from anywhere**
+- **Monitor ML applications for operational and ML related issues** - compare model inputs between training and inference, explore model-specific metrics and provide monitoring and alerts on your ML infrastructure.
+- **Capture the data required for establishing an end to end audit trail of the ML lifecycle**, including who is publishing models, why changes are being made, and when models were deployed or used in production.
+- **Automate the end to end ML lifecycle with Azure Machine Learning and Azure DevOps** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
 
 To hear more on the concepts behind MLOps and how they apply to the Azure Machine Learning service, watch the following video.
 
