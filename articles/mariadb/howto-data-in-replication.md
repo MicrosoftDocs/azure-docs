@@ -18,7 +18,7 @@ To create a replica in the Azure Database for MariaDB service, Data-in Replicati
 > If your master server is version 10.2 or newer, we recommend that you set up Data-in Replication by using [Global Transaction ID](https://mariadb.com/kb/en/library/gtid/).
 
 
-## Create a MariaDB server to use as replica
+## Create a MariaDB server to use as a replica
 
 1. Create a new Azure Database for MariaDB server (for example, replica.mariadb.database.azure.com). The server is the replica server in Data-in Replication.
 
@@ -43,13 +43,13 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   If the variable [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) returns the value **ON**, binary logging is enabled on your server.
+   If the variable [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) returns the value `ON`, binary logging is enabled on your server.
 
-   If `log_bin` returns the value **OFF**, edit the **my.cnf** file so that `log_bin=ON` turns on binary logging. Restart the server to make the change take effect.
+   If `log_bin` returns the value `OFF`, edit the **my.cnf** file so that `log_bin=ON` turns on binary logging. Restart the server to make the change take effect.
 
 2. Configure master server settings.
 
-    Data-in Replication requires the parameter `lower_case_table_names` to be consistent between the master and replica servers. The parameter `lower_case_table_names` is set to `1` by default in Azure Database for MariaDB.
+    Data-in Replication requires the parameter `lower_case_table_names` to be consistent between the master and replica servers. This parameter is set to `1` by default in Azure Database for MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -57,15 +57,15 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 3. Create a new replication role and set up permissions.
 
-   Create a user account on the master server that's configured with replication privileges. You can create an account by using SQL commands or MySQL Workbench. If you plan to replicate with SSL, you must specify as such when you create the user account.
+   Create a user account on the master server that's configured with replication privileges. You can create an account by using SQL commands or MySQL Workbench. If you plan to replicate with SSL, you must specify this when you create the user account.
    
    To learn how to add user accounts on your master server, see the [MariaDB documentation](https://mariadb.com/kb/en/library/create-user/).
 
-   By using the following commands, the new replication role can access the master from any machine, not just the machine that hosts the master itself. For this access, specify `syncuser\@'%'` in the create user command.
+   By using the following commands, the new replication role can access the master from any machine, not just the machine that hosts the master itself. For this access, specify **syncuser\@'%'** in the command to create a user.
    
    To learn more about MariaDB documentation, see [specifying account names](https://mariadb.com/kb/en/library/create-user/#account-names).
 
-   **SQL Command**
+   **SQL command**
 
    - Replication with SSL
 
@@ -87,7 +87,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
    **MySQL Workbench**
 
-   To create the replication role in MySQL Workbench, in the **Management** pane, select the **Users and Privileges**. Next, on the bottom of the page, select **Add Account**.
+   To create the replication role in MySQL Workbench, in the **Management** pane, select **Users and Privileges**. Then select **Add Account**.
  
    ![Users and Privileges](./media/howto-data-in-replication/users_privileges.png)
 
@@ -102,7 +102,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 4. Set the master server to read-only mode.
 
-   Before dumping a database, a server must be placed in read-only mode. While in read-only mode, the master can't process any write transactions. To help avoid business impact, schedule the read-only window during an off-peak time.
+   Before you dump a database, the server must be placed in read-only mode. While in read-only mode, the master can't process any write transactions. To help avoid business impact, schedule the read-only window during an off-peak time.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
@@ -120,7 +120,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    
    ![Master Status Results](./media/howto-data-in-replication/masterstatus.png)
 
-   Note the binary file name, as it'll be used in later steps.
+   Note the binary file name, because it'll be used in later steps.
    
 6. Get GTID position (Optional, needed for replication with GTID).
 
@@ -133,9 +133,9 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 ## Dump and restore the master server
 
-1. Dump all databases from master server.
+1. Dump all the databases from the master server.
 
-   Use mysqldump to dump databases from your master. It isn't necessary to dump the MySQL library and test library.
+   Use mysqldump to dump all the databases from the master server. It isn't necessary to dump the MySQL library and test library.
 
     For more information, see [Dump & Restore](howto-migrate-dump-restore.md).
 
@@ -148,7 +148,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    UNLOCK TABLES;
    ```
 
-3. Restore the dump file to new server.
+3. Restore the dump file to the new server.
 
    Restore the dump file to the server created in the Azure Database for MariaDB service. See [Dump & Restore](howto-migrate-dump-restore.md) for how to restore a dump file to a MariaDB server.
 
@@ -181,36 +181,36 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    - master_ssl_ca: CA certificate’s context. If you're not using SSL, pass in empty string.*
     
     
-    *We recommend passing this parameter in as a variable. For more information, see Examples in the following section.
+    *We recommend passing the master_ssl_ca parameter in as a variable. See the following examples for more information.
 
    **Examples**
 
    - Replication with SSL
 
-   Create the variable `@cert` by running the following commands:
+       Create the variable `@cert` by running the following commands:
 
-   ```sql
-   SET @cert = '-----BEGIN CERTIFICATE-----
-   PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
-   -----END CERTIFICATE-----'
-   ```
+       ```sql
+       SET @cert = '-----BEGIN CERTIFICATE-----
+       PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
+       -----END CERTIFICATE-----'
+       ```
 
-   Replication with SSL is set up between a master server hosted in the domain companya.com, and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
-
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
-   ```
+       Replication with SSL is set up between a master server hosted in the domain companya.com, and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
+    
+       ```sql
+       CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
+       ```
    - Replication without SSL
 
-   Replication without SSL is set up between a master server hosted in the domain companya.com, and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
+       Replication without SSL is set up between a master server hosted in the domain companya.com, and a replica server hosted in Azure Database for MariaDB. This stored procedure is run on the replica.
 
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, '');
-   ```
+       ```sql
+       CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, '');
+       ```
 
 2. Start replication.
 
-   Call the `mysql.az_replication_start` stored procedure to start replication,
+   Call the `mysql.az_replication_start` stored procedure to start replication.
 
    ```sql
    CALL mysql.az_replication_start;
@@ -224,13 +224,13 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
    show slave status;
    ```
 
-   If `Slave_IO_Running` and `Slave_SQL_Running` are in the state **yes**, and the value of `Seconds_Behind_Master` is `0`, replication is working. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't `0`, then the replica is processing updates.
+   If `Slave_IO_Running` and `Slave_SQL_Running` are in the state `yes`, and the value of `Seconds_Behind_Master` is `0`, replication is working. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't `0`, then the replica is processing updates.
 
 4. Update the corresponding server variables to make data-in replication safer (required only for replication without GTID).
 	
 	Because of a native replication limitation in MariaDB, you must set  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) and [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variables on replication without the GTID scenario.
 
-    Check the variables on your slave server's `sync_master_info` and `sync_relay_log_info`. To make sure the data-in replication is stable, set the variables to `1`.
+    Check your slave server's `sync_master_info` and `sync_relay_log_info` variables to make sure the data-in replication is stable, and set the variables to `1`.
 	
 ## Other stored procedures
 
@@ -242,7 +242,7 @@ To stop replication between the master and replica server, use the following sto
 CALL mysql.az_replication_stop;
 ```
 
-### Remove replication relationship
+### Remove the replication relationship
 
 To remove the relationship between the master and replica server, use the following stored procedure:
 
@@ -250,7 +250,7 @@ To remove the relationship between the master and replica server, use the follow
 CALL mysql.az_replication_remove_master;
 ```
 
-### Skip replication error
+### Skip the replication error
 
 To skip a replication error and allow replication, use the following stored procedure:
 	
