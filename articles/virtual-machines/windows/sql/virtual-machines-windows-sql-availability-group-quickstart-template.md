@@ -185,7 +185,7 @@ This error can be caused by one of two reasons. Either the domain account specif
 
     ![Blank user account indicates missing UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
-5. Fill in the **User logon name** to match the name of the user, and select the proper domain from the drop down. 
+5. Fill in the **User logon name** to match the name of the user, and select the proper domain from the drop-down. 
 6. Select **Apply** to save your changes, and close the dialog box by selecting **OK**. 
 
    Once these changes are made, attempt to deploy the Azure Quickstart Template once more. 

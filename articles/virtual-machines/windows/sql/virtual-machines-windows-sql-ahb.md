@@ -32,7 +32,7 @@ Switching between the two license models incurs **no downtime**, does not restar
  - If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
  - BYOL marketplace images must register as 'AHUB' initially before changing the license type to 'PAYG'.
  - Adding a SQL Server VM to an availability set requires recreating the VM. As such, any VMs added to an availability set will go back to the default pay-as-you-go license type and AHB will need to be enabled again. 
- - The ability to change the licensing model is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-rp.md) and first enable 'AHUB' as the license type before switching switching to 'PAYG'. 
+ - The ability to change the licensing model is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-rp.md) and first enable 'AHUB' as the license type before switching to 'PAYG'. 
 
 
  
@@ -41,7 +41,7 @@ Switching between the two license models incurs **no downtime**, does not restar
  - Changing the licensing model is only supported for virtual machines deployed using the Resource Manager model. VMs deployed using the classic model are not supported. 
  - Changing the licensing model is only enabled for Public Cloud installations.
  - Changing the licensing model is supported only on virtual machines that have a single NIC (network interface). On virtual machines that have more than one NIC, you should first remove one of the NICs (by using the Azure portal) before you attempt the procedure. Otherwise, you will run into an error similar to the following: 
-   `The virtual machine '\<vmname\>' has more than one NIC associated.` Although you might be able to add the NIC back to the VM after you change the licensing mode, operations done through the SQL configuration blade, like automatic patching and backup, will no longer be considered supported.
+   `The virtual machine '\<vmname\>' has more than one NIC associated.` Although you might be able to add the NIC back to the VM after you change the licensing mode, operations done through the SQL configuration page in the Azure portal, like automatic patching and backup, will no longer be considered supported.
 
 ## Prerequisites
 

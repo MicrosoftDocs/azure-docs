@@ -154,7 +154,7 @@ You can also use the **Remove-AzVMSqlServerExtension** PowerShell cmdlet.
     Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
 
 ## Next steps
-Begin using one of the services supported by the extension. For more details, see the articles referenced in the [Supported services](#supported-services) section of this article.
+Begin using one of the services supported by the extension. For more information, see the articles referenced in the [Supported services](#supported-services) section of this article.
 
 For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
 
