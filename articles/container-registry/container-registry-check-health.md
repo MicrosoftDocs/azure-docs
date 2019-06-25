@@ -42,7 +42,7 @@ az acr check-health --name myregistry
 The command reports problems to the standard output. For each problem, it provides an error code and description. For more information about the codes and possible solutions, see [Error reference](#error-reference) later in this article
 .
 
-By default, the command stops when it first encounters a problem. You can also run the command so that it provides output only when all health checks are complete. Add the `--ignore-errors` parameter, as shown in the following examples:
+By default, the command stops whenever it finds an error. You can also run the command so that it provides output for all health checks, even if errors are found. Add the `--ignore-errors` parameter, as shown in the following examples:
 
 ```azurecli
 # Check environment only
