@@ -11,7 +11,7 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 06/19/2019
+ms.date: 06/25/2019
 ---
 # Use CLI to monitor and scale a single SQL database
 
