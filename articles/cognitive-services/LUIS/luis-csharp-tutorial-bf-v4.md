@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 06/24/2019
 ms.author: diberry
 ---
 
@@ -353,14 +353,7 @@ In Visual Studio, start the bot. A browser window opens with the web app bot's w
 
     [![Basic bot response in emulator](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
-## Learn more about the Web App Bot and framework
-
-Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot framework:
-
-* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 documentation
-* [Bot Builder Samples](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder C# SDK](https://github.com/Microsoft/botbuilder-dotnet)
-* [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools):
+[!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## Next steps
 
