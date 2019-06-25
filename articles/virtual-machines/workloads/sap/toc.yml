@@ -166,7 +166,7 @@
         href: high-availability-guide-suse.md
       - name: HA on SUSE Linux for (A)SCS Instance with Azure NetApp Files
         href: high-availability-guide-suse-netapp-files.md
-      - name HA on Red Hat Enterprise Linux for (A)SCS Instance with Azure NetApp Files
+      - name: HA on Red Hat Enterprise Linux for (A)SCS Instance with Azure NetApp Files
         href: high-availability-guide-rhel-netapp-files.md
       - name: HA on Red Hat Enterprise Linux for (A)SCS Instance
         href: high-availability-guide-rhel.md
