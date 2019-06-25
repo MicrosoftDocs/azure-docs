@@ -117,7 +117,7 @@ Resolves the opaque token to a SaaS subscription. Response body:
 
 ```json
 {
-    "subscriptionId": "<guid>",  
+    "id": "<guid>",  
     "subscriptionName": "Contoso Cloud Solution",
     "offerId": "offer1",
     "planId": "silver",

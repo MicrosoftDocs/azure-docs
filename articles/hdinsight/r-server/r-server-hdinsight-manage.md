@@ -103,7 +103,7 @@ For more information, see the "Using Microsoft Machine Learning Server as an Apa
 
 ## Use a compute context
 
-A compute context allows you to control whether computation is performed locally on the edge node or distributed across the nodes in the HDInsight cluster.  For an example of setting a compute context with RStudio Server, see [Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server](ml-services-quickstart-job-rstudio.md).
+A compute context allows you to control whether computation is performed locally on the edge node or distributed across the nodes in the HDInsight cluster.  For an example of setting a compute context with RStudio Server, see [Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server](machine-learning-services-quickstart-job-rstudio.md).
 
 ## Distribute R code to multiple nodes
 
