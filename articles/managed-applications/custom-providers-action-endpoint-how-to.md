@@ -37,7 +37,7 @@ Sample **ResourceProvider**:
 }
 ```
 
-## Building an Action Endpoint
+## Building an action endpoint
 
 An **endpoint** that implements an **action** must handle the request and response for the new API in Azure. When a custom resource provider with an **action** is created, it will generate a new set of APIs in Azure. In this case, the action will generate a new Azure action API for `POST` calls:
 

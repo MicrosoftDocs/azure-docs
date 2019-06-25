@@ -55,7 +55,7 @@ Retrieve All Resources (`GET`):
 
 For custom resources, custom resource providers offer two types of **routingTypes**: "`Proxy`" and "`Proxy, Cache`".
 
-### Proxy Routing Type
+### proxy routing type
 
 The "`Proxy`" **routingType** proxies all request methods to the **endpoint** specified in the custom resource provider. When to use "`Proxy`":
 
@@ -64,7 +64,7 @@ The "`Proxy`" **routingType** proxies all request methods to the **endpoint** sp
 
 Learn more about "`Proxy`" resources: [here](./custom-providers-proxy-resource-endpoint-reference.md)
 
-### Proxy Cache Routing Type
+### proxy cache routing type
 
 The "`Proxy, Cache`" **routingType** proxies only `PUT` and `DELETE` request methods to the **endpoint** specified in the custom resource provider. The custom resource provider will automatically return `GET` requests based on what it has stored in its cache. If a custom resource is marked with cache, the custom resource provider will also add / overwrite fields in the response to make the APIs Azure compliant. When to use "`Proxy, Cache`":
 
@@ -73,7 +73,7 @@ The "`Proxy, Cache`" **routingType** proxies only `PUT` and `DELETE` request met
 
 Learn more about "`Proxy, Cache`" resources: [here](./custom-providers-proxycache-resource-endpoint-reference.md)
 
-## Creating a Custom Resource
+## Creating a custom resource
 
 There are two main ways of creating a custom resource off of a custom resource provider:
 

@@ -23,7 +23,7 @@ Azure Custom Resource Providers is an extensibility platform to Azure. It allows
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## What can Azure Custom Resource Providers do
+## What can custom resource providers do
 
 Here are some examples of what you can achieve with Azure Custom Resource Providers:
 
@@ -31,11 +31,11 @@ Here are some examples of what you can achieve with Azure Custom Resource Provid
 - Enable custom scenarios on top of existing Azure workflows.
 - Customize Azure Resource Manager Templates control and effect.
 
-## How to build Azure Custom Resource Providers
+## How to build custom resource providers
 
 Azure Custom Resource Providers are created by creating a contract between Azure and an endpoint. This contract defines a list of new resources and actions through a new resource **Microsoft.CustomProviders/resourceProviders**. The custom resource provider will then expose these new APIs in Azure. Azure Custom Resource Providers are composed of three different parts: **resourceProviders**, **endpoints**, and **customResources**.
 
-## What is a Custom Resource Provider
+## What is a custom resource provider
 
 Custom Resource Providers are a list of contracts between Azure and endpoints and describe how Azure should interact with an endpoint. The resource provider acts like a proxy and will forward requests and responses to and from the specified **endpoint**. A resource provider can specify two types of contracts: **resourceTypes** and **actions**. These are enabled through endpoint definitions. An endpoint definition is comprised of three fields: **name**, **endpoint**, and **routingType**.
 

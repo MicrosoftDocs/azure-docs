@@ -32,7 +32,7 @@ Sample custom resource provider:
   },
   "location": "eastus",
   "type": "Microsoft.CustomProviders/resourceProviders",
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resource-provider-name}",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}",
   "name": "{resourceProviderName}"
 }
 ```
@@ -49,7 +49,7 @@ Sample Resource:
 ``` JSON
 {
     "name": "{myCustomResourceName}",
-    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resource-provider-name}/myCustomResources/{myCustomResourceName}",
+    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}",
     "type": "Microsoft.CustomProviders/resourceProviders/myCustomResources",
     "properties": {
         "myProperty1": "myPropertyValue1",
@@ -66,7 +66,7 @@ Property | Sample | Description
 ---|---|---
 name | {myCustomResourceName} | The name of the custom resource.
 type | Microsoft.CustomProviders/resourceProviders/{resourceTypeName} | The resource type namespace.
-id | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resource-provider-name}/myCustomResources/{myCustomResourceName} | The resource id.
+id | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName} | The resource ID.
 
 ### Create a custom resource
 
