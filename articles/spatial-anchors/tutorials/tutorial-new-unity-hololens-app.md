@@ -53,10 +53,10 @@ We need to let Unity know that the app we are trying to export should create an 
 > [!NOTE]
 > If you do not see the Windows Store icon, double check to make sure you selected the Windows Store .NET Scripting Backend prior to installation. If not, you may need to reinstall Unity with the correct Windows installation.
 
-**Verify .NET configuration**
+**Verify Scripting Backend configuration**
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have **Player** open from the previous step).
 2. In the **Inspector Panel** for **Player Settings**, select the **Windows Store** icon.
-3. In the **Other Settings** Configuration section, make sure that **Scripting Backend** is set to **.NET**.
+3. In the **Other Settings** Configuration section, make sure that **Scripting Backend** is set to **IL2CPP**.
 
 **Set capabilities**
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have **Player** open from the previous step).
