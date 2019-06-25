@@ -20,7 +20,7 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2019-06-25
+## 2019-06-24
 
 ### Azure Machine Learning Data Prep SDK v1.1.6
 
