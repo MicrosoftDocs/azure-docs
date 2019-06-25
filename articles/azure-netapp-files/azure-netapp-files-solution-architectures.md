@@ -28,6 +28,6 @@ This article provides references to best practices that can help you understand 
 
 [SAP applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
 
-## Solutions for globally distributed enterprise file sharing 
+## Talon solutions 
 
 [Globally distributed enterprise file sharing with Azure NetApp Files and Talon FAST™](https://www.talonstorage.com/products/azure-netapp-files)
