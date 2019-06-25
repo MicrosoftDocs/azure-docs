@@ -30,6 +30,9 @@ You need the Azure CLI version 2.0.66 or later installed and configured. Run `az
 
 To create an AKS cluster that can limit egress traffic, first enable a feature flag on your subscription. This feature registration configures any AKS clusters you create to use base system container images from MCR or ACR. To register the *AKSLockingDownEgressPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
 
+> [!CAUTION]
+> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
+
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```

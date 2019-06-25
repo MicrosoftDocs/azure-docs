@@ -1,13 +1,13 @@
 ---
-title: Limitations in Azure Database for PostgreSQL - Single Server
-description: This article describes limitations in Azure Database for PostgreSQL - Single Server, such as number of connection and storage engine options.
+title: Limits in Azure Database for PostgreSQL - Single Server
+description: This article describes limits in Azure Database for PostgreSQL - Single Server, such as number of connection and storage engine options.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 06/25/2019
 ---
-# Limitations in Azure Database for PostgreSQL - Single Server
+# Limits in Azure Database for PostgreSQL - Single Server
 The following sections describe capacity and functional limits in the database service. If you'd like to learn about resource (compute, memory, storage) tiers, see the [pricing tiers](concepts-pricing-tiers.md) article.
 
 
@@ -28,7 +28,7 @@ The maximum number of connections per pricing tier and vCores are as follows:
 |Memory Optimized| 4| 500|
 |Memory Optimized| 8| 960|
 |Memory Optimized| 16| 1900|
-|Memory Optimized| 32| 1900|
+|Memory Optimized| 32| 1987|
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already
