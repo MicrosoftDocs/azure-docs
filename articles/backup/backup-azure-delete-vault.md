@@ -172,7 +172,7 @@ Navigate to Management Console that is MARS, Azure Backup Server or SC DPM depen
 
 For MARS agent
 
-- In the **Actions** pane, choose **Schedule backup**.
+- In the **Actions** pane, choose **Schedule Backup**.
 - In the **Modify or Stop a Scheduled Backup** wizard, choose the option **Stop using this backup schedule and delete all the stored backups** and click **Next**.
 
   ![Modify or Stop a Scheduled Backup](./media/backup-azure-delete-vault/modify_schedule_backup.png)
