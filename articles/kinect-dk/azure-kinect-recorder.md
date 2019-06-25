@@ -77,8 +77,6 @@ You can open the output .mkv file with [Azure Kinect Viewer](azure-kinect-viewer
 
 To extract tracks or view file info, tools such as `mkvinfo` are available as part of the [MKVToolNix](https://mkvtoolnix.download/) toolkit.
 
-For any issues with recording, refer to [Troubleshooting](http://aka.ms/kinectsupport).
-
 ## Next steps
 
 [Using recorder with external synchronized units](record-external-synchronized-units.md)
