@@ -40,8 +40,8 @@ Services that provide a fully trained model can be treated as a _black box_. You
 
 |Fully trained service|Your data sent to trained model|Service Output|
 |--|--|--|
-|Text Analytics - Sentiment analysis|Your own text.|Sentiment value of positive, negative, or neutral.|
-|Computer vision|Your image.|Information about what is in the image.|
+|[Text Analytics](./text-analytics/index.yml) - Sentiment analysis|Your own text.|Sentiment value of positive, negative, or neutral.|
+|[Computer vision](./Computer-vision/index.yml)|Your image.|Information about what is in the image.|
 
 ## Train with your own data 
 
@@ -51,8 +51,8 @@ The following table lists some examples of this type of service:
 
 |Service|Training data|Your data sent to trained model|Service Output|
 |--|--|--|--|
-|Custom Vision|Catalog of images with optional tag locations inside each image|New image|Classification of new image.|
-|Language Understanding|Catalog of example user utterances tagged with intents and entities|New utterance|Classification of new utterance.|
+|[Custom Vision](./Custom-Vision-Service/index.yml)|Catalog of images with optional tag locations inside each image|New image|Classification of new image.|
+|[Language Understanding](./LUIS/index.yml)|Catalog of example user utterances tagged with intents and entities|New utterance|Classification of new utterance.|
 
 ## Where can you use Cognitive Services?
  
