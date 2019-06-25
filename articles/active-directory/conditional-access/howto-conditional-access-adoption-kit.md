@@ -84,7 +84,7 @@ Additionally, refer to the following links for guidance to protect access to all
 **Enable Azure Active Directory for Conditional Access for Secure User Access**
    > [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
-### Online Courses
+### Online courses
 
 Refer to the following Conditional Access courses and more on [Pluralsight.com](https://www.pluralsight.com/):
 
@@ -105,7 +105,7 @@ Refer to the following Conditional Access courses and more on [Pluralsight.com](
 * Wiley- [Mastering Microsoft Azure Infrastructure Services](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
    * "Here's everything you need to understand, evaluate, deploy, and maintain environments that utilize Microsoft Azure."
 
-## Whitepapers
+## White papers
 
 * Published December 18, 2018, [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
    * This document provides guidance on strategies an organization might adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions.
