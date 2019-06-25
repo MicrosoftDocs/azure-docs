@@ -65,12 +65,12 @@ Configure and test Azure AD SSO with ServiceNow using a test user called **B.Sim
 To configure and test Azure AD SSO with ServiceNow, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure ServiceNow](#configure-ServiceNow)** to configure the SSO settings on application side.
-3. **[Configure Azure AD SSO for ServiceNow Express](#configure-azure-ad-single-sign-on-for-servicenow-express)** - to enable your users to use this feature.
-4. **[Configure ServiceNow Express SSO](#configure-servicenow-express-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure ServiceNow](#configure-servicenow)** to configure the SSO settings on application side.
+3. **[Configure Azure AD SSO for ServiceNow Express](#configure-azure-ad-sso-for-servicenow-express)** - to enable your users to use this feature.
+4. **[Configure ServiceNow Express SSO](#configure-servicenow-express-sso)** - to configure the Single Sign-On settings on application side.
 5. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
 6. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
-7. **[Create ServiceNow test user](#create-ServiceNow-test-user)** to have a counterpart of B.Simon in ServiceNow that is linked to the Azure AD representation of user.
+7. **[Create ServiceNow test user](#create-servicenow-test-user)** to have a counterpart of B.Simon in ServiceNow that is linked to the Azure AD representation of user.
 8. **[Test SSO](#test-sso)** to verify whether the configuration works.
 9. **[Test SSO for ServiceNow Classic (Mobile)](#test-sso-for-servicenow-classic-mobile)** to verify whether the configuration works.
 
