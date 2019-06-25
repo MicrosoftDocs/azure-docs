@@ -1,6 +1,6 @@
 ---
-title: Secure access to Azure Logic Apps
-description: Add security for Azure Logic Apps, including triggers, inputs and outputs, parameters, and other services
+title: Secure access for Azure Logic Apps
+description: Add security to triggers, inputs and outputs, parameters, and connections to other services in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -13,13 +13,13 @@ ms.date: 06/28/2019
 
 # Secure access in Azure Logic Apps
 
-Here are the areas where you can secure access to your logic apps:
+Here are the areas where you can secure access for your logic apps:
 
 * [HTTP request triggers](#secure-triggers)
 * [Operations that view, manage, or edit logic apps](#secure-operations)
 * [Run history inputs and outputs](#secure-run-history)
 * [Action parameters and inputs](#secure-action-parameters)
-* [Services that get requests](#secure-requests) from your logic app
+* [Services that get requests from your logic app](#secure-requests)
 
 <a name="secure-triggers"></a>
 
@@ -95,7 +95,7 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 Along with Shared Access Signature, you might want to limit the specific clients that can call your logic app.  
 For example, if you manage your request endpoint by using Azure API Management, you can restrict your logic app to accept requests only from the IP address for the API Management instance.
 
-#### Set IP ranges - Azure portal
+#### Set IP ranges in Azure portal
 
 To set up this restriction in the Azure portal, go to your logic app's settings.
 
@@ -115,9 +115,9 @@ If you want your logic app to fire only as a nested logic app, from the **Allowe
 > However, > this scenario still requires authentication against the Azure REST API. 
 > All events appear in the Azure Audit Log. Make sure you set access control policies accordingly.
 
-#### Set IP ranges - logic app deployment template
+#### Set IP ranges in logic app template
 
-If you're automating logic app deployments by using an [Azure Resource Manager deployment template](../logic-apps/logic-apps-create-deploy-template.md), you can set the IP ranges in that template, for example:
+If you're automating logic app deployments by using an [Azure Resource Manager template](../logic-apps/logic-apps-create-deploy-template.md), you can set the IP ranges in that template, for example:
 
 ``` json
 {
@@ -165,7 +165,7 @@ To prevent others from changing or deleting your logic app, you can use [Azure R
 
 All data during a logic app's run is encrypted during transit and at rest. When your logic app finishes running, you can view the history for that run, including the steps that ran along with the status, duration, inputs, and outputs for each action. This rich detail provides insight into how your logic app ran and where you might start troubleshooting any problems that arise.
 
-When you access your logic app's run history, Logic Apps authenticates your access and provides links to the inputs and outputs from the requests and responses in your logic app's run. However, for actions that handle any secrets or sensitive information, you want to prevent others from viewing and accessing that data. For example, if your logic app gets a secret from Azure Key Vault to use when authenticate an HTTP action, you want to hide that secret from view.
+When you access your logic app's run history, Logic Apps authenticates your access and provides links to the inputs and outputs from the requests and responses in your logic app's run. However, for actions that handle any secrets or sensitive information, you want to prevent others from viewing and accessing that data. For example, if your logic app gets a secret from [Azure Key Vault](../key-vault/key-vault-whatis.md) to use when authenticate an HTTP action, you want to hide that secret from view.
 
 To control access to the inputs and outputs in your logic app's run history, you have these options:
 
@@ -266,24 +266,10 @@ If you automate logic app deployment by using a [Azure Resource Manager template
 
 ## Secure action parameters and inputs
 
-When deploying across various environments, you might want 
-to parameterize specific elements in your logic app's workflow 
-definition. That way, you can provide inputs based on the 
-environments you use and protect sensitive information. 
-For example, if you're authenticating HTTP actions with 
-[Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), 
-define and secure the parameters that accept the client 
-ID and client secret used for authentication. For these 
-parameters, your logic app definition has its own `parameters` section.
-To access parameter values during runtime, you can use the 
-`@parameters('parameterName')` expression, which is provided 
-by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
+If you deploy across various environments, you might want to parameterize specific elements in your logic app's workflow definition. That way, you can provide inputs based on your environments and protect sensitive information. For example, if you authenticate HTTP actions with [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), you can define and secure the parameters that accept the client ID and client secret used for authentication. For these parameters, your logic app's workflow definition has its own `parameters` section.
+To access parameter values during runtime, you can use the `@parameters('<parameter-name>')` expression, which is provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs).
 
-To protect parameters and values you don't want shown when 
-editing your logic app or viewing run history, you can define 
-parameters with the `securestring` type and use encoding as necessary. 
-Parameters that have this type aren't returned with the resource definition, 
-and aren't accessible when viewing the resource after deployment.
+To protect parameters and values you don't want shown when editing your logic app or viewing run history, you can define parameters with the `securestring` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment.
 
 > [!NOTE]
 > If you use a parameter in a request's headers or body, 
@@ -293,35 +279,21 @@ and aren't accessible when viewing the resource after deployment.
 > Authorization headers are never visible through inputs or outputs. 
 > So if a secret is used there, that secret isn't retrievable.
 
-For more information about securing parameters in logic app definitions, see 
-[Secure parameters in logic app definitions](#secure-parameters-workflow) 
-later on this page.
+For more information, see [Secure parameters in workflow definitions](#secure-parameters-workflow) later in this topic.
 
-If you're automating deployments with 
-[Azure Resource Manager deployment templates](../azure-resource-manager/resource-group-authoring-templates.md#parameters), 
-you can also use secured parameters in those templates. 
-For example, you can use parameters for getting KeyVault 
-secrets when creating your logic app. Your deployment 
-template definition has its own `parameters` section, 
-separate from your logic app's `parameters` section. 
-For more information about securing parameters in deployment templates, see 
-[Secure parameters in deployment templates](#secure-parameters-deployment-template) 
-later on this page.
+If you automate deployments with [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md#parameters), you can also use secured template parameters, which are evaluated at deployment. Your template definition has its own `parameters` section that's separate from your workflow definition's `parameters` section. To provide the values for template parameters, you can use a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values).
+
+For example, if you use secrets, you can define and use secured template parameters that retrieve those secrets from [Azure Key Vault](../key-vault/key-vault-whatis.md) at deployment. You can then reference the key vault and secret in your parameter file. For more information, see these topics:
+
+* [Use Azure Key Vault to pass secure parameter values at deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+
+* [Secure parameters in logic app templates](#secure-parameters-deployment-template) later in this topic
 
 <a name="secure-parameters-workflow"></a>
 
-### Secure parameters in logic app definitions
+### Secure parameters in workflow definitions
 
-To protect sensitive information in your logic app 
-workflow definition, use secured parameters so this 
-information isn't visible after you save your logic app. 
-For example, suppose you're using `Basic` authentication 
-in an HTTP action definition. This example includes a 
-`parameters` section that defines the parameters for the 
-action definition plus an `authentication` section that 
-accepts `username` and `password` parameter values. 
-To provide values for these parameters, you can use 
-a separate parameters file, for example:
+To protect sensitive information in your logic app's workflow definition, use secured parameters so this information isn't visible after you save your logic app. For example, suppose you have an HTTP action requires basic authentication, which uses a username and password. In the workflow definition, the `parameters` section defines the `passwordParam` and `usernameParam` parameters by using the `securestring` type. The action definition then references these parameters in the `authentication` section.
 
 ```json
 "definition": {
@@ -345,7 +317,7 @@ a separate parameters file, for example:
       "passwordParam": {
          "type": "securestring"
       },
-      "userNameParam": {
+      "usernameParam": {
          "type": "securestring"
       }
    },
@@ -363,34 +335,34 @@ a separate parameters file, for example:
 }
 ```
 
-If you use secrets, you can get those secrets at deployment time by using 
-[Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
-
 <a name="secure-parameters-deployment-template"></a>
 
-### Secure parameters in Azure Resource Manager deployment templates
+### Secure parameters in Azure Resource Manager templates
 
-This example shows a Resource Manager deployment template that 
-uses more than one runtime parameter with the `securestring` type:
+A Resource Manager template that includes a workflow definition includes more than one `parameters` sections:
 
-* `armTemplatePasswordParam`, which is input for the 
-   logic app definition's `logicAppWfParam` parameter
+* At the template level, the top-level `parameters` section defines the parameters that accept the values to use at deployment, such as the connection strings to use for various deployment environments.
 
-* `logicAppWfParam`, which is input for the HTTP action 
-  using basic authentication
+  To specify the environment values for template parameters, you can use a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values). If you use secrets, you can define and use secured template parameters that retrieve those secrets from [Azure Key Vault](../key-vault/key-vault-whatis.md) at deployment. You can then reference the key vault and secret in your [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values). For more information, see [Use Azure Key Vault to pass secure parameter values at deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-This example includes an inner `parameters` section, 
-which belongs to your logic app's workflow definition, 
-and an outer `parameters` section, which belongs to 
-your deployment template. To specify the environment 
-values for parameters, you can use a separate parameters file. 
+* In your logic app's resource definition, but outside your workflow definition, the `parameters` section specifies the values used by the parameters in your workflow definition by referencing your template's parameters.
+
+* Inside your workflow definition, the innermost `parameters` section defines the parameters that accept the values to use at your logic app's runtime.
+
+This example shows a template that defines more than one secured parameter, which uses the `securestring` type:
+
+| Parameter name | Description |
+|----------------|-------------|
+| `TemplatePasswordParam` | A template parameter that accepts a password that's passed to the the workflow definition's `logicAppWfParam` parameter |
+| `logicAppWfParam` | A workflow definition parameter that accepts input for the HTTP action that uses basic authentication |
+|||
 
 ```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
    "parameters": {
-      "logicAppName": {
+      "LogicAppName": {
          "type": "string",
          "minLength": 1,
          "maxLength": 80,
@@ -398,10 +370,10 @@ values for parameters, you can use a separate parameters file.
             "description": "Name of the Logic App."
          }
       },
-      "armTemplatePasswordParam": {
+      "TemplatePasswordParam": {
          "type": "securestring"
       },
-      "logicAppLocation": {
+      "LogicAppLocation": {
          "type": "string",
          "defaultValue": "[resourceGroup().location]",
          "allowedValues": [
@@ -439,9 +411,9 @@ values for parameters, you can use a separate parameters file.
    "variables": {},
    "resources": [
       {
-         "name": "[parameters('logicAppName')]",
+         "name": "[parameters('LogicAppName')]",
          "type": "Microsoft.Logic/workflows",
-         "location": "[parameters('logicAppLocation')]",
+         "location": "[parameters('LogicAppLocation')]",
          "tags": {
             "displayName": "LogicApp"
          },
@@ -468,7 +440,7 @@ values for parameters, you can use a separate parameters file.
                   "logicAppWfParam": {
                      "type": "securestring"
                   },
-                  "userNameParam": {
+                  "usernameParam": {
                      "type": "securestring"
                   }
                },
@@ -486,7 +458,7 @@ values for parameters, you can use a separate parameters file.
             },
             "parameters": {
                "logicAppWfParam": {
-                  "value": "[parameters('armTemplatePasswordParam')]"
+                  "value": "[parameters('TemplatePasswordParam')]"
                }
             }
          }
@@ -496,55 +468,31 @@ values for parameters, you can use a separate parameters file.
 }
 ```
 
-If you use secrets, you can get those secrets at deployment time by using 
-[Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md).
-
 <a name="secure-requests"></a>
 
-## Secure access to services receiving requests
+## Secure access to services called from logic apps
 
-Here are some ways you can secure any endpoint where your logic app needs access and sends requests.
+Here are some ways that you can secure any endpoint where your logic app sends requests and needs access.
 
-### Add authentication on outbound requests
+* Add authentication on outbound requests.
 
-When working with an HTTP, HTTP + Swagger (Open API), or Webhook action, 
-you can add authentication to the request sent by your logic app. 
-For example, you can use basic authentication, certificate authentication, 
-or Azure Active Directory authentication. For more information, 
-see [Authenticate triggers or actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+  When you work with an HTTP, HTTP + Swagger (Open API), or Webhook action, you can add authentication to the request sent by your logic app. For example, you can use basic authentication, certificate authentication, or Azure Active Directory authentication. For more information, see [Authenticate triggers or actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-### Restrict access to logic app IP addresses
+* Restrict access from logic app IP addresses.
 
-All calls from logic apps come from specific designated 
-IP addresses based on region. You can add filtering 
-that accepts requests only from those IP addresses. 
-For those IP addresses, see 
-[Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
+  All calls from logic apps to endpoints originate from specific designated IP addresses that are based on the logic apps' regions. You can add filtering that accepts requests only from those IP addresses. To get these IP addresses, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
 
-### Secure on-premises connectivity
+* Secure connections to on-premises systems.
 
-Azure Logic Apps provides integration with these services 
-for secure and reliable on-premises communication.
+  Azure Logic Apps provides integration with these services for secure and reliable on-premises communication.
 
-#### On-premises data gateway
+  * On-premises data gateway
 
-Many managed connectors for Azure Logic Apps provide 
-secure connections to on-premises systems, 
-such as File System, SQL, SharePoint, DB2, and others. 
-The gateway sends data from on-premises sources 
-on encrypted channels through the Azure Service Bus. 
-All traffic originates as secure outbound traffic 
-from the gateway agent. Learn [how the on-premises data gateway works](logic-apps-gateway-install.md#gateway-cloud-service).
+    Many managed connectors in Azure Logic Apps provide secure connections to on-premises systems, such as File System, SQL, SharePoint, and DB2. The gateway sends data from on-premises sources on encrypted channels through the Azure Service Bus. All traffic originates as secure outbound traffic from the gateway agent. Learn [how the on-premises data gateway works](logic-apps-gateway-install.md#gateway-cloud-service).
 
-#### Azure API Management
+  * Connect through Azure API Management
 
-[Azure API Management](https://azure.microsoft.com/services/api-management/) 
-provides on-premises connection options, such as 
-site-to-site virtual private network and ExpressRoute 
-integration for secured proxy and communication to on-premises systems. 
-In the Logic App Designer, you can select an API exposed by 
-API Management from your logic app's workflow, providing quick 
-access to on-premises systems.
+    [Azure API Management](https://azure.microsoft.com/services/api-management/) provides on-premises connection options, such as site-to-site virtual private network and ExpressRoute integration for secured proxy and communication to on-premises systems. From your logic app's workflow in the Logic App Designer, you can select an API that's exposed by API Management, which provides quick access to on-premises systems.
 
 ## Next steps
 
