@@ -42,6 +42,9 @@ The required Speech SDK files can be deployed in the same directory as your appl
 >[!NOTE]
 > Starting with the release 1.3.0 the file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated in the core SDK.
 
+>[!NOTE]
+> For the Windows Forms App (.NET Framework) C# project, make sure the libraries are included into your project's deployment settings. This can be checked under `Properties -> Publish Section` of your project and then click on `Application Files` button and find corresponding libraries from the scroll down list and make sure value for that is `Included`. After that, Visual Studio will include the file when project is published/deployed.
+
 ## Linux
 
 The Speech SDK currently supports the Ubuntu 16.04, Ubuntu 18.04, and Debian 9 distributions.
