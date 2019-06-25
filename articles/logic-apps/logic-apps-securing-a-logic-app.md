@@ -13,13 +13,13 @@ ms.date: 06/28/2019
 
 # Secure access in Azure Logic Apps
 
-Here are the areas where you can secure access for your logic apps:
+To control access in Azure Logic Apps, you can add security and protection in various areas:
 
-* [HTTP request triggers](#secure-triggers)
-* [Operations that view, manage, or edit logic apps](#secure-operations)
-* [Run history inputs and outputs](#secure-run-history)
-* [Action parameters and inputs](#secure-action-parameters)
-* [Services that get requests from your logic app](#secure-requests)
+* [Access to HTTP request triggers](#secure-triggers)
+* [Access to logic app operations](#secure-operations)
+* [Access to run history inputs and outputs](#secure-run-history)
+* [Access to parameter inputs](#secure-action-parameters)
+* [Access to services and systems called from logic apps](#secure-requests)
 
 <a name="secure-triggers"></a>
 
@@ -149,9 +149,9 @@ To add more authorization protocols to your logic app, consider using [Azure API
 
 <a name="secure-operations"></a>
 
-## Secure access to logic app operations
+## Access to logic app operations
 
-To permit only specific users or groups that can run operations, such as managing, editing, and viewing logic apps, you can restrict by using [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md). You can assign customized or built-in roles to members in your Azure subscription, for example:
+You can permit only specific users or groups to run specific operations, such as managing, editing, and viewing logic apps. To control their permissions, use [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) to assign customized or built-in roles to members in your Azure subscription:
 
 * [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets you manage logic apps, but you can't change access to them.
 
@@ -161,7 +161,7 @@ To prevent others from changing or deleting your logic app, you can use [Azure R
 
 <a name="secure-run-history"></a>
 
-## Secure access to run history
+## Access to run history inputs and outputs
 
 All data during a logic app's run is encrypted during transit and at rest. When your logic app finishes running, you can view the history for that run, including the steps that ran along with the status, duration, inputs, and outputs for each action. This rich detail provides insight into how your logic app ran and where you might start troubleshooting any problems that arise.
 
@@ -264,7 +264,7 @@ If you automate logic app deployment by using a [Azure Resource Manager template
 
 <a name="secure-action-parameters"></a>
 
-## Secure action parameters and inputs
+## Access to parameter inputs
 
 If you deploy across different environments, consider parameterizing the values in your workflow definition that vary based on those environments. That way, you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md#parameters) to deploy your logic app, protect sensitive information by defining secured parameters, and provide those parameter inputs separately through the template's parameters by using a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values).
 
@@ -466,9 +466,9 @@ This example template that has multiple secured parameter definitions that use t
 
 <a name="secure-requests"></a>
 
-## Secure access to services called from logic apps
+## Access to services and systems called from logic apps
 
-Here are some ways that you can secure any endpoint where your logic app sends requests and needs access.
+Here are some ways that you can secure any endpoint where your logic app needs access to send requests:
 
 * Add authentication on outbound requests.
 
@@ -488,11 +488,10 @@ Here are some ways that you can secure any endpoint where your logic app sends r
 
   * Connect through Azure API Management
 
-    [Azure API Management](https://azure.microsoft.com/services/api-management/) provides on-premises connection options, such as site-to-site virtual private network and ExpressRoute integration for secured proxy and communication to on-premises systems. From your logic app's workflow in the Logic App Designer, you can select an API that's exposed by API Management, which provides quick access to on-premises systems.
+    [Azure API Management](../api-management/api-management-key-concepts.md) provides on-premises connection options, such as site-to-site virtual private network and ExpressRoute integration for secured proxy and communication to on-premises systems. From your logic app's workflow in the Logic App Designer, you can select an API that's exposed by API Management, which provides quick access to on-premises systems.
 
 ## Next steps
 
-* [Create a deployment template](logic-apps-create-deploy-template.md)  
-* [Exception handling](logic-apps-exception-handling.md)  
+* [Create deployment templates](logic-apps-create-deploy-template.md)  
 * [Monitor your logic apps](logic-apps-monitor-your-logic-apps.md)  
 * [Diagnose logic app failures and issues](logic-apps-diagnosing-failures.md)  
