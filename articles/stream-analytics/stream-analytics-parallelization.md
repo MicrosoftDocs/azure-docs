@@ -293,7 +293,7 @@ All [Streaming at Scale azure samples](https://github.com/Azure-Samples/streamin
 ```
 
 > [!NOTE]
-> Please note the configurations mentioned may be outdated despite our regular efforts. For a more accurate estimate, customize the samples to fit your scenario.
+> The configurations are subject to change due to the various components used in the solution. For a more accurate estimate, customize the samples to fit your scenario.
 
 ### Identifying Bottlenecks
 
