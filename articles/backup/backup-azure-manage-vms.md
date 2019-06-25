@@ -106,7 +106,7 @@ There are two ways to stop protecting a VM:
 
 ### Stop protection and retain backup data
 
-To stop protection and retain data for a VM:
+To stop protection and retain data of a VM:
 
 1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Stop backup**.
 2. Choose **Retain Backup Data**, and confirm your selection as needed. Add a comment if you want. If you aren't sure of the item's name, hover over the exclamation mark to view the name.
@@ -117,7 +117,7 @@ A notification lets you know that the backup jobs have been stopped.
 
 ### Stop protection and delete backup data
 
-To stop protection and delete data for a VM:
+To stop protection and delete data of a VM:
 
 1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Stop backup**.
 2. Choose **Delete Backup Data**, and confirm your selection as needed. Enter the name of the backup item and add a comment if you want.
