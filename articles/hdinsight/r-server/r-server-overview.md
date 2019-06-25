@@ -138,6 +138,6 @@ The prices that are associated with an ML Services HDInsight cluster are structu
 
 To learn more about how to use ML Services on HDInsight clusters, see the following topics:
 
-* [Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server](ml-services-quickstart-job-rstudio.md)
+* [Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server](machine-learning-services-quickstart-job-rstudio.md)
 * [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
 * [Storage options for ML Services cluster on HDInsight](r-server-storage.md)
