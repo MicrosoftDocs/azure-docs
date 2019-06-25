@@ -137,7 +137,7 @@ You can delete a VM's backup data during the **Stop backup** job or after the ba
 
 After you stop or disable the VM's backup job, you can delete the backup data:
 
-  ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data.png)
+  ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 1. On the [vault item dashboard](#view-vms-on-the-dashboard), select **Delete backup data**.
 
