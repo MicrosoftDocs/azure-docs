@@ -341,7 +341,7 @@ To protect sensitive information in your logic app's workflow definition, use se
 
 A Resource Manager template that includes a workflow definition includes more than one `parameters` sections:
 
-* At the template level, the top-level `parameters` section defines the parameters that accept the values to use at deployment, such as the connection strings to use for various deployment environments.
+* At the template level, the top level `parameters` section defines the parameters that accept the values to use at deployment, such as the connection strings to use for various deployment environments.
 
   To specify the environment values for template parameters, you can use a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values). If you use secrets, you can define and use secured template parameters that retrieve those secrets from [Azure Key Vault](../key-vault/key-vault-whatis.md) at deployment. You can then reference the key vault and secret in your [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values). For more information, see [Use Azure Key Vault to pass secure parameter values at deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
@@ -353,7 +353,7 @@ This example shows a template that defines more than one secured parameter, whic
 
 | Parameter name | Description |
 |----------------|-------------|
-| `TemplatePasswordParam` | A template parameter that accepts a password that's passed to the the workflow definition's `logicAppWfParam` parameter |
+| `TemplatePasswordParam` | A template parameter that accepts a password that's passed to the workflow definition's `logicAppWfParam` parameter |
 | `logicAppWfParam` | A workflow definition parameter that accepts input for the HTTP action that uses basic authentication |
 |||
 
