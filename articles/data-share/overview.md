@@ -18,7 +18,7 @@ When creating a new data share, data providers can specify terms of use that the
 
 Data is shared by adding Azure Data sources into data shares. A Data Share can then be shared with multiple recipients outside of your organization. Once those recipients accept your invitation for sharing data, they become your data consumers. 
 
-![data share flow](/media/datashareflow.png "Data Share Flow")
+![data share flow](media/data-share-flow.png)
 
 ## Key capabilities
 
