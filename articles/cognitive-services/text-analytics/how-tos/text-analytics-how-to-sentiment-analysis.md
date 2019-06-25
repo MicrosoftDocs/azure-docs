@@ -15,11 +15,6 @@ ms.author: aahi
 
 The [Sentiment Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) evaluates text input and returns a sentiment score for each document, ranging from 0 (negative) to 1 (positive).
 
-> [!NOTE]
-> [Sentiment analysis 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) is available for public preview for the following languages:
-> * English (en)
-> * Japanese (ja)
-
 This capability is useful for detecting positive and negative sentiment in social media, customer reviews, and discussion forums. Content is provided by you; models and training data are provided by the service.
 
 Currently, Sentiment Analysis supports English, German, Spanish, and French. Other languages are in preview. For more information, see [Supported languages](../text-analytics-supported-languages.md).
@@ -103,7 +98,7 @@ Output is returned immediately. You can stream the results to an application tha
 
 The following example shows the response for the document collection in this article.
 
-```
+```json
 {
     "documents": [
         {
@@ -130,6 +125,121 @@ The following example shows the response for the document collection in this art
     "errors": []
 }
 ```
+
+## Sentiment analysis V3 public preview
+
+The [next version of Sentiment Analysis (needs updated link)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) is now available for Public Preview, providing significant improvements in the accuracy and detail of the API's text categorization and scoring. 
+
+> [!NOTE]
+> * At this time, sentiment analysis V3 currently only supports the English language.  Additional languages will be available in subsequent releases.
+> * The sentiment analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
+
+
+|Feature |Description  |
+|---------|---------|
+|Improved accuracy     | Significant improvement in detecting positive, neutral, negative, and mixed sentiment in text documents over previous versions.           |
+|Document and Sentence-level Sentiment Score     | Detect the sentiment of both a document and its individual sentences. If the document includes multiple sentences, each sentence is also assigned a sentiment score.         |
+|Sentiment category and score     | The API now returns a sentiment category (for example, `neutral`) in addition to a sentiment score.        |
+| Improved output | |
+
+### Sentiment analysis V3 example request
+
+The following JSON is an example of a request made to the new version of sentiment analysis. Note that the format is the same as the previous version:
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Hello world. This is some input text that I love."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    }
+  ]
+}
+```
+
+### Sentiment analysis V3 example response
+
+While the request format is the same as the previous version, the response format has changed. The following JSON is an example response from the new version of the API:
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.98570585250854492,
+                "neutral": 0.0001625834556762,
+                "negative": 0.0141316400840878
+            },
+            "sentences": [
+                {
+                    "sentiment": "neutral",
+                    "sentenceScores": {
+                        "positive": 0.0785155147314072,
+                        "neutral": 0.89702343940734863,
+                        "negative": 0.0244610067456961
+                    },
+                    "offset": 0,
+                    "length": 12
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.98570585250854492,
+                        "neutral": 0.0001625834556762,
+                        "negative": 0.0141316400840878
+                    },
+                    "offset": 13,
+                    "length": 36
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.89198976755142212,
+                "neutral": 0.103382371366024,
+                "negative": 0.0046278294175863
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.78401315212249756,
+                        "neutral": 0.2067587077617645,
+                        "negative": 0.0092281140387058
+                    },
+                    "offset": 0,
+                    "length": 30
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.99996638298034668,
+                        "neutral": 0.0000060341349126,
+                        "negative": 0.0000275444017461
+                    },
+                    "offset": 31,
+                    "length": 13
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
+
+### Example C# code
+
+You can find an example C# application that calls this version of sentiment analysis on [github](github.com)
 
 ## Summary
 
