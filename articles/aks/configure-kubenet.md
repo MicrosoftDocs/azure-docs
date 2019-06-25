@@ -77,6 +77,8 @@ Use *Azure CNI* when:
 - You don’t want to manage the UDRs.
 - You need advanced features such as virtual nodes or network policy.
 
+For more information to help you decide which network model to use, see [Compare network models and their support scope][network-comparisons].
+
 > [!NOTE]
 > Kuberouter makes it possible to enable network policy when using kubenet and can be installed as a daemonset in an AKS cluster. Please be aware kube-router is still in beta and no support is offered by Microsoft for the project.
 
@@ -192,3 +194,4 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
+[network-comparisons]: concepts-network.md#compare-network-models
