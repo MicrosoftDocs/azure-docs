@@ -11,7 +11,7 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 06/21/2019
+ms.date: 07/01/2019
 ---
 # Azure SQL Connectivity Architecture
 
