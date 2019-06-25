@@ -104,14 +104,14 @@ There are two ways to stop protecting a VM:
 >If you delete a data source without stopping backups, new backups will fail. Old recovery points will expire according to the policy, but one last recovery point will always be kept until you stop the backups and delete the data.
 >
 
-## Retain data
+## Retain backup data
 
 To stop protection and retain data for a VM:
 
 1. On the [vault item's dashboard](#view-vms-on-the-dashboard), select **Stop backup**.
 2. Choose **Retain Backup Data**, and confirm your selection as needed. Add a comment if you want. If you aren't sure of the item's name, hover over the exclamation mark to view the name.
 
-  ![Stop protection](./media/backup-azure-manage-vms/retain-backup-data.png)
+  ![Retain Backup data](./media/backup-azure-manage-vms/retain-backup-data.png)
 
 A notification lets you know that the backup jobs have been stopped.
 
