@@ -49,7 +49,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 2. Configure master server settings.
 
-    Data-in Replication requires the parameter `lower_case_table_names` to be consistent between the master and replica servers. This parameter is set to `1` by default in Azure Database for MariaDB.
+    Data-in Replication requires the parameter `lower_case_table_names` to be consistent between the master and replica servers. The `lower_case_table_names` parameter is set to `1` by default in Azure Database for MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
