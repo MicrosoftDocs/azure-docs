@@ -97,6 +97,10 @@ $locations = @(
 ) 
 ```
 
+To enable Availability Zones by using Azure portal, make sure to enable the **Geo-redundancy**, **Multi-region Writes**, and choose a region where Availability Zones are supported: 
+
+![Enable Availability Zones using Azure portal](./media/high-availability/enable-availability-zones-using-portal.png) 
+
 ## Building highly available applications
 
 - To ensure high write and read availability, configure your Cosmos account to span at least two regions with multiple-write regions. This configuration will provide the highest availability, lowest latency, and best scalability for both reads and writes backed by SLAs. To learn more, see how to [configure your Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api.md).
