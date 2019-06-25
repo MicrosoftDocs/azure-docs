@@ -256,23 +256,23 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 
 1. If your logic app isn't already open in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-   ![Open sample logic app](media/logic-apps-obfuscate-inputs-outputs/sample-logic-app.png)
+   ![Open sample logic app](media/logic-apps-securing-a-logic-app/sample-logic-app.png)
 
 1. On the trigger or action where you want to secure data, select the ellipses (**...**) button, and then select **Settings**.
 
-   ![Open "Settings"](media/logic-apps-obfuscate-inputs-outputs/open-settings.png)
+   ![Open "Settings"](media/logic-apps-securing-a-logic-app/open-settings.png)
 
-1. Turn on either **Secure inputs**, **Secure outputs**, or both. When you're finished, select **Done**.
+1. Turn on either **Secure Inputs**, **Secure Outputs**, or both. When you're finished, select **Done**.
 
-   ![Turn on secure inputs or outputs](media/logic-apps-obfuscate-inputs-outputs/turn-on-secure-inputs-outputs.png)
+   ![Turn on secure inputs or outputs](media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
    The action or trigger now shows a lock icon in the title bar.
 
-   ![Lock icon on title bar](media/logic-apps-obfuscate-inputs-outputs/title-bar-lock-icon.png)
+   ![Lock icon on title bar](media/logic-apps-securing-a-logic-app/title-bar-lock-icon.png)
 
    Tokens that represent secured outputs from previous actions also show lock icons. For example, when you select such an output from the dynamic content list to use in an action, that token shows a lock icon.
 
-   ![Select output](media/logic-apps-obfuscate-inputs-outputs/select-secured-token.png)
+   ![Select output](media/logic-apps-securing-a-logic-app/select-secured-token.png)
 
 1. After the logic app runs, you can view the history for that run.
 
@@ -282,15 +282,15 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 
       Secured inputs and outputs are hidden from view.
 
-      ![Hidden data in run history](media/logic-apps-obfuscate-inputs-outputs/hidden-data-run-history.png)
+      ![Hidden data in run history](media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
 Here are some considerations for when you use obfuscation:
 
 * If you secure the outputs from a trigger or action, and a later action explicitly uses those secured outputs as inputs, Logic Apps secures those inputs in the run history. However, if that later action produces outputs that are the same as the consumed secured inputs, Logic Apps doesn't secure those outputs in the run history.
 
-  To continue securing this data, make sure that you explicitly secure outputs when they're the same as the secured inputs that the action consumes.
+  To continue hiding this data in run history, make sure that you explicitly secure outputs when they're the same as the secured inputs that the action consumes.
 
-  ![Secured outputs as inputs](media/logic-apps-obfuscate-inputs-outputs/secure-outputs-as-inputs-flow.png)
+  ![Secured outputs as inputs](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
 * When you secure an action's inputs or outputs, you prevent that action from sending that secured data to Azure Log Analytics. You also can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that action for monitoring.
 
