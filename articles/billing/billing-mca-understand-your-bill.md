@@ -43,7 +43,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
     |Invoice section     | The transaction shows up on this section of billing profile's invoice |
     |Billing profile     | The transaction shows up on this billing profile's invoice |
 
-5. Search on invoice ID to filter the transactions for the invoice.
+5. Search for invoice ID to filter the transactions for the invoice.
 
 ### View transactions by invoice sections
 
@@ -67,7 +67,7 @@ In the billing account for a Microsoft Customer Agreement, charges are estimated
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. Search on **Cost Management +Billing**.
+2. Search for **Cost Management +Billing**.
 
    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
@@ -87,7 +87,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. Search on **Cost Management +Billing**.
+2. Search for **Cost Management +Billing**.
 
    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 

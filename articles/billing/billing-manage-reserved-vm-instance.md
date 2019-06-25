@@ -1,17 +1,15 @@
 ---
-title: Manage Azure Reservations | Microsoft Docs
+title: Manage Azure Reservations
 description: Learn how you can change subscription scope and manage access for Azure Reservations.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -41,7 +39,7 @@ A reservation inherits permissions from its reservation order.
 
 To update the scope of a reservation:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select the reservation.
 4. Select **Settings** > **Configuration**.
@@ -49,7 +47,7 @@ To update the scope of a reservation:
 
 If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reservation, can be selected.
 
-The scope only applies to Pay-As-You-Go offer MS-AZR-0003P or MS-AZR-0023P, Enterprise offer MS-AZR-0017P or MS-AZR-0148P, or CSP subscription types.
+The scope only applies to individual subscriptions with pay-as-you-go rates (offers MS-AZR-0003P or MS-AZR-0023P), Enterprise offer MS-AZR-0017P or MS-AZR-0148P, or CSP subscription types.
 
 ## Add or change users who can manage a reservation
 
@@ -62,7 +60,7 @@ To perform an exchange or refund, the user must have access to the reservation o
 
 To delegate access management for a reservation:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Reservation** to list reservations that you have access to.
 3. Select the reservation that you want to delegate access to other users.
 4. Select **Access control (IAM)**.
@@ -121,7 +119,7 @@ For reservations where the scope is single, you can optimize the reservation for
 
 To update the optimize setting for the reservation:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign-in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Reservations**.
 3. Select the reservation.
 4. Select **Settings** > **Configuration**.

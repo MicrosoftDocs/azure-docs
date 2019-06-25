@@ -30,7 +30,7 @@ If you are the [Account Administrator](billing-subscription-transfer.md#whoisaa)
 ## Resolve past due balance in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Admin.
-1. Search on **Cost Management + Billing**.
+1. Search for **Cost Management + Billing**.
 1. In the Overview page, you'll see a list of your subscriptions. If your subscription status is past due, click the **Settle balance** link.
     ![Screenshot that shows settle balance link](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
 1. The total outstanding balance reflects outstanding charges across all Microsoft services using the failed payment method.

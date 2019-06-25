@@ -90,7 +90,7 @@ To opt-out of getting your invoice by email, follow the preceding steps and clic
 If you have a Microsoft Customer Agreement, you can opt-in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference.
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
-1. Search on **Cost Management + Billing**.
+1. Search for **Cost Management + Billing**.
 1. Select a billing profile. Depending on your access, you might need to select a billing account first.
 1. Under **Settings**, select **Properties**.
 1. Under **Email Invoice**, select **Update email invoice preference**.

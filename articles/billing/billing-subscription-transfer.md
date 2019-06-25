@@ -1,5 +1,5 @@
 ---
-title: Transfer Azure subscription ownership to another account | Microsoft Docs
+title: Transfer Azure subscription ownership to another account
 description: Describes how to transfer an Azure subscription to another user, and some frequently asked questions (FAQ) about the process
 keywords: transfer azure subscription,azure transfer subscription,move azure subscription to another account,azure change subscription owner,transfer azure subscription to another account
 author: bandersmsft
@@ -10,7 +10,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
@@ -27,7 +27,7 @@ Transfer your subscription to another user in the Account Center to change the A
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
 
 
-1. Sign in at [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Admin. To find out who is the Account Admin of the subscription, see [Frequently asked questions](#faq).
+1. Sign-in at [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Admin. To find out who is the Account Admin of the subscription, see [Frequently asked questions](#faq).
 
 1. Select the subscription to transfer.
 
@@ -57,7 +57,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
 <a id="EA"></a>
 
-## Transfer subscription ownership for EA customers
+## Transfer EA subscription ownership
 
 The Enterprise Administrator can transfer ownership of subscriptions within an enrollment. To get started, see [Transfer Account Ownership](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in the EA portal.
 
@@ -93,6 +93,7 @@ Self-serve subscription transfer is available for the offers or subscription typ
 <a id="faq"></a>
 
 ## Frequently asked questions (FAQ)
+The following sections answer common questions about transferring subscriptions.
 
 ### <a name="whoisaa"></a> Who is the Account Administrator of the subscription?
 
@@ -110,7 +111,7 @@ All your resources like VMs, disks, and websites transfer to the new owner. Howe
 
 ### <a id="no-button"></a> Why don't I see the "Transfer subscription" button?
 
-Unfortunately, the self-service subscription transfer isn't available for your offer. View the list of supported offers in the [Supported offers](#supported-offers) section of this article. Additionally, we do not block subscription transfer for any countries. See the [full list of countries](https://azure.microsoft.com/pricing/faq/) where Azure is commercially available. However, the self-service subscription transfer does not support cross country transfer. To transfer your subscription cross country, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+Unfortunately, self-serve subscription transfer isn't available for your offer. View the list of supported offers in the [Supported offers](#supported-offers) section of this article. Additionally, we do not block subscription transfer for any countries. See the [full list of countries](https://azure.microsoft.com/pricing/faq/) where Azure is commercially available.  However, cross country transfer is not supported. To transfer your subscription cross country, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 
 ### Can I transfer ownership to an account in another country?
@@ -136,7 +137,7 @@ If the subscription is transferred to another tenant, the users associated with 
 
 If the recipient needs to restrict access to their resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
 
-  1. Go to the [Azure portal](https://portal.azure.com).
+  1. Sign-in to the [Azure portal](https://portal.azure.com).
   2. On the Hub menu, select **All resources**.
   3. Select the resource.
   4. In the resource blade, click **Settings**. Here you can view and update existing secrets.
