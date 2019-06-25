@@ -1,5 +1,5 @@
 ---
-title: Automate management tasks on SQL VMs (Resource Manager) | Microsoft Docs
+title: Automate management tasks on Azure Virtual Machines with the SQL Server IaaS Agent Extension | Microsoft Docs
 description: This article describes how to manage the SQL Server agent extension, which automates specific SQL Server administration tasks. These include Automated Backup, Automated Patching, and Azure Key Vault Integration.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ---
-# Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Resource Manager)
+# Automate management tasks on Azure Virtual Machines with the SQL Server IaaS Agent Extension
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
 > * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
@@ -68,10 +68,38 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 > [!IMPORTANT]
 > At this time, the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the extension from VMs that participate in an FCI. The features supported by the extension are not available to the SQL VMs after the agent is uninstalled.
 
+## Modes
+There are three mode types for the SQL IaaS extension: **Full** and **Lightweight**, **NoAgent**. 
+
+- **Full** mode delivers all functionality, but requires a restart of the SQL Server and SA permissions. This is the option that is installed by default.
+- **Lightweight** does not require the restart of SQL Server, but only supports changing the license type and edition of SQL Server. 
+- **NoAgent** is dedicated to VMs that do not have the **Windows Guest Agent** installed, such as Windows Server 2008 images.  This option *does not install* the SQL IaaS extension, but allows VMs without a **Windows Guest Agent** to register with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md). 
+
+It is possible to upgrade from **NoAgent**, to **Lightweight** to **Full**, but it is not possible to downgrade. To downgrade, you would need to completely uninstall the SQL IaaS extension and install it again. This can be changed in the portal - going from anything to full will cause SQL Server to restart. 
+
+Verify the current mode of your SQL Server IaaS VM with PowerShell as well:
+
+    ```powershell-interactive
+       //Get the SqlVirtualMachine
+       $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
+       $sqlvm.Properties 
+   ```
+
+Install SQL IaaS agent in lightweight mode using PowerShell:
+
+    ```powershell-interactive
+     // Get the existing  Compute VM
+     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+           
+    // Register SQL VM with 'Lightweight' SQL IaaS agent
+    New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+          -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
+          -Properties @{virtualMachineResourceId=$vm.Id;sqlManagement='LightWeight'} -Force 
+    
+    ```
+
 ## Installation
 The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images. The SQL IaaS extension offers manageability for a single instance on the SQL Server VM. If there is a default instance, then the extension will work with the default instance, and it will not support managing other instances. If there is no default instance but only one named instance, then it will manage the named instance. If there is no default instance and there are multiple named instances, then the extension will fail to install. 
-
-
 
 If you need to reinstall the extension manually on one of these SQL Server VMs, use the following PowerShell command:
 
