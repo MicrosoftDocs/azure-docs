@@ -266,22 +266,18 @@ If you automate logic app deployment by using a [Azure Resource Manager template
 
 ## Secure action parameters and inputs
 
-If you deploy across various environments, you might want to parameterize specific elements in your logic app's workflow definition. That way, you can provide inputs based on your environments and protect sensitive information. For example, if you authenticate HTTP actions with [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), you can define and secure the parameters that accept the client ID and client secret used for authentication. For these parameters, your logic app's workflow definition has its own `parameters` section.
-To access parameter values during runtime, you can use the `@parameters('<parameter-name>')` expression, which is provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs).
+If you deploy across different environments, consider parameterizing the values in your workflow definition that vary based on those environments. That way, you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md#parameters) to deploy your logic app, protect sensitive information by defining secured parameters, and provide those parameter inputs separately through the template's parameters by using a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values).
 
-To protect parameters and values you don't want shown when editing your logic app or viewing run history, you can define parameters with the `securestring` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment.
+For example, if you authenticate HTTP actions with [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication), you can define and secure the parameters that accept the client ID and client secret used for authentication. To define these parameters for your logic app, use the `parameters` section inside your logic app's workflow definition. To protect parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> If you use a parameter in a request's headers or body, 
-> that parameter might be visible when accessing your 
-> logic app's run history and outgoing HTTP request. 
-> Make sure you also set your content access policies accordingly.
-> Authorization headers are never visible through inputs or outputs. 
-> So if a secret is used there, that secret isn't retrievable.
+> If you use a parameter in an HTTP request's headers or body, that parameter might be visible when you view your 
+> logic app's run history and outgoing HTTP request. Make sure that you also set your content access policies accordingly. 
+> Authorization headers are never visible through inputs or outputs. So if a secret is used there, that secret isn't retrievable.
 
 For more information, see [Secure parameters in workflow definitions](#secure-parameters-workflow) later in this topic.
 
-If you automate deployments with [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md#parameters), you can also use secured template parameters, which are evaluated at deployment. Your template definition has its own `parameters` section that's separate from your workflow definition's `parameters` section. To provide the values for template parameters, you can use a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values).
+By automating deployments with [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md#parameters), you can define and use secured template parameters, which are evaluated at deployment. Your template definition has a top level `parameters` section that's separate from your workflow definition's `parameters` section. To provide the values for template parameters, use a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values).
 
 For example, if you use secrets, you can define and use secured template parameters that retrieve those secrets from [Azure Key Vault](../key-vault/key-vault-whatis.md) at deployment. You can then reference the key vault and secret in your parameter file. For more information, see these topics:
 
@@ -306,18 +302,18 @@ To protect sensitive information in your logic app's workflow definition, use se
             "uri": "https://www.microsoft.com",
             "authentication": {
                "type": "Basic",
-               "username": "@parameters('usernameParam')",
-               "password": "@parameters('passwordParam')"
+               "username": "@parameters('basicAuthUsernameParam')",
+               "password": "@parameters('basicAuthPasswordParam')"
             }
          },
          "runAfter": {}
       }
    },
    "parameters": {
-      "passwordParam": {
+      "basicAuthPasswordParam": {
          "type": "securestring"
       },
-      "usernameParam": {
+      "basicAuthUsernameParam": {
          "type": "securestring"
       }
    },
@@ -339,22 +335,22 @@ To protect sensitive information in your logic app's workflow definition, use se
 
 ### Secure parameters in Azure Resource Manager templates
 
-A Resource Manager template that includes a workflow definition includes more than one `parameters` sections:
+A Resource Manager template for a logic app has multiple `parameters` sections. To protect passwords, keys, secrets, and other sensitive information, define secured parameters at the template level and workflow definition level by using the `securestring` or `secureobject` type. You can then store these values in [Azure Key Vault](../key-vault/key-vault-whatis.md) and use the [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values) to reference the key vault and secret. Your template then retrieves that information at deployment. For more information, see [Use Azure Key Vault to pass secure parameter values at deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-* At the template level, the top level `parameters` section defines the parameters that accept the values to use at deployment, such as the connection strings to use for various deployment environments.
+Here is more information about these `parameters` sections:
 
-  To specify the environment values for template parameters, you can use a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values). If you use secrets, you can define and use secured template parameters that retrieve those secrets from [Azure Key Vault](../key-vault/key-vault-whatis.md) at deployment. You can then reference the key vault and secret in your [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values). For more information, see [Use Azure Key Vault to pass secure parameter values at deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+* At the template's top level, a `parameters` section defines the parameters for the values that the template uses at *deployment*. For example, these values can include connection strings for a specific deployment environment. You can then store these values in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#pass-parameter-values), which makes changing these values easier.
 
-* In your logic app's resource definition, but outside your workflow definition, the `parameters` section specifies the values used by the parameters in your workflow definition by referencing your template's parameters.
+* Inside your logic app's resource definition, but outside your workflow definition, a `parameters` section specifies the values for your workflow definition's parameters. In this section, you can assign these values by using template expressions that reference your template's parameters. These expressions are evaluated at deployment.
 
-* Inside your workflow definition, the innermost `parameters` section defines the parameters that accept the values to use at your logic app's runtime.
+* Inside your workflow definition, a `parameters` section defines the parameters that your logic app uses at runtime. You can then reference these parameters inside your logic app's workflow by using workflow definition expressions, which are evaluated at runtime.
 
-This example shows a template that defines more than one secured parameter, which uses the `securestring` type:
+This example template that has multiple secured parameter definitions that use the `securestring` type:
 
 | Parameter name | Description |
 |----------------|-------------|
-| `TemplatePasswordParam` | A template parameter that accepts a password that's passed to the workflow definition's `logicAppWfParam` parameter |
-| `logicAppWfParam` | A workflow definition parameter that accepts input for the HTTP action that uses basic authentication |
+| `TemplatePasswordParam` | A template parameter that accepts a password, which is passed to the workflow definition's `logicAppPasswordParam` parameter |
+| `basicAuthPasswordParam` | A workflow definition parameter that accepts the password in an HTTP action that uses basic authentication |
 |||
 
 ```json
@@ -429,18 +425,18 @@ This example shows a template that defines more than one secured parameter, whic
                         "uri": "https://www.microsoft.com",
                         "authentication": {
                            "type": "Basic",
-                           "username": "@parameters('usernameParam')",
-                           "password": "@parameters('logicAppWfParam')"
+                           "username": "@parameters('basicAuthUsernameParam')",
+                           "password": "@parameters('basicAuthPasswordParam')"
                         }
                      },
                   "runAfter": {}
                   }
                },
                "parameters": {
-                  "logicAppWfParam": {
+                  "basicAuthPasswordParam": {
                      "type": "securestring"
                   },
-                  "usernameParam": {
+                  "basicAuthUsernameParam": {
                      "type": "securestring"
                   }
                },
@@ -457,7 +453,7 @@ This example shows a template that defines more than one secured parameter, whic
                "outputs": {}
             },
             "parameters": {
-               "logicAppWfParam": {
+               "basicAuthPasswordParam": {
                   "value": "[parameters('TemplatePasswordParam')]"
                }
             }
