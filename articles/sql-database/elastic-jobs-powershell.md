@@ -285,6 +285,7 @@ $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 The following table lists the possible job execution states:
 
 |State|Description|
+|:---|:---|
 |**Created** | The job execution was just created and is not yet in progress.|
 |**InProgress** | The job execution is currently in progress.|
 |**WaitingForRetry** | The job execution wasn’t able to complete its action and is waiting to retry.|
