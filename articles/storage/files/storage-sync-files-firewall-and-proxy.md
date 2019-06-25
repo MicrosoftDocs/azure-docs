@@ -120,6 +120,7 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 | Public | Japan West | https://japanwest01.afs.azure.net | Japan East | https://tm-japanwest01.afs.azure.net |
 | Public | Korea Central | https://koreacentral01.afs.azure.net/ | Korea South | https://tm-koreacentral01.afs.azure.net/ |
 | Public | Korea South | https://koreasouth01.afs.azure.net/ | Korea Central | https://tm-koreasouth01.afs.azure.net/ |
+| Public | North Central US | https://northcentralus01.afs.azure.net | South Central US | https://tm-northcentralus01.afs.azure.net |
 | Public | North Europe | https://kailani7.one.microsoft.com | West Europe | https://tm-kailani7.one.microsoft.com |
 | Public | South Central US | https://southcentralus01.afs.azure.net | North Central US | https://tm-southcentralus01.afs.azure.net |
 | Public | South India | https://kailani-sin.one.microsoft.com | Central India | https://tm-kailani-sin.one.microsoft.com |
