@@ -112,8 +112,8 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         return func.HttpResponse(f"Hello {name}!")
     else:
         return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
+            "Please pass a name on the query string or in the request body",
+            status_code=400
         )
 ```
 

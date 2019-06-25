@@ -35,7 +35,9 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## <a id="registermodel"></a> Register your model
 
-Register your machine learning models in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
+A registered model logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in the workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
 
 ### Register a model from an Experiment Run
 
@@ -44,11 +46,18 @@ Register your machine learning models in your Azure Machine Learning workspace. 
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
+
+  > [!TIP]
+  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+
 + **Using the CLI**
+
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
+  > [!TIP]
+  > To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
 
 + **Using VS Code**
 
@@ -73,10 +82,16 @@ You can register an externally created model by providing a **local path** to th
                          description = "MNIST image classification CNN from ONNX Model Zoo",)
   ```
 
+  > [!TIP]
+  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+
 + **Using the CLI**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
+
+  > [!TIP]
+  > To include multiple files in the model registration, set `-p` to the directory that contains the files.
 
 **Time estimate**: Approximately 10 seconds.
 
@@ -106,12 +121,14 @@ The script contains two functions that load and run the model:
 * `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
 #### What is get_model_path?
-When you register a model, you provide a model name used for managing the model in the registry. You use this name in the get_model_path API which returns the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory which contains those files.
 
-When you register a model, you give it a name which corresponds to where the model is placed, either locally or during service deployment.
+When you register a model, you provide a model name used for managing the model in the registry. You use this name with the [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) to retrieve the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory that contains those files.
 
-The below example will return a path to a single file called 'sklearn_mnist_model.pkl' (which was registered with the name 'sklearn_mnist')
-```
+When you register a model, you give it a name, which corresponds to where the model is placed, either locally or during service deployment.
+
+The below example will return a path to a single file called `sklearn_mnist_model.pkl` (which was registered with the name `sklearn_mnist`):
+
+```python
 model_path = Model.get_model_path('sklearn_mnist')
 ``` 
 
@@ -289,7 +306,8 @@ The following sections demonstrate how to create the deployment configuration, a
 
 ### Optional: Profile your model
 Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements.
-You can do this via the SDK or CLI.
+
+You can do profile your model using either the SDK or CLI.
 
 For more information, you can check out our SDK documentation here: 
 https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
@@ -384,7 +402,7 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
 Learn more about AKS deployment and autoscale in the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
 #### Create a new AKS cluster<a id="create-attach-aks"></a>
-**Time estimate:** Approximately 5 minutes.
+**Time estimate**: Approximately 20 minutes.
 
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
 
@@ -423,10 +441,11 @@ For more information on the `cluster_purpose` parameter, see the [AksCompute.Clu
 
 > [!IMPORTANT]
 > For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
-
-**Time estimate**: Approximately 20 minutes.
+>
+> The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure portal. You can only change the node count, not the VM size of the cluster.
 
 #### Attach an existing AKS cluster
+**Time estimate:** Approximately 5 minutes.
 
 If you already have AKS cluster in your Azure subscription, and it is version 1.12.##, you can use it to deploy your image.
 
