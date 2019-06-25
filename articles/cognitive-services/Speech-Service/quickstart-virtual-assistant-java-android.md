@@ -131,7 +131,7 @@ The text and graphical representation of your UI should now look like this:
         private static String channelSecret = "YourChannelSecret";
         // Replace below with your own speech subscription key
         private static String speechSubscriptionKey = "YourSpeechSubscriptionKey";
-        // Replace below with your own speech service region (note: only 'westus2' is currently supported)
+        // Replace below with your own speech service region (note: only a subset of regions are currently supported)
         private static String serviceRegion = "YourSpeechServiceRegion";
 
         private DialogServiceConnector connector;
@@ -249,7 +249,7 @@ The text and graphical representation of your UI should now look like this:
 
    * The method `onBotButtonClicked` is, as noted earlier, the button click handler. A button press triggers a single interaction ("turn") with your bot.
 
-   * The `registerEventListeners` method demonstrates the events used by the DialogServiceConnector and basic handling of incoming activities.
+   * The `registerEventListeners` method demonstrates the events used by the `DialogServiceConnector` and basic handling of incoming activities.
 
 1. In the same file, replace the configuration strings to match your resources:
 
@@ -257,7 +257,7 @@ The text and graphical representation of your UI should now look like this:
 
     * Replace `YourSpeechSubscriptionKey` with your subscription key.
 
-    * Replace `YourServiceRegion` with the [region](regions.md) associated with your subscription (Note: only a subset of Speech Services regions are currently supported; see [the list](regions.md#voice-first-virtual-assistants) for details).
+    * Replace `YourServiceRegion` with the [region](regions.md) associated with your subscription Only a subset of Speech Services regions are currently supported with Direct Line Speech. For more information, see [regions](regions.md#voice-first-virtual-assistants).
 
 ## Build and run the app
 
@@ -278,10 +278,11 @@ Once the application and its activity have launched, click the button to begin t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
 > [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-> [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## See also
 - [About voice-first virtual assistants](voice-first-virtual-assistants.md)
+- [Get a Speech Services subscription key for free](get-started.md)
 - [Custom wake words](speech-devices-sdk-create-kws.md)
+- [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)

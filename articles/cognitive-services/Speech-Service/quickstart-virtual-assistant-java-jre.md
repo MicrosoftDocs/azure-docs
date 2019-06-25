@@ -141,15 +141,12 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
     * Replace the string `YourChannelSecret` with your direct line speech channel secret.
 
     > [!NOTE]
-    > In preview, the Direct Line Speech channel currently supports only the **westus2** region.
-
-    > [!NOTE]
-    > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.
+    > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only 'westus2' is currently supported
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only a subset of regions are currently supported
     final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
 
     // Configure audio input from microphone.
@@ -473,11 +470,11 @@ Additional samples, such as how to read speech from an audio file, are available
 
 > [!div class="nextstepaction"]
 > [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-> [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 
-- [Quickstart: Translate speech, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [About voice-first virtual assistants](voice-first-virtual-assistants.md)
+- [Get a Speech Services subscription key for free](get-started.md)
+- [Custom wake words](speech-devices-sdk-create-kws.md)
+- [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)

@@ -238,7 +238,7 @@ This quickstart will describe, step by step, how to make a simple client applica
 1. Next, you'll create the `DialogServiceConnector` with your subscription information. Add the following to the method body of `InitializeDialogServiceConnector`, replacing the strings `YourChannelSecret`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
 
     > [!NOTE]
-    > In preview, the Direct Line Speech channel currently supports only the **westus2** region.
+    > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
 
     > [!NOTE]
     > For information on configuring your bot and retrieving a channel secret, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
@@ -248,7 +248,7 @@ This quickstart will describe, step by step, how to make a simple client applica
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
     const string channelSecret = "YourChannelSecret"; // Your channel secret
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-    const string region = "YourServiceRegion"; // Your subscription service region. Note: only 'westus2' is currently supported
+    const string region = "YourServiceRegion"; // Your subscription service region. Note: only a subset of regions are currently supported
 
     var botConfig = DialogServiceConfig.FromBotSecret(channelSecret, speechSubscriptionKey, region);
     botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
@@ -351,12 +351,12 @@ This quickstart will describe, step by step, how to make a simple client applica
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get a Speech Services subscription key for free](get-started.md)
 > [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 
-- [Translate speech](how-to-translate-speech-csharp.md)
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [About voice-first virtual assistants](voice-first-virtual-assistants.md)
+- [Get a Speech Services subscription key for free](get-started.md)
+- [Custom wake words](speech-devices-sdk-create-kws.md)
+- [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
