@@ -179,7 +179,7 @@ When you activate the staging feature, first the data is copied from the source 
 
 When you activate data movement by using a staging store, you can specify whether you want the data to be compressed before you move data from the source data store to an interim or staging data store and then decompressed before you move data from an interim or staging data store to the sink data store.
 
-Currently, you can't copy data between two on-premises data stores by using a staging store.
+Currently, you can't copy data between two data stores that are connected via different Self-hosted IRs, neither with nor without staged copy. For such scenario, you can configure two explicitly chained copy activity to copy from source to staging then from staging to sink.
 
 ### Configuration
 
