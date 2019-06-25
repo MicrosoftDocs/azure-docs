@@ -91,6 +91,8 @@ headers = {
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Create a request to determine sentence length
 
 Define the sentence (or sentences) that you want to determine the length of:

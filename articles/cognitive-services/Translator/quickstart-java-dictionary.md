@@ -130,6 +130,8 @@ public String Post() throws IOException {
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Create a function to parse the response
 
 This simple function parses and prettifies the JSON response from the Translator Text service.
