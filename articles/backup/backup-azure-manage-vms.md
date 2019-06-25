@@ -126,7 +126,7 @@ To stop protection and delete data of a VM:
 
 ## Resume protection of a VM
 
-If you keep backup data when you stop the VM, you can later resume protection. If you delete the backup data, you can't resume protection.
+If you had chosen [Stop protection and retain backup data](#stop-protection-and-retain-backup-data) option during stop VM protection, then you can use Resume backup. This option is not available if you choose [Stop protection and delete backup data](#stop-protection-and-delete-backup-data) option or [Delete backup data](#delete-backup-data).
 
 To resume protection for a VM:
 
@@ -139,7 +139,7 @@ To resume protection for a VM:
 
 ## Delete backup data
 
-You can delete a VM's backup data during the **Stop backup** job or after the backup job finishes. Before you delete backup data, keep these details in mind:
+You can delete a VM's backup data during the **Stop backup** job when you choose [Stop protection and delete backup data](#stop-protection-and-delete-backup-data) or after the backup job finishes. Before you delete backup data, keep these details in mind:
 
 - It might be a good idea to wait days or weeks before you delete the recovery points.
 - Unlike the process for restoring recovery points, when you delete backup data, you can't choose specific recovery points to delete. If you delete your backup data, you delete all associated recovery points.
