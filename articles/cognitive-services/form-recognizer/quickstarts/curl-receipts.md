@@ -10,7 +10,7 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: pafarley
-#Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use a pre-trained Form Recognizer model to extract my receipt data.
+#Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use a pre-built Form Recognizer model to extract my receipt data.
 ---
 
 # Quickstart: Extract receipt data using the Form Recognizer REST API with cURL
