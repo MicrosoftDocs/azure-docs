@@ -5,20 +5,22 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/02/2019
+ ms.date: 06/24/2019
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
 
-Ephemeral OS disks are created on the local Virtual Machine (VM) storage and not persisted to the remote Azure Storage. Ephemeral OS disks work well for stateless workloads, where applications are tolerant of individual VM failures, but are more concerned about the time it takes for large-scale deployments or time to reimage the individual VM instances. It is also suitable for applications, deployed using the classic deployment model, to move to the Resource Manager deployment model. With Ephemeral OS disk, you would observe lower read/write latency to the OS disk and faster VM reimage. In addition, Ephemeral OS disk is free, you incur no storage cost for OS disk. 
+Ephemeral OS disks are created on the local virtual machine (VM) storage and not saved to the remote Azure Storage. Ephemeral OS disks work well for stateless workloads, where applications are tolerant of individual VM failures, but are more affected by VM deployment time or reimaging the individual VM instances. With Ephemeral OS disk, you get lower read/write latency to the OS disk and faster VM reimage. 
  
 The key features of ephemeral disks are: 
-- They can be used with both Marketplace images and custom images.
-- You can deploy VM Images up to the size of the VM Cache.
-- Ability to fast reset or reimage their VMs to the original boot state.  
-- Lower run-time latency similar to a temporary disk. 
-- No cost for the OS disk. 
+- Ideal for stateless applications.
+- They can be used with both Marketplace and custom images.
+- Ability to fast reset or reimage VMs and scale set instances to the original boot state.  
+- Lower latency, similar to a temporary disk. 
+- Ephemeral OS disks are free, you incur no storage cost for OS disk.
+- They are available in all Azure regions. 
  
+
  
 Key differences between persistent and ephemeral OS disks:
 
@@ -34,19 +36,30 @@ Key differences between persistent and ephemeral OS disks:
 | OS disk resize              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
 | Resizing to a new VM size   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned                                      |
 
+## Size requirements
+
+You can deploy VM and instance images up to the size of the VM cache. For example, Standard Windows Server images from the marketplace are about 127 GiB,  which means that you need a VM size that has a cache larger than 127 GiB. In this case, the [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) has a cache size of 86 GiB, which is not large enough. The Standard_DS2_v2 has a cache size of 172 GiB, which is large enough. In this case, the Standard_DS3_v2 is the smallest size in the DSv2 series that you can use with this image. Basic Linux images in the Marketplace and Windows Server images that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
+
+Ephemeral disks also require that the VM size supports Premium storage. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](sizes.md) for details around which sizes support Premium storage.
 
 ## PowerShell
 
-To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration and set the `-DiffDiskSetting` to `Local`.     
+To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching ReadOnly`.     
 
 ```powershell
-Set-AzVMOSDisk -DiffDiskSetting Local
+Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
 ```
 
+For scale set deployments, use the [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet in your configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching ReadOnly`.
+
+
+```powershell
+Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
+```
 
 ## CLI
 
-To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az-vm-create) to `true`.
+To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az-vm-create) to `true` and the `--os-disk-caching` parameter to `ReadOnly`.
 
 ```azurecli-interactive
 az vm create \
@@ -54,10 +67,12 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --ephemeral-os-disk true \
+  --os-disk-caching ReadOnly \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
 
+For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az-vmss-create) and set the `--os-disk-caching` parameter to `ReadOnly`.
 
 ## Scale set template deployment  
 The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the 
