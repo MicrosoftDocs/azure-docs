@@ -40,9 +40,12 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### Register feature flag for your subscription
+### Register feature flags for your subscription
 
 To create an AKS cluster that availability zones, first enable some feature flags on your subscription. Clusters use a virtual machine scale set (VMSS) to manage the deployment and configuration of the Kubernetes nodes. The *standard* SKU of the Azure load balancer is also required to provide resiliency for the network components to route traffic into your cluster. Register the *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*, and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
+
+> [!CAUTION]
+> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
@@ -137,3 +140,5 @@ This article detailed how to create an AKS cluster that uses availability zones.
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [standard-lb-limitations]: load-balancer-standard.md#limitations
+[az-extension-list]: /cli/azure/extension#az-extension-list
+[az-extension-update]: /cli/azure/extension#az-extension-update
