@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. You will learn how to run the microservices in IntelliJ. A local microservices deployment will use the following cloud services: IoT Hub, Azure Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights services in the cloud.
+This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. You'll learn how to run the microservices in IntelliJ. A local microservices deployment will use the following cloud services: IoT Hub, Azure Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights services in the cloud.
 
 If you want to run the Remote Monitoring solution accelerator in Docker on your local machine, see [Deploy the Remote Monitoring solution accelerator locally - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
