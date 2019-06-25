@@ -12,14 +12,14 @@ ms.author: danlep
 
 When using an Azure container registry, you might occasionally encounter problems. For example, you might not be able to pull a container image because of an issue with Docker in your local environment. Or, a network issue might prevent you from connecting to the registry. 
 
-As a first diagnostic step, use the [az acr check-health][az-acr-check-health] command to get information about the health of the environment and optionally connectivity to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+As a first diagnostic step, use the [az acr check-health][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
 ## Run `az acr check-health`
 
 The follow examples show different ways to run the `az acr check-health` command.
 
 > [!NOTE]
-> If you run the command in Azure Cloud Shell, the local environment is not checked. However, you can check the health of a target registry.
+> If you run the command in Azure Cloud Shell, the local environment is not checked. However, you can check the access to a target registry.
 
 ### Check the environment only
 
