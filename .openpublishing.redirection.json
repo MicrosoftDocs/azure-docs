@@ -1557,17 +1557,17 @@
     },
     {
       "source_path": "articles/cosmos-db/sql-api-dotnet-get-started-preview.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-get-started.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/sql-api-dotnet-core-get-started-preview.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-get-started.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-get-started.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-get-started",
       "redirect_document_id": false
     },
     {
