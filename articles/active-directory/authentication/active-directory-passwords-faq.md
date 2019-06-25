@@ -111,7 +111,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How can I educate my users about where to go to reset their passwords?**
 
-  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#sample-communication) article.
+  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#communications-plan) article.
   >
   >
 * **Q:  Can I use this page from a mobile device?**
