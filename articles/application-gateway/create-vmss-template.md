@@ -13,7 +13,7 @@ ms.author: victorh
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md)
 
-This article walks you through downloading and modifying an existing [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) from GitHub and deploying the template from GitHub, PowerShell, and the Azure CLI.
+This article walks you through downloading and modifying an existing [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) from GitHub and deploying the template from GitHub, Azure PowerShell, and the Azure CLI.
 
 If you're simply deploying the template directly from GitHub without any changes, skip to deploy a template from GitHub.
 
@@ -105,21 +105,21 @@ You can download the existing Azure Resource Manager template to create a virtua
 
 1. Save the file. You can test the JSON template and parameter template using online JSON validation tools like [JSlint.com](https://www.jslint.com/).
 
-## Deploy the Azure Resource Manager template using PowerShell
+## Deploy the Azure Resource Manager template using Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-If you have never used Azure PowerShell, visit: [How to install and configure Azure PowerShell](/powershell/azure/overview) and follow the instructions to sign into Azure and select your subscription.
+If you have never used Azure PowerShell, see: [How to install and configure Azure PowerShell](/powershell/azure/overview) and follow the instructions to sign into Azure and select your subscription.
 
 1. Connect to Azure
 
-    ```powershell
+    ```azure-powershell
     Connect-AzAccount
     ```
 
 1. Check the subscriptions for the account.
 
-    ```powershell
+    ```azure-powershell
     Get-AzSubscription
     ```
 
@@ -127,19 +127,19 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
 
 1. Choose which of your Azure subscriptions to use.
 
-    ```powershell
+    ```azure-powershell
     Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. If needed, create a resource group using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
 
-    ```powershell
+    ```azure-powershell
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
 1. Run the **New-AzResourceGroupDeployment** cmdlet to deploy the new virtual network using the preceding template and parameter files you downloaded and modified.
     
-    ```powershell
+    ```azure-powershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
@@ -204,9 +204,9 @@ echo $cert
 
 To delete all resources created in this article, complete one of the following steps:
 
-### PowerShell
+### Azure PowerShell
 
-```powershell
+```azure-powershell
 Remove-AzResourceGroup -Name appgatewayRG
 ```
 
