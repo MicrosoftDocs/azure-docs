@@ -97,7 +97,7 @@ $locations = @(
 ) 
 ```
 
-To enable Availability Zones by using Azure portal, make sure to enable the **Geo-redundancy**, **Multi-region Writes**, and choose a region where Availability Zones are supported: 
+You can enable Availability Zones by using Azure portal when creating an Azure Cosmos account. When you create an account, make sure to enable the **Geo-redundancy**, **Multi-region Writes**, and choose a region where Availability Zones are supported: 
 
 ![Enable Availability Zones using Azure portal](./media/high-availability/enable-availability-zones-using-portal.png) 
 
