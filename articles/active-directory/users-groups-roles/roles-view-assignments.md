@@ -25,11 +25,11 @@ In Azure Active Directory (Azure AD), roles can be assigned at directory level o
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to view its properties.
 
-  ![View or edit roles from the Roles and administrators page](./media/roles-view-assignments/role-list.png)
+    ![View or edit roles from the Roles and administrators page](./media/roles-view-assignments/role-list.png)
 
 1. Select **Assignments** to view the assignments for the role.
 
-  ![View role assignments and permissions when you open a role from the list](./media/roles-view-assignments/role-assignments.png)
+    ![View role assignments and permissions when you open a role from the list](./media/roles-view-assignments/role-assignments.png)
 
 ## View the assignments of a role with directory scope using Azure AD PowerShell
 
@@ -97,15 +97,15 @@ HTTP/1.1 200 OK
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select Azure Active Directory, select **App registrations**, and then select the app registration to view its properties.
 
-  ![Create or edit app registrations from the App registrations page](./media/roles-view-assignments/app-registrations.png)
+    ![Create or edit app registrations from the App registrations page](./media/roles-view-assignments/app-registrations.png)
 
 1. Select **Roles and administrators**, and then select a role to view its properties.
 
-  ![View app registration role assignments from the App registrations page](./media/roles-view-assignments/appreg-assignments.png)
+    ![View app registration role assignments from the App registrations page](./media/roles-view-assignments/appreg-assignments.png)
 
 1. Select **Assignments** to view the assignments for the role.
 
-  ![View app registration role assignments from the App registration properties page](./media/roles-view-assignments/appreg-assignments-2.png)
+    ![View app registration role assignments from the properties of an app registration](./media/roles-view-assignments/appreg-assignments-2.png)
 
 ## Next steps
 
