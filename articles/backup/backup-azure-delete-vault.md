@@ -148,8 +148,6 @@ Before removing the Azure backup management server, make sure to perform the ste
      ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 5.  Optionally, provide a reason why you're deleting the data, and add comments.
 
-If you are seeing the below error, then first perform the steps listed in [Deleting backup items from management console](#deleting-backup-items-from-management-console).
-
 > [!NOTE]
 > If you are seeing the below error, then first perform the steps listed in [Deleting backup items from management console](#deleting-backup-items-from-management-console).
 >
