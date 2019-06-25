@@ -18,10 +18,10 @@ ms.author: kumud
 # Azure networking
 
 The networking services in Azure provide a variety of networking capabilities that can be used together or separately. Click any of the following key capabilities to learn more about them:
-- [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using Virtual Network, Virtual WAN, ExpressRoute, VPN Gateway, or Azure DNS.
+- [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, or Azure DNS.
 - [**Application protection services**](#protect) Protect your applications using DDoS protection, Firewall, Network Security Groups, Web Application Firewall, or Virtual Network Endpoints.
 - [**Application delivery services**](#deliver) Deliver applications in the Azure network using CDN, Front Door, Traffic Manager, Application Gateway, or Load Balancer.
-- [**Network monitoring**](#monitor) – Monitor your network resources in Azure using Network Watcher, ExpressRoute Monitor, Azure Monitor, or Virtual Network TAP.
+- [**Network monitoring**](#monitor) – Monitor your network resources in Azure using Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
 
 ## <a name="connect"></a>Connectivity services
  
@@ -157,10 +157,11 @@ This section describes networking services in Azure that help monitor your netwo
 
 |Service|Why use?|Scenario|
 |---|---|---|
-|[Network Watcher](#networkwatcher)|||
-|[ExpressRoute Monitor](#expressroutemonitor)|||
-|[Azure Monitor](#azuremonitor)|||
-|[Virtual Network TAP](#vnettap)|||
+|[Network Watcher](#networkwatcher)|Helps monitor and troubleshoot connectivity issues, helps diagnose VPN, NSG, and routing issues,capture packets on your VM, automates triggering diagnostics tools using Azure Functions and Logic Apps|<p>[Diagnose VM traffic filter problem](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)</p><p>[Diagnose VM routing problem](../network-watcher/diagnose-vm-network-routing-problem.md)</p><p>[Monitor communications between VMs](../network-watcher/connection-monitor.md)</p><p>[Diagnose communication problems between networks](../network-watcher/diagnose-communication-problem-between-networks.md)</p><p>[Log network traffic to and from a VM](../network-watcher/network-watcher-nsg-flow-logging-portal.md)</p>|
+|[ExpressRoute Monitor](#expressroutemonitor)|Provides real-time monitoring of network performance, availability and utilization, helps with auto-discovery of network topology, provides faster fault isolation, detects transient network issues, helps analyze historical network performance characteristics, supports multi-subscription
+||
+|[Azure Monitor](#azuremonitor)|Helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.|<p>[Traffic Manager metrics and alerts](../traffic-manager/traffic-manager-metrics-alerts.md)</p><p>[Azure monitor diagnostics for Standard Load Balancer](../load-balancer/load-balancer-standard-diagnostics.md)</p><p>[Monitor Azure Firewall logs and metrics](../firewall/tutorial-diagnostics.md)</p><p>[Azure web application firewall monitoring and logging](../frontdoor/waf-front-door-monitor.md)</p>|
+|[Virtual Network TAP](#vnettap)|Provides continuous streaming of virtual machine network traffic to packet collector, enables network and application performance management solutions and security analytics tools​|[Create a VNet TAP resource](../virtual-network/virtual-network/tutorial-tap-virtual-network-cli.md)|
 |
 
 ### <a name="networkwatcher"></a>Network Watcher
@@ -170,7 +171,13 @@ To learn about how view ExpressRoute circuit metrics, diagnostic logs and alerts
 ### <a name="azuremonitor"></a>Azure Monitor
 Azure Monitor maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on. For more information, see [Azure Monitor Overview](../azure-monitor/overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 ### <a name="vnettap"></a>Virtual Network TAP
-Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For more information, see [](../virtual-network/virtual-network-tap-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. 
+
+The following picture shows how virtual network TAP works. 
+
+![How virtual network TAP works](../virtual-network/media/virtual-network-tap/architecture.png)
+
+For more information, see [What is Virtual Network TAP](../virtual-network/virtual-network-tap-overview.md).
 
 ## Next steps
 
