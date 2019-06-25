@@ -37,21 +37,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## June 2019
 
-### View a list of available Azure AD features, based on your license
-
-[580332](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=580332&triage=true&fullScreen=false&_a=edit)
-
-**Type:** New feature  
-**Service category:** Other  
-**Product capability:** Directory
-
-You can now view a list of your available and active Azure AD features, based on your license type, from the **Licenses - Overview** page of the Azure portal.
-
-For more information about the **Licenses - Overview** page, see ... For a complete list of available features per license type, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
-
----
-
-### Automate your user account provisioning for these newly supported SaaS apps
+### Automate user account provisioning for these newly-supported SaaS apps
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
@@ -97,62 +83,51 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-[596200](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=596200&triage=true&fullScreen=false&_a=edit)
-
-### View the progress of the Azure AD provisioning service in real time
+### View the real-time progress of the Azure AD provisioning service
 
 **Type:** Changed feature  
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
- 
 
-The Azure AD provisioning configuration experience has been updated with a new progress bar that shows you how close the provisioning service is to completion. In addition, you'll gain insight into how many users were provisioned during the current cycle as well as how many users has been provisioned to date. 
- 
+We've updated the Azure AD provisioning experience to include a new progress bar that shows you how far you are in the user provisioning process. This updated experience also provides information about the number of users provisioned during the current cycle, as well as how many users have been provisioned to date.
+
+For more information, see [Check the status of user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
 
 ---
- 
 
-[630686](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=630686&triage=true&fullScreen=false&_a=edit)
-
-### Skip Service Plan dependency check while assigning license to a group
+### Skip the Service Plan dependency check during group license assignment
 
 **Type:** Changed feature  
 **Service category:** Other  
 **Product capability:** Directory
- 
 
-Assigning a license to a group does an implicit check for Service Plan dependencies. If dependencies are not met, license assignment fails. Customers can now skip the dependency check if they choose to manage the dependency for the users in the group directly or via other group. To learn more about group based licensing in Azure AD see here: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal 
- 
+ Previously, Azure AD automatically checked for Service Plan dependencies, causing the license assignment to fail if the dependencies weren't met. We've updated the group license assignment process so you can now skip the automatic Service Plan dependency check by choosing to directly manage the users in a group or by using another group.
+
+For more information about group-based licensing in Azure AD, see [What is group-based licensing in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal).
 
 ---
- 
 
-[631844](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=631844&triage=true&fullScreen=false&_a=edit)
-
-### Company Branding now shows on sign-out and error screens
+### Company branding now appears on sign out and error screens
 
 **Type:** Changed feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
- 
 
-Sign-in page company branding now shows on the sign-out and error screens as well. No customer action is required to enable this and we'll use the assets you configured in the Company Branding pane in Azure Portal to brand these screens.
+We've updated Azure AD so that your company branding now appears on the sign out and error screens, as well as the sign-in page. You don't have to do anything to turn this feature on, Azure AD simply uses the assets you've already set up in the **Company branding** area of the Azure portal.
 
- 
+For more information about setting up your company branding, see [Add branding to your organization's Azure Active Directory sign-in page](https://docs.microsoft.com/azure/active-directory/fundamentals/customize-branding).
 
 ---
- 
 
-[740029](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=740029&triage=true&fullScreen=false&_a=edit)
-
-### MFA server is no longer available for new deployments
+### Azure Multi-Factor Authentication (MFA) Server is no longer available for new deployments
 
 **Type:** Deprecated  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
- 
 
-As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who want to require multi-factor authentication in their organization must now use cloud-based Azure Multi-Factor Authentication. Customers who activated MFA Server prior to July 1 won't see a change. You'll still be able to download the latest version, get future updates, and generate activation credentials.
+
+For more information, see [Getting started with the Azure Multi-Factor Authentication Server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy). For more information about cloud-based Azure Multi-Factor Authentication, see [Planning a cloud-based Azure Multi-Factor Authentication deployment](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted).
 
 ---
 
