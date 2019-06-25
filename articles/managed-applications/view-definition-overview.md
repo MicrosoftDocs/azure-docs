@@ -17,11 +17,11 @@ This article provides an overview of view definition artifact and its capabiliti
 
 ## View definition artifact
 
-The view definition artifact must be named **viewDefinition.json** and placed at the same level as **createUiDefinition.json** and **mainTemplate.json** in .zip package used for creating a managed application definition. To learn how to create .zip package and publish a managed application definition, see [Publish an Azure Managed Application definition](publish-managed-app-definition-quickstart.md)
+The view definition artifact must be named **viewDefinition.json** and placed at the same level as **createUiDefinition.json** and **mainTemplate.json** in the .zip package that creates a managed application definition. To learn how to create the .zip package and publish a managed application definition, see [Publish an Azure Managed Application definition](publish-managed-app-definition-quickstart.md)
 
 ## View definition schema
 
-The **viewDefinition.json** file has only one top level `views` property, an array of views that will be shown in managed application user interface as a separate menu item in the Table of Contents. Each view should have `kind` property, the type of the view from supported list - [Overview](#overview), [Metrics](#metrics), [CustomResources](#custom-resources). For more information, see current [JSON schema for viewDefinition.json](TODO:).
+The **viewDefinition.json** file has only one top level `views` property, which is an array of views. Each view is shown in the managed application user interface as a separate menu item in the table of contents. Each view has a `kind` property that sets the type of the view. It must be set to one of the following values: [Overview](#overview), [Metrics](#metrics), [CustomResources](#custom-resources). For more information, see current [JSON schema for viewDefinition.json](TODO:).
 
 Sample JSON for view definition:
 
@@ -98,7 +98,7 @@ Sample JSON for view definition:
 
 `"kind": "Overview"`
 
-If this view is provided in **viewDefinition.json**, its content will override the default Overview page in your managed application.
+When you provide this view in **viewDefinition.json**, it overrides the default Overview page in your managed application.
 
 ```json
 {
@@ -126,7 +126,7 @@ If this view is provided in **viewDefinition.json**, its content will override t
 
 `"kind": "Metrics"`
 
-Metrics view allows to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../azure-monitor/platform/data-platform-metrics.md).
+The metrics view enables you to collect and aggregate data from your managed application resources in [Azure Monitor Metrics](../azure-monitor/platform/data-platform-metrics.md).
 
 ```json
 {
@@ -164,7 +164,7 @@ Metrics view allows to collect and aggregate data from your managed application 
 |Property|Required|Description|
 |---------|---------|---------|
 |displayName|Yes|The displayed title of the chart.|
-|chartType|No|The visualization to use for this chart. (Defaults to line chart). Supported chart types: `Bar, Line, Area, Scatter`.|
+|chartType|No|The visualization to use for this chart. By default, it uses a line chart. Supported chart types: `Bar, Line, Area, Scatter`.|
 |metrics|Yes|The array of metrics to plot on this chart. To learn more about metrics supported in Azure portal, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md)|
 
 ### Metric
@@ -181,9 +181,9 @@ Metrics view allows to collect and aggregate data from your managed application 
 
 `"kind": "CustomResources"`
 
-You can define multiple views of this kind. Each view should represent **unique** custom resource type of your custom provider defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
+You can define multiple views for this kind of view. Each view represents a **unique** custom resource type from the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
 
-In this view you can perform GET, PUT, DELETE and POST operations for your custom resource type. POST operations could be global custom action or custom action in a context of your custom resource type.
+In this view you can perform GET, PUT, DELETE and POST operations for your custom resource type. POST operations could be global custom actions or custom actions in a context of your custom resource type.
 
 ```json
 {
@@ -221,23 +221,23 @@ In this view you can perform GET, PUT, DELETE and POST operations for your custo
 |resourceType|Yes|The custom resource type. Must be a **unique** custom resource type of your custom provider.|
 |createUIDefinition|No|Create UI Definition schema for create custom resource command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md)|
 |commands|No|The array of additional toolbar buttons of the CustomResources view, see [commands](#commands).|
-|columns|No|The array of columns of the custom resource. If not defined the `name` column will be shown by default. The column must have `"key"` (The key of the property to display in a view. If nested, use dot as delimiter, for example, `"key": "name"` or `"key": "properties.property1"`) and `"displayName"` (The display name of the property to display in a view) properties, and could have `"optional"` property (if true, the column will be hidden in a view by default).|
+|columns|No|The array of columns of the custom resource. If not defined the `name` column will be shown by default. The column must have `"key"` and `"displayName"`. For key, provide the key of the property to display in a view. If nested, use dot as delimiter, for example, `"key": "name"` or `"key": "properties.property1"`. For display name, provide the display name of the property to display in a view. You can also provide an `"optional"` property. When set to true, the column is hidden in a view by default.|
 
 ## Commands
 
-Commands is an array of additional toolbar buttons that will be displayed on page. Each command represents POST action of your Azure Custom Provider defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers overview](custom-providers-overview.md).
+Commands is an array of additional toolbar buttons that are displayed on page. Each command represents a POST action from your Azure Custom Provider defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers overview](custom-providers-overview.md).
 
 ```json
-    {
-        "commands": [
-            {
-                "displayName": "Start Test Action",
-                "path": "testAction",
-                "icon": "Start",
-                "createUIDefinition": { }
-            },
-        ]
-    }
+{
+    "commands": [
+        {
+            "displayName": "Start Test Action",
+            "path": "testAction",
+            "icon": "Start",
+            "createUIDefinition": { }
+        },
+    ]
+}
 ```
 
 |Property|Required|Description|
