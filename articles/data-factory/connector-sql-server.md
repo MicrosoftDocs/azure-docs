@@ -540,7 +540,7 @@ When you copy data from and to SQL Server, the following mappings are used from 
 
 ## Troubleshoot connection issues
 
-1. Configure your SQL Server to accept remote connections. Start **SQL Server Management Studio**, right-click **server**, and select **Properties**. Select **Connections** from the list, and select the **Allow remote connections to this server** check box.
+1. Configure your SQL Server instance to accept remote connections. Start **SQL Server Management Studio**, right-click **server**, and select **Properties**. Select **Connections** from the list, and select the **Allow remote connections to this server** check box.
 
     ![Enable remote connections](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
 
