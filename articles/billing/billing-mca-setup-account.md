@@ -36,7 +36,7 @@ Before you start the setup, we recommend you do the following:
 - **Understand changes to your billing hierarchy**
   - You new billing account is organized differently than your Enterprise Agreement enrollment. [Understand changes to your billing hierarchy in the new account](#understand-changes-to-your-billing-hierarchy).
 - **Understand changes to your billing administrators' access**
-  - Administrators from your Enterprise Agreement enrollment get access to the billing scopes in the new account.[Understand changes to their access](#changes-to-your-billing-administrators-access).
+  - Administrators from your Enterprise Agreement enrollment get access to the billing scopes in the new account.[Understand changes to their access](#changes-to-billing-administrator-access).
 - **View Enterprise Agreement features that are replaced by the new account**
   - View features of the Enterprise Agreement enrollment that are replaced by features in the new account.
 - **View answers to most common questions**
