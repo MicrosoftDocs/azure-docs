@@ -267,5 +267,5 @@ For more information, see [Security concepts for applications and clusters in AK
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-list]: /cli/azure/extension#az-extension-list
+[az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
