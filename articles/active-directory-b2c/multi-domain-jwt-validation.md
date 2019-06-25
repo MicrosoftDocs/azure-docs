@@ -23,9 +23,11 @@ This article provides an example of how to enable multiple issuers in a .NET web
 
 You need the following resources in place before continuing with the steps in this article:
 
-- :white_check_mark: [Azure AD B2C tenant](tutorial-create-tenant.md)
-- :white_check_mark: [Application registered](tutorial-register-applications.md) in your tenant
-- :white_check_mark: [User flows created](tutorial-create-user-flows.md) in your tenant
+:white_check_mark: [Azure AD B2C tenant](tutorial-create-tenant.md)
+
+:white_check_mark: [Application registered](tutorial-register-applications.md) in your tenant
+
+:white_check_mark: [User flows created](tutorial-create-user-flows.md) in your tenant
 
 ## Get the sample code
 
@@ -55,7 +57,7 @@ Next, record the issuer URIs for both domains (`<your-b2c-tenant>.b2clogin.com` 
     `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 1. Use the **Select domain** drop-down to select the other domain, then perform the previous two steps once again and record its `issuer` value.
 
-You should now have two URIs recorded that are similar to the following:
+You should now have two URIs recorded that are similar to:
 
 ```
 https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
@@ -64,7 +66,7 @@ https://your-b2c-tenant.b2clogin.com/ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 
 ## Update the code with issuer URLs
 
-In this section you update the sample code to enable support for both well-known URIs.
+In this section, you update the sample code to enable support for both well-known URIs.
 
 1. Open the **B2C-WebAPI-DotNet.sln** solution Visual Studio
 1. In the **TaskService** project, open the **Startup.Auth.cs** file in your editor (`TaskService\App_Start\Startup.Auth.cs`)
@@ -85,7 +87,7 @@ In this section you update the sample code to enable support for both well-known
 
 ## Run the code
 
-With both URIs specified in the web API project you can test whether the web application can successfully retrieve tokens from both issuers. Build and run the solution using different `ida:AadInstance` values in the **Web.config** file of TaskWebApp (`TaskWebApp\Web.config`) to perform the test.
+With both URIs specified in the web API project, you can test whether the web application can successfully retrieve tokens from both issuers. Build and run the solution using different `ida:AadInstance` values in the **Web.config** file of TaskWebApp (`TaskWebApp\Web.config`) to perform the test.
 
 For example, run the application first with the current value found in Web.config:
 
