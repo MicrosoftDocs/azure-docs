@@ -1,6 +1,6 @@
 ﻿---
 title: Create an Azure Application Gateway - templates
-description: This article provides instructions to create an Azure application gateway by using the Azure Resource Manager template
+description: This article provides instructions to create an Azure application gateway using the Azure Resource Manager template
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,7 +9,7 @@ ms.date: 6/26/2019
 ms.author: victorh
 ---
 
-# Create an application gateway by using the Azure Resource Manager template
+# Create an application gateway using the Azure Resource Manager template
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md)
 
@@ -103,9 +103,9 @@ You can download the existing Azure Resource Manager template to create a virtua
      }
      ```
 
-1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](https://www.jslint.com/).
+1. Save the file. You can test the JSON template and parameter template using online JSON validation tools like [JSlint.com](https://www.jslint.com/).
 
-## Deploy the Azure Resource Manager template by using PowerShell
+## Deploy the Azure Resource Manager template using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -131,22 +131,22 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
     Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
-1. If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
+1. If needed, create a resource group using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
 
     ```powershell
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Run the **New-AzResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
+1. Run the **New-AzResourceGroupDeployment** cmdlet to deploy the new virtual network using the preceding template and parameter files you downloaded and modified.
     
     ```powershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
-## Deploy the Azure Resource Manager template by using the Azure CLI
+## Deploy the Azure Resource Manager template using the Azure CLI
 
-To deploy the Azure Resource Manager template you downloaded by using Azure CLI, follow the following steps:
+To deploy the Azure Resource Manager template you downloaded using Azure CLI, follow the following steps:
 
 1. If you have never used Azure CLI, see [Install and configure the Azure CLI](/cli/azure/install-azure-cli) and follow the instructions up to the point where you select your Azure account and subscription.
 
@@ -160,13 +160,13 @@ To deploy the Azure Resource Manager template you downloaded by using Azure CLI,
     
     **-l (or --location)**. Azure region where the new resource group is created. For our scenario, it's *westus*.
 
-1. Run the `az group deployment create` cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified in the preceding step. The list shown after the output explains the parameters used.
+1. Run the `az group deployment create` cmdlet to deploy the new virtual network using the template and parameter files you downloaded and modified in the preceding step. The list shown after the output explains the parameters used.
 
     ```azurecli
     az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
     ```
 
-## Deploy the Azure Resource Manager template by using click-to-deploy
+## Deploy the Azure Resource Manager template using click-to-deploy
 
 Click-to-deploy is another way to use Azure Resource Manager templates. It's an easy way to use templates with the Azure portal.
 
