@@ -35,20 +35,20 @@ While wildcard URIs (e.g. https://*.contoso.com) are convenient, they should be 
 Azure AD application model does not support Wildcard URIs for apps that are configured to sign in personal Microsoft accounts and work or school accounts. However, wildcard URIs are allowed for apps that are configured to sign in work or school accounts in an organization's Azure AD tenant today. 
  
 > Note: The new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience does not allow developers to add wildcard URIs on the UI. Adding wilcard URI for apps that sign in work or school accounts is supported only through the manifest editor today.
-> There is a plan to not support wildcard URIs for apps that sign in any account. For compatibility reasons wildcard URIs configured in existing apps will continue to work.
+> We plan to remove support of wildcards in redirect URI for new apps going forward. However, older apps which contain wildcards in redirect URIs won't be broken, they will continue to work.
 
 If your scenario requires you to add redirect URIs more than the maximum limit supported by Azure AD, instead of looking to add a wildcard redirect URI, you can consider one of the following approaches:
 
-### 1. Add redirect URIs to ServicePrincipals
-This approach is suitable if your scenario requires you to add new redirect URIs to your app registration for every new tenant you support. Under this approach, instead of adding redirect URIs to your app registration, you can add redirect URIs to the [ServicePrincipals](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#application-and-service-principal-relationship) that represent your app registration in any Azure AD tenant. 
-
-### 2. Use state parameter
+### 1. Use state parameter
 If you have a number of sub-domains, and if your scenario requires you to redirect users upon successful authentication to the same page where they started, this approach might be helpful. Under this approach:
 
-1) Create a 'common' reply URL per application to process the security tokens you receive from the authorization endpoint.
+1) Create a 'shared' redirect URI per application to process the security tokens you receive from the authorization endpoint.
 2) Your application can send application-specific parameters (e.g., sub-domain URL where the user originated or anything like branding information) in the state parameter. When using state parameter, please ensure you guard against CSRF protection as specified in [section 10.12 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12)). 
 3) The application specific parameters will include all the information needed for application to render the correct experience for the user (i.e. construct the appropriate application state). Please note that the Azure AD authorization endpoint strips HTML from the state parameter, so make sure you are not passing HTML content in this parameter.
-4) When Azure AD sends a response to the 'common' reply URL, it will send the state parameter back to the application.
+4) When Azure AD sends a response to the 'shared' redirect URI, it will send the state parameter back to the application.
 5) The application can then use the value in the state parameter to determine which URL to further send the user to. Please ensure you validate for CSRF protection.
 
 > Note: This approach allows a compromized client to modify the additional parameters sent in the state thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client will need to protect these parameters by encrypting state or verifying it by some other means (e.g. validating domain name in the redirect URI against the token).
+
+### 2. Add redirect URIs to ServicePrincipals
+This approach is suitable when you cannot use satate paramater or your scenario requires you to add new redirect URIs to your app registration for every new tenant you support. Under this approach, instead of adding redirect URIs to your app registration, you can add redirect URIs to the [ServicePrincipals](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#application-and-service-principal-relationship) that represent your app registration in any Azure AD tenant. 
