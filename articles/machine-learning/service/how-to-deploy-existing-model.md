@@ -30,7 +30,7 @@ If you have a machine learning model that was trained outside the Azure Machine 
     > [!TIP]
     > The Python examples in this article assume that the `ws` variable is set to your Azure Machine Learning service workspace.
     >
-    > The CLI examples use a placeholder of `myworkspacee` and `myresourcegroup`. Replace these with the name of your workspace and the resource group that contains it.
+    > The CLI examples use a placeholder of `myworkspace` and `myresourcegroup`. Replace these with the name of your workspace and the resource group that contains it.
 
 * The Azure Machine Learning SDK. For more information, see the Python SDK section of the [Create a workspace](setup-create-workspace.md#sdk) article.
 
@@ -205,13 +205,15 @@ The [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core
 The following Python code defines a deployment configuration for a local deployment. This configuration deploys the model as a web service to your local computer.
 
 > [!IMPORTANT]
-> A local deployment requires a working installation of [Docker](https://www.docker.com/) on your local computer.
+> A local deployment requires a working installation of [Docker](https://www.docker.com/) on your local computer:
 
 ```python
 from azureml.core.webservice import LocalWebservice
 
 deployment_config = LocalWebservice.deploy_configuration()
 ```
+
+For more information, see the [LocalWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) reference.
 
 The CLI loads the deployment configuration from a YAML file:
 
