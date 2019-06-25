@@ -44,14 +44,14 @@ You write a desktop application, and you want to sign in users to your applicati
 
 - If your desktop application supports graphical controls, for instance if it's a Windows.Form application or a WPF application, you can use the interactive token acquisition.
 - For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or AAD joined to acquire a token silently by using Integrated Windows Authentication.
-- Finally, and although it's not recommended, you can use Username/Password in public client applications. It's still needed in some scenarios (like DevOps), but beware that using it will impose constraints on your application. For instance, it can't sign in user who needs to perform multi-factor authentication (conditional access). Also your application won't benefit from single sign-on (SSO).
+- Finally, and although it's not recommended, you can use Username/Password in public client applications. It's still needed in some scenarios (like DevOps), but beware that using it will impose constraints on your application. For instance, it can't sign in user who needs to perform multi-factor authentication (Conditional Access). Also your application won't benefit from single sign-on (SSO).
 
   It's also against the principles of modern authentication and is only provided for legacy reasons.
 
   ![Desktop application](media/scenarios/desktop-app.svg)
 
-- If you're writing a portable command-line tool - probably a .NET Core application running on Linux or Mac - you won't be able to use neither the interactive authentication (as .NET Core doesn't provide a [Web browser](https://aka.ms/msal-net-uses-web-browser)),
-  nor Integrated Windows Authentication. The best option in that case is to use device code flow. This flow is also used for applications without a browser, such as  iOT applications
+- If you're writing a portable command-line tool - probably a .NET Core application running on Linux or Mac - you won't be able to use either the interactive authentication (as .NET Core doesn't provide a [Web browser](https://aka.ms/msal-net-uses-web-browser)),
+  or Integrated Windows Authentication. The best option in that case is to use device code flow. This flow is also used for applications without a browser, such as  IoT applications
 
   ![Browserless application](media/scenarios/device-code-flow-app.svg)
 

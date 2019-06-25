@@ -3,13 +3,13 @@ title: Sharepoint files - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Add secured Sharepoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/24/2019
+ms.author: diberry
 ---
 
 # Add a secured Sharepoint data source to your knowledge base
@@ -31,6 +31,20 @@ You can add all QnA Maker-supported [file types](../Concepts/data-sources-suppor
 
 1. In the QnA Maker portal, on the **Settings** page, [add the URL](edit-knowledge-base.md#add-datasource) to the knowledge base. 
 
+### Images with Sharepoint files
+
+If files include images, those are not extracted. You can add the image, from the QnA Maker portal, after the file is extracted into QnA pairs.
+
+Add the image with the following markdown syntax: 
+
+```markdown
+![Explanation or description of image](URL of public image)
+```
+
+The text in the square brackets, `[]`, explains the image. The URL in the parentheses, `()`, is the direct link to the image. 
+
+When you test the QnA pair in the interactive test panel, in the QnA Maker portal, the image is displayed, instead of the markdown text. This validates the image can be publicly retrieved from your client-application.
+
 ## Permissions
 
 Granting permissions happens when a secured file from a Sharepoint server is added to a knowledge base. Depending on how the Sharepoint is set up and the permissions of the person adding the file, this could require:
@@ -48,7 +62,7 @@ The request begins with a pop-up to authenticate to an Active Directory account.
 
 ![Authenticate User Account](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Once the QnA Maker manager selects the account, the Active Directory administrator will receive a notice that he needs to allow the QnA Maker app (not the QnA Maker manager) access to the Sharepoint resource. The Active Directory manager will need to do this for every Sharepoint resource, but not every document in that resource. 
+Once the QnA Maker manager selects the account, the Active Directory administrator will receive a notice that they need to allow the QnA Maker app (not the QnA Maker manager) access to the Sharepoint resource. The Active Directory manager will need to do this for every Sharepoint resource, but not every document in that resource. 
 
 ### Active directory manager: grant file read access to QnA Maker
 
@@ -137,7 +151,7 @@ Use the following steps to transform the Sharepoint URL into a sharing token.
 
 ### Add or update a Sharepoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) or [updating a knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {

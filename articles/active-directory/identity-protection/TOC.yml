@@ -46,6 +46,8 @@
       href: security-overview.md
     - name: Investigate risky users and sign-ins
       href: howto-investigate-risky-users-signins.md
+    - name: Provide feedback on risk events
+      href: howto-provide-risk-event-feedback.md
     - name: Configure risk policies
       href: howto-configure-risk-policies.md
     - name: Improve detection accuracy

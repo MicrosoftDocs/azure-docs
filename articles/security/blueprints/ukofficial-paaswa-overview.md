@@ -186,7 +186,7 @@ This template uses the following Application Insights components:
 
 #### Azure Activity Logs
 
-[Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log) audits control-plane events for your subscriptions. Using the Activity Log, you can determine the 'what, who, and when' for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties.
+[Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) audits control-plane events for your subscriptions. Using the Activity Log, you can determine the 'what, who, and when' for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties.
 
 #### Azure Monitor
 

@@ -4,7 +4,7 @@ description: This article describes how to create and use databases, containers,
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
 
@@ -50,6 +50,9 @@ When you create an Azure Cosmos container, you configure throughput in one of th
 * **Dedicated provisioned throughput mode**: The throughput provisioned on a container is exclusively reserved for that container and it is backed by the SLAs. To learn more, see [How to provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 
 * **Shared provisioned throughput mode**: These containers share the provisioned throughput with the other containers in the same database (excluding containers that have been configured with dedicated provisioned throughput). In other words, the provisioned throughput on the database is shared among all the “shared throughput” containers. To learn more, see [How to provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
+
+> [!NOTE]
+> You can configure shared and dedicated throughput only when creating the database and container. To switch from dedicated throughput mode to shared throughput mode (and vice versa) after the container is created, you have to create a new container and migrate the data to the new container. You can migrate the data by using the Azure Cosmos DB change feed feature.
 
 An Azure Cosmos container can scale elastically, whether you create containers by using dedicated or shared provisioned throughput modes.
 

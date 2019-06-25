@@ -3,13 +3,13 @@ title: "Quickstart: Get list of supported languages, Node.js - Translator Text A
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with Node.js.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to get a list of supported languages with Node.js
@@ -84,7 +84,7 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Sample response
 
-Find the country abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 This sample has been truncated to show a snippet of the result:
 

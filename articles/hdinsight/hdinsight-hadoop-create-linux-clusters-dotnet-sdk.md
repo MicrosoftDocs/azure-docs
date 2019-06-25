@@ -27,11 +27,11 @@ Learn how to create an [Apache Hadoop](https://hadoop.apache.org/) cluster in Az
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **An Azure storage account**. See [Create a storage account](../storage/common/storage-quickstart-create-account.md).
-* **Visual Studio 2013, Visual Studio 2015 or Visual Studio 2017**.
+* **Visual Studio**.
 
 ## Create clusters
 
-1. Open Visual Studio 2017.
+1. Open Visual Studio.
 2. Create a new Visual C# console application.
 3. From the **Tools** menu, click **NuGet Package Manager**, and then click **Package Manager Console**.
 4. Run the following command in the console to install the packages:

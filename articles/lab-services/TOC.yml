@@ -34,6 +34,8 @@
       href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates 
     - name: Azure PowerShell
       href: samples-powershell.md
+    - name: Azure PowerShell - Az.DevTestLabs2 module
+      href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library      
     - name: Azure CLI
       href: samples-cli.md    
 - name: Concepts
@@ -49,7 +51,11 @@
   - name: DevTest Labs
     items: 
     - name: DevTest Labs concepts
-      href: devtest-lab-concepts.md    
+      href: devtest-lab-concepts.md
+    - name: Best practices for distributed and collaborative development
+      href: best-practices-distributive-collaborative-development-environment.md    
+    - name: Integration with Azure DevOps
+      href: devtest-lab-dev-ops.md
     - name: Scenarios
       items:
       - name: Popular scenarios for using DevTest Labs
@@ -92,6 +98,8 @@
         href: classroom-labs/how-to-use-shared-image-gallery.md            
       - name: Enable remote desktop connection for Linux
         href: classroom-labs/how-to-enable-remote-desktop-linux.md
+      - name: Set or reset passwords for virtual machines 
+        href: classroom-labs/how-to-set-virtual-machine-passwords.md
   - name: DevTest Labs
     items:
     - name: Specify resource group for lab virtual machines
@@ -106,6 +114,8 @@
       href: personal-data-delete-export.md
     - name: Import virtual machines from another lab
       href: import-virtual-machines-from-another-lab.md
+    - name: Configure a lab to use a remote desktop gateway
+      href: configure-lab-remote-desktop-gateway.md
     - name: Create an image factory
       href: image-factory-create.md
       items:
@@ -116,8 +126,9 @@
       - name: Set retention policy and run cleanup scripts
         href: image-factory-set-retention-policy-cleanup.md
     - name: DevTest Labs in the enterprise
-      href: devtest-lab-guidance-prescriptive-adoption.md
       items:
+      - name: DevTest Labs at enterprise scale
+        href: devtest-lab-guidance-prescriptive-adoption.md
       - name: Reference architecture
         href: devtest-lab-reference-architecture.md
       - name: Scale up your DevTest Labs deployment
@@ -176,6 +187,8 @@
         href: integrate-environments-devops-pipeline.md
       - name: Use Platform-as-a-Service (PaaS) services
         href: use-paas-services.md
+      - name: Deploy nested templates 
+        href: deploy-nested-template-environments.md
     - name: Secure access to labs
       items:
       - name: Add lab owners and users
@@ -188,6 +201,8 @@
       items: 
       - name: Set policies and schedules
         href: devtest-lab-set-lab-policy.md
+      - name: Send autoshutdown notifications
+        href: devtest-lab-auto-shutdown.md
       - name: Configure cost management
         href: devtest-lab-configure-cost-management.md
       - name: Configure Azure Marketplace images
@@ -200,6 +215,8 @@
         href: devtest-lab-announcements.md
       - name: Add support info to a lab
         href: devtest-lab-internal-support-message.md
+      - name: Configure a shared image gallery in Azure DevTest Labs
+        href: configure-shared-image-gallery.md
     - name: Select custom image or formula
       href: devtest-lab-comparing-vm-base-image-types.md
     - name: Manage custom images
@@ -268,6 +285,8 @@
       href: /cli/azure/lab
     - name: PowerShell
       href: /powershell/module/az.devtestlabs
+    - name: PowerShell - sample Az.DevTestLabs2 module
+      href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
     - name: REST API
       href: https://docs.microsoft.com/rest/api/dtl/
     - name: Resource Manager template

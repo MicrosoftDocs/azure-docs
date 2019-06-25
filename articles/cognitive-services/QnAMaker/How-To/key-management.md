@@ -3,13 +3,13 @@ title: Resource and key management - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Your QnA Maker service deals with two kinds of keys, subscription keys and endpoint keys.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
 ---
 
@@ -19,7 +19,7 @@ Your QnA Maker service deals with two kinds of keys, **subscription keys** and *
 
 ![key management](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Subscription Keys**: These keys are used to access the [QnA Maker management service APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). These APIs let you perform edit your knowledge base.  
+1. **Subscription Keys**: These keys are used to access the [QnA Maker management service APIs](https://go.microsoft.com/fwlink/?linkid=2092179). These APIs let you perform edit your knowledge base.  
 
 2. **Endpoint Keys**: These keys are used to access the knowledge base endpoint to get a response for a user question. You would typically use this endpoint in your chat bot, or client application code that consumes the QnA Maker service.
  

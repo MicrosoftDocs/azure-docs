@@ -34,6 +34,8 @@
     href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
 - name: Concepts
   items:
+  - name: Choose a streaming analytics technology
+    href: streaming-technologies.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -86,7 +88,7 @@
       href: stream-analytics-test-query.md
     - name: View results on a dashboard
       href: stream-analytics-power-bi-dashboard.md
-    - name: Clean up a job
+    - name: Stop or delete a job
       href: stream-analytics-clean-up-your-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
@@ -147,7 +149,7 @@
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
     - name: Using API for IoT Edge jobs
       href: stream-analytics-cicd-api.md
-  - name: Visual Studio and VS Code
+  - name: Visual Studio
     items:
     - name: Install tools
       href: stream-analytics-tools-for-visual-studio-install.md
@@ -163,8 +165,14 @@
       href: stream-analytics-tools-for-visual-studio-cicd.md
     - name: Write .NET UDF for edge
       href: stream-analytics-edge-csharp-udf-methods.md
-    - name: Explore Stream Analytics in VS Code
-      href: vs-code-how-to.md
+  - name: Visual Studio Code
+    items:
+    - name: Test with sample data
+      href: vscode-local-run.md
+    - name: Set up CI/CD pipeline
+      href: setup-cicd-vs-code.md
+    - name: Explore jobs
+      href: vscode-explore-jobs.md
   - name: Troubleshoot
     items:
     - name: Input
@@ -175,6 +183,8 @@
       href: stream-analytics-troubleshoot-query.md
     - name: Activity and diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
+    - name: Data errors
+      href: data-errors.md
   - name: Integrate with machine learning
     items:
     - name: Sentiment analysis with ML models

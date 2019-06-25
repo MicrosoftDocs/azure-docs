@@ -307,6 +307,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmosdb-nodejs-get-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cognitive-services-content-moderator-samples",
       "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
       "branch": "master",

@@ -25,7 +25,7 @@ After your service application is created and tested in Power BI, you should sav
 
 The business requirements include procedural, contractual, and legal obligations.  You must:
 
-- Be a registered cloud marketplace publisher. If you're not registered, follow the steps in [Become a Cloud Marketplace Publisher](../../become-publisher.md).
+- Be a registered cloud marketplace publisher. If you're not registered, follow the steps in [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE] 
     > Use the same Microsoft Developer Center registration account to sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com). You should have only one Microsoft account for your AppSource offerings. Accounts shouldn't be specific to individual services or offers.

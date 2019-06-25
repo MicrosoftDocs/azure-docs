@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Load data to Azure SQL Data Warehouse | Microsoft Docs'
-description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a public Azure blob to Azure SQL Data Warehouse. 
+description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a public Azure blob to Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: kevin
 ms.reviewer: igorstan
 ---
 
 # Tutorial: Load data to Azure SQL Data Warehouse
 
-This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
+This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -32,7 +32,6 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 ## Before you begin
 
 Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
-
 
 ## Log in to the Azure portal
 
@@ -154,7 +153,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 4. Click **Connect**. The Object Explorer window opens in SSMS. 
 
-5. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **mySampleDatabase** to view the objects in your new database.
+5. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **SampleDW** to view the objects in your new database.
 
     ![database objects](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -227,7 +226,7 @@ Run the following SQL scripts to specify information about the data you wish to 
     CREATE MASTER KEY;
     ```
 
-4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
+4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) statement to define the location of the Azure blob. This is the location of the external worldwide importers data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -1116,7 +1115,7 @@ You did these things:
 > * Viewed the progress of data as it is loading
 > * Created statistics on the newly loaded data
 
-Advance to the migration overview to learn how to migrate an existing database to SQL Data Warehouse.
+Advance to the development overview to learn how to migrate an existing database to SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Learn how to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Design decisions to migrate an existing database to SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

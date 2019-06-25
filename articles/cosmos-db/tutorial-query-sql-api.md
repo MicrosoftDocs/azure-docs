@@ -6,7 +6,7 @@ ms.author: rimman
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 05/21/2019
 ms.reviewer: sngun
 ---
 

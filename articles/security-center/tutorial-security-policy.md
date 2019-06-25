@@ -15,7 +15,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
-ms.author: monhaber
+ms.author: v-mohabe
 ---
 
 # Working with security policies
@@ -128,11 +128,11 @@ As part of the native integration with Azure Policy, Azure Security Center enabl
 
 Important concepts in Azure Policy: 
 
-- A **policy definition** is a rule 
+- A **policy definition** is a rule 
 
-- An **initiative** is a collection of policy definitions (rules) 
+- An **initiative** is a collection of policy definitions (rules) 
 
-- An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
+- An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
 
 Security Center has a built-in initiative that includes all of its security policies. In order to assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.  
 

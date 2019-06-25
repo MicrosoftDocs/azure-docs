@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ---
-# Create an environment from a blueprint sample
+# Tutorial: Create an environment from a blueprint sample
 
 Sample blueprints provide examples of what can be done using Azure Blueprints. Each is a sample with
 a specific intent or purpose, but doesn't create a complete environment by themselves. Each is

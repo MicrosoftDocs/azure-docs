@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
@@ -51,6 +51,7 @@ Because it is a publish setting, you do not see it on the intents or entities pa
 
 ## Add PersonName prebuilt entity 
 
+1. Select **Build** from the navigation menu.
 
 1. Select **Entities** from the left navigation menu.
 
@@ -66,11 +67,11 @@ Because it is a publish setting, you do not see it on the intents or entities pa
 
 Add a new intent to capture employee feedback from members of the company. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Select **Intents** from the left panel.
 
-2. Select **Create new intent**.
+1. Select **Create new intent**.
 
-3. Name the new intent  name `EmployeeFeedback`.
+1. Name the new intent  name `EmployeeFeedback`.
 
     ![Create new intent dialog box with EmployeeFeedback as name](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
@@ -103,7 +104,7 @@ Add a new intent to capture employee feedback from members of the company.
 
 1. Select **Manage** in the top right navigation, then select **Publish settings** from the left menu.
 
-1. Select **Sentiment Analysis** to enable this setting. 
+1. Select **Use sentiment analysis to determine if a user's utterance is positive, negative, or neutral.** to enable this setting. 
 
     ![Turn on Sentiment Analysis as publishing setting](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -115,7 +116,11 @@ Add a new intent to capture employee feedback from members of the company.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and enter `Jill Jones work with the media team on the public portal was amazing`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
+1. Go to the end of the URL in the address and enter the following utterance:
+
+    `Jill Jones work with the media team on the public portal was amazing` 
+
+    The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
     
     ```json
     {
@@ -150,6 +155,8 @@ Add a new intent to capture employee feedback from members of the company.
     ```
 
     The sentimentAnalysis is positive with a score of 86%. 
+
+    Try another utterance by removing the value for `q` in the address bar of the browser: `William Jones did a terrible job presenting his ideas.` The sentiment score indicates a negative sentiment by returning a low score `0.18597582`.
 
 ## Clean up resources
 

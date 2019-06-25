@@ -95,7 +95,7 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for- multiple-nics).
+Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for-multiple-nics).
 
 ## Add a NIC to a VM
 The previous steps created a VM with multiple NICs. You can also add NICs to an existing VM with the Azure CLI. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](change-vm-size.md).
@@ -133,7 +133,7 @@ Start the VM with [az vm start](/cli/azure/vm):
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for- multiple-nics).
+Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for-multiple-nics).
 
 ## Remove a NIC from a VM
 To remove a NIC from an existing VM, first deallocate the VM with [az vm deallocate](/cli/azure/vm). The following example deallocates the VM named *myVM*:
@@ -178,7 +178,7 @@ You can also use a `copyIndex()` to then append a number to a resource name, whi
 
 You can read a complete example of [creating multiple NICs using Resource Manager templates](../../virtual-network/template-samples.md).
 
-Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for- multiple-nics).
+Add routing tables to the guest OS by completing the steps in [Configure the guest OS for multiple NICs](#configure-guest-os-for-multiple-nics).
 
 ## Configure guest OS for multiple NICs
 

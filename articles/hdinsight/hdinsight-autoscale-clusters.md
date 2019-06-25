@@ -11,12 +11,12 @@ ms.author: hrasheed
 ---
 # Automatically scale Azure HDInsight clusters (preview)
 
+> [!Important]
+> The Autoscale feature only works for Spark, Hive and MapReduce clusters created after May 8th 2019. 
+
 Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down. Other types of nodes in the cluster can't be scaled currently.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down. There's no additional charge for this feature.
 
 ## Cluster compatibility
-
-> [!Important]
-> The Autoscale feature only works for clusters created after the public availability of the feature in May 2019. It won't work for pre-existing clusters.
 
 The following table describes the cluster types and versions that are compatible with the Autoscale feature.
 
@@ -183,6 +183,25 @@ You can create an HDInsight cluster with schedule-based Autoscaling an Azure Res
 To enable Autoscale on a running cluster, select **Cluster size** under **Settings**. Then click **Enable autoscale**. Select the type of Autoscale that you want and enter the options for load-based or schedule-based scaling. Finally, click **Save**.
 
 ![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+## Best practices
+
+### Choosing load-based or schedule-based scaling
+
+Consider the following factors before making a decision on which mode to choose:
+
+* Load variance: does the load of the cluster follow a consistent pattern at specific times, on specific days. If not, load based scheduling is a better option.
+* SLA requirements: Autoscale scaling is reactive instead of predictive. Will there be a sufficient delay between when the load starts to increase and when the cluster needs to be at its target size? If there are strict SLA requirements and the load is a fixed known pattern, ‘schedule based’ is a better option.
+
+### Consider the latency of scale up or scale down operations
+
+It can take 10 to 20 minutes for a scaling operation to complete. When setting up a customized schedule, plan for this delay. For example, if you need the cluster size to be 20 at 9:00 AM, set the schedule trigger to an earlier time such as 8:30 AM so that the scaling operation has completed by 9:00 AM.
+
+### Preparation for scaling down
+
+During cluster scaling down process, Autoscale will decommission the nodes to meet the target size. If there are running tasks on those nodes, Autoscale will wait until the tasks are completed. Since each worker node also serves a role in HDFS, the temp data will be shifted to the remaining nodes. So you should make sure there is enough space on the remaining nodes to host all the temp data. 
+
+The running jobs will continue to run and finish. The pending jobs will wait to be scheduled as normal with fewer available worker nodes.
 
 ## Monitoring
 

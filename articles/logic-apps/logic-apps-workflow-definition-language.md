@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 04/30/2018
+ms.date: 05/13/2019
 ---
 
 # Schema reference for Workflow Definition Language in Azure Logic Apps
@@ -20,7 +20,7 @@ That workflow definition uses [JSON](https://www.json.org/)
 and follows a structure that's validated by the 
 Workflow Definition Language schema. This reference 
 provides an overview about this structure and how 
-the schema defines elements in your workflow definition.
+the schema defines attributes in your workflow definition.
 
 ## Workflow definition structure
 
@@ -32,24 +32,75 @@ Here is the high-level structure for a workflow definition:
 ```json
 "definition": {
   "$schema": "<workflow-definition-language-schema-version>",
-  "contentVersion": "<workflow-definition-version-number>",
-  "parameters": { "<workflow-parameter-definitions>" },
-  "triggers": { "<workflow-trigger-definitions>" },
   "actions": { "<workflow-action-definitions>" },
-  "outputs": { "<workflow-output-definitions>" }
+  "contentVersion": "<workflow-definition-version-number>",
+  "outputs": { "<workflow-output-definitions>" },
+  "parameters": { "<workflow-parameter-definitions>" },
+  "staticResults": { "<static-results-definitions>" },
+  "triggers": { "<workflow-trigger-definitions>" }
 }
 ```
 
-| Element | Required | Description |
-|---------|----------|-------------|
-| definition | Yes | The starting element for your workflow definition |
-| $schema | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
-| contentVersion | No | The version number for your workflow definition, which is "1.0.0.0" by default. To help identify and confirm the correct definition when deploying a workflow, specify a value to use. |
-| parameters | No | The definitions for one or more parameters that pass data into your workflow <p><p>Maximum parameters: 50 |
-| triggers | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. <p><p>Maximum triggers: 10 |
-| actions | No | The definitions for one or more actions to execute at workflow runtime <p><p>Maximum actions: 250 |
-| outputs | No | The definitions for the outputs that return from a workflow run <p><p>Maximum outputs: 10 |
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| `definition` | Yes | The starting element for your workflow definition |
+| `$schema` | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
+| `actions` | No | The definitions for one or more actions to execute at workflow runtime. For more information, see [Triggers and actions](#triggers-actions). <p><p>Maximum actions: 250 |
+| `contentVersion` | No | The version number for your workflow definition, which is "1.0.0.0" by default. To help identify and confirm the correct definition when deploying a workflow, specify a value to use. |
+| `outputs` | No | The definitions for the outputs that return from a workflow run. For more information, see [Outputs](#outputs). <p><p>Maximum outputs: 10 |
+| `parameters` | No | The definitions for one or more parameters that pass data into your workflow. For more information, see [Parameters](#parameters). <p><p>Maximum parameters: 50 |
+| `staticResults` | No | The definitions for one or more static results returned by actions as mock outputs when static results are enabled on those actions. In each action definition, the `runtimeConfiguration.staticResult.name` attribute references the corresponding definition inside `staticResults`. For more information, see [Static results](#static-results). |
+| `triggers` | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. For more information, see [Triggers and actions](#triggers-actions). <p><p>Maximum triggers: 10 |
 ||||
+
+<a name="triggers-actions"></a>
+
+## Triggers and actions
+
+In a workflow definition, the `triggers` and `actions` sections 
+define the calls that happen during your workflow's execution. 
+For syntax and more information about these sections, see 
+[Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+<a name="outputs"></a>
+
+## Outputs
+
+In the `outputs` section, define the data that 
+your workflow can return when finished running. 
+For example, to track a specific status or value from each run, 
+specify that the workflow output returns that data.
+
+> [!NOTE]
+> When responding to incoming requests from a service's REST API, 
+> do not use `outputs`. Instead, use the `Response` action type. 
+> For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+Here is the general structure for an output definition:
+
+```json
+"outputs": {
+  "<key-name>": {
+    "type": "<key-type>",
+    "value": "<key-value>"
+  }
+}
+```
+
+| Attribute | Required | Type | Description |
+|-----------|----------|------|-------------|
+| <*key-name*> | Yes | String | The key name for the output return value |
+| <*key-type*> | Yes | int, float, string, securestring, bool, array, JSON object | The type for the output return value |
+| <*key-value*> | Yes | Same as <*key-type*> | The output return value |
+|||||
+
+To get the output from a workflow run, review your logic 
+app's run history and details in the Azure portal or use the 
+[Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
+You can also pass output to external systems, for example, 
+Power BI so that you can create dashboards.
+
+<a name="parameters"></a>
 
 ## Parameters
 
@@ -76,57 +127,104 @@ Here is the general structure for a parameter definition:
 },
 ```
 
-| Element | Required | Type | Description |
-|---------|----------|------|-------------|
-| type | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` and `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | The type for the parameter |
-| defaultValue | Yes | Same as `type` | The default parameter value when no value is specified when the workflow instantiates |
-| allowedValues | No | Same as `type` | An array with values that the parameter can accept |
-| metadata | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app or flow, or the design-time data used by Visual Studio or other tools |
+| Attribute | Required | Type | Description |
+|-----------|----------|------|-------------|
+| <*parameter-type*> | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` and `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | The type for the parameter |
+| <*default-parameter-values*> | Yes | Same as `type` | The default parameter value when no value is specified when the workflow instantiates |
+| <*array-with-permitted-parameter-values*> | No | Array | An array with values that the parameter can accept |
+| `metadata` | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app or flow, or the design-time data used by Visual Studio or other tools |
 ||||
 
-## Triggers and actions
+<a name="static-results"></a>
 
-In a workflow definition, the `triggers` and `actions` sections 
-define the calls that happen during your workflow's execution. 
-For syntax and more information about these sections, see 
-[Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
+## Static results
 
-## Outputs
-
-In the `outputs` section, define the data that 
-your workflow can return when finished running. 
-For example, to track a specific status or value from each run, 
-specify that the workflow output returns that data.
-
-> [!NOTE]
-> When responding to incoming requests from a service's REST API, 
-> do not use `outputs`. Instead, use the `Response` action type. 
-> For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
-
-Here is the general structure for an output definition:
+In the `staticResults` attribute, define an action's mock `outputs` and `status` 
+that the action returns when the action's static result setting is turned on. In the 
+action's definition, the `runtimeConfiguration.staticResult.name` attribute references 
+the name for the static result definition inside `staticResults`. Learn how you can 
+[test logic apps with mock data by setting up static results](../logic-apps/test-logic-apps-mock-data-static-results.md).
 
 ```json
-"outputs": {
-  "<key-name>": {
-    "type": "<key-type>",
-    "value": "<key-value>"
-  }
+"definition": {
+   "$schema": "<...>",
+   "actions": { "<...>" },
+   "contentVersion": "<...>",
+   "outputs": { "<...>" },
+   "parameters": { "<...>" },
+   "staticResults": {
+      "<static-result-definition-name>": {
+         "outputs": {
+            <output-attributes-and-values-returned>,
+            "headers": { <header-values> },
+            "statusCode": "<status-code-returned>"
+         },
+         "status": "<action-status>"
+      }
+   },
+   "triggers": { "<...>" }
 }
 ```
 
-| Element | Required | Type | Description |
-|---------|----------|------|-------------|
-| <*key-name*> | Yes | String | The key name for the output return value |
-| type | Yes | int, float, string, securestring, bool, array, JSON object | The type for the output return value |
-| value | Yes | Same as `type` | The output return value |
+| Attribute | Required | Type | Description |
+|-----------|----------|------|-------------|
+| <*static-result-definition-name*> | Yes | String | The name for a static result definition that an action definition can reference through a `runtimeConfiguration.staticResult` object. For more information, see [Runtime configuration settings](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>You can use any unique name that you want. By default, this unique name is appended with a number, which is incremented as necessary. |
+| <*output-attributes-and-values-returned*> | Yes | Varies | The requirements for these attributes vary based on different conditions. For example, when the `status` is `Succeeded`, the `outputs` attribute includes attributes and values returned as mock outputs by the action. If the `status` is `Failed`, the `outputs` attribute includes the `errors` attribute, which is an array with one or more error `message` objects that have error information. |
+| <*header-values*> | No | JSON | Any header values returned by the action |
+| <*status-code-returned*> | Yes | String | The status code returned by the action |
+| <*action-status*> | Yes | String | The action's status, for example, `Succeeded` or `Failed` |
 |||||
 
-To get the output from a workflow run, 
-review your logic app's run history and 
-details in the Azure portal or use the 
-[Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
-You can also pass output to external systems, for example, 
-Power BI so that you can create dashboards.
+For example, in this HTTP action definition, the `runtimeConfiguration.staticResult.name` 
+attribute references `HTTP0` inside the `staticResults` attribute where the mock outputs 
+for the action are defined. The `runtimeConfiguration.staticResult.staticResultOptions` 
+attribute specifies that the static result setting is `Enabled` on the HTTP action.
+
+```json
+"actions": {
+   "HTTP": {
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.microsoft.com"
+      },
+      "runAfter": {},
+      "runtimeConfiguration": {
+         "staticResult": {
+            "name": "HTTP0",
+            "staticResultOptions": "Enabled"
+         }
+      },
+      "type": "Http"
+   }
+},
+```
+
+The HTTP action returns the outputs in the `HTTP0` definition inside `staticResults`. 
+In this example, for the status code, the mock output is `OK`. For header values, 
+the mock output is `"Content-Type": "application/JSON"`. For the action's status, 
+the mock output is `Succeeded`.
+
+```json
+"definition": {
+   "$schema": "<...>",
+   "actions": { "<...>" },
+   "contentVersion": "<...>",
+   "outputs": { "<...>" },
+   "parameters": { "<...>" },
+   "staticResults": {
+      "HTTP0": {
+         "outputs": {
+            "headers": {
+               "Content-Type": "application/JSON"
+            },
+            "statusCode": "OK"
+         },
+         "status": "Succeeded"
+      }
+   },
+   "triggers": { "<...>" }
+},
+```
 
 <a name="expressions"></a>
 

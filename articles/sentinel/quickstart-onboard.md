@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/27/2019
 ms.author: rkarlin
 #As a security operator, connect all my data sources in one place so I can monitor and protect my environment
 ---
@@ -38,7 +38,7 @@ After you connect your data sources, choose from a gallery of expertly created d
 - Log Analytics workspace. Learn how to [create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. 
-- To use Azure Sentinel, you need either contributor or viewer permissions on the resource group that the workspace belongs to
+- To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to
 - Additional permissions may be needed to connect specific data sources
  
 ## Enable Azure Sentinel <a name="enable"></a>

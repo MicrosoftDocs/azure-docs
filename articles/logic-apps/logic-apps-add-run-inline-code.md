@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/14/2019
 ---
 
 # Add and run code snippets by using inline code in Azure Logic Apps
@@ -22,7 +22,10 @@ to run code that fits this scenario:
 * Finishes running in five seconds or fewer.
 * Handles data up to 50 MB in size.
 * Uses Node.js version 8.11.1. For more information, see 
-[Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+[Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+
+  > [!NOTE]
+  > The require() function isn't supported by the **Inline Code** action for running JavaScript.
 
 This action runs the code snippet and returns the output from 
 that snippet as a token named **Result**, which you can use in 

@@ -5,6 +5,8 @@
   items:
   - name: What is Language Understanding?
     href: what-is-luis.md
+  - name: What's new
+    href: whats-new.md    
 - name: Quickstarts
   items:
   - name: Build prebuilt domain app
@@ -83,12 +85,24 @@
       displayName: roles
     - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
-  - name: Use bot
+  - name: Use with bot
     items:
     - name: With C# 
-      href: luis-csharp-tutorial-bf-v4.md
+      items:
+      - name: 1. Create basic bot
+        href: luis-csharp-tutorial-bf-v4.md 
+        displayName: bot framework, framework, sdk, abs
+      - name: 2. Add telemetry to Application Insights
+        href: luis-tutorial-bot-csharp-appinsights.md
+        displayName: Application insight, kusto
     - name: With Node.js
-      href: luis-nodejs-tutorial-bf-v4.md
+      items: 
+      - name: 1. Create basic bot
+        displayName: bot framework, framework, sdk, abs
+        href: luis-nodejs-tutorial-bf-v4.md
+      - name: 2. Add telemetry to Application Insights
+        displayName: Application insight, kusto
+        href: luis-tutorial-bot-nodejs-appinsights.md      
 - name: Samples
   items:
   - name: Code samples
@@ -197,25 +211,7 @@
     - name: With Bing Spell Check v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
-      href: luis-tutorial-speech-to-intent.md
-    - name: With a bot
-      items:
-        - name: Web app bot
-          items:
-          - name: Node.js
-            displayName: ABS, azure bot, service
-            href: luis-nodejs-tutorial-build-bot-framework-sample.md
-          - name: C#
-            displayName: ABS, azure bot, service
-            href: luis-csharp-tutorial-build-bot-framework-sample.md
-        - name: Application Insights
-          items:
-          - name: Node.js
-            displayName: Application insight, kusto
-            href: luis-tutorial-function-appinsights.md
-          - name: C#
-            displayName: Application insight, kusto
-            href: luis-tutorial-bot-csharp-appinsights.md
+      href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
   - name: Improve prediction accuracy
     items:
     - name: Using the dashboard
@@ -262,7 +258,7 @@
       href: luis-migration-api-v1-to-v2.md
     - name: Migrate to V3 REST API
       href: luis-migration-api-v3.md 
-      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference
+      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
   - name: Use containers
     items:
     - name: Install and run containers
@@ -279,6 +275,8 @@
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Boundaries
     href: luis-boundaries.md
+  - name: Application settings
+    href: luis-reference-application-settings.md
   - name: Prebuilt entity reference
     items:
     - name: Entities per culture
@@ -412,6 +410,8 @@
     displayName: FAQ, import
   - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/LUIS
   - name: UserVoice

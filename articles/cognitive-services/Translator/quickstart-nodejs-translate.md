@@ -3,13 +3,13 @@ title: "Quickstart: Translate text, Node.js - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you translate text from one language to another using the Translator Text API with Node.js.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to translate a string with Node.js
@@ -72,8 +72,7 @@ let options = {
     url: 'translate',
     qs: {
       'api-version': '3.0',
-      'to': 'it',
-      'to': 'de'
+      'to': ['de', 'it']
     },
     headers: {
       'Ocp-Apim-Subscription-Key': subscriptionKey,
