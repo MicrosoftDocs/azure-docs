@@ -33,7 +33,7 @@
       "brand": "azure",
       "feedback_system": "None",
       "titleSuffix": "Azure CycleCloud",
-      "searchScope": ["CycleCloud"],
+      "searchScope": ["Azure","CycleCloud"],
       "breadcrumb_path": "/azure/cyclecloud/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "ms.service": "cyclecloud",
