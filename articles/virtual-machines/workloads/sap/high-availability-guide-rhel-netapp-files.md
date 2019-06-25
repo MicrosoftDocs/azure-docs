@@ -244,13 +244,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```
    # IP address of cluster node 1 
-   **192.168.14.5    anftstsapcl1**
+   <b>192.168.14.5    anftstsapcl1</b>
    # IP address of cluster node 2
-   **192.168.14.6     anftstsapcl2**
+   <b>192.168.14.6     anftstsapcl2</b>
    # IP address of the load balancer frontend configuration for SAP Netweaver ASCS
-   **192.168.14.9    anftstsapvh**
+   <b>192.168.14.9    anftstsapvh</b>
    # IP address of the load balancer frontend configuration for SAP Netweaver ERS
-   **192.168.14.10    anftstsapers**
+   <b>192.168.14.10    anftstsapers</b>
    ```
 
 1. **[1]** Create SAP directories in the Azure NetApp Files volume.  
@@ -268,12 +268,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      sudo mkdir -p usrsap<b>QAS</b>sys
      sudo mkdir -p usrsap<b>QAS</b>pas
      sudo mkdir -p usrsap<b>QAS</b>aas
-     
      # unmount the volume and delete the temporary directory
      sudo cd ..
      sudo umount /saptmp
      sudo rmdir /saptmp
-    </code></pre>
+   </code></pre>
 
 1. **[A]** Create the shared directories
 
