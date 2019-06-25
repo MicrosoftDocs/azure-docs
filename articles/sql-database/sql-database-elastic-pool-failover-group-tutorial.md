@@ -93,7 +93,7 @@ In this step, you will create a [failover group](sql-database-auto-failover-grou
         
     ![Add SQL DB to failover group](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
-1. Select **Select** to apply your elastic pool settings to the failover group, and then select **Create** to create your failover group. 
+1. Select **Select** to apply your elastic pool settings to the failover group, and then select **Create** to create your failover group. Adding the database to the failover group will automatically start the geo-replication process. 
 
 
 ## 4 - Test failover 
