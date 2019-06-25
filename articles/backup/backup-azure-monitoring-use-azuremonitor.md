@@ -21,7 +21,7 @@ Azure Backup provides [built-in monitoring and alerting capabilities](backup-azu
 - If users want alerts for more scenarios
 - If you want to view information from an on-premises component such as System Center Data Protection Manager in Azure, which the portal doesn't show in [**Backup Jobs**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) or [**Backup Alerts**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault).
 
-## Use a Log Analytics workspace
+## Using Log Analytics workspace
 
 > [!NOTE]
 > Data from Azure VM backups, the Azure Backup agent, System Center Data Protection Manager, SQL backups in Azure VMs, and Azure Files share backups is pumped to the Log Analytics workspace through diagnostic settings. 
@@ -220,14 +220,14 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
 
 The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace *20 to 30 minutes* after it's pushed from the RS vault. Here are further details about the lag:
 
-- Across all solutions, the backup service's built-in alerts are pushed as soon as they are created. So they usually appear in the Log Analytics workspace after 20 to 30 minutes.
+- Across all solutions, the backup service's built-in alerts are pushed as soon as they're created. So they usually appear in the Log Analytics workspace after 20 to 30 minutes.
 - Across all solutions, ad hoc backup jobs and restore jobs are pushed as soon as they *finish*.
 - For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they *finish*.
 - For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
 - Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on is pushed at least *once per day.*
 - A change in the backup configuration (such as changing policy or editing policy) triggers a push of all related backup information.
 
-## Use the RS vault's activity logs
+## Using the RS vault's activity logs
 
 You can also use activity logs to get notification for events such as backup success.
 
@@ -236,7 +236,7 @@ You can also use activity logs to get notification for events such as backup suc
 
 ### Sign in to the Azure portal
 
-Sign in into the Azure portal and proceed to the relevant RS vault. In the vault's properties, open the **Activity log** section.
+Sign in into the Azure portal and continue to the relevant RS vault. In the vault's properties, open the **Activity log** section.
 
 ### Identify the appropriate log and create an alert
 
@@ -250,15 +250,15 @@ Select **New alert rule** to open the **Create rule** page. Here you can create 
 
 ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Here the resource is the RS vault itself. You must repeat the same action for all of the vaults in which you want to be notified through activity logs. The condition will not have a threshold, period, or frequency because this is an event-based alert. As soon as the relevant activity log is generated, the alert is raised.
+Here the resource is the RS vault itself. You must repeat the same action for all of the vaults in which you want to be notified through activity logs. The condition won't have a threshold, period, or frequency because this alert is based on events. As soon as the relevant activity log is generated, the alert is raised.
 
-## Use Log Analytics to monitor at scale
+## Using Log Analytics to monitor at scale
 
 You can view all alerts created from activity logs and Log Analytics workspaces in Azure Monitor. Just open the **Alerts** pane on the left.
 
 Although you can get notifications through activity logs, we highly recommend using Log Analytics rather than activity logs for monitoring at scale. Here's why:
 
-- **Limited scenarios**: Notifications through activity logs apply only to Azure VM backups. The notifications have to be set up for every RS vault.
+- **Limited scenarios**: Notifications through activity logs apply only to Azure VM backups. The notifications must be set up for every RS vault.
 - **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [diagnostic logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
 - **Problems with the activity log channel**: In RS vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Sovereign Cloud. If Azure Sovereign Cloud users create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects RS activity logs into a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), these logs don't appear.
 
