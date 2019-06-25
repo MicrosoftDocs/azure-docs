@@ -90,7 +90,7 @@ Read the following SAP Notes and papers first
 High availability(HA) for SAP Netweaver central services requires shared storage.
 To achieve that on Red Hat Linux so far it was necessary to build separate highly available GlusterFS cluster. 
 
-Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using Azure NetApp Files for the shared storage eliminates the need for additional [GlusterFS cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs). Pacemaker is still needed for HA of the SAP Netweaver central services(ASCS/SCS).
+Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using Azure NetApp Files for the shared storage eliminates the need for additional [GlusterFS cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs). Pacemaker is still needed for HA of the SAP Netweaver central services(ASCS/SCS).
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
