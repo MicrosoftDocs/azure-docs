@@ -555,6 +555,22 @@
           href: app/asp-net-dependencies.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+      - name: Application Insights portal
+        items:
+        - name: Transaction diagnostics
+          href: app/transaction-diagnostics.md
+        - name: HockeyApp data
+          href: app/hockeyapp-bridge-app.md
+      - name: Visual Studio
+        items:
+        - name: F5 insights
+          href: app/visual-studio.md
+        - name: Trends
+          href: app/visual-studio-trends.md
+        - name: CodeLens
+          href: app/visual-studio-codelens.md
+      - name: Web App Analytics solution
+        href: insights/azure-web-apps-analytics.md
     - name: Monitor containers
       items:
       - name: Azure Monitor for containers 
