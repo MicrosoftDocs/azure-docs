@@ -25,6 +25,11 @@
       "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
       "redirect_document_id": true
     },
+	{
+      "source_path": "articles/active-directory/saas-apps/realtimeboard-tutorial.md",
+      "redirect_url": "/articles/active-directory/saas-apps/miro-tutorial",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-asm.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
@@ -1491,8 +1496,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cosmos-db/sql-api-sql-query-reference.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-query-reference",
+      "source_path": "articles/cosmos-db/sql-api-query-reference.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
       "redirect_document_id": true
     },
     {
@@ -1532,7 +1537,7 @@
     },
     {
       "source_path": "articles/cosmos-db/sql-api-sql-query.md",
-      "redirect_url": "/azure/cosmos-db/how-to-sql-query",
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
       "redirect_document_id": false
     },
     {
@@ -1544,6 +1549,31 @@
       "source_path": "articles/cosmos-db/regional-failover.md",
       "redirect_url": "/azure/cosmos-db/high-availability",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/search/search-fiddler.md",
+      "redirect_url": "/azure/search/search-get-started-postman",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-create-index-rest-api.md",
+      "redirect_url": "/azure/search/search-get-started-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-create-index-dotnet.md",
+      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-import-data-dotnet.md",
+      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-query-dotnet.md",
+      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-autosuggest-example.md",
@@ -3836,6 +3866,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/vs-azure-tools-resource-groups-ci-in-vsts.md",
+      "redirect_url": "/azure/azure-resource-manager/vs-resource-groups-project-devops-pipelines",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/vs-azure-tools-connected-services-add-active-directory.md",
       "redirect_url": "/azure/active-directory/develop/vs-active-directory-add-connected-service",
       "redirect_document_id": false
@@ -4653,6 +4688,11 @@
     {
       "source_path": "articles/application-gateway/application-gateway-webapplicationfirewall-overview.md",
       "redirect_url": "/azure/application-gateway/application-gateway-web-application-firewall-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-multisite-portal.md",
+      "redirect_url": "/azure/application-gateway/create-multiple-sites-portal",
       "redirect_document_id": false
     },
     {
@@ -12147,7 +12187,7 @@
     },
     {
       "source_path": "articles/cosmos-db/documentdb-sql-query-reference.md",
-      "redirect_url": "/azure/cosmos-db/sql-api-sql-query-reference",
+      "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
       "redirect_document_id": false
     },
     {
@@ -15353,6 +15393,11 @@
     {
       "source_path": "articles/virtual-network/container-networking.md",
       "redirect_url": "/azure/aks/networking-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/stream-analytics/stream-analytics-common-troubleshooting-issues.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshoot-input",
       "redirect_document_id": false
     },
     {
@@ -22460,6 +22505,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/how-to-sql-query.md",
+      "redirect_url": "articles/cosmos-db/sql-query-getting-started",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/sql-query-reference.md",
+      "redirect_url": "articles/cosmos-db/sql-query-getting-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/secure-email-introduction.md",
       "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise/microsoft-365-policies-configurations",
       "redirect_document_id": false
@@ -27122,6 +27177,11 @@
     {
       "source_path": "articles/backup/backup-azure-dpm-introduction-classic.md",
       "redirect_url": "/azure/backup/backup-azure-dpm-introduction",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/backup/backup-azure-monitor-vms.md",
+      "redirect_url": "/azure/backup/backup-azure-monitoring-built-in-monitor",
       "redirect_document_id": false
     },
     {
@@ -35044,6 +35104,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-monitor/log-query/portals.md",
+      "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/log-analytics/log-analytics-log-search-takeaction.md",
       "redirect_url": "/azure/azure-monitor/log-query/take-action",
       "redirect_document_id": true
@@ -36374,6 +36439,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/learn/tutorial-viewdata.md",
+      "redirect_url": "/azure/azure-monitor/log-query/get-started-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -37276,6 +37346,10 @@
     {
       "source_path": "articles/azure-monitor/platform/collect-activity-logs-subscriptions.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log-collect-tenants",
+      "redirect_document_id": false
+    },    {
+      "source_path": "articles/azure-monitor/app/analytics.md",
+      "redirect_url": "/azure/azure-monitor/log-query/portals",
       "redirect_document_id": false
     },
     {

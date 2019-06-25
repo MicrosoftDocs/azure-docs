@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 06/25/2019
 ms.author: jingwang
 
 ---
@@ -153,7 +153,7 @@ To copy data from and to Dynamics, set the type property of the dataset to **Dyn
 > [!IMPORTANT]
 >- When you copy data from Dynamics, the "structure" section is optional but highly recommanded in the Dynamics dataset to ensure a deterministic copy result. It defines the column name and data type for Dynamics data that you want to copy over. To learn more, see [Dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) and [Data type mapping for Dynamics](#data-type-mapping-for-dynamics).
 >- When importing schema in authoring UI, ADF infer the schema by sampling the top rows from the Dynamics query result to initialize the structure construction, in which case columns with no values will be omitted. The same behavior applies to copy executions if there is no explicit structure definition. You can review and add more columns into the Dynamics dataset schema/structure as needed, which will be honored during copy runtime.
->- When you copy data to Dynamics, the "structure" section is optional in the Dynamics dataset. Which columns to copy into is determined by the source data schema. If your source is a CSV file without a header, in the input dataset, specify the "structure" with the column name and data type. They map to fields in the CSV file one by one in order.
+>- When you copy data to Dynamics, the "structure" section is optional in the Dynamics dataset. Which columns to copy into are determined by the source data schema. If your source is a CSV file without a header, in the input dataset, specify the "structure" with the column name and data type. They map to fields in the CSV file one by one in order.
 
 **Example:**
 
@@ -338,9 +338,8 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> The Dynamics data types AttributeType.CalendarRules and AttributeType.PartyList aren't supported.
+> The Dynamics data types AttributeType.CalendarRules, AttributeType.MultiSelectPicklist and AttributeType.PartyList aren't supported.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

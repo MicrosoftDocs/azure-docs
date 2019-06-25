@@ -48,7 +48,7 @@ To create and run the sample, do the following steps:
 import requests
 import time
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 from PIL import Image
@@ -73,7 +73,7 @@ text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/d/dd/Cursive_Writing_on_Notebook_paper.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-data    = {'url': image_url}
+data = {'url': image_url}
 response = requests.post(
     text_recognition_url, headers=headers, json=data)
 response.raise_for_status()
@@ -94,15 +94,15 @@ while (poll):
     print(analysis)
     time.sleep(1)
     if ("recognitionResults" in analysis):
-        poll= False 
+        poll = False
     if ("status" in analysis and analysis['status'] == 'Failed'):
-        poll= False
+        poll = False
 
-polygons=[]
+polygons = []
 if ("recognitionResults" in analysis):
     # Extract the recognized text, with bounding boxes.
     polygons = [(line["boundingBox"], line["text"])
-        for line in analysis["recognitionResults"][0]["lines"]]
+                for line in analysis["recognitionResults"][0]["lines"]]
 
 # Display the image and overlay it with the extracted text.
 plt.figure(figsize=(15, 15))
@@ -110,9 +110,9 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 ax = plt.imshow(image)
 for polygon in polygons:
     vertices = [(polygon[0][i], polygon[0][i+1])
-        for i in range(0, len(polygon[0]), 2)]
-    text     = polygon[1]
-    patch    = Polygon(vertices, closed=True, fill=False, linewidth=2, color='y')
+                for i in range(0, len(polygon[0]), 2)]
+    text = polygon[1]
+    patch = Polygon(vertices, closed=True, fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(vertices[0][0], vertices[0][1], text, fontsize=20, va="top")
 ```
