@@ -155,6 +155,8 @@
         href: configure-azure-cni.md
     - name: Create an internal load balancer
       href: internal-lb.md
+    - name: Use a Standard Load Balancer (preview)
+      href: load-balancer-standard.md
     - name: Use a static IP address
       href: static-ip.md
     - name: Ingress
@@ -189,6 +191,8 @@
       href: use-pod-security-policies.md
     - name: Define API server authorized IP ranges (preview)
       href: api-server-authorized-ip-ranges.md
+    - name: Control deployments with Azure Policy (preview)
+      href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
     - name: Update cluster service principal credentials
       href: update-credentials.md
     - name: Restrict and control cluster egress traffic (preview)
