@@ -1,6 +1,6 @@
 ---
-title: Authenticate access to blobs and queues with managed identities for Azure resources - Azure Storage | Microsoft Docs
-description: Azure Blob and Queue storage support Azure Active Directory authentication with managed identities for Azure resources. You can use managed identities for Azure resources to authenticate access to blobs and queues from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others.  
+title: Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources - Azure Storage
+description: Azure Blob and Queue storage support authorizing access to resources with Azure Active Directory and managed identities for Azure resources. You can use managed identities for Azure resources to authorize access to blobs and queues from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others.  
 services: storage
 author: tamram
 
@@ -12,7 +12,7 @@ ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources
+# Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources
 
 Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
