@@ -36,7 +36,7 @@ You get charged pay-as-you-go rates for using services that aren't included for 
 
 Your free services and quantities expire at the end of 12 months. You can find out when your free services expire in the Azure portal.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the left navigation area, select **All services**.
 

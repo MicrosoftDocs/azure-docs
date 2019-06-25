@@ -26,7 +26,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ## Request billing ownership
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
 
@@ -55,7 +55,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ## Check the transfer request status
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
 

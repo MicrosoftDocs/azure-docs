@@ -22,7 +22,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 To create an invoice section, you need to be a **billing profile owner** or a **billing profile contributor**. For more information, see [manage invoice sections for billing profile](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
 

@@ -44,7 +44,7 @@ To resolve this issue, [switch to a different credit card](billing-how-to-change
 
 If you're the Account Administrator and accidentally canceled an individual subscription with pay-as-you-go rates, you can reactivate it in the Account Center.
 
-1. Sign-in to the [Account Center](https://account.windowsazure.com/Subscriptions).
+1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions).
 1. Select the canceled subscription.
 1. Click **Reactivate**.
 

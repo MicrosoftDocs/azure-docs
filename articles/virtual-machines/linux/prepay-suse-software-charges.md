@@ -23,7 +23,7 @@ You can buy SUSE and RedHat software plans in the Azure portal. To buy a plan:
 
 ## Buy a software plan
 
-1. Sign-in to the Azure portal and go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+1. Sign in to the Azure portal and go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 2. Click **Add** and then select the software plan that you want to buy.
 Fill in the required fields. Any SUSE Linux VM or RedHat VM that matches the attributes of what you buy gets the discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
 3. Select a subscription. It's used to pay for the plan.

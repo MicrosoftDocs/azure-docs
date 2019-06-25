@@ -36,7 +36,7 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
 
 ## Buy SQL Database reserved capacity
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select **Add** and then in the Select Product Type pane, select **SQL Database** to purchase a new reservation for SQL Database.
 4. Fill-in the required fields. Existing or new single databases, elastic pools, or managed instances that match the attributes you select qualify to get the reserved capacity discount. The actual number of your SQL Database instances that get the discount depend on the scope and quantity selected.

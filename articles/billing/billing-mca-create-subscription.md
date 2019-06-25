@@ -24,7 +24,7 @@ To create a subscription, you must be an **invoice section owner**, **invoice se
 
 ## Create a subscription
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Subscriptions**.
 
@@ -50,7 +50,7 @@ To create a subscription, you must be an **invoice section owner**, **invoice se
 
 Add users as Azure subscription creators on an invoice section to give them permission to create Azure subscriptions.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
 

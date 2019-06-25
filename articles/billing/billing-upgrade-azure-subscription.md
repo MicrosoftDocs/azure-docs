@@ -24,7 +24,7 @@ If you have a [Free Trial](https://azure.microsoft.com/free/) or an [Azure for S
 
 When you upgrade from a Free Trial subscription, you keep your remaining credit for the full 30 days after you created the subscription. You also have access to free services for 12 months.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Search for **Subscriptions.**
 
     ![Screenshot that shows search](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
@@ -55,7 +55,7 @@ If you want to [transfer the subscription](billing-subscription-transfer.md) aft
 
 Using the steps below, you can upgrade to a Free Trial, if you are eligible.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Search for **Subscriptions.**
 
     ![Screenshot that shows search](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)

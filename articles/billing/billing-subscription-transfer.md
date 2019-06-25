@@ -27,7 +27,7 @@ Transfer your subscription to another user in the Account Center to change the A
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
 
 
-1. Sign-in at [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Admin. To find out who is the Account Admin of the subscription, see [Frequently asked questions](#faq).
+1. Sign in at [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Admin. To find out who is the Account Admin of the subscription, see [Frequently asked questions](#faq).
 
 1. Select the subscription to transfer.
 
@@ -137,7 +137,7 @@ If the subscription is transferred to another tenant, the users associated with 
 
 If the recipient needs to restrict access to their resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
 
-  1. Sign-in to the [Azure portal](https://portal.azure.com).
+  1. Sign in to the [Azure portal](https://portal.azure.com).
   2. On the Hub menu, select **All resources**.
   3. Select the resource.
   4. In the resource blade, click **Settings**. Here you can view and update existing secrets.

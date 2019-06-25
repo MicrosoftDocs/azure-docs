@@ -169,7 +169,7 @@ Before you click on **Start transition**, you can close the browser. You can com
 
 To complete the setup, you need access to both the new billing account and the Enterprise Agreement enrollment. For more information, see [access required to complete the set up of your billing account](#access-required-to-complete-the-setup).
 
-1. Sign-in to the Azure portal using the link in the email that was sent to you when you signed the Microsoft Customer Agreement.
+1. Sign in to the Azure portal using the link in the email that was sent to you when you signed the Microsoft Customer Agreement.
 
 2. If someone else in your organization signed the agreement or you don't have the email, sign in using the following link. Replace **enrollmentNumber** with the enrollment number of your Enterprise Agreement that was renewed.
 
@@ -194,7 +194,7 @@ To complete the setup, you need access to both the new billing account and the E
 
 ### Azure subscriptions
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
 
@@ -210,7 +210,7 @@ Azure subscriptions that are transitioned from your Enterprise Agreement enrollm
 
 ### Azure Reservations
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
 
@@ -230,7 +230,7 @@ Azure Reservations that are moved from your Enterprise Agreement enrollment to t
 
 ### Access of enterprise administrators on the billing profile
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
 
@@ -246,7 +246,7 @@ Enterprise administrators are listed as billing profile owners while the enterpr
 
 ### Access of enterprise administrators, department administrators, and account owners on invoice sections
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
 

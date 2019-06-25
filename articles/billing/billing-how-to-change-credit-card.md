@@ -25,7 +25,7 @@ In the Azure portal, you can add a new credit card, update an existing credit ca
 
 ## Add a new credit or debit card
 
-1. Sign-in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
@@ -50,7 +50,7 @@ If you get an error after you add the credit card, see [Credit card declined at 
 
 If your credit card gets renewed and the number stays the same, update the existing credit card details like the expiration date. If your credit card number changes because the card is lost, stolen, or expired, follow the steps in the [Add a credit card as a payment method](#addcard) section. You don't need to update the CVV.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
@@ -70,7 +70,7 @@ If your credit card gets renewed and the number stays the same, update the exist
 
 If more than one of your subscriptions have the same active payment method, then changing the active payment method on any of these subscriptions also updates the active payment method on the others.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
@@ -86,7 +86,7 @@ If more than one of your subscriptions have the same active payment method, then
 
 ## Remove a credit or debit card from the account
 
-1. Sign-in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
 1. Select **Cost Management + Billing** on the left side of the page.
 
     ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)

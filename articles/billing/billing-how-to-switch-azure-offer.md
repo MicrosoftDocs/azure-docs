@@ -41,7 +41,7 @@ You can switch from an individual subscription with pay-as-you-go rates to:
 >
 >
 
-1. Sign-in at [Azure Account Center](https://account.windowsazure.com/Subscriptions).
+1. Sign in at [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 1. Select your individual subscription with pay-as-you-go rates.
 1. Click **Switch to another offer**. The option is only available if you have a individual subscription with pay-as-you-go rates and have completed your first billing period.
 

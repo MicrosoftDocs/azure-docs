@@ -19,7 +19,7 @@ You're not charged for services included for free with an Azure free account, un
 
 ## Check usage in the Azure portal
 
-1.	Sign-in to the [Azure portal](https://portal.azure.com).
+1.	Sign in to the [Azure portal](https://portal.azure.com).
 
 2.	In the left navigation area, select **All services**.
 

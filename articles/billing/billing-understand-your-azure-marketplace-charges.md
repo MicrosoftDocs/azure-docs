@@ -48,7 +48,7 @@ If you have a [Microsoft Customer Agreement](#check-access), your third-party ch
 
 If you don't have a Microsoft Customer Agreement, you have separate invoices for third-party charges. You can view and download your Azure Marketplace invoices from the Azure portal by following these steps:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.
 1. In the left menu, select **Invoices**.
 1. Click on the **Azure Marketplace and Reservations** tab.
@@ -63,7 +63,7 @@ EA customers can see external service spending and download reports in the EA po
 
 When purchasing an external service, you choose an Azure subscription for the resource. The payment method of the selected Azure subscription becomes the payment method for the external service. To change the payment method for an external service, you must [change the payment method of the Azure subscription](billing-how-to-change-credit-card.md) tied to that external service. You can figure out which subscription your external service order is tied to by following these steps:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Click on **All Resources** in the left navigation menu.
      ![screenshot of all resources menu item](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
 1. Search for your external service.
@@ -92,7 +92,7 @@ When purchasing an external service, you choose an Azure subscription for the re
 ## Cancel an external service order
 If you want to cancel your external service order, delete the resource in the [Azure portal](https://portal.azure.com).
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Click on **All Resources** in the left navigation menu.
     ![Screenshot of all resources menu item](./media/billing-understand-your-azure-marketplace-charges/all-resources.png)
 1. Search for your external service.

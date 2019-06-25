@@ -39,7 +39,7 @@ A reservation inherits permissions from its reservation order.
 
 To update the scope of a reservation:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select the reservation.
 4. Select **Settings** > **Configuration**.
@@ -60,7 +60,7 @@ To perform an exchange or refund, the user must have access to the reservation o
 
 To delegate access management for a reservation:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Reservation** to list reservations that you have access to.
 3. Select the reservation that you want to delegate access to other users.
 4. Select **Access control (IAM)**.
@@ -119,7 +119,7 @@ For reservations where the scope is single, you can optimize the reservation for
 
 To update the optimize setting for the reservation:
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Reservations**.
 3. Select the reservation.
 4. Select **Settings** > **Configuration**.
