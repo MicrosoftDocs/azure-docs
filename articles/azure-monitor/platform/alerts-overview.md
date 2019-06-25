@@ -28,7 +28,7 @@ The diagram below represents the flow of alerts.
 
 ![Alert Flow](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-Alert rules are separated from alerts and the action that are taken when an alert fires. 
+Alert rules are separated from alerts and the actions that are taken when an alert fires. 
 
 **Alert rule** - The alert rule captures the target and criteria for alerting. The alert rule can be in an enabled or a disabled state. Alerts only fire when enabled. 
 
@@ -89,7 +89,7 @@ Smart groups are aggregations of alerts based on machine learning algorithms, wh
 ## Alerts experience 
 The default Alerts page provides a summary of alerts that are created within a particular time window. It displays the total alerts for each severity with columns that identify the total number of alerts in each state for each severity. Select any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
 
-Alternatively, you can [programmatically enumerate the alert instances generated on your subscription(s) by using REST APIs](#Manage-your-alert-instances-programmatically).
+Alternatively, you can [programmatically enumerate the alert instances generated on your subscription(s) by using REST APIs](#manage-your-alert-instances-programmatically).
 
 It does not show or track older [classic alerts](#classic-alerts). You can change the subscriptions or filter parameters to update the page. 
 
@@ -169,11 +169,11 @@ The Alert details page includes the following sections.
 
 ## Manage your alert instances programmatically
 
-There are many scenarios where you would want to progammatically query for alerts generated against your subscription. This could be to create custom views outside of the Azure Portal, or to analyze your alerts to identify patterns and trends.
+There are many scenarios where you would want to programmatically query for alerts generated against your subscription. This could be to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
 
-You can query for alerts generated against your subscriptions either by using the [Alert Management REST API](https://aka.ms/alert-management-api) or by using the [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+You can query for alerts generated against your subscriptions either by using the [Alert Management REST API](https://aka.ms/alert-management-api) or by using the [Azure Resource Graph REST API for Alerts](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
 
-The [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) allows you to query for alerts at scale. This is recommended for scenarios where you have to manage alerts generated across many subscriptions. 
+The [Azure Resource Graph REST API for Alerts](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) allows you to query for alert instances at scale. This is recommended for scenarios where you have to manage alerts generated across many subscriptions. 
 
 The following sample request to the API returns the count of alerts within one subscription:
 
