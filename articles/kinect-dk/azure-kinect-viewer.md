@@ -105,7 +105,3 @@ When changing configuration or inserting/removing synchronization cable, select 
 
 > [!div class="nextstepaction"]
 >[External synchronization setup guide](https://support.microsoft.com/help/4494429/sync-multiple-azure-kinect-dk-devices)
-
-## Troubleshooting
-
-See [troubleshooting](https://support.microsoft.com/help/4494423/use-azure-kinect-viewer)
