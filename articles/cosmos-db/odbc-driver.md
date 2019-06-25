@@ -4,7 +4,7 @@ description: Learn how to use the Azure Cosmos DB ODBC driver to create tables a
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 05/28/2019
 ms.author: sngun
 
 ---
@@ -93,7 +93,7 @@ There are two types of sampling methods that you can use: **collection mapping**
 
 1. Once you have finished defining the schema, click **File** | **Save**, navigate to the directory to save the schema, and then click **Save**.
 
-    If in the future you want to use this schema with a DSN, open the Azure Cosmos DB ODBC Driver DSN Setup window (via the ODBC Data Source Administrator), click Advanced Options, and then in the Schema File box, navigate to the saved schema. Saving a schema file to an existing DSN modifies the DSN connection to scope to the data and structure defined by schema.
+1. To use this schema with a DSN, open the **Azure Cosmos DB ODBC Driver DSN Setup window** (via the ODBC Data Source Administrator), click **Advanced Options**, and then in the **Schema File** box, navigate to the saved schema. Saving a schema file to an existing DSN modifies the DSN connection to scope to the data and structure defined by schema.
 
 ## <a id="table-mapping"></a>Step 4: Create a schema definition using the table-delimiters mapping method
 

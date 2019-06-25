@@ -11,10 +11,12 @@ ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to configure [newer metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resource Manager template specified for metric alert will not work for resource type: Microsoft.OperationalInsights/workspaces; as support for metrics from Log Analytics is in preview. Users interested in using the preview functionality with resource template, can contact [Azure Alerts Feedback](mailto:azurealertsfeedback@microsoft.com)
+> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see the article on [Metric Alert for Logs - Resource Template](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 The basic steps are as follows:
 
@@ -111,7 +113,8 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -229,11 +232,11 @@ You can create the metric alert using the template and parameters file using Pow
 Using Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile simplestaticmetricalert.json -TemplateParameterFile simplestaticmetricalert.parameters.json
 ```
 
@@ -261,7 +264,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -358,7 +361,8 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -438,7 +442,7 @@ Save the json below as simpledynamicmetricalert.parameters.json and modify it as
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -487,11 +491,11 @@ You can create the metric alert using the template and parameters file using Pow
 Using Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile simpledynamicmetricalert.json -TemplateParameterFile simpledynamicmetricalert.parameters.json
 ```
 
@@ -637,7 +641,7 @@ Save and modify the json below as advancedstaticmetricalert.parameters.json for 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -704,11 +708,11 @@ You can create the metric alert using the template and parameters file using Pow
 
 Using Azure PowerShell
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile advancedstaticmetricalert.json -TemplateParameterFile advancedstaticmetricalert.parameters.json
 ```
 
@@ -739,7 +743,7 @@ Save the json below as advanceddynamicmetricalert.json for the purpose of this w
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -849,7 +853,7 @@ Save and modify the json below as advanceddynamicmetricalert.parameters.json for
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -905,11 +909,11 @@ You can create the metric alert using the template and parameters file using Pow
 
 Using Azure PowerShell
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile advanceddynamicmetricalert.json -TemplateParameterFile advanceddynamicmetricalert.parameters.json
 ```
 
@@ -950,7 +954,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1092,7 +1096,8 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1166,7 +1171,7 @@ Save and modify the json below as all-vms-in-resource-group-static.parameters.js
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1217,11 +1222,11 @@ You can create the static metric alert using the template and parameters file us
 Using Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-resource-group-static.json -TemplateParameterFile all-vms-in-resource-group-static.parameters.json
 ```
 
@@ -1245,7 +1250,7 @@ Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1403,7 +1408,8 @@ Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1482,7 +1488,7 @@ Save and modify the json below as all-vms-in-resource-group-dynamic.parameters.j
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1539,11 +1545,11 @@ You can create the metric alert using the template and parameters file using Pow
 Using Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-resource-group-dynamic.json -TemplateParameterFile all-vms-in-resource-group-dynamic.parameters.json
 ```
 
@@ -1567,7 +1573,7 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1709,7 +1715,8 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1831,11 +1838,11 @@ You can create the metric alert using the template and parameters file using Pow
 Using Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-subscription-static.json -TemplateParameterFile all-vms-in-subscription-static.parameters.json
 ```
 
@@ -2017,7 +2024,8 @@ Save the json below as all-vms-in-subscription-dynamic.json for the purpose of t
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2150,11 +2158,11 @@ You can create the metric alert using the template and parameters file using Pow
 Using Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile all-vms-in-subscription-dynamic.json -TemplateParameterFile all-vms-in-subscription-dynamic.parameters.json
 ```
 
@@ -2320,7 +2328,8 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2445,11 +2454,11 @@ You can create the metric alert using the template and parameters file using Pow
 Using Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile list-of-vms-static.json -TemplateParameterFile list-of-vms-static.parameters.json
 ```
 
@@ -2631,7 +2640,8 @@ Save the json below as list-of-vms-dynamic.json for the purpose of this walk-thr
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2767,11 +2777,11 @@ You can create the metric alert using the template and parameters file using Pow
 Using Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
   -TemplateFile list-of-vms-dynamic.json -TemplateParameterFile list-of-vms-dynamic.parameters.json
 ```
 

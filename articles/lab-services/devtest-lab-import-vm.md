@@ -18,7 +18,7 @@ ms.author: spelluru
 
 ---
 # Import VMs from another lab in Azure DevTest Labs
-The Azure DevTest Labs service significantly improves management of virtual machines (VMs) for development and testing activities. It allows you to move a VM from one lab to another as the team or infrastructure requirements change. Here are some common scenarios where you may need to do so: 
+The Azure DevTest Labs service significantly improves management of virtual machines (VMs) for development and testing activities. It allows you to move a VM from one lab to another as the team or infrastructure requirements change. Here are some common scenarios where you may need to do so:
 
 - A person on the team moves to another group within the enterprise and wants to take development VMs to the new team’s lab.
 - The group has reached the subscription-level quota and wants to split up teams into multiple subscriptions.
@@ -38,10 +38,10 @@ In addition, to be able to import a VM from one lab to another, you need to be t
 Currently, you can import a VM from one lab into another only by using Azure PowerShell and REST API.
 
 ### Use PowerShell
-Download the PowerShell script file ImportVirtualMachines.ps1 from [Azure DevTest Lab Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImportVirtualMachines) to your local drive. 
+Download the PowerShell script file ImportVirtualMachines.ps1 from [Azure DevTest Lab Git repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) to your local drive.
 
 #### Import a single VM
-Run the ImportVirtualMachines.ps1 script to import a single VM from a source lab into a destination lab. You can specify a new name for the VM that's being copied by using the DestinationVirtualMachineName paramer. 
+Run the ImportVirtualMachines.ps1 script to import a single VM from a source lab into a destination lab. You can specify a new name for the VM that's being copied by using the DestinationVirtualMachineName paramer.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -54,7 +54,7 @@ Run the ImportVirtualMachines.ps1 script to import a single VM from a source lab
 
 
 #### Importing all VMs
-When you run the ImportVirtualMachines.ps1 script, if you don't specify a VM in the source lab, the script imports all VMs in the source lab into the destination lab. 
+When you run the ImportVirtualMachines.ps1 script, if you don't specify a VM in the source lab, the script imports all VMs in the source lab into the destination lab.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -64,7 +64,7 @@ When you run the ImportVirtualMachines.ps1 script, if you don't specify a VM in 
 ```
 
 ### Use REST API
-Invoke the REST API against the target/destination lab and pass in the source lab, subscription, and VM information as parameters as shown in the following example: 
+Invoke the REST API against the target/destination lab and pass in the source lab, subscription, and VM information as parameters as shown in the following example:
 
 ```json
 POST https://management.azure.com/subscriptions/<ID of the target/destination subscription>/resourceGroups/<Name of the resource group that contains the destination lab>/providers/Microsoft.DevTestLab/labs/<Name of the lab to which the VMs are copied>/ImportVirtualMachine?api-version=2017-04-26-preview
@@ -78,5 +78,3 @@ POST https://management.azure.com/subscriptions/<ID of the target/destination su
 
 - For information about resizing a VM, see [Resize a VM](devtest-lab-resize-vm.md).
 - For information about redeploying a VM, see [Redeploy a VM](devtest-lab-redeploy-vm.md).
-
-

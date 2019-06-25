@@ -4,16 +4,16 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 03/05/2019
 ms.author: jeedes
 
 ---
@@ -41,6 +41,8 @@ To configure Azure AD integration with Pluralsight, you need the following items
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Pluralsight supports **SP** initiated SSO
+
+* Pluralsight supports **just-in-time** user provisioning 
 
 ## Adding Pluralsight from the gallery
 
@@ -112,14 +114,13 @@ To configure Azure AD single sign-on with Pluralsight, perform the following ste
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [Pluralsight Client support team](mailto:support@pluralsight.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Pluralsight application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
-
+5. Pluralsight application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 	![image](common/edit-attribute.png)
 
 	>[!NOTE]
     >You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute; however, you can add it to  identify the unique user.
 
-6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+6. In addition to above, Pluralsight application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
     
 	| Name | Source Attribute|
 	| --------------- | --------- |
@@ -171,7 +172,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -206,7 +207,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Pluralsight test user
 
-The objective of this section is to create a user called Britta Simon in Pluralsight. Please work with [Pluralsight Client support team](mailto:support@pluralsight.com) to add the users in the Pluralsight account.  Users must be created and activated before you use single sign-on.
+In this section, a user called Britta Simon is created in Pluralsight. Pluralsight supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Pluralsight, a new one is created after authentication.
 
 ### Test single sign-on 
 
@@ -216,9 +217,9 @@ When you click the Pluralsight tile in the Access Panel, you should be automatic
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

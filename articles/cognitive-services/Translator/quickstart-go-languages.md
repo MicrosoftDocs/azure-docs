@@ -3,13 +3,13 @@ title: "Quickstart: Get supported languages, Go - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with Go.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/07/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to get a list of supported languages using Go
@@ -24,7 +24,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new Go project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `get-languages.go`.
+Create a new Go project using your favorite IDE or editor or new folder on your desktop. Then copy this code snippet into your project/folder in a file named `get-languages.go`.
 
 ```go
 package main
@@ -129,6 +129,8 @@ go run get-languages.go
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## Sample response
+
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 A successful response is returned in JSON as shown in the following example:
 

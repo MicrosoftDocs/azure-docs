@@ -20,7 +20,7 @@ You can manage the Data Box Disk via the Azure portal. This article focuses on t
 
 You may need to cancel an order for various reasons after you have placed the order. You can only cancel the order before the disk preparation starts. Once the disks are prepared and order processed, it is not possible to cancel the order. 
 
-Perform the following steps to cancel a order.
+Perform the following steps to cancel an order.
 
 1.	Go to **Overview > Cancel**. 
 
@@ -100,7 +100,7 @@ Perform the following steps to edit the order.
 
 ## Edit notification details
 
-You may need to change the users whom you want to receive the order status emails. For instance, a user needs to be informed when the disk is delivered or picked up. Another user may need to be informed when the data copy is complete so he can verify the data is in the Azure storage account before deleting it from the source. In these instances, you can edit the notification details.
+You may need to change the users whom you want to receive the order status emails. For instance, a user needs to be informed when the disk is delivered or picked up. Another user may need to be informed when the data copy is complete so they can verify the data is in the Azure storage account before deleting it from the source. In these instances, you can edit the notification details.
 
 Perform the following steps to edit notification details.
 
@@ -124,7 +124,7 @@ Perform the following steps to edit notification details.
 |Received     | Your disks were received at the Azure datacenter. Data copy will start soon.        |
 |Data copied     |Data copy is in progress.<br> Wait until the data copy is complete.         |
 |Completed       |Successfully completed the order.<br> Verify your data is in Azure before you delete the on-premises data from servers.         |
-|Completed with errors| Data copy was completed but errors were received. <br> Review the copy logs using the path provided in the **Overview**. For more information, go to [Download diagnostic logs](data-box-disk-troubleshoot.md#download-diagnostic-logs).   |
+|Completed with errors| Data copy was completed but errors were received. <br> Review the error logs for upload using the path provided in the **Overview**. For more information, go to [Download upload error logs](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Canceled            |Order is canceled. <br> Either you canceled the order or an error was encountered and the service canceled the order.     |
 
 

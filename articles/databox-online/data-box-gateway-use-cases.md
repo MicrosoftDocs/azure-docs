@@ -1,12 +1,13 @@
 ---
-title: Microsoft Azure Data Box Gateway usecases | Microsoft Docs
-description: Describes the usecases for Azure Data Box Gateway, a virtual appliance storage solution that enables you to transfer data into Azure
+title: Microsoft Azure Data Box Gateway use cases | Microsoft Docs
+description: Describes the use cases for Azure Data Box Gateway, a virtual appliance storage solution that lets you transfer data to Azure
 services: databox
 author: alkohli
 
 ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/02/2019
 ms.author: alkohli
 ---
 
@@ -22,8 +23,6 @@ Use Data Box Gateway for the following scenarios:
 
 Each of these scenarios is described in detail in the subsequent sections.
 
-> [!IMPORTANT]
-> Data Box Gateway is in Preview. Please review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
 
 ## Continuous data ingestion
 
@@ -47,7 +46,7 @@ Before you begin, make sure that you have a running Data Box Gateway device. Fol
 - After the data is uploaded, you will need to move it to Archive tier. You can set the blob tier in two ways: Azure PowerShell script or an Azure Storage Lifecycle Management policy.  
     - If using Azure PowerShell, follow these [steps](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) to move the data to Archive tier.
     - If using Azure Lifecycle Management, follow these steps to move the data to Archive tier.
-        - [Register](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) for the preview of Blob Lifecycle management service to use Archive tier.
+        - [Register](/azure/storage/common/storage-lifecycle-management-concepts) for the preview of Blob Lifecycle management service to use Archive tier.
         - Use the following policy to [Archive data on ingest](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
 - Once the blobs are marked as Archive, they can no longer be modified by the gateway unless they are moved to hot or cold tier. If the file is in the local storage, any changes made to the local copy (including deletes) are not uploaded to archive tier.
 - To read data in Archive storage, it must be rehydrated by changing the blob tier to hot or cool. [Refreshing the share](data-box-gateway-manage-shares.md#refresh-shares) on the gateway does not rehydrate the blob.

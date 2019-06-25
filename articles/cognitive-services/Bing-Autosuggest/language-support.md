@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 02/20/2019
 ms.author: scottwhi
 ---
 

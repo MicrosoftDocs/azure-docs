@@ -4,7 +4,7 @@ description: The article provides an overview of the Azure Security contribution
 services: security
 documentationcenter: na
 author: barclayn
-manager: Mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 34f4bdf0-7332-4c4a-b186-05263da700cf
@@ -32,5 +32,3 @@ There is no benchmark for becoming an MVP. This is in part because it varies by 
 - Conferences and user groups
 - Podcasts, Web sites, blogs, and social media
 - Articles and books.
-
-Are you an expert in Azure security? Do you know someone who is? Then [Nominate yourself or someone else](https://mvp.microsoft.com/Nomination/nominate-an-mvp) to become an Azure security MVP today!

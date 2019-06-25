@@ -13,12 +13,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 04/01/2019
 ms.author: juliako
 
 ---
 
 # Azure Media Services telemetry  
+
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 Azure Media Services (AMS) enables you to access telemetry/metrics data for its services. The current version of AMS lets you collect telemetry data for live **Channel**, **StreamingEndpoint**, and live **Archive** entities. 
 

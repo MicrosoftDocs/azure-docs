@@ -4,11 +4,11 @@ description: Learn about the different lifecycle events in Service Fabric Reliab
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: vturecek;
 
 ms.assetid:
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA

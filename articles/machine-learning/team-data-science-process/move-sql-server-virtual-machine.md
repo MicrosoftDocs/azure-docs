@@ -44,7 +44,7 @@ This tutorial assumes you have:
 If your data is in a flat file (arranged in a row/column format), it can be moved to SQL Server VM on Azure via the following methods:
 
 1. [Command-line bulk copy utility (BCP)](#insert-tables-bcp)
-2. [Bulk Insert SQL Query ](#insert-tables-bulkquery)
+2. [Bulk Insert SQL Query](#insert-tables-bulkquery)
 3. [Graphical Built-in Utilities in SQL Server (Import/Export, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Command-line bulk copy utility (BCP)
@@ -52,7 +52,7 @@ BCP is a command-line utility installed with SQL Server and is one of the quicke
 
 > [!NOTE]
 > **Where should my data be for BCP?**  
-> While it is not required, having files containing source data located on the same machine as the target SQL Server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](../../storage/common/storage-use-azcopy.md), [Azure Storage Explorer](http://storageexplorer.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
+> While it is not required, having files containing source data located on the same machine as the target SQL Server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](../../storage/common/storage-use-azcopy.md), [Azure Storage Explorer](https://storageexplorer.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
 >
 >
 
@@ -69,10 +69,10 @@ CREATE TABLE <tablename>
 )
 ```
 
-2. Generate the format file that describes the schema for the table by issuing the following command from the command-line of the machine where bcp is installed.
+1. Generate the format file that describes the schema for the table by issuing the following command from the command-line of the machine where bcp is installed.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-3. Insert the data into the database using the bcp command as follows. This should work from the command-line assuming that the SQL Server is installed on same machine:
+1. Insert the data into the database using the bcp command as follows. This should work from the command-line assuming that the SQL Server is installed on same machine:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -137,7 +137,7 @@ Here are some sample commands for Bulk Insert are as below:
 ```sql
 SET DATEFORMAT ymd;
 ```
-2. Import data using bulk import statements:
+1. Import data using bulk import statements:
 
 ```sql
 BULK INSERT <tablename>
@@ -190,7 +190,7 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 4. Use any of the methods described in section [Moving Data from File Source](#filesource_to_sqlonazurevm) to move the data in flat files to a SQL Server.
 
 ### <a name="sql-migration"></a>SQL Database Migration Wizard
-[SQL Server Database Migration Wizard](http://sqlazuremw.codeplex.com/) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.  
+[SQL Server Database Migration Wizard](https://sqlazuremw.codeplex.com/) provides a user-friendly way to move data between two SQL server instances. It allows the user to map the data schema between sources and destination tables, choose column types and various other functionalities. It uses bulk copy (BCP) under the covers. A screenshot of the welcome screen for the SQL Database Migration wizard is shown below.  
 
 ![SQL Server Migration Wizard][2]
 

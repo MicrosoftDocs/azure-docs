@@ -11,30 +11,33 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
 ---
 
 # Configure Log Analytics agent for Linux computers in a hybrid environment
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) can collect data directly from your physical or virtual Linux computer in your datacenter or other cloud environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  For Azure Linux VMs, see the following topic [Collect data about Azure Virtual Machines](quick-collect-azurevm.md).  
+[Azure Log Analytics](../platform/agent-windows.md) can collect data directly from your physical or virtual Linux computer in your datacenter or other cloud environment into a single repository for detailed analysis and correlation. This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  For Azure Linux VMs, see the following topic [Collect data about Azure Virtual Machines](quick-collect-azurevm.md).  
 
-To understand the supported configuration, review [supported Linux operating systems](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) and [network firewall configuration](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+Before proceeding, you should first review the Log Analytics agent [overview](../platform/log-analytics-agent.md) article to understand what configurations are supported, the [supported Linux operating systems](../platform/log-analytics-agent.md#supported-linux-operating-systems) and [network firewall configuration](../platform/log-analytics-agent.md#network-firewall-requirements). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure portal
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+## Sign in to the Azure portal
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Create a workspace
-1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/quick-collect-linux-computer/azure-portal-01.png)<br><br>  
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+
+    ![Azure portal](media/quick-collect-linux-computer/azure-portal-01.png) 
+
 2. Click **Create**, and then select choices for the following items:
 
-  * Provide a name for the new **Log Analytics workspace**, such as *DefaultLAWorkspace*. OMS workspaces are now referred to as Log Analytics workspaces.   
-  * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
-  * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
-  * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).  
-  * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
+   * Provide a name for the new **Log Analytics workspace**, such as *DefaultLAWorkspace*. OMS workspaces are now referred to as Log Analytics workspaces.   
+   * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
+   * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
+   * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).  
+   * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
@@ -49,7 +52,10 @@ Before installing the Log Analytics agent for Linux, you need the workspace ID a
 
 1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select *DefaultLAWorkspace* created earlier.
-3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/quick-collect-linux-computer/log-analytics-advanced-settings-01.png)<br><br>  
+3. Select **Advanced settings**.
+
+    ![Log Analytics Advance Settings](media/quick-collect-linux-computer/log-analytics-advanced-settings-01.png) 
+ 
 4. Select **Connected Sources**, and then select **Linux Servers**.   
 5. The value to the right of **Workspace ID** and **Primary Key**. Copy and paste both into your favorite editor.   
 
@@ -63,7 +69,7 @@ If your Linux computer needs to communicate through a proxy server to Log Analyt
 
 For example: `https://user01:password@proxy01.contoso.com:30443`
 
-1. To configure the Linux computer to connect to Log Analytics, run the following command providing the workspace ID and primary key copied earlier.  The following command downloads the agent, validates its checksum, and installs it. 
+1. To configure the Linux computer to connect to Log Analytics, run the following command providing the workspace ID and primary key copied earlier. The following command downloads the agent, validates its checksum, and installs it. 
     
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -75,7 +81,7 @@ For example: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-2. To configure the Linux computer to connect to Log Analytics in Azure Government cloud, run the following command providing the workspace ID and primary key copied earlier.  The following command downloads the agent, validates its checksum, and installs it. 
+2. To configure the Linux computer to connect to Log Analytics in Azure Government cloud, run the following command providing the workspace ID and primary key copied earlier. The following command downloads the agent, validates its checksum, and installs it. 
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
@@ -96,27 +102,40 @@ For example: `https://user01:password@proxy01.contoso.com:30443`
 Log Analytics can collect events from the Linux Syslog and performance counters that you specify for longer term analysis and reporting, and take action when a particular condition is detected.  Follow these steps to configure collection of events from the Linux Syslog, and several common performance counters to start with.  
 
 1. Select **Syslog**.  
-2. You add an event log by typing in the name of the log.  Type **Syslog** and then click the plus sign **+**.  
+2. You add an event log by typing in the name of the log. Type **Syslog** and then click the plus sign **+**.  
 3. In the table, uncheck the severities **Info**, **Notice** and **Debug**. 
 4. Click **Save** at the top of the page to save the configuration.
-5. Select **Linux Performance Data** to enable collection of performance counters on a Windows computer. 
-6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.<br><br> ![Default Windows performance counters selected](media/quick-collect-linux-computer/linux-perfcounters-default.png)<br> Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
+5. Select **Linux Performance Data** to enable collection of performance counters on a Linux computer. 
+6. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each. 
+
+    ![Default Windows performance counters selected](media/quick-collect-linux-computer/linux-perfcounters-default.png)
+    
+    Click **Add the selected performance counters**. They are added and preset with a ten second collection sample interval.
+
 7. Click **Save** at the top of the page to save the configuration.
 
 ## View data collected
 Now that you have enabled data collection, lets run a simple log search example to see some data from the target computer.  
 
 1. In the Azure portal, navigate to Log Analytics and select the workspace created earlier.
-2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br><br> ![Log Analytics log search query example](media/quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> For example, the query in the following image returned 735 Performance records.<br><br> ![Log Analytics log search result](media/quick-collect-linux-computer/log-analytics-search-perf.png)
+2. Click the **Log Search** tile and on the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.
+
+    ![Log Analytics log search query example](media/quick-collect-linux-computer/log-analytics-portal-queryexample.png)
+
+    For example, the query in the following image returned 735 Performance records.
+
+    ![Log Analytics log search result](media/quick-collect-linux-computer/log-analytics-search-perf.png)
 
 ## Clean up resources
 When no longer needed, you can remove the agent from the Linux computer and delete the Log Analytics workspace.  
 
-To remove the agent, run the following command on the Linux computer.  The *--purge* argument completely removes the agent and its configuration.
+To remove the agent, run the following command on the Linux computer. The *--purge* argument completely removes the agent and its configuration.
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-To delete the workspace, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br><br> ![Delete Log Analytics resource](media/quick-collect-linux-computer/log-analytics-portal-delete-resource.png)
+To delete the workspace, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.
+
+![Delete Log Analytics resource](media/quick-collect-linux-computer/log-analytics-portal-delete-resource.png)
 
 ## Next steps
 Now that you are collecting operational and performance data from your on-premises Linux computer, you can easily begin exploring, analyzing, and taking action on data that you collect for *free*.  

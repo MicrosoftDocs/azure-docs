@@ -6,13 +6,13 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/30/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
 ---
 
 # Deploy the Remote Monitoring solution accelerator using the CLI
 
-This how-to guide shows you how to deploy the Remote Monitoring solution accelerator. You deploy the solution using the CLI. You can also deploy the solution using the web-based UI at azureiotsuite.com, to learn about this option see the[Deploy the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md) quickstart.
+This how-to guide shows you how to deploy the Remote Monitoring solution accelerator. You deploy the solution using the CLI. You can also deploy the solution using the web-based UI at azureiotsolutions.com, to learn about this option see the [Deploy the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md) quickstart.
 
 ## Prerequisites
 
@@ -57,6 +57,8 @@ This section summarizes the key differences between a basic and standard deploym
 
 ### Basic
 
+You can do a basic deployment from [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) or using the CLI.
+
 Basic deployment is geared toward showcasing the solution. To reduce costs, all the microservices are deployed in a single virtual machine. This deployment doesn't use a production-ready architecture.
 
 A basic deployment creates the following services in your Azure subscription:
@@ -75,6 +77,8 @@ A basic deployment creates the following services in your Azure subscription:
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unit              | Storage for messages data and enables deep-dive telemetry analysis |
 
 ### Standard
+
+You can do a standard deployment only using the CLI.
 
 A standard deployment is a production-ready deployment that a developer can customize and extend. Use the standard deployment option when you're ready to customize a production-ready architecture, built for scale and extensibility. Application microservices are built as Docker containers and deployed using the Azure Kubernetes Service. The Kubernetes orchestrator deploys, scales, and manages the microservices.
 

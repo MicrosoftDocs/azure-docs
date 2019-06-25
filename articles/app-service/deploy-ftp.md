@@ -28,7 +28,7 @@ The FTP/S endpoint for your app is already active. No configuration is necessary
 
 ## Open FTP dashboard
 
-In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
+In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
 
 To open the FTP dashboard, click **Deployment Center** > **FTP** > **Dashboard**.
 
@@ -41,6 +41,16 @@ In the FTP dashboard, click **Copy** to copy the FTPS endpoint and app credentia
 ![Copy FTP information](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
 It's recommended that you use **App Credentials** to deploy to your app because it's unique to each app. However, if you click **User Credentials**, you can set user-level credentials that you can use for FTP/S login to all App Service apps in your subscription.
+
+> [!NOTE]
+> Authenticating to an FTP/FTPS endpoint using user-level credentials requirers
+> a username in the following format: 
+>
+>`<app-name>\<user-name>`
+>
+> Since user-level credentials are linked to the user and not a specific resource,
+> the username must be in this format to direct the sign-in action to the right app endpoint.
+>
 
 ## Deploy files to Azure
 
@@ -56,7 +66,6 @@ It's recommended that you use **App Credentials** to deploy to your app because 
 > - generation of web.config (here is a [Node.js example](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Generate these necessary files manually on your local machine, and then deploy them together with your app.
->
 >
 
 ## Enforce FTPS

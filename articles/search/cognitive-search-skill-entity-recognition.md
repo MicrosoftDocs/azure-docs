@@ -9,7 +9,7 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -19,9 +19,9 @@ ms.custom: seodec2018
 The **Entity Recognition** skill extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 
 > [!NOTE]
-> Starting December 21, 2018, you can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) with an Azure Search skillset. This allows us to start charging for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
-> [Built-in cognitive skill](cognitive-search-predefined-skills.md) execution is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search charge, currently offered at preview pricing. For details, see the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400) or [How billing works](search-sku-tier.md#how-billing-works).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## @odata.type  
@@ -39,7 +39,8 @@ Parameters are case-sensitive and are all optional.
 | categories	| Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. If no category is provided, all types are returned.|
 |defaultLanguageCode |	Language code of the input text. The following languages are supported: `de, en, es, fr, it`|
 |minimumPrecision | Unused. Reserved for future use. |
-|includeTypelessEntities | When set to true if the text contains a well known entity, but cannot be categorized into one of the supported categories, it will be returned as part of the `"entities"` complex output field. Default is `false` |
+|includeTypelessEntities | When set to true if the text contains a well known entity, but cannot be categorized into one of the supported categories, it will be returned as part of the `"entities"` complex output field. 
+These are entities that are well known but not classified as part of the current supported "categories". For instance "Windows 10" is a well known entity (a product), but "Products" are not in the categories supported today. Default is `false` |
 
 
 ## Skill inputs
@@ -51,8 +52,8 @@ Parameters are case-sensitive and are all optional.
 
 ## Skill outputs
 
-**NOTE**: Not all entity categories are supported for all languages.
-Only _en_, _es_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` types.
+> [!NOTE]
+> Not all entity categories are supported for all languages. Only _en_, _es_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` types.
 
 | Output name	  | Description                   |
 |---------------|-------------------------------|
@@ -63,7 +64,7 @@ Only _en_, _es_ support extraction of `"Quantity"`, `"Datetime"`, `"URL"`, `"Ema
 | dateTimes  | An array of strings where each string represents a DateTime (as it appears in the text) value. |
 | urls | An array of strings where each string represents a URL |
 | emails | An array of strings where each string represents an email |
-| namedEntities | An array of complex types that contains the following fields: <ul><li>category</li> <li>value (the actual entity name)</li><li>offset (The location where it was found in the text)</li><li>confidence (Unused for now. Will be set to a value of -1)</li></ul> |
+| namedEntities | An array of complex types that contains the following fields: <ul><li>category</li> <li>value (The actual entity name)</li><li>offset (The location where it was found in the text)</li><li>confidence (Unused for now. Will be set to a value of -1)</li></ul> |
 | entities | An array of complex types that contains rich information about the entities extracted from text, with the following fields <ul><li> name (the actual entity name. This represents a "normalized" form)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (a link to Wikipedia page for the entity)</li><li>bingId</li><li>type (the category of the entity recognized)</li><li>subType (available only for certain categories, this gives a more granular view of the entity type)</li><li> matches (a complex collection that contains)<ul><li>text (the raw text for the entity)</li><li>offset (the location where it was found)</li><li>length (the length of the raw entity text)</li></ul></li></ul> |
 
 ##	Sample definition

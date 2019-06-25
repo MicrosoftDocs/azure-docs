@@ -50,7 +50,7 @@ Advantages to this method include the following:
  
 Disadvantages to this method include the following:
 
-- Requires more complex queries. This can be mitigated by using [functions to simulate a table](#Use-function-to-simulate-a-table).
+- Requires more complex queries. This can be mitigated by using [functions to simulate a table](#use-function-to-simulate-a-table).
 - Must replicate parsing logic in multiple queries. Can share some logic through functions.
 - Can create overhead when running complex logic against very large record sets (billions of records).
 
@@ -58,7 +58,7 @@ Disadvantages to this method include the following:
 See [Create custom fields in Azure Monitor](../platform/custom-fields.md) for details on parsing data as it's collected. This creates custom properties in the table that can be used by queries just like any other property.
 
 ## Parse data in query using patterns
-When the data you want to parse can be identified by a pattern repeated across records, you can use different operators in the [Data Explorer query language](/azure/kusto/query/) to extract the specific piece of data into one or more new properties.
+When the data you want to parse can be identified by a pattern repeated across records, you can use different operators in the [Kusto query language](/azure/kusto/query/) to extract the specific piece of data into one or more new properties.
 
 ### Simple text patterns
 
@@ -134,7 +134,7 @@ MyCustomCSVLog_CL
 ```
 
 ## Parse predefined structures in a query
-If your data is formatted in a known structure, you may be able to use one of the functions in the [Data Explorer query language](/azure/kusto/query/) for parsing predefined structures:
+If your data is formatted in a known structure, you may be able to use one of the functions in the [Kusto query language](/azure/kusto/query/) for parsing predefined structures:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

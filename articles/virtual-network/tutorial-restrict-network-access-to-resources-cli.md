@@ -3,8 +3,8 @@ title: Restrict network access to PaaS resources - Azure CLI | Microsoft Docs
 description: In this article, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: 
 ---
 
@@ -114,9 +114,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Storage" \
   --destination-port-range "*"
+```
 
 Each network security group contains several [default security rules](security-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -129,9 +131,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Internet" \
   --destination-port-range "*"
+```
 
 The following rule allows SSH traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. SSH is allowed to the subnet so that connectivity can be tested in a later step.
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -264,7 +268,7 @@ The VM takes a few minutes to create. After creation, take note of the **publicI
 
 ## Confirm access to storage account
 
-SSH into the *myVmPrivate* VM. Replace *<publicIpAddress>* with the public IP address of your *myVmPrivate* VM.
+SSH into the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your *myVmPrivate* VM.
 
 ```bash 
 ssh <publicIpAddress>

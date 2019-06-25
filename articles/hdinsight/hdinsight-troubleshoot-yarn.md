@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot YARN in Azure HDInsight
 description: Get answers to common questions about working with Apache Hadoop YARN and Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -20,8 +19,9 @@ Learn about the top issues and their resolutions when working with Apache Hadoop
 Use the following steps in Ambari to create a new YARN queue, and then balance the capacity allocation among all the queues. 
 
 In this example, two existing queues (**default** and **thriftsvr**) both are changed from 50% capacity to 25% capacity, which gives the new queue (spark) 50% capacity.
+
 | Queue | Capacity | Maximum capacity |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | default | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
@@ -127,7 +127,7 @@ These changes are visible immediately on the YARN Scheduler UI.
 ### <a name="additional-reading-2"></a>Additional reading
 
 - [Connect to HDInsight (Apache Hadoop) by using SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-- [Apache Hadoop YARN concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
+- [Apache Hadoop YARN concepts and applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 
 ### See Also

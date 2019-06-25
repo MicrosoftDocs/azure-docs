@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor log query language differences | Microsoft Docs
-description: Reference information for Data Explorer query language used by Azure Monitor. Includes additional elements specific to Azure Monitor and elements not supported in Azure Monitor log queries.
+description: Reference information for Kusto query language used by Azure Monitor. Includes additional elements specific to Azure Monitor and elements not supported in Azure Monitor log queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -17,12 +17,12 @@ ms.author: bwren
 
 # Azure Monitor log query language differences
 
-While [logs in Azure Monitor](log-query-overview.md) is built on [Azure Data Explorer](/azure/data-explorer) and uses the [same query language](/azure/kusto/query), the version of the language does have some differences. This article identifies elements that are different between the version of the language used for Data Explorer and the version used for Azure Monitor log queries.
+While [logs in Azure Monitor](log-query-overview.md) is built on [Azure Data Explorer](/azure/data-explorer) and uses the same [Kusto query language](/azure/kusto/query), the version of the language does have some differences. This article identifies elements that are different between the version of the language used for Data Explorer and the version used for Azure Monitor log queries.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## Data Explorer elements not supported in Azure Monitor
-The following sections describe elements of the Data Explorer query language that aren't supported by Azure Monitor.
+## KQL elements not supported in Azure Monitor
+The following sections describe elements of the Kusto query language that aren't supported by Azure Monitor.
 
 ### Statements not supported in Azure Monitor
 
@@ -59,4 +59,4 @@ The following operators support specific Azure Monitor features and are not avai
 ## Next steps
 
 - Get references to different [resources for writing Azure Monitor log queries](query-language.md).
-- Access the complete [reference documentation for Data Explorer query language](/azure/kusto/query/).
+- Access the complete [reference documentation for Kusto query language](/azure/kusto/query/).

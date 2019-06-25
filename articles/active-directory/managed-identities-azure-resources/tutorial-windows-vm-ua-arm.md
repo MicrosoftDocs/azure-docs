@@ -3,7 +3,7 @@ title: Use a Windows VM user-assigned managed identity to access Azure Resource 
 description: A tutorial that walks you through the process of using a user-assigned managed identity on a Windows VM, to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,7 +13,8 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: priyamo
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a User-assigned Managed Identity on a Windows VM, to access Azure Resource Manager
@@ -130,7 +131,7 @@ For the remainder of the tutorial, you will work from the VM we created earlier.
 
 ## Read the properties of a Resource Group
 
-Use the access token retrieved in the previous step to access Azure Resource Manager, and read the properties of the Resource Group you granted your user-assigned identity access. Replace <SUBSCRIPTION ID> with the subscription id of your environment.
+Use the access token retrieved in the previous step to access Azure Resource Manager, and read the properties of the Resource Group you granted your user-assigned identity access. Replace `<SUBSCRIPTION ID>` with the subscription id of your environment.
 
 ```azurepowershell
 (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/myResourceGroupVM?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{Authorization ="Bearer $ArmToken"}).content
@@ -143,7 +144,7 @@ The response contains the specific Resource Group information, similar to the fo
 
 ## Next steps
 
-In this tutorial, you learned how to create a user-assigned identity and attach it to a Azure Virtual Machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
+In this tutorial, you learned how to create a user-assigned identity and attach it to an Azure Virtual Machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

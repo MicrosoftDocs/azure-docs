@@ -40,10 +40,12 @@
     href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
     href: video-indexer-search.md
+  - name: Scenes, shots, and keyframes
+    href: scenes-shots-keyframes.md
   - name: View and edit Video Indexer insights
     href: video-indexer-view-edit.md
-  - name: Create video insights from existing videos
-    href: video-indexer-create-new.md
+  - name: Use editor to create projects
+    href: use-editor-create-project.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
   - name: Customize content models
@@ -82,5 +84,5 @@
     href: regions.md
   - name: FAQs
     href: faq.md    
-
-    
+  - name: Compliance
+    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 

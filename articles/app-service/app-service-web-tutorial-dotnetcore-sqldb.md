@@ -1,5 +1,5 @@
 ---
-title: Build .NET Core app with SQL Database - Azure App Service | Microsoft Docs 
+title: ASP.NET Core with SQL Database - Azure App Service | Microsoft Docs 
 description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -18,7 +18,7 @@ ms.custom: mvc
 ms.custom: seodec18
 
 ---
-# Tutorial: Build a .NET Core and SQL Database app in Azure App Service
+# Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
 
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a .NET Core and SQL Database app in Azure App Service on Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
@@ -368,7 +368,7 @@ All your existing to-do items are still displayed. When you republish your .NET 
 
 While the ASP.NET Core app runs in Azure App Service, you can get the console logs piped to the Cloud Shell. That way, you can get the same diagnostic messages to help you debug application errors.
 
-The sample project already follows the guidance at [ASP.NET Core Logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) with two configuration changes:
+The sample project already follows the guidance at [ASP.NET Core Logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) with two configuration changes:
 
 - Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
 - Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Startup.cs*.

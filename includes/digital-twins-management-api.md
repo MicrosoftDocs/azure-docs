@@ -13,7 +13,7 @@
 In the examples below, `YOUR_MANAGEMENT_API_URL` refers to the URI of the Digital Twins APIs:
 
 ```plaintext
-https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0
 ```
 
 | Name | Replace with |

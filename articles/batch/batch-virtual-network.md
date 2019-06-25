@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -45,7 +45,7 @@ Once you have created your VNet and assigned a subnet to it, you can create a Ba
 6. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Low priority nodes**, as well as any desired optional settings.
 7. In **Virtual Network**, select the virtual network and subnet you wish to use.
   
-  ![Add pool with virtual network](./media/batch-virtual-network/add-vnet-pool.png)
+   ![Add pool with virtual network](./media/batch-virtual-network/add-vnet-pool.png)
 
 ## User-defined routes for forced tunneling
 

@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Sharing accounts with Azure AD
 ## Overview
@@ -68,5 +69,5 @@ You can also make your shared account more secure with Multi-Factor Authenticati
 
 ## Related articles
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Protecting apps with conditional access](../active-directory-conditional-access-azure-portal.md)
+* [Protecting apps with Conditional Access](../active-directory-conditional-access-azure-portal.md)
 * [Self-service group management/SSAA](groups-self-service-management.md)

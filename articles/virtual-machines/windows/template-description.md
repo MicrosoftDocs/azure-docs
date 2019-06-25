@@ -25,7 +25,7 @@ This article describes aspects of an Azure Resource Manager template that apply 
 
 There are many [templates in the gallery](https://azure.microsoft.com/documentation/templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 This example shows a typical resource section of a template for creating a specified number of VMs:
 
@@ -163,7 +163,7 @@ Use these opportunities for getting the latest API versions:
 
 - REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers)
 - PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
 
 
 ## Parameters and variables
@@ -287,7 +287,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 
 ## Disks and images
    
-In Azure, vhd files can represent [disks or images](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
+In Azure, vhd files can represent [disks or images](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
     
 ### Create new virtual machines and new disks from a platform image
 

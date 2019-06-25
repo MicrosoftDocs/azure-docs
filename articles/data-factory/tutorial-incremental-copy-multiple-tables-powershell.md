@@ -168,7 +168,12 @@ END
 
 ### Create data types and additional stored procedures in the Azure SQL database
 Run the following query to create two stored procedures and two data types in your SQL database. 
-They're used to merge the data from source tables into destination tables.
+They're used to merge the data from source tables into destination tables. 
+
+In order to make the journey easy to start with, we directly use these Stored Procedures passing the delta data in via a table variable and then merge the them into destination store. Be cautious that it is not expecting a "large" number of delta rows (more than 100) to be stored in the table variable.  
+
+If you do need to merge a large number of delta rows into the destination store, we suggest you to use copy activity to copy all the delta data into a temporary "staging" table in the destination store first, and then built your own stored procedure without using table variable to merge  them from the “staging” table to the “final” table. 
+
 
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(

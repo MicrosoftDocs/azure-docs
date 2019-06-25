@@ -3,13 +3,13 @@ title: "Quickstart: Look up words with bilingual dictionary, C# - Translator Tex
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to get alternate translations for a term, and also usage examples of those alternate translations, using .NET Core and the Translator Text API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/26/2018
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Look up words with bilingual dictionary using C#
@@ -127,8 +127,16 @@ var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
 // Print the response
-Console.WriteLine(jsonResponse);
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+Add `PrettyPrint` to add formatting to your JSON response:
+```csharp
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## Put it all together

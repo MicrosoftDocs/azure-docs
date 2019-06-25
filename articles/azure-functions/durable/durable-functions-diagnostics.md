@@ -2,7 +2,7 @@
 title: Diagnostics in Durable Functions - Azure
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
@@ -322,7 +322,7 @@ Azure Functions supports debugging function code directly, and that same support
 
 By default, Durable Functions stores state in Azure Storage. This means you can inspect the state of your orchestrations using tools such as [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Azure Storage Explorer screen shot](./media/durable-functions-diagnostics/storage-explorer.png)
+![Azure Storage Explorer screenshot](./media/durable-functions-diagnostics/storage-explorer.png)
 
 This is useful for debugging because you see exactly what state an orchestration may be in. Messages in the queues can also be examined to learn what work is pending (or stuck in some cases).
 

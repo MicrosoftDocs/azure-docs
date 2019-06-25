@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -35,6 +35,8 @@ In **Azure portal** > server > **Overview** > **Server name**, copy the entire s
 
 ![Get server name in Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
+> [!NOTE]
+> The protocol for East US 2 region is **aspaaseastus2**.
 
 ## Connection string
 

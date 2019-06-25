@@ -10,11 +10,13 @@ ms.reviewer: vincesm
 ms.date: 01/28/2019
 ms.topic: overview
 ms.service: active-directory
+ms.subservice: users-groups-roles
 ms.workload: identity
 services: active-directory
 ms.custom: "it-pro;seo-update-azuread-jan"
 
 #As a new Azure AD identity administrator, user management is at the core of my work so I need to understand the user management tools such as groups, administrator roles, and licenses to manage users.
+ms.collection: M365-identity-device-management
 ---
 # Users, groups, licensing, and roles for large organizations
 
@@ -47,7 +49,7 @@ Many large organizations want options for their users to obtain sufficient permi
 
  Role name | Permissions summary
  --------- | -------------------
- **Application Administrator** | Can add and manage enterprise applications and application registrations, and configure proxy application settings. Application Administrators can view conditional access policies and devices, but not manage them.
+ **Application Administrator** | Can add and manage enterprise applications and application registrations, and configure proxy application settings. Application Administrators can view Conditional Access policies and devices, but not manage them.
  **Cloud Application Administrator** | Can add and manage enterprise applications and enterprise app registrations. This role has all of the permissions of the Application Administrator, except it can't manage application proxy settings.
 **Application Developer** | Can add and update application registrations, but can't manage enterprise applications or configure an application proxy.
 

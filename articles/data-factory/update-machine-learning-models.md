@@ -68,7 +68,7 @@ The following JSON snippet defines an Azure Machine Learning Batch Execution act
 
 The entire process of operationalizing retraining a model and update the predictive Web Services involves the following steps:
 
-- Invoke the **training Web Service** by using the **Batch Execution activity**. Invoking a training Web Service is the same as invoking a predictive Web Service described in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md). The output of the training Web Service is a iLearner file that you can use to update the predictive Web Service.
+- Invoke the **training Web Service** by using the **Batch Execution activity**. Invoking a training Web Service is the same as invoking a predictive Web Service described in [Create predictive pipelines using Azure Machine Learning and Data Factory Batch Execution activity](transform-data-using-machine-learning.md). The output of the training Web Service is an iLearner file that you can use to update the predictive Web Service.
 - Invoke the **update resource endpoint** of the **predictive Web Service** by using the **Update Resource activity** to update the Web Service with the newly trained model.
 
 ## Azure Machine Learning linked service

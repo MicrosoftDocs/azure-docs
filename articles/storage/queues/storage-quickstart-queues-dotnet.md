@@ -2,13 +2,14 @@
 title: "Quickstart: Use .NET to create a queue in Azure Storage"
 description: In this quickstart, you learn how to use the Azure Storage client library for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
 services: storage
-author: tamram
+author: mhopkins-msft
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/06/2018
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ---
 
 # Quickstart: Use .NET to create a queue in Azure Storage
@@ -140,7 +141,7 @@ Next, explore the sample code so that you can understand how it works.
 
 ### Try parsing the connection string
 
-The sample first checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, the sample uses the [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
+The sample first checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, the sample uses the [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -159,7 +160,7 @@ else
 {
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add a environment variable named 'storageconnectionstring' with your storage " +
+        "Add an environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
 }
 ```
@@ -252,7 +253,9 @@ See these additional resources for .NET development with Azure Queues:
 
 ### Binaries and source code
 
-- Download the NuGet package for the latest version of the [.NET client library](https://www.nuget.org/packages/WindowsAzure.Storage/) for Azure Storage. 
+- Download the NuGet packages for the latest version of the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client)
+    - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [Queues](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - View the [.NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.
 
 ### Client library reference and samples

@@ -3,7 +3,7 @@ title: How to use managed identities for Azure resources on a virtual machine to
 description: Step by step instructions and examples for using managed identities for Azure resources on a virtual machines to acquire an OAuth access token.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 
@@ -14,7 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: priyamo
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # How to use managed identities for Azure resources on an Azure VM to acquire an access token 
@@ -75,10 +76,11 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | An HTTP request header field, required by managed identities for Azure resources as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case. |
 | `object_id` | (Optional) A query string parameter, indicating the object_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
 | `client_id` | (Optional) A query string parameter, indicating the client_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
+| `mi_res_id` | (Optional) A query string parameter, indicating the mi_res_id (Azure Resource ID) of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities. |
 
 Sample request using the managed identities for Azure resources VM Extension Endpoint *(planned for deprecation in January 2019)*:
 
-```
+```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
 Metadata: true
 ```
@@ -92,10 +94,9 @@ Metadata: true
 | `object_id` | (Optional) A query string parameter, indicating the object_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
 | `client_id` | (Optional) A query string parameter, indicating the client_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
 
-
 Sample response:
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
@@ -149,7 +150,7 @@ using System.Net;
 using System.Web.Script.Serialization; 
 
 // Build request to acquire managed identities for Azure resources token
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create(http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 

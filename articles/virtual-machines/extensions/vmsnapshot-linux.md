@@ -5,7 +5,7 @@ services: backup, virtual-machines-linux
 documentationcenter: ''
 author: trinadhk
 manager: jeconnoc
-ms.service: backup, virtual-machines-linux
+ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018

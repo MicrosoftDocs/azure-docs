@@ -2,20 +2,11 @@
 title: Azure Marketplace SaaS Applications Technical Publishing Guide
 description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter:
 author: keithcharlie
-manager: nunoc
-editor: keithcharlie
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-
 ---
 
 # SaaS applications Offer Publishing Guide
@@ -141,6 +132,9 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 |Transaction landing page | You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account. |   
 | Subscription API | You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
+
 ## Next steps
 If you haven't already done so,
 
@@ -149,4 +143,4 @@ If you haven't already done so,
 If you're registered and are creating a new offer or working on an existing one,
 
 - [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
-- See [Azure SaaS application offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) for more information.
+- See [Azure SaaS application offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) for more information.

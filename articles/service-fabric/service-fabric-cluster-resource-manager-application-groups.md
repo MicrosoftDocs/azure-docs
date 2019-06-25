@@ -4,11 +4,11 @@ description: Overview of the Application Group functionality in the Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
@@ -32,6 +32,7 @@ The simplest use case for Application capacity is when an application instance n
 The following image shows an application instance with and without a maximum number of nodes defined:
 
 <center>
+
 ![Application Instance Defining Maximum Number of Nodes][Image1]
 </center>
 
@@ -113,6 +114,7 @@ Combining **MinimumNodes** and **NodeReservationCapacity** guarantees a minimum 
 Let's look at an example of capacity reservation:
 
 <center>
+
 ![Application Instances Defining Reserved Capacity][Image2]
 </center>
 

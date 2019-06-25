@@ -97,7 +97,7 @@ Note the following points:
 2. Set the type of the activity to **HDInsightStreaming**.
 3. For the **mapper** property, specify the name of mapper executable. In the example, cat.exe is the mapper executable.
 4. For the **reducer** property, specify the name of reducer executable. In the example, wc.exe is the reducer executable.
-5. For the **input** type property, specify the input file (including the location) for the mapper. In the example: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample is the blob container, example/data/Gutenberg is the folder, and davinci.txt is the blob.
+5. For the **input** type property, specify the input file (including the location) for the mapper. In the example: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample is the blob container, example/data/Gutenberg is the folder, and davinci.txt is the blob.
 6. For the **output** type property, specify the output file (including the location) for the reducer. The output of the Hadoop Streaming job is written to the location specified for this property.
 7. In the **filePaths** section, specify the paths for the mapper and reducer executables. In the example: "adfsample/example/apps/wc.exe", adfsample is the blob container, example/apps is the folder, and wc.exe is the executable.
 8. For the **fileLinkedService** property, specify the Azure Storage linked service that represents the Azure storage that contains the files specified in the filePaths section.

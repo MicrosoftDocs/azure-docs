@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Create an Spark cluster in HDInsight using the Azure portal'
 description: This quickstart shows how to use the Azure portal to create an Apache Spark cluster in Azure HDInsight, and run a Spark SQL.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 06/12/2019
 ms.custom: mvc
 
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster and query some data.
 ---
 
-# Quickstart: Create an Apache Spark cluster in HDInsight using the Azure portal
+# Quickstart: Create Apache Spark cluster in Azure HDInsight using Azure portal
+
 Learn how to create Apache Spark cluster in Azure HDInsight, and how to run Spark SQL queries against Hive tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md).
 
 In this quickstart, you use the Azure portal to create an HDInsight Spark cluster. The cluster uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
@@ -46,16 +46,16 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
     Select **Next** to continue to the **Storage** page.
 3. Under **Storage**, provide the following values:
 
-    - **Select a Storage account**: select **Create new**, and then give a name to the new storage account. The storage account name used for this quickstart is **myspark20180403store**.
+   - **Select a Storage account**: select **Create new**, and then give a name to the new storage account. The storage account name used for this quickstart is **myspark20180403store**.
 
-    ![Create HDInsight Spark cluster storage configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Create Spark cluster in HDInsight the storage configurations")
+     ![Create HDInsight Spark cluster storage configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Create Spark cluster in HDInsight the storage configurations")
 
-    > [!NOTE]  
-    > On the screenshot, it shows **Select existing**. The link toggles between **Create new** and **Select existing**.
+     > [!NOTE]  
+     > On the screenshot, it shows **Select existing**. The link toggles between **Create new** and **Select existing**.
 
-    The **Default container** has a default name.  You can change the name if you want.
+     The **Default container** has a default name.  You can change the name if you want.
 
-    Select **Next** to continue to the **Summary** page. 
+     Select **Next** to continue to the **Summary** page. 
 
 
 3. On **Summary**, select **Create**. It takes about 20 minutes to create the cluster. The cluster must be created before you can proceed to the next session.

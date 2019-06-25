@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
 
-# H264 Multiple Bitrate 1080p Audio 5.1 (legacy)
+# H264 Multiple Bitrate 1080p Audio 5.1 
 
 `Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs. You can either use a `preset name` to specify into which format you would like to encode your media file. Or, you can create your own JSON or XML-based presets (using UTF-8 or UTF-16 encoding. You would then pass the custom preset to the encoder. For the list of all the preset names supported by this `Media Encoder Standard` encoder, see [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md).  
   
@@ -33,7 +33,7 @@ ms.author: juliako
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

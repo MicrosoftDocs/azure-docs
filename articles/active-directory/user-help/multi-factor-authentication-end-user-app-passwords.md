@@ -1,6 +1,6 @@
 ---
-title: How to manage app passwords in Azure Active Directory | Microsoft Docs
-description: This page will help users understand what app passwords are and what they are used for with regard to two-step verification.
+title: How to manage app passwords - Azure Active Directory | Microsoft Docs
+description: Learn about app passwords and what they are used for with regard to two-step verification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,6 +13,8 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: "user-help, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Manage app passwords for two-step verification
@@ -34,7 +36,7 @@ When using app passwords, it's important to remember:
 
 You're given an app password during your initial two-step verification registration. If you need more than that one password, you can create additional passwords, based on how you use two-step verification:
 
-- **You use two-step verification with your work or school account and the MyApps portal.** Create and delete your app passwords using the instructions in the [Create and delete app passwords using the MyApps portal](#create-and-delete-app-passwords-using-the-myapps-portal) section of this article. For more info about the MyApps portal and how to use it, see [What is the MyApps portal in Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
+- **You use two-step verification with your work or school account and the MyApps portal.** Create and delete your app passwords using the instructions in the Create and delete app passwords using the MyApps portal section of this article. For more info about the MyApps portal and how to use it, see [What is the MyApps portal in Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
 - **You use two-step verification with your work or school account and the Office 365 portal.** Create and delete your app passwords using the instructions in the [Create and delete app passwords using the Office 365 portal](#create-and-delete-app-passwords-using-the-office-365-portal) section of this article.
 
@@ -83,7 +85,7 @@ If you use two-step verification with your work or school account and your Offic
 
 1. Sign in to your work or school account.
 
-2. Go to https://portal.office.com, select the **Settings** icon from the upper right of the **Office 365 portal** page, and then expand **Additional security verification**.
+2. Go to [https://portal.office.com](https://portal.office.com), select the **Settings** icon from the upper right of the **Office 365 portal** page, and then expand **Additional security verification**.
 
     ![Office portal showing expanded additional security verification area](media/security-info/security-info-o365password.png)
 
@@ -99,7 +101,7 @@ If you use two-step verification with your work or school account and your Offic
 
 1. Sign in to your work or school account.
 
-2. Go to https://portal.office.com, select the **Settings** icon from the upper right of the **Office 365 portal** page, and then select **Additional security verification**.
+2. Go to [https://portal.office.com](https://portal.office.com), select the **Settings** icon from the upper right of the **Office 365 portal** page, and then select **Additional security verification**.
 
 3. Select the text that says, **Create and manage app passwords** to open the **app passwords** page.
 

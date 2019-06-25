@@ -4,7 +4,7 @@ description: "Learn about Azure SQL Database and SQL Data Warehouse security bes
 services: security
 documentationcenter: na
 author: techlake
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:
@@ -74,7 +74,7 @@ Azure SQL manages key related issues for TDE. As with TDE, on-premises special c
 
 Azure SQL provides encryption for columns through [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). This allows only authorized applications access to sensitive columns. Using this kind of encryption limits SQL queries for encrypted columns to equality-based values.
 
-Application level encryption should also be used for selective data. Data sovereignty concerns can sometimes be mitigated by encrypting data with a key that is kept in the correct country. This prevents even accidental data transfer from causing an issue since it is impossible to decrypt the data without the key, assuming a strong algorithm is used (such as AES 256).
+Application level encryption should also be used for selective data. Data sovereignty concerns can sometimes be mitigated by encrypting data with a key that is kept in the correct country/region. This prevents even accidental data transfer from causing an issue since it is impossible to decrypt the data without the key, assuming a strong algorithm is used (such as AES 256).
 
 You can use additional precautions to help secure the database, such as designing a secure system, encrypting confidential assets, and building a firewall around the database servers.
 

@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2018
@@ -23,13 +23,13 @@ ms.custom:
 
 This article details using Azure PowerShell to create an Azure virtual machine running Windows Server 2016 in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#services-support-by-region).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
 ```powershell
 Connect-AzAccount

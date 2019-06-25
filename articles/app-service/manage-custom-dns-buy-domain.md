@@ -20,7 +20,7 @@ ms.custom: seodec18
 ---
 # Buy a custom domain name for Azure App Service
 
-App Service domains (preview) are top-level domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure App Service](overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure App Service.
+App Service domains are top-level domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure App Service](overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure App Service.
 
 For Azure VM or Azure Storage, see [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). For Cloud Services, see 
 [Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
@@ -77,7 +77,7 @@ When you see the following notification, the scale operation is complete.
 ## Buy the domain
 
 ### Pricing Information
-For pricing information on Azure App Service Domains, please visit the [App Service Pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/) and scroll down to App Service Domain.
+For pricing information on Azure App Service Domains, visit the [App Service Pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/) and scroll down to App Service Domain.
 
 ### Sign in to Azure
 Open the [Azure portal](https://portal.azure.com/) and sign in with your Azure account.
@@ -99,7 +99,7 @@ In the **Custom domains** page, click **Buy Domain**.
 ### Configure the domain purchase
 
 In the **App Service Domain** page, in the **Search for domain** box, type the domain name you want to buy and type `Enter`. The suggested available domains are shown just below the text box. Select one or more domains you want to buy.
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
@@ -108,22 +108,22 @@ In the **App Service Domain** page, in the **Search for domain** box, type the d
 >
 
 Click the **Contact Information** and fill out the domain's contact information form. When finished, click **OK** to return to the App Service Domain page.
-   
-It is important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to purchase domains. 
+
+It is important that you fill out all required fields with as much accuracy as possible. Incorrect data for contact information can result in failure to purchase domains.
 
 Next, select the desired options for your domain. See the following table for explanations:
 
 | Setting | Suggested Value | Description |
 |-|-|-|
 |Privacy protection | Enable | Opt in to "Privacy protection", which is included in the purchase price _for free_. Some top-level domains are managed by registrars that do not support privacy protection, and they are listed on the **Privacy protection** page. |
-| Assign default hostnames | **www** and **@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your app can be accessed at the selected hostnames. If the app is behind [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
+| Assign default hostnames | **www** and **\@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your app can be accessed at the selected hostnames. If the app is behind [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
 
 ### Accept terms and purchase
 
 Click **Legal Terms** to review the terms and the charges, then click **Buy**.
 
 > [!NOTE]
-> App Service Domains use Azure DNS to host the domains. In addition to the domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
+> App Service Domains use GoDaddy for domain registration and Azure DNS to host the domains. In addition to the domain registration fee, usage charges for Azure DNS apply. For information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -135,19 +135,23 @@ Back in the **App Service Domain** page, click **OK**. While the operation is in
 
 ### Test the hostnames
 
-If you have assigned default hostnames to your app, you also see a success notification for each selected hostname. 
+If you have assigned default hostnames to your app, you also see a success notification for each selected hostname.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-You also see the selected hostnames in the **Custom domains** page, in the **Custom Hostnames** section. 
+You also see the selected hostnames in the **Custom domains** page, in the **Custom Hostnames** section.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _kontoso.net_ and _www.kontoso.net_.
+> [!NOTE]
+> A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate, and any HTTPS request from a browser to your custom domain will receive an error or warning, depending on the browser. To configure SSL binding, see [Buy and configure an SSL certificate for Azure App Service](web-sites-purchase-ssl-web-site.md).
+>
+
+To test the hostnames, navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _kontoso.net_ and _www\.kontoso.net_.
 
 ## Assign hostnames to app
 
-If you choose not to assign one or more default hostnames to your app during the purchase process, or if you need to assign a hostname not listed, you can assign a hostname at anytime.
+If you choose not to assign one or more default hostnames to your app during the purchase process, or if you need to assign a hostname not listed, you can assign a hostname anytime.
 
 You can also assign hostnames in the App Service Domain to any other app. The steps depend on whether the App Service Domain and the app belong to the same subscription.
 
@@ -174,7 +178,7 @@ Select **Add hostname**.
 In the **Add hostname** dialog, type the fully qualified domain name of your App Service Domain or any subdomain. For example:
 
 - kontoso.net
-- www.kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 When finished, select **Validate**. The hostname record type is automatically selected for you.
@@ -198,7 +202,9 @@ Navigate to the listed hostnames in the browser. In the example in the preceding
 
 ## Renew the domain
 
-The App Service domain you bought is valid for one year from the time of purchase. By default, the domain is configured to renew automatically by charging your payment method for the next year. If you want to turn off automatic renewal, or if you want to manually renew your domain, follow the steps here.
+The App Service domain you bought is valid for one year from the time of purchase. By default, the domain is configured to renew automatically by charging your payment method for the next year. You can manually renew your domain name.
+
+If you want to turn off automatic renewal, or if you want to manually renew your domain, follow the steps here.
 
 In the **App Services** tab, click the name of your app, select **Settings**, and then select **Custom domains**.
 
@@ -208,11 +214,25 @@ In the **App Service Domains** section, select the domain you want to configure.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-From the left navigation of the domain, select **Domain renewal**. To stop renewing your domain automatically, select **Off**, and then **Save**. 
+From the left navigation of the domain, select **Domain renewal**. To stop renewing your domain automatically, select **Off**, and then **Save**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-To manually renew your domain, select **Renew domain**. However, this button is not active until 90 days before the domain's expiration.
+To manually renew your domain, select **Renew domain**. However, this button is not active until [90 days before the domain's expiration](#when-domain-expires).
+
+If your domain renewal is successful, you receive an email notification within 24 hours.
+
+## When domain expires
+
+Azure deals with expiring or expired App Service domains as follows:
+
+* If automatic renewal is disabled: 90 days before domain expiration, a renewal notification email is sent to you and the **Renew domain** button is activated in the portal.
+* If automatic renewal is enabled: On the day after your domain expiration date, Azure attempts to bill you for the domain name renewal.
+* If an error occurs during automatic renewal (for example, your card on file is expired), or if automatic renewal is disabled and you allow the domain to expire, Azure notifies you of the domain expiration and parks your domain name. You can [manually renew](#renew-the-domain) your domain.
+* On the 4th and 12th days day after expiration, Azure sends you additional notification emails. You can [manually renew](#renew-the-domain) your domain.
+* On the 19th day after expiration, your domain remains on hold but becomes subject to a redemption fee. You can call customer support to renew your domain name, subject to any applicable renewal and redemption fees.
+* On the 25th day after expiration, Azure puts your domain up for auction with a domain name industry auction service. You can call customer support to renew your domain name, subject to any applicable renewal and redemption fees.
+* On the 30th day after expiration, you're no longer able to redeem your domain.
 
 <a name="custom"></a>
 
@@ -275,7 +295,3 @@ After the operation is complete, the domain is released from your subscription a
 ## Direct default URL to a custom directory
 
 By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Direct default URL to a custom directory](app-service-web-tutorial-custom-domain.md#virtualdir).
-
-## More resources
-
-[FAQ : App Service Domain (preview) and Custom Domains](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

@@ -8,14 +8,16 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: c025cdeb-786c-4aab-abd1-132907007f7e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 04/15/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Workable
 
@@ -63,7 +65,7 @@ To configure the integration of Workable into Azure AD, you need to add Workable
 
 4. In the search box, type **Workable**, select **Workable** from result panel then click **Add** button to add the application.
 
-	 ![Workable in the results list](common/search-new-app.png)
+	![Workable in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -75,8 +77,8 @@ To configure and test Azure AD single sign-on with Workable, you need to complet
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Workable Single Sign-On](#configure-workable-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Workable test user](#create-workable-test-user)** - to have a counterpart of Britta Simon in Workable that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Workable test user](#create-workable-test-user)** - to have a counterpart of Britta Simon in Workable that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -124,7 +126,7 @@ To configure Azure AD single sign-on with Workable, perform the following steps:
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -138,7 +140,7 @@ To enable SSO in Workable, contact your dedicated Workable account manager and p
 
 3. Logout URL
 
-Once Single Sign On has been enabled, your Workable account manager will let you know and you can use [Workable's SSO page](https://www.workable.com/sso/signin) to login using your Workable account subdomain.
+Once Single Sign On has been enabled, your Workable account manager will let you know and you can use [Workable's SSO page](https://id.workable.com/sso/signin) to sign in using your Workable account subdomain.
 
 ### Create an Azure AD test user
 
@@ -158,8 +160,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon\@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -203,8 +204,8 @@ When you click the Workable tile in the Access Panel, you should be automaticall
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

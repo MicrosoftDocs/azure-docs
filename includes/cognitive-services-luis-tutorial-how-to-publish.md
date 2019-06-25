@@ -11,7 +11,7 @@ ms.topic: include
 ms.custom: include file
 ms.date: 08/17/2018
 ms.author: diberry
---- 
+---
 
 In order to receive a LUIS prediction in a chat bot or other client application, you need to publish the app to the endpoint. 
 

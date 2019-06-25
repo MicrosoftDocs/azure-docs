@@ -4,7 +4,7 @@ description: Learn how to use the open-source Azure Cosmos DB data migration too
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 05/20/2019
 ms.author: dech
 
 ---
@@ -53,7 +53,7 @@ While the import tool includes a graphical user interface (dtui.exe), it can als
 
 ## <a id="Install"></a>Installation
 
-The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-compiled binary](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip), then run either:
+The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-compiled binary](https://aka.ms/csdmtool), then run either:
 
 * **Dtui.exe**: Graphical interface version of the tool
 * **Dt.exe**: Command-line version of the tool
@@ -80,6 +80,20 @@ Once you've installed the tool, it's time to import your data. What kind of data
 The JSON file source importer option allows you to import one or more single document JSON files or JSON files that each have an array of JSON documents. When adding folders that have JSON files to import, you have the option of recursively searching for files in subfolders.
 
 ![Screenshot of JSON file source options - Database migration tools](./media/import-data/jsonsource.png)
+
+The connection string is in the following format:
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* The `<CosmosDB Endpoint>` is the endpoint URI. You can get this value from the Azure portal. Navigate to your Azure Cosmos account. Open the **Overview** pane and copy the **URI** value.
+* The `<AccountKey>` is the "Password" or **PRIMARY KEY**. You can get this value from the Azure portal. Navigate to your Azure Cosmos account. Open the **Connection Strings** or **Keys** pane, and copy the "Password" or **PRIMARY KEY** value.
+* The `<CosmosDB Database>` is the CosmosDB database name.
+
+Example: 
+`AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> Use the Verify command to ensure that the Cosmos DB account specified in the connection string field can be accessed.
 
 Here are some command-line samples to import JSON files:
 
@@ -206,7 +220,7 @@ Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By
 *{
   "DomainInfo": {
     "Domain_Name": "ACUS.GOV",
-    "Domain_Name_Address": "https://www.ACUS.GOV"
+    "Domain_Name_Address": "https:\//www.ACUS.GOV"
   },
   "Federal Agency": "Administrative Conference of the United States",
   "RedirectInfo": {

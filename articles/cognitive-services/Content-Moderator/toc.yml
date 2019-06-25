@@ -7,7 +7,7 @@
     expanded: true
 - name: Quickstarts
   items:
-  - name: Getting started
+  - name: Try Content Moderator on web
     href: quick-start.md
   - name: Using the client SDK
     items:
@@ -25,6 +25,10 @@
   items:
   - name: Moderate e-commerce images
     href: ecommerce-retail-catalog-moderation.md
+  - name: Moderate Facebook content
+    href: facebook-post-moderation.md
+  - name: Video and transcript moderation
+    href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Concepts
   items:
   - name: Image moderation
@@ -33,86 +37,60 @@
     href: text-moderation-api.md
   - name: Video moderation
     href: video-moderation-human-review.md
-  - name: Jobs and reviews
+  - name: Review tool
+    href: Review-Tool-User-Guide/human-in-the-loop.md
+  - name: Reviews, workflows, and jobs
     href: review-api.md
-  - name: Workflows
-    href: workflow-api.md
 - name: How-to guides
   items:
-  - name: Use the Moderation services
+  - name: Moderate content
     items:
-    - name: Moderation APIs
+    - name: REST API
       items:
-      - name: Using the .NET SDK
-        items:
-        - name: Check video content
-          href: video-moderation-api.md
-        - name: Check images against custom lists
-          href: image-lists-quickstart-dotnet.md
-        - name: Check text against custom terms
-          href: term-lists-quickstart-dotnet.md
-      - name: Using REST APIs
-        items:
-        - name: Images - API console
-          href: try-image-api.md
-        - name: Custom images - API console
-          href: try-image-list-api.md
-        - name: Text - API console
-          href: try-text-api.md
-        - name: Custom terms - API console
-          href: try-terms-list-api.md
-  - name: Use the Review tool
+      - name: Images - API console
+        href: try-image-api.md
+      - name: Custom images - API console
+        href: try-image-list-api.md
+      - name: Text - API console
+        href: try-text-api.md
+      - name: Custom terms - API console
+        href: try-terms-list-api.md
+    - name: .NET SDK
+      items:
+      - name: Check video content
+        href: video-moderation-api.md
+      - name: Check images against custom lists
+        href: image-lists-quickstart-dotnet.md
+      - name: Check text against custom terms
+        href: term-lists-quickstart-dotnet.md
+  - name: Define and use reviews
     items:
-    - name: Review APIs
-      items:
-      - name: Using the .NET SDK
-        items:
-        - name: Jobs - .NET
-          href: moderation-jobs-quickstart-dotnet.md
-        - name: Reviews - .NET
-          href: moderation-reviews-quickstart-dotnet.md
-        - name: Video reviews - .NET
-          href: video-reviews-quickstart-dotnet.md
-        - name: Video transcript reviews - .NET
-          href: video-transcript-reviews-quickstart-dotnet.md
-      - name: Using REST APIs
-        items:
-        - name: Jobs - API console
-          href: try-review-api-job.md
-        - name: Reviews - API console
-          href: try-review-api-review.md
-        - name: Workflows - API console
-          href: try-review-api-workflow.md
-    - name: Review tool overview
-      href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Review tool settings
-      href: Review-Tool-User-Guide/Configure.md
-    - name: Manage team
-      href: Review-Tool-User-Guide/SubTeams.md
-    - name: Use tags
-      href: Review-Tool-User-Guide/Tags.md
-    - name: Review images
+    - name: Review tool (browser)
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: Review text
-      href: Review-Tool-User-Guide/Text-Reviews.md
-    - name: Manage credentials
-      href: Review-Tool-User-Guide/Credentials.md
-    - name: Use connectors
-      href: Review-Tool-User-Guide/Connectors.md
-    - name: Use workflows
-      href: Review-Tool-User-Guide/Workflows.md
-    - name: View dashboard
-      href: Review-Tool-User-Guide/View-Dashboard.md
-  - name: First Content Moderator apps
+    - name: REST API
+      href: try-review-api-review.md
+    - name: .NET SDK
+      href: moderation-reviews-quickstart-dotnet.md
+    - name: Video reviews (.NET)
+      href: video-reviews-quickstart-dotnet.md
+    - name: Video transcript reviews (.NET)
+      href: video-transcript-reviews-quickstart-dotnet.md
+  - name: Define and use workflows
     items:
-    - name: Facebook content moderation
-      href: facebook-post-moderation.md
-    - name: Video and trancript moderation
-      href: video-transcript-moderation-review-tutorial-dotnet.md
+    - name: Review tool (browser)
+      href: Review-Tool-User-Guide/Workflows.md
+    - name: REST API
+      href: try-review-api-workflow.md
+  - name: Define and use jobs
+    items:
+    - name: REST API
+      href: try-review-api-job.md
+    - name: .NET SDK
+      href: moderation-jobs-quickstart-dotnet.md
+  - name: Configure the Review tool
+    href: Review-Tool-User-Guide/Configure.md
   - name: Export or delete account data
     href: ./export-delete-data.md
-  - name: Azure webinar series
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
 - name: Reference
   items:
   - name: Content Moderator API
@@ -143,8 +121,8 @@
       href: samples-rest.md
     - name: Other Azure samples
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
-  - name: FAQ
-    href: FAQs.md
+  - name: Azure webinar series
+    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
   - name: UserVoice
@@ -159,3 +137,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure roadmap
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

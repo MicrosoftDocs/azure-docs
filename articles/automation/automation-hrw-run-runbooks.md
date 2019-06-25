@@ -14,7 +14,7 @@ manager: carmonm
 
 There's no difference in the structure of runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly. This difference is because runbooks that target a Hybrid Runbook Worker typically manage resources on the local computer itself or against resources in the local environment where it's deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud.
 
-When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook is tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it's available to run in the Hybrid worker. It's important to know that jobs that run under the Local System account for Windows or a special user account **nxautomation** on Linux. This behavior can introduce subtle differences when authoring runbooks for a Hybrid Runbook Worker. These changes should be reviewed when you're writing your runbooks.
+When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook is tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it's available to run in the Hybrid worker. It's important to know that jobs that run under the Local System account for Windows or a special user account `nxautomation` on Linux. This behavior can introduce subtle differences when authoring runbooks for a Hybrid Runbook Worker. These changes should be reviewed when you're writing your runbooks.
 
 ## Starting a runbook on Hybrid Runbook Worker
 
@@ -38,7 +38,7 @@ Runbooks running on a Hybrid Runbook Worker can't use the same method that is ty
 
 ### Runbook authentication
 
-By default, runbooks run in the context of the Local System account for Windows and a special user account **nxautomation** for Linux on the on-premises computer, so they must provide their own authentication to resources that they access.
+By default, runbooks run in the context of the Local System account for Windows and a special user account `nxautomation` for Linux on the on-premises computer, so they must provide their own authentication to resources that they access.
 
 You can use [Credential](automation-credentials.md) and [Certificate](automation-certificates.md) assets in your runbook with cmdlets that allow you to specify credentials so you can authenticate to different resources. The following example shows a portion of a runbook that restarts a computer. It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the Restart-Computer cmdlet.
 
@@ -53,7 +53,7 @@ You can also use [InlineScript](automation-powershell-workflow.md#inlinescript),
 
 ### RunAs account
 
-By default the Hybrid Runbook Worker uses Local System for Windows and a special user account **nxautomation** for Linux to execute runbooks. Instead of having runbooks provide their own authentication to local resources, you can specify a **RunAs** account for a Hybrid worker group. You specify a [credential asset](automation-credentials.md) that has access to local resources, and all runbooks run under these credentials when running on a Hybrid Runbook Worker in the group.
+By default the Hybrid Runbook Worker uses Local System for Windows and a special user account `nxautomation` for Linux to execute runbooks. Instead of having runbooks provide their own authentication to local resources, you can specify a **RunAs** account for a Hybrid worker group. You specify a [credential asset](automation-credentials.md) that has access to local resources, and all runbooks run under these credentials when running on a Hybrid Runbook Worker in the group.
 
 The user name for the credential must be in one of the following formats:
 
@@ -241,7 +241,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-When the runbook has been signed, it must be imported into your Automation Account and published with the signature block. To learn how to import runbooks, see [Importing a runbook from a file into Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+When the runbook has been signed, it must be imported into your Automation Account and published with the signature block. To learn how to import runbooks, see [Importing a runbook from a file into Azure Automation](manage-runbooks.md#import-a-runbook).
 
 ### Linux Hybrid Runbook Worker
 
@@ -251,7 +251,7 @@ To sign runbooks on a Linux Hybrid Runbook Worker, your Hybrid Runbook Worker ne
 
 To create the keyring and keypair you'll need to use the Hybrid Runbook Worker account `nxautomation`.
 
-Use `sudo` to log in as the `nxautomation` account.
+Use `sudo` to sign in as the `nxautomation` account.
 
 ```bash
 sudo su – nxautomation
@@ -265,7 +265,7 @@ sudo gpg --generate-key
 
 GPG will guide you through the steps to create the keypair. You'll need to provide a name, an email address, expiration time, passphrase, and wait for enough entropy on the machine for the key to be generated.
 
-Because the GPG directory was generated with sudo, you need to change its owner to nxautomation. 
+Because the GPG directory was generated with sudo, you need to change its owner to `nxautomation`. 
 
 Run the following command to change the owner.
 
@@ -283,7 +283,7 @@ gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
 
 #### Verify signature validation is on
 
-If signature validation has been disabled on the machine, you’ll need to turn it on. Run the following command to enable signature validation. Replacing `<LogAnalyticsworkspaceId>` with your workspace Id.
+If signature validation has been disabled on the machine, you’ll need to turn it on. Run the following command to enable signature validation. Replacing `<LogAnalyticsworkspaceId>` with your workspace ID.
 
 ```bash
 sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
@@ -294,19 +294,15 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 Once signature validation is configured, you can use the following command to sign a runbook:
 
 ```bash
-gpg –clear-sign <runbook name>
+gpg –-clear-sign <runbook name>
 ```
 
 The signed runbook will have the name `<runbook name>.asc`.
 
 The signed runbook can now be uploaded to Azure Automation, and can be executed like a regular runbook.
 
-## Troubleshoot
-
-If your runbooks aren't completing successfully, review the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-
 ## Next steps
 
 * To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).
 * To understand the different ways to work with PowerShell runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)
-
+* If your runbooks aren't completing successfully, review the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).

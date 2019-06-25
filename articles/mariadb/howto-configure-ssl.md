@@ -156,6 +156,23 @@ properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
 
+### .NET (MySqlConnector)
+```csharp
+var builder = new MySqlConnectionStringBuilder
+{
+    Server = "mydemoserver.mysql.database.azure.com",
+    UserID = "myadmin@mydemoserver",
+    Password = "yourpassword",
+    Database = "quickstartdb",
+    SslMode = MySqlSslMode.VerifyCA,
+    CACertificateFile = "BaltimoreCyberTrustRoot.crt.pem",
+};
+using (var connection = new MySqlConnection(builder.ConnectionString))
+{
+    connection.Open();
+}
+```
+
 <!-- 
 ## Next steps
 Review various application connectivity options following [Connection libraries for Azure Database for MariaDB](concepts-connection-libraries.md)

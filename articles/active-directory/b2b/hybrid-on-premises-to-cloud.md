@@ -1,5 +1,5 @@
 ---
-title: Grant locally-managed partner accounts access to cloud resources as Azure AD B2B users | Microsoft Docs
+title: Sync local partner accounts to cloud as B2B users - Azure Active Directory | Microsoft Docs
 description: Give locally-managed external partners access to both local and cloud resources using the same credentials with Azure AD B2B collaboration.
 
 services: active-directory
@@ -10,9 +10,10 @@ ms.date: 04/24/2018
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
-
+manager: celestedg
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Grant locally-managed partner accounts access to cloud resources using Azure AD B2B collaboration
@@ -28,7 +29,7 @@ Before you enable synchronization of the UserType attribute, you must first deci
 Two common approaches for this are to:
 
 - Designate an unused on-premises Active Directory attribute (for example, extensionAttribute1) to use as the source attribute. 
-- Alternatively, derive the value for UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises Active Directory UserPrincipalName attribute ends with the domain *@partners.contoso.com*.
+- Alternatively, derive the value for UserType attribute from other properties. For example, you want to synchronize all users as Guest if their on-premises Active Directory UserPrincipalName attribute ends with the domain *\@partners.contoso.com*.
  
 For detailed attribute requirements, see [Enable synchronization of UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 

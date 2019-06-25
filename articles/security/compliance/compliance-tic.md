@@ -195,7 +195,7 @@ Azure provides cloud-native tools to help ensure that you have the situational a
 
 ### Azure Policy
 
-[Azure Policy](https://azure.microsoft.com/services/azure-policy/) is an Azure service that provides your organization with better ability to audit and enforce compliance initiatives. Azure Policy is currently available in public preview in Azure services that are commercially available. Azure Policy isn't yet available in Azure Government. Customers can plan and test their Azure Policy rules now to assure future TIC compliance. 
+[Azure Policy](../../governance/policy/overview.md) is an Azure service that provides your organization with better ability to audit and enforce compliance initiatives. Customers can plan and test their Azure Policy rules now to assure future TIC compliance.
 
 Azure Policy is targeted at the subscription level. The service provides a centralized interface where you can perform compliance tasks, including:
 - Manage initiatives
@@ -210,13 +210,13 @@ The following sample policies can be used for TIC compliance scenarios:
 
 |Policy  |Sample scenario  |Template  |
 |---------|---------|---------|
-|Enforce user-defined route table. | Ensure that the default route on all virtual networks points to an approved virtual network gateway for routing to on-premises.	| Get started with this [template](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
-|Audit if Network Watcher isn't enabled for a region.  | Ensure that Network Watcher is enabled for all used regions.  | Get started with this [template](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
-|NSG x on every subnet.  | Ensure that an NSG (or a set of approved NSGs) with internet traffic blocked is applied to all subnets in every virtual network. | Get started with this [template](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
-|NSG x on every NIC. | Ensure that an NSG with internet traffic blocked is applied to all NICs on all virtual machines. | Get started with this [template](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
-|Use an approved virtual network for virtual machine network interfaces.  | Ensure that all NICs are on an approved virtual network. | Get started with this [template](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
-|Allowed locations. | Ensure that all resources are deployed to regions with compliant virtual networks and Network Watcher configuration.  | Get started with this [template](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
-|Not allowed resource types, such as **PublicIPs**. | Prohibit the deployment of resource types that don't have a compliance plan. Use this policy to prohibit the deployment of public IP address resources. While NSG rules can be used to effectively block inbound internet traffic, preventing the use of public IPs further reduces the attack surface.	| Get started with this [template](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
+|Enforce user-defined route table. | Ensure that the default route on all virtual networks points to an approved virtual network gateway for routing to on-premises.	| Get started with this [template](../../governance/policy/samples/no-user-defined-route-table.md). |
+|Audit if Network Watcher isn't enabled for a region.  | Ensure that Network Watcher is enabled for all used regions.  | Get started with this [template](../../governance/policy/samples/network-watcher-not-enabled.md). |
+|NSG x on every subnet.  | Ensure that an NSG (or a set of approved NSGs) with internet traffic blocked is applied to all subnets in every virtual network. | Get started with this [template](../../governance/policy/samples/nsg-on-subnet.md). |
+|NSG x on every NIC. | Ensure that an NSG with internet traffic blocked is applied to all NICs on all virtual machines. | Get started with this [template](../../governance/policy/samples/nsg-on-nic.md). |
+|Use an approved virtual network for virtual machine network interfaces.  | Ensure that all NICs are on an approved virtual network. | Get started with this [template](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
+|Allowed locations. | Ensure that all resources are deployed to regions with compliant virtual networks and Network Watcher configuration.  | Get started with this [template](../../governance/policy/samples/allowed-locations.md). |
+|Not allowed resource types, such as **PublicIPs**. | Prohibit the deployment of resource types that don't have a compliance plan. Use this policy to prohibit the deployment of public IP address resources. While NSG rules can be used to effectively block inbound internet traffic, preventing the use of public IPs further reduces the attack surface.	| Get started with this [template](../../governance/policy/samples/not-allowed-resource-types.md).  |
 
 ### Network Watcher traffic analytics
 

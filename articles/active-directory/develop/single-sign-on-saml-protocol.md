@@ -3,8 +3,8 @@ title: Azure Single Sign On SAML Protocol | Microsoft Docs
 description: This article describes the Single Sign On SAML protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
+ms.collection: M365-identity-device-management
 ---
 
 # Single Sign-On SAML protocol
@@ -85,7 +86,7 @@ If `NameIDPolicy` is provided, you can include its optional `Format` attribute. 
 Azure AD ignores the `AllowCreate` attribute.
 
 ### RequestAuthnContext
-The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports only one `AuthnContextClassRef` value: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports `AuthnContextClassRef` values such as `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### Scoping
 The `Scoping` element, which includes a list of identity providers, is optional in `AuthnRequest` elements sent to Azure AD.
@@ -153,7 +154,7 @@ The `Response` element includes the result of the authorization request. Azure A
 
 ### Issuer
 
-Azure AD sets the `Issuer` element to `https://login.microsoftonline.com/<TenantIDGUID>/` where <TenantIDGUID> is the tenant ID of the Azure AD tenant.
+Azure AD sets the `Issuer` element to `https://login.microsoftonline.com/<TenantIDGUID>/` where \<TenantIDGUID> is the tenant ID of the Azure AD tenant.
 
 For example, a response with Issuer element could look like the following sample:
 
@@ -165,7 +166,7 @@ For example, a response with Issuer element could look like the following sample
 
 The `Status` element conveys the success or failure of sign-on. It includes the `StatusCode` element, which contains a code or a set of nested codes that represents the status of the request. It also includes the `StatusMessage` element, which contains custom error messages that are generated during the sign-on process.
 
-<!-- TODO: Add a authentication protocol error reference -->
+<!-- TODO: Add an authentication protocol error reference -->
 
 The following sample is a SAML response to an unsuccessful sign-on attempt.
 
@@ -188,7 +189,7 @@ In addition to the `ID`, `IssueInstant` and `Version`, Azure AD sets the followi
 
 #### Issuer
 
-This is set to `https://sts.windows.net/<TenantIDGUID>/`where <TenantIDGUID> is the Tenant ID of the Azure AD tenant.
+This is set to `https://sts.windows.net/<TenantIDGUID>/`where \<TenantIDGUID> is the Tenant ID of the Azure AD tenant.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

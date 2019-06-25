@@ -1,6 +1,6 @@
 ---
 title: Webhook actions for log alerts in Azure Alerts
-description: This article describes how to an log alert rule using log analytics or application insights, will push data as HTTP webhook and details of the different customizations possible.
+description: This article describes how to an log alert rule using log analytics workspace or application insights, will push data as HTTP webhook and details of the different customizations possible.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -13,6 +13,8 @@ ms.subservice: alerts
 # Webhook actions for log alert rules
 When a [log alert is created in Azure](alerts-log.md), you have the option of [configuring using action groups](action-groups.md) to perform one or more actions.  This article describes the different webhook actions that are available and details on configuring the custom JSON-based webhook.
 
+> [!NOTE]
+> You can also use the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
 
 ## Webhook actions
 
@@ -49,7 +51,7 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 | Subscription ID |#subscriptionid |ID of your Azure Subscription used with Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults passes parameters like SearchQuery, Search Interval StartTime & Search Interval End time in the URL to Azure portal for viewing in Analytics section. Azure portal has URI size limit of approx 2000 characters and will *not* open link provided in alerts, if parameters values exceed the said limit. Users can manually input details to view results in Analytics portal or use the [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) or [Log Analytics REST API](https://dev.loganalytics.io/reference) to retrieve results programmatically 
+> LinkToSearchResults passes parameters like SearchQuery, Search Interval StartTime & Search Interval End time in the URL to Azure portal for viewing in Analytics section. Azure portal has URI size limit of approximately 2000 characters and will *not* open link provided in alerts, if parameters values exceed the said limit. Users can manually input details to view results in Analytics portal or use the [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) or [Log Analytics REST API](/rest/api/loganalytics/) to retrieve results programmatically 
 
 For example, you might specify the following custom payload that includes a single parameter called *text*.  The service that this webhook calls would be expecting this parameter.
 
@@ -72,9 +74,6 @@ To include search results in a custom payload, ensure that **IncludeSearchResult
 
 ## Sample payloads
 This section shows sample payload for webhook for Log Alerts, including when payload is standard and when its custom.
-
-> [!NOTE]
-> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [Log Analytics alert management](alerts-metric.md). But for log alerts using [Application Insights](../../azure-monitor/app/analytics.md), the standard webhook payload is based on Action Group schema.
 
 ### Standard Webhook for Log Alerts 
 Both of these examples have stated a dummy payload with only two columns and two rows.
@@ -113,7 +112,11 @@ Following is a sample payload for a standard webhook action *without custom Json
     "Description": null,
     "Severity": "Warning"
  }
- ```   
+ ```
+
+> [!NOTE]
+> Severity field value might change if you have [switched your API preference](alerts-log-api-switch.md) for log alerts on Log Analytics.
+
 
 #### Log Alert for Azure Application Insights
 Following is a sample payload for a standard webhook *without custom Json option* when used for application insights-based log-alerts.
@@ -149,7 +152,7 @@ Following is a sample payload for a standard webhook *without custom Json option
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }
@@ -192,9 +195,9 @@ Following is a sample payload for a custom webhook action for any log alert.
 
 
 ## Next steps
-- Learn about [Log Alerts in Azure Alerts ](alerts-unified-log.md)
+- Learn about [Log Alerts in Azure Alerts](alerts-unified-log.md)
 - Understand [managing log alerts in Azure](alerts-log.md)
 - Create and manage [action groups in Azure](action-groups.md)
 - Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-- Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+- Learn more about [log queries](../log-query/log-query-overview.md). 
 

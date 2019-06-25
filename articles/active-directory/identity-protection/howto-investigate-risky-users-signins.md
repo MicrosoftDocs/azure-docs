@@ -4,10 +4,10 @@ description: Learn how to investigate risky users and sign-ins in Azure Active D
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: mtillman
 
-ms.author: markvi
+ms.author: joflore
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -16,8 +16,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.reviewer: raluthra
+ms.reviewer: sahandle
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Investigate risky users and sign-ins 
@@ -147,7 +148,7 @@ The **Status** filter enables you to select:
 
 ### Download risky users data
 
-You can download the risky users data if you want work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 5K records. 
+You can download the risky users data if you want to work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 2,500 records. 
 
 ![Risky users report](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -195,7 +196,7 @@ The risky sign-ins report has a default view that shows:
 
 - Risk level (real-time)
 
-- Conditional access
+- Conditional Access
 
 - MFA required  
  
@@ -224,7 +225,7 @@ The details view shows:
 
 - MFA info
 
-- Conditional access
+- Conditional Access
 
 
 
@@ -253,7 +254,7 @@ To narrow down the reported data to a level that works for you, you can filter t
 - Risk state
 - Risk level (aggregate)
 - Risk level (real-time)
-- Conditional access
+- Conditional Access
 - Date
 - Risk level type
 
@@ -294,7 +295,7 @@ The **Risk level (real-time)** filter enables you to select:
 - Low
 
 
-The **Conditional access** filter enables you to select:
+The **Conditional Access** filter enables you to select:
 
 - All
 - Not applied
@@ -316,7 +317,7 @@ Possible values are:
 
 ### Download risky sign-ins data
 
-You can download the risky sign-ins data if you want work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 5K records. 
+You can download the risky sign-ins data if you want to work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 2,500 records. 
 
 ![Risky users report](./media/howto-investigate-risky-users-signins/15.png)
 

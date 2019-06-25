@@ -3,8 +3,8 @@ title: Create a Linux container app on Service Fabric in Azure | Microsoft Docs
 description: In this quickstart, you will build a Docker image with your application, push the image to a container registry, and then deploy your container to a Service Fabric cluster.
 services: service-fabric
 documentationcenter: linux
-author: TylerMSFT
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/30/2019
-ms.author: twhitney,suhuruli
+ms.author: aljo,suhuruli
 ms.custom: mvc
 
 ---
@@ -175,7 +175,7 @@ Use the uninstall script (uninstall.sh) provided in the template to delete the a
 
 The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
-Log in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group?view=azure-cli-latest).
+Sign in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group?view=azure-cli-latest).
 
 ```azurecli
 az login

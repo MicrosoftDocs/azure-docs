@@ -4,7 +4,7 @@ title: Hybrid identity documentation
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
   title: Hybrid identity documentation
-  meta.description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.
+  description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.
   services: active-directory
   author: billmath
   manager: daveba
@@ -18,7 +18,7 @@ abstract:
   description: Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity.</br></br></br>Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD. This topic will guide you through the planning, deployment, and operation steps. It is a collection of links to the topics related to this area. 
   aside:
     image:
-      alt: 
+      alt: channel 9 video
       height: 110
       src: media/index/video2.png
       width: 250  
@@ -45,16 +45,19 @@ sections:
         - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
           html: <p>Learn how to get started extending your identities to the cloud using password hash sync</p>
           image:
+            alt: password hash sync
             src: media/index/azuread2.png
           title: Integrate a single AD forest using password hash sync (PHS)
         - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
           html: <p>Learn how to get started extending your identities to the cloud using pass-through authentication.</p>
           image:
+            alt: pass-through authentication
             src: media/index/manage2.png
           title: Integrate a single AD forest using pass-through authentication (PTA)
         - href: /azure/active-directory/hybrid/tutorial-federation 
           html: <p>Find out how to federate Azure Active Directory (Azure AD) Connect with on-premises Active Directory Federation Services (AD FS) and Azure AD.</p>
           image:
+            alt: federation
             src: media/index/federate2.png
           title: Integrate a single AD forest using federation
 

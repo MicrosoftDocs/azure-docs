@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
 
-# Configuring Azure Media Services telemetry with .NET (legacy)
+# Configuring Azure Media Services telemetry with .NET 
 
 This article describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using .NET SDK. 
 

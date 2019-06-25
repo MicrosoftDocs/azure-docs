@@ -1,5 +1,5 @@
 ---
-title: What is Azure Active Directory B2B collaboration? | Microsoft Docs
+title: What is Azure Active Directory B2B collaboration? - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration supports guest user access so you can securely share resources and collaborate with external partners.
 
 services: active-directory
@@ -10,9 +10,10 @@ ms.date: 09/14/2018
 
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
-
+ms.custom: "it-pro, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # What is guest user access in Azure Active Directory B2B?
@@ -31,7 +32,7 @@ With Azure AD B2B, the partner uses their own identity management solution, so t
 - You don't need to manage external accounts or passwords. 
 - You don't need to sync accounts or manage account lifecycles.  
 
-![add member](media/what-is-b2b/add-member.png)
+![Screenshot showing the Add members page](media/what-is-b2b/add-member.png)
 
 ## Invite guest users with a simple invitation and redemption process
 Guest users sign in to your apps and services with their own work, school, or social identities. If the guest user doesn’t have a Microsoft account or an Azure AD account, one is created for them when they redeem their invitation. 
@@ -39,15 +40,15 @@ Guest users sign in to your apps and services with their own work, school, or so
 - Send a direct link to an app, or send an invitation to the guest user's own Access Panel. 
 - Guest users follow a few simple redemption steps to sign in.
 
-![access panel](media/what-is-b2b/consentscreen.png)
+![Screenshot showing the Review permissions page](media/what-is-b2b/consentscreen.png)
 
 ## Use policies to securely share your apps and services
-You can use authorization policies protect your corporate content. Conditional access policies, such as multi-factor authentication, can be enforced:
+You can use authorization policies protect your corporate content. Conditional Access policies, such as multi-factor authentication, can be enforced:
 - At the tenant level.
 - At the application level.
 - For specific guest users to protect corporate apps and data.
 
-![add guest users](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![Screenshot showing the Conditional Access option](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 
 ## Easily add guest users in the Azure AD portal
@@ -57,7 +58,7 @@ As an administrator, you can easily add guest users to your organization in the 
 - The guest user immediately receives a customizable invitation that lets them sign in to their Access Panel.
 - Guest users in the directory can be assigned to apps or groups.  
 
-![add guest users](media/what-is-b2b/adding-b2b-users-admin.png)
+![Screenshot showing the New Guest User invitation entry page](media/what-is-b2b/adding-b2b-users-admin.png)
 
 ## Let application and group owners manage their own guest users
 
@@ -65,7 +66,7 @@ You can delegate guest user management to application owners so that they can ad
  - Administrators set up self-service app and group management.
  - Non-administrators use their [Access Panel](https://myapps.microsoft.com) to add guest users to applications or groups.
 
-![add guest users](media/what-is-b2b/access-panel-manage-app.png)
+![Screenshot showing the Access panel for a guest user](media/what-is-b2b/access-panel-manage-app.png)
 
 ## Use APIs and sample code to easily build applications to onboard
 
@@ -73,7 +74,7 @@ Bring your external partners on board in ways customized to your organization’
 - Use the [B2B collaboration invitation APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) to customize your onboarding experiences, including creating self-service sign-up portals. 
 - Use the sample code we provide for a self-service portal [on GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-![sign-up portal](media/what-is-b2b/sign-up-portal.png)
+![Screenshot showing the sample sign-up portal](media/what-is-b2b/sign-up-portal.png)
 
 ## Next steps
 

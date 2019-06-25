@@ -6,6 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/17/2019
 ms.author: amsriva
+ms.topic: conceptual
 ---
 
 # Application Gateway multiple site hosting

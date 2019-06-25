@@ -6,7 +6,7 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 05/02/2019
 ms.author: chstone
 
 ---

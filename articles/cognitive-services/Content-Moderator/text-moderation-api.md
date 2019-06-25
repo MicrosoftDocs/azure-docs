@@ -23,7 +23,7 @@ The service response includes the following information:
 
 - Profanity: term-based matching with built-in list of profane terms in various languages
 - Classification: machine-assisted classification into three categories
-- Personally Identifiable Information (PII)
+- Personal data
 - Auto-corrected text
 - Original text
 - Language
@@ -72,7 +72,7 @@ The following extract in the JSON extract shows an example output:
 - `Score` is between 0 and 1. The higher the score, the higher the model is predicting that the category may be applicable. This feature relies on a statistical model rather than manually coded outcomes. We recommend testing with your own content to determine how each category aligns to your requirements.
 - `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers should assess whether to use this value or decide on custom thresholds based on their content policies.
 
-## Personally Identifiable Information (PII)
+## Personal data
 
 The PII feature detects the potential presence of this information:
 

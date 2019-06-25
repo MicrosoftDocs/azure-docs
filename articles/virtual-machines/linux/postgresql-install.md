@@ -229,11 +229,11 @@ This deletes all the information in the "John" row. The output is:
 ![image](./media/postgresql-install/no8.png)
 
 ### Update data in a table
-Use the following command to update data in a table. For this one, Sandy has confirmed that she is attending, so we will change her RSVP from "N" to "Y":
+Use the following command to update data in a table. For this one, Sandy has confirmed that they are attending, so we will change the RSVP from "N" to "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
 ## Get more information about PostgreSQL
-Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](http://www.postgresql.org/).
+Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](https://www.postgresql.org/).
 

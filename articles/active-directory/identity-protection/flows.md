@@ -4,7 +4,7 @@ description: Provides an overview of the user experience when Identity Protectio
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 
+ms.collection: M365-identity-device-management
 ---
 # Sign-in experiences with Azure AD Identity Protection
 With Azure Active Directory Identity Protection, you can:

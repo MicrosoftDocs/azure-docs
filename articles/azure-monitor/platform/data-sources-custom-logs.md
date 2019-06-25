@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 06/19/2019
 ms.author: bwren
 ---
 
@@ -30,15 +30,15 @@ The log files to be collected must match the following criteria.
 - The log file must use ASCII or UTF-8 encoding.  Other formats such as UTF-16 are not supported.
 
 >[!NOTE]
->If there are duplicate entries in the log file, Azure Monitor will collect them.  However, the query results will be inconsistent where the filter results show more events than the result count.  It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
->
-  
->[!NOTE]
-> If your application creates a new log file each day or when it reaches a certain size, the Log Analytics agent for Linux does not discover them until after it is restarted. This is because the agent only enumerates and begins monitoring for patterns with the specified logs upon start up, and because of this you need to plan around it by automating the restart of the agent.  This limitation does not exist with the Log Analytics agent for Windows.  
+> If there are duplicate entries in the log file, Azure Monitor will collect them. However, the query results will be inconsistent where the filter results show more events than the result count. It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
 >
 
 >[!NOTE]
-> A maximum of 500 custom logs can be created per Log Analytics Workspace. 
+> A Log Analytics workspace supports the following limits:
+> 
+> * Only 500 custom logs can be created.
+> * A table only supports up to 500 columns. 
+> * The maximum number of characters for the column name is 500. 
 >
 
 ## Defining a custom log

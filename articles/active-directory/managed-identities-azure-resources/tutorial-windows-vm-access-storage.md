@@ -3,7 +3,7 @@ title: Use a Windows VM system-assigned managed identity to access Azure Storage
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 
@@ -14,12 +14,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
-ms.author: priyamo
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Storage via access key
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+
+
+> [!IMPORTANT] 
+> Azure Storage now supports Azure AD authentication. As a best practice, use [Azure AD authentication](tutorial-vm-windows-access-storage.md) instead of access keys. 
+
 
 This tutorial shows you how to use a system-assigned managed identity for Windows virtual machine (VM) to retrieve storage account access keys. You can use storage access keys as usual when doing storage operations, for example when using the Storage SDK. For this tutorial, we upload and download blobs using Azure Storage PowerShell. You will learn how to:
 

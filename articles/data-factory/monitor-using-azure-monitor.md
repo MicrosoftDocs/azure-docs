@@ -37,11 +37,11 @@ You can use a storage account or event hub namespace that is not in the same sub
 ### Diagnostic Settings
 Diagnostic Logs for non-compute resources are configured using diagnostic settings. Diagnostic settings for a resource control:
 
-* Where diagnostic logs are sent (Storage Account, Event Hubs, or Log Analytics).
+* Where diagnostic logs are sent (Storage Account, Event Hubs, or Azure Monitor logs).
 * Which log categories are sent.
 * How long each log category should be retained in a storage account.
 * A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
-* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
+* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or Azure Monitor logs options are selected), the retention policies have no effect.
 * Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
 ### Enable diagnostic logs via REST APIs
@@ -56,7 +56,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Headers**
 * Replace `{api-version}` with `2016-09-01`.
-* Replace `{resource-id}` with the resource ID of the resource for which you would like to edit diagnostic settings. For more information [Using Resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
+* Replace `{resource-id}` with the resource ID of the resource for which you would like to edit diagnostic settings. For more information [Using Resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
 * Set the authorization header to a JSON web token that you obtain from Azure Active Directory. For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
 
@@ -274,7 +274,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |String | Level of the diagnostic logs. Level 4 always is the case for activity run logs. | `4`  |
 | correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Time of the event in timespan, UTC format `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| String| ID of the activity run | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| String| ID of the pipeline run | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -285,7 +285,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |activityName| String | Name of the activity | `MyActivity` |
 |start| String | Start of the activity run in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
 |end| String | Ends of the activity run in timespan, UTC format. If the activity has not ended yet (diagnostic log for an activity starting), a default value of `1601-01-01T00:00:00Z` is set.  | `2017-06-26T20:55:29.5007959Z` |
-
 
 ### Pipeline Run Logs Attributes
 
@@ -321,7 +320,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |String | Level of the diagnostic logs. Level 4 is the case for activity run logs. | `4`  |
 | correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Time of the event in timespan, UTC format `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| String| ID of the pipeline run | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | Category of Diagnostic Logs. Set this property to "PipelineRuns" | `PipelineRuns` |
@@ -331,7 +330,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| String | Start of the activity run in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
 |end| String | End of the activity runs in timespan, UTC format. If the activity has not ended yet (diagnostic log for an activity starting), a default value of `1601-01-01T00:00:00Z` is set.  | `2017-06-26T20:55:29.5007959Z` |
 |status| String | Final status of the pipeline run (Succeeded or Failed) | `Succeeded`|
-
 
 ### Trigger Run Logs Attributes
 
@@ -366,7 +364,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |String | Level of the diagnostic logs. Set to level 4 for activity run logs. | `4`  |
 | correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Time of the event in timespan, UTC format `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| String| ID of the trigger run | `08587023010602533858661257311` |
 |resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | Category of Diagnostic Logs. Set this property to "PipelineRuns" | `PipelineRuns` |

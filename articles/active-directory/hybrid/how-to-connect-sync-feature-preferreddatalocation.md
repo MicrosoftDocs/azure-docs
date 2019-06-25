@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Connect sync: Configure preferred data location for Multi-Geo capabilities in Office 365 | Microsoft Docs'
+title: 'Azure AD Connect: Configure preferred data location for Office 365 resources'
 description: Describes how to put your Office 365 user resources close to the user with Azure Active Directory Connect sync.
 services: active-directory
 documentationcenter: ''
@@ -12,10 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Connect sync: Configure preferred data location for Office 365 resources
 The purpose of this topic is to walk you through how to configure the attribute for preferred data location in Azure Active Directory (Azure AD) Connect sync. When someone uses Multi-Geo capabilities in Office 365, you use this attribute to designate the geo-location of the user’s Office 365 data. (The terms *region* and *geo* are used interchangeably.)
@@ -186,8 +187,8 @@ In general, full synchronization cycle is required. This is because you have add
    3. In the dialog box, select **Full Import**, and select **OK**.
    4. Wait for the operation to complete.
 
-    > [!NOTE]
-    > You can skip full import on the on-premises Active Directory Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any change during step 2 earlier in this article.
+      > [!NOTE]
+      > You can skip full import on the on-premises Active Directory Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any change during step 2 earlier in this article.
 
 2. Run **Full import** on the Azure AD Connector:
 

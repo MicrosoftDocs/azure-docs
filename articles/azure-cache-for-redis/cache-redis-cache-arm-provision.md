@@ -3,18 +3,18 @@ title: Provision an Azure Cache for Redis using Azure Resource Manager | Microso
 description: Use Azure Resource Manager template to deploy an Azure Cache for Redis.
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
 ms.workload: web
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # Create an Azure Cache for Redis using a template
@@ -34,8 +34,8 @@ For the complete template, see [Azure Cache for Redis template](https://github.c
 > Resource Manager templates for the new [Premium tier](cache-premium-tier-intro.md) are available. 
 > 
 > * [Create a Premium Azure Cache for Redis with clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-> * [Create Premium Azure Cache for Redis with data persistence](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
-> * [Create Premium Azure Cache for Redis with VNet and optional clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+> * [Create Premium Azure Cache for Redis with data persistence](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+> * [Create Premium Redis Cache deployed into a Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > To check for the latest templates, see [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/) and search for `Azure Cache for Redis`.
 > 

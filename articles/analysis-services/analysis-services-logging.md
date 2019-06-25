@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Setup diagnostic logging
 
-An important part of any Analysis Services solution is monitoring how your servers are performing. With [Azure resource diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+An important part of any Analysis Services solution is monitoring how your servers are performing. With [Azure resource diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](../azure-monitor/azure-monitor-log-hub.md).
 
-![Diagnostic logging to Storage, Event Hubs, or Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Diagnostic logging to Storage, Event Hubs, or Azure Monitor logs](./media/analysis-services-logging/aas-logging-overview.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## What's logged?
 
@@ -77,7 +78,7 @@ The Metrics category logs the same [Server metrics](analysis-services-monitor.md
 
     * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](../storage/common/storage-create-storage-account.md). Follow the instructions to create a Resource Manager, general-purpose account, then select your storage account by returning to this page in the portal. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To learn more, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
-    * **Send to Log Analytics**. To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [create a new workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) in the portal. For more information on viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-logs-in-log-analytics) in this article.
+    * **Send to Azure Monitor (Log Analytics workspace)**. To use this option, either use an existing workspace or [create a new workspace](../azure-monitor/learn/quick-create-workspace.md) resource in the portal. For more information on viewing your logs, see [View logs in Log Analytics workspace](#view-logs-in-log-analytics-workspace) in this article.
 
     * **Engine**. Select this option to log xEvents. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
     * **Service**. Select this option to log service level events. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
@@ -98,7 +99,7 @@ To enable metrics and diagnostics logging by using PowerShell, use the following
 - To enable storage of diagnostics logs in a storage account, use this command:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    The storage account ID is the resource ID for the storage account where you want to send the logs.
@@ -106,7 +107,7 @@ To enable metrics and diagnostics logging by using PowerShell, use the following
 - To enable streaming of diagnostics logs to an event hub, use this command:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    The Azure Service Bus rule ID is a string with this format:
@@ -118,13 +119,13 @@ To enable metrics and diagnostics logging by using PowerShell, use the following
 - To enable sending diagnostics logs to a Log Analytics workspace, use this command:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - You can obtain the resource ID of your Log Analytics workspace by using the following command:
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 You can combine these parameters to enable multiple output options.
@@ -145,48 +146,44 @@ Logs are typically available within a couple hours of setting up logging. It's u
 * Delete logs that you no longer want to keep in your storage account.
 * Be sure to set a retention period for so old logs are deleted from your storage account.
 
-## View logs in Log Analytics
+## View logs in Log Analytics workspace
 
-Metrics and server events are integrated with xEvents in Log Analytics for side-by-side analysis. Log Analytics can also be configured to receive events from other Azure services providing a holistic view of diagnostic logging data across your architecture.
+Metrics and server events are integrated with xEvents in your Log Analytics workspace resource for side-by-side analysis. Log Analytics workspace can also be configured to receive events from other Azure services providing a holistic view of diagnostic logging data across your architecture.
 
-To view your diagnostic data in Log Analytics, open the Log Search page from the left menu or the Management area, as shown below.
+To view your diagnostic data, in Log Analytics workspace, open **Logs**  from the left menu.
 
 ![Log Search options in the Azure portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Now that you've enabled data collection, in **Log Search**, click **All collected data**.
+In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes Engine and Service events. Notice a query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging. Click **EventClass\_s** or one of the event names and Log Analytics workspace continues constructing a query. Be sure to save your queries to reuse later.
 
-In **Type**, click **AzureDiagnostics**, and then click **Apply**. AzureDiagnostics includes Engine and Service events. Notice a Log Analytics query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging.
+### Example query
+This query calculates and returns CPU for each query end/refresh end event for a model database and server:
 
-Click **EventClass\_s** or one of the event names and Log Analytics continues constructing a query. Be sure to save your queries to reuse later.
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+window
+| where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
+| where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
+| extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
+| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
+| join kind=leftouter (
+window
+    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
+    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
+    ) on RootActivityId_g
+| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
 
-Be sure to see Log Analytics, which provides a website with enhanced query, dashboarding, and alerting capabilities on collected data.
-
-### Queries
-
-There are hundreds of queries you can use. Here are a few to get you started.
-To learn more about using the new Log Search query language, see [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
-
-* Query return queries submitted to Azure Analysis Services that took over five minutes (300,000 milliseconds) to complete.
-
-    ```
-    search * | where ( Type == "AzureDiagnostics" ) | where ( EventClass_s == "QUERY_END" ) | where toint(Duration_s) > 300000
-    ```
-
-* Identify scale out replicas.
-
-    ```
-    search * | summarize count() by ServerName_s
-    ```
-    When using scale-out, you can identify read-only replicas because the ServerName\_s field values have the replica instance number appended to the name. The resource field contains the Azure resource name, which matches the server name that the users see. The IsQueryScaleoutReadonlyInstance_s field equals true for replicas.
+```
 
 
-
-> [!TIP]
-> Have a great Log Analytics query you want to share? If you have a GitHub account, you can add it to this article. Just click **Edit** at the top-right of this page.
+There are hundreds of queries you can use. To learn more about queries, see [Get started with Azure Monitor log queries](../azure-monitor/log-query/get-started-queries.md).
 
 
-## Tutorial - Turn on logging by using PowerShell
-In this quick tutorial, you create a storage account in the same subscription and resource group as your Analysis Service server. You then use Set-AzureRmDiagnosticSetting to turn on diagnostics logging, sending output to the new storage account.
+## Turn on logging by using PowerShell
+
+In this quick tutorial, you create a storage account in the same subscription and resource group as your Analysis Service server. You then use Set-AzDiagnosticSetting to turn on diagnostics logging, sending output to the new storage account.
 
 ### Prerequisites
 To complete this tutorial, you must have the following resources:
@@ -198,7 +195,7 @@ To complete this tutorial, you must have the following resources:
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell gets all the subscriptions that are associated with this account and by default, uses the first one.
@@ -206,13 +203,13 @@ In the pop-up browser window, enter your Azure account user name and password. A
 If you have multiple subscriptions, you might have to specify a specific one that was used to create your Azure Key Vault. Type the following to see the subscriptions for your account:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Then, to specify the subscription that's associated with the Azure Analysis Services account you are logging, type:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -222,12 +219,12 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 
 ### Create a new storage account for your logs
 
-You can use an existing storage account for your logs, provided it's in the same subscription as your server. For this tutorial you create a new storage account dedicated to Analysis Services logs. To make it easy, you're storing the storage account details in a variable named **sa**.
+You can use an existing storage account for your logs, provided it's in the same subscription as your server. For this tutorial, you create a new storage account dedicated to Analysis Services logs. To make it easy, you're storing the storage account details in a variable named **sa**.
 
 You also use the same resource group as the one that contains your Analysis Services server. Substitute values for `awsales_resgroup`, `awsaleslogs`, and `West Central US` with your own values:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
+$sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
@@ -236,19 +233,19 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 Set the account name to a variable named **account**, where ResourceName is the name of the account.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
+$account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
 ### Enable logging
 
-To enable logging, use the Set-AzureRmDiagnosticSetting cmdlet together with the variables for the new storage account, server account, and the category. Run the following command, setting the **-Enabled** flag to **$true**:
+To enable logging, use the Set-AzDiagnosticSetting cmdlet together with the variables for the new storage account, server account, and the category. Run the following command, setting the **-Enabled** flag to **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
-The output should look something like this:
+The output should look something like this example:
 
 ```powershell
 StorageAccountId            : 
@@ -287,12 +284,12 @@ Location                    :
 Tags                        :
 ```
 
-This confirms that logging is now enabled for the server, saving information to the storage account.
+This output confirms that logging is now enabled for the server, saving information to the storage account.
 
 You can also set retention policy for your logs so older logs are automatically deleted. For example, set retention policy using **-RetentionEnabled** flag to **$true**, and set **-RetentionInDays** parameter to **90**. Logs older than 90 days are automatically deleted.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories Engine`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -301,4 +298,4 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 Learn more about [Azure resource diagnostic logging](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-See [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) in PowerShell help.
+See [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) in PowerShell help.

@@ -14,6 +14,7 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot: Azure AD Connect install issues
@@ -35,11 +36,11 @@ However, if you don’t meet the express installation criteria and must do the c
 
 ### **Common Issues**
 
-* [Connectivity issues with on-premise Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
+* [Connectivity issues with on-premises Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
 
 * [Connectivity issues with online Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity).
 
-* [Permission issues with on-premise Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
+* [Permission issues with on-premises Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
 
 ## **Recommended Documents**
 * [Prerequisites for Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)

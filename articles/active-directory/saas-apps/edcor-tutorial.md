@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 5b06f2d8-9cd7-498d-bdd6-88570a0a0a15
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Edcor
 
@@ -120,7 +121,7 @@ To configure Azure AD single sign-on with Edcor, perform the following steps:
 
 ### Configure Edcor Single Sign-On
 
-To configure single sign-on on **Edcor** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Edcor support team](http://www.edcor.com/contact-us-2/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Edcor** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Edcor support team](https://www.edcor.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -140,7 +141,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -175,7 +176,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Edcor test user
 
-In this section, you create a user called Britta Simon in Edcor. Work with [Edcor support team](http://www.edcor.com/contact-us-2/) to add the users in the Edcor platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Edcor. Work with [Edcor support team](https://www.edcor.com/contact-us/) to add the users in the Edcor platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
@@ -185,9 +186,9 @@ When you click the Edcor tile in the Access Panel, you should be automatically s
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

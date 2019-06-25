@@ -1,20 +1,12 @@
 ---
-title: Publish Azure application offer - Azure Marketplace | Microsoft Docs
+title: Publish Azure application offer | Azure Marketplace 
 description: Describes the process and steps for publishing an Azure application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Publish Azure application offer
@@ -48,6 +40,8 @@ You can monitor the publishing process in the **Status** tab for your offer in t
 
 After you finish the publishing process, your offer will be listed in the [Microsoft Azure Marketplace application category](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Errors and review feedback
 

@@ -31,7 +31,7 @@ In Azure Resource Manager stack, secrets/certificates are modeled as resources t
 >
 
 ## Use PowerShell to set up Key Vault
-To create a key vault by using PowerShell, see [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md#vault).
+To create a key vault by using PowerShell, see [Set and retrieve a secret from Azure Key Vault using PowerShell](../../key-vault/quick-create-powershell.md).
 
 For new key vaults, you can use this PowerShell cmdlet:
 
@@ -46,7 +46,11 @@ To create a key vault by using the command-line interface (CLI), see [Manage Key
 
 For CLI, you have to create the key vault before you assign the deployment policy. You can do this by using the following command:
 
-    azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+    az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
+    
+Then to enable Key Vault for use with template deployment, run the following command:
+
+    az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
 ## Use templates to set up Key Vault
 While you use a template, you need to set the `enabledForDeployment` property to `true` for the Key Vault resource.

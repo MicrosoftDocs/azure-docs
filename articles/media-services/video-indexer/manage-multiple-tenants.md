@@ -8,10 +8,11 @@ manager: femila
 editor: ''
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: ikbarmen
 ---
 
@@ -52,7 +53,7 @@ With this option, customization models (Person, Language, and Brands) can be sha
 
 When [uploading videos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?), you can specify a different partition attribute per tenant. This will allow isolation in the [search API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). By specifying the partition attribute in the search API you will only get results of the specified partition. 
 
- ### Considerations
+### Considerations
 
 * Ability to share content and customization models between tenants.
 * One tenant impacts the performance of other tenants.
@@ -63,7 +64,7 @@ When [uploading videos](https://api-portal.videoindexer.ai/docs/services/operati
 
 ## Azure subscription per tenant 
 
-When using this architecture, each tenant will have his own Azure subscription. For each user, you will create a new Video Indexer account in the tenant subscription.
+When using this architecture, each tenant will have their own Azure subscription. For each user, you will create a new Video Indexer account in the tenant subscription.
 
 ![Azure subscription per tenant](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 

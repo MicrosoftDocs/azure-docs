@@ -1,0 +1,202 @@
+- name: Overview
+  items:
+  - name: Developer guide
+    href: azure-developer-guide.md
+  - name: SDKs and tools
+    href: https://docs.microsoft.com/azure/index#pivot=sdkstools
+- name: Quickstart
+  items:
+  - name: Web Apps
+    href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
+  - name: Virtual machines
+    items:
+    - name: Linux
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal
+    - name: Windows
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal
+  - name: Serverless
+    href: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
+  - name: Microservices
+    items:
+    - name: Service Fabric
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-create-your-first-application-in-visual-studio
+    - name: Container Service
+      href: https://docs.microsoft.com/azure/container-service/dcos-swarm/container-service-deployment
+- name: Tutorials
+  items:
+  - name: Create and deploy a web app
+    items:
+    - name: .NET with SQL DB
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase
+    - name: Node.js with Mongo DB
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app
+    - name: PHP with MySQL
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql
+    - name: Java with MySQL
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql
+  - name: Deploy complex VM templates
+    items:
+    - name: Linux
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm
+    - name: Windows
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm
+  - name: Create an Azure connected function
+    href: https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function
+  - name: Docker deploy web app on Linux
+    href: https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go
+- name: Samples
+  items:
+  - name: Azure CLI
+    items:
+    - name: Web Apps
+      href: https://docs.microsoft.com/azure/app-service/samples-cli
+    - name: Linux VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples
+    - name: Windows VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples
+  - name: Azure PowerShell
+    items:
+    - name: Web Apps
+      href: https://docs.microsoft.com/azure/app-service/samples-powershell
+    - name: Linux VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples
+    - name: Windows VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples
+- name: Concepts
+  items:
+  - name: Billing and subscriptions
+    href: https://docs.microsoft.com/azure/billing/billing-getting-started
+  - name: Hosting comparisons
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree
+  - name: What is App Service?
+    href: https://docs.microsoft.com/azure/app-service/overview
+  - name: Virtual machines
+    items:
+    - name: Linux VMs
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/overview
+    - name: Windows VMs
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/overview
+  - name: Service Fabric overview
+    href: https://docs.microsoft.com/azure/service-fabric/service-fabric-overview
+- name: How to guides
+  items:
+  - name: Plan
+    items:
+    - name: Web application architectures
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app
+    - name: VM architectures
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/
+    - name: Connect to on-premises networks
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/
+    - name: Microservices patterns/scenarios
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-and-scenarios
+  - name: Develop
+    items:
+    - name: Linux VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-secured-vm-from-template
+    - name: Windows VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/ps-template
+    - name: Serverless apps
+      href: https://docs.microsoft.com/azure/azure-functions/functions-reference
+    - name: Microservices cluster
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal
+  - name: Deploy
+    items:
+    - name: Web and mobile apps from source control
+      href: https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment
+    - name: Microservices locally
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster
+    - name: Linux VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm
+    - name: Windows VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm
+  - name: Store data
+    items:
+    - name: Blobs
+      href: https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs
+    - name: File shares
+      href: https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files
+    - name: Key-value pairs
+      href: https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet
+    - name: JSON documents
+      href: https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet
+    - name: Relational tables
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started
+    - name: Message queues
+      href: https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues
+  - name: Scale
+    items:
+    - name: Web and mobile apps
+      href: https://docs.microsoft.com/azure/app-service/web-sites-scale
+    - name: Virtual machines
+      href: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+    - name: Microservice apps
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-scalability
+  - name: Secure
+    items:
+    - name: Web and mobile apps
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl
+  - name: Backup
+    items:
+    - name: Web and mobile apps
+      href: https://docs.microsoft.com/azure/app-service/manage-backup
+    - name: Virtual machines
+      href: https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction
+  - name: Monitor
+    items:
+    - name: Web and mobile apps
+      href: https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs
+    - name: Linux VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring
+    - name: Windows VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring
+    - name: Microservices
+      href: https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview
+    - name: Billing alerts
+      href: https://docs.microsoft.com/azure/billing/billing-set-up-alerts
+  - name: Automate
+    items:
+    - name: Scale Linux VM
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss
+    - name: Scale Windows VM
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss
+- name: Reference
+  items:
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/
+  - name: SDKs
+    items:
+    - name: .NET
+      href: https://go.microsoft.com/fwlink/?linkid=834925
+    - name: Java
+      href: https://docs.microsoft.com/java/api/
+    - name: Node.js
+      href: https://azure.github.io/azure-sdk-for-node/
+    - name: PHP
+      href: https://github.com/Azure/azure-sdk-for-php/blob/master/README.md
+    - name: Python
+      href: http://azure-sdk-for-python.readthedocs.io/en/latest/
+    - name: Ruby
+      href: https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md
+  - name: Command line interfaces
+    items:
+    - name: Azure CLI
+      href: https://docs.microsoft.com/cli/azure/
+    - name: Azure PowerShell
+      href: https://docs.microsoft.com/powershell/
+  - name: Billing
+    href: https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview
+- name: Resources
+  items:
+  - name: Azure limits and quotas
+    href: ../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
+  - name: Azure regions
+    href: https://azure.microsoft.com/regions/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Samples
+    href: https://azure.microsoft.com/resources/samples/
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/home/

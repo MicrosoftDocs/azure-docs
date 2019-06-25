@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2019
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 
@@ -40,7 +40,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Deploy from local Git with Kudu builds
+## Deploy with Kudu builds
 
 The easiest way to enable local Git deployment for your app with the Kudu build server is to use the Cloud Shell.
 
@@ -48,47 +48,42 @@ The easiest way to enable local Git deployment for your app with the Kudu build 
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
+> [!NOTE]
+> Instead of account-level credentials, you can also deploy with app-level credentials, which are automatically generated for each app.
+>
+
 ### Enable local Git with Kudu
 
 To enable local Git deployment for your app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in the Cloud Shell.
 
 ```azurecli-interactive
-az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
+az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
 
 To create a Git-enabled app instead, run [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in the Cloud Shell with the `--deployment-local-git` parameter.
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
-```
-
-The `az webapp create` command should give you something similar to the following output:
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
+az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
 ### Deploy your project
 
-Back in the _local terminal window_, add an Azure remote to your local Git repository. Replace _\<url>_ with the URL of the Git remote that you got from [Enable Git for your app](#enable-local-git-with-kudu).
+Back in the _local terminal window_, add an Azure remote to your local Git repository. Replace _\<username>_ with the deployment user from [Configure a deployment user](#configure-a-deployment-user) and _\<app-name>_ with the app name from [Enable Git for your app](#enable-local-git-with-kudu).
 
 ```bash
-git remote add azure <url>
+git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git
 ```
 
-Push to the Azure remote to deploy your app with the following command. When prompted for a password, make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to log in to the Azure portal.
+> [!NOTE]
+> To deploy with app-level credentials instead, get the credentials specific to your app by running the following command in the Cloud Shell:
+>
+> ```azurecli-interactive
+> az webapp deployment list-publishing-credentials -n <app-name> -g <group-name> --query scmUri --output tsv
+> ```
+>
+> Then use the command output to run `git remote add azure <url>` like above.
+
+Push to the Azure remote to deploy your app with the following command. When prompted for a password, make sure that you enter the password you created in [Configure a deployment user](#configure-a-deployment-user), not the password you use to sign in to the Azure portal.
 
 ```bash
 git push azure master
@@ -98,7 +93,7 @@ You may see runtime-specific automation in the output, such as MSBuild for ASP.N
 
 Browse to your app to verify that the content is deployed.
 
-## Deploy from local Git with Azure DevOps Services builds
+## Deploy with Azure DevOps builds
 
 > [!NOTE]
 > For App Service to create the necessary Azure Pipelines in your Azure DevOps Services organization, your Azure account must have the role of **Owner** in your Azure subscription.
@@ -106,20 +101,18 @@ Browse to your app to verify that the content is deployed.
 
 To enable local Git deployment for your app with the Kudu build server, navigate to your app in the [Azure portal](https://portal.azure.com).
 
-In the left navigation of your app page, click **Deployment Center** > **Local Git** > **Continue**. 
+In the left navigation of your app page, click **Deployment Center** > **Local Git** > **Continue**.
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Click **Azure DevOps Services Continuous Delivery** > **Continue**.
+Click **Azure Pipelines (Preview)** > **Continue**.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-In the **Configure** page, configure a new Azure DevOps Services organization, or specify an existing organization. When finished, click **Continue**.
+In the **Configure** page, configure a new Azure DevOps organization, or specify an existing organization. When finished, click **Continue**.
 
 > [!NOTE]
-> If you want to use an existing Azure DevOps Services organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-
-In the **Test** page, choose whether to enable load tests, then click **Continue**.
+> If you want to use an existing Azure DevOps organization that is not listed, you need to [link the Azure DevOps Services organization to your Azure subscription](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to enable deployment slots, then click **Continue**.
 
@@ -213,7 +206,7 @@ git config --global http.postBuffer 524288000
       OR
   * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
-## Additional Resources
+## Additional resources
 
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
 * [Continuous Deployment to Azure App Service](deploy-continuous-deployment.md)

@@ -160,6 +160,9 @@ To view previous run histories in Visual Studio or the Azure portal:
 Find your logic app, open the app's shortcut menu. 
 Select **Open run history**.
 
+  > [!TIP]
+  > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
 * In the Azure portal, find your logic app. 
 On your logic app's menu, choose **Overview**. 
 

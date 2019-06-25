@@ -4,7 +4,7 @@ description: The article provides a curated list of Azure security white papers 
 services: azure-security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor:
 
 ms.assetid:
@@ -38,4 +38,4 @@ ms.author: tomsh
 |[Overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|This downloadable paper discusses Azure compliance offerings, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. <br/> Each offering description states which Azure customer-facing services are in scope for the assessment, and provides links to downloadable resources to assist customers with their own compliance obligations.|
 |[Security management in Azure](azure-security-management.md)|Discusses issues in the remote access of Azure resources. The nature of the cloud demands remote access administration and, therefore, security is paramount. Covers general security guidelines, client configuration, best practices, and operational principles and procedures. |
 |[Azure AD data and security](https://aka.ms/aaddatawhitepaper) | The downloadable document explains the different components of Azure Active Directory and their interaction with each other. It outlines how the various components protect, secure, encrypt, or hash their data in transit (for example, across the Internet) and how it is protected at rest. It explains the various Azure AD datacenter locations and their interaction with on-premises directories, as well as the flows to and from Azure AD. Finally, it describes the operational procedures used by the Azure AD engineering team to manage and secure the service.|
-
+|[An overview of password-less authentication](https://aka.ms/pwdless-whitepaper)|This document is an overview of the key benefits of password-less authentication using Windows Hello for Business, FIDO2 Security Keys, and the Microsoft Authenticator App. It’s recommended for security professionals and CISOs who are interested in understanding how Microsoft can help to go beyond passwords and deploy next generation authentication credentials.|

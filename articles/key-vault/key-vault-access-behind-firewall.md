@@ -2,15 +2,11 @@
 title: Access Key Vault behind a firewall - Azure Key Vault | Microsoft Docs
 description: Learn how to access Azure Key Vault from an application behind a firewall
 services: key-vault
-documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat

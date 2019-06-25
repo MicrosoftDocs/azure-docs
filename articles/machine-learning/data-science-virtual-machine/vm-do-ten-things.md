@@ -48,6 +48,9 @@ In this article, you will learn how to use your DSVM to perform various data sci
 * You need an Azure subscription. You can sign up for a free trial [here](https://azure.microsoft.com/free/).
 * Instructions for provisioning a Data Science Virtual Machine on the Azure portal are available at [Creating a virtual machine](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## 1. Explore data and develop models using Microsoft ML Server or Python
 You can use languages like R and Python to do your data analytics right on the DSVM.
 
@@ -222,22 +225,22 @@ You can use Azure Powershell to create an Azure File Service share. Here is the 
 
 ```powershell
 # Authenticate to Azure.
-Connect-AzureRmAccount
+Connect-AzAccount
 # Select your subscription
-Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
+Get-AzSubscription –SubscriptionName "<your subscription name>" | Select-AzSubscription
 # Create a new resource group.
-New-AzureRmResourceGroup -Name <dsvmdatarg>
+New-AzResourceGroup -Name <dsvmdatarg>
 # Create a new storage account. You can reuse existing storage account if you wish.
-New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
+New-AzStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
 # Set your current working storage account
-Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
+Set-AzCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
-# Create a Azure File Service Share
-$s = New-AzureStorageShare <<teamsharename>>
+# Create an Azure File Service Share
+$s = New-AzStorageShare <<teamsharename>>
 # Create a directory under the FIle share. You can give it any name
-New-AzureStorageDirectory -Share $s -Path <directory name>
+New-AzStorageDirectory -Share $s -Path <directory name>
 # List the share to confirm that everything worked
-Get-AzureStorageFile -Share $s
+Get-AzStorageFile -Share $s
 ```
 
 Now that you have created an Azure file share, you can mount it in any virtual machine in Azure. It is highly recommended that the VM is in same Azure data center as the storage account to avoid latency and data transfer charges. Here are the commands to mount the drive on the DSVM that you can run on Azure Powershell.
@@ -261,7 +264,7 @@ To download code from a GitHub repository, you use the ```git clone``` command. 
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-In Visual Studio, you can do the same clone operation. The  following screen-shot shows how to access Git and GitHub tools in Visual Studio.
+In Visual Studio, you can do the same clone operation. The  following screenshot shows how to access Git and GitHub tools in Visual Studio.
 
 ![Screenshot of Visual Studio with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.PNG)
 
@@ -278,7 +281,7 @@ Azure blob is a reliable, economical cloud storage for data big and small. This 
 ![Screenshot of the Storage Account creation process in the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Confirm that the pre-installed command-line AzCopy tool is found at ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory containing the azcopy.exe is already on your PATH environment variable to avoid typing the full command path when running this tool. For more info on AzCopy tool, refer to [AzCopy documentation](../../storage/common/storage-use-azcopy.md)
-* Start the Azure Storage Explorer tool. It can be downloaded from [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
+* Start the Azure Storage Explorer tool. It can be downloaded from [Microsoft Azure Storage Explorer](https://storageexplorer.com/). 
 
 ![Screenshot of the Azure Storage Explorer accessing a Storage Account](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
@@ -295,7 +298,7 @@ Replace **C:\myfolder** to the path where your file is stored, **mystorageaccoun
 Run AzCopy command in PowerShell or from a command prompt. Here is some example usage of AzCopy command:
 
 ```powershell
-# Copy *.sql from local machine to a Azure Blob
+# Copy *.sql from local machine to an Azure Blob
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
 
 # Copy back all files from Azure Blob container to Local machine

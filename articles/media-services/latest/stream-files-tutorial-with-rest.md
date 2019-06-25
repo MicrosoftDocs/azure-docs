@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 04/22/2019
 ms.author: juliako
 ---
 
@@ -37,10 +37,6 @@ This tutorial shows you how to:
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
-
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
 - [Create a Media Services account](create-account-cli-how-to.md).
 
@@ -189,7 +185,7 @@ You can use a built-in EncoderNamedPreset or use custom presets.
 
 A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the created **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
 
-In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
+In this example, the job's input is based on an HTTPS URL ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
 1. In the left window of the Postman, select "Encoding and Analysis".
 2. Then, select "Create or Update Job".
@@ -226,13 +222,17 @@ The job takes some time to complete and when it does you want to be notified. To
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
+#### Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 ### Create a streaming locator
 
 After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
 The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy (**PredefinedStreamingPolicy.ClearStreamingOnly**) is used.
+When creating a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
 
 > [!IMPORTANT]
 > When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. 
@@ -359,6 +359,10 @@ Execute the following CLI command:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

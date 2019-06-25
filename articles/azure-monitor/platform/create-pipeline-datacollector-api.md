@@ -1,5 +1,5 @@
 ---
-title: Create a data pipeline with the Azure Azure Monitor Data Collector API | Microsoft Docs
+title: Create a data pipeline with the Azure Monitor Data Collector API | Microsoft Docs
 description: You can use the Azure Monitor HTTP Data Collector API to add POST JSON data to the Log Analytics workspace from any client that can call the REST API. This article describes how to upload data stored in files in an automated way.
 services: log-analytics
 documentationcenter: ''
@@ -22,7 +22,7 @@ The [Azure Monitor Data Collector API](data-collector-api.md) allows you to impo
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Example problem
-For the remainder of this article, we will examine page view data in Application Insights. In our hypothetical scenario, we want to correlate geographical information collected by default by the Application Insights SDK to custom data containing the population of every country in the world, with the goal of identifying where we should be spending the most marketing dollars. 
+For the remainder of this article, we will examine page view data in Application Insights. In our hypothetical scenario, we want to correlate geographical information collected by default by the Application Insights SDK to custom data containing the population of every country/region in the world, with the goal of identifying where we should be spending the most marketing dollars. 
 
 We use a public data source such as the [UN World Population Prospects](https://esa.un.org/unpd/wpp/) for this purpose. The data will have the following simple schema:
 

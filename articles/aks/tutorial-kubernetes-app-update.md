@@ -2,12 +2,12 @@
 title: Kubernetes on Azure tutorial - Update an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to update an existing application deployment to AKS with a new version of the application code.
 services: container-service
-author: iainfoulds
+author: tylermsft
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: twhitney
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn how to update an existing application deployment in an Azure Kubernetes Service (AKS) cluster so that I can maintain the application lifecycle.
@@ -63,7 +63,7 @@ docker-compose up --build -d
 
 ## Test the application locally
 
-To verify that the updated container image shows your changes, open a local web browser to http://localhost:8080.
+To verify that the updated container image shows your changes, open a local web browser to `http://localhost:8080`.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -83,7 +83,10 @@ Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with y
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Now use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your ACR login server name. If you experience issues pushing to your ACR registry, make sure that you have run the [az acr login][az-acr-login] command.
+Now use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your ACR login server name.
+
+> [!NOTE]
+> If you experience issues pushing to your ACR registry, make sure that you are still logged in. Run the [az acr login][az-acr-login] command using the name of your Azure Container Registry that you created in the [Create an Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) step. For example, `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

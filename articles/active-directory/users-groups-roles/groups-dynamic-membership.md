@@ -15,6 +15,7 @@ ms.author: curtand
 ms.reviewer: krbain
 
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Dynamic membership rules for groups in Azure Active Directory
@@ -133,7 +134,7 @@ If you want to compare the value of a user attribute against a number of differe
  In the following example, the expression evaluates to true if the value of user.department equals any of the values in the list:
 
 ```
-   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003","50005","50006","50007","50008","50016","50020","50024","50038","50039","51100"]
 ```
 
 
@@ -279,7 +280,7 @@ The direct reports rule is constructed using the following syntax:
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Here's an example of a valid rule where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager:
+Here's an example of a valid rule where "62e19b97-8b3d-4d4a-a106-4ce66896a863" is the objectID of the manager:
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -296,17 +297,17 @@ The following tips can help you use the rule properly.
 
 You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
 
-The “All users” rule is constructed using single expression using the -ne operator and the null value. This rule adds B2B guest users as well as member users to the group.
+The "All users" rule is constructed using single expression using the -ne operator and the null value. This rule adds B2B guest users as well as member users to the group.
 
 ```
 user.objectid -ne null
 ```
 
-### Create an “All devices” rule
+### Create an "All devices" rule
 
 You can create a group containing all devices within a tenant using a membership rule. When devices are added or removed from the tenant in the future, the group's membership is adjusted automatically.
 
-The “All Devices” rule is constructed using single expression using the -ne operator and the null value:
+The "All Devices" rule is constructed using single expression using the -ne operator and the null value:
 
 ```
 device.objectid -ne null
@@ -314,7 +315,7 @@ device.objectid -ne null
 
 ## Extension properties and custom extension properties
 
-Extension attributes and custom extenson properties are supported as string properties in dynamic membership rules. Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
+Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -342,20 +343,19 @@ The following device attributes can be used.
  Device attribute  | Values | Example
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | any string value |(device.displayName -eq "Rob Iphone”)
- deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
+ displayName | any string value |(device.displayName -eq "Rob iPhone")
+ deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | any string value | (device.deviceOSVersion -eq "9.1")
  deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
- domainName | any string value | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple Device Enrollment Profile or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
- systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains “M365Managed”)
+ systemLabels | any string matching the Intune device property for tagging Modern Workplace devices | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
 > For the deviceOwnership when creating Dynamic Groups for devices you need to set the value equal to "Company". On Intune the device ownership is represented instead as Corporate. Refer to [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) for more details. 
@@ -368,4 +368,4 @@ These articles provide additional information on groups in Azure Active Director
 * [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](groups-dynamic-membership.md)
+* [Manage dynamic rules for users in a group](groups-create-rule.md)

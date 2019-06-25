@@ -3,8 +3,8 @@ title: Use the Azure portal to create Azure HDInsight clusters with Azure Data L
 description: Use the Azure portal to create and use HDInsight clusters with Azure Data Lake Storage Gen1
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: a8c45a83-a8e3-4227-8b02-1bc1e1de6767
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Create HDInsight clusters with Azure Data Lake Storage Gen1 by using the Azure portal
@@ -132,7 +132,7 @@ The configures are different depending on whether the account is used as the def
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Add service principal to HDInsight cluster")
 
-  By default, __READ__, __WRITE__, AND __EXECUTE__ are all selected.
+   By default, __READ__, __WRITE__, AND __EXECUTE__ are all selected.
 
 3. Click **Select** on the bottom of the page.
 4. Click **Run** to assign permission.

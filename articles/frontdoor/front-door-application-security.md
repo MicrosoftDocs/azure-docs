@@ -20,7 +20,7 @@ Azure Front Door Service provides web application protection capability to safeg
 Front Door's application protection is configured on each edge environment around the globe, in line with applications, and automatically blocks non-http(s) traffic from reaching your web applications. Our multi-tenant distributed architecture enables global protection at scale without sacrificing performance. For http(s) workloads, Front Door's web application protection service provides a rich rules engine for custom rules, pre-configured ruleset against common attacks, and detailed logging for all requests that matches a rule. Flexible actions including allow, block, or log only are supported.
 
 ## Custom access control rules
-- **IP Blacklists and whitelists:** You may configure custom rules to control access to your web applications based on list of client IP addresses. Both IP v4 and IP v6 are supported
+- **IP allow list and block list:** You may configure custom rules to control access to your web applications based on list of client IP addresses. Both IP v4 and IP v6 are supported
 - **Geographic based access control:** You may configure custom rules to control access to your web applications based on country code a client IP is from
 - **HTTP parameters filtering:** You may configure custom access rules based on matching http(s) request parameters including headers, URL, and query strings
 

@@ -6,16 +6,13 @@ documentationcenter: ''
 author: yashar
 manager: yashar
 editor: ''
-
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-
-ms.date: 06/14/2018
-ms.author: yashar
+ms.date: 04/13/2019
+ms.author: banders
 
 ---
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]
-

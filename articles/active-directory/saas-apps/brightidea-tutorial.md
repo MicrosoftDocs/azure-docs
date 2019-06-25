@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 3adae3e0-f43b-492f-b373-6a512d2d6046
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Brightidea
 
@@ -159,18 +160,18 @@ To configure Azure AD single sign-on with Brightidea, perform the following step
 	
 	![Brightidea Configuration](./media/brightidea-tutorial/configure4.png)
 	
-	 * Enter the **SAML Profile Name** like e.g `Azure Ad SSO`
+   * Enter the **SAML Profile Name** like e.g `Azure Ad SSO`
 	
-	 * For **Upload Metadata**, click choose file and upload the downloaded metadata file from the Azure portal.
+   * For **Upload Metadata**, click choose file and upload the downloaded metadata file from the Azure portal.
 
 	 > [!NOTE]
 	 > After uploading the metadata file, the remaining fields **Single Sign-on Service, Identity Provider Issuer, Upload Public Key** will populate automatically.
 
-	 * In the **Email** textbox, enter the value as `mail`.
+   * In the **Email** textbox, enter the value as `mail`.
 	 
-	 * In the **Screen Name** textbox, enter the value as `givenName`.
+   * In the **Screen Name** textbox, enter the value as `givenName`.
 	 
-	 * Click **Save Changes**.  
+   * Click **Save Changes**.  
 
 ### Create an Azure AD test user 
 
@@ -190,7 +191,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -235,9 +236,9 @@ When you click the Brightidea tile in the Access Panel, you should be automatica
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

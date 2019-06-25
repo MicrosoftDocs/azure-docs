@@ -7,8 +7,8 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: 
 manager: craigg
 ms.date: 12/18/2018
@@ -33,6 +33,7 @@ The following document includes links to Azure examples showing how to connect a
 |[PHP](sql-database-connect-query-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
 |[Python](sql-database-connect-query-python.md)|This quickstart demonstrates how to use Python to connect to an Azure SQL database and use Transact-SQL statements to query data. |
 |[Ruby](sql-database-connect-query-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
+|[R](sql-database-connect-query-r.md)|This quickstart demonstrates how to use R with Azure SQL Database Machine Learning Services to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
 |||
 
 ## TLS considerations for SQL Database connectivity
@@ -75,7 +76,7 @@ The following table lists examples of object-relational mapping (ORM) frameworks
 | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
 | Java | Windows, Linux, macOS |[Hibernate ORM](https://hibernate.org/orm)|
-| PHP | Windows, Linux, macOS | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
+| PHP | Windows, Linux, macOS | [Laravel (Eloquent)](https://laravel.com/docs/eloquent)<br>[Doctrine](https://www.doctrine-project.org/projects/orm.html) |
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](https://docs.sequelizejs.com) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Ruby on Rails](https://rubyonrails.org/) |

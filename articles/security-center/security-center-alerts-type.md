@@ -3,8 +3,8 @@ title: Security alerts by type in Azure Security Center | Microsoft Docs
 description: This article discusses the different kinds of security alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: mbaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -13,17 +13,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: rkarlin
+ms.date: 3/20/2018
+ms.author: v-mohabe
 
 ---
 # Understanding security alerts in Azure Security Center
 This article helps you to understand the different types of security alerts and related insights that are available in Azure Security Center. For more information on how to manage alerts and incidents, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 To set up advanced detections, upgrade to Azure Security Center Standard. A free trial is available. To upgrade, select **Pricing Tier** in the [security policy](tutorial-security-policy.md). To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
-
-> [!NOTE]
-> Security Center has released to limited preview a new set of detections that leverage auditd records, a common auditing framework, to detect malicious behaviors on Linux machines. Send an email with your subscription IDs to [us](mailto:ASC_linuxdetections@microsoft.com) to join the preview.
 
 ## What type of alerts are available?
 Azure Security Center uses a variety of [detection capabilities](security-center-detection-capabilities.md) to alert customers to potential attacks targeting their environments. These alerts contain valuable information about what triggered the alert, the resources targeted, and the source of the attack. The information included in an alert varies based on the type of analytics used to detect the threat. Incidents may also contain additional contextual information that can be useful when investigating a threat.  This article provides information about the following alert types:
@@ -92,7 +89,7 @@ Security Center uses advanced analytics to identify compromised resources based 
 * **All file shadow copies have been deleted**: This alert indicates that shadow copies have been deleted.
 * **Suspicious file cleanup commands**: This alert indicates a combination of systeminfo commands used to perform post-compromise self-cleanup activity.  While *systeminfo.exe* is a legitimate Windows tool, executing it twice in succession, followed by a delete command in the way that has occurred here is rare.
 * **Suspicious account creation**: This alert indicates that an account was created with a close resemblance of an existing built in administrative privilege account. This technique can be used by attackers to create a rogue account without being detected.
-* **Suspicious volume shadow copy activity**: This alert indicates shadow copy deletion activity on the resource. Volume Shadow Copy (VSC) is an important artifact that stores data snapshots. This activity is associated with Ransowmare, but it could also be legitimate.
+* **Suspicious volume shadow copy activity**: This alert indicates shadow copy deletion activity on the resource. Volume Shadow Copy (VSC) is an important artifact that stores data snapshots. This activity is associated with Ransomware, but it could also be legitimate.
 * **Windows registry persistence method**: This alert indicates an attempt to persist an executable in the Windows registry. Malware often uses such a technique to survive a boot.
 * **Suspicious new firewall rule**: This alert indicates that a new Firewall rule has been added via *netsh.exe* to allow traffic from an executable in a suspicious location.
 * **Suspicious XCOPY executions**: This alert indicates a series of XCOPY executions that could signal that one of your machines has been compromised and was used to propagate malware.

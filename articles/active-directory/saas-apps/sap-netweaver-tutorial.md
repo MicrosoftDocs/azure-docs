@@ -8,14 +8,15 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 1b9e59e3-e7ae-4e74-b16c-8c1a7ccfdef3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/11/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SAP NetWeaver
 
@@ -92,7 +93,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 3. Log on to business client of SAP System (T01), where SSO is required and activate HTTP Security session Management.
 
 	a. Go to Transaction code **SICF_SESSIONS**. It displays all relevant profile parameters with current values. They look like below:-
-	```
+    ```
 	login/create_sso2_ticket = 2
 	login/accept_sso2_ticket = 1
 	login/ticketcache_entries_max = 1000
@@ -102,7 +103,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 	http/security_context_cache_size = 2500
 	rdisp/plugin_auto_logout = 1800
 	rdisp/autothtime = 60
-	```
+    ```
 	>[!NOTE]
 	> Adjust above parameters as per your organization requirements, Above parameters are given here as indication only.
 
@@ -113,12 +114,12 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 	![The Certificate download link](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
 	d. Activate below SICF services:
-	```
+    ```
 	/sap/public/bc/sec/saml2
 	/sap/public/bc/sec/cdc_ext_service
 	/sap/bc/webdynpro/sap/saml2
 	/sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
-	```
+    ```
 4. Go to Transaction code **SAML2** in business client of SAP system [T01/122]. It will open a user interface in a browser. In this example, we assumed 122 as SAP business client.
 
 	![The Certificate download link](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
@@ -130,7 +131,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 6. Replace **Provider Name** from T01122 to `http://T01122` and click on **Save**.
 
 	> [!NOTE]
-	> By default provider name come as <sid><client> format but Azure AD expects name in the format of <protocol>://<name>, recommending to maintain provider name as https://<sid><client> to allow multiple SAP NetWeaver ABAP engines to configure in Azure AD.
+	> By default provider name come as `<sid><client>` format but Azure AD expects name in the format of `<protocol>://<name>`, recommending to maintain provider name as `https://<sid><client>` to allow multiple SAP NetWeaver ABAP engines to configure in Azure AD.
 
 	![The Certificate download link](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
@@ -142,7 +143,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	b. Click on **Metadata**.
 
-	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to auto polulate the **Identifier** and **Reply URL** values in Azure portal.
+	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to auto-populate the **Identifier** and **Reply URL** values in Azure portal.
 
 8. In the [Azure portal](https://portal.azure.com/), on the **SAP NetWeaver** application integration page, select **Single sign-on**.
 
@@ -170,8 +171,15 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	![SAP NetWeaver Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
-	In the **Sign-on URL** text box, type a URL using the following pattern:
+	d. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<your company instance of SAP NetWeaver>`
+
+	> [!NOTE]
+	> We have seen few customers reporting an error of incorrect Reply URL configured for their instance. If you receive any such error, you can use following PowerShell script as a work around to set the correct Reply URL for your instance.:
+    > ```
+    > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+    > ``` 
+	> ServicePrincipal Object ID is to be set by yourself first or you can pass that also here.
 
 12. SAP NetWeaver application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -305,7 +313,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -365,9 +373,8 @@ In this section, you create a user called Britta Simon in SAP NetWeaver. Please 
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

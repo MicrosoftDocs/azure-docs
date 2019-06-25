@@ -3,13 +3,13 @@ title: "Quickstart: Get list of supported languages, C# - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/07/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to get a list of supported languages using C#
@@ -105,9 +105,17 @@ request.RequestUri = new Uri(host + route);
 // Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
-// Print the response
-Console.WriteLine(jsonResponse);
+// Pretty print the response
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+To print the response with "Pretty Print" (formatting for the response), add this function to your Program class:
+```
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## Put it all together
@@ -128,6 +136,8 @@ dotnet run
 ```
 
 ## Sample response
+
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 {

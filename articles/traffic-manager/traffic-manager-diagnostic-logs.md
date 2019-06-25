@@ -2,7 +2,7 @@
 title: Enable diagnostic logging in Azure Traffic Manager
 description: Learn how to enable diagnostic logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,7 +10,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Enable diagnostic logging in Azure Traffic Manager
@@ -36,14 +36,14 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
 
 2. **Enable diagnostic logging for the Traffic Manager profile:**
 
-    Enable diagnostic logging for the Traffic Manager profile using the ID obtained in the previous step with [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/set-azdiagnosticsetting?view=latest). The following command stores verbose logs for the Traffic Manager profile to a specified Azure Storage account. 
+    Enable diagnostic logging for the Traffic Manager profile using the ID obtained in the previous step with [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). The following command stores verbose logs for the Traffic Manager profile to a specified Azure Storage account. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Verify diagnostic settings:**
 
-      Verify diagnostic settings for the Traffic Manager profile using [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/get-azdiagnosticsetting?view=latest). The following command displays the categories that are logged for a resource.
+      Verify diagnostic settings for the Traffic Manager profile using [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). The following command displays the categories that are logged for a resource.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>

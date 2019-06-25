@@ -5,7 +5,7 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -18,8 +18,6 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 1. [Azure Storage Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc.). Should I remove and recreate my server endpoint?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -53,7 +51,7 @@ This message appears if the server was previously registered with a Storage Sync
 
 If the server is not listed under **Registered servers** in the Storage Sync Service, on the server that you want to unregister, run the following PowerShell commands:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Reset-StorageSyncServer
 ```
@@ -108,19 +106,18 @@ This issue occurs if the server is offline or doesn't have network connectivity.
 <a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**  
 This issue can occur if a management operation on the server endpoint fails. If the server endpoint properties page does not open in the Azure portal, updating server endpoint using PowerShell commands from the server may fix this issue. 
 
-```PowerShell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+```powershell
 # Get the server endpoint id based on the server endpoint DisplayName property
-Get-AzureRmStorageSyncServerEndpoint `
-    -SubscriptionId mysubguid `
+Get-AzStorageSyncServerEndpoint `
     -ResourceGroupName myrgname `
     -StorageSyncServiceName storagesvcname `
-    -SyncGroupName mysyncgroup
+    -SyncGroupName mysyncgroup | `
+Tee-Object -Variable serverEndpoint
 
 # Update the free space percent policy for the server endpoint
-Set-AzureRmStorageSyncServerEndpoint `
-    -Id serverendpointid `
-    -CloudTiering true `
+Set-AzStorageSyncServerEndpoint `
+    -InputObject $serverEndpoint
+    -CloudTiering `
     -VolumeFreeSpacePercent 60
 ```
 <a id="server-endpoint-noactivity"></a>**Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”**  
@@ -140,12 +137,12 @@ A server endpoint health status of "No Activity" means the server endpoint has n
 
 A server endpoint may not log sync activity for the following reasons:
 
-- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes.
+- Agent version 4.3.0.0 or older is installed and the server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes. To resolve this issue, install agent version 5.0.2.0 or newer which supports multiple server endpoints syncing on a volume when a VSS sync session is active.
 
 	To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 - The server has reached the maximum number of concurrent sync sessions. 
-	- Agent version 4.x and later: Limit varies based on available system resources.
+	- Agent version 4.x and newer: Limit varies based on available system resources.
 	- Agent version 3.x: 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
 
 > [!Note]  
@@ -239,20 +236,20 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 
 #### Troubleshooting per file/directory sync errors
 **ItemResults log - per-item sync errors**  
+
 | HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | A file or directory change can't be synced yet because a dependent folder is not yet synced. This item will sync after the dependent changes are synced. | No action required. |
-| 0x7b | 123 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
+| 0x8007007b | -2147024773 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | A file has changed, but the change has not yet been detected by sync. Sync will recover after this change is detected. | No action required. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | The file cannot be synced because the Azure file share limit is reached. | To resolve this issue, see [You reached the Azure file share storage limit](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) section in the troubleshooting guide. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | This error can occur if the file is encrypted by an unsupported solution (like NTFS EFS) or the file has a delete pending state. | If the file is encrypted by an unsupported solution, decrypt the file and use a supported encryption solution . For a list of support solutions, see [Encryption solutions](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) section in the planning guide. If the file is in a delete pending state, the file will be deleted once all open file handles are closed. |
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | This error can occur for the following reasons: file is encrypted by an unsupported solution (like NTFS EFS), file has a delete pending state or file is located on a DFS-R read-only replication folder | If the file is encrypted by an unsupported solution, decrypt the file and use a supported encryption solution. For a list of support solutions, see [Encryption solutions](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) section in the planning guide. If the file is in a delete pending state, the file will be deleted once all open file handles are closed. If the file is located on a DFS-R read-only replication folder, Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) for more information.
+| 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
 #### Handling unsupported characters
-If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) can be used to identify characters that are not supported.
+If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error code 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) can be used to identify characters that are not supported.
 
 The table below contains all of the unicode characters Azure File Sync does not yet support.
 
@@ -266,6 +263,7 @@ The table below contains all of the unicode characters Azure File Sync does not 
 
 ### Common sync errors
 <a id="-2147023673"></a>**The sync session was canceled.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x800704c7 |
@@ -276,6 +274,7 @@ The table below contains all of the unicode characters Azure File Sync does not 
 Sync sessions may fail for various reasons including the server being restarted or updated, VSS snapshots, etc. Although this error looks like it requires follow-up, it is safe to ignore this error unless it persists over a period of several hours.
 
 <a id="-2147012889"></a>**A connection with the service could not be established.**    
+
 | | |
 |-|-|
 | **HRESULT** | 0x80072ee7 |
@@ -286,6 +285,7 @@ Sync sessions may fail for various reasons including the server being restarted 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
 <a id="-2134376372"></a>**The user request was throttled by the service.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8004c |
@@ -295,7 +295,19 @@ Sync sessions may fail for various reasons including the server being restarted 
 
 No action is required; the server will try again. If this error persists for longer than a couple hours, create a support request.
 
+<a id="-2134364043"></a>**Sync is blocked until change detection completes post restore**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (decimal)** | -2134364043 |
+| **Error string** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **Remediation required** | No |
+
+No action is required. When a file or file share (cloud endpoint) is restored using Azure Backup, sync is blocked until change detection completes on the Azure file share. Change detection runs immediately once the restore is complete and the duration is based on the number of files in the file share.
+
 <a id="-2134364065"></a>**Sync can't access the Azure file share specified in the cloud endpoint.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8305f |
@@ -311,6 +323,7 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 4. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**The storage account name used could not be resolved.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C83060 |
@@ -320,13 +333,14 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 
 1. Check that you can resolve the storage DNS name from the server.
 
-    ```PowerShell
+    ```powershell
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. [Verify the storage account exists.](#troubleshoot-storage-account)
 3. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
 
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x8e5e044e |
@@ -337,6 +351,7 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 This error occurs when there is a problem with the internal database used by Azure File Sync. When this issue occurs, create a support request and we will contact you to help you resolve this issue.
 
 <a id="-2134364053"></a>**The Azure File Sync agent version installed on the server is not supported.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C8306B |
@@ -347,6 +362,7 @@ This error occurs when there is a problem with the internal database used by Azu
 This error occurs if the Azure File Sync agent version installed on the server is not supported. To resolve this issue, [upgrade]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) to a [supported agent version]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**You reached the Azure file share storage limit.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8603e |
@@ -372,6 +388,7 @@ This error occurs when the Azure file share storage limit has been reached, whic
 If the share is full and a quota is not set, one possible way of fixing this issue is to make each subfolder of the current server endpoint into its own server endpoint in their own separate sync groups. This way each subfolder will sync to individual Azure file shares.
 
 <a id="-2134351824"></a>**The Azure file share cannot be found.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c86030 |
@@ -387,6 +404,7 @@ This error occurs when the Azure file share is not accessible. To troubleshoot:
 If the Azure file share was deleted, you need to create a new file share and then recreate the sync group. 
 
 <a id="-2134364042"></a>**Sync is paused while this Azure subscription is suspended.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C83076 |
@@ -397,6 +415,7 @@ If the Azure file share was deleted, you need to create a new file share and the
 This error occurs when the Azure subscription is suspended. Sync will be reenabled when the Azure subscription is restored. See [Why is my Azure subscription disabled and how do I reactivate it?](../../billing/billing-subscription-become-disable.md) for more information.
 
 <a id="-2134364052"></a>**The storage account has a firewall or virtual networks configured.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8306c |
@@ -412,6 +431,7 @@ This error occurs when the Azure file share is inaccessible because of a storage
 Remove these rules to fix this issue. 
 
 <a id="-2134375911"></a>**Sync failed due to a problem with the sync database.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c80219 |
@@ -427,6 +447,7 @@ This error usually resolves itself, and can occur if there are:
 If this error persists for longer than a few hours, create a support request and we will contact you to help you resolve this issue.
 
 <a id="-2146762487"></a>**The server failed to establish a secure connection. The cloud service received an unexpected certificate.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x800b0109 |
@@ -438,19 +459,20 @@ This error can happen if your organization is using an SSL terminating proxy or 
 
 1. Create the SkipVerifyingPinnedRootCertificate registry value.
 
-    ```PowerShell
+    ```powershell
     New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Azure\StorageSync -Name SkipVerifyingPinnedRootCertificate -PropertyType DWORD -Value 1
     ```
 
 2. Restart the sync service on the registered server.
 
-    ```PowerShell
+    ```powershell
     Restart-Service -Name FileSyncSvc -Force
     ```
 
 By setting this registry value, the Azure File Sync agent will accept any locally trusted SSL certificate when transferring data between the server and the cloud service.
 
 <a id="-2147012894"></a>**A connection with the service could not be established.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80072ee2 |
@@ -461,6 +483,7 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
 <a id="-2134375680"></a>**Sync failed due to a problem with authentication.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c80300 |
@@ -482,13 +505,12 @@ If the server time is correct, perform the following steps to resolve the issue:
 1. Verify Azure File Sync agent version 4.0.1.0 or later is installed.
 2. Run the following PowerShell commands on the server:
 
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-    Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
-    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
+    ```powershell
+    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**The volume where the server endpoint is located is low on disk space.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x8e5e0211 |
@@ -504,6 +526,7 @@ If the server time is correct, perform the following steps to resolve the issue:
 This error occurs because the volume has filled up. This error commonly occurs because files outside the server endpoint are using up space on the volume. Free up space on the volume by adding additional server endpoints, moving files to a different volume, or increasing the size of the volume the server endpoint is on.
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**The service is not yet ready to sync with this server endpoint.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8300f |
@@ -516,6 +539,7 @@ This error occurs because there are changes on the Azure file share directly and
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**Sync failed due to problems with many individual files.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8023b |
@@ -533,12 +557,13 @@ This error occurs because there are changes on the Azure file share directly and
 | **Error string** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Remediation required** | Yes |
 
-In cases where there are many per file sync errors, sync sessions may begin to fail. To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().
+In cases where there are many per file sync errors, sync sessions may begin to fail. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles.
 
 <a id="-2134376423"></a>**Sync failed due to a problem with the server endpoint path.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c80019 |
@@ -549,6 +574,7 @@ In cases where there are many per file sync errors, sync sessions may begin to f
 Ensure the path exists, is on a local NTFS volume, and is not a reparse point or existing server endpoint.
 
 <a id="-2134375817"></a>**Sync failed because the filter driver version is not compatible with the agent version**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C80277 |
@@ -559,6 +585,7 @@ Ensure the path exists, is on a local NTFS volume, and is not a reparse point or
 This error occurs because the Cloud Tiering filter driver (StorageSync.sys) version loaded is not compatible with the Storage Sync Agent (FileSyncSvc) service. If the Azure File Sync agent was upgraded, restart the server to complete the installation. If the error continues to occur, uninstall the agent, restart the server and reinstall the Azure File Sync agent.
 
 <a id="-2134376373"></a>**The service is currently unavailable.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8004b |
@@ -569,6 +596,7 @@ This error occurs because the Cloud Tiering filter driver (StorageSync.sys) vers
 This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service because available again.
 
 <a id="-2134375922"></a>**Sync failed due to a transient problem with the sync database.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8020e |
@@ -588,28 +616,15 @@ This error occurs because of an internal problem with the sync database. This er
     ![A screenshot showing the cloud endpoint detail pane with a link to the storage account.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
 # [PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 # Variables for you to populate based on your configuration
-$agentPath = "C:\Program Files\Azure\StorageSyncAgent"
 $region = "<Az_Region>"
 $resourceGroup = "<RG_Name>"
 $syncService = "<storage-sync-service>"
 $syncGroup = "<sync-group>"
 
-# Import the Azure File Sync management cmdlets
-Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
-
-# Log into the Azure account and put the returned account information
-# in a reference variable.
-$acctInfo = Connect-AzAccount
-
-# this variable stores your subscription ID 
-# get the subscription ID by logging onto the Azure portal
-$subID = $acctInfo.Context.Subscription.Id
-
-# this variable holds your Azure Active Directory tenant ID
-# use Login-AzAccount to get the ID from that context
-$tenantID = $acctInfo.Context.Tenant.Id
+# Log into the Azure account
+Connect-AzAccount
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
@@ -625,7 +640,7 @@ if ($regions -notcontains $region) {
         " selected Azure Region or the region is mistyped.")
 }
 
-# Check to ensure resource group exists and create it if doesn't
+# Check to ensure resource group exists
 $resourceGroups = [System.String[]]@()
 Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
@@ -635,32 +650,23 @@ if ($resourceGroups -notcontains $resourceGroup) {
     throw [System.Exception]::new("The provided resource group $resourceGroup does not exist.")
 }
 
-# the following command creates an AFS context 
-# it enables subsequent AFS cmdlets to be executed with minimal 
-# repetition of parameters or separate authentication 
-Login-AzureRmStorageSync `
-    –SubscriptionId $subID `
-    -ResourceGroupName $resourceGroup `
-    -TenantId $tenantID `
-    -Location $region
-
 # Check to make sure the provided Storage Sync Service
 # exists.
 $syncServices = [System.String[]]@()
 
-Get-AzureRmStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
-    $syncServices += $_.DisplayName
+Get-AzStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
+    $syncServices += $_.StorageSyncServiceName
 }
 
-if ($storageSyncServices -notcontains $syncService) {
+if ($syncServices -notcontains $syncService) {
     throw [System.Exception]::new("The provided Storage Sync Service $syncService does not exist.")
 }
 
 # Check to make sure the provided Sync Group exists
 $syncGroups = [System.String[]]@()
 
-Get-AzureRmStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
-    $syncGroups += $_.DisplayName
+Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
+    $syncGroups += $_.SyncGroupName
 }
 
 if ($syncGroups -notcontains $syncGroup) {
@@ -668,18 +674,18 @@ if ($syncGroups -notcontains $syncGroup) {
 }
 
 # Get reference to cloud endpoint
-$cloudEndpoint = Get-AzureRmStorageSyncCloudEndpoint `
+$cloudEndpoint = Get-AzStorageSyncCloudEndpoint `
     -ResourceGroupName $resourceGroup `
-    -StorageSyncServiceName $storageSyncService `
+    -StorageSyncServiceName $syncService `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzStorageAccount | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
 if ($storageAccount -eq $null) {
-    Write-Host "The storage account referenced in the cloud endpoint does not exist."
+    throw [System.Exception]::new("The storage account referenced in the cloud endpoint does not exist.")
 }
 ```
 ---
@@ -691,10 +697,10 @@ if ($storageAccount -eq $null) {
     ![A screenshot showing the storage account firewall and network rules disabled.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
 # [PowerShell](#tab/azure-powershell)
-```PowerShell
+```powershell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
-    Write-Host ("The storage account referenced contains network " + `
+    throw [System.Exception]::new("The storage account referenced contains network " + `
         "rules which are not currently supported by Azure File Sync.")
 }
 ```
@@ -707,14 +713,14 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 3. Verify the file share referenced by the cloud endpoint appears in the list of file shares (you should have noted this in step 1 above).
 
 # [PowerShell](#tab/azure-powershell)
-```PowerShell
-$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
-    $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
+```powershell
+$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
+    $_.Name -eq $cloudEndpoint.AzureFileShareName -and
     $_.IsSnapshot -eq $false
 }
 
 if ($fileShare -eq $null) {
-    Write-Host "The Azure file share referenced by the cloud endpoint does not exist"
+    throw [System.Exception]::new("The Azure file share referenced by the cloud endpoint does not exist")
 }
 ```
 ---
@@ -725,7 +731,7 @@ if ($fileShare -eq $null) {
 1. Click the **Role assignments** tab to the list the users and applications (*service principals*) that have access to your storage account.
 1. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
 
-    ![A screen shot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+    ![A screenshot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
 	If **Hybrid File Sync Service** does not appear in the list, perform the following steps:
 
@@ -734,23 +740,11 @@ if ($fileShare -eq $null) {
 	- In the **Select** field, type **Hybrid File Sync Service**, select the role and click **Save**.
 
 # [PowerShell](#tab/azure-powershell)
-```PowerShell    
-$foundSyncPrincipal = $false
-Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
-    if ($_.DisplayName -eq "Hybrid File Sync Service") {
-        $foundSyncPrincipal = $true
-        if ($_.RoleDefinitionName -ne "Reader and Data Access") {
-            Write-Host ("The storage account has the Azure File Sync " + `
-                "service principal authorized to do something other than access the data " + `
-                "within the referenced Azure file share.")
-        }
+```powershell    
+$role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Hybrid File Sync Service" }
 
-        break
-    }
-}
-
-if (!$foundSyncPrincipal) {
-    Write-Host ("The storage account does not have the Azure File Sync " + `
+if ($role -eq $null) {
+    throw [System.Exception]::new("The storage account does not have the Azure File Sync " + `
                 "service principal authorized to access the data within the " + ` 
                 "referenced Azure file share.")
 }
@@ -762,13 +756,13 @@ You can use [File Server Resource Manager (FSRM) File Screens](https://docs.micr
 
 First create an FSRM File Group using the [New-FsrmFileGroup cmdlet](https://docs.microsoft.com/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). This example defines the group to contain only two of the unsupported characters, but you can include as many of the characters as necessary in your file group.
 
-```PowerShell
+```powershell
 New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
 ```
 
 Once you have defined an FSRM File Group, you can create an FSRM File Screen using the New-FsrmFileScreen cmdlet.
 
-```PowerShell
+```powershell
 New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported characters" -IncludeGroup "Unsupported characters"
 ```
 
@@ -788,13 +782,13 @@ There are two main classes of failures that can happen via either failure path:
     - *Inaccessible Azure file share*. This failure typically happens when you delete the Azure file share when it is still a cloud endpoint in a sync group.
     - *Inaccessible storage account*. This failure typically happens when you delete the storage account while it still has an Azure file share which is a cloud endpoint in a sync group. 
 - Server failures 
-    - *Azure File Sync file system filter (StorageSync.sys) is not loaded*. In order to respond to tiering/recall requests, the Azure File Sync file system filter must be loaded. The filter not being loaded can happen for several reasons, but the most common reason is that an administrator unloaded it manually. The Azure File Sync file system filter must be loaded at all times for Azure File Sync to properly function.
-    - *Missing, corrupt, or otherwise broken reparse point*. A reparse point is a special data structure on a file that consists of two parts:
-        1. A reparse tag, which indicates to the operating system that the Azure File Sync file system filter (StorageSync.sys) may need to do some action on IO to the file. 
-        2. Reparse data, which indicates to the file system filter the URI of the file on the associated cloud endpoint (the Azure file share). 
+  - *Azure File Sync file system filter (StorageSync.sys) is not loaded*. In order to respond to tiering/recall requests, the Azure File Sync file system filter must be loaded. The filter not being loaded can happen for several reasons, but the most common reason is that an administrator unloaded it manually. The Azure File Sync file system filter must be loaded at all times for Azure File Sync to properly function.
+  - *Missing, corrupt, or otherwise broken reparse point*. A reparse point is a special data structure on a file that consists of two parts:
+    1. A reparse tag, which indicates to the operating system that the Azure File Sync file system filter (StorageSync.sys) may need to do some action on IO to the file. 
+    2. Reparse data, which indicates to the file system filter the URI of the file on the associated cloud endpoint (the Azure file share). 
         
-        The most common way a reparse point could become corrupted is if an administrator attempts to modify either the tag or its data. 
-    - *Network connectivity issues*. In order to tier or recall a file, the server must have internet connectivity.
+       The most common way a reparse point could become corrupted is if an administrator attempts to modify either the tag or its data. 
+  - *Network connectivity issues*. In order to tier or recall a file, the server must have internet connectivity.
 
 The following sections indicate how to troubleshoot cloud tiering issues and determine if an issue is a cloud storage issue or a server issue.
 
@@ -817,14 +811,14 @@ To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 i
 If files fail to tier to Azure Files:
 
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. 
-    1. Verify the files exist in the Azure file share.
+   1. Verify the files exist in the Azure file share.
 
-    > [!NOTE]
-    > A file must be synced to an Azure file share before it can be tiered.
+      > [!NOTE]
+      > A file must be synced to an Azure file share before it can be tiered.
 
-    2. Verify the server has internet connectivity. 
-    3. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
-        - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
+   2. Verify the server has internet connectivity. 
+   3. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
+       - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
 
 > [!NOTE]
 > An Event ID 9003 is logged once an hour in the Telemetry event log if a file fails to tier (one event is logged per error code). The Operational and Diagnostic event logs should be used if additional information is needed to diagnose an issue.
@@ -863,9 +857,11 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool:
 1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
+	> [!NOTE]
+	>AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.
 2. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
 
-    ```PowerShell
+    ```powershell
     cd "c:\Program Files\Azure\StorageSyncAgent"
     Import-Module .\afsdiag.ps1
     Debug-Afs c:\output # Note: Use the path created in step 1.

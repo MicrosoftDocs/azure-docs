@@ -1,5 +1,5 @@
 ---
-title: When and how to use an Azure Multi-Factor Auth Provider?
+title: When and how to use an Azure Multi-Factor Auth Provider? - Azure Active Directory
 description: When should you use an Auth Provider with Azure MFA?
 
 services: multi-factor-authentication
@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # When to use an Azure Multi-Factor Authentication Provider
 
@@ -20,10 +21,8 @@ Two-step verification is available by default for global administrators who have
 
 An Azure Multi-Factor Auth Provider is used to take advantage of features provided by Azure Multi-Factor Authentication for users who **do not have licenses**.
 
-If you have licenses that cover all of the users in your organization, then you do not need an Azure Multi-Factor Auth Provider. Create an Azure Multi-Factor Authentication Provider only if you also need to provide two-step verification for some users that don't have licenses.
-
 > [!NOTE]
-> Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated. Multi-factor authentication will continue to be available as a feature in Azure AD Premium licenses.
+> Effective September 1st, 2018 new auth providers may no longer be created. Existing auth providers may continue to be used and updated, but migration is no longer possible. Multi-factor authentication will continue to be available as a feature in Azure AD Premium licenses.
 
 ## Caveats related to the Azure MFA SDK
 

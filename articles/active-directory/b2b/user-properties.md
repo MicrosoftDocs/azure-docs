@@ -1,23 +1,24 @@
 ---
-title: Properties of an Azure Active Directory B2B collaboration user | Microsoft Docs
-description: Azure Active Directory B2B collaboration user properties are configurable
+title: Properties of a B2B guest user - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B guest user properties and states before and after invitation redemption
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/5/2018
+ms.date: 04/08/2019
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
-
+manager: celestedg
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan, seoapril2019"
+ms.collection: M365-identity-device-management
 ---
 
 # Properties of an Azure Active Directory B2B collaboration user
 
-An Azure Active Directory (Azure AD) business-to-business (B2B) collaboration user is a user with UserType = Guest. This guest user typically is from a partner organization and has limited privileges in the inviting directory, by default.
+This article describes the properties and states of the B2B guest user object in Azure Active Directory (Azure AD) before and after invitation redemption. An Azure AD business-to-business (B2B) collaboration user is a user with UserType = Guest. This guest user typically is from a partner organization and has limited privileges in the inviting directory, by default.
 
 Depending on the inviting organization's needs, an Azure AD B2B collaboration user can be in one of the following account states:
 
@@ -29,7 +30,7 @@ Depending on the inviting organization's needs, an Azure AD B2B collaboration us
 
 - State 4: Homed in the host organization's Azure AD with UserType = Guest and credentials that the host organization manages.
 
-  ![Displaying the inviter's initials](media/user-properties/redemption-diagram.png)
+  ![Diagram depicting the four user states](media/user-properties/redemption-diagram.png)
 
 
 Now, let's see what an Azure AD B2B collaboration user looks like in Azure AD.
@@ -38,7 +39,7 @@ Now, let's see what an Azure AD B2B collaboration user looks like in Azure AD.
 
 State 1 and State 2 accounts are the result of inviting guest users to collaborate by using the guest users' own credentials. When the invitation is initially sent to the guest user, an account is created in your directory. This account doesn’t have any credentials associated with it because authentication is performed by the guest user's identity provider. The **Source** property for the guest user account in your directory is set to **Invited user**. 
 
-![Before offer redemption](media/user-properties/before-redemption.png)
+![Screenshot showing user properties before offer redemption](media/user-properties/before-redemption.png)
 
 ### After invitation redemption
 
@@ -84,7 +85,7 @@ Typically, an Azure AD B2B user and guest user are synonymous. Therefore, an Azu
 
 ## Filter for guest users in the directory
 
-![Filter guest users](media/user-properties/filter-guest-users.png)
+![Screenshot showing the filter for guest users](media/user-properties/filter-guest-users.png)
 
 ## Convert UserType
 It's possible to convert UserType from Member to Guest and vice-versa by using PowerShell. However, the UserType property represents the user's relationship to the organization. Therefore, you should change this property only if the relationship of the user to the organization changes. If the relationship of the user changes, should the user principal name (UPN) change? Should the user continue to have access to the same resources? Should a mailbox be assigned? We don't recommend changing the UserType by using PowerShell as an atomic activity. Also, in case this property becomes immutable by using PowerShell, we don't recommend taking a dependency on this value.
@@ -94,10 +95,10 @@ There may be cases where you want to give your guest users higher privileges. Yo
 
 It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user.
 
-![Remove guest user limitations](media/user-properties/remove-guest-limitations.png)
+![Screenshot showing the External users option in the user settings](media/user-properties/remove-guest-limitations.png)
 
 ## Can I make guest users visible in the Exchange Global Address List?
-Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Guest access in Office 365 Groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ). 
+Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see **Can I make guest objects visible in the global address list?** in [Manage guest access in Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq). 
 
 ## Next steps
 

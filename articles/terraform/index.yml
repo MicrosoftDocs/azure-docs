@@ -5,7 +5,7 @@ metadata:
   title: Terraform on Azure documentation - Tutorials, samples, reference, and resources
   description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
   services: terraform
-  ms.service: terraform
+  ms.service: azure
   keywords: terraform, azure, devops, tutorials, samples, reference
   author: tomarchermsft
   manager: jeconnoc

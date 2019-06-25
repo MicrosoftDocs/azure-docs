@@ -53,7 +53,7 @@ The app is updated to require users to tap the **Sign in** button and authentica
 
 1. Add the following code to the **TodoActivity** class:
    
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
         private async Task<bool> Authenticate()
         {

@@ -1,22 +1,13 @@
 ---
-title: Get shared access signature URI for your Microsoft Azure-based VM image | Microsoft Docs
+title: Get shared access signature URI for your Microsoft Azure-based VM image | Azure Marketplace
 description: Explains how to get the shared access signature (SAS) URI for your VM image.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: pbutlerm
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
-
 
 # Get shared access signature URI for your VM image
 
@@ -41,33 +32,33 @@ The SAS URL can be generated in two common ways using the following tools:
 
 Use the following steps to generate a SAS URI with Azure CLI.
 
-1.  Download and install the [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Versions are available for Windows, macOS, and various distros of Linux. 
-2.  Create a PowerShell file (`.ps1` file extension), copy in the following code, then save it locally.
+1. Download and install the [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Versions are available for Windows, macOS, and various distros of Linux. 
+2. Create a PowerShell file (`.ps1` file extension), copy in the following code, then save it locally.
 
-    ``` powershell
-    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
-    ```
+   ``` powershell
+   az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
+   ```
     
-3.  Edit the file to supply the following parameter values.  Dates should be provided in UTC datetime format, for example `10-25-2016T00:00:00Z`.
-    - `<account-name>` - Your Azure storage account name
-    - `<account-key>` - Your Azure storage account key
-    - `<vhd-name>` - Your VHD name
-    - `<start-date>` - Permission start date for VHD access. Provide a date one day before the current date. 
-    - `<expiry-date>` - Permission expiration date for VHD access.  Provide a date at least three weeks beyond the current date. 
+3. Edit the file to supply the following parameter values.  Dates should be provided in UTC datetime format, for example `10-25-2016T00:00:00Z`.
+   - `<account-name>` - Your Azure storage account name
+   - `<account-key>` - Your Azure storage account key
+   - `<vhd-name>` - Your VHD name
+   - `<start-date>` - Permission start date for VHD access. Provide a date one day before the current date. 
+   - `<expiry-date>` - Permission expiration date for VHD access.  Provide a date at least three weeks beyond the current date. 
  
-    The following example shows proper parameter values (at the time of this writing).
+   The following example shows proper parameter values (at the time of this writing).
 
-    ``` powershell
-        az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
-    ```
+   ``` powershell
+       az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+   ```
  
 4. Save the changes to this PowerShell script.
 5. Run this script, using administrative privileges, to generate a *SAS connection string* for container level access.  You can use two basic approaches:
-    - Run the script from the console.  For example, in Windows, write-click on the script and select **Run as administrator**.
-    - Run the script from a PowerShell script editor, such as the [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), using administrative privileges. 
-  The following demonstrates a SAS connection string being generated within this editor. 
+   - Run the script from the console.  For example, in Windows, write-click on the script and select **Run as administrator**.
+   - Run the script from a PowerShell script editor, such as the [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), using administrative privileges. 
+     The following demonstrates a SAS connection string being generated within this editor. 
 
-    ![SAS URI generation in PowerShell ISE](./media/publishvm_032.png)
+     ![SAS URI generation in PowerShell ISE](./media/publishvm_032.png)
 
 6. Copy the resulting SAS connection string and save it to a text file in a secure location.  You will edit this string to add the associated VHD location information to it to create the final SAS URI. 
 7. In the Azure portal, navigate to the blob storage that contains the VHD associated with the newly generated URI.
@@ -99,11 +90,11 @@ Use the following steps to generate a SAS URI with the Microsoft Azure Storage E
     ![Get SAS item in Azure Explorer](./media/publishvm_034.png)
 
 6. The **Shared Access Signature** dialog is displayed. Enter values for the following fields:
-    - **Start time** - Permission start date for VHD access. Provide a date that is one day before the current date.
-    - **Expiry time** - Permission expiration date for VHD access.  Provide a date at least three weeks beyond the current date.
-    - **Permissions** - Select the `Read` and `List` permissions. 
+   - **Start time** - Permission start date for VHD access. Provide a date that is one day before the current date.
+   - **Expiry time** - Permission expiration date for VHD access.  Provide a date at least three weeks beyond the current date.
+   - **Permissions** - Select the `Read` and `List` permissions. 
 
-    ![SAS dialog in Azure Explorer](./media/publishvm_035.png)
+     ![SAS dialog in Azure Explorer](./media/publishvm_035.png)
 
 7. Click **Create** to create the associated SAS URI for this VHD.  The dialog now displays details about this operation. 
 8. Copy the **URL** value and save it to a text file in a secure location. 

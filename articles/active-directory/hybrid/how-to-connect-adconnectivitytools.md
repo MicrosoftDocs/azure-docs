@@ -1,23 +1,24 @@
 ---
 title: 'Azure AD Connect: What is the ADConnectivityTool PowerShell Module | Microsoft Docs'
-description: This document introduces the new ADConnectivity PowerShell module
+description: This document introduces the new ADConnectivity PowerShell module and how it can be used to help troubleshoot.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 4/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
-# What is the ADConnectivityTool PowerShell Module?
+# Troubleshoot Azure AD connectivity with the ADConnectivityTool PowerShell module
 
 The ADConnectivity tool is a PowerShell module that is used in one of the following:
 
-- During installation when a network connectivity problem is prevents the successful validation of the Active Directory credentials the user provided in the Wizard.
+- During installation when a network connectivity problem prevents the successful validation of the Active Directory credentials the user provided in the Wizard.
 - Post installation by a user who calls the functions from a PowerShell session.
 
 The tool is located in: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
@@ -42,7 +43,7 @@ For example, when we are attempting to add a directory on the **Connect your dir
 
 What is actually happening behind the scenes, is that Azure AD Connect is calling the `Start-NetworkConnectivityDiagnosisTools` function.  This function is called when the validation of credentials fails due to a network connectivity issue.
 
-Finally, a detailed log file is generated whenever the tool is called from the wizard. The log is located in **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**
+Finally, a detailed log file is generated whenever the tool is called from the wizard. The log is located in **C:\ProgramData\AADConnect\ADConnectivityTool-\<date>-\<time>.log**
 
 ## ADConnectivityTools post installation
 After Azure AD Connect has been installed, any of the functions in the ADConnectivityTools PowerShell module can be used.  

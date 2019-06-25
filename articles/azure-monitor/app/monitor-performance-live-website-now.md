@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 05/24/2019
 ms.author: mbullwin
 ---
 # Instrument web apps at runtime with Application Insights Status Monitor
@@ -21,7 +21,7 @@ Status Monitor is used to instrument a .NET application hosted in IIS either on-
 
 - If your app is deployed into Azure app services, follow [these instructions](azure-web-apps.md).
 - If your app is deployed in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel.
-- (There are also separate articles about instrumenting [live J2EE web apps](java-live.md) and [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+- (There are also separate articles about instrumenting [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -92,14 +92,14 @@ These are some steps that you can perform to confirm that your installation was 
 - Confirm that the applicationInsights.config file is present in the target app directory and contains your ikey.
 
 - If you suspect that data is missing you can run a simple query in [Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry.
-```Kusto
-union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-```
+  ```Kusto
+  union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+  ```
 
 - If you need to confirm that Application Insights is successfully attached you can run [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) in a command window to confirm that applicationinsights.dll has been loaded by IIS.
-```cmd
-handle.exe /p w3wp.exe
-```
+  ```cmd
+  handle.exe /p w3wp.exe
+  ```
 
 
 ### Can't connect? No telemetry?
@@ -143,6 +143,8 @@ We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsigh
 * To output verbose logs, modify the config file: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` and add `<add key="TraceLevel" value="All" />` to the `appsettings`.
 Then restart status monitor.
 
+* As Status Monitor is a .NET application you can also enable [.net tracing by adding the appropriate diagnostics to the config file](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). For example, in some scenarios it can be useful to see what's happening at the network level by [configuring network tracing](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+
 ### Insufficient permissions
   
 * On the server, if you see a message about "insufficient permissions", try the following:
@@ -178,7 +180,7 @@ OS support for Application Insights Status Monitor on Server:
 * Windows server 2012 R2
 * Windows Server 2016
 
-with latest SP and .NET Framework 4.5
+with latest SP and .NET Framework 4.5 (Status Monitor is built on this version of the framework)
 
 On the client side: Windows 7, 8, 8.1 and 10, again with .NET Framework 4.5
 
@@ -271,7 +273,9 @@ When you select a web app for Status Monitor to instrument:
 
 ### What version of Application Insights SDK does Status Monitor install?
 
-As of now, Status Monitor can only install Application Insights SDK versions 2.3 or 2.4.
+As of now, Status Monitor can only install Application Insights SDK versions 2.3 or 2.4. 
+
+The Application Insights SDK Version 2.4 is the [last version to support .NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) which was [EOL January 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Therefore, as of now Status Monitor can be used to instrument a .NET 4.0 application. 
 
 ### Do I need to run Status Monitor whenever I update the app?
 
@@ -312,7 +316,6 @@ View your telemetry:
 * [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage
 * [Search events and logs][diagnostic] to diagnose problems
 * [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
-* [Create dashboards](../../azure-monitor/app/app-insights-dashboards.md)
 
 Add more telemetry:
 

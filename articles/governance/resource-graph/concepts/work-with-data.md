@@ -1,10 +1,9 @@
 ---
 title: Work with large data sets
-description: Understand how to get large data sets back from Azure Resource Graph.
-services: resource-graph
+description: Understand how to get and control large data sets while working with Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
@@ -15,6 +14,8 @@ Azure Resource Graph is designed for working with and getting information about 
 Azure environment. Resource Graph makes getting this data fast, even when querying thousands of
 records. Resource Graph has several options for working with these large data sets.
 
+For guidance on working with queries at a high frequency, see [Guidance for throttled requests](./guidance-for-throttled-requests.md).
+
 ## Data set result size
 
 By default, Resource Graph limits any query to returning only **100** records. This control
@@ -23,6 +24,10 @@ sets. This event most often happens as a customer is experimenting with queries 
 resources in the way that suits their particular needs. This control is different than using the
 [top](/azure/kusto/query/topoperator) or [limit](/azure/kusto/query/limitoperator) Azure Data
 Explorer language operators to limit the results.
+
+> [!NOTE]
+> When using **First**, it's recommended to order the results by at least one column with `asc` or
+> `desc`. Without sorting, the results returned are random and not repeatable.
 
 The default limit can be overridden through all methods of interacting with Resource Graph. The
 following examples show how to change the data set size limit to _200_:
@@ -54,6 +59,10 @@ somewhere in the middle of the result set. If the results needed are at the end 
 data set, it's more efficient to use a different sort configuration and retrieve the results from
 the top of the data set instead.
 
+> [!NOTE]
+> When using **Skip**, it's recommended to order the results by at least one column with `asc` or
+> `desc`. Without sorting, the results returned are random and not repeatable.
+
 The following examples show how to skip the first _10_ records a query would result in, instead
 starting the returned result set with the 11th record:
 
@@ -71,7 +80,7 @@ part of **QueryRequestOptions**.
 ## Paging results
 
 When it's necessary to break a result set into smaller sets of records for processing or because a
-result set would exceed the maximum allowed value of _5000_ returned records, use paging. The [REST
+result set would exceed the maximum allowed value of _1000_ returned records, use paging. The [REST
 API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** provides values to
 indicate of a results set has been broken up: **resultTruncated** and **$skipToken**.
 **resultTruncated** is a boolean value that informs the consumer if there are additional records
@@ -83,15 +92,26 @@ When **resultTruncated** is **true**, the **$skipToken** property is set in the 
 value is used with the same query and subscription values to get the next set of records that
 matched the query.
 
+The following examples show how to **skip** the first 3000 records and return the **first** 1000
+records after those skipped with Azure CLI and Azure PowerShell:
+
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
 > [!IMPORTANT]
-> The query must **project** the **id** field in order for pagination to work. If it is missing from
-> the query, the REST API response will not include the **$skipToken**.
+> The query must **project** the **id** field in order for pagination to work. If it's missing from
+> the query, the response won't include the **$skipToken**.
 
 For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query)
 in the REST API docs.
 
 ## Next steps
 
-- See the language in use in [Starter queries](../samples/starter.md)
-- See advanced uses in [Advanced queries](../samples/advanced.md)
-- Learn to [explore resources](explore-resources.md)
+- See the language in use in [Starter queries](../samples/starter.md).
+- See advanced uses in [Advanced queries](../samples/advanced.md).
+- Learn to [explore resources](explore-resources.md).

@@ -3,7 +3,7 @@
 title: Users flagged for risk security report in the Azure Active Directory portal | Microsoft Docs
 description: Learn about the users flagged for risk security report in the Azure Active Directory portal
 services: active-directory
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Remediate users flagged for risk in the Azure Active Directory portal
 
@@ -42,7 +43,7 @@ For more information, see [Users flagged for risk security report](concept-user-
 
 You can also use your Office 365 credentials to access the **Azure Admin Center**. After you have activated your access to Azure AD, you are redirected to the Azure AD portal. At the basic subscription level, the amount of detail provided in the reports are limited. Additional data and analytics are available for Azure Premium subscribers.
 
-To access the **Users flagged for risk** reports in the Office 365 admin center:
+To access the **Users flagged for risk** reports in the Microsoft 365 admin center:
 
 1.	From the navigation menu on the left side, select **Admin centers**. 
 2.	Select **Azure AD**.

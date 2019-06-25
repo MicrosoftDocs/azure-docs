@@ -12,9 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Technical deep dive
@@ -33,15 +34,12 @@ This section has three parts to it:
 
 Seamless SSO is enabled using Azure AD Connect as shown [here](how-to-connect-sso-quick-start.md). While enabling the feature, the following steps occur:
 
-- A computer account named `AZUREADSSOACC` (which represents Azure AD) is created in your on-premises Active Directory (AD) in each AD forest.
-- The computer account's Kerberos decryption key is shared securely with Azure AD. If there are multiple AD forests, each one will have its own Kerberos decryption key.
-- In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
-
->[!NOTE]
-> The computer account and the Kerberos SPNs are created in each AD forest you synchronize to Azure AD (using Azure AD Connect) and for whose users you want Seamless SSO. Move the `AZUREADSSOACC` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
+- A computer account (`AZUREADSSOACC`) is created in your on-premises Active Directory (AD) in each AD forest that you synchronize to Azure AD (using Azure AD Connect).
+- In addition, a number of Kerberos service principal names (SPNs) are created to be used during the Azure AD sign-in process.
+- The computer account's Kerberos decryption key is shared securely with Azure AD. If there are multiple AD forests, each computer account will have its own unique Kerberos decryption key.
 
 >[!IMPORTANT]
->We highly recommend that you [roll over the Kerberos decryption key](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) of the `AZUREADSSOACC` computer account at least every 30 days.
+> The `AZUREADSSOACC` computer account needs to be strongly protected for security reasons. Only Domain Admins should be able to manage the computer account. Ensure that Kerberos delegation on the computer account is disabled, and that no other account in Active Directory has delegation permissions on the `AZUREADSSOACC` computer account.. Store the computer account in an Organization Unit (OU) where they are safe from accidental deletions and where only Domain Admins have access. The Kerberos decryption key on the computer account should also be treated as sensitive. We highly recommend that you [roll over the Kerberos decryption key](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) of the `AZUREADSSOACC` computer account at least every 30 days.
 
 Once the set-up is complete, Seamless SSO works the same way as any other sign-in that uses Integrated Windows Authentication (IWA).
 
@@ -54,7 +52,7 @@ The sign-in flow on a web browser is as follows:
 3. The user types in their user name into the Azure AD sign-in page.
 
    >[!NOTE]
-   >For [certain applications](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), steps 2 & 3 are skipped.
+   >For [certain applications](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso), steps 2 & 3 are skipped.
 
 4. Using JavaScript in the background, Azure AD challenges the browser, via a 401 Unauthorized response, to provide a Kerberos ticket.
 5. The browser, in turn, requests a ticket from Active Directory for the `AZUREADSSOACC` computer account (which represents Azure AD).

@@ -15,7 +15,8 @@ ms.subservice: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: billmath
----    
+ms.collection: M365-identity-device-management
+---
 
 # Update the SSL certificate for an Active Directory Federation Services (AD FS) farm
 
@@ -103,3 +104,4 @@ After you complete the configuration, Azure AD Connect displays the message that
 
 - [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
 - [Active Directory Federation Services management and customization with Azure AD Connect](how-to-connect-fed-management.md)
+

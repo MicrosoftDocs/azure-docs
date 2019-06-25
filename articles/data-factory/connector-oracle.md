@@ -93,7 +93,7 @@ The following properties are supported for the Oracle linked service.
         openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
         ```
 
-        **Example:** creates a PKCS12 trustsotre file named MyTrustStoreFile with a password
+        **Example:** creates a PKCS12 truststore file named MyTrustStoreFile with a password
 
         ```
         openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  

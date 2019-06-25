@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-
+ms.topic: conceptual
 ---
 # URL Path Based Routing overview
 

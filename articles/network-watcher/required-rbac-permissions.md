@@ -3,8 +3,8 @@ title: Permissions required to use Azure Network Watcher capabilities | Microsof
 description: Learn which Azure role-based access control permissions are required to work with Network Watcher capabilities.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: jdial
+ms.author: kumud
 
 ---
 

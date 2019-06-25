@@ -11,10 +11,12 @@ ms.date: 08/14/2018
 
 ms.author: mimart
 author: msmimart
+manager: celestedg
 ms.reviewer: mal
 
 #customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Bulk invite Azure AD B2B collaboration users
@@ -104,7 +106,7 @@ foreach ($email in $invitations)
    {New-AzureADMSInvitation `
       -InvitedUserEmailAddress $email.InvitedUserEmailAddress `
       -InvitedUserDisplayName $email.Name `
-      -InviteRedirectUrl https://myapps.azure.com `
+      -InviteRedirectUrl https://myapps.microsoft.com `
       -InvitedUserMessageInfo $messageInfo `
       -SendInvitationMessage $true
    }
@@ -119,7 +121,7 @@ To verify that the invited users were added to Azure AD, run the following comma
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#@*domain*. For example, *lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
+You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
 ## Clean up resources
 

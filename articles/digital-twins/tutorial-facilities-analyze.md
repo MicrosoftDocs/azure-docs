@@ -85,13 +85,13 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
       - UdfCustom
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     - type: EventHub
       eventTypes:
       - DeviceMessage
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     ```
 
 1. Replace the placeholders `Primary_connection_string_for_your_event_hub` with the value of **Connection string--primary key** for the event hub. Make sure the format of this connection string is as follows:
@@ -106,7 +106,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. Replace the placeholders `Name_of_your_Event_Hubs_namespace` with the name of your Event Hubs namespace.
+1. Replace the placeholders `Name_of_your_Event_Hub` with the name of your Event Hub.
 
     > [!IMPORTANT]
     > Enter all values without any quotes. Make sure there's at least one space character after the colons in the YAML file. You can also validate your YAML file contents by using any online YAML validator, such as [this tool](https://onlineyamltools.com/validate-yaml).
@@ -155,7 +155,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 If you want to stop exploring Azure Digital Twins beyond this point, feel free to delete resources created in this tutorial:
 
-1. From the left menu in the [Azure portal](http://portal.azure.com), select **All resources**, select your Digital Twins resource group, and then select **Delete**.
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, select your Digital Twins resource group, and then select **Delete**.
 
     > [!TIP]
     > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.

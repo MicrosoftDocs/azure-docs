@@ -4,7 +4,7 @@ description: This document shows you how to implement the Azure Security Center 
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
@@ -27,34 +27,34 @@ For more information about the specific configurations that are being monitored,
 
 This example covers the "Remediate security configurations" recommendation under **Compute & apps**.
 1. In Security Center, in the left pane, select **Compute & apps**.  
-  The **Compute & apps** window opens.
+   The **Compute & apps** window opens.
 
    ![Remediate security configurations][1]
 
 2. Select **Remediate security configurations**.  
-  The **Security configurations** window opens.
+   The **Security configurations** window opens.
 
    ![The "Security configurations" window][2]
 
-  The upper section of the dashboard displays:
+   The upper section of the dashboard displays:
 
-  - **Failed rules by severity**: The total number of rules that the OS configuration failed across your VMs and computers, broken out by severity.
-  - **Failed rules by type**: The total number of rules that the OS configuration failed across your VMs and computers, broken out by type.
-  - **Failed Windows rules**: The total number of rules failed by your Windows OS configurations.
-  - **Failed Linux rules**: The total number of rules failed by your Linux OS configurations.
+   - **Failed rules by severity**: The total number of rules that the OS configuration failed across your VMs and computers, broken out by severity.
+   - **Failed rules by type**: The total number of rules that the OS configuration failed across your VMs and computers, broken out by type.
+   - **Failed Windows rules**: The total number of rules failed by your Windows OS configurations.
+   - **Failed Linux rules**: The total number of rules failed by your Linux OS configurations.
 
-  The lower section of the dashboard lists all failed rules for your VMs and computers, and the severity of the missing update. The list contains the following elements:
+   The lower section of the dashboard lists all failed rules for your VMs and computers, and the severity of the missing update. The list contains the following elements:
 
-  - **CCEID**: The CCE unique identifier for the rule. Security Center uses Common Configuration Enumeration (CCE) to assign unique identifiers to configuration rules.
-  - **Name**: The name of the failed rule.
-  - **Rule type**: The *Registry key*, *Security policy*, *Audit policy*, or *IIS* rule type.
-  - **No. of VMs & computers**: The total number of VMs and computers that the failed rule applies to.
-  - **Rule severity**: The CCE value *Critical*, *Important*, or *Warning*.
-  - **State**: The current state of the recommendation:
+   - **CCEID**: The CCE unique identifier for the rule. Security Center uses Common Configuration Enumeration (CCE) to assign unique identifiers to configuration rules.
+   - **Name**: The name of the failed rule.
+   - **Rule type**: The *Registry key*, *Security policy*, *Audit policy*, or *IIS* rule type.
+   - **No. of VMs & computers**: The total number of VMs and computers that the failed rule applies to.
+   - **Rule severity**: The CCE value *Critical*, *Important*, or *Warning*.
+   - **State**: The current state of the recommendation:
 
-    - **Open**: The recommendation has not been addressed yet.
-    - **In Progress**: The recommendation is currently being applied to the resources, and no action is required by you.
-    - **Resolved**: The recommendation has been applied. When the issue is resolved, the entry is dimmed.
+     - **Open**: The recommendation has not been addressed yet.
+     - **In Progress**: The recommendation is currently being applied to the resources, and no action is required by you.
+     - **Resolved**: The recommendation has been applied. When the issue is resolved, the entry is dimmed.
 
 3. To view the details of a failed rule, select it in the list.
 
@@ -75,17 +75,17 @@ This example covers the "Remediate security configurations" recommendation under
    - **Rule operation**: The rule operation that's used by Security Center during the analysis of your VM OS configuration against the rule.
 
 4. At the top of the detailed view window, select **Search**.  
-  Search opens a list of workspaces that have VMs and computers with the selected security configurations mismatch. The workspace selection is shown only if the selected rule applies to multiple VMs that are connected to different workspaces.
+   Search opens a list of workspaces that have VMs and computers with the selected security configurations mismatch. The workspace selection is shown only if the selected rule applies to multiple VMs that are connected to different workspaces.
 
    ![Listed workspaces][4]
 
 5. Select a workspace.  
-  A Log Analytics search query opens filtered to the workspace with the security configurations mismatch.
+   An Azure Monitor logs search query opens filtered to the workspace with the security configurations mismatch.
 
    ![Workspace with OS vulnerability][5]
 
 6. Select a computer in the list.  
-  A new search result opens with information filtered only for that computer.
+   A new search result opens with information filtered only for that computer.
 
    ![Detailed information about the selected computer][6]
 

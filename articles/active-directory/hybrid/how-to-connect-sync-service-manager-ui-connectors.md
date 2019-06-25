@@ -17,6 +17,7 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
+ms.collection: M365-identity-device-management
 ---
 # Using connectors with the Azure AD Connect Sync Service Manager
 
@@ -80,7 +81,7 @@ To resolve the issue, update the AD DS user account using the following:
 3. Select the AD Connector which is configured to use the AD DS account.
 4. Under Actions, select **Properties**.
 5. In the pop-up dialog, select Connect to Active Directory Forest:
-6. The Forest name indicates the corresponding on-prem AD.
+6. The Forest name indicates the corresponding on premises AD.
 7. The User name indicates the AD DS account used for synchronization.
 8. Enter the new password of the AD DS account in the Password textbox
 ![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)

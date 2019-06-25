@@ -3,10 +3,11 @@ title: Azure Key Vault managed storage account - PowerShell version
 description: The managed storage account feature provides a seemless integration, between Azure Key Vault and an Azure storage account.
 ms.topic: conceptual
 ms.service: key-vault
-author: bryanla
-ms.author: bryanla
-manager: mbaldwin
-ms.date: 11/28/2018
+author: msmbaldwin
+ms.author: mbaldwin
+manager: barbkess
+ms.date: 03/01/2019
+# Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
 ---
 # Azure Key Vault managed storage account - PowerShell
 
@@ -151,4 +152,4 @@ Tags                :
 
 - [Managed storage account key samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
-- [Key Vault PowerShell reference](/powershell/module/azurerm.keyvault/)
+- [Key Vault PowerShell reference](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)

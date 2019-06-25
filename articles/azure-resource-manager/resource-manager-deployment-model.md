@@ -1,17 +1,9 @@
 ---
 title: Resource Manager and classic deployment | Microsoft Docs
 description: Describes the differences between the Resource Manager deployment model and the classic (or Service Management) deployment model.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
 
@@ -44,6 +36,7 @@ In 2014, Azure introduced Resource Manager, which added the concept of a resourc
 When Resource Manager was added, all resources were retroactively added to default resource groups. If you create a resource through classic deployment now, the resource is automatically created within a default resource group for that service, even though you did not specify that resource group at deployment. However, just existing within a resource group does not mean that the resource has been converted to the Resource Manager model.
 
 ## Understand support for the models
+
 There are three scenarios to be aware of:
 
 1. Cloud Services does not support Resource Manager deployment model.

@@ -3,8 +3,8 @@ title: Overview of Service Fabric on Azure | Microsoft Docs
 description: An overview of Service Fabric, where applications are composed of many microservices to provide scale and resilience. Service Fabric is a distributed systems platform used to build scalable, reliable, and easily managed applications for the cloud.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: masnider
 
 ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
-ms.author: msfussell
+ms.date: 04/22/2019
+ms.author: atsenthi
 ms.custom: mvc
 
 ---
@@ -23,6 +23,10 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 This short video introduces Service Fabric and microservices:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
+
+## Compliance
+Azure Service Fabric Resource Provider is available in all Azure regions and is compliant with all compliance certs that Azure has; this includes the following: SOC, ISO, PCI DSS, HIPAA, and GDPR. Please review the following for a complete list of compliance certs: 
+[Compliance Offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## Applications composed of microservices 
 Service Fabric enables you to build and manage scalable and reliable applications composed of microservices that run at high density on a shared pool of machines, which is referred to as a cluster. It provides a sophisticated, lightweight runtime to build distributed, scalable, stateless, and stateful microservices running in containers. It also provides comprehensive application management capabilities to provision, deploy, monitor, upgrade/patch, and delete deployed applications including containerized services.
@@ -46,14 +50,14 @@ Service Fabric runs everywhere. You can create clusters for Service Fabric in ma
 ![Service Fabric platform][Image1]
 
 For Windows development, the Service Fabric .NET SDK is integrated with Visual Studio and Powershell. See [Prepare your development environment on Windows](service-fabric-get-started.md). For Linux development, the Service Fabric Java SDK 
- is integrated with Eclipse, and Yeoman is used to generate templates for Java, .NET Core, and container applications. See [Prepare your development environment on Linux](service-fabric-get-started.md)
+ is integrated with Eclipse, and Yeoman is used to generate templates for Java, .NET Core, and container applications. See [Prepare your development environment on Linux](service-fabric-get-started-linux.md)
 
 For more information on creating clusters, read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure portal](service-fabric-cluster-creation-via-portal.md).
 
 ## Stateless and stateful microservices for Service Fabric
 Service Fabric enables you to build applications that consist of microservices or containers. Stateless microservices (such as protocol gateways and web proxies) do not maintain a mutable state outside a request and its response from the service. Azure Cloud Services worker roles are an example of a stateless service. Stateful microservices (such as user accounts, databases, devices, shopping carts, and queues) maintain a mutable, authoritative state beyond the request and its response. Today's Internet-scale applications consist of a combination of stateless and stateful microservices. 
 
-A key differentiation with Service Fabric is its strong focus on building stateful services, either with the [built-in programming models ](service-fabric-choose-framework.md) or with  containerized stateful services. The [application scenarios](service-fabric-application-scenarios.md) describe the scenarios where stateful services are used.
+A key differentiation with Service Fabric is its strong focus on building stateful services, either with the [built-in programming models](service-fabric-choose-framework.md) or with  containerized stateful services. The [application scenarios](service-fabric-application-scenarios.md) describe the scenarios where stateful services are used.
 
 
 ## Application lifecycle management

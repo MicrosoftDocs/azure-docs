@@ -11,7 +11,7 @@ ms.author: rezas
 
 # IoT Hub query language for device and module twins, jobs, and message routing
 
-IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins](iot-hub-devguide-device-twins.md) and [jobs](iot-hub-devguide-jobs.md), and [message routing](iot-hub-devguide-messages-d2c.md). This article presents:
+IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins](iot-hub-devguide-device-twins.md), [module twins](iot-hub-devguide-module-twins.md), [jobs](iot-hub-devguide-jobs.md), and [message routing](iot-hub-devguide-messages-d2c.md). This article presents:
 
 * An introduction to the major features of the IoT Hub query language, and
 * The detailed description of the language. For details on query language for message routing, see [queries in message routing](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -20,7 +20,7 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 
 ## Device and module twin queries
 
-[Device twins](iot-hub-devguide-device-twins.md) and module twins can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
+[Device twins](iot-hub-devguide-device-twins.md) and [module twins](iot-hub-devguide-module-twins.md) can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
 
 Assume, for instance, that your IoT hub device twins have the following structure (module twin would be similar just with an additional moduleId):
 
@@ -29,12 +29,12 @@ Assume, for instance, that your IoT hub device twins have the following structur
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
     "status": "enabled",
-    "statusUpdateTime": "0001-01-01T00:00:00",    
-    "connectionState": "Disconnected",    
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "Disconnected",
     "lastActivityTime": "0001-01-01T00:00:00",
     "cloudToDeviceMessageCount": 0,
-    "authenticationType": "sas",    
-    "x509Thumbprint": {    
+    "authenticationType": "sas",
+    "x509Thumbprint": {
         "primaryThumbprint": null,
         "secondaryThumbprint": null
     },
@@ -154,7 +154,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### Module twin queries
 
-Querying on module twins is similar to querying on device twins, but using a different collection/namespace, i.e. instead of “from devices” you can query device.modules:
+Querying on module twins is similar to querying on device twins, but using a different collection/namespace; instead of from **devices**, you query from **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -169,8 +169,8 @@ SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 This query will return all module twins with the scanning status, but only on the specified subset of devices:
 
 ```sql
-SELECT * FROM devices.modules 
-  WHERE properties.reported.status = 'scanning' 
+SELECT * FROM devices.modules
+  WHERE properties.reported.status = 'scanning'
   AND deviceId IN ['device1', 'device2']
 ```
 
@@ -310,7 +310,7 @@ Currently, queries on **devices.jobs** do not support:
 
 ## Basics of an IoT Hub query
 
-Every IoT Hub query consists of SELECT and FROM clauses, with optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. With aggregations, the results of this step are grouped as specified in the GROUP BY clause. For each group, a row is generated as specified in the SELECT clause.
+Every IoT Hub query consists of SELECT and FROM clauses, with optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices**, **devices.modules**, or **devices.jobs**). Then, the filter in the WHERE clause is applied. With aggregations, the results of this step are grouped as specified in the GROUP BY clause. For each group, a row is generated as specified in the SELECT clause.
 
 ```sql
 SELECT <select_list>
@@ -321,7 +321,7 @@ SELECT <select_list>
 
 ## FROM clause
 
-The **FROM <from_specification>** clause can assume only two values: **FROM devices** to query device twins, or **FROM devices.jobs** to query job per-device details.
+The **FROM <from_specification>** clause can assume only three values: **FROM devices** to query device twins, **FROM devices.modules** to query module twins, or **FROM devices.jobs** to query job per-device details.
 
 
 ## WHERE clause
@@ -356,7 +356,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the [Getting started with device twin queries](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) section.
+**Attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the Getting started with device twin queries section.
 
 Currently, selection clauses different than **SELECT*** are only supported in aggregate queries on device twins.
 

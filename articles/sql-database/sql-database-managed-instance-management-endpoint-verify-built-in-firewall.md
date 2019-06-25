@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
 ---

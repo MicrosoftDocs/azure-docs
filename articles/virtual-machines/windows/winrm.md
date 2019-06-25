@@ -28,7 +28,7 @@ Here are the steps you need to take to set up a VM with WinRM connectivity
 4. Get the URL for your self-signed certificate in the Key Vault
 5. Reference your self-signed certificates URL while creating a VM
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Step 1: Create a Key Vault
 You can use the below command to create the Key Vault
@@ -80,9 +80,7 @@ The Microsoft.Compute resource provider needs a URL to the secret inside the Key
 
 > [!NOTE]
 > The URL of the secret needs to include the version as well. An example URL looks like below
-> https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
-> 
-> 
+> https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### Templates
 You can get the link to the URL in the template using the below code
@@ -92,7 +90,7 @@ You can get the link to the URL in the template using the below code
 #### PowerShell
 You can get this URL using the below PowerShell command
 
-    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
 ## Step 5: Reference your self-signed certificates URL while creating a VM
 #### Azure Resource Manager Templates
@@ -137,7 +135,7 @@ Source code for this template can be found on [GitHub](https://github.com/Azure/
 #### PowerShell
     $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
     $credential = Get-Credential
-    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
     $vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
     $sourceVaultId = (Get-AzKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
     $CertificateStore = "My"

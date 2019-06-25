@@ -1,14 +1,12 @@
 ---
 title: Use C# with MapReduce on Hadoop in HDInsight - Azure 
 description: Learn how to use C# to create MapReduce solutions with Apache Hadoop in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
 
 ---
@@ -23,7 +21,7 @@ Apache Hadoop streaming is a utility that allows you to run MapReduce jobs using
 
 ## .NET on HDInsight
 
-__Linux-based HDInsight__ clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](../hdinsight-component-versioning.md). To use a specific version of Mono, see the [Install or update Mono](../hdinsight-hadoop-install-mono.md) document.
+__Linux-based HDInsight__ clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](../hdinsight-component-versioning.md). 
 
 For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -157,13 +155,13 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 5. To upload the .exe files, use one of the following methods:
 
-    * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **mapper** project. Finally, select the **mapper.exe** file and click **Ok**.
+   * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **mapper** project. Finally, select the **mapper.exe** file and click **Ok**.
 
-        ![upload icon](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+       ![upload icon](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * If using __Azure Data Lake Storage__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **mapper.exe** file and click **Open**.
+   * If using __Azure Data Lake Storage__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **mapper.exe** file and click **Open**.
 
-    Once the __mapper.exe__ upload has finished, repeat the upload process for the __reducer.exe__ file.
+     Once the __mapper.exe__ upload has finished, repeat the upload process for the __reducer.exe__ file.
 
 ## Run a job: Using an SSH session
 
@@ -171,26 +169,32 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 2. Use one of the following commands to start the MapReduce job:
 
-    * If using __Data Lake Storage__ as default storage:
+   * If using __Data Lake Storage Gen2__ as default storage:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
+
+   * If using __Data Lake Storage Gen1__ as default storage:
+
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
     
-    * If using __Azure Storage__ as default storage:
+   * If using __Azure Storage__ as default storage:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
 
-    The following list describes what each parameter does:
+     The following list describes what each parameter does:
 
-    * `hadoop-streaming.jar`: The jar file that contains the streaming MapReduce functionality.
-    * `-files`: Adds the `mapper.exe` and `reducer.exe` files to this job. The `adl:///` or `wasb:///` before each file is the path to the root of default storage for the cluster.
-    * `-mapper`: Specifies which file implements the mapper.
-    * `-reducer`: Specifies which file implements the reducer.
-    * `-input`: The input data.
-    * `-output`: The output directory.
+   * `hadoop-streaming.jar`: The jar file that contains the streaming MapReduce functionality.
+   * `-files`: Adds the `mapper.exe` and `reducer.exe` files to this job. The `abfs:///`,`adl:///` or `wasb:///` before each file is the path to the root of default storage for the cluster.
+   * `-mapper`: Specifies which file implements the mapper.
+   * `-reducer`: Specifies which file implements the reducer.
+   * `-input`: The input data.
+   * `-output`: The output directory.
 
 3. Once the MapReduce job completes, use the following to view the results:
 

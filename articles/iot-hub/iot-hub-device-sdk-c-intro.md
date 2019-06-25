@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 05/17/2019
 ms.author: yizhon
 ---
 
@@ -18,7 +18,7 @@ The **Azure IoT device SDK** is a set of libraries designed to simplify the proc
 
 The Azure IoT device SDK for C is written in ANSI C (C99) to maximize portability. This feature makes the libraries well-suited to operate on multiple platforms and devices, especially where minimizing disk and memory footprint is a priority.
 
-There are a broad range of platforms on which the SDK has been tested (see the [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/) for details). Although this article includes walkthroughs of sample code running on the Windows platform, the code described in this article is identical across the range of supported platforms.
+There are a broad range of platforms on which the SDK has been tested (see the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/) for details). Although this article includes walkthroughs of sample code running on the Windows platform, the code described in this article is identical across the range of supported platforms.
 
 The following video presents an overview of the Azure IoT SDK for C:
 
@@ -84,7 +84,7 @@ If you're not familiar with the device explorer tool, the following procedure de
 
 1. When you run the program, you see this interface:
 
-  ![Device Explorer Twin screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
+   ![Device Explorer Twin screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
 1. Enter your **IoT Hub Connection String** in the first field and click **Update**. This step configures the tool so that it can communicate with IoT Hub. 
 
@@ -92,21 +92,21 @@ The **Connection String** can be found under **IoT Hub Service** > **Settings** 
 
 1. When the IoT Hub connection string is configured, click the **Management** tab:
 
-  ![Device Explorer Twin / Management screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
+   ![Device Explorer Twin / Management screenshot](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 This tab is where you manage the devices registered in your IoT hub.
 
 1. You create a device by clicking the **Create** button. A dialog displays with a set of pre-populated keys (primary and secondary). Enter a **Device ID** and then click **Create**.
 
-  ![Create Device screenshot](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
+   ![Create Device screenshot](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
 1. When the device is created, the Devices list updates with all the registered devices, including the one you just created. If you right-click your new device, you see this menu:
 
-  ![Device Explorer Twin right-click result](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
+   ![Device Explorer Twin right-click result](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
 1. If you choose **Copy connection string for selected device**, the device connection string is copied to the clipboard. Keep a copy of the device connection string. You need it when running the sample applications described in the following sections.
 
-When you've completed the steps above, you're ready to start running some code. Most samples have a constant at the top of the main source file that enables you to enter a connection string. For example, the corresponding line from the **iothub\_client\_sample\_mqtt** application appears as follows.
+When you've completed the steps above, you're ready to start running some code. Most samples have a constant at the top of the main source file that enables you to enter a connection string. For example, the corresponding line from the **iothub_client\_samples\_iothub_convenience_sample** application appears as follows.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -116,12 +116,12 @@ static const char* connectionString = "[device connection string]";
 
 Within the **iothub\_client** folder in the [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) repository, there is a **samples** folder that contains an application called **iothub\_client\_sample\_mqtt**.
 
-The Windows version of the **iothub\_client\_sample\_mqtt** application includes the following Visual Studio solution:
+The Windows version of the **iothub_client\_samples\_iothub_convenience_sample** application includes the following Visual Studio solution:
 
   ![Visual Studio Solution Explorer](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> If you open this project in Visual Studio 2017, accept the prompts to retarget the project to the latest version.
+> If Visual Studio asks you to retarget the project to the latest version, accept the prompt.
 
 This solution contains a single project. There are four NuGet packages installed in this solution:
 
@@ -132,7 +132,7 @@ This solution contains a single project. There are four NuGet packages installed
 
 You always need the **Microsoft.Azure.C.SharedUtility** package when you are working with the SDK. This sample uses the MQTT protocol, therefore you must include the **Microsoft.Azure.umqtt** and **Microsoft.Azure.IoTHub.MqttTransport** packages (there are equivalent packages for AMQP and HTTPS). Because the sample uses the **IoTHubClient** library, you must also include the **Microsoft.Azure.IoTHub.IoTHubClient** package in your solution.
 
-You can find the implementation for the sample application in the **iothub\_client\_sample\_mqtt.c** source file.
+You can find the implementation for the sample application in the **iothub_client\_samples\_iothub_convenience_sample** source file.
 
 The following steps use this sample application to walk you through what's required to use the **IoTHubClient** library.
 
@@ -334,7 +334,7 @@ Inside the **serializer** folder in the [azure-iot-sdk-c repository](https://git
   ![Visual Studio Solution for mqtt sample](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> If you open this project in Visual Studio 2017, accept the prompts to retarget the project to the latest version.
+> If Visual Studio asks you to retarget the project to the latest version, accept the prompt.
 
 As with the previous sample, this one includes several NuGet packages:
 
@@ -346,7 +346,7 @@ As with the previous sample, this one includes several NuGet packages:
 
 You've seen most of these packages in the previous sample, but **Microsoft.Azure.IoTHub.Serializer** is new. This package is required when you use the **serializer** library.
 
-You can find the implementation of the sample application in the **simplesample\_mqtt.c** file.
+You can find the implementation of the sample application in the **iothub_client\_samples\_iothub_convenience_sample** file.
 
 The following sections walk you through the key parts of this sample.
 
@@ -387,7 +387,7 @@ Finally, call the **CREATE\_MODEL\_INSTANCE** function. **WeatherStation** is th
 
 ### Define the model
 
-A model in the **serializer** library defines the messages that your device can send to IoT Hub and the messages, called *actions* in the modeling language, which it can receive. You define a model using a set of C macros as in the **simplesample\_mqtt** sample application:
+A model in the **serializer** library defines the messages that your device can send to IoT Hub and the messages, called *actions* in the modeling language, which it can receive. You define a model using a set of C macros as in the **iothub_client\_samples\_iothub_convenience_sample** sample application:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);

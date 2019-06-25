@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to generate an Azure Service Fabric
 services: service-fabric
 documentationcenter: ''
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, Microservices, Service Fabric, Azure
@@ -117,7 +117,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 For Service Fabric to pull the container images from Azure Container Registry, we need to provide the credentials in the **ApplicationManifest.xml**.
 
-Log in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
+Sign in to your ACR instance. Use the **az acr login** command to complete the operation. Provide the unique name given to the container registry when it was created.
 
 ```bash
 az acr login --name <acrName>
@@ -277,11 +277,11 @@ Use the install script provided in the **TestContainer** directory to copy the a
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
+Open a browser and navigate to Service Fabric Explorer at http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
 
 ![Service Fabric Explorer][sfx]
 
-In order to connect to the running application, open a web browser and go to the cluster url - for example http://containertestcluster.eastus.cloudapp.azure.com:80. You should see the Voting application in the web UI.
+In order to connect to the running application, open a web browser and go to the cluster url - for example http:\//containertestcluster.eastus.cloudapp.azure.com:80. You should see the Voting application in the web UI.
 
 ![votingapp][votingapp]
 
@@ -299,7 +299,7 @@ Use the uninstall script provided in the template to delete the application inst
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ApplicationManifest ApplicationTypeName="TestContainerType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ApplicationManifest ApplicationTypeName="TestContainerType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="azurevotefrontPkg" ServiceManifestVersion="1.0.0"/>
     <Policies>
@@ -337,7 +337,7 @@ Use the uninstall script provided in the template to delete the application inst
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotefrontPkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" >
 
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="azurevotefrontType" UseImplicitHost="true">
@@ -352,7 +352,7 @@ Use the uninstall script provided in the template to delete the application inst
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
 
   <Resources>
@@ -372,7 +372,7 @@ Use the uninstall script provided in the template to delete the application inst
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="azurevotebackPkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" >
 
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="azurevotebackType" UseImplicitHost="true">
@@ -387,7 +387,7 @@ Use the uninstall script provided in the template to delete the application inst
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
      <Resources>
     <Endpoints>

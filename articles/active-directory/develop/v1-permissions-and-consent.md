@@ -3,8 +3,8 @@ title: Permissions in Azure Active Directory | Microsoft docs
 description: Learn about permissions in Azure Active Directory and how to use them.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Permissions and consent in the Azure Active Directory v1.0 endpoint
@@ -97,11 +98,11 @@ Applications in Azure AD rely on consent in order to gain access to necessary re
 - Resources should explicitly define `Read` and `ReadWrite` permissions separately.
 - Resources should mark any permissions that allow access to data across user boundaries as `Admin` permissions.
 - Resources should follow the naming pattern `Subject.Permission[.Modifier]`, where:
-    - `Subject` corresponds with the type of data that is available
-    - `Permission` corresponds to the action that a user may take upon that data
-    - `Modifier` is used optionally to describe specializations of another permission
+  - `Subject` corresponds with the type of data that is available
+  - `Permission` corresponds to the action that a user may take upon that data
+  - `Modifier` is used optionally to describe specializations of another permission
     
     For example:
-    * Mail.Read - Allows users to read mail.
-    * Mail.ReadWrite - Allows users to read or write mail.
-    * Mail.ReadWrite.All - Allows an administrator or user to access all mail in the organization.
+  - Mail.Read - Allows users to read mail.
+  - Mail.ReadWrite - Allows users to read or write mail.
+  - Mail.ReadWrite.All - Allows an administrator or user to access all mail in the organization.

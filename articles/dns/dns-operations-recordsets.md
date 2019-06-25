@@ -29,9 +29,9 @@ This article shows you how to manage DNS records for your DNS zone by using Azur
 
 The examples in this article assume you have already [installed Azure PowerShell, signed in, and created a DNS zone](dns-operations-dnszones.md).
 
-## Introduction
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## Introduction
 
 Before creating DNS records in Azure DNS, you first need to understand how Azure DNS organizes DNS records into DNS record sets.
 
@@ -89,7 +89,7 @@ Having seen in detail how to create 'A' records, the following examples show how
 
 In each case, we show how to create a record set containing a single record. The earlier examples for 'A' records can be adapted to create record sets of other types containing multiple records, with metadata, or to create empty record sets.
 
-We do not give an example to create an SOA record set, since SOAs are created and deleted with each DNS zone and cannot be created or deleted separately. However, [the SOA can be modified, as shown in a later example](#to-modify-an-SOA-record).
+We do not give an example to create an SOA record set, since SOAs are created and deleted with each DNS zone and cannot be created or deleted separately. However, [the SOA can be modified, as shown in a later example](#to-modify-an-soa-record).
 
 ### Create an AAAA record set with a single record
 
@@ -234,7 +234,7 @@ This sequence of operations can also be *piped*, meaning you pass the record set
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-The examples above show how to add an 'A' record to an existing record set of type 'A'. A similar sequence of operations is used to add records to record sets of other types, substituting the `-Ipv4Address` parameter of `Add-AzDnsRecordConfig` with other parameters specific to each record type. The parameters for each record type are the same as for the `New-AzDnsRecordConfig` cmdlet, as shown in [Additional record type examples](#additional-record-type-examples) above.
+The examples above show how to add an 'A' record to an existing record set of type 'A'. A similar sequence of operations is used to add records to record sets of other types, substituting the `-Ipv4Address` parameter of `Add-AzDnsRecordConfig` with other parameters specific to each record type. The parameters for each record type are the same as for the `New-AzDnsRecordConfig` cmdlet, as shown in Additional record type examples above.
 
 Record sets of type 'CNAME' or 'SOA' cannot contain more than one record. This constraint arises from the DNS standards. It is not a limitation of Azure DNS.
 
@@ -268,7 +268,7 @@ Similarly to adding records to a record set, the sequence of operations to remov
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Different record types are supported by passing the appropriate type-specific parameters to `Remove-AzDnsRecordSet`. The parameters for each record type are the same as for the `New-AzDnsRecordConfig` cmdlet, as shown in [Additional record type examples](#additional-record-type-examples) above.
+Different record types are supported by passing the appropriate type-specific parameters to `Remove-AzDnsRecordSet`. The parameters for each record type are the same as for the `New-AzDnsRecordConfig` cmdlet, as shown in Additional record type examples above.
 
 
 ## Modify an existing record set
@@ -386,7 +386,7 @@ Each cmdlet prompts for confirmation if the `$ConfirmPreference` PowerShell pref
 
 You can override the current `$ConfirmPreference` setting using the `-Confirm` parameter. If you specify `-Confirm` or `-Confirm:$True` , the cmdlet prompts you for confirmation before it runs. If you specify `-Confirm:$False` , the cmdlet does not prompt you for confirmation. 
 
-For more information about `-Confirm` and `$ConfirmPreference`, see [About Preference Variables](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+For more information about `-Confirm` and `$ConfirmPreference`, see [About Preference Variables](/powershell/module/microsoft.powershell.core/about/about_preference_variables).
 
 ## Next steps
 
@@ -394,4 +394,4 @@ Learn more about [zones and records in Azure DNS](dns-zones-records.md).
 <br>
 Learn how to [protect your zones and records](dns-protect-zones-recordsets.md) when using Azure DNS.
 <br>
-Review the [Azure DNS PowerShell reference documentation](/powershell/module/azurerm.dns).
+Review the [Azure DNS PowerShell reference documentation](/powershell/module/az.dns).

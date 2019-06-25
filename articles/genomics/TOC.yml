@@ -9,6 +9,8 @@
   items:
   - name: Run a sample Genomics workflow
     href: quickstart-run-genomics-workflow-portal.md
+- name: How-to guides
+  items:
   - name: Use various input file formats
     items:
     - name: Pair of FASTQ files

@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
 ---
 
@@ -19,13 +19,13 @@ This article introduces the core concepts that provide networking to your applic
 - [Services](#services)
 - [Azure virtual networks](#azure-virtual-networks)
 - [Ingress controllers](#ingress-controllers)
-- Network policies
+- [Network policies](#network-policies)
 
 ## Kubernetes basics
 
 To allow access to your applications, or for application components to communicate with each other, Kubernetes provides an abstraction layer to virtual networking. Kubernetes nodes are connected to a virtual network, and can provide inbound and outbound connectivity for pods. The *kube-proxy* component runs on each node to provide these network features.
 
-In Kubernetes, *Services* logically group pods to allow for direct access via an IP address or DNS name and on a specific port. You can also distribute traffic using a *load balancer*. More complex routing of application traffic can also be achieved with *Ingress Controllers*. Security and filtering of the network traffic for pods is possible with Kubernetes *network policies*.
+In Kubernetes, *Services* logically group pods to allow for direct access via an IP address or DNS name and on a specific port. You can also distribute traffic using a *load balancer*. More complex routing of application traffic can also be achieved with *Ingress Controllers*. Security and filtering of the network traffic for pods is possible with Kubernetes *network policies* (in preview in AKS).
 
 The Azure platform also helps to simplify virtual networking for AKS clusters. When you create a Kubernetes load balancer, the underlying Azure load balancer resource is created and configured. As you open network ports to pods, the corresponding Azure network security group rules are configured. For HTTP application routing, Azure can also configure *external DNS* as new ingress routes are configured.
 
@@ -64,25 +64,57 @@ In AKS, you can deploy a cluster that uses one of the following two network mode
 
 The *kubenet* networking option is the default configuration for AKS cluster creation. With *kubenet*, nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address.
 
-Nodes use the [kubenet][kubenet] Kubernetes plugin. You can let the Azure platform create and configure the virtual networks for you, or choose to deploy your AKS cluster into an existing virtual network subnet. Again, only the nodes receiving a routable IP address, and the pods use NAT to communicate with other resources outside the AKS cluster. This approach greatly reduces the number of IP addresses that you need to reserve in your network space for pods to use.
+Nodes use the [kubenet][kubenet] Kubernetes plugin. You can let the Azure platform create and configure the virtual networks for you, or choose to deploy your AKS cluster into an existing virtual network subnet. Again, only the nodes receive a routable IP address, and the pods use NAT to communicate with other resources outside the AKS cluster. This approach greatly reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
 For more information, see [Configure kubenet networking for an AKS cluster][aks-configure-kubenet-networking].
 
 ### Azure CNI (advanced) networking
 
-With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
+With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, as can otherwise lead to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
 
 Nodes use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram]
 
-Azure CNI provides the following features over kubenet networking:
-
-- Every pod in the cluster is assigned an IP address in the virtual network. The pods can directly communicate with other pods in the cluster, and other nodes in the virtual network.
-- Pods in a subnet that have service endpoints enabled can securely connect to Azure services, such as Azure Storage and SQL DB.
-- You can create user-defined routes (UDR) to route traffic from pods to a Network Virtual Appliance.
-
 For more information, see [Configure Azure CNI for an AKS cluster][aks-configure-advanced-networking].
+
+### Compare network models
+
+Both kubenet and Azure CNI provide network connectivity for your AKS clusters. However, there are advantages and disadvantages to each. At a high level, the following considerations apply:
+
+* **kubenet**
+    * Conserves IP address space.
+    * Uses Kubernetes internal or external load balancer to reach pods from outside of the cluster.
+    * You must manually manage and maintain user-defined routes (UDRs).
+    * Maximum of 400 nodes per cluster.
+* **Azure CNI**
+    * Pods get full virtual network connectivity and can be directly reached from outside of the cluster.
+    * Requires more IP address space.
+
+The following behavior differences exist between kubenet and Azure CNI:
+
+| Capability                                                                                   | Kubenet   | Azure CNI |
+|----------------------------------------------------------------------------------------------|-----------|-----------|
+| Deploy cluster in existing or new virtual network                                            | Supported - UDRs manually applied | Supported |
+| Pod-pod connectivity                                                                         | Supported | Supported |
+| Pod-VM connectivity; VM in the same virtual network                                          | Works when initiated by pod | Works both ways |
+| Pod-VM connectivity; VM in peered virtual network                                            | Works when initiated by pod | Works both ways |
+| On-premises access using VPN or Express Route                                                | Works when initiated by pod | Works both ways |
+| Access to resources secured by service endpoints                                             | Supported | Supported |
+| Expose Kubernetes services using a load balancer service, App Gateway, or ingress controller | Supported | Supported |
+| Default Azure DNS and Private Zones                                                          | Supported | Supported |
+
+### Support scope between network models
+
+Regardless of the network model you use, both kubenet and Azure CNI can be deployed in one of the following ways:
+
+* The Azure platform can automatically create and configure the virtual network resources when you create an AKS cluster.
+* You can manually create and configure the virtual network resources and attach to those resources when you create your AKS cluster.
+
+Although capabilities like service endpoints or UDRs are supported with both kubenet and Azure CNI, the [support policies for AKS][support-policies] define what changes you can make. For example:
+
+* If you manually create the virtual network resources for an AKS cluster, you are supported when configuring your own UDRs or service endpoints.
+* If the Azure platform automatically creates the virtual network resources for your AKS cluster, it is not supported to manually change those AKS-managed resources to configure your own UDRs or service endpoints.
 
 ## Ingress controllers
 
@@ -96,15 +128,25 @@ In AKS, you can create an Ingress resource using something like NGINX, or use th
 
 Another common feature of Ingress is SSL/TLS termination. On large web applications accessed via HTTPS, the TLS termination can be handled by the Ingress resource rather than within the application itself. To provide automatic TLS certification generation and configuration, you can configure the Ingress resource to use providers such as Let's Encrypt. For more information on configuring an NGINX Ingress controller with Let's Encrypt, see [Ingress and TLS][aks-ingress-tls].
 
+You can also configure your ingress controller to preserve the client source IP on requests to containers in your AKS cluster. When a client's request is routed to a container in your AKS cluster via your ingress controller, the original source ip of that request will not be available to the target container. When you enable *client source IP preservation*, the source IP for the client is available in the request header under *X-Forwarded-For*. If you are using client source IP preservation on your ingress controller, you cannot use SSL pass-through. Client source IP preservation and SSL pass-through can be used with other services, such as the *LoadBalancer* type.
+
 ## Network security groups
 
-A network security group filter traffic for VMs, such as the AKS nodes. As you create Services, such as a LoadBalancer, the Azure platform automatically configures any network security group rules that are needed. Don't manually configure network security group rules to filter traffic for pods in an AKS cluster. Define any required ports and forwarding as part of your Kubernetes Service manifests, and let the Azure platform create or update the appropriate rules.
+A network security group filters traffic for VMs, such as the AKS nodes. As you create Services, such as a LoadBalancer, the Azure platform automatically configures any network security group rules that are needed. Don't manually configure network security group rules to filter traffic for pods in an AKS cluster. Define any required ports and forwarding as part of your Kubernetes Service manifests, and let the Azure platform create or update the appropriate rules. You can also use network policies, as discussed in the next section, to automatically apply traffic filter rules to pods.
 
-Default network security group rules exist for traffic such as SSH. These default rules are for cluster management and troubleshooting access. Deleting these default rules can cause problems with AKS management, and breaks the service level objective (SLO).
+## Network policies
+
+By default, all pods in an AKS cluster can send and receive traffic without limitations. For improved security, you may want to define rules that control the flow of traffic. Backend applications are often only exposed to required frontend services, or database components are only accessible to the application tiers that connect to them.
+
+Network policy is a Kubernetes feature available in AKS that lets you control the traffic flow between pods. You can choose to allow or deny traffic based on settings such as assigned labels, namespace, or traffic port. Network security groups are more for the AKS nodes, not pods. The use of network policies is a more suitable, cloud-native way to control the flow of traffic. As pods are dynamically created in an AKS cluster, the required network policies can be automatically applied.
+
+For more information, see [Secure traffic between pods using network policies in Azure Kubernetes Service (AKS)][use-network-policies].
 
 ## Next steps
 
 To get started with AKS networking, create and configure an AKS cluster with your own IP address ranges using [kubenet][aks-configure-kubenet-networking] or [Azure CNI][aks-configure-advanced-networking].
+
+For associated best practices, see [Best practices for network connectivity and security in AKS][operator-best-practices-network].
 
 For additional information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -135,3 +177,6 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[use-network-policies]: use-network-policies.md
+[operator-best-practices-network]: operator-best-practices-network.md
+[support-policies]: support-policies.md

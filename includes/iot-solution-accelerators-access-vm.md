@@ -12,7 +12,7 @@
 
 ## Access the virtual machine
 
-The following steps use the `az` command in the Azure Cloud Shell. If you prefer, you can [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) on your development machine and run the commands locally.
+The following steps use the Azure CLI in Azure Cloud Shell. If you prefer, you can [Install the Azure CLI](/cli/azure/install-azure-cli) on your development machine and run the commands locally.
 
 The following steps show you how to configure the Azure virtual machine to allow **SSH** access. The steps shown assume the name you chose for the solution accelerator is **contoso-simulation** -- replace this value with the name of your deployment:
 

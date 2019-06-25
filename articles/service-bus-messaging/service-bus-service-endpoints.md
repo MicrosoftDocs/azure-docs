@@ -25,7 +25,7 @@ The result is a private and isolated relationship between the workloads bound to
 >[!WARNING]
 > Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
 >
-> Trusted Microsoft services are not supported when Virtual Networks are implemented, and will be made available soon.
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
 >
 > Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
 > - Azure Monitor
@@ -44,7 +44,7 @@ The result is a private and isolated relationship between the workloads bound to
 
 ## Enable service endpoints with Service Bus
 
-An important consideration when using VNet service endpoints with Service Bus is that you should not enable these endpoints in applications that mix Standard and Premium tier Service Bus namespaces. Because Standard tier does not support VNets, the endpoint is restricted to Premium tier namespaces only. The VNet will block traffic to the Standard namespace.
+An important consideration when using VNet service endpoints with Service Bus is that you should not enable these endpoints in applications that mix Standard and Premium tier Service Bus namespaces. Because Standard tier does not support VNets, the endpoint is restricted to Premium tier namespaces only.
 
 ## Advanced security scenarios enabled by VNet integration 
 
