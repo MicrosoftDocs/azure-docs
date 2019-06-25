@@ -59,7 +59,7 @@ In this section, you create a key vault and add a secret to it, so that you can 
 * Adds a secret to the key vault. The secret stores the VM administrator password.
 
 > [!NOTE]
-> As the user who's deploying the virtual machine template, if you're not the Owner of or a Contributor to of the key vault, the Owner or a Contributor must grant you access to the Microsoft.KeyVault/vaults/deploy/action permission for the key vault. For more information, see [Use Azure Key Vault to pass a secure parameter value during deployment](./resource-manager-keyvault-parameter.md).
+> As the user who's deploying the virtual machine template, if you're not the Owner of or a Contributor to the key vault, the Owner or a Contributor must grant you access to the *Microsoft.KeyVault/vaults/deploy/action* permission for the key vault. For more information, see [Use Azure Key Vault to pass a secure parameter value during deployment](./resource-manager-keyvault-parameter.md).
 
 To run the following Azure PowerShell script, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell pane, and then select **Paste**.
 
@@ -91,7 +91,7 @@ The template has one output value, called *keyVaultId*. Write down the ID value 
 
 When you copy and paste the ID, it might be broken into multiple lines. Merge the lines and trim the extra spaces.
 
-To validate the deployment, run the following PowerShell command in the same shell pane to retrieve the secret in clear text. The command works only in the same shell session, because it uses a variable *$keyVaultName* that's defined in the preceding PowerShell script.
+To validate the deployment, run the following PowerShell command in the same shell pane to retrieve the secret in clear text. The command works only in the same shell session, because it uses the variable *$keyVaultName*, which is defined in the preceding PowerShell script.
 
 ```azurepowershell
 (Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
