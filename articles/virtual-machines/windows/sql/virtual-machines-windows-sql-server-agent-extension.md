@@ -136,13 +136,17 @@ One way to verify that the extension is installed is to view the agent status in
 
 You can also use the **Get-AzVMSqlServerExtension** Azure PowerShell cmdlet.
 
-    Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+   ```powershell-interactive
+   Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+   ```
 
 The previous command confirms the agent is installed and provides general status information. You can also get specific status information about Automated Backup and Patching with the following commands.
 
+   ```powershell-interactive
     $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
     $sqlext.AutoPatchingSettings
     $sqlext.AutoBackupSettings
+   ```
 
 ## Removal
 In the Azure portal, you can uninstall the extension by clicking the ellipsis on the **Extensions** window of your virtual machine properties. Then click **Delete**.
@@ -151,7 +155,9 @@ In the Azure portal, you can uninstall the extension by clicking the ellipsis on
 
 You can also use the **Remove-AzVMSqlServerExtension** PowerShell cmdlet.
 
+   ```powershell-interactive
     Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
+   ```
 
 ## Next steps
 Begin using one of the services supported by the extension. For more information, see the articles referenced in the [Supported services](#supported-services) section of this article.
