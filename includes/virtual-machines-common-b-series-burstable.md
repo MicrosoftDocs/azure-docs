@@ -34,7 +34,7 @@ Consider an office check-in/out application. The application needs CPU bursts du
 
 The table shows the hourly traffic data and the chart is a visual representation of that traffic.
 
-![Chart of hourly traffic data](./media/office-workload.png)
+![Chart of hourly traffic data](./media/virtual-machines-common-b-series-burstable/office-workload.png)
 
 | Scenario | Time | CPU usage (%) | Credits accumulated<sup>1</sup> | Credits available |
 | --- | --- | --- | --- | --- |
