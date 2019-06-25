@@ -384,7 +384,7 @@ curl $redirect_url
 
 ### Why does the Azure portal not list all my repositories or tags? 
 
-If you are using the Microsoft Edge browser, you can see at most 100 repositories or tags listed. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
+If you are using the Microsoft Edge/IE browser, you can see at most 100 repositories or tags. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
 
 ### How do I collect http traces on Windows?
 

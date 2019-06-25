@@ -39,7 +39,7 @@ To participate in this preview, you need to register. Use these steps to registe
 
 This section helps you create a new Azure Bastion resource from the Azure portal.
 
-1. From the home page in the [ Azure portal - preview](https://aka.ms/BastionHost), click **+ Create a resource**. Make sure you use the link provided to access the portal for this preview, not the regular Azure portal.
+1. From the home page in the [Azure portal - preview](https://aka.ms/BastionHost), click **+ Create a resource**. Make sure you use the link provided to access the portal for this preview, not the regular Azure portal.
 
 1. On the **New** page, in the *Search the Marketplace* field, type **Bastion**, then click **Enter** to get to the search results.
 
