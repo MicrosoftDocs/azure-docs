@@ -129,9 +129,13 @@ To delete the backup items from Backup Infrastructure, navigate to your on-premi
 
     ![Delete Backup Infrastructure](./media/backup-azure-delete-vault/deleted_backup_data.png)
 
-Now that you have deleted the backup items, you can [Remove Azure Backup management servers](#remove-azure-backup-management-servers) and [Remove Azure Backup agent recovery points](#remove-azure-backup-agent-recovery-points)
+Now that you have deleted the backup items from on-premises, complete the below steps from the portal:
+- For MABS and DPM you can follow the steps in [Remove Azure Backup management servers](#remove-azure-backup-management-servers)
+- For MARS follow the steps in [Remove Azure Backup agent recovery points](#remove-azure-backup-agent-recovery-points)
 
 ### Remove Azure Backup management servers
+
+Before removing the Azure backup management server, make sure you  perform the steps listed in [Deleting backup items from management console](#deleting-backup-items-from-management-console). 
 
 1. In the vault dashboard menu, click **Backup Infrastructure**.
 2. Click **Backup Management Servers** to view servers.
@@ -144,6 +148,8 @@ Now that you have deleted the backup items, you can [Remove Azure Backup managem
      ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 5.  Optionally, provide a reason why you're deleting the data, and add comments.
 
+If you are seeing the below error, then first perform the steps listed in [Deleting backup items from management console](#deleting-backup-items-from-management-console).
+
 > [!NOTE]
 > To remove items, in the management server console or in the MARS console on a protected server, stop protection and delete backups. If backup items remain, the following error will appear when you try to delete and unregister the server:
 >
@@ -155,6 +161,8 @@ Now that you have deleted the backup items, you can [Remove Azure Backup managem
 
 
 ### Remove Azure Backup agent recovery points
+
+Before removing the Azure backup recovery point, make sure you  perform the steps listed in [Deleting backup items from management console](#deleting-backup-items-from-management-console).
 
 1. In the vault dashboard menu, click **Backup Infrastructure**.
 2. Click **Protected Servers** to view the infrastructure servers.
