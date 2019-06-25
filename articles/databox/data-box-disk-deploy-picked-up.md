@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -121,7 +121,7 @@ Azure datacenters in Australia have an additional security notification. All the
 
 If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
 
-- Email：mailto:Customerservice.JP@quantiumsolutions.com 
+- Email：Customerservice.JP@quantiumsolutions.com 
 - Telephone：03-5755-0150 
 
 #### Pick up in Korea
