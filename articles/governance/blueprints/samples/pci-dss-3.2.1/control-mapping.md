@@ -20,7 +20,59 @@ initiative. To review the complete initiative, open **Policy** in the Azure port
 **Definitions** page. Then, find and select the **[Preview] Audit PCI-DSS v3.2.1 controls** built-in
 policy initiative.
 
-## 7.1 Segregation of Duties
+## 1.3.2 and 1.3.4 Network controls
+
+This blueprint helps you manage and control networks by assigning [Azure
+Policy](../../../policy/overview.md) definitions that monitors network security groups with
+permissive rules. Rules that are too permissive may allow unintended network access and should be
+reviewed. This blueprint assigns one Azure Policy definitions that monitor unprotected endpoints,
+applications, and storage accounts. Endpoints and applications that aren't protected by a firewall,
+and storage accounts with unrestricted access can allow unintended access to information contained
+within the information system.
+
+- Audit unrestricted network access to storage accounts
+- Access through Internet facing endpoint should be restricted
+
+## 3.4.a, 4.1, 4.1.g, 4.1.h Policies on the use of cryptographic controls
+
+This blueprint helps you enforce your policy on the use of cryptograph controls by assigning [Azure Policy](../../../policy/overview.md)
+definitions which enforce specific cryptograph controls and audit use of weak cryptographic
+settings. Understanding where your Azure resources may have non-optimal cryptographic configurations
+can help you take corrective actions to ensure resources are configured in accordance with your
+information security policy. Specifically, the policies assigned by this blueprint require transparent data
+encryption on SQL databases; audit missing encryption on storage accounts, SQL databases, and
+automation account variables; audit insecure connections to storage accounts, Function Apps, Web
+App, API Apps, and Redis Cache, and audit unencrypted Service Fabric communication.
+
+- Function App should only be accessible over HTTPS
+- Web Application should only be accessible over HTTPS
+- API App should only be accessible over HTTPS
+- Monitor unencrypted SQL database in Azure Security Center
+- Disk encryption should be applied on virtual machines
+- Automation account variables should be encrypted
+- Only secure connections to your Redis Cache should be enabled
+- Secure transfer to storage accounts should be enabled
+- Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign
+- Transparent Data Encryption on SQL databases should be enabled
+- Deploy SQL DB transparent data encryption
+
+## 5.1, 6.2, 6.6 and 11.2.1 Management of technical vulnerabilities
+
+This blueprint helps you manage information system vulnerabilities by assigning [Azure
+Policy](../../../policy/overview.md) definitions that monitor missing system updates, operating
+system vulnerabilities, SQL vulnerabilities, and virtual machine vulnerabilities in Azure Security
+Center. Azure Security Center provides reporting capabilities that enable you to have real-time
+insight into the security state of deployed Azure resources.
+
+- Monitor missing Endpoint Protection in Azure Security Center
+- Deploy default Microsoft IaaSAntimalware extension for Windows Server
+- Deploy Threat Detection on SQL Servers
+- System updates should be installed on your machines
+- Vulnerabilities in security configuration on your machines should be remediated
+- Vulnerabilities on your SQL databases should be remediated
+- Vulnerabilities should be remediated by a Vulnerability Assessment solution
+
+## 7.1.1. 7.1.2 and 7.1.3 Segregation of Duties
 
 Having only one Azure subscription owner doesn't allow for administrative redundancy. Conversely,
 having too many Azure subscription owners can increase the potential for a breach via a compromised
@@ -45,12 +97,13 @@ management of database users and other Microsoft services. This blueprint also a
 Policy definition to audit the use of custom RBAC rules. Understanding where custom RBAC rules are
 implement can help you verify need and proper implementation, as custom RBAC rules are error prone.
 
-- [Preview]: Audit external accounts with owner permissions on a subscription
-- [Preview]: Audit external accounts with write permissions on a subscription
-- [Preview]: Audit external accounts with read permissions on a subscription
-- [Preview]: Audit accounts with owner permissions who are not MFA enabled on a subscription
-- [Preview]: Audit accounts with write permissions who are not MFA enabled on a subscription
-- Audit provisioning of an Azure Active Directory administrator for SQL server
+- External accounts with owner permissions should be removed from your subscription
+- External accounts with write permissions should be removed from your subscription
+- External accounts with read permissions should be removed from your subscription
+- MFA should be enabled on accounts with owner permissions on your subscription
+- MFA should be enabled accounts with write permissions on your subscription
+- MFA should be enabled on accounts with read permissions on your subscription
+- An Azure Active Directory administrator should be provisioned for SQL servers
 - Audit usage of custom RBAC rules
 
 ## 8.1.2 and 8.1.5 Review of user access rights
@@ -61,11 +114,11 @@ permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md) 
 accounts that should be prioritized for review, including depreciated accounts and external accounts
 with elevated permissions.
 
-- [Preview]: Audit deprecated accounts on a subscription
-- [Preview]: Audit deprecated accounts with owner permissions on a subscription
-- [Preview]: Audit external accounts with owner permissions on a subscription
-- [Preview]: Audit external accounts with write permissions on a subscription
-- [Preview]: Audit external accounts with read permissions on a subscription
+- Deprecated accounts should be removed from your subscription
+- Deprecated accounts with owner permissions should be removed from your subscription
+- External accounts with owner permissions should be removed from your subscription
+- External accounts with write permissions should be removed from your subscription
+- External accounts with read permissions should be removed from your subscription
 
 ## 8.1.3 Removal or adjustment of access rights
 
@@ -76,8 +129,8 @@ removes access rights to Azure resources. This blueprint assigns [Azure
 Policy](../../../policy/overview.md) definitions to audit depreciated account that should be
 considered for removal.
 
-- [Preview]: Audit deprecated accounts on a subscription
-- [Preview]: Audit deprecated accounts with owner permissions on a subscription
+- Deprecated accounts should be removed from your subscription
+- Deprecated accounts with owner permissions should be removed from your subscription
 
 ## 8.2.3.a,b and 8.2.4.a,b Password management system
 
@@ -87,36 +140,12 @@ strength and other password requirements. Awareness of VMs in violation of the p
 policy helps you take corrective actions to ensure passwords for all VM user accounts are compliant
 with policy.
 
-- [Preview]: Deploy VM extension to audit Windows VM maximum password age 70 days
-- [Preview]: Deploy VM extension to audit Windows VM passwords must be at least 14 characters
-- [Preview]: Deploy VM extension to audit Windows VM should not allow previous 24 passwords
-- [Preview]: Audit Windows VM maximum password age 70 days
-- [Preview]: Audit Windows VM passwords must be at least 14 characters
-- [Preview]: Audit Windows VM should not allow previous 24 passwords
-
-## 3.4.a, 4.1, 4.1.g, 4.1.h Policies on the use of cryptographic controls
-
-This blueprint helps you enforce your policy on the use of cryptograph controls by assigning [Azure Policy](../../../policy/overview.md)
-definitions which enforce specific cryptograph controls and audit use of weak cryptographic
-settings. Understanding where your Azure resources may have non-optimal cryptographic configurations
-can help you take corrective actions to ensure resources are configured in accordance with your
-information security policy. Specifically, the policies assigned by this blueprint require
-encryption for blob storage accounts and data lake storage accounts; require transparent data
-encryption on SQL databases; audit missing encryption on storage accounts, SQL databases, and
-automation account variables; audit insecure connections to storage accounts, Function Apps, Web
-App, API Apps, and Redis Cache, and audit unencrypted Service Fabric communication.
-
-- [Preview]: Audit HTTPS only access for a Function App
-- [Preview]: Audit HTTPS only access for a Web Application
-- [Preview]: Audit HTTPS only access for an API App
-- [Preview]: Monitor unencrypted SQL database in Azure Security Center
-- [Preview]: Monitor unencrypted VM Disks in Azure Security Center
-- Audit enablement of encryption of Automation account variables
-- Audit enabling of only secure connections to your Redis Cache
-- Audit secure transfer to storage accounts
-- Audit the setting of Cluster Protection Level property to Encrypt and Sign in Service Fabric
-- Audit transparent data encryption status
-- Deploy SQL DB transparent data encryption
+- [Preview]: Audit Windows VMs that do not have a maximum password age of 70 days
+- [Preview]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- [Preview]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
+- [Preview]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- [Preview]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- [Preview]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
 
 ## 10.3 and 10.5.4 Event logging
 
@@ -126,40 +155,12 @@ Diagnostic logs provide insight into operations that were performed within Azure
 logs rely on synchronized internal clocks to create a time-correlated record of events across
 resources.
 
-- [Preview]: Monitor unaudited SQL database in Azure Security Center
+- Monitor unaudited SQL servers in Azure Security Center
 - Audit diagnostic setting
 - Audit SQL server level Auditing settings
 - Deploy Auditing on SQL servers
-- Audit use of classic storage accounts
-- Audit use of classic virtual machines
-
-## 5.1, 6.2, 6.6 and 11.2.1 Management of technical vulnerabilities
-
-This blueprint helps you manage information system vulnerabilities by assigning [Azure
-Policy](../../../policy/overview.md) definitions that monitor missing system updates, operating
-system vulnerabilities, SQL vulnerabilities, and virtual machine vulnerabilities in Azure Security
-Center. Azure Security Center provides reporting capabilities that enable you to have real-time
-insight into the security state of deployed Azure resources.
-
-- Monitor missing Endpoint Protection in Azure Security Center 
-- Deploy default Microsoft IaaSAntimalware extension for Windows Server
-- System updates should be installed on your machines
-- Vulnerabilities in security configuration on your machines should be remediated
-- Vulnerabilities on your SQL databases should be remediated
-- Vulnerabilities should be remediated by a Vulnerability Assessment solution
-
-## 1.3.2 and 1.3.4 Network controls
-
-This blueprint helps you manage and control networks by assigning [Azure
-Policy](../../../policy/overview.md) definitions that monitors network security groups with
-permissive rules. Rules that are too permissive may allow unintended network access and should be
-reviewed. This blueprint assigns one Azure Policy definitions that monitor unprotected endpoints,
-applications, and storage accounts. Endpoints and applications that aren't protected by a firewall,
-and storage accounts with unrestricted access can allow unintended access to information contained
-within the information system.
-
-- Audit unrestricted network access to storage accounts
-- Access through Internet facing endpoint should be restricted
+- Storage accounts should be migrated to new Azure Resource Manager resources
+- Virtual machines should be migrated to new Azure Resource Manager resources
 
 ## 12.3.6 and 12.3.7 Policies that addresses information security for all personnel
 
