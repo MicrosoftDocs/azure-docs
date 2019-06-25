@@ -13,7 +13,7 @@ ms.devlang: python
 manager: jeconnoc
 ---
 
-# Add an Azure Storage queue binding to your function
+# Add an Azure Storage queue binding to your Python function
 
 Azure Functions lets you connect Azure services and other resources to functions without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A trigger is a special type of input binding. While a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 

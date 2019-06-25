@@ -1,20 +1,20 @@
 ---
 title: Add an Azure Storage queue binding to your Python function 
-description: Learn how to add an Azure Storage queue output binding to your Python function using the Azure CLI and Functions Core Tools.
+description: Learn how to add an Azure Storage queue output binding to your function using Visual Studio Code.
 author: ggailey777
 ms.author: glenga
-ms.date: 04/24/2019
+ms.date: 06/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: jeconnoc
 ---
 
-# Add an Azure Storage queue binding to your function
+# Use Visual Studio Code to add an Azure Storage queue binding to your function
 
 Azure Functions lets you connect Azure services and other resources to functions without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A trigger is a special type of input binding. While a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-This article shows you how to integrate the function you created in the [previous quickstart article](functions-create-first-function-vs-code.md) with an Azure Storage queue. The output binding that you add to this function writes data from the HTTP request to a message in the queue. 
+This article shows you how to use Visual Studio Code to integrate the function you created in the [previous quickstart article](functions-create-first-function-vs-code.md) with an Azure Storage queue. The output binding that you add to this function writes data from the HTTP request to a message in the queue. 
 
 Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
