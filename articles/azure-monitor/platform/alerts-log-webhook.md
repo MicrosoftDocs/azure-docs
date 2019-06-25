@@ -46,7 +46,7 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 | Search Interval StartTime |#searchintervalstarttimeutc |Start time for the query in UTC, format - mm/dd/yyyy HH:mm:ss AM/PM.. 
 | SearchQuery |#searchquery |Log search query used by the alert rule. |
 | SearchResults |"IncludeSearchResults": true|Records returned by the query as a JSON Table, limited to the first 1,000 records; if "IncludeSearchResults": true is added in custom JSON webhook definition as a top-level property. |
-| Alert Type| #alerttype | The type of log alert rule configured - [Metric Measurement](alerts-unified-log.md#metric-measurement-alert-rules) or [Number of Results](alerts-unified-log.md#number-of-results-alert-rules)
+| Alert Type| #alerttype | The type of log alert rule configured - [Metric Measurement](alerts-unified-log.md#metric-measurement-alert-rules) or [Number of Results](alerts-unified-log.md#number-of-results-alert-rules).|
 | WorkspaceID |#workspaceid |ID of your Log Analytics workspace. |
 | Application ID |#applicationid |ID of your Application Insight app. |
 | Subscription ID |#subscriptionid |ID of your Azure Subscription used. 
