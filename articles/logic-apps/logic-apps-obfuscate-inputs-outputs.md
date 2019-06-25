@@ -61,4 +61,4 @@ Here are some considerations when enabling obfuscation:
 
 ## Next steps
 
-Learn more about [how to secure logic apps](logic-apps-securing-a-logic-apps.md)
+Learn more about [how to secure logic apps](logic-apps-securing-a-logic-app.md)

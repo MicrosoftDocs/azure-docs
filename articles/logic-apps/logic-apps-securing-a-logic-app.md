@@ -171,17 +171,17 @@ To control access to the inputs and outputs in your logic app's run history, you
 
 * [Restrict access to specific IP address ranges](#restrict-ip).
 
-  This option lets you secure access based on requests from a specific address range.
+  This option lets you secure access to run history based on the requests from a specific IP address range.
 
-* [Hide inputs and outputs by using obfuscation](#obfuscation).
+* [Secure inputs and outputs by using obfuscation](#obfuscate).
 
-  This option lets you secure access based on the individual trigger or action. Here are some considerations when using obfuscation:
+  This option lets you hide inputs and outputs based on the trigger or action. Here are some considerations when using obfuscation:
 
-  * When you secure the outputs on an action, Logic Apps also blocks the action's input history for any action that explicitly references that output. Also, the [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
+  * When you secure the outputs from a trigger or action, Logic Apps also blocks the inputs history for any actions that explicitly reference those outputs. Also, if actions use secured outputs as inputs, those inputs are secured only if the actions produce the same data as the inputs. Make sure that you secure the outputs from those actions.
 
-  * If an action uses secured output as input, that input is treated as secure only if that action emits the same data as the input used. So, make sure that you also turn on secure outputs on that action.
+  * When you secure an action's inputs or outputs, you prevent that action from sending the that secured data to Azure Log Analytics. You also can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that action for monitoring.
 
-  * When you secure the inputs or outputs on an action, you prevent that action from sending the secured data to Azure Log Analytics. You also can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) that action for monitoring.
+  * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
 
 <a name="restrict-ip"></a>
 
@@ -232,7 +232,6 @@ If you automate logic app deployment by using a [Azure Resource Manager template
 
 ### Secure access by obfuscation
 
-
 1. If your logic app isn't already open in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
    ![Open sample logic app](media/logic-apps-obfuscate-inputs-outputs/sample-logic-app.png)
@@ -253,9 +252,15 @@ If you automate logic app deployment by using a [Azure Resource Manager template
 
    ![Select output](media/logic-apps-obfuscate-inputs-outputs/select-secured-token.png)
 
-   When you view your logic app's run history, the secured inputs and outputs appear hidden.
+1. After the logic app runs, you can view the history for that run.
 
-   ![Hidden data in run history](media/logic-apps-obfuscate-inputs-outputs/hidden-data-run-history.png)
+   1. On the logic app's **Overview** pane, select the run that you want to view.
+
+   1. On the **Logic app run** pane, expand the actions that you want to review.
+
+      Secured inputs and outputs are hidden from view.
+
+      ![Hidden data in run history](media/logic-apps-obfuscate-inputs-outputs/hidden-data-run-history.png)
 
 <a name="secure-action-parameters"></a>
 
