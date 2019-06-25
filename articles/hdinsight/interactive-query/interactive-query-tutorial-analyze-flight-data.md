@@ -290,7 +290,7 @@ To delete a cluster, see [Delete an HDInsight cluster using your browser, PowerS
 
 ## Next steps
 
-In this tutorial, you took a raw CSV data file, imported it into an HDInsight cluster storage, and then transformed the data using Apache Hive in Azure HDInsight.  Advance to the next tutorial to learn how to create HDInsight Hadoop clusters on-demand using Azure Data Factory.
+In this tutorial, you took a raw CSV data file, imported it into an HDInsight cluster storage, and then transformed the data using Interactive Query in Azure HDInsight.  Advance to the next tutorial to learn about the Apache Hive Warehouse Connector.
 
 > [!div class="nextstepaction"]
 >[Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](./apache-hive-warehouse-connector.md)
