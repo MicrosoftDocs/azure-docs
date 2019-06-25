@@ -83,10 +83,10 @@ To create a public container in Blob storage, do the following:
 7. Click the folder icon next to **Select a file**.
 8. Navigate to and select **customize-ui.html** which you created earlier in the Page UI customization section.
 9. If you want to upload to a subfolder, expand **Advanced** and enter a folder name in **Upload to folder**.
-10. Click **Upload**.
+10. Select **Upload**.
 11. Select the **customize-ui.html** blob that you uploaded.
-12. Next to **URL**, click **Copy**.
-13. In a browser, paste the copied URL, and go to the site. If the site is inaccessible, make sure the container access type is set to **blob**.
+12. To the right of the **URL** text box, select the **Copy to clipboard** icon to copy the URL to your clipboard.
+13. In web browser, navigate to the URL you copied to verify the blob you uploaded is accessible. If it is inaccessible, for example if you encounter a `ResourceNotFound` error, make sure the container access type is set to **blob**.
 
 ## Configure CORS
 
@@ -173,12 +173,12 @@ The sample_templates/wingtip folder contains the following HTML files:
 | *updateprofile.html* | Use this file as a template for a profile update page. |
 
 Here are the steps on how to use the sample. 
-1. Clone the repo on your local machine. Choose a template folder under sample_templates, you can use wingtip or contoso.
+1. Clone the repo on your local machine. Choose a template folder under sample_templates. You can use `wingtip` or `contoso`.
 2. Upload all the files under the `css`, `fonts`, and `images` folders to Blob storage as described in the previous sections. 
-3. Next, open each *.html file in the root of either `wingtip` or `contoso` (whichever you selected in the first step) and replace all instances of "http://localhost" with the URLs of the css, images, and fonts files you uploaded in step 2.
-4. Save the *.html files and upload them to Blob storage.
+3. Next, open each \*.html file in the root of either `wingtip` or `contoso` (whichever you selected in the first step) and replace all instances of "http://localhost" with the URLs of the css, images, and fonts files you uploaded in step 2.
+4. Save the \*.html files and upload them to Blob storage.
 5. Now modify the extensions file as mentioned previously in [Modify the extensions file](#modify-the-extensions-file).
-6. If you see missing fonts, images, or css, please check your references in the extensions policy and the *.html files.
+6. If you see missing fonts, images, or css, please check your references in the extensions policy and the \*.html files.
 
 ### Content defintion IDs
 
