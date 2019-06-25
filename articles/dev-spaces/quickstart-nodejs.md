@@ -29,11 +29,11 @@ In this guide, you will learn how to:
 
 ## Create an Azure Kubernetes Service cluster
 
-You need to create an AKS cluster in a [supported region](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
+You need to create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## Enable Azure Dev Spaces on your AKS cluster
@@ -205,3 +205,6 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-nodejs.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

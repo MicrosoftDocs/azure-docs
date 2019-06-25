@@ -7,21 +7,19 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create an Apache Spark cluster - Portal
-      href: apache-spark-jupyter-spark-sql-use-portal.md
-    - name: Create an Apache Spark cluster - PowerShell
-      href: apache-spark-jupyter-spark-sql-use-powershell.md
-    - name: Create an Apache Spark cluster - Azure CLI
-      href: apache-spark-create-cluster-cli.md
-    - name: Create an Apache Spark cluster - Resource Manager template
-      displayName: resource manager template, arm template, resource manager group
-      href: apache-spark-jupyter-spark-sql.md
+  - name: Create Apache Spark cluster - Portal
+    href: apache-spark-jupyter-spark-sql-use-portal.md
+  - name: Create Apache Spark cluster - PowerShell
+    href: apache-spark-jupyter-spark-sql-use-powershell.md
+  - name: Create Apache Spark cluster - Azure CLI
+    href: apache-spark-create-cluster-cli.md
+  - name: Create Apache Spark cluster - Template
+    displayName: resource manager template, arm template, resource manager group
+    href: apache-spark-jupyter-spark-sql.md
 - name: Tutorials
   items:
     - name: Run queries on an Apache Spark cluster
       href: apache-spark-load-data-run-query.md
-    - name: Use VSCode to run Apache Spark queries
-      href: ../hdinsight-for-vscode.md
     - name: Use IntelliJ to run Apache Spark queries
       href: apache-spark-intellij-tool-plugin.md
     - name: Analyze data using BI tools
@@ -32,6 +30,8 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: Create an Apache Spark app in IntelliJ
       href: apache-spark-create-standalone-application.md
+    - name: Use VSCode to run Apache Spark queries
+      href: ../hdinsight-for-vscode.md
     - name: Monitor cluster availability with Ambari and Azure Monitor logs
       href: ../hdinsight-cluster-availability.md    
 - name: Samples
@@ -44,108 +44,112 @@
     href: ../hdinsight-sdk-python-samples.md
 - name: Concepts
   items: 
+  - name: Use IntelliJ to run Apache Spark queries
+    href: apache-spark-intellij-tool-plugin.md
+  - name: Use VSCode to run Apache Spark queries
+    href: ../hdinsight-for-vscode.md
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
 - name: How to
   items:
-    - name: Use cluster storage
-      items:
-        - name: Using Azure Storage
-          href: ../hdinsight-hadoop-use-blob-storage.md
-        - name: Using Azure Data Lake Storage Gen2
-          href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
-        - name: Using Azure Data Lake Storage Gen1
-          href: ../hdinsight-hadoop-use-data-lake-store.md
+  - name: Use cluster storage
+    items:
+    - name: Using Azure Storage
+      href: ../hdinsight-hadoop-use-blob-storage.md
+    - name: Using Azure Data Lake Storage Gen2
+      href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
+    - name: Using Azure Data Lake Storage Gen1
+      href: ../hdinsight-hadoop-use-data-lake-store.md
     - name: Develop
       items:
-        - name: Use an interactive Apache Spark Shell
-          href: apache-spark-shell.md
-        - name: Remote jobs with Apache Livy
-          href: apache-spark-livy-rest-interface.md
-        - name: Create apps using Eclipse
-          href: apache-spark-eclipse-tool-plugin.md
-        - name: Create apps using IntelliJ
-          href: apache-spark-intellij-tool-plugin.md
-        - name: Debug Apache Spark jobs remotely with IntelliJ through SSH
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-        - name: Debug Apache Spark jobs remotely with IntelliJ through VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
-        - name: Create non-interactive authentication .NET HDInsight applications
-          href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
+      - name: Use an interactive Apache Spark Shell
+        href: apache-spark-shell.md
+      - name: Remote jobs with Apache Livy
+        href: apache-spark-livy-rest-interface.md
+      - name: Create apps using Eclipse
+        href: apache-spark-eclipse-tool-plugin.md
+      - name: Create apps using IntelliJ
+        href: apache-spark-intellij-tool-plugin.md
+      - name: Debug Apache Spark jobs remotely with IntelliJ through SSH
+        href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+      - name: Debug Apache Spark jobs remotely with IntelliJ through VPN
+        href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
+      - name: Create non-interactive authentication .NET HDInsight applications
+        href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
     - name: Use HDInsight tools
       items:
-        - name: Tools for Visual Studio
-          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
-        - name: Tools for VSCode
-          href: ../hdinsight-for-vscode.md
-        - name: Tools for IntelliJ
-          href: apache-spark-intellij-tool-plugin.md
-        - name: Tools for Eclipse
-          href: apache-spark-eclipse-tool-plugin.md
-        - name: PySpark for VSCode
-          href: ../set-up-pyspark-interactive-environment.md
-        - name: Debug Apache Spark in IntelliJ
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+      - name: Tools for Visual Studio
+        href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
+      - name: Tools for VSCode
+        href: ../hdinsight-for-vscode.md
+      - name: Tools for IntelliJ
+        href: apache-spark-intellij-tool-plugin.md
+      - name: Tools for Eclipse
+        href: apache-spark-eclipse-tool-plugin.md
+      - name: PySpark for VSCode
+        href: ../set-up-pyspark-interactive-environment.md
+      - name: Debug Apache Spark in IntelliJ
+        href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
     - name: Use notebooks with Apache Spark
       items: 
-        - name: Use a local Jupyter notebook
-          href: apache-spark-jupyter-notebook-install-locally.md
-        - name: Jupyter notebook kernels
-          href: apache-spark-jupyter-notebook-kernels.md
-        - name: Use external packages with Jupyter using cell magic
-          href: apache-spark-jupyter-notebook-use-external-packages.md
-        - name: Use external packages with Jupyter using script action
-          href: apache-spark-python-package-installation.md
-        - name: Use Apache Zeppelin notebooks
-          href: apache-spark-zeppelin-notebook.md
+      - name: Use a local Jupyter notebook
+        href: apache-spark-jupyter-notebook-install-locally.md
+      - name: Jupyter notebook kernels
+        href: apache-spark-jupyter-notebook-kernels.md
+      - name: Use external packages with Jupyter using cell magic
+        href: apache-spark-jupyter-notebook-use-external-packages.md
+      - name: Use external packages with Jupyter using script action
+        href: apache-spark-python-package-installation.md
+      - name: Use Apache Zeppelin notebooks
+        href: apache-spark-zeppelin-notebook.md
     - name: Use with other Azure services
       items: 
-        - name: Use with Data Lake Storage
-          href: apache-spark-use-with-data-lake-store.md
-        - name: Connect to Azure SQL database
-          href: apache-spark-connect-to-sql-database.md
-        - name: Implement a lambda architecture using Apache Spark and Cosmos DB
-          href: ../../cosmos-db/lambda-architecture.md
-        - name: Run Azure ML workloads with AutoML
-          href: apache-spark-run-machine-learning-automl.md
+      - name: Use with Data Lake Storage
+        href: apache-spark-use-with-data-lake-store.md
+      - name: Connect to Azure SQL database
+        href: apache-spark-connect-to-sql-database.md
+      - name: Implement a lambda architecture using Apache Spark and Cosmos DB
+        href: ../../cosmos-db/lambda-architecture.md
+      - name: Run Azure ML workloads with AutoML
+        href: apache-spark-run-machine-learning-automl.md
     - name: Apache Spark streaming
       items:
-        - name: Streaming overview
-          href: apache-spark-streaming-overview.md
-        - name: Structured Streaming overview
-          href: apache-spark-structured-streaming-overview.md
-        - name: Create highly available Apache Spark streaming jobs in Apache Hadoop YARN
-          href: apache-spark-streaming-high-availability.md
-        - name: Structured streaming with Apache Kafka
-          href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-        - name: Structured streaming from Apache Kafka to CosmosDB
-          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
-        - name: Spark streaming (DStream) with Apache Kafka
-          href: ../hdinsight-apache-spark-with-kafka.md
-        - name: Create Apache Spark streaming jobs with exactly-once event processing
-          href: apache-spark-streaming-exactly-once.md
-    - name: Apache Spark and Machine Learning
-      items:
-        - name: Predict food inspection results
-          href: apache-spark-machine-learning-mllib-ipython.md
-        - name: Analyze website logs
-          href: apache-spark-custom-library-website-log-analysis.md
-        - name: Use Caffe for deep learning
-          href: apache-spark-deep-learning-caffe.md
-        - name: Use with Microsoft Cognitive Toolkit
-          href: apache-spark-microsoft-cognitive-toolkit.md
-        - name: Create an Apache Spark machine learning pipeline
-          href: apache-spark-creating-ml-pipelines.md
+      - name: Streaming overview
+        href: apache-spark-streaming-overview.md
+      - name: Structured Streaming overview
+        href: apache-spark-structured-streaming-overview.md
+      - name: Create highly available Apache Spark streaming jobs in Apache Hadoop YARN
+        href: apache-spark-streaming-high-availability.md
+      - name: Structured streaming with Apache Kafka
+        href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+      - name: Structured streaming from Apache Kafka to CosmosDB
+        href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+      - name: Spark streaming (DStream) with Apache Kafka
+        href: ../hdinsight-apache-spark-with-kafka.md
+      - name: Create Apache Spark streaming jobs with exactly-once event processing
+        href: apache-spark-streaming-exactly-once.md
+  - name: Apache Spark and Machine Learning
+    items:
+    - name: Predict food inspection results
+      href: apache-spark-machine-learning-mllib-ipython.md
+    - name: Analyze website logs
+      href: apache-spark-custom-library-website-log-analysis.md
+    - name: Use Caffe for deep learning
+      href: apache-spark-deep-learning-caffe.md
+    - name: Use with Microsoft Cognitive Toolkit
+      href: apache-spark-microsoft-cognitive-toolkit.md
+    - name: Create an Apache Spark machine learning pipeline
+      href: apache-spark-creating-ml-pipelines.md
     - name: Analyze big data
       items:
-        - name: Apache Hive with Apache Spark
-          href: ../interactive-query/apache-hive-warehouse-connector.md
-        - name: Use Apache Spark to read and write Apache HBase data
-          href: ../hdinsight-using-spark-query-hbase.md
-        - name: Analyze Application Insights telemetry logs
-          href: apache-spark-analyze-application-insight-logs.md
+      - name: Apache Hive with Apache Spark
+        href: ../interactive-query/apache-hive-warehouse-connector.md
+      - name: Use Apache Spark to read and write Apache HBase data
+        href: ../hdinsight-using-spark-query-hbase.md
+      - name: Analyze Application Insights telemetry logs
+        href: apache-spark-analyze-application-insight-logs.md
     - name: Extend clusters
       items:
       - name: Customize clusters using Bootstrap
@@ -166,12 +170,12 @@
         href: ../hdinsight-apps-use-edge-node.md
       - name: Build HDInsight applications
         items:
-          - name: Install custom apps
-            href: ../hdinsight-apps-install-custom-applications.md
-          - name: Use REST to install apps
-            href: https://msdn.microsoft.com/library/mt706515.aspx
-          - name: Publish HDInsight apps to Azure Marketplace
-            href: ../hdinsight-apps-publish-applications.md
+        - name: Install custom apps
+          href: ../hdinsight-apps-install-custom-applications.md
+        - name: Use REST to install apps
+          href: https://msdn.microsoft.com/library/mt706515.aspx
+        - name: Publish HDInsight apps to Azure Marketplace
+          href: ../hdinsight-apps-publish-applications.md
     - name: Secure
       items:
       - name: Use SSH with HDInsight
@@ -231,7 +235,7 @@
           href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
         - name: Use Azure PowerShell
           href: ../hdinsight-administer-use-powershell.md
-        - name: Use the Azure Classic CLI
+        - name: Use the Azure CLI
           href: ../hdinsight-administer-use-command-line.md
       - name: Manage clusters using the Apache Ambari web UI
         href: ../hdinsight-hadoop-manage-ambari.md
@@ -371,6 +375,10 @@
     href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   - name: Network access
     items:
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+    - name: Use firewall to restrict outbound traffic
+      href: ../hdinsight-restrict-outbound-traffic.md
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
     - name: Connect HDInsight with on-premises network

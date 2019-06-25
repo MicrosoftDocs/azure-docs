@@ -26,6 +26,8 @@
       href: howto-create-tenant.md
     - name: Create an Azure AD app object and user
       href: howto-aad-app-configuration.md
+  - name: Deploy a standalone prometheus in an Azure Red Hat OpenShift cluster
+    href: howto-deploy-prometheus.md
 
 - name: Reference
   items:
@@ -45,6 +47,6 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Red Hat OpenShift documentation
-    href: https://docs.openshift.org/latest/welcome/index.html
+    href: https://docs.openshift.com/aro/welcome/index.html
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/

@@ -75,9 +75,10 @@
     items:
     - name: Limit access with virtual network (preview)
       href: container-registry-vnet.md
-    - name: Authentication overview
-      href: container-registry-authentication.md
+    - name: Authentication
       items:
+      - name: Authentication overview
+        href: container-registry-authentication.md
       - name: Service principal authentication
         href: container-registry-auth-service-principal.md
       - name: Managed identity authentication
@@ -88,12 +89,14 @@
         href: container-registry-auth-aks.md
     - name: Content trust
       href: container-registry-content-trust.md
-  - name: Build and patch
+  - name: ACR Tasks
     items:
-      - name: ACR Tasks
+      - name: ACR Tasks overview
         href: container-registry-tasks-overview.md
       - name: Multi-step tasks
         href: container-registry-tasks-multi-step.md
+      - name: Use with managed identity
+        href: container-registry-tasks-authentication-managed-identity.md
   - name: Registries and other Azure services
     items:
       - name: Azure Container Instances
@@ -143,3 +146,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
+  - name: FAQ
+    href: container-registry-faq.md

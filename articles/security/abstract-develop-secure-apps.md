@@ -1,7 +1,7 @@
 ---
 
-title: Develop secure applications on Azure | Microsoft Docs
-description: A guide to help you develop more secure applications for the cloud.
+title: Develop secure cloud applications on Azure - Microsoft Azure
+description: A guide to the security questions and controls to consider at each phase of the software development lifecycle when developing applications for the cloud.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2018
+ms.date: 05/30/2019
 ms.author: terrylan
 
 ---
-# Develop secure applications on Azure
+# Develop secure cloud applications on Azure
 ## Abstract
 This paper is a general guide to the security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud. Implementing these concepts before you release your product can help you build more secure software. The recommendations presented in this paper come from our experience with Azure security and the experiences of our customers.
 

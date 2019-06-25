@@ -35,7 +35,7 @@ Learn how to call downstream APIs:
 Learn more with tutorials and samples:
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core Web API Tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+> [ASP.NET Core web API Tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
 
 > [!div class="nextstepaction"]
-> [ASP.NET Web API sample](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+> [ASP.NET web API sample](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

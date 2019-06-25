@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 06/11/2019
 ms.author: garye
 ---
 
@@ -89,6 +89,8 @@ Within your Cognitive Services resource, You can use the Endpoint URL and keys i
 
 ![Resources screen](media/cognitive-services-apis-create-account/resourceScreen.png)
 
+Make a note of the location and the keys. You can get the keys by selecting **Keys** under **Resource Management**.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -99,4 +101,4 @@ Within your Cognitive Services resource, You can use the Endpoint URL and keys i
 * [Quickstart: Extract handwritten text from an image](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
 * [Tutorial: Create an app to detect and frame faces in an image](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
 * [Build a custom search webpage](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
-* [Integrate Language Understanding (LUIS) with a bot using the Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)
+* [Integrate Language Understanding (LUIS) with a bot using the Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-bf-v4)

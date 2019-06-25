@@ -1,5 +1,5 @@
 ---
-title: Configure authentication session management with Azure Active Directory conditional access
+title: Configure authentication session management with Azure Active Directory Conditional Access
 description: Customize Azure AD authentication session configuration including user sign in frequency and browser session persistence.
 
 services: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
-# Configure authentication session management with conditional access
+# Configure authentication session management with Conditional Access
 
 In complex deployments, organizations might have a need to restrict authentication sessions. Some scenarios might include:
 
@@ -24,7 +24,7 @@ In complex deployments, organizations might have a need to restrict authenticati
 * High impact users
 * Critical business applications
 
-Conditional access controls allow you to create policies that target specific use cases within your organization without affecting all users.
+Conditional Access controls allow you to create policies that target specific use cases within your organization without affecting all users.
 
 Before diving into details on how to configure the policy, let’s examine the default configuration.
 
@@ -47,10 +47,10 @@ The Azure AD default for browser session persistence allows users on personal de
 
 ## Configuring authentication session controls
 
-Conditional access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about conditional access, see [What is conditional access in Azure Active Directory?](overview.md#license-requirements-for-using-conditional-access)
+Conditional Access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft plans to retire the configurable token lifetime feature on October 15 and replace it with the conditional access authentication session management feature.  
+> If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft plans to retire the configurable token lifetime feature on November 1 and replace it with the Conditional Access authentication session management feature.  
 
 ### Policy 1: Sign-in frequency control
 
@@ -63,9 +63,9 @@ Conditional access is an Azure AD Premium capability and requires a premium lice
 1. Go to **Access Controls** > **Session** and click **Sign-in frequency**
 1. Enter the required value of days and hours in the first text box
 1. Select a value of **Hours** or **Days** from dropdown
-1. Save you policy
+1. Save your policy
 
-![Conditional access policy configured for sign in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+![Conditional Access policy configured for sign in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 On Azure AD registered Windows devices sign in to the device is considered a prompt. For example, if you have configured the Sign in frequency to 24 hours for Office apps, users on Azure AD registered Windows devices will satisfy the Sign in frequency policy by signing in to the device and will be not prompted again when opening Office apps.
 
@@ -83,7 +83,7 @@ If you have configured different Sign-in frequency for different web apps that a
 1. Select a value from dropdown
 1. Save you policy
 
-![Conditional access policy configured for persistent browser](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
+![Conditional Access policy configured for persistent browser](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
 > [!NOTE]
 > Persistent Browser Session configuration in Azure AD Conditional Access will overwrite the “Stay signed in?” setting in the company branding pane in the Azure portal for the same user if you have configured both policies.
@@ -92,13 +92,13 @@ If you have configured different Sign-in frequency for different web apps that a
 
 Use the What-If tool to simulate a login from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
 
-![Conditional access What If tool results](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Conditional Access What If tool results](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## Policy deployment
 
-To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see the article [Best practices for conditional access in Azure Active Directory](best-practices.md).
+To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see the article [Best practices for Conditional Access in Azure Active Directory](best-practices.md).
 
 ## Next steps
 
-* If you want to know how to configure a conditional access policy, see the article [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
-* If you are ready to configure conditional access policies for your environment, see the article [Best practices for conditional access in Azure Active Directory](best-practices.md).
+* If you want to know how to configure a Conditional Access policy, see the article [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
+* If you are ready to configure Conditional Access policies for your environment, see the article [Best practices for Conditional Access in Azure Active Directory](best-practices.md).
