@@ -15,7 +15,7 @@ ms.author: ellacroi
 
 An optimized marketplace listing and go-to-market campaigns can help you accelerate your customer acquisition growth, and thus can play a significant role in your cloud business strategy and engine. Get ready to list offers, provide customer trials, and connect with Microsoft customers and the partner community. Download the [AppSource & Azure Marketplace marketing best practice guide](https://aka.ms/marketplacebestpractices) to learn how to get the most out of your online marketing efforts.
 
-## Next steps
+**Next steps**
 
 To learn more about marketplace GTM services, go to [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
