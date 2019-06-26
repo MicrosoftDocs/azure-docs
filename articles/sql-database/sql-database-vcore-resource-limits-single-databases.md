@@ -29,6 +29,9 @@ You can set the service tier, compute size, and storage amount for a single data
 
 ## General Purpose service tier: Storage sizes and compute sizes
 
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
+
 ### General Purpose service tier: Generation 4 compute platform (part 1)
 
 |Compute size|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
@@ -150,6 +153,9 @@ The [serverless compute tier](sql-database-serverless.md) is in preview and is o
 |Included backup storage|1X DB size|1X DB size|1X DB size|
 
 ## Business Critical service tier for provisioned compute tier
+
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
 
 ### Business Critical service tier: Generation 4 compute platform (part 1)
 

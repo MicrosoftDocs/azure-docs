@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 06/13/2019
+ms.date: 06/26/2019
 ---
 # Overview Azure SQL Database managed instance resource limits
 
@@ -36,6 +36,9 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 | Max In-Memory OLTP memory | Instance limit: 3 GB per vCore<br/>Database limits:<br/> - 8-core: 8 GB per database<br/> - 16-core: 20 GB per database<br/> - 24-core: 36 GB per database | Instance limit: 2.5 GB per vCore<br/>Database limits:<br/> - 8-core: 13 GB per database<br/> - 16-core: 32 GB per database |
 | Max instance storage (General Purpose) |  8 TB | 8 TB |
 | Max instance storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
+
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
 
 ### Service tier characteristics
 
