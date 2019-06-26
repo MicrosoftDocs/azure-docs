@@ -42,7 +42,7 @@ You can switch to another Azure IoT Hub at any time.
 1. Go to ``settings``.
 2. Replace with your new hub connection string.
 ####  Configure the model definition source
-For a plug and play device, its model definition can be stored at public repository, organizational repository, or the physical device itself. By default, the tool will look for your model definition from the public model repository. If you want to find definition from other places, you need to add it in the ``settings``. 
+For a plug and play device, its model definition can be stored at public repository, organizational repository, or the physical device itself. By default, the tool will look for your model definition from the public model repository. If you want to find definition from other places, you need to add it as a definition source in the ``settings``. 
 1. Go to ``settings``.
 2. To add a source, click ``New`` button and choose the source you want to add.
 3. To remove a source, click ``X`` button to delete.
