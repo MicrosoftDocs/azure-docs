@@ -53,7 +53,6 @@ This article provides a general workflow for moving resources to a different reg
     - Auditing is configured on the target server. For more information, see [Get started with SQL database auditing](sql-database-auditing.md). 
 - If your instance has a long-term retention policy (LTR), make sure to move the LTR backups to the target region. [!!!NEED LINK FOR THIS!!!](NEEDLINK.MD).
 
-
 ### Prepare resources
 
 - Create a [failover group](sql-database-single-database-failover-group-tutorial.md#2---create-the-failover-group) between the logical server of the source to the logical server of the target.  
