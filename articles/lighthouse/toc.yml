@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Microsoft Lighthouse?
+  - name: What is Azure Lighthouse?
     displayName: management at scale, service providers
     href: overview.md
 - name: Concepts
