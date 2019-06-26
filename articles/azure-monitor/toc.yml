@@ -555,6 +555,20 @@
           href: app/asp-net-dependencies.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+        - name: Log-based & pre-aggregated metrics
+          href: app/pre-aggregated-metrics-log-metrics.md
+        - name: Application Insights portal
+          items:
+          - name: Transaction diagnostics
+            href: app/transaction-diagnostics.md
+        - name: Visual Studio
+          items:
+          - name: F5 insights
+            href: app/visual-studio.md
+          - name: Trends
+            href: app/visual-studio-trends.md
+          - name: CodeLens
+            href: app/visual-studio-codelens.md
       - name: Application Insights portal
         items:
         - name: Transaction diagnostics
@@ -1049,6 +1063,10 @@
       href: platform/alerts-extend-tool.md
     - name: Switch log alert API preference
       href: platform/alerts-log-api-switch.md
+    - name: HockeyApp data
+      href: app/hockeyapp-bridge-app.md
+    - name: Web App Analytics solution
+      href: insights/azure-web-apps-analytics.md
 - name: Resources
   items:
   - name: Azure Roadmap
