@@ -29,9 +29,9 @@ This overview describes the capabilities that Azure SQL Database provides for bu
 From a database perspective, there are four major potential disruption scenarios:
 
 - Local hardware or software failures affecting the database node such as a disk-drive failure.
-- Data corruption or deletion typically caused by an application bug or human error. Such failures are intrinsically application-specific and cannot as a rule be detected or mitigated automatically by the infrastructure.
+- Data corruption or deletion typically caused by an application bug or human error. Such failures are application-specific and typically cannot be detected by the database service.
 - Datacenter outage, possibly caused by a natural disaster. This scenario requires some level of geo-redundancy with application failover to an alternate datacenter.
-- Upgrade or maintenance errors, unanticipated issues that occur during planned upgrades or maintenance to an application or database may require rapid rollback to a prior database state.
+- Upgrade or maintenance errors, unanticipated issues that occur during planned infrastructure maintenance or upgrades may require rapid rollback to a prior database state.
 
 To mitigate the local hardware and software failures, SQL Database incudes a [high availability architecture](sql-database-high-availability.md), which guarantees automatic recovery from these failures with up to 99.995% availability SLA.  
 
