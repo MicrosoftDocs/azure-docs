@@ -1,6 +1,6 @@
 ---
 title: Run Kubernetes Service
-titleSuffix: Text Analytics -  Azure Cognitive Services
+titleSuffix: Text Analytics - Azure Cognitive Services
 description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser. 
 services: cognitive-services
 author: IEvangelist
@@ -8,36 +8,36 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 06/21/2019
 ms.author: dapine
 ---
 
 # Deploy the Language detection container to Azure Kubernetes Service
 
-Learn how to deploy the language detection container. This procedure shows you how create the local Docker containers, push the containers to your own private container registry, run the container in a Kubernetes cluster, and test it in a web browser. 
+Learn how to deploy the language detection container. This procedure shows you how to create the local Docker containers, push the containers to your own private container registry, run the container in a Kubernetes cluster, and test it in a web browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
 ## Prerequisites
 
-This procedure requires several tools that must be installed and run locally. Do not use Azure Cloud shell. 
+This procedure requires several tools that must be installed and run locally. Do not use Azure Cloud shell.
 
 * Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* [Git](https://git-scm.com/downloads) for your operating system so you can clone the [sample](https://github.com/Azure-Samples/cognitive-services-containers-samples) used in this procedure. 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+* [Git](https://git-scm.com/downloads) for your operating system so you can clone the [sample](https://github.com/Azure-Samples/cognitive-services-containers-samples) used in this procedure.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Docker engine](https://www.docker.com/products/docker-engine) and validate that the Docker CLI works in a console window.
-* [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe). 
+* [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
     * **Text Analytics** resource with F0 or Standard pricing tiers only.
     * **Cognitive Services** resource with the S0 pricing tier.
 
 ## Running the sample
 
-This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. You need to push both these images to your own Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results. 
+This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. You need to push both these images to your own Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results.
 
 ![Conceptual idea of running sample containers](../media/how-tos/container-instance-sample/containers.png)
 
 ## The sample containers
 
-The sample has two container images, one for the frontend website. The second image is the language detection container returning the detected language (culture) of text. Both containers are accessible from an external IP when you are done. 
+The sample has two container images, one for the frontend website. The second image is the language detection container returning the detected language (culture) of text. Both containers are accessible from an external IP when you are done.
 
 ### The language-frontend container
 
@@ -45,17 +45,17 @@ This website is equivalent to your own client-side application that makes reques
 
 ### The language container
 
-The language detection container, in this specific procedure, is accessible to any external request. The container hasn't been changed in any way so the standard Cognitive Services container-specific language detection API is available. 
+The language detection container, in this specific procedure, is accessible to any external request. The container hasn't been changed in any way so the standard Cognitive Services container-specific language detection API is available.
 
-For this container, that API is a POST request for language detection. As with all Cognitive Services containers, you can learn more about the container from its hosted Swagger information, `http://<external-IP>:5000/swagger/index.html`. 
+For this container, that API is a POST request for language detection. As with all Cognitive Services containers, you can learn more about the container from its hosted Swagger information, `http://<external-IP>:5000/swagger/index.html`.
 
-Port 5000 is the default port used with the Cognitive Services containers. 
+Port 5000 is the default port used with the Cognitive Services containers.
 
 ## Create Azure Container Registry service
 
-To deploy the container to the Azure Kubernetes Service, the container images need to be accessible. Create your own Azure Container Registry service to host the images. 
+To deploy the container to the Azure Kubernetes Service, the container images need to be accessible. Create your own Azure Container Registry service to host the images.
 
-1. Sign in to the Azure CLI 
+1. Sign in to the Azure CLI
 
     ```azurecli
     az login
@@ -76,7 +76,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     Save the results to get the **loginServer** property. This will be part of the hosted container's address, used later in the `language.yml` file.
 
     ```console
-    >az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
@@ -103,7 +103,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
     az acr login --name pattyregistry
     ```
 
-## Get website Docker image 
+## Get website Docker image
 
 1. The sample code used in this procedure is in the Cognitive Services containers samples repository. Clone the repository to have a local copy of the sample.
 
@@ -116,7 +116,7 @@ To deploy the container to the Azure Kubernetes Service, the container images ne
 1. Build the Docker image for this website. Make sure the console is in the [\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) directory where the Dockerfile is located when you run the following command:
 
     ```console
-    docker build -t language-frontend -t pattiyregistry.azurecr.io/language-frontend:v1 . 
+    docker build -t language-frontend -t pattiyregistry.azurecr.io/language-frontend:v1 .
     ```
 
     To track the version on your container registry, add the tag with a version format, such as `v1`. 
@@ -403,7 +403,7 @@ az group delete --name cogserv-container-rg
 ## Next steps 
 
 * Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
-* Use the Text Analytics Connected Service](../vs-text-connected-service.md)
+* Use the [Text Analytics Connected Service](../vs-text-connected-service.md)
 
 
 <!--
