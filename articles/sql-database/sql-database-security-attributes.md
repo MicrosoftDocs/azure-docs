@@ -48,7 +48,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | Azure Active Directory (Azure AD). |
+| Authentication| Yes | Azure Active Directory (Azure AD) |
 | Authorization| Yes |  |
 
 
