@@ -70,6 +70,9 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
 1. On the Jupyter notebook webpage, the top foldername is your username.  Select this folder.
 
+    > [!TIP]
+    > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load  this same folder.
+
 1. The samples foldername includes a version number, for example **samples-1.0.33.1**.  Select the samples folder.
 
 1. Select the **quickstart** notebook.
@@ -79,6 +82,8 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Select **01.run-experiment.ipynb** to open the notebook.
+
+1. If you see a "Kernel not found" alert, select the kernel **Python 3.6 - AzureML** (approximately mid-way down the list) and set the kernel.
 
 1. Click into the first code cell and select **Run**.
 

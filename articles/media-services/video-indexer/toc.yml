@@ -86,3 +86,5 @@
     href: faq.md    
   - name: Compliance
     href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 
+  - name: Release notes
+    href: release-notes.md

@@ -37,10 +37,16 @@ For example: A single share can achieve 100,000 IOPS and a single file can scale
 
 ### Premium FileStorage account limits
 
-Premium file shares are provisioned in a special storage account called **filestorage (preview)**. This account has slightly different scale targets than the storage account used for standard file shares. For the storage account scale targets, refer to the table in the [Azure storage account scale targets](#azure-storage-account-scale-targets) section.
+Premium file shares are provisioned in a special storage account called **filestorage**. This account has slightly different scale targets than the storage account used for standard file shares. For the storage account scale targets, refer to the table in the [Azure storage account scale targets](#azure-storage-account-scale-targets) section.
 
 > [!IMPORTANT]
-> Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.
+> Storage account limits apply to all shares. Scaling up to the max for FileStorage accounts is only achievable if there is only one share per FileStorage account.
+
+### File share and file scale targets
+
+> [!NOTE]
+> Standard file shares larger than 5 TiB are in preview and have certain limitations.
+> For a list of limitations and to onboard to the preview of these larger file share sizes, see the [Standard file shares](storage-files-planning.md#standard-file-shares) section of the planning guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

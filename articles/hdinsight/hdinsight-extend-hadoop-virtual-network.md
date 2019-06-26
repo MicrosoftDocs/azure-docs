@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 06/17/2019
 ---
 
 # Extend Azure HDInsight using an Azure Virtual Network
@@ -206,13 +206,13 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
 ## <a id="networktraffic"></a> Controlling network traffic
 
-### Controlling inbound traffic to HDInsight clusters
+### Techniques for controlling inbound and outbound traffic to HDInsight clusters
 
 Network traffic in an Azure Virtual Networks can be controlled using the following methods:
 
 * **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
 
-* **Network virtual appliances** replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
+* **Network virtual appliances** (NVA) can be used with outbound traffic only. NVAs replicate the functionality of devices such as firewalls and routers.  For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
 
 As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
 
@@ -242,14 +242,14 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
-> [!IMPORTANT]  
-> The Azure health and management services must be able to communicate with HDInsight. If you use network security groups or user-defined routes, allow traffic from the IP addresses for these services to reach HDInsight.
->
+If you use network security groups or user defined routes to control traffic, you must allow traffic from the IP addresses for Azure health and management services so that they can communicate with your HDInsight cluster. Some of the IP addresses are region specific, and some of them apply to all Azure regions. You may also need to allow traffic from the Azure DNS service if you aren't using custom DNS. You must also allow traffic between VMs inside the subnet. Use the following steps to find the IP addresses that must be allowed:
+
+> [!Note]  
 > If you do not use network security groups or user-defined routes to control traffic, you can ignore this section.
 
-If you use network security groups, you must allow traffic from the Azure health and management services to reach HDInsight clusters on port 443. You must also allow traffic between VMs inside the subnet. Use the following steps to find the IP addresses that must be allowed:
+1. If you are using the Azure-provided DNS service, allow access from __168.63.129.16__ on port 53. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document. If you are using custom DNS, skip this step.
 
-1. You must always allow traffic from the following IP addresses:
+2. Allow traffic from the following IP addresses for Azure health and management services which apply to all Azure regions:
 
     | Source IP address | Destination  | Direction |
     | ---- | ----- | ----- |
@@ -258,7 +258,7 @@ If you use network security groups, you must allow traffic from the Azure health
     | 168.61.48.131 | \*:443 | Inbound |
     | 138.91.141.162 | \*:443 | Inbound |
 
-2. If your HDInsight cluster is in one of the following regions, then you must allow traffic from the IP addresses listed for the region:
+3. Allow traffic from the IP addresses listed for the Azure health and management services in the specific region where your resources are located:
 
     > [!IMPORTANT]  
     > If the Azure region you are using is not listed, then only use the four IP addresses from step 1.
@@ -286,11 +286,11 @@ If you use network security groups, you must allow traffic from the Azure health
     | &nbsp; | South India | 104.211.223.67<br/>104.211.216.210 | \*:443 | Inbound |
     | Japan | Japan East | 13.78.125.90</br>13.78.89.60 | \*:443 | Inbound |
     | &nbsp; | Japan West | 40.74.125.69</br>138.91.29.150 | \*:443 | Inbound |
-    | Korea | Korea Central | 52.231.39.142</br>52.231.36.209 | \*:433 | Inbound |
+    | Korea | Korea Central | 52.231.39.142</br>52.231.36.209 | \*:443 | Inbound |
     | &nbsp; | Korea South | 52.231.203.16</br>52.231.205.214 | \*:443 | Inbound
     | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | \*:443 | Inbound |
     | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | \*:443 | Inbound |
-    | United States | Central US | 13.67.223.215</br>40.86.83.253 | \*:443 | Inbound |
+    | United States | Central US | 13.89.171.122</br>13.89.171.124 | \*:443 | Inbound |
     | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*:443 | Inbound |
     | &nbsp; | North Central US | 157.56.8.38</br>157.55.213.99 | \*:443 | Inbound |
     | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | \*:443 | Inbound |
@@ -298,8 +298,6 @@ If you use network security groups, you must allow traffic from the Azure health
     | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Inbound |
 
     For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
-
-3. You must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 For more information, see the [Controlling network traffic](#networktraffic) section.
 

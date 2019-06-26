@@ -29,6 +29,9 @@ You can set the service tier, compute size, and storage amount for a single data
 
 ## General Purpose service tier: Storage sizes and compute sizes
 
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
+
 ### General Purpose service tier: Generation 4 compute platform (part 1)
 
 |Compute size|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
@@ -140,7 +143,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview and is o
 |TempDB size (GB)|32|64|128|
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Target IOPS (64 KB)|250|500|1000|
+|Target IOPS (64 KB)|500|1000|2000|
 |Log rate limits (MBps)|2.5|5.6|10|
 |Max concurrent workers (requests)|75|150|300|
 |Max allowed sessions|30000|30000|30000|
@@ -150,6 +153,9 @@ The [serverless compute tier](sql-database-serverless.md) is in preview and is o
 |Included backup storage|1X DB size|1X DB size|1X DB size|
 
 ## Business Critical service tier for provisioned compute tier
+
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
 
 ### Business Critical service tier: Generation 4 compute platform (part 1)
 

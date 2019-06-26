@@ -139,7 +139,8 @@ To delete blueprints, your account needs the following permissions:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> The blueprint definition permissions must be granted or inherited on the management group or subscription scope where it is saved.
+> The blueprint definition permissions must be granted or inherited on the management group or
+> subscription scope where it is saved.
 
 To assign or unassign a blueprint, your account needs the following permissions:
 
@@ -147,7 +148,8 @@ To assign or unassign a blueprint, your account needs the following permissions:
 - `Microsoft.Blueprint/blueprintAssignments/delete` - Unassign a blueprint
 
 > [!NOTE]
-> As blueprint assignments are created on a subscription, the blueprint assign and unassign permissions must be granted on a subscription scope or be inherited onto a subscription scope.
+> As blueprint assignments are created on a subscription, the blueprint assign and unassign
+> permissions must be granted on a subscription scope or be inherited onto a subscription scope.
 
 All of the above permissions are included in the **Owner** role. The **Contributor** role has
 create blueprint and delete blueprint permissions, but does not have blueprint assignment
@@ -155,7 +157,12 @@ permissions. If these built-in roles don't fit your security needs, consider cre
 role](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> The service principal for Azure Blueprint requires the **Owner** role on the assigned subscription in order to enable deployment. If using the portal, this role is automatically granted and revoked for the deployment. If using the REST API, this role must be manually granted, but is still automatically revoked after the deployment completes.
+> If using a system-assigned managed identity, the service principal for Azure Blueprints requires
+> the **Owner** role on the assigned subscription in order to enable deployment. If using the
+> portal, this role is automatically granted and revoked for the deployment. If using the REST API,
+> this role must be manually granted, but is still automatically revoked after the deployment
+> completes. If using a user-assigned managed identity, only the user creating the blueprint
+> assignment needs **Owner** permissions.
 
 ## Video overview
 
