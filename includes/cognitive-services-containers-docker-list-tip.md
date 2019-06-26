@@ -13,6 +13,5 @@ ms.date: 06/26/2019
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >
 >  IMAGE ID            REPOSITORY              TAG
->  <image-id>       <repository-name>         latest
->  <image-id>       <repository-name>         latest
+>  <image-id>       <repository-path/name>         <tag-name>
 >  ```
