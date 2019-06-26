@@ -11,84 +11,84 @@ ms.author: pabutler
 
 # Lead management instructions for Azure Table
 
-This article describes how to configure Azure Table for storing sales leads. Azure Table lets you store and customize customer information.
+This article describes how to configure Azure Table storage to store sales leads. Table storage lets you store and customize customer information.
 
+## How to configure Table storage
 
-## How to configure Azure Table
-
-1. If you don't have an Azure account, you can [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
-2. After your Azure account is active, sign in to the [Azure portal](https://portal.azure.com).
-3. In the Azure portal, create a storage account using the following procedure.  
-    1. Select **+Create a resource** in the left menubar.  The **New** pane (blade) will be displayed to the right.
-    2. Select **Storage** in the **New** pane.  A **Featured** list is displayed to the right.
-    3. Select **Storage Account** to begin account creation.  Follow the instructions in the article [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+1. If you don't have an Azure account, [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
+1. After your Azure account is active, sign in to the [Azure portal](https://portal.azure.com).
+1. In the Azure portal, follow these steps to create a storage account:  
+    1. Select **+Create a resource** in the left menu bar. The **New** pane will appears on the right side.
+    1. Select **Storage** in the **New** pane. A **Featured** list appears on the right side.
+    1. Select **Storage Account** to begin account creation.  Follow the instructions in the article [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
     ![Steps to create an Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-    For more information about storage accounts, select [Quickstart tutorial](https://docs.microsoft.com/azure/storage/).  For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+    For more information about storage accounts, select [Quickstart tutorial](https://docs.microsoft.com/azure/storage/). For information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-4. Wait until your storage account is provisioned, a process that typically takes a few minutes.  Then access your storage account from the **Home** page of the Azure portal by selecting **See all your resources** or by selecting **All resources** from the left navigation menubar of the Azure portal.
+1. Wait until your storage account is provisioned, which typically takes a few minutes. Then access your storage account from the **Home** page of the Azure portal: Select **See all your resources** or **All resources** in the navigation pane on the left side in the Azure portal.
 
     ![Access your Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-5. From your storage account pane, copy the storage account connection string for the key and paste it into the **Storage Account Connection String** field on the Cloud Partner Portal. An example of a connection sting is:
+1. From your storage account pane, copy the storage account connection string for the key. Paste it into the **Storage Account Connection String** field in the Cloud Partner Portal. 
 
-```sql
-DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
-```
+    Example connection sting:
 
-  ![Azure storage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+    ```sql
+    DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
+    ```
 
-You can use [Azure storage explorer](https://azurestorageexplorer.codeplex.com/) or other similar tool to see the data in your storage table. You can also export the data from Azure tables.
+      ![Azure storage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
+You can use [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or a similar tool to see the data in Table storage. You can also export the data from Table storage.
 
-## Use Microsoft Flow with an Azure Table (*optional*) 
+## Use Microsoft Flow with Table storage (*optional*)
 
-You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to Azure table. If you don’t have an account, you can [sign up for a free account](https://flow.microsoft.com/).
+You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to Table storage. If you don’t have an account, you can [sign up for a free Microsoft Flow account](https://flow.microsoft.com/).
 
 
 ### Lead notification example
 
-Use this example as a guide to create a basic flow that automatically sends an email notification when a new lead is added to an Azure table. This example sets up a recurrence to send lead information every hour if table storage is updated.
+Use this example as a guide to create a basic flow that automatically sends an email notification when a new lead is added to Table storage. This example sets up a recurrence to send lead information every hour if Table storage is updated.
 
 1. Sign in to your Microsoft Flow account.
-2. On the left navigation bar, select **My flows**.
+2. In the left-side navigation bar, select **My flows**.
 3. On the top navigation bar, select **+ New**.  
-4. On the dropdown list, select **+ Create from blank**
-5. Under Create a flow from blank, select **Create from blank**.
+4. From the drop-down list, select **+ Create from blank**
+5. Under "Create a flow from blank," select **Create from blank**.
 
    ![Create a new flow from blank](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
 6. On the connectors and triggers search page, select **Triggers**.
-7. Under **Triggers**, select **Recurrence**.
-8. In the **Recurrence** window, keep the default setting of 1 for **Interval**. From the **Frequency** dropdown list, select **Hour**.
+7. Under "Triggers" select **Recurrence**.
+8. In the **Recurrence** window, keep the default setting of 1 for **Interval**. From the **Frequency** drop-down list, select **Hour**.
 
    >[!NOTE] 
-   >Although this example uses a 1-hour interval, you can select the interval and frequency that’s best for your business needs.
+   >This example uses a 1-hour interval. But you can select the interval and frequency that’s best for your business needs.
 
    ![Set 1-hour frequency for recurrence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
 9. Select **+ New step**.
-10. Search for “Get past time”, and then select **Get past time** under Actions. 
+10. Search for “Get past time”, and then select **Get past time** under "Actions." 
 
     ![Find and select get past time action](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
 11. In the **Get past time** window, set the **Interval** to 1.  From the **Time unit** dropdown list, select **Hour**.
     >[!IMPORTANT] 
-    >Make sure that this Interval and Time unit matches the Interval and Frequency you configured for Recurrence.
+    >Make sure that the **Interval** and **Time unit** match the interval and frequency that you configured for recurrence.
 
     ![Set get past time interval](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
     >[!TIP] 
-    >You can check your flow at any time to verify each step is configured correctly. To check your flow, select **Flow checker** from the Flow menu bar.
+    >You can check your flow at any time to verify that each step is configured correctly. To check your flow, select **Flow checker** from the Flow menu bar.
 
-In next set of steps, you’ll connect to your Azure table, and set up the processing logic to handle new leads.
+In next set of steps, you connect to your Azure table and set up the processing logic to handle new leads.
 
-1. After the Get past time step, select **+ New step**, and then search for “Get entities”.
-2. Under **Actions**, select **Get entities**, and then select **Show advanced options**.
-3. In the **Get entities** window, provide information for the following fields:
+1. After the "Get past time" step, select **+ New step**, and then search for **Get entities**.
+2. Under "Actions," select **Get entities** and then **Show advanced options**.
+3. In the **Get entities** window, fill in the following fields:
 
-   - **Table** – Enter the name of your Azure Table Storage. The next screen capture shows the prompt when “MarketPlaceLeads” is entered for this example. 
+   - **Table** – Enter the name of your Table storage. The following screen shot shows “MarketPlaceLeads” entered:
 
      ![Pick a custom value for Azure table name](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
