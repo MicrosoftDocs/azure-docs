@@ -80,7 +80,7 @@ Get started with the service by [creating a workspace](setup-create-workspace.md
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model. To minimize costs, ACR is **lazy-loaded** until deployment images are created.
-+ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.
++ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your notebook VMs are stored here as well.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring information about your models.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 
