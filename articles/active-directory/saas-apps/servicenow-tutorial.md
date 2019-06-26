@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 06/26/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -41,11 +41,12 @@ To get started, you need the following items:
 * The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. This can be done by [submitting a service request](https://hi.service-now.com).
 * For automatic configuration, enable the multi-provider plugin for ServiceNow.
 * To install the ServiceNow Classic (Mobile) application you need to go to the appropriate store and search for the ServiceNow Classic application and click Download.
-* ServiceNow Classic (Mobile) application supports both Android and IOS users.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment. ServiceNow supports **SP** initiated SSO and supports [**Automated** user provisioning](servicenow-provisioning-tutorial.md).
+
+In this tutorial, you configure and test Azure AD SSO in a test environment. ServiceNow Classic (Mobile) application supports both **Android** and **IOS** users.
 
 ## Adding ServiceNow from the gallery
 
