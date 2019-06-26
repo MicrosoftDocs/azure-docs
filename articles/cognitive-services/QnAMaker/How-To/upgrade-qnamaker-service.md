@@ -3,13 +3,13 @@ title: Upgrade your QnA Maker service - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Share or upgrade your QnA Maker services in order to manage the resources better. 
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: tulasim
+ms.author: diberry
 ---
 
 # Share or upgrade your QnA Maker service

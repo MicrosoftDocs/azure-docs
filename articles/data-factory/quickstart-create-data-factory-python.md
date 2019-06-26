@@ -385,7 +385,7 @@ def main():
                                                    }
                                                    )
 
-    # Monitor the pipeilne run
+    # Monitor the pipeline run
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(
         rg_name, df_name, run_response.run_id)
