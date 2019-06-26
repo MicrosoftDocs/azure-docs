@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 05/14/2019
+ms.date: 06/26/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -117,11 +117,23 @@ If you do not require activation of a role that requires approval, you can cance
 
 ## Troubleshoot
 
-### Permissions not granted after activating a role
+### Permissions are not granted after activating a role
 
-When you activate a role in PIM, it takes at least 10 minutes before you can access the desired administrative portal or perform functions within a specific administrative workload. Once the activation is complete, sign out of the Azure portal and sign back in to start using the newly activated role.
+When you activate a role in PIM, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, here is what you should do.
 
-For additional troubleshooting steps, see [Troubleshooting Elevated Permissions](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
+1. Sign out of the Azure portal and then sign back in.
+
+    When you activate an Azure resource role, you will see the stages of your activation. Once all the stages are complete, you will see a **Sign out** link. Make sure to use this link to sign out and then sign back in. This will solve most cases for activation delay.
+
+### Permissions are not removed after deactivating a role or the role activation expires
+
+When you deactivate a role in PIM or when a role activation period expires, there might be a delay where you continue to have access. The following scenario is a possible delay.
+
+1. If the activation period has expired, but you still have the browser session open, close your browser.
+
+    You can continue to use the role until you close that session. This is a known issue and we are looking at a potential fix to actively revoke each session once activation has expired.
+
+1. If your delay is different than this scenario, please open a support ticket.
 
 ## Next steps
 
