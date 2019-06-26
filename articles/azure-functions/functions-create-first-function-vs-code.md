@@ -39,17 +39,10 @@ To complete this quickstart:
 
     | Language | Requirement |
     | -------- | --------- |
-<<<<<<< HEAD
     | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
  
     <sup>*</sup>Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
-=======
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    
-    <sup>*</sup>Active LTS and Maintenence LTS versions (8.11.1 and 10.14.1 recommended).
->>>>>>> c0ae7149b556268b9e3dbc0d681a7edd69b54ef9
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -281,7 +281,7 @@ To be able to run your Functions project locally, you must also meet these addit
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6+](https://www.python.org/downloads/)|
 
-    <sup>*</sup>TLS-covered, even-numbered major versions starting with Node 8.0.
+    <sup>*</sup>Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 
 ### Configure the project to run locally
 
