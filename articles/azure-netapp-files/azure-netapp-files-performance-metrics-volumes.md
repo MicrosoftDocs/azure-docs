@@ -57,7 +57,7 @@ The following examples show the FIO random reads and writes.
 
 ### Output: 68k read IOPS displayed
 
-`Starting 4 processes`
+`Starting 4 processes`  
 `Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]`
 
 ### FIO: 8k block size 100% random writes
@@ -66,7 +66,7 @@ The following examples show the FIO random reads and writes.
 
 ### Output: 73k write IOPS displayed
 
-`Starting 4 processes`
+`Starting 4 processes`  
 `Jobs: 4 (f=4): [w(4)][26.7%][r=0KiB/s,w=571MiB/s][r=0,w=73.0k IOPS][eta 00m:22s]`
 
 ## FIO examples for bandwidth
@@ -79,7 +79,7 @@ The examples in this section show the FIO sequential reads and writes.
 
 ### Output: 11.8 Gbit/s throughput displayed
 
-`Starting 4 processes`
+`Starting 4 processes`  
 `Jobs: 4 (f=4): [R(4)][40.0%][r=1313MiB/s,w=0KiB/s][r=21.0k,w=0 IOPS][eta 00m:09s]`
 
 ### FIO: 64k block size 100% sequential writes
@@ -88,7 +88,7 @@ The examples in this section show the FIO sequential reads and writes.
 
 ### Output: 12.2 Gbit/s throughput displayed
 
-`Starting 4 processes`
+`Starting 4 processes`  
 `Jobs: 4 (f=4): [W(4)][85.7%][r=0KiB/s,w=1356MiB/s][r=0,w=21.7k IOPS][eta 00m:02s]`
 
 ## Volume metrics
@@ -119,7 +119,7 @@ You can access Azure NetApp Files counters by using REST API calls. See [Support
 
 The following example shows a GET URL for viewing logical volume size:
 
-`#get ANF volume usage`
+`#get ANF volume usage`  
 `curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/ANFACCOUNTGOESHERE/capacityPools/ANFPOOLGOESHERE/Volumes/ANFVOLUMEGOESHERE/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=VolumeLogicalSize`
 
 
