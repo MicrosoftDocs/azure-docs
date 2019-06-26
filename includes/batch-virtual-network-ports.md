@@ -67,9 +67,9 @@ You do not need to specify NSGs at the subnet level because Batch configures its
 
 **Outbound security rules**
 
-| Source | Source ports | Destination | Destination service tag | Protocol | Action |
-| --- | --- | --- | --- | --- | --- |
-| Any | 443 | [Service tag](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (in the same region as your Batch account and VNet)  | Any | Allow |
+| Source | Source ports | Destination | Destination service tag | Destination ports | Protocol | Action |
+| --- | --- | --- | --- | --- | --- | --- |
+| Any | * | [Service tag](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (in the same region as your Batch account and VNet) | 443 | TCP | Allow |
 
 ### Pools in the Cloud Services configuration
 
