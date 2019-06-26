@@ -88,12 +88,24 @@ Azure DDoS protection, combined with application design best practices, provide 
 
 ### <a name="waf"></a>Web Application Firewall
 
-Web application firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. For more information about Web Application Firewall, see [WAF overview](../frontdoor/waf-overview.md)
+Web application firewall (WAF) provides centralized protection of your web applications from the following common exploits and vulnerabilities:
+- SQL-injection protection.
+- Cross-site scripting protection.
+- Protection against other common web attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion.
+- Protection against HTTP protocol violations.
+- Protection against HTTP protocol anomalies, such as missing host user-agent and accept headers.
+- Protection against bots, crawlers, and scanners.
+- Configurable request size limits with lower and upper bounds.
+- Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
+
+For more information about Web Application Firewall, see [WAF overview](../frontdoor/waf-overview.md)
 
 ![WAF overview](../frontdoor/media/waf-overview/web-application-firewall-overview2.png)
 
 ### <a name="firewall"></a>Azure Firewall
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. For more information about Azure Firewall, see the [Azure Firewall documentation](../firewall/overview.md).
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. Using Azure Firewall, you can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources allowing outside firewalls to identify traffic originating from your virtual network. 
+
+For more information about Azure Firewall, see the [Azure Firewall documentation](../firewall/overview.md).
 
 ![Firewall overview](../firewall/media/overview/firewall-overview.png)
 
