@@ -15,7 +15,7 @@ ms.date: 06/20/2019
 # Detect data drift (preview) on models deployed to Azure Kubernetes Service
 In this article, you learn how to monitor for data drift between the training dataset and inference data of a deployed model. 
 
-## What is data drift
+## What is data drift?
 
 Data drift, also referred to as concept drift, is one of the top reasons where model accuracy degrades over time. It happens when data served to a model in production is different from the data used to train the model. The Azure Machine Learning service can monitor data drift and, when drift is detected, the service can send an email alert to you.  
 
