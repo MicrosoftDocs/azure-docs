@@ -243,6 +243,12 @@ To create a CSV volume with mirror resiliency, execute the following PowerShell 
 ```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR1 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
+
+To help volume identification, rename it to match its usage
+```powershell
+Rename-Item "C:\ClusterStorage\Volume1" "C:\ClusterStorage\SAP$SAPSID"
+```
+
 To create SAPMNT and set folder and share security, execute the following PowerShell script on one of the SOFS cluster nodes:
 
 ```powershell
