@@ -28,7 +28,7 @@ Have the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp
 
 ## Set model properties as IsFacetable
 
-In order for a model property to be located in a facet search (either navigation or autocompletion), it must be tagged with **IsFacetable**.
+In order for a model property to be located in a facet search, it must be tagged with **IsFacetable**.
 
 1. Examine the **Hotel** class. **Category** and **Tags**, for example, are tagged as **IsFacetable**, but **HotelName** and **Description** are not. 
 
@@ -76,12 +76,15 @@ In order for a model property to be located in a facet search (either navigation
     }
     ```
 
-2. We will not be changing any tags in this tutorial. A facet search will throw an error if a field requested in the search is not tagged appropriately.
+2. We will not be changing any tags as part of this tutorial, so close the hotel.cs file unaltered.
+
+    > [!Note]
+    > A facet search will throw an error if a field requested in the search is not tagged appropriately.
 
 
 ## Add facet navigation to your app
 
-For this example, we are going to enable the user to select one category of hotel, or one amenity, from lists of links shown to the left of the results. The user starts by entering some search text, then can narrow the results of the search by selecting a category, and can narrow the results further by selecting an amenity (or vice versa).
+For this example, we are going to enable the user to select one category of hotel, or one amenity, from lists of links shown to the left of the results. The user starts by entering some search text, then can narrow the results of the search by selecting a category, and can narrow the results further by selecting an amenity, or they can select the amenity first (the order is not important).
 
 We need the controller to pass the lists of facets to the view. We need to maintain the user selections as the search progresses, and again, we use temporary storage as the mechanism for preserving data.
 
@@ -89,7 +92,7 @@ We need the controller to pass the lists of facets to the view. We need to maint
 
 ### Add filter strings to the SearchData model
 
-1. Open the SearchData.cs file, and add string properties to hold the facet filter strings.
+1. Open the SearchData.cs file, and add string properties to the **SearchData** class, to hold the facet filter strings.
 
     ```cs
         public string categoryFilter { get; set; }
@@ -100,7 +103,7 @@ We need the controller to pass the lists of facets to the view. We need to maint
 
 The home controller needs one new action, **Facet**, and updates to its existing **Index** and **Page** actions, as well as updates to the **RunQueryAsync** method.
 
-1. Open the home controller file, and add the **using** statement.
+1. Open the home controller file, and add the **using** statement, to enable the **List&lt;string&gt;** construct.
 
     ```cs
     using System.Collections.Generic;
@@ -178,7 +181,7 @@ The home controller needs one new action, **Facet**, and updates to its existing
         }
     ```
 
-4. Add a **Facet(SearchData model)** action method, to be activated when the user clicks on a facet link. The model will contain either a category search filter, or an amenity search filter.
+4. Add a **Facet(SearchData model)** action method, to be activated when the user clicks on a facet link. The model will contain either a category search filter, or an amenity search filter. Perhaps add it after the **Page** action.
 
     ```cs
         public async Task<ActionResult> Facet(SearchData model)
@@ -307,7 +310,7 @@ When a user selects a certain facet, for example, they click on the **Resort and
         }
     ```
 
-    We have added the **Category** and **Tags** properties to the list of **Select** items to return. This is not a requirement for facet navigation to work, but in this way we can verify that we are filtering correctly.
+    We have added the **Category** and **Tags** properties to the list of **Select** items to return. This is not a requirement for facet navigation to work, but we use this information to verify that we are filtering correctly.
 
 ### Add lists of facet links to the view
 
@@ -515,13 +518,13 @@ The view is going to require some significant changes.
     </body>
     ```
 
-    Notice the use of the **@Html.ActionLink** call, to communicate a valid filter string to the controller, when the user selects a facet link. 
+    Notice the use of the **Html.ActionLink** call. This call communicates valid filter strings to the controller, when the user clicks a facet link. 
 
 ### Run and test the app
 
 The advantage of facet navigation to the user is that they can narrow searches with a single click, which we can show in the following sequence.
 
-1. Run the app, type "airport" as the search text. Verify that the list of facets appears neatly to the left.
+1. Run the app, type "airport" as the search text. Verify that the list of facets appears neatly to the left. These are all the facets that apply to hotels that have "airport" in their text data, with a count of how often they occur.
 
     ![Using facet navigation to narrow a search of "airport"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport.png)
 
@@ -536,15 +539,15 @@ The advantage of facet navigation to the user is that they can narrow searches w
 4. Try selecting any other category, then one amenity, and view the narrowing results. Then try the other way around, one amenity, then one category.
 
     >[!Note]
-    > When one selection is made in a facet list (such as category) it will override any previous selection within that list.
+    > When one selection is made in a facet list (such as category) it will override any previous selection within the category list.
 
 ## Takeaways
 
 Consider the following takeaways from this project:
 
-* It is imperative to mark each field as **IsFacetable**, if they are to be included in facet navigation, or autocompletion.
+* It is imperative to mark each property as **IsFacetable**, if they are to be included in facet navigation.
 * Facet navigation provides a user with an easy, and intuitive, way of narrowing a search.
-* Facet navigation is best divided into sections (categories of hotel, features of a hotel, price ranges, etc.), each section with an appropriate heading.
+* Facet navigation is best divided into sections (categories of hotel, amenities of a hotel, price ranges, rating ranges, etc.), each section with an appropriate heading.
 
 ## Next steps
 
