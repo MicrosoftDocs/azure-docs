@@ -36,9 +36,20 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Azure permissions
 
-Your Azure account needs permissions to create an Azure Migrate project for assessment and migration. 
+You need a couple of permissions to deploy Azure Migrate:
 
-For assessment, Azure Migrate runs a lightweight appliance that discovers Hyper-V VMs, and sends VM metadata and performance data to Azure Migrate. In Azure, you need permissions to register the Azure Migrate appliance.
+- Your Azure account needs permissions to create an Azure Migrate project for assessment and migration. 
+- Your Azure account needs permissions to register the Azure Migrate appliance.
+    - For assessment, Azure Migrate runs a lightweight appliance that discovers Hyper-V VMs, and sends VM metadata and performance data to Azure Migrate.
+    - During appliance registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance:
+        - The first app communicates with Azure Migrate service endpoints.
+        - The second app accesses an Azure Key Vault created during registration to store Azure AD app info and appliance configuration settings.
+    - You can assign permissions for Azure Migrate to create these Azure AD apps using one of the following methods:
+        - A tenant/global admin can grant permissions to users in the tenant, to create and register Azure AD apps.
+        - A tenant/global admin can assign the Application Developer role (that has the permissions) to the account.
+    - It's worth noting that:
+        - The apps don't have any other access permissions on the subscription other than those described above.
+        - You only need these permissions when you register a new appliance. You can remove the permissions after the appliance is set up. 
 
 
 ### Assign permissions to create project
