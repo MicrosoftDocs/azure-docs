@@ -133,6 +133,9 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 
 ### Azure CLI in a bash shell
 
+> [!IMPORTANT]
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
 The following CLI script shows how to change the connection policy in a bash shell.
 
 ```azurecli-interactive
@@ -161,10 +164,10 @@ The following CLI script shows how to change the connection policy from a Window
 FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
 
 # Get current connection policy
-az resource show --ids %ids%
+az resource show --ids %sqlserverid%
 
 # Update connection policy
-az resource update --ids %ids% --set properties.connectionType=Proxy
+az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## Next steps
