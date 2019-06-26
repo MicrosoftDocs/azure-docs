@@ -1,26 +1,22 @@
 ---
-title: How to use Azure Blob storage from .NET
-description: Use the Azure Storage Client Library for .NET to interact with Azure Blob storage
+title: Use .NET to interact with blobs in Azure Data Lake Gen2 storage
+description: Use the Azure Storage Client Library for .NET to interact with Azure Blob storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
 ---
 
-# How to use Blob storage from .NET
+# Use .NET to interact with blobs in Azure Data Lake Gen2 storage
 
-This guide shows you how to interact with blobs by using .NET. It contains snippets that help you get started with common tasks such as uploading and downloading blobs. It also contains snippets that showcase common tasks with a hierarchical file system.
+This guide shows you how to use .NET to interact with blobs, manage directories, and set directory-level access permissions in storage accounts that have a hierarchical namespace. 
 
 ## Create a storage account
 
-To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-Enable a hierarchical namespace if you want to use the code snippets in this article that perform operations on a hierarchical file system.
-
-![Enabling a hierarchical namespace](media/storage-dot-net-how-to-use-blobs/enable-hierarchical-namespace.png)
+To create a storage account and enable the hierarchical namespace feature. See [Create a storage account](data-lake-storage-quickstart-create-account.md).
 
 ## Set up your development environment
 
@@ -59,9 +55,11 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-## Create a container and perform other blob operations
+## Perform common blob tasks 
 
-See [Quickstart: Use .NET to create a blob in object storage](storage-quickstart-blobs-dotnet.md) to find snippets that help you accomplish these common blob-related tasks:
+You can use the same set of APIs to interact with blobs regardless of whether the account has a hierarchical namespace. 
+
+See [Quickstart: Use .NET to create a blob in object storage](storage-quickstart-blobs-dotnet.md) to find snippets that help you perform these tasks:
 
 > [!div class="checklist"]
 > * Connect to your storage account 
