@@ -24,7 +24,7 @@ The [built-in monitoring and alerting article](backup-azure-monitoring-built-in-
 ## Using Log Analytics Workspace
 
 > [!NOTE]
-> Data from Azure VM backups, MAB Agent, System Center DPM (SC-DPM), SQL backups in Azure VMs  is being pumped to the Log Analytics workspace via diagnostic settings. Support for Azure File share backups, Microsoft Azure Backup Server (MABS) is coming soon.
+> Data from Azure VM backups, MAB Agent, System Center DPM (SC-DPM), SQL backups in Azure VMs, and Azure File Share backups is being pumped to the Log Analytics workspace via diagnostic settings. Support for Microsoft Azure Backup Server (MABS) is coming soon.
 
 We are leveraging the capabilities of two Azure services - **Diagnostic settings** (to send data from multiple Azure Resource Manager resources to another resource) and **Log Analytics** (LA - to generate custom alerts where you can define other notification channels using Action groups) for monitoring at scale. The following sections detail on how to use LA to monitor Azure Backup at scale.
 
@@ -42,6 +42,9 @@ You can select an LA workspace from another subscription as the target. *By sele
 ### Deploying solution to Log Analytics workspace
 
 Once the data is inside LA workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) onto LA to visualize the data. Make sure you give the same resource group, workspace name, and workspace location to properly identify the workspace and then install this template on it.
+
+> [!NOTE]
+> Users who do not have alerts or backup/restore jobs in their LA workspace might see an error with code "BadArgumentError" on the portal. Users can ignore this error and continue using the solution. Once data of the relevant type starts flowing into the workspace, the visualizations will reflect the same and users will not see this error anymore.
 
 ### View Azure Backup data using Log Analytics (LA)
 

@@ -24,7 +24,7 @@ Each Contoso factory has production lines that consist of three stations each. E
 * Test station
 * Packaging station
 
-These OPC UA servers have OPC UA nodes and [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) sends the values of these nodes to Connected Factory. This includes:
+These OPC UA servers have OPC UA nodes and [OPC Publisher](overview-opc-publisher.md) sends the values of these nodes to Connected Factory. This includes:
 
 * Current operational status such as current power consumption.
 * Production information such as the number of products produced.
@@ -302,7 +302,7 @@ For certain operations, such as visualizing the last value or creating Time Seri
 
   Identifies the node value in the OPC UA server. The format of the property must be as specified in the OPC UA specification. In the ingested messages, this property is sent as **NodeId**.
 
-Check [this](https://github.com/Azure/iot-edge-opc-publisher) GitHub page for more information on how the telemetry data is ingested to Connected Factory using the OPC Publisher.
+See [What is OPC Publisher](overview-opc-publisher.md) for more information on how the telemetry data is ingested to Connected Factory.
 
 ## Example: How KPI1 is calculated
 
@@ -335,4 +335,4 @@ The **OpCode** in the configuration configures the computation logic to calculat
 
 ## Next steps
 
-A suggested next step is to learn how to [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md).
+A suggested next step is to learn how to [Customize the Connected Factory solution](iot-accelerators-connected-factory-customize.md).

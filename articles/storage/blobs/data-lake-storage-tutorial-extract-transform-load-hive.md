@@ -42,9 +42,6 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * **A Secure Shell (SSH) client**: For more information, see [Connect to HDInsight (Hadoop) by using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
-> [!IMPORTANT]
-> The steps in this article require an HDInsight cluster that uses Linux. Linux is the only operating system that's used on Azure HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 ## Download the flight data
 
 1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
@@ -237,7 +234,7 @@ You need the server name from your SQL database for this operation. Complete the
 
     ![Get Azure SQL server details](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
 
-    There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
+    There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](https://www.freetds.org/) from the HDInsight cluster.
 
 5. To install FreeTDS, use the following command from an SSH connection to the cluster:
 

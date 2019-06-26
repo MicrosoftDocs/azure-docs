@@ -5,11 +5,11 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: maxluk
 ---
-# Use Azure Toolkit for IntelliJ to create Apache Spark applications for an HDInsight cluster
+# Tutorial: Use Azure Toolkit for IntelliJ to create Apache Spark applications for an HDInsight cluster
 
 Use the Azure Toolkit for IntelliJ plug-in to develop [Apache Spark](https://spark.apache.org/) applications written in [Scala](https://www.scala-lang.org/), and then submit them to an HDInsight Spark cluster directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
@@ -177,7 +177,7 @@ You can link an HDInsight cluster by using the Apache Ambari managed username. S
         |User Name| Enter cluster user name, default is admin.|
         |Password| Enter password for user name.|
     
-        ![link Hdinsight cluster dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![link HdInsight cluster dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy Service**  
   
@@ -219,14 +219,14 @@ After creating a Scala application, you can submit it to the cluster.
     |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
     |Job configurations|You can change the default keys and/or values. For more information, see [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Command line arguments|You can enter arguments separated by space for the main class if needed.|
-    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system which currently only supports ADLS Gen 2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Job Upload Storage|Expand to reveal additional options.|
     |Storage Type|Select **Use Azure Blob to upload** from the drop-down list.|
     |Storage Account|Enter your storage account.|
     |Storage Key|Enter your storage key.|
     |Storage Container|Select your storage container from the drop-down list once **Storage Account** and **Storage Key** has been entered.|
 
-    ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
+    ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
 4. Select **SparkJobRun** to submit your project to the selected cluster. The **Remote Spark Job in Cluster** tab displays the job execution progress at the bottom. You can stop the application by clicking the red button. To learn how to access the job output, see the "Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ" section later in this article.  
       
@@ -451,12 +451,12 @@ If the cluster is busy, you might get the error below.
 
 ![Intellij get error when cluster busy](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
-## Feedback and known issues
+## Known issues
+
 Currently, viewing Spark outputs directly is not supported.
 
-If you have any suggestions or feedback, or if you encounter any problems when you use this plug-in, email us at hdivstool@microsoft.com.
-
 ## <a name="seealso"></a>Next steps
+
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
 ### Demo
@@ -476,7 +476,6 @@ If you have any suggestions or feedback, or if you encounter any problems when y
 ### Tools and extensions
 * [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications](apache-spark-eclipse-tool-plugin.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
