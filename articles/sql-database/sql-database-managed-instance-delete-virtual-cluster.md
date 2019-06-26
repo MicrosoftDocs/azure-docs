@@ -36,8 +36,8 @@ After you locate the virtual cluster you want to delete, select this resource, a
 
 The Azure portal notifications area shows you confirmation that the virtual cluster was deleted. Successful deletion of the virtual cluster immediately releases the subnet for reuse.
 
-> [!NOTE]
-> If there are no managed instances shown in the virtual cluster, and you are unable to delete the virtual cluster, ensure that you do not have an ongoing instance deployment in progress. This includes started and canceled deployments that are still in progress. Reviewing Deployments tab of the resource group instance was deployed to will indicate any deployments in progress. In this case, await for deployment to completed, delete managed instance and then the associated virtual cluster.
+> [!TIP]
+> If there are no managed instances shown in the virtual cluster, and you are unable to delete the virtual cluster, ensure that you do not have an ongoing instance deployment in progress. This includes started and canceled deployments that are still in progress. Reviewing Deployments tab of the resource group the instance was deployed to will indicate any deployments in progress. In this case, await for deployment to complete, delete managed instance and then the virtual cluster.
 
 ## Delete virtual cluster by using the API
 
