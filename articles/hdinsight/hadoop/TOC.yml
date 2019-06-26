@@ -187,9 +187,6 @@
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions-linux.md
       maintainContext: true
-    - name: Install and use Presto
-      href: ../hdinsight-hadoop-install-presto.md
-      maintainContext: true
     - name: Add Apache Hive libraries
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true

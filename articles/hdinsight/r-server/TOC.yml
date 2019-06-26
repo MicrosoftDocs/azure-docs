@@ -65,8 +65,6 @@
       href: ../hdinsight-hadoop-customize-cluster-linux.md
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions-linux.md
-    - name: Install and use Presto
-      href: ../hdinsight-hadoop-install-presto.md
     - name: Add Apache Hive libraries
       href: ../hdinsight-hadoop-add-hive-libraries.md
     - name: Use Apache Giraph
