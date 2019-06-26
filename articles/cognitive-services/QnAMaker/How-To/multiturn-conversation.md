@@ -7,8 +7,9 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: article 
-ms.date: 05/20/2019
+ms.date: 06/26/2019
 ms.author: diberry
 #
 ---
@@ -230,24 +231,6 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Use the sign-in screen"
-                    },
-                    {
-                        "displayOrder": 1,
-                        "qnaId": 17,
-                        "qna": null,
-                        "displayText": "Use Windows Hello to sign in"
-                    },
-                    {
-                        "displayOrder": 2,
-                        "qnaId": 18,
-                        "qna": null,
-                        "displayText": "Sign out"
-                    },
-                    {
-                        "displayOrder": 0,
-                        "qnaId": 79,
-                        "qna": null,
-                        "displayText": "Create a Windows Account"
                     }
                 ]
             }
@@ -291,7 +274,13 @@ The previous section requested an answer and any follow-up prompts to `Accounts 
 }
 ```
 
-The `prompts` array provides text in the `displayText` property and the `qnaId` value so you can show these answers as the next displayed choices in the conversation flow, then send the selected value to QnA Maker in the following request. 
+The `prompts` array provides text in the `displayText` property and the `qnaId` value so you can show these answers as the next displayed choices in the conversation flow, then send the selected `qnaId` back to QnA Maker in the following request. 
+
+<!--
+
+The `promptsToDelete` array provides the ...
+
+-->
 
 ## JSON request to return non-initial answer and follow-up prompts
 
@@ -390,6 +379,16 @@ The [display text and display order](https://docs.microsoft.com/rest/api/cogniti
 FIX - Need to go to parent, then answer column, then edit answer. 
 
 -->
+
+## Create knowledge base with multi-turn prompts with the Create API
+
+You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array. 
+
+
+## Add or delete multi-turn prompts with the Update API
+
+You can add or delete multi-turn prompts using the [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  The prompts are adding in the `context` property's `promptsToAdd` array and the `promptsToDelete` array. 
+
 
 ## Next steps
 

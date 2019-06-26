@@ -4,7 +4,7 @@ description: How to connect to the vFXT cluster and  the browser-based Avere Con
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 06/24/2019
 ms.author: v-erkell
 ---
 
@@ -22,9 +22,11 @@ Because the vFXT cluster sits within a private virtual network, you must create 
 
 Before connecting, make sure that the SSH public/private key pair that you used when creating the cluster controller is installed on your local machine. Read the SSH keys documentation for [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) or for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help. (If you used a password instead of a public key, you will be prompted to enter it when you connect.) 
 
-## SSH tunnel with a Linux host
+## Create an SSH tunnel 
 
-If using a Linux-based client, use an SSH tunneling command with this form: 
+You can create an SSH tunnel from the command line of a Linux-based or Windows 10 client system. 
+
+Use an SSH tunneling command with this form: 
 
 ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
@@ -35,28 +37,6 @@ Example:
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
-
-Authentication is automatic if you used your SSH public key to create the cluster and the matching key is installed on the client system. If you used a password, the system will prompt you to enter it.
-
-## SSH tunnel with a Windows host
-
-This example uses the common Windows-based terminal utility, PuTTY.
-
-Fill in the PuTTY **hostname** field with the cluster controller username and its IP address: *your_username*\@*controller_public_IP*.
-
-Example: ``azureuser@203.0.113.51``
-
-In the **Configuration** panel:
-
-1. Expand **Connection** > **SSH** on the left. 
-1. Click **Tunnels**. 
-1. Enter a source port, like 8443. 
-1. For the destination, enter the vFXT cluster's management IP address and port 443. 
-   Example: ``203.0.113.51:443``
-1. Click **Add**.
-1. Click **Open**.
-
-![Screenshot of Putty application showing where to click to add a tunnel](media/avere-vfxt-ptty-numbered.png)
 
 Authentication is automatic if you used your SSH public key to create the cluster and the matching key is installed on the client system. If you used a password, the system will prompt you to enter it.
 

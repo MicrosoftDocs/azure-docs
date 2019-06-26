@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/14/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -26,7 +26,6 @@ In this tutorial, you'll learn how to integrate Otsuka Shokai with Azure Active 
 
 * Control in Azure AD who has access to Otsuka Shokai.
 * Enable your users to be automatically signed-in to Otsuka Shokai with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -76,16 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Set up Single Sign-On with SAML** page, perform the following steps:
-
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.otsuka-shokai.co.jp/S000000100`
-
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.otsuka-shokai.co.jp/ResponseOffice365`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Otsuka Shokai Client support team](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+1. On the **Set up Single Sign-On with SAML** page, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
 1. Otsuka Shokai application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Otsuka Shokai application expects **nameidentifier** to be mapped with **user.objectid**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -118,17 +108,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	g. Click **Save**.
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your Notepad.
-
-   ![The Certificate download link](common/copy-metadataurl.png)
-
-1. On the **Set up Otsuka Shokai** section, copy the appropriate URL(s) based on your requirement.
-
-   ![Copy configuration URLs](common/copy-configuration-urls.png)
-
 ### Configure Otsuka Shokai
 
-To configure single sign-on on **Otsuka Shokai** side, you need to send the **App Federation Metadata Url** to [Otsuka Shokai support team](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp). They set this setting to have the SAML SSO connection set properly on both sides.
+1. When you connect to Customer's My Page from SSO app, the wizard of SSO setting starts.
+
+2. If Otsuka ID is not registered, proceed to Otsuka-ID new registration.   If you have registered Otsuka-ID, proceed to the linkage setting.
+
+3. Proceed to the end and when the top screen is displayed after logging in to Customer's My Page, the SSO settings are complete.
+
+4. The next time you connect to Customer's My Page from the SSO app, after the guidance screen opens, the top screen is displayed after logging in to Customer's My Page.
 
 ### Create an Azure AD test user
 
@@ -138,7 +126,7 @@ In this section, you'll create a test user in the Azure portal called B. Simon.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B. Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `BrittaSimon@contoso.com`.
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
@@ -162,7 +150,7 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 ### Create Otsuka Shokai test user
 
-In this section, you create a user called Britta Simon in Otsuka Shokai. Work with [Otsuka Shokai support team](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) to add the users in the Otsuka Shokai platform. Users must be created and activated before you use single sign-on.
+New registration of SaaS account will be performed at the first access to Otsuka Shokai. In addition, we will also associate Azure AD account and SaaS account at the time of new creation.
 
 ### Test SSO
 
@@ -174,4 +162,4 @@ When you select the Otsuka Shokai tile in the Access Panel, you should be automa
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -134,6 +134,9 @@ Select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
 
    ![Open logic app .json file with Logic App Designer](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
    Visual Studio prompts you for your Azure subscription 
    and an Azure resource group for creating and deploying 
    resources for your logic app and connections.

@@ -1,21 +1,17 @@
 ---
-title: Azure Web Application Firewall (WAF) custom rules 
-description: This article provides an overview of web application firewall (WAF) custom rules in Azure Application Gateway.
+title: Azure Web Application Firewall (WAF) v2 custom rules 
+description: This article provides an overview of Web Application Firewall (WAF) v2 custom rules in Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
 ---
 
-# Custom rules for Web Application Firewall
+# Custom rules for Web Application Firewall v2
 
-> [!IMPORTANT]
-> Azure Application Gateway WAF custom rules is currently a public preview. **Custom rules are available only for the WAF_v2 SKU**.
-> This public preview is provided without a service-level agreement and shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-The Azure Application Gateway web application firewall (WAF) comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write you own rules to augment the core rule set (CRS) rules. Your rules can either block or allow requested traffic based on matching criteria.
+The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write you own rules to augment the core rule set (CRS) rules. Your rules can either block or allow requested traffic based on matching criteria.
 
 Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow or block).
 

@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Data Explorer?
+  - name: What is Azure Data Explorer?
     href: data-explorer-overview.md
 - name: Quickstarts
   expanded: true
@@ -15,8 +15,6 @@
     items:
     - name: Web UI
       href: web-query-data.md
-    - name: Python
-      href: python-query-data.md
 - name: Tutorials
   items:
   - name: Ingest data without using code
@@ -68,12 +66,18 @@
     items:
     - name: Write queries
       href: write-queries.md
-    - name: Time series analysis
-      href: time-series-analysis.md
-    - name: Anomaly detection and forecasting
-      href: anomaly-detection.md
-    - name: Machine learning
-      href: machine-learning-clustering.md
+    - name: Query data in Azure Data Lake
+      href: data-lake-query-data.md  
+    - name: Python
+      href: python-query-data.md
+    - name: Time Series Analysis and Machine Learning
+      items:
+      - name: Time series analysis
+        href: time-series-analysis.md
+      - name: Anomaly detection and forecasting
+        href: anomaly-detection.md
+      - name: Machine learning
+        href: machine-learning-clustering.md
   - name: Visualize data
     items:
     - name: Power BI
@@ -158,3 +162,5 @@
     href: https://aka.ms/adecostestimator
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-explorer
+
+    
