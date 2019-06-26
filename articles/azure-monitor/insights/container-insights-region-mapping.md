@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm 
 ---
 
-# Region mappings
+# Region mappings supported by Azure Monitor for containers
 
  When enabling Azure Monitor for containers, only certain regions are supported for linking a Log Analytics workspace and an AKS cluster, and collecting custom metrics submitted to Azure Monitor.
 
