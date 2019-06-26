@@ -72,10 +72,24 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
 2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
 3. Modify your application's `Startup` class to add and configure the Snapshot Collector's telemetry processor.
-	1. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.5 or above is used, then add the following line at the end of the ConfigureServices method in the `Startup` class in `Startup.cs`.
+	1. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.5 or above is used, then add the following using statements to `Startup.cs`.
 
 	   ```csharp
-	       services.AddSnapshotCollector();
+            using Microsoft.ApplicationInsights.SnapshotCollector;
+	   ```
+
+       Add the following at the end of the ConfigureServices method in the `Startup` class in `Startup.cs`.
+
+	   ```csharp
+            services.AddSnapshotCollector((configuration) =>
+            {
+                IConfigurationSection section = Configuration.GetSection(nameof(SnapshotCollectorConfiguration));
+                if (section.Value != null)
+                {
+                    section.Bind(configuration);
+                }
+            });
+
 	   ```
 	2. If [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package version 1.3.4 or below is used, then add the following using statements to `Startup.cs`.
 
