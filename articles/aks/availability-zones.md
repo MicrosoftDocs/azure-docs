@@ -80,11 +80,12 @@ AKS clusters can currently be created using availability zones in the following 
 The following limitations apply when you create an AKS cluster using availability zones:
 
 * You can only enable availability zones when the cluster is created.
-* Availability zone settings can't be updated after the cluster is created. You also can't update an existing, non-availability zone cluster to use availabillity zones.
+* Availability zone settings can't be updated after the cluster is created. You also can't update an existing, non-availability zone cluster to use availability zones.
 * You can't disable availability zones for an AKS cluster once it has been created.
 * The node size (VM SKU) selected must be available across all availability zones.
+* With Azure load balancer *standard* SKU, you must use Kubernetes version 1.13.5 or greater (see additional note below).
 
-AKS clusters that use availability zones must use the Azure load balancer *standard* SKU. The default *basic* SKU of the Azure load balancer doesn't support distribution across availability zones. For more information on limitations of the standard load balancer, see [Azure load balancer standard SKU preview limitations][standard-lb-limitations].
+AKS clusters that use availability zones must use the Azure load balancer *standard* SKU. The default *basic* SKU of the Azure load balancer doesn't support distribution across availability zones. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU preview limitations][standard-lb-limitations].
 
 ### Azure disks limitations
 
@@ -106,9 +107,11 @@ In a zone outage, the nodes can be rebalanced manually or using the cluster au
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the *--node-zones* parameter defines which zones an agent node is deployed into.
+When you create a cluster using the [az aks create][az-aks-create] command, the `--node-zones` parameter defines which zones agent nodes are deployed into. The AKS control plane components, such as *etcd*, are also made zone redundant when you define availability zones for the agent nodes when you create the cluster. You can't define which zones the control plane components are deployed into, only the agent nodes.
 
-The following example creates a VMSS-based cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*:
+If you don't define any zones for the default agent pool when you create an AKS cluster, the control plane components also won't use availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--node-zones` for those new agent nodes, however the control plane components remain without availability zone awareness. You can't change the zone-awareness for a node pool or the control plane components once they're deployed.
+
+The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*. The control plane components are also distributed across availability zones.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -119,11 +122,42 @@ az aks create \
     --kubernetes-version 1.13.5 \
     --generate-ssh-keys \
     --enable-vmss \
+    --load-balancer-sku standard \
     --node-count 3 \
     --node-zones 1 2 3
 ```
 
 It takes a few minutes to create the AKS cluster.
+
+## Verify node distribution across zones
+
+When the cluster is ready, list the agent nodes in the scale set and what availability zone they're deployed in.
+
+To see the node distribution across availability zone, first get the scale set name using the [az aks show][az-aks-show] and the [az vmss list][az-vmss-list] commands. Then, list the nodes using the [az vmss list-instances][az-vmss-list-instances] command as shown in the following example:
+
+```azurecli-interactive
+# Get the AKS node resource group and scale set name
+AKS_NODE_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+AKS_SCALE_SET_NAME=$(az vmss list --resource-group $AKS_NODE_RESOURCE_GROUP --query [].name -o tsv)
+
+# List the VM instances in the scale set and show the zone they're deployed into
+az vmss list-instances \
+    --resource-group $AKS_NODE_RESOURCE_GROUP \
+    --name $AKS_SCALE_SET_NAME \
+    --query '[].{VMName:name, Location:location, Zone:zones[0]}' -o table
+```
+
+The following example output shows the three nodes distributed across the specified availability zones:
+
+```console
+VMName                         Location    Zone
+-----------------------------  ----------  ------
+aks-nodepool1-28993262-vmss_0  eastus2     1
+aks-nodepool1-28993262-vmss_1  eastus2     2
+aks-nodepool1-28993262-vmss_2  eastus2     3
+```
+
+As you add additional nodes to an agent pool, the Azure platform automatically distributes the underlying VMs across the specified availability zones.
 
 ## Next steps
 
@@ -140,5 +174,9 @@ This article detailed how to create an AKS cluster that uses availability zones.
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [standard-lb-limitations]: load-balancer-standard.md#limitations
-[az-extension-list]: /cli/azure/extension#az-extension-list
+[az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
+[az-aks-show]: /cli/azure/ext/aks-preview/aks#az-aks-show
+[az-vmss-list]: /cli/azure/vmss#az-vmss-list
+[az-vmss-list-instances]: /cli/azure/vmss#az-vmss-list-instances
