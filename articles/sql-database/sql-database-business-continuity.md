@@ -37,7 +37,7 @@ To mitigate the local hardware and software failures, SQL Database incudes a [hi
 
 To protect your business from data loss, SQL Database automatically creates full database backups weekly, differential database backups every 12 hours, and transaction log backups every 5 - 10 minutes . The backups are stored in RA-GRS storage for at least 7 days for all service tiers. All service tiers except Basic support configurable backup retention period for point-in-time restore, up to 35 days. 
 
-SQL Database also provides several business continuity features, that you can use to mitigate various failure scenarios. 
+SQL Database also provides several business continuity features, that you can use to mitigate various unplanned scenarios. 
 
 - [Temporal tables](sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
 - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the configured retention period up to 35 days.
