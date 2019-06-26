@@ -183,7 +183,7 @@ You can include math content in the Immersive Reader by using [MathML](https://d
 1. Modify _views\index.pug_ to include the following code above the call to `ImmersiveReader.launchAsync`:
 
     ```javascript
-    const mathML = '<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"> \
+    const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \
       <munderover> \
         <mo>∫</mo> \
         <mn>0</mn> \
