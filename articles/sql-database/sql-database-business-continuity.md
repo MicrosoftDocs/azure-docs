@@ -66,9 +66,9 @@ Different recovery methods offer different levels of RPO and RTO. You can choose
 
 | Recovery method | RTO | RPO |
 | --- | --- | --- | 
-| Geo-restore from geo-replicated backups | 12 h | RPO = 1 h |
-| Auto-failover groups | RTO = 1 h | RPO = 5 s |
-| Manual database failover | RTO = 30 s | RPO = 5 s |
+| Geo-restore from geo-replicated backups | 12 h | 1 h |
+| Auto-failover groups | 1 h | 5 s |
+| Manual database failover | 30 s | 5 s |
 
 > [!NOTE]
 > *Manual database failover* refers to failover of a single database to its geo-replicated secondary using the [unplanned mode](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
