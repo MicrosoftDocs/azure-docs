@@ -13,39 +13,50 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2019
+ms.date: 06/25/2019
 ms.author: b-juche
 ---
 # Performance considerations for Azure NetApp Files
 
 The [throughput limit](azure-netapp-files-service-levels.md) for a volume is determined by a combination of the quota assigned to the volume and the service level selected. When you make performance plans about Azure NetApp Files, you need to understand several considerations. 
 
-* The throughput limit is only one determinant of the actual performance that will be realized.  
+## Quota and throughput  
 
-    Typical storage performance considerations, including read and write mix, the transfer size, random or sequential patterns, and many other factors will contribute to the total performance delivered.  
+The throughput limit is only one determinant of the actual performance that will be realized.  
 
-    The maximum empirical throughput that has been observed in testing is 4,500 MiB/s.  At the Premium storage tier, a volume quota of 70.31 TiB will provision a throughput limit that is high enough to achieve this level of performance.  
+Typical storage performance considerations, including read and write mix, the transfer size, random or sequential patterns, and many other factors will contribute to the total performance delivered.  
 
-    A volume quota beyond 70.31 TiB (up to the single volume limit of 100 TiB) requires that you assign additional quota for storing additional data.  However, assigning additional quota in this case will not result in further increase in actual throughput.  
+The maximum empirical throughput that has been observed in testing is 4,500 MiB/s.  At the Premium storage tier, a volume quota of 70.31 TiB will provision a throughput limit that is high enough to achieve this level of performance.  
 
-    See [Performance benchmarks for Azure NetApp Files](azure-netapp-files-performance-benchmarks.md) for additional information.
+If you are considering assigning volume quota amounts beyond 70.31 TiB, additional quota may be assigned to a volume for storing additional data. However, the added quota will not result in a further increase in actual throughput.  
 
-* If a workload’s performance is throughput-limit bound, it is possible to overprovision the volume quota to set a higher throughput level and achieve higher performance.  
+See [Performance benchmarks for Azure NetApp Files](azure-netapp-files-performance-benchmarks.md) for additional information.
 
-    For example, if a volume in the Premium storage tier has only 500 GiB of data but requires 128 MiB/s of throughput, you can set the quota to 2 TiB so that the throughput level is set accordingly (64 MiB/s per TB * 2 TiB = 128 MiB/s).  
+## Overprovisioning the volume quota
 
-    If you consistently overprovision a volume for achieving a higher throughput, consider using a higher service level instead.  In the example above, you can achieve the same throughput limit with half the volume quota by using the Ultra storage tier instead (128 MiB/s per TiB * 1 TiB = 128 MiB/s).
+If a workload’s performance is throughput-limit bound, it is possible to overprovision the volume quota to set a higher throughput level and achieve higher performance.  
 
-* If your performance requirements are temporary in nature, or if you have increased performance needs for a fixed period of time, you can dynamically increase or decrease volume quota to instantaneously adjust the throughput limit.  
+For example, if a volume in the Premium storage tier has only 500 GiB of data but requires 128 MiB/s of throughput, you can set the quota to 2 TiB so that the throughput level is set accordingly (64 MiB/s per TB * 2 TiB = 128 MiB/s).  
 
-    * Volume quota can be increased or decreased without any need to pause IO, and access to the volume is not interrupted or impacted.  
+If you consistently overprovision a volume for achieving a higher throughput, consider using a higher service level instead.  In the example above, you can achieve the same throughput limit with half the volume quota by using the Ultra storage tier instead (128 MiB/s per TiB * 1 TiB = 128 MiB/s).
 
-        You can adjust the quota during an active I/O transaction against a volume.  Note that volume quota can never be decreased below the amount of logical data that is stored in the volume.
+## Dynamically increasing or decreasing volume quota
 
-    * When volume quota is changed, the corresponding change in throughput limit is nearly instantaneous. 
+If your performance requirements are temporary in nature, or if you have increased performance needs for a fixed period of time, you can dynamically increase or decrease volume quota to instantaneously adjust the throughput limit.  Note the following considerations: 
 
-        The change does not interrupt or impact the volume access or I/O.  
+* Volume quota can be increased or decreased without any need to pause IO, and access to the volume is not interrupted or impacted.  
 
-    * Adjusting volume quota requires a change in capacity pool size.  
+    You can adjust the quota during an active I/O transaction against a volume.  Note that volume quota can never be decreased below the amount of logical data that is stored in the volume.
 
-        The capacity pool size can be adjusted dynamically and without impacting volume availability or I/O.
+* When volume quota is changed, the corresponding change in throughput limit is nearly instantaneous. 
+
+    The change does not interrupt or impact the volume access or I/O.  
+
+* Adjusting volume quota requires a change in capacity pool size.  
+
+    The capacity pool size can be adjusted dynamically and without impacting volume availability or I/O.
+
+## Next steps
+
+- [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
+- [Performance benchmarks for Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)

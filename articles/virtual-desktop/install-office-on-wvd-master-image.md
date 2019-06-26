@@ -62,7 +62,7 @@ The following XML sample will install the Insiders release.
 
 ```xml
 <Configuration>
-    <Add OfficeClientEdition="64" SourcePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
+    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
         <Product ID="O365ProPlusRetail">
             <Language ID="en-US" />
             <Language ID="MatchOS" Fallback = "en-US"/>
@@ -86,7 +86,7 @@ The following XML sample will install the Insiders release.
         </Product>
     </Add>
     <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
+    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
     <Display Level="None" AcceptEULA="TRUE" />
     <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
     <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>

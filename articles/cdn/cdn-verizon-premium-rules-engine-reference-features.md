@@ -1126,7 +1126,7 @@ This feature allows a customer origin server to find out client IP addresses thr
 
 Ensure that the specified header name does not match any of the following names:
 
-- Standard request header names. A list of standard header names can be found in [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+- Standard request header names. A list of standard header names can be found in [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Reserved header names:
     - forwarded-for
     - host

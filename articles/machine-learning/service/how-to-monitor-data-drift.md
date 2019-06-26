@@ -13,13 +13,16 @@ ms.date: 06/20/2019
 ---
 
 # Detect data drift (preview) on models deployed to Azure Kubernetes Service
-In this article, you learn how to monitor for [data drift](concept-data-drift.md) between the training dataset and inference data of a deployed model. 
+In this article, you learn how to monitor for data drift between the training dataset and inference data of a deployed model. 
 
-Data drift is one of the top reasons where model accuracy degrades over time. It happens when data served to a model in production is different from the data used to train the model. The Azure Machine Learning service can monitor data drift and, when drift is detected, the service can send an email alert to you.  
+## What is data drift?
+
+Data drift, also referred to as concept drift, is one of the top reasons where model accuracy degrades over time. It happens when data served to a model in production is different from the data used to train the model. The Azure Machine Learning service can monitor data drift and, when drift is detected, the service can send an email alert to you.  
 
 > [!Note]
 > This service is in (Preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
 
+## What can I monitor?
 With Azure Machine Learning service, you can monitor  the inputs to a model deployed on AKS and compare this data to the training dataset for the model. At regular intervals, the inference data is [snapshot and profiled](how-to-explore-prepare-data.md), then computed against the baseline dataset to produce a data drift analysis that: 
 
 + Measures the magnitude of data drift, called the drift coefficient.
@@ -55,7 +58,7 @@ For details on how these metrics are computed, see the [data drift concept](conc
     print(model_name, image_name, service_name, model)
     ```
 
-- Set up the [model data collector](how-to-enable-data-collection.md) to collect data from the AKS deployment of the model and confirm data is being collected in the `modeldata` blob container.
+- [Enable model data collection](how-to-enable-data-collection.md) to collect data from the AKS deployment of the model and confirm data is being collected in the `modeldata` blob container.
 
 ## Import dependencies 
 Import dependencies used in this guide:
