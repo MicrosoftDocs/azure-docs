@@ -36660,13 +36660,13 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-create-dataset-snapshots.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py",
+      "redirect_url": "https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py",
       "redirect_document_id": false
     },
 
     {
       "source_path": "articles/machine-learning/service/how-to-manage-dataset-definitions.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py",
+      "redirect_url": "https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py",
       "redirect_document_id": false
     },
     {
