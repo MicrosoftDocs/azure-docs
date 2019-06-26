@@ -70,26 +70,26 @@ This section includes ``Device Identity``, ``Telemetry`` and ``Device Twin``.
 3. You can access the device twin in the tool under ``Device Twin`` tab.
 
 ### Digital Twin 
-This section shows you a digital twin instance of the device. For a plug and play device, all interfaces that associated with the device capability model will be displayed here. For each interface, you can click to expand its corresponding Plug and Play primitives. For more information of Plug and Play primitive definition, please go to the [Digital Twin Definition Language](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+This section shows you a digital twin instance of the device. For a plug and play device, all interfaces that associated with the device capability model will be displayed here. For each interface, click to expand its corresponding Plug and Play primitives (For more information of Plug and Play primitive definition, please go to the [Digital Twin Definition Language](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)).
 
-1. Click on an interface from the left navigation bar to expand its primitives.
-2. Go to ``Properties`` page to view the read-only properties.
-3. To update a writable property, go to ``Writable properties``page.
+#### Properties
+1. Go to ``Properties`` page to view the read-only properties.
+2. To update a writable property, go to ``Writable properties``page.
 * Click the property you'd like to update.
-* Fill the desired value for that property.
+* Fill in the desired value for that property.
 * Preview the payload that will be sent to the device once submit the changes.
 * Submit. Once you submit, you can track the update status - synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
 
 ![Img](img/.png)
 ![Img](img/.png)
- 
-4. To send a command to a device, go to ``Commands`` page. 
-* From the list of commands, find the command you want to triger and click to expand. 
-* Input the required value for this command.
-* Preview the payload that will be sent to the device once submit the changes.
-* Submit. Once you submit, you can track the update status - synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
-
-5. To view the telemetry page, go to ``Telemetry`` page.
+#### Commands
+To send a command to a device, go to ``Commands`` page. 
+1. From the list of commands, find the command you want to triger and click to expand. 
+2. Input the required value for this command.
+3. Preview the payload that will be sent to the device once submit the changes.
+4. Submit. Once you submit, you can track the update status - synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
+#### Telemetry
+ To view the telemetry page, go to ``Telemetry`` page.
 ![Img](img/.png)
 
 ## Clean up resources 
