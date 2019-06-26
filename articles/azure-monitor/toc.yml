@@ -556,7 +556,7 @@
             href: insights/container-insights-enable-new-cluster.md
           - name: Enable for existing cluster
             href: insights/container-insights-enable-existing-clusters.md
-          - name: Workspace mappings
+          - name: Region mappings
             href: insights/container-insights-region-mapping.md
         - name: Analyze 
           href: insights/container-insights-analyze.md
