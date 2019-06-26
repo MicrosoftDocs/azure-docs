@@ -131,30 +131,29 @@ It takes a few minutes to create the AKS cluster.
 
 ## Verify node distribution across zones
 
-When the cluster is ready, list the agent nodes in the scale set and what availability zone they're deployed in.
+When the cluster is ready, list the agent nodes in the scale set to see what availability zone they're deployed in.
 
-To see the node distribution across availability zone, first get the scale set name using the [az aks show][az-aks-show] and the [az vmss list][az-vmss-list] commands. Then, list the nodes using the [az vmss list-instances][az-vmss-list-instances] command as shown in the following example:
+First, get the AKS cluster credentials using the [az aks get-credentials][az-aks-get-credentials] command:
 
 ```azurecli-interactive
-# Get the AKS node resource group and scale set name
-AKS_NODE_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-AKS_SCALE_SET_NAME=$(az vmss list --resource-group $AKS_NODE_RESOURCE_GROUP --query [].name -o tsv)
-
-# List the VM instances in the scale set and show the zone they're deployed into
-az vmss list-instances \
-    --resource-group $AKS_NODE_RESOURCE_GROUP \
-    --name $AKS_SCALE_SET_NAME \
-    --query '[].{VMName:name, Location:location, Zone:zones[0]}' -o table
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-The following example output shows the three nodes distributed across the specified availability zones:
+Next, use the [kubectl describe][kubectl-describe] command to list the nodes in the cluster. Filter on the *failure-domain.beta.kubernetes.io/zone* value as shown in the following example:
 
 ```console
-VMName                         Location    Zone
------------------------------  ----------  ------
-aks-nodepool1-28993262-vmss_0  eastus2     1
-aks-nodepool1-28993262-vmss_1  eastus2     2
-aks-nodepool1-28993262-vmss_2  eastus2     3
+kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
+```
+
+The following example output shows the three nodes distributed across the specified region and availability zones, such as *eastus2-1* for the first availability zone and *eastus2-2* for the second availability zone:
+
+```console
+Name:       aks-nodepool1-28993262-vmss000000
+            failure-domain.beta.kubernetes.io/zone=eastus2-1
+Name:       aks-nodepool1-28993262-vmss000001
+            failure-domain.beta.kubernetes.io/zone=eastus2-2
+Name:       aks-nodepool1-28993262-vmss000002
+            failure-domain.beta.kubernetes.io/zone=eastus2-3
 ```
 
 As you add additional nodes to an agent pool, the Azure platform automatically distributes the underlying VMs across the specified availability zones.
@@ -177,6 +176,7 @@ This article detailed how to create an AKS cluster that uses availability zones.
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
-[az-aks-show]: /cli/azure/ext/aks-preview/aks#az-aks-show
-[az-vmss-list]: /cli/azure/vmss#az-vmss-list
-[az-vmss-list-instances]: /cli/azure/vmss#az-vmss-list-instances
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+
+<!-- LINKS - external -->
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
