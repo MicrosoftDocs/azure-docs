@@ -125,8 +125,6 @@
       href: configure-windows-push-notification-service.md
     - name: Configure Microsoft Push Notification Service
       href: configure-microsoft-push-notification-service.md
-    - name: Configure Android Device Messaging
-      href: configure-android-device-messaging.md            
     - name: Configure Baidu Cloud Push
       href: configure-baidu-cloud-push.md      
   - name: Register with application backend
