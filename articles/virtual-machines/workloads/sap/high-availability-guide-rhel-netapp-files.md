@@ -236,22 +236,22 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands
 
-   <pre><code>
-   sudo vi /etc/hosts
-   </code></pre>
+    ```
+    sudo vi /etc/hosts
+    ```
 
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
 
-   <pre><code>
-   # IP address of cluster node 1 
-   <b>192.168.14.5    anftstsapcl1</b>
-   # IP address of cluster node 2
-   <b>192.168.14.6     anftstsapcl2</b>
-   # IP address of the load balancer frontend configuration for SAP Netweaver ASCS
-   <b>192.168.14.9    anftstsapvh</b>
-   # IP address of the load balancer frontend configuration for SAP Netweaver ERS
-   <b>192.168.14.10    anftstsapers</b>
-   </code></pre>
+    ```
+    # IP address of cluster node 1
+    **192.168.14.5    anftstsapcl1**
+    # IP address of cluster node 2
+    192.168.14.6     anftstsapcl2
+    # IP address of the load balancer frontend configuration for SAP Netweaver ASCS
+    192.168.14.9    anftstsapvh
+    # IP address of the load balancer frontend configuration for SAP Netweaver ERS
+    192.168.14.10    anftstsapers
+    ```
 
 1. **[1]** Create SAP directories in the Azure NetApp Files volume.  
    Mount temporarily the Azure NetApp Files volume on one of the VMs and create the SAP directories(file paths).  
