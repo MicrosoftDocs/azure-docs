@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # View role assignments for an Azure Active Directory organization
 
-In Azure Active Directory (Azure AD), roles can be assigned at directory level or with a scope of a single application. Roles assignments at the directory scope are added to the list of single application role assignments, but role assignments at the single application scope aren't added to the list of directory level assignments.
+In Azure Active Directory (Azure AD), roles can be assigned at directory level or with a scope of a single application. Role assignments at the directory scope are added to the list of single application role assignments, but role assignments at the single application scope aren't added to the list of directory level assignments.
 
 ## View the assignments of a role with directory scope using the Azure AD portal
 
@@ -37,13 +37,13 @@ You can automate how you assign Azure AD admin roles to users using Azure PowerS
 
 ### Prepare PowerShell
 
-First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
+First, you must [download the Azure AD preview PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
 
 To install the Azure AD PowerShell module, use the following commands:
 
 ``` PowerShell
-install-module azuread
-import-module azuread
+install-module azureadpreview
+import-module azureadpreview
 ```
 
 To verify that the module is ready to use, use the following command:
