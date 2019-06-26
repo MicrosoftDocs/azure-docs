@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Train and register Scikit-learn models at scale with Azure Machine Learning service
 
-This article shows you how to train and register a Scikit-learn model using Azure Machine Learning service. It uses the popular [Iris dataset](https://archive.ics.uci.edu/ml/datasets/iris) to classify iris flower images using the [scikit-learn library].
+This article shows you how to train and register a Scikit-learn model using Azure Machine Learning service. It uses the popular [Iris dataset](https://archive.ics.uci.edu/ml/datasets/iris) to classify iris flower images with the custom [scikit-learn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) class.
 
 Scikit-learn is an open-source computational framework commonly used for machine learning. With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
