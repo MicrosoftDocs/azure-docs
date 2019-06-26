@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - Make sure that you [complete the first tutorial](tutorial-prepare-hyper-v.md) in the series to prepare VMware VMs for assessment. If you don't complete the first tutorial, the instructions in this tutorial won't work.
-- After following the first tutorial here's what you should have set up before you continue with the steps in the article:
+- If you've completed the first tutorial as expected, here's what you should have set up before you continue with the steps in the article:
     - [Azure permissions](tutorial-prepare-vmware.md#prepare-azure) for Azure Migrate should be configured. 
     - [VMware settings](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) should be verified, and you should have permissions to create a VM with an OVA template. You should have an account set up for VM discovery. Required ports should be available, and the appliance should to able to access Azure URLs.
 
