@@ -6,11 +6,11 @@ metadata:
   description: Learn how to manage customer resources at scale
   author: JnHs
   manager: carmonm
-  ms.service: service-provider-toolkit
+  ms.service: lighthouse
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/06/2019
+  ms.date: 06/26/2019
   ms.author: jenhayes
 abstract:
   description: Azure Lighthouse lets you manage resources at scale on behalf of your customers.
