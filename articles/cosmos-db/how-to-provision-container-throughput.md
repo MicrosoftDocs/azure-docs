@@ -49,23 +49,7 @@ If you are provisioning throughput on a container in an Azure Cosmos account con
 > Use the Cosmos SDKs for SQL API to provision throughput for all Cosmos DB APIs, except Cassandra API.
 
 ### <a id="dotnet-most"></a>SQL, MongoDB, Gremlin, and Table APIs
-<details open>
-<summary>V3 SDK</summary>
-
-```csharp
-// Create a container with a partition key and provision throughput of 1000 RU/s
-string containerName = "myContainerName";
-string partitionKeyPath = "/myPartitionKey";
-
-await this.cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(
-    id: containerName,
-    partitionKeyPath: partitionKeyPath,
-    throughput: 1000);
-```
-</details>
-
-<details>
-<summary>V2 SDK</summary>
+### .Net V2 SDK
 
 ```csharp
 // Create a container with a partition key and provision throughput of 1000 RU/s
@@ -78,7 +62,18 @@ await client.CreateDocumentCollectionAsync(
     myCollection,
     new RequestOptions { OfferThroughput = 1000 });
 ```
-</details>
+
+### .Net V3 SDK
+```csharp
+// Create a container with a partition key and provision throughput of 1000 RU/s
+string containerName = "myContainerName";
+string partitionKeyPath = "/myPartitionKey";
+
+await this.cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(
+    id: containerName,
+    partitionKeyPath: partitionKeyPath,
+    throughput: 1000);
+```
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 
@@ -89,6 +84,8 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
     firstName text,
     lastName text) WITH cosmosdb_provisioned_throughput=1000);
 ```
+
+[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
 
 ## Next steps
 
