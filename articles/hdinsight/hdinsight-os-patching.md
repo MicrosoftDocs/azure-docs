@@ -18,7 +18,7 @@ The virtual machines (VMs) in an HDInsight cluster must be restarted on occasion
 
 Using the script actions described in this article, you can modify the OS patching schedule by doing the following steps:
 
-1. Install all updates, only kernel + security updates, or only kernel updates.
+1. Install all updates, kernel + security updates, or kernel updates only.
 2. Do an immediate restart, or schedule a restart on the VM.
 
 > [!NOTE]  
@@ -38,14 +38,14 @@ Using this script requires the following information:
   
 3. The cluster node types that the script is applied to includes headnode, workernode, and zookeeper. This script must be applied to all node types in the cluster. If it isn't applied to a node type, then the VMs for that node type will not be updated or restarted.
 
-4. Parameter: The install-updates-schedule-restarts script accepts two numeric parameters:
+4. The install-updates-schedule-restarts script accepts two numeric parameters:
 
     | Parameter | Definition |
     | --- | --- |
     | Install kernel updates only/Install all updates/Install kernel + security updates only |0,  1, or 2. A value of 0 installs kernel updates only, while 1 installs all updates, and 2 installs kernel + security updates only. If no parameter is provided, the default is 0. |
     | No restart/Enable schedule restart/Enables immediate restart |0, 1, or 2. A value of 0 disables restart, while 1 enables schedule restart and 2 enables immediate restart. If no parameter is given, the default is 0. The user must input parameter 1 to input parameter 2. |
    
- 5. Parameter: The schedule-restarts script accepts one numeric parameter:
+ 5. The schedule-restarts script accepts one numeric parameter:
 
     | Parameter | Definition |
     | --- | --- |
