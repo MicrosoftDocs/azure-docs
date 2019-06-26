@@ -1,6 +1,6 @@
 ---
-title: How to monitor my data share
-description: How to monitor my data share
+title: How to monitor my Azure Data Share Preview
+description: How to monitor my Azure Data Share Preview
 author: joannapea
 
 ms.service: azure-data-share

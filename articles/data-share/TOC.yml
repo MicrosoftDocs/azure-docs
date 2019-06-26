@@ -9,6 +9,11 @@
       href: share-your-data.md
     - name: Accept and receive data 
       href: subscribe-to-data-share.md
+- name: How-to guides
+  expanded: true
+  items:
+    - name: How to monitor your Azure Data Share
+      href: how-to-monitor.md
 - name: Concepts
   items:
   - name: Azure Data Share Terminology 

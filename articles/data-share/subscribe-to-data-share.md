@@ -22,7 +22,7 @@ Before you can accept a data share invitation, you must provision a number of Az
 Ensure that all pre-requisites are complete before accepting a data share invitation. 
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account). 
+* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
 
 ## Sign in to the Azure portal
@@ -32,8 +32,6 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 ## Locate the invitation that was sent to you by the Data Provider 
 
 Check your inbox for an invitation from your data provider. The invitation is from Microsoft Azure, titled **Azure Data Share invitation from <yourdataprovider@domain.com>**. Take note of the share name to ensure you're accepting the correct share if there are multiple invitations. 
-
-![Invitation](./media/invitation.png "Data Share Invitation") 
 
 Click on **View invitation** to see your invitation in Azure. This takes you to your Received Shares view.
 
