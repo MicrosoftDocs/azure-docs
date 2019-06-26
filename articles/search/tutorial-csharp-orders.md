@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Order results based on one property
 > * Order results based on multiple properties
 > * Filter results based on a distance from a geographical point
-> * Take ordering even further
+> * Order results using scoring profiles
 
 ## Prerequisites
 
@@ -458,11 +458,75 @@ To display results based on geographical distance, several steps are required.
 * [Azure Maps Documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
 * [Find an address using the Azure Maps search service](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-search-for-address)
 
-## Take ordering even further
+## Order results using scoring profiles
 
-The examples given in the tutorial so far show how to order on numerical values, providing an exact process of ordering. However, some searches and some data do not lend themselves to such an easy comparison between two data elements. Azure Search includes the concept of _scoring_. _Scoring profiles_ can be specified for a set of data that can be used to provide more complex and qualitative comparisons, that should be most valuable when, say, comparing two documents to decide which should be displayed first.
+The examples given in the tutorial so far show how to order on numerical values (rating, renovation date, geographical distance), providing an _exact_ process of ordering. However, some searches and some data do not lend themselves to such an easy comparison between two data elements. Azure Search includes the concept of _scoring_. _Scoring profiles_ can be specified for a set of data that can be used to provide more complex and qualitative comparisons, that should be most valuable when, say, comparing text based data to decide which should be displayed first.
 
-Scoring is outside the realm of this tutorial. For more information, see the following [Add scoring profiles to an Azure Search index](https://docs.microsoft.com/en-us/azure/search/index-add-scoring-profiles).
+Scoring profiles are not defined by users, but typically by administrators of a data set. Several scoring profiles have been set up on the hotels data. Let's look at how a scoring profile is defined, then try writing code to search on them.
+
+### How scoring profiles are defined
+
+Let's look at three examples of scoring profiles, and consider how each _should_ affect the results order.
+
+1. xxx
+
+ ```cs
+    xxx
+    ```
+2. yyy
+ 
+    ```cs
+    xxx
+    ```
+3. zzz
+
+    ```cs
+    xxx
+    ```
+    Now, let us see if these profiles work as we think they should!
+
+### Add code to the view to compare profiles
+
+1. Open the index.cshtml file, and add the following code just after the search bar, so, including the search bar, your code looks like the following.
+
+    ```cs
+    xxx
+    ```
+2. Open the SearchData.cs file, and add the following property to the **SearchData** class, to communicate the user's selection to the controller.
+
+    ```cs
+    xxx
+    ```
+
+### Add code to the controller to specify a scoring profile
+
+1. Open the home controller, and in the **RunQueryAsync** method, make sure we pick up the chosen results order, and set the **OrderBy** and **ScoringProfile** (??) parameters as necessary. Replace the existing **SearchParameters** code, with the following.
+
+    ```cs
+    xxx
+    ```
+    
+    Read through the comments for each of the **switch** selections.
+
+### Run and test the app
+
+1. Run the app, enter text such as "????", select the "no order" radio button. And click search.
+
+2. Selecting "Rating" or "Rating/renovation" will give you the numerical ordering you have already implemented in this tutorial.
+
+3. Now try the "Boost field" profile. Does it boost the hotel names as it should?
+
+Image
+
+4. Try the other two profiles, "Boost xxx" and "Weighted rating", and perhaps switch between the two to pick out the differences in ordering.
+
+Image
+
+    The more text based a data set is, the more scoring profiles are needed to display results in an intuitive ordering. Even with numerical data, scoring profiles can add some intelligence to the ordering (such as, not considering a hotel that was renovated 10 years ago, and another renovated 9 years ago, as a relevant way of deciding which hotel should be displayed first!).
+
+### Resources
+
+For more information, see the following [Add scoring profiles to an Azure Search index](https://docs.microsoft.com/en-us/azure/search/index-add-scoring-profiles).
 
 ## Takeaways
 
@@ -472,7 +536,7 @@ Consider the following takeaways from this project:
 * Data needs structured so that ordering is easy. We were not able to sort on "cheapest" first easily, as the data is not structured to enable ordering to be done without additional code.
 * There can be many levels to ordering, to differentiate between results that have the same value at a higher level of ordering.
 * It is natural for some results to be ordered in ascending order (say, distance away from a point), and some in descending order (say, guest's rating).
-* Scoring profiles can be defined when numerical comparisons are not available for a data set. Scoring each result will help to order and display them intelligently.
+* Scoring profiles can be defined when numerical comparisons are not available, or not smart enough, for a data set. Scoring each result will help to order and display the results intelligently.
 
 ## Next steps
 
