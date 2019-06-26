@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 # Adding Custom Actions to Azure REST API
 
-This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implement custom actions. If you are unfamiliar with Azure Custom Resource Providers, check out the documentation [here](./custom-providers-overview.md).
+This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implement custom actions. [Learn more about Azure Custom Resource Providers](./custom-providers-overview.md).
 
 ## How to define an Action Endpoint
 
@@ -75,9 +75,9 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Similarly the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+Similarly, the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
 
-- Valid JSON object document. All arrays and strings should be nested under a top object.
+- A valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
 
 ``` HTTP
@@ -136,7 +136,7 @@ request-body | *no* | The request body that will be sent to the **endpoint**.
 ### Azure Resource Manager Template
 
 > [!NOTE]
-> Actions have limited support in Azure Resource Manager Templates. In order for the action to be called inside a template, it must contain the ["list"](../azure-resource-manager/resource-group-template-functions-resource.md#list) prefix on it's name.
+> Actions have limited support in Azure Resource Manager Templates. In order for the action to be called inside a template, it must contain the [`list`](../azure-resource-manager/resource-group-template-functions-resource.md#list) prefix in its name.
 
 Sample **ResourceProvider** with List Action:
 
