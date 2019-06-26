@@ -65,10 +65,11 @@ let TableWithBlobId =
 TableWithBlobId
 ```
 
-The above query constructs a URL to access the blob directly. The URL with place-holders is shown below:
+The above query constructs a URL to access the blob directly. The URL with place-holders is below:
 
 ```
-let flowlogBlob = "https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+
 ```
 
 ### Fields used in Traffic Analytics schema
