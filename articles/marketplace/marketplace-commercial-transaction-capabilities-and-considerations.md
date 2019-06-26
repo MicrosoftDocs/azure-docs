@@ -75,7 +75,7 @@ When publishing a free or bring-your-own-license transaction offer, Microsoft do
 WPay-as-you-go and subscription pricing
 When publishing a pay-as-you-go or subscription transaction offer, Microsoft provides the technology and services to process software license purchases, returns, and chargebacks. In this scenario, the publisher authorizes Microsoft to act as an agent for these purposes. The publisher allows Microsoft to facilitate the software licensing transaction, while retaining their designation as the seller, provider, distributor, and licensor.
 
-Microsoft enables customers to order, license, and use publisher software, subjecting to the terms and conditions of both Microsoft’s commercial Mmarketplace and the publisher’s end-user licensing agreement. Publishers must provide their end-user licensing agreement or select the [Standard Contract](https://docs.microsoft.com/azure/marketplace/standard-contract) when creating the offering.
+Microsoft enables customers to order, license, and use publisher software, subjecting to the terms and conditions of both Microsoft’s commercial Marketplace and the publisher’s end-user licensing agreement. Publishers must provide their end-user licensing agreement or select the [Standard Contract](https://docs.microsoft.com/azure/marketplace/standard-contract) when creating the offering.
 
 
 ### Free software trials
@@ -220,7 +220,7 @@ The transact requirements for different offer types are covered in this section.
 - A Microsoft account and financial information are required for the transact publishing option, regardless of the offer’s pricing model.
 - Mandatory financial information includes payout account and tax profile.
 
-For more information on setting up these accounts, see [Manage Your Partner Center Account](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/manage-account#financial-details).
+For more information on setting up these accounts, see [Manage Your Partner Center Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
 
 
 ### Requirements for specific offer types
