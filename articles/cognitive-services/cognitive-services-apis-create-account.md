@@ -14,7 +14,7 @@ ms.author: garye
 
 # Quickstart: Create a Cognitive Services account in the Azure portal
 
-In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create a single-service or multi-service subscription. These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), which enable you to connect to one or many of the Azure Cognitive Services APIs.
+In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create a single-service or multi-service resource. These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), which enable you to connect to one or many of the Azure Cognitive Services APIs.
 
 ## Prerequisites
 
