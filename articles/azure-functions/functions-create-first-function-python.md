@@ -39,7 +39,7 @@ Before you start, you must have the following:
 
 To locally develop and test Python functions, you must work in a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.env`.
 
-### Bash or a terminal window:
+### Bash:
 
 ```bash
 python3.6 -m venv .env

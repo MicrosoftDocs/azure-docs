@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/19/2019
 ms.author: alkohli
 ---
 
@@ -58,14 +58,14 @@ The Data Box Heavy device has the following features in this release.
 
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Weight                                                  | ~ 500 lbs.                |
+| Weight                                                  | ~ 500 lbs. <br>Device on locking wheels for transport|
 | Dimensions                                              | Width: 26 inches Height: 28 inches Length: 48 inches |
-| Rack space                                              | Can't be rack-mounted|
-| Cables required                                         | 4 X grounded 120 V/10 A power cords (NEMA 5-15) included <br> Device supports up to 240 V power and has C-13 power receptacles <br> Use network cables compatible with [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
-|Power                                                    | 4 built-in power supply units (PSUs) shared across both the device nodes|
+| Rack space                                              | Cannot be rack-mounted|
+| Cables required                                         | 4 grounded 120 V / 10 A power cords (NEMA 5-15) included <br> Device supports up to 240 V power and has C-13 power receptacles <br> Use network cables compatible with [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
+| Power                                                    | 4 built-in power supply units (PSUs) shared across both the device nodes <br> 1,200 watt typical power draw|
 | Storage capacity                                        | ~ 1-PB raw, 70 disks of 14 TB each <br> 770-TB usable capacity|
-|Number of nodes                                          | 2 independent nodes per device (500 TB each) |
-| Network interfaces per node                             | 4 network interfaces per node <br> MGMT, DATA3 <ul><li> 2 X 1-GbE interfaces </li><li> MGMT is for management, not user configurable, used for initial setup </li><li> DATA3 is a user-configurable data interface, Dynamic Host Configuration Protocol (DHCP) by default</li><li>1-GbE network interfaces can also be configured as 10-GbE interfaces</li></ul>DATA1, DATA2 data interfaces <ul><li>2 X 40-GbE interfaces </li><li> DHCP by default or static, user configurable data interfaces</li>|
+| Number of nodes                                          | 2 independent nodes per device (500 TB each) |
+| Network interfaces per node                             | 4 network interfaces per node <br><br> MGMT, DATA3 <ul><li> 2 X 1-GbE interfaces </li><li> MGMT is for management and initial setup, not user configurable </li><li> DATA3 is user-configurable and Dynamic Host Configuration Protocol (DHCP) by default</li><li>The 1-GbE network interfaces can also be configured as 10-GbE interfaces</li></ul>DATA1, DATA2 data interfaces <ul><li>2 X 40-GbE interfaces </li><li> User configurable for DHCP (default) or static</li></ul>|
 
 
 ## Components
