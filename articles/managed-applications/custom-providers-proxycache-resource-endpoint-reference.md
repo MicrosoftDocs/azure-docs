@@ -11,11 +11,11 @@ ms.date: 06/20/2019
 
 # Custom Resource Cache Reference
 
-This article will go through the requirements for endpoints implementing cache custom resources. If you are unfamiliar with custom resources, check out the documentation [here](./custom-providers-resources-endpoint-how-to.md).
+This article will go through the requirements for endpoints implementing cache custom resources. [Learn more about custom resources](./custom-providers-resources-endpoint-how-to.md).
 
 ## How to define a cache resource endpoint
 
-A proxy resource can be created by specifying the **routingType** to "`Proxy, Cache`".
+A proxy resource can be created by specifying the **routingType** to "Proxy, Cache".
 
 Sample custom resource provider:
 
@@ -39,11 +39,11 @@ Sample custom resource provider:
 
 ## Building proxy resource endpoint
 
-An **endpoint** that implements an "`Proxy, Cache`" resource **endpoint** must handle the request and response for the new API in Azure. In this case, the **resourceType** will generate a new Azure resource API for `PUT`, `GET`, and `DELETE` to perform CRUD on a single resource as well as `GET` to retrieve all existing resources:
+An **endpoint** that implements a "Proxy, Cache" resource **endpoint** must handle the request and response for the new API in Azure. In this case, the **resourceType** will generate a new Azure resource API for `PUT`, `GET`, and `DELETE` to perform CRUD on a single resource, as well as `GET` to retrieve all existing resources:
 
 > [!NOTE]
-> The Azure API for request methods: `PUT`, `GET`, and `DELETE` will be generated, but the cache **endpoint** only needs to handle: `PUT` and `DELETE`.
-> However it is recommended that the **endpoint** also implements `GET`.
+> The Azure API will generate the request methods `PUT`, `GET`, and `DELETE`, but the cache **endpoint** only needs to handle `PUT` and `DELETE`.
+> We recommended that the **endpoint** also implements `GET`.
 
 ### Create a custom resource
 
@@ -81,9 +81,9 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Similarly the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+Similarly, the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
 
-- Valid JSON object document. All arrays and strings should be nested under a top object.
+- A valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
 - The custom resource provider will overwrite the `name`, `type`, and `id` fields for the request.
 - The custom resource provider will only return fields under the `properties` object for a cache endpoint.
@@ -143,11 +143,11 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Similarly the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+Similarly ,the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
 
-- Valid JSON object document. All arrays and strings should be nested under a top object.
+- A valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
-- The Azure Custom Resource Provider will only remove the item from it's cache if a 200-level response is returned. Even if the resource does not exist, the **endpoint** should return 204.
+- The Azure Custom Resource Provider will only remove the item from its cache if a 200-level response is returned. Even if the resource does not exist, the **endpoint** should return 204.
 
 **Endpoint** Response:
 
