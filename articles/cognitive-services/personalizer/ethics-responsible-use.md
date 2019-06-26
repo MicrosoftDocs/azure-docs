@@ -192,7 +192,7 @@ Microsoft is continuously putting effort into tools and documents to help you ac
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) by DJ Patil, Hilary Mason, Mike Loukides.
 * [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
 * [Genetic Information Nondiscrimination Act - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML Principles for Accountable Algorithms](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [FATML Principles for Accountable Algorithms](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## Next steps
