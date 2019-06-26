@@ -11,11 +11,11 @@ ms.date: 06/20/2019
 
 # Custom Resource Proxy Reference
 
-This article will go through the requirements for endpoints implementing proxy custom resources. If you are unfamiliar with custom resources, check out the documentation [here](./custom-providers-resources-endpoint-how-to.md).
+This article will go through the requirements for endpoints implementing proxy custom resources. [Learn more about custom resources](./custom-providers-resources-endpoint-how-to.md).
 
 ## How to define a proxy resource endpoint
 
-A proxy resource can be created by specifying the **routingType** to "`Proxy`".
+A proxy resource can be created by specifying the **routingType** to "Proxy".
 
 Sample custom resource provider:
 
@@ -39,12 +39,12 @@ Sample custom resource provider:
 
 ## Building proxy resource endpoint
 
-An **endpoint** that implements an "`Proxy`" resource **endpoint** must handle the request and response for the new API in Azure. In this case, the **resourceType** will generate a new Azure resource API for `PUT`, `GET`, and `DELETE` to perform CRUD on a single resource as well as `GET` to retrieve all existing resources:
+An **endpoint** that implements a "Proxy" resource **endpoint** must handle the request and response for the new API in Azure. In this case, the **resourceType** will generate a new Azure resource API for `PUT`, `GET`, and `DELETE` to perform CRUD on a single resource, as well as `GET` to retrieve all existing resources.
 
 > [!NOTE]
 > The `id`, `name`, and `type` fields are not required, but are needed to integrate the custom resource with existing Azure ecosystem.
 
-Sample Resource:
+Sample resource:
 
 ``` JSON
 {
@@ -60,7 +60,7 @@ Sample Resource:
 }
 ```
 
-Parameter Reference:
+Parameter reference:
 
 Property | Sample | Description
 ---|---|---
@@ -104,9 +104,9 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Similarly the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+Similarly, the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
 
-- Valid JSON object document. All arrays and strings should be nested under a top object.
+- A valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
 
 **Endpoint** Response:
@@ -202,9 +202,9 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}
 ```
 
-Similarly the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+Similarly, the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
 
-- Valid JSON object document. All arrays and strings should be nested under a top object.
+- A valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
 
 **Endpoint** Response:
@@ -263,11 +263,11 @@ Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources
 ```
 
-Similarly the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
+Similarly, the response from the **endpoint** is then forwarded back to the customer. The response from the endpoint should return:
 
-- Valid JSON object document. All arrays and strings should be nested under a top object.
+- A valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
-- The list of resources should be placed under the `value` top-level property.
+- The list of resources should be placed under the top-level `value` property.
 
 **Endpoint** Response:
 
