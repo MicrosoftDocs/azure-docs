@@ -174,6 +174,8 @@ static async Task Main(string[] args)
 
 You'll notice that in `Main`, you're declaring `subscriptionKey`, `host`, `route`, and the script to transliterate `textToTransliterate`.
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Run the sample app
 
 That's it, you're ready to run your sample app. From the command line (or terminal session), navigate to your project directory and run:
