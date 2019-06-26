@@ -38,8 +38,9 @@ Before you begin this tutorial, you should:
 
 1. [Review the limitations](server-migrate-overview.md#agentless-migration-limitations) for agentless migration.
 2. [Set up Azure and VMware](tutorial-prepare-vmware.md) by following the [first tutorial] in the series.
-3. [Deploy an Azure Migrate appliance and start continuous on-premises discovery](tutorial-assess-vmware.md), by following the[second tutorial] in the series.
-    - The second tutorial includes instructions on running an assessment. We recommend you try out an assessment, but you don't have to run an assessment before you try a migration.
+3. [Deploy an Azure Migrate appliance and start continuous on-premises discovery](tutorial-assess-vmware.md), by following the [second tutorial] in the series.
+    - The second tutorial also includes instructions on running an assessment.
+    We recommend you try out an assessment, but you don't have to run an assessment before you try a migration.
 4. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 
