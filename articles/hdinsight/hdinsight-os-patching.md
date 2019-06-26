@@ -13,7 +13,7 @@ ms.date: 01/24/2019
 > [!IMPORTANT]
 > Ubuntu images become available for new HDInsight cluster creation within three months of being published. As of January 2019, running clusters aren't auto-patched. Customers must use script actions or other mechanisms to patch a running cluster. Newly created clusters will always include the latest available updates, including the most recent security patches.
 
-## How to configure the OS patching schedule
+## Modify the OS patching schedule
 You must occasionally restart virtual machines (VMs) in an HDInsight cluster to install important security patches.
 
 By using the script actions described in this article, you can modify the OS patching schedule by following these steps:
