@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
 ---
+
 # Develop Azure Functions using Visual Studio  
 
 Azure Functions Tools for Visual Studio 2019 is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
@@ -37,13 +38,11 @@ Azure Functions Tools is included in the Azure development workload of [Visual S
 
 Make sure that your Visual Studio is up-to-date and that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools.
 
-### Other requirements
+### Azure resources
 
-To create and deploy functions, you also need:
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* An active Azure subscription. If you don't have an Azure subscription, [free accounts](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) are available.
-
-* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+Other resources that you need, such as an Azure Storage account, are created in your subscription during the publishing process.
 
 ### Check your tools version
 
@@ -75,12 +74,20 @@ The project template creates a C# project, installs the `Microsoft.NET.Sdk.Funct
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for environment variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
+* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used when running in Azure. For more information, see [Local settings file](#local-settings-file).
 
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Output Directory** setting for this file should always be **Copy if newer**. 
 
 For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
+
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+Settings in local.settings.json are not uploaded automatically when you publish the project. To make sure that these settings also exist in your function app in Azure, you must upload them after you publish your project. To learn more, see [Function app settings](#function-app-settings).
+
+Values in **ConnectionStrings** are never published.
+
+The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
 
 ## Configure the project for local development
 
@@ -128,8 +135,9 @@ In pre-compiled functions, the bindings used by the function are defined by appl
         }
     }
     ```
+
     A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters to the **QueueTrigger** attribute. For more information, see [Azure Queue storage bindings for Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
-    
+
 You can use the above procedure to add more functions to your function app project. Each function in the project can have a different trigger, but a function must have exactly one trigger. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 ## Add bindings
@@ -178,11 +186,14 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 ## Publish to Azure
 
+When publishing from Visual Studio, one of two deployment methods are used:
+
+* [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): packages and deploys Windows apps to any IIS server.
+* [Zip Deploy with Run-From-Package enabled](functions-deployment-technologies.md#zip-deploy): recommended for Azure Functions deployments.
+
+Use the following steps to publish your project to a function app in Azure.
+
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
-
-### Deployment Technology
-
-When publishing from Visual Studio, one of two technologies is used to perform the deployment: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) and [Zip Deploy with Run-From-Package enabled (recommended)](functions-deployment-technologies.md#zip-deploy).
 
 ## Function app settings
 
