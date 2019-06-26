@@ -361,13 +361,17 @@ Azure Blob storage - .NET Quickstart example
 
 Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
 
-Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
-Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
+Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-96
+97c748f4db.txt
+Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f
+4db.txt'
 
 Listing blobs in container.
-https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-
+958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
 
-Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
+Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926
+-a9da-9697c748f4db_DOWNLOADED.txt
 
 Press any key to delete the example files and example container.
 ```
