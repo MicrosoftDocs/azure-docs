@@ -8,7 +8,7 @@
     href: iot-services-and-technologies.md    
 - name: Security
   items:
-  - name: Basic security recommendations
+  - name: Recommendations
     href: iot-security-recommendations.md
   - name: Security from the ground up
     href: iot-security-ground-up.md

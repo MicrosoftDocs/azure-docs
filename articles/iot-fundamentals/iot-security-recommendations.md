@@ -1,16 +1,16 @@
 ---
-title: Customer responsibilities for secure IoT deployment | Microsoft Docs
+title:  Security recommendations for Azure IoT | Microsoft Docs
 description: This article summarizes additional steps to ensure security in your Azure IoT Hub solution. 
 author: dsk-2015
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 06/26/2019
 ms.author: dkshir
 ---
 
-# Internet of Things (IoT) security summary
+# Security recommendations for Azure Internet of Things (IoT) deployment
 
 This article contains security recommendations for the Azure IoT services. Implementing these recommendations will help you fulfill your security obligations as a customer of Azure IoT, and will improve the overall security for your IoT solutions. For more information on the intrinsic security features provided by Azure IoT, read [IoT security from the ground up](iot-security-ground-up.md).
 
@@ -20,14 +20,15 @@ This article contains security recommendations for the Azure IoT services. Imple
 |-|-|
 | Stay up-to-date | Use the latest versions of supported platforms, programming languages, protocols, and frameworks. |
 | Keep authentication keys safe | Keep the device IDs and their authentication keys physically safe after deployment. This will avoid a malicious device masquerade as a registered device. |
+| Use device SDKs when possible | Device SDKs implement a variety of security features, such as, encryption, authentication, and so on, to assist you in developing a robust and secure device application. See [Understand and use Azure IoT Hub SDKs](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-sdks) for more information. |
 
 
 ## Identity and access management
 
 | Recommendation | Comments |
 |-|-|
-| Access control for the hub | Define the [type of access](iot-security-deployment.md#securing-the-cloud) each component in your IoT Hub solution based on the functionality. The allowed permissions are *Registry Read*, *RegistryReadWrite*, *ServiceConnect*, and *DeviceConnect*. Default [shared access policies](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#access-control-and-permissions) can help define the permissions for each component in your solution based on its specific role. |
-| Access control for backend services | Data ingested by your IoT Hub solution can be consumed by other Azure services such as [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/), [Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/), [App Service](https://docs.microsoft.com/azure/app-service/), [Logic Apps](https://docs.microsoft.com/azure/logic-apps/), and [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Make sure to understand and allow appropriate access permissions for these services. |
+| Define access control for the hub | [Understand and define the type of access](iot-security-deployment.md#securing-the-cloud) each component will have in your IoT Hub solution, based on the functionality. The allowed permissions are *Registry Read*, *RegistryReadWrite*, *ServiceConnect*, and *DeviceConnect*. Default [shared access policies in your IoT hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#access-control-and-permissions) can also help define the permissions for each component based on its role. |
+| Define access control for backend services | Data ingested by your IoT Hub solution can be consumed by other Azure services such as [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/), [Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/), [App Service](https://docs.microsoft.com/azure/app-service/), [Logic Apps](https://docs.microsoft.com/azure/logic-apps/), and [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Make sure to understand and allow appropriate access permissions as documented for these services. |
 
 
 ## Data protection
@@ -35,7 +36,7 @@ This article contains security recommendations for the Azure IoT services. Imple
 | Recommendation | Comments |
 |-|-|
 | Secure device authentication | Ensure secure communication between your devices and your IoT hub, by using either [a unique identity key or security token](iot-security-deployment.md#iot-hub-security-tokens), or [an on-device X.509 certificate](iot-security-deployment.md#x509-certificate-based-device-authentication) for each device. Use the appropriate method to [use security tokens based on the chosen protocol (MQTT, AMQP, or HTTPS)](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security). |
-| Secure device communication | IoT Hub secures the connection to the devices using Transport Layer Security (TLS) statndard, supporting versions 1.2, 1.2, and 1.0. Use TLS 1.2 to ensure maximum security. |
+| Secure device communication | IoT Hub secures the connection to the devices using Transport Layer Security (TLS) standard, supporting versions 1.2, 1.2, and 1.0. Use [TLS 1.2](https://tools.ietf.org/html/rfc5246) to ensure maximum security. |
 | Secure service communication | IoT Hub provides endpoints to connect to backend services such as [Azure Storage](/azure/storage/) or [Event Hubs](/azure/event-hubs) using only the TLS protocol, and no endpoint is exposed on an unencrypted channel. Once this data reaches these backend services for storage or analysis, make sure to employ appropriate security and encryption methods for that service, and protect sensitive information at the backend. |
 
 
@@ -43,8 +44,8 @@ This article contains security recommendations for the Azure IoT services. Imple
 
 | Recommendation | Comments |
 |-|-|
-| Protect access to your devices | Keep hardware ports in your devices to a bare minimum to avoid unwanted access. Additionaly, build mechanisms to prevent or detect physical tampering of the device. |
-| Build secure hardware | Incorporate security features such as encrypted storage, or Trusted Platform Module (TPM), to keep devices and infrastructure more secure. Keep the device operating system and drivers upgraded to latest versions, and if space permits, install antivirus and antimalware capabilities. |
+| Protect access to your devices | Keep hardware ports in your devices to a bare minimum to avoid unwanted access. Additionally, build mechanisms to prevent or detect physical tampering of the device. Read [IoT security best practices](iot-security-best-practices.md) for details. |
+| Build secure hardware | Incorporate security features such as encrypted storage, or Trusted Platform Module (TPM), to keep devices and infrastructure more secure. Keep the device operating system and drivers upgraded to latest versions, and if space permits, install antivirus and antimalware capabilities. Read [IoT security architecture](iot-security-architecture) to understand how this can help mitigate several security threats. |
 
 
 ## Monitoring
@@ -57,5 +58,5 @@ This article contains security recommendations for the Azure IoT services. Imple
 
 ## Next steps
 
-For more advanced scenarios, you may need additional security requirements. See [IoT security architecture](iot-security-architecture.md) for more details.
+For advanced scenarios involving Azure IoT, you may need to consider additional security requirements. See [IoT security architecture](iot-security-architecture.md) for more guidance.
 
