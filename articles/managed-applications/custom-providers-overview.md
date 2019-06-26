@@ -80,10 +80,10 @@ APIs added to Azure for the above sample:
 
 HttpMethod | Sample URI | Description
 ---|---|---
-PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call to create a new resource.
-DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call the delete an existing resource.
-GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call to retrieve an existing resource.
-GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomResources?api-version=2018-09-01-preview | The Azure REST API call to retrieve the list of existing resources.
+PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call to create a new resource.
+DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call the delete an existing resource.
+GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call to retrieve an existing resource.
+GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources?api-version=2018-09-01-preview | The Azure REST API call to retrieve the list of existing resources.
 
 ## Building custom actions
 
@@ -110,7 +110,7 @@ APIs added to Azure for the above sample:
 
 HttpMethod | Sample URI | Description
 ---|---|---
-POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/myCustomAction?api-version=2018-09-01-preview | The Azure REST API call to activate the action.
+POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomAction?api-version=2018-09-01-preview | The Azure REST API call to activate the action.
 
 ## Looking for help
 

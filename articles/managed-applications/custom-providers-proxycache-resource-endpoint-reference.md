@@ -43,7 +43,7 @@ An **endpoint** that implements an "`Proxy, Cache`" resource **endpoint** must h
 
 > [!NOTE]
 > The Azure API for request methods: `PUT`, `GET`, and `DELETE` will be generated, but the cache **endpoint** only needs to handle: `PUT` and `DELETE`.
-> However it is recommended that they also implement `GET`.
+> However it is recommended that the **endpoint** also implements `GET`.
 
 ### Create a custom resource
 
@@ -85,7 +85,8 @@ Similarly the response from the **endpoint** is then forwarded back to the custo
 
 - Valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
-- The Azure Custom Resource Provider will overwrite the `name`, `type`, and `id` fields for the request.
+- The custom resource provider will overwrite the `name`, `type`, and `id` fields for the request.
+- The custom resource provider will only return fields under the `properties` object for a cache endpoint.
 
 **Endpoint** Response:
 
