@@ -24,7 +24,6 @@ This tutorial is the first in a series that shows you how to assess and migrate 
 > * Prepare on-premises Hyper-V hosts and VMs for server migration.
 
 
-
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the How Tos for Hyper-V assessment and migration.
 
@@ -105,7 +104,8 @@ To prepare for Hyper-V assessment, verify Hyper-V host and VM settings, and veri
 
 ### Verify Hyper-V host settings
 
-1. Verify [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) for server assessment, and make sure the [required ports](migrate-support-matrix-hyper-v.md#assessment-port-requirements) are open on Hyper-V hosts.
+1. Verify [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) for server assessment.
+2. Make sure the [required ports](migrate-support-matrix-hyper-v.md#assessment-port-requirements) are open on Hyper-V hosts.
 
 ### Enable PowerShell remoting on hosts
 
@@ -120,18 +120,18 @@ Set up PowerShell remoting on each host, as follows:
 
 ### Enable CredSSP on hosts
 
-If VM disks are located on SMB shares, complete this step on every relevant Hyper-V host.
+If VM disks are located on SMB shares, complete this step on every relevant Hyper-V host. This step is used to discover configuration information for Hyper-V VMs with disks on SMB shares. If you don't have VM disks on SMB shares, you can skip the step.
 
-- This step is used to discover configuration information for Hyper-V VMs with disks on SMB shares. If you don't have VM disks on SMB shares, you can skip the step.
+1. Identify Hyper-V hosts running Hyper-V VMs with disks on SMB shares.
+2. Run the following command on each identified Hyper-V host:
+
+    ```
+    Enable-WSManCredSSP -Role Server -Force
+    ```
+
 - CredSSP authentication allows the Hyper-V host to delegate credentials on behalf of the Azure Migrate client.
 - You can run this command remotely on all Hyper-V hosts.
 - If you add new host nodes on a cluster they are automatically added for discovery, but you need to manually enable CredSSP on the new nodes if needed.
-
-
- ```
-Enable-WSManCredSSP -Role Server -Force
-```
-
 
 ### Verify appliance settings
 
@@ -145,18 +145,22 @@ Before setting up the Azure Migrate appliance and beginning assessment in the ne
 
 ### Set up an account for VM discovery
 
-Azure Migrate needs permissions to discover on-premises VMs. Set up a domain or local user account with administrator permissions on the Hyper-V hosts/cluster to use for discovery.
+Azure Migrate needs permissions to discover on-premises VMs.
 
-- You need a single account for all hosts and clusters that you want to include in the discovery.
-- The account can be  a local or domain account. We recommend it has Administrator permissions on the Hyper-V hosts or clusters.
-- Alternatively, if you don't want to assign Administrator permissions, the following permissions are needed:
-    - Remote Management Users
-    - Hyper-V Administrators
-    - Performance Monitor Users
+- Set up a domain or local user account with administrator permissions on the Hyper-V hosts/cluster.
+
+    - You need a single account for all hosts and clusters that you want to include in the discovery.
+    - The account can be  a local or domain account. We recommend it has Administrator permissions on the Hyper-V hosts or clusters.
+    - Alternatively, if you don't want to assign Administrator permissions, the following permissions are needed:
+        - Remote Management Users
+        - Hyper-V Administrators
+        - Performance Monitor Users
 
 ### Enable Integration Services on VMs
 
-On VMs that you want to discover and assess, make sure that [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) is enabled on each VM. This is needed so that Azure Migrate can capture operating system information on the VM.
+Integration Services should be enabled on each VM so that Azure Migrate can capture operating system information on the VM.
+
+- On VMs that you want to discover and assess, enable [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) on each VM. 
 
 ## Prepare for Hyper-V migration
 
