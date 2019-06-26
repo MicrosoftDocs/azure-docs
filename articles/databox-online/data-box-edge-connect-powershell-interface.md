@@ -77,7 +77,6 @@ If the compute role is configured on your device, you can also get the compute l
     Here is a description of the parameters used for the cmdlet:
     - `Path`: Provide a network path to the share where you want to create the compute log package.
     - `Credential`: Provide the username for the network share. When you run this cmdlet, you will need to provide the share password.
-    - `RoleInstanceName`: Provide this string `IotRole` for this parameter.
     - `FullLogCollection`: This parameter ensures that the log package will contain all the compute logs. By default, the log package contains only a subset of logs.
 
 ## Monitor and troubleshoot compute modules
