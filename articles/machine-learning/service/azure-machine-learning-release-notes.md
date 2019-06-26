@@ -20,9 +20,9 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2019-06-24
+## 2019-06-25
 
-### Azure Machine Learning SDK for Python v1.0.__TBD__
+### Azure Machine Learning SDK for Python v1.0.45
 
 + **New features**
   + Add decision tree surrogate model to mimic explainer in azureml-explain-model package
