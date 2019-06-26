@@ -6,40 +6,67 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 06/27/2019
 ---
 
 # Azure Stream Analytics feature comparison
 
-With Azure Stream Analytics, you can create streaming solutions in the cloud and at the IoT Edge using Azure portal, Visual Studio, and Visual Studio Code. The tables in this article show which features are supported by each platform for both job types. The features are organized by category to provide context.
+With Azure Stream Analytics, you can create streaming solutions in the cloud and at the IoT Edge using [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-vs-code.md). The tables in this article show which features are supported by each platform for both job types.
 
 ## Cloud job features
 
-|Feature category|Features|Portal|Visual Studio|Visual Studio Code|
-|-|-|-|-|-|
-|Environment|Cross platform (Mac, Linux, Windows)| * | * | * |
-|Job authoring|Script authoring</br></br>Script Intellisense</br></br>Define inputs, outputs, and job configurations|* </br></br>Syntax highlighting</br></br>* | * </br></br></br> * </br></br> * | * </br></br></br> * </br></br> *|
-|Inputs and outputs|Blob output partitioning</br></br>Power BI as output</br></br>SQL database reference data</br></br>Custom message properties| * </br></br></br> * </br></br></br> * </br></br></br> * | * </br></br></br> * </br></br></br> * </br></br></br>  | * </br></br></br>  </br></br></br> * </br></br></br>  |
-|Job management|Share inputs/outputs across multiple queries|  | * | * |
-|Extensibility| JavaScript UDF and UDA </br></br> Machine Learning Callouts| * </br></br></br> * | * </br></br></br> * | * </br></br></br>  |
-|Compatibility level|1.0, 1.1, 1.2| * | * | * |
-|Built-in functions| Built-in ML based Anomaly Detection Functions </br></br> GeoSpatial| * </br></br></br></br> * | * </br></br></br></br> * | * </br></br></br></br> * |
-|Debugging and testing|Query testing with sample file</br></br>Live data testing| * </br></br>  | * </br></br> * | * </br></br>  |
-|Explore jobs|List jobs and view job entities</br></br>Export a job to local project| * </br></br></br>  | * </br></br></br> * | * </br></br></br> * |
-|Job operations|Submit job, Start, stop job| * | * | * |
-|CI/CD and automation|Source control</br></br>CI/CD support| * </br></br> Partial | * </br></br> * | * </br></br> * |
-|Monitoring and troubleshooting|View job metrics and diagram</br></br>View job runtime errors</br></br>Diagnostic logs| * </br></br></br> * </br></br></br> * | * </br></br></br> * </br></br></br>  | Portal </br></br></br>  </br></br></br>  |
+
+|Feature  |Portal  |Visual Studio  |Visual Studio Code  |
+|---------|---------|---------|---------|
+|Cross platform     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
+|Script authoring     |Yes         |Yes         |Yes         |
+|Script Intellisense     |Syntax highlighting         |Yes         |Yes         |
+|Define inputs, outputs, and job configurations     |Yes         |Yes         |Yes         |
+|Blob output partitioning     |Yes         |Yes         |Yes         |
+|Power BI as output     |Yes         |Yes         |No         |
+|SQL database reference data     |Yes         |Yes         |Yes         |
+|Custom message properties     |Yes         |No         |No         |
+|Share inputs and outputs across multiple queries     |No         |Yes         |Yes         |
+|JavaScript UDF and UDA     |Yes         |Yes         |Yes         |
+|Machine Learning callouts     |Yes         |Yes         |No         |
+|Compatibility level     |1.0</br>1.1</br>1.2         |1.0</br>1.1</br>1.2          |1.0</br>1.1</br>1.2          |
+|Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
+|Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |
+|Query testing with a sample file     |Yes         |Yes         |Yes         |
+|Live data local testing     |Yes         |Yes         |No         |
+|List jobs and view job entities     |Yes         |Yes         |Yes         |
+|Export a job to a local project     |No         |Yes         |Yes         |
+|Submit, start, and stop jobs     |Yes         |Yes         |Yes         |
+|Source control     |No         |Yes         |Yes         |
+|CI/CD support     |Partial         |Yes         |Yes         |
+|View job metrics and diagram     |Yes         |Yes         |Open in portal         |
+|View job runtime errors     |Yes         |Yes         |No         |
+|Diagnostic logs     |Yes         |No         |No         |
+
 
 ## IoT Edge job features
 
-|Feature category|Features|Portal|Visual Studio|Visual Studio Code|
-|-|-|-|-|-|
-|Job authoring|Job authoring</br></br>Source control</br></br>Export a job to local project</br></br>Query testing with local file| * </br></br>  </br></br>  </br></br> * | * </br></br> * </br></br> * </br></br> * |  </br></br>  </br></br>  </br></br>  |
-|Job management|Share inputs/outputs across multiple queries|  | * |  |
-|Extensibility|C# UDF|  | * |  |
-|Debugging and testing|Query testing with a sample file| * | *|  |
-|Job operations|Submit, start, and stop job</br></br>List jobs and view job entities| * </br></br></br> * | * </br></br></br> * |  </br></br></br> |
-|Monitoring and troubleshooting|View job metrics and diagram</br></br>View job runtime errors| * </br></br></br> * | Partial </br></br></br> Partial|  </br></br></br>  |
-|CI/CD and automation|Source control</br></br>CI/CD support| </br></br>  | * </br></br> * |  </br></br>  |
+|Feature  |Portal  |Visual Studio  |Visual Studio Code  |
+|---------|---------|---------|---------|
+|Job authoring     |Yes         |Yes         |No         |
+|Source control     |No         |Yes         |No         |
+|Export a job to a local project     |No         |Yes         |No         |
+|Query testing with a sample file     |Yes         |Yes         |No         |
+|Share inputs and outputs across multiple queries     |No         |Yes         |No         |
+|C# UDF     |No         |Yes         |No         |
+|Submit, start, and stop jobs     |Yes         |Yes         |No         |
+|List jobs and view job entities     |Yes         |Yes         |No         |
+|View job metrics and diagram     |Yes         |Partial         |No         |
+|View job runtime errors     |Yes         |Partial         |No         |
+|CI/CD support     |No         |Yes         |No         |
+
+
+## Next steps
+
+* [Azure Stream Analytics on IoT Edge](stream-analytics-edge.md)
+* [Tutorial: Write a C# user-defined function for Azure Stream Analytics IoT Edge job (Preview)](stream-analytics-edge-csharp-udf.md)
+* [Develop Stream Analytics IoT Edge jobs using Visual Studio tools](stream-analytics-tools-for-visual-studio-edge-jobs.md)
+* [Use Visual Studio to view Azure Stream Analytics jobs](stream-analytics-vs-tools.md)
+* [Explore Azure Stream Analytics with Visual Studio Code (Preview)](vscode-explore-jobs.md)
 
 
