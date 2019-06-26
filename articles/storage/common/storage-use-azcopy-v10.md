@@ -118,7 +118,7 @@ This is a great option if you plan to use AzCopy inside of a script that runs wi
 
 Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with your credentials.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to persist that sensitive information.
 
-You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration.
+You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration. To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 ##### Using a client secret
 
@@ -159,7 +159,7 @@ Next, type the following command, and then press the ENTER key.
 azcopy login --service-principal --certificate-path <path-to-certificate-file>
 ```
 
-Replace the `<path-to-certificate-file>` placeholder with the relative or fully-qualified path to the certificate file. 
+Replace the `<path-to-certificate-file>` placeholder with the relative or fully-qualified path to the certificate file. AzCopy doesn't saves the path to this certificate but not a copy of the certificate, so make sure to keep that certificate in place.
 
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
@@ -187,6 +187,8 @@ To find example commands, see any of these articles.
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
 - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
+
+- [Transfer data with AzCopy and Azure Stack storage](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
 ## Use AzCopy in a script
 
