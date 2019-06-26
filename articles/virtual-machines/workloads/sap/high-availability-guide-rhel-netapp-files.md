@@ -246,33 +246,32 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     # IP address of cluster node 1
     **192.168.14.5    anftstsapcl1**
     # IP address of cluster node 2
-    192.168.14.6     anftstsapcl2
+    **192.168.14.6     anftstsapcl2**
     # IP address of the load balancer frontend configuration for SAP Netweaver ASCS
-    192.168.14.9    anftstsapvh
+    **192.168.14.9    anftstsapvh**
     # IP address of the load balancer frontend configuration for SAP Netweaver ERS
-    192.168.14.10    anftstsapers
+    **192.168.14.10    anftstsapers**
     ```
 
 1. **[1]** Create SAP directories in the Azure NetApp Files volume.  
    Mount temporarily the Azure NetApp Files volume on one of the VMs and create the SAP directories(file paths).  
 
-   <pre><code>
-     # mount temporarily the volume
+    ```
+     #mount temporarily the volume
      sudo mkdir -p /saptmp
      sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 192.168.24.5:/sapQAS /saptmp
      # create the SAP directories
      sudo cd /saptmp
-     sudo mkdir -p sapmnt<b>QAS</b>
-     sudo mkdir -p usrsap<b>QAS</b>ascs
-     sudo mkdir -p usrsap<b>QAS</b>ers
-     sudo mkdir -p usrsap<b>QAS</b>sys
-     sudo mkdir -p usrsap<b>QAS</b>pas
-     sudo mkdir -p usrsap<b>QAS</b>aas
+     sudo mkdir -p sapmnt**QAS**
+     sudo mkdir -p usrsap**QAS**ascs
+     sudo mkdir -p usrsap**QAS**ers
+     sudo mkdir -p usrsap**QAS**sys
+     sudo mkdir -p usrsap**QAS**pas
+     sudo mkdir -p usrsap**QAS**aas
      # unmount the volume and delete the temporary directory
      sudo cd ..
      sudo umount /saptmp
      sudo rmdir /saptmp
-   </code></pre>
 
 1. **[A]** Create the shared directories
 
