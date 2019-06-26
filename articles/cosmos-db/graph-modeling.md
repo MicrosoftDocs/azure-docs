@@ -13,7 +13,7 @@ ms.author: lbosq
 
 The following document is designed to provide graph data modeling recommendations. This step is vital in order to ensure the scalability and performance of a graph database system as the data evolves. An efficient data model is especially important with large-scale graphs.
 
-### Requirements
+## Requirements
 
 The process outlined in this guide is based on the following assumptions:
  * The **entities** in the problem-space are identified. These entities are meant to be consumed _atomically_ for each request. In other words, the database system isn't designed to retrieve a single entity's data in multiple query requests.
@@ -38,7 +38,7 @@ The next step is to determine if the graph is going to be used for analytic or t
 
 The [Apache Tinkerpop property graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) defines two types of objects **Vertices** and **Edges**. 
 
-The following are the best practices for the properties in these objects:
+The following are the best practices for the properties in the graph objects:
 
 | Object | Property | Type | Notes |
 | --- | --- | --- |  --- |
