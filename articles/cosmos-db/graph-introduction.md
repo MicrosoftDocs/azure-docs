@@ -16,8 +16,6 @@ ms.author: lbosq
 
 This article provides an overview of the Azure Cosmos DB Gremlin API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's Gremlin API is based on the [Apache TinkerPop](https://tinkerpop.apache.org) graph database standard, and uses the Gremlin query language. 
 
-This article provides an overview of the Azure Cosmos DB Gremlin API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure and schema easily. To query Azure Cosmos DB, you can use the  graph traversal language, or [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
-
 Azure Cosmos DB's Gremlin API combines the power of graph database algorithms with highly scalable, managed infrastructure to provide a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches. 
 
 ## Features of Azure Cosmos DB graph database
