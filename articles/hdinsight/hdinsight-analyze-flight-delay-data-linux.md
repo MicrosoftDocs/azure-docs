@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 06/26/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
 #Customer intent: As a data analyst, I need to load some data into a Hadoop cluster, transform, and then export it to an Azure SQL database
@@ -27,8 +27,6 @@ This tutorial covers the following tasks:
 The following illustration shows a typical ETL application flow.
 
 ![ETL operation using Apache Hive on Azure HDInsight](./media/hdinsight-analyze-flight-delay-data-linux/hdinsight-etl-architecture.png "ETL operation using Apache Hive on Azure HDInsight")
-
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -214,7 +212,7 @@ There are many ways to connect to SQL Database and create a table. The following
 
     You receive output similar to the following text:
 
-    ```
+    ```output
     locale is "en_US.UTF-8"
     locale charset is "UTF-8"
     using default charset "UTF-8"
@@ -244,7 +242,7 @@ There are many ways to connect to SQL Database and create a table. The following
 
     The output is similar to the following text:
 
-    ```
+    ```output
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
     databaseName       dbo             delays        BASE TABLE
     ```
@@ -300,12 +298,3 @@ In this tutorial, you took a raw CSV data file, imported it into an HDInsight cl
 
 > [!div class="nextstepaction"]
 >[Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md)
-
-To learn more ways to work with data in HDInsight, see the following articles:
-
-* [Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight](../storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive.md)
-* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Develop Java MapReduce programs for Apache Hadoop on HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Use Apache Oozie with HDInsight](hdinsight-use-oozie-linux-mac.md)
-* [Use Apache Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md)
