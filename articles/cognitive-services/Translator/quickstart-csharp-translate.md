@@ -194,6 +194,7 @@ foreach (TranslationResult o in deserializedOutput)
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## Put it all together
 
@@ -218,8 +219,6 @@ static async Task Main(string[] args)
 ```
 
 You'll notice that in `Main`, you're declaring `subscriptionKey`, `host`, and `route`. Additionally, you're prompting the user for input with `Console.Readline()` and assigning the value to `textToTranslate`.
-
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## Run the sample app
 

@@ -97,7 +97,7 @@ In the **Project** pane, expand **app**, then **manifests**, and open *AndroidMa
 
 ## Upload image and detect faces
 
-Your app will detect faces by calling the **FaceServiceClient.detect** method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API and returns a list of **Face** instances.
+Your app will detect faces by calling the **faceClient.Face.DetectWithStreamAsync** method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API and returns a list of **Face** instances.
 
 Each returned **Face** includes a rectangle to indicate its location, combined with a series of optional face attributes. In this example, only the face rectangles are requested.
 
