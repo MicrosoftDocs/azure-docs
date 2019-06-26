@@ -61,7 +61,7 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 ## Automatic upgrade process
 
-Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. The ability to create a new Gen1 instance will be disabled in regions undergoing auto upgrade to Gen2. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
+Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. The ability to create a new Gen1 instance will be disabled in regions undergoing auto upgrade to Gen2. Gen1 will be deprecated once the automatic upgrades have been completed. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
 
 The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
