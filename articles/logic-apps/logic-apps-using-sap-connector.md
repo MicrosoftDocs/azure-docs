@@ -86,7 +86,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Select "New step"](./media/logic-apps-using-sap-connector/add-action.png)
 
-1. In the search box, enter *sap* as your filter. From the actions list, select **Send message to SAP**.
+1. In the search box, enter "sap" as your filter. From the actions list, select **Send message to SAP**.
   
    ![Select SAP send action](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -152,7 +152,7 @@ Now add a response action to your logic app's workflow and include the output fr
 
 1. In the Logic App Designer, under the SAP action, select **New step**.
 
-1. In the search box, enter *response* as your filter. From the actions list, select **Response**.
+1. In the search box, enter "response" as your filter. From the actions list, select **Response**.
 
 1. Click inside the **Body** box so that the dynamic content list appears. From that list, under **Send message to SAP**, select the **Body** field.
 
@@ -200,7 +200,7 @@ This example uses a logic app that triggers when the app receives a message from
 
 1. In the Azure portal, create a blank logic app, which opens the Logic App Designer.
 
-1. In the search box, enter *sap* as your filter. From the triggers list, select **When a message is received from SAP**.
+1. In the search box, enter "sap" as your filter. From the triggers list, select **When a message is received from SAP**.
 
    ![Add SAP trigger](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
@@ -286,7 +286,7 @@ On the designer toolbar, select **Save**.
 
    ![Select "New step"](./media/logic-apps-using-sap-connector/add-action.png)
 
-1. In the search box, enter *sap* as your filter. From the **Actions** list, select **Generate schemas**.
+1. In the search box, enter "sap" as your filter. From the **Actions** list, select **Generate schemas**.
   
    ![Select SAP send action](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
 
@@ -348,7 +348,7 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. In the Logic App Designer, under the trigger, select **New step**.
 
-1. In the search box, enter *Resource Manager* as your filter. Select **Create or update a resource**.
+1. In the search box, enter "Resource Manager" as your filter. Select **Create or update a resource**.
 
    ![Select Azure Resource Manager action](media/logic-apps-using-sap-connector/select-azure-resource-manager-action.png)
 
