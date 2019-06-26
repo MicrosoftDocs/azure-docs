@@ -360,7 +360,7 @@ While developing an application, it is often useful to see logging information i
 
 To learn more, see [Streaming Logs](functions-monitoring.md#streaming-logs). 
 
-[!INCLUDE [functions-enable-log-stream-vscode](../../includes/functions-enable-log-stream-vscode.md)]
+[!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 > [!NOTE]
 > Streaming logs support only a single instance of the Functions host. When your function is scaled to multiple instances, data from other instances are not shown in the log stream. The [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights does supported multiple instances. While also in near real time, streaming analytics are also based on [sampled data](functions-monitoring.md#configure-sampling).

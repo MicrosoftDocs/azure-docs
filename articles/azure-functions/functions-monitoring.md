@@ -622,7 +622,7 @@ This connects your app to the log streaming service and application logs are dis
 
 ### Visual Studio Code
 
-[!INCLUDE [functions-enable-log-stream-vscode](../../includes/functions-enable-log-stream-vscode.md)]
+[!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 ### Azure CLI
 

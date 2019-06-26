@@ -1,5 +1,10 @@
-
-
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 06/25/2019
+ms.author: glenga
+---
 To turn on the streaming logs for your function app in Azure:
 
 1. Press F1 key to open the command palette, then search for and run the command **Azure Functions: Start Streaming Logs**.
