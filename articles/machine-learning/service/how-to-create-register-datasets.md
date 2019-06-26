@@ -146,5 +146,4 @@ dataset = workspace.datasets['dataset_crime']
 ## Next steps
 
 * [Explore and prepare Datasets](how-to-explore-prepare-data.md).
-* [Manage the lifecycle of Dataset definitions](how-to-manage-dataset-definitions.md).
 * For an example of using Datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).
