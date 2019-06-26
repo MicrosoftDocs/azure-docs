@@ -55,7 +55,8 @@ Azure Backup has recently announced support for [EOS SQL Severs](https://docs.mi
 2. .NET Framework 4.5.2 and above needs to be installed on the VM
 3. Backup for FCI and mirrored databases isn’t supported
 
-All of the other [feature considerations and limitations](#feature-consideration-and-limitations) apply to these versions as well. The customer won’t be charged for this feature till the time it is generally available.
+Users will not be charged for this feature till the time it is generally available.
+All of the other [feature considerations and limitations](#feature-consideration-and-limitations) apply to these versions as well. Kindly refer the [prerequisites](#prerequisites) needed before you configure protection on SQL Servers 2008 and 2008 R2 which include setting the [registry key](#add-registry-key-to-enable-registration)(this step would not be required when the feature is generally available). .
 
 
 ## Feature consideration and limitations
@@ -195,7 +196,7 @@ Alternatively, you can automate giving the permissions by running the following 
 
 ```powershell
 param(
-    [Parameter(Mandatory=$false)] 
+    [Parameter(Mandatory=$false)]
     [string] $InstanceName = "MSSQLSERVER"
 )
 if ($InstanceName -eq "MSSQLSERVER")
@@ -207,7 +208,7 @@ else
     $fullInstance = $env:COMPUTERNAME + "\" + $InstanceName   # In case of named instance
 }
 try
-{ 
+{
     sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT Service\AzureWLBackupPluginSvc', 'sysadmin'" # Adds login with sysadmin permission if already not available
 }
 catch
@@ -216,7 +217,7 @@ catch
     Write-Host $_.Exception|format-list -force
 }
 try
-{ 
+{
     sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT AUTHORITY\SYSTEM', 'sysadmin'" # Adds login with sysadmin permission if already not available
 }
 catch
