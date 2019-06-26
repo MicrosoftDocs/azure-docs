@@ -34,9 +34,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - Make sure that you [complete the first tutorial](tutorial-prepare-hyper-v.md) in the series to prepare Hyper-V VMs for assessment. If you don't complete the first tutorial, the instructions in this tutorial won't work.
-- After following the first tutorial here's what you should have set up before you continue with the steps in the article:
+- If you've completed the first tutorial as expected, here's what you should have set up before you continue with the steps in the article:
     - [Azure permissions](tutorial-prepare-hyper-v.md#prepare-azure) for Azure Migrate should be configured. 
-    - [Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) should be set up for assessment.
+    - [Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) clusters, hosts, and VMs should be ready for assessment.
 
 ## Set up an Azure Migrate project
 
@@ -129,7 +129,7 @@ Import the downloaded file to the Hyper-V host, and create a VM from it.
 
 Ensure that the appliance VM has internet connectivity to [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
 
-## Configure and the appliance
+## Configure the appliance
 
 Set up the appliance for the first time.
 
@@ -260,7 +260,6 @@ An assessment specifies:
 - **Montly cost estimation**: The estimated monthly compute and storage costs of running VMs in Azure.
 - **Monthly storage cost estimation**: Estimated costs for disk storage after migration.
 
-### View an assessment
 
 ### View an assessment
 
