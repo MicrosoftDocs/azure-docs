@@ -1,6 +1,6 @@
 ---
 title: Directing Azure traffic to Azure SQL Database and SQL Data Warehouse | Microsoft Docs
-description: This document explains the Azcure SQL onnectivity architecture for database connections from within Azure or from outside of Azure.
+description: This document explains the Azure SQL connectivity architecture for database connections from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/03/2019
+ms.date: 06/25/2019
 ---
 # Azure SQL Connectivity Architecture
 
@@ -136,9 +136,12 @@ The following CLI script shows how to change the connection policy.
 ```azurecli-interactive
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
+# To declare a variable using a Windows command prompt, use the "set" keyword
+# set sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
 id="$sqlserverid/connectionPolicies/Default"
+# set id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
 az resource show --ids $id
