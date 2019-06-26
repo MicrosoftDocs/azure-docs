@@ -22,7 +22,7 @@ However, taking Murphy's popular adage--*if anything can go wrong, it will*--int
 
 ## Need for redundant connectivity solution
 
-There are possibilities and instances where an entire regional services (be it that of Microsoft, network service providers, customer, or other cloud service providers) get degraded. The root cause for such regional wide service impact include natural calamity. Therefore, for business continuity and mission critical applications it is important to plan for disaster recovery.   
+There are possibilities and instances where an entire regional service (be it that of Microsoft, network service providers, customer, or other cloud service providers) get degraded. The root cause for such regional wide service impact include natural calamity. Therefore, for business continuity and mission critical applications it is important to plan for disaster recovery.   
 
 Irrespective of whether you run your mission critical applications in an Azure region or on-premises or anywhere else, you can use another Azure region as your failover site. The following articles addresses disaster recovery from applications and frontend access perspectives:
 
@@ -33,13 +33,13 @@ If you rely on ExpressRoute connectivity between your on-premises network and Mi
 
 ## Challenges of using multiple ExpressRoute circuits
 
-When you interconnect the same set of networks using more than one connection, you introduce parallel paths between the networks. Parallel paths, when not properly architected, could lead to asymmetrical routing. If you have state-full entities (e.g. NAT, firewall) in the path, asymmetrical routing could block traffic flow.  Typically over the ExpressRoute private peering path you won't encounter stateful entities such as NAT or Firewalls. Therefore, asymmetrical routing over ExpressRoute private peering does not necessarily block traffic flow.
+When you interconnect the same set of networks using more than one connection, you introduce parallel paths between the networks. Parallel paths, when not properly architected, could lead to asymmetrical routing. If you have state-full entities (for example, NAT, firewall) in the path, asymmetrical routing could block traffic flow.  Typically over the ExpressRoute private peering path you won't come across stateful entities such as NAT or Firewalls. Therefore, asymmetrical routing over ExpressRoute private peering does not necessarily block traffic flow.
  
 However, if you load balance traffic across geo-redundant parallel paths, irrespective of whether you have state-full entities or not, you would experience inconsistent network performance. In this article, let's discuss how to address these challenges.
 
 ## Small to medium on-premises network considerations
 
-Let's consider the example network illustrated in the following diagram. In the example, geo-redundant ExpressRoute connectivity is established between a Contoso's on-premises location and Contoso's VNet in an Azure region. In the diagram solid green line indicates preferred path and the dotted one represents stand-by path.
+Let's consider the example network illustrated in the following diagram. In the example, geo-redundant ExpressRoute connectivity is established between a Contoso's on-premises location and Contoso's VNet in an Azure region. In the diagram, solid green line indicates preferred path and the dotted one represents stand-by path.
 
 [![1]][1]
 
@@ -52,7 +52,7 @@ When you are designing ExpressRoute connectivity for disaster recovery, you need
 
 By default, if you advertise routes identically over all the ExpressRoute paths, Azure will load-balance on-premises bound traffic across all the ExpressRoute paths using Equal-cost multi-path (ECMP) routing.
 
-However, with the geo-redundant ExpressRoute circuits we need to take into consideration different network performance with different network paths (particularly in terms of network latency). To get more consistent network performance during normal operation, you may want to prefer the ExpressRoute circuit that offers the minimal latency.
+However, with the geo-redundant ExpressRoute circuits we need to take into consideration different network performance with different network paths (particularly for network latency). To get more consistent network performance during normal operation, you may want to prefer the ExpressRoute circuit that offers the minimal latency.
 
 You can influence Azure to prefer one ExpressRoute circuit over another one using one of the following techniques (listed in the order of effectiveness):
 
@@ -66,7 +66,7 @@ The following diagram illustrates influencing ExpressRoute path selection using 
 
 [![2]][2]
 
-Because /25 is more specific, compared to /24, Azure would send the traffic destined to 10.1.11.0/24 via the preferred ExpressRoute circuit in the normal state. If both the connections of the preferred ExpressRoute circuit goes down, then the VNet would see the 10.1.11.0/24 route advertisement only via the standby circuit; and therefore the standby circuit is used in this failure state.
+Because /25 is more specific, compared to /24, Azure would send the traffic destined to 10.1.11.0/24 via the preferred ExpressRoute circuit in the normal state. If both the connections of the preferred ExpressRoute circuit go down, then the VNet would see the 10.1.11.0/24 route advertisement only via the standby circuit; and therefore the standby circuit is used in this failure state.
 
 ### Connection weight
 
@@ -78,7 +78,7 @@ The following diagram illustrates influencing ExpressRoute path selection using 
 
 [![4]][4]
 
-If both the connections of the preferred ExpressRoute circuit goes down, then the VNet would see the 10.1.11.0/24 route advertisement only via the standby circuit; and therefore the standby circuit is used in this failure state.
+If both the connections of the preferred ExpressRoute circuit go down, then the VNet would see the 10.1.11.0/24 route advertisement only via the standby circuit; and therefore the standby circuit is used in this failure state.
 
 ### AS path prepend
 
@@ -86,7 +86,7 @@ The following diagram illustrates influencing ExpressRoute path selection using 
 
 [![5]][5]
 
-If both the connections of the preferred ExpressRoute circuit goes down, then the VNet would see the 10.1.11.0/24 route advertisement only via the standby circuit. Consequentially, the longer AS path would become irrelevant. Therefore, the standby circuit would be used in this failure state.
+If both the connections of the preferred ExpressRoute circuit go down, then the VNet would see the 10.1.11.0/24 route advertisement only via the standby circuit. Consequentially, the longer AS path would become irrelevant. Therefore, the standby circuit would be used in this failure state.
 
 Using any of the techniques, if you influence Azure to prefer one of your ExpressRoute over others, you also need to ensure the on-premises network also prefer the same ExpressRoute path for Azure bound traffic to avoid asymmetric flows. Typically, local preference value is used to influence on-premises network to prefer one ExpressRoute circuit over others. Local preference is an internal BGP (iBGP) metric. The BGP route with the highest local preference value is preferred.
 
@@ -96,19 +96,19 @@ Using any of the techniques, if you influence Azure to prefer one of your Expres
 
 ## Large distributed enterprise network
 
-When you have a large distributed enterprise network, you are likely to have multiple ExpressRoute circuits. In this section, let's see how to design disaster recovery using the active-active ExpressRoute circuits, without needing additional stand-by circuits. 
+When you have a large distributed enterprise network, you're likely to have multiple ExpressRoute circuits. In this section, let's see how to design disaster recovery using the active-active ExpressRoute circuits, without needing additional stand-by circuits. 
 
 Let's consider the example illustrated in the following diagram. In the example, Contoso has two on-premises locations connected to two Contoso IaaS deployment in two different Azure regions via ExpressRoute circuits in two different peering locations. 
 
 [![6]][6]
 
-How we architect the disaster recovery has an impact on how cross regional to cross location (region1/region2 to location2/location1) traffic is routed. Let's consider two different disaster architecture that routes cross region-location traffic differently.
+How we architect the disaster recovery has an impact on how cross regional to cross location (region1/region2 to location2/location1) traffic is routed. Let's consider two different disaster architectures that routes cross region-location traffic differently.
 
 ### Scenario 1
 
-In the first scenario, let's design disaster recovery such that all the traffic between an Azure region and on-premises network flow through the local ExpressRoute circuit in the steady state. If the local ExpressRoute circuit fails then the remote ExpressRoute cirucit is used for all the traffic flows between Azure and on-premises network.
+In the first scenario, let's design disaster recovery such that all the traffic between an Azure region and on-premises network flow through the local ExpressRoute circuit in the steady state. If the local ExpressRoute circuit fails, then the remote ExpressRoute circuit is used for all the traffic flows between Azure and on-premises network.
 
-Scenario 1 is illustrated in the following diagram. In the diagram, green lines indicate desired traffic flow between VNet1 and on-premises networks. The blue lines indicate desired traffic flow between VNet2 and on-premises networks.  Solid lines indicate desired path in the steady-state and the dashed lines indicate traffic path in the failure of the corresponding ExpressRoute circuit that carries steady-state traffic flow. 
+Scenario 1 is illustrated in the following diagram. In the diagram, green lines indicate paths for traffic flow between VNet1 and on-premises networks. The blue lines indicate paths for traffic flow between VNet2 and on-premises networks. Solid lines indicate desired path in the steady-state and the dashed lines indicate traffic path in the failure of the corresponding ExpressRoute circuit that carries steady-state traffic flow. 
 
 [![7]][7]
 
@@ -118,13 +118,14 @@ You can architect the scenario using connection weight to influence VNets to pre
 
 ### Scenario 2
 
-The Scenario 2 is illustrated in the following diagram. In the steady-state, all the traffic between VNets and on-premises locations flow via Microsoft backbone for the most part, and flows through the interconnection between on-premises locations only in the failure state of an ExpressRoute.
+The Scenario 2 is illustrated in the following diagram. In the diagram, green lines indicate paths for traffic flow between VNet1 and on-premises networks. The blue lines indicate paths for traffic flow between VNet2 and on-premises networks. In the steady-state (solid lines in the diagram), all the traffic between VNets and on-premises locations flow via Microsoft backbone for the most part, and flows through the interconnection between on-premises locations only in the failure state (dotted lines in the diagram) of an ExpressRoute.
 
 [![9]][9]
 
 The solution is illustrated in the following diagram. As illustrated, you can architect the scenario either using more specific route (Option 1) or AS-path prepend (Option 2) to influence VNet path selection. To influence on-premises network route selection for Azure bound traffic, you need configure the interconnection between the on-premises location as less preferable. Howe you configure the interconnection link as preferable depends on the routing protocol used within the on-premises network. You can use local preference with iBGP or metric with IGP (OSPF or IS-IS).
 
 [![10]][10]
+
 
 ## Next steps
 
