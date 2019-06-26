@@ -170,13 +170,13 @@ IMAGE ID            REPOSITORY                                                  
 
 ### Test the recognize text container
 
-Open a browser on the host machine and navigate to `localhost` with the specified port from the *docker-compose.yaml, for example, http://localhost:5021/swagger/index.html. You can use the Try it feature of the API to test the recognize text endpoint.
+Open a browser on the host machine and navigate to `localhost` with the specified port from the *docker-compose.yaml*, for example, `http://localhost:5021/swagger/index.html`. You can use the Try it feature of the API to test the recognize text endpoint.
 
 ![Recognize Text Swagger](media/recognize-text-swagger-page.png)
 
 ### Test the form recognizer container
 
-Open a browser on the host machine and navigate to `localhost` with the specified port from the *docker-compose.yaml, for example, http://localhost:5010/swagger/index.html. You can use the Try it feature of the API to test the form recognizer endpoint.
+Open a browser on the host machine and navigate to `localhost` with the specified port from the *docker-compose.yaml*, for example, `http://localhost:5010/swagger/index.html`. You can use the Try it feature of the API to test the form recognizer endpoint.
 
 ![Form Recognizer Swagger](media/form-recognizer-swagger-page.png)
 
