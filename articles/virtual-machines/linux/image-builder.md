@@ -15,7 +15,7 @@ This article shows you how you can create a customized Linux image using the Azu
 - Shell (ScriptUri) - downloads and runs a [shell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
 - Shell (inline) - runs specific commands. In this example, the inline commands include creating a directory and updating the OS.
 - File - copies a [file from GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) into a directory on the VM.
-- buildTimeoutInMinutes - Increase a build time to allow for longer running builds
+
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
@@ -76,15 +76,14 @@ subscriptionID=<Your subscription ID>
 ```
 
 ## Create the resource group.
-This is going to be used to store the Image Configuration Template Artifact and also the Image.
+This is used to store the image configuration template artifact and the image.
 
 ```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
-## Set Permissions on the Resource Group
-Give Image Builder 'contributor' permission to create the image in the created resource group, without this, the image build will fail. 
-
+## Set permissions on the resource group
+Give Image Builder 'contributor' permission to create the image in the resource group. Without the proper permissions, the image build will fail. 
 
 The `--assignee` value is the app registration ID for the Image Builder service. 
 
@@ -95,9 +94,9 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-## Download the Image Configuration Template Example
+## Download the template example
 
-A parameterized Image ConfigurationTemplate has been created for you to try immediately,  download the example .json file and configure it with the variables you set in a previous step.
+A parameterized sample image configuration template has been created for you to use. Download the sample .json file and configure it with the variables you set earlier.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
@@ -109,16 +108,18 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-You can modify this example, in the terminal, just run:
+You can modify this example .json as needed. For example, you can increase the value of `buildTimeoutInMinutes` to allow for longer running builds. You can edit the file in Cloud Shell using `vi`.
+
 ```azurecli-interactive
 vi helloImageTemplateLinux.json
 ```
-Note:
-* For source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
-* If you add or change the resource group where the image is to be distributed to, you must ensure the permissions are set, this is at the begining of this article.
+
+> [!NOTE]
+> For source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
+> If you add or change the resource group where the image is being distributed, you need to make sure the [permissions are set for the resource group](#set-permissions-on-the-resource-group).
 
 
-## Create the image
+## Submit the image configuration
 Submit the image configuration to the VM Image Builder service
 
 ```azurecli-interactive
@@ -130,15 +131,14 @@ az resource create \
     -n helloImageTemplateLinux01
 ```
 
-On success, this will return a success message back to the console, and create an Image Builder Configuration Template artifact in the $imageResourceGroup. You can see this in the Portal in the resource group, when you enable 'Show hidden types'.
+If it completes successfully, it will return a success message, and create an image builder configuration template artifact in the $imageResourceGroup. You can see the resource group in the portal if you enable 'Show hidden types'.
 
-Additionally, in the background, Image Builder will have created a staging resource group in your subcription, that it uses for the image build. It will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`
+Also, in the background, Image Builder creates a staging resource group in your subcription. Image Builder uses the staging resource group for the image build. The name of the resource group will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`.
 
->>Note! You must not delete the staging resource group directly, you must delete the image template artifact, this will delete it, you can use the code at the end of this walk through, in 'Clean Up'.
+> [!IMPORTANT]
+> Do not delete the staging resource group directly. If you delete the image template artifact, it will automatically delete the staging resource group. For more information, see the [Clean up](#clean-up) section at the end of this article.
 
-If the service reports a failure during the image configuration template submission:
-* Please review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. 
-* You will need to delete the tempate using the code below, before you retry submission:
+If the service reports a failure during the image configuration template submission, see the [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. You will also need to delete the template before you retry submitting the build. To delete the template:
 
 ```azurecli-interactive
 az resource delete \
@@ -147,8 +147,9 @@ az resource delete \
     -n helloImageTemplateLinux01
 ```
 
-## Start the image build.
-Before you start the image build, ensure you have not deleted the destination image resource group!
+## Start the image build
+
+Start the image build.
 
 
 ```azurecli-interactive
@@ -208,8 +209,10 @@ cat helloImageTemplateLinux.json
 For more detailed information about this .json file, see [Image builder template reference](image-builder-json.md)
 
 ## Clean up
-When you are done, delete the resources.
-### Delete the Image Builder Template
+
+When you are done, you can delete the resources.
+
+Delete the image builder template.
 
 ```azurecli-interactive
 az resource delete \
@@ -217,7 +220,9 @@ az resource delete \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateLinux01
 ```
-### Delete the Image Resource Group
+
+Delete the image resource group.
+
 ```bash
 az group delete -n $imageResourceGroup
 ```
