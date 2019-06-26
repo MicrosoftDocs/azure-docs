@@ -286,11 +286,15 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 
 Here are some considerations for when you use obfuscation:
 
-* If you secure the outputs from a trigger or action, and a later action explicitly uses those secured outputs as inputs, Logic Apps secures those inputs in the run history. However, if that later action produces outputs that are the same as the consumed secured inputs, Logic Apps doesn't secure those outputs in the run history.
-
-  To continue hiding this data in run history, make sure that you explicitly secure outputs when they're the same as the secured inputs that the action consumes.
+* If you secure the outputs from a trigger or action, and a later action explicitly uses those secured outputs as inputs, Logic Apps secures those inputs in the run history. However, if that later action echoes back the same secured inputs as outputs, Logic Apps doesn't secure those outputs in the run history.
 
   ![Secured outputs as inputs](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
+
+  The Compose, Parse JSON, and Response actions provide only the option to secure inputs. Enabling secure inputs on these actions automatically secures their outputs. If later actions use these secured outputs as inputs, those inputs are secured. However, the outputs from those later actions are not secured.
+
+  ![Secured outputs as inputs](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
+
+  So, to continue hiding this data in run history, make sure that you either explicitly secure outputs or inputs as necessary.
 
 * When you secure an action's inputs or outputs, you prevent that action from sending that secured data to Azure Log Analytics. You also can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that action for monitoring.
 
