@@ -1,25 +1,23 @@
 ---
-title: 'Quickstart: Recognize speech, Unity - Speech Services'
+title: 'Quickstart: Synthesize speech, Unity - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to create a speech-to-text application with Unity and the Speech SDK for Unity (Beta). When finished, you can use your computer's microphone to transcribe speech to text in real time.
+description: Use this guide to create a text-to-speech application with Unity and the Speech SDK for Unity (Beta). When finished, you can synthesize speech from text in real time to your device's speaker.
 services: cognitive-services
-author: wolfma61
+author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
-ms.author: wolfma
+ms.date: 6/26/2019
+ms.author: yinhew
 ---
 
-# Quickstart: Recognize speech with the Speech SDK for Unity (Beta)
+# Quickstart: Synthesize speech with the Speech SDK for Unity (Beta)
 
-Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-csharp-unity.md).
+Quickstarts are also available for [speech-recognition](quickstart-csharp-unity.md).
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-Use this guide to create a speech-to-text application using [Unity](https://unity3d.com/) and the Speech SDK for Unity (Beta).
-When finished, you can use your computer's microphone to transcribe speech to text in real time.
+Use this guide to create a text-to-speech application using [Unity](https://unity3d.com/) and the Speech SDK for Unity (Beta).
+When finished, you can synthesize speech from text in real time to your device's speaker.
 If you are not familiar with Unity, it is recommended to study the [Unity User Manual](https://docs.unity3d.com/Manual/UnityManual.html) before starting your application development.
 
 > [!NOTE]
@@ -34,7 +32,6 @@ To complete this project, you'll need:
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
      * For ARM64 support, install the [optional build tools for ARM64, and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * A subscription key for the Speech Service. [Get one for free](get-started.md).
-* Access to your computer's microphone.
 
 ## Create a Unity project
 
@@ -58,21 +55,25 @@ To complete this project, you'll need:
 
 ## Add UI
 
-We add a minimal UI to our scene, consisting of a button to trigger speech recognition and a text field to display the result.
+We add a minimal UI to our scene, consisting of an input field to enter the text for synthesis, a button to trigger speech synthesis and a text field to display the result.
 
 * In the [Hierarchy Window](https://docs.unity3d.com/Manual/Hierarchy.html) (by default on the left), a sample scene is shown that Unity created with the new project.
-* Click the **Create** button at the top of the Hierarchy Window, and select **UI** > **Button**.
-* This creates three game objects that you can see in the Hierarchy Window: a **Button** object nested within a **Canvas** object, and an **EventSystem** object.
-* [Navigate the Scene View](https://docs.unity3d.com/Manual/SceneViewNavigation.html) so you have a good view of the canvas and the button in the [Scene View](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+* Click the **Create** button at the top of the Hierarchy Window, and select **UI** > **Input Field**.
+* This creates three game objects that you can see in the Hierarchy Window: an **Input Field** object nested within a **Canvas** object, and an **EventSystem** object.
+* [Navigate the Scene View](https://docs.unity3d.com/Manual/SceneViewNavigation.html) so you have a good view of the canvas and the input field in the [Scene View](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+* Click the **Input Field** object in the Hierarchy Window to display its settings in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
+* Set the **Pos X** and **Pos Y** properties to **0**, so the input field is centered in the middle of the canvas.
+* Click the **Create** button at the top of the Hierarchy Window again, and select **UI** > **Button** to create a button.
 * Click the **Button** object in the Hierarchy Window to display its settings in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
-* Set the **Pos X** and **Pos Y** properties to **0**, so the button is centered in the middle of the canvas.
+* Set the **Pos X** and **Pos Y** properties to **0** and **-48**, and set the **Width** and **Height** properties to **160** and **30** to ensure that the button and the input field do not overlap.
 * Click the **Create** button at the top of the Hierarchy Window again, and select **UI** > **Text** to create a text field.
 * Click the **Text** object in the Hierarchy Window to display its settings in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
-* Set the **Pos X** and **Pos Y** properties to **0** and **120**, and set the **Width** and **Height** properties to **240** and **120** to ensure that the text field and the button do not overlap.
+* Set the **Pos X** and **Pos Y** properties to **0** and **80**, and set the **Width** and **Height** properties to **320** and **80** to ensure that the text field and the input field do not overlap.
+* Click the **Create** button at the top of the Hierarchy Window again, and select **Audio** > **Audio Source** to create an audio source.
 
 When you're done, the UI should look similar to this screenshot:
 
-[![Screenshot of the quickstart user interface in the Unity Editor](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
+[![Screenshot of the quickstart user interface in the Unity Editor](media/sdk/qs-tts-csharp-unity-ui-inline.png)](media/sdk/qs-tts-csharp-unity-ui-expanded.png#lightbox)
 
 ## Add the sample code
 
@@ -85,7 +86,7 @@ When you're done, the UI should look similar to this screenshot:
 
 1. Replace all code with the following:
 
-   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
 1. Locate and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
@@ -97,25 +98,25 @@ When you're done, the UI should look similar to this screenshot:
 
    * Click on the **Canvas** object in the Hierarchy Window. This opens up the setting in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
    * Click the **Add Component** button in the Inspector Window, then search for the HelloWorld script we create above and add it.
-   * Note that the Hello World component has two uninitialized properties, **Output Text** and **Start Reco Button**, that match public properties of the `HelloWorld` class.
+   * Note that the Hello World component has four uninitialized properties, **Output Text**, **Input Field**, **Speak Button** and **Audio Source**, that match public properties of the `HelloWorld` class.
      To wire them up, click the Object Picker (the small circle icon to the right of the property), and choose the text and button objects you created earlier.
 
      > [!NOTE]
-     > The button also has a nested text object. Make sure you do not accidentally pick it for text output (or
-     > rename one of the text objects using the Name field in the Inspector
+     > The input field and button also have a nested text object. Make sure you do not accidentally pick it for text output (or
+     > rename the text objects using the Name field in the Inspector
      > Window to avoid that confusion).
 
 ## Run the application in the Unity Editor
 
 * Press the **Play** button in the Unity Editor toolbar (below the menu bar).
 
-* After the app launches, click the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
+* After the app launches, enter some text into the input field and click the button. Your text is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
-  [![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
+  [![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-tts-csharp-unity-output-inline.png)](media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 
 * Check the [Console Window](https://docs.unity3d.com/Manual/Console.html) for debug messages.
 
-* When you're done recognizing speech, click the **Play** button in the Unity Editor toolbar to stop the app.
+* When you're done synthesizing speech, click the **Play** button in the Unity Editor toolbar to stop the app.
 
 ## Additional options to run this application
 
@@ -129,5 +130,5 @@ Refer to our [sample repository](https://aka.ms/csspeech/samples) in the quickst
 
 ## See also
 
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize voice fonts](how-to-customize-voice-font.md)
+- [Record voice samples](record-custom-voice-samples.md)
