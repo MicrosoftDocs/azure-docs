@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Deploy the Remote Monitoring solution accelerator locally - IntelliJ
 
-[???!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
+[!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
 This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. You'll learn how to run the microservices in IntelliJ. A local microservices deployment will use the following cloud services: IoT Hub, Azure Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights.
 
@@ -104,7 +104,7 @@ If you've already created the required Azure resources, set the corresponding en
 * **PCS_AAD_APPID**: The Azure Active Directory (Azure AD) application ID.
 * **PCS_AAD_APPSECRET**: The Azure AD application secret.
 
-Configuration values will be read from this Key Vault resource. These environment variable can be saved in the **\<your home folder\>\\.pcs\\\<solution name\>.env** file from the deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
+Configuration values will be read from this Key Vault resource. These environment variables can be saved in the **\<your home folder\>\\.pcs\\\<solution name\>.env** file from the deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
 
 Some of the configuration needed by the microservice is stored in an instance of Key Vault that was created on initial deployment. The corresponding variables in the key vault should be modified as needed.
 
@@ -144,7 +144,7 @@ Open a new Command Prompt window, and then run the following command to open the
 
 ### Deploy all other microservices on your local machine
 
-The following steps show you how to run the Remote Monitoring microservices in IntelliJ:
+The following steps show you how to run the Remote Monitoring microservices in IntelliJ.
 
 #### Import a project
 
@@ -167,7 +167,7 @@ The following steps show you how to run the Remote Monitoring microservices in I
 
 As an example, the following image shows how to add a configuration for a service:
 
-[![Screenshot of the IntelliJ IDE Run/Debug Configurations window, showing the storageAdapter option highlighted in the sbt tasks list in the left pane, and showing entries in the Name, Tasks, Working directory, and VM parameters boxes in the right pane.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
+[![Screenshot of the IntelliJ IDE Run/Debug Configurations window, showing the storageAdapter option highlighted in the sbt tasks list in the left pane and entries in the Name, Tasks, Working directory, and VM parameters boxes in the right pane.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 #### Create a compound configuration
 
@@ -177,11 +177,11 @@ As an example, the following image shows how to add a configuration for a servic
 
 As an example, the following image shows how to add all sbt tasks to a single configuration:
 
-[![Screenshot of the IntelliJ IDE Run/Debug Configurations window, showing the AllServices option highlighted in the Compound list in the left pane, and showing the sbt Task 'deviceTelemetry' option highlighted in the right pane.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
+[![Screenshot of the IntelliJ IDE Run/Debug Configurations window, showing the AllServices option highlighted in the Compound list in the left pane and the sbt Task 'deviceTelemetry' option highlighted in the right pane.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
 Select **Run** to build and run the web services on the local machine.
 
-Each web service opens a Command Prompt window and web browser window. At the command prompt, you see output from the running service. The browser window lets you monitor the status. Don't close the Command Prompt windows or web pages, as these actions stop the web service.
+Each web service opens a Command Prompt window and web browser window. At the command prompt, you see output from the running service. The browser window lets you monitor the status. Don't close the Command Prompt windows or webpages, as these actions stop the web service.
 
 To access the status of the services, go to the following URLs:
 
@@ -221,11 +221,11 @@ For more information about running Nginx, see [nginx for Windows](https://nginx.
 
 ### Connect to the dashboard
 
-To access the Remote Monitoring solution dashboard, go to [http://localhost:9000](http://localhost:9000) in your browser.
+To access the Remote Monitoring solution dashboard, go to http://localhost:9000 in your browser.
 
 ## Clean up
 
-To avoid unnecessary charges, remove the cloud services from your Azure subscription after you've finished your testing. To remove the services, go to the [Azure portal](https://ms.portal.azure.com), and then delete the resource group that the **start.cmd** script created.
+To avoid unnecessary charges, remove the cloud services from your Azure subscription after you've finished your testing. To remove the services, go to the [Azure portal](https://ms.portal.azure.com), and delete the resource group that the **start.cmd** script created.
 
 You can also delete the local copy of the Remote Monitoring repository that was created when you cloned the source code from GitHub.
 
