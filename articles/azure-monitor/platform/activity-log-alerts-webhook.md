@@ -109,7 +109,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
 					"resourceType":"Virtual Machine",
 					"severity":"Medium",
 					"compromisedEntity":"LinuxVM1",
-					"remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/)]",
+					"remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
 					"attackedResourceType":"Virtual Machine"
 				},
 				"resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
