@@ -26,7 +26,7 @@ public static async Task<IActionResult> Run(
     ILogger log)
 ```
 
-### JavaScript
+### JavaScript / Typescript
 
 Open the function.json file for your new function in a text editor, update the **authLevel** property in **bindings** to `anonymous`, and save your changes.
 
@@ -54,7 +54,7 @@ Now you can call the function in Azure without having to supply the function key
 
 ### Typescript
 
-Modify the function.json as specified above with the Javascript settings. Then run
+For Typescript an additional build step is required, as well as installing a module included in the function template.
 
 ``` 
 npm install @azure/functions && tsc
