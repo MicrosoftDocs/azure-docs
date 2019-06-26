@@ -1,6 +1,6 @@
 ---
 title: Azure networking | Microsoft Docs
-description: Learn about Azure networking services and capabilities.
+description: Learn about networking services in Azure and their capabilities.
 services: networking
 documentationcenter: na
 author: KumudD
@@ -62,7 +62,7 @@ For more information about different types of VPN connections, see [VPN Gateway]
 
 ### <a name="virtualwan"></a>Virtual WAN
 Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches and enjoy branch-to-VNet connectivity. 
-Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN (generally available), ExpressRoute (Preview), point-to-site user VPN (Preview) into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure virtual WAN?](../virtual-wan/virtual-wan-about.md).
+Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, ExpressRoute, point-to-site user VPN into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure virtual WAN?](../virtual-wan/virtual-wan-about.md).
 
 ![Virtual WAN diagram](../virtual-wan/media/virtual-wan-about/virtualwan1.png)
 
@@ -170,8 +170,7 @@ This section describes networking services in Azure that help monitor your netwo
 |Service|Why use?|Scenario|
 |---|---|---|
 |[Network Watcher](#networkwatcher)|Helps monitor and troubleshoot connectivity issues, helps diagnose VPN, NSG, and routing issues, capture packets on your VM, automates triggering diagnostics tools using Azure Functions and Logic Apps|<p>[Diagnose VM traffic filter problem](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)</p><p>[Diagnose VM routing problem](../network-watcher/diagnose-vm-network-routing-problem.md)</p><p>[Monitor communications between VMs](../network-watcher/connection-monitor.md)</p><p>[Diagnose communication problems between networks](../network-watcher/diagnose-communication-problem-between-networks.md)</p><p>[Log network traffic to and from a VM](../network-watcher/network-watcher-nsg-flow-logging-portal.md)</p>|
-|[ExpressRoute Monitor](#expressroutemonitor)|Provides real-time monitoring of network performance, availability, and utilization, helps with auto-discovery of network topology, provides faster fault isolation, detects transient network issues, helps analyze historical network performance characteristics, supports multi-subscription
-||
+|[ExpressRoute Monitor](#expressroutemonitor)|Provides real-time monitoring of network performance, availability, and utilization, helps with auto-discovery of network topology, provides faster fault isolation, detects transient network issues, helps analyze historical network performance characteristics, supports multi-subscription|<p>[Configure Network Performance Monitor for ExpressRoute](expressroute/how-to-npm.md)</p><p>[ExpressRoute monitoring, metrics, and alerts](../expressroute/expressroute-monitoring-metrics-alerts.md)</p>|
 |[Azure Monitor](#azuremonitor)|Helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.|<p>[Traffic Manager metrics and alerts](../traffic-manager/traffic-manager-metrics-alerts.md)</p><p>[Azure monitor diagnostics for Standard Load Balancer](../load-balancer/load-balancer-standard-diagnostics.md)</p><p>[Monitor Azure Firewall logs and metrics](../firewall/tutorial-diagnostics.md)</p><p>[Azure web application firewall monitoring and logging](../frontdoor/waf-front-door-monitor.md)</p>|
 |[Virtual Network TAP](#vnettap)|Provides continuous streaming of virtual machine network traffic to packet collector, enables network and application performance management solutions and security analytics tools​|[Create a VNet TAP resource](../virtual-network/tutorial-tap-virtual-network-cli.md)|
 |
