@@ -419,8 +419,8 @@ This section contains the following subsections:
 
 - [Scale with App Service](#scale-with-app-service)
 - [Customize application server configuration](#customize-application-server-configuration)
-- [Install modules and dependencies](#modules-and-dependencies)
-- [Configure data sources](#data-sources)
+- [Install modules and dependencies](#install-modules-and-dependencies)
+- [Configure data sources](#configure-data-sources)
 - [Enable messaging providers](#enable-messaging-providers)
 - [Configure session management caching](#configure-session-management-caching)
 
