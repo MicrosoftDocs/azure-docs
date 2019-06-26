@@ -52,9 +52,7 @@ When you change any of your triggers, the Functions infrastructure must be aware
 
 ## Deployment technology details 
 
-This section describes the different deployment technologies available in Azure Functions.
-
-These following deployment methods are supported by Azure Functions.
+The following deployment methods are available in Azure Functions.
 
 ### External package URL
 
