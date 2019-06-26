@@ -39,7 +39,7 @@ CosmosClient cosmosClient = new CosmosClient(
     });
 ```
 
-Optionally, you can use the `CosmosClientBuilder` to achieve the same result:
+Optionally, you can use the `CosmosClientBuilder` and `WithApplicationRegion` to achieve the same result:
 
 ```csharp
 CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("connection-string-from-portal")
