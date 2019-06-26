@@ -33,7 +33,7 @@ There are two ways to capture sign-in fields for your custom apps:
 
 - **Manual sign-in field capture** is used if the app vendor *doesn't label the sign-in input fields*. Manual capture is also used if the vendor *renders multiple fields that can't be auto-detected*. Azure AD can store data for as many fields as there are on the sign-in page, if you tell it where those fields are on the page.
 
-In general, *if automatic sign-in field capture doesn't work, try the manual option.*
+In general, if automatic sign-in field capture doesn't work, try the manual option.
 
 ### Automatically capture sign-in fields for an app
 
@@ -70,7 +70,7 @@ To manually capture sign-in fields, you must have the Access Panel browser exten
 
 To install the extension, see the [Install the Access Panel Browser extension](#i-cant-manually-detect-sign-in-fields-for-my-app) section of this article.
 
-To configure password-based SSO for an app by using **manual sign-in field capture**, follow these steps:
+To configure password-based SSO for an app by using manual sign-in field capture, follow these steps:
 
 1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
 
@@ -93,7 +93,7 @@ To configure password-based SSO for an app by using **manual sign-in field captu
 
 9. Enter the **Sign-on URL**, which is the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
 
-10. Select **Configure &lt;appname&gt; Password Single Sign-on Settings**.
+10. Select **Configure *&lt;appname&gt;* Password Single Sign-on Settings**.
 
 11. Select **Manually detect sign-in fields**.
 
@@ -137,7 +137,7 @@ If you experience any of these problems, do the following things:
 
 - Try the manual capture process again. Make sure that the red markers are over the correct fields.
 
-- If the manual capture process seems to stop responding or the sign-in page doesn’t respond, try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Select the **console** tab. Type **window.location="*the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that were captured.
+- If the manual capture process seems to stop responding or the sign-in page doesn’t respond, try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Select the **console** tab. Type **window.location="*&lt;the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that were captured.
 
 ### Contact support
 
@@ -153,7 +153,7 @@ Follow these steps:
 
 3. When you're prompted to install the software, select **Install Now**.
 
-4. You'll be directed to a download page that's based on your browser. **Add** the extension to your browser.
+4. You'll be directed to a download page for your browser. Choose to **Add** the extension.
 
 5. If you're prompted, select **Enable** or **Allow**.
 
@@ -175,7 +175,7 @@ To see the details of any portal notification, follow these steps:
 
 2. Select any notification that shows an *Error* state. (They have a red "!".)
 
-   > !NOTE]
+   > [!NOTE]
    > You can't select notifications that are in the *Successful* or *In Progress* state.
 
 3. The **Notification Details** pane opens. Read the information to learn about the problem.
