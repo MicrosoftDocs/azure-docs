@@ -79,17 +79,35 @@ Generate a client secret for authenticating your app to Azure Active Directory.
 4. Set **Expires** to the duration you prefer, for example **In 2 Years**.
 5. Click **Add** and the key value will appear in the **Client secrets** section of the page.
 6. Copy down the key value. We will refer to this value as `SECRET` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
- 
+
 ![Screenshot of the certificates and secrets pane](./media/howto-create-tenant/create-key.png)
- 
+
 For more info on Azure Application Objects, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
 For details on creating a new Azure AD application, see [Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
+## Add API permissions
+
+1. In the **Manage** section click **API permissions**.
+![Screenshot of the API permissions panel](./media/howto-aad-app-configuration/permissions-empty.png)
+2. Click **Add permission** and select **Microsoft Graph** then **Delegated permissions**
+3. Expand **User** on the list below and make sure **User.Read** is enabled.
+4. Scroll up and select **Application permissions**.
+5. Expand **Directory** on the list below and enable **Directory.ReadAll**
+6. Click **Add permissions** to accept the changes.
+7. The API permissions panel should now show both *User.Read* and *Directory.ReadAll* as shown on the screenshot below. Please note the warning in **Admin consent required** column next to *Directory.ReadAll*.
+![Screenshot of the API permissions panel. User.Read and Directory.ReadAll permissions added, admin consent required for Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+8. If you are the *Azure Subscription Administrator*, click **Grant admin consent for *Subscription Name*** below. If you are not the *Azure Subscription Administrator*, request the consent from your administrator.
+
+> [!IMPORTANT]
+> Synchronization of the cluster administrators group will work only after consent has been granted. You will see a green circle with a checkmark and a message "Granted for *Subscription Name*" in the *Admin consent required* column.
+
+For details on managing administrators and other roles, see [Add or change Azure subscription administrators](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+
 ## Resources
 
-* [Applications and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
-* [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
+* [Applications and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## Next steps
 
