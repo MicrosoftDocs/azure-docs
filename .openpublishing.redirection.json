@@ -30363,7 +30363,17 @@
       "source_path": "articles/networking/index.md",
       "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
-    },
+    },    
+    {
+      "source_path": "articles/notification-hubs/configure-android-device-messaging.md",
+      "redirect_url": "/azure//notification-hubs/configure-google-firebase-cloud-messaging",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md",
+      "redirect_url": "/azure//notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/security/blueprints/index.md",
       "redirect_url": "/azure/security/index",
@@ -40001,6 +40011,11 @@
       "source_path": "articles/backup/backup-azure-upgrade-backup-to-recovery-services.md",
       "redirect_url": "/azure/backup/backup-create-rs-vault",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instance.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/use-language-detection-on-aks",
+      "redirect_document_id": false
     }
   ]
 }

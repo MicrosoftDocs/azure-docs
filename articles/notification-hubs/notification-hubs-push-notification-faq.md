@@ -65,7 +65,7 @@ Server SDKs are available for .NET, Java, Node.js, PHP, and Python. Notification
 
 ### Which client platforms do you support?
 
-Push notifications are supported for [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) and Android, and [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). For more information, go to the [Notification Hubs Getting Started tutorials] page.
+Push notifications are supported for [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) and Android, and [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). For more information, go to the [Notification Hubs Getting Started tutorials] page.
 
 ### Do you support text message, email, or web notifications?
 
