@@ -611,6 +611,55 @@ When developing Azure Functions in the serverless hosting model, cold starts are
 
 When you use a service-specific client in an Azure Functions application, don't create a new client with every function invocation. Instead, create a single, static client in the global scope. For more information, see [managing connections in Azure Functions](manage-connections.md).
 
+### Use `async` and `await`
+
+When writing Azure Functions in JavaScript, we highly recommend writing code using the async and await keywords. Writing code using async and await instead of callbacks or .then and .catch with Promises will help avoid two common problems:
+ - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/docs/latest-v10.x/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
+ - Unexpected behavior (ex: missing logs from context.log) caused by asynchronous calls that are not properly awaited.
+
+In the example below, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code will result in both issues mentioned above. An exception that is not explicitly caught in the correct scope will result in the entire process crashing (bug #1). Calling `context.done()` outside of the scope of the callback function will mean that the Azure Function's invocation may end before the file is read (bug #2). In this example, this will result in missing the log entry starting with `Data from file:`.
+
+```javascript
+// NOT RECOMMENDED PATTERN
+const fs = require('fs');
+
+module.exports = function (context) {
+    fs.readFile('./hello.txt', (err, data) => {
+        if (err) {
+            context.log.error('ERROR', err);
+            // BUG #1: This will result in an uncaught exception that crashes the entire process
+            throw err;
+        }
+        context.log(`Data from file: ${data}`);
+        // context.done() should be called here
+    };
+    // BUG #2: Data is not guaranteed to be read before the Azure Function's invocation ends
+    context.done();
+}
+```
+
+Using the `async` and `await` keywords help avoid both of these errors. We recommend using the Node.js utility function [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) to turn error-first callback style functions into awaitable functions.
+
+In the example below, any unhandled exceptions thrown during the Azure Function's execution will only fail the individual invocation that threw an exception. The `await` keyword ensures that steps following readFileAsync will only execute once readFile has completed. With async and await, we also don't need to call the `context.done` callback.
+
+```javascript
+// Recommended pattern
+const fs = require('fs');
+const util = require('util');
+const readFileAsync = util.promisify(fs.readFile);
+
+module.exports = async function (context) {
+    try {
+        const data = await readFileAsync('./hello.txt');
+    } catch (err) {
+        context.log.error('ERROR', err);
+        // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
+        throw err;
+    }
+    context.log(`Data from file: ${data}`);
+}
+```
+
 ## Next steps
 
 For more information, see the following resources:
