@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/26/2018
 ms.author: jingwang
 
 ---
@@ -203,16 +203,16 @@ To copy data from SAP Table, the following properties are supported.
 
 | Property                         | Description                                                  | Required |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| type                             | The type property must be set to **SapTableSource**.       | Yes      |
+| type                             | The type property must be set to **SapTableSource**.         | Yes      |
 | rowCount                         | Number of rows to be retrieved.                              | No       |
 | rfcTableFields                   | Fields to copy from the SAP table. For example, `column0, column1`. | No       |
 | rfcTableOptions                  | Options to filter the rows in SAP Table. For example, `COLUMN0 EQ 'SOMEVALUE'`. See more description below this table. | No       |
-| customRfcReadTableFunctionModule | Custom RFC function module that can be used to read data from SAP Table. | No       |
+| customRfcReadTableFunctionModule | Custom RFC function module that can be used to read data from SAP Table.<br>You can use custom RFC function module to define how the data is retrieved from your SAP system and returned to ADF. While, note the custom function module needs to have similar interface implemented (import, export, tables), similar as /SAPDS/RFC_READ_TABLE2 which is by default used by ADF. | No       |
 | partitionOption                  | The partition mechanism to read from SAP table. The supported options include: <br/>- **None**<br/>- **PartitionOnInt** (normal integer or integer values with zero padding on the left, such as 0000012345)<br/>- **PartitionOnCalendarYear** (4 digits in format "YYYY")<br/>- **PartitionOnCalendarMonth** (6 digits in format "YYYYMM")<br/>- **PartitionOnCalendarDate** (8 digits in format "YYYYMMDD") | No       |
-| partitionColumnName              | The name of the column to partition the data. | No       |
+| partitionColumnName              | The name of the column to partition the data.                | No       |
 | partitionUpperBound              | The maximum value of the column specified in `partitionColumnName` that will be used for proceeding partitioning. | No       |
 | partitionLowerBound              | The minimum value of the column specified in `partitionColumnName` that will be used for proceeding partitioning. | No       |
-| maxPartitionsNumber              | The maximum number of partitions to split the data into. | No       |
+| maxPartitionsNumber              | The maximum number of partitions to split the data into.     | No       |
 
 >[!TIP]
 >- If your SAP table has large volume of data such as several billions of rows, use `partitionOption` and `partitionSetting` to split the data into small partitions, in which case data is read by partitions and each data partition is retrieved from your SAP server via one single RFC call.<br/>
