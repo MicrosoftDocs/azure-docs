@@ -37,7 +37,7 @@ Before you select a publishing option, it’s important to understand the storef
 
 **Azure Marketplace** applications are technical “building-block” solutions built-on or built-for Azure and intended for an IT or developer audience. Azure Marketplace consulting services are professional services offerings that help customers get started with or accelerate the use of Azure.
 
-**AppSource** applications are line-of-business solutions that can be built-on Azure or built-for: Dynamics 365, Office 365, PowerBI, or Power Apps. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
+**AppSource** applications are line-of-business solutions that can be built-on Azure or built-for: Dynamics 365, Office 365, Power BI, or Power Apps. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
 
 
 ## Understand storefront selection
