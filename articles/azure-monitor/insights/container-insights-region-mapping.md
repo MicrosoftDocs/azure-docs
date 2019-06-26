@@ -11,9 +11,13 @@ ms.topic: conceptual
 manager: carmonm 
 ---
 
-# Workspace mappings
+# Region mappings
 
- When enabling Azure Monitor for containers, only certain regions are supported for linking a Log Analytics workspace and an AKS cluster. This mapping only applies to the cluster and the Log Analytics workspace. The AKS cluster resources or Log Analytics workspace can reside in other regions, and the following table shows our mappings.
+ When enabling Azure Monitor for containers, only certain regions are supported for linking a Log Analytics workspace and an AKS cluster, and collecting custom metrics submitted to Azure Monitor.
+
+## Log Analytics workspace supported mappings
+
+The AKS cluster resources or Log Analytics workspace can reside in other regions, and the following table shows our mappings.
 
 |**AKS Cluster region** | **Log Analytics Workspace region** |
 |-----------------------|------------------------------------|
@@ -60,7 +64,8 @@ manager: carmonm
 
 <sup>1</sup> Due to capacity restraints, the region isn't available when creating new resources. This includes a Log Analytics workspace. However, preexisting linked resources in the region should continue to work.
 
-## Custom metrics
+## Custom metrics supported regions
+
 Collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods are supported for publishing as custom metrics only in the following [Azure regions](../platform/metrics-custom-overview.md#supported-regions).
 
 ## Next steps
