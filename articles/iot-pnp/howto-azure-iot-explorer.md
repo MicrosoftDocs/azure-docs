@@ -46,7 +46,7 @@ For a plug and play device, its model definition can be stored at public reposit
 1. Go to ``settings``.
 2. To add a source, click ``New`` button and choose the source you want to add.
 3. To remove a source, click ``X`` button to delete.
-4. You can rank the model definition sources by moving their orders. If any conflict, the definition source that has a higher ranking is going to overwrite the one that has lower ranking.
+4. You can rank the model definition sources by moving their orders. If any conflict, the definition source that has a higher ranking is going to overwrite the ones that have lower rankings.
 
 ### Overview page
 #### Device overview
