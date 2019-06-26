@@ -18,7 +18,7 @@ In this article, we provide a quick walkthrough of Gremlin and enumerate the Gre
 
 The following table shows popular Gremlin drivers that you can use against Azure Cosmos DB:
 
-| Download | Documentation | Getting Started | Supported connector version |
+| Download | Source | Getting Started | Supported connector version |
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Create Graph using .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Create Graph using Java](create-graph-java.md) | 3.2.0+ |
