@@ -97,11 +97,11 @@ This tag denotes the address prefixes of the ServiceFabric service. If you speci
 This tag denotes the address prefixes of the AzureMachineLearning service. If you specify *AzureMachineLearning* for the value, traffic is allowed or denied to AzureMachineLearning. This tag is recommended for outbound security rule. 
 * **BatchNodeManagement*** (Resource Manager only): 
 This tag denotes the address prefixes of the management traffic for Azure Batch dedicated deployments. If you specify *BatchNodeManagement* for the value, traffic is allowed or denied from the Batch service to compute nodes. This tag is recommended for inbound/outbound security rule. 
-* **AzureBackup***(Resource Manager only):
+* **AzureBackup*** (Resource Manager only):
 This tag denotes the address prefixes of the AzureBackup service. If you specify *AzureBackup* for the value, traffic is allowed or denied to AzureBackup. This tag has dependency on the **Storage** and **AzureActiveDirectory** tag.This tag is recommended for outbound security rule. 
-* **AzureActiveDirectoryDomainServices***(Resource Manager only):
+* **AzureActiveDirectoryDomainServices*** (Resource Manager only):
 	This tag denotes the address prefixes of  the management traffic for Azure Active Directory Domain Services dedicated deployments. If you specify *AzureActiveDirectoryDomainServices* for the value, traffic is allowed or denied to AzureActiveDirectoryDomainServices. This tag is recommended for inbound/outbound security rule.  
-* **SqlManagement***(Resource Manager only):
+* **SqlManagement*** (Resource Manager only):
 This tag denotes the address prefixes of the management traffic for SQL dedicated deployments. If you specify *SqlManagement* for the value, traffic is allowed or denied to SqlManagement. This tag is recommended for inbound/outbound security rule. 
 
 > [!NOTE]
