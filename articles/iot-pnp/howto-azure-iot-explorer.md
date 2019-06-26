@@ -6,7 +6,7 @@ This article lists the steps of how to install and config Azure IoT explorer, an
 
 ## Prerequisites
 ### Azure IoT Hub
-You'll need to create a device identity in an Azure IoT Hub. If you don't have one, follow instructions [here](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node#create-an-iot-hub) to create one. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You'll need to an Azure IoT Hub. If you don't have one, follow instructions [here](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node#create-an-iot-hub) to create one. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ### Create a device identity in Azure IoT Hub
 1. Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
@@ -42,17 +42,15 @@ You can switch to another Azure IoT Hub at any time.
 1. Go to ``settings``.
 2. Replace with your new hub connection string.
 ####  Configure the model definition source
-For a plug and play device, its model definition can be stored at public repository, organizational repository, or the physical device itself. By default, the tool will look for your model definition from the public model repository. If you want to find definition from other places, you need to add it in the ``settings``. 
+For a plug and play device, its model definition can be stored at public repository, organizational repository, or the physical device itself. By default, the tool will look for your model definition from the public model repository. If you want to find definition from other places, you need to add it as a definition source in the ``settings``. 
 1. Go to ``settings``.
 2. To add a source, click ``New`` button and choose the source you want to add.
 3. To remove a source, click ``X`` button to delete.
-4. You can rank the model definition sources by moving their orders. If any conflict, the definition source that has a higher ranking is going to overwrite the one that has lower ranking.
+4. You can rank the model definition sources by moving their orders. If any conflict, the definition source that has a higher ranking is going to overwrite the ones that have lower rankings.
 
 ### Overview page
 #### Device overview
-1. Once conncected, you will land on an overview page, where you have a list of all your device identities that exist in your Azure IoT Hub. 
-2. Click on the device once to expand and see some details.
-3. To interact with one device, double click to go to the detailed pages.
+Once conncected, you will land on an overview page, where you have a list of all your device identities that exist in your Azure IoT Hub. You can click on the device once to expand and see some details.
 #### Device management
 1. Create a device. You can click the ``Add`` button to create a new device identity in your Azure IoT Hub. Provide a descriptive Device ID; Use the default settings to auto-generate authentication keys and enable the connection to your hub.
 2. Delete a device. You can choose a device then click ``Delete`` to delete an existing device identity in your Azure IoT Hub. Please carefully review the device details before you complete this action.
@@ -65,32 +63,34 @@ For a plug and play device, its model definition can be stored at public reposit
 ## Interact with a device
 Double-click a device from the overview page brings you to the next level of details. which includes 2 sections: Device and Digital Twin.
 
-### Device information
+### Device 
 This section includes ``Device Identity``, ``Telemetry`` and ``Device Twin``.
 1. After creating a device, you can view and update the device identity information under ``Device identity`` tab.
 2. If a device is connected and actively sending data, you can see them under the ``Telemetry`` tab.
 3. You can access the device twin in the tool under ``Device Twin`` tab.
 
 ### Digital Twin 
-This section shows you a digital twin instance of the device. For a plug and play device, all interfaces that associated with the device capability model will be displayed here. For each interface, you can click to expand its corresponding Plug and Play primitives. For more information of Plug and Play primitive definition, please go to the [Digital Twin Definition Language](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+This section shows you a digital twin instance of the device. For a plug and play device, all interfaces that associated with the device capability model will be displayed here. For each interface, click to expand its corresponding Plug and Play primitives (For more information of Plug and Play primitive definition, please go to the [Digital Twin Definition Language](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)).
 
-1. Expand one interface, go to ``Properties`` page to view the read-only properties.
+#### Properties
+1. Go to ``Properties`` page to view the read-only properties.
 2. To update a writable property, go to ``Writable properties``page.
-* Look for the property you'd like to update.
-* Fill the desired value for that property.
+* Click the property you'd like to update.
+* Fill in the desired value for that property.
 * Preview the payload that will be sent to the device once submit the changes.
 * Submit. Once you submit, you can track the update status - synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
-
 ![Img](img/.png)
 ![Img](img/.png)
- 
-3. To send a command to a device, go to ``Commands`` page. 
-* From the list of commands, find the command you want to triger and click to expand. 
-* Input the required value for this command.
-* Preview the payload that will be sent to the device once submit the changes.
-* Submit. Once you submit, you can track the update status - synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
 
-4. To view the telemetry page, go to ``Telemetry`` page.
+#### Commands
+To send a command to a device, go to ``Commands`` page. 
+1. From the list of commands, find the command you want to triger and click to expand. 
+2. Input the required value for this command.
+3. Preview the payload that will be sent to the device once submit the changes.
+4. Submit. 
+
+#### Telemetry
+To view the telemetry for the chosen interface, go to ``Telemetry`` page under this interface.
 ![Img](img/.png)
 
 ## Clean up resources 
@@ -101,11 +101,8 @@ If you plan to continue with later articles, you can keep these resources. Other
 1. To the right of your resource group, click `...` and select ``Delete resource group``.
 
 ## Next step
-
 In this quickstart, you've learned how to install and use Azure IoT explorer to interact with your device. 
 To learn about ``next article``, continue to the next article.
 
 > [!div class="nextstepaction"]
 > [article: X]()
-
-
