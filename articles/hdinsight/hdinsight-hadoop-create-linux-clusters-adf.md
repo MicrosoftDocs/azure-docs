@@ -37,7 +37,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Create preliminary Azure objects
 
-In this section, you create various objects that will be used for the HDInsight cluster you create on-demand. The created storage account will contain the sample [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (`hivescript.hql`) that you use to simulate a sample [Apache Hive](https://hive.apache.org/) job that runs on the cluster.
+In this section, you create various objects that will be used for the HDInsight cluster you create on-demand. The created storage account will contain the sample [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (`partitionweblogs.hql`) that you use to simulate a sample [Apache Hive](https://hive.apache.org/) job that runs on the cluster.
 
 This section uses an Azure PowerShell script to create the storage account and copy over the required files within the storage account. The Azure PowerShell sample script in this section performs the following tasks:
 
@@ -45,7 +45,7 @@ This section uses an Azure PowerShell script to create the storage account and c
 2. Creates an Azure resource group.
 3. Creates an Azure Storage account.
 4. Creates a Blob container in the storage account
-5. Copies the sample HiveQL script (**hivescript.hql**) the Blob container. The script is available at [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
+5. Copies the sample HiveQL script (**partitionweblogs.hql**) the Blob container. The script is available at [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
 
 > [!WARNING]  
 > Storage account kind `BlobStorage` cannot be used for HDInsight clusters.
@@ -151,7 +151,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 4. On the **Resources** tile, you see one resource listed unless you share the resource group with other projects. That resource is the storage account with the name you specified earlier. Select the storage account name.
 5. Select the **Blobs** tiles.
 6. Select the **adfgetstarted** container. You see a folder called **hivescripts**.
-7. Open the folder and make sure it contains the sample script file, **hivescript.hql**.
+7. Open the folder and make sure it contains the sample script file, **partitionweblogs.hql**.
 
 ## Understand the Azure Data Factory activity
 
@@ -286,11 +286,11 @@ In this section, you author two linked services within your data factory.
 
     1. For **Script Linked Service**, select **HDIStorageLinkedService** from the drop-down list. This value is the storage linked service you created earlier.
 
-    1. For **File Path**, select **Browse Storage** and navigate to the location where the sample Hive script is available. If you ran the PowerShell script earlier, this location should be `adfgetstarted/hivescripts/hivescript.hql`.
+    1. For **File Path**, select **Browse Storage** and navigate to the location where the sample Hive script is available. If you ran the PowerShell script earlier, this location should be `adfgetstarted/hivescripts/partitionweblogs.hql`.
 
         ![Provide Hive script details for the pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Provide Hive script details for the pipeline")
 
-    1. Under **Advanced** > **Parameters**, select **Auto-fill from script**. This option looks for any parameters in the Hive script that require values at runtime. The script you use (**hivescript.hql**) has an **Output** parameter. Provide the **value** in the format `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` to point to an existing folder on your Azure Storage. The path is case-sensitive. This is the path where the output of the script will be stored.
+    1. Under **Advanced** > **Parameters**, select **Auto-fill from script**. This option looks for any parameters in the Hive script that require values at runtime. The script you use (**partitionweblogs.hql**) has an **Output** parameter. Provide the **value** in the format `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` to point to an existing folder on your Azure Storage. The path is case-sensitive. This is the path where the output of the script will be stored.
     
         ![Provide parameters for the Hive script](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Provide parameters for the Hive script")
 
