@@ -86,7 +86,7 @@
       href: How-To/edit-knowledge-base.md    
     - name: Create multi-turn conversations with follow-up prompts
       href: How-To/multiturn-conversation.md
-      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question, promptsToAdd, promptsToDelete
+      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Add chit-chat 
       href: How-to/chit-chat-knowledge-base.md
     - name: Add a secured Sharepoint file
