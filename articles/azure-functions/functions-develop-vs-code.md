@@ -9,6 +9,7 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: glenga
+#Customer intent: As an Azure Functions developer, I want understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my functions projects.
 ---
 
 # Develop Azure Functions using Visual Studio Code
