@@ -47,6 +47,26 @@ The code in this how-to can be run in either of the following environments:
 
 To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to track its metrics and performance. You can launch TensorBoard from the run history of any experiment regardless of the framework or environment it was created. 
 
+### Start and stop TensorBoard 
+
+You can launch TensorBoard during your run or after it has completed. In this example, we create a TensorBoard object instance, `tb`, that takes the experiment run history in the `logdir` directory, and then launch TensorBoard with the `start()` method,  
+
+The [TensorBoard constructor](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) takes an array of runs, so be sure and pass it in as a single-element array.
+
+```python
+from azureml.tensorboard import Tensorboard
+
+tb = Tensorboard([], local_root=logdir, port=6006)
+
+# If successful, start() returns a string with the URI of the instance.
+tb.start()
+
+# After your job completes, be sure to stop() the streaming otherwise it will continue to run. 
+tb.stop()
+```
+
+## Export and convert run histories
+
 The following code sets up an experiment, begins the logging process using the Azure Machine Learning run history APIs, and exports the experiment logs and run history to TensorBoard for visualizing. 
 
 ### Set up experiment
@@ -74,7 +94,9 @@ data = {
     "test":{"x":x_test, "y":y_test}
 }
 ```
+
 ### Create experiment and start logging
+
 ```python
 from tqdm import tqdm
 alphas = [.1, .2, .3, .4, .5, .6 , .7]
@@ -96,6 +118,10 @@ for alpha in tqdm(alphas):
 ```
 
 ### Export runs to TensorBoard
+
+Experiments created using deep learning frameworks such as PyTorch, TensorFlow or Keras, output run histories that are consumable in TensorBoard. This means we don't have to go through a conversion step in order to view them with TensorBoard.
+
+With the SDK's [export_to_tensorboard()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) method, experiments created with other frameworks like scikit learn or Azure machine learning it's possible to export those run histories and view them via TensorBoard.  
 
 In the following code, we create the folder `logdir` in our current working directory. This folder is where we will export our experiment run history and logs from `root_run` and then mark that run as completed. 
 
@@ -119,35 +145,6 @@ root_run.complete()
 
 >[!Note]
  You can also export a particular run to TensorBoard by specifying the name of the run  `export_to_tensorboard(run_name, logdir)`
-
-### Start and stop TensorBoard 
-You can launch TensorBoard during your run or after it has completed. In this example, we create a TensorBoard object instance, `tb`, that takes the experiment run history in the `logdir` directory, and then launch TensorBoard with the `start()` method,  
-
-The [TensorBoard constructor](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) takes an array of runs, so be sure and pass it in as a single-element array.
-
-```python
-from azureml.tensorboard import Tensorboard
-
-tb = Tensorboard([], local_root=logdir, port=6006)
-
-# If successful, start() returns a string with the URI of the instance.
-tb.start()
-
-# After your job completes, be sure to stop() the streaming otherwise it will continue to run. 
-tb.stop()
-```
-
-## Export and convert run histories
-
-Experiments created using deep learning frameworks such as PyTorch, TensorFlow or Keras, output run histories that are consumable in TensorBoard. This means we don't have to go through a conversion step in order to view them with TensorBoard.
-
-With the SDK's [export_to_tensorboard()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) method, experiments created with other frameworks like scikit learn or Azure machine learning it's possible to export those run histories and view them via TensorBoard. 
-
-The following example takes a scikit learn model and exports the run histories into TensorBoard.
-
-### Compare experiment runs
-
-Add each run to the array so TensorBoard proceses its as a single process. 
 
 ## Example notebooks
 
