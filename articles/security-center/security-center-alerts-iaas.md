@@ -19,31 +19,44 @@ ms.author: monhaber
 ---
 # IaaS VM and server alerts
 
-## Windows 
+## Windows-based machines
 
-### Integration with Microsoft Server Defender ATP 
+This topics presents the different types of detections available for VMs and Servers using the Windows operating system. See here for a list of supported versions.
 
-The section that follows will cover in more details the categories of detections available for VMs and Servers using supported versions of Windows operating system.  
+Azure Security Center extends its Cloud Workload Protection Platforms by integrating with Windows Defender Advanced Threat Protection (ATP). This provides comprehensive Endpoint Detection and Response (EDR) capabilities.
 
-Azure Security Center is extending its Cloud Workload Protection Platforms offering by integrating with Windows Defender Advanced Threat Protection (ATP). This change brings comprehensive Endpoint Detection and Response (EDR) capabilities. With Windows Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Azure Security Center. 
+With Windows Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Azure Security Center.
 
-Windows Server Defender ATP sensor is automatically enabled on Windows Servers that are onboarded to Azure Security Center. When Windows Server Defender ATP detects a threat, it will trigger an alert that can be access from Security Center dashboard. From there you can pivot to Windows Defender ATP console to perform detailed investigation to uncover scope of the attack. For more information about Windows Server Defender ATP read Onboard servers to the Windows Defender ATP service. 
+> [!NOTE]
+> Windows Server Defender ATP sensor is automatically enabled on Windows Servers that are onboarded to Azure Security Center.
+
+When Windows Server Defender ATP detects a threat, it triggers an alert. The alert is shown on the Security Center dashboard. From the dashboard, you can pivot to the Windows Defender ATP console to perform a detailed investigation to uncover scope of the attack. For more information about Windows Server Defender ATP, see [Onboard servers to the Windows Defender ATP service](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 In addition to Microsoft Server Defender ATP, Security Center also offers: 
 
-### Crash Dump Analysis 
+### Crash Dump Analysis
 
-When software crashes, a crash dump captures a portion of memory at the time of the crash. The crash may be caused by malware or contain malware. Various forms of malware try to use fileless attack to reduce the chance of being detected by security products.  This type of malware will avoid writing to disk or encrypt software components written to disk. This technique makes the malware difficult to detect by using traditional disk-based approaches.  
+When software crashes, a crash dump captures a portion of memory at the time of the crash.
 
-However, this kind of malware can be detected by using memory analysis. By analyzing the memory in the crash dump, Security Center can detect techniques used to exploit vulnerabilities in software, access confidential data and surreptitiously persist within a compromised machine. This is accomplished with minimum performance impact to hosts as the analysis is performed by the Security Center back end. 
+A crash may have been caused by malware or contain malware. To avoid being detected by security products, various forms of malware use a fileless attack which avoids writing to disk or encrypting software components written to disk. This type of attack is difficult to detect by using traditional disk-based approaches.
+
+However, this kind of attack can be detected by using memory analysis. By analyzing the memory in the crash dump, Security Center can detect the techniques the attack is using to exploit vulnerabilities in the software, access confidential data, and surreptitiously persist within a compromised machine. This is done by the Security Center back end with minimum performance impact to hosts.
 
 Several examples below: 
 
 ### Fileless Attack Detection 
 
-As the security solutions get better at detecting attacks, attackers are increasingly employing stealthier methods to avoid detection. In Azure, we regularly see fileless attacks targeting our customers’ endpoints. To avoid detection, fileless attacks inject malicious payloads into memory. Attacker payloads persist within the memory of compromised processes and perform a wide range of malicious activities. With Fileless Attack Detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime and extracts insights directly from the memory of security-critical processes. It finds evidence of exploitation, code injection and execution of malicious payloads. Fileless Attack Detection generates detailed security alerts to accelerate alert triage, correlation, and downstream response time. This approach complements event based EDR solutions providing greater detection coverage. An example below: 
 
-Note: You can simulate Windows alerts by download [Azure Security Center Playbook](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Security Alerts and follow the provided guidelines.  
+In Azure, we regularly see fileless attacks targeting our customers’ endpoints.
+
+To avoid detection, fileless attacks inject malicious payloads into memory. Attacker payloads persist within the memory of compromised processes and perform a wide range of malicious activities.
+
+With Fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime and extracts insights directly from the memory of security-critical processes.
+
+It finds evidence of exploitation, code injection, and execution of malicious payloads. Fileless Attack Detection generates detailed security alerts to accelerate alert triage, correlation, and downstream response time. This approach complements event based EDR solutions providing greater detection coverage.
+
+> [!NOTE]
+> You can simulate Windows alerts by download [Azure Security Center Playbook](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Security Alerts and follow the provided guidelines.  
 
 
 ### For additional read on Security Center findings and examples:
@@ -52,11 +65,13 @@ Note: You can simulate Windows alerts by download [Azure Security Center Playboo
 
 [How Azure Security Center detects vulnerabilities using administrative tools](https://azure.microsoft.com/en-us/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
- 
+## Linux-based machines
 
-## Linux 
+Security Center collects audit records from Linux machines using auditd, one of the most common Linux auditing frameworks. auditd has the advantage of having been around for a long time and living in the mainline kernel. 
 
-Security Center collects audit records from Linux machines using auditd, one of the most common Linux auditing frameworks. auditd has the advantage of having been around for a long time and living in the mainline kernel. The auditd system consists of a kernel-level subsystem which is responsible for monitoring system calls, filtering them by given rule set, and writing match messages to a socket. Security Center implemented functionalities from auditd package within the Microsoft Monitoring Agent (MMA) to enable auditd events collection in all supported Linux distributions without any prerequisites.  
+### Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration
+
+The auditd system consists of a kernel-level subsystem which is responsible for monitoring system calls, filtering them by given rule set, and writing match messages to a socket. Security Center implemented functionalities from auditd package within the Microsoft Monitoring Agent (MMA) to enable auditd events collection in all supported Linux distributions without any prerequisites.  
 
 auditd records are collected, enriched and aggregated into events using the Linux MMA agent. Security Center has applied, and constantly working on adding new analytics, that leverage Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics spans across suspicious processes, dubious login attempts, kernel module loading and other activities that could indicate that a machine is under attack or has been breached.  
 
@@ -80,8 +95,8 @@ Below are several examples of analytics, that demonstrate how we spans across di
 
 For additional read on Security Center findings and examples:  
 
-Leverage Azure Security Center to detect when compromised Linux machines attack. 
+* [Leverage Azure Security Center to detect when compromised Linux machines attack](https://azure.microsoft.com/en-us/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
 
-Azure Security Center can detect emerging vulnerabilities in Linux 
+* [Azure Security Center can detect emerging vulnerabilities in Linux](https://azure.microsoft.com/en-us/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
  
