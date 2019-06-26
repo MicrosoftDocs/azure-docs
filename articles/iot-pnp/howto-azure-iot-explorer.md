@@ -21,13 +21,6 @@ You'll need to create a device identity in an Azure IoT Hub. If you don't have o
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
 ```
 
-3. Run the following command to retrieve your device connection string. ``YourIoTHubName`` and ``Mydevice`` in the command are placeholders and you need to replace them with your actual name and ID.
-
-```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
-```
-4. Make a note of your device connection string. It will look like `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`. We will need this connection string in the later steps.
-
 ## Install Azure IoT explorer
 ### Windows/Linx
 1. Go to [Link](), install the latest version by double click ``Azure.IoT.Explorer.Setup.**.exe`` (``**`` refers to the latest version number, e.g. 0.8.2)
@@ -36,14 +29,24 @@ You'll need to create a device identity in an Azure IoT Hub. If you don't have o
 1. Go to [Link](), install the latest version using ``Azure.IoT.Explorer.Setup.**.dmg`` (``**`` refers to the latest version number, e.g. 0.8.2)
 
 ## Use Azure IoT explorer
-In this article we are going to use Azure IoT explorer to interact with a simulated device. Follow the instructions [here]() to run the device. 
+In this article, we are going to use Azure IoT explorer to interact with a simulated device. Follow the instructions [here]() to run the device. 
 
 ### Connect
 #### First time connect
 1. Open Azure IoT explorer. Fill in the Azure IoT Hub connection string, and click ``Connect``. 
 > [!NOTE]
-> By default, the tool will look for your model definition from the Public Model Repository. If you want to configure the model definition resources, please go to settings once you connect.
+> By default, the tool will look for your model definition from the public model repository. If you want to configure the model definition resources, please go to settings once you connect.
 2. To switch to another IoT Hub or config model definition sources, please go to the settings.
+#### Switch to another hub
+You can switch to another Azure IoT Hub at any time. 
+1. Go to ``settings``.
+2. Replace with your new hub connection string.
+####  Configure the model definition source
+For a plug and play device, its model definition can be stored at public repository, organizational repository, or the physical device itself. By default, the tool will look for your model definition from the public model repository. If you want to find definition from other places, you need to add it in the ``settings``. 
+1. Go to ``settings``.
+2. To add a source, click ``New`` button and choose the source you want to add.
+3. To remove a source, click ``X`` button to delete.
+4. You can rank the model definition sources by moving their orders. If any conflict, the definition source that has a higher ranking is going to overwrite the one that has lower ranking.
 
 ### Overview page
 #### Device overview
@@ -76,7 +79,7 @@ This section shows you a digital twin instance of the device. For a plug and pla
 * Look for the property you'd like to update.
 * Fill the desired value for that property.
 * Preview the payload that will be sent to the device once submit the changes.
-* Submit. Once you submit, you can track the update status - Synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
+* Submit. Once you submit, you can track the update status - synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
 
 ![Img](img/.png)
 ![Img](img/.png)
@@ -85,11 +88,24 @@ This section shows you a digital twin instance of the device. For a plug and pla
 * From the list of commands, find the command you want to triger and click to expand. 
 * Input the required value for this command.
 * Preview the payload that will be sent to the device once submit the changes.
-* Submit. Once you submit, you can track the update status - Synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
+* Submit. Once you submit, you can track the update status - synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
 
 4. To view the telemetry page, go to ``Telemetry`` page.
 ![Img](img/.png)
 
+## Clean up resources 
+If you plan to continue with later articles, you can keep these resources. Otherwise you can delete the resource you've created for this quickstart to avoid additional charges.
 
+1. Log into the [Azure Portal](https://portal.azure.com).
+1. Go to Resource Groups and type your resource group name that contains your hub in ``Filter by name`` textbox.
+1. To the right of your resource group, click `...` and select ``Delete resource group``.
+
+## Next step
+
+In this quickstart, you've learned how to install and use Azure IoT explorer to interact with your device. 
+To learn about ``next article``, continue to the next article.
+
+> [!div class="nextstepaction"]
+> [article: X]()
 
 
