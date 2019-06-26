@@ -25,13 +25,13 @@ This article describes common problems that can occur when you configure *passwo
 
 ## Capture sign-in fields for an app
 
-Sign-in field capture is only supported for HTML-enabled sign-in pages. It's not supported for non-standard sign-in pages, like those that use Adobe Flash or other non-HTML-enabled technologies.
+Sign-in field capture is supported only for HTML-enabled sign-in pages. It's not supported for non-standard sign-in pages, like those that use Adobe Flash or other non-HTML-enabled technologies.
 
 There are two ways to capture sign-in fields for your custom apps:
 
 - **Automatic sign-in field capture** works well with most HTML-enabled sign-in pages, *if they use well-known DIV IDs* for the user name and password fields. The HTML on the page is scraped to find DIV IDs that match certain criteria. That metadata is saved so that it can be replayed to the app later.
 
-- **Manual sign-in field capture** is used if the app vendor *doesn't label the sign-in input fields*. Manual capture is also used if the vendor *renders multiple fields that can't be auto-detected*. Azure AD can store data for as many fields as there are on the sign-in page, if you tell it where those fields are on the page.
+- **Manual sign-in field capture** is used if the app vendor *doesn't label the sign-in input fields*. Manual capture is also used if the vendor *renders multiple fields that can't be auto-detected*. Azure Active Directory (Azure AD) can store data for as many fields as there are on the sign-in page, if you tell it where those fields are on the page.
 
 In general, if automatic sign-in field capture doesn't work, try the manual option.
 
