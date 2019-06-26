@@ -373,8 +373,6 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 
 ## Next steps
 
-* [Manage the life cycle of Dataset definitions](how-to-manage-dataset-definitions.md).
-
 * See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example.
 
 * See the SDK [overview](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) for design patterns and usage examples.
