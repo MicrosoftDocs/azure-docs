@@ -31,11 +31,11 @@ Here are some examples of what you can achieve with Azure Custom Resource Provid
 - Enable custom scenarios on top of existing Azure workflows.
 - Customize Azure Resource Manager Templates control and effect.
 
-## How to build custom resource providers
-
-Azure Custom Resource Providers are made by creating a contract between Azure and an endpoint. This contract defines a list of new resources and actions through a new resource, **Microsoft.CustomProviders/resourceProviders**. The custom resource provider will then expose these new APIs in Azure. Azure Custom Resource Providers are composed of three different parts: **resourceProviders**, **endpoints**, and **customResources**.
-
 ## What is a custom resource provider
+
+Azure Custom Resource Providers are made by creating a contract between Azure and an endpoint. This contract defines a list of new resources and actions through a new resource, **Microsoft.CustomProviders/resourceProviders**. The custom resource provider will then expose these new APIs in Azure. Azure Custom Resource Providers are composed of three parts: custom resource provider, **endpoints**, and custom resources.
+
+## How to build custom resource providers
 
 Custom Resource Providers are a list of contracts between Azure and endpoints and describe how Azure should interact with an endpoint. The resource provider acts like a proxy and will forward requests and responses to and from the specified **endpoint**. A resource provider can specify two types of contracts: [**resourceTypes**](./custom-providers-resources-endpoint-how-to.md) and [**actions**](./custom-providers-action-endpoint-how-to.md). These are enabled through endpoint definitions. An endpoint definition is comprised of three fields: **name**, **routingType**, and **endpoint**.
 
@@ -85,7 +85,7 @@ DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>
 GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | The Azure REST API call to retrieve an existing resource.
 GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources?api-version=2018-09-01-preview | The Azure REST API call to retrieve the list of existing resources.
 
-## Building custom actions
+### Building custom actions
 
 **Actions** describe new actions that are added to Azure. These can be exposed on top of the resource provider or nested under a **resourceType**. [Learn more about creating custom resources](./custom-providers-action-endpoint-how-to.md)
 
