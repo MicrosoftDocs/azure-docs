@@ -32,7 +32,7 @@ To enable multi-master in your application, set `ApplicationRegion` to the regio
 
 ```csharp
 CosmosClient cosmosClient = new CosmosClient(
-    "connection-string-from-portal", 
+    "<connection-string-from-portal>", 
     new CosmosClientOptions()
     {
         ApplicationRegion = Regions.WestUS2,
@@ -42,7 +42,7 @@ CosmosClient cosmosClient = new CosmosClient(
 Optionally, you can use the `CosmosClientBuilder` and `WithApplicationRegion` to achieve the same result:
 
 ```csharp
-CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("connection-string-from-portal")
+CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-string-from-portal>")
             .WithApplicationRegion(Regions.WestUS2);
 CosmosClient client = cosmosClientBuilder.Build();
 ```
