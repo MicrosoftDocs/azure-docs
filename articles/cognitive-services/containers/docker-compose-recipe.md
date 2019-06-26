@@ -36,7 +36,7 @@ This procedure requires several tools that must be installed and run locally.
 
 ## Request access to the container registry
 
-You must fill-out and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. 
+Complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/) to request access to the container. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -51,17 +51,12 @@ version: '3.7'
 services:
   forms:
     image: "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
-    deploy:
-      resources:
-        reservations:
-          cpus: "2"
-          memory: 4g
     environment:
        eula: accept
-       billing: #< Your form recognizer billing URL >
-       apikey: #< Your form recognizer API key >
-       FormRecognizer__ComputerVisionApiKey: #< Your form recognizer API key >
-       FormRecognizer__ComputerVisionEndpointUri: #< Your form recognizer URI >
+       billing: # < Your form recognizer billing URL >
+       apikey: # < Your form recognizer API key >
+       FormRecognizer__ComputerVisionApiKey: # < Your form recognizer API key >
+       FormRecognizer__ComputerVisionEndpointUri: # < Your form recognizer URI >
     volumes:
        - type: bind
          source: e:\publicpreview\output
@@ -74,15 +69,10 @@ services:
 
   ocr:
     image: "containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text"
-    deploy:
-      resources:
-        reservations:
-          cpus: "1"
-          memory: 8g
     environment:
       eula: accept
-      apikey: #< Your recognize text API key >
-      billing: #< Your recognize text billing URL >
+      apikey: # < Your recognize text API key >
+      billing: # < Your recognize text billing URL >
     ports:
       - "5021:5000"
 ```
@@ -180,13 +170,13 @@ IMAGE ID            REPOSITORY                                                  
 
 ### Test the recognize text container
 
-Open a browser on the host machine and navigate to `localhost` with the specified port from the *docker-compose.yaml* e.g. http://localhost:5021/swagger/index.html. You can use the Try it feature of the API to test the recognize text endpoint.
+Open a browser on the host machine and navigate to `localhost` with the specified port from the *docker-compose.yaml, for example, http://localhost:5021/swagger/index.html. You can use the Try it feature of the API to test the recognize text endpoint.
 
 ![Recognize Text Swagger](media/recognize-text-swagger-page.png)
 
 ### Test the form recognizer container
 
-Open a browser on the host machine and navigate to `localhost` with the specified port from the *docker-compose.yaml* e.g. http://localhost:5010/swagger/index.html. You can use the Try it feature of the API to test the form recognizer endpoint.
+Open a browser on the host machine and navigate to `localhost` with the specified port from the *docker-compose.yaml, for example, http://localhost:5010/swagger/index.html. You can use the Try it feature of the API to test the form recognizer endpoint.
 
 ![Form Recognizer Swagger](media/form-recognizer-swagger-page.png)
 
