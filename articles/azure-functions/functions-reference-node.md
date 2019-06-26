@@ -48,7 +48,7 @@ FunctionsProject
 
 At the root of the project, there's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.js) and binding configuration file (function.json). The name of `function.json`'s parent directory is always the name of your function.
 
-The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). When developing functions in the Azure portal, this registration is done for you.
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
 
 ## Exporting a function
 
@@ -417,7 +417,7 @@ The following table shows the Node.js version used by each major version of the 
 | Functions version | Node.js version | 
 |---|---|
 | 1.x | 6.11.2 (locked by the runtime) |
-| 2.x  | _Active LTS_ and even-numbered _Current_ Node.js versions (8.11.1 and 10.14.1 recommended). Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Active LTS_ and _Maintenence LTS_ Node.js versions (8.11.1 and 10.14.1 recommended). Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 You can see the current version that the runtime is using by checking the above app setting or by printing `process.version` from any function.
 
