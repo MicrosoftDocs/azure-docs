@@ -19,10 +19,10 @@ You can use the [Azure Migrate service](migrate-overview.md) to assess and migra
 
 The table summarizes supported scenarios for VMware VMs.
 
-**Deployment** | **Details*** 
+**Deployment** | **Details** 
 --- | --- 
 **Assess on-premises VMware VMs** | [Set up](tutorial-prepare-vmware.md) your first assessment.<br/><br/> [Run](scale-vmware-assessment.md) a large-scale assessment.
-**Migrate VMware VMs** **| You can migrate using agentless migration, with some limitations, or use an agent-based migration. [Learn more](server-migrate-overview.md)
+**Migrate VMware VMs** | You can migrate using agentless migration, with some limitations, or use an agent-based migration. [Learn more](server-migrate-overview.md)
 
 
     
@@ -78,16 +78,15 @@ The Azure Migrate appliance needs internet connectivity to the internet.
 - If you're using a URL-based firewall.proxy, allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
 
 **URL** | **Details**  
---- | --- 
-*.portal.azure.com | Navigate to the Azure Migrate in the Azure portal.
+--- | --- |
+*.portal.azure.com  Navigate to the Azure Migrate in the Azure portal.
 *.windows.net | Log into your Azure subscription.
 *.microsoftonline.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com | 
-*.migration.windowsazure.com | *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
+*.discoverysrv.windowsazure.com<br/> *.migration.windowsazure.com<br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
 
 
@@ -125,7 +124,7 @@ Virtual Machine.Interaction.Power Off | Allow the VM to be powered off during mi
 
 **Support** | **Details**
 --- | ---
-**Supported operating system** | ll [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure can be migrated using agentless migration.
+**Supported operating systems** | [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure can be migrated using agentless migration.
 **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Azure Migrate makes these changes automatically for the following operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7,8<br/><br/> For other operating systems, you need to make adjustments manually before migration. The relevant articles contain instructions about how to do this.
 **Linux boot** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the ‘/’ partition should be on the OS disk, and not span other disks.
 **UEFI boot** | VMs with UEFI boot aren't supported for migration.
@@ -160,8 +159,7 @@ management.azure.com | Create Active Directory apps for the appliance to communi
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com | 
-*.migration.windowsazure.com | *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
+*.discoverysrv.windowsazure.com<br/> *.migration.windowsazure.com<br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
 
 
@@ -180,7 +178,7 @@ This table summarizes assessment support and limitations for VMware virtualizati
 
 **Support** | **Details**
 --- | ---
-**vCenter server/ESXI** | VMware VMs you migrate using an agentless migration must be managed by one or more vCenter Servers running 5.5, 6.0, 6.5, or 6.7, or running on an ESXI host with vSphere version 5.5, 6.0, 6.5 or 6.7.
+**vCenter server/ESXI** | VMware VMs you migrate must be managed by one or more vCenter Servers running 5.5, 6.0, 6.5, or 6.7, or running on an ESXI host with vSphere version 5.5, 6.0, 6.5 or 6.7.
 
 ### Agent-based migration-vCenter Server permissions
 
@@ -244,15 +242,14 @@ management.azure.com | Create Active Directory apps for the appliance to communi
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com | 
-*.migration.windowsazure.com | *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
+*.discoverysrv.windowsazure.com<br/>*.migration.windowsazure.com>br/>*.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
 
 ## Agent-based migration-port requirements
 
 **Device** | **Connection**
 --- | --- 
-VMs | The Mobility service running on VMs communicates with the on-premises configuration server on port HTTPS 443 inbound, for replication management.<br/> VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
+VMs | The Mobility service running on VMs communicates with the on-premises configuration server on port HTTPS 443 inbound, for replication management.<br/><br/> VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
 Configuration server | The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
 Process server | The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
 
