@@ -23,7 +23,7 @@ The following guidelines describe how the partitioning strategy in Azure Cosmos 
 
 - **Both vertices and edges are stored as JSON documents**.
 
-- **Vertices require a partition key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The name of this partition key is a single-word string without spaces or special characters. The partition key is defined when creating a new container and it has a format: `/partitioning-key-name`.
+- **Vertices require a partition key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The partition key property name is defined when creating a new container and it has a format: `/partitioning-key-name`.
 
 - **Edges will be stored with their source vertex**. In other words, for each vertex its partition key defines where they are stored along with its outgoing edges. This optimization is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
 
