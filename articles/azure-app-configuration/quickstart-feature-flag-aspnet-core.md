@@ -82,12 +82,10 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 ## Connect to an App Configuration store
 
-1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` and `Microsoft.FeatureManagement` NuGet packages by running the following commands:
+1. Add reference to the `Microsoft.AzureAppConfiguration.AspNetCore` NuGet package by running the following command:
 
     ```
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008920001-990
-
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.AzureAppConfiguration.AspNetCore --version 2.0.0-preview-009080001-1053
     ```
 
 1. Run the following command to restore packages for your project:
@@ -144,6 +142,16 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddFeatureManagement();
+    }
+    ```
+
+1. Update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
     }
     ```
 

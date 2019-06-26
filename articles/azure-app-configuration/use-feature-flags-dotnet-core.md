@@ -84,7 +84,9 @@ public class Startup
 
 We recommend that you keep feature flags outside the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes take effect in the application right away. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI. App Configuration also delivers the flags to your application directly through its .NET Core client libraries.
 
-The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. To use this NuGet package, add the following code to the *Program.cs* file:
+The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.AzureAppConfiguration.AspNetCore`. Follwo these steps to use this NuGet package.
+
+1. Open *Program.cs* file and add the following code.
 
 ```csharp
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -101,13 +103,23 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
            .UseStartup<Startup>();
 ```
 
-Feature flag values are expected to change over time. By default, the feature manager refreshes feature flag values every 30 seconds. The following code shows how to change the polling interval to 5 seconds in the `options.UseFeatureFlags()` call:
+2. Open *Startup.cs* and update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    app.UseAzureAppConfiguration();
+    app.UseMvc();
+}
+```
+
+Feature flag values are expected to change over time. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expiures. The following code shows how to change the cache expiration time to 5 minutes in the `options.UseFeatureFlags()` call.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
+                featureFlagOptions.CacheExpirationTime = TimeSpan.FromMinutes(5);
            });
 });
 ```
