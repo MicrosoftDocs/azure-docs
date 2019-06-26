@@ -107,9 +107,9 @@ In a zone outage, the nodes can be rebalanced manually or using the cluster au
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the `--node-zones` parameter defines which zones agent nodes are deployed into. The AKS control plane components, such as *etcd*, are also made zone redundant when you define availability zones for the agent nodes when you create the cluster. You can't define which zones the control plane components are deployed into, only the agent nodes.
+When you create a cluster using the [az aks create][az-aks-create] command, the `--node-zones` parameter defines which zones agent nodes are deployed into. The AKS control plane components, such as *etcd* pods, are also made zone redundant when you define availability zones for the agent nodes when you create the cluster. You can't define which zones the *etcd* pods are deployed into, only the agent nodes.
 
-If you don't define any zones for the default agent pool when you create an AKS cluster, the control plane components also won't use availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--node-zones` for those new agent nodes, however the control plane components remain without availability zone awareness. You can't change the zone-awareness for a node pool or the control plane components once they're deployed.
+If you don't define any zones for the default agent pool when you create an AKS cluster, the control plane components also won't use availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--node-zones` for those new agent nodes, however the control plane components remain without availability zone awareness. You can't change the zone awareness for a node pool or the control plane components once they're deployed.
 
 The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*. The control plane components are also distributed across availability zones.
 
