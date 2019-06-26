@@ -9,11 +9,11 @@ ms.date: 06/24/2019
 ms.author: raynew
 ---
 
-# Assess VMware VMs for migration
+# Assess VMware VMs with Azure Migrate Server Assessment
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises VMware VMs before migration. 
 
-This tutorial is the second in a series that shows you how to assess and migrate VMware VMs to Azure using [Azure Migrate](migrate-services-overview.md) server assessment and migration. You should complete the [first tutorial](tutorial-prepare-vmware.md) before you begin this one.
+This tutorial is the second in a series that shows you how to assess and migrate VMware VMs to Azure using [Azure Migrate](migrate-services-overview.md) server assessment and migration. 
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -179,14 +179,14 @@ Now connect to the vCenter Server and start discovery.
 
 It takes around 15 minutes for metadata of discovered VMs to appear in the portal. After setting up the appliance, it continuously discovers configuration changes such as adding and removing VMs, disks, or network adapters, and sends VM metadata and performance data to Azure Migrate.
 
-## Verify VMs in the portal
+### Verify VMs in the portal
 
 After discovery you can verify that the VMs appear in the Azure portal, as follows:
 
 1. Open the Azure Migrate dashboard
 2. In the **Server Assessment Service** page, click the icon that displays the count for the discovered machines. 
 
-## About assessments
+## Set up an assessment
 
 ### Assessment types
 
@@ -209,9 +209,9 @@ For example if you have an on-premises VM with four cores at 20% utilization, an
 
 
 
-## Assessment best practices
+### Assessment best practices
 
-The Azure Migrate appliance continuously sends metadata and performance data. Follow these best practices for creating assessments:
+The Azure Migrate appliance continuously profiles your on-premises environment, and sends metadata and performance data to Azure. Follow these best practices for creating assessments:
 
 - **Create as-is assessments**: You can create as-is assessments immediately after discovery.
 - **Create performance-based assessment**: After setting up discovery, we recommend that you wait at least a day before running a performance-based assessment:
@@ -230,7 +230,7 @@ The Azure Migrate appliance continuously sends metadata and performance data. Fo
     - [Learn more](concepts-assessment-calculation.md) about how sizing works.
 
 
-## Create an assessment
+### Create an assessment
 
 Create a group of VMs, and run an assessment as follows:
 

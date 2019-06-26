@@ -119,7 +119,7 @@ Before setting up the Azure Migrate appliance and beginning assessment in the ne
 
 1. Verify [Verify](migrate-support-matrix-vmware.md#assessment-appliance-requirements) requirements for setting up the Azure Migrate appliance in VMware.
 2. [Review](migrate-support-matrix-vmware.md#assessment-url-access-requirements) the Azure URLs that the appliance will need to access.
-3. [Review](migrate-support-matrix-vmware.md#assessment-appliance-collected-data) the data that the appliance will collect during discovery and assessment.
+3. Review the data that the appliance will collect during discovery and assessment.
 4. [Note](migrate-support-matrix-vmware.md#assessment-port-requirements) port access requirements for the appliance.
 5. You deploy the Azure Migrate appliance as a VMware VM using an OVA file. On vCenter Server, make sure that your account has permissions to create a VM using an OVA file.
 

@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/19/2019
+ms.date: 06/26/2019
 ms.author: raynew
 ms.custom: mvc
 ---
 
-# Assess Hyper-V VMs for migration
+# Assess Hyper-V VMs with Azure Migrate Server Assessment
 
 As you move on-premises resources to the cloud, [Azure Migrate](migrate-overview.md) helps you to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises Hyper-V VMs before migrating them to Azure.
 
-This tutorial is the second in a series that shows you how to assess and migrate Hyper-V VMs to Azure. You should complete the [first tutorial](tutorial-prepare-hyper-v.md) before you begin this one.
+This tutorial is the second in a series that shows you how to assess and migrate Hyper-V VMs to Azure. 
 
 In this tutorial, you learn how to:
 
@@ -129,7 +129,7 @@ Import the downloaded file to the Hyper-V host, and create a VM from it.
 
 Ensure that the appliance VM has internet connectivity to [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
 
-## Configure the appliance
+### Configure the appliance
 
 Set up the appliance for the first time.
 
@@ -156,7 +156,7 @@ Set up the appliance for the first time.
 6. Click **Register**.
 
 
-## Delegate credentials for SMB VHDs
+### Delegate credentials for SMB VHDs
 
 If you're running VHDs on SMBs, you need to enable delegation of credentials from the appliance to the Hyper-V hosts you want to discover. If you didn't [do this in the previous tutorial](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), you can do this now from the appliance, as follows:
 
@@ -198,7 +198,7 @@ After discovery finishes, you can verify that the VMs appear in the portal.
 1. Open the Azure Migrate dashboard
 2. In the **Server Assessment Service** page, click the icon that displays the count for the discovered machines. 
 
-## About assessments
+## Set up an assessment
 
 ### Assessment types
 
@@ -221,17 +221,26 @@ For example if you have an on-premises VM with four cores at 20% utilization, an
 
 ### Creating assessments
 
-Assessments are a point-in-time snapshot of data available in Azure Migrate. 
+The Azure Migrate appliance continuously profiles your on-premises environment, and sends metadata and performance data to Azure. Follow these best practices for creating assessments:
 
-- The appliance continuously profiles the on-premises environment and sends metadata.
-- You can create as-is assessments immediately after discovery.
-- For performance assessments, we recommend that you wait at least a day after discovery:
+- **Create as-is assessments**: You can create as-is assessments immediately after discovery.
+- **Create performance-based assessment**: After setting up discovery, we recommend that you wait at least a day before running a performance-based assessment:
     - Collecting performance data takes time. Waiting at least a day ensures that there are enough performance data points before you run the assessment.
     - For performance data, the appliance collects real-time data points every 20 seconds for each performance metrics, and rolls them up to a single five minute data point. The appliance sends the five-minute data point to Azure every hour for assessment calculation.  
-- Assessments aren't automatically updated with the latest data. To update an assessment with the latest data, you need to rerun it.
-- [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) about what's collected by the appliance.
+- **Get the latest data**: Assessments aren't automatically updated with the latest data. To update an assessment with the latest data, you need to rerun it. 
+- **Make sure durations match**: When you're running performance-based assessments, make sure your profile your environment for the assessment duration. For example, if you create an assessment with a performance duration set to 1 week, you need to wait for at least a week after you start discovery, for all the data points to be collected. If you don't the assessment won't get a five-star rating. 
+- **Avoid missing data points**: The following issues might result in missing data points in a performance-based assessment:
+    - VMs are powered off during the assessment and performance data isn't collected. 
+    - If you create VMs during the month on which you base performance history. the data for those VMs will be less than a month. 
+    - The assessment is created immediately after discovery, or the assessment time doesn't match the performance data collection time.
+- **Learn more about assessments**:
+    - [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) about what's collected by the appliance.
+    - [Learn](concepts-assessment-calculation.md) how assessments are calculated.
+    - [Learn](how-to-modify-assessment.md) how to customize an assessment.
+    - [Learn more](concepts-assessment-calculation.md) about how sizing works.
+
  
-## Create an assessment
+### Create an assessment
 
 
 Create a group and run an assessment as follows:

@@ -139,7 +139,7 @@ Before setting up the Azure Migrate appliance and beginning assessment in the ne
 
 1. [Verify](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) appliance requirements.
 2. [Review](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) the Azure URLs that the appliance will need to access.
-3. [Review](migrate-support-matrix-hyper-v.md#assessment-appliance-collected-data) the data that the appliance will collect during discovery and assessment.
+3. Review the data that the appliance will collect during discovery and assessment.
 4. [Note](migrate-support-matrix-hyper-v.md#assessment-port-requirements) port access requirements for the appliance.
 
 

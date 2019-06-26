@@ -58,18 +58,6 @@ For assessment only, you need a read-only account for the vCenter Server.
 **vCenter Server** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to one vCenter Server.
 
 
-## Assessment-appliance collected data
-
-The Azure Migrate appliance collects machine metadata and performance data, as summarized in the table.
-
-**Data** | **Details**
---- | ---
-**Metadata** | VM display name on vCenter Server; VM inventory path (host/cluster/folder) in vCenter Server; IP address, MAC address, operating system, number of cores/disks/NICs; memory/disk sizes; VM power status
-**Performance data** | CPU usage; memory usage; per disk information (Disk read/write throughput/Disk read/write operations per second); per NIC information (network in/out).
-
-- Performance data is collected every 20 seconds for each metric. These 20-second datapoints are rolled up to create a single datapoint every five minutes, and sent to Azure for assessment calculation.
-- Based on the percentile specified in the assessment, the appropriate value is selected from the five-minute datapoints for assessment computation.
-
 ## Assessment-URL access requirements
 
 The Azure Migrate appliance needs internet connectivity to the internet.

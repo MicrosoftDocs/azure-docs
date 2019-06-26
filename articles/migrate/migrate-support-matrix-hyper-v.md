@@ -93,17 +93,6 @@ management.azure.com | Creation of Azure Active Directory applications for appli
 dc.services.visualstudio.com | Logging and monitoring *.vault.azure.net | Manage secrets in Azure Key Vault
 *.vault.azure.net | Persist secrets when communicating between agent and service.
 
-## Assessment-appliance collected data
-
-The Azure Migrate appliance collects machine metadata and performance data, as summarized in the table.
-
-**Data** | **Details**
---- | ---
-**Metadata** | VM display name; IP address; MAC address; operating system; number of cores/disks/NICs; memory/disk sizes
-**Performance data** | CPU usage; memory usage; per disk information (Disk read/write throughput/Disk read/write operations per second); per NIC information (network in/out).
-
-- Performance data is collected every 20 seconds for each metric. These 20 second datapoints are rolled up to create a single datapoint every five minutes, and sent to Azure for assessment calculation.
-- Based on the percentile specified in the assessment, the appropriate value is selected from the five-minute datapoints for assessment computation.
 
 ## Assessment-port requirements
 
