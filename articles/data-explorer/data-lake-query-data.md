@@ -82,6 +82,9 @@ The *TaxiRides* sample data set contains New York City taxi data from [NYC Taxi 
 
 ### Create external table *TaxiRides* 
 
+> [!NOTE]
+> This section depicts the creation of the *TaxiRides* external table in the *help* cluster to show the query used to create an external table. Since this table has already been created you can skip this section and perform [query *TaxiRides* external table data](#query-taxirides-external-table-data). 
+
 1. The following query was used to create the external table *TaxiRides* in the help cluster. 
 
     ```kusto
@@ -148,10 +151,7 @@ The *TaxiRides* sample data set contains New York City taxi data from [NYC Taxi 
     ```
 1. The resulting table was created in the *help* cluster:
 
-    ![TaxiRides external table](media/data-lake-query-data/taxirides-external-table.png)
-
-> [!NOTE]
-> The *TaxiRides* external table exists in the *help* cluster. Therefore, you don't need to recreate the table to perform [query *TaxiRides* external table data](#query-taxirides-external-table-data). 
+    ![TaxiRides external table](media/data-lake-query-data/taxirides-external-table.png) 
 
 ### Query *TaxiRides* external table data 
 
