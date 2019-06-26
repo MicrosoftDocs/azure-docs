@@ -68,7 +68,7 @@ To configure password-based SSO by using automatic sign-in field capture, follow
 
 To manually capture sign-in fields, you must have the Access Panel browser extension installed. Also, your browser can't be running in *inPrivate*, *incognito*, or *private* mode.
 
-To install the extension, see the [Install the Access Panel Browser extension](#i-cant-manually-detect-sign-in-fields-for-my-app) section of this article.
+To install the extension, see the [Install the Access Panel Browser extension](#install-the-access-panel-browser-extension) section of this article.
 
 To configure password-based SSO for an app by using manual sign-in field capture, follow these steps:
 
@@ -129,7 +129,7 @@ You might observe the following behaviors when manual detection isn't working:
 
 If you experience any of these problems, do the following things:
 
-- Make sure that you have the latest version of the Access Panel browser extension *installed and enabled*. See [Install the Access Panel browser extension](#install-the-access-panel-browser-extension) section of this article.
+- Make sure that you have the latest version of the Access Panel browser extension *installed and enabled*. See the [Install the Access Panel browser extension](#install-the-access-panel-browser-extension) section of this article.
 
 - Make sure that your browser isn't in *incognito*, *inPrivate*, or *Private* mode during the capture process. The Access Panel extension isn't supported in these modes.
 
