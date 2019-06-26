@@ -3867,6 +3867,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/bot-service.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Bot Service</h3>
+                                                    <p>Intelligent, serverless bot service that scales on demand</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/search/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3879,25 +3898,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Search</h3>
                                                     <p>Fully-managed search-as-a-service</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/open-datasets">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/open-data.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Open Datasets</h3>
-                                                    <p>Curated public datasets to enhance machine learning models</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3924,18 +3924,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
+                                <a href="/azure/open-datasets">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/bot-service.svg" alt="" />
+                                                        <img src="media/index/open-data.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Bot Service</h3>
-                                                    <p>Intelligent, serverless bot service that scales on demand</p>
+                                                    <h3>Open Datasets</h3>
+                                                    <p>Curated public datasets to enhance machine learning models</p>
                                                 </div>
                                             </div>
                                         </div>
