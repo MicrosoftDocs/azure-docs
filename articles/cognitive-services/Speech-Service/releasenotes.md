@@ -8,12 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
 
 # Release notes
+
+## Speech SDK 1.6.0: 2019-June release
+**New features**
+**Samples**
+*	Quick start samples for Text To Speech on UWP and Unity
+*	Quick start sample for Swift on iOS
+*	Unity samples for Speech & Intent Recognition and Translation
+*	Updated quick start samples for DialogServiceConnector
+**Improvements / Changes**
+* Target languages can be added/removed after creating the Translation recognizer
+* Improvements to Text To Speech functionalities
+* Dialog namespace:
+    * SpeechBotConnector has been renamed to DialogServiceConnector
+    * BotConfig has been renamed to DialogServiceConfig
+    * BotConfig::FromChannelSecret() has been remapped to DialogServiceConfig::FromBotSecret()
+    * All existing Direct Line Speech clients continue to be supported after the rename
+
+**Bug fixes**
+*    Fix marshalling strings in C# to enable full language support
+*    C# sample fixes for native library loading issues
+*    Allow end users to send left/right context in speech.context USP message as a property by name.
+*    Fixes on web socket closing reliability
 
 ## Speech SDK 1.5.1
 
